@@ -6,7 +6,9 @@
     <title>War-js — Age of Reckoning</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English+SC&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <!-- Non-render-blocking font load: page renders immediately with fallback fonts -->
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English+SC&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English+SC&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" /></noscript>
     <style>
       html, body, #root {
         margin: 0;

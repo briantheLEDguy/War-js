@@ -16,12 +16,12 @@ export async function setupSky(
   const geo = new THREE.SphereGeometry(500, 32, 32);
   const mat = new THREE.ShaderMaterial({
     uniforms: {
-      topColor: { value: new THREE.Color(0x1a2840) },
-      midColor: { value: new THREE.Color(0x4a5a6a) },
-      bottomColor: { value: new THREE.Color(0x8a7a60) },
+      topColor:     { value: new THREE.Color(0x2c3f5c) },
+      midColor:     { value: new THREE.Color(0x4a5a6a) },
+      bottomColor:  { value: new THREE.Color(0x8a7a60) },
       horizonColor: { value: new THREE.Color(0xc49a50) },
-      offset: { value: 33 },
-      exponent: { value: 0.5 },
+      offset:       { value: 33 },
+      exponent:     { value: 0.5 },
     },
     vertexShader: `
       varying vec3 vWorldPosition;
@@ -42,7 +42,8 @@ export async function setupSky(
         float h = normalize(vWorldPosition + vec3(0.0, offset, 0.0)).y;
         float hClamped = max(h, 0.0);
         // Multi-stop gradient: bottom -> horizon -> mid -> top
-        vec3 color;
+        // Initialize color to avoid undefined-variable warnings on strict GLSL compilers
+        vec3 color = bottomColor;
         if (hClamped < 0.15) {
           color = mix(bottomColor, horizonColor, hClamped / 0.15);
         } else if (hClamped < 0.4) {
@@ -68,7 +69,7 @@ export async function setupSky(
   scene.fog = new THREE.Fog(0x8a7a60, 50, 200);
 
   // Warm ambient for the grim look
-  const ambient = new THREE.AmbientLight(0xc8b090, 0.3);
+  const ambient = new THREE.AmbientLight(0xc8b090, 0.45);
   scene.add(ambient);
 
   // Hemisphere light for better outdoor fill
