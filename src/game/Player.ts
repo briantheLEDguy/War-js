@@ -23,17 +23,25 @@ export class Player {
     const modelName =
       this.character.race === 'greenskin'
         ? 'character_greenskin.glb'
+        : this.character.race === 'dark_elf'
+        ? 'character_dark_elf.glb'
+        : this.character.race === 'chaos'
+        ? 'character_chaos.glb'
         : this.character.race === 'dwarf'
         ? 'character_dwarf.glb'
-        : this.character.race === 'elf'
-        ? 'character_elf.glb'
+        : this.character.race === 'high_elf'
+        ? 'character_high_elf.glb'
         : 'character_empire.glb';
     const color =
       this.character.race === 'greenskin'
         ? 0x3d6a2a
+        : this.character.race === 'dark_elf'
+        ? 0x4a2060
+        : this.character.race === 'chaos'
+        ? 0x5a1a1a
         : this.character.race === 'dwarf'
         ? 0x8a5a2a
-        : this.character.race === 'elf'
+        : this.character.race === 'high_elf'
         ? 0x7a9aa8
         : 0x7a6425;
     this.object = await loader.loadModel(modelName, () => AssetLoader.primitives.humanoid(color));

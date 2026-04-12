@@ -12,6 +12,25 @@ export function GameScreen() {
   const character = useGameStore((s) => s.character);
   const setScreen = useGameStore((s) => s.setScreen);
   const setInventory = useGameStore((s) => s.setInventory);
+  const pendingZoneTransition = useGameStore((s) => s.pendingZoneTransition);
+
+  // Handle zone transitions: dispose current game, update character zone, re-mount.
+  useEffect(() => {
+    if (!pendingZoneTransition || !character) return;
+    const { targetZoneId, targetSpawn } = pendingZoneTransition;
+
+    gameRef.current?.dispose();
+    gameRef.current = null;
+    setReady(false);
+
+    useGameStore.getState().setPendingZoneTransition(null);
+
+    const newPos = targetSpawn ?? { x: 0, y: 0, z: 0 };
+    const newChar = { ...character, zoneId: targetZoneId, position: newPos };
+    useGameStore.getState().setCharacter(newChar);
+
+    void services.characters.save(character.id, { zoneId: targetZoneId, position: newPos });
+  }, [pendingZoneTransition, character]);
 
   useEffect(() => {
     if (!containerRef.current || !character) return;

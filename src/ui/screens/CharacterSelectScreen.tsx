@@ -3,8 +3,29 @@ import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
 import type { CharacterSummary } from '../../services/types';
 
-const RACES: CharacterSummary['race'][] = ['empire', 'greenskin', 'dwarf', 'elf'];
-const CLASSES = ['Warrior', 'Archer', 'Mage', 'Shaman', 'Healer'];
+/** WAR realm alignment — determines starting capital city. */
+const ORDER_RACES: CharacterSummary['race'][] = ['empire', 'dwarf', 'high_elf'];
+const DESTRUCTION_RACES: CharacterSummary['race'][] = ['chaos', 'greenskin', 'dark_elf'];
+const ALL_RACES: CharacterSummary['race'][] = [...ORDER_RACES, ...DESTRUCTION_RACES];
+
+/** WAR career lists per race — must match the original game exactly. */
+const CAREERS_BY_RACE: Record<CharacterSummary['race'], string[]> = {
+  empire:    ['Bright Wizard', 'Witch Hunter', 'Knight of the Blazing Sun', 'Warrior Priest'],
+  dwarf:     ['Ironbreaker', 'Slayer', 'Rune Priest', 'Engineer'],
+  high_elf:  ['Swordmaster', 'White Lion', 'Archmage', 'Shadow Warrior'],
+  chaos:     ['Chosen', 'Marauder', 'Magus', 'Zealot'],
+  greenskin: ['Black Orc', 'Squig Herder', 'Shaman', 'Choppa'],
+  dark_elf:  ['Witch Elf', 'Blackguard', 'Sorceress', 'Disciple of Khaine'],
+};
+
+const RACE_DISPLAY: Record<CharacterSummary['race'], string> = {
+  empire:    'Empire',
+  dwarf:     'Dwarf',
+  high_elf:  'High Elf',
+  chaos:     'Chaos',
+  greenskin: 'Greenskin',
+  dark_elf:  'Dark Elf',
+};
 
 export function CharacterSelectScreen() {
   const user = useGameStore((s) => s.user);
@@ -17,8 +38,8 @@ export function CharacterSelectScreen() {
   const [selected, setSelected] = useState<string | null>(null);
   const [showCreate, setShowCreate] = useState(false);
   const [newName, setNewName] = useState('');
-  const [newClass, setNewClass] = useState(CLASSES[0]);
   const [newRace, setNewRace] = useState<CharacterSummary['race']>('empire');
+  const [newClass, setNewClass] = useState(CAREERS_BY_RACE['empire'][0]);
 
   useEffect(() => {
     if (!user) return;
@@ -80,7 +101,7 @@ export function CharacterSelectScreen() {
               <div>
                 <div className="name">{c.name}</div>
                 <div className="meta">
-                  Lv {c.level} {titleCase(c.race)} {c.className} &mdash; {c.zoneId}
+                  Lv {c.level} {RACE_DISPLAY[c.race] ?? c.race} {c.className} &mdash; {c.zoneId}
                 </div>
               </div>
             </div>
@@ -102,22 +123,29 @@ export function CharacterSelectScreen() {
               <label>Race</label>
               <select
                 value={newRace}
-                onChange={(e) => setNewRace(e.target.value as CharacterSummary['race'])}
+                onChange={(e) => {
+                  const r = e.target.value as CharacterSummary['race'];
+                  setNewRace(r);
+                  setNewClass(CAREERS_BY_RACE[r][0]);
+                }}
               >
-                {RACES.map((r) => (
-                  <option key={r} value={r}>
-                    {titleCase(r)}
-                  </option>
-                ))}
+                <optgroup label="Order">
+                  {ORDER_RACES.map((r) => (
+                    <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
+                  ))}
+                </optgroup>
+                <optgroup label="Destruction">
+                  {DESTRUCTION_RACES.map((r) => (
+                    <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
+                  ))}
+                </optgroup>
               </select>
             </div>
             <div className="field">
-              <label>Class</label>
+              <label>Career</label>
               <select value={newClass} onChange={(e) => setNewClass(e.target.value)}>
-                {CLASSES.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
+                {CAREERS_BY_RACE[newRace].map((c) => (
+                  <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </div>
@@ -146,6 +174,3 @@ export function CharacterSelectScreen() {
   );
 }
 
-function titleCase(s: string) {
-  return s.slice(0, 1).toUpperCase() + s.slice(1);
-}

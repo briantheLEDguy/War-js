@@ -6,6 +6,8 @@ export interface TerrainOpts {
   segments: number;
   heightTexture?: string;
   diffuseTexture?: string;
+  /** If true, skip height variation — all y = 0. Use for city/indoor zones. */
+  flatTerrain?: boolean;
 }
 
 /**
@@ -18,6 +20,7 @@ export class Terrain {
   private size: number;
   private segments: number;
   private heights: Float32Array;
+  private flat = false;
 
   constructor(opts: TerrainOpts) {
     this.size = opts.size;
@@ -26,39 +29,50 @@ export class Terrain {
   }
 
   async build(loader: AssetLoader, opts: TerrainOpts): Promise<THREE.Mesh> {
+    this.size = opts.size;
+    this.segments = opts.segments;
+    this.flat = opts.flatTerrain ?? false;
+    this.heights = new Float32Array((opts.segments + 1) * (opts.segments + 1));
+
     const geo = new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments);
     geo.rotateX(-Math.PI / 2);
     const pos = geo.attributes.position as THREE.BufferAttribute;
 
-    // Procedural height. Later: sample from heightmap if provided.
-    const s = opts.segments;
-    for (let iy = 0; iy <= s; iy++) {
-      for (let ix = 0; ix <= s; ix++) {
-        const u = ix / s - 0.5;
-        const v = iy / s - 0.5;
-        const r = Math.sqrt(u * u + v * v);
-        // Rolling hills + a central flat-ish clearing
-        const hills =
-          Math.sin(u * 5.2) * 0.6 +
-          Math.cos(v * 4.7) * 0.5 +
-          Math.sin((u + v) * 8.1) * 0.3;
-        const ringDown = Math.max(0, 1 - r * 4);
-        const h = (hills - ringDown * hills * 0.9) * 2.0;
-        const i = iy * (s + 1) + ix;
-        this.heights[i] = h;
-        pos.setY(i, h);
+    if (!this.flat) {
+      // Procedural height. Later: sample from heightmap if provided.
+      const s = opts.segments;
+      for (let iy = 0; iy <= s; iy++) {
+        for (let ix = 0; ix <= s; ix++) {
+          const u = ix / s - 0.5;
+          const v = iy / s - 0.5;
+          const r = Math.sqrt(u * u + v * v);
+          // Rolling hills + a central flat-ish clearing
+          const hills =
+            Math.sin(u * 5.2) * 0.6 +
+            Math.cos(v * 4.7) * 0.5 +
+            Math.sin((u + v) * 8.1) * 0.3;
+          const ringDown = Math.max(0, 1 - r * 4);
+          const h = (hills - ringDown * hills * 0.9) * 2.0;
+          const i = iy * (s + 1) + ix;
+          this.heights[i] = h;
+          pos.setY(i, h);
+        }
       }
     }
+    // flatTerrain: heights array stays all-zero, positions stay at y=0
+
     geo.computeVertexNormals();
 
+    // City zones use stone gray fallback; outdoor zones use grass green
+    const fallbackColor = this.flat ? 0x7a7a7a : 0x4a7c3a;
     const diffuse = opts.diffuseTexture
-      ? await loader.loadTexture(opts.diffuseTexture, 0x4a7c3a)
+      ? await loader.loadTexture(opts.diffuseTexture, fallbackColor)
       : null;
     if (diffuse) {
-      diffuse.repeat.set(24, 24);
+      diffuse.repeat.set(this.flat ? 32 : 24, this.flat ? 32 : 24);
     }
     const mat = new THREE.MeshStandardMaterial({
-      color: diffuse ? 0xffffff : 0x4a7c3a,
+      color: diffuse ? 0xffffff : fallbackColor,
       map: diffuse ?? null,
       roughness: 0.95,
       metalness: 0.0,
@@ -69,8 +83,9 @@ export class Terrain {
     return mesh;
   }
 
-  /** World-space height lookup via bilinear sampling. */
+  /** World-space height lookup via bilinear sampling. Returns 0 for flat terrain. */
   heightAt(x: number, z: number): number {
+    if (this.flat) return 0;
     const half = this.size / 2;
     const u = (x + half) / this.size;
     const v = (z + half) / this.size;
