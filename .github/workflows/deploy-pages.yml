@@ -4,20 +4,17 @@ on:
   push:
     branches:
       - main
-      - claude/web-game-conversion-7yzlN
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,16 +31,11 @@ jobs:
       - name: Build
         run: npx vite build --base=/War-js/
 
-      - uses: actions/upload-pages-artifact@v3
+      # Deploy the dist/ folder to the gh-pages branch.
+      # In GitHub: Settings → Pages → Source → Branch: gh-pages / root
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          folder: dist
+          branch: gh-pages
+          clean: true
