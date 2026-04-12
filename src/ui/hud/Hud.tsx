@@ -9,6 +9,7 @@ import { Minimap } from './Minimap';
 import { NameplateLayer } from './NameplateLayer';
 import { PlayerFrame } from './PlayerFrame';
 import { TargetFrame } from './TargetFrame';
+import { TouchControls } from './TouchControls';
 
 interface Props {
   game: Game | null;
@@ -34,6 +35,7 @@ export function Hud({ game }: Props) {
       {debugOpen && <DebugOverlay game={game} />}
       <NameplateLayer game={game} />
       <FloatingDamageLayer game={game} />
+      <TouchControls game={game} />
 
       {playerDead && (
         <div className="death-overlay">

@@ -69,6 +69,7 @@ export function GameScreen() {
       </button>
       <div className="controls-hint">
         WASD move &middot; Space jump &middot; LMB target &middot; 1 attack &middot; 2 heavy &middot; 3 ranged &middot; 4 bandage &middot; I inventory &middot; Enter chat &middot; ` debug
+        &nbsp;&nbsp;|&nbsp;&nbsp;Touch: joystick move &middot; ↑ jump &middot; drag camera &middot; pinch zoom &middot; tap target/ability
       </div>
     </div>
   );

@@ -57,15 +57,16 @@ export class Player {
   }
 
   update(dt: number, input: Input, camera: FollowCamera) {
-    // Input relative to camera yaw
-    let mx = 0;
-    let mz = 0;
+    // Input relative to camera yaw — combine keyboard and touch joystick
+    let mx = input.touchMoveX;
+    let mz = input.touchMoveZ;
     if (input.isDown('KeyW')) mz -= 1;
     if (input.isDown('KeyS')) mz += 1;
     if (input.isDown('KeyA')) mx -= 1;
     if (input.isDown('KeyD')) mx += 1;
+    // Clamp combined input to unit circle (keyboard diagonal = √2, joystick max = 1)
     const len = Math.hypot(mx, mz);
-    if (len > 0) {
+    if (len > 1) {
       mx /= len;
       mz /= len;
     }
@@ -84,9 +85,9 @@ export class Player {
       this.rotationY = lerpAngle(this.rotationY, targetYaw, Math.min(1, TURN_SPEED * dt));
     }
 
-    // Ground check and jump
+    // Ground check and jump (keyboard Space or touch jump button)
     const groundY = this.terrain.heightAt(this.position.x, this.position.z);
-    if (this.grounded && input.wasPressed('Space')) {
+    if (this.grounded && (input.wasPressed('Space') || input.touchJumpThisFrame)) {
       this.verticalV = JUMP_V;
       this.grounded = false;
     }

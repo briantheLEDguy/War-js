@@ -51,6 +51,16 @@ export class Game {
   get playerPos(): THREE.Vector3 { return this.player.position; }
   get zoneName(): string { return this.currentZoneName; }
 
+  /** Proxy for the touch joystick — called by TouchControls each pointer-move. */
+  setTouchAxis(x: number, z: number) {
+    this.input?.setTouchAxis(x, z);
+  }
+
+  /** Proxy for the touch jump button. */
+  triggerTouchJump() {
+    this.input?.triggerTouchJump();
+  }
+
   constructor(container: HTMLElement, character: CharacterState) {
     this.container = container;
     this.character = character;
@@ -208,6 +218,14 @@ export class Game {
       if (this.input.wasPressed('Digit2')) this.combat.tryAbility(1, this.player, tMs);
       if (this.input.wasPressed('Digit3')) this.combat.tryAbility(2, this.player, tMs);
       if (this.input.wasPressed('Digit4')) this.combat.tryAbility(3, this.player, tMs);
+
+      // Touch hotbar taps (set by Hotbar component via the store)
+      const touchSlot = store.pendingTouchAbility;
+      if (touchSlot !== null) {
+        store.setPendingTouchAbility(null);
+        if (touchSlot === 0) this.combat.tryAutoattack(this.player, tMs);
+        else this.combat.tryAbility(touchSlot, this.player, tMs);
+      }
     }
 
     // Tick
