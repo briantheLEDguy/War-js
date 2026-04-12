@@ -10,11 +10,11 @@ Built with **Three.js + React + Vite + TypeScript**, architected for a **Supabas
 
 Every push to `main` or `claude/web-game-conversion-7yzlN` auto-deploys to **GitHub Pages** via `.github/workflows/deploy-pages.yml`.
 
-- Expected public URL: **https://briantheledguy.github.io/War-js/**
-- First-time setup (one click, required before the first deploy succeeds):
-  1. Go to GitHub repo → **Settings** → **Pages**
-  2. Under **Source**, select **GitHub Actions**
-  3. Re-run the latest workflow if needed (**Actions** tab → latest run → **Re-run all jobs**)
+- Expected public URL: **https://briantheLEDguy.github.io/War-js/**
+- First-time setup (required before the first deploy succeeds):
+  1. **Settings** → **General** → **Danger Zone** → **Change visibility** → **Public** (GitHub Pages on a free plan requires a public repo)
+  2. **Settings** → **Pages** → **Source** → **GitHub Actions**
+  3. **Actions** tab → **Deploy to GitHub Pages** → **Run workflow** on branch `claude/web-game-conversion-7yzlN`
 - Deploy status: see the **Actions** tab.
 
 ## Quick start (local)
