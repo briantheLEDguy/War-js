@@ -36,7 +36,14 @@ export function GameScreen() {
     if (!containerRef.current || !character) return;
     const game = new Game(containerRef.current, character);
     gameRef.current = game;
-    game.start().then(() => setReady(true));
+    game.start().then(() => {
+      // Only mark ready if this game instance is still the active one.
+      // Guards against React Strict Mode's double-invoke of effects, which
+      // can cause a partially-initialized game to be passed to the HUD.
+      if (gameRef.current === game) setReady(true);
+    }).catch((err) => {
+      console.error('[Game] start() failed:', err);
+    });
 
     // preload inventory
     services.inventory.get(character.id).then(setInventory);

@@ -40,6 +40,7 @@ export class Game {
 
   /** World → screen projection used by HUD for nameplates + damage numbers. */
   worldToScreen(world: THREE.Vector3, out: THREE.Vector2): boolean {
+    if (!this.player || !this.camera) return false;
     const v = world.clone().project(this.camera.camera);
     if (v.z < -1 || v.z > 1) return false;
     const rect = this.renderer.domElement.getBoundingClientRect();
@@ -48,7 +49,7 @@ export class Game {
     return true;
   }
 
-  get playerPos(): THREE.Vector3 { return this.player.position; }
+  get playerPos(): THREE.Vector3 { return this.player?.position ?? new THREE.Vector3(); }
   get zoneName(): string { return this.currentZoneName; }
 
   /** Proxy for the touch joystick — called by TouchControls each pointer-move. */
@@ -84,10 +85,12 @@ export class Game {
 
     // Zone
     const zone = await loadZone(this.character.zoneId ?? 'zone1');
+    if (this.disposed) return; // guard: React Strict Mode may dispose before first await resolves
     this.currentZoneName = zone.name;
 
     // Sky + lights
     await setupSky(this.scene, this.loader, zone.skybox);
+    if (this.disposed) return;
 
     // Terrain
     const terrainMesh = await this.terrain.build(this.loader, {
@@ -97,13 +100,16 @@ export class Game {
       heightTexture: zone.heightmap,
       flatTerrain: zone.flatTerrain,
     });
+    if (this.disposed) return;
     this.scene.add(terrainMesh);
 
     // Props
     await spawnProps(this.scene, this.loader, this.terrain, zone.props);
+    if (this.disposed) return;
 
     // NPCs
     const npcStates = await spawnNpcs(this.scene, this.loader, this.terrain, zone.npcs ?? []);
+    if (this.disposed) return;
     useGameStore.getState().setNpcs(npcStates);
 
     // Zone triggers
@@ -115,6 +121,7 @@ export class Game {
     this.character.position = { x: sp.x, y: 0, z: sp.z };
     this.player = new Player(this.character, this.terrain);
     await this.player.build(this.loader, this.scene);
+    if (this.disposed) return;
 
     // Store the respawn point so the HUD can use it
     useGameStore.getState().setRespawnPoint(sp);
