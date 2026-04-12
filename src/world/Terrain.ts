@@ -37,6 +37,7 @@ export class Terrain {
     const geo = new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments);
     geo.rotateX(-Math.PI / 2);
     const pos = geo.attributes.position as THREE.BufferAttribute;
+    const vertCount = pos.count;
 
     if (!this.flat) {
       // Procedural height. Later: sample from heightmap if provided.
@@ -63,6 +64,75 @@ export class Terrain {
 
     geo.computeVertexNormals();
 
+    // Add vertex colors for natural terrain appearance
+    const colors = new Float32Array(vertCount * 3);
+    const color = new THREE.Color();
+
+    if (this.flat) {
+      // City zones: cobblestone-like color variation
+      for (let i = 0; i < vertCount; i++) {
+        const variation = 0.85 + Math.random() * 0.15;
+        color.setRGB(0.45 * variation, 0.42 * variation, 0.38 * variation);
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+      }
+    } else {
+      // Outdoor zones: height-based coloring (grass → dirt → rock)
+      const s = opts.segments;
+      for (let i = 0; i < vertCount; i++) {
+        const y = pos.getY(i);
+        const norm = geo.attributes.normal;
+        const ny = norm ? norm.getY(i) : 1;
+        const slope = 1.0 - ny;
+
+        // Height-based gradient with some noise
+        const noise = (Math.random() - 0.5) * 0.06;
+        if (y < -0.5) {
+          // Low ground: darker grass / mud
+          color.setRGB(0.18 + noise, 0.28 + noise, 0.12 + noise);
+        } else if (y < 0.5) {
+          // Mid: healthy grass
+          const t = (y + 0.5) / 1.0;
+          color.setRGB(
+            0.18 + t * 0.1 + noise,
+            0.30 + t * 0.08 + noise,
+            0.12 + t * 0.04 + noise,
+          );
+        } else {
+          // High ground: earthy brown
+          const t = Math.min((y - 0.5) / 1.5, 1);
+          color.setRGB(
+            0.3 + t * 0.12 + noise,
+            0.25 + t * 0.05 + noise,
+            0.15 + t * 0.02 + noise,
+          );
+        }
+
+        // Steep slopes get rocky gray
+        if (slope > 0.3) {
+          const t = Math.min((slope - 0.3) / 0.4, 1);
+          color.lerp(new THREE.Color(0.4, 0.38, 0.35), t);
+        }
+
+        // Edge darkening for path-like appearance around center
+        const ix = i % (s + 1);
+        const iy = Math.floor(i / (s + 1));
+        const u = ix / s - 0.5;
+        const v = iy / s - 0.5;
+        const distFromCenter = Math.sqrt(u * u + v * v);
+        if (distFromCenter < 0.08) {
+          color.lerp(new THREE.Color(0.3, 0.25, 0.18), 0.4);
+        }
+
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+      }
+    }
+
+    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
     // City zones use stone gray fallback; outdoor zones use grass green
     const fallbackColor = this.flat ? 0x7a7a7a : 0x4a7c3a;
     const diffuse = opts.diffuseTexture
@@ -72,9 +142,10 @@ export class Terrain {
       diffuse.repeat.set(this.flat ? 32 : 24, this.flat ? 32 : 24);
     }
     const mat = new THREE.MeshStandardMaterial({
-      color: diffuse ? 0xffffff : fallbackColor,
+      color: diffuse ? 0xffffff : 0xffffff,
       map: diffuse ?? null,
-      roughness: 0.95,
+      vertexColors: true,
+      roughness: 0.92,
       metalness: 0.0,
     });
     const mesh = new THREE.Mesh(geo, mat);

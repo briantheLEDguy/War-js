@@ -82,30 +82,36 @@ export function CharacterSelectScreen() {
       <div className="panel character-select-panel">
         <div className="backend-tag">Backend: {services.backend}</div>
         <h1>Choose Your Hero</h1>
-        <p style={{ color: 'var(--dim)', fontSize: 12, marginTop: -8 }}>
+        <p style={{ color: 'var(--dim)', fontSize: 12, marginTop: -8, fontStyle: 'italic' }}>
           Signed in as {user?.email}
         </p>
 
         <div className="character-list">
           {characterList.length === 0 && (
-            <div style={{ color: 'var(--dim)', fontSize: 13, padding: '8px 0' }}>
-              No characters yet. Create one below.
+            <div style={{ color: 'var(--dim)', fontSize: 13, padding: '12px 0', textAlign: 'center', fontStyle: 'italic' }}>
+              No characters yet. Create one below to begin your campaign.
             </div>
           )}
-          {characterList.map((c) => (
-            <div
-              key={c.id}
-              className={`character-row ${selected === c.id ? 'selected' : ''}`}
-              onClick={() => setSelected(c.id)}
-            >
-              <div>
-                <div className="name">{c.name}</div>
-                <div className="meta">
-                  Lv {c.level} {RACE_DISPLAY[c.race] ?? c.race} {c.className} &mdash; {c.zoneId}
+          {characterList.map((c) => {
+            const isOrder = ORDER_RACES.includes(c.race);
+            return (
+              <div
+                key={c.id}
+                className={`character-row ${selected === c.id ? 'selected' : ''}`}
+                onClick={() => setSelected(c.id)}
+              >
+                <div>
+                  <div className="name">{c.name}</div>
+                  <div className="meta">
+                    Lv {c.level} {RACE_DISPLAY[c.race] ?? c.race} {c.className} &mdash; {c.zoneId}
+                  </div>
                 </div>
+                <span className={`realm-tag ${isOrder ? 'order' : 'destruction'}`}>
+                  {isOrder ? 'Order' : 'Destruction'}
+                </span>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {showCreate && (

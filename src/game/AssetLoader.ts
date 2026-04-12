@@ -142,87 +142,182 @@ export class AssetLoader {
     }
   }
 
-  /** Common primitive fallbacks. */
+  /** Common primitive fallbacks — enhanced visuals. */
   static primitives = {
     humanoid(color = 0x7a6425): THREE.Object3D {
       const group = new THREE.Group();
-      const bodyMat = new THREE.MeshStandardMaterial({ color });
-      const skinMat = new THREE.MeshStandardMaterial({ color: 0xe6c29a });
-      const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.35, 0.9, 4, 8), bodyMat);
-      body.position.y = 0.95;
+      const bodyMat = new THREE.MeshStandardMaterial({ color, roughness: 0.8 });
+      const skinMat = new THREE.MeshStandardMaterial({ color: 0xe0b890, roughness: 0.7 });
+      const bootMat = new THREE.MeshStandardMaterial({ color: 0x3a2a18, roughness: 0.9 });
+
+      // Boots
+      for (const side of [-0.15, 0.15]) {
+        const boot = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.45, 8), bootMat);
+        boot.position.set(side, 0.22, 0);
+        boot.castShadow = true;
+        group.add(boot);
+      }
+      // Legs
+      for (const side of [-0.15, 0.15]) {
+        const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.5, 8), bodyMat);
+        leg.position.set(side, 0.55, 0);
+        leg.castShadow = true;
+        group.add(leg);
+      }
+      // Torso
+      const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.32, 0.7, 4, 8), bodyMat);
+      body.position.y = 1.05;
       body.castShadow = true;
       group.add(body);
-      const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 12), skinMat);
-      head.position.y = 1.75;
+      // Shoulders
+      const shoulderMat = new THREE.MeshStandardMaterial({ color, roughness: 0.7 });
+      for (const side of [-0.42, 0.42]) {
+        const shoulder = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 8), shoulderMat);
+        shoulder.position.set(side, 1.35, 0);
+        shoulder.castShadow = true;
+        group.add(shoulder);
+      }
+      // Head
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 12), skinMat);
+      head.position.y = 1.65;
       head.castShadow = true;
       group.add(head);
       // forward indicator (nose)
-      const nose = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.12, 8), skinMat);
+      const nose = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.1, 8), skinMat);
       nose.rotation.x = Math.PI / 2;
-      nose.position.set(0, 1.75, 0.22);
+      nose.position.set(0, 1.65, 0.2);
       group.add(nose);
       return group;
     },
     dummy(): THREE.Object3D {
       const group = new THREE.Group();
-      const woodMat = new THREE.MeshStandardMaterial({ color: 0x6b4a25 });
-      const strawMat = new THREE.MeshStandardMaterial({ color: 0xbda44a });
-      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 1.6, 10), woodMat);
-      pole.position.y = 0.8;
+      const woodMat = new THREE.MeshStandardMaterial({ color: 0x5a3a18, roughness: 0.9 });
+      const strawMat = new THREE.MeshStandardMaterial({ color: 0xbda44a, roughness: 0.85 });
+      const metalMat = new THREE.MeshStandardMaterial({ color: 0x6a6a6a, metalness: 0.4, roughness: 0.6 });
+      // Base
+      const base = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.5, 0.15, 12), woodMat);
+      base.position.y = 0.07;
+      base.castShadow = true;
+      group.add(base);
+      // Pole
+      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 1.6, 10), woodMat);
+      pole.position.y = 0.87;
       pole.castShadow = true;
       group.add(pole);
-      const body = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.4, 0.9, 12), strawMat);
+      // Cross-arm
+      const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.2, 6), woodMat);
+      arm.rotation.z = Math.PI / 2;
+      arm.position.set(0, 1.3, 0);
+      arm.castShadow = true;
+      group.add(arm);
+      // Body
+      const body = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.35, 0.8, 12), strawMat);
       body.position.y = 1.25;
       body.castShadow = true;
       group.add(body);
-      const head = new THREE.Mesh(new THREE.SphereGeometry(0.25, 10, 10), strawMat);
-      head.position.y = 1.85;
+      // Head
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 10), strawMat);
+      head.position.y = 1.82;
       head.castShadow = true;
       group.add(head);
+      // Helmet
+      const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.24, 10, 5, 0, Math.PI * 2, 0, Math.PI * 0.6), metalMat);
+      helmet.position.y = 1.88;
+      helmet.castShadow = true;
+      group.add(helmet);
       return group;
     },
     tree(): THREE.Object3D {
       const group = new THREE.Group();
-      const trunkMat = new THREE.MeshStandardMaterial({ color: 0x4a2f15 });
-      const leafMat = new THREE.MeshStandardMaterial({ color: 0x2f5a25 });
-      const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.3, 1.8, 8), trunkMat);
-      trunk.position.y = 0.9;
+      const trunkMat = new THREE.MeshStandardMaterial({ color: 0x3a2210, roughness: 0.95 });
+      const leafMat = new THREE.MeshStandardMaterial({ color: 0x2a4a1a, roughness: 0.9 });
+      const leafMat2 = new THREE.MeshStandardMaterial({ color: 0x1e3a14, roughness: 0.9 });
+      // Trunk with slight taper
+      const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.35, 2.2, 8), trunkMat);
+      trunk.position.y = 1.1;
       trunk.castShadow = true;
       group.add(trunk);
-      const leaves = new THREE.Mesh(new THREE.ConeGeometry(1.2, 2.6, 10), leafMat);
-      leaves.position.y = 2.5;
-      leaves.castShadow = true;
-      group.add(leaves);
+      // Root bulge
+      const roots = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.5, 0.4, 8), trunkMat);
+      roots.position.y = 0.2;
+      group.add(roots);
+      // Multiple leaf layers for fuller canopy
+      const leaves1 = new THREE.Mesh(new THREE.ConeGeometry(1.6, 2.0, 10), leafMat);
+      leaves1.position.y = 2.6;
+      leaves1.castShadow = true;
+      group.add(leaves1);
+      const leaves2 = new THREE.Mesh(new THREE.ConeGeometry(1.2, 1.8, 10), leafMat2);
+      leaves2.position.y = 3.5;
+      leaves2.castShadow = true;
+      group.add(leaves2);
+      const leaves3 = new THREE.Mesh(new THREE.ConeGeometry(0.7, 1.2, 8), leafMat);
+      leaves3.position.y = 4.2;
+      leaves3.castShadow = true;
+      group.add(leaves3);
       return group;
     },
     rock(): THREE.Object3D {
-      const mat = new THREE.MeshStandardMaterial({ color: 0x6a6a66, flatShading: true });
+      const mat = new THREE.MeshStandardMaterial({
+        color: 0x5a5a56,
+        flatShading: true,
+        roughness: 0.95,
+      });
       const geo = new THREE.DodecahedronGeometry(0.7, 0);
+      // Slightly deform vertices for more natural look
+      const pos = geo.attributes.position;
+      for (let i = 0; i < pos.count; i++) {
+        const y = pos.getY(i);
+        if (y < 0) pos.setY(i, y * 0.5); // Flatten bottom
+      }
+      geo.computeVertexNormals();
       const m = new THREE.Mesh(geo, mat);
       m.castShadow = true;
-      m.position.y = 0.5;
-      m.scale.set(1, 0.7 + Math.random() * 0.4, 1);
+      m.position.y = 0.35;
+      m.scale.set(1, 0.6 + Math.random() * 0.4, 1);
       m.rotation.y = Math.random() * Math.PI * 2;
       return m;
     },
     building(): THREE.Object3D {
       const group = new THREE.Group();
-      const wallMat = new THREE.MeshStandardMaterial({ color: 0xa89270 });
-      const roofMat = new THREE.MeshStandardMaterial({ color: 0x6a2815 });
+      const wallMat = new THREE.MeshStandardMaterial({ color: 0xa08a68, roughness: 0.85 });
+      const timberMat = new THREE.MeshStandardMaterial({ color: 0x3a2818, roughness: 0.9 });
+      const roofMat = new THREE.MeshStandardMaterial({ color: 0x5a2010, roughness: 0.8 });
+      // Foundation
+      const foundation = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.3, 3.4), timberMat);
+      foundation.position.y = 0.15;
+      foundation.receiveShadow = true;
+      group.add(foundation);
+      // Main structure
       const base = new THREE.Mesh(new THREE.BoxGeometry(4, 2.5, 3), wallMat);
-      base.position.y = 1.25;
+      base.position.y = 1.55;
       base.castShadow = true;
       base.receiveShadow = true;
       group.add(base);
+      // Timber frame beams (half-timbered style)
+      for (const [px, pz] of [[-2, -1.5], [2, -1.5], [-2, 1.5], [2, 1.5]]) {
+        const beam = new THREE.Mesh(new THREE.BoxGeometry(0.15, 2.5, 0.15), timberMat);
+        beam.position.set(px, 1.55, pz);
+        group.add(beam);
+      }
+      // Horizontal beam
+      const hBeam = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.12, 0.12), timberMat);
+      hBeam.position.set(0, 1.55, 1.52);
+      group.add(hBeam);
+      // Roof
       const roof = new THREE.Mesh(
-        new THREE.ConeGeometry(3, 1.6, 4),
+        new THREE.ConeGeometry(3.2, 1.8, 4),
         roofMat,
       );
       roof.rotation.y = Math.PI / 4;
-      roof.position.y = 3.3;
-      roof.scale.set(1.1, 1, 0.85);
+      roof.position.y = 3.7;
+      roof.scale.set(1.05, 1, 0.8);
       roof.castShadow = true;
       group.add(roof);
+      // Chimney
+      const chimney = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.2, 0.4), timberMat);
+      chimney.position.set(1.2, 4.0, 0.5);
+      chimney.castShadow = true;
+      group.add(chimney);
       return group;
     },
 
@@ -548,27 +643,69 @@ export class AssetLoader {
       return group;
     },
 
-    // --- NPC role-colored humanoids ---
+    // --- NPC role-colored humanoids with visual markers ---
 
-    /** City guard — armored soldier (steel blue). */
+    /** City guard — armored soldier (steel blue) with shield. */
     npc_guard(): THREE.Object3D {
-      return AssetLoader.primitives.humanoid(0x4a6080);
+      const group = AssetLoader.primitives.humanoid(0x4a6080);
+      const shieldMat = new THREE.MeshStandardMaterial({ color: 0x5a708a, metalness: 0.3, roughness: 0.6 });
+      const shield = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.5, 0.35), shieldMat);
+      shield.position.set(-0.45, 1.1, 0.1);
+      shield.castShadow = true;
+      group.add(shield);
+      // Weapon (spear)
+      const weaponMat = new THREE.MeshStandardMaterial({ color: 0x6a6a6a, metalness: 0.4 });
+      const spear = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 2.5, 6), weaponMat);
+      spear.position.set(0.42, 1.3, 0);
+      spear.castShadow = true;
+      group.add(spear);
+      return group;
     },
-    /** Vendor NPC (brown/tan). */
+    /** Vendor NPC (brown/tan) with apron marker. */
     npc_vendor(): THREE.Object3D {
-      return AssetLoader.primitives.humanoid(0x8a6040);
+      const group = AssetLoader.primitives.humanoid(0x8a6040);
+      const apronMat = new THREE.MeshStandardMaterial({ color: 0xc0a878 });
+      const apron = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 0.05), apronMat);
+      apron.position.set(0, 0.85, 0.33);
+      group.add(apron);
+      return group;
     },
-    /** Career trainer NPC (gold). */
+    /** Career trainer NPC (gold) with glowing marker. */
     npc_trainer(): THREE.Object3D {
-      return AssetLoader.primitives.humanoid(0xa88020);
+      const group = AssetLoader.primitives.humanoid(0xa88020);
+      // Book/scroll indicator
+      const bookMat = new THREE.MeshStandardMaterial({ color: 0x8a3020 });
+      const book = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.25, 0.15), bookMat);
+      book.position.set(-0.42, 1.0, 0.15);
+      group.add(book);
+      return group;
     },
-    /** Banker NPC (silver). */
+    /** Banker NPC (silver) with coin stack indicator. */
     npc_banker(): THREE.Object3D {
-      return AssetLoader.primitives.humanoid(0x909090);
+      const group = AssetLoader.primitives.humanoid(0x707878);
+      const coinMat = new THREE.MeshStandardMaterial({ color: 0xd4aa20, metalness: 0.5, roughness: 0.3 });
+      const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 8), coinMat);
+      coin.position.set(0.42, 1.0, 0.15);
+      coin.rotation.x = Math.PI / 4;
+      group.add(coin);
+      return group;
     },
     /** Quest giver NPC (yellow — WAR's exclamation mark equivalent). */
     npc_quest(): THREE.Object3D {
-      return AssetLoader.primitives.humanoid(0xd0b020);
+      const group = AssetLoader.primitives.humanoid(0xd0b020);
+      // Floating exclamation marker
+      const markerMat = new THREE.MeshStandardMaterial({
+        color: 0xffdd00,
+        emissive: 0xffdd00,
+        emissiveIntensity: 0.3,
+      });
+      const excl = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.06, 0.35, 6), markerMat);
+      excl.position.set(0, 2.1, 0);
+      group.add(excl);
+      const dot = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), markerMat);
+      dot.position.set(0, 1.88, 0);
+      group.add(dot);
+      return group;
     },
   };
 }
