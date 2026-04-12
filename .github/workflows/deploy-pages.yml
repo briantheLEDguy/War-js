@@ -6,19 +6,21 @@ on:
       - main
   workflow_dispatch:
 
-# Required for the Pages deploy API
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # push to gh-pages branch
+  pages: write      # Pages API deployment
+  id-token: write   # OIDC for deploy-pages
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,18 +36,23 @@ jobs:
       - name: Build
         run: npx vite build --base=/War-js/
 
+      # ── Strategy A: Pages API (works when source = "GitHub Actions") ──
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy via Pages API
         id: deployment
         uses: actions/deploy-pages@v4
+        # Tolerate failure so the gh-pages branch push still runs when
+        # Pages source is "Deploy from a branch" instead of "GitHub Actions".
+        continue-on-error: true
+
+      # ── Strategy B: push to gh-pages (works when source = "Deploy from a branch") ──
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: true
