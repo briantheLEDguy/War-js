@@ -202,9 +202,12 @@ The live URL is **https://briantheLEDguy.github.io/War-js/**.
 1. `.github/workflows/deploy-pages.yml` runs on every push to `main`.
 2. It builds with `npx vite build --base=/War-js/` so all asset URLs are rooted
    at `/War-js/`.
-3. The `dist/` folder is pushed to the `gh-pages` branch via
-   `JamesIves/github-pages-deploy-action`.
-4. GitHub Pages serves the `gh-pages` branch.
+3. The workflow deploys via **two** strategies so it works regardless of
+   the Pages source setting:
+   - **Pages API** (`actions/deploy-pages@v4`) — for source = "GitHub Actions".
+   - **gh-pages branch push** (`JamesIves/github-pages-deploy-action`) —
+     for source = "Deploy from a branch".
+4. Either one is sufficient; both run every build.
 
 ### One-time setup (repository owner)
 
@@ -212,9 +215,10 @@ If you see a black screen or the deploy workflow fails:
 
 1. **Make the repo public** (required for GitHub Pages on a free plan):
    Settings → General → Danger Zone → Change visibility → Public.
-2. **Set Pages source to the `gh-pages` branch**:
-   Settings → Pages → Build and deployment → Source → Deploy from a branch →
-   Branch: `gh-pages` / root.
+2. **Set Pages source** (pick **one**):
+   - **Recommended:** Settings → Pages → Source → **GitHub Actions**.
+   - **Alternative:** Settings → Pages → Source → Deploy from a branch →
+     Branch: `gh-pages` / root.
 3. **Re-run the workflow** (if needed):
    Actions → Deploy to GitHub Pages → Run workflow on `main`.
 
