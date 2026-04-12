@@ -31,8 +31,10 @@ export function LoginScreen() {
       <div className="panel login-panel">
         <div className="backend-tag">Backend: {services.backend}</div>
         <h1>War-js</h1>
-        <p style={{ color: 'var(--dim)', fontSize: 12, marginTop: -8 }}>
-          Web vertical slice. Any credentials work in local mode.
+        <div className="subtitle">Age of Reckoning</div>
+        <div className="login-divider" />
+        <p style={{ color: 'var(--dim)', fontSize: 12, marginTop: 4, marginBottom: 12, fontStyle: 'italic' }}>
+          Web vertical slice &mdash; any credentials work in local mode.
         </p>
         <form onSubmit={onSubmit}>
           <div className="field">
@@ -52,6 +54,7 @@ export function LoginScreen() {
           </button>
           {err && <div style={{ color: 'var(--red)', fontSize: 12 }}>{err}</div>}
         </form>
+        <div className="login-divider" />
         <div className="hint">
           Session is persisted in localStorage. Clear it to sign out fully.
         </div>

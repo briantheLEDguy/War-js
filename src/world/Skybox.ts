@@ -3,8 +3,8 @@ import type { AssetLoader } from '../game/AssetLoader';
 
 /**
  * Skybox + scene lighting. Uses HDRI environment if available, otherwise
- * a gradient sky + sun+ambient lights. Returns the objects the caller should
- * add to the scene.
+ * a gradient sky + sun+ambient lights. Dark fantasy atmosphere inspired
+ * by Warhammer's grim, war-torn aesthetic.
  */
 export async function setupSky(
   scene: THREE.Scene,
@@ -12,13 +12,16 @@ export async function setupSky(
   hdriPath?: string,
 ): Promise<{ sun: THREE.DirectionalLight }> {
   // Gradient sky fallback via a large inverted sphere.
+  // Dark, brooding sky with stormy undertones.
   const geo = new THREE.SphereGeometry(500, 32, 32);
   const mat = new THREE.ShaderMaterial({
     uniforms: {
-      topColor: { value: new THREE.Color(0x6a8ec9) },
-      bottomColor: { value: new THREE.Color(0xe6c892) },
+      topColor: { value: new THREE.Color(0x1a2840) },
+      midColor: { value: new THREE.Color(0x4a5a6a) },
+      bottomColor: { value: new THREE.Color(0x8a7a60) },
+      horizonColor: { value: new THREE.Color(0xc49a50) },
       offset: { value: 33 },
-      exponent: { value: 0.6 },
+      exponent: { value: 0.5 },
     },
     vertexShader: `
       varying vec3 vWorldPosition;
@@ -29,13 +32,25 @@ export async function setupSky(
       }`,
     fragmentShader: `
       uniform vec3 topColor;
+      uniform vec3 midColor;
       uniform vec3 bottomColor;
+      uniform vec3 horizonColor;
       uniform float offset;
       uniform float exponent;
       varying vec3 vWorldPosition;
       void main() {
         float h = normalize(vWorldPosition + vec3(0.0, offset, 0.0)).y;
-        gl_FragColor = vec4(mix(bottomColor, topColor, max(pow(max(h, 0.0), exponent), 0.0)), 1.0);
+        float hClamped = max(h, 0.0);
+        // Multi-stop gradient: bottom -> horizon -> mid -> top
+        vec3 color;
+        if (hClamped < 0.15) {
+          color = mix(bottomColor, horizonColor, hClamped / 0.15);
+        } else if (hClamped < 0.4) {
+          color = mix(horizonColor, midColor, (hClamped - 0.15) / 0.25);
+        } else {
+          color = mix(midColor, topColor, pow((hClamped - 0.4) / 0.6, exponent));
+        }
+        gl_FragColor = vec4(color, 1.0);
       }`,
     side: THREE.BackSide,
   });
@@ -49,12 +64,20 @@ export async function setupSky(
     }
   }
 
-  scene.fog = new THREE.Fog(0xbfc8d4, 60, 220);
+  // Atmospheric fog — slightly warm, hazy
+  scene.fog = new THREE.Fog(0x8a7a60, 50, 200);
 
-  const ambient = new THREE.AmbientLight(0xffffff, 0.35);
+  // Warm ambient for the grim look
+  const ambient = new THREE.AmbientLight(0xc8b090, 0.3);
   scene.add(ambient);
-  const sun = new THREE.DirectionalLight(0xfff2d1, 1.1);
-  sun.position.set(40, 60, 25);
+
+  // Hemisphere light for better outdoor fill
+  const hemi = new THREE.HemisphereLight(0x6a8ec9, 0x4a3a20, 0.25);
+  scene.add(hemi);
+
+  // Sun — warm, slightly orange directional light
+  const sun = new THREE.DirectionalLight(0xffe0b0, 1.2);
+  sun.position.set(40, 55, 30);
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
   sun.shadow.camera.left = -60;
@@ -65,6 +88,11 @@ export async function setupSky(
   sun.shadow.camera.far = 200;
   sun.shadow.bias = -0.0005;
   scene.add(sun);
+
+  // Secondary fill light from opposite side (subtle)
+  const fill = new THREE.DirectionalLight(0x8090c0, 0.15);
+  fill.position.set(-30, 20, -25);
+  scene.add(fill);
 
   return { sun };
 }
