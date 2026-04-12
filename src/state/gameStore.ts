@@ -48,6 +48,10 @@ interface GameStore {
   setInventory: (items: InventoryItem[]) => void;
   inventoryOpen: boolean;
   toggleInventory: () => void;
+  /** Stack onto existing item or place in first empty slot (no-op if full). */
+  addInventoryItem: (item: Omit<InventoryItem, 'slot'>) => void;
+  /** Decrease qty by amt; removes the slot entirely when qty reaches 0. */
+  removeInventoryQty: (slot: number, amt: number) => void;
 
   // ------- combat -------
   enemies: EnemyState[];
@@ -58,6 +62,15 @@ interface GameStore {
   floatingDamage: FloatingDamage[];
   pushDamage: (d: FloatingDamage) => void;
   expireDamage: (id: string) => void;
+
+  // ------- death / respawn -------
+  playerDead: boolean;
+  setPlayerDead: (b: boolean) => void;
+  respawnPoint: { x: number; y: number; z: number };
+  setRespawnPoint: (p: { x: number; y: number; z: number }) => void;
+  /** Set by the UI "Return to Life" button; consumed by the game loop. */
+  pendingRespawn: boolean;
+  setPendingRespawn: (b: boolean) => void;
 
   // ------- hotbar -------
   hotbarCooldowns: number[]; // seconds remaining; 0 = ready
@@ -99,6 +112,34 @@ export const useGameStore = create<GameStore>((set) => ({
   inventoryOpen: false,
   toggleInventory: () => set((s) => ({ inventoryOpen: !s.inventoryOpen })),
 
+  addInventoryItem: (item) =>
+    set((s) => {
+      // Try to stack onto an existing slot first
+      const existing = s.inventory.find((i) => i.key === item.key && i.qty < 99);
+      if (existing) {
+        return {
+          inventory: s.inventory.map((i) =>
+            i.slot === existing.slot ? { ...i, qty: i.qty + (item.qty ?? 1) } : i,
+          ),
+        };
+      }
+      // Find first empty slot
+      const usedSlots = new Set(s.inventory.map((i) => i.slot));
+      for (let slot = 0; slot < 16; slot++) {
+        if (!usedSlots.has(slot)) {
+          return { inventory: [...s.inventory, { ...item, slot }] };
+        }
+      }
+      return s; // inventory full — silently discard
+    }),
+
+  removeInventoryQty: (slot, amt) =>
+    set((s) => ({
+      inventory: s.inventory
+        .map((i) => (i.slot === slot ? { ...i, qty: i.qty - amt } : i))
+        .filter((i) => i.qty > 0),
+    })),
+
   enemies: [],
   setEnemies: (enemies) => set({ enemies }),
   updateEnemy: (id, patch) =>
@@ -111,6 +152,13 @@ export const useGameStore = create<GameStore>((set) => ({
   pushDamage: (d) => set((s) => ({ floatingDamage: [...s.floatingDamage, d] })),
   expireDamage: (id) =>
     set((s) => ({ floatingDamage: s.floatingDamage.filter((x) => x.id !== id) })),
+
+  playerDead: false,
+  setPlayerDead: (playerDead) => set({ playerDead }),
+  respawnPoint: { x: 0, y: 0, z: 0 },
+  setRespawnPoint: (respawnPoint) => set({ respawnPoint }),
+  pendingRespawn: false,
+  setPendingRespawn: (pendingRespawn) => set({ pendingRespawn }),
 
   hotbarCooldowns: [0, 0, 0, 0],
   setHotbarCooldown: (slot, seconds) =>

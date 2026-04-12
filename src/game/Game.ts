@@ -32,8 +32,11 @@ export class Game {
   private container: HTMLElement;
   private character: CharacterState;
   private saveTimer = 0;
+  private spawnPoint = { x: 0, y: 0, z: 0 };
 
-  /** World -> screen projection used by HUD for nameplates + damage numbers. */
+  private currentZoneName = '';
+
+  /** World → screen projection used by HUD for nameplates + damage numbers. */
   worldToScreen(world: THREE.Vector3, out: THREE.Vector2): boolean {
     const v = world.clone().project(this.camera.camera);
     if (v.z < -1 || v.z > 1) return false;
@@ -43,15 +46,8 @@ export class Game {
     return true;
   }
 
-  get playerPos(): THREE.Vector3 {
-    return this.player.position;
-  }
-
-  get zoneName(): string {
-    return this.currentZoneName;
-  }
-
-  private currentZoneName = '';
+  get playerPos(): THREE.Vector3 { return this.player.position; }
+  get zoneName(): string { return this.currentZoneName; }
 
   constructor(container: HTMLElement, character: CharacterState) {
     this.container = container;
@@ -95,9 +91,13 @@ export class Game {
 
     // Player
     const sp = zone.spawnPoint ?? { x: 0, y: 0, z: 0 };
+    this.spawnPoint = sp;
     this.character.position = { x: sp.x, y: 0, z: sp.z };
     this.player = new Player(this.character, this.terrain);
     await this.player.build(this.loader, this.scene);
+
+    // Store the respawn point so the HUD can use it
+    useGameStore.getState().setRespawnPoint(sp);
 
     // Enemies
     const enemyState: EnemyState[] = [];
@@ -159,39 +159,62 @@ export class Game {
   private update(dt: number, tMs: number) {
     const store = useGameStore.getState();
 
-    // Debug toggle / inventory toggle / chat focus
+    // Handle respawn requested from the death-overlay button
+    if (store.pendingRespawn) {
+      store.setPendingRespawn(false);
+      store.setPlayerDead(false);
+      const rp = store.respawnPoint;
+      this.player.position.set(
+        rp.x,
+        this.terrain.heightAt(rp.x, rp.z),
+        rp.z,
+      );
+      this.player.object.position.copy(this.player.position);
+      store.updateCharacter({
+        health: store.character?.maxHealth ?? 100,
+        mana: store.character?.maxMana ?? 100,
+      });
+      // Deaggro all enemies so they don't instantly kill the player again
+      for (const enemy of this.enemies) {
+        enemy.aggroed = false;
+        enemy.attackCooldown = 0;
+      }
+    }
+
+    // Debug / inventory toggle
     if (this.input.wasPressed('Backquote')) store.toggleDebug();
     if (this.input.wasPressed('KeyI')) store.toggleInventory();
 
-    // Chat focus should not swallow movement; we only signal focus state
+    // Chat focus
     if (this.input.wasPressed('Enter') && !store.chatFocused) store.setChatFocused(true);
 
-    // Combat inputs (only when chat isn't focused)
-    if (!store.chatFocused) {
+    // Combat inputs (blocked while dead or typing in chat)
+    if (!store.chatFocused && !store.playerDead) {
       if (this.input.mouseLeftClickedThisFrame) {
         const id = this.combat.tryTargetAt(this.input.lastClickNDC, this.camera.camera);
         store.setTarget(id);
       }
-      if (this.input.wasPressed('Digit1')) {
-        this.combat.tryAutoattack(this.player, tMs);
-      }
+      if (this.input.wasPressed('Digit1')) this.combat.tryAutoattack(this.player, tMs);
+      if (this.input.wasPressed('Digit2')) this.combat.tryAbility(1, this.player, tMs);
+      if (this.input.wasPressed('Digit3')) this.combat.tryAbility(2, this.player, tMs);
+      if (this.input.wasPressed('Digit4')) this.combat.tryAbility(3, this.player, tMs);
     }
 
     // Tick
     store.tickCooldowns(dt);
-    this.player.update(dt, this.input, this.camera);
+    if (!store.playerDead) this.player.update(dt, this.input, this.camera);
     this.camera.update(this.player.position, this.input);
-    this.combat.tickEnemies(dt, this.player);
+    this.combat.tickEnemies(dt, tMs, this.player);
     this.combat.tickRespawns(tMs);
     this.combat.tickFloatingDamage(tMs);
 
-    // enemy visibility
+    // Enemy visibility sync
     for (const e of this.enemies) {
       const es = store.enemies.find((x) => x.id === e.spawn.id);
       if (es) e.update(tMs, es.alive);
     }
 
-    // Sync position to service (every 0.2s)
+    // Position sync to world service (every 0.2 s)
     this.saveTimer += dt;
     if (this.saveTimer > 0.2) {
       this.saveTimer = 0;
@@ -230,17 +253,9 @@ export class Game {
     this.input?.dispose();
     this.camera?.dispose();
     for (const fn of this.onDispose) {
-      try {
-        fn();
-      } catch {
-        /* ignore */
-      }
+      try { fn(); } catch { /* ignore */ }
     }
-    try {
-      void services.world.leaveZone(this.character.zoneId);
-    } catch {
-      /* ignore */
-    }
+    try { void services.world.leaveZone(this.character.zoneId); } catch { /* ignore */ }
     this.renderer?.dispose();
     if (this.renderer?.domElement.parentElement === this.container) {
       this.container.removeChild(this.renderer.domElement);

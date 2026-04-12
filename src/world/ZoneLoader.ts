@@ -16,6 +16,14 @@ export interface EnemySpawn {
   z: number;
   maxHealth: number;
   model?: string;
+  /** 0 = passive (never aggros). Default: 0 */
+  aggroRange?: number;
+  /** Melee reach when attacking player. Default: 2.5 */
+  attackRange?: number;
+  /** Base damage per hit. Default: 5 */
+  attackDamage?: number;
+  /** Movement speed in units/sec. Default: 3.5 */
+  moveSpeed?: number;
 }
 
 export interface ZoneDefinition {

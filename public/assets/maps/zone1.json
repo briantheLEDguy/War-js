@@ -33,8 +33,12 @@
     { "kind": "rock", "x": 10, "z": 20 }
   ],
   "enemies": [
-    { "id": "dummy-1", "name": "Training Dummy", "level": 1, "x": 5, "z": -3, "maxHealth": 60 },
-    { "id": "dummy-2", "name": "Heavy Dummy", "level": 3, "x": -4, "z": -5, "maxHealth": 120 },
-    { "id": "dummy-3", "name": "Stout Target", "level": 2, "x": 0, "z": -10, "maxHealth": 90 }
+    { "id": "dummy-1",    "name": "Training Dummy",    "level": 1, "x":  5,   "z": -3,  "maxHealth":  60, "aggroRange": 0 },
+    { "id": "dummy-2",    "name": "Heavy Dummy",        "level": 3, "x": -4,   "z": -5,  "maxHealth": 120, "aggroRange": 0 },
+    { "id": "dummy-3",    "name": "Stout Target",       "level": 2, "x":  0,   "z": -10, "maxHealth":  90, "aggroRange": 0 },
+    { "id": "ruffian-1",  "name": "Greenskin Ruffian",  "level": 2, "x": -16,  "z": -10, "maxHealth":  80,
+      "aggroRange": 8, "attackRange": 2.5, "attackDamage": 6, "moveSpeed": 3.5 },
+    { "id": "brute-1",    "name": "Greenskin Brute",    "level": 4, "x":  20,  "z": -18, "maxHealth": 160,
+      "aggroRange": 10, "attackRange": 2.5, "attackDamage": 10, "moveSpeed": 3.0 }
   ]
 }
