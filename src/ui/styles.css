@@ -1,8 +1,8 @@
 :root {
   --bg: #0a0805;
-  --panel: rgba(14, 11, 8, 0.88);
-  --panel-solid: #140f0a;
-  --border: #5a4a2a;
+  --panel: rgba(30, 22, 14, 0.96);
+  --panel-solid: #1e160e;
+  --border: #7a6035;
   --border-accent: #c9a257;
   --border-highlight: #d4b76a;
   --gold: #d4b060;
@@ -17,9 +17,10 @@
   --order-blue: #1a3a6b;
   --font-heading: 'Cinzel', 'IM Fell English SC', 'Trebuchet MS', serif;
   --font-body: 'Crimson Text', 'Trebuchet MS', serif;
-  --ornate-shadow: 0 2px 12px rgba(0, 0, 0, 0.8),
-                   0 0 1px rgba(201, 162, 87, 0.15),
-                   inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+  --ornate-shadow: 0 4px 32px rgba(0, 0, 0, 0.9),
+                   0 0 0 1px rgba(201, 162, 87, 0.25),
+                   0 0 60px rgba(0, 0, 0, 0.6),
+                   inset 0 1px 0 rgba(201, 162, 87, 0.12);
   --ornate-border-image: linear-gradient(
     180deg,
     #8a7040 0%,
@@ -36,6 +37,7 @@
   position: fixed;
   inset: 0;
   overflow: hidden;
+  background: #0a0805;
 }
 
 /* ---------- Generic panels ---------- */
@@ -140,6 +142,7 @@ input:focus, select:focus {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
     radial-gradient(1px 1px at 20% 30%, rgba(255, 160, 40, 0.6), transparent),
     radial-gradient(1px 1px at 45% 70%, rgba(255, 120, 30, 0.4), transparent),
@@ -158,6 +161,8 @@ input:focus, select:focus {
 .login-panel {
   width: 400px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 .login-panel h1 {
   font-family: var(--font-heading);
@@ -210,6 +215,8 @@ input:focus, select:focus {
   width: 580px;
   max-height: 80vh;
   overflow-y: auto;
+  position: relative;
+  z-index: 1;
 }
 .character-select-panel h1 {
   font-family: var(--font-heading);
