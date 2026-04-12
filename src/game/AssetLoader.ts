@@ -21,6 +21,25 @@ export class AssetLoader {
   private rgbeLoader = new RGBELoader();
   private modelCache = new Map<string, Promise<THREE.Object3D>>();
   private texCache = new Map<string, Promise<THREE.Texture>>();
+  private assetProbeCache = new Map<string, Promise<boolean>>();
+
+  private async canLoadAsset(url: string, expectedType?: 'image'): Promise<boolean> {
+    const cached = this.assetProbeCache.get(url);
+    if (cached) return cached;
+    const probe = fetch(url, { method: 'HEAD' })
+      .then((res) => {
+        if (!res.ok) return false;
+        const contentType = res.headers.get('content-type')?.toLowerCase() ?? '';
+        if (contentType.includes('text/html')) return false;
+        if (expectedType === 'image' && contentType && !contentType.startsWith('image/')) {
+          return false;
+        }
+        return true;
+      })
+      .catch(() => false);
+    this.assetProbeCache.set(url, probe);
+    return probe;
+  }
 
   async loadModel(path: string, fallback: PrimitiveFactory): Promise<THREE.Object3D> {
     const cached = this.modelCache.get(path);
@@ -28,42 +47,44 @@ export class AssetLoader {
       const obj = await cached;
       return obj.clone(true);
     }
-    const promise = this.gltfLoader
-      .loadAsync(`${BASE}assets/models/${path}`)
-      .then((g: GLTF) => {
-        const scene = g.scene;
-        scene.traverse((n) => {
-          if ((n as THREE.Mesh).isMesh) {
-            n.castShadow = true;
-            n.receiveShadow = true;
-          }
-        });
-        return scene as THREE.Object3D;
-      })
-      .catch((err) => {
-        console.warn(`[AssetLoader] model fallback for ${path}:`, err.message);
+    const url = `${BASE}assets/models/${path}`;
+    const safePromise = this.canLoadAsset(url).then((canLoad) => {
+      if (!canLoad) {
+        console.warn(`[AssetLoader] model fallback for ${path}: asset missing`);
         useGameStore.getState().incAssetFallbacks();
         return fallback();
-      });
-    this.modelCache.set(path, promise);
-    const base = await promise;
+      }
+      return this.gltfLoader
+        .loadAsync(url)
+        .then((g: GLTF) => {
+          const scene = g.scene;
+          scene.traverse((n) => {
+            if ((n as THREE.Mesh).isMesh) {
+              n.castShadow = true;
+              n.receiveShadow = true;
+            }
+          });
+          return scene as THREE.Object3D;
+        })
+        .catch((err) => {
+          console.warn(`[AssetLoader] model fallback for ${path}:`, err.message);
+          useGameStore.getState().incAssetFallbacks();
+          return fallback();
+        });
+    });
+    this.modelCache.set(path, safePromise);
+    const base = await safePromise;
     return base.clone(true);
   }
 
   async loadTexture(path: string, fallbackColor = 0x555555): Promise<THREE.Texture | null> {
     const cached = this.texCache.get(path);
     if (cached) return cached;
-    const promise = this.texLoader
-      .loadAsync(`${BASE}assets/textures/${path}`)
-      .then((t) => {
-        t.wrapS = t.wrapT = THREE.RepeatWrapping;
-        t.colorSpace = THREE.SRGBColorSpace;
-        return t;
-      })
-      .catch((err) => {
-        console.warn(`[AssetLoader] texture fallback for ${path}:`, err.message);
+    const url = `${BASE}assets/textures/${path}`;
+    const safePromise = this.canLoadAsset(url, 'image').then((canLoad) => {
+      if (!canLoad) {
+        console.warn(`[AssetLoader] texture fallback for ${path}: asset missing`);
         useGameStore.getState().incAssetFallbacks();
-        // Return a 1x1 fallback texture of the requested color
         const data = new Uint8Array([
           (fallbackColor >> 16) & 0xff,
           (fallbackColor >> 8) & 0xff,
@@ -74,14 +95,44 @@ export class AssetLoader {
         tex.needsUpdate = true;
         tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
         return tex;
-      });
-    this.texCache.set(path, promise);
-    return promise;
+      }
+      return this.texLoader
+        .loadAsync(url)
+        .then((t) => {
+          t.wrapS = t.wrapT = THREE.RepeatWrapping;
+          t.colorSpace = THREE.SRGBColorSpace;
+          return t;
+        })
+        .catch((err) => {
+          console.warn(`[AssetLoader] texture fallback for ${path}:`, err.message);
+          useGameStore.getState().incAssetFallbacks();
+          // Return a 1x1 fallback texture of the requested color
+          const data = new Uint8Array([
+            (fallbackColor >> 16) & 0xff,
+            (fallbackColor >> 8) & 0xff,
+            fallbackColor & 0xff,
+            255,
+          ]);
+          const tex = new THREE.DataTexture(data, 1, 1, THREE.RGBAFormat);
+          tex.needsUpdate = true;
+          tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+          return tex;
+        });
+    });
+    this.texCache.set(path, safePromise);
+    return safePromise;
   }
 
   async loadHDRI(path: string): Promise<THREE.Texture | null> {
+    const url = `${BASE}assets/hdri/${path}`;
+    const canLoad = await this.canLoadAsset(url);
+    if (!canLoad) {
+      console.warn(`[AssetLoader] HDRI fallback for ${path}: asset missing`);
+      useGameStore.getState().incAssetFallbacks();
+      return null;
+    }
     try {
-      const tex = await this.rgbeLoader.loadAsync(`${BASE}assets/hdri/${path}`);
+      const tex = await this.rgbeLoader.loadAsync(url);
       tex.mapping = THREE.EquirectangularReflectionMapping;
       return tex;
     } catch (err) {
