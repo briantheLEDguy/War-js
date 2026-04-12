@@ -94,6 +94,11 @@ interface GameStore {
   npcs: NpcState[];
   setNpcs: (n: NpcState[]) => void;
 
+  // ------- touch abilities -------
+  /** Set by the touch hotbar buttons; consumed once per game-loop frame. */
+  pendingTouchAbility: number | null;
+  setPendingTouchAbility: (slot: number | null) => void;
+
   // ------- debug -------
   debugOpen: boolean;
   toggleDebug: () => void;
@@ -193,6 +198,9 @@ export const useGameStore = create<GameStore>((set) => ({
 
   npcs: [],
   setNpcs: (npcs) => set({ npcs }),
+
+  pendingTouchAbility: null,
+  setPendingTouchAbility: (pendingTouchAbility) => set({ pendingTouchAbility }),
 
   debugOpen: false,
   toggleDebug: () => set((s) => ({ debugOpen: !s.debugOpen })),

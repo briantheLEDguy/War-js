@@ -15,6 +15,10 @@ const ABILITIES: Ability[] = [
   { slot: 3, key: '4', icon: '\u2764',  name: 'Bandage',       tooltip: 'Bandage — heal 35-50 HP, 15 mana, 10s CD' },
 ];
 
+function activateSlot(slot: number) {
+  useGameStore.getState().setPendingTouchAbility(slot);
+}
+
 export function Hotbar() {
   const cooldowns = useGameStore((s) => s.hotbarCooldowns);
   const character = useGameStore((s) => s.character);
@@ -32,6 +36,7 @@ export function Hotbar() {
             key={a.slot}
             className={`hotbar-slot${noMana && cd <= 0 ? ' no-mana' : ''}`}
             title={a.tooltip}
+            onClick={() => activateSlot(a.slot)}
           >
             <span>{a.icon}</span>
             <span className="key">{a.key}</span>

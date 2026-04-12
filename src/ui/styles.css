@@ -120,6 +120,7 @@ input:focus, select:focus { outline: none; border-color: var(--border-accent); }
 .game-root { position: absolute; inset: 0; }
 .game-canvas-container {
   position: absolute; inset: 0;
+  touch-action: none; /* prevent default scroll / zoom while playing on mobile */
 }
 .game-canvas-container canvas {
   display: block;
@@ -462,4 +463,90 @@ input:focus, select:focus { outline: none; border-color: var(--border-accent); }
   color: var(--gold);
   font-size: 18px;
   letter-spacing: 0.1em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Touch controls  (shown only on coarse-pointer / touch devices)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Container: covers the full HUD but passes pointer events through */
+.touch-controls {
+  display: none; /* hidden on desktop by default */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Virtual joystick */
+.touch-joystick-base {
+  position: absolute;
+  bottom: 100px;
+  left: 24px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(10, 8, 5, 0.45);
+  border: 2px solid var(--border);
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.touch-joystick-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--border-accent), var(--border));
+  border: 2px solid var(--gold);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Jump button */
+.touch-jump-btn {
+  position: absolute;
+  bottom: 108px;
+  right: 24px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 8, 5, 0.55);
+  border: 2px solid var(--border);
+  color: var(--gold);
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 0;
+}
+.touch-jump-btn:active { background: rgba(40, 30, 10, 0.75); border-color: var(--border-accent); }
+
+/* Show touch controls on devices that use a finger (coarse pointer) */
+@media (pointer: coarse) {
+  .touch-controls {
+    display: block;
+  }
+  /* Shift the hotbar up so the joystick / jump button don't overlap */
+  .hotbar {
+    bottom: 88px;
+  }
+  /* Controls hint is irrelevant on touch — hide it */
+  .controls-hint {
+    display: none;
+  }
+  /* Make hotbar slots larger for finger taps */
+  .hotbar-slot {
+    width: 64px;
+    height: 64px;
+    font-size: 26px;
+  }
 }
