@@ -5,6 +5,8 @@ import { useGameStore } from '../state/gameStore';
 
 export type PrimitiveFactory = () => THREE.Object3D;
 
+const BASE = import.meta.env.BASE_URL; // '/' in dev, '/War-js/' on GH Pages
+
 /**
  * Asset loader with primitive fallbacks. If a file is missing or fails to load,
  * the fallback is returned and a counter in the debug overlay increments.
@@ -27,7 +29,7 @@ export class AssetLoader {
       return obj.clone(true);
     }
     const promise = this.gltfLoader
-      .loadAsync(`/assets/models/${path}`)
+      .loadAsync(`${BASE}assets/models/${path}`)
       .then((g: GLTF) => {
         const scene = g.scene;
         scene.traverse((n) => {
@@ -52,7 +54,7 @@ export class AssetLoader {
     const cached = this.texCache.get(path);
     if (cached) return cached;
     const promise = this.texLoader
-      .loadAsync(`/assets/textures/${path}`)
+      .loadAsync(`${BASE}assets/textures/${path}`)
       .then((t) => {
         t.wrapS = t.wrapT = THREE.RepeatWrapping;
         t.colorSpace = THREE.SRGBColorSpace;
@@ -79,7 +81,7 @@ export class AssetLoader {
 
   async loadHDRI(path: string): Promise<THREE.Texture | null> {
     try {
-      const tex = await this.rgbeLoader.loadAsync(`/assets/hdri/${path}`);
+      const tex = await this.rgbeLoader.loadAsync(`${BASE}assets/hdri/${path}`);
       tex.mapping = THREE.EquirectangularReflectionMapping;
       return tex;
     } catch (err) {

@@ -33,7 +33,7 @@ export interface ZoneDefinition {
 
 export async function loadZone(id: string): Promise<ZoneDefinition> {
   try {
-    const res = await fetch(`/assets/maps/${id}.json`);
+    const res = await fetch(`${import.meta.env.BASE_URL}assets/maps/${id}.json`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return (await res.json()) as ZoneDefinition;
   } catch (err) {

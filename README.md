@@ -6,14 +6,25 @@ Built with **Three.js + React + Vite + TypeScript**, architected for a **Supabas
 
 > Note: ProjectWAR is referenced for domain inspiration only. No code, assets, or branding from that repository are vendored here, and this project never writes to it.
 
-## Quick start
+## Live URL
+
+Every push to `main` or `claude/web-game-conversion-7yzlN` auto-deploys to **GitHub Pages** via `.github/workflows/deploy-pages.yml`.
+
+- Expected public URL: **https://briantheledguy.github.io/War-js/**
+- First-time setup (one click, required before the first deploy succeeds):
+  1. Go to GitHub repo → **Settings** → **Pages**
+  2. Under **Source**, select **GitHub Actions**
+  3. Re-run the latest workflow if needed (**Actions** tab → latest run → **Re-run all jobs**)
+- Deploy status: see the **Actions** tab.
+
+## Quick start (local)
 
 ```bash
 npm install
-npm run dev
+npm run dev         # dev server at http://localhost:5173
+# or
+npm run build && npm run preview   # prod build at http://localhost:4173
 ```
-
-Open http://localhost:5173.
 
 1. Any email/password works on the login screen (local mode).
 2. Pick one of two prebuilt characters (or create your own).
