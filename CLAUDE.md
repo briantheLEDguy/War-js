@@ -5,13 +5,62 @@ the project layout, conventions, and commands before doing any work.
 
 ## What this project is
 
-A web-based MMO vertical slice inspired by
-[ProjectWAR](https://github.com/Shmerrick/ProjectWAR) (Warhammer Online server
-emulator). Built with **Three.js + React + Vite + TypeScript**, architected for a
-**Supabase** backend (local in-memory fallback works out of the box with zero config).
+A browser-based recreation of **Warhammer Online: Age of Reckoning** (WAR), built
+with **Three.js + React + Vite + TypeScript**, architected for a **Supabase** backend
+(local in-memory fallback works out of the box with zero config).
 
-> ProjectWAR is referenced for domain inspiration only. No code, assets, or
+The goal is a faithful carbon copy of WAR's gameplay, systems, and world — running
+entirely in the browser. All geometry is procedural Three.js primitives until real
+game assets are available via the Phase 2 asset pipeline.
+
+> [ProjectWAR](https://github.com/Shmerrick/ProjectWAR) is used as the authoritative
+> reference for zone layouts, NPC data, and game mechanics. No code, assets, or
 > branding from that project are vendored here.
+
+---
+
+## WAR Fidelity Rules
+
+**These rules override everything else. All code and content must conform to them.**
+
+### Races & Careers
+Use Warhammer Online's exact race and career names — no substitutions:
+
+| Realm       | Race       | Careers |
+|-------------|------------|---------|
+| Order       | Empire     | Bright Wizard, Witch Hunter, Knight of the Blazing Sun, Warrior Priest |
+| Order       | Dwarf      | Ironbreaker, Slayer, Rune Priest, Engineer |
+| Order       | High Elf   | Swordmaster, White Lion, Archmage, Shadow Warrior |
+| Destruction | Chaos      | Chosen, Marauder, Magus, Zealot |
+| Destruction | Greenskin  | Black Orc, Squig Herder, Shaman, Choppa |
+| Destruction | Dark Elf   | Witch Elf, Blackguard, Sorceress, Disciple of Khaine |
+
+### Capital Cities
+- **Order capital**: `altdorf` — Altdorf, City of the Empire
+- **Destruction capital**: `inevitable_city` — The Inevitable City
+- Order characters (empire, dwarf, high_elf) default to `altdorf` on creation
+- Destruction characters (chaos, greenskin, dark_elf) default to `inevitable_city`
+
+### Zone Names & IDs
+Zone IDs use WAR's naming convention (lowercase, underscored):
+`altdorf`, `inevitable_city`, `nordland`, `norsca`, `troll_country`, `high_pass`,
+`praag`, `thunder_mountain`, `kadrin_valley`, `mount_gunbad`, `black_crag`, etc.
+
+### District & NPC Names
+All district names, NPC names, and titles must match the original WAR game exactly.
+Never invent names for content that existed in WAR.
+
+### Mechanics
+- No invented mechanics. Every system must correspond to something in WAR.
+- RvR (Realm vs Realm) pairing structure: Nordland/Norsca → Ostland/Troll Country →
+  Talabecland/High Pass → Reikland → Altdorf/Inevitable City
+- City siege mechanics: cities are attackable when the realm holds all T4 RvR zones
+- Scenarios (instanced PvP), Public Quests, and Open RvR zones follow WAR's layout
+
+### Asset Pipeline
+When `.glb` model files land in `public/assets/models/`, they use the same filename
+the zone JSON references — no code changes required. Until then all geometry uses
+Three.js primitive fallbacks. **Never hard-fail on a missing asset.**
 
 ---
 
@@ -45,7 +94,8 @@ public/
   assets/
     README.md           # explains asset layout
     maps/
-      zone1.json        # Nordland Outskirts zone definition
+      zone1.json        # Nordland Outskirts zone definition (legacy test zone)
+      altdorf.json      # Altdorf — Order capital city
     models/             # .glb files (empty — primitive fallbacks used until Phase 2)
     textures/           # .png/.jpg terrain textures (empty until Phase 2)
     hdri/               # .hdr environment maps (empty until Phase 2)
@@ -94,9 +144,11 @@ src/
 
   world/
     ZoneLoader.ts       # fetches assets/maps/<id>.json; built-in default if missing
-    Terrain.ts          # procedural heightmap terrain mesh
+                        #   ZoneDefinition includes flatTerrain, zoneTriggers, npcs
+    Terrain.ts          # procedural heightmap terrain mesh; flatTerrain=true for cities
     Skybox.ts           # HDR environment + directional light + ambient
-    Props.ts            # spawns trees/rocks/buildings/dummies from zone JSON
+    Props.ts            # spawns props from zone JSON (supports WAR city prop kinds)
+    NpcSpawner.ts       # spawns NPC meshes from zone.npcs[]; pushes NpcState to store
 
   ui/                   # React overlay (renders on top of the Three.js canvas)
     App.tsx             # root component — routes between login / char-select / world
@@ -207,9 +259,12 @@ See `README.md` for the full list. Key items:
 ## Common AI coding tasks
 
 ### Add a new zone
-1. Create `public/assets/maps/<zoneId>.json` following the shape in `zone1.json`.
-2. Add enemies, props, skybox, terrain texture references.
-3. No TypeScript changes needed — `ZoneLoader` discovers it by `id`.
+1. Create `public/assets/maps/<zoneId>.json` following the shape in existing zone files.
+2. Use WAR-accurate `id`, `name`, district layout, and NPC placement.
+3. Set `"flatTerrain": true` for capital cities and indoor zones.
+4. Add `"zoneTriggers"` for exits to adjacent zones.
+5. Add `"npcs"` for vendors, trainers, bankers, guards.
+6. No TypeScript changes needed — `ZoneLoader` discovers it by `id`.
 
 ### Add a new service method
 1. Add the signature to the appropriate interface in `src/services/types.ts`.

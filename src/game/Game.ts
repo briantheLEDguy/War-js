@@ -2,10 +2,11 @@ import * as THREE from 'three';
 import { services } from '../services';
 import type { CharacterState } from '../services/types';
 import { useGameStore, type EnemyState } from '../state/gameStore';
+import { spawnNpcs } from '../world/NpcSpawner';
 import { spawnProps } from '../world/Props';
 import { setupSky } from '../world/Skybox';
 import { Terrain } from '../world/Terrain';
-import { loadZone } from '../world/ZoneLoader';
+import { loadZone, type ZoneTrigger } from '../world/ZoneLoader';
 import { AssetLoader } from './AssetLoader';
 import { FollowCamera } from './Camera';
 import { Combat } from './Combat';
@@ -35,6 +36,7 @@ export class Game {
   private spawnPoint = { x: 0, y: 0, z: 0 };
 
   private currentZoneName = '';
+  private zoneTriggers: ZoneTrigger[] = [];
 
   /** World → screen projection used by HUD for nameplates + damage numbers. */
   worldToScreen(world: THREE.Vector3, out: THREE.Vector2): boolean {
@@ -83,11 +85,19 @@ export class Game {
       segments: zone.segments,
       diffuseTexture: zone.terrainTexture,
       heightTexture: zone.heightmap,
+      flatTerrain: zone.flatTerrain,
     });
     this.scene.add(terrainMesh);
 
     // Props
     await spawnProps(this.scene, this.loader, this.terrain, zone.props);
+
+    // NPCs
+    const npcStates = await spawnNpcs(this.scene, this.loader, this.terrain, zone.npcs ?? []);
+    useGameStore.getState().setNpcs(npcStates);
+
+    // Zone triggers
+    this.zoneTriggers = zone.zoneTriggers ?? [];
 
     // Player
     const sp = zone.spawnPoint ?? { x: 0, y: 0, z: 0 };
@@ -212,6 +222,23 @@ export class Game {
     for (const e of this.enemies) {
       const es = store.enemies.find((x) => x.id === e.spawn.id);
       if (es) e.update(tMs, es.alive);
+    }
+
+    // Zone trigger detection
+    if (!store.pendingZoneTransition && this.zoneTriggers.length > 0) {
+      const px = this.player.position.x;
+      const pz = this.player.position.z;
+      for (const trigger of this.zoneTriggers) {
+        const dx = px - trigger.x;
+        const dz = pz - trigger.z;
+        if (dx * dx + dz * dz < trigger.radius * trigger.radius) {
+          store.setPendingZoneTransition({
+            targetZoneId: trigger.targetZoneId,
+            targetSpawn: trigger.targetSpawn,
+          });
+          break;
+        }
+      }
     }
 
     // Position sync to world service (every 0.2 s)

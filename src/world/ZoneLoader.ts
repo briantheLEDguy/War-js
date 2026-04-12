@@ -26,17 +26,48 @@ export interface EnemySpawn {
   moveSpeed?: number;
 }
 
+/** A trigger volume that transports the player to another zone. */
+export interface ZoneTrigger {
+  id: string;
+  /** Shown in travel UI, e.g. "Travel to Reikland" */
+  label: string;
+  x: number;
+  z: number;
+  /** Radius in world units — player within this distance activates the trigger. */
+  radius: number;
+  targetZoneId: string;
+  targetSpawn?: { x: number; y: number; z: number };
+}
+
+/** A static NPC (vendor, trainer, banker, etc.) — no combat AI. */
+export interface NpcSpawn {
+  id: string;
+  name: string;
+  /** Sub-title shown in nameplate, e.g. "Merchant", "Master Trainer" */
+  title?: string;
+  role: 'vendor' | 'trainer' | 'banker' | 'questgiver' | 'guard' | 'ambient';
+  x: number;
+  z: number;
+  rotY?: number;
+}
+
 export interface ZoneDefinition {
   id: string;
   name: string;
   size: number;
   segments: number;
-  skybox?: string;        // .hdr file
+  skybox?: string;         // .hdr file
   terrainTexture?: string; // .png/.jpg
-  heightmap?: string;     // .png (phase 2)
+  heightmap?: string;      // .png (phase 2)
+  /** If true, terrain is completely flat (y=0 everywhere). Use for city zones. */
+  flatTerrain?: boolean;
   props: PropSpawn[];
   enemies: EnemySpawn[];
   spawnPoint?: { x: number; y: number; z: number };
+  /** Zone exit triggers — walk into them to travel to another zone. */
+  zoneTriggers?: ZoneTrigger[];
+  /** Static NPCs: vendors, trainers, bankers, guards, etc. */
+  npcs?: NpcSpawn[];
 }
 
 export async function loadZone(id: string): Promise<ZoneDefinition> {

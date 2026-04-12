@@ -6,6 +6,7 @@ import type {
   InventoryItem,
   User,
 } from '../services/types';
+import type { NpcState } from '../world/NpcSpawner';
 
 export type Screen = 'login' | 'character-select' | 'world';
 
@@ -83,6 +84,15 @@ interface GameStore {
   setChat: (m: ChatMessage[]) => void;
   chatFocused: boolean;
   setChatFocused: (b: boolean) => void;
+
+  // ------- zone transitions -------
+  /** Set by Game.ts when the player walks into a ZoneTrigger. Consumed by GameScreen. */
+  pendingZoneTransition: { targetZoneId: string; targetSpawn?: { x: number; y: number; z: number } } | null;
+  setPendingZoneTransition: (t: { targetZoneId: string; targetSpawn?: { x: number; y: number; z: number } } | null) => void;
+
+  // ------- npcs -------
+  npcs: NpcState[];
+  setNpcs: (n: NpcState[]) => void;
 
   // ------- debug -------
   debugOpen: boolean;
@@ -177,6 +187,12 @@ export const useGameStore = create<GameStore>((set) => ({
   setChat: (chat) => set({ chat }),
   chatFocused: false,
   setChatFocused: (chatFocused) => set({ chatFocused }),
+
+  pendingZoneTransition: null,
+  setPendingZoneTransition: (pendingZoneTransition) => set({ pendingZoneTransition }),
+
+  npcs: [],
+  setNpcs: (npcs) => set({ npcs }),
 
   debugOpen: false,
   toggleDebug: () => set((s) => ({ debugOpen: !s.debugOpen })),

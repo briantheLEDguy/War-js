@@ -28,15 +28,22 @@ export async function spawnProps(
 
 function pickFallback(kind: string) {
   switch (kind) {
-    case 'tree':
-      return AssetLoader.primitives.tree;
-    case 'rock':
-      return AssetLoader.primitives.rock;
-    case 'building':
-      return AssetLoader.primitives.building;
-    case 'dummy':
-      return AssetLoader.primitives.dummy;
-    default:
-      return AssetLoader.primitives.rock;
+    case 'tree':        return AssetLoader.primitives.tree;
+    case 'rock':        return AssetLoader.primitives.rock;
+    case 'building':    return AssetLoader.primitives.building;
+    case 'dummy':       return AssetLoader.primitives.dummy;
+    // WAR city props
+    case 'wall_segment': return AssetLoader.primitives.wall_segment;
+    case 'tower':       return AssetLoader.primitives.tower;
+    case 'gate':        return AssetLoader.primitives.gate;
+    case 'temple':      return AssetLoader.primitives.temple;
+    case 'statue':      return AssetLoader.primitives.statue;
+    case 'fountain':    return AssetLoader.primitives.fountain;
+    case 'banner_post': return AssetLoader.primitives.banner_post;
+    case 'vendor_stall': return AssetLoader.primitives.vendor_stall;
+    case 'steps':       return AssetLoader.primitives.steps;
+    case 'bridge':      return AssetLoader.primitives.bridge;
+    case 'dock':        return AssetLoader.primitives.dock;
+    default:            return AssetLoader.primitives.rock;
   }
 }

@@ -4,21 +4,37 @@ import type {
   CharacterSummary,
 } from '../types';
 
+/** Order races start in Altdorf; Destruction races in the Inevitable City. */
+function defaultZoneForRace(race: CharacterState['race']): string {
+  switch (race) {
+    case 'empire':
+    case 'dwarf':
+    case 'high_elf':
+      return 'altdorf';
+    case 'chaos':
+    case 'greenskin':
+    case 'dark_elf':
+      return 'inevitable_city';
+    default:
+      return 'altdorf';
+  }
+}
+
 const PREBUILT: Record<string, CharacterState> = {
   'char-sigmund': {
     id: 'char-sigmund',
     name: 'Sigmund',
-    className: 'Warrior',
+    className: 'Warrior Priest',
     race: 'empire',
     level: 5,
     xp: 320,
-    zoneId: 'zone1',
+    zoneId: 'altdorf',
     health: 180,
     maxHealth: 180,
     mana: 60,
     maxMana: 60,
-    position: { x: 0, y: 0, z: 0 },
-    rotationY: 0,
+    position: { x: 0, y: 0, z: 120 },
+    rotationY: Math.PI,
   },
   'char-grik': {
     id: 'char-grik',
@@ -27,13 +43,13 @@ const PREBUILT: Record<string, CharacterState> = {
     race: 'greenskin',
     level: 4,
     xp: 110,
-    zoneId: 'zone1',
+    zoneId: 'inevitable_city',
     health: 120,
     maxHealth: 120,
     mana: 160,
     maxMana: 160,
-    position: { x: 4, y: 0, z: 2 },
-    rotationY: Math.PI,
+    position: { x: 0, y: 0, z: 0 },
+    rotationY: 0,
   },
 };
 
@@ -72,6 +88,7 @@ export class CharacterLocal implements CharacterService {
     data: Omit<CharacterSummary, 'id' | 'level' | 'zoneId'>,
   ): Promise<CharacterSummary> {
     const id = `char-${crypto.randomUUID()}`;
+    const startZone = defaultZoneForRace(data.race);
     const full: CharacterState = {
       id,
       name: data.name,
@@ -79,13 +96,13 @@ export class CharacterLocal implements CharacterService {
       race: data.race,
       level: 1,
       xp: 0,
-      zoneId: 'zone1',
+      zoneId: startZone,
       health: 100,
       maxHealth: 100,
       mana: 100,
       maxMana: 100,
-      position: { x: 0, y: 0, z: 0 },
-      rotationY: 0,
+      position: { x: 0, y: 0, z: 120 },
+      rotationY: Math.PI,
     };
     this.store[id] = full;
     this.persist();

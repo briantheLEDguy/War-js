@@ -7,7 +7,7 @@ export interface CharacterSummary {
   id: string;
   name: string;
   className: string;
-  race: 'empire' | 'greenskin' | 'dwarf' | 'elf';
+  race: 'empire' | 'dwarf' | 'high_elf' | 'chaos' | 'greenskin' | 'dark_elf';
   level: number;
   zoneId: string;
 }
