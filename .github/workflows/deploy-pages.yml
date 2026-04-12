@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - claude/web-game-conversion-7yzlN
   workflow_dispatch:
 
 permissions:
