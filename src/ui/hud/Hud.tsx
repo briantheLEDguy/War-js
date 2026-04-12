@@ -15,8 +15,13 @@ interface Props {
 }
 
 export function Hud({ game }: Props) {
-  const debugOpen = useGameStore((s) => s.debugOpen);
+  const debugOpen    = useGameStore((s) => s.debugOpen);
   const inventoryOpen = useGameStore((s) => s.inventoryOpen);
+  const playerDead   = useGameStore((s) => s.playerDead);
+
+  function handleRespawn() {
+    useGameStore.getState().setPendingRespawn(true);
+  }
 
   return (
     <div className="hud">
@@ -29,6 +34,16 @@ export function Hud({ game }: Props) {
       {debugOpen && <DebugOverlay game={game} />}
       <NameplateLayer game={game} />
       <FloatingDamageLayer game={game} />
+
+      {playerDead && (
+        <div className="death-overlay">
+          <div className="death-panel">
+            <h2>You have fallen!</h2>
+            <p>Your journey is not yet over.</p>
+            <button onClick={handleRespawn}>Return to Life</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

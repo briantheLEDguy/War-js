@@ -408,6 +408,49 @@ input:focus, select:focus { outline: none; border-color: var(--border-accent); }
   font-family: ui-monospace, monospace;
 }
 
+/* Death overlay */
+.death-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(80, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  pointer-events: auto;
+}
+.death-panel {
+  background: var(--panel-solid);
+  border: 2px solid var(--border-accent);
+  border-radius: 6px;
+  padding: 36px 52px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(180, 20, 20, 0.5);
+}
+.death-panel h2 {
+  color: #e84444;
+  font-size: 26px;
+  margin: 0 0 10px;
+  letter-spacing: 0.05em;
+}
+.death-panel p {
+  color: var(--dim);
+  margin: 0 0 22px;
+  font-size: 13px;
+}
+
+/* Hotbar slot with insufficient mana */
+.hotbar-slot.no-mana { opacity: 0.45; }
+
+/* Inventory usage hint */
+.inv-hint {
+  font-size: 10px;
+  color: var(--dim);
+  margin: 6px 0 0;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
 /* Loading */
 .loading {
   position: absolute;
