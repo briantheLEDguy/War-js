@@ -45,6 +45,8 @@ jobs:
       - name: Deploy via Pages API
         id: deployment
         uses: actions/deploy-pages@v4
+        # Tolerate failure so the gh-pages branch push still runs when
+        # Pages source is "Deploy from a branch" instead of "GitHub Actions".
         continue-on-error: true
 
       # ── Strategy B: push to gh-pages (works when source = "Deploy from a branch") ──
