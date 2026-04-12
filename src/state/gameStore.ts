@@ -1,0 +1,139 @@
+import { create } from 'zustand';
+import type {
+  CharacterState,
+  CharacterSummary,
+  ChatMessage,
+  InventoryItem,
+  User,
+} from '../services/types';
+
+export type Screen = 'login' | 'character-select' | 'world';
+
+export interface FloatingDamage {
+  id: string;
+  amount: number;
+  worldPos: { x: number; y: number; z: number };
+  spawnedAt: number;
+  kind: 'damage' | 'heal' | 'miss';
+}
+
+export interface EnemyState {
+  id: string;
+  name: string;
+  level: number;
+  health: number;
+  maxHealth: number;
+  position: { x: number; y: number; z: number };
+  alive: boolean;
+}
+
+interface GameStore {
+  // ------- screen -------
+  screen: Screen;
+  setScreen: (s: Screen) => void;
+
+  // ------- auth -------
+  user: User | null;
+  setUser: (u: User | null) => void;
+
+  // ------- characters -------
+  characterList: CharacterSummary[];
+  setCharacterList: (cs: CharacterSummary[]) => void;
+  character: CharacterState | null;
+  setCharacter: (c: CharacterState | null) => void;
+  updateCharacter: (patch: Partial<CharacterState>) => void;
+
+  // ------- inventory -------
+  inventory: InventoryItem[];
+  setInventory: (items: InventoryItem[]) => void;
+  inventoryOpen: boolean;
+  toggleInventory: () => void;
+
+  // ------- combat -------
+  enemies: EnemyState[];
+  setEnemies: (e: EnemyState[]) => void;
+  updateEnemy: (id: string, patch: Partial<EnemyState>) => void;
+  targetId: string | null;
+  setTarget: (id: string | null) => void;
+  floatingDamage: FloatingDamage[];
+  pushDamage: (d: FloatingDamage) => void;
+  expireDamage: (id: string) => void;
+
+  // ------- hotbar -------
+  hotbarCooldowns: number[]; // seconds remaining; 0 = ready
+  setHotbarCooldown: (slot: number, seconds: number) => void;
+  tickCooldowns: (dt: number) => void;
+
+  // ------- chat -------
+  chat: ChatMessage[];
+  appendChat: (m: ChatMessage) => void;
+  setChat: (m: ChatMessage[]) => void;
+  chatFocused: boolean;
+  setChatFocused: (b: boolean) => void;
+
+  // ------- debug -------
+  debugOpen: boolean;
+  toggleDebug: () => void;
+  fps: number;
+  setFps: (n: number) => void;
+  assetFallbacks: number;
+  incAssetFallbacks: () => void;
+}
+
+export const useGameStore = create<GameStore>((set) => ({
+  screen: 'login',
+  setScreen: (screen) => set({ screen }),
+
+  user: null,
+  setUser: (user) => set({ user }),
+
+  characterList: [],
+  setCharacterList: (characterList) => set({ characterList }),
+  character: null,
+  setCharacter: (character) => set({ character }),
+  updateCharacter: (patch) =>
+    set((s) => ({ character: s.character ? { ...s.character, ...patch } : s.character })),
+
+  inventory: [],
+  setInventory: (inventory) => set({ inventory }),
+  inventoryOpen: false,
+  toggleInventory: () => set((s) => ({ inventoryOpen: !s.inventoryOpen })),
+
+  enemies: [],
+  setEnemies: (enemies) => set({ enemies }),
+  updateEnemy: (id, patch) =>
+    set((s) => ({
+      enemies: s.enemies.map((e) => (e.id === id ? { ...e, ...patch } : e)),
+    })),
+  targetId: null,
+  setTarget: (targetId) => set({ targetId }),
+  floatingDamage: [],
+  pushDamage: (d) => set((s) => ({ floatingDamage: [...s.floatingDamage, d] })),
+  expireDamage: (id) =>
+    set((s) => ({ floatingDamage: s.floatingDamage.filter((x) => x.id !== id) })),
+
+  hotbarCooldowns: [0, 0, 0, 0],
+  setHotbarCooldown: (slot, seconds) =>
+    set((s) => {
+      const next = [...s.hotbarCooldowns];
+      next[slot] = Math.max(0, seconds);
+      return { hotbarCooldowns: next };
+    }),
+  tickCooldowns: (dt) =>
+    set((s) => ({
+      hotbarCooldowns: s.hotbarCooldowns.map((c) => Math.max(0, c - dt)),
+    })),
+
+  chat: [],
+  appendChat: (m) => set((s) => ({ chat: [...s.chat, m].slice(-200) })),
+  setChat: (chat) => set({ chat }),
+  chatFocused: false,
+  setChatFocused: (chatFocused) => set({ chatFocused }),
+
+  debugOpen: false,
+  toggleDebug: () => set((s) => ({ debugOpen: !s.debugOpen })),
+  fps: 0,
+  setFps: (fps) => set({ fps }),
+  assetFallbacks: 0,
+  incAssetFallbacks: () => set((s) => ({ assetFallbacks: s.assetFallbacks + 1 })),
+}));
