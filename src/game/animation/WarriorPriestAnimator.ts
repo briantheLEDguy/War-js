@@ -18,7 +18,6 @@ import {
   CharacterAnimator,
   type ActionState,
   easeInOut,
-  easeOut,
   sampleKeys,
 } from './CharacterAnimator';
 
@@ -308,11 +307,49 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     hammer.rotation.z = hammerRestEuler.z + hammerGuard;
   }
 
+  /**
+   * Bandage — a self-heal devotional pose. The priest dips into a shallow
+   * kneel (root drops, legs bend), plants the hammer vertically in front
+   * of the body, and raises the off-hand to his chest in supplication.
+   *
+   * Timing (t in 0..1 over ~1.20 s):
+   *   0.00 → 0.25  ease down into kneel + plant hammer
+   *   0.25 → 0.75  hold the pose — this is when the heal ticks
+   *   0.75 → 1.00  rise back to standing rest
+   */
   private applyBandage(t: number): void {
-    // Temporary: raise both arms slightly until the full pose is authored.
-    const { leftArm, rightArm } = this.rig;
-    const raise = Math.sin(Math.PI * t) * 0.4;
-    leftArm.rotation.x  = -raise;
-    rightArm.rotation.x = -raise;
+    const { leftArm, rightArm, leftLeg, rightLeg, hammer, hammerRestEuler, root } =
+      this.rig;
+
+    // 0→1 "in-kneel" blend (rises to 1 during the hold, falls back to 0).
+    const kneel = sampleKeys(
+      [
+        { t: 0.00, v: 0.0 },
+        { t: 0.25, v: 1.0 },
+        { t: 0.75, v: 1.0 },
+        { t: 1.00, v: 0.0 },
+      ],
+      t,
+    );
+
+    // Body drops slightly (negative y) during the kneel.
+    root.position.y = -0.15 * kneel;
+
+    // Legs bend — front leg bends more than back, like a supplicant's posture.
+    leftLeg.rotation.x  =  0.45 * kneel;
+    rightLeg.rotation.x = -0.20 * kneel;
+
+    // Off-hand rises to the chest, palm turned inward (devotional gesture).
+    leftArm.rotation.x = -1.0  * kneel;
+    leftArm.rotation.z =  0.55 * kneel;
+
+    // Weapon arm drops so the hammer rests vertically head-up in front of the body.
+    rightArm.rotation.x =  0.25 * kneel;
+    rightArm.rotation.z = -0.30 * kneel;
+
+    // Hammer rotates from its diagonal rest to vertical (head pointing up).
+    // The rest Z is -PI*0.35; add ~+PI*0.45 so it aligns with the arm axis.
+    const verticalize = Math.PI * 0.45 * kneel;
+    hammer.rotation.z = hammerRestEuler.z + verticalize;
   }
 }
