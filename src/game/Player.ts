@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import type { CharacterState } from '../services/types';
 import type { Terrain } from '../world/Terrain';
 import { AssetLoader } from './AssetLoader';
+import { buildCharacterMesh } from './CharacterMeshes';
 import type { FollowCamera } from './Camera';
 import type { Input } from './Input';
 
@@ -44,7 +45,10 @@ export class Player {
         : this.character.race === 'high_elf'
         ? 0x7a9aa8
         : 0x7a6425;
-    this.object = await loader.loadModel(modelName, () => AssetLoader.primitives.humanoid(color));
+    this.object = await loader.loadModel(
+      modelName,
+      () => buildCharacterMesh(this.character.race, this.character.career),
+    );
     this.position.set(
       this.character.position.x,
       this.terrain.heightAt(this.character.position.x, this.character.position.z),
