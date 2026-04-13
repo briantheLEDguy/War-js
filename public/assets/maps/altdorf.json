@@ -4,7 +4,7 @@
   "size": 320,
   "segments": 48,
   "flatTerrain": true,
-  "terrainTexture": "cobblestone.png",
+  "terrainTexture": "cobblestone.svg",
   "skybox": "altdorf_sky.hdr",
   "spawnPoint": { "x": 0, "y": 0, "z": 120 },
 
