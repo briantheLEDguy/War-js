@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+  <!-- Mortar background (dark gray) -->
+  <rect width="512" height="512" fill="#3a3830"/>
+
+  <!-- Course 0 (y=4..68) — 3 wide stones -->
+  <rect x="4"   y="4"  width="162" height="64" rx="3" fill="#7e7a72"/>
+  <rect x="172" y="4"  width="168" height="64" rx="3" fill="#847e76"/>
+  <rect x="346" y="4"  width="162" height="64" rx="3" fill="#7a7870"/>
+
+  <!-- Highlight/shadow on stones -->
+  <rect x="4"   y="4"  width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="172" y="4"  width="168" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="346" y="4"  width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="4"   y="64" width="162" height="4"  rx="2" fill="#605c58" opacity="0.5"/>
+  <rect x="172" y="64" width="168" height="4"  rx="2" fill="#605c58" opacity="0.5"/>
+  <rect x="346" y="64" width="162" height="4"  rx="2" fill="#605c58" opacity="0.5"/>
+
+  <!-- Course 1 (y=72..136) — offset, 4 stones -->
+  <rect x="4"   y="72" width="80"  height="64" rx="3" fill="#7c7870"/>
+  <rect x="90"  y="72" width="166" height="64" rx="3" fill="#828078"/>
+  <rect x="262" y="72" width="162" height="64" rx="3" fill="#787470"/>
+  <rect x="430" y="72" width="78"  height="64" rx="3" fill="#80787"/>
+
+  <rect x="4"   y="72" width="80"  height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="90"  y="72" width="166" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="262" y="72" width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="430" y="72" width="78"  height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+
+  <!-- Course 2 (y=140..204) — 3 stones -->
+  <rect x="4"   y="140" width="170" height="64" rx="3" fill="#80787e"/>
+  <rect x="180" y="140" width="160" height="64" rx="3" fill="#7a7870"/>
+  <rect x="346" y="140" width="162" height="64" rx="3" fill="#847e76"/>
+
+  <rect x="4"   y="140" width="170" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="180" y="140" width="160" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="346" y="140" width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+
+  <!-- Course 3 (y=208..272) — offset, 4 stones -->
+  <rect x="4"   y="208" width="76"  height="64" rx="3" fill="#7c7870"/>
+  <rect x="86"  y="208" width="170" height="64" rx="3" fill="#807c74"/>
+  <rect x="262" y="208" width="160" height="64" rx="3" fill="#7a7870"/>
+  <rect x="428" y="208" width="80"  height="64" rx="3" fill="#848078"/>
+
+  <rect x="4"   y="208" width="76"  height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="86"  y="208" width="170" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="262" y="208" width="160" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="428" y="208" width="80"  height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+
+  <!-- Course 4 (y=276..340) — 3 stones -->
+  <rect x="4"   y="276" width="162" height="64" rx="3" fill="#7e7a70"/>
+  <rect x="172" y="276" width="166" height="64" rx="3" fill="#84807a"/>
+  <rect x="344" y="276" width="164" height="64" rx="3" fill="#7c7870"/>
+
+  <rect x="4"   y="276" width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="172" y="276" width="166" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="344" y="276" width="164" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+
+  <!-- Course 5 (y=344..408) — offset, 4 stones -->
+  <rect x="4"   y="344" width="84"  height="64" rx="3" fill="#807870"/>
+  <rect x="94"  y="344" width="162" height="64" rx="3" fill="#7c7870"/>
+  <rect x="262" y="344" width="168" height="64" rx="3" fill="#828078"/>
+  <rect x="436" y="344" width="72"  height="64" rx="3" fill="#787470"/>
+
+  <rect x="4"   y="344" width="84"  height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="94"  y="344" width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="262" y="344" width="168" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="436" y="344" width="72"  height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+
+  <!-- Course 6 (y=412..476) — 3 stones -->
+  <rect x="4"   y="412" width="166" height="64" rx="3" fill="#7a7870"/>
+  <rect x="176" y="412" width="162" height="64" rx="3" fill="#80787e"/>
+  <rect x="344" y="412" width="164" height="64" rx="3" fill="#7e7a72"/>
+
+  <rect x="4"   y="412" width="166" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="176" y="412" width="162" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+  <rect x="344" y="412" width="164" height="4"  rx="2" fill="#9a9690" opacity="0.5"/>
+</svg>
