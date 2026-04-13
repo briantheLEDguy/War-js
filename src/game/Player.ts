@@ -5,6 +5,9 @@ import { AssetLoader } from './AssetLoader';
 import { buildCharacterMesh } from './CharacterMeshes';
 import type { FollowCamera } from './Camera';
 import type { Input } from './Input';
+import type { CharacterAnimator } from './animation/CharacterAnimator';
+import { WarriorPriestAnimator } from './animation/WarriorPriestAnimator';
+import { buildWarriorPriestRigged } from './WarriorPriest';
 
 const MOVE_SPEED = 6.0;
 const TURN_SPEED = 6.0;
@@ -15,41 +18,46 @@ export class Player {
   object!: THREE.Object3D;
   position = new THREE.Vector3();
   rotationY = 0;
+  /** Procedural animation driver — null for careers without a rig yet. */
+  animator: CharacterAnimator | null = null;
   private verticalV = 0;
   private grounded = true;
+  /** Horizontal speed (m/s) computed from last frame's displacement. */
+  private lastSpeed = 0;
 
   constructor(public character: CharacterState, private terrain: Terrain) {}
 
   async build(loader: AssetLoader, scene: THREE.Scene): Promise<void> {
-    const modelName =
-      this.character.race === 'greenskin'
-        ? 'character_greenskin.glb'
-        : this.character.race === 'dark_elf'
-        ? 'character_dark_elf.glb'
-        : this.character.race === 'chaos'
-        ? 'character_chaos.glb'
-        : this.character.race === 'dwarf'
-        ? 'character_dwarf.glb'
-        : this.character.race === 'high_elf'
-        ? 'character_high_elf.glb'
-        : 'character_empire.glb';
-    const color =
-      this.character.race === 'greenskin'
-        ? 0x3d6a2a
-        : this.character.race === 'dark_elf'
-        ? 0x4a2060
-        : this.character.race === 'chaos'
-        ? 0x5a1a1a
-        : this.character.race === 'dwarf'
-        ? 0x8a5a2a
-        : this.character.race === 'high_elf'
-        ? 0x7a9aa8
-        : 0x7a6425;
-    this.object = await loader.loadModel(
-      modelName,
-      // CharacterState stores the career in `className` (e.g. "Warrior Priest").
-      () => buildCharacterMesh(this.character.race, this.character.className),
-    );
+    // Warrior Priest: build the rig directly so the animator can hold live
+    // references to the shoulder / hip / hammer pivots. Going through the
+    // shared loadModel cache would clone the result and orphan our pivot
+    // references — so bypass it for rigged careers.
+    if (
+      this.character.race === 'empire' &&
+      this.character.className === 'Warrior Priest'
+    ) {
+      const rig = buildWarriorPriestRigged();
+      this.object = rig.root;
+      this.animator = new WarriorPriestAnimator(rig);
+    } else {
+      const modelName =
+        this.character.race === 'greenskin'
+          ? 'character_greenskin.glb'
+          : this.character.race === 'dark_elf'
+          ? 'character_dark_elf.glb'
+          : this.character.race === 'chaos'
+          ? 'character_chaos.glb'
+          : this.character.race === 'dwarf'
+          ? 'character_dwarf.glb'
+          : this.character.race === 'high_elf'
+          ? 'character_high_elf.glb'
+          : 'character_empire.glb';
+      this.object = await loader.loadModel(
+        modelName,
+        // CharacterState stores the career in `className` (e.g. "Warrior Priest").
+        () => buildCharacterMesh(this.character.race, this.character.className),
+      );
+    }
     this.position.set(
       this.character.position.x,
       this.terrain.heightAt(this.character.position.x, this.character.position.z),
@@ -82,6 +90,10 @@ export class Player {
     const wx = mx * cos - mz * sin;
     const wz = mx * sin + mz * cos;
 
+    // Track horizontal displacement so the animator knows the locomotion speed.
+    const prevX = this.position.x;
+    const prevZ = this.position.z;
+
     if (len > 0) {
       this.position.x += wx * MOVE_SPEED * dt;
       this.position.z += wz * MOVE_SPEED * dt;
@@ -110,6 +122,21 @@ export class Player {
 
     this.object.position.copy(this.position);
     this.object.rotation.y = this.rotationY;
+
+    // Animation update — compute planar speed from this frame's displacement
+    // (not from input, so the animator reacts correctly to e.g. collision).
+    if (this.animator && dt > 0) {
+      const dx = this.position.x - prevX;
+      const dz = this.position.z - prevZ;
+      const frameSpeed = Math.hypot(dx, dz) / dt;
+      // Smooth the reading slightly so single-frame spikes don't flicker the pose.
+      this.lastSpeed = this.lastSpeed * 0.6 + frameSpeed * 0.4;
+      this.animator.update({
+        dt,
+        speed: this.lastSpeed,
+        airborne: !this.grounded,
+      });
+    }
   }
 }
 
