@@ -617,22 +617,90 @@ function buildArm(
     parent.add(band);
   }
 
-  // ── Gauntlet (hand) ─────────────────────────────────────────────────────
-  // Steel knuckle dome + gold cuff + leather grip underneath.
-  const gauntlet = smoothSph(0.09, mats.steel, 18);
-  gauntlet.scale.set(1.0, 0.85, 1.15);
-  gauntlet.position.set(sx, 0.66, 0);
-  parent.add(gauntlet);
-  // Gold knuckle ridges — three tiny spheres across the back of the hand.
-  for (const dz of [-0.05, 0.0, 0.05]) {
-    const knuckle = smoothSph(0.022, mats.gold, 12);
-    knuckle.position.set(sx, 0.69, dz);
-    parent.add(knuckle);
+  // ── Articulated gauntlet hand ──────────────────────────────────────────
+  // Wrist sits at y ≈ 0.62 (just below the vambrace); fingers extend down
+  // from there. Built via `buildHand()` so the palm, knuckles, four fingers
+  // and thumb are all distinct geometry rather than a single blob sphere.
+  const hand = buildHand(mats, side);
+  hand.position.set(sx, 0.62, 0);
+  parent.add(hand);
+}
+
+/**
+ * Articulated steel-and-gold gauntlet hand.
+ *
+ * Origin = wrist. With no rotation applied, the back of the hand faces +Y
+ * (upward toward the elbow) and the fingers extend in -Y (downward, the
+ * rest-pose orientation). `side` is +1 for the right hand, -1 for the left
+ * (controls which side the thumb splays to).
+ */
+function buildHand(mats: WarriorPriestMaterials, side: number): THREE.Group {
+  const hand = new THREE.Group();
+  hand.name = side > 0 ? 'HandR' : 'HandL';
+
+  // Palm / back-of-hand — a lathe flattened in Z so the hand reads as a
+  // flat paddle rather than a sphere. Wider across the knuckles, narrower
+  // toward the wrist.
+  const palmProfile = [
+    new THREE.Vector2(0.055, 0.00),
+    new THREE.Vector2(0.075, 0.02),
+    new THREE.Vector2(0.080, 0.06),
+    new THREE.Vector2(0.082, 0.10),
+    new THREE.Vector2(0.072, 0.12),
+    new THREE.Vector2(0.000, 0.13),
+  ];
+  const palm = lathe(palmProfile, 18, mats.steel);
+  // Y goes upward by default; flip so fingers extend in -Y. Z squashed so
+  // the hand is flatter than it is wide.
+  palm.scale.set(1.0, -1.0, 0.55);
+  hand.add(palm);
+
+  // Wrist cuff (gold band at the base of the palm).
+  const cuff = smoothTorus(0.062, 0.014, mats.gold, 8, 20);
+  cuff.rotation.x = Math.PI / 2;
+  cuff.position.set(0, 0.005, 0);
+  hand.add(cuff);
+
+  // Knuckle studs — four small gold domes across the back of the hand.
+  for (const dx of [-0.045, -0.015, 0.015, 0.045]) {
+    const knuckle = smoothSph(0.013, mats.gold, 12);
+    knuckle.position.set(dx, -0.10, 0.025);
+    hand.add(knuckle);
   }
-  // Leather finger group — tapered cylinder for fingers held together.
-  const fingers = smoothCyl(0.06, 0.05, 0.12, mats.leather, 14);
-  fingers.position.set(sx, 0.58, 0.02);
-  parent.add(fingers);
+
+  // Four fingers (index → pinky) — capsules extending from the knuckle
+  // line. Index and pinky are shorter than middle/ring for a natural hand.
+  const fingerXs = [-0.045, -0.015, 0.015, 0.045];
+  const fingerLens = [0.085, 0.095, 0.090, 0.075];
+  for (let i = 0; i < 4; i++) {
+    const len = fingerLens[i];
+    const finger = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.013, len, 4, 8), mats.steel,
+    ));
+    finger.position.set(fingerXs[i], -0.10 - len / 2 - 0.015, 0);
+    hand.add(finger);
+    // Gold finger-joint band at the base of each finger.
+    const joint = smoothTorus(0.014, 0.004, mats.gold, 6, 12);
+    joint.rotation.x = Math.PI / 2;
+    joint.position.set(fingerXs[i], -0.115, 0);
+    hand.add(joint);
+  }
+
+  // Thumb — offset to the appropriate side of the palm, angled forward.
+  const thumb = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.014, 0.07, 4, 8), mats.steel,
+  ));
+  thumb.rotation.z = side * 0.9;
+  thumb.rotation.x = -0.35;
+  thumb.position.set(side * 0.06, -0.06, 0.025);
+  hand.add(thumb);
+  // Gold thumbnail band.
+  const thumbBand = smoothTorus(0.016, 0.004, mats.gold, 6, 12);
+  thumbBand.rotation.z = side * 0.9;
+  thumbBand.position.set(side * 0.075, -0.075, 0.03);
+  hand.add(thumbBand);
+
+  return hand;
 }
 
 /** Shoulder anchor for the left arm pivot (world-space when priest is at rest). */
