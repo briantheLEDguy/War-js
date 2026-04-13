@@ -505,6 +505,110 @@ function buildArms(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   buildArm(parent, mats,  0.42);
 }
 
+// ─── Head + halo crown ──────────────────────────────────────────────────────
+
+/**
+ * Head, neck, beard, and the solar halo crown that is the Warrior Priest's
+ * signature silhouette feature.
+ *
+ * The halo is constructed as a ring-plus-rays: a thin gold torus encircling
+ * the crown, with twelve tapered spikes radiating outward like a sunburst.
+ */
+function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  // ── Neck (short mail column inside the gorget) ──────────────────────────
+  const neck = smoothCyl(0.10, 0.10, 0.12, mats.skin, 16);
+  neck.position.set(0, 1.68, 0);
+  parent.add(neck);
+
+  // ── Head (slightly elongated sphere) ────────────────────────────────────
+  const head = smoothSph(0.18, mats.skin, 28);
+  head.scale.set(0.95, 1.05, 1.0);
+  head.position.set(0, 1.86, 0);
+  parent.add(head);
+
+  // ── Shaved scalp highlight — a darker crown cap for visual separation ───
+  const scalp = shadowed(new THREE.Mesh(
+    new THREE.SphereGeometry(0.182, 24, 16, 0, Math.PI * 2, 0, Math.PI * 0.45),
+    new THREE.MeshStandardMaterial({
+      color: 0xb8865e, metalness: 0, roughness: 0.85,
+    }),
+  ));
+  scalp.position.set(0, 1.86, 0);
+  parent.add(scalp);
+
+  // ── Beard (short cropped) ───────────────────────────────────────────────
+  // Dark brown lathed shape hugging the jawline.
+  const beardMat = new THREE.MeshStandardMaterial({
+    color: 0x3a2612, metalness: 0, roughness: 0.95,
+  });
+  const beardProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.12, 0.02),
+    new THREE.Vector2(0.14, 0.08),
+    new THREE.Vector2(0.13, 0.14),
+    new THREE.Vector2(0.10, 0.18),
+    new THREE.Vector2(0.00, 0.18),
+  ];
+  const beard = lathe(beardProfile, 20, beardMat);
+  beard.position.set(0, 1.74, 0.04);
+  parent.add(beard);
+
+  // Moustache — a thin horizontal capsule across the upper lip.
+  const mustache = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.025, 0.14, 4, 8), beardMat,
+  ));
+  mustache.rotation.z = Math.PI / 2;
+  mustache.position.set(0, 1.82, 0.16);
+  parent.add(mustache);
+
+  // ── Cloth headband (sits under the halo, covering the brow) ────────────
+  const headband = smoothTorus(0.185, 0.022, mats.robe, 10, 28);
+  headband.rotation.x = Math.PI / 2;
+  headband.position.set(0, 1.92, 0);
+  parent.add(headband);
+
+  // ── Solar halo crown ────────────────────────────────────────────────────
+  // Main gold ring floating just above the crown of the head.
+  const haloRing = smoothTorus(0.21, 0.018, mats.gold, 10, 40);
+  haloRing.rotation.x = Math.PI / 2;
+  haloRing.position.set(0, 2.00, 0);
+  parent.add(haloRing);
+
+  // Twelve radial spikes — thin cones evenly distributed around the ring.
+  const spikeCount = 12;
+  for (let i = 0; i < spikeCount; i++) {
+    const angle = (i / spikeCount) * Math.PI * 2;
+    // Alternate tall/short spikes for a sunburst rhythm.
+    const len = i % 2 === 0 ? 0.12 : 0.08;
+    const baseR = 0.22;
+    const tipR  = baseR + len;
+    const spike = shadowed(new THREE.Mesh(
+      new THREE.ConeGeometry(0.022, len, 8), mats.gold,
+    ));
+    // Cone apex points along +Y by default. To aim it outward in the XZ
+    // plane: rotate -90° around Z (apex now points along +X), then rotate
+    // around Y by -angle to sweep the +X axis to the desired direction.
+    spike.rotation.order = 'YXZ';
+    spike.rotation.z = -Math.PI / 2;
+    spike.rotation.y = -angle;
+    // Position spike midpoint on the ring at the correct radial offset.
+    const midR = (baseR + tipR) / 2;
+    spike.position.set(
+      Math.cos(angle) * midR,
+      2.00,
+      Math.sin(angle) * midR,
+    );
+    parent.add(spike);
+  }
+
+  // Halo backplate disc — a very thin cylinder behind the ring, giving the
+  // halo a soft metallic "aura" when lit from behind.
+  const halodisc = smoothCyl(0.19, 0.19, 0.01, mats.goldDark, 40);
+  halodisc.position.set(0, 2.00, -0.005);
+  halodisc.rotation.x = Math.PI / 2;
+  parent.add(halodisc);
+}
+
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
 /** Build a detailed Warrior Priest. Feet at y=0, head ≈ y=1.95. */
@@ -517,6 +621,7 @@ export function buildWarriorPriest(
   buildLowerBody(group, mats);
   buildTorso(group, mats);
   buildArms(group, mats);
-  // Head / weapon built in subsequent commits.
+  buildHead(group, mats);
+  // Weapon built in the next commit.
   return group;
 }
