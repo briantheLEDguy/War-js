@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { useGameStore } from '../state/gameStore';
+import { buildCharacterMesh } from './CharacterMeshes';
 
 export type PrimitiveFactory = () => THREE.Object3D;
 
@@ -645,49 +646,87 @@ export class AssetLoader {
 
     // --- NPC role-colored humanoids with visual markers ---
 
-    /** City guard — armored soldier (steel blue) with shield. */
+    /** City guard — Reikguard soldier with shield and spear. */
     npc_guard(): THREE.Object3D {
-      const group = AssetLoader.primitives.humanoid(0x4a6080);
-      const shieldMat = new THREE.MeshStandardMaterial({ color: 0x5a708a, metalness: 0.3, roughness: 0.6 });
-      const shield = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.5, 0.35), shieldMat);
-      shield.position.set(-0.45, 1.1, 0.1);
+      const group = buildCharacterMesh('empire', 'Knight of the Blazing Sun') as THREE.Group;
+      // Override pauldrons with blue-steel tint via recolor pass
+      group.traverse((n) => {
+        if ((n as THREE.Mesh).isMesh) {
+          const mat = (n as THREE.Mesh).material as THREE.MeshStandardMaterial;
+          if (mat.color && mat.metalness > 0.3) {
+            mat.color.setHex(0x4a6080);
+          }
+        }
+      });
+      // Tall shield
+      const shieldMat = new THREE.MeshStandardMaterial({ color: 0xcc1010, roughness: 0.6 });
+      const shield = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.65, 0.45), shieldMat);
+      shield.position.set(-0.5, 1.1, 0.05);
       shield.castShadow = true;
       group.add(shield);
-      // Weapon (spear)
-      const weaponMat = new THREE.MeshStandardMaterial({ color: 0x6a6a6a, metalness: 0.4 });
-      const spear = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 2.5, 6), weaponMat);
-      spear.position.set(0.42, 1.3, 0);
+      // Emblem on shield
+      const emblem = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.22, 0.22),
+        new THREE.MeshStandardMaterial({ color: 0xd4aa20, metalness: 0.7 }));
+      emblem.position.set(-0.52, 1.15, 0.05);
+      group.add(emblem);
+      // Spear
+      const spear = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.028, 2.8, 6),
+        new THREE.MeshStandardMaterial({ color: 0x5a3a10, roughness: 0.9 }));
+      spear.position.set(0.5, 1.5, 0);
       spear.castShadow = true;
       group.add(spear);
+      const speartip = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.25, 6),
+        new THREE.MeshStandardMaterial({ color: 0xa0a0b0, metalness: 0.7 }));
+      speartip.position.set(0.5, 2.95, 0);
+      group.add(speartip);
       return group;
     },
-    /** Vendor NPC (brown/tan) with apron marker. */
+    /** Vendor NPC — civilian with apron. */
     npc_vendor(): THREE.Object3D {
-      const group = AssetLoader.primitives.humanoid(0x8a6040);
-      const apronMat = new THREE.MeshStandardMaterial({ color: 0xc0a878 });
-      const apron = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 0.05), apronMat);
-      apron.position.set(0, 0.85, 0.33);
+      const group = new THREE.Group();
+      // Use empire base but with civilian/cloth colors
+      const base = buildCharacterMesh('empire') as THREE.Group;
+      base.traverse((n) => {
+        if ((n as THREE.Mesh).isMesh) {
+          const mat = (n as THREE.Mesh).material as THREE.MeshStandardMaterial;
+          if (mat.metalness > 0.3) mat.metalness = 0;
+          if (mat.color) mat.color.setHex(0x8a6040);
+        }
+      });
+      group.add(base);
+      const apron = new THREE.Mesh(new THREE.BoxGeometry(0.54, 0.55, 0.06),
+        new THREE.MeshStandardMaterial({ color: 0xc8b07a, roughness: 0.95 }));
+      apron.position.set(0, 1.0, 0.17);
       group.add(apron);
       return group;
     },
-    /** Career trainer NPC (gold) with glowing marker. */
+    /** Career trainer NPC — armored with a held book/scroll. */
     npc_trainer(): THREE.Object3D {
-      const group = AssetLoader.primitives.humanoid(0xa88020);
-      // Book/scroll indicator
-      const bookMat = new THREE.MeshStandardMaterial({ color: 0x8a3020 });
-      const book = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.25, 0.15), bookMat);
-      book.position.set(-0.42, 1.0, 0.15);
-      group.add(book);
+      const group = buildCharacterMesh('empire', 'Warrior Priest') as THREE.Group;
+      group.traverse((n) => {
+        if ((n as THREE.Mesh).isMesh) {
+          const mat = (n as THREE.Mesh).material as THREE.MeshStandardMaterial;
+          if (mat.color) mat.color.multiplyScalar(1.15); // slightly brighter gold
+        }
+      });
       return group;
     },
-    /** Banker NPC (silver) with coin stack indicator. */
+    /** Banker NPC — well-dressed merchant with coin purse. */
     npc_banker(): THREE.Object3D {
-      const group = AssetLoader.primitives.humanoid(0x707878);
-      const coinMat = new THREE.MeshStandardMaterial({ color: 0xd4aa20, metalness: 0.5, roughness: 0.3 });
-      const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 8), coinMat);
-      coin.position.set(0.42, 1.0, 0.15);
-      coin.rotation.x = Math.PI / 4;
-      group.add(coin);
+      const group = new THREE.Group();
+      const base = buildCharacterMesh('empire') as THREE.Group;
+      base.traverse((n) => {
+        if ((n as THREE.Mesh).isMesh) {
+          const mat = (n as THREE.Mesh).material as THREE.MeshStandardMaterial;
+          if (mat.metalness > 0.3) { mat.metalness = 0.1; mat.color.setHex(0x707878); }
+        }
+      });
+      group.add(base);
+      // Coin purse hanging from belt
+      const purse = new THREE.Mesh(new THREE.SphereGeometry(0.1, 6, 6),
+        new THREE.MeshStandardMaterial({ color: 0x8a7020 }));
+      purse.position.set(0.3, 0.85, 0.2);
+      group.add(purse);
       return group;
     },
     /** Quest giver NPC (yellow — WAR's exclamation mark equivalent). */

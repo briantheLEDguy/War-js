@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+  <!-- Mortar background -->
+  <rect width="512" height="512" fill="#2a2720"/>
+
+  <!-- Row 0 (y=3..47) — 4 stones -->
+  <rect x="3"   y="3"  width="118" height="44" rx="4" fill="#6c6660"/>
+  <rect x="127" y="3"  width="126" height="44" rx="4" fill="#787068"/>
+  <rect x="259" y="3"  width="114" height="44" rx="4" fill="#686260"/>
+  <rect x="379" y="3"  width="130" height="44" rx="4" fill="#726c64"/>
+
+  <!-- Row 1 (y=51..95) — 5 stones, offset -->
+  <rect x="3"   y="51" width="58"  height="44" rx="4" fill="#706a62"/>
+  <rect x="67"  y="51" width="110" height="44" rx="4" fill="#7a7468"/>
+  <rect x="183" y="51" width="116" height="44" rx="4" fill="#686058"/>
+  <rect x="305" y="51" width="104" height="44" rx="4" fill="#726860"/>
+  <rect x="415" y="51" width="94"  height="44" rx="4" fill="#786e64"/>
+
+  <!-- Row 2 (y=99..143) — 4 stones -->
+  <rect x="3"   y="99" width="130" height="44" rx="4" fill="#646058"/>
+  <rect x="139" y="99" width="108" height="44" rx="4" fill="#706a62"/>
+  <rect x="253" y="99" width="122" height="44" rx="4" fill="#7c7668"/>
+  <rect x="381" y="99" width="128" height="44" rx="4" fill="#6a6460"/>
+
+  <!-- Row 3 (y=147..191) — 5 stones, offset -->
+  <rect x="3"   y="147" width="82"  height="44" rx="4" fill="#726c60"/>
+  <rect x="91"  y="147" width="118" height="44" rx="4" fill="#686058"/>
+  <rect x="215" y="147" width="106" height="44" rx="4" fill="#787068"/>
+  <rect x="327" y="147" width="122" height="44" rx="4" fill="#6e6862"/>
+  <rect x="455" y="147" width="54"  height="44" rx="4" fill="#74706a"/>
+
+  <!-- Row 4 (y=195..239) — 4 stones -->
+  <rect x="3"   y="195" width="114" height="44" rx="4" fill="#6a6460"/>
+  <rect x="123" y="195" width="130" height="44" rx="4" fill="#767068"/>
+  <rect x="259" y="195" width="110" height="44" rx="4" fill="#706860"/>
+  <rect x="375" y="195" width="134" height="44" rx="4" fill="#686260"/>
+
+  <!-- Row 5 (y=243..287) — 5 stones, offset -->
+  <rect x="3"   y="243" width="68"  height="44" rx="4" fill="#7a7268"/>
+  <rect x="77"  y="243" width="114" height="44" rx="4" fill="#666058"/>
+  <rect x="197" y="243" width="122" height="44" rx="4" fill="#726c62"/>
+  <rect x="325" y="243" width="108" height="44" rx="4" fill="#786e64"/>
+  <rect x="439" y="243" width="70"  height="44" rx="4" fill="#6c6660"/>
+
+  <!-- Row 6 (y=291..335) — 4 stones -->
+  <rect x="3"   y="291" width="124" height="44" rx="4" fill="#6e6860"/>
+  <rect x="133" y="291" width="116" height="44" rx="4" fill="#74706a"/>
+  <rect x="255" y="291" width="126" height="44" rx="4" fill="#686060"/>
+  <rect x="387" y="291" width="122" height="44" rx="4" fill="#767268"/>
+
+  <!-- Row 7 (y=339..383) — 5 stones, offset -->
+  <rect x="3"   y="339" width="48"  height="44" rx="4" fill="#706860"/>
+  <rect x="57"  y="339" width="120" height="44" rx="4" fill="#786e68"/>
+  <rect x="183" y="339" width="112" height="44" rx="4" fill="#6a6460"/>
+  <rect x="301" y="339" width="126" height="44" rx="4" fill="#726c62"/>
+  <rect x="433" y="339" width="76"  height="44" rx="4" fill="#6e6860"/>
+
+  <!-- Row 8 (y=387..431) — 4 stones -->
+  <rect x="3"   y="387" width="118" height="44" rx="4" fill="#686060"/>
+  <rect x="127" y="387" width="126" height="44" rx="4" fill="#7a7468"/>
+  <rect x="259" y="387" width="118" height="44" rx="4" fill="#706860"/>
+  <rect x="383" y="387" width="126" height="44" rx="4" fill="#747068"/>
+
+  <!-- Row 9 (y=435..479) — 5 stones, offset -->
+  <rect x="3"   y="435" width="76"  height="44" rx="4" fill="#726c62"/>
+  <rect x="85"  y="435" width="110" height="44" rx="4" fill="#6c6660"/>
+  <rect x="201" y="435" width="120" height="44" rx="4" fill="#786e64"/>
+  <rect x="327" y="435" width="106" height="44" rx="4" fill="#6a6460"/>
+  <rect x="439" y="435" width="70"  height="44" rx="4" fill="#706a62"/>
+
+  <!-- Subtle highlight on top edge of each stone row (adds depth/bevel) -->
+  <rect x="3"   y="3"  width="118" height="3"  rx="2" fill="#888078" opacity="0.4"/>
+  <rect x="127" y="3"  width="126" height="3"  rx="2" fill="#888078" opacity="0.4"/>
+  <rect x="259" y="3"  width="114" height="3"  rx="2" fill="#888078" opacity="0.4"/>
+  <rect x="379" y="3"  width="130" height="3"  rx="2" fill="#888078" opacity="0.4"/>
+</svg>

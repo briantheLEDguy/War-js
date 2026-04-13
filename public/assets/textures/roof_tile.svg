@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+  <!-- Base tile color (dark terracotta/clay) -->
+  <rect width="512" height="512" fill="#6b3820"/>
+
+  <!-- Each tile row: overlapping semicircles, offset alternating rows -->
+  <!-- Row 0 (y=0..52): even row — tiles at x=0,64,128,192,256,320,384,448 -->
+  <ellipse cx="32"  cy="52" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="96"  cy="52" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="160" cy="52" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="224" cy="52" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="288" cy="52" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="352" cy="52" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="416" cy="52" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="480" cy="52" rx="32" ry="32" fill="#7e4628"/>
+  <rect x="0"   y="20" width="512" height="32" fill="#6b3820"/>
+  <!-- Tile caps (front edge shadow) -->
+  <rect x="0"   y="50" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 1 (y=52..104): odd row — tiles offset by 32px -->
+  <ellipse cx="64"  cy="104" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="128" cy="104" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="192" cy="104" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="256" cy="104" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="320" cy="104" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="384" cy="104" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="448" cy="104" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="512" cy="104" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="0"   cy="104" rx="32" ry="32" fill="#784025"/>
+  <rect x="0"   y="72" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="102" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 2 -->
+  <ellipse cx="32"  cy="156" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="96"  cy="156" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="160" cy="156" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="224" cy="156" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="288" cy="156" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="352" cy="156" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="416" cy="156" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="480" cy="156" rx="32" ry="32" fill="#784025"/>
+  <rect x="0"   y="124" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="154" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 3 -->
+  <ellipse cx="64"  cy="208" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="128" cy="208" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="192" cy="208" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="256" cy="208" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="320" cy="208" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="384" cy="208" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="448" cy="208" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="0"   cy="208" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="512" cy="208" rx="32" ry="32" fill="#784025"/>
+  <rect x="0"   y="176" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="206" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 4 -->
+  <ellipse cx="32"  cy="260" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="96"  cy="260" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="160" cy="260" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="224" cy="260" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="288" cy="260" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="352" cy="260" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="416" cy="260" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="480" cy="260" rx="32" ry="32" fill="#7e4628"/>
+  <rect x="0"   y="228" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="258" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 5 -->
+  <ellipse cx="64"  cy="312" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="128" cy="312" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="192" cy="312" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="256" cy="312" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="320" cy="312" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="384" cy="312" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="448" cy="312" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="0"   cy="312" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="512" cy="312" rx="32" ry="32" fill="#784025"/>
+  <rect x="0"   y="280" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="310" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 6 -->
+  <ellipse cx="32"  cy="364" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="96"  cy="364" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="160" cy="364" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="224" cy="364" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="288" cy="364" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="352" cy="364" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="416" cy="364" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="480" cy="364" rx="32" ry="32" fill="#7c4428"/>
+  <rect x="0"   y="332" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="362" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 7 -->
+  <ellipse cx="64"  cy="416" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="128" cy="416" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="192" cy="416" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="256" cy="416" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="320" cy="416" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="384" cy="416" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="448" cy="416" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="0"   cy="416" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="512" cy="416" rx="32" ry="32" fill="#763f24"/>
+  <rect x="0"   y="384" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="414" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+
+  <!-- Row 8 -->
+  <ellipse cx="32"  cy="468" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="96"  cy="468" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="160" cy="468" rx="32" ry="32" fill="#7a4226"/>
+  <ellipse cx="224" cy="468" rx="32" ry="32" fill="#7c4428"/>
+  <ellipse cx="288" cy="468" rx="32" ry="32" fill="#763f24"/>
+  <ellipse cx="352" cy="468" rx="32" ry="32" fill="#7e4628"/>
+  <ellipse cx="416" cy="468" rx="32" ry="32" fill="#784025"/>
+  <ellipse cx="480" cy="468" rx="32" ry="32" fill="#7a4226"/>
+  <rect x="0"   y="436" width="512" height="32" fill="#6b3820"/>
+  <rect x="0"   y="466" width="512" height="4" fill="#4a2510" opacity="0.6"/>
+</svg>
