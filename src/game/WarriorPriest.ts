@@ -731,6 +731,79 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   head.position.set(0, 1.86, 0);
   parent.add(head);
 
+  // ── Face features ───────────────────────────────────────────────────────
+  // All facial geometry sits forward of the head sphere centre (z > 0.14)
+  // and is intentionally small — at the player's normal viewing distance
+  // they read as eye sockets and a nose ridge rather than literal features.
+
+  // Brow ridge — slightly darker skin tone, gives the eyes a deep socket.
+  const browMat = new THREE.MeshStandardMaterial({
+    color: 0xa07550, metalness: 0, roughness: 0.85,
+  });
+  const browRidge = shadowed(new THREE.Mesh(
+    new THREE.BoxGeometry(0.20, 0.025, 0.04), browMat,
+  ));
+  browRidge.position.set(0, 1.94, 0.16);
+  parent.add(browRidge);
+
+  // Eyebrows — two short dark capsules angled inward.
+  const browHairMat = new THREE.MeshStandardMaterial({
+    color: 0x2a1c0a, metalness: 0, roughness: 0.95,
+  });
+  for (const sx of [-0.06, 0.06]) {
+    const eyebrow = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.014, 0.06, 4, 8), browHairMat,
+    ));
+    eyebrow.rotation.z = Math.PI / 2;
+    eyebrow.rotation.y = sx > 0 ? -0.18 : 0.18;
+    eyebrow.position.set(sx, 1.945, 0.175);
+    parent.add(eyebrow);
+  }
+
+  // Eye sockets — small dark recessed spheres (the white of the eye is
+  // intentionally omitted; the recessed shadow reads better than a tiny
+  // white dot at the player's viewing distance).
+  const eyeMat = new THREE.MeshStandardMaterial({
+    color: 0x2a2218, metalness: 0, roughness: 0.4,
+  });
+  for (const sx of [-0.055, 0.055]) {
+    const eye = smoothSph(0.022, eyeMat, 14);
+    eye.scale.set(1.2, 0.8, 0.6);
+    eye.position.set(sx, 1.91, 0.17);
+    parent.add(eye);
+  }
+
+  // Nose — a small rounded wedge protruding from the face.
+  const nose = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.022, 0.06, 4, 10), mats.skin,
+  ));
+  nose.rotation.x = -0.15;
+  nose.position.set(0, 1.88, 0.185);
+  parent.add(nose);
+  // Nose tip — tiny sphere for a defined point.
+  const noseTip = smoothSph(0.024, mats.skin, 14);
+  noseTip.position.set(0, 1.85, 0.195);
+  parent.add(noseTip);
+
+  // Cheekbones — slight skin-tone domes for facial structure.
+  for (const sx of [-0.08, 0.08]) {
+    const cheek = smoothSph(0.045, mats.skin, 14);
+    cheek.scale.set(1.1, 0.7, 0.5);
+    cheek.position.set(sx, 1.86, 0.165);
+    parent.add(cheek);
+  }
+
+  // Mouth — a thin recessed slit (dark capsule).
+  const mouthMat = new THREE.MeshStandardMaterial({
+    color: 0x3a1810, metalness: 0, roughness: 0.9,
+  });
+  const mouth = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.012, 0.05, 4, 8), mouthMat,
+  ));
+  mouth.rotation.z = Math.PI / 2;
+  mouth.position.set(0, 1.795, 0.18);
+  parent.add(mouth);
+
   // ── Shaved scalp highlight — a darker crown cap for visual separation ───
   const scalp = shadowed(new THREE.Mesh(
     new THREE.SphereGeometry(0.182, 24, 16, 0, Math.PI * 2, 0, Math.PI * 0.45),
@@ -758,13 +831,17 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   beard.position.set(0, 1.74, 0.04);
   parent.add(beard);
 
-  // Moustache — a thin horizontal capsule across the upper lip.
-  const mustache = shadowed(new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.025, 0.14, 4, 8), beardMat,
-  ));
-  mustache.rotation.z = Math.PI / 2;
-  mustache.position.set(0, 1.82, 0.16);
-  parent.add(mustache);
+  // Moustache — two angled halves draped over the upper lip with a
+  // slight downward curve at each end.
+  for (const sx of [-0.04, 0.04]) {
+    const half = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.012, 0.06, 4, 8), beardMat,
+    ));
+    half.rotation.z = Math.PI / 2;
+    half.rotation.y = sx > 0 ? 0.25 : -0.25;
+    half.position.set(sx, 1.815, 0.18);
+    parent.add(half);
+  }
 
   // ── Cloth headband (sits under the halo, covering the brow) ────────────
   const headband = smoothTorus(0.185, 0.022, mats.robe, 10, 28);
