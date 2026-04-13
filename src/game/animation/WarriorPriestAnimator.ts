@@ -240,10 +240,72 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     root.position.y = Math.max(0, bodyLean);
   }
 
+  /**
+   * Ranged Shot — invoke Sigmar's wrath. The off-hand thrusts forward with
+   * an open palm as the divine bolt is released; the hammer-hand stays
+   * half-raised in a defensive ready pose.
+   *
+   * Timing (t in 0..1 over ~0.55 s):
+   *   0.00 → 0.25  gather: off-hand pulls back to the hip
+   *   0.25 → 0.50  release: off-hand thrusts forward into extension
+   *   0.50 → 0.75  hold at full extension (the bolt is airborne)
+   *   0.75 → 1.00  recover
+   */
   private applyRangedShot(t: number): void {
-    // Temporary: thrust the off-hand forward until the full pose is authored.
-    const { leftArm } = this.rig;
-    leftArm.rotation.x = -easeOut(t) * 1.2 * (1 - t);
+    const { leftArm, rightArm, hammer, hammerRestEuler } = this.rig;
+
+    // Off-hand pitch: small pullback (positive = forward-down in our rig, so
+    // negative = up-forward for the thrust extension).
+    const offHandPitch = sampleKeys(
+      [
+        { t: 0.00, v:  0.00 },
+        { t: 0.25, v:  0.30 },   // gathered at the hip
+        { t: 0.50, v: -1.45 },   // thrust forward (arm near-horizontal)
+        { t: 0.75, v: -1.45 },   // hold
+        { t: 1.00, v:  0.00 },
+      ],
+      t,
+    );
+
+    // Off-hand roll: palm opens outward as the bolt releases.
+    const offHandRoll = sampleKeys(
+      [
+        { t: 0.00, v:  0.00 },
+        { t: 0.25, v: -0.20 },
+        { t: 0.50, v:  0.35 },
+        { t: 0.75, v:  0.35 },
+        { t: 1.00, v:  0.00 },
+      ],
+      t,
+    );
+
+    // Weapon hand pulls into a defensive ready (hammer slightly raised toward chest).
+    const weaponPitch = sampleKeys(
+      [
+        { t: 0.00, v:  0.00 },
+        { t: 0.25, v: -0.35 },
+        { t: 0.50, v: -0.50 },
+        { t: 0.75, v: -0.50 },
+        { t: 1.00, v:  0.00 },
+      ],
+      t,
+    );
+
+    leftArm.rotation.x = offHandPitch;
+    leftArm.rotation.z = offHandRoll;
+    rightArm.rotation.x = weaponPitch;
+
+    // Hammer tilts to a near-vertical ready guard during the thrust.
+    const hammerGuard = sampleKeys(
+      [
+        { t: 0.00, v:  0.0 },
+        { t: 0.50, v:  0.6 },
+        { t: 0.75, v:  0.6 },
+        { t: 1.00, v:  0.0 },
+      ],
+      t,
+    );
+    hammer.rotation.z = hammerRestEuler.z + hammerGuard;
   }
 
   private applyBandage(t: number): void {
