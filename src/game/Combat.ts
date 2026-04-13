@@ -4,6 +4,31 @@ import { useGameStore, type EnemyState } from '../state/gameStore';
 import type { Player } from './Player';
 import type { Enemy } from './Enemy';
 
+/**
+ * Map hotbar slot index → animation action id that the player's animator
+ * should play when the ability fires successfully. The animator validates
+ * / ignores ids it doesn't recognize, so this is safe to call for any
+ * career (Warrior Priest is the only class with a rig today).
+ *
+ *   slot 0 — autoattack
+ *   slot 1 — heavy strike (Slot 1 ability)
+ *   slot 2 — ranged shot  (Slot 2 ability)
+ *   slot 3 — bandage      (Slot 3 self-heal)
+ */
+const SLOT_ACTION_ID = ['autoattack', 'heavy_strike', 'ranged_shot', 'bandage'] as const;
+
+/** Action durations in seconds, mirrored across careers that share the slot. */
+const SLOT_ACTION_DURATION = [0.45, 0.85, 0.55, 1.20];
+
+function playSlotAction(player: Player, slot: number): void {
+  const anim = player.animator;
+  if (!anim) return;
+  const id = SLOT_ACTION_ID[slot];
+  const dur = SLOT_ACTION_DURATION[slot];
+  if (!id) return;
+  anim.playAction(id, dur);
+}
+
 const ATTACK_COOLDOWN = 1.5;  // seconds — autoattack
 const ATTACK_RANGE    = 3.0;  // melee reach in world units
 const RESPAWN_DELAY   = 5000; // milliseconds
@@ -58,6 +83,7 @@ export class Combat {
     store.updateEnemy(store.targetId, { health: newHp });
     store.setHotbarCooldown(0, ATTACK_COOLDOWN);
     store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
+    playSlotAction(player, 0);
     if (newHp <= 0) this.killEnemy(store.targetId, target, now, store);
     return true;
   }
@@ -84,6 +110,7 @@ export class Combat {
       store.setHotbarCooldown(1, 5.0);
       updateCharacter({ mana: Math.max(0, character.mana - 10) });
       store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
+      playSlotAction(player, 1);
       if (newHp <= 0) this.killEnemy(target.id, target, now, store);
       return true;
     }
@@ -98,6 +125,7 @@ export class Combat {
       store.setHotbarCooldown(2, 3.0);
       updateCharacter({ mana: Math.max(0, character.mana - 8) });
       store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
+      playSlotAction(player, 2);
       if (newHp <= 0) this.killEnemy(target.id, target, now, store);
       return true;
     }
@@ -112,6 +140,7 @@ export class Combat {
       });
       store.setHotbarCooldown(3, 10.0);
       store.pushDamage(makeDmg(now, heal, 'heal', player.position));
+      playSlotAction(player, 3);
       return true;
     }
 
