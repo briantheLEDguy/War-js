@@ -164,11 +164,80 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     hammer.rotation.z = hammerRestEuler.z + hammerTwist;
   }
 
-  /** Placeholder until the heavy-strike / ranged / bandage poses land. */
+  /**
+   * Heavy Strike — the Warrior Priest's signature two-handed overhead smash.
+   *
+   * Timing breakdown (t in 0..1 over ~0.85 s):
+   *   0.00 → 0.35  deep windup: both hands raise overhead, torso leans back
+   *   0.35 → 0.55  explosive downswing through the vertical plane
+   *   0.55 → 0.75  impact hold — hammer frozen at full extension
+   *   0.75 → 1.00  recovery to rest pose
+   *
+   * Both arms drive the swing because this is a two-handed hammer. The off
+   * hand mirrors the right arm's pitch so the grip reads as coordinated.
+   */
   private applyHeavyStrike(t: number): void {
-    // Fall back to a slower, deeper autoattack for now so the action is visible.
-    const scaled = easeInOut(t);
-    this.applyAutoattack(scaled);
+    const { rightArm, leftArm, hammer, hammerRestEuler, root } = this.rig;
+
+    // Right shoulder pitch: up high for windup, then forward-down for strike.
+    // Negative = backward/up in our rig; positive = forward/down.
+    const shoulderPitch = sampleKeys(
+      [
+        { t: 0.00, v:  0.0  },
+        { t: 0.35, v: -2.0  },   // hammer fully overhead
+        { t: 0.55, v:  1.4  },   // smash through to chest-height-forward
+        { t: 0.75, v:  1.4  },   // impact hold
+        { t: 1.00, v:  0.0  },   // recover
+      ],
+      t,
+    );
+
+    // Off-hand mirrors the right arm, slightly less amplitude.
+    const offHandPitch = sampleKeys(
+      [
+        { t: 0.00, v:  0.0  },
+        { t: 0.35, v: -1.7  },
+        { t: 0.55, v:  1.1  },
+        { t: 0.75, v:  1.1  },
+        { t: 1.00, v:  0.0  },
+      ],
+      t,
+    );
+
+    // Torso lean-back during windup, forward through impact (body y offset fakes it).
+    const bodyLean = sampleKeys(
+      [
+        { t: 0.00, v:  0.00 },
+        { t: 0.35, v: -0.08 },   // rock back
+        { t: 0.55, v:  0.06 },   // pitch forward
+        { t: 0.75, v:  0.06 },
+        { t: 1.00, v:  0.00 },
+      ],
+      t,
+    );
+
+    // Hammer twists in the hand so the striking face leads the arc.
+    const hammerTwist = sampleKeys(
+      [
+        { t: 0.00, v:  0.0 },
+        { t: 0.35, v:  0.5 },   // ready above the head
+        { t: 0.55, v:  1.2 },   // face-down at impact
+        { t: 0.75, v:  1.2 },
+        { t: 1.00, v:  0.0 },
+      ],
+      t,
+    );
+
+    rightArm.rotation.x = shoulderPitch;
+    leftArm.rotation.x  = offHandPitch;
+    // Subtle inward roll so the swing arc reads as a centered overhead strike.
+    rightArm.rotation.z = easeInOut(t) * -0.15 + 0.15;
+    leftArm.rotation.z  = easeInOut(t) *  0.15 - 0.15;
+
+    hammer.rotation.z = hammerRestEuler.z + hammerTwist;
+
+    // Vertical bob — sign matches torso lean so the silhouette bobs with the swing.
+    root.position.y = Math.max(0, bodyLean);
   }
 
   private applyRangedShot(t: number): void {
