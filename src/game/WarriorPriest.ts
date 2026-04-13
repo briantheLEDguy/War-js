@@ -175,7 +175,125 @@ function smoothTorus(
   );
 }
 
-// ─── Entry point (scaffold — body parts added in subsequent commits) ────────
+// ─── Lower body ──────────────────────────────────────────────────────────────
+
+/**
+ * Boots, greaves (shin plates), thigh chainmail, and the flowing tabard skirt.
+ *
+ * Layering (outer → inner):
+ *   1. Blue cloth tabard — front & back panels, split at the sides
+ *   2. Chainmail skirt — conical drape visible through the tabard split
+ *   3. Steel greaves + gold knee poleyns from knee to ankle
+ *   4. Gold-trimmed leather boots
+ *
+ * All meshes are added to `parent` at world-space coordinates (feet at y=0).
+ */
+function buildLowerBody(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  // ── Boots (y ≈ 0 → 0.35) ────────────────────────────────────────────────
+  // Tapered profile: toe narrows, ankle widens — revolved via lathe.
+  const bootProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.14, 0.00),
+    new THREE.Vector2(0.16, 0.04),
+    new THREE.Vector2(0.15, 0.14),
+    new THREE.Vector2(0.13, 0.28),
+    new THREE.Vector2(0.14, 0.34),
+    new THREE.Vector2(0.00, 0.35),
+  ];
+  for (const sx of [-0.16, 0.16]) {
+    const boot = lathe(bootProfile, 20, mats.leather);
+    boot.position.set(sx, 0, 0);
+    parent.add(boot);
+    // Gold ankle trim — thin torus sitting on top of the boot cuff.
+    const cuff = smoothTorus(0.15, 0.022, mats.gold, 10, 24);
+    cuff.rotation.x = Math.PI / 2;
+    cuff.position.set(sx, 0.34, 0);
+    parent.add(cuff);
+    // Gold toe cap — small bevelled wedge for that ornate WAR silhouette.
+    const toeCap = smoothSph(0.08, mats.gold, 16);
+    toeCap.scale.set(1.0, 0.45, 1.4);
+    toeCap.position.set(sx, 0.05, 0.10);
+    parent.add(toeCap);
+  }
+
+  // ── Greaves (shin plate, y ≈ 0.35 → 0.85) ───────────────────────────────
+  // Slight taper: narrower at ankle, wider at knee — smooth cylinder.
+  for (const sx of [-0.16, 0.16]) {
+    const greave = smoothCyl(0.14, 0.12, 0.48, mats.steel, 20);
+    greave.position.set(sx, 0.60, 0);
+    parent.add(greave);
+    // Vertical gold ridge running up the shin (a thin raised band).
+    const ridge = smoothCyl(0.015, 0.015, 0.46, mats.gold, 12);
+    ridge.position.set(sx, 0.60, 0.125);
+    parent.add(ridge);
+    // Knee poleyn — domed gold cap with a gold edge torus.
+    const poleyn = smoothSph(0.11, mats.gold, 20);
+    poleyn.scale.set(1.0, 0.6, 1.1);
+    poleyn.position.set(sx, 0.86, 0.05);
+    parent.add(poleyn);
+  }
+
+  // ── Thigh chainmail (y ≈ 0.82 → 1.10) ───────────────────────────────────
+  // A short cylinder of mail peeking out between the tabard and greaves.
+  for (const sx of [-0.14, 0.14]) {
+    const mail = smoothCyl(0.15, 0.16, 0.28, mats.mail, 20);
+    mail.position.set(sx, 0.98, 0);
+    parent.add(mail);
+  }
+
+  // ── Chainmail skirt (conical drape under tabard, y ≈ 0.75 → 1.15) ──────
+  // A single bell-shaped lathe — wider at hem, narrower at waist.
+  const skirtProfile = [
+    new THREE.Vector2(0.22, 0.00),   // waist top
+    new THREE.Vector2(0.24, 0.10),
+    new THREE.Vector2(0.28, 0.25),
+    new THREE.Vector2(0.33, 0.38),   // hem
+    new THREE.Vector2(0.00, 0.40),
+  ];
+  const mailSkirt = lathe(skirtProfile, 28, mats.mail);
+  mailSkirt.position.set(0, 0.75, 0);
+  parent.add(mailSkirt);
+
+  // ── Tabard front panel (blue cloth hanging over chainmail) ──────────────
+  // Uses a plane slightly bent forward so the silhouette reads as fabric
+  // rather than a flat slab. Built from a ShapeGeometry for crisp edges.
+  const tabardShape = new THREE.Shape();
+  tabardShape.moveTo(-0.19, 0.00);
+  tabardShape.lineTo( 0.19, 0.00);   // waist
+  tabardShape.lineTo( 0.24, -0.55);
+  tabardShape.lineTo( 0.10, -0.72);  // bottom fringe bevel
+  tabardShape.lineTo(-0.10, -0.72);
+  tabardShape.lineTo(-0.24, -0.55);
+  tabardShape.closePath();
+  const tabardGeo = new THREE.ShapeGeometry(tabardShape, 12);
+  const tabardFront = shadowed(new THREE.Mesh(tabardGeo, mats.robe));
+  tabardFront.position.set(0, 1.08, 0.24);
+  parent.add(tabardFront);
+  // Matching back panel (same shape, flipped normal — slightly darker tone).
+  const tabardBack = shadowed(new THREE.Mesh(tabardGeo.clone(), mats.robeDark));
+  tabardBack.position.set(0, 1.08, -0.24);
+  tabardBack.rotation.y = Math.PI;
+  parent.add(tabardBack);
+
+  // ── Belt (wraps waist, separates tabard from torso) ─────────────────────
+  const belt = smoothTorus(0.28, 0.05, mats.leather, 10, 28);
+  belt.rotation.x = Math.PI / 2;
+  belt.position.set(0, 1.12, 0);
+  parent.add(belt);
+  // Gold belt buckle — square front plate with engraved Hammer-of-Sigmar.
+  const buckle = shadowed(
+    new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.10, 0.04), mats.gold),
+  );
+  buckle.position.set(0, 1.12, 0.27);
+  parent.add(buckle);
+  const buckleInset = shadowed(
+    new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.06, 0.02), mats.goldDark),
+  );
+  buckleInset.position.set(0, 1.12, 0.29);
+  parent.add(buckleInset);
+}
+
+// ─── Entry point ─────────────────────────────────────────────────────────────
 
 /** Build a detailed Warrior Priest. Feet at y=0, head ≈ y=1.95. */
 export function buildWarriorPriest(
@@ -184,8 +302,7 @@ export function buildWarriorPriest(
   const group = new THREE.Group();
   group.name = 'WarriorPriest';
   const mats = buildMaterials(palette);
-  // Body parts are assembled by helpers introduced in subsequent commits.
-  void mats;
-  void lathe; void smoothCyl; void smoothSph; void smoothTorus;
+  buildLowerBody(group, mats);
+  // Torso / arms / head / weapon built in subsequent commits.
   return group;
 }
