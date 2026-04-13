@@ -89,7 +89,7 @@ export class Game {
     this.currentZoneName = zone.name;
 
     // Sky + lights
-    await setupSky(this.scene, this.loader, zone.skybox);
+    await setupSky(this.scene, this.loader, this.renderer, zone.skybox);
     if (this.disposed) return;
 
     // Terrain
