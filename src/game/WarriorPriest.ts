@@ -514,30 +514,67 @@ function buildArm(
   const side = Math.sign(sx);
 
   // ── Pauldron (shoulder armor) ───────────────────────────────────────────
-  // Dome — half-sphere with extra squash for the rounded WAR look.
+  // Built from a lathed half-shell rather than a scaled hemisphere — the
+  // lathe profile lets us bevel the outer edge so the pauldron reads as a
+  // sculpted plate rather than a perfectly round ball. Shell only covers
+  // the outer-240° of the shoulder; the 60° gap faces the body so the
+  // pauldron doesn't intersect the torso.
+  const pauldronProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.10, 0.02),
+    new THREE.Vector2(0.18, 0.06),
+    new THREE.Vector2(0.22, 0.12),
+    new THREE.Vector2(0.23, 0.18),
+    new THREE.Vector2(0.20, 0.22),
+    new THREE.Vector2(0.13, 0.24),
+    new THREE.Vector2(0.00, 0.24),
+  ];
   const pauldronDome = shadowed(new THREE.Mesh(
-    new THREE.SphereGeometry(0.20, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.6),
+    new THREE.LatheGeometry(
+      pauldronProfile, 28,
+      side > 0 ? -Math.PI * 0.83 : -Math.PI * 0.17,
+      Math.PI * 1.33,
+    ),
     mats.steel,
   ));
-  pauldronDome.scale.set(1.2, 0.95, 1.15);
-  pauldronDome.position.set(sx, 1.48, 0);
+  pauldronDome.scale.set(1.25, 1.0, 1.15);
+  pauldronDome.position.set(sx, 1.46, 0);
   parent.add(pauldronDome);
 
+  // Front "wing" plate — a small forward-jutting flare at the front of the
+  // pauldron, characteristic of the WAR Warrior Priest silhouette.
+  const wingShape = new THREE.Shape();
+  wingShape.moveTo(0, 0);
+  wingShape.quadraticCurveTo(0.10, -0.08, 0.20, -0.04);
+  wingShape.quadraticCurveTo(0.18, 0.04, 0.10, 0.08);
+  wingShape.quadraticCurveTo(0.04, 0.06, 0, 0);
+  const wingGeo = new THREE.ShapeGeometry(wingShape, 16);
+  const wing = shadowed(new THREE.Mesh(wingGeo, mats.gold));
+  wing.rotation.y = Math.PI / 2;
+  wing.position.set(sx + side * 0.08, 1.44, 0.18);
+  parent.add(wing);
+
   // Gold crest ridge running front-to-back along the pauldron top.
-  const crest = smoothCyl(0.02, 0.02, 0.36, mats.gold, 12);
+  const crest = smoothCyl(0.018, 0.018, 0.34, mats.gold, 12);
   crest.rotation.x = Math.PI / 2;
-  crest.position.set(sx, 1.63, 0);
+  crest.position.set(sx, 1.62, 0);
   parent.add(crest);
 
-  // Gold scalloped hem — a thin torus along the pauldron's bottom edge.
-  const hem = smoothTorus(0.22, 0.022, mats.gold, 10, 32);
+  // Gold scalloped hem along the pauldron's bottom edge — a partial-arc
+  // torus mirroring the dome's 240° coverage.
+  const hemGeo = new THREE.TorusGeometry(
+    0.27, 0.020, 8, 36,
+    Math.PI * 1.33,
+  );
+  const hem = shadowed(new THREE.Mesh(hemGeo, mats.gold));
   hem.rotation.x = Math.PI / 2;
-  hem.position.set(sx, 1.42, 0);
+  hem.rotation.z = side > 0 ? -Math.PI * 0.83 : -Math.PI * 0.17;
+  hem.position.set(sx, 1.40, 0);
   parent.add(hem);
 
   // Gold stud at the pauldron's apex (the characteristic WAR rivet boss).
   const stud = smoothSph(0.045, mats.gold, 16);
-  stud.position.set(sx, 1.66, 0);
+  stud.position.set(sx, 1.64, 0);
   parent.add(stud);
 
   // ── Upper arm (chainmail sleeve) ────────────────────────────────────────
