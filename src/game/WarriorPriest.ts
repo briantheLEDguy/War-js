@@ -850,45 +850,76 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   parent.add(headband);
 
   // ── Solar halo crown ────────────────────────────────────────────────────
-  // Main gold ring floating just above the crown of the head.
-  const haloRing = smoothTorus(0.21, 0.018, mats.gold, 10, 40);
-  haloRing.rotation.x = Math.PI / 2;
-  haloRing.position.set(0, 2.00, 0);
-  parent.add(haloRing);
+  // The reference picture's halo is the priest's defining silhouette piece
+  // — a heavy gold sun-disc with prominent radiating spikes. Build it as
+  // a chunky inner band (the "crown" sitting on the head) plus a wider
+  // outer ring of long alternating spikes, the whole thing tilted slightly
+  // back so it reads as a corona behind the head rather than a flat
+  // wagon-wheel stuck to the brow.
+  const halo = new THREE.Group();
+  halo.name = 'SolarHalo';
+  halo.position.set(0, 1.96, -0.02);
+  halo.rotation.x = -0.18;
+  parent.add(halo);
 
-  // Twelve radial spikes — thin cones evenly distributed around the ring.
-  const spikeCount = 12;
+  // Inner crown band — the chunky gold ring that physically sits on the
+  // head. Larger tube radius than a thin ring for visual weight.
+  const crownBand = smoothTorus(0.21, 0.028, mats.gold, 12, 48);
+  crownBand.rotation.x = Math.PI / 2;
+  halo.add(crownBand);
+  // Dark inset groove on the band for highlight contrast.
+  const crownInset = smoothTorus(0.21, 0.012, mats.goldDark, 8, 48);
+  crownInset.rotation.x = Math.PI / 2;
+  crownInset.position.set(0, 0.005, 0);
+  halo.add(crownInset);
+
+  // Outer halo ring — thinner, sits at the spike midpoints.
+  const outerRing = smoothTorus(0.34, 0.012, mats.gold, 8, 56);
+  outerRing.rotation.x = Math.PI / 2;
+  halo.add(outerRing);
+
+  // Sun-ray spikes — 16 alternating long/short tapered rays.
+  const spikeCount = 16;
+  const baseR = 0.22;
   for (let i = 0; i < spikeCount; i++) {
     const angle = (i / spikeCount) * Math.PI * 2;
-    // Alternate tall/short spikes for a sunburst rhythm.
-    const len = i % 2 === 0 ? 0.12 : 0.08;
-    const baseR = 0.22;
-    const tipR  = baseR + len;
+    const isLong = i % 2 === 0;
+    const len = isLong ? 0.18 : 0.10;
+    const tipR = baseR + len;
     const spike = shadowed(new THREE.Mesh(
-      new THREE.ConeGeometry(0.022, len, 8), mats.gold,
+      new THREE.ConeGeometry(isLong ? 0.026 : 0.020, len, 10), mats.gold,
     ));
-    // Cone apex points along +Y by default. To aim it outward in the XZ
-    // plane: rotate -90° around Z (apex now points along +X), then rotate
-    // around Y by -angle to sweep the +X axis to the desired direction.
+    // Cone apex points along +Y by default. Rotate -90° around Z so the
+    // apex points along +X, then rotate around Y by -angle to sweep the
+    // +X axis to the desired direction in the XZ plane.
     spike.rotation.order = 'YXZ';
     spike.rotation.z = -Math.PI / 2;
     spike.rotation.y = -angle;
-    // Position spike midpoint on the ring at the correct radial offset.
     const midR = (baseR + tipR) / 2;
     spike.position.set(
       Math.cos(angle) * midR,
-      2.00,
+      0,
       Math.sin(angle) * midR,
     );
-    parent.add(spike);
+    halo.add(spike);
+    // Small gold sphere at the base of each long ray for a finished look.
+    if (isLong) {
+      const stud = smoothSph(0.018, mats.gold, 12);
+      stud.position.set(
+        Math.cos(angle) * baseR,
+        0,
+        Math.sin(angle) * baseR,
+      );
+      halo.add(stud);
+    }
   }
 
-  // Halo backplate disc — a very thin cylinder behind the ring, giving the
-  // halo a soft metallic "aura" when lit from behind.
-  const halodisc = smoothCyl(0.19, 0.19, 0.01, mats.goldDark, 40);
-  halodisc.position.set(0, 2.00, -0.005);
+  // Halo backdisc — a thin dark-gold disc behind the rays giving the halo
+  // an aura silhouette. Sits just behind the spikes in halo-local Z.
+  const halodisc = smoothCyl(0.30, 0.30, 0.01, mats.goldDark, 48);
   halodisc.rotation.x = Math.PI / 2;
-  parent.add(halodisc);
+  halodisc.position.set(0, 0, -0.015);
+  halo.add(halodisc);
 }
 
 // ─── Hammer of Sigmar (the Warrior Priest's two-handed warhammer) ───────────
