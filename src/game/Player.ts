@@ -47,7 +47,8 @@ export class Player {
         : 0x7a6425;
     this.object = await loader.loadModel(
       modelName,
-      () => buildCharacterMesh(this.character.race, this.character.career),
+      // CharacterState stores the career in `className` (e.g. "Warrior Priest").
+      () => buildCharacterMesh(this.character.race, this.character.className),
     );
     this.position.set(
       this.character.position.x,

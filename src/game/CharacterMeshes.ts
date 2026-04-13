@@ -3,6 +3,7 @@
  * Used as fallbacks when .glb models are not present.
  */
 import * as THREE from 'three';
+import { buildWarriorPriest } from './WarriorPriest';
 
 // Shared materials (created once, reused)
 const skinMat   = () => new THREE.MeshStandardMaterial({ color: 0xd4a875, roughness: 0.7 });
@@ -142,6 +143,10 @@ function empireBase(armorColor: number, trimColor: number): THREE.Group {
 
 /** Empire character — silver/red plate armor, longsword. */
 export function empire(career?: string): THREE.Object3D {
+  // Warrior Priest has a dedicated high-detail mesh — delegate to its module.
+  if (career === 'Warrior Priest') {
+    return buildWarriorPriest();
+  }
   const g = empireBase(0x8a8a8e, 0xcc1010);
   const helmetMat = new THREE.MeshStandardMaterial({ color: 0x787880, metalness: 0.6, roughness: 0.4 });
   if (career === 'Bright Wizard') {
