@@ -609,6 +609,104 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   parent.add(halodisc);
 }
 
+// ─── Hammer of Sigmar (the Warrior Priest's two-handed warhammer) ───────────
+
+/**
+ * Build the Hammer of Sigmar held diagonally across the body, gripped by
+ * both hands at roughly hip height. The hammer head is a chunky steel
+ * rectangle with a gold Sigmarite cross on each striking face.
+ *
+ * Anchored to the group so it sits in front of the character, rotated so
+ * the haft lies along a diagonal from lower-right to upper-left.
+ */
+function buildHammer(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  // Use a sub-group so the whole weapon can be rotated / translated cleanly.
+  const hammer = new THREE.Group();
+  hammer.name = 'HammerOfSigmar';
+
+  // ── Haft (wrapped handle) ───────────────────────────────────────────────
+  // Core wooden shaft.
+  const shaftWood = new THREE.MeshStandardMaterial({
+    color: 0x5a2a12, metalness: 0.0, roughness: 0.85,
+  });
+  const haft = smoothCyl(0.028, 0.030, 1.30, shaftWood, 16);
+  haft.position.set(0, 0, 0);
+  hammer.add(haft);
+
+  // Leather grip wrap — darker strip covering the center 40% of the haft.
+  const grip = smoothCyl(0.034, 0.034, 0.52, mats.leather, 16);
+  grip.position.set(0, -0.10, 0);
+  hammer.add(grip);
+
+  // Gold ferrules (bottom cap + shaft-to-head collar + head bolster).
+  for (const y of [-0.66, 0.50, 0.60]) {
+    const ferr = smoothTorus(0.032, 0.010, mats.gold, 8, 20);
+    ferr.rotation.x = Math.PI / 2;
+    ferr.position.set(0, y, 0);
+    hammer.add(ferr);
+  }
+  // Decorative gold pommel cap at the base of the haft.
+  const pommel = smoothSph(0.045, mats.gold, 16);
+  pommel.scale.set(1.0, 0.6, 1.0);
+  pommel.position.set(0, -0.68, 0);
+  hammer.add(pommel);
+
+  // ── Hammer head (steel block with gold trim) ────────────────────────────
+  const headBlock = shadowed(new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.28, 0.18), mats.steel,
+  ));
+  headBlock.position.set(0, 0.72, 0);
+  hammer.add(headBlock);
+
+  // Gold end caps on the two striking faces.
+  for (const sx of [-0.115, 0.115]) {
+    const cap = shadowed(new THREE.Mesh(
+      new THREE.BoxGeometry(0.03, 0.24, 0.16), mats.gold,
+    ));
+    cap.position.set(sx, 0.72, 0);
+    hammer.add(cap);
+  }
+
+  // Sigmarite cross inset on each striking face — vertical + horizontal bars.
+  for (const sx of [-0.13, 0.13]) {
+    const vbar = shadowed(new THREE.Mesh(
+      new THREE.BoxGeometry(0.01, 0.18, 0.03), mats.gold,
+    ));
+    vbar.position.set(sx, 0.72, 0);
+    hammer.add(vbar);
+    const hbar = shadowed(new THREE.Mesh(
+      new THREE.BoxGeometry(0.01, 0.04, 0.11), mats.gold,
+    ));
+    hbar.position.set(sx, 0.76, 0);
+    hammer.add(hbar);
+  }
+
+  // Gold top spike (small pyramid rising from the head).
+  const topSpike = shadowed(new THREE.Mesh(
+    new THREE.ConeGeometry(0.04, 0.12, 4), mats.gold,
+  ));
+  topSpike.position.set(0, 0.92, 0);
+  hammer.add(topSpike);
+
+  // Gold bottom fang — reversed cone pointing down from the hammer head,
+  // giving the weapon that distinctive ornate Sigmarite silhouette.
+  const bottomFang = shadowed(new THREE.Mesh(
+    new THREE.ConeGeometry(0.05, 0.14, 4), mats.gold,
+  ));
+  bottomFang.rotation.x = Math.PI;
+  bottomFang.position.set(0, 0.51, 0);
+  hammer.add(bottomFang);
+
+  // ── Position the whole hammer across the priest's body ─────────────────
+  // Held two-handed: right hand near the top grip, left hand near the
+  // pommel. We rotate the haft so it crosses the torso diagonally with
+  // the head to the upper-left when viewed from the front.
+  hammer.rotation.z = -Math.PI * 0.35;
+  hammer.rotation.y = -0.15;
+  hammer.position.set(0.22, 1.10, 0.30);
+  parent.add(hammer);
+}
+
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
 /** Build a detailed Warrior Priest. Feet at y=0, head ≈ y=1.95. */
@@ -622,6 +720,6 @@ export function buildWarriorPriest(
   buildTorso(group, mats);
   buildArms(group, mats);
   buildHead(group, mats);
-  // Weapon built in the next commit.
+  buildHammer(group, mats);
   return group;
 }
