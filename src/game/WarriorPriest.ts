@@ -256,26 +256,73 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   mailSkirt.position.set(0, 0.75, 0);
   parent.add(mailSkirt);
 
-  // ── Tabard front panel (blue cloth hanging over chainmail) ──────────────
-  // Uses a plane slightly bent forward so the silhouette reads as fabric
-  // rather than a flat slab. Built from a ShapeGeometry for crisp edges.
-  const tabardShape = new THREE.Shape();
-  tabardShape.moveTo(-0.19, 0.00);
-  tabardShape.lineTo( 0.19, 0.00);   // waist
-  tabardShape.lineTo( 0.24, -0.55);
-  tabardShape.lineTo( 0.10, -0.72);  // bottom fringe bevel
-  tabardShape.lineTo(-0.10, -0.72);
-  tabardShape.lineTo(-0.24, -0.55);
-  tabardShape.closePath();
-  const tabardGeo = new THREE.ShapeGeometry(tabardShape, 12);
-  const tabardFront = shadowed(new THREE.Mesh(tabardGeo, mats.robe));
-  tabardFront.position.set(0, 1.08, 0.24);
-  parent.add(tabardFront);
-  // Matching back panel (same shape, flipped normal — slightly darker tone).
-  const tabardBack = shadowed(new THREE.Mesh(tabardGeo.clone(), mats.robeDark));
-  tabardBack.position.set(0, 1.08, -0.24);
-  tabardBack.rotation.y = Math.PI;
-  parent.add(tabardBack);
+  // ── Long flowing robe (full-length skirt panels) ────────────────────────
+  // Replaces a short kilt-style tabard — the WAR Warrior Priest reference
+  // shows a long blue robe falling almost to the boots. Built as a bell-
+  // shaped lathe so the fabric drapes evenly all the way around, plus a
+  // decorated front fringe panel for the layered silhouette.
+  const robeProfile = [
+    new THREE.Vector2(0.26, 0.00),   // waist top
+    new THREE.Vector2(0.28, 0.10),
+    new THREE.Vector2(0.30, 0.30),
+    new THREE.Vector2(0.34, 0.50),
+    new THREE.Vector2(0.40, 0.70),
+    new THREE.Vector2(0.46, 0.80),   // hem just above the boot cuff
+    new THREE.Vector2(0.00, 0.80),
+  ];
+  const robe = lathe(robeProfile, 32, mats.robe);
+  // Lathe Y grows upward; we want it draping downward from the waist.
+  robe.scale.y = -1;
+  robe.position.set(0, 1.10, 0);
+  parent.add(robe);
+
+  // Inner darker liner — peeks at the hem when the camera is low.
+  const liner = lathe(robeProfile, 32, mats.robeDark);
+  liner.scale.set(0.96, -1, 0.96);
+  liner.position.set(0, 1.10, 0);
+  parent.add(liner);
+
+  // Front fringe panel — a narrow vertical strip sits proud of the robe
+  // front, edged in gold. This is the decorated tabard-style panel visible
+  // between the breastplate and the robe's hem.
+  const frontPanelShape = new THREE.Shape();
+  frontPanelShape.moveTo(-0.13, 0.00);
+  frontPanelShape.lineTo( 0.13, 0.00);
+  frontPanelShape.lineTo( 0.16, -0.40);
+  frontPanelShape.lineTo( 0.18, -0.78);
+  frontPanelShape.lineTo( 0.06, -0.92);   // pointed hem bevel
+  frontPanelShape.lineTo(-0.06, -0.92);
+  frontPanelShape.lineTo(-0.18, -0.78);
+  frontPanelShape.lineTo(-0.16, -0.40);
+  frontPanelShape.closePath();
+  const frontPanelGeo = new THREE.ShapeGeometry(frontPanelShape, 16);
+  const frontPanel = shadowed(new THREE.Mesh(frontPanelGeo, mats.robeDark));
+  frontPanel.position.set(0, 1.08, 0.32);
+  parent.add(frontPanel);
+
+  // Gold edging along the front panel's hem — two short angled bands.
+  for (const sx of [-0.12, 0.12]) {
+    const trim = shadowed(new THREE.Mesh(
+      new THREE.BoxGeometry(0.014, 0.28, 0.01), mats.gold,
+    ));
+    trim.rotation.z = sx > 0 ? -0.18 : 0.18;
+    trim.position.set(sx, 0.85, 0.325);
+    parent.add(trim);
+  }
+  // Small gold roundel at the centre of the front panel (decorative seal).
+  const roundel = smoothTorus(0.04, 0.012, mats.gold, 8, 24);
+  roundel.position.set(0, 0.66, 0.33);
+  parent.add(roundel);
+  const roundelInner = smoothSph(0.022, mats.goldDark, 14);
+  roundelInner.position.set(0, 0.66, 0.34);
+  parent.add(roundelInner);
+
+  // Matching narrow back panel (darker, no gold trim).
+  const backPanelGeo = new THREE.ShapeGeometry(frontPanelShape, 16);
+  const backPanel = shadowed(new THREE.Mesh(backPanelGeo, mats.robeDark));
+  backPanel.position.set(0, 1.08, -0.32);
+  backPanel.rotation.y = Math.PI;
+  parent.add(backPanel);
 
   // ── Belt (wraps waist, separates tabard from torso) ─────────────────────
   const belt = smoothTorus(0.28, 0.05, mats.leather, 10, 28);
@@ -306,60 +353,110 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
  *   4. Gorget — high gold collar protecting the neck
  */
 function buildTorso(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  // The torso is built from lathes (radially symmetric) and then scaled
+  // non-uniformly in X and Z so a real human body shape emerges: wider
+  // across the shoulders than front-to-back, with a pinched waist and a
+  // flared chest.
+  const TORSO_WIDTH_SCALE = 1.20;  // X — broaden across shoulders
+  const TORSO_DEPTH_SCALE = 0.70;  // Z — flatten front-to-back
+
   // ── Chainmail hauberk (under the breastplate) ───────────────────────────
-  // A subtle hourglass taper from chest → waist using a lathe silhouette.
+  // Stronger hourglass taper — narrow waist, broad chest, with a
+  // "trapezius shelf" at the top so the shoulders read as muscled rather
+  // than a flat shelf cut.
   const mailProfile = [
     new THREE.Vector2(0.00, 0.00),
-    new THREE.Vector2(0.28, 0.00),   // waist
-    new THREE.Vector2(0.32, 0.12),
-    new THREE.Vector2(0.36, 0.26),   // chest widest
-    new THREE.Vector2(0.34, 0.38),
-    new THREE.Vector2(0.22, 0.48),   // shoulder
-    new THREE.Vector2(0.00, 0.48),
+    new THREE.Vector2(0.22, 0.00),   // waist (pinched in)
+    new THREE.Vector2(0.26, 0.10),
+    new THREE.Vector2(0.34, 0.22),
+    new THREE.Vector2(0.40, 0.32),   // chest widest
+    new THREE.Vector2(0.42, 0.40),   // upper chest / shoulder shelf
+    new THREE.Vector2(0.34, 0.48),   // shoulder slope inward toward neck
+    new THREE.Vector2(0.18, 0.54),   // trapezius rise toward neck
+    new THREE.Vector2(0.00, 0.54),
   ];
-  const mailTorso = lathe(mailProfile, 28, mats.mail);
-  mailTorso.position.set(0, 1.12, 0);
+  const mailTorso = lathe(mailProfile, 32, mats.mail);
+  mailTorso.scale.set(TORSO_WIDTH_SCALE, 1.0, TORSO_DEPTH_SCALE);
+  mailTorso.position.set(0, 1.08, 0);
   parent.add(mailTorso);
 
   // ── Breastplate — two half-shells (front + back) ────────────────────────
-  // Carved from a sphere, scaled and clipped to produce a curved plate.
-  // The WAR Warrior Priest silhouette has a distinctive bevelled chest
-  // with a raised central boss; we approximate that with nested lathes.
-  const frontShellProfile = [
+  // Same hourglass profile, same non-uniform scaling, sitting just outside
+  // the mail. Pec relief + sternum groove + abdominal plate go on top for
+  // anatomical structure.
+  const shellProfile = [
     new THREE.Vector2(0.00, 0.00),
-    new THREE.Vector2(0.26, 0.02),
-    new THREE.Vector2(0.32, 0.14),
-    new THREE.Vector2(0.36, 0.26),
-    new THREE.Vector2(0.34, 0.40),
-    new THREE.Vector2(0.22, 0.48),
-    new THREE.Vector2(0.00, 0.48),
+    new THREE.Vector2(0.21, 0.02),   // waist
+    new THREE.Vector2(0.26, 0.12),
+    new THREE.Vector2(0.34, 0.24),
+    new THREE.Vector2(0.39, 0.34),   // chest widest
+    new THREE.Vector2(0.40, 0.40),
+    new THREE.Vector2(0.32, 0.48),   // shoulder slope
+    new THREE.Vector2(0.16, 0.52),
   ];
-  // Front half — render only the forward 180° of the revolution.
+  // Front half — forward 180° of revolution.
   const frontShell = shadowed(new THREE.Mesh(
-    new THREE.LatheGeometry(frontShellProfile, 24, -Math.PI / 2, Math.PI),
+    new THREE.LatheGeometry(shellProfile, 28, -Math.PI / 2, Math.PI),
     mats.steel,
   ));
-  frontShell.scale.set(1.02, 1.0, 1.02);
-  frontShell.position.set(0, 1.14, 0);
+  frontShell.scale.set(TORSO_WIDTH_SCALE * 1.02, 1.0, TORSO_DEPTH_SCALE * 1.05);
+  frontShell.position.set(0, 1.10, 0);
   parent.add(frontShell);
-  // Back half — slightly flatter for the backplate.
+  // Back half — flatter (smaller Z scale) backplate.
   const backShell = shadowed(new THREE.Mesh(
-    new THREE.LatheGeometry(frontShellProfile, 24, Math.PI / 2, Math.PI),
+    new THREE.LatheGeometry(shellProfile, 28, Math.PI / 2, Math.PI),
     mats.steel,
   ));
-  backShell.scale.set(1.02, 1.0, 0.88);
-  backShell.position.set(0, 1.14, 0);
+  backShell.scale.set(TORSO_WIDTH_SCALE * 1.02, 1.0, TORSO_DEPTH_SCALE * 0.85);
+  backShell.position.set(0, 1.10, 0);
   parent.add(backShell);
 
+  // Pectoral relief — two flattened domes giving the chest anatomical
+  // structure rather than a smooth bowl. Sit just proud of the front shell.
+  for (const sx of [-0.13, 0.13]) {
+    const pec = smoothSph(0.13, mats.steel, 18);
+    pec.scale.set(1.05, 0.85, 0.55);
+    pec.position.set(sx, 1.42, 0.30);
+    parent.add(pec);
+  }
+  // Sternum groove — a thin dark recessed band running between the pecs,
+  // simulating the seam where the two halves of the breastplate meet.
+  const sternum = shadowed(new THREE.Mesh(
+    new THREE.BoxGeometry(0.012, 0.30, 0.02),
+    new THREE.MeshStandardMaterial({
+      color: 0x1a1c20, metalness: 0.6, roughness: 0.6,
+    }),
+  ));
+  sternum.position.set(0, 1.34, 0.36);
+  parent.add(sternum);
+
+  // Abdominal plate — a smaller curved plate below the breastplate hem,
+  // emphasising the waist pinch.
+  const abdomenProfile = [
+    new THREE.Vector2(0.20, 0.00),
+    new THREE.Vector2(0.23, 0.04),
+    new THREE.Vector2(0.22, 0.10),
+    new THREE.Vector2(0.20, 0.14),
+  ];
+  const abdomen = shadowed(new THREE.Mesh(
+    new THREE.LatheGeometry(abdomenProfile, 24, -Math.PI / 2, Math.PI),
+    mats.steel,
+  ));
+  abdomen.scale.set(TORSO_WIDTH_SCALE * 0.95, 1.0, TORSO_DEPTH_SCALE * 1.0);
+  abdomen.position.set(0, 1.04, 0);
+  parent.add(abdomen);
+
   // ── Gold breastplate trim (top edge + lower hem) ────────────────────────
-  // Two thin tori hug the chest ridge and the waist seam.
-  const topTrim = smoothTorus(0.30, 0.025, mats.gold, 10, 36);
+  // Scaled to match the wider/flatter torso silhouette established above.
+  const topTrim = smoothTorus(0.30, 0.022, mats.gold, 10, 36);
   topTrim.rotation.x = Math.PI / 2;
-  topTrim.position.set(0, 1.53, 0);
+  topTrim.scale.set(TORSO_WIDTH_SCALE * 1.05, TORSO_DEPTH_SCALE * 1.05, 1);
+  topTrim.position.set(0, 1.50, 0);
   parent.add(topTrim);
-  const waistTrim = smoothTorus(0.28, 0.03, mats.gold, 10, 36);
+  const waistTrim = smoothTorus(0.24, 0.028, mats.gold, 10, 36);
   waistTrim.rotation.x = Math.PI / 2;
-  waistTrim.position.set(0, 1.14, 0);
+  waistTrim.scale.set(TORSO_WIDTH_SCALE, TORSO_DEPTH_SCALE, 1);
+  waistTrim.position.set(0, 1.11, 0);
   parent.add(waistTrim);
 
   // ── Central gold sigil: stylised Hammer of Sigmar (cross) ───────────────
@@ -417,30 +514,67 @@ function buildArm(
   const side = Math.sign(sx);
 
   // ── Pauldron (shoulder armor) ───────────────────────────────────────────
-  // Dome — half-sphere with extra squash for the rounded WAR look.
+  // Built from a lathed half-shell rather than a scaled hemisphere — the
+  // lathe profile lets us bevel the outer edge so the pauldron reads as a
+  // sculpted plate rather than a perfectly round ball. Shell only covers
+  // the outer-240° of the shoulder; the 60° gap faces the body so the
+  // pauldron doesn't intersect the torso.
+  const pauldronProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.10, 0.02),
+    new THREE.Vector2(0.18, 0.06),
+    new THREE.Vector2(0.22, 0.12),
+    new THREE.Vector2(0.23, 0.18),
+    new THREE.Vector2(0.20, 0.22),
+    new THREE.Vector2(0.13, 0.24),
+    new THREE.Vector2(0.00, 0.24),
+  ];
   const pauldronDome = shadowed(new THREE.Mesh(
-    new THREE.SphereGeometry(0.20, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.6),
+    new THREE.LatheGeometry(
+      pauldronProfile, 28,
+      side > 0 ? -Math.PI * 0.83 : -Math.PI * 0.17,
+      Math.PI * 1.33,
+    ),
     mats.steel,
   ));
-  pauldronDome.scale.set(1.2, 0.95, 1.15);
-  pauldronDome.position.set(sx, 1.48, 0);
+  pauldronDome.scale.set(1.25, 1.0, 1.15);
+  pauldronDome.position.set(sx, 1.46, 0);
   parent.add(pauldronDome);
 
+  // Front "wing" plate — a small forward-jutting flare at the front of the
+  // pauldron, characteristic of the WAR Warrior Priest silhouette.
+  const wingShape = new THREE.Shape();
+  wingShape.moveTo(0, 0);
+  wingShape.quadraticCurveTo(0.10, -0.08, 0.20, -0.04);
+  wingShape.quadraticCurveTo(0.18, 0.04, 0.10, 0.08);
+  wingShape.quadraticCurveTo(0.04, 0.06, 0, 0);
+  const wingGeo = new THREE.ShapeGeometry(wingShape, 16);
+  const wing = shadowed(new THREE.Mesh(wingGeo, mats.gold));
+  wing.rotation.y = Math.PI / 2;
+  wing.position.set(sx + side * 0.08, 1.44, 0.18);
+  parent.add(wing);
+
   // Gold crest ridge running front-to-back along the pauldron top.
-  const crest = smoothCyl(0.02, 0.02, 0.36, mats.gold, 12);
+  const crest = smoothCyl(0.018, 0.018, 0.34, mats.gold, 12);
   crest.rotation.x = Math.PI / 2;
-  crest.position.set(sx, 1.63, 0);
+  crest.position.set(sx, 1.62, 0);
   parent.add(crest);
 
-  // Gold scalloped hem — a thin torus along the pauldron's bottom edge.
-  const hem = smoothTorus(0.22, 0.022, mats.gold, 10, 32);
+  // Gold scalloped hem along the pauldron's bottom edge — a partial-arc
+  // torus mirroring the dome's 240° coverage.
+  const hemGeo = new THREE.TorusGeometry(
+    0.27, 0.020, 8, 36,
+    Math.PI * 1.33,
+  );
+  const hem = shadowed(new THREE.Mesh(hemGeo, mats.gold));
   hem.rotation.x = Math.PI / 2;
-  hem.position.set(sx, 1.42, 0);
+  hem.rotation.z = side > 0 ? -Math.PI * 0.83 : -Math.PI * 0.17;
+  hem.position.set(sx, 1.40, 0);
   parent.add(hem);
 
   // Gold stud at the pauldron's apex (the characteristic WAR rivet boss).
   const stud = smoothSph(0.045, mats.gold, 16);
-  stud.position.set(sx, 1.66, 0);
+  stud.position.set(sx, 1.64, 0);
   parent.add(stud);
 
   // ── Upper arm (chainmail sleeve) ────────────────────────────────────────
@@ -483,22 +617,90 @@ function buildArm(
     parent.add(band);
   }
 
-  // ── Gauntlet (hand) ─────────────────────────────────────────────────────
-  // Steel knuckle dome + gold cuff + leather grip underneath.
-  const gauntlet = smoothSph(0.09, mats.steel, 18);
-  gauntlet.scale.set(1.0, 0.85, 1.15);
-  gauntlet.position.set(sx, 0.66, 0);
-  parent.add(gauntlet);
-  // Gold knuckle ridges — three tiny spheres across the back of the hand.
-  for (const dz of [-0.05, 0.0, 0.05]) {
-    const knuckle = smoothSph(0.022, mats.gold, 12);
-    knuckle.position.set(sx, 0.69, dz);
-    parent.add(knuckle);
+  // ── Articulated gauntlet hand ──────────────────────────────────────────
+  // Wrist sits at y ≈ 0.62 (just below the vambrace); fingers extend down
+  // from there. Built via `buildHand()` so the palm, knuckles, four fingers
+  // and thumb are all distinct geometry rather than a single blob sphere.
+  const hand = buildHand(mats, side);
+  hand.position.set(sx, 0.62, 0);
+  parent.add(hand);
+}
+
+/**
+ * Articulated steel-and-gold gauntlet hand.
+ *
+ * Origin = wrist. With no rotation applied, the back of the hand faces +Y
+ * (upward toward the elbow) and the fingers extend in -Y (downward, the
+ * rest-pose orientation). `side` is +1 for the right hand, -1 for the left
+ * (controls which side the thumb splays to).
+ */
+function buildHand(mats: WarriorPriestMaterials, side: number): THREE.Group {
+  const hand = new THREE.Group();
+  hand.name = side > 0 ? 'HandR' : 'HandL';
+
+  // Palm / back-of-hand — a lathe flattened in Z so the hand reads as a
+  // flat paddle rather than a sphere. Wider across the knuckles, narrower
+  // toward the wrist.
+  const palmProfile = [
+    new THREE.Vector2(0.055, 0.00),
+    new THREE.Vector2(0.075, 0.02),
+    new THREE.Vector2(0.080, 0.06),
+    new THREE.Vector2(0.082, 0.10),
+    new THREE.Vector2(0.072, 0.12),
+    new THREE.Vector2(0.000, 0.13),
+  ];
+  const palm = lathe(palmProfile, 18, mats.steel);
+  // Y goes upward by default; flip so fingers extend in -Y. Z squashed so
+  // the hand is flatter than it is wide.
+  palm.scale.set(1.0, -1.0, 0.55);
+  hand.add(palm);
+
+  // Wrist cuff (gold band at the base of the palm).
+  const cuff = smoothTorus(0.062, 0.014, mats.gold, 8, 20);
+  cuff.rotation.x = Math.PI / 2;
+  cuff.position.set(0, 0.005, 0);
+  hand.add(cuff);
+
+  // Knuckle studs — four small gold domes across the back of the hand.
+  for (const dx of [-0.045, -0.015, 0.015, 0.045]) {
+    const knuckle = smoothSph(0.013, mats.gold, 12);
+    knuckle.position.set(dx, -0.10, 0.025);
+    hand.add(knuckle);
   }
-  // Leather finger group — tapered cylinder for fingers held together.
-  const fingers = smoothCyl(0.06, 0.05, 0.12, mats.leather, 14);
-  fingers.position.set(sx, 0.58, 0.02);
-  parent.add(fingers);
+
+  // Four fingers (index → pinky) — capsules extending from the knuckle
+  // line. Index and pinky are shorter than middle/ring for a natural hand.
+  const fingerXs = [-0.045, -0.015, 0.015, 0.045];
+  const fingerLens = [0.085, 0.095, 0.090, 0.075];
+  for (let i = 0; i < 4; i++) {
+    const len = fingerLens[i];
+    const finger = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.013, len, 4, 8), mats.steel,
+    ));
+    finger.position.set(fingerXs[i], -0.10 - len / 2 - 0.015, 0);
+    hand.add(finger);
+    // Gold finger-joint band at the base of each finger.
+    const joint = smoothTorus(0.014, 0.004, mats.gold, 6, 12);
+    joint.rotation.x = Math.PI / 2;
+    joint.position.set(fingerXs[i], -0.115, 0);
+    hand.add(joint);
+  }
+
+  // Thumb — offset to the appropriate side of the palm, angled forward.
+  const thumb = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.014, 0.07, 4, 8), mats.steel,
+  ));
+  thumb.rotation.z = side * 0.9;
+  thumb.rotation.x = -0.35;
+  thumb.position.set(side * 0.06, -0.06, 0.025);
+  hand.add(thumb);
+  // Gold thumbnail band.
+  const thumbBand = smoothTorus(0.016, 0.004, mats.gold, 6, 12);
+  thumbBand.rotation.z = side * 0.9;
+  thumbBand.position.set(side * 0.075, -0.075, 0.03);
+  hand.add(thumbBand);
+
+  return hand;
 }
 
 /** Shoulder anchor for the left arm pivot (world-space when priest is at rest). */
@@ -529,6 +731,79 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   head.position.set(0, 1.86, 0);
   parent.add(head);
 
+  // ── Face features ───────────────────────────────────────────────────────
+  // All facial geometry sits forward of the head sphere centre (z > 0.14)
+  // and is intentionally small — at the player's normal viewing distance
+  // they read as eye sockets and a nose ridge rather than literal features.
+
+  // Brow ridge — slightly darker skin tone, gives the eyes a deep socket.
+  const browMat = new THREE.MeshStandardMaterial({
+    color: 0xa07550, metalness: 0, roughness: 0.85,
+  });
+  const browRidge = shadowed(new THREE.Mesh(
+    new THREE.BoxGeometry(0.20, 0.025, 0.04), browMat,
+  ));
+  browRidge.position.set(0, 1.94, 0.16);
+  parent.add(browRidge);
+
+  // Eyebrows — two short dark capsules angled inward.
+  const browHairMat = new THREE.MeshStandardMaterial({
+    color: 0x2a1c0a, metalness: 0, roughness: 0.95,
+  });
+  for (const sx of [-0.06, 0.06]) {
+    const eyebrow = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.014, 0.06, 4, 8), browHairMat,
+    ));
+    eyebrow.rotation.z = Math.PI / 2;
+    eyebrow.rotation.y = sx > 0 ? -0.18 : 0.18;
+    eyebrow.position.set(sx, 1.945, 0.175);
+    parent.add(eyebrow);
+  }
+
+  // Eye sockets — small dark recessed spheres (the white of the eye is
+  // intentionally omitted; the recessed shadow reads better than a tiny
+  // white dot at the player's viewing distance).
+  const eyeMat = new THREE.MeshStandardMaterial({
+    color: 0x2a2218, metalness: 0, roughness: 0.4,
+  });
+  for (const sx of [-0.055, 0.055]) {
+    const eye = smoothSph(0.022, eyeMat, 14);
+    eye.scale.set(1.2, 0.8, 0.6);
+    eye.position.set(sx, 1.91, 0.17);
+    parent.add(eye);
+  }
+
+  // Nose — a small rounded wedge protruding from the face.
+  const nose = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.022, 0.06, 4, 10), mats.skin,
+  ));
+  nose.rotation.x = -0.15;
+  nose.position.set(0, 1.88, 0.185);
+  parent.add(nose);
+  // Nose tip — tiny sphere for a defined point.
+  const noseTip = smoothSph(0.024, mats.skin, 14);
+  noseTip.position.set(0, 1.85, 0.195);
+  parent.add(noseTip);
+
+  // Cheekbones — slight skin-tone domes for facial structure.
+  for (const sx of [-0.08, 0.08]) {
+    const cheek = smoothSph(0.045, mats.skin, 14);
+    cheek.scale.set(1.1, 0.7, 0.5);
+    cheek.position.set(sx, 1.86, 0.165);
+    parent.add(cheek);
+  }
+
+  // Mouth — a thin recessed slit (dark capsule).
+  const mouthMat = new THREE.MeshStandardMaterial({
+    color: 0x3a1810, metalness: 0, roughness: 0.9,
+  });
+  const mouth = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.012, 0.05, 4, 8), mouthMat,
+  ));
+  mouth.rotation.z = Math.PI / 2;
+  mouth.position.set(0, 1.795, 0.18);
+  parent.add(mouth);
+
   // ── Shaved scalp highlight — a darker crown cap for visual separation ───
   const scalp = shadowed(new THREE.Mesh(
     new THREE.SphereGeometry(0.182, 24, 16, 0, Math.PI * 2, 0, Math.PI * 0.45),
@@ -556,13 +831,17 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   beard.position.set(0, 1.74, 0.04);
   parent.add(beard);
 
-  // Moustache — a thin horizontal capsule across the upper lip.
-  const mustache = shadowed(new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.025, 0.14, 4, 8), beardMat,
-  ));
-  mustache.rotation.z = Math.PI / 2;
-  mustache.position.set(0, 1.82, 0.16);
-  parent.add(mustache);
+  // Moustache — two angled halves draped over the upper lip with a
+  // slight downward curve at each end.
+  for (const sx of [-0.04, 0.04]) {
+    const half = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.012, 0.06, 4, 8), beardMat,
+    ));
+    half.rotation.z = Math.PI / 2;
+    half.rotation.y = sx > 0 ? 0.25 : -0.25;
+    half.position.set(sx, 1.815, 0.18);
+    parent.add(half);
+  }
 
   // ── Cloth headband (sits under the halo, covering the brow) ────────────
   const headband = smoothTorus(0.185, 0.022, mats.robe, 10, 28);
@@ -571,45 +850,76 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   parent.add(headband);
 
   // ── Solar halo crown ────────────────────────────────────────────────────
-  // Main gold ring floating just above the crown of the head.
-  const haloRing = smoothTorus(0.21, 0.018, mats.gold, 10, 40);
-  haloRing.rotation.x = Math.PI / 2;
-  haloRing.position.set(0, 2.00, 0);
-  parent.add(haloRing);
+  // The reference picture's halo is the priest's defining silhouette piece
+  // — a heavy gold sun-disc with prominent radiating spikes. Build it as
+  // a chunky inner band (the "crown" sitting on the head) plus a wider
+  // outer ring of long alternating spikes, the whole thing tilted slightly
+  // back so it reads as a corona behind the head rather than a flat
+  // wagon-wheel stuck to the brow.
+  const halo = new THREE.Group();
+  halo.name = 'SolarHalo';
+  halo.position.set(0, 1.96, -0.02);
+  halo.rotation.x = -0.18;
+  parent.add(halo);
 
-  // Twelve radial spikes — thin cones evenly distributed around the ring.
-  const spikeCount = 12;
+  // Inner crown band — the chunky gold ring that physically sits on the
+  // head. Larger tube radius than a thin ring for visual weight.
+  const crownBand = smoothTorus(0.21, 0.028, mats.gold, 12, 48);
+  crownBand.rotation.x = Math.PI / 2;
+  halo.add(crownBand);
+  // Dark inset groove on the band for highlight contrast.
+  const crownInset = smoothTorus(0.21, 0.012, mats.goldDark, 8, 48);
+  crownInset.rotation.x = Math.PI / 2;
+  crownInset.position.set(0, 0.005, 0);
+  halo.add(crownInset);
+
+  // Outer halo ring — thinner, sits at the spike midpoints.
+  const outerRing = smoothTorus(0.34, 0.012, mats.gold, 8, 56);
+  outerRing.rotation.x = Math.PI / 2;
+  halo.add(outerRing);
+
+  // Sun-ray spikes — 16 alternating long/short tapered rays.
+  const spikeCount = 16;
+  const baseR = 0.22;
   for (let i = 0; i < spikeCount; i++) {
     const angle = (i / spikeCount) * Math.PI * 2;
-    // Alternate tall/short spikes for a sunburst rhythm.
-    const len = i % 2 === 0 ? 0.12 : 0.08;
-    const baseR = 0.22;
-    const tipR  = baseR + len;
+    const isLong = i % 2 === 0;
+    const len = isLong ? 0.18 : 0.10;
+    const tipR = baseR + len;
     const spike = shadowed(new THREE.Mesh(
-      new THREE.ConeGeometry(0.022, len, 8), mats.gold,
+      new THREE.ConeGeometry(isLong ? 0.026 : 0.020, len, 10), mats.gold,
     ));
-    // Cone apex points along +Y by default. To aim it outward in the XZ
-    // plane: rotate -90° around Z (apex now points along +X), then rotate
-    // around Y by -angle to sweep the +X axis to the desired direction.
+    // Cone apex points along +Y by default. Rotate -90° around Z so the
+    // apex points along +X, then rotate around Y by -angle to sweep the
+    // +X axis to the desired direction in the XZ plane.
     spike.rotation.order = 'YXZ';
     spike.rotation.z = -Math.PI / 2;
     spike.rotation.y = -angle;
-    // Position spike midpoint on the ring at the correct radial offset.
     const midR = (baseR + tipR) / 2;
     spike.position.set(
       Math.cos(angle) * midR,
-      2.00,
+      0,
       Math.sin(angle) * midR,
     );
-    parent.add(spike);
+    halo.add(spike);
+    // Small gold sphere at the base of each long ray for a finished look.
+    if (isLong) {
+      const stud = smoothSph(0.018, mats.gold, 12);
+      stud.position.set(
+        Math.cos(angle) * baseR,
+        0,
+        Math.sin(angle) * baseR,
+      );
+      halo.add(stud);
+    }
   }
 
-  // Halo backplate disc — a very thin cylinder behind the ring, giving the
-  // halo a soft metallic "aura" when lit from behind.
-  const halodisc = smoothCyl(0.19, 0.19, 0.01, mats.goldDark, 40);
-  halodisc.position.set(0, 2.00, -0.005);
+  // Halo backdisc — a thin dark-gold disc behind the rays giving the halo
+  // an aura silhouette. Sits just behind the spikes in halo-local Z.
+  const halodisc = smoothCyl(0.30, 0.30, 0.01, mats.goldDark, 48);
   halodisc.rotation.x = Math.PI / 2;
-  parent.add(halodisc);
+  halodisc.position.set(0, 0, -0.015);
+  halo.add(halodisc);
 }
 
 // ─── Hammer of Sigmar (the Warrior Priest's two-handed warhammer) ───────────
