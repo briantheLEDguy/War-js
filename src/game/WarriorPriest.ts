@@ -178,18 +178,21 @@ function smoothTorus(
 // ─── Lower body ──────────────────────────────────────────────────────────────
 
 /**
- * Boots, greaves (shin plates), thigh chainmail, and the flowing tabard skirt.
- *
- * Layering (outer → inner):
- *   1. Blue cloth tabard — front & back panels, split at the sides
- *   2. Chainmail skirt — conical drape visible through the tabard split
- *   3. Steel greaves + gold knee poleyns from knee to ankle
- *   4. Gold-trimmed leather boots
- *
- * All meshes are added to `parent` at world-space coordinates (feet at y=0).
+ * Build a single leg (boot, greave, knee poleyn, thigh chainmail) at the given
+ * horizontal sign (+1 = right side, -1 = left side). All meshes are added to
+ * `parent` at absolute world-space coordinates (feet at y=0). The caller is
+ * expected to re-parent these under a hip pivot so the leg can swing during
+ * walk/run animations (see `buildWarriorPriestRigged`).
  */
-function buildLowerBody(parent: THREE.Group, mats: WarriorPriestMaterials): void {
-  // ── Boots (y ≈ 0 → 0.35) ────────────────────────────────────────────────
+function buildLeg(
+  parent: THREE.Group,
+  mats: WarriorPriestMaterials,
+  side: 1 | -1,
+): void {
+  const sx = 0.16 * side;
+  const tx = 0.14 * side;
+
+  // ── Boot (y ≈ 0 → 0.35) ────────────────────────────────────────────────
   // Tapered profile: toe narrows, ankle widens — revolved via lathe.
   const bootProfile = [
     new THREE.Vector2(0.00, 0.00),
@@ -200,47 +203,46 @@ function buildLowerBody(parent: THREE.Group, mats: WarriorPriestMaterials): void
     new THREE.Vector2(0.14, 0.34),
     new THREE.Vector2(0.00, 0.35),
   ];
-  for (const sx of [-0.16, 0.16]) {
-    const boot = lathe(bootProfile, 20, mats.leather);
-    boot.position.set(sx, 0, 0);
-    parent.add(boot);
-    // Gold ankle trim — thin torus sitting on top of the boot cuff.
-    const cuff = smoothTorus(0.15, 0.022, mats.gold, 10, 24);
-    cuff.rotation.x = Math.PI / 2;
-    cuff.position.set(sx, 0.34, 0);
-    parent.add(cuff);
-    // Gold toe cap — small bevelled wedge for that ornate WAR silhouette.
-    const toeCap = smoothSph(0.08, mats.gold, 16);
-    toeCap.scale.set(1.0, 0.45, 1.4);
-    toeCap.position.set(sx, 0.05, 0.10);
-    parent.add(toeCap);
-  }
+  const boot = lathe(bootProfile, 20, mats.leather);
+  boot.position.set(sx, 0, 0);
+  parent.add(boot);
+  // Gold ankle trim — thin torus sitting on top of the boot cuff.
+  const cuff = smoothTorus(0.15, 0.022, mats.gold, 10, 24);
+  cuff.rotation.x = Math.PI / 2;
+  cuff.position.set(sx, 0.34, 0);
+  parent.add(cuff);
+  // Gold toe cap — small bevelled wedge for that ornate WAR silhouette.
+  const toeCap = smoothSph(0.08, mats.gold, 16);
+  toeCap.scale.set(1.0, 0.45, 1.4);
+  toeCap.position.set(sx, 0.05, 0.10);
+  parent.add(toeCap);
 
-  // ── Greaves (shin plate, y ≈ 0.35 → 0.85) ───────────────────────────────
-  // Slight taper: narrower at ankle, wider at knee — smooth cylinder.
-  for (const sx of [-0.16, 0.16]) {
-    const greave = smoothCyl(0.14, 0.12, 0.48, mats.steel, 20);
-    greave.position.set(sx, 0.60, 0);
-    parent.add(greave);
-    // Vertical gold ridge running up the shin (a thin raised band).
-    const ridge = smoothCyl(0.015, 0.015, 0.46, mats.gold, 12);
-    ridge.position.set(sx, 0.60, 0.125);
-    parent.add(ridge);
-    // Knee poleyn — domed gold cap with a gold edge torus.
-    const poleyn = smoothSph(0.11, mats.gold, 20);
-    poleyn.scale.set(1.0, 0.6, 1.1);
-    poleyn.position.set(sx, 0.86, 0.05);
-    parent.add(poleyn);
-  }
+  // ── Greave (shin plate, y ≈ 0.35 → 0.85) ───────────────────────────────
+  const greave = smoothCyl(0.14, 0.12, 0.48, mats.steel, 20);
+  greave.position.set(sx, 0.60, 0);
+  parent.add(greave);
+  // Vertical gold ridge running up the shin (a thin raised band).
+  const ridge = smoothCyl(0.015, 0.015, 0.46, mats.gold, 12);
+  ridge.position.set(sx, 0.60, 0.125);
+  parent.add(ridge);
+  // Knee poleyn — domed gold cap with a gold edge torus.
+  const poleyn = smoothSph(0.11, mats.gold, 20);
+  poleyn.scale.set(1.0, 0.6, 1.1);
+  poleyn.position.set(sx, 0.86, 0.05);
+  parent.add(poleyn);
 
   // ── Thigh chainmail (y ≈ 0.82 → 1.10) ───────────────────────────────────
   // A short cylinder of mail peeking out between the tabard and greaves.
-  for (const sx of [-0.14, 0.14]) {
-    const mail = smoothCyl(0.15, 0.16, 0.28, mats.mail, 20);
-    mail.position.set(sx, 0.98, 0);
-    parent.add(mail);
-  }
+  const mail = smoothCyl(0.15, 0.16, 0.28, mats.mail, 20);
+  mail.position.set(tx, 0.98, 0);
+  parent.add(mail);
+}
 
+/**
+ * Centered waist region — mail skirt, tabard panels, belt, and buckle.
+ * These pieces stay attached to the root (they don't swing with the legs).
+ */
+function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   // ── Chainmail skirt (conical drape under tabard, y ≈ 0.75 → 1.15) ──────
   // A single bell-shaped lathe — wider at hem, narrower at waist.
   const skirtProfile = [
@@ -499,11 +501,12 @@ function buildArm(
   parent.add(fingers);
 }
 
-/** Build both arms. Right arm is the weapon-bearing side. */
-function buildArms(parent: THREE.Group, mats: WarriorPriestMaterials): void {
-  buildArm(parent, mats, -0.42);
-  buildArm(parent, mats,  0.42);
-}
+/** Shoulder anchor for the left arm pivot (world-space when priest is at rest). */
+export const LEFT_SHOULDER = new THREE.Vector3(-0.42, 1.50, 0);
+/** Shoulder anchor for the right arm pivot (world-space when priest is at rest). */
+export const RIGHT_SHOULDER = new THREE.Vector3(0.42, 1.50, 0);
+/** Hip anchor shared by both leg pivots (world-space when priest is at rest). */
+export const HIP_ANCHOR = new THREE.Vector3(0, 1.10, 0);
 
 // ─── Head + halo crown ──────────────────────────────────────────────────────
 
@@ -612,18 +615,13 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
 // ─── Hammer of Sigmar (the Warrior Priest's two-handed warhammer) ───────────
 
 /**
- * Build the Hammer of Sigmar held diagonally across the body, gripped by
- * both hands at roughly hip height. The hammer head is a chunky steel
- * rectangle with a gold Sigmarite cross on each striking face.
- *
- * Anchored to the group so it sits in front of the character, rotated so
- * the haft lies along a diagonal from lower-right to upper-left.
+ * Build the Hammer of Sigmar geometry into the supplied group. The hammer
+ * head is a chunky steel rectangle with a gold Sigmarite cross on each
+ * striking face. Local origin sits roughly at the right-hand grip — the
+ * caller positions and orients the whole weapon (see `buildWarriorPriestRigged`,
+ * which attaches the hammer under the right-arm pivot so it can swing).
  */
-function buildHammer(parent: THREE.Group, mats: WarriorPriestMaterials): void {
-  // Use a sub-group so the whole weapon can be rotated / translated cleanly.
-  const hammer = new THREE.Group();
-  hammer.name = 'HammerOfSigmar';
-
+function buildHammerGeometry(hammer: THREE.Group, mats: WarriorPriestMaterials): void {
   // ── Haft (wrapped handle) ───────────────────────────────────────────────
   // Core wooden shaft.
   const shaftWood = new THREE.MeshStandardMaterial({
@@ -696,30 +694,126 @@ function buildHammer(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   bottomFang.rotation.x = Math.PI;
   bottomFang.position.set(0, 0.51, 0);
   hammer.add(bottomFang);
-
-  // ── Position the whole hammer across the priest's body ─────────────────
-  // Held two-handed: right hand near the top grip, left hand near the
-  // pommel. We rotate the haft so it crosses the torso diagonally with
-  // the head to the upper-left when viewed from the front.
-  hammer.rotation.z = -Math.PI * 0.35;
-  hammer.rotation.y = -0.15;
-  hammer.position.set(0.22, 1.10, 0.30);
-  parent.add(hammer);
 }
 
-// ─── Entry point ─────────────────────────────────────────────────────────────
+/**
+ * Held-two-handed rest orientation for the Hammer of Sigmar. The haft lies
+ * diagonally across the torso with the head to the upper-left and the pommel
+ * to the lower-right — matching the classic Warrior Priest silhouette.
+ * Animators interpolate away from this rest pose when swinging.
+ */
+export const HAMMER_REST_EULER = new THREE.Euler(0, -0.15, -Math.PI * 0.35);
+/** World-space anchor for the hammer when the priest is in rest pose. */
+export const HAMMER_REST_WORLD = new THREE.Vector3(0.22, 1.10, 0.30);
 
-/** Build a detailed Warrior Priest. Feet at y=0, head ≈ y=1.95. */
+// ─── Rig & entry point ───────────────────────────────────────────────────────
+
+/**
+ * A rigged Warrior Priest — the root group plus named pivot sub-groups that
+ * animators can rotate to produce walk/run/attack motion. The rest pose is
+ * identical to `buildWarriorPriest()` (all rotations zero).
+ *
+ * Pivot anchors (world-space when priest is at rest):
+ *   leftArm  @ (-0.42, 1.50, 0) — left shoulder
+ *   rightArm @ ( 0.42, 1.50, 0) — right shoulder
+ *   leftLeg  @ (   0, 1.10, 0) — hip (mirrored in Z/X via pivot contents)
+ *   rightLeg @ (   0, 1.10, 0) — hip
+ *   hammer   — child of rightArm, oriented diagonally across the body
+ */
+export interface WarriorPriestRig {
+  root: THREE.Group;
+  leftArm: THREE.Group;
+  rightArm: THREE.Group;
+  leftLeg: THREE.Group;
+  rightLeg: THREE.Group;
+  hammer: THREE.Group;
+  /** Rest-pose local position of the hammer inside the right-arm pivot. */
+  hammerRestPosition: THREE.Vector3;
+  /** Rest-pose local rotation (Euler) of the hammer inside the right-arm pivot. */
+  hammerRestEuler: THREE.Euler;
+}
+
+/**
+ * Wraps an already-filled group so its children become pivot-local: each
+ * child's position is shifted by `-worldPivot`, then the group itself is
+ * placed at `worldPivot`. This preserves absolute world coords of every
+ * child while introducing a single-point rotation axis at `worldPivot`.
+ */
+function pivotify(g: THREE.Group, worldPivot: THREE.Vector3): THREE.Group {
+  for (const c of g.children) c.position.sub(worldPivot);
+  g.position.copy(worldPivot);
+  return g;
+}
+
+/** Build a detailed Warrior Priest and return its animation rig. */
+export function buildWarriorPriestRigged(
+  palette: WarriorPriestPalette = DEFAULT_PALETTE,
+): WarriorPriestRig {
+  const root = new THREE.Group();
+  root.name = 'WarriorPriest';
+  const mats = buildMaterials(palette);
+
+  // Static (non-swinging) regions go straight onto the root.
+  buildWaist(root, mats);
+  buildTorso(root, mats);
+  buildHead(root, mats);
+
+  // Legs: each side built into its own pivot at the hip.
+  const leftLeg = new THREE.Group();
+  leftLeg.name = 'LeftLeg';
+  buildLeg(leftLeg, mats, -1);
+  pivotify(leftLeg, HIP_ANCHOR);
+  root.add(leftLeg);
+
+  const rightLeg = new THREE.Group();
+  rightLeg.name = 'RightLeg';
+  buildLeg(rightLeg, mats, 1);
+  pivotify(rightLeg, HIP_ANCHOR);
+  root.add(rightLeg);
+
+  // Arms: each side built into its own shoulder pivot.
+  const leftArm = new THREE.Group();
+  leftArm.name = 'LeftArm';
+  buildArm(leftArm, mats, LEFT_SHOULDER.x);
+  pivotify(leftArm, LEFT_SHOULDER);
+  root.add(leftArm);
+
+  const rightArm = new THREE.Group();
+  rightArm.name = 'RightArm';
+  buildArm(rightArm, mats, RIGHT_SHOULDER.x);
+  pivotify(rightArm, RIGHT_SHOULDER);
+  root.add(rightArm);
+
+  // Hammer: geometry built into its own group, parented to the right arm so
+  // it follows shoulder rotation. Rest position is the classic held-across-body
+  // diagonal — we translate world coords into right-arm-local space.
+  const hammer = new THREE.Group();
+  hammer.name = 'HammerOfSigmar';
+  buildHammerGeometry(hammer, mats);
+  const hammerRestPosition = HAMMER_REST_WORLD.clone().sub(RIGHT_SHOULDER);
+  const hammerRestEuler = HAMMER_REST_EULER.clone();
+  hammer.position.copy(hammerRestPosition);
+  hammer.rotation.copy(hammerRestEuler);
+  rightArm.add(hammer);
+
+  return {
+    root,
+    leftArm,
+    rightArm,
+    leftLeg,
+    rightLeg,
+    hammer,
+    hammerRestPosition,
+    hammerRestEuler,
+  };
+}
+
+/**
+ * Legacy entry point — returns just the root group. Prefer
+ * `buildWarriorPriestRigged()` when you need access to the rig for animation.
+ */
 export function buildWarriorPriest(
   palette: WarriorPriestPalette = DEFAULT_PALETTE,
 ): THREE.Group {
-  const group = new THREE.Group();
-  group.name = 'WarriorPriest';
-  const mats = buildMaterials(palette);
-  buildLowerBody(group, mats);
-  buildTorso(group, mats);
-  buildArms(group, mats);
-  buildHead(group, mats);
-  buildHammer(group, mats);
-  return group;
+  return buildWarriorPriestRigged(palette).root;
 }
