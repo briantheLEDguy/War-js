@@ -353,60 +353,110 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
  *   4. Gorget — high gold collar protecting the neck
  */
 function buildTorso(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  // The torso is built from lathes (radially symmetric) and then scaled
+  // non-uniformly in X and Z so a real human body shape emerges: wider
+  // across the shoulders than front-to-back, with a pinched waist and a
+  // flared chest.
+  const TORSO_WIDTH_SCALE = 1.20;  // X — broaden across shoulders
+  const TORSO_DEPTH_SCALE = 0.70;  // Z — flatten front-to-back
+
   // ── Chainmail hauberk (under the breastplate) ───────────────────────────
-  // A subtle hourglass taper from chest → waist using a lathe silhouette.
+  // Stronger hourglass taper — narrow waist, broad chest, with a
+  // "trapezius shelf" at the top so the shoulders read as muscled rather
+  // than a flat shelf cut.
   const mailProfile = [
     new THREE.Vector2(0.00, 0.00),
-    new THREE.Vector2(0.28, 0.00),   // waist
-    new THREE.Vector2(0.32, 0.12),
-    new THREE.Vector2(0.36, 0.26),   // chest widest
-    new THREE.Vector2(0.34, 0.38),
-    new THREE.Vector2(0.22, 0.48),   // shoulder
-    new THREE.Vector2(0.00, 0.48),
+    new THREE.Vector2(0.22, 0.00),   // waist (pinched in)
+    new THREE.Vector2(0.26, 0.10),
+    new THREE.Vector2(0.34, 0.22),
+    new THREE.Vector2(0.40, 0.32),   // chest widest
+    new THREE.Vector2(0.42, 0.40),   // upper chest / shoulder shelf
+    new THREE.Vector2(0.34, 0.48),   // shoulder slope inward toward neck
+    new THREE.Vector2(0.18, 0.54),   // trapezius rise toward neck
+    new THREE.Vector2(0.00, 0.54),
   ];
-  const mailTorso = lathe(mailProfile, 28, mats.mail);
-  mailTorso.position.set(0, 1.12, 0);
+  const mailTorso = lathe(mailProfile, 32, mats.mail);
+  mailTorso.scale.set(TORSO_WIDTH_SCALE, 1.0, TORSO_DEPTH_SCALE);
+  mailTorso.position.set(0, 1.08, 0);
   parent.add(mailTorso);
 
   // ── Breastplate — two half-shells (front + back) ────────────────────────
-  // Carved from a sphere, scaled and clipped to produce a curved plate.
-  // The WAR Warrior Priest silhouette has a distinctive bevelled chest
-  // with a raised central boss; we approximate that with nested lathes.
-  const frontShellProfile = [
+  // Same hourglass profile, same non-uniform scaling, sitting just outside
+  // the mail. Pec relief + sternum groove + abdominal plate go on top for
+  // anatomical structure.
+  const shellProfile = [
     new THREE.Vector2(0.00, 0.00),
-    new THREE.Vector2(0.26, 0.02),
-    new THREE.Vector2(0.32, 0.14),
-    new THREE.Vector2(0.36, 0.26),
-    new THREE.Vector2(0.34, 0.40),
-    new THREE.Vector2(0.22, 0.48),
-    new THREE.Vector2(0.00, 0.48),
+    new THREE.Vector2(0.21, 0.02),   // waist
+    new THREE.Vector2(0.26, 0.12),
+    new THREE.Vector2(0.34, 0.24),
+    new THREE.Vector2(0.39, 0.34),   // chest widest
+    new THREE.Vector2(0.40, 0.40),
+    new THREE.Vector2(0.32, 0.48),   // shoulder slope
+    new THREE.Vector2(0.16, 0.52),
   ];
-  // Front half — render only the forward 180° of the revolution.
+  // Front half — forward 180° of revolution.
   const frontShell = shadowed(new THREE.Mesh(
-    new THREE.LatheGeometry(frontShellProfile, 24, -Math.PI / 2, Math.PI),
+    new THREE.LatheGeometry(shellProfile, 28, -Math.PI / 2, Math.PI),
     mats.steel,
   ));
-  frontShell.scale.set(1.02, 1.0, 1.02);
-  frontShell.position.set(0, 1.14, 0);
+  frontShell.scale.set(TORSO_WIDTH_SCALE * 1.02, 1.0, TORSO_DEPTH_SCALE * 1.05);
+  frontShell.position.set(0, 1.10, 0);
   parent.add(frontShell);
-  // Back half — slightly flatter for the backplate.
+  // Back half — flatter (smaller Z scale) backplate.
   const backShell = shadowed(new THREE.Mesh(
-    new THREE.LatheGeometry(frontShellProfile, 24, Math.PI / 2, Math.PI),
+    new THREE.LatheGeometry(shellProfile, 28, Math.PI / 2, Math.PI),
     mats.steel,
   ));
-  backShell.scale.set(1.02, 1.0, 0.88);
-  backShell.position.set(0, 1.14, 0);
+  backShell.scale.set(TORSO_WIDTH_SCALE * 1.02, 1.0, TORSO_DEPTH_SCALE * 0.85);
+  backShell.position.set(0, 1.10, 0);
   parent.add(backShell);
 
+  // Pectoral relief — two flattened domes giving the chest anatomical
+  // structure rather than a smooth bowl. Sit just proud of the front shell.
+  for (const sx of [-0.13, 0.13]) {
+    const pec = smoothSph(0.13, mats.steel, 18);
+    pec.scale.set(1.05, 0.85, 0.55);
+    pec.position.set(sx, 1.42, 0.30);
+    parent.add(pec);
+  }
+  // Sternum groove — a thin dark recessed band running between the pecs,
+  // simulating the seam where the two halves of the breastplate meet.
+  const sternum = shadowed(new THREE.Mesh(
+    new THREE.BoxGeometry(0.012, 0.30, 0.02),
+    new THREE.MeshStandardMaterial({
+      color: 0x1a1c20, metalness: 0.6, roughness: 0.6,
+    }),
+  ));
+  sternum.position.set(0, 1.34, 0.36);
+  parent.add(sternum);
+
+  // Abdominal plate — a smaller curved plate below the breastplate hem,
+  // emphasising the waist pinch.
+  const abdomenProfile = [
+    new THREE.Vector2(0.20, 0.00),
+    new THREE.Vector2(0.23, 0.04),
+    new THREE.Vector2(0.22, 0.10),
+    new THREE.Vector2(0.20, 0.14),
+  ];
+  const abdomen = shadowed(new THREE.Mesh(
+    new THREE.LatheGeometry(abdomenProfile, 24, -Math.PI / 2, Math.PI),
+    mats.steel,
+  ));
+  abdomen.scale.set(TORSO_WIDTH_SCALE * 0.95, 1.0, TORSO_DEPTH_SCALE * 1.0);
+  abdomen.position.set(0, 1.04, 0);
+  parent.add(abdomen);
+
   // ── Gold breastplate trim (top edge + lower hem) ────────────────────────
-  // Two thin tori hug the chest ridge and the waist seam.
-  const topTrim = smoothTorus(0.30, 0.025, mats.gold, 10, 36);
+  // Scaled to match the wider/flatter torso silhouette established above.
+  const topTrim = smoothTorus(0.30, 0.022, mats.gold, 10, 36);
   topTrim.rotation.x = Math.PI / 2;
-  topTrim.position.set(0, 1.53, 0);
+  topTrim.scale.set(TORSO_WIDTH_SCALE * 1.05, TORSO_DEPTH_SCALE * 1.05, 1);
+  topTrim.position.set(0, 1.50, 0);
   parent.add(topTrim);
-  const waistTrim = smoothTorus(0.28, 0.03, mats.gold, 10, 36);
+  const waistTrim = smoothTorus(0.24, 0.028, mats.gold, 10, 36);
   waistTrim.rotation.x = Math.PI / 2;
-  waistTrim.position.set(0, 1.14, 0);
+  waistTrim.scale.set(TORSO_WIDTH_SCALE, TORSO_DEPTH_SCALE, 1);
+  waistTrim.position.set(0, 1.11, 0);
   parent.add(waistTrim);
 
   // ── Central gold sigil: stylised Hammer of Sigmar (cross) ───────────────
