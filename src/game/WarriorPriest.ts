@@ -293,6 +293,110 @@ function buildLowerBody(parent: THREE.Group, mats: WarriorPriestMaterials): void
   parent.add(buckleInset);
 }
 
+// ─── Torso ───────────────────────────────────────────────────────────────────
+
+/**
+ * Tapered upper body — broad at the chest, pinched at the waist.
+ * Layering (outer → inner):
+ *   1. Gold-trimmed steel breastplate (front + back half-shells)
+ *   2. Central chest sigil (Hammer of Sigmar cross) in polished gold
+ *   3. Chainmail hauberk (short-sleeved) beneath the plate
+ *   4. Gorget — high gold collar protecting the neck
+ */
+function buildTorso(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  // ── Chainmail hauberk (under the breastplate) ───────────────────────────
+  // A subtle hourglass taper from chest → waist using a lathe silhouette.
+  const mailProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.28, 0.00),   // waist
+    new THREE.Vector2(0.32, 0.12),
+    new THREE.Vector2(0.36, 0.26),   // chest widest
+    new THREE.Vector2(0.34, 0.38),
+    new THREE.Vector2(0.22, 0.48),   // shoulder
+    new THREE.Vector2(0.00, 0.48),
+  ];
+  const mailTorso = lathe(mailProfile, 28, mats.mail);
+  mailTorso.position.set(0, 1.12, 0);
+  parent.add(mailTorso);
+
+  // ── Breastplate — two half-shells (front + back) ────────────────────────
+  // Carved from a sphere, scaled and clipped to produce a curved plate.
+  // The WAR Warrior Priest silhouette has a distinctive bevelled chest
+  // with a raised central boss; we approximate that with nested lathes.
+  const frontShellProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.26, 0.02),
+    new THREE.Vector2(0.32, 0.14),
+    new THREE.Vector2(0.36, 0.26),
+    new THREE.Vector2(0.34, 0.40),
+    new THREE.Vector2(0.22, 0.48),
+    new THREE.Vector2(0.00, 0.48),
+  ];
+  // Front half — render only the forward 180° of the revolution.
+  const frontShell = shadowed(new THREE.Mesh(
+    new THREE.LatheGeometry(frontShellProfile, 24, -Math.PI / 2, Math.PI),
+    mats.steel,
+  ));
+  frontShell.scale.set(1.02, 1.0, 1.02);
+  frontShell.position.set(0, 1.14, 0);
+  parent.add(frontShell);
+  // Back half — slightly flatter for the backplate.
+  const backShell = shadowed(new THREE.Mesh(
+    new THREE.LatheGeometry(frontShellProfile, 24, Math.PI / 2, Math.PI),
+    mats.steel,
+  ));
+  backShell.scale.set(1.02, 1.0, 0.88);
+  backShell.position.set(0, 1.14, 0);
+  parent.add(backShell);
+
+  // ── Gold breastplate trim (top edge + lower hem) ────────────────────────
+  // Two thin tori hug the chest ridge and the waist seam.
+  const topTrim = smoothTorus(0.30, 0.025, mats.gold, 10, 36);
+  topTrim.rotation.x = Math.PI / 2;
+  topTrim.position.set(0, 1.53, 0);
+  parent.add(topTrim);
+  const waistTrim = smoothTorus(0.28, 0.03, mats.gold, 10, 36);
+  waistTrim.rotation.x = Math.PI / 2;
+  waistTrim.position.set(0, 1.14, 0);
+  parent.add(waistTrim);
+
+  // ── Central gold sigil: stylised Hammer of Sigmar (cross) ───────────────
+  // Vertical bar.
+  const sigilBar = shadowed(
+    new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.26, 0.04), mats.gold),
+  );
+  sigilBar.position.set(0, 1.32, 0.36);
+  parent.add(sigilBar);
+  // Hammer head (horizontal crossbar).
+  const sigilCross = shadowed(
+    new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.07, 0.04), mats.gold),
+  );
+  sigilCross.position.set(0, 1.40, 0.36);
+  parent.add(sigilCross);
+  // Central boss — small domed gold stud.
+  const sigilBoss = smoothSph(0.045, mats.goldDark, 16);
+  sigilBoss.position.set(0, 1.36, 0.39);
+  parent.add(sigilBoss);
+
+  // ── Gorget (tall gold collar) ───────────────────────────────────────────
+  // A short flared lathe sitting above the breastplate, covering the neck.
+  const gorgetProfile = [
+    new THREE.Vector2(0.15, 0.00),
+    new THREE.Vector2(0.19, 0.04),
+    new THREE.Vector2(0.18, 0.11),
+    new THREE.Vector2(0.13, 0.16),
+    new THREE.Vector2(0.11, 0.20),
+  ];
+  const gorget = lathe(gorgetProfile, 24, mats.gold);
+  gorget.position.set(0, 1.55, 0);
+  parent.add(gorget);
+  // Gorget inner rim (darker gold) — adds depth to the collar lip.
+  const gorgetRim = smoothTorus(0.12, 0.02, mats.goldDark, 10, 28);
+  gorgetRim.rotation.x = Math.PI / 2;
+  gorgetRim.position.set(0, 1.72, 0);
+  parent.add(gorgetRim);
+}
+
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
 /** Build a detailed Warrior Priest. Feet at y=0, head ≈ y=1.95. */
@@ -303,6 +407,7 @@ export function buildWarriorPriest(
   group.name = 'WarriorPriest';
   const mats = buildMaterials(palette);
   buildLowerBody(group, mats);
-  // Torso / arms / head / weapon built in subsequent commits.
+  buildTorso(group, mats);
+  // Arms / head / weapon built in subsequent commits.
   return group;
 }
