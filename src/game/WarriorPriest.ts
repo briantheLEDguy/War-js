@@ -256,26 +256,73 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   mailSkirt.position.set(0, 0.75, 0);
   parent.add(mailSkirt);
 
-  // ── Tabard front panel (blue cloth hanging over chainmail) ──────────────
-  // Uses a plane slightly bent forward so the silhouette reads as fabric
-  // rather than a flat slab. Built from a ShapeGeometry for crisp edges.
-  const tabardShape = new THREE.Shape();
-  tabardShape.moveTo(-0.19, 0.00);
-  tabardShape.lineTo( 0.19, 0.00);   // waist
-  tabardShape.lineTo( 0.24, -0.55);
-  tabardShape.lineTo( 0.10, -0.72);  // bottom fringe bevel
-  tabardShape.lineTo(-0.10, -0.72);
-  tabardShape.lineTo(-0.24, -0.55);
-  tabardShape.closePath();
-  const tabardGeo = new THREE.ShapeGeometry(tabardShape, 12);
-  const tabardFront = shadowed(new THREE.Mesh(tabardGeo, mats.robe));
-  tabardFront.position.set(0, 1.08, 0.24);
-  parent.add(tabardFront);
-  // Matching back panel (same shape, flipped normal — slightly darker tone).
-  const tabardBack = shadowed(new THREE.Mesh(tabardGeo.clone(), mats.robeDark));
-  tabardBack.position.set(0, 1.08, -0.24);
-  tabardBack.rotation.y = Math.PI;
-  parent.add(tabardBack);
+  // ── Long flowing robe (full-length skirt panels) ────────────────────────
+  // Replaces a short kilt-style tabard — the WAR Warrior Priest reference
+  // shows a long blue robe falling almost to the boots. Built as a bell-
+  // shaped lathe so the fabric drapes evenly all the way around, plus a
+  // decorated front fringe panel for the layered silhouette.
+  const robeProfile = [
+    new THREE.Vector2(0.26, 0.00),   // waist top
+    new THREE.Vector2(0.28, 0.10),
+    new THREE.Vector2(0.30, 0.30),
+    new THREE.Vector2(0.34, 0.50),
+    new THREE.Vector2(0.40, 0.70),
+    new THREE.Vector2(0.46, 0.80),   // hem just above the boot cuff
+    new THREE.Vector2(0.00, 0.80),
+  ];
+  const robe = lathe(robeProfile, 32, mats.robe);
+  // Lathe Y grows upward; we want it draping downward from the waist.
+  robe.scale.y = -1;
+  robe.position.set(0, 1.10, 0);
+  parent.add(robe);
+
+  // Inner darker liner — peeks at the hem when the camera is low.
+  const liner = lathe(robeProfile, 32, mats.robeDark);
+  liner.scale.set(0.96, -1, 0.96);
+  liner.position.set(0, 1.10, 0);
+  parent.add(liner);
+
+  // Front fringe panel — a narrow vertical strip sits proud of the robe
+  // front, edged in gold. This is the decorated tabard-style panel visible
+  // between the breastplate and the robe's hem.
+  const frontPanelShape = new THREE.Shape();
+  frontPanelShape.moveTo(-0.13, 0.00);
+  frontPanelShape.lineTo( 0.13, 0.00);
+  frontPanelShape.lineTo( 0.16, -0.40);
+  frontPanelShape.lineTo( 0.18, -0.78);
+  frontPanelShape.lineTo( 0.06, -0.92);   // pointed hem bevel
+  frontPanelShape.lineTo(-0.06, -0.92);
+  frontPanelShape.lineTo(-0.18, -0.78);
+  frontPanelShape.lineTo(-0.16, -0.40);
+  frontPanelShape.closePath();
+  const frontPanelGeo = new THREE.ShapeGeometry(frontPanelShape, 16);
+  const frontPanel = shadowed(new THREE.Mesh(frontPanelGeo, mats.robeDark));
+  frontPanel.position.set(0, 1.08, 0.32);
+  parent.add(frontPanel);
+
+  // Gold edging along the front panel's hem — two short angled bands.
+  for (const sx of [-0.12, 0.12]) {
+    const trim = shadowed(new THREE.Mesh(
+      new THREE.BoxGeometry(0.014, 0.28, 0.01), mats.gold,
+    ));
+    trim.rotation.z = sx > 0 ? -0.18 : 0.18;
+    trim.position.set(sx, 0.85, 0.325);
+    parent.add(trim);
+  }
+  // Small gold roundel at the centre of the front panel (decorative seal).
+  const roundel = smoothTorus(0.04, 0.012, mats.gold, 8, 24);
+  roundel.position.set(0, 0.66, 0.33);
+  parent.add(roundel);
+  const roundelInner = smoothSph(0.022, mats.goldDark, 14);
+  roundelInner.position.set(0, 0.66, 0.34);
+  parent.add(roundelInner);
+
+  // Matching narrow back panel (darker, no gold trim).
+  const backPanelGeo = new THREE.ShapeGeometry(frontPanelShape, 16);
+  const backPanel = shadowed(new THREE.Mesh(backPanelGeo, mats.robeDark));
+  backPanel.position.set(0, 1.08, -0.32);
+  backPanel.rotation.y = Math.PI;
+  parent.add(backPanel);
 
   // ── Belt (wraps waist, separates tabard from torso) ─────────────────────
   const belt = smoothTorus(0.28, 0.05, mats.leather, 10, 28);
