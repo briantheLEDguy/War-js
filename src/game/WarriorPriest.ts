@@ -397,6 +397,114 @@ function buildTorso(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   parent.add(gorgetRim);
 }
 
+// ─── Arms ────────────────────────────────────────────────────────────────────
+
+/**
+ * Build a single arm (pauldron → upper arm → elbow → vambrace → gauntlet).
+ * `sx` is the shoulder x-offset (±); the arm hangs straight down.
+ *
+ * The pauldron is a compound: a domed steel shell + a gold crested ridge
+ * + a gold scalloped hem — all high-segment so the shoulder silhouette
+ * reads smooth from any camera angle.
+ */
+function buildArm(
+  parent: THREE.Group,
+  mats: WarriorPriestMaterials,
+  sx: number,
+): void {
+  const side = Math.sign(sx);
+
+  // ── Pauldron (shoulder armor) ───────────────────────────────────────────
+  // Dome — half-sphere with extra squash for the rounded WAR look.
+  const pauldronDome = shadowed(new THREE.Mesh(
+    new THREE.SphereGeometry(0.20, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.6),
+    mats.steel,
+  ));
+  pauldronDome.scale.set(1.2, 0.95, 1.15);
+  pauldronDome.position.set(sx, 1.48, 0);
+  parent.add(pauldronDome);
+
+  // Gold crest ridge running front-to-back along the pauldron top.
+  const crest = smoothCyl(0.02, 0.02, 0.36, mats.gold, 12);
+  crest.rotation.x = Math.PI / 2;
+  crest.position.set(sx, 1.63, 0);
+  parent.add(crest);
+
+  // Gold scalloped hem — a thin torus along the pauldron's bottom edge.
+  const hem = smoothTorus(0.22, 0.022, mats.gold, 10, 32);
+  hem.rotation.x = Math.PI / 2;
+  hem.position.set(sx, 1.42, 0);
+  parent.add(hem);
+
+  // Gold stud at the pauldron's apex (the characteristic WAR rivet boss).
+  const stud = smoothSph(0.045, mats.gold, 16);
+  stud.position.set(sx, 1.66, 0);
+  parent.add(stud);
+
+  // ── Upper arm (chainmail sleeve) ────────────────────────────────────────
+  // Smooth cylinder, tapered slightly from shoulder to elbow.
+  const upperArm = smoothCyl(0.095, 0.085, 0.38, mats.mail, 20);
+  upperArm.position.set(sx, 1.24, 0);
+  parent.add(upperArm);
+
+  // ── Elbow couter (steel cap) ────────────────────────────────────────────
+  const elbow = smoothSph(0.09, mats.steel, 18);
+  elbow.scale.set(1.0, 0.75, 1.0);
+  elbow.position.set(sx, 1.05, 0);
+  parent.add(elbow);
+  // Gold elbow spike — small conical accent pointing outward.
+  const elbowSpike = shadowed(new THREE.Mesh(
+    new THREE.ConeGeometry(0.04, 0.10, 12), mats.gold,
+  ));
+  elbowSpike.rotation.z = -side * (Math.PI / 2);
+  elbowSpike.position.set(sx + side * 0.09, 1.05, 0);
+  parent.add(elbowSpike);
+
+  // ── Vambrace (forearm plate) ────────────────────────────────────────────
+  // Lathed profile: fluted wrist cuff, tapering toward elbow.
+  const vambraceProfile = [
+    new THREE.Vector2(0.08, 0.00),   // wrist bottom
+    new THREE.Vector2(0.10, 0.03),
+    new THREE.Vector2(0.09, 0.10),
+    new THREE.Vector2(0.085, 0.22),
+    new THREE.Vector2(0.095, 0.32),  // elbow end
+  ];
+  const vambrace = lathe(vambraceProfile, 20, mats.steel);
+  vambrace.position.set(sx, 0.72, 0);
+  parent.add(vambrace);
+
+  // Two gold bands (upper + lower) wrapping the vambrace.
+  for (const dy of [0.05, 0.28]) {
+    const band = smoothTorus(0.10, 0.015, mats.gold, 8, 24);
+    band.rotation.x = Math.PI / 2;
+    band.position.set(sx, 0.72 + dy, 0);
+    parent.add(band);
+  }
+
+  // ── Gauntlet (hand) ─────────────────────────────────────────────────────
+  // Steel knuckle dome + gold cuff + leather grip underneath.
+  const gauntlet = smoothSph(0.09, mats.steel, 18);
+  gauntlet.scale.set(1.0, 0.85, 1.15);
+  gauntlet.position.set(sx, 0.66, 0);
+  parent.add(gauntlet);
+  // Gold knuckle ridges — three tiny spheres across the back of the hand.
+  for (const dz of [-0.05, 0.0, 0.05]) {
+    const knuckle = smoothSph(0.022, mats.gold, 12);
+    knuckle.position.set(sx, 0.69, dz);
+    parent.add(knuckle);
+  }
+  // Leather finger group — tapered cylinder for fingers held together.
+  const fingers = smoothCyl(0.06, 0.05, 0.12, mats.leather, 14);
+  fingers.position.set(sx, 0.58, 0.02);
+  parent.add(fingers);
+}
+
+/** Build both arms. Right arm is the weapon-bearing side. */
+function buildArms(parent: THREE.Group, mats: WarriorPriestMaterials): void {
+  buildArm(parent, mats, -0.42);
+  buildArm(parent, mats,  0.42);
+}
+
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
 /** Build a detailed Warrior Priest. Feet at y=0, head ≈ y=1.95. */
@@ -408,6 +516,7 @@ export function buildWarriorPriest(
   const mats = buildMaterials(palette);
   buildLowerBody(group, mats);
   buildTorso(group, mats);
-  // Arms / head / weapon built in subsequent commits.
+  buildArms(group, mats);
+  // Head / weapon built in subsequent commits.
   return group;
 }
