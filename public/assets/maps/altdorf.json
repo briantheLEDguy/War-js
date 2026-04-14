@@ -167,7 +167,11 @@
     { "id": "vendor-inn-2",    "name": "Diedrick Stein",        "title": "General Goods",                      "role": "vendor",     "x": -55, "z": 55,  "rotY": -1.5708 }
   ],
 
-  "enemies": [],
+  "enemies": [
+    { "id": "dummy-wp-1", "name": "Training Dummy",       "level": 1, "x": -14, "z": 20, "maxHealth": 500, "aggroRange": 0 },
+    { "id": "dummy-wp-2", "name": "Training Dummy",       "level": 1, "x": -18, "z": 22, "maxHealth": 500, "aggroRange": 0 },
+    { "id": "dummy-wp-3", "name": "Heavy Training Dummy", "level": 3, "x": -22, "z": 24, "maxHealth": 800, "aggroRange": 0 }
+  ],
 
   "zoneTriggers": [
     {

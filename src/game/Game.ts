@@ -13,6 +13,7 @@ import { Combat } from './Combat';
 import { Enemy } from './Enemy';
 import { Input } from './Input';
 import { Player } from './Player';
+import { VfxLayer } from './animation/VfxLayer';
 
 export class Game {
   private renderer!: THREE.WebGLRenderer;
@@ -24,6 +25,7 @@ export class Game {
   private player!: Player;
   private enemies: Enemy[] = [];
   private combat = new Combat();
+  private vfx!: VfxLayer;
 
   private lastT = 0;
   private fpsT = 0;
@@ -82,6 +84,8 @@ export class Game {
     const aspect = container.clientWidth / container.clientHeight;
     this.camera = new FollowCamera(this.renderer.domElement, aspect);
     this.input = new Input(this.renderer.domElement);
+    this.vfx = new VfxLayer(this.scene);
+    this.combat.setVfxLayer(this.vfx);
 
     // Zone
     const zone = await loadZone(this.character.zoneId ?? 'zone1');
@@ -242,6 +246,7 @@ export class Game {
     this.combat.tickEnemies(dt, tMs, this.player);
     this.combat.tickRespawns(tMs);
     this.combat.tickFloatingDamage(tMs);
+    this.vfx.update(dt);
 
     // Enemy visibility sync
     for (const e of this.enemies) {
@@ -308,6 +313,7 @@ export class Game {
       try { fn(); } catch { /* ignore */ }
     }
     try { void services.world.leaveZone(this.character.zoneId); } catch { /* ignore */ }
+    this.vfx?.dispose();
     this.renderer?.dispose();
     if (this.renderer?.domElement.parentElement === this.container) {
       this.container.removeChild(this.renderer.domElement);
