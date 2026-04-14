@@ -3,6 +3,7 @@ import { services } from '../services';
 import { useGameStore, type EnemyState } from '../state/gameStore';
 import type { Player } from './Player';
 import type { Enemy } from './Enemy';
+import { followObject, staticTarget, type VfxLayer } from './animation/VfxLayer';
 
 /**
  * Map hotbar slot index → animation action id that the player's animator
@@ -20,13 +21,42 @@ const SLOT_ACTION_ID = ['autoattack', 'heavy_strike', 'ranged_shot', 'bandage'] 
 /** Action durations in seconds, mirrored across careers that share the slot. */
 const SLOT_ACTION_DURATION = [0.45, 0.85, 0.55, 1.20];
 
-function playSlotAction(player: Player, slot: number): void {
+/**
+ * Play the slot's animation and any class-specific VFX. Pulled into a helper
+ * so every ability branch spawns both in lockstep (the alternative is six
+ * near-identical copies of this boilerplate across `tryAbility`).
+ *
+ * `targetEnemy` is optional — only outgoing abilities (damage) pass one. Self
+ * buffs / heals don't need an enemy target; their VFX anchor to `self`.
+ */
+function playSlotAction(
+  player: Player,
+  slot: number,
+  vfx: VfxLayer | null,
+  targetEnemy: { position: { x: number; y: number; z: number } } | null = null,
+): void {
   const anim = player.animator;
   if (!anim) return;
   const id = SLOT_ACTION_ID[slot];
   const dur = SLOT_ACTION_DURATION[slot];
   if (!id) return;
   anim.playAction(id, dur);
+
+  if (!vfx) return;
+  const ctx = {
+    self: followObject(player.object),
+    target: targetEnemy
+      ? staticTarget(
+          new THREE.Vector3(
+            targetEnemy.position.x,
+            targetEnemy.position.y,
+            targetEnemy.position.z,
+          ),
+        )
+      : null,
+  };
+  const effect = anim.getActionVfx(id, ctx);
+  if (effect) vfx.spawn(effect);
 }
 
 const ATTACK_COOLDOWN = 1.5;  // seconds — autoattack
@@ -36,9 +66,16 @@ const LEASH_RANGE     = 25;   // units from home before enemy resets
 
 export class Combat {
   private enemiesById = new Map<string, Enemy>();
+  /** VFX layer set by `Game` at start — combat spawns class FX through it. */
+  private vfx: VfxLayer | null = null;
 
   registerEnemy(e: Enemy) {
     this.enemiesById.set(e.spawn.id, e);
+  }
+
+  /** Inject the per-scene VFX layer. Safe to call once at Game.start(). */
+  setVfxLayer(layer: VfxLayer) {
+    this.vfx = layer;
   }
 
   // ---------------------------------------------------------------------------
@@ -83,7 +120,7 @@ export class Combat {
     store.updateEnemy(store.targetId, { health: newHp });
     store.setHotbarCooldown(0, ATTACK_COOLDOWN);
     store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
-    playSlotAction(player, 0);
+    playSlotAction(player, 0, this.vfx, target);
     if (newHp <= 0) this.killEnemy(store.targetId, target, now, store);
     return true;
   }
@@ -110,7 +147,7 @@ export class Combat {
       store.setHotbarCooldown(1, 5.0);
       updateCharacter({ mana: Math.max(0, character.mana - 10) });
       store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
-      playSlotAction(player, 1);
+      playSlotAction(player, 1, this.vfx, target);
       if (newHp <= 0) this.killEnemy(target.id, target, now, store);
       return true;
     }
@@ -125,7 +162,7 @@ export class Combat {
       store.setHotbarCooldown(2, 3.0);
       updateCharacter({ mana: Math.max(0, character.mana - 8) });
       store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
-      playSlotAction(player, 2);
+      playSlotAction(player, 2, this.vfx, target);
       if (newHp <= 0) this.killEnemy(target.id, target, now, store);
       return true;
     }
@@ -140,7 +177,7 @@ export class Combat {
       });
       store.setHotbarCooldown(3, 10.0);
       store.pushDamage(makeDmg(now, heal, 'heal', player.position));
-      playSlotAction(player, 3);
+      playSlotAction(player, 3, this.vfx, null);
       return true;
     }
 

@@ -17,9 +17,12 @@ import type { WarriorPriestRig } from '../WarriorPriest';
 import {
   CharacterAnimator,
   type ActionState,
+  type ActionVfxContext,
   easeInOut,
   sampleKeys,
 } from './CharacterAnimator';
+import type { Vfx } from './VfxLayer';
+import { HealGlowVfx } from './WarriorPriestVfx';
 
 // ─── Tunable pose constants ──────────────────────────────────────────────────
 
@@ -57,6 +60,19 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   /** Convenience: play a WP action by id using its canonical duration. */
   playWpAction(id: WpActionId): void {
     this.playAction(id, WP_ACTION_DURATION[id]);
+  }
+
+  /**
+   * Class-specific VFX hook. For now only `bandage` has an effect — the
+   * emerald heal glow. Other ids return null so combat can skip the spawn.
+   */
+  getActionVfx(actionId: string, ctx: ActionVfxContext): Vfx | null {
+    switch (actionId as WpActionId) {
+      case 'bandage':
+        return new HealGlowVfx(ctx.self, WP_ACTION_DURATION.bandage);
+      default:
+        return null;
+    }
   }
 
   // ─── Rest pose ─────────────────────────────────────────────────────────────

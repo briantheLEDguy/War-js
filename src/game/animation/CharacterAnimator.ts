@@ -20,6 +20,18 @@
  *   - Idle blend-in so transitions back to rest are smooth.
  */
 import * as THREE from 'three';
+import type { TargetProvider, Vfx } from './VfxLayer';
+
+/**
+ * Describes where class-specific VFX should anchor. The `self` target always
+ * follows the caster; `target` follows the current enemy (if any). Subclasses
+ * pick whichever is appropriate per action — a heal pins to `self`, a fireball
+ * burst pins to `target`.
+ */
+export interface ActionVfxContext {
+  self: TargetProvider;
+  target: TargetProvider | null;
+}
 
 /** Per-frame input to `update()`. */
 export interface AnimatorInput {
@@ -99,6 +111,21 @@ export abstract class CharacterAnimator {
   /** True when an action is currently animating — useful for gating VFX. */
   isBusy(): boolean {
     return this.action !== null;
+  }
+
+  /**
+   * Build the class-specific VFX (if any) that should accompany the given
+   * action id. The default implementation returns null — override in
+   * subclasses to emit heal glows, weapon trails, bolts, etc.
+   *
+   * Contract: the returned Vfx has NOT been added to the scene yet; the
+   * caller is responsible for handing it to a `VfxLayer.spawn()`.
+   */
+  getActionVfx(
+    _actionId: string,
+    _ctx: ActionVfxContext,
+  ): Vfx | null {
+    return null;
   }
 
   /** Subclass hook: snap the rig back to rest pose (zero rotations). */
