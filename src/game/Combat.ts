@@ -43,20 +43,27 @@ function playSlotAction(
   anim.playAction(id, dur);
 
   if (!vfx) return;
-  const ctx = {
-    self: followObject(player.object),
-    target: targetEnemy
-      ? staticTarget(
-          new THREE.Vector3(
-            targetEnemy.position.x,
-            targetEnemy.position.y,
-            targetEnemy.position.z,
-          ),
-        )
-      : null,
-  };
-  const effect = anim.getActionVfx(id, ctx);
-  if (effect) vfx.spawn(effect);
+  // VFX should never take down combat — if a build step throws (bad shader,
+  // missing target, etc.) we log and continue so the ability still "fires"
+  // even if its visuals are missing.
+  try {
+    const ctx = {
+      self: followObject(player.object),
+      target: targetEnemy
+        ? staticTarget(
+            new THREE.Vector3(
+              targetEnemy.position.x,
+              targetEnemy.position.y,
+              targetEnemy.position.z,
+            ),
+          )
+        : null,
+    };
+    const effect = anim.getActionVfx(id, ctx);
+    if (effect) vfx.spawn(effect);
+  } catch (err) {
+    console.error('VFX spawn failed for action', id, err);
+  }
 }
 
 const ATTACK_COOLDOWN = 1.5;  // seconds — autoattack

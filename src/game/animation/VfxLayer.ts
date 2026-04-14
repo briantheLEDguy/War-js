@@ -135,33 +135,42 @@ export class VfxLayer {
   update(dt: number): void {
     for (let i = this.effects.length - 1; i >= 0; i--) {
       const v = this.effects[i];
-      v.elapsed += dt;
+      // Isolate each effect: a throw inside updateEffect should retire that
+      // effect, not take down the whole layer (which would freeze combat).
+      try {
+        v.elapsed += dt;
 
-      const activeElapsed = v.elapsed - v.startDelay;
-      if (activeElapsed < 0) {
-        // Still in the start-delay window — keep the effect hidden and skip
-        // its per-frame work. We still advance the target anchor in case
-        // the parent moved, so the first visible frame snaps cleanly.
+        const activeElapsed = v.elapsed - v.startDelay;
+        if (activeElapsed < 0) {
+          // Still in the start-delay window — keep the effect hidden and skip
+          // its per-frame work. We still advance the target anchor in case
+          // the parent moved, so the first visible frame snaps cleanly.
+          if (v.root) {
+            v.target.getWorldPosition(this.tmpVec);
+            v.root.position.copy(this.tmpVec);
+          }
+          continue;
+        }
+
+        // Reveal the effect on the frame the delay expires.
+        if (v.root && !v.root.visible) v.root.visible = true;
+
+        // Track the moving target each frame.
         if (v.root) {
           v.target.getWorldPosition(this.tmpVec);
           v.root.position.copy(this.tmpVec);
         }
-        continue;
-      }
-
-      // Reveal the effect on the frame the delay expires.
-      if (v.root && !v.root.visible) v.root.visible = true;
-
-      // Track the moving target each frame.
-      if (v.root) {
-        v.target.getWorldPosition(this.tmpVec);
-        v.root.position.copy(this.tmpVec);
-      }
-      const t = Math.min(1, activeElapsed / v.duration);
-      v.updateEffect(t, dt);
-      if (activeElapsed >= v.duration) {
+        const t = Math.min(1, activeElapsed / v.duration);
+        v.updateEffect(t, dt);
+        if (activeElapsed >= v.duration) {
+          if (v.root) this.scene.remove(v.root);
+          v.dispose();
+          this.effects.splice(i, 1);
+        }
+      } catch (err) {
+        console.error('VFX update failed — retiring effect', err);
         if (v.root) this.scene.remove(v.root);
-        v.dispose();
+        try { v.dispose(); } catch { /* already broken */ }
         this.effects.splice(i, 1);
       }
     }
