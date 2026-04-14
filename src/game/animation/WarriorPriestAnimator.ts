@@ -18,7 +18,6 @@ import {
   CharacterAnimator,
   type ActionState,
   type ActionVfxContext,
-  easeInOut,
   sampleKeys,
 } from './CharacterAnimator';
 import type { Vfx } from './VfxLayer';
@@ -129,33 +128,46 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   }
 
   /**
-   * Autoattack — a short horizontal hammer swing.
+   * Autoattack — a committed two-handed diagonal chop.
    *
-   * The right arm raises slightly (windup), then swings forward through
-   * a ~90° arc and returns to rest. The hammer's local rotation twists
-   * so the striking face leads the arc.
+   * The Hammer of Sigmar is a two-handed weapon, so both arms drive the
+   * swing together. The priest cocks the hammer over his right shoulder,
+   * snaps it down and across the body, holds briefly at the low point so
+   * the weight reads, then returns to rest.
+   *
+   * Timing (t in 0..1 over ~0.45 s):
+   *   0.00 → 0.25  windup — hammer cocks up and back, weight shifts to back foot
+   *   0.25 → 0.50  downswing — explosive chop down across the body
+   *   0.50 → 0.65  impact hold — heavy hammer lingers for a beat
+   *   0.65 → 1.00  recovery to rest
    */
   private applyAutoattack(t: number): void {
-    const { rightArm, leftArm, hammer, hammerRestEuler } = this.rig;
+    const { rightArm, leftArm, leftLeg, rightLeg, hammer, hammerRestEuler, root } =
+      this.rig;
 
-    // Shoulder pitch keyframes: windup (-0.6 rad) → forward strike (+1.2) → rest.
+    // Both shoulders share the same pitch curve so the grip reads as a
+    // coordinated two-handed chop. Right arm drives the full range; the
+    // off-hand's amplitude is scaled so it stays anchored near the haft.
     const shoulderPitch = sampleKeys(
       [
-        { t: 0.0,  v: 0.0 },
-        { t: 0.25, v: -0.6 },   // windup
-        { t: 0.55, v: 1.2 },    // peak forward
-        { t: 1.0,  v: 0.0 },    // return
+        { t: 0.00, v:  0.0  },
+        { t: 0.25, v: -0.9  },   // cocked up and back
+        { t: 0.50, v:  1.35 },   // snap-forward through impact
+        { t: 0.65, v:  1.20 },   // brief heavy-weapon hold
+        { t: 1.00, v:  0.0  },
       ],
       t,
     );
 
-    // Small inward shoulder roll so the swing arc crosses the body.
+    // Inward shoulder roll — the swing arc crosses the body diagonally
+    // rather than staying in the sagittal plane, so there's a Z component.
     const shoulderRoll = sampleKeys(
       [
-        { t: 0.0,  v: 0.0 },
-        { t: 0.25, v: 0.15 },
-        { t: 0.55, v: -0.25 },
-        { t: 1.0,  v: 0.0 },
+        { t: 0.00, v:  0.0  },
+        { t: 0.25, v:  0.20 },   // right hand pulled in toward centerline
+        { t: 0.50, v: -0.35 },   // arc swings across to the left side
+        { t: 0.65, v: -0.25 },
+        { t: 1.00, v:  0.0  },
       ],
       t,
     );
@@ -163,16 +175,48 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     rightArm.rotation.x = shoulderPitch;
     rightArm.rotation.z = shoulderRoll;
 
-    // Off-hand follows the motion with a smaller counter-swing.
-    leftArm.rotation.x = -shoulderPitch * 0.3;
+    // Off-hand tracks the right arm at reduced amplitude so the hands stay
+    // plausibly together on the haft. Sign matches (not opposed) — a
+    // counter-swing would read as a one-handed swing with a loose off-hand.
+    leftArm.rotation.x =  shoulderPitch * 0.75;
+    leftArm.rotation.z = -shoulderRoll * 0.6;
 
-    // Hammer twists in the hand so the striking face leads the arc — rotate
-    // around Z (local to right arm) from rest toward vertical during contact.
+    // Stance: right leg plants slightly back during windup, front leg takes
+    // the load during impact. Small amplitudes so it reads as a step-step
+    // rather than a full lunge.
+    const stance = sampleKeys(
+      [
+        { t: 0.00, v: 0.0 },
+        { t: 0.25, v: 1.0 },
+        { t: 0.65, v: 1.0 },
+        { t: 1.00, v: 0.0 },
+      ],
+      t,
+    );
+    rightLeg.rotation.x = -0.18 * stance;   // back leg braces
+    leftLeg.rotation.x  =  0.10 * stance;   // front leg forward
+
+    // Weight drop — subtle knee bend at impact sells the weapon weight.
+    const impactDrop = sampleKeys(
+      [
+        { t: 0.00, v: 0.00 },
+        { t: 0.45, v: 0.00 },
+        { t: 0.50, v: 0.05 },
+        { t: 0.65, v: 0.05 },
+        { t: 1.00, v: 0.00 },
+      ],
+      t,
+    );
+    root.position.y = -impactDrop;
+
+    // Hammer twist: striking face leads the arc, peaks exactly on impact.
     const hammerTwist = sampleKeys(
       [
-        { t: 0.0,  v: 0.0 },
-        { t: 0.55, v: 0.8 },
-        { t: 1.0,  v: 0.0 },
+        { t: 0.00, v: 0.0 },
+        { t: 0.25, v: 0.35 },
+        { t: 0.50, v: 1.10 },
+        { t: 0.65, v: 1.00 },
+        { t: 1.00, v: 0.0 },
       ],
       t,
     );
@@ -182,77 +226,123 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   /**
    * Heavy Strike — the Warrior Priest's signature two-handed overhead smash.
    *
-   * Timing breakdown (t in 0..1 over ~0.85 s):
-   *   0.00 → 0.35  deep windup: both hands raise overhead, torso leans back
-   *   0.35 → 0.55  explosive downswing through the vertical plane
-   *   0.55 → 0.75  impact hold — hammer frozen at full extension
-   *   0.75 → 1.00  recovery to rest pose
+   * A full four-phase swing per classical combat animation:
+   *   Anticipation  (0.00 → 0.32): deep coil, hammer lifts behind the head,
+   *                                 back leg braces and front leg plants.
+   *   Acceleration  (0.32 → 0.48): explosive release — the stored coil snaps
+   *                                 the hammer down through the centreline.
+   *   Impact        (0.48 → 0.60): hard stop with a knee-drop to sell the
+   *                                 transferred weight; hammer frozen a beat.
+   *   Follow-through(0.60 → 1.00): smooth recovery, arms unwind to rest, the
+   *                                 stance relaxes, weight re-centres.
    *
-   * Both arms drive the swing because this is a two-handed hammer. The off
-   * hand mirrors the right arm's pitch so the grip reads as coordinated.
+   * The grip reads two-handed because both shoulders share a matched pitch
+   * curve and the shoulder rolls sweep inward so the hands stay plausibly
+   * together on the haft through the whole arc.
    */
   private applyHeavyStrike(t: number): void {
-    const { rightArm, leftArm, hammer, hammerRestEuler, root } = this.rig;
+    const {
+      rightArm, leftArm, leftLeg, rightLeg,
+      hammer, hammerRestEuler, root,
+    } = this.rig;
 
-    // Right shoulder pitch: up high for windup, then forward-down for strike.
-    // Negative = backward/up in our rig; positive = forward/down.
+    // Right shoulder pitch — coils up behind the head (negative), snaps
+    // hard through vertical to a low chest-forward strike (positive).
+    // A small overshoot past the impact target reads as committed force
+    // before the recovery curve pulls back.
     const shoulderPitch = sampleKeys(
       [
         { t: 0.00, v:  0.0  },
-        { t: 0.35, v: -2.0  },   // hammer fully overhead
-        { t: 0.55, v:  1.4  },   // smash through to chest-height-forward
-        { t: 0.75, v:  1.4  },   // impact hold
-        { t: 1.00, v:  0.0  },   // recover
+        { t: 0.15, v: -0.8  },   // initial lift
+        { t: 0.32, v: -2.3  },   // maximum coil — hammer directly overhead
+        { t: 0.48, v:  1.7  },   // strike with slight overshoot
+        { t: 0.60, v:  1.45 },   // settle on impact line
+        { t: 0.75, v:  1.35 },   // brief hold
+        { t: 1.00, v:  0.0  },   // recover to rest
       ],
       t,
     );
 
-    // Off-hand mirrors the right arm, slightly less amplitude.
+    // Off-hand shadows the right arm — same direction, scaled down so the
+    // hands stay approximately together on the haft. The slight timing
+    // offset at the peak of the coil (a few hundredths of a second later)
+    // avoids the "locked-together" uncanny look of a perfectly mirrored rig.
     const offHandPitch = sampleKeys(
       [
         { t: 0.00, v:  0.0  },
-        { t: 0.35, v: -1.7  },
-        { t: 0.55, v:  1.1  },
-        { t: 0.75, v:  1.1  },
+        { t: 0.18, v: -0.7  },
+        { t: 0.34, v: -1.95 },
+        { t: 0.50, v:  1.30 },
+        { t: 0.62, v:  1.15 },
+        { t: 0.75, v:  1.10 },
         { t: 1.00, v:  0.0  },
       ],
       t,
     );
 
-    // Torso lean-back during windup, forward through impact (body y offset fakes it).
-    const bodyLean = sampleKeys(
+    // Shoulder rolls pull both hands toward the centreline — the canonical
+    // two-handed stance. They relax back out during the recovery.
+    const gripRoll = sampleKeys(
       [
-        { t: 0.00, v:  0.00 },
-        { t: 0.35, v: -0.08 },   // rock back
-        { t: 0.55, v:  0.06 },   // pitch forward
-        { t: 0.75, v:  0.06 },
-        { t: 1.00, v:  0.00 },
+        { t: 0.00, v: 0.0 },
+        { t: 0.32, v: 1.0 },   // both hands centred at full coil
+        { t: 0.60, v: 0.9 },   // still centred through impact
+        { t: 1.00, v: 0.0 },
       ],
       t,
     );
 
-    // Hammer twists in the hand so the striking face leads the arc.
+    // Hammer twist — striking face rotates to lead the arc. Peaks exactly
+    // on impact for a clean "head down" silhouette frame.
     const hammerTwist = sampleKeys(
       [
-        { t: 0.00, v:  0.0 },
-        { t: 0.35, v:  0.5 },   // ready above the head
-        { t: 0.55, v:  1.2 },   // face-down at impact
-        { t: 0.75, v:  1.2 },
-        { t: 1.00, v:  0.0 },
+        { t: 0.00, v: 0.0 },
+        { t: 0.32, v: 0.6 },
+        { t: 0.48, v: 1.3 },   // fully face-down at impact
+        { t: 0.60, v: 1.2 },
+        { t: 0.75, v: 1.1 },
+        { t: 1.00, v: 0.0 },
+      ],
+      t,
+    );
+
+    // Stance: back leg braces during coil (hip extends), front leg plants
+    // forward for the power line. Mirror sign chosen so the whole body
+    // silhouette reads as "loading toward a strike" at the coil peak.
+    const stanceWidth = sampleKeys(
+      [
+        { t: 0.00, v: 0.00 },
+        { t: 0.32, v: 1.00 },   // fully planted on the coil
+        { t: 0.60, v: 1.00 },   // stays planted through impact
+        { t: 1.00, v: 0.00 },
+      ],
+      t,
+    );
+    rightLeg.rotation.x = -0.30 * stanceWidth;   // right leg back, hip extended
+    leftLeg.rotation.x  =  0.18 * stanceWidth;   // left leg forward, knee drives
+
+    // Weight drop — the body dips at impact as the hammer's mass transfers
+    // into the target. A 10 cm drop, then a slow rise during recovery.
+    const weightDrop = sampleKeys(
+      [
+        { t: 0.00, v: 0.00 },
+        { t: 0.30, v: 0.04 },   // small rise during coil (rising onto toes)
+        { t: 0.48, v: 0.00 },
+        { t: 0.55, v: -0.10 },  // knees bend hard on impact
+        { t: 0.65, v: -0.10 },
+        { t: 1.00, v: 0.00 },
       ],
       t,
     );
 
     rightArm.rotation.x = shoulderPitch;
     leftArm.rotation.x  = offHandPitch;
-    // Subtle inward roll so the swing arc reads as a centered overhead strike.
-    rightArm.rotation.z = easeInOut(t) * -0.15 + 0.15;
-    leftArm.rotation.z  = easeInOut(t) *  0.15 - 0.15;
+    rightArm.rotation.z = -0.22 * gripRoll;   // right hand swings inward
+    leftArm.rotation.z  =  0.22 * gripRoll;   // left hand swings inward
 
     hammer.rotation.z = hammerRestEuler.z + hammerTwist;
 
-    // Vertical bob — sign matches torso lean so the silhouette bobs with the swing.
-    root.position.y = Math.max(0, bodyLean);
+    root.position.y = weightDrop;
   }
 
   /**
