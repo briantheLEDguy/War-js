@@ -14,6 +14,8 @@ import { Vfx, type TargetProvider } from './VfxLayer';
 // against both dark-stone indoor zones and bright sky outdoor zones.
 const HEAL_COLOR = 0x48e07a;         // emerald green — Sigmar's mercy
 const HEAL_CORE_COLOR = 0xb8ffc8;    // almost-white core for the central orb
+const BOLT_COLOR = 0xffd560;         // warm gold — Sigmar's wrath (ranged bolt)
+const BOLT_CORE_COLOR = 0xfff4c8;    // pale yellow core for the bolt head
 
 /**
  * Heal glow — an emerald halo under the caster's feet plus several rising
@@ -132,6 +134,164 @@ export class HealGlowVfx extends Vfx {
       // Each mote flickers on a small phase offset so they don't pulse in lockstep.
       const flicker = 0.6 + 0.4 * Math.sin(t * Math.PI * 8 + m.phase);
       m.mat.opacity = env * flicker;
+    }
+  }
+}
+
+/**
+ * Divine Bolt — a gold comet launched from the caster's off-hand toward the
+ * enemy. Travels along a straight line over the action's second half
+ * (matching the `ranged_shot` animation's release phase), leaves a tapered
+ * trail of motes, and finishes with a small radial burst at the target.
+ *
+ * The bolt does NOT anchor to the caster's moving position each frame — it
+ * snapshots the caster's release point and the enemy target point at spawn
+ * and lerps between them, so the projectile reads as a launched object
+ * rather than something tethered to the priest.
+ */
+export class DivineBoltVfx extends Vfx {
+  private caster: TargetProvider;
+  private targetPos: THREE.Vector3;
+  private start = new THREE.Vector3();
+  private bolt!: THREE.Mesh;
+  private boltMat!: THREE.MeshBasicMaterial;
+  private trail: Array<{
+    mesh: THREE.Mesh;
+    mat: THREE.MeshBasicMaterial;
+    offset: number;  // 0..1 — fraction of the flight path behind the head
+  }> = [];
+  private burst!: THREE.Mesh;
+  private burstMat!: THREE.MeshBasicMaterial;
+  /** Fraction of total duration before launch (windup portion of the cast). */
+  private readonly launchT = 0.35;
+
+  /**
+   * @param caster     follows the priest so the launch point tracks his
+   *                    off-hand if he turns or moves during windup.
+   * @param targetPos  world-space anchor for the enemy (snapshotted at spawn
+   *                    — a moving enemy will not be tracked mid-flight, which
+   *                    matches WAR's instant-hit bolt mechanics).
+   */
+  constructor(caster: TargetProvider, targetPos: THREE.Vector3, duration = 0.55) {
+    // Anchor target is the caster — we override position ourselves in
+    // updateEffect so the base layer's auto-anchor is just a safe default
+    // before the first frame runs.
+    super(caster, duration);
+    this.caster = caster;
+    this.targetPos = targetPos.clone();
+  }
+
+  build(): THREE.Group {
+    const group = new THREE.Group();
+    group.name = 'DivineBolt';
+
+    // Bolt head — bright core plus a surrounding halo disc so it reads from
+    // any camera angle without a real light source.
+    this.boltMat = new THREE.MeshBasicMaterial({
+      color: BOLT_CORE_COLOR,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    this.bolt = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), this.boltMat);
+    group.add(this.bolt);
+
+    // Trail motes — each one renders at a small distance "behind" the bolt
+    // head along the flight direction. Offsets fan out across 0..0.25 so the
+    // trail reads as a comet tail rather than a uniform blob.
+    for (let i = 0; i < 7; i++) {
+      const mat = new THREE.MeshBasicMaterial({
+        color: BOLT_COLOR,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+      const scale = 0.12 - i * 0.012;
+      const mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(Math.max(0.04, scale), 8, 6),
+        mat,
+      );
+      group.add(mesh);
+      this.trail.push({ mesh, mat, offset: 0.04 + i * 0.035 });
+    }
+
+    // Impact burst — hidden until the bolt lands, then ring expands.
+    this.burstMat = new THREE.MeshBasicMaterial({
+      color: BOLT_COLOR,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    });
+    const burstGeo = new THREE.RingGeometry(0.1, 0.3, 24);
+    burstGeo.rotateX(-Math.PI / 2);
+    this.burst = new THREE.Mesh(burstGeo, this.burstMat);
+    this.burst.visible = false;
+    group.add(this.burst);
+
+    // Snapshot the launch point (caster's off-hand / chest height) at spawn.
+    // The base layer has already populated root.position with the caster's
+    // current world position, so that's a good starting point — plus a
+    // chest-height offset.
+    this.caster.getWorldPosition(this.start);
+    this.start.y += 1.35;
+
+    return group;
+  }
+
+  updateEffect(t: number, _dt: number): void {
+    if (!this.root) return;
+
+    // Override the base layer's auto-anchor — we drive position along the
+    // caster→target line ourselves.
+    this.root.position.set(0, 0, 0);
+
+    // During windup the bolt hangs at the caster's off-hand; afterwards it
+    // flies to the target. Remap t so 0 at launch → 1 at impact.
+    const launch = this.launchT;
+    const flightT = t < launch ? 0 : (t - launch) / (1 - launch);
+
+    // Caster position (refreshed each frame so the bolt's origin tracks a
+    // moving priest). Target is the snapshotted enemy point.
+    const origin = new THREE.Vector3();
+    this.caster.getWorldPosition(origin);
+    origin.y += 1.35;
+
+    const headPos = origin.clone().lerp(this.targetPos, flightT);
+    this.bolt.position.copy(headPos);
+
+    // Fade the bolt head in over the windup, full brightness during flight,
+    // dim sharply past impact.
+    const preLaunchFade = Math.min(1, t / launch);
+    const postImpactFade = flightT >= 1 ? Math.max(0, 1 - (t - launch - (1 - launch)) / 0.18) : 1;
+    this.boltMat.opacity = Math.min(preLaunchFade, postImpactFade);
+
+    // Trail: each mote sits at a fraction behind the head along the flight
+    // direction, so the tail grows out of the launch point as the head moves.
+    const dir = new THREE.Vector3().subVectors(this.targetPos, origin);
+    const flightLen = dir.length();
+    if (flightLen > 1e-4) dir.multiplyScalar(1 / flightLen);
+    for (const m of this.trail) {
+      const tailT = Math.max(0, flightT - m.offset);
+      const tailPos = origin.clone().lerp(this.targetPos, tailT);
+      m.mesh.position.copy(tailPos);
+      // Fade trail motes in/out with the bolt and with distance from head.
+      m.mat.opacity =
+        0.8 * this.boltMat.opacity * (1 - m.offset / 0.3) * (flightT > 0 ? 1 : 0);
+    }
+
+    // Impact ring: visible once the bolt arrives, expands and fades.
+    if (flightT >= 1) {
+      const impactT = Math.min(1, (t - launch - (1 - launch)) / 0.18);
+      this.burst.visible = true;
+      this.burst.position.copy(this.targetPos);
+      this.burst.scale.setScalar(0.8 + 2.2 * impactT);
+      this.burstMat.opacity = 0.9 * (1 - impactT);
+    } else {
+      this.burst.visible = false;
     }
   }
 }

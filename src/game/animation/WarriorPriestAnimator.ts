@@ -20,8 +20,9 @@ import {
   type ActionVfxContext,
   sampleKeys,
 } from './CharacterAnimator';
+import * as THREE from 'three';
 import type { Vfx } from './VfxLayer';
-import { HealGlowVfx } from './WarriorPriestVfx';
+import { DivineBoltVfx, HealGlowVfx } from './WarriorPriestVfx';
 
 // ─── Tunable pose constants ──────────────────────────────────────────────────
 
@@ -62,13 +63,30 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   }
 
   /**
-   * Class-specific VFX hook. For now only `bandage` has an effect — the
-   * emerald heal glow. Other ids return null so combat can skip the spawn.
+   * Class-specific VFX hook.
+   *
+   *   bandage     — emerald heal glow anchored to the priest.
+   *   ranged_shot — golden divine bolt flying from the off-hand to the
+   *                  target (snapshot of its position at cast time).
+   *
+   * Other ids return null so combat can skip the spawn — the autoattack
+   * and heavy_strike already carry their weight through the swing mesh
+   * animation alone.
    */
   getActionVfx(actionId: string, ctx: ActionVfxContext): Vfx | null {
     switch (actionId as WpActionId) {
       case 'bandage':
         return new HealGlowVfx(ctx.self, WP_ACTION_DURATION.bandage);
+      case 'ranged_shot': {
+        // Target is required for the bolt — bail silently if combat didn't
+        // pass one (shouldn't happen: ranged_shot is gated on target in Combat).
+        if (!ctx.target) return null;
+        const targetPos = ctx.target.getWorldPosition(new THREE.Vector3());
+        // Nudge the impact point up to the dummy's chest so the ring sits
+        // where the silhouette is, not on the ground.
+        targetPos.y += 1.1;
+        return new DivineBoltVfx(ctx.self, targetPos, WP_ACTION_DURATION.ranged_shot);
+      }
       default:
         return null;
     }
