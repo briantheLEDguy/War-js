@@ -1023,7 +1023,20 @@ export const HAMMER_REST_WORLD = new THREE.Vector3(0.22, 1.10, 0.30);
  * animators can rotate to produce walk/run/attack motion. The rest pose is
  * identical to `buildWarriorPriest()` (all rotations zero).
  *
- * Pivot anchors (world-space when priest is at rest):
+ * Hierarchy:
+ *   root          ← owned by Player; positioned at world coords each frame
+ *     bodyPivot   ← animator writes vertical bob / knee-drop here, never root
+ *       waist / torso / head (static geometry)
+ *       leftLeg / rightLeg (hip-pivoted)
+ *       leftArm / rightArm (shoulder-pivoted)
+ *         hammer (child of rightArm)
+ *
+ * Keeping the animator off `root.position` is critical: `Player.object === rig.root`,
+ * so writing to `root.position.y` would override the terrain-height Y the player
+ * just copied in, causing the mesh to sink into the floor (or worse, freeze if a
+ * downstream NaN slipped in).
+ *
+ * Pivot anchors (local to bodyPivot when priest is at rest):
  *   leftArm  @ (-0.42, 1.50, 0) — left shoulder
  *   rightArm @ ( 0.42, 1.50, 0) — right shoulder
  *   leftLeg  @ (   0, 1.10, 0) — hip (mirrored in Z/X via pivot contents)
@@ -1032,6 +1045,8 @@ export const HAMMER_REST_WORLD = new THREE.Vector3(0.22, 1.10, 0.30);
  */
 export interface WarriorPriestRig {
   root: THREE.Group;
+  /** Child of `root`. Animator drives vertical bob / weight-drop here. */
+  bodyPivot: THREE.Group;
   leftArm: THREE.Group;
   rightArm: THREE.Group;
   leftLeg: THREE.Group;
@@ -1063,36 +1078,43 @@ export function buildWarriorPriestRigged(
   root.name = 'WarriorPriest';
   const mats = buildMaterials(palette);
 
-  // Static (non-swinging) regions go straight onto the root.
-  buildWaist(root, mats);
-  buildTorso(root, mats);
-  buildHead(root, mats);
+  // bodyPivot is the single animation-facing handle for vertical movement
+  // (kneel dip, impact weight-drop, run bob). Everything below lives under
+  // this group so root.position stays pristine for gameplay code.
+  const bodyPivot = new THREE.Group();
+  bodyPivot.name = 'BodyPivot';
+  root.add(bodyPivot);
+
+  // Static (non-swinging) regions hang off the body pivot.
+  buildWaist(bodyPivot, mats);
+  buildTorso(bodyPivot, mats);
+  buildHead(bodyPivot, mats);
 
   // Legs: each side built into its own pivot at the hip.
   const leftLeg = new THREE.Group();
   leftLeg.name = 'LeftLeg';
   buildLeg(leftLeg, mats, -1);
   pivotify(leftLeg, HIP_ANCHOR);
-  root.add(leftLeg);
+  bodyPivot.add(leftLeg);
 
   const rightLeg = new THREE.Group();
   rightLeg.name = 'RightLeg';
   buildLeg(rightLeg, mats, 1);
   pivotify(rightLeg, HIP_ANCHOR);
-  root.add(rightLeg);
+  bodyPivot.add(rightLeg);
 
   // Arms: each side built into its own shoulder pivot.
   const leftArm = new THREE.Group();
   leftArm.name = 'LeftArm';
   buildArm(leftArm, mats, LEFT_SHOULDER.x);
   pivotify(leftArm, LEFT_SHOULDER);
-  root.add(leftArm);
+  bodyPivot.add(leftArm);
 
   const rightArm = new THREE.Group();
   rightArm.name = 'RightArm';
   buildArm(rightArm, mats, RIGHT_SHOULDER.x);
   pivotify(rightArm, RIGHT_SHOULDER);
-  root.add(rightArm);
+  bodyPivot.add(rightArm);
 
   // Hammer: geometry built into its own group, parented to the right arm so
   // it follows shoulder rotation. Rest position is the classic held-across-body
@@ -1108,6 +1130,7 @@ export function buildWarriorPriestRigged(
 
   return {
     root,
+    bodyPivot,
     leftArm,
     rightArm,
     leftLeg,

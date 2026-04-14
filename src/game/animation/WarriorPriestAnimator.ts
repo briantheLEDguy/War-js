@@ -118,7 +118,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   // ─── Rest pose ─────────────────────────────────────────────────────────────
 
   protected resetPose(): void {
-    const { leftArm, rightArm, leftLeg, rightLeg, hammer, root, hammerRestEuler } = this.rig;
+    const { leftArm, rightArm, leftLeg, rightLeg, hammer, bodyPivot, hammerRestEuler } = this.rig;
 
     // All four limb pivots return to neutral (zero) rotation.
     leftArm.rotation.set(0, 0, 0);
@@ -129,8 +129,9 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     // Hammer returns to its held-across-body rest orientation.
     hammer.rotation.copy(hammerRestEuler);
 
-    // Reset root y bob (locomotion layer re-applies as needed).
-    root.position.y = 0;
+    // Reset body-pivot y (locomotion / action layers re-apply as needed).
+    // NOTE: we never write to rig.root.position — that belongs to Player.
+    bodyPivot.position.y = 0;
   }
 
   // ─── Locomotion ────────────────────────────────────────────────────────────
@@ -138,7 +139,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   protected applyLocomotion(phase: number, speed: number, blend: number): void {
     if (blend <= 0.001) return;
 
-    const { leftArm, rightArm, leftLeg, rightLeg, root } = this.rig;
+    const { leftArm, rightArm, leftLeg, rightLeg, bodyPivot } = this.rig;
 
     // Amplitude scales with speed up to ~6 m/s (match MOVE_SPEED in Player).
     const speedScale = Math.min(1, speed / 6) * blend;
@@ -154,7 +155,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     rightArm.rotation.x =  swing * RUN_RIGHT_ARM_AMP * speedScale;
 
     // Subtle body bob at twice the stride frequency (both feet push off).
-    root.position.y = Math.abs(Math.sin(phase)) * RUN_BODY_BOB * speedScale;
+    bodyPivot.position.y = Math.abs(Math.sin(phase)) * RUN_BODY_BOB * speedScale;
   }
 
   // ─── Actions ──────────────────────────────────────────────────────────────
@@ -183,7 +184,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
    *   0.65 → 1.00  recovery to rest
    */
   private applyAutoattack(t: number): void {
-    const { rightArm, leftArm, leftLeg, rightLeg, hammer, hammerRestEuler, root } =
+    const { rightArm, leftArm, leftLeg, rightLeg, hammer, hammerRestEuler, bodyPivot } =
       this.rig;
 
     // Both shoulders share the same pitch curve so the grip reads as a
@@ -248,7 +249,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
       ],
       t,
     );
-    root.position.y = -impactDrop;
+    bodyPivot.position.y = -impactDrop;
 
     // Hammer twist: striking face leads the arc, peaks exactly on impact.
     const hammerTwist = sampleKeys(
@@ -284,7 +285,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   private applyHeavyStrike(t: number): void {
     const {
       rightArm, leftArm, leftLeg, rightLeg,
-      hammer, hammerRestEuler, root,
+      hammer, hammerRestEuler, bodyPivot,
     } = this.rig;
 
     // Right shoulder pitch — coils up behind the head (negative), snaps
@@ -383,7 +384,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
 
     hammer.rotation.z = hammerRestEuler.z + hammerTwist;
 
-    root.position.y = weightDrop;
+    bodyPivot.position.y = weightDrop;
   }
 
   /**
@@ -465,7 +466,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
    *   0.75 → 1.00  rise back to standing rest
    */
   private applyBandage(t: number): void {
-    const { leftArm, rightArm, leftLeg, rightLeg, hammer, hammerRestEuler, root } =
+    const { leftArm, rightArm, leftLeg, rightLeg, hammer, hammerRestEuler, bodyPivot } =
       this.rig;
 
     // 0→1 "in-kneel" blend (rises to 1 during the hold, falls back to 0).
@@ -480,7 +481,7 @@ export class WarriorPriestAnimator extends CharacterAnimator {
     );
 
     // Body drops slightly (negative y) during the kneel.
-    root.position.y = -0.15 * kneel;
+    bodyPivot.position.y = -0.15 * kneel;
 
     // Legs bend — front leg bends more than back, like a supplicant's posture.
     leftLeg.rotation.x  =  0.45 * kneel;

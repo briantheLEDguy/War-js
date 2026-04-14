@@ -182,8 +182,19 @@ export class Game {
     if (this.disposed) return;
     const dt = Math.min(0.1, (tMs - this.lastT) / 1000);
     this.lastT = tMs;
-    this.update(dt, tMs);
-    this.renderer.render(this.scene, this.camera.camera);
+    // Hard-guard every frame: if update() or render() throws, log it but
+    // keep scheduling new frames. Otherwise a single bad frame kills rAF,
+    // freezing input and leaving the minimap stuck at the last position.
+    try {
+      this.update(dt, tMs);
+    } catch (err) {
+      console.error('Game.update threw — recovering', err);
+    }
+    try {
+      this.renderer.render(this.scene, this.camera.camera);
+    } catch (err) {
+      console.error('Renderer threw — recovering', err);
+    }
     this.raf = requestAnimationFrame(this.loop);
   };
 
