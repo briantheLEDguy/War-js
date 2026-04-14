@@ -139,6 +139,87 @@ export class HealGlowVfx extends Vfx {
 }
 
 /**
+ * Melee Impact — a small gold burst that appears the instant the hammer
+ * connects with the target. Delayed by `startDelay` (passed to super) so
+ * the caller can align the burst to the exact impact frame of a multi-
+ * phase swing animation.
+ *
+ * The burst is short (~180 ms) so it doesn't overstay its welcome during
+ * rapid autoattack chains; it consists of an expanding additive ring at
+ * ground height plus a quick radial flash at chest height.
+ */
+export class MeleeImpactVfx extends Vfx {
+  private ring!: THREE.Mesh;
+  private ringMat!: THREE.MeshBasicMaterial;
+  private flash!: THREE.Mesh;
+  private flashMat!: THREE.MeshBasicMaterial;
+
+  /**
+   * @param target     where the hit lands — usually a static target at
+   *                    the enemy's world position.
+   * @param startDelay seconds before the burst becomes visible (time
+   *                    between ability cast and animation impact frame).
+   * @param duration   active lifetime of the burst itself (≈180 ms).
+   */
+  constructor(target: TargetProvider, startDelay: number, duration = 0.18) {
+    super(target, duration, startDelay);
+  }
+
+  build(): THREE.Group {
+    const group = new THREE.Group();
+    group.name = 'MeleeImpact';
+
+    // Ground ring — horizontal torus-ish disc around the target's feet.
+    this.ringMat = new THREE.MeshBasicMaterial({
+      color: BOLT_COLOR,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    });
+    const ringGeo = new THREE.RingGeometry(0.15, 0.42, 24);
+    ringGeo.rotateX(-Math.PI / 2);
+    this.ring = new THREE.Mesh(ringGeo, this.ringMat);
+    this.ring.position.y = 0.04;
+    group.add(this.ring);
+
+    // Chest-height flash — a small sphere that bloom-pops on impact.
+    this.flashMat = new THREE.MeshBasicMaterial({
+      color: BOLT_CORE_COLOR,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    this.flash = new THREE.Mesh(
+      new THREE.SphereGeometry(0.22, 12, 10),
+      this.flashMat,
+    );
+    this.flash.position.y = 1.1;
+    group.add(this.flash);
+
+    return group;
+  }
+
+  updateEffect(t: number, _dt: number): void {
+    // Quick ease-out: peak at t=0, fade to nothing by t=1.
+    const fade = 1 - t;
+    const fadeSq = fade * fade;
+
+    // Ring expands outward and fades — classic "stone dropped in water" read.
+    const ringScale = 0.6 + 2.2 * t;
+    this.ring.scale.setScalar(ringScale);
+    this.ringMat.opacity = 0.85 * fadeSq;
+
+    // Flash blooms briefly then shrinks away.
+    const flashScale = 0.6 + 1.6 * t;
+    this.flash.scale.setScalar(flashScale);
+    this.flashMat.opacity = 0.95 * fadeSq;
+  }
+}
+
+/**
  * Divine Bolt — a gold comet launched from the caster's off-hand toward the
  * enemy. Travels along a straight line over the action's second half
  * (matching the `ranged_shot` animation's release phase), leaves a tapered

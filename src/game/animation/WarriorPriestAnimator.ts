@@ -21,8 +21,8 @@ import {
   sampleKeys,
 } from './CharacterAnimator';
 import * as THREE from 'three';
-import type { Vfx } from './VfxLayer';
-import { DivineBoltVfx, HealGlowVfx } from './WarriorPriestVfx';
+import { staticTarget, type Vfx } from './VfxLayer';
+import { DivineBoltVfx, HealGlowVfx, MeleeImpactVfx } from './WarriorPriestVfx';
 
 // ─── Tunable pose constants ──────────────────────────────────────────────────
 
@@ -50,6 +50,17 @@ export const WP_ACTION_DURATION: Record<WpActionId, number> = {
   bandage:      1.20,
 };
 
+/**
+ * Fraction of each action's duration at which the hammer's striking face
+ * reaches the target. Kept next to the key-framed pose curves in
+ * `applyAction` so the VFX impact frame stays in lockstep with the visible
+ * contact moment.
+ */
+const WP_IMPACT_FRACTION: Partial<Record<WpActionId, number>> = {
+  autoattack:   0.50,
+  heavy_strike: 0.48,
+};
+
 export class WarriorPriestAnimator extends CharacterAnimator {
   constructor(private rig: WarriorPriestRig) {
     super();
@@ -65,21 +76,20 @@ export class WarriorPriestAnimator extends CharacterAnimator {
   /**
    * Class-specific VFX hook.
    *
-   *   bandage     — emerald heal glow anchored to the priest.
-   *   ranged_shot — golden divine bolt flying from the off-hand to the
-   *                  target (snapshot of its position at cast time).
-   *
-   * Other ids return null so combat can skip the spawn — the autoattack
-   * and heavy_strike already carry their weight through the swing mesh
-   * animation alone.
+   *   autoattack   — gold impact burst at the target, delayed so it fires
+   *                   on the visible contact frame of the chop.
+   *   heavy_strike — larger gold impact burst, same impact-frame alignment.
+   *   ranged_shot  — golden divine bolt flying from the off-hand to the
+   *                   target (snapshotted at cast time).
+   *   bandage      — emerald heal glow anchored to the priest.
    */
   getActionVfx(actionId: string, ctx: ActionVfxContext): Vfx | null {
-    switch (actionId as WpActionId) {
+    const id = actionId as WpActionId;
+    switch (id) {
       case 'bandage':
         return new HealGlowVfx(ctx.self, WP_ACTION_DURATION.bandage);
+
       case 'ranged_shot': {
-        // Target is required for the bolt — bail silently if combat didn't
-        // pass one (shouldn't happen: ranged_shot is gated on target in Combat).
         if (!ctx.target) return null;
         const targetPos = ctx.target.getWorldPosition(new THREE.Vector3());
         // Nudge the impact point up to the dummy's chest so the ring sits
@@ -87,6 +97,19 @@ export class WarriorPriestAnimator extends CharacterAnimator {
         targetPos.y += 1.1;
         return new DivineBoltVfx(ctx.self, targetPos, WP_ACTION_DURATION.ranged_shot);
       }
+
+      case 'autoattack':
+      case 'heavy_strike': {
+        if (!ctx.target) return null;
+        const impactFrac = WP_IMPACT_FRACTION[id] ?? 0.5;
+        const delay = impactFrac * WP_ACTION_DURATION[id];
+        // Freeze the target's world position at spawn — the burst should
+        // fire where the enemy stood when the ability was committed, not
+        // where they are mid-dodge.
+        const snapshot = ctx.target.getWorldPosition(new THREE.Vector3());
+        return new MeleeImpactVfx(staticTarget(snapshot), delay);
+      }
+
       default:
         return null;
     }

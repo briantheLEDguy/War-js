@@ -53,8 +53,15 @@ export function followObject(obj: THREE.Object3D): TargetProvider {
  * `t` is the normalized 0..1 progress through the effect's lifetime.
  */
 export abstract class Vfx {
-  /** Total lifetime in seconds. */
+  /** Active lifetime in seconds, measured from after any start delay. */
   readonly duration: number;
+  /**
+   * Seconds to wait before the effect becomes visible. Useful for syncing
+   * an impact burst to the contact frame of a multi-second swing
+   * animation. While delayed, the root group is hidden and `updateEffect`
+   * is not called.
+   */
+  readonly startDelay: number;
   /** Where the effect anchors each frame. */
   readonly target: TargetProvider;
   /** Seconds elapsed since spawn (mutated by VfxLayer). */
@@ -62,9 +69,10 @@ export abstract class Vfx {
   /** Three.js group containing all mesh(es) for this effect. */
   root: THREE.Group | null = null;
 
-  constructor(target: TargetProvider, duration: number) {
+  constructor(target: TargetProvider, duration: number, startDelay = 0) {
     this.target = target;
     this.duration = duration;
+    this.startDelay = Math.max(0, startDelay);
   }
 
   /**
@@ -114,6 +122,8 @@ export class VfxLayer {
     const root = vfx.build();
     vfx.root = root;
     this.scene.add(root);
+    // If the effect has a start delay, hide it until we cross the threshold.
+    if (vfx.startDelay > 0) root.visible = false;
     // Anchor to the current target position immediately so the first frame
     // doesn't flash at the origin before update() runs.
     vfx.target.getWorldPosition(this.tmpVec);
@@ -126,14 +136,30 @@ export class VfxLayer {
     for (let i = this.effects.length - 1; i >= 0; i--) {
       const v = this.effects[i];
       v.elapsed += dt;
+
+      const activeElapsed = v.elapsed - v.startDelay;
+      if (activeElapsed < 0) {
+        // Still in the start-delay window — keep the effect hidden and skip
+        // its per-frame work. We still advance the target anchor in case
+        // the parent moved, so the first visible frame snaps cleanly.
+        if (v.root) {
+          v.target.getWorldPosition(this.tmpVec);
+          v.root.position.copy(this.tmpVec);
+        }
+        continue;
+      }
+
+      // Reveal the effect on the frame the delay expires.
+      if (v.root && !v.root.visible) v.root.visible = true;
+
       // Track the moving target each frame.
       if (v.root) {
         v.target.getWorldPosition(this.tmpVec);
         v.root.position.copy(this.tmpVec);
       }
-      const t = Math.min(1, v.elapsed / v.duration);
+      const t = Math.min(1, activeElapsed / v.duration);
       v.updateEffect(t, dt);
-      if (v.elapsed >= v.duration) {
+      if (activeElapsed >= v.duration) {
         if (v.root) this.scene.remove(v.root);
         v.dispose();
         this.effects.splice(i, 1);
