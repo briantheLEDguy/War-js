@@ -776,8 +776,8 @@ input:focus, select:focus {
 /* Virtual joystick */
 .touch-joystick-base {
   position: absolute;
-  bottom: 100px;
-  left: 24px;
+  bottom: 10px;
+  left: 12px;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -807,8 +807,8 @@ input:focus, select:focus {
 /* Jump button */
 .touch-jump-btn {
   position: absolute;
-  bottom: 108px;
-  right: 24px;
+  bottom: 18px;
+  right: 12px;
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -856,5 +856,25 @@ input:focus, select:focus {
     left: 12px;
     transform: none;   /* cancel the desktop translateX(-50%) */
     width: min(calc(100vw - 24px), 260px);
+  }
+
+  /* ── Bottom stack (portrait):  chat → hotbar → joystick/jump ──
+     joystick: bottom 10 → top 130  (height 120)
+     hotbar:   bottom 138 (10+120+8 gap) → top ~212  (height ~74)
+     chat:     bottom 220 (138+74+8 gap)             (height 110)
+  ── */
+  .hotbar {
+    bottom: 138px;
+  }
+  .hotbar-slot {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  .chat {
+    bottom: 220px;
+    left: 12px;
+    width: calc(100vw - 24px);
+    height: 110px;
   }
 }
