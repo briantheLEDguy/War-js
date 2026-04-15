@@ -4,6 +4,7 @@
  */
 import * as THREE from 'three';
 import { buildWarriorPriest } from './WarriorPriest';
+import { buildHumanoidFace } from './FaceBuilder';
 
 // Shared materials (created once, reused)
 const skinMat   = () => new THREE.MeshStandardMaterial({ color: 0xd4a875, roughness: 0.7 });
@@ -127,14 +128,19 @@ function empireBase(armorColor: number, trimColor: number): THREE.Group {
     vam.position.set(sx, 0.98, 0);
     group.add(vam);
   }
-  // Neck
-  const neck = cyl(0.1, 0.1, 0.15, 8, skin);
+  // Neck — slightly tapered for realism.
+  const neck = cyl(0.092, 0.106, 0.15, 12, skin);
   neck.position.set(0, 1.53, 0);
   group.add(neck);
-  // Head
+  // Head sphere.
   const head = sph(0.19, skin);
   head.position.set(0, 1.76, 0);
   group.add(head);
+  // Procedural face features (eyes, brows, nose, lips, ears, chin).
+  // Warrior Priest uses its own detailed buildHead(); all other Empire careers
+  // get the shared face here so face details are visible when the helmet is
+  // removed or doesn't cover the full face.
+  buildHumanoidFace(group, 0, 1.76, 0, 0.19, 0xd4a875);
 
   return group;
 }
@@ -229,15 +235,19 @@ export function dwarf(career?: string): THREE.Object3D {
     arm.position.set(sx, 1.1, 0);
     group.add(arm);
   }
-  // Head (lower, stocky)
+  // Head (lower, stocky) with full procedural face.
+  // Dwarves have ginger/auburn beards — pass beard: true so the two-layer
+  // partial-arc lathe beard replaces the old cone.
   const head = sph(0.2, skin);
   head.position.set(0, 1.6, 0);
   group.add(head);
-  // Beard
-  const beard = cone(0.16, 0.45, 8, new THREE.MeshStandardMaterial({ color: 0xc87020, roughness: 0.9 }));
-  beard.rotation.x = Math.PI;
-  beard.position.set(0, 1.4, 0.1);
-  group.add(beard);
+  buildHumanoidFace(group, 0, 1.6, 0, 0.20, 0xc8905a, {
+    hairColor:  0xc87020,   // auburn brows
+    beardColor: 0xb86018,   // slightly darker beard
+    irisColor:  0x4a3820,   // dark hazel
+    browColor:  0x9a6030,
+    beard:      true,
+  });
   // Helmet
   const helm = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 6, 0, Math.PI * 2, 0, Math.PI * 0.6), armorMat);
   helm.position.set(0, 1.54, 0);
@@ -257,6 +267,13 @@ export function dwarf(career?: string): THREE.Object3D {
 /** High Elf — slender, silver/blue elegant armor, sword. */
 export function highElf(career?: string): THREE.Object3D {
   const g = empireBase(0xc8d8e8, 0x4060a0);
+  // Add pointed elf ears on top of the face already laid by empireBase.
+  buildHumanoidFace(g, 0, 1.76, 0, 0.19, 0xe8d8c0, {
+    elfEars:   true,
+    irisColor: 0x3a5038,   // grey-green elven eyes
+    hairColor: 0xe8d890,   // pale gold
+    browColor: 0xb8a078,
+  });
   // Tall pointed helmet
   const helm = cone(0.2, 0.55, 8, new THREE.MeshStandardMaterial({ color: 0xb8c8d8, metalness: 0.7, roughness: 0.3 }));
   helm.position.set(0, 1.88, 0);
