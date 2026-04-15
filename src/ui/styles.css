@@ -828,23 +828,33 @@ input:focus, select:focus {
 }
 .touch-jump-btn:active { background: rgba(40, 30, 10, 0.75); border-color: var(--border-accent); }
 
-/* Show touch controls on devices that use a finger (coarse pointer) */
+/* ═══════════════════════════════════════════════════════════════════════════
+   Mobile HUD layout — prevents element overlap on touch / small screens
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Portrait touch (and any coarse-pointer device) ── */
 @media (pointer: coarse) {
-  .touch-controls {
-    display: block;
+  /* Show touch controls; hide keyboard hint */
+  .touch-controls { display: block; }
+  .controls-hint  { display: none;  }
+
+  /* ── Top row: shrink so player-frame + minimap fit side-by-side ── */
+  .player-frame {
+    width: min(46vw, 220px);
+    padding: 8px 10px;
   }
-  /* Shift the hotbar up so the joystick / jump button don't overlap */
-  .hotbar {
-    bottom: 88px;
+  .minimap {
+    width: 90px;
+    height: 90px;
   }
-  /* Controls hint is irrelevant on touch — hide it */
-  .controls-hint {
-    display: none;
-  }
-  /* Make hotbar slots larger for finger taps */
-  .hotbar-slot {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
+  /* Minimap label needs space we don't have on mobile */
+  .minimap-label { display: none; }
+
+  /* Target frame: drop to its own row below the top pair */
+  .target-frame {
+    top: 104px;        /* just below minimap (90px) + 12px gap + 2px safety */
+    left: 12px;
+    transform: none;   /* cancel the desktop translateX(-50%) */
+    width: min(calc(100vw - 24px), 260px);
   }
 }
