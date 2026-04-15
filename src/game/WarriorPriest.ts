@@ -720,8 +720,10 @@ export const HIP_ANCHOR = new THREE.Vector3(0, 1.10, 0);
  * the crown, with twelve tapered spikes radiating outward like a sunburst.
  */
 function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
-  // ── Neck (short mail column inside the gorget) ──────────────────────────
-  const neck = smoothCyl(0.10, 0.10, 0.12, mats.skin, 16);
+  // ── Neck (tapered — wider at base, narrower toward jaw) ─────────────────
+  // Slightly wider at the collar and narrower toward the chin so the
+  // silhouette reads as a real neck rather than a uniform pipe.
+  const neck = smoothCyl(0.092, 0.106, 0.12, mats.skin, 16);
   neck.position.set(0, 1.68, 0);
   parent.add(neck);
 
@@ -736,15 +738,21 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   // and is intentionally small — at the player's normal viewing distance
   // they read as eye sockets and a nose ridge rather than literal features.
 
-  // Brow ridge — slightly darker skin tone, gives the eyes a deep socket.
+  // Brow ridge — smooth capsule arch instead of a box for an organic brow.
+  // Two separate halves so each side has a slight inward cant (the "furrowed"
+  // look that reads as masculine without needing an animation).
   const browMat = new THREE.MeshStandardMaterial({
     color: 0xa07550, metalness: 0, roughness: 0.85,
   });
-  const browRidge = shadowed(new THREE.Mesh(
-    new THREE.BoxGeometry(0.20, 0.025, 0.04), browMat,
-  ));
-  browRidge.position.set(0, 1.94, 0.16);
-  parent.add(browRidge);
+  for (const sx of [-0.045, 0.045]) {
+    const browHalf = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.015, 0.074, 4, 12), browMat,
+    ));
+    browHalf.rotation.z = Math.PI / 2;
+    browHalf.rotation.y = sx > 0 ? -0.12 : 0.12;  // slight inward tilt
+    browHalf.position.set(sx, 1.942, 0.157);
+    parent.add(browHalf);
+  }
 
   // Eyebrows — two short dark capsules angled inward.
   const browHairMat = new THREE.MeshStandardMaterial({
@@ -760,17 +768,61 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     parent.add(eyebrow);
   }
 
-  // Eye sockets — small dark recessed spheres (the white of the eye is
-  // intentionally omitted; the recessed shadow reads better than a tiny
-  // white dot at the player's viewing distance).
-  const eyeMat = new THREE.MeshStandardMaterial({
-    color: 0x2a2218, metalness: 0, roughness: 0.4,
+  // Eyes — full construction: sclera → iris disc → pupil disc → eyelid fold.
+  // Each layer is pushed slightly more forward in Z so they stack cleanly
+  // without z-fighting.
+  const scleraMat = new THREE.MeshStandardMaterial({
+    color: 0xece6d8, metalness: 0.0, roughness: 0.42,
+  });
+  const irisMat = new THREE.MeshStandardMaterial({
+    color: 0x243820, metalness: 0.0, roughness: 0.50,  // dark forest green
+  });
+  const pupilMat = new THREE.MeshStandardMaterial({
+    color: 0x060404, metalness: 0.0, roughness: 0.60,
+  });
+  const eyelidMat = new THREE.MeshStandardMaterial({
+    color: 0xb87a50, metalness: 0.0, roughness: 0.78,
   });
   for (const sx of [-0.055, 0.055]) {
-    const eye = smoothSph(0.022, eyeMat, 14);
-    eye.scale.set(1.2, 0.8, 0.6);
-    eye.position.set(sx, 1.91, 0.17);
-    parent.add(eye);
+    // Sclera — elongated horizontally, flattened in Z so the eyeball fits
+    // naturally against the curved face surface.
+    const sclera = smoothSph(0.028, scleraMat, 18);
+    sclera.scale.set(1.20, 0.86, 0.60);
+    sclera.position.set(sx, 1.912, 0.172);
+    parent.add(sclera);
+
+    // Iris — thin cylinder disc centred on the eyeball, positioned at the
+    // front face of the sclera so it reads as a coloured iris ring.
+    const irisDisc = shadowed(new THREE.Mesh(
+      new THREE.CylinderGeometry(0.016, 0.016, 0.003, 16), irisMat,
+    ));
+    irisDisc.rotation.x = Math.PI / 2;
+    irisDisc.position.set(sx, 1.912, 0.189);
+    parent.add(irisDisc);
+
+    // Pupil — dark smaller disc sitting on top of the iris.
+    const pupilDisc = shadowed(new THREE.Mesh(
+      new THREE.CylinderGeometry(0.009, 0.009, 0.003, 12), pupilMat,
+    ));
+    pupilDisc.rotation.x = Math.PI / 2;
+    pupilDisc.position.set(sx, 1.912, 0.191);
+    parent.add(pupilDisc);
+
+    // Upper eyelid fold — a flattened skin dome draped over the top half
+    // of the sclera. Narrows the visible white, adding depth and age.
+    const eyelid = smoothSph(0.030, eyelidMat, 14);
+    eyelid.scale.set(1.14, 0.34, 0.48);
+    eyelid.position.set(sx, 1.923, 0.178);
+    parent.add(eyelid);
+
+    // Lower eyelid shadow — a very thin darker crescent under the sclera.
+    const lowerLidMat = new THREE.MeshStandardMaterial({
+      color: 0x8a5c38, metalness: 0.0, roughness: 0.82,
+    });
+    const lowerLid = smoothSph(0.028, lowerLidMat, 14);
+    lowerLid.scale.set(1.12, 0.22, 0.42);
+    lowerLid.position.set(sx, 1.900, 0.177);
+    parent.add(lowerLid);
   }
 
   // Nose — a small rounded wedge protruding from the face.
