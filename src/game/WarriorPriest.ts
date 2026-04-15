@@ -1202,9 +1202,14 @@ function buildHammerGeometry(hammer: THREE.Group, mats: WarriorPriestMaterials):
  * to the lower-right — matching the classic Warrior Priest silhouette.
  * Animators interpolate away from this rest pose when swinging.
  */
-export const HAMMER_REST_EULER = new THREE.Euler(0, -0.15, -Math.PI * 0.35);
-/** World-space anchor for the hammer when the priest is in rest pose. */
-export const HAMMER_REST_WORLD = new THREE.Vector3(0.22, 1.10, 0.30);
+// Hammer held upright at the right side.
+// The haft local-origin sits at its centre; the leather grip centre is at
+// local y = -0.10.  With HAMMER_REST_WORLD.y = 0.76 the grip lands at
+// world y ≈ 0.66 — squarely in the gauntlet.  A very slight forward lean
+// (-0.12 rad) keeps the head from clipping through the shoulder.
+export const HAMMER_REST_EULER = new THREE.Euler(-0.12, 0.10, 0.06);
+/** World-space anchor for the haft centre when the priest is in rest pose. */
+export const HAMMER_REST_WORLD = new THREE.Vector3(0.40, 0.76, 0.06);
 
 // ─── Rig & entry point ───────────────────────────────────────────────────────
 
