@@ -781,13 +781,15 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   const browMat = new THREE.MeshStandardMaterial({
     color: 0xa07550, metalness: 0, roughness: 0.85,
   });
+  // At y=1.942 the ellipsoid surface is at z≈0.155; push brow to z=0.174
+  // so it projects visibly above the skin.
   for (const sx of [-0.045, 0.045]) {
     const browHalf = shadowed(new THREE.Mesh(
       new THREE.CapsuleGeometry(0.015, 0.074, 4, 12), browMat,
     ));
     browHalf.rotation.z = Math.PI / 2;
-    browHalf.rotation.y = sx > 0 ? -0.12 : 0.12;  // slight inward tilt
-    browHalf.position.set(sx, 1.942, 0.157);
+    browHalf.rotation.y = sx > 0 ? -0.12 : 0.12;
+    browHalf.position.set(sx, 1.942, 0.174);
     parent.add(browHalf);
   }
 
@@ -801,7 +803,7 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     ));
     eyebrow.rotation.z = Math.PI / 2;
     eyebrow.rotation.y = sx > 0 ? -0.18 : 0.18;
-    eyebrow.position.set(sx, 1.945, 0.175);
+    eyebrow.position.set(sx, 1.948, 0.178);
     parent.add(eyebrow);
   }
 
@@ -821,44 +823,42 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     color: 0xb87a50, metalness: 0.0, roughness: 0.78,
   });
   for (const sx of [-0.055, 0.055]) {
-    // Sclera — elongated horizontally, flattened in Z so the eyeball fits
-    // naturally against the curved face surface.
+    // Sclera — at y=1.912 the ellipsoid surface is z≈0.173; sclera centre
+    // pushed to z=0.190 so the white ball projects clearly past the face skin.
     const sclera = smoothSph(0.028, scleraMat, 18);
     sclera.scale.set(1.20, 0.86, 0.60);
-    sclera.position.set(sx, 1.912, 0.172);
+    sclera.position.set(sx, 1.912, 0.190);
     parent.add(sclera);
 
-    // Iris — thin cylinder disc centred on the eyeball, positioned at the
-    // front face of the sclera so it reads as a coloured iris ring.
+    // Iris disc — front face of the sclera.
     const irisDisc = shadowed(new THREE.Mesh(
       new THREE.CylinderGeometry(0.016, 0.016, 0.003, 16), irisMat,
     ));
     irisDisc.rotation.x = Math.PI / 2;
-    irisDisc.position.set(sx, 1.912, 0.189);
+    irisDisc.position.set(sx, 1.912, 0.207);
     parent.add(irisDisc);
 
-    // Pupil — dark smaller disc sitting on top of the iris.
+    // Pupil disc — on top of the iris.
     const pupilDisc = shadowed(new THREE.Mesh(
       new THREE.CylinderGeometry(0.009, 0.009, 0.003, 12), pupilMat,
     ));
     pupilDisc.rotation.x = Math.PI / 2;
-    pupilDisc.position.set(sx, 1.912, 0.191);
+    pupilDisc.position.set(sx, 1.912, 0.210);
     parent.add(pupilDisc);
 
-    // Upper eyelid fold — a flattened skin dome draped over the top half
-    // of the sclera. Narrows the visible white, adding depth and age.
+    // Upper eyelid fold — at y=1.923 surface is z≈0.169; push to z=0.194.
     const eyelid = smoothSph(0.030, eyelidMat, 14);
     eyelid.scale.set(1.14, 0.34, 0.48);
-    eyelid.position.set(sx, 1.923, 0.178);
+    eyelid.position.set(sx, 1.924, 0.194);
     parent.add(eyelid);
 
-    // Lower eyelid shadow — a very thin darker crescent under the sclera.
+    // Lower eyelid shadow — at y=1.900 surface is z≈0.177; push to z=0.193.
     const lowerLidMat = new THREE.MeshStandardMaterial({
       color: 0x8a5c38, metalness: 0.0, roughness: 0.82,
     });
     const lowerLid = smoothSph(0.028, lowerLidMat, 14);
     lowerLid.scale.set(1.12, 0.22, 0.42);
-    lowerLid.position.set(sx, 1.900, 0.177);
+    lowerLid.position.set(sx, 1.900, 0.193);
     parent.add(lowerLid);
   }
 
@@ -886,11 +886,14 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     parent.add(nostril);
   }
 
-  // Cheekbones — slight skin-tone domes for facial structure.
+  // Cheekbones — at x=±0.08, y=1.86 the surface is at z≈0.159.
+  // Push to z=0.192 so the cheek dome is clearly proud of the face skin.
+  // Flatten in Z (scale 0.35) so it reads as a subtle surface raise
+  // rather than a protruding ball.
   for (const sx of [-0.08, 0.08]) {
     const cheek = smoothSph(0.045, mats.skin, 14);
-    cheek.scale.set(1.1, 0.7, 0.5);
-    cheek.position.set(sx, 1.86, 0.165);
+    cheek.scale.set(1.0, 0.65, 0.35);
+    cheek.position.set(sx, 1.862, 0.192);
     parent.add(cheek);
   }
 
@@ -925,18 +928,20 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   lowerLip.position.set(0, 1.793, 0.187);
   parent.add(lowerLip);
 
-  // Chin — a small protruding sphere giving the jaw a defined point.
-  // Without this the face sphere ends in an even curve that looks boneless.
-  const chin = smoothSph(0.038, mats.skin, 14);
-  chin.scale.set(0.78, 0.52, 0.62);
-  chin.position.set(0, 1.770, 0.155);
+  // Chin — at y=1.770 the ellipsoid surface is z≈0.158; push to z=0.172
+  // and flatten in Z so it reads as a forward projection not a floating ball.
+  const chin = smoothSph(0.036, mats.skin, 14);
+  chin.scale.set(0.72, 0.46, 0.38);
+  chin.position.set(0, 1.772, 0.172);
   parent.add(chin);
 
-  // Jaw corners — subtle thickening of the jaw angle on each side.
-  for (const sx of [-0.095, 0.095]) {
+  // Jaw corners — these were placed at z=0.100 (deep inside the head).
+  // Move them to the actual jaw sides: wide x, low z, so they give the
+  // lower face a squared silhouette without protruding as visible blobs.
+  for (const sx of [-0.150, 0.150]) {
     const jaw = smoothSph(0.030, mats.skin, 12);
-    jaw.scale.set(0.55, 0.70, 0.52);
-    jaw.position.set(sx, 1.785, 0.100);
+    jaw.scale.set(0.42, 0.62, 0.38);
+    jaw.position.set(sx, 1.782, 0.052);
     parent.add(jaw);
   }
 
