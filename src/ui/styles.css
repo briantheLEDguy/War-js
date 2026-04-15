@@ -776,8 +776,8 @@ input:focus, select:focus {
 /* Virtual joystick */
 .touch-joystick-base {
   position: absolute;
-  bottom: 100px;
-  left: 24px;
+  bottom: 10px;
+  left: 12px;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -807,8 +807,8 @@ input:focus, select:focus {
 /* Jump button */
 .touch-jump-btn {
   position: absolute;
-  bottom: 108px;
-  right: 24px;
+  bottom: 18px;
+  right: 12px;
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -828,23 +828,134 @@ input:focus, select:focus {
 }
 .touch-jump-btn:active { background: rgba(40, 30, 10, 0.75); border-color: var(--border-accent); }
 
-/* Show touch controls on devices that use a finger (coarse pointer) */
+/* ═══════════════════════════════════════════════════════════════════════════
+   Mobile HUD layout — prevents element overlap on touch / small screens
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Portrait touch (and any coarse-pointer device) ── */
 @media (pointer: coarse) {
-  .touch-controls {
-    display: block;
+  /* Show touch controls; hide keyboard hint */
+  .touch-controls { display: block; }
+  .controls-hint  { display: none;  }
+
+  /* ── Top row: shrink so player-frame + minimap fit side-by-side ── */
+  .player-frame {
+    width: min(46vw, 220px);
+    padding: 8px 10px;
   }
-  /* Shift the hotbar up so the joystick / jump button don't overlap */
+  .minimap {
+    width: 90px;
+    height: 90px;
+  }
+  /* Minimap label needs space we don't have on mobile */
+  .minimap-label { display: none; }
+
+  /* Target frame: drop to its own row below the top pair */
+  .target-frame {
+    top: 104px;        /* just below minimap (90px) + 12px gap + 2px safety */
+    left: 12px;
+    transform: none;   /* cancel the desktop translateX(-50%) */
+    width: min(calc(100vw - 24px), 260px);
+  }
+
+  /* Inventory: stretch to fill viewport width instead of 280px fixed */
+  .inventory {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  /* Logout button: move below jump-button (bottom:18+72=90), right edge */
+  .logout-btn {
+    top: auto;
+    bottom: 98px;  /* 18px jump-bottom + 72px jump-height + 8px gap */
+    right: 12px;
+  }
+
+  /* ── Bottom stack (portrait):  chat → hotbar → joystick/jump ──
+     joystick: bottom 10 → top 130  (height 120)
+     hotbar:   bottom 138 (10+120+8 gap) → top ~212  (height ~74)
+     chat:     bottom 220 (138+74+8 gap)             (height 110)
+  ── */
   .hotbar {
-    bottom: 88px;
+    bottom: 138px;
   }
-  /* Controls hint is irrelevant on touch — hide it */
-  .controls-hint {
-    display: none;
-  }
-  /* Make hotbar slots larger for finger taps */
   .hotbar-slot {
     width: 60px;
     height: 60px;
     font-size: 24px;
+  }
+  .chat {
+    bottom: 220px;
+    left: 12px;
+    width: calc(100vw - 24px);
+    height: 110px;
+  }
+}
+
+/* ── Landscape touch: joystick + hotbar + jump share one bottom row ──
+   Saves ~250 px of vertical space vs the portrait stack.
+   ── */
+@media (pointer: coarse) and (orientation: landscape) {
+  /* Compact top row */
+  .player-frame {
+    width: min(30vw, 200px);
+    padding: 5px 8px;
+  }
+  /* Shrink bars so the frame is shorter */
+  .player-frame .bar   { height: 12px; }
+  .player-frame .xp-bar { height: 4px; }
+
+  .minimap { width: 72px; height: 72px; }
+
+  /* Target frame hidden — not enough vertical real-estate */
+  .target-frame { display: none; }
+
+  /* Joystick: smaller, at the very bottom-left */
+  .touch-joystick-base {
+    width: 80px;
+    height: 80px;
+    bottom: 8px;
+    left: 8px;
+  }
+  .touch-joystick-knob {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Jump button: smaller, bottom-right */
+  .touch-jump-btn {
+    width: 56px;
+    height: 56px;
+    bottom: 12px;
+    right: 8px;
+    font-size: 22px;
+  }
+
+  /* Hotbar: inline with joystick/jump at the same bottom level.
+     4 × 44px slots + 3×3px gaps + 2×8px padding ≈ 201px wide, centred.
+     On 568px landscape: left edge ≈ 183px, joystick right ≈ 88px → 95px gap.
+     On 667px landscape: left edge ≈ 233px, joystick right ≈ 88px → 145px gap. */
+  .hotbar {
+    bottom: 14px;
+  }
+  .hotbar-slot {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  /* Chat hidden on landscape — no vertical space */
+  .chat { display: none; }
+
+  /* Logout: top-right, just left of the 72px minimap */
+  .logout-btn {
+    bottom: auto;              /* cancel the portrait bottom:98px */
+    top: 8px;
+    right: calc(72px + 16px); /* minimap(72) + gap(16) */
+    font-size: 9px;
+    padding: 2px 5px;
   }
 }
