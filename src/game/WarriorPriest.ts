@@ -282,9 +282,10 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   liner.position.set(0, 1.10, 0);
   parent.add(liner);
 
-  // Front fringe panel — a narrow vertical strip sits proud of the robe
-  // front, edged in gold. This is the decorated tabard-style panel visible
-  // between the breastplate and the robe's hem.
+  // Front fringe panel — extruded tabard panel with real thickness so it
+  // casts a shadow against the robe fabric below and reads as a separate
+  // cloth layer rather than a painted decal.  ExtrudeGeometry extrudes in
+  // +Z, so positioned at z = 0.312 the front face lands at z ≈ 0.320.
   const frontPanelShape = new THREE.Shape();
   frontPanelShape.moveTo(-0.13, 0.00);
   frontPanelShape.lineTo( 0.13, 0.00);
@@ -295,26 +296,33 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   frontPanelShape.lineTo(-0.18, -0.78);
   frontPanelShape.lineTo(-0.16, -0.40);
   frontPanelShape.closePath();
-  const frontPanelGeo = new THREE.ShapeGeometry(frontPanelShape, 16);
+  const frontPanelGeo = new THREE.ExtrudeGeometry(frontPanelShape, {
+    depth: 0.010,
+    bevelEnabled: true,
+    bevelThickness: 0.003,
+    bevelSize: 0.003,
+    bevelSegments: 2,
+  });
   const frontPanel = shadowed(new THREE.Mesh(frontPanelGeo, mats.robeDark));
-  frontPanel.position.set(0, 1.08, 0.32);
+  frontPanel.position.set(0, 1.08, 0.312);
   parent.add(frontPanel);
 
   // Gold edging along the front panel's hem — two short angled bands.
+  // Pushed 0.007 forward to sit on the new extruded face (z = 0.312 + 0.010).
   for (const sx of [-0.12, 0.12]) {
     const trim = shadowed(new THREE.Mesh(
       new THREE.BoxGeometry(0.014, 0.28, 0.01), mats.gold,
     ));
     trim.rotation.z = sx > 0 ? -0.18 : 0.18;
-    trim.position.set(sx, 0.85, 0.325);
+    trim.position.set(sx, 0.85, 0.332);
     parent.add(trim);
   }
   // Small gold roundel at the centre of the front panel (decorative seal).
   const roundel = smoothTorus(0.04, 0.012, mats.gold, 8, 24);
-  roundel.position.set(0, 0.66, 0.33);
+  roundel.position.set(0, 0.66, 0.337);
   parent.add(roundel);
   const roundelInner = smoothSph(0.022, mats.goldDark, 14);
-  roundelInner.position.set(0, 0.66, 0.34);
+  roundelInner.position.set(0, 0.66, 0.347);
   parent.add(roundelInner);
 
   // Matching narrow back panel (darker, no gold trim).
@@ -541,18 +549,42 @@ function buildArm(
   pauldronDome.position.set(sx, 1.46, 0);
   parent.add(pauldronDome);
 
-  // Front "wing" plate — a small forward-jutting flare at the front of the
-  // pauldron, characteristic of the WAR Warrior Priest silhouette.
+  // Front "wing" plate — extruded so it has real thickness and a bevelled
+  // edge instead of a paper-thin polygon.  The extrusion goes along the
+  // local +Z axis; after rotation.y = PI/2 that becomes the world +X axis
+  // (inward/outward from the body), giving the plate visible thickness when
+  // viewed from any angle.
   const wingShape = new THREE.Shape();
   wingShape.moveTo(0, 0);
   wingShape.quadraticCurveTo(0.10, -0.08, 0.20, -0.04);
   wingShape.quadraticCurveTo(0.18, 0.04, 0.10, 0.08);
   wingShape.quadraticCurveTo(0.04, 0.06, 0, 0);
-  const wingGeo = new THREE.ShapeGeometry(wingShape, 16);
-  const wing = shadowed(new THREE.Mesh(wingGeo, mats.gold));
+  const wingGeo = new THREE.ExtrudeGeometry(wingShape, {
+    depth: 0.018,
+    bevelEnabled: true,
+    bevelThickness: 0.005,
+    bevelSize: 0.005,
+    bevelSegments: 2,
+  });
+  const wing = shadowed(new THREE.Mesh(wingGeo, mats.steel));
   wing.rotation.y = Math.PI / 2;
   wing.position.set(sx + side * 0.08, 1.44, 0.18);
   parent.add(wing);
+  // Thin gold edge trim on the visible face of the wing plate.
+  const wingTrimShape = new THREE.Shape();
+  wingTrimShape.moveTo(0, 0);
+  wingTrimShape.quadraticCurveTo(0.10, -0.08, 0.20, -0.04);
+  wingTrimShape.quadraticCurveTo(0.18, 0.04, 0.10, 0.08);
+  wingTrimShape.quadraticCurveTo(0.04, 0.06, 0, 0);
+  const wingTrimGeo = new THREE.ExtrudeGeometry(wingTrimShape, {
+    depth: 0.005,
+    bevelEnabled: false,
+  });
+  const wingTrim = shadowed(new THREE.Mesh(wingTrimGeo, mats.gold));
+  wingTrim.rotation.y = Math.PI / 2;
+  // position the trim face just proud of the steel plate
+  wingTrim.position.set(sx + side * 0.08, 1.44, 0.198 + side * 0.018);
+  parent.add(wingTrim);
 
   // Gold crest ridge running front-to-back along the pauldron top.
   const crest = smoothCyl(0.018, 0.018, 0.34, mats.gold, 12);
