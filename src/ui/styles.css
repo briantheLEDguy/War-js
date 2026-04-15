@@ -878,3 +878,59 @@ input:focus, select:focus {
     height: 110px;
   }
 }
+
+/* ── Landscape touch: joystick + hotbar + jump share one bottom row ──
+   Saves ~250 px of vertical space vs the portrait stack.
+   ── */
+@media (pointer: coarse) and (orientation: landscape) {
+  /* Compact top row */
+  .player-frame {
+    width: min(30vw, 200px);
+    padding: 5px 8px;
+  }
+  /* Shrink bars so the frame is shorter */
+  .player-frame .bar   { height: 12px; }
+  .player-frame .xp-bar { height: 4px; }
+
+  .minimap { width: 72px; height: 72px; }
+
+  /* Target frame hidden — not enough vertical real-estate */
+  .target-frame { display: none; }
+
+  /* Joystick: smaller, at the very bottom-left */
+  .touch-joystick-base {
+    width: 80px;
+    height: 80px;
+    bottom: 8px;
+    left: 8px;
+  }
+  .touch-joystick-knob {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Jump button: smaller, bottom-right */
+  .touch-jump-btn {
+    width: 56px;
+    height: 56px;
+    bottom: 12px;
+    right: 8px;
+    font-size: 22px;
+  }
+
+  /* Hotbar: inline with joystick/jump at the same bottom level.
+     4 × 44px slots + 3×3px gaps + 2×8px padding ≈ 201px wide, centred.
+     On 568px landscape: left edge ≈ 183px, joystick right ≈ 88px → 95px gap.
+     On 667px landscape: left edge ≈ 233px, joystick right ≈ 88px → 145px gap. */
+  .hotbar {
+    bottom: 14px;
+  }
+  .hotbar-slot {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  /* Chat hidden on landscape — no vertical space */
+  .chat { display: none; }
+}
