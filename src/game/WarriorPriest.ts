@@ -282,9 +282,10 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   liner.position.set(0, 1.10, 0);
   parent.add(liner);
 
-  // Front fringe panel — a narrow vertical strip sits proud of the robe
-  // front, edged in gold. This is the decorated tabard-style panel visible
-  // between the breastplate and the robe's hem.
+  // Front fringe panel — extruded tabard panel with real thickness so it
+  // casts a shadow against the robe fabric below and reads as a separate
+  // cloth layer rather than a painted decal.  ExtrudeGeometry extrudes in
+  // +Z, so positioned at z = 0.312 the front face lands at z ≈ 0.320.
   const frontPanelShape = new THREE.Shape();
   frontPanelShape.moveTo(-0.13, 0.00);
   frontPanelShape.lineTo( 0.13, 0.00);
@@ -295,26 +296,33 @@ function buildWaist(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   frontPanelShape.lineTo(-0.18, -0.78);
   frontPanelShape.lineTo(-0.16, -0.40);
   frontPanelShape.closePath();
-  const frontPanelGeo = new THREE.ShapeGeometry(frontPanelShape, 16);
+  const frontPanelGeo = new THREE.ExtrudeGeometry(frontPanelShape, {
+    depth: 0.010,
+    bevelEnabled: true,
+    bevelThickness: 0.003,
+    bevelSize: 0.003,
+    bevelSegments: 2,
+  });
   const frontPanel = shadowed(new THREE.Mesh(frontPanelGeo, mats.robeDark));
-  frontPanel.position.set(0, 1.08, 0.32);
+  frontPanel.position.set(0, 1.08, 0.312);
   parent.add(frontPanel);
 
   // Gold edging along the front panel's hem — two short angled bands.
+  // Pushed 0.007 forward to sit on the new extruded face (z = 0.312 + 0.010).
   for (const sx of [-0.12, 0.12]) {
     const trim = shadowed(new THREE.Mesh(
       new THREE.BoxGeometry(0.014, 0.28, 0.01), mats.gold,
     ));
     trim.rotation.z = sx > 0 ? -0.18 : 0.18;
-    trim.position.set(sx, 0.85, 0.325);
+    trim.position.set(sx, 0.85, 0.332);
     parent.add(trim);
   }
   // Small gold roundel at the centre of the front panel (decorative seal).
   const roundel = smoothTorus(0.04, 0.012, mats.gold, 8, 24);
-  roundel.position.set(0, 0.66, 0.33);
+  roundel.position.set(0, 0.66, 0.337);
   parent.add(roundel);
   const roundelInner = smoothSph(0.022, mats.goldDark, 14);
-  roundelInner.position.set(0, 0.66, 0.34);
+  roundelInner.position.set(0, 0.66, 0.347);
   parent.add(roundelInner);
 
   // Matching narrow back panel (darker, no gold trim).
@@ -541,18 +549,42 @@ function buildArm(
   pauldronDome.position.set(sx, 1.46, 0);
   parent.add(pauldronDome);
 
-  // Front "wing" plate — a small forward-jutting flare at the front of the
-  // pauldron, characteristic of the WAR Warrior Priest silhouette.
+  // Front "wing" plate — extruded so it has real thickness and a bevelled
+  // edge instead of a paper-thin polygon.  The extrusion goes along the
+  // local +Z axis; after rotation.y = PI/2 that becomes the world +X axis
+  // (inward/outward from the body), giving the plate visible thickness when
+  // viewed from any angle.
   const wingShape = new THREE.Shape();
   wingShape.moveTo(0, 0);
   wingShape.quadraticCurveTo(0.10, -0.08, 0.20, -0.04);
   wingShape.quadraticCurveTo(0.18, 0.04, 0.10, 0.08);
   wingShape.quadraticCurveTo(0.04, 0.06, 0, 0);
-  const wingGeo = new THREE.ShapeGeometry(wingShape, 16);
-  const wing = shadowed(new THREE.Mesh(wingGeo, mats.gold));
+  const wingGeo = new THREE.ExtrudeGeometry(wingShape, {
+    depth: 0.018,
+    bevelEnabled: true,
+    bevelThickness: 0.005,
+    bevelSize: 0.005,
+    bevelSegments: 2,
+  });
+  const wing = shadowed(new THREE.Mesh(wingGeo, mats.steel));
   wing.rotation.y = Math.PI / 2;
   wing.position.set(sx + side * 0.08, 1.44, 0.18);
   parent.add(wing);
+  // Thin gold edge trim on the visible face of the wing plate.
+  const wingTrimShape = new THREE.Shape();
+  wingTrimShape.moveTo(0, 0);
+  wingTrimShape.quadraticCurveTo(0.10, -0.08, 0.20, -0.04);
+  wingTrimShape.quadraticCurveTo(0.18, 0.04, 0.10, 0.08);
+  wingTrimShape.quadraticCurveTo(0.04, 0.06, 0, 0);
+  const wingTrimGeo = new THREE.ExtrudeGeometry(wingTrimShape, {
+    depth: 0.005,
+    bevelEnabled: false,
+  });
+  const wingTrim = shadowed(new THREE.Mesh(wingTrimGeo, mats.gold));
+  wingTrim.rotation.y = Math.PI / 2;
+  // position the trim face just proud of the steel plate
+  wingTrim.position.set(sx + side * 0.08, 1.44, 0.198 + side * 0.018);
+  parent.add(wingTrim);
 
   // Gold crest ridge running front-to-back along the pauldron top.
   const crest = smoothCyl(0.018, 0.018, 0.34, mats.gold, 12);
@@ -720,10 +752,17 @@ export const HIP_ANCHOR = new THREE.Vector3(0, 1.10, 0);
  * the crown, with twelve tapered spikes radiating outward like a sunburst.
  */
 function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
-  // ── Neck (short mail column inside the gorget) ──────────────────────────
-  const neck = smoothCyl(0.10, 0.10, 0.12, mats.skin, 16);
+  // ── Neck (tapered — wider at base, narrower toward jaw) ─────────────────
+  // Slightly wider at the collar and narrower toward the chin so the
+  // silhouette reads as a real neck rather than a uniform pipe.
+  const neck = smoothCyl(0.092, 0.106, 0.12, mats.skin, 16);
   neck.position.set(0, 1.68, 0);
   parent.add(neck);
+  // Adam's apple — a small subtle bulge on the front of the neck.
+  const adamApple = smoothSph(0.022, mats.skin, 12);
+  adamApple.scale.set(0.75, 0.60, 0.52);
+  adamApple.position.set(0, 1.74, 0.096);
+  parent.add(adamApple);
 
   // ── Head (slightly elongated sphere) ────────────────────────────────────
   const head = smoothSph(0.18, mats.skin, 28);
@@ -736,15 +775,21 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   // and is intentionally small — at the player's normal viewing distance
   // they read as eye sockets and a nose ridge rather than literal features.
 
-  // Brow ridge — slightly darker skin tone, gives the eyes a deep socket.
+  // Brow ridge — smooth capsule arch instead of a box for an organic brow.
+  // Two separate halves so each side has a slight inward cant (the "furrowed"
+  // look that reads as masculine without needing an animation).
   const browMat = new THREE.MeshStandardMaterial({
     color: 0xa07550, metalness: 0, roughness: 0.85,
   });
-  const browRidge = shadowed(new THREE.Mesh(
-    new THREE.BoxGeometry(0.20, 0.025, 0.04), browMat,
-  ));
-  browRidge.position.set(0, 1.94, 0.16);
-  parent.add(browRidge);
+  for (const sx of [-0.045, 0.045]) {
+    const browHalf = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.015, 0.074, 4, 12), browMat,
+    ));
+    browHalf.rotation.z = Math.PI / 2;
+    browHalf.rotation.y = sx > 0 ? -0.12 : 0.12;  // slight inward tilt
+    browHalf.position.set(sx, 1.942, 0.157);
+    parent.add(browHalf);
+  }
 
   // Eyebrows — two short dark capsules angled inward.
   const browHairMat = new THREE.MeshStandardMaterial({
@@ -760,17 +805,61 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     parent.add(eyebrow);
   }
 
-  // Eye sockets — small dark recessed spheres (the white of the eye is
-  // intentionally omitted; the recessed shadow reads better than a tiny
-  // white dot at the player's viewing distance).
-  const eyeMat = new THREE.MeshStandardMaterial({
-    color: 0x2a2218, metalness: 0, roughness: 0.4,
+  // Eyes — full construction: sclera → iris disc → pupil disc → eyelid fold.
+  // Each layer is pushed slightly more forward in Z so they stack cleanly
+  // without z-fighting.
+  const scleraMat = new THREE.MeshStandardMaterial({
+    color: 0xece6d8, metalness: 0.0, roughness: 0.42,
+  });
+  const irisMat = new THREE.MeshStandardMaterial({
+    color: 0x243820, metalness: 0.0, roughness: 0.50,  // dark forest green
+  });
+  const pupilMat = new THREE.MeshStandardMaterial({
+    color: 0x060404, metalness: 0.0, roughness: 0.60,
+  });
+  const eyelidMat = new THREE.MeshStandardMaterial({
+    color: 0xb87a50, metalness: 0.0, roughness: 0.78,
   });
   for (const sx of [-0.055, 0.055]) {
-    const eye = smoothSph(0.022, eyeMat, 14);
-    eye.scale.set(1.2, 0.8, 0.6);
-    eye.position.set(sx, 1.91, 0.17);
-    parent.add(eye);
+    // Sclera — elongated horizontally, flattened in Z so the eyeball fits
+    // naturally against the curved face surface.
+    const sclera = smoothSph(0.028, scleraMat, 18);
+    sclera.scale.set(1.20, 0.86, 0.60);
+    sclera.position.set(sx, 1.912, 0.172);
+    parent.add(sclera);
+
+    // Iris — thin cylinder disc centred on the eyeball, positioned at the
+    // front face of the sclera so it reads as a coloured iris ring.
+    const irisDisc = shadowed(new THREE.Mesh(
+      new THREE.CylinderGeometry(0.016, 0.016, 0.003, 16), irisMat,
+    ));
+    irisDisc.rotation.x = Math.PI / 2;
+    irisDisc.position.set(sx, 1.912, 0.189);
+    parent.add(irisDisc);
+
+    // Pupil — dark smaller disc sitting on top of the iris.
+    const pupilDisc = shadowed(new THREE.Mesh(
+      new THREE.CylinderGeometry(0.009, 0.009, 0.003, 12), pupilMat,
+    ));
+    pupilDisc.rotation.x = Math.PI / 2;
+    pupilDisc.position.set(sx, 1.912, 0.191);
+    parent.add(pupilDisc);
+
+    // Upper eyelid fold — a flattened skin dome draped over the top half
+    // of the sclera. Narrows the visible white, adding depth and age.
+    const eyelid = smoothSph(0.030, eyelidMat, 14);
+    eyelid.scale.set(1.14, 0.34, 0.48);
+    eyelid.position.set(sx, 1.923, 0.178);
+    parent.add(eyelid);
+
+    // Lower eyelid shadow — a very thin darker crescent under the sclera.
+    const lowerLidMat = new THREE.MeshStandardMaterial({
+      color: 0x8a5c38, metalness: 0.0, roughness: 0.82,
+    });
+    const lowerLid = smoothSph(0.028, lowerLidMat, 14);
+    lowerLid.scale.set(1.12, 0.22, 0.42);
+    lowerLid.position.set(sx, 1.900, 0.177);
+    parent.add(lowerLid);
   }
 
   // Nose — a small rounded wedge protruding from the face.
@@ -785,6 +874,18 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   noseTip.position.set(0, 1.85, 0.195);
   parent.add(noseTip);
 
+  // Nostrils — small darker domes flanking the nose base, hinting at alar
+  // structure without requiring detailed geometry at this scale.
+  const nostrilMat = new THREE.MeshStandardMaterial({
+    color: 0x6e3422, metalness: 0, roughness: 0.88,
+  });
+  for (const sx of [-0.027, 0.027]) {
+    const nostril = smoothSph(0.013, nostrilMat, 10);
+    nostril.scale.set(0.78, 0.55, 0.55);
+    nostril.position.set(sx, 1.845, 0.193);
+    parent.add(nostril);
+  }
+
   // Cheekbones — slight skin-tone domes for facial structure.
   for (const sx of [-0.08, 0.08]) {
     const cheek = smoothSph(0.045, mats.skin, 14);
@@ -793,16 +894,51 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     parent.add(cheek);
   }
 
-  // Mouth — a thin recessed slit (dark capsule).
-  const mouthMat = new THREE.MeshStandardMaterial({
-    color: 0x3a1810, metalness: 0, roughness: 0.9,
+  // Mouth — defined upper and lower lips with a dark seam between them.
+  const lipMat = new THREE.MeshStandardMaterial({
+    color: 0x8a3428, metalness: 0.0, roughness: 0.80,
   });
-  const mouth = shadowed(new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.012, 0.05, 4, 8), mouthMat,
+  const mouthLineMat = new THREE.MeshStandardMaterial({
+    color: 0x200a08, metalness: 0.0, roughness: 0.92,
+  });
+  // Dark seam between the lips (horizontal mouth line).
+  const mouthLine = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.007, 0.052, 4, 8), mouthLineMat,
   ));
-  mouth.rotation.z = Math.PI / 2;
-  mouth.position.set(0, 1.795, 0.18);
-  parent.add(mouth);
+  mouthLine.rotation.z = Math.PI / 2;
+  mouthLine.position.set(0, 1.801, 0.185);
+  parent.add(mouthLine);
+  // Upper lip — two lobes flanking the centre (cupid's bow silhouette).
+  for (const sx of [-0.018, 0.018]) {
+    const upperLobe = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.010, 0.022, 4, 8), lipMat,
+    ));
+    upperLobe.rotation.z = Math.PI / 2;
+    upperLobe.position.set(sx, 1.808, 0.184);
+    parent.add(upperLobe);
+  }
+  // Lower lip — single fuller dome, slightly more forward than the upper.
+  const lowerLip = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.013, 0.050, 4, 8), lipMat,
+  ));
+  lowerLip.rotation.z = Math.PI / 2;
+  lowerLip.position.set(0, 1.793, 0.187);
+  parent.add(lowerLip);
+
+  // Chin — a small protruding sphere giving the jaw a defined point.
+  // Without this the face sphere ends in an even curve that looks boneless.
+  const chin = smoothSph(0.038, mats.skin, 14);
+  chin.scale.set(0.78, 0.52, 0.62);
+  chin.position.set(0, 1.770, 0.155);
+  parent.add(chin);
+
+  // Jaw corners — subtle thickening of the jaw angle on each side.
+  for (const sx of [-0.095, 0.095]) {
+    const jaw = smoothSph(0.030, mats.skin, 12);
+    jaw.scale.set(0.55, 0.70, 0.52);
+    jaw.position.set(sx, 1.785, 0.100);
+    parent.add(jaw);
+  }
 
   // ── Shaved scalp highlight — a darker crown cap for visual separation ───
   const scalp = shadowed(new THREE.Mesh(
@@ -814,34 +950,88 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   scalp.position.set(0, 1.86, 0);
   parent.add(scalp);
 
-  // ── Beard (short cropped) ───────────────────────────────────────────────
-  // Dark brown lathed shape hugging the jawline.
+  // ── Ears — simple but read correctly from side angles ───────────────────
+  // The headband and halo crown are visible from the front; ears only need
+  // to read from the 3/4 and profile views. Each ear is a flattened ellipsoid
+  // plus a small inner-canal nub so it doesn't look like a button.
+  const earCanvasMat = new THREE.MeshStandardMaterial({
+    color: 0xc88858, metalness: 0.0, roughness: 0.74,
+  });
+  const earInnerMat = new THREE.MeshStandardMaterial({
+    color: 0x7a4228, metalness: 0.0, roughness: 0.88,
+  });
+  for (const sx of [-0.168, 0.168]) {
+    // Outer ear lobe.
+    const ear = smoothSph(0.038, earCanvasMat, 14);
+    ear.scale.set(0.30, 0.60, 0.40);
+    ear.position.set(sx, 1.900, 0.018);
+    parent.add(ear);
+    // Inner ear hollow — a smaller, darker sphere set just inside the lobe.
+    const earInner = smoothSph(0.022, earInnerMat, 12);
+    earInner.scale.set(0.40, 0.55, 0.35);
+    earInner.position.set(sx * 0.98, 1.898, 0.008);
+    parent.add(earInner);
+  }
+
+  // ── Beard (fuller, two-layer) ───────────────────────────────────────────
+  // A partial lathe (front 200° arc only) so the beard wraps the jaw and
+  // cheeks without cutting through the back of the head.
+  // Two concentric layers: an inner close-cropped base and an outer slightly
+  // thicker mass give depth so it reads as real hair volume.
   const beardMat = new THREE.MeshStandardMaterial({
     color: 0x3a2612, metalness: 0, roughness: 0.95,
   });
-  const beardProfile = [
+  const beardMatOuter = new THREE.MeshStandardMaterial({
+    color: 0x2c1c0c, metalness: 0, roughness: 0.97,
+  });
+  // Inner layer — tight to the skin.
+  const beardInnerProfile = [
     new THREE.Vector2(0.00, 0.00),
-    new THREE.Vector2(0.12, 0.02),
-    new THREE.Vector2(0.14, 0.08),
-    new THREE.Vector2(0.13, 0.14),
-    new THREE.Vector2(0.10, 0.18),
-    new THREE.Vector2(0.00, 0.18),
+    new THREE.Vector2(0.125, 0.022),
+    new THREE.Vector2(0.148, 0.090),
+    new THREE.Vector2(0.140, 0.155),
+    new THREE.Vector2(0.112, 0.210),
+    new THREE.Vector2(0.000, 0.210),
   ];
-  const beard = lathe(beardProfile, 20, beardMat);
-  beard.position.set(0, 1.74, 0.04);
-  parent.add(beard);
+  const beardInnerGeo = new THREE.LatheGeometry(
+    beardInnerProfile, 24, -Math.PI * 0.56, Math.PI * 1.12,
+  );
+  const beardInner = shadowed(new THREE.Mesh(beardInnerGeo, beardMat));
+  beardInner.position.set(0, 1.73, 0.02);
+  parent.add(beardInner);
+  // Outer layer — slightly puffier, offset forward.
+  const beardOuterProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.110, 0.020),
+    new THREE.Vector2(0.135, 0.080),
+    new THREE.Vector2(0.128, 0.148),
+    new THREE.Vector2(0.098, 0.195),
+    new THREE.Vector2(0.000, 0.195),
+  ];
+  const beardOuterGeo = new THREE.LatheGeometry(
+    beardOuterProfile, 24, -Math.PI * 0.50, Math.PI * 1.00,
+  );
+  const beardOuter = shadowed(new THREE.Mesh(beardOuterGeo, beardMatOuter));
+  beardOuter.scale.set(1.06, 1.0, 1.08);
+  beardOuter.position.set(0, 1.73, 0.04);
+  parent.add(beardOuter);
 
-  // Moustache — two angled halves draped over the upper lip with a
-  // slight downward curve at each end.
-  for (const sx of [-0.04, 0.04]) {
+  // Moustache — two halves swept outward with a slight droop at the
+  // outer ends, draped over the upper lip.
+  for (const sx of [-0.038, 0.038]) {
     const half = shadowed(new THREE.Mesh(
-      new THREE.CapsuleGeometry(0.012, 0.06, 4, 8), beardMat,
+      new THREE.CapsuleGeometry(0.013, 0.068, 4, 10), beardMat,
     ));
     half.rotation.z = Math.PI / 2;
-    half.rotation.y = sx > 0 ? 0.25 : -0.25;
-    half.position.set(sx, 1.815, 0.18);
+    half.rotation.y = sx > 0 ? 0.28 : -0.28;   // droop outward
+    half.rotation.x = 0.10;                     // slight downward tilt
+    half.position.set(sx, 1.816, 0.182);
     parent.add(half);
   }
+  // Central philtrum join — tiny sphere bridging the two moustache halves.
+  const philtrum = smoothSph(0.013, beardMat, 10);
+  philtrum.position.set(0, 1.817, 0.184);
+  parent.add(philtrum);
 
   // ── Cloth headband (sits under the halo, covering the brow) ────────────
   const headband = smoothTorus(0.185, 0.022, mats.robe, 10, 28);
