@@ -837,6 +837,18 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   noseTip.position.set(0, 1.85, 0.195);
   parent.add(noseTip);
 
+  // Nostrils — small darker domes flanking the nose base, hinting at alar
+  // structure without requiring detailed geometry at this scale.
+  const nostrilMat = new THREE.MeshStandardMaterial({
+    color: 0x6e3422, metalness: 0, roughness: 0.88,
+  });
+  for (const sx of [-0.027, 0.027]) {
+    const nostril = smoothSph(0.013, nostrilMat, 10);
+    nostril.scale.set(0.78, 0.55, 0.55);
+    nostril.position.set(sx, 1.845, 0.193);
+    parent.add(nostril);
+  }
+
   // Cheekbones — slight skin-tone domes for facial structure.
   for (const sx of [-0.08, 0.08]) {
     const cheek = smoothSph(0.045, mats.skin, 14);
@@ -845,16 +857,51 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     parent.add(cheek);
   }
 
-  // Mouth — a thin recessed slit (dark capsule).
-  const mouthMat = new THREE.MeshStandardMaterial({
-    color: 0x3a1810, metalness: 0, roughness: 0.9,
+  // Mouth — defined upper and lower lips with a dark seam between them.
+  const lipMat = new THREE.MeshStandardMaterial({
+    color: 0x8a3428, metalness: 0.0, roughness: 0.80,
   });
-  const mouth = shadowed(new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.012, 0.05, 4, 8), mouthMat,
+  const mouthLineMat = new THREE.MeshStandardMaterial({
+    color: 0x200a08, metalness: 0.0, roughness: 0.92,
+  });
+  // Dark seam between the lips (horizontal mouth line).
+  const mouthLine = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.007, 0.052, 4, 8), mouthLineMat,
   ));
-  mouth.rotation.z = Math.PI / 2;
-  mouth.position.set(0, 1.795, 0.18);
-  parent.add(mouth);
+  mouthLine.rotation.z = Math.PI / 2;
+  mouthLine.position.set(0, 1.801, 0.185);
+  parent.add(mouthLine);
+  // Upper lip — two lobes flanking the centre (cupid's bow silhouette).
+  for (const sx of [-0.018, 0.018]) {
+    const upperLobe = shadowed(new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.010, 0.022, 4, 8), lipMat,
+    ));
+    upperLobe.rotation.z = Math.PI / 2;
+    upperLobe.position.set(sx, 1.808, 0.184);
+    parent.add(upperLobe);
+  }
+  // Lower lip — single fuller dome, slightly more forward than the upper.
+  const lowerLip = shadowed(new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.013, 0.050, 4, 8), lipMat,
+  ));
+  lowerLip.rotation.z = Math.PI / 2;
+  lowerLip.position.set(0, 1.793, 0.187);
+  parent.add(lowerLip);
+
+  // Chin — a small protruding sphere giving the jaw a defined point.
+  // Without this the face sphere ends in an even curve that looks boneless.
+  const chin = smoothSph(0.038, mats.skin, 14);
+  chin.scale.set(0.78, 0.52, 0.62);
+  chin.position.set(0, 1.770, 0.155);
+  parent.add(chin);
+
+  // Jaw corners — subtle thickening of the jaw angle on each side.
+  for (const sx of [-0.095, 0.095]) {
+    const jaw = smoothSph(0.030, mats.skin, 12);
+    jaw.scale.set(0.55, 0.70, 0.52);
+    jaw.position.set(sx, 1.785, 0.100);
+    parent.add(jaw);
+  }
 
   // ── Shaved scalp highlight — a darker crown cap for visual separation ───
   const scalp = shadowed(new THREE.Mesh(
@@ -865,6 +912,29 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   ));
   scalp.position.set(0, 1.86, 0);
   parent.add(scalp);
+
+  // ── Ears — simple but read correctly from side angles ───────────────────
+  // The headband and halo crown are visible from the front; ears only need
+  // to read from the 3/4 and profile views. Each ear is a flattened ellipsoid
+  // plus a small inner-canal nub so it doesn't look like a button.
+  const earCanvasMat = new THREE.MeshStandardMaterial({
+    color: 0xc88858, metalness: 0.0, roughness: 0.74,
+  });
+  const earInnerMat = new THREE.MeshStandardMaterial({
+    color: 0x7a4228, metalness: 0.0, roughness: 0.88,
+  });
+  for (const sx of [-0.168, 0.168]) {
+    // Outer ear lobe.
+    const ear = smoothSph(0.038, earCanvasMat, 14);
+    ear.scale.set(0.30, 0.60, 0.40);
+    ear.position.set(sx, 1.900, 0.018);
+    parent.add(ear);
+    // Inner ear hollow — a smaller, darker sphere set just inside the lobe.
+    const earInner = smoothSph(0.022, earInnerMat, 12);
+    earInner.scale.set(0.40, 0.55, 0.35);
+    earInner.position.set(sx * 0.98, 1.898, 0.008);
+    parent.add(earInner);
+  }
 
   // ── Beard (short cropped) ───────────────────────────────────────────────
   // Dark brown lathed shape hugging the jawline.
