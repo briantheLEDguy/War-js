@@ -650,11 +650,11 @@ function buildArm(
   }
 
   // ── Articulated gauntlet hand ──────────────────────────────────────────
-  // Wrist sits at y ≈ 0.62 (just below the vambrace); fingers extend down
-  // from there. Built via `buildHand()` so the palm, knuckles, four fingers
-  // and thumb are all distinct geometry rather than a single blob sphere.
+  // The vambrace bottom sits at y = 0.72.  The hand origin is the wrist, so
+  // placing it at y = 0.72 flush-connects the gold wrist cuff (cuff is at
+  // hand-local y = 0.005) to the vambrace lip.  Fingers extend downward.
   const hand = buildHand(mats, side);
-  hand.position.set(sx, 0.62, 0);
+  hand.position.set(sx, 0.72, 0);
   parent.add(hand);
 }
 
