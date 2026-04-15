@@ -726,6 +726,11 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
   const neck = smoothCyl(0.092, 0.106, 0.12, mats.skin, 16);
   neck.position.set(0, 1.68, 0);
   parent.add(neck);
+  // Adam's apple — a small subtle bulge on the front of the neck.
+  const adamApple = smoothSph(0.022, mats.skin, 12);
+  adamApple.scale.set(0.75, 0.60, 0.52);
+  adamApple.position.set(0, 1.74, 0.096);
+  parent.add(adamApple);
 
   // ── Head (slightly elongated sphere) ────────────────────────────────────
   const head = smoothSph(0.18, mats.skin, 28);
@@ -936,34 +941,65 @@ function buildHead(parent: THREE.Group, mats: WarriorPriestMaterials): void {
     parent.add(earInner);
   }
 
-  // ── Beard (short cropped) ───────────────────────────────────────────────
-  // Dark brown lathed shape hugging the jawline.
+  // ── Beard (fuller, two-layer) ───────────────────────────────────────────
+  // A partial lathe (front 200° arc only) so the beard wraps the jaw and
+  // cheeks without cutting through the back of the head.
+  // Two concentric layers: an inner close-cropped base and an outer slightly
+  // thicker mass give depth so it reads as real hair volume.
   const beardMat = new THREE.MeshStandardMaterial({
     color: 0x3a2612, metalness: 0, roughness: 0.95,
   });
-  const beardProfile = [
+  const beardMatOuter = new THREE.MeshStandardMaterial({
+    color: 0x2c1c0c, metalness: 0, roughness: 0.97,
+  });
+  // Inner layer — tight to the skin.
+  const beardInnerProfile = [
     new THREE.Vector2(0.00, 0.00),
-    new THREE.Vector2(0.12, 0.02),
-    new THREE.Vector2(0.14, 0.08),
-    new THREE.Vector2(0.13, 0.14),
-    new THREE.Vector2(0.10, 0.18),
-    new THREE.Vector2(0.00, 0.18),
+    new THREE.Vector2(0.125, 0.022),
+    new THREE.Vector2(0.148, 0.090),
+    new THREE.Vector2(0.140, 0.155),
+    new THREE.Vector2(0.112, 0.210),
+    new THREE.Vector2(0.000, 0.210),
   ];
-  const beard = lathe(beardProfile, 20, beardMat);
-  beard.position.set(0, 1.74, 0.04);
-  parent.add(beard);
+  const beardInnerGeo = new THREE.LatheGeometry(
+    beardInnerProfile, 24, -Math.PI * 0.56, Math.PI * 1.12,
+  );
+  const beardInner = shadowed(new THREE.Mesh(beardInnerGeo, beardMat));
+  beardInner.position.set(0, 1.73, 0.02);
+  parent.add(beardInner);
+  // Outer layer — slightly puffier, offset forward.
+  const beardOuterProfile = [
+    new THREE.Vector2(0.00, 0.00),
+    new THREE.Vector2(0.110, 0.020),
+    new THREE.Vector2(0.135, 0.080),
+    new THREE.Vector2(0.128, 0.148),
+    new THREE.Vector2(0.098, 0.195),
+    new THREE.Vector2(0.000, 0.195),
+  ];
+  const beardOuterGeo = new THREE.LatheGeometry(
+    beardOuterProfile, 24, -Math.PI * 0.50, Math.PI * 1.00,
+  );
+  const beardOuter = shadowed(new THREE.Mesh(beardOuterGeo, beardMatOuter));
+  beardOuter.scale.set(1.06, 1.0, 1.08);
+  beardOuter.position.set(0, 1.73, 0.04);
+  parent.add(beardOuter);
 
-  // Moustache — two angled halves draped over the upper lip with a
-  // slight downward curve at each end.
-  for (const sx of [-0.04, 0.04]) {
+  // Moustache — two halves swept outward with a slight droop at the
+  // outer ends, draped over the upper lip.
+  for (const sx of [-0.038, 0.038]) {
     const half = shadowed(new THREE.Mesh(
-      new THREE.CapsuleGeometry(0.012, 0.06, 4, 8), beardMat,
+      new THREE.CapsuleGeometry(0.013, 0.068, 4, 10), beardMat,
     ));
     half.rotation.z = Math.PI / 2;
-    half.rotation.y = sx > 0 ? 0.25 : -0.25;
-    half.position.set(sx, 1.815, 0.18);
+    half.rotation.y = sx > 0 ? 0.28 : -0.28;   // droop outward
+    half.rotation.x = 0.10;                     // slight downward tilt
+    half.position.set(sx, 1.816, 0.182);
     parent.add(half);
   }
+  // Central philtrum join — tiny sphere bridging the two moustache halves.
+  const philtrum = smoothSph(0.013, beardMat, 10);
+  philtrum.position.set(0, 1.817, 0.184);
+  parent.add(philtrum);
 
   // ── Cloth headband (sits under the halo, covering the brow) ────────────
   const headband = smoothTorus(0.185, 0.022, mats.robe, 10, 28);
