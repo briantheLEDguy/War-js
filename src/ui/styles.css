@@ -520,8 +520,10 @@ input:focus, select:focus {
 .chat-minimize-btn:active {
   background: rgba(30, 22, 14, 0.8);
 }
-/* Minimised: shrink to just the title bar */
-.chat--minimized {
+/* Minimised: shrink to just the title bar.
+   Double-class selector (specificity 0-2-0) beats any single-class
+   rule including the fixed heights set inside media queries. */
+.chat.chat--minimized {
   height: auto;
 }
 .chat-log {
