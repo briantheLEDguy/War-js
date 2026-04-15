@@ -858,6 +858,22 @@ input:focus, select:focus {
     width: min(calc(100vw - 24px), 260px);
   }
 
+  /* Inventory: stretch to fill viewport width instead of 280px fixed */
+  .inventory {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  /* Logout button: move below jump-button (bottom:18+72=90), right edge */
+  .logout-btn {
+    top: auto;
+    bottom: 98px;  /* 18px jump-bottom + 72px jump-height + 8px gap */
+    right: 12px;
+  }
+
   /* ── Bottom stack (portrait):  chat → hotbar → joystick/jump ──
      joystick: bottom 10 → top 130  (height 120)
      hotbar:   bottom 138 (10+120+8 gap) → top ~212  (height ~74)
@@ -933,4 +949,13 @@ input:focus, select:focus {
 
   /* Chat hidden on landscape — no vertical space */
   .chat { display: none; }
+
+  /* Logout: top-right, just left of the 72px minimap */
+  .logout-btn {
+    bottom: auto;              /* cancel the portrait bottom:98px */
+    top: 8px;
+    right: calc(72px + 16px); /* minimap(72) + gap(16) */
+    font-size: 9px;
+    padding: 2px 5px;
+  }
 }
