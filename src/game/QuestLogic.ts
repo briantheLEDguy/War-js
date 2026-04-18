@@ -77,6 +77,10 @@ export function acceptQuest(questId: string): void {
   const character = store.character;
   if (!character) return;
 
+  // Idempotent: ignore if already active / ready / completed.
+  const existing = store.quests.find((q) => q.questId === questId);
+  if (existing && existing.status !== 'available') return;
+
   const counters: Record<string, number> = {};
   for (const o of def.objectives) counters[o.id] = 0;
 
