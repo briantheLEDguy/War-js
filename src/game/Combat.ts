@@ -4,6 +4,7 @@ import { useGameStore, type EnemyState } from '../state/gameStore';
 import type { Player } from './Player';
 import type { Enemy } from './Enemy';
 import { followObject, staticTarget, type VfxLayer } from './animation/VfxLayer';
+import { checkLevelUp, registerEnemyKill } from './QuestLogic';
 
 /**
  * Map hotbar slot index → animation action id that the player's animator
@@ -114,7 +115,7 @@ export class Combat {
   // Player abilities
   // ---------------------------------------------------------------------------
 
-  /** Slot 0 — Autoattack: 5–10 dmg, 1.5 s CD, melee range. */
+  /** Slot 0 — Autoattack: 5–10 + strength/3, 1.5 s CD, melee range. */
   tryAutoattack(player: Player, now: number): boolean {
     const store = useGameStore.getState();
     if (!store.targetId || store.hotbarCooldowns[0] > 0) return false;
@@ -122,7 +123,8 @@ export class Combat {
     if (!target || !target.alive) return false;
     if (dist2D(target.position, player.position) > ATTACK_RANGE) return false;
 
-    const dmg = 5 + Math.floor(Math.random() * 6);
+    const strBonus = Math.floor((store.character?.strength ?? 10) / 3);
+    const dmg = 5 + Math.floor(Math.random() * 6) + strBonus;
     const newHp = Math.max(0, target.health - dmg);
     store.updateEnemy(store.targetId, { health: newHp });
     store.setHotbarCooldown(0, ATTACK_COOLDOWN);
@@ -148,7 +150,8 @@ export class Combat {
       if (!character || character.mana < 10) return false;
       const target = this.resolveTarget(store, ATTACK_RANGE, player);
       if (!target) return false;
-      const dmg = 12 + Math.floor(Math.random() * 13);
+      const strBonus = Math.floor(character.strength / 2);
+      const dmg = 12 + Math.floor(Math.random() * 13) + strBonus;
       const newHp = Math.max(0, target.health - dmg);
       store.updateEnemy(target.id, { health: newHp });
       store.setHotbarCooldown(1, 5.0);
@@ -322,6 +325,10 @@ export class Combat {
 
     // Loot
     this.tryLootDrop(store);
+
+    // Quest progress + level-up check from the kill's XP award.
+    registerEnemyKill(target.name);
+    checkLevelUp();
   }
 
   private tryLootDrop(store: ReturnType<typeof useGameStore.getState>) {

@@ -223,9 +223,25 @@ export class Game {
       }
     }
 
-    // Debug / inventory toggle
+    // Debug / inventory / quest log toggle
     if (this.input.wasPressed('Backquote')) store.toggleDebug();
     if (this.input.wasPressed('KeyI')) store.toggleInventory();
+    if (this.input.wasPressed('KeyL')) store.toggleQuestLog();
+
+    // Interact with nearest quest-giver — opens the quest dialog panel
+    if (this.input.wasPressed('KeyE') && !store.chatFocused) {
+      const px = this.player.position.x;
+      const pz = this.player.position.z;
+      let best: { id: string; dist: number } | null = null;
+      for (const npc of store.npcs) {
+        if (npc.role !== 'questgiver') continue;
+        const dx = px - npc.position.x;
+        const dz = pz - npc.position.z;
+        const d = Math.hypot(dx, dz);
+        if (d < 4 && (!best || d < best.dist)) best = { id: npc.id, dist: d };
+      }
+      if (best) store.setActiveQuestDialogNpcId(best.id);
+    }
 
     // Chat focus
     if (this.input.wasPressed('Enter') && !store.chatFocused) store.setChatFocused(true);

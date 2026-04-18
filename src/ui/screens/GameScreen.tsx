@@ -45,8 +45,11 @@ export function GameScreen() {
       console.error('[Game] start() failed:', err);
     });
 
-    // preload inventory
+    // preload inventory + quest progress
     services.inventory.get(character.id).then(setInventory);
+    services.quests
+      .list(character.id)
+      .then((q) => useGameStore.getState().setQuests(q));
 
     return () => {
       game.dispose();
