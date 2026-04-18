@@ -4,6 +4,7 @@ import type {
   CharacterSummary,
   ChatMessage,
   InventoryItem,
+  QuestProgress,
   User,
 } from '../services/types';
 import type { NpcState } from '../world/NpcSpawner';
@@ -93,6 +94,16 @@ interface GameStore {
   // ------- npcs -------
   npcs: NpcState[];
   setNpcs: (n: NpcState[]) => void;
+
+  // ------- quests -------
+  quests: QuestProgress[];
+  setQuests: (q: QuestProgress[]) => void;
+  upsertQuest: (q: QuestProgress) => void;
+  questLogOpen: boolean;
+  toggleQuestLog: () => void;
+  /** Set when the player interacts with a quest-giver; the HUD opens a dialog. */
+  activeQuestDialogNpcId: string | null;
+  setActiveQuestDialogNpcId: (id: string | null) => void;
 
   // ------- touch abilities -------
   /** Set by the touch hotbar buttons; consumed once per game-loop frame. */
@@ -198,6 +209,23 @@ export const useGameStore = create<GameStore>((set) => ({
 
   npcs: [],
   setNpcs: (npcs) => set({ npcs }),
+
+  quests: [],
+  setQuests: (quests) => set({ quests }),
+  upsertQuest: (q) =>
+    set((s) => {
+      const existing = s.quests.findIndex((x) => x.questId === q.questId);
+      if (existing >= 0) {
+        const next = s.quests.slice();
+        next[existing] = q;
+        return { quests: next };
+      }
+      return { quests: [...s.quests, q] };
+    }),
+  questLogOpen: false,
+  toggleQuestLog: () => set((s) => ({ questLogOpen: !s.questLogOpen })),
+  activeQuestDialogNpcId: null,
+  setActiveQuestDialogNpcId: (activeQuestDialogNpcId) => set({ activeQuestDialogNpcId }),
 
   pendingTouchAbility: null,
   setPendingTouchAbility: (pendingTouchAbility) => set({ pendingTouchAbility }),

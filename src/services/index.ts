@@ -3,11 +3,13 @@ import { AuthLocal } from './local/authLocal';
 import { CharacterLocal } from './local/characterLocal';
 import { ChatLocal } from './local/chatLocal';
 import { InventoryLocal } from './local/inventoryLocal';
+import { QuestLocal } from './local/questLocal';
 import { WorldLocal } from './local/worldLocal';
 import { AuthSupabase } from './supabase/authSupabase';
 import { CharacterSupabase } from './supabase/characterSupabase';
 import { ChatSupabase } from './supabase/chatSupabase';
 import { InventorySupabase } from './supabase/inventorySupabase';
+import { QuestSupabase } from './supabase/questSupabase';
 import { WorldSupabase } from './supabase/worldSupabase';
 import type { Services } from './types';
 
@@ -20,6 +22,7 @@ function build(): Services {
       inventory: new InventorySupabase(),
       chat: new ChatSupabase(),
       world: new WorldSupabase(),
+      quests: new QuestSupabase(),
       backend: 'supabase',
     };
   }
@@ -30,6 +33,7 @@ function build(): Services {
     inventory: new InventoryLocal(),
     chat: new ChatLocal(),
     world: new WorldLocal(),
+    quests: new QuestLocal(),
     backend: 'local',
   };
 }

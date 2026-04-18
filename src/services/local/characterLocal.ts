@@ -33,8 +33,11 @@ const PREBUILT: Record<string, CharacterState> = {
     maxHealth: 180,
     mana: 60,
     maxMana: 60,
+    strength: 14,
+    gold: 25,
     position: { x: 0, y: 0, z: 120 },
     rotationY: Math.PI,
+    equipment: {},
   },
   'char-grik': {
     id: 'char-grik',
@@ -48,8 +51,11 @@ const PREBUILT: Record<string, CharacterState> = {
     maxHealth: 120,
     mana: 160,
     maxMana: 160,
+    strength: 10,
+    gold: 12,
     position: { x: 0, y: 0, z: 0 },
     rotationY: 0,
+    equipment: {},
   },
 };
 
@@ -101,8 +107,11 @@ export class CharacterLocal implements CharacterService {
       maxHealth: 100,
       mana: 100,
       maxMana: 100,
+      strength: 10,
+      gold: 0,
       position: { x: 0, y: 0, z: 120 },
       rotationY: Math.PI,
+      equipment: {},
     };
     this.store[id] = full;
     this.persist();
@@ -112,7 +121,14 @@ export class CharacterLocal implements CharacterService {
   async load(characterId: string): Promise<CharacterState> {
     const c = this.store[characterId];
     if (!c) throw new Error(`Character not found: ${characterId}`);
-    return { ...c };
+    // Backfill fields added after this character was first saved so older
+    // localStorage payloads still load cleanly with sensible defaults.
+    return {
+      ...c,
+      strength: c.strength ?? 10,
+      gold: c.gold ?? 0,
+      equipment: c.equipment ?? {},
+    };
   }
 
   async save(characterId: string, state: Partial<CharacterState>): Promise<void> {

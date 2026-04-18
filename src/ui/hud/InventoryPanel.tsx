@@ -1,13 +1,19 @@
 import { useState } from 'react';
+import { equipFromInventory } from '../../game/QuestLogic';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
 
 const ICONS: Record<string, string> = {
-  sword_iron:    '\u2694',
-  shield_wood:   '\u{1F6E1}',
-  potion_health: '\u{1F9EA}',
-  potion_mana:   '\u{1F9EA}',
-  bread:         '\u{1F35E}',
+  sword_iron:     '\u2694',
+  sword_recruit:  '\u2694',
+  sword_veteran:  '\u2694',
+  shield_wood:    '\u{1F6E1}',
+  shield_steel:   '\u{1F6E1}',
+  armor_chain:    '\u{1F9E5}',
+  helm_reikguard: '\u{1FA96}',
+  potion_health:  '\u{1F9EA}',
+  potion_mana:    '\u{1F9EA}',
+  bread:          '\u{1F35E}',
 };
 
 /** Items the player can double-click to consume. */
@@ -34,6 +40,13 @@ export function InventoryPanel() {
   function useItem(slotIndex: number) {
     const item = slots[slotIndex];
     if (!item || !character) return;
+
+    // Equippable gear: double-click equips it into its slot.
+    if (item.equipSlot && (item.kind === 'weapon' || item.kind === 'armor')) {
+      equipFromInventory(slotIndex);
+      return;
+    }
+
     const effect = CONSUMABLE[item.key];
     if (!effect) return;
 
@@ -65,15 +78,28 @@ export function InventoryPanel() {
       <div className="inv-grid">
         {slots.map((it, i) => {
           const effect = it ? CONSUMABLE[it.key] : undefined;
+          const equipped = it && it.equipSlot && character?.equipment?.[it.equipSlot] === it.key;
           const tooltipLines = it
-            ? [it.name, effect ? `${effect.label} (double-click)` : null]
+            ? [
+                it.name,
+                it.affix?.strengthBonus
+                  ? `+${it.affix.strengthBonus} Strength`
+                  : null,
+                it.equipSlot
+                  ? equipped
+                    ? 'Equipped'
+                    : 'Double-click to equip'
+                  : effect
+                    ? `${effect.label} (double-click)`
+                    : null,
+              ]
                 .filter(Boolean)
                 .join('\n')
             : null;
           return (
             <div
               key={i}
-              className={`inv-slot ${it ? '' : 'empty'}`}
+              className={`inv-slot ${it ? '' : 'empty'} ${equipped ? 'equipped' : ''}`}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover((h) => (h === i ? null : h))}
               onDoubleClick={() => useItem(i)}
@@ -95,7 +121,7 @@ export function InventoryPanel() {
           );
         })}
       </div>
-      <p className="inv-hint">Double-click a consumable to use it.</p>
+      <p className="inv-hint">Double-click to use a consumable or equip gear.</p>
     </div>
   );
 }

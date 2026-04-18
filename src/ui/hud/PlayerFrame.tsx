@@ -1,8 +1,5 @@
+import { xpForLevel } from '../../game/QuestLogic';
 import { useGameStore } from '../../state/gameStore';
-
-function xpForLevel(level: number) {
-  return 100 + level * 150;
-}
 
 export function PlayerFrame() {
   const c = useGameStore((s) => s.character);
@@ -27,6 +24,10 @@ export function PlayerFrame() {
       </div>
       <div className="bar xp-bar" title={`${c.xp} / ${xpNeed} XP`}>
         <div className="fill xp" style={{ transform: `scaleX(${xpPct})` }} />
+      </div>
+      <div className="unit-stats">
+        <span title="Strength">STR {c.strength}</span>
+        <span title="Gold" className="gold-pill">{c.gold}g</span>
       </div>
     </div>
   );

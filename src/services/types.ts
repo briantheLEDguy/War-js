@@ -18,8 +18,27 @@ export interface CharacterState extends CharacterSummary {
   maxHealth: number;
   mana: number;
   maxMana: number;
+  /** Base strength stat. Contributes flat damage to attacks. */
+  strength: number;
+  /** Coin purse. Quests and vendors use this. */
+  gold: number;
   position: { x: number; y: number; z: number };
   rotationY: number;
+  /** Equipped gear keyed by slot. Each value is an Equipment.key. */
+  equipment?: { [slot in EquipSlot]?: string };
+}
+
+export type EquipSlot = 'mainHand' | 'offHand' | 'chest' | 'head';
+
+export type ItemKind = 'consumable' | 'weapon' | 'armor' | 'misc';
+
+/**
+ * A piece of gear stored in the player's inventory. `strengthBonus` is rolled
+ * randomly at drop/reward time — two items with the same `key` may have
+ * different bonuses.
+ */
+export interface EquipmentAffix {
+  strengthBonus: number;
 }
 
 export interface InventoryItem {
@@ -28,6 +47,11 @@ export interface InventoryItem {
   name: string;
   qty: number;
   icon?: string;
+  kind?: ItemKind;
+  /** For weapons/armor. Determines which equipment slot accepts this item. */
+  equipSlot?: EquipSlot;
+  /** Randomly rolled stats for this specific item instance. */
+  affix?: EquipmentAffix;
 }
 
 export interface ChatMessage {
@@ -83,12 +107,78 @@ export interface WorldService {
   subscribeToPlayers(zoneId: string, cb: (players: ZonePlayerBroadcast[]) => void): Unsubscribe;
 }
 
+// ---------------------------------------------------------------------------
+// Quests
+// ---------------------------------------------------------------------------
+
+/**
+ * A single objective inside a quest. `killTarget` counts enemies matching the
+ * enemySpawn.name; `talkTarget` is the id of an NPC the player must interact
+ * with to complete the step.
+ */
+export interface QuestObjective {
+  id: string;
+  description: string;
+  killTarget?: string;
+  talkTarget?: string;
+  required: number;
+}
+
+export type QuestRewardItem = {
+  key: string;
+  name: string;
+  qty: number;
+  kind?: ItemKind;
+  equipSlot?: EquipSlot;
+  /** If true, roll a random strengthBonus in this range on award. */
+  strengthRoll?: { min: number; max: number };
+};
+
+export interface QuestReward {
+  xp: number;
+  gold: number;
+  items?: QuestRewardItem[];
+}
+
+export interface QuestDefinition {
+  id: string;
+  title: string;
+  /** Short lore blurb shown in the quest dialog. */
+  description: string;
+  /** Minimum character level required to pick up this quest. */
+  minLevel: number;
+  /** NPC that offers this quest. */
+  giverNpcId: string;
+  /** NPC the player returns to for reward. Defaults to giverNpcId. */
+  turninNpcId?: string;
+  /** Previous quest id that must be completed before this one unlocks. */
+  prereqQuestId?: string;
+  objectives: QuestObjective[];
+  reward: QuestReward;
+}
+
+export type QuestStatus = 'available' | 'active' | 'ready_to_turn_in' | 'completed';
+
+export interface QuestProgress {
+  questId: string;
+  status: QuestStatus;
+  /** objectiveId → current count */
+  counters: Record<string, number>;
+}
+
+export interface QuestService {
+  /** Returns quest progress for a character. Missing quests are `available`. */
+  list(characterId: string): Promise<QuestProgress[]>;
+  update(characterId: string, progress: QuestProgress[]): Promise<void>;
+}
+
 export interface Services {
   auth: AuthService;
   characters: CharacterService;
   inventory: InventoryService;
   chat: ChatService;
   world: WorldService;
+  quests: QuestService;
   readonly backend: 'local' | 'supabase';
 }
 

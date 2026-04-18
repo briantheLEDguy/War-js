@@ -45,8 +45,11 @@ export function GameScreen() {
       console.error('[Game] start() failed:', err);
     });
 
-    // preload inventory
+    // preload inventory + quest progress
     services.inventory.get(character.id).then(setInventory);
+    services.quests
+      .list(character.id)
+      .then((q) => useGameStore.getState().setQuests(q));
 
     return () => {
       game.dispose();
@@ -75,7 +78,7 @@ export function GameScreen() {
         Exit to Login
       </button>
       <div className="controls-hint">
-        WASD move &middot; Space jump &middot; LMB target &middot; 1 attack &middot; 2 heavy &middot; 3 ranged &middot; 4 bandage &middot; I inventory &middot; Enter chat &middot; ` debug
+        WASD move &middot; Space jump &middot; LMB target &middot; 1 attack &middot; 2 heavy &middot; 3 ranged &middot; 4 bandage &middot; E interact &middot; I inventory &middot; L quest log &middot; Enter chat &middot; ` debug
         &nbsp;&nbsp;|&nbsp;&nbsp;Touch: joystick move &middot; ↑ jump &middot; drag camera &middot; pinch zoom &middot; tap target/ability
       </div>
     </div>
