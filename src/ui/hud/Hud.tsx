@@ -8,6 +8,9 @@ import { InventoryPanel } from './InventoryPanel';
 import { Minimap } from './Minimap';
 import { NameplateLayer } from './NameplateLayer';
 import { PlayerFrame } from './PlayerFrame';
+import { QuestDialog } from './QuestDialog';
+import { QuestLogPanel } from './QuestLogPanel';
+import { QuestMarkerLayer } from './QuestMarkerLayer';
 import { TargetFrame } from './TargetFrame';
 import { TouchControls } from './TouchControls';
 
@@ -18,6 +21,8 @@ interface Props {
 export function Hud({ game }: Props) {
   const debugOpen    = useGameStore((s) => s.debugOpen);
   const inventoryOpen = useGameStore((s) => s.inventoryOpen);
+  const questLogOpen = useGameStore((s) => s.questLogOpen);
+  const activeQuestDialogNpcId = useGameStore((s) => s.activeQuestDialogNpcId);
   const playerDead   = useGameStore((s) => s.playerDead);
 
   function handleRespawn() {
@@ -32,8 +37,11 @@ export function Hud({ game }: Props) {
       <ChatPanel />
       <Minimap game={game} />
       {inventoryOpen && <InventoryPanel />}
+      {questLogOpen && <QuestLogPanel />}
+      {activeQuestDialogNpcId && <QuestDialog />}
       {debugOpen && <DebugOverlay game={game} />}
       <NameplateLayer game={game} />
+      <QuestMarkerLayer game={game} />
       <FloatingDamageLayer game={game} />
       <TouchControls game={game} />
 
