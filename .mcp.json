@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "blender-character": {
+      "command": "node",
+      "args": ["mcp-server/server.mjs"],
+      "cwd": "scripts/blender-character-pipeline"
+    }
+  }
+}
