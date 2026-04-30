@@ -20,6 +20,8 @@ export class Player {
   rotationY = 0;
   /** Procedural animation driver — null for careers without a rig yet. */
   animator: CharacterAnimator | null = null;
+  /** GLB-based animation mixer — active when a rigged .glb model is loaded. */
+  private glbMixer: THREE.AnimationMixer | null = null;
   private verticalV = 0;
   private grounded = true;
   /** Horizontal speed (m/s) computed from last frame's displacement. */
@@ -40,23 +42,27 @@ export class Player {
       this.object = rig.root;
       this.animator = new WarriorPriestAnimator(rig);
     } else {
-      const modelName =
-        this.character.race === 'greenskin'
-          ? 'character_greenskin.glb'
-          : this.character.race === 'dark_elf'
-          ? 'character_dark_elf.glb'
-          : this.character.race === 'chaos'
-          ? 'character_chaos.glb'
-          : this.character.race === 'dwarf'
-          ? 'character_dwarf.glb'
-          : this.character.race === 'high_elf'
-          ? 'character_high_elf.glb'
-          : 'character_empire.glb';
-      this.object = await loader.loadModel(
-        modelName,
-        // CharacterState stores the career in `className` (e.g. "Warrior Priest").
-        () => buildCharacterMesh(this.character.race, this.character.className),
+      // Try career-specific GLB first (with animations), fall back to race GLB,
+      // then fall back to the procedural primitive.
+      const careerSlug  = this.character.className.toLowerCase().replace(/\s+/g, '_');
+      const careerModel = `character_${this.character.race}_${careerSlug}.glb`;
+      const raceModel   = `character_${this.character.race}.glb`;
+      const primitive   = () => buildCharacterMesh(this.character.race, this.character.className);
+
+      // loadModelFull probes the career model; if missing, falls through to the
+      // race model, which in turn falls back to the primitive.
+      const { object, animations } = await loader.loadModelFull(
+        careerModel,
+        () => primitive(),
+        raceModel,
       );
+      this.object = object;
+
+      if (animations.length > 0) {
+        this.glbMixer = new THREE.AnimationMixer(this.object);
+        const idle = THREE.AnimationClip.findByName(animations, 'idle');
+        if (idle) this.glbMixer.clipAction(idle).play();
+      }
     }
     this.position.set(
       this.character.position.x,
@@ -125,17 +131,19 @@ export class Player {
 
     // Animation update — compute planar speed from this frame's displacement
     // (not from input, so the animator reacts correctly to e.g. collision).
-    if (this.animator && dt > 0) {
-      const dx = this.position.x - prevX;
-      const dz = this.position.z - prevZ;
+    const dx = this.position.x - prevX;
+    const dz = this.position.z - prevZ;
+    if (dt > 0) {
       const frameSpeed = Math.hypot(dx, dz) / dt;
-      // Smooth the reading slightly so single-frame spikes don't flicker the pose.
       this.lastSpeed = this.lastSpeed * 0.6 + frameSpeed * 0.4;
-      this.animator.update({
-        dt,
-        speed: this.lastSpeed,
-        airborne: !this.grounded,
-      });
+    }
+
+    if (this.animator) {
+      this.animator.update({ dt, speed: this.lastSpeed, airborne: !this.grounded });
+    }
+
+    if (this.glbMixer) {
+      this.glbMixer.update(dt);
     }
   }
 }

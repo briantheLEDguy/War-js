@@ -21,6 +21,7 @@ export class AssetLoader {
   private texLoader = new THREE.TextureLoader();
   private rgbeLoader = new RGBELoader();
   private modelCache = new Map<string, Promise<THREE.Object3D>>();
+  private animCache  = new Map<string, Promise<THREE.AnimationClip[]>>();
   private texCache = new Map<string, Promise<THREE.Texture>>();
   private assetProbeCache = new Map<string, Promise<boolean>>();
 
@@ -76,6 +77,59 @@ export class AssetLoader {
     this.modelCache.set(path, safePromise);
     const base = await safePromise;
     return base.clone(true);
+  }
+
+  /**
+   * Like loadModel but also returns any AnimationClip[] embedded in the GLB.
+   * Used by Player when career-specific rigged models are available.
+   *
+   * Probe order: primaryPath → raceFallbackPath (optional) → fallback()
+   */
+  async loadModelFull(
+    primaryPath: string,
+    fallback: PrimitiveFactory,
+    raceFallbackPath?: string,
+  ): Promise<{ object: THREE.Object3D; animations: THREE.AnimationClip[] }> {
+    const primaryUrl = `${BASE}assets/models/${primaryPath}`;
+    const canLoadPrimary = await this.canLoadAsset(primaryUrl);
+
+    // If career-specific model missing, try the race-level GLB (no animations expected)
+    if (!canLoadPrimary && raceFallbackPath) {
+      const object = await this.loadModel(raceFallbackPath, fallback);
+      return { object, animations: [] };
+    }
+
+    if (!canLoadPrimary) {
+      useGameStore.getState().incAssetFallbacks();
+      return { object: fallback(), animations: [] };
+    }
+
+    if (!this.animCache.has(primaryPath)) {
+      const p = this.gltfLoader
+        .loadAsync(primaryUrl)
+        .then((g: GLTF) => {
+          g.scene.traverse((n) => {
+            if ((n as THREE.Mesh).isMesh) {
+              n.castShadow = true;
+              n.receiveShadow = true;
+            }
+          });
+          if (!this.modelCache.has(primaryPath)) {
+            this.modelCache.set(primaryPath, Promise.resolve(g.scene));
+          }
+          return g.animations ?? [];
+        })
+        .catch((err) => {
+          console.warn(`[AssetLoader] loadModelFull fallback for ${primaryPath}:`, err.message);
+          useGameStore.getState().incAssetFallbacks();
+          return [] as THREE.AnimationClip[];
+        });
+      this.animCache.set(primaryPath, p);
+    }
+
+    const animations = await this.animCache.get(primaryPath)!;
+    const object = await this.loadModel(primaryPath, fallback);
+    return { object, animations };
   }
 
   async loadTexture(path: string, fallbackColor = 0x555555): Promise<THREE.Texture | null> {
