@@ -1,6 +1,6 @@
-# War-js — Claude Code Guide
+# War-js — Codex Guide
 
-This file is read by Claude Code (and similar AI coding assistants) to understand
+This file is read by Codex (and similar AI coding assistants) to understand
 the project layout, conventions, and commands before doing any work.
 
 ## What this project is
@@ -19,21 +19,23 @@ game assets are available via the Phase 2 asset pipeline.
 
 ---
 
-## WAR Fidelity Rules
+## Reference Fidelity Rules
 
 **These rules override everything else. All code and content must conform to them.**
 
-### Races & Careers
-Use Warhammer Online's exact race and career names — no substitutions:
+### Races & Classes
+Use the player-facing class names from `ability-system.md`. Legacy WAR career
+names may appear only in compatibility aliases, historical changelog entries,
+or source-reference notes.
 
-| Realm       | Race       | Careers |
+| Realm       | Race       | Classes |
 |-------------|------------|---------|
-| Order       | Empire     | Bright Wizard, Witch Hunter, Knight of the Blazing Sun, Warrior Priest |
-| Order       | Dwarf      | Ironbreaker, Slayer, Rune Priest, Engineer |
-| Order       | High Elf   | Swordmaster, White Lion, Archmage, Shadow Warrior |
-| Destruction | Chaos      | Chosen, Marauder, Magus, Zealot |
-| Destruction | Greenskin  | Black Orc, Squig Herder, Shaman, Choppa |
-| Destruction | Dark Elf   | Witch Elf, Blackguard, Sorceress, Disciple of Khaine |
+| Order       | Empire     | Ember Arcanist, Hex Inquisitor, Sunfire Templar, Battle Prelate |
+| Order       | Dwarf      | Stoneguard, Doomseeker, Glyphbinder, Siegewright |
+| Order       | High Elf   | Blade Savant, Pride Warden, Aether Sage, Veil Ranger |
+| Destruction | Chaos      | Dreadsworn, Warped Reaver, Void Magister, Ruin Oracle |
+| Destruction | Greenskin  | Warbrute, Fang Herder, Bog Hexer, Cleaver |
+| Destruction | Dark Elf   | Blood Dancer, Dread Guard, Dusk Weaver, Crimson Acolyte |
 
 ### Capital Cities
 - **Order capital**: `altdorf` — Altdorf, City of the Empire
@@ -49,6 +51,7 @@ Zone IDs use WAR's naming convention (lowercase, underscored):
 ### District & NPC Names
 All district names, NPC names, and titles must match the original WAR game exactly.
 Never invent names for content that existed in WAR.
+Class trainer titles use the renamed player-facing class roster above.
 
 ### Mechanics
 - No invented mechanics. Every system must correspond to something in WAR.
@@ -82,7 +85,7 @@ npm run typecheck    # TypeScript check only (no emit)
 .github/
   workflows/
     deploy-pages.yml    # builds + deploys to gh-pages branch on push to main
-CLAUDE.md               # this file
+AGENTS.md               # this file
 README.md               # human-oriented project overview
 index.html              # Vite entry (references /src/main.tsx; Vite rewrites on build)
 vite.config.ts          # Vite config — no base set here; pass --base=/War-js/ in CI
@@ -225,7 +228,7 @@ If you see a black screen or the deploy workflow fails:
 ### Making `main` the default branch
 
 Settings → General → Default branch → change from
-`claude/web-game-conversion-7yzlN` to `main`.
+`Codex/web-game-conversion-7yzlN` to `main`.
 
 ---
 

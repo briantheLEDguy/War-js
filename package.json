@@ -8,7 +8,13 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "world:validate": "node scripts/validate-world-edits.mjs",
+    "models:list": "node scripts/blender-character-pipeline/tools/list-blueprints.mjs",
+    "models:validate": "node scripts/blender-character-pipeline/tools/validate-blueprints.mjs",
+    "models:sync-playables": "node scripts/blender-character-pipeline/tools/sync-playable-assets.mjs",
+    "models:generate": "node scripts/blender-character-pipeline/tools/generate-asset.mjs",
+    "models:all": "node scripts/blender-character-pipeline/tools/generate-all.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",

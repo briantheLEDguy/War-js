@@ -6,3 +6,7 @@ dist
 .DS_Store
 .vite
 tmp/
+__pycache__/
+artifacts/
+*.blend1
+blends/human_v1.blend
