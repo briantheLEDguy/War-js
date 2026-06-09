@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.umbra.dread_guard.head.t1.f",
+  "category": "armor",
+  "model": "arm_umbra_dread_guard_head_t1_f.glb",
+  "fileSizeBytes": 536736,
+  "boundsYUpMeters": {
+    "min": [
+      -0.1472,
+      1.6293,
+      -0.1166
+    ],
+    "max": [
+      0.1472,
+      1.9292,
+      0.1639
+    ],
+    "height": 0.2999
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 668,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_umbra_dread_guard_head_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_helmet_cap",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dread_guard.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_helmet_faceplate",
+      "verts": 104,
+      "faces": 136,
+      "tris": 204,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dread_guard.head.t1.f",
+      "assetSlot": "head"
+    }
+  ]
+}

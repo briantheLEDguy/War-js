@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.umbra.dusk_weaver.chest.t1.f",
+  "category": "armor",
+  "model": "arm_umbra_dusk_weaver_chest_t1_f.glb",
+  "fileSizeBytes": 227772,
+  "boundsYUpMeters": {
+    "min": [
+      -0.2647,
+      0.8197,
+      -0.1388
+    ],
+    "max": [
+      0.2647,
+      1.5794,
+      0.1388
+    ],
+    "height": 0.7597
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 480,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_umbra_dusk_weaver_chest_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_robed_chest",
+      "verts": 242,
+      "faces": 300,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dusk_weaver.chest.t1.f",
+      "assetSlot": "chest"
+    }
+  ]
+}

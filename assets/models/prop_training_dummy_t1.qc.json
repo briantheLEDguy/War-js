@@ -1,0 +1,126 @@
+{
+  "assetId": "prop.training_dummy.t1",
+  "category": "prop",
+  "model": "prop_training_dummy_t1.glb",
+  "fileSizeBytes": 18236,
+  "meshCount": 12,
+  "totalTris": 304,
+  "availableClips": [
+    "hit_react",
+    "idle"
+  ],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "iron_shod_base",
+      "verts": 48,
+      "faces": 26,
+      "tris": 92,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "timber_post",
+      "verts": 28,
+      "faces": 16,
+      "tris": 52,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "arm_crossbar",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "lower_crossbar",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "padded_target",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "iron_band_top",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "iron_band_bottom",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "target_slash",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "target_cross",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "battered_helm",
+      "verts": 28,
+      "faces": 16,
+      "tris": 52,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "hanging_cloth_L",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "hanging_cloth_R",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    }
+  ],
+  "artifactDir": "artifacts/blender/manifest/prop_training_dummy_t1",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "preset": "dummy"
+  }
+}

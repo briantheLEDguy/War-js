@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.aether.aether_sage.shoulders.t1.f",
+  "category": "armor",
+  "model": "arm_aether_aether_sage_shoulders_t1_f.glb",
+  "fileSizeBytes": 994980,
+  "boundsYUpMeters": {
+    "min": [
+      -0.4411,
+      1.3429,
+      -0.1583
+    ],
+    "max": [
+      0.4411,
+      1.6267,
+      0.2013
+    ],
+    "height": 0.2838
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 8192,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_aether_sage_shoulders_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_pauldron_-1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.aether_sage.shoulders.t1.f",
+      "assetSlot": "shoulders"
+    },
+    {
+      "name": "armor_pauldron_1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.aether_sage.shoulders.t1.f",
+      "assetSlot": "shoulders"
+    }
+  ]
+}

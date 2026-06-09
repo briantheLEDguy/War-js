@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.stone.glyphbinder.chest.t1.m",
+  "category": "armor",
+  "model": "arm_stone_glyphbinder_chest_t1_m.glb",
+  "fileSizeBytes": 240836,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3584,
+      0.6396,
+      -0.1738
+    ],
+    "max": [
+      0.3584,
+      1.2324,
+      0.1738
+    ],
+    "height": 0.5928
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 480,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_stone_glyphbinder_chest_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_robed_chest",
+      "verts": 242,
+      "faces": 300,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.glyphbinder.chest.t1.m",
+      "assetSlot": "chest"
+    }
+  ]
+}

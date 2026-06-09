@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.mire.bog_hexer.chest.t1.f",
+  "category": "armor",
+  "model": "arm_mire_bog_hexer_chest_t1_f.glb",
+  "fileSizeBytes": 236240,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3041,
+      0.7875,
+      -0.166
+    ],
+    "max": [
+      0.3041,
+      1.5174,
+      0.166
+    ],
+    "height": 0.7299
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 480,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_mire_bog_hexer_chest_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_robed_chest",
+      "verts": 242,
+      "faces": 300,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.bog_hexer.chest.t1.f",
+      "assetSlot": "chest"
+    }
+  ]
+}

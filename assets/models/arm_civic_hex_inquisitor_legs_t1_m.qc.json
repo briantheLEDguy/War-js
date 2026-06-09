@@ -1,0 +1,69 @@
+{
+  "assetId": "arm.civic.hex_inquisitor.legs.t1.m",
+  "category": "armor",
+  "model": "arm_civic_hex_inquisitor_legs_t1_m.glb",
+  "fileSizeBytes": 708808,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3,
+      0.1706,
+      -0.154
+    ],
+    "max": [
+      0.3,
+      0.98,
+      0.154
+    ],
+    "height": 0.8094
+  },
+  "meshCount": 3,
+  "skinnedMeshCount": 3,
+  "totalTris": 2528,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_civic_hex_inquisitor_legs_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_lower_coat",
+      "verts": 226,
+      "faces": 280,
+      "tris": 448,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.hex_inquisitor.legs.t1.m",
+      "assetSlot": "legs"
+    },
+    {
+      "name": "armor_greave_-1",
+      "verts": 567,
+      "faces": 520,
+      "tris": 1040,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.hex_inquisitor.legs.t1.m",
+      "assetSlot": "legs"
+    },
+    {
+      "name": "armor_greave_1",
+      "verts": 567,
+      "faces": 520,
+      "tris": 1040,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.hex_inquisitor.legs.t1.m",
+      "assetSlot": "legs"
+    }
+  ]
+}

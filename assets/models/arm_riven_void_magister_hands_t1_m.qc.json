@@ -1,0 +1,79 @@
+{
+  "assetId": "arm.riven.void_magister.hands.t1.m",
+  "category": "armor",
+  "model": "arm_riven_void_magister_hands_t1_m.glb",
+  "fileSizeBytes": 616820,
+  "boundsYUpMeters": {
+    "min": [
+      -0.671,
+      0.9461,
+      0.0185
+    ],
+    "max": [
+      0.671,
+      1.3001,
+      0.1635
+    ],
+    "height": 0.3541
+  },
+  "meshCount": 4,
+  "skinnedMeshCount": 4,
+  "totalTris": 1952,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_void_magister_hands_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_vambrace_-1",
+      "verts": 493,
+      "faces": 448,
+      "tris": 896,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.hands.t1.m",
+      "assetSlot": "hands"
+    },
+    {
+      "name": "armor_gauntlet_-1",
+      "verts": 42,
+      "faces": 60,
+      "tris": 80,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.hands.t1.m",
+      "assetSlot": "hands"
+    },
+    {
+      "name": "armor_vambrace_1",
+      "verts": 493,
+      "faces": 448,
+      "tris": 896,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.hands.t1.m",
+      "assetSlot": "hands"
+    },
+    {
+      "name": "armor_gauntlet_1",
+      "verts": 42,
+      "faces": 60,
+      "tris": 80,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.hands.t1.m",
+      "assetSlot": "hands"
+    }
+  ]
+}

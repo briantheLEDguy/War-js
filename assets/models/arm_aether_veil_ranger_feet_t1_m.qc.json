@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.aether.veil_ranger.feet.t1.m",
+  "category": "armor",
+  "model": "arm_aether_veil_ranger_feet_t1_m.glb",
+  "fileSizeBytes": 104824,
+  "boundsYUpMeters": {
+    "min": [
+      -0.2107,
+      0,
+      -0.0471
+    ],
+    "max": [
+      0.2107,
+      0.3638,
+      0.218
+    ],
+    "height": 0.3638
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 360,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_veil_ranger_feet_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_boot_-1",
+      "verts": 92,
+      "faces": 120,
+      "tris": 180,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.feet.t1.m",
+      "assetSlot": "feet"
+    },
+    {
+      "name": "armor_boot_1",
+      "verts": 92,
+      "faces": 120,
+      "tris": 180,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.feet.t1.m",
+      "assetSlot": "feet"
+    }
+  ]
+}
