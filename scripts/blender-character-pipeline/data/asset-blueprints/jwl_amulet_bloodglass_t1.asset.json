@@ -1,0 +1,53 @@
+{
+  "assetId": "jwl.amulet.bloodglass.t1",
+  "displayName": "Bloodglass Amulet",
+  "category": "jewel",
+  "version": "1.0.0",
+  "sets": ["jewels", "smoke"],
+  "runtime": { "itemKey": "jewel_amulet_bloodglass" },
+  "output": {
+    "model": "jwl_amulet_bloodglass_t1.glb",
+    "artifactDir": "artifacts/blender/manifest/jwl_amulet_bloodglass_t1"
+  },
+  "generator": { "kind": "jewelModule" },
+  "geometry": {
+    "originRule": "clasp_origin",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "human_m_tall",
+    "lods": [
+      { "name": "LOD0", "triTarget": 1200, "screenCoverageMin": 0.16 },
+      { "name": "LOD1", "triTarget": 500, "screenCoverageMin": 0.06 }
+    ]
+  },
+  "attachments": [
+    { "name": "AP_NECK_CENTER", "type": "socket", "parent": "neck", "position": [0, 0, 0] },
+    { "name": "AP_FX_GEM", "type": "fx", "parent": "jewel", "position": [0, -0.095, 0.04] }
+  ],
+  "materials": {
+    "master": "MM_JewelPbr",
+    "textureSet": "jewel_bloodglass_t1",
+    "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion", "emissive"]
+  },
+  "rigging": { "skinned": false, "maxInfluences": 1, "requiredClips": [] },
+  "collision": {
+    "policy": "socket_attachment_only",
+    "primitives": [{ "type": "sphere", "tag": "jewel_bounds" }]
+  },
+  "compatibility": { "occupiesSlots": ["neck"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 2,
+    "maxMeshObjects": 12
+  }
+}

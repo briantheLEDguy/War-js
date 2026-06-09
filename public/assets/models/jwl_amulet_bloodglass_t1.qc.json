@@ -1,0 +1,56 @@
+{
+  "assetId": "jwl.amulet.bloodglass.t1",
+  "category": "jewel",
+  "model": "jwl_amulet_bloodglass_t1.glb",
+  "fileSizeBytes": 53152,
+  "meshCount": 4,
+  "totalTris": 1908,
+  "artifactDir": "artifacts/blender/manifest/jwl_amulet_bloodglass_t1",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "fileSizeBudget": true,
+    "hasColliderPolicy": true,
+    "hasAnchors": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "jwl_neck_chain_arc",
+      "verts": 512,
+      "faces": 512,
+      "tris": 1024,
+      "materials": 1,
+      "assetId": "jwl.amulet.bloodglass.t1",
+      "assetSlot": "neck"
+    },
+    {
+      "name": "jwl_pendant_frame",
+      "verts": 256,
+      "faces": 256,
+      "tris": 512,
+      "materials": 1,
+      "assetId": "jwl.amulet.bloodglass.t1",
+      "assetSlot": "neck"
+    },
+    {
+      "name": "jwl_pendant_gem",
+      "verts": 182,
+      "faces": 200,
+      "tris": 360,
+      "materials": 1,
+      "assetId": "jwl.amulet.bloodglass.t1",
+      "assetSlot": "neck"
+    },
+    {
+      "name": "jwl_clasp",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetId": "jwl.amulet.bloodglass.t1",
+      "assetSlot": "neck"
+    }
+  ]
+}

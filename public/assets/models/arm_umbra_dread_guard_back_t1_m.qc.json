@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.umbra.dread_guard.back.t1.m",
+  "category": "armor",
+  "model": "arm_umbra_dread_guard_back_t1_m.glb",
+  "fileSizeBytes": 279856,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3948,
+      0.3467,
+      -0.1895
+    ],
+    "max": [
+      0.3948,
+      1.5097,
+      -0.1509
+    ],
+    "height": 1.163
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 1152,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_umbra_dread_guard_back_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_cape_back",
+      "verts": 627,
+      "faces": 576,
+      "tris": 1152,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dread_guard.back.t1.m",
+      "assetSlot": "back"
+    }
+  ]
+}

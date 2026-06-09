@@ -1,0 +1,121 @@
+{
+  "assetId": "arm.mire.fang_herder.tabard.t1.f",
+  "displayName": "Mireborn Fang Herder Tabard Female",
+  "category": "armor",
+  "version": "1.0.0",
+  "sets": [
+    "equipment",
+    "playable_armor",
+    "playable_armor_tabard",
+    "playable_f",
+    "playable_all",
+    "playable_greenskin"
+  ],
+  "runtime": {
+    "itemKey": "starter_mire_fang_herder_tabard_f"
+  },
+  "output": {
+    "model": "arm_mire_fang_herder_tabard_t1_f.glb",
+    "artifactDir": "artifacts/blender/manifest/arm_mire_fang_herder_tabard_t1_f"
+  },
+  "generator": {
+    "kind": "armorModule",
+    "preset": "mire_fang_herder_f"
+  },
+  "geometry": {
+    "originRule": "same_origin_skinned_overlay_root",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "mire_fang_herder_f",
+    "skeletonId": "humanoid_v1",
+    "bindPoseId": "a_pose_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 9000,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 5200,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 2200,
+        "screenCoverageMin": 0.03
+      }
+    ]
+  },
+  "attachments": [
+    {
+      "name": "AP_ROOT",
+      "type": "root",
+      "parent": "root",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "materials": {
+    "master": "MM_ModularArmorPbr",
+    "textureSet": "mire_fang_herder_f_tabard_t1",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion",
+      "emissive"
+    ]
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "inherits_body",
+    "primitives": [
+      {
+        "type": "convexHull",
+        "tag": "tabard_clearance"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "tabard"
+    ],
+    "requires": [
+      "chr.mire.fang_herder.t1.f"
+    ],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": true,
+    "aiStages": [
+      "class_silhouette_seed",
+      "manifest_expansion",
+      "procedural_generation"
+    ],
+    "promptIds": [
+      "playable_armor_greenskin_fang_herder_tabard_f"
+    ],
+    "referencePackId": "neutral_dark_fantasy_playable_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 6,
+    "groundToleranceM": 0.03,
+    "maxMeshObjects": 40,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": false
+  }
+}

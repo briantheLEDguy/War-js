@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "bodyVariants": {
+    "m": { "label": "Male", "scale": [1.0, 1.0, 1.0] },
+    "f": { "label": "Female", "scale": [0.88, 0.98, 0.92] }
+  },
+  "armorSlots": [
+    { "slot": "head", "label": "Headgear", "icon": "H", "regions": ["head"] },
+    { "slot": "shoulders", "label": "Shoulders", "icon": "S", "regions": ["shoulders"] },
+    { "slot": "chest", "label": "Chestguard", "icon": "C", "regions": ["torso"] },
+    { "slot": "hands", "label": "Handguards", "icon": "G", "regions": ["arms", "hands"] },
+    { "slot": "waist", "label": "Belt", "icon": "B", "regions": ["waist"] },
+    { "slot": "legs", "label": "Legguards", "icon": "L", "regions": ["legs"] },
+    { "slot": "feet", "label": "Boots", "icon": "F", "regions": ["feet"] },
+    { "slot": "back", "label": "Backpiece", "icon": "K", "regions": ["back"] },
+    { "slot": "tabard", "label": "Tabard", "icon": "T", "regions": ["tabard"] }
+  ],
+  "races": {
+    "empire": {
+      "family": "civic",
+      "display": "Civic Human",
+      "scale": [1.0, 1.0, 1.0],
+      "skin": "#bd8664",
+      "hair": "#211713",
+      "traits": ["human"]
+    },
+    "dwarf": {
+      "family": "stone",
+      "display": "Stone Kin",
+      "scale": [1.12, 0.78, 1.06],
+      "skin": "#c89161",
+      "hair": "#b86018",
+      "traits": ["beard"]
+    },
+    "high_elf": {
+      "family": "aether",
+      "display": "Aether Noble",
+      "scale": [0.92, 1.07, 0.9],
+      "skin": "#dac6a8",
+      "hair": "#e8d890",
+      "traits": ["elf_ears"]
+    },
+    "chaos": {
+      "family": "riven",
+      "display": "Riven Champion",
+      "scale": [1.1, 1.08, 1.05],
+      "skin": "#8d6b5f",
+      "hair": "#15100f",
+      "traits": ["scarred"]
+    },
+    "greenskin": {
+      "family": "mire",
+      "display": "Mireborn",
+      "scale": [1.08, 0.98, 1.1],
+      "skin": "#4b7a32",
+      "hair": "#1b2414",
+      "traits": ["tusks"]
+    },
+    "dark_elf": {
+      "family": "umbra",
+      "display": "Umbral Noble",
+      "scale": [0.94, 1.02, 0.92],
+      "skin": "#a7848e",
+      "hair": "#120c15",
+      "traits": ["elf_ears"]
+    }
+  },
+  "classes": [
+    {
+      "race": "empire",
+      "className": "Ember Arcanist",
+      "key": "ember_arcanist",
+      "archetype": "caster",
+      "animationProfile": "staff_caster",
+      "headgear": "hood",
+      "colors": { "cloth": "#7e1712", "cloth2": "#241214", "metal": "#30363a", "trim": "#c0842e", "leather": "#301b12", "accent": "#ff6828" },
+      "sets": ["playable_smoke"]
+    },
+    {
+      "race": "empire",
+      "className": "Hex Inquisitor",
+      "key": "hex_inquisitor",
+      "archetype": "duelist",
+      "animationProfile": "pistol_sword",
+      "headgear": "hat",
+      "colors": { "cloth": "#1b1c1d", "cloth2": "#3a2116", "metal": "#20272b", "trim": "#b4a078", "leather": "#24150f", "accent": "#c8d0d4" }
+    },
+    {
+      "race": "empire",
+      "className": "Sunfire Templar",
+      "key": "sunfire_templar",
+      "archetype": "tank",
+      "animationProfile": "sword_shield",
+      "headgear": "helmet",
+      "colors": { "cloth": "#7a1513", "cloth2": "#b9ab82", "metal": "#2c383c", "trim": "#d0a33a", "leather": "#2b1a11", "accent": "#f2c04a" }
+    },
+    {
+      "race": "empire",
+      "className": "Battle Prelate",
+      "key": "battle_prelate",
+      "archetype": "relic",
+      "animationProfile": "two_hand_relic",
+      "headgear": "helmet",
+      "colors": { "cloth": "#781714", "cloth2": "#b8aa82", "metal": "#202b2d", "trim": "#9f7d2f", "leather": "#221611", "accent": "#e1d08a" }
+    },
+    {
+      "race": "dwarf",
+      "className": "Stoneguard",
+      "key": "stoneguard",
+      "archetype": "tank",
+      "animationProfile": "sword_shield",
+      "headgear": "helmet",
+      "colors": { "cloth": "#30312b", "cloth2": "#5a4a2a", "metal": "#4d5652", "trim": "#c99a3a", "leather": "#3a2412", "accent": "#74c1c0" }
+    },
+    {
+      "race": "dwarf",
+      "className": "Doomseeker",
+      "key": "doomseeker",
+      "archetype": "berserker",
+      "animationProfile": "two_hand_relic",
+      "headgear": "crest",
+      "colors": { "cloth": "#5c1e16", "cloth2": "#24110b", "metal": "#5b5045", "trim": "#b76524", "leather": "#2f1a0f", "accent": "#d64a24" }
+    },
+    {
+      "race": "dwarf",
+      "className": "Glyphbinder",
+      "key": "glyphbinder",
+      "archetype": "rune_caster",
+      "animationProfile": "staff_caster",
+      "headgear": "circlet",
+      "colors": { "cloth": "#26313b", "cloth2": "#6f6448", "metal": "#394343", "trim": "#d0a94a", "leather": "#3a2615", "accent": "#63d8e1" }
+    },
+    {
+      "race": "dwarf",
+      "className": "Siegewright",
+      "key": "siegewright",
+      "archetype": "engineer",
+      "animationProfile": "pistol_sword",
+      "headgear": "goggles",
+      "colors": { "cloth": "#384047", "cloth2": "#6a4a2e", "metal": "#566064", "trim": "#b98532", "leather": "#3b2514", "accent": "#d6d2a0" }
+    },
+    {
+      "race": "high_elf",
+      "className": "Blade Savant",
+      "key": "blade_savant",
+      "archetype": "duelist",
+      "animationProfile": "sword_shield",
+      "headgear": "helmet",
+      "colors": { "cloth": "#293e5a", "cloth2": "#c9d4df", "metal": "#aebdcc", "trim": "#d7c477", "leather": "#2c2730", "accent": "#8ed4ff" }
+    },
+    {
+      "race": "high_elf",
+      "className": "Pride Warden",
+      "key": "pride_warden",
+      "archetype": "hunter",
+      "animationProfile": "two_hand_relic",
+      "headgear": "hood",
+      "colors": { "cloth": "#53643b", "cloth2": "#d6c7a0", "metal": "#9aa8a6", "trim": "#c29f4a", "leather": "#4b2c18", "accent": "#f0e0b0" }
+    },
+    {
+      "race": "high_elf",
+      "className": "Aether Sage",
+      "key": "aether_sage",
+      "archetype": "caster",
+      "animationProfile": "staff_caster",
+      "headgear": "circlet",
+      "colors": { "cloth": "#24415c", "cloth2": "#d7d4c8", "metal": "#8fa5b7", "trim": "#d6c067", "leather": "#2f2b36", "accent": "#80d8ff" }
+    },
+    {
+      "race": "high_elf",
+      "className": "Veil Ranger",
+      "key": "veil_ranger",
+      "archetype": "ranger",
+      "animationProfile": "pistol_sword",
+      "headgear": "hood",
+      "colors": { "cloth": "#263b34", "cloth2": "#778d75", "metal": "#75888d", "trim": "#b8a967", "leather": "#32251a", "accent": "#b7e1d0" }
+    },
+    {
+      "race": "chaos",
+      "className": "Dreadsworn",
+      "key": "dreadsworn",
+      "archetype": "tank",
+      "animationProfile": "sword_shield",
+      "headgear": "horned",
+      "colors": { "cloth": "#250b0c", "cloth2": "#4a1014", "metal": "#15191d", "trim": "#7c5830", "leather": "#160f0e", "accent": "#b11222" }
+    },
+    {
+      "race": "chaos",
+      "className": "Warped Reaver",
+      "key": "warped_reaver",
+      "archetype": "mutant",
+      "animationProfile": "two_hand_relic",
+      "headgear": "half_helm",
+      "colors": { "cloth": "#2c1518", "cloth2": "#3d2427", "metal": "#24272b", "trim": "#6d4a32", "leather": "#1b1111", "accent": "#8b2ddb" }
+    },
+    {
+      "race": "chaos",
+      "className": "Void Magister",
+      "key": "void_magister",
+      "archetype": "occult",
+      "animationProfile": "staff_caster",
+      "headgear": "hood",
+      "colors": { "cloth": "#1d1428", "cloth2": "#302044", "metal": "#222830", "trim": "#8060a8", "leather": "#1b121e", "accent": "#7c5cff" }
+    },
+    {
+      "race": "chaos",
+      "className": "Ruin Oracle",
+      "key": "ruin_oracle",
+      "archetype": "ritual",
+      "animationProfile": "staff_caster",
+      "headgear": "mask",
+      "colors": { "cloth": "#21111c", "cloth2": "#4a1d2d", "metal": "#232225", "trim": "#9a6c3c", "leather": "#1c1210", "accent": "#cb3045" }
+    },
+    {
+      "race": "greenskin",
+      "className": "Warbrute",
+      "key": "warbrute",
+      "archetype": "bruiser",
+      "animationProfile": "sword_shield",
+      "headgear": "helmet",
+      "colors": { "cloth": "#3b2b12", "cloth2": "#5a3216", "metal": "#4f5550", "trim": "#b06a24", "leather": "#33200f", "accent": "#d13b1f" },
+      "sets": ["playable_smoke"]
+    },
+    {
+      "race": "greenskin",
+      "className": "Fang Herder",
+      "key": "fang_herder",
+      "archetype": "skirmisher",
+      "animationProfile": "pistol_sword",
+      "headgear": "hood",
+      "colors": { "cloth": "#3c4a24", "cloth2": "#6a5930", "metal": "#51574e", "trim": "#aa812d", "leather": "#3b2a13", "accent": "#d8c05a" }
+    },
+    {
+      "race": "greenskin",
+      "className": "Bog Hexer",
+      "key": "bog_hexer",
+      "archetype": "bog_caster",
+      "animationProfile": "staff_caster",
+      "headgear": "mask",
+      "colors": { "cloth": "#263d1f", "cloth2": "#4f5f2c", "metal": "#3f4a3f", "trim": "#8c7a30", "leather": "#31210f", "accent": "#8ade52" }
+    },
+    {
+      "race": "greenskin",
+      "className": "Cleaver",
+      "key": "cleaver",
+      "archetype": "berserker",
+      "animationProfile": "two_hand_relic",
+      "headgear": "crest",
+      "colors": { "cloth": "#4a2012", "cloth2": "#2c150d", "metal": "#5a5a52", "trim": "#b35f22", "leather": "#38220f", "accent": "#e23b1e" }
+    },
+    {
+      "race": "dark_elf",
+      "className": "Blood Dancer",
+      "key": "blood_dancer",
+      "archetype": "assassin",
+      "animationProfile": "pistol_sword",
+      "headgear": "circlet",
+      "colors": { "cloth": "#230914", "cloth2": "#4c1022", "metal": "#25202a", "trim": "#9d3150", "leather": "#180d12", "accent": "#dc2048" }
+    },
+    {
+      "race": "dark_elf",
+      "className": "Dread Guard",
+      "key": "dread_guard",
+      "archetype": "tank",
+      "animationProfile": "sword_shield",
+      "headgear": "helmet",
+      "colors": { "cloth": "#1c1321", "cloth2": "#32183b", "metal": "#211e28", "trim": "#8650a0", "leather": "#170d18", "accent": "#b243d6" }
+    },
+    {
+      "race": "dark_elf",
+      "className": "Dusk Weaver",
+      "key": "dusk_weaver",
+      "archetype": "caster",
+      "animationProfile": "staff_caster",
+      "headgear": "spire",
+      "colors": { "cloth": "#160c22", "cloth2": "#2f184a", "metal": "#201c28", "trim": "#805fb2", "leather": "#160e19", "accent": "#8d63ff" }
+    },
+    {
+      "race": "dark_elf",
+      "className": "Crimson Acolyte",
+      "key": "crimson_acolyte",
+      "archetype": "ritual",
+      "animationProfile": "two_hand_relic",
+      "headgear": "mask",
+      "colors": { "cloth": "#2a0c15", "cloth2": "#5b1828", "metal": "#252026", "trim": "#a13f54", "leather": "#190d10", "accent": "#f02f5a" }
+    }
+  ]
+}

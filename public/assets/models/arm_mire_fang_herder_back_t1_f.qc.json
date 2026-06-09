@@ -1,0 +1,89 @@
+{
+  "assetId": "arm.mire.fang_herder.back.t1.f",
+  "category": "armor",
+  "model": "arm_mire_fang_herder_back_t1_f.glb",
+  "fileSizeBytes": 220980,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3362,
+      0.8227,
+      -0.2417
+    ],
+    "max": [
+      -0.063,
+      1.7239,
+      -0.129
+    ],
+    "height": 0.9013
+  },
+  "meshCount": 5,
+  "skinnedMeshCount": 5,
+  "totalTris": 204,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_mire_fang_herder_back_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_quiver",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.fang_herder.back.t1.f",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_0",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.fang_herder.back.t1.f",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_1",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.fang_herder.back.t1.f",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_2",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.fang_herder.back.t1.f",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_3",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.fang_herder.back.t1.f",
+      "assetSlot": "back"
+    }
+  ]
+}

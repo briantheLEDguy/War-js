@@ -1,0 +1,79 @@
+{
+  "assetId": "arm.stone.stoneguard.hands.t1.f",
+  "category": "armor",
+  "model": "arm_stone_stoneguard_hands_t1_f.glb",
+  "fileSizeBytes": 641504,
+  "boundsYUpMeters": {
+    "min": [
+      -0.6012,
+      0.6696,
+      0.0168
+    ],
+    "max": [
+      0.6012,
+      0.9216,
+      0.1522
+    ],
+    "height": 0.252
+  },
+  "meshCount": 4,
+  "skinnedMeshCount": 4,
+  "totalTris": 1952,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_stone_stoneguard_hands_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_vambrace_-1",
+      "verts": 493,
+      "faces": 448,
+      "tris": 896,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.hands.t1.f",
+      "assetSlot": "hands"
+    },
+    {
+      "name": "armor_gauntlet_-1",
+      "verts": 42,
+      "faces": 60,
+      "tris": 80,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.hands.t1.f",
+      "assetSlot": "hands"
+    },
+    {
+      "name": "armor_vambrace_1",
+      "verts": 493,
+      "faces": 448,
+      "tris": 896,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.hands.t1.f",
+      "assetSlot": "hands"
+    },
+    {
+      "name": "armor_gauntlet_1",
+      "verts": 42,
+      "faces": 60,
+      "tris": 80,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.hands.t1.f",
+      "assetSlot": "hands"
+    }
+  ]
+}

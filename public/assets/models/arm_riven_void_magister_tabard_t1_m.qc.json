@@ -1,0 +1,69 @@
+{
+  "assetId": "arm.riven.void_magister.tabard.t1.m",
+  "category": "armor",
+  "model": "arm_riven_void_magister_tabard_t1_m.glb",
+  "fileSizeBytes": 435096,
+  "boundsYUpMeters": {
+    "min": [
+      -0.2695,
+      0.3455,
+      -0.1918
+    ],
+    "max": [
+      0.2695,
+      1.3177,
+      0.2172
+    ],
+    "height": 0.9722
+  },
+  "meshCount": 3,
+  "skinnedMeshCount": 3,
+  "totalTris": 1712,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_void_magister_tabard_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_tabard_front",
+      "verts": 527,
+      "faces": 480,
+      "tris": 960,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.tabard.t1.m",
+      "assetSlot": "tabard"
+    },
+    {
+      "name": "armor_tabard_back",
+      "verts": 375,
+      "faces": 336,
+      "tris": 672,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.tabard.t1.m",
+      "assetSlot": "tabard"
+    },
+    {
+      "name": "armor_tabard_trim",
+      "verts": 50,
+      "faces": 40,
+      "tris": 80,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.tabard.t1.m",
+      "assetSlot": "tabard"
+    }
+  ]
+}

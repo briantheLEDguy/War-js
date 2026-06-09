@@ -1,0 +1,69 @@
+{
+  "assetId": "arm.riven.dreadsworn.waist.t1.m",
+  "category": "armor",
+  "model": "arm_riven_dreadsworn_waist_t1_m.glb",
+  "fileSizeBytes": 128588,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3511,
+      0.8586,
+      0.0445
+    ],
+    "max": [
+      0.3511,
+      1.08,
+      0.2169
+    ],
+    "height": 0.2214
+  },
+  "meshCount": 3,
+  "skinnedMeshCount": 3,
+  "totalTris": 696,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_dreadsworn_waist_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_belt",
+      "verts": 399,
+      "faces": 336,
+      "tris": 672,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.waist.t1.m",
+      "assetSlot": "waist"
+    },
+    {
+      "name": "armor_belt_pouch_-1",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.waist.t1.m",
+      "assetSlot": "waist"
+    },
+    {
+      "name": "armor_belt_pouch_1",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.waist.t1.m",
+      "assetSlot": "waist"
+    }
+  ]
+}

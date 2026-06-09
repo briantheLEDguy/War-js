@@ -1,0 +1,434 @@
+{
+  "assetId": "chr.human.pyromancer.t1.m",
+  "category": "character",
+  "model": "chr_human_pyromancer_t1_m.glb",
+  "fileSizeBytes": 3299332,
+  "boundsYUpMeters": {
+    "min": [
+      -0.6333,
+      -0.0036,
+      -0.1939
+    ],
+    "max": [
+      0.6247,
+      1.9549,
+      0.2489
+    ],
+    "height": 1.9585
+  },
+  "meshCount": 38,
+  "skinnedMeshCount": 38,
+  "totalTris": 34904,
+  "availableClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "missingRequiredClips": [],
+  "previewImages": [
+    "artifacts/blender/manifest/chr_human_pyromancer_t1_m/chr_human_pyromancer_t1_m_front.png",
+    "artifacts/blender/manifest/chr_human_pyromancer_t1_m/chr_human_pyromancer_t1_m_side.png",
+    "artifacts/blender/manifest/chr_human_pyromancer_t1_m/chr_human_pyromancer_t1_m_back.png",
+    "artifacts/blender/manifest/chr_human_pyromancer_t1_m/chr_human_pyromancer_t1_m_iso.png"
+  ],
+  "artifactDir": "artifacts/blender/manifest/chr_human_pyromancer_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "chr_under_torso",
+      "verts": 362,
+      "faces": 432,
+      "tris": 720,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_under_hips",
+      "verts": 258,
+      "faces": 320,
+      "tris": 512,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_neck",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_head",
+      "verts": 258,
+      "faces": 320,
+      "tris": 512,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_nose",
+      "verts": 42,
+      "faces": 60,
+      "tris": 80,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_eye_-1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_brow_-1",
+      "verts": 72,
+      "faces": 60,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_eye_1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_brow_1",
+      "verts": 72,
+      "faces": 60,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_hood_cowl",
+      "verts": 290,
+      "faces": 360,
+      "tris": 576,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_upper_arm_-1",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_forearm_-1",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_hand_-1",
+      "verts": 50,
+      "faces": 72,
+      "tris": 96,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_thigh_-1",
+      "verts": 82,
+      "faces": 120,
+      "tris": 160,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_shin_-1",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_boot_-1",
+      "verts": 122,
+      "faces": 160,
+      "tris": 240,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_upper_arm_1",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_forearm_1",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_hand_1",
+      "verts": 50,
+      "faces": 72,
+      "tris": 96,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_thigh_1",
+      "verts": 82,
+      "faces": 120,
+      "tris": 160,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_shin_1",
+      "verts": 74,
+      "faces": 108,
+      "tris": 144,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_boot_1",
+      "verts": 122,
+      "faces": 160,
+      "tris": 240,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_plate_full_cuirass",
+      "verts": 3589,
+      "faces": 3456,
+      "tris": 6912,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_plate_front_overlay",
+      "verts": 1885,
+      "faces": 1792,
+      "tris": 3584,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_abdominal_lame_0",
+      "verts": 270,
+      "faces": 220,
+      "tris": 440,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_abdominal_lame_1",
+      "verts": 270,
+      "faces": 220,
+      "tris": 440,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_abdominal_lame_2",
+      "verts": 270,
+      "faces": 220,
+      "tris": 440,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_gorget",
+      "verts": 637,
+      "faces": 576,
+      "tris": 1152,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_belt",
+      "verts": 455,
+      "faces": 384,
+      "tris": 768,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_lower_coat",
+      "verts": 258,
+      "faces": 320,
+      "tris": 512,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_pauldron_-1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_vambrace_-1",
+      "verts": 665,
+      "faces": 612,
+      "tris": 1224,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_upper_plate_-1",
+      "verts": 595,
+      "faces": 544,
+      "tris": 1088,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_greave_-1",
+      "verts": 825,
+      "faces": 768,
+      "tris": 1536,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_pauldron_1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_vambrace_1",
+      "verts": 665,
+      "faces": 612,
+      "tris": 1224,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_upper_plate_1",
+      "verts": 595,
+      "faces": 544,
+      "tris": 1088,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    },
+    {
+      "name": "chr_greave_1",
+      "verts": 825,
+      "faces": 768,
+      "tris": 1536,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.human.pyromancer.t1.m",
+      "assetSlot": "character"
+    }
+  ]
+}

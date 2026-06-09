@@ -1,0 +1,64 @@
+{
+  "assetId": "chr.human.pyromancer.t1.m",
+  "displayName": "Human Pyromancer",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": ["characters", "human_hero_set"],
+  "runtime": { "profileKey": "human_pyromancer" },
+  "output": {
+    "model": "chr_human_pyromancer_t1_m.glb",
+    "artifactDir": "artifacts/blender/manifest/chr_human_pyromancer_t1_m"
+  },
+  "generator": { "kind": "characterPreset", "preset": "human_pyromancer" },
+  "geometry": {
+    "originRule": "armature_root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "human_m_tall",
+    "skeletonId": "humanoid_v1",
+    "bindPoseId": "a_pose_v1",
+    "lods": [
+      { "name": "LOD0", "triTarget": 70000, "screenCoverageMin": 0.2 },
+      { "name": "LOD1", "triTarget": 42000, "screenCoverageMin": 0.1 },
+      { "name": "LOD2", "triTarget": 18000, "screenCoverageMin": 0.04 }
+    ]
+  },
+  "attachments": [
+    { "name": "AP_ROOT", "type": "root", "parent": "root", "position": [0, 0, 0] },
+    { "name": "AP_HAND_WEAPON_R", "type": "socket", "parent": "hand_r", "position": [0, 0, 0] }
+  ],
+  "materials": {
+    "master": "MM_CharacterPbr",
+    "textureSet": "human_pyromancer_t1",
+    "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion", "emissive"]
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": ["idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump"]
+  },
+  "collision": {
+    "policy": "inherits_body_capsule",
+    "primitives": [{ "type": "capsule", "tag": "character_body" }]
+  },
+  "compatibility": { "occupiesSlots": ["character"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 12,
+    "maxFileSizeMb": 12,
+    "groundToleranceM": 0.03,
+    "expectedHeightM": 1.9,
+    "maxMeshObjects": 80,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true
+  }
+}

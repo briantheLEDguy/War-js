@@ -1,0 +1,57 @@
+{
+  "assetId": "wep.hammer_2h.reliquary_steel.t1",
+  "displayName": "Reliquary Steel Two-Hand Hammer",
+  "category": "weapon",
+  "version": "1.0.0",
+  "sets": ["weapons", "smoke"],
+  "runtime": { "itemKey": "weapon_hammer_reliquary_2h" },
+  "output": {
+    "model": "wep_hammer_2h_reliquary_steel_t1.glb",
+    "artifactDir": "artifacts/blender/manifest/wep_hammer_2h_reliquary_steel_t1"
+  },
+  "generator": { "kind": "weaponModule" },
+  "geometry": {
+    "originRule": "primary_grip_origin",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      { "name": "LOD0", "triTarget": 2500, "screenCoverageMin": 0.18 },
+      { "name": "LOD1", "triTarget": 1400, "screenCoverageMin": 0.08 },
+      { "name": "LOD2", "triTarget": 650, "screenCoverageMin": 0.03 }
+    ]
+  },
+  "attachments": [
+    { "name": "AP_HAND_WEAPON_R", "type": "grip", "parent": "hand_R", "position": [0, 0, 0] },
+    { "name": "AP_HAND_SECONDARY_L", "type": "socket", "parent": "hand_L", "position": [0, 0.42, 0] },
+    { "name": "AP_FX_IMPACT_HEAD", "type": "fx", "parent": "weapon", "position": [0, 1.1, 0.12] }
+  ],
+  "materials": {
+    "master": "MM_WeaponPbr",
+    "textureSet": "weapon_reliquary_steel_t1",
+    "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion"]
+  },
+  "rigging": { "skinned": false, "maxInfluences": 1, "requiredClips": [] },
+  "collision": {
+    "policy": "compound_primitive",
+    "primitives": [
+      { "type": "capsule", "tag": "shaft" },
+      { "type": "box", "tag": "head" }
+    ]
+  },
+  "compatibility": { "occupiesSlots": ["mainHand"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 16,
+    "maxFileSizeMb": 4,
+    "maxMeshObjects": 24
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "dummy": {
+    "wood": "#5a3618",
+    "iron": "#77706a",
+    "cloth": "#8b1f1f",
+    "paint": "#d7c58f"
+  },
+  "gate": {
+    "stone": "#6c665e",
+    "darkStone": "#3b3834",
+    "iron": "#2d3033",
+    "wood": "#4a2d16",
+    "trim": "#8f732f"
+  },
+  "banner_post": {
+    "wood": "#4a2d16",
+    "iron": "#2d3033",
+    "cloth": "#9b2020",
+    "trim": "#d0a33a"
+  },
+  "vendor_stall": {
+    "wood": "#5b3518",
+    "darkWood": "#2b1b10",
+    "cloth": "#9b2020",
+    "trim": "#d0a33a",
+    "crate": "#6a421f"
+  },
+  "altdorf_castle": {
+    "stone": "#827a6e",
+    "darkStone": "#4b4742",
+    "roof": "#394858",
+    "wood": "#4a2d16",
+    "iron": "#2d3033",
+    "banner": "#9b2020",
+    "gold": "#d0a33a"
+  },
+  "castle_gate": {
+    "wood": "#4a2d16",
+    "darkWood": "#2b1b10",
+    "iron": "#2d3033",
+    "trim": "#8f732f"
+  },
+  "castle_door": {
+    "wood": "#4a2d16",
+    "darkWood": "#2b1b10",
+    "iron": "#2d3033",
+    "trim": "#8f732f"
+  },
+  "castle_stairs": {
+    "stone": "#827a6e",
+    "darkStone": "#4b4742",
+    "trim": "#4b4742"
+  }
+}

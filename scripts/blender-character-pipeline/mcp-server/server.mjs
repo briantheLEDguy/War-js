@@ -1,7 +1,6 @@
 /**
- * MCP server — exposes Blender character generation as Claude Code tools.
+ * MCP server exposing the manifest-first Blender asset pipeline.
  *
- * Registered in .claude/settings.json under mcpServers.blender-character.
  * cwd for the server process is scripts/blender-character-pipeline/.
  */
 
@@ -12,223 +11,142 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { execFile } from "child_process";
-import { readFileSync, existsSync } from "fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PIPELINE_ROOT = path.resolve(__dirname, "..");
+const REPO_ROOT = path.resolve(PIPELINE_ROOT, "..", "..");
+const TOOL_DIR = path.join(PIPELINE_ROOT, "tools");
+const BLUEPRINT_DIR = path.join(PIPELINE_ROOT, "data", "asset-blueprints");
+const MODEL_DIR = path.join(REPO_ROOT, "public", "assets", "models");
 
-// Load config relative to pipeline root
-const configPath = path.join(PIPELINE_ROOT, "config.json");
-if (!existsSync(configPath)) {
-  process.stderr.write(`ERROR: config.json not found at ${configPath}\n`);
-  process.exit(1);
-}
-const config = JSON.parse(readFileSync(configPath, "utf8"));
-
-const BLENDER_PATH  = config.blenderPath ?? "/usr/bin/blender";
-const SCRIPT_PATH   = path.join(PIPELINE_ROOT, "blender", "generate_character.py");
-const SPEC_PATH     = path.join(PIPELINE_ROOT, "data", "character_spec.json");
-// outputDir in config.json is relative to pipeline root
-const OUTPUT_DIR    = path.resolve(PIPELINE_ROOT, config.outputDir ?? "../../public/assets/models");
-
-const RACES = ["empire", "dwarf", "high_elf", "chaos", "greenskin", "dark_elf"];
-
-// Default career per race (used by generate_all_characters)
-const DEFAULT_CAREERS = {
-  empire:    "Warrior Priest",
-  dwarf:     "Ironbreaker",
-  high_elf:  "Swordmaster",
-  chaos:     "Chosen",
-  greenskin: "Black Orc",
-  dark_elf:  "Blackguard",
-};
-
-// All 24 careers
-const ALL_CAREERS = {
-  empire:    ["Bright Wizard", "Witch Hunter", "Knight of the Blazing Sun", "Warrior Priest"],
-  dwarf:     ["Ironbreaker", "Slayer", "Rune Priest", "Engineer"],
-  high_elf:  ["Swordmaster", "White Lion", "Archmage", "Shadow Warrior"],
-  chaos:     ["Chosen", "Marauder", "Magus", "Zealot"],
-  greenskin: ["Black Orc", "Squig Herder", "Shaman", "Choppa"],
-  dark_elf:  ["Witch Elf", "Blackguard", "Sorceress", "Disciple of Khaine"],
-};
-
-function careerSlug(career) {
-  return career.toLowerCase().replace(/\s+/g, "_");
-}
-
-function defaultOutputName(race, career) {
-  return `character_${race}_${careerSlug(career)}.glb`;
-}
-
-// ── Blender runner ──────────────────────────────────────────────────────────
-
-function runBlender(race, career, outputName) {
+function runNodeTool(script, args = [], timeout = 600_000) {
   return new Promise((resolve) => {
-    const outPath = path.join(OUTPUT_DIR, outputName ?? defaultOutputName(race, career));
-
-    if (!existsSync(BLENDER_PATH)) {
-      resolve({
-        content: [{
-          type: "text",
-          text: `ERROR: Blender not found at "${BLENDER_PATH}". ` +
-                `Update blenderPath in scripts/blender-character-pipeline/config.json.`,
-        }],
-        isError: true,
-      });
-      return;
-    }
-
-    const args = [
-      "--background",
-      "--python", SCRIPT_PATH,
-      "--",
-      "--race",   race,
-      "--career", career,
-      "--output", outPath,
-      "--spec",   SPEC_PATH,
-    ];
-
-    process.stderr.write(`[blender-mcp] Running: ${BLENDER_PATH} ${args.join(" ")}\n`);
-
-    execFile(BLENDER_PATH, args, { timeout: 120_000 }, (err, stdout, stderr) => {
-      if (err) {
+    execFile(
+      process.execPath,
+      [path.join(TOOL_DIR, script), ...args],
+      { cwd: PIPELINE_ROOT, timeout },
+      (err, stdout, stderr) => {
         resolve({
           content: [{
             type: "text",
-            text: `ERROR generating ${race}/${career}:\n${stderr || err.message}`,
+            text: `${stdout.trim()}${stderr.trim() ? `\n${stderr.trim()}` : ""}`.trim(),
           }],
-          isError: true,
+          isError: Boolean(err),
         });
-      } else {
-        resolve({
-          content: [{
-            type: "text",
-            text: `OK: ${outPath}\n\n${stdout.split("\n").filter(l => l.startsWith("[WAR]")).join("\n")}`,
-          }],
-        });
-      }
-    });
+      },
+    );
   });
 }
 
-// ── MCP server setup ────────────────────────────────────────────────────────
+function readBlueprints() {
+  if (!existsSync(BLUEPRINT_DIR)) return [];
+  return readdirSync(BLUEPRINT_DIR)
+    .filter((file) => file.endsWith(".asset.json"))
+    .sort()
+    .map((file) => {
+      const filePath = path.join(BLUEPRINT_DIR, file);
+      const blueprint = JSON.parse(readFileSync(filePath, "utf8"));
+      return { filePath, blueprint };
+    });
+}
+
+function generatedSummary() {
+  const lines = [];
+  for (const { blueprint } of readBlueprints()) {
+    const outPath = path.join(MODEL_DIR, blueprint.output.model);
+    const qcPath = outPath.replace(/\.glb$/i, ".qc.json");
+    const exists = existsSync(outPath);
+    const qc = existsSync(qcPath);
+    const qcState = qc
+      ? (JSON.parse(readFileSync(qcPath, "utf8")).qcPassed === true ? "PASS" : "FAIL")
+      : "--";
+    const size = exists ? `${(statSync(outPath).size / (1024 * 1024)).toFixed(2)} MB` : "-";
+    lines.push(
+      `${exists ? "OK" : "MISSING"} ${qcState} ${blueprint.category.padEnd(9)} ` +
+      `${blueprint.assetId.padEnd(42)} ${blueprint.output.model} ${size}`,
+    );
+  }
+  return lines.join("\n");
+}
 
 const server = new Server(
-  { name: "blender-character", version: "1.0.0" },
-  { capabilities: { tools: {} } }
+  { name: "blender-character", version: "2.0.0" },
+  { capabilities: { tools: {} } },
 );
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
-      name: "generate_character",
+      name: "list_asset_blueprints",
+      description: "List manifest-first asset blueprints and generated output status.",
+      inputSchema: { type: "object", properties: {} },
+    },
+    {
+      name: "generate_asset",
       description:
-        "Generate a rigged, animated .glb character model using Blender for a given " +
-        "Warhammer Online race and career. Outputs to public/assets/models/.",
+        "Generate one asset from its neutral manifest assetId, profileKey, itemKey, staticKey, output filename, or manifest filename.",
       inputSchema: {
         type: "object",
         properties: {
-          race: {
+          ref: {
             type: "string",
-            enum: RACES,
-            description: "Character race",
-          },
-          career: {
-            type: "string",
-            description:
-              "Full career name exactly as in WAR (e.g. 'Warrior Priest', 'Black Orc')",
-          },
-          outputName: {
-            type: "string",
-            description:
-              "Optional output filename override (e.g. 'character_empire_wp.glb'). " +
-              "Defaults to character_<race>_<career_slug>.glb",
+            description: "assetId/profileKey/itemKey/staticKey/model filename/manifest filename.",
           },
         },
-        required: ["race", "career"],
+        required: ["ref"],
       },
     },
     {
-      name: "generate_all_characters",
-      description:
-        "Generate .glb models for all 24 WAR careers (one per race/career combination). " +
-        "Runs Blender sequentially — expect this to take several minutes.",
+      name: "generate_asset_set",
+      description: "Generate every asset in a manifest set. Defaults to the small smoke set.",
       inputSchema: {
         type: "object",
         properties: {
-          racesOnly: {
-            type: "array",
-            items: { type: "string", enum: RACES },
-            description: "Optional: limit generation to specific races",
+          setName: {
+            type: "string",
+            description: "Manifest set name, e.g. smoke, equipment, characters, human_hero_set.",
           },
         },
       },
     },
     {
-      name: "list_generated_models",
-      description: "List which character .glb files have already been generated.",
+      name: "validate_asset",
+      description: "Validate all asset manifests and asset-index references.",
+      inputSchema: { type: "object", properties: {} },
+    },
+    {
+      name: "list_generated_assets",
+      description: "List manifest outputs, file presence, size, and QC sidecar presence.",
       inputSchema: { type: "object", properties: {} },
     },
   ],
 }));
 
 server.setRequestHandler(CallToolRequestSchema, async (req) => {
-  const { name, arguments: args } = req.params;
+  const { name, arguments: args = {} } = req.params;
 
-  if (name === "generate_character") {
-    return runBlender(args.race, args.career, args.outputName ?? null);
+  if (name === "list_asset_blueprints") {
+    return runNodeTool("list-blueprints.mjs", [], 60_000);
   }
 
-  if (name === "generate_all_characters") {
-    const races = (args.racesOnly && args.racesOnly.length > 0)
-      ? args.racesOnly
-      : RACES;
-
-    const results = [];
-    for (const race of races) {
-      for (const career of ALL_CAREERS[race]) {
-        process.stderr.write(`[blender-mcp] Generating ${race}/${career}...\n`);
-        const result = await runBlender(race, career, null);
-        results.push(`${race}/${career}: ${result.isError ? "FAILED" : "OK"}`);
-      }
-    }
-
-    return {
-      content: [{
-        type: "text",
-        text: results.join("\n"),
-      }],
-    };
+  if (name === "generate_asset") {
+    return runNodeTool("generate-asset.mjs", [args.ref], 900_000);
   }
 
-  if (name === "list_generated_models") {
-    const { readdirSync } = await import("fs");
-    let files = [];
-    try {
-      files = readdirSync(OUTPUT_DIR)
-        .filter(f => f.startsWith("character_") && f.endsWith(".glb"))
-        .sort();
-    } catch {
-      // output dir doesn't exist yet
-    }
+  if (name === "generate_asset_set") {
+    return runNodeTool("generate-all.mjs", [args.setName ?? "smoke"], 1_800_000);
+  }
 
-    const generated = new Set(files);
-    const lines = [];
-    for (const race of RACES) {
-      for (const career of ALL_CAREERS[race]) {
-        const expected = defaultOutputName(race, career);
-        lines.push(`${generated.has(expected) ? "✓" : "✗"} ${expected}`);
-      }
-    }
+  if (name === "validate_asset") {
+    return runNodeTool("validate-blueprints.mjs", [], 60_000);
+  }
 
+  if (name === "list_generated_assets") {
     return {
-      content: [{
-        type: "text",
-        text: `Generated models in ${OUTPUT_DIR}:\n\n${lines.join("\n")}`,
-      }],
+      content: [{ type: "text", text: generatedSummary() }],
     };
   }
 
@@ -238,8 +156,6 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
   };
 });
 
-// ── Start ───────────────────────────────────────────────────────────────────
-
 const transport = new StdioServerTransport();
 await server.connect(transport);
-process.stderr.write("[blender-mcp] Server ready\n");
+process.stderr.write("[blender-mcp] Manifest-first server ready\n");

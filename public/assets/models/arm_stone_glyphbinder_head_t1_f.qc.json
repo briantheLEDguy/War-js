@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.stone.glyphbinder.head.t1.f",
+  "category": "armor",
+  "model": "arm_stone_glyphbinder_head_t1_f.glb",
+  "fileSizeBytes": 411896,
+  "boundsYUpMeters": {
+    "min": [
+      -0.1498,
+      1.3736,
+      -0.1042
+    ],
+    "max": [
+      0.1498,
+      1.4164,
+      0.1833
+    ],
+    "height": 0.0428
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 840,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_stone_glyphbinder_head_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_circlet",
+      "verts": 336,
+      "faces": 336,
+      "tris": 672,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.glyphbinder.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_circlet_gem",
+      "verts": 86,
+      "faces": 96,
+      "tris": 168,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.glyphbinder.head.t1.f",
+      "assetSlot": "head"
+    }
+  ]
+}

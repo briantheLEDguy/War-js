@@ -1,0 +1,69 @@
+{
+  "assetId": "arm.umbra.crimson_acolyte.waist.t1.m",
+  "category": "armor",
+  "model": "arm_umbra_crimson_acolyte_waist_t1_m.glb",
+  "fileSizeBytes": 134412,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3013,
+      0.8109,
+      0.0387
+    ],
+    "max": [
+      0.3013,
+      1.02,
+      0.1912
+    ],
+    "height": 0.2091
+  },
+  "meshCount": 3,
+  "skinnedMeshCount": 3,
+  "totalTris": 696,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_umbra_crimson_acolyte_waist_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_belt",
+      "verts": 399,
+      "faces": 336,
+      "tris": 672,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.crimson_acolyte.waist.t1.m",
+      "assetSlot": "waist"
+    },
+    {
+      "name": "armor_belt_pouch_-1",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.crimson_acolyte.waist.t1.m",
+      "assetSlot": "waist"
+    },
+    {
+      "name": "armor_belt_pouch_1",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.crimson_acolyte.waist.t1.m",
+      "assetSlot": "waist"
+    }
+  ]
+}

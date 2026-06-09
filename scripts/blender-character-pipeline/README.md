@@ -1,185 +1,162 @@
 # Blender Character Pipeline
 
-Generates rigged, animated `.glb` character models for War-js using Blender in headless mode. Models are output to `public/assets/models/` and loaded automatically by the game's `AssetLoader`.
-
----
+Manifest-first Blender pipeline for War-js runtime assets. The research report
+in `deep-research-report.md` is the source of truth for this pipeline:
+blueprints and metadata drive generation, Blender object names are labels, and
+generated asset IDs/filenames/GLTF extras stay neutral and IP-safe.
 
 ## Prerequisites
 
-- **Blender 3.6+** (tested on 4.x) — [blender.org](https://www.blender.org/download/)
-- **Node.js 18+** — for the MCP server
+- Blender 5.0 or compatible 3.6+ install.
+- Node.js 18+.
+- MCP server dependencies in `mcp-server/` when using Codex tools.
 
-### Install Blender
-
-| Platform | Default path |
-|----------|-------------|
-| Linux    | `/usr/bin/blender` (or install via `sudo snap install blender --classic`) |
-| macOS    | `/Applications/Blender.app/Contents/MacOS/Blender` |
-| Windows  | `C:\Program Files\Blender Foundation\Blender 4.x\blender.exe` |
-
-If Blender is at a non-standard location, update `config.json`:
+The local Blender path lives in `config.json`:
 
 ```json
 {
-  "blenderPath": "/your/custom/path/blender",
+  "blenderPath": "C:\\Program Files\\Blender Foundation\\Blender 5.0\\blender.exe",
   "outputDir": "../../public/assets/models",
   "animScale": 1.0
 }
 ```
 
----
+## Manifest Contract
 
-## Claude Code integration (MCP server)
+Blueprints live in `data/asset-blueprints/*.asset.json`. Each blueprint defines:
 
-The MCP server exposes three tools directly inside Claude Code conversations:
+- `assetId`, `category`, `version`, neutral display/output names.
+- Runtime mapping keys such as `profileKey`, `itemKey`, or `staticKey`.
+- Output model path and artifact directory.
+- Generator kind: `characterPreset`, `staticPreset`, `bodyModule`, `armorModule`, `weaponModule`, `jewelModule`, or `copyExisting`.
+- Geometry, slots/anchors, materials, rigging, collider policy, compatibility, QC thresholds, and AI provenance.
 
-| Tool | Description |
-|------|-------------|
-| `generate_character` | Generate one career's `.glb` model |
-| `generate_all_characters` | Generate all 24 career models sequentially |
-| `list_generated_models` | Show which models exist vs. are still missing |
+The local schema is `data/asset-blueprint.schema.json`; style constraints are
+documented in `data/style-policy.md`.
 
-### Setup
+## Commands
+
+Run from the repository root:
+
+```bash
+npm run models:list
+npm run models:sync-playables
+npm run models:validate
+npm run models:generate -- chr.human.devout_guardian.t1.m
+npm run models:all -- smoke
+npm run models:all -- playable_smoke
+npm run models:all -- playable_characters
+npm run models:all -- playable_armor
+npm run models:all -- playable_all
+npm run models:all -- equipment
+npm run models:all -- characters
+npm run models:all -- weapons
+npm run models:all -- jewels
+```
+
+`models:generate` accepts an `assetId`, manifest filename, output filename,
+profile key, item key, or static key.
+
+`models:sync-playables` expands
+`data/playable-character-roster.json` into 48 playable character manifests,
+432 starter armor-module manifests, `asset-index.json` entries, and
+`src/data/playableAssets.generated.ts`. It is deterministic and should be run
+after any playable race, class, body-variant, or armor-slot theme change.
+
+Generated artifacts:
+
+- Runtime GLB: `public/assets/models/<neutral_name>.glb`
+- QC sidecar with `qcPassed: true`: `public/assets/models/<neutral_name>.qc.json`
+- Human preview/QC artifacts: `artifacts/blender/manifest/<asset_key>/`
+- Runtime resolver: `public/assets/models/asset-index.json`
+
+`models:validate` fails if an existing generated GLB has no QC sidecar, if the
+sidecar does not report `qcPassed: true`, if preview-required character output
+lacks preview images, or if a blocked runtime index entry lacks `reviewStatus`.
+
+## MCP Tools
+
+Install dependencies:
 
 ```bash
 cd scripts/blender-character-pipeline/mcp-server
 npm install
 ```
 
-The server is pre-registered in `.claude/settings.json`. Restart Claude Code to pick it up, then use it conversationally:
+Codex config:
 
-> "Generate a character model for a Dwarf Slayer"
-> "Generate all Chaos career models"
-> "Which character models have been generated so far?"
-
----
-
-## Manual usage (without Claude Code)
-
-Run Blender directly from the repo root:
-
-```bash
-blender --background \
-  --python scripts/blender-character-pipeline/blender/generate_character.py \
-  -- \
-  --race dwarf \
-  --career "Ironbreaker" \
-  --output public/assets/models/character_dwarf_ironbreaker.glb \
-  --spec scripts/blender-character-pipeline/data/character_spec.json
+```toml
+[mcp_servers."blender-character"]
+command = 'node'
+args = ['mcp-server/server.mjs']
+cwd = 'C:\Users\bschm\Desktop\GitPulls\War-js\scripts\blender-character-pipeline'
+startup_timeout_sec = 120
 ```
 
-Generate all 24 models with a shell loop:
+Available tools:
 
-```bash
-declare -A CAREERS=(
-  [empire]="Bright Wizard,Witch Hunter,Knight of the Blazing Sun,Warrior Priest"
-  [dwarf]="Ironbreaker,Slayer,Rune Priest,Engineer"
-  [high_elf]="Swordmaster,White Lion,Archmage,Shadow Warrior"
-  [chaos]="Chosen,Marauder,Magus,Zealot"
-  [greenskin]="Black Orc,Squig Herder,Shaman,Choppa"
-  [dark_elf]="Witch Elf,Blackguard,Sorceress,Disciple of Khaine"
-)
+| Tool | Description |
+| --- | --- |
+| `list_asset_blueprints` | Show manifest blueprints and generated output status. |
+| `generate_asset` | Generate one manifest-backed asset. |
+| `generate_asset_set` | Generate a manifest set such as `smoke`, `equipment`, or `characters`. |
+| `validate_asset` | Validate all blueprints plus `asset-index.json` references. |
+| `list_generated_assets` | Show GLB and QC sidecar presence. |
 
-BLENDER=/usr/bin/blender
-SPEC=scripts/blender-character-pipeline/data/character_spec.json
-SCRIPT=scripts/blender-character-pipeline/blender/generate_character.py
+## Blender Entry Points
 
-for race in "${!CAREERS[@]}"; do
-  IFS=',' read -ra careers <<< "${CAREERS[$race]}"
-  for career in "${careers[@]}"; do
-    slug=$(echo "$career" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-    out="public/assets/models/character_${race}_${slug}.glb"
-    echo "Generating $race / $career → $out"
-    "$BLENDER" --background --python "$SCRIPT" -- \
-      --race "$race" --career "$career" --output "$out" --spec "$SPEC"
-  done
-done
+The supported generator entrypoint is:
+
+```text
+blender/generate_asset_from_manifest.py
 ```
 
----
+It dispatches to retained builder modules behind neutral presets:
 
-## File naming convention
+- `generate_manifest_character.py` for rigged manifest character profiles.
+- `generate_manifest_accessory.py` for weapon and jewel accessories.
+- `generate_static_asset.py` for generated props.
+- `generate_base_male_armor_showcase.py` functions for the reusable body and armor modules.
 
-Generated models follow the pattern:
-```
-character_<race>_<career_slug>.glb
-```
+Direct legacy scripts are kept only as implementation backends or specialized
+exporters. Do not add new public generation flows that bypass manifests.
 
-Where `career_slug` is the career name lowercased with spaces replaced by underscores:
+## Runtime Contract
 
-```
-character_empire_bright_wizard.glb
-character_empire_witch_hunter.glb
-character_empire_knight_of_the_blazing_sun.glb
-character_empire_warrior_priest.glb
-character_dwarf_ironbreaker.glb
-character_dwarf_slayer.glb
-...
-```
+`AssetLoader` reads `public/assets/models/asset-index.json` and resolves:
 
-The game (`src/game/Player.ts`) probes for the career-specific model first, then the race-level model, then falls back to the procedural Three.js primitive.
+- character profile keys to neutral character GLBs,
+- equipment item keys to neutral armor GLBs and optional body overrides,
+- static prop keys to neutral prop GLBs.
 
----
+If any indexed file is missing or fails to load, the runtime still uses the
+existing primitive fallback path and increments the debug fallback counter.
+If indexed equipment is marked `runtimeReady: false`, the runtime intentionally
+skips the generated file. This keeps unskinned same-origin modules and unsocketed
+accessories out of gameplay until a later manifest-backed skinning/socket pass.
 
-## Embedded animations
+Playable characters use one profile per race, player-facing class, and body
+variant (`m` or `f`). Runtime armor for `head`, `shoulders`, `chest`, `hands`,
+`waist`, `legs`, `feet`, `back`, and `tabard` must be skinned to the same
+`skeletonId` and `bodyFamily` as its matching character body. Compatible armor is
+loaded as a skinned overlay and rebound to the player skeleton; `coveredRegions`
+metadata masks only the body regions hidden by the equipped slot.
 
-Each generated `.glb` includes these named animation clips:
+## Export Rules
 
-| Clip | Frames | Loop |
-|------|--------|------|
-| `idle` | 60 | yes |
-| `walk` | 30 | yes |
-| `run` | 20 | yes |
-| `combat_idle` | 80 | yes |
-| `attack_melee` | 30 | no |
-| `attack_ranged` | 40 | no |
-| `cast` | 60 | no |
-| `death` | 60 | no |
-| `jump` | 40 | no |
+- Runtime axes: X right, `+Y` up, `+Z` forward.
+- Units: meters.
+- Character/body origin: root grounded at the neutral pose.
+- GLTF extras use `assetId`, `assetKit`, `assetCategory`, `assetSlot`, `bodyFamily`, and `skeletonId`.
+- Do not add legacy protected naming fields or protected branded-world names to generated extras.
 
-Three.js `AnimationMixer` in `Player.ts` plays `idle` on load. Additional clip switching (walk/run/combat) can be added to `Player.update()`.
+## Active Source Assets
 
----
+Keep source files only when referenced by a manifest-backed builder or exporter:
 
-## Directory structure
+- `blends/male_base.blend` for human body and fitted armor modules.
+- `blends/altdorf_land.blend` for the current terrain exporter.
+- `blends/guard_order.blend` for guard export fallback.
 
-```
-scripts/blender-character-pipeline/
-├── config.json              ← Blender path + output dir
-├── README.md                ← this file
-├── blender/
-│   ├── generate_character.py  ← main Blender script (CLI entry point)
-│   ├── rig_utils.py           ← armature creation + animation application
-│   └── anim_library.py        ← keyframe data for all 9 animation clips
-├── data/
-│   └── character_spec.json    ← race/career → build params (colors, weapon, helmet)
-└── mcp-server/
-    ├── package.json
-    └── server.mjs             ← MCP tool server
-```
-
----
-
-## Customizing character appearance
-
-Edit `data/character_spec.json` to adjust any race or career's appearance. No Python changes needed — the spec is read at generation time.
-
-Key fields per race:
-
-| Field | Description |
-|-------|-------------|
-| `bodyScale` | `[x, y, z]` scale — `[1.05, 0.82, 1.05]` makes dwarves short/wide |
-| `skinColor` | Hex skin tone |
-| `armorColor` | Base armor hex |
-| `trimColor` | Accent/trim hex |
-| `beard` | `true` adds a beard mesh |
-| `elfEars` | `true` adds pointed ears |
-
-Key fields per career (inside `careers`):
-
-| Field | Description |
-|-------|-------------|
-| `weapon` | `sword`, `hammer`, `staff`, `axe`, `dual_axes`, `bow`, `gun`, `greatsword`, `halberd`, etc. |
-| `helmetStyle` | `open_face`, `full_visor`, `hood`, `brimhat`, `horned_full`, `mohawk`, `iron_bowl`, `bone_crown`, `spired_full`, `none`, etc. |
-| `robeColor` | Hex for robe overlay — `null` for no robe |
-| `armorColorOverride` | Per-career armor color override — `null` to use race default |
+The removed legacy showcase/mannequin scripts and old generated GLBs are
+superseded by manifest blueprints and neutral outputs.

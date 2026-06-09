@@ -1,0 +1,53 @@
+{
+  "assetId": "prop.training_dummy.t1",
+  "displayName": "Training Dummy",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": ["props", "smoke"],
+  "runtime": { "staticKey": "dummy" },
+  "output": {
+    "model": "prop_training_dummy_t1.glb",
+    "artifactDir": "artifacts/blender/manifest/prop_training_dummy_t1"
+  },
+  "generator": { "kind": "staticPreset", "preset": "dummy" },
+  "geometry": {
+    "originRule": "base_center_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      { "name": "LOD0", "triTarget": 8000, "screenCoverageMin": 0.18 },
+      { "name": "LOD1", "triTarget": 3000, "screenCoverageMin": 0.06 }
+    ]
+  },
+  "attachments": [
+    { "name": "AP_ROOT", "type": "root", "parent": "root", "position": [0, 0, 0] },
+    { "name": "AP_FX_HIT", "type": "socket", "parent": "root", "position": [0, 1.15, 0] }
+  ],
+  "materials": {
+    "master": "MM_PropPbr",
+    "textureSet": "training_dummy_t1",
+    "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion"]
+  },
+  "rigging": { "skinned": false, "maxInfluences": 1, "requiredClips": ["idle", "hit_react"] },
+  "collision": {
+    "policy": "compound_primitive",
+    "primitives": [{ "type": "capsule", "tag": "prop_body" }]
+  },
+  "compatibility": { "occupiesSlots": ["world_prop"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 16,
+    "maxFileSizeMb": 3,
+    "groundToleranceM": 0.03,
+    "expectedHeightM": 1.9
+  }
+}

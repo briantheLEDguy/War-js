@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.aether.pride_warden.head.t1.f",
+  "category": "armor",
+  "model": "arm_aether_pride_warden_head_t1_f.glb",
+  "fileSizeBytes": 260084,
+  "boundsYUpMeters": {
+    "min": [
+      -0.1741,
+      1.6253,
+      -0.1447
+    ],
+    "max": [
+      0.1741,
+      2.0867,
+      0.1281
+    ],
+    "height": 0.4614
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 464,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_pride_warden_head_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_hood_cowl",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.pride_warden.head.t1.f",
+      "assetSlot": "head"
+    }
+  ]
+}

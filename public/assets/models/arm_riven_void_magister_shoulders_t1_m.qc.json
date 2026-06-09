@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.riven.void_magister.shoulders.t1.m",
+  "category": "armor",
+  "model": "arm_riven_void_magister_shoulders_t1_m.glb",
+  "fileSizeBytes": 907328,
+  "boundsYUpMeters": {
+    "min": [
+      -0.595,
+      1.3823,
+      -0.198
+    ],
+    "max": [
+      0.595,
+      1.6751,
+      0.2526
+    ],
+    "height": 0.2928
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 8192,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_void_magister_shoulders_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_pauldron_-1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.shoulders.t1.m",
+      "assetSlot": "shoulders"
+    },
+    {
+      "name": "armor_pauldron_1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.shoulders.t1.m",
+      "assetSlot": "shoulders"
+    }
+  ]
+}

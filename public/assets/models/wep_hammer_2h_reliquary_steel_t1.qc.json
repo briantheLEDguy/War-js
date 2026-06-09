@@ -1,0 +1,119 @@
+{
+  "assetId": "wep.hammer_2h.reliquary_steel.t1",
+  "category": "weapon",
+  "model": "wep_hammer_2h_reliquary_steel_t1.glb",
+  "fileSizeBytes": 74324,
+  "meshCount": 11,
+  "totalTris": 3064,
+  "artifactDir": "artifacts/blender/manifest/wep_hammer_2h_reliquary_steel_t1",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "fileSizeBudget": true,
+    "hasColliderPolicy": true,
+    "hasAnchors": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "wep_wrapped_grip",
+      "verts": 98,
+      "faces": 128,
+      "tris": 192,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_head_core",
+      "verts": 192,
+      "faces": 160,
+      "tris": 320,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_head_left_cap",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_head_right_cap",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_upper_bind",
+      "verts": 144,
+      "faces": 120,
+      "tris": 240,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_lower_bind",
+      "verts": 144,
+      "faces": 120,
+      "tris": 240,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_pommel_ring",
+      "verts": 256,
+      "faces": 256,
+      "tris": 512,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_grip_band_0",
+      "verts": 192,
+      "faces": 192,
+      "tris": 384,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_grip_band_1",
+      "verts": 192,
+      "faces": 192,
+      "tris": 384,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_grip_band_2",
+      "verts": 192,
+      "faces": 192,
+      "tris": 384,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    },
+    {
+      "name": "wep_grip_band_3",
+      "verts": 192,
+      "faces": 192,
+      "tris": 384,
+      "materials": 1,
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "assetSlot": "mainHand"
+    }
+  ]
+}
