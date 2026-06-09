@@ -12,8 +12,8 @@
  *   - Effects can follow a moving target (self-heal on the player) by
  *     accepting a `TargetProvider` rather than a fixed position.
  *
- * Concrete effect subclasses live alongside the rigs that emit them
- * (e.g. `WarriorPriestVfx.ts`) so class-specific art stays with the class.
+ * Concrete effect subclasses should live alongside the systems that emit them
+ * so action-specific art stays out of the combat loop.
  */
 import * as THREE from 'three';
 

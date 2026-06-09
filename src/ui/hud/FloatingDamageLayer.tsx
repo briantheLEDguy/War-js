@@ -47,7 +47,7 @@ export function FloatingDamageLayer({ game }: Props) {
           className={`floating-damage ${i.kind}`}
           style={{ left: `${i.x}px`, top: `${i.y}px` }}
         >
-          {i.kind === 'miss' ? 'MISS' : `-${i.amount}`}
+          {i.kind === 'miss' ? 'MISS' : `${i.kind === 'heal' ? '+' : '-'}${i.amount}`}
         </div>
       ))}
     </div>

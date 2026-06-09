@@ -1,35 +1,23 @@
 import * as THREE from 'three';
+import { buildEnemyGatheringState } from '../data/crafting';
+import { INVENTORY_CAPACITY } from '../data/items';
 import { services } from '../services';
-import { useGameStore, type EnemyState } from '../state/gameStore';
+import { useGameStore, type CombatStatusEffect, type EnemyState } from '../state/gameStore';
 import type { Player } from './Player';
 import type { Enemy } from './Enemy';
 import { followObject, staticTarget, type VfxLayer } from './animation/VfxLayer';
 import { checkLevelUp, registerEnemyKill } from './QuestLogic';
+import {
+  tryActivateAbility,
+  type PendingAbilityImpact,
+} from './abilities/AbilityRuntime';
+import type { AbilityEffect } from './abilities/types';
 
-/**
- * Map hotbar slot index → animation action id that the player's animator
- * should play when the ability fires successfully. The animator validates
- * / ignores ids it doesn't recognize, so this is safe to call for any
- * career (Warrior Priest is the only class with a rig today).
- *
- *   slot 0 — autoattack
- *   slot 1 — heavy strike (Slot 1 ability)
- *   slot 2 — ranged shot  (Slot 2 ability)
- *   slot 3 — bandage      (Slot 3 self-heal)
- */
+/** Legacy four-slot animation helper retained for older procedural animators. */
 const SLOT_ACTION_ID = ['autoattack', 'heavy_strike', 'ranged_shot', 'bandage'] as const;
-
-/** Action durations in seconds, mirrored across careers that share the slot. */
 const SLOT_ACTION_DURATION = [0.45, 0.85, 0.55, 1.20];
 
-/**
- * Play the slot's animation and any class-specific VFX. Pulled into a helper
- * so every ability branch spawns both in lockstep (the alternative is six
- * near-identical copies of this boilerplate across `tryAbility`).
- *
- * `targetEnemy` is optional — only outgoing abilities (damage) pass one. Self
- * buffs / heals don't need an enemy target; their VFX anchor to `self`.
- */
+/** Play a legacy slot action and optional class-specific VFX. */
 function playSlotAction(
   player: Player,
   slot: number,
@@ -37,10 +25,13 @@ function playSlotAction(
   targetEnemy: { position: { x: number; y: number; z: number } } | null = null,
 ): void {
   const anim = player.animator;
-  if (!anim) return;
   const id = SLOT_ACTION_ID[slot];
   const dur = SLOT_ACTION_DURATION[slot];
   if (!id) return;
+  if (!anim) {
+    player.playGlbAction(id, dur);
+    return;
+  }
   anim.playAction(id, dur);
 
   if (!vfx) return;
@@ -76,6 +67,7 @@ export class Combat {
   private enemiesById = new Map<string, Enemy>();
   /** VFX layer set by `Game` at start — combat spawns class FX through it. */
   private vfx: VfxLayer | null = null;
+  private pendingImpacts: PendingAbilityImpact[] = [];
 
   registerEnemy(e: Enemy) {
     this.enemiesById.set(e.spawn.id, e);
@@ -115,83 +107,48 @@ export class Combat {
   // Player abilities
   // ---------------------------------------------------------------------------
 
-  /** Slot 0 — Autoattack: 5–10 + strength/3, 1.5 s CD, melee range. */
+/** Back-compat alias: slot 0 is now the first career ability. */
   tryAutoattack(player: Player, now: number): boolean {
-    const store = useGameStore.getState();
-    if (!store.targetId || store.hotbarCooldowns[0] > 0) return false;
-    const target = store.enemies.find((e) => e.id === store.targetId);
-    if (!target || !target.alive) return false;
-    if (dist2D(target.position, player.position) > ATTACK_RANGE) return false;
+    return this.tryAbility(0, player, now);
+  }
 
-    const strBonus = Math.floor((store.character?.strength ?? 10) / 3);
-    const dmg = 5 + Math.floor(Math.random() * 6) + strBonus;
-    const newHp = Math.max(0, target.health - dmg);
-    store.updateEnemy(store.targetId, { health: newHp });
-    store.setHotbarCooldown(0, ATTACK_COOLDOWN);
-    store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
-    playSlotAction(player, 0, this.vfx, target);
-    if (newHp <= 0) this.killEnemy(store.targetId, target, now, store);
+  /** Activate a data-driven career ability by hotbar slot. */
+  tryAbility(slot: number, player: Player, now: number): boolean {
+    const result = tryActivateAbility({
+      slot,
+      player,
+      now,
+      vfx: this.vfx,
+      getEnemyObject: (id) => this.enemiesById.get(id)?.object ?? null,
+    });
+    if (!result) return false;
+    this.pendingImpacts.push(...result.impacts);
     return true;
   }
 
-  /**
-   * Slots 1-3 abilities.
-   *
-   * 1 — Heavy Strike: 12–24 dmg, melee, 5 s CD, 10 mana
-   * 2 — Ranged Shot:   5–12 dmg, 10 u range, 3 s CD, 8 mana
-   * 3 — Bandage:       35–50 HP self-heal, 10 s CD, 15 mana
-   */
-  tryAbility(slot: number, player: Player, now: number): boolean {
+  /** Resolve delayed release/projectile impacts from activated abilities. */
+  tickAbilityImpacts(now: number): void {
+    if (this.pendingImpacts.length === 0) return;
+    const ready: PendingAbilityImpact[] = [];
+    const pending: PendingAbilityImpact[] = [];
+    for (const impact of this.pendingImpacts) {
+      if (impact.dueAt <= now) ready.push(impact);
+      else pending.push(impact);
+    }
+    this.pendingImpacts = pending;
+    for (const impact of ready) this.applyAbilityImpact(impact, now);
+  }
+
+  /** Expire enemy status tags produced by ability effects. */
+  tickStatusEffects(now: number): void {
     const store = useGameStore.getState();
-    if (store.hotbarCooldowns[slot] > 0) return false;
-    const { character, updateCharacter } = store;
-
-    if (slot === 1) {
-      if (!character || character.mana < 10) return false;
-      const target = this.resolveTarget(store, ATTACK_RANGE, player);
-      if (!target) return false;
-      const strBonus = Math.floor(character.strength / 2);
-      const dmg = 12 + Math.floor(Math.random() * 13) + strBonus;
-      const newHp = Math.max(0, target.health - dmg);
-      store.updateEnemy(target.id, { health: newHp });
-      store.setHotbarCooldown(1, 5.0);
-      updateCharacter({ mana: Math.max(0, character.mana - 10) });
-      store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
-      playSlotAction(player, 1, this.vfx, target);
-      if (newHp <= 0) this.killEnemy(target.id, target, now, store);
-      return true;
+    for (const enemy of store.enemies) {
+      if (!enemy.statusEffects?.length) continue;
+      const active = enemy.statusEffects.filter((effect) => effect.expiresAt > now);
+      if (active.length !== enemy.statusEffects.length) {
+        store.updateEnemy(enemy.id, { statusEffects: active });
+      }
     }
-
-    if (slot === 2) {
-      if (!character || character.mana < 8) return false;
-      const target = this.resolveTarget(store, 10.0, player);
-      if (!target) return false;
-      const dmg = 5 + Math.floor(Math.random() * 8);
-      const newHp = Math.max(0, target.health - dmg);
-      store.updateEnemy(target.id, { health: newHp });
-      store.setHotbarCooldown(2, 3.0);
-      updateCharacter({ mana: Math.max(0, character.mana - 8) });
-      store.pushDamage(makeDmg(now, dmg, 'damage', target.position));
-      playSlotAction(player, 2, this.vfx, target);
-      if (newHp <= 0) this.killEnemy(target.id, target, now, store);
-      return true;
-    }
-
-    if (slot === 3) {
-      if (!character || character.mana < 15) return false;
-      if (character.health >= character.maxHealth) return false;
-      const heal = 35 + Math.floor(Math.random() * 16);
-      updateCharacter({
-        health: Math.min(character.maxHealth, character.health + heal),
-        mana: Math.max(0, character.mana - 15),
-      });
-      store.setHotbarCooldown(3, 10.0);
-      store.pushDamage(makeDmg(now, heal, 'heal', player.position));
-      playSlotAction(player, 3, this.vfx, null);
-      return true;
-    }
-
-    return false;
   }
 
   // ---------------------------------------------------------------------------
@@ -212,7 +169,7 @@ export class Combat {
       if (aggroRange <= 0) continue; // passive — skip AI
 
       const attackRange = enemy.spawn.attackRange  ?? 2.5;
-      const moveSpeed   = enemy.spawn.moveSpeed    ?? 3.5;
+      const moveSpeed   = (enemy.spawn.moveSpeed ?? 3.5) * enemyMoveMultiplier(e, now);
       const baseDmg     = enemy.spawn.attackDamage ?? 5;
 
       const distToPlayer  = dist2D(player.position, enemy.position);
@@ -237,14 +194,18 @@ export class Combat {
       if (!enemy.aggroed) continue;
 
       // Chase
-      if (distToPlayer > attackRange * 0.9) {
+      if (distToPlayer > attackRange * 0.9 && moveSpeed > 0) {
         enemy.moveToward(player.position, moveSpeed, dt);
         store.updateEnemy(e.id, { position: vecToPlain(enemy.position) });
       }
 
       // Melee attack
       enemy.attackCooldown = Math.max(0, enemy.attackCooldown - dt);
-      if (enemy.attackCooldown <= 0 && distToPlayer <= attackRange + 0.5) {
+      if (
+        enemy.attackCooldown <= 0 &&
+        distToPlayer <= attackRange + 0.5 &&
+        !hasBlockingStatus(e, 'stagger')
+      ) {
         enemy.attackCooldown = 2.0 + Math.random() * 0.5;
         const dmg = baseDmg + Math.floor(Math.random() * 4);
         const { character, updateCharacter, setPlayerDead } = store;
@@ -275,6 +236,7 @@ export class Combat {
           alive: true,
           health: enemy.spawn.maxHealth,
           position: vecToPlain(enemy.homePosition),
+          gathering: undefined,
         });
       }
     }
@@ -290,6 +252,116 @@ export class Combat {
   // ---------------------------------------------------------------------------
   // Private helpers
   // ---------------------------------------------------------------------------
+
+  private applyAbilityImpact(impact: PendingAbilityImpact, now: number): void {
+    const store = useGameStore.getState();
+    const targets = this.resolveImpactTargets(impact, store.enemies);
+
+    for (const effect of impact.effects) {
+      if (effect.kind === 'heal') {
+        this.applyHeal(effect, impact, now, store);
+        continue;
+      }
+
+      if (effect.kind === 'damage') {
+        for (const target of targets) {
+          this.applyDamageToEnemy(effect, impact, target, now, store);
+        }
+        continue;
+      }
+
+      if (effect.kind === 'status' && effect.status) {
+        for (const target of targets) {
+          this.applyStatusToEnemy(effect.status, impact, target, now, store);
+        }
+      }
+    }
+  }
+
+  private resolveImpactTargets(
+    impact: PendingAbilityImpact,
+    enemies: EnemyState[],
+  ): EnemyState[] {
+    const shape = impact.ability.targeting.shape;
+    const radius = impact.ability.targeting.radius ?? 0;
+
+    if (shape === 'area' || shape === 'deployable') {
+      const center = impact.ability.targeting.target === 'self'
+        ? impact.sourcePosition
+        : currentTargetPosition(impact, enemies) ?? impact.center;
+      return enemies.filter((enemy) =>
+        enemy.alive && dist2D(enemy.position, center) <= Math.max(1, radius),
+      );
+    }
+
+    if (shape === 'cone') {
+      return enemies.filter((enemy) =>
+        enemy.alive &&
+        dist2D(enemy.position, impact.sourcePosition) <= impact.ability.targeting.range &&
+        isInsideCone(impact.sourcePosition, impact.sourceRotationY, enemy.position),
+      );
+    }
+
+    if (!impact.targetId) return [];
+    const target = enemies.find((enemy) => enemy.id === impact.targetId && enemy.alive);
+    return target ? [target] : [];
+  }
+
+  private applyDamageToEnemy(
+    effect: AbilityEffect,
+    impact: PendingAbilityImpact,
+    target: EnemyState,
+    now: number,
+    store: ReturnType<typeof useGameStore.getState>,
+  ): void {
+    if (!effect.amount) return;
+    const latest = useGameStore.getState().enemies.find((enemy) => enemy.id === target.id);
+    if (!latest || !latest.alive) return;
+
+    const amount = rollAmount(effect.amount, impact);
+    const newHp = Math.max(0, latest.health - amount);
+    store.updateEnemy(latest.id, { health: newHp });
+    store.pushDamage(makeDmg(now, amount, 'damage', latest.position));
+    this.enemiesById.get(latest.id)?.playHitReact();
+
+    if (newHp <= 0) {
+      this.killEnemy(latest.id, { ...latest, health: newHp }, now, store);
+    }
+  }
+
+  private applyHeal(
+    effect: AbilityEffect,
+    impact: PendingAbilityImpact,
+    now: number,
+    store: ReturnType<typeof useGameStore.getState>,
+  ): void {
+    if (!effect.amount || !store.character) return;
+    const amount = rollAmount(effect.amount, impact);
+    const newHp = Math.min(store.character.maxHealth, store.character.health + amount);
+    if (newHp === store.character.health) return;
+    store.updateCharacter({ health: newHp });
+    store.pushDamage(makeDmg(now, amount, 'heal', impact.sourcePosition));
+  }
+
+  private applyStatusToEnemy(
+    status: NonNullable<AbilityEffect['status']>,
+    impact: PendingAbilityImpact,
+    target: EnemyState,
+    now: number,
+    store: ReturnType<typeof useGameStore.getState>,
+  ): void {
+    const effect: CombatStatusEffect = {
+      id: `${status.id}-${impact.ability.id}`,
+      label: status.label,
+      kind: status.kind,
+      expiresAt: now + status.durationSec * 1000,
+      magnitude: status.magnitude,
+      sourceAbilityId: impact.ability.id,
+    };
+    const active = (target.statusEffects ?? [])
+      .filter((existing) => existing.id !== effect.id && existing.expiresAt > now);
+    store.updateEnemy(target.id, { statusEffects: [...active, effect] });
+  }
 
   private resolveTarget(
     store: ReturnType<typeof useGameStore.getState>,
@@ -315,7 +387,10 @@ export class Combat {
       enemyObj.aggroed = false;
       enemyObj.attackCooldown = 0;
     }
-    store.updateEnemy(targetId, { alive: false });
+    store.updateEnemy(targetId, {
+      alive: false,
+      gathering: buildEnemyGatheringState(target.name),
+    });
 
     // XP
     if (store.character) {
@@ -346,7 +421,7 @@ export class Combat {
     const inv = store.inventory;
     const usedSlots = new Set(inv.map((i) => i.slot));
     const canStack  = inv.some((i) => i.key === drop.key && i.qty < 99);
-    if (!canStack && usedSlots.size >= 16) return;
+    if (!canStack && usedSlots.size >= INVENTORY_CAPACITY) return;
 
     store.addInventoryItem(drop);
 
@@ -376,6 +451,54 @@ function dist2D(
   b: { x: number; z: number },
 ): number {
   return Math.hypot(a.x - b.x, a.z - b.z);
+}
+
+function currentTargetPosition(
+  impact: PendingAbilityImpact,
+  enemies: EnemyState[],
+): { x: number; y: number; z: number } | null {
+  if (!impact.targetId) return null;
+  return enemies.find((enemy) => enemy.id === impact.targetId)?.position ?? null;
+}
+
+function isInsideCone(
+  origin: { x: number; z: number },
+  rotationY: number,
+  point: { x: number; z: number },
+): boolean {
+  const dx = point.x - origin.x;
+  const dz = point.z - origin.z;
+  const dist = Math.hypot(dx, dz);
+  if (dist <= 0.001) return true;
+  const forwardX = Math.sin(rotationY);
+  const forwardZ = Math.cos(rotationY);
+  const dot = (dx / dist) * forwardX + (dz / dist) * forwardZ;
+  return dot >= Math.cos(Math.PI / 4);
+}
+
+function rollAmount(
+  amount: NonNullable<AbilityEffect['amount']>,
+  impact: PendingAbilityImpact,
+): number {
+  const rolled = amount.min + Math.random() * (amount.max - amount.min);
+  const stat = (amount.statScale ?? 0) * impact.sourceStrength;
+  const level = (amount.levelScale ?? 0) * impact.sourceLevel;
+  const resource = (amount.resourceScale ?? 0) * impact.resourceSpent;
+  return Math.max(1, Math.round(rolled + stat + level + resource));
+}
+
+function enemyMoveMultiplier(enemy: EnemyState, now: number): number {
+  const active = (enemy.statusEffects ?? []).filter((effect) => effect.expiresAt > now);
+  if (active.some((effect) => effect.kind === 'root' || effect.kind === 'stagger')) return 0;
+  const strongestSlow = active
+    .filter((effect) => effect.kind === 'slow')
+    .reduce((best, effect) => Math.max(best, effect.magnitude ?? 0.3), 0);
+  return Math.max(0.15, 1 - strongestSlow);
+}
+
+function hasBlockingStatus(enemy: EnemyState, kind: CombatStatusEffect['kind']): boolean {
+  const now = performance.now();
+  return (enemy.statusEffects ?? []).some((effect) => effect.kind === kind && effect.expiresAt > now);
 }
 
 function vecToPlain(v: { x: number; y: number; z: number }) {

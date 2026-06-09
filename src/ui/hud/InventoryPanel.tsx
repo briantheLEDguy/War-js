@@ -1,29 +1,8 @@
 import { useState } from 'react';
-import { equipFromInventory } from '../../game/QuestLogic';
+import { getConsumableEffect, INVENTORY_CAPACITY, resolveInventoryItem } from '../../data/items';
+import { equipFromInventory, isInventoryItemEquipped } from '../../game/Equipment';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
-
-const ICONS: Record<string, string> = {
-  sword_iron:     '\u2694',
-  sword_recruit:  '\u2694',
-  sword_veteran:  '\u2694',
-  shield_wood:    '\u{1F6E1}',
-  shield_steel:   '\u{1F6E1}',
-  armor_chain:    '\u{1F9E5}',
-  helm_reikguard: '\u{1FA96}',
-  potion_health:  '\u{1F9EA}',
-  potion_mana:    '\u{1F9EA}',
-  bread:          '\u{1F35E}',
-};
-
-/** Items the player can double-click to consume. */
-const CONSUMABLE: Record<string, { hp?: number; mp?: number; label: string }> = {
-  potion_health: { hp: 50,  label: 'Restores 50 HP' },
-  potion_mana:   { mp: 50,  label: 'Restores 50 Mana' },
-  bread:         { hp: 20,  label: 'Restores 20 HP' },
-};
-
-const GRID_SIZE = 16;
 
 export function InventoryPanel() {
   const inventory        = useGameStore((s) => s.inventory);
@@ -33,21 +12,23 @@ export function InventoryPanel() {
   const appendChat       = useGameStore((s) => s.appendChat);
   const [hover, setHover] = useState<number | null>(null);
 
-  const slots = Array.from({ length: GRID_SIZE }, (_, i) =>
+  const slots = Array.from({ length: INVENTORY_CAPACITY }, (_, i) =>
     inventory.find((it) => it.slot === i),
   );
 
-  function useItem(slotIndex: number) {
-    const item = slots[slotIndex];
-    if (!item || !character) return;
+  function activateItem(slotIndex: number) {
+    const rawItem = slots[slotIndex];
+    if (!rawItem || !character) return;
 
-    // Equippable gear: double-click equips it into its slot.
-    if (item.equipSlot && (item.kind === 'weapon' || item.kind === 'armor')) {
+    const item = resolveInventoryItem(rawItem);
+    const canEquip =
+      !!item.equipSlot && (item.kind === 'weapon' || item.kind === 'armor');
+    if (canEquip) {
       equipFromInventory(slotIndex);
       return;
     }
 
-    const effect = CONSUMABLE[item.key];
+    const effect = getConsumableEffect(item.key);
     if (!effect) return;
 
     // Apply effect
@@ -77,18 +58,21 @@ export function InventoryPanel() {
       <h2>Inventory</h2>
       <div className="inv-grid">
         {slots.map((it, i) => {
-          const effect = it ? CONSUMABLE[it.key] : undefined;
-          const equipped = it && it.equipSlot && character?.equipment?.[it.equipSlot] === it.key;
-          const tooltipLines = it
+          const item = it ? resolveInventoryItem(it) : null;
+          const effect = item ? getConsumableEffect(item.key) : undefined;
+          const canEquip =
+            !!item?.equipSlot && (item.kind === 'weapon' || item.kind === 'armor');
+          const equipped = it ? isInventoryItemEquipped(it, character?.equipment) : false;
+          const tooltipLines = item
             ? [
-                it.name,
-                it.affix?.strengthBonus
-                  ? `+${it.affix.strengthBonus} Strength`
+                item.name,
+                item.affix?.strengthBonus
+                  ? `+${item.affix.strengthBonus} Strength`
                   : null,
-                it.equipSlot
+                item.equipSlot
                   ? equipped
                     ? 'Equipped'
-                    : 'Double-click to equip'
+                    : 'Right-click to equip'
                   : effect
                     ? `${effect.label} (double-click)`
                     : null,
@@ -97,17 +81,32 @@ export function InventoryPanel() {
                 .join('\n')
             : null;
           return (
-            <div
+            <button
+              type="button"
               key={i}
               className={`inv-slot ${it ? '' : 'empty'} ${equipped ? 'equipped' : ''}`}
+              disabled={!it}
+              aria-label={
+                item
+                  ? `${item.name}${equipped ? ' equipped' : ''}`
+                  : `Empty inventory slot ${i + 1}`
+              }
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover((h) => (h === i ? null : h))}
-              onDoubleClick={() => useItem(i)}
+              onClick={() => {
+                if (canEquip) equipFromInventory(i);
+              }}
+              onDoubleClick={() => activateItem(i)}
+              onContextMenu={(e) => {
+                if (!canEquip) return;
+                e.preventDefault();
+                equipFromInventory(i);
+              }}
             >
-              {it && (
+              {item && (
                 <>
-                  <span>{ICONS[it.key] ?? '\u25CB'}</span>
-                  {it.qty > 1 && <span className="qty">{it.qty}</span>}
+                  <span>{item.icon ?? '\u25CB'}</span>
+                  {item.qty > 1 && <span className="qty">{item.qty}</span>}
                   {hover === i && (
                     <div className="inv-tooltip">
                       {tooltipLines?.split('\n').map((line, j) => (
@@ -117,11 +116,11 @@ export function InventoryPanel() {
                   )}
                 </>
               )}
-            </div>
+            </button>
           );
         })}
       </div>
-      <p className="inv-hint">Double-click to use a consumable or equip gear.</p>
+      <p className="inv-hint">Click or right-click gear to equip. Double-click consumables.</p>
     </div>
   );
 }

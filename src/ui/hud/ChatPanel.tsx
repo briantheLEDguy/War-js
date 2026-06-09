@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { canUseGmTools, gmAccessMessage } from '../../editor/gmAuth';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
 
@@ -61,10 +62,51 @@ export function ChatPanel() {
     const v = value.trim();
     setValue('');
     if (v) {
+      if (handleGmCommand(v)) {
+        setChatFocused(false);
+        inputRef.current?.blur();
+        return;
+      }
       await services.chat.send('zone', character?.name ?? 'You', v);
     }
     setChatFocused(false);
     inputRef.current?.blur();
+  }
+
+  function handleGmCommand(command: string): boolean {
+    const normalized = command.toLowerCase();
+    if (!normalized.startsWith('/gm')) return false;
+
+    const store = useGameStore.getState();
+    const user = store.user;
+    if (!canUseGmTools(user)) {
+      appendSystemMessage(gmAccessMessage(user));
+      return true;
+    }
+
+    if (normalized === '/gm build' || normalized === '/gm build on') {
+      store.setGmBuildMode(true);
+      appendSystemMessage('GM build mode enabled.');
+      return true;
+    }
+    if (normalized === '/gm off' || normalized === '/gm build off' || normalized === '/gm exit') {
+      store.setGmBuildMode(false);
+      appendSystemMessage('GM build mode disabled.');
+      return true;
+    }
+
+    appendSystemMessage('GM commands: /gm build, /gm build off');
+    return true;
+  }
+
+  function appendSystemMessage(body: string): void {
+    useGameStore.getState().appendChat({
+      id: `gm-system-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      channel: 'system',
+      from: 'System',
+      body,
+      timestamp: Date.now(),
+    });
   }
 
   // When dragged: switch from bottom/left CSS to top/left inline style.

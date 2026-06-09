@@ -4,6 +4,8 @@ import type { AssetLoader } from '../game/AssetLoader';
 export interface TerrainOpts {
   size: number;
   segments: number;
+  /** Optional .glb terrain mesh under /public/assets/models/. */
+  model?: string;
   heightTexture?: string;
   diffuseTexture?: string;
   /** If true, skip height variation — all y = 0. Use for city/indoor zones. */
@@ -16,11 +18,16 @@ export interface TerrainOpts {
  * any external files.
  */
 export class Terrain {
-  mesh!: THREE.Mesh;
+  mesh!: THREE.Object3D;
   private size: number;
   private segments: number;
   private heights: Float32Array;
   private flat = false;
+  private modelHeightMeshes: THREE.Mesh[] = [];
+  private modelBounds = new THREE.Box3();
+  private modelRaycaster = new THREE.Raycaster();
+  private modelHeightCache = new Map<string, number>();
+  private readonly down = new THREE.Vector3(0, -1, 0);
 
   constructor(opts: TerrainOpts) {
     this.size = opts.size;
@@ -28,11 +35,21 @@ export class Terrain {
     this.heights = new Float32Array((opts.segments + 1) * (opts.segments + 1));
   }
 
-  async build(loader: AssetLoader, opts: TerrainOpts): Promise<THREE.Mesh> {
+  async build(loader: AssetLoader, opts: TerrainOpts): Promise<THREE.Object3D> {
     this.size = opts.size;
     this.segments = opts.segments;
     this.flat = opts.flatTerrain ?? false;
     this.heights = new Float32Array((opts.segments + 1) * (opts.segments + 1));
+    this.modelHeightMeshes = [];
+    this.modelBounds.makeEmpty();
+    this.modelHeightCache.clear();
+
+    if (opts.model) {
+      const terrainModel = await loader.loadModel(opts.model, () => this.buildModelFallbackPlane(opts));
+      this.prepareModelTerrain(terrainModel);
+      this.mesh = terrainModel;
+      return terrainModel;
+    }
 
     const geo = new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments);
     geo.rotateX(-Math.PI / 2);
@@ -156,6 +173,9 @@ export class Terrain {
 
   /** World-space height lookup via bilinear sampling. Returns 0 for flat terrain. */
   heightAt(x: number, z: number): number {
+    const modelHeight = this.heightAtModel(x, z);
+    if (modelHeight !== null) return modelHeight;
+
     if (this.flat) return 0;
     const half = this.size / 2;
     const u = (x + half) / this.size;
@@ -178,5 +198,85 @@ export class Terrain {
     const hx0 = h00 * (1 - tx) + h10 * tx;
     const hx1 = h01 * (1 - tx) + h11 * tx;
     return hx0 * (1 - ty) + hx1 * ty;
+  }
+
+  refreshModelTransform(): void {
+    if (this.modelHeightMeshes.length === 0 || !this.mesh) return;
+    this.mesh.updateMatrixWorld(true);
+    this.modelBounds.setFromObject(this.mesh);
+    this.modelHeightCache.clear();
+  }
+
+  private prepareModelTerrain(root: THREE.Object3D): void {
+    root.updateMatrixWorld(true);
+    root.traverse((node) => {
+      if (!(node as THREE.Mesh).isMesh) return;
+
+      const mesh = node as THREE.Mesh;
+      mesh.castShadow = false;
+      mesh.receiveShadow = true;
+      mesh.geometry.computeBoundingBox();
+      mesh.geometry.computeBoundingSphere();
+
+      const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      for (const material of materials) {
+        if (!material) continue;
+        material.side = THREE.DoubleSide;
+        if (material instanceof THREE.MeshStandardMaterial) {
+          material.roughness = Math.max(material.roughness, 0.88);
+          material.metalness = 0;
+        }
+        material.needsUpdate = true;
+      }
+
+      this.modelHeightMeshes.push(mesh);
+    });
+
+    root.updateMatrixWorld(true);
+    this.modelBounds.setFromObject(root);
+  }
+
+  private heightAtModel(x: number, z: number): number | null {
+    if (this.modelHeightMeshes.length === 0 || this.modelBounds.isEmpty() || !this.mesh.visible) return null;
+
+    const quantizedX = Math.round(x * 2) / 2;
+    const quantizedZ = Math.round(z * 2) / 2;
+    const cacheKey = `${quantizedX}:${quantizedZ}`;
+    const cached = this.modelHeightCache.get(cacheKey);
+    if (cached !== undefined) return cached;
+
+    if (
+      quantizedX < this.modelBounds.min.x ||
+      quantizedX > this.modelBounds.max.x ||
+      quantizedZ < this.modelBounds.min.z ||
+      quantizedZ > this.modelBounds.max.z
+    ) {
+      return null;
+    }
+
+    const origin = new THREE.Vector3(quantizedX, this.modelBounds.max.y + 80, quantizedZ);
+    this.modelRaycaster.set(origin, this.down);
+    this.modelRaycaster.near = 0;
+    this.modelRaycaster.far = (this.modelBounds.max.y - this.modelBounds.min.y) + 160;
+    const hits = this.modelRaycaster.intersectObjects(this.modelHeightMeshes, false);
+    const height = hits[0]?.point.y;
+    if (height === undefined) return null;
+
+    if (this.modelHeightCache.size > 20000) this.modelHeightCache.clear();
+    this.modelHeightCache.set(cacheKey, height);
+    return height;
+  }
+
+  private buildModelFallbackPlane(opts: TerrainOpts): THREE.Mesh {
+    const geo = new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments);
+    geo.rotateX(-Math.PI / 2);
+    const mat = new THREE.MeshStandardMaterial({
+      color: opts.flatTerrain ? 0x7a7a7a : 0x4a7c3a,
+      roughness: 0.92,
+      metalness: 0,
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.receiveShadow = true;
+    return mesh;
   }
 }

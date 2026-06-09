@@ -84,6 +84,17 @@ export function Minimap({ game }: Props) {
         ctx.fill();
       }
 
+      // Crafting stations
+      for (const station of game.craftingStationMarkers) {
+        const dx = station.position.x - px;
+        const dz = station.position.z - pz;
+        const mx = cx + (dx / RANGE) * r;
+        const my = cy + (dz / RANGE) * r;
+        if (Math.hypot(mx - cx, my - cy) > r - 3) continue;
+        ctx.fillStyle = '#f0d880';
+        ctx.fillRect(mx - 2, my - 2, 4, 4);
+      }
+
       // Enemies
       for (const e of enemies) {
         if (!e.alive) continue;

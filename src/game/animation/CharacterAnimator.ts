@@ -1,11 +1,9 @@
 /**
  * Base class for procedural character animators.
  *
- * Why procedural: all character meshes are currently built from Three.js
- * primitives (see `CharacterMeshes.ts`, `WarriorPriest.ts`) — there are no
- * skeletal animations shipping with the models. A subclass exposes a rig
- * of pivot groups (shoulders, hips, weapon) and rotates them per-frame
- * to produce walk/run/attack motion.
+ * Why procedural: generic fallback meshes are built from Three.js primitives.
+ * Manifest-backed GLB models use embedded animation clips; subclasses only
+ * exist for local rigs that need deterministic pivot animation.
  *
  * Subclasses implement:
  *   - `applyLocomotion(phase, speed)` — continuous locomotion sampled from a

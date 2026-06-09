@@ -3,7 +3,7 @@
  * Used as fallbacks when .glb models are not present.
  */
 import * as THREE from 'three';
-import { buildWarriorPriest } from './WarriorPriest';
+import { normalizeClassName } from '../data/careers';
 import { buildHumanoidFace } from './FaceBuilder';
 
 // Shared materials (created once, reused)
@@ -136,10 +136,8 @@ function empireBase(armorColor: number, trimColor: number): THREE.Group {
   const head = sph(0.19, skin);
   head.position.set(0, 1.76, 0);
   group.add(head);
-  // Procedural face features (eyes, brows, nose, lips, ears, chin).
-  // Warrior Priest uses its own detailed buildHead(); all other Empire careers
-  // get the shared face here so face details are visible when the helmet is
-  // removed or doesn't cover the full face.
+  // Procedural face features stay generic because authored models own any
+  // class-specific silhouette.
   buildHumanoidFace(group, 0, 1.76, 0, 0.19, 0xd4a875);
 
   return group;
@@ -149,13 +147,10 @@ function empireBase(armorColor: number, trimColor: number): THREE.Group {
 
 /** Empire character — silver/red plate armor, longsword. */
 export function empire(career?: string): THREE.Object3D {
-  // Warrior Priest has a dedicated high-detail mesh — delegate to its module.
-  if (career === 'Warrior Priest') {
-    return buildWarriorPriest();
-  }
   const g = empireBase(0x8a8a8e, 0xcc1010);
   const helmetMat = new THREE.MeshStandardMaterial({ color: 0x787880, metalness: 0.6, roughness: 0.4 });
-  if (career === 'Bright Wizard') {
+  const className = normalizeClassName(career);
+  if (className === 'Ember Arcanist') {
     // Red robes over armor, fire-tipped staff
     const robe = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.34, 0.7, 8),
       new THREE.MeshStandardMaterial({ color: 0xaa2208, roughness: 0.9 }));
@@ -167,14 +162,14 @@ export function empire(career?: string): THREE.Object3D {
     const hood = cone(0.22, 0.4, 8, new THREE.MeshStandardMaterial({ color: 0x8a1a06, roughness: 0.9 }));
     hood.position.set(0, 1.97, 0);
     g.add(hood);
-  } else if (career === 'Warrior Priest') {
+  } else if (className === 'Battle Prelate') {
     addHammer(g);
     const helm = new THREE.Mesh(new THREE.SphereGeometry(0.21, 10, 6, 0, Math.PI * 2, 0, Math.PI * 0.6), helmetMat);
     helm.position.set(0, 1.68, 0);
     helm.castShadow = true;
     g.add(helm);
   } else {
-    // Knight / Witch Hunter — full helm + sword
+    // Sunfire Templar / Hex Inquisitor -- full helm + sword
     const helm = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 6, 0, Math.PI * 2, 0, Math.PI * 0.65), helmetMat);
     helm.position.set(0, 1.67, 0);
     helm.castShadow = true;
@@ -407,7 +402,7 @@ export function greenskin(career?: string): THREE.Object3D {
   helm.position.set(0, 1.64, 0.06);
   helm.castShadow = true;
   group.add(helm);
-  // Choppa (crude cleaver)
+  // Cleaver (crude blade)
   const blade = box(0.32, 0.44, 0.06, metalRough);
   blade.position.set(0.55, 1.8, 0.1);
   group.add(blade);

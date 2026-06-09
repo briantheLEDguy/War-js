@@ -16,6 +16,15 @@ export function TargetFrame() {
         <div className="fill health" style={{ transform: `scaleX(${pct})` }} />
         <div className="label">{target.health} / {target.maxHealth}</div>
       </div>
+      {target.statusEffects && target.statusEffects.length > 0 && (
+        <div className="target-status-row">
+          {target.statusEffects.slice(0, 5).map((effect) => (
+            <span key={effect.id} className={`target-status status-${effect.kind}`}>
+              {effect.label}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

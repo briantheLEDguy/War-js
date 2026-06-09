@@ -9,6 +9,7 @@ interface Props {
 export function DebugOverlay({ game }: Props) {
   const fps = useGameStore((s) => s.fps);
   const fallbacks = useGameStore((s) => s.assetFallbacks);
+  const gmBuildMode = useGameStore((s) => s.gmBuildMode);
   const px = game?.playerPos.x ?? 0;
   const py = game?.playerPos.y ?? 0;
   const pz = game?.playerPos.z ?? 0;
@@ -20,6 +21,7 @@ export function DebugOverlay({ game }: Props) {
 Zone:       ${zone}
 Pos:        ${px.toFixed(2)}, ${py.toFixed(2)}, ${pz.toFixed(2)}
 Backend:    ${services.backend}
+GM Build:   ${gmBuildMode ? 'on' : 'off'}
 Fallbacks:  ${fallbacks}`}
     </div>
   );

@@ -12,7 +12,10 @@ export function GameScreen() {
   const character = useGameStore((s) => s.character);
   const setScreen = useGameStore((s) => s.setScreen);
   const setInventory = useGameStore((s) => s.setInventory);
+  const setCraftingState = useGameStore((s) => s.setCraftingState);
   const pendingZoneTransition = useGameStore((s) => s.pendingZoneTransition);
+  const gmBuildMode = useGameStore((s) => s.gmBuildMode);
+  const characterMountKey = character ? `${character.id}:${character.zoneId}:${character.bodyVariant}` : null;
 
   // Handle zone transitions: dispose current game, update character zone, re-mount.
   useEffect(() => {
@@ -34,7 +37,9 @@ export function GameScreen() {
 
   useEffect(() => {
     if (!containerRef.current || !character) return;
-    const game = new Game(containerRef.current, character);
+    setReady(false);
+    const characterSnapshot = character;
+    const game = new Game(containerRef.current, characterSnapshot);
     gameRef.current = game;
     game.start().then(() => {
       // Only mark ready if this game instance is still the active one.
@@ -45,23 +50,31 @@ export function GameScreen() {
       console.error('[Game] start() failed:', err);
     });
 
-    // preload inventory + quest progress
-    services.inventory.get(character.id).then(setInventory);
+    // preload inventory, quests, and crafting progress
+    services.inventory.get(characterSnapshot.id).then(setInventory);
+    services.crafting.get(characterSnapshot.id).then(setCraftingState);
     services.quests
-      .list(character.id)
+      .list(characterSnapshot.id)
       .then((q) => useGameStore.getState().setQuests(q));
 
     return () => {
       game.dispose();
       gameRef.current = null;
     };
-  }, [character, setInventory]);
+  }, [characterMountKey, setInventory, setCraftingState]);
+
+  useEffect(() => {
+    if (!ready || !gameRef.current) return;
+    void gameRef.current.setWorldEditorActive(gmBuildMode);
+  }, [gmBuildMode, ready]);
 
   async function logout() {
     if (gameRef.current) gameRef.current.dispose();
     await services.auth.signOut();
     useGameStore.getState().setUser(null);
     useGameStore.getState().setCharacter(null);
+    useGameStore.getState().setSettingsOpen(false);
+    useGameStore.getState().setGmBuildMode(false);
     setScreen('login');
   }
 
@@ -78,7 +91,7 @@ export function GameScreen() {
         Exit to Login
       </button>
       <div className="controls-hint">
-        WASD move &middot; Space jump &middot; LMB target &middot; 1 attack &middot; 2 heavy &middot; 3 ranged &middot; 4 bandage &middot; E interact &middot; I inventory &middot; L quest log &middot; Enter chat &middot; ` debug
+        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; I inventory &middot; C character &middot; L quest log &middot; Enter chat &middot; Esc settings &middot; ` debug
         &nbsp;&nbsp;|&nbsp;&nbsp;Touch: joystick move &middot; ↑ jump &middot; drag camera &middot; pinch zoom &middot; tap target/ability
       </div>
     </div>

@@ -1,6 +1,8 @@
 import type { Game } from '../../game/Game';
 import { useGameStore } from '../../state/gameStore';
 import { ChatPanel } from './ChatPanel';
+import { CharacterSheetPanel } from './CharacterSheetPanel';
+import { CraftingPanel } from './CraftingPanel';
 import { DebugOverlay } from './DebugOverlay';
 import { FloatingDamageLayer } from './FloatingDamageLayer';
 import { Hotbar } from './Hotbar';
@@ -11,8 +13,11 @@ import { PlayerFrame } from './PlayerFrame';
 import { QuestDialog } from './QuestDialog';
 import { QuestLogPanel } from './QuestLogPanel';
 import { QuestMarkerLayer } from './QuestMarkerLayer';
+import { SettingsPanel } from './SettingsPanel';
 import { TargetFrame } from './TargetFrame';
 import { TouchControls } from './TouchControls';
+import { WorldEditorModeStrip } from './WorldEditorModeStrip';
+import { WorldEditorPanel } from './WorldEditorPanel';
 
 interface Props {
   game: Game | null;
@@ -21,9 +26,13 @@ interface Props {
 export function Hud({ game }: Props) {
   const debugOpen    = useGameStore((s) => s.debugOpen);
   const inventoryOpen = useGameStore((s) => s.inventoryOpen);
+  const characterSheetOpen = useGameStore((s) => s.characterSheetOpen);
   const questLogOpen = useGameStore((s) => s.questLogOpen);
   const activeQuestDialogNpcId = useGameStore((s) => s.activeQuestDialogNpcId);
   const playerDead   = useGameStore((s) => s.playerDead);
+  const settingsOpen = useGameStore((s) => s.settingsOpen);
+  const toggleSettings = useGameStore((s) => s.toggleSettings);
+  const gmBuildMode = useGameStore((s) => s.gmBuildMode);
 
   function handleRespawn() {
     useGameStore.getState().setPendingRespawn(true);
@@ -33,10 +42,20 @@ export function Hud({ game }: Props) {
     <div className="hud">
       <PlayerFrame />
       <TargetFrame />
+      <button
+        className={`settings-toggle-btn${settingsOpen ? ' active' : ''}`}
+        type="button"
+        onClick={toggleSettings}
+        aria-pressed={settingsOpen}
+      >
+        Settings
+      </button>
       <Hotbar />
       <ChatPanel />
       <Minimap game={game} />
       {inventoryOpen && <InventoryPanel />}
+      <CraftingPanel />
+      {characterSheetOpen && <CharacterSheetPanel />}
       {questLogOpen && <QuestLogPanel />}
       {activeQuestDialogNpcId && <QuestDialog />}
       {debugOpen && <DebugOverlay game={game} />}
@@ -44,6 +63,9 @@ export function Hud({ game }: Props) {
       <QuestMarkerLayer game={game} />
       <FloatingDamageLayer game={game} />
       <TouchControls game={game} />
+      <SettingsPanel />
+      {gmBuildMode && <WorldEditorModeStrip />}
+      {gmBuildMode && <WorldEditorPanel game={game} />}
 
       {playerDead && (
         <div className="death-overlay">

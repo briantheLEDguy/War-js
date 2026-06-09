@@ -3,6 +3,9 @@ import type {
   CharacterState,
   CharacterSummary,
 } from '../types';
+import { normalizeClassName } from '../../data/careers';
+import { normalizeBodyVariant, starterArmorEquipmentFor } from '../../data/playableAssets.generated';
+import { createLocalId } from './id';
 
 /** Order races start in Altdorf; Destruction races in the Inevitable City. */
 function defaultZoneForRace(race: CharacterState['race']): string {
@@ -24,8 +27,9 @@ const PREBUILT: Record<string, CharacterState> = {
   'char-sigmund': {
     id: 'char-sigmund',
     name: 'Sigmund',
-    className: 'Warrior Priest',
+    className: 'Battle Prelate',
     race: 'empire',
+    bodyVariant: 'm',
     level: 5,
     xp: 320,
     zoneId: 'altdorf',
@@ -35,15 +39,16 @@ const PREBUILT: Record<string, CharacterState> = {
     maxMana: 60,
     strength: 14,
     gold: 25,
-    position: { x: 0, y: 0, z: 120 },
+    position: { x: -20, y: 0, z: 31 },
     rotationY: Math.PI,
-    equipment: {},
+    equipment: starterArmorEquipmentFor('empire', 'Battle Prelate', 'm'),
   },
   'char-grik': {
     id: 'char-grik',
     name: 'Grik',
-    className: 'Shaman',
+    className: 'Bog Hexer',
     race: 'greenskin',
+    bodyVariant: 'm',
     level: 4,
     xp: 110,
     zoneId: 'inevitable_city',
@@ -55,7 +60,7 @@ const PREBUILT: Record<string, CharacterState> = {
     gold: 12,
     position: { x: 0, y: 0, z: 0 },
     rotationY: 0,
-    equipment: {},
+    equipment: starterArmorEquipmentFor('greenskin', 'Bog Hexer', 'm'),
   },
 };
 
@@ -70,7 +75,10 @@ export class CharacterLocal implements CharacterService {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const saved = JSON.parse(raw) as Record<string, CharacterState>;
-        Object.assign(this.store, saved);
+        Object.assign(this.store, Object.fromEntries(
+          Object.entries(saved).map(([id, state]) => [id, normalizeCharacterState(state)]),
+        ));
+        this.persist();
       }
     } catch {
       /* ignore */
@@ -93,13 +101,14 @@ export class CharacterLocal implements CharacterService {
     _userId: string,
     data: Omit<CharacterSummary, 'id' | 'level' | 'zoneId'>,
   ): Promise<CharacterSummary> {
-    const id = `char-${crypto.randomUUID()}`;
+    const id = createLocalId('char');
     const startZone = defaultZoneForRace(data.race);
     const full: CharacterState = {
       id,
       name: data.name,
-      className: data.className,
+      className: normalizeClassName(data.className),
       race: data.race,
+      bodyVariant: normalizeBodyVariant(data.bodyVariant),
       level: 1,
       xp: 0,
       zoneId: startZone,
@@ -109,9 +118,9 @@ export class CharacterLocal implements CharacterService {
       maxMana: 100,
       strength: 10,
       gold: 0,
-      position: { x: 0, y: 0, z: 120 },
+      position: { x: -20, y: 0, z: 31 },
       rotationY: Math.PI,
-      equipment: {},
+      equipment: starterArmorEquipmentFor(data.race, data.className, data.bodyVariant),
     };
     this.store[id] = full;
     this.persist();
@@ -125,16 +134,23 @@ export class CharacterLocal implements CharacterService {
     // localStorage payloads still load cleanly with sensible defaults.
     return {
       ...c,
+      className: normalizeClassName(c.className),
+      bodyVariant: normalizeBodyVariant(c.bodyVariant),
       strength: c.strength ?? 10,
       gold: c.gold ?? 0,
-      equipment: c.equipment ?? {},
+      equipment: equipmentOrStarter(c),
     };
   }
 
   async save(characterId: string, state: Partial<CharacterState>): Promise<void> {
     const c = this.store[characterId];
     if (!c) return;
-    this.store[characterId] = { ...c, ...state };
+    this.store[characterId] = {
+      ...c,
+      ...state,
+      className: normalizeClassName(state.className ?? c.className),
+      bodyVariant: normalizeBodyVariant(state.bodyVariant ?? c.bodyVariant),
+    };
     this.persist();
   }
 }
@@ -143,9 +159,25 @@ function toSummary(c: CharacterState): CharacterSummary {
   return {
     id: c.id,
     name: c.name,
-    className: c.className,
+    className: normalizeClassName(c.className),
     race: c.race,
+    bodyVariant: normalizeBodyVariant(c.bodyVariant),
     level: c.level,
     zoneId: c.zoneId,
   };
+}
+
+function normalizeCharacterState(c: CharacterState): CharacterState {
+  return {
+    ...c,
+    className: normalizeClassName(c.className),
+    bodyVariant: normalizeBodyVariant(c.bodyVariant),
+    equipment: equipmentOrStarter(c),
+  };
+}
+
+function equipmentOrStarter(c: CharacterState): CharacterState['equipment'] {
+  return c.equipment && Object.keys(c.equipment).length > 0
+    ? c.equipment
+    : starterArmorEquipmentFor(c.race, c.className, c.bodyVariant);
 }

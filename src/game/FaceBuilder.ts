@@ -11,7 +11,7 @@
  * -----
  *   buildHumanoidFace(group, cx, cy, cz, radius, skinHex, options);
  *
- * The Warrior Priest keeps its own bespoke buildHead() for full art-direction
+ * Battle Prelate keeps its own bespoke buildHead() for full art-direction
  * control (halo, headband, WP-specific beard layers, etc.).  This module
  * targets all other careers that show a bare humanoid face.
  */

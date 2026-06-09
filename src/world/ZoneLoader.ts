@@ -1,11 +1,101 @@
+import { applyBiomeKits } from './BiomeKit';
+import { applyZonePaths } from './PathKit';
+import type { CraftingStationKind } from '../services/types';
+
 export interface PropSpawn {
+  /** Optional stable GM-editor id for static map props. Generated from prop index when omitted. */
+  id?: string;
   kind: 'tree' | 'rock' | 'building' | 'dummy' | string;
   x: number;
+  /** Optional vertical offset from terrain height. */
+  y?: number;
   z: number;
   rotY?: number;
   scale?: number;
+  /** Optional non-uniform scale for generated strips such as roads and trails. */
+  scaleX?: number;
+  scaleY?: number;
+  scaleZ?: number;
   /** Optional .glb under /public/assets/models/ */
   model?: string;
+  /** Optional asset-index static key. Prefer this over direct model names. */
+  assetKey?: string;
+  colliders?: Array<{
+    id?: string;
+    /** Local offset from prop origin. */
+    x?: number;
+    z?: number;
+    width: number;
+    depth: number;
+    rotY?: number;
+    blocksWhen?: 'always' | 'closed';
+    interactionId?: string;
+  }>;
+  walkableSurfaces?: Array<{
+    id?: string;
+    /** Local offset from prop origin. */
+    x?: number;
+    z?: number;
+    width: number;
+    depth: number;
+    rotY?: number;
+    /** Local height at the low edge of the surface. */
+    fromY?: number;
+    /** Local height at the high edge of the surface. */
+    toY?: number;
+    /** Local axis used for the height ramp. Defaults to z. */
+    axis?: 'x' | 'z';
+  }>;
+  interaction?: {
+    id: string;
+    type: 'gate';
+    label?: string;
+    maxDistance?: number;
+    openClip?: string;
+    closeClip?: string;
+    startsOpen?: boolean;
+  };
+}
+
+export interface BiomeKitPlacement {
+  id: string;
+  biomeId: 'evergreen_pnw' | string;
+  activeSeason?: 'spring' | 'summer' | 'autumn' | 'winter';
+  x: number;
+  z: number;
+  width: number;
+  depth: number;
+  count: number;
+  /** Deterministic scatter seed. */
+  seed?: number;
+  /** Optional vertical offset from terrain height for all generated props. */
+  y?: number;
+  /** Rotates the scatter patch around its center. */
+  rotY?: number;
+  /** Ellipse keeps landscaping soft; rectangle is useful for hedgelines. */
+  shape?: 'ellipse' | 'rectangle';
+  /** Optional subset of the kit's prop kinds for courtyards, planters, or edges. */
+  allowedKinds?: string[];
+  /** Holes inside the scatter patch for gates, roads, plazas, or spawn areas. */
+  exclude?: Array<{
+    x: number;
+    z: number;
+    radius: number;
+  }>;
+  /** Rectangular holes for large structures such as castles or plazas. */
+  excludeRectangles?: Array<{
+    x: number;
+    z: number;
+    width: number;
+    depth: number;
+    rotY?: number;
+  }>;
+  /** Polyline corridors that stay free of generated biome scatter. */
+  excludeCorridors?: Array<{
+    id: string;
+    points: Array<{ x: number; z: number }>;
+    radius: number;
+  }>;
 }
 
 export interface EnemySpawn {
@@ -13,8 +103,12 @@ export interface EnemySpawn {
   name: string;
   level: number;
   x: number;
+  /** Optional height hint above terrain for stacked walkable floors. */
+  y?: number;
   z: number;
   maxHealth: number;
+  /** Optional asset-index static key. Prefer this over direct model names. */
+  assetKey?: string;
   model?: string;
   /** 0 = passive (never aggros). Default: 0 */
   aggroRange?: number;
@@ -47,8 +141,23 @@ export interface NpcSpawn {
   title?: string;
   role: 'vendor' | 'trainer' | 'banker' | 'questgiver' | 'guard' | 'ambient';
   x: number;
+  /** Optional height hint above terrain for stacked walkable floors. */
+  y?: number;
   z: number;
   rotY?: number;
+  /** Optional .glb under /public/assets/models/ */
+  model?: string;
+}
+
+/** A non-combat interaction point that opens gathering/crafting UI. */
+export interface CraftingStationSpawn {
+  id: string;
+  label: string;
+  kind: CraftingStationKind;
+  x: number;
+  y?: number;
+  z: number;
+  radius?: number;
 }
 
 export interface ZoneDefinition {
@@ -58,6 +167,8 @@ export interface ZoneDefinition {
   segments: number;
   skybox?: string;         // .hdr file
   terrainTexture?: string; // .png/.jpg
+  /** Optional .glb under /public/assets/models/ used as the visible terrain. */
+  terrainModel?: string;
   heightmap?: string;      // .png (phase 2)
   /** If true, terrain is completely flat (y=0 everywhere). Use for city zones. */
   flatTerrain?: boolean;
@@ -68,16 +179,31 @@ export interface ZoneDefinition {
   zoneTriggers?: ZoneTrigger[];
   /** Static NPCs: vendors, trainers, bankers, guards, etc. */
   npcs?: NpcSpawn[];
+  /** Crafting workbenches and cultivation plots opened with the interact key. */
+  craftingStations?: CraftingStationSpawn[];
+  /** Data-driven landscaping kits expanded into props when the zone loads. */
+  biomeKits?: BiomeKitPlacement[];
+  /** Non-blocking visual walking paths generated into props when the zone loads. */
+  paths?: PathDefinition[];
+}
+
+export interface PathDefinition {
+  id: string;
+  style: 'dirt_trail' | 'cobblestone_avenue';
+  width: number;
+  points: Array<{ x: number; z: number }>;
+  y?: number;
 }
 
 export async function loadZone(id: string): Promise<ZoneDefinition> {
   try {
     const res = await fetch(`${import.meta.env.BASE_URL}assets/maps/${id}.json`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return (await res.json()) as ZoneDefinition;
+    const zone = applyZonePaths((await res.json()) as ZoneDefinition);
+    return applyBiomeKits(zone);
   } catch (err) {
     console.warn(`[ZoneLoader] missing ${id}.json, using built-in default:`, err);
-    return buildInDefault(id);
+    return applyBiomeKits(applyZonePaths(buildInDefault(id)));
   }
 }
 

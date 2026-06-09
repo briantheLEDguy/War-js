@@ -1,3 +1,5 @@
+import { useGameStore } from '../state/gameStore';
+
 export class Input {
   private keys = new Set<string>();
   private target: HTMLElement;
@@ -6,7 +8,17 @@ export class Input {
   mouseLeftDown = false;
   mouseRightDown = false;
   mouseLeftClickedThisFrame = false;
+  mouseRightClickedThisFrame = false;
   lastClickNDC = new Float32Array(2); // [-1,1] screen space
+  lastRightClickNDC = new Float32Array(2); // [-1,1] screen space
+
+  private leftMouseStartX = 0;
+  private leftMouseStartY = 0;
+  private leftMouseClickBlocked = false;
+  private rightMouseStartX = 0;
+  private rightMouseStartY = 0;
+  private rightMouseClickBlocked = false;
+  private readonly clickSlopPx = 6;
 
   // Touch-driven virtual joystick axis (-1 to 1 each)
   touchMoveX = 0;
@@ -20,29 +32,88 @@ export class Input {
   private tapStartY = 0;
 
   private onKeyDown = (e: KeyboardEvent) => {
-    if (this.shouldIgnoreKey(e)) return;
+    if (this.shouldIgnoreKey(e)) {
+      this.clearHeldState();
+      return;
+    }
     const k = e.code;
+    const gmBuildMode = useGameStore.getState().gmBuildMode;
+    const target = e.target as HTMLElement | null;
+    if (gmBuildMode && (k === 'Delete' || k === 'Backspace')) {
+      if (isFormControl(target)) {
+        this.clearHeldState();
+        return;
+      }
+      e.preventDefault();
+    }
+    if (gmBuildMode && (k === 'Tab' || (isMovementKey(k) && isFormControl(target)))) {
+      e.preventDefault();
+    }
     if (!this.keys.has(k)) this.pressedThisFrame.add(k);
     this.keys.add(k);
   };
   private onKeyUp = (e: KeyboardEvent) => {
     this.keys.delete(e.code);
   };
-  private onMouseDown = (e: MouseEvent) => {
+  private onMouseDown = (e: PointerEvent) => {
+    if (e.pointerType !== 'mouse') return;
     if (e.button === 0) {
+      e.preventDefault();
       this.mouseLeftDown = true;
-      this.mouseLeftClickedThisFrame = true;
-      const rect = this.target.getBoundingClientRect();
-      this.lastClickNDC[0] = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      this.lastClickNDC[1] = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+      this.leftMouseStartX = e.clientX;
+      this.leftMouseStartY = e.clientY;
+      this.leftMouseClickBlocked = this.mouseRightDown;
+      if (this.mouseRightDown) this.rightMouseClickBlocked = true;
     }
-    if (e.button === 2) this.mouseRightDown = true;
+    if (e.button === 2) {
+      e.preventDefault();
+      this.mouseRightDown = true;
+      this.rightMouseStartX = e.clientX;
+      this.rightMouseStartY = e.clientY;
+      this.rightMouseClickBlocked = this.mouseLeftDown;
+      if (this.mouseLeftDown) this.leftMouseClickBlocked = true;
+    }
   };
-  private onMouseUp = (e: MouseEvent) => {
-    if (e.button === 0) this.mouseLeftDown = false;
-    if (e.button === 2) this.mouseRightDown = false;
+  private onMouseMove = (e: PointerEvent) => {
+    if (e.pointerType !== 'mouse') return;
+    if (this.mouseLeftDown && !this.leftMouseClickBlocked) {
+      const dx = e.clientX - this.leftMouseStartX;
+      const dy = e.clientY - this.leftMouseStartY;
+      if (Math.hypot(dx, dy) > this.clickSlopPx) this.leftMouseClickBlocked = true;
+    }
+    if (this.mouseRightDown && !this.rightMouseClickBlocked) {
+      const dx = e.clientX - this.rightMouseStartX;
+      const dy = e.clientY - this.rightMouseStartY;
+      if (Math.hypot(dx, dy) > this.clickSlopPx) this.rightMouseClickBlocked = true;
+    }
+  };
+  private onMouseUp = (e: PointerEvent) => {
+    if (e.pointerType !== 'mouse') return;
+    if (e.button === 0) {
+      if (!this.leftMouseClickBlocked) {
+        this.setClickNDC(e.clientX, e.clientY, this.lastClickNDC);
+        this.mouseLeftClickedThisFrame = true;
+      }
+      this.mouseLeftDown = false;
+      this.leftMouseClickBlocked = false;
+    }
+    if (e.button === 2) {
+      if (!this.rightMouseClickBlocked) {
+        this.setClickNDC(e.clientX, e.clientY, this.lastRightClickNDC);
+        this.mouseRightClickedThisFrame = true;
+      }
+      this.mouseRightDown = false;
+      this.rightMouseClickBlocked = false;
+    }
   };
   private onContextMenu = (e: MouseEvent) => e.preventDefault();
+  private onWindowBlur = () => this.clearHeldState();
+  private onVisibilityChange = () => {
+    if (document.visibilityState !== 'visible') this.clearHeldState();
+  };
+  private onFocusIn = (e: FocusEvent) => {
+    if (isFormControl(e.target as HTMLElement | null)) this.clearHeldState();
+  };
 
   // Touch tap-to-target (short taps on the canvas become left-clicks)
   private onTouchStart = (e: TouchEvent) => {
@@ -74,8 +145,12 @@ export class Input {
     this.target = target;
     window.addEventListener('keydown', this.onKeyDown);
     window.addEventListener('keyup', this.onKeyUp);
-    target.addEventListener('mousedown', this.onMouseDown);
-    window.addEventListener('mouseup', this.onMouseUp);
+    window.addEventListener('blur', this.onWindowBlur);
+    document.addEventListener('visibilitychange', this.onVisibilityChange);
+    document.addEventListener('focusin', this.onFocusIn);
+    target.addEventListener('pointerdown', this.onMouseDown);
+    window.addEventListener('pointermove', this.onMouseMove);
+    window.addEventListener('pointerup', this.onMouseUp);
     target.addEventListener('contextmenu', this.onContextMenu);
     target.addEventListener('touchstart', this.onTouchStart, { passive: true });
     target.addEventListener('touchend', this.onTouchEnd, { passive: true });
@@ -84,9 +159,13 @@ export class Input {
 
   private shouldIgnoreKey(e: KeyboardEvent): boolean {
     const t = e.target as HTMLElement | null;
-    if (!t) return false;
-    const tag = t.tagName;
-    return tag === 'INPUT' || tag === 'TEXTAREA' || t.isContentEditable;
+    return isTextEntryControl(t);
+  }
+
+  private setClickNDC(clientX: number, clientY: number, target: Float32Array) {
+    const rect = this.target.getBoundingClientRect();
+    target[0] = ((clientX - rect.left) / rect.width) * 2 - 1;
+    target[1] = -(((clientY - rect.top) / rect.height) * 2 - 1);
   }
 
   isDown(code: string): boolean {
@@ -110,16 +189,57 @@ export class Input {
   endFrame() {
     this.pressedThisFrame.clear();
     this.mouseLeftClickedThisFrame = false;
+    this.mouseRightClickedThisFrame = false;
     this.touchJumpThisFrame = false;
   }
+
+  clearHeldState() {
+    this.keys.clear();
+    this.pressedThisFrame.clear();
+    this.mouseLeftDown = false;
+    this.mouseRightDown = false;
+    this.mouseLeftClickedThisFrame = false;
+    this.mouseRightClickedThisFrame = false;
+    this.leftMouseClickBlocked = false;
+    this.rightMouseClickBlocked = false;
+    this.touchMoveX = 0;
+    this.touchMoveZ = 0;
+    this.touchJumpThisFrame = false;
+    this.tapTouchId = null;
+  }
+
   dispose() {
     window.removeEventListener('keydown', this.onKeyDown);
     window.removeEventListener('keyup', this.onKeyUp);
-    this.target.removeEventListener('mousedown', this.onMouseDown);
-    window.removeEventListener('mouseup', this.onMouseUp);
+    window.removeEventListener('blur', this.onWindowBlur);
+    document.removeEventListener('visibilitychange', this.onVisibilityChange);
+    document.removeEventListener('focusin', this.onFocusIn);
+    this.target.removeEventListener('pointerdown', this.onMouseDown);
+    window.removeEventListener('pointermove', this.onMouseMove);
+    window.removeEventListener('pointerup', this.onMouseUp);
     this.target.removeEventListener('contextmenu', this.onContextMenu);
     this.target.removeEventListener('touchstart', this.onTouchStart);
     this.target.removeEventListener('touchend', this.onTouchEnd);
     this.target.removeEventListener('touchcancel', this.onTouchCancel);
   }
+}
+
+function isFormControl(target: HTMLElement | null): boolean {
+  if (!target) return false;
+  const tag = target.tagName;
+  return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON' || target.isContentEditable;
+}
+
+function isTextEntryControl(target: HTMLElement | null): boolean {
+  if (!target) return false;
+  if (target.isContentEditable) return true;
+  const tag = target.tagName;
+  if (tag === 'TEXTAREA') return true;
+  if (tag !== 'INPUT') return false;
+  const input = target as HTMLInputElement;
+  return !['button', 'checkbox', 'color', 'file', 'number', 'radio', 'range', 'reset', 'submit'].includes(input.type);
+}
+
+function isMovementKey(code: string): boolean {
+  return code === 'KeyW' || code === 'KeyA' || code === 'KeyS' || code === 'KeyD' || code === 'Space';
 }

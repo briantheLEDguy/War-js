@@ -2,14 +2,18 @@ import { supabaseEnabled } from '../config/env';
 import { AuthLocal } from './local/authLocal';
 import { CharacterLocal } from './local/characterLocal';
 import { ChatLocal } from './local/chatLocal';
+import { CraftingLocal } from './local/craftingLocal';
 import { InventoryLocal } from './local/inventoryLocal';
 import { QuestLocal } from './local/questLocal';
+import { WorldEditLocal } from './local/worldEditLocal';
 import { WorldLocal } from './local/worldLocal';
 import { AuthSupabase } from './supabase/authSupabase';
 import { CharacterSupabase } from './supabase/characterSupabase';
 import { ChatSupabase } from './supabase/chatSupabase';
+import { CraftingSupabase } from './supabase/craftingSupabase';
 import { InventorySupabase } from './supabase/inventorySupabase';
 import { QuestSupabase } from './supabase/questSupabase';
+import { WorldEditSupabase } from './supabase/worldEditSupabase';
 import { WorldSupabase } from './supabase/worldSupabase';
 import type { Services } from './types';
 
@@ -20,8 +24,10 @@ function build(): Services {
       auth: new AuthSupabase(),
       characters: new CharacterSupabase(),
       inventory: new InventorySupabase(),
+      crafting: new CraftingSupabase(),
       chat: new ChatSupabase(),
       world: new WorldSupabase(),
+      worldEdits: new WorldEditSupabase(),
       quests: new QuestSupabase(),
       backend: 'supabase',
     };
@@ -31,8 +37,10 @@ function build(): Services {
     auth: new AuthLocal(),
     characters: new CharacterLocal(),
     inventory: new InventoryLocal(),
+    crafting: new CraftingLocal(),
     chat: new ChatLocal(),
     world: new WorldLocal(),
+    worldEdits: new WorldEditLocal(),
     quests: new QuestLocal(),
     backend: 'local',
   };

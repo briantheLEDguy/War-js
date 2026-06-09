@@ -1,4 +1,5 @@
 import type { ChatMessage, ChatService, Unsubscribe } from '../types';
+import { createLocalId } from './id';
 
 export class ChatLocal implements ChatService {
   private log: ChatMessage[] = [
@@ -18,7 +19,7 @@ export class ChatLocal implements ChatService {
 
   async send(channel: ChatMessage['channel'], from: string, body: string): Promise<void> {
     const msg: ChatMessage = {
-      id: crypto.randomUUID(),
+      id: createLocalId('chat'),
       channel,
       from,
       body,

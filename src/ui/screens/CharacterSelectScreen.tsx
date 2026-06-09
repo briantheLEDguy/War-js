@@ -1,31 +1,16 @@
 import { useEffect, useState } from 'react';
+import {
+  BODY_VARIANT_DISPLAY,
+  BODY_VARIANTS,
+  CLASSES_BY_RACE,
+  DESTRUCTION_RACES,
+  ORDER_RACES,
+  RACE_DISPLAY,
+  normalizeClassName,
+} from '../../data/careers';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
 import type { CharacterSummary } from '../../services/types';
-
-/** WAR realm alignment — determines starting capital city. */
-const ORDER_RACES: CharacterSummary['race'][] = ['empire', 'dwarf', 'high_elf'];
-const DESTRUCTION_RACES: CharacterSummary['race'][] = ['chaos', 'greenskin', 'dark_elf'];
-const ALL_RACES: CharacterSummary['race'][] = [...ORDER_RACES, ...DESTRUCTION_RACES];
-
-/** WAR career lists per race — must match the original game exactly. */
-const CAREERS_BY_RACE: Record<CharacterSummary['race'], string[]> = {
-  empire:    ['Bright Wizard', 'Witch Hunter', 'Knight of the Blazing Sun', 'Warrior Priest'],
-  dwarf:     ['Ironbreaker', 'Slayer', 'Rune Priest', 'Engineer'],
-  high_elf:  ['Swordmaster', 'White Lion', 'Archmage', 'Shadow Warrior'],
-  chaos:     ['Chosen', 'Marauder', 'Magus', 'Zealot'],
-  greenskin: ['Black Orc', 'Squig Herder', 'Shaman', 'Choppa'],
-  dark_elf:  ['Witch Elf', 'Blackguard', 'Sorceress', 'Disciple of Khaine'],
-};
-
-const RACE_DISPLAY: Record<CharacterSummary['race'], string> = {
-  empire:    'Empire',
-  dwarf:     'Dwarf',
-  high_elf:  'High Elf',
-  chaos:     'Chaos',
-  greenskin: 'Greenskin',
-  dark_elf:  'Dark Elf',
-};
 
 export function CharacterSelectScreen() {
   const user = useGameStore((s) => s.user);
@@ -39,7 +24,8 @@ export function CharacterSelectScreen() {
   const [showCreate, setShowCreate] = useState(false);
   const [newName, setNewName] = useState('');
   const [newRace, setNewRace] = useState<CharacterSummary['race']>('empire');
-  const [newClass, setNewClass] = useState(CAREERS_BY_RACE['empire'][0]);
+  const [newClass, setNewClass] = useState(CLASSES_BY_RACE['empire'][0]);
+  const [newBodyVariant, setNewBodyVariant] = useState<CharacterSummary['bodyVariant']>('m');
 
   useEffect(() => {
     if (!user) return;
@@ -63,6 +49,7 @@ export function CharacterSelectScreen() {
       name: newName.trim(),
       className: newClass,
       race: newRace,
+      bodyVariant: newBodyVariant,
     });
     const cs = await services.characters.list(user.id);
     setCharacterList(cs);
@@ -80,82 +67,103 @@ export function CharacterSelectScreen() {
   return (
     <div className="fullscreen-centered">
       <div className="panel character-select-panel">
-        <div className="backend-tag">Backend: {services.backend}</div>
-        <h1>Choose Your Hero</h1>
-        <p style={{ color: 'var(--dim)', fontSize: 12, marginTop: -8, fontStyle: 'italic' }}>
-          Signed in as {user?.email}
-        </p>
+        <div className="character-select-header">
+          <div>
+            <div className="backend-tag">Backend: {services.backend}</div>
+            <h1>Choose Your Hero</h1>
+            <p className="character-userline">Signed in as {user?.email}</p>
+          </div>
+          <div className="character-count">
+            <strong>{characterList.length}</strong>
+            <span>{characterList.length === 1 ? 'Hero' : 'Heroes'}</span>
+          </div>
+        </div>
 
-        <div className="character-list">
+        <div className="character-list" aria-label="Character list">
           {characterList.length === 0 && (
-            <div style={{ color: 'var(--dim)', fontSize: 13, padding: '12px 0', textAlign: 'center', fontStyle: 'italic' }}>
+            <div className="character-empty">
               No characters yet. Create one below to begin your campaign.
             </div>
           )}
           {characterList.map((c) => {
             const isOrder = ORDER_RACES.includes(c.race);
             return (
-              <div
+              <button
+                type="button"
                 key={c.id}
                 className={`character-row ${selected === c.id ? 'selected' : ''}`}
                 onClick={() => setSelected(c.id)}
+                aria-pressed={selected === c.id}
               >
-                <div>
+                <div className="character-row-main">
                   <div className="name">{c.name}</div>
                   <div className="meta">
-                    Lv {c.level} {RACE_DISPLAY[c.race] ?? c.race} {c.className} &mdash; {c.zoneId}
+                    Lv {c.level} {BODY_VARIANT_DISPLAY[c.bodyVariant ?? 'm']} {RACE_DISPLAY[c.race] ?? c.race} {normalizeClassName(c.className)} &mdash; {c.zoneId}
                   </div>
                 </div>
                 <span className={`realm-tag ${isOrder ? 'order' : 'destruction'}`}>
                   {isOrder ? 'Order' : 'Destruction'}
                 </span>
-              </div>
+              </button>
             );
           })}
         </div>
 
         {showCreate && (
           <form className="create-form" onSubmit={createCharacter}>
+            <div className="create-form-fields">
+              <div className="field">
+                <label>Name</label>
+                <input
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                  maxLength={18}
+                  autoFocus
+                />
+              </div>
+              <div className="field">
+                <label>Race</label>
+                <select
+                  value={newRace}
+                  onChange={(e) => {
+                    const r = e.target.value as CharacterSummary['race'];
+                    setNewRace(r);
+                    setNewClass(CLASSES_BY_RACE[r][0]);
+                  }}
+                >
+                  <optgroup label="Order">
+                    {ORDER_RACES.map((r) => (
+                      <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Destruction">
+                    {DESTRUCTION_RACES.map((r) => (
+                      <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
+                    ))}
+                  </optgroup>
+                </select>
+              </div>
             <div className="field">
-              <label>Name</label>
-              <input
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                maxLength={18}
-                autoFocus
-              />
-            </div>
-            <div className="field">
-              <label>Race</label>
-              <select
-                value={newRace}
-                onChange={(e) => {
-                  const r = e.target.value as CharacterSummary['race'];
-                  setNewRace(r);
-                  setNewClass(CAREERS_BY_RACE[r][0]);
-                }}
-              >
-                <optgroup label="Order">
-                  {ORDER_RACES.map((r) => (
-                    <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
-                  ))}
-                </optgroup>
-                <optgroup label="Destruction">
-                  {DESTRUCTION_RACES.map((r) => (
-                    <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
-                  ))}
-                </optgroup>
-              </select>
-            </div>
-            <div className="field">
-              <label>Career</label>
+              <label>Class</label>
               <select value={newClass} onChange={(e) => setNewClass(e.target.value)}>
-                {CAREERS_BY_RACE[newRace].map((c) => (
+                {CLASSES_BY_RACE[newRace].map((c) => (
                   <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </div>
-            <div style={{ display: 'flex', gap: 8 }}>
+            <div className="field">
+              <label>Body</label>
+              <select
+                value={newBodyVariant}
+                onChange={(e) => setNewBodyVariant(e.target.value as CharacterSummary['bodyVariant'])}
+              >
+                {BODY_VARIANTS.map((variant) => (
+                  <option key={variant} value={variant}>{BODY_VARIANT_DISPLAY[variant]}</option>
+                ))}
+              </select>
+            </div>
+            </div>
+            <div className="create-form-actions">
               <button type="submit" disabled={!newName.trim()}>
                 Create
               </button>
@@ -166,12 +174,12 @@ export function CharacterSelectScreen() {
           </form>
         )}
 
-        <div className="character-actions" style={{ marginTop: 16 }}>
+        <div className="character-actions">
           <button onClick={logout}>Log Out</button>
           <button onClick={() => setShowCreate((v) => !v)}>
             {showCreate ? 'Close' : 'New Character'}
           </button>
-          <button onClick={enterWorld} disabled={!selected}>
+          <button className="primary-action" onClick={enterWorld} disabled={!selected}>
             Enter World
           </button>
         </div>
