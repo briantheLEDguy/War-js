@@ -5188,6 +5188,22 @@
     "dummy": {
       "assetId": "prop.training_dummy.t1",
       "model": "prop_training_dummy_t1.glb"
+    },
+    "preview_twisted_tree": {
+      "assetId": "prop.preview.twisted_tree.t1",
+      "model": "prop_preview_twisted_tree_t1.glb"
+    },
+    "preview_blight_shrub": {
+      "assetId": "prop.preview.blight_shrub.t1",
+      "model": "prop_preview_blight_shrub_t1.glb"
+    },
+    "preview_jagged_stone": {
+      "assetId": "prop.preview.jagged_stone.t1",
+      "model": "prop_preview_jagged_stone_t1.glb"
+    },
+    "preview_dreary_reeds": {
+      "assetId": "prop.preview.dreary_reeds.t1",
+      "model": "prop_preview_dreary_reeds_t1.glb"
     }
   }
 }

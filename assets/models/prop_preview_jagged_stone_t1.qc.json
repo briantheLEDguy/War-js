@@ -1,0 +1,91 @@
+{
+  "assetId": "prop.preview.jagged_stone.t1",
+  "category": "prop",
+  "model": "prop_preview_jagged_stone_t1.glb",
+  "fileSizeBytes": 9956,
+  "meshCount": 8,
+  "totalTris": 124,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "broken_shard_0",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "broken_shard_1",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "broken_shard_2",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "broken_shard_3",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "broken_shard_4",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "broken_shard_5",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "broken_shard_6",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "buried_slab",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    }
+  ],
+  "artifactDir": "artifacts/blender/manifest/prop_preview_jagged_stone_t1",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "preset": "preview_jagged_stone"
+  }
+}
