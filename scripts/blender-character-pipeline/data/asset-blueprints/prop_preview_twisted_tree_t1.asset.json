@@ -1,0 +1,50 @@
+{
+  "assetId": "prop.preview.twisted_tree.t1",
+  "displayName": "Twisted Preview Tree",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": ["props", "preview", "destruction_preview"],
+  "runtime": { "staticKey": "preview_twisted_tree" },
+  "output": {
+    "model": "prop_preview_twisted_tree_t1.glb",
+    "artifactDir": "artifacts/blender/manifest/prop_preview_twisted_tree_t1"
+  },
+  "generator": { "kind": "staticPreset", "preset": "preview_twisted_tree" },
+  "geometry": {
+    "originRule": "base_center_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      { "name": "LOD0", "triTarget": 5000, "screenCoverageMin": 0.18 },
+      { "name": "LOD1", "triTarget": 1800, "screenCoverageMin": 0.06 }
+    ]
+  },
+  "materials": {
+    "master": "MM_PropPbr",
+    "textureSet": "preview_twisted_tree_t1",
+    "channels": ["baseColor", "roughness", "normal", "occlusion"]
+  },
+  "rigging": { "skinned": false, "maxInfluences": 1, "requiredClips": [] },
+  "collision": {
+    "policy": "compound_primitive",
+    "primitives": [{ "type": "capsule", "tag": "preview_trunk" }]
+  },
+  "compatibility": { "occupiesSlots": ["world_prop"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 64,
+    "maxMeshObjects": 64,
+    "maxFileSizeMb": 1,
+    "groundToleranceM": 0.03,
+    "expectedHeightM": 2.5
+  }
+}

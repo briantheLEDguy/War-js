@@ -112,6 +112,119 @@ export interface AbilityCancelRules {
   appliesOwnerTags: string[];
 }
 
+export type AbilityIconSymbol =
+  | 'arrow'
+  | 'axe'
+  | 'banner'
+  | 'blade'
+  | 'bolt'
+  | 'bomb'
+  | 'chain'
+  | 'chalice'
+  | 'claw'
+  | 'cross'
+  | 'crown'
+  | 'dagger'
+  | 'eye'
+  | 'fang'
+  | 'flame'
+  | 'hammer'
+  | 'leaf'
+  | 'paw'
+  | 'rune'
+  | 'shield'
+  | 'skull'
+  | 'spear'
+  | 'star'
+  | 'turret'
+  | 'vortex';
+
+export type AbilityIconFrame = 'round' | 'diamond' | 'shield' | 'rune' | 'burst';
+export type AbilityIconAccent = 'none' | 'chevron' | 'cross' | 'dot' | 'spark' | 'tear';
+export type AbilityCastVfxKind = 'flare' | 'chant' | 'guard' | 'ritual' | 'surge' | 'venom';
+export type AbilityProjectileVfxKind =
+  | 'none'
+  | 'arrow'
+  | 'bolt'
+  | 'bomb'
+  | 'chain'
+  | 'ember'
+  | 'hammer'
+  | 'knife'
+  | 'rune'
+  | 'shard'
+  | 'spirit'
+  | 'venom';
+export type AbilityImpactVfxKind =
+  | 'burst'
+  | 'cross'
+  | 'flare'
+  | 'quake'
+  | 'rune'
+  | 'shatter'
+  | 'splash'
+  | 'venom';
+export type AbilityTrailVfxKind = 'none' | 'embers' | 'runes' | 'smoke' | 'sparks' | 'spiral' | 'venom';
+export type AbilityMotionKind = 'cleave' | 'jab' | 'leap' | 'ritual' | 'shot' | 'slam' | 'ward' | 'weave';
+export type AbilityClassFlair =
+  | 'neutral'
+  | 'ember'
+  | 'inquisition'
+  | 'sun_banner'
+  | 'prelate_hymn'
+  | 'stone_oath'
+  | 'doom_axes'
+  | 'glyph_script'
+  | 'siege_engine'
+  | 'blade_kata'
+  | 'pride_beast'
+  | 'aether_stars'
+  | 'veil_arrows'
+  | 'dread_aura'
+  | 'mutation'
+  | 'void_artillery'
+  | 'ruin_rite'
+  | 'warbrute_plan'
+  | 'fang_pack'
+  | 'bog_hex'
+  | 'cleaver_frenzy'
+  | 'blood_dance'
+  | 'dread_guard'
+  | 'dusk_weave'
+  | 'crimson_siphon';
+
+export interface AbilityColorProfile {
+  primary: string;
+  secondary: string;
+  accent: string;
+  shadow: string;
+  glow: string;
+}
+
+export interface AbilityIconProfile {
+  symbol: AbilityIconSymbol;
+  frame: AbilityIconFrame;
+  accent: AbilityIconAccent;
+  seed: number;
+}
+
+export interface AbilityVfxProfile {
+  cast: AbilityCastVfxKind;
+  projectile: AbilityProjectileVfxKind;
+  impact: AbilityImpactVfxKind;
+  trail: AbilityTrailVfxKind;
+  motion: AbilityMotionKind;
+  flair: AbilityClassFlair;
+  colors: AbilityColorProfile;
+  seed: number;
+}
+
+export interface AbilityVisualProfile {
+  school: AbilitySchool;
+  icon: AbilityIconProfile;
+  vfx: AbilityVfxProfile;
+}
+
 export interface AbilityDefinition {
   id: string;
   career: string;
@@ -126,6 +239,7 @@ export interface AbilityDefinition {
   tags: string[];
   resource: AbilityResourceDelta;
   animation: AbilityAnimation;
+  visual: AbilityVisualProfile;
   targeting: AbilityTargeting;
   effects: AbilityEffect[];
   vfxSockets: string[];

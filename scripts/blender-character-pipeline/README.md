@@ -48,6 +48,7 @@ npm run models:all -- playable_smoke
 npm run models:all -- playable_characters
 npm run models:all -- playable_armor
 npm run models:all -- playable_all
+npm run models:all -- destruction_preview
 npm run models:all -- equipment
 npm run models:all -- characters
 npm run models:all -- weapons
@@ -69,6 +70,10 @@ Generated artifacts:
 - QC sidecar with `qcPassed: true`: `public/assets/models/<neutral_name>.qc.json`
 - Human preview/QC artifacts: `artifacts/blender/manifest/<asset_key>/`
 - Runtime resolver: `public/assets/models/asset-index.json`
+
+The `artifacts/` tree is ignored and disposable. Delete it during repo cleanup
+when screenshot/QC renders are no longer needed; rerunning the relevant
+manifest generation command recreates those files.
 
 `models:validate` fails if an existing generated GLB has no QC sidecar, if the
 sidecar does not report `qcPassed: true`, if preview-required character output

@@ -2,6 +2,18 @@
 
 ## 2026-06-09
 
+- Switched unit tests to Vitest and added ability catalog/runtime coverage for kit integrity, legacy aliases, resource rules, activation gating, cooldowns, animation calls, and VFX handoff.
+- Added `npm run test` with unit coverage for generated wiki/data catalog consistency across races, classes, ability kits, crafting, quests, and referenced items.
+- Added an in-game Guide/wiki panel backed by a reusable `src/wiki` content layer generated from race/class, ability, crafting, quest, and item catalogs, with planned roadmap pages clearly marked.
+- Updated README, AGENTS, and asset-pipeline docs to reflect the current manifest model pipeline, generated playable assets, GM world editor, crafting, quests, character preview, and Supabase stub status.
+- Removed the unused Supabase client helper and dependency while keeping the service stubs and backend contract intact for future implementation.
+- Cleaned generated local artifacts from the workspace, including ignored Blender preview screenshots, temporary smoke-test HTML, build output, scratch Blender backups, and unlocked Vite logs.
+- Added class/race-specific ability color palettes that drive hotbar icon frames, symbols, accents, glows, cast flourishes, projectiles, beams, and impact effects.
+- Expanded ability visuals with class-family flair metadata, caster-side flourishes, arcing projectile motion, beam pulse rings, area spokes, aura markers, and class-styled contact fragments.
+- Added per-ability visual profiles that drive thematic SVG hotbar icons, cast windups, shaped projectiles, trails, and target-contact impact animations.
+- Added a character-select 3D preview stage that loads the selected character through the runtime player model/equipment path and updates live from unsaved race/class/body choices during character creation.
+- Added race-themed character-select preview environments, including generated neutral Destruction foliage and stone props for twisted trees, blighted shrubs, jagged stones, and dreary reeds.
+- Added manifest-backed `destruction_preview` static prop generation and asset-index entries for the new preview environment GLBs.
 - Added body variants (`m`/`f`) to character summaries, local character creation, saved-character migration, character display, and game remount keys.
 - Added a deterministic playable roster sync tool that expands 6 races, 24 classes, and 2 body variants into 48 neutral character manifests, 432 starter armor manifests, asset-index entries, and a generated starter item catalog.
 - Extended the Blender manifest generators with profile-driven playable race/class/body variants, themed silhouettes, body-region metadata, skinned modular armor slots, and smoke/full playable generation sets.

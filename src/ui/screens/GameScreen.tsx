@@ -73,6 +73,7 @@ export function GameScreen() {
     await services.auth.signOut();
     useGameStore.getState().setUser(null);
     useGameStore.getState().setCharacter(null);
+    useGameStore.getState().setWikiOpen(false);
     useGameStore.getState().setSettingsOpen(false);
     useGameStore.getState().setGmBuildMode(false);
     setScreen('login');
@@ -91,7 +92,7 @@ export function GameScreen() {
         Exit to Login
       </button>
       <div className="controls-hint">
-        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; I inventory &middot; C character &middot; L quest log &middot; Enter chat &middot; Esc settings &middot; ` debug
+        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; I inventory &middot; C character &middot; L quest log &middot; H guide &middot; Enter chat &middot; Esc settings &middot; ` debug
         &nbsp;&nbsp;|&nbsp;&nbsp;Touch: joystick move &middot; ↑ jump &middot; drag camera &middot; pinch zoom &middot; tap target/ability
       </div>
     </div>

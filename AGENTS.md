@@ -6,12 +6,13 @@ the project layout, conventions, and commands before doing any work.
 ## What this project is
 
 A browser-based recreation of **Warhammer Online: Age of Reckoning** (WAR), built
-with **Three.js + React + Vite + TypeScript**, architected for a **Supabase** backend
-(local in-memory fallback works out of the box with zero config).
+with **Three.js + React + Vite + TypeScript**, architected around local services
+now and Supabase-ready service interfaces later.
 
-The goal is a faithful carbon copy of WAR's gameplay, systems, and world — running
-entirely in the browser. All geometry is procedural Three.js primitives until real
-game assets are available via the Phase 2 asset pipeline.
+The goal is a faithful carbon copy of WAR's gameplay, systems, and world running
+entirely in the browser. Runtime assets are manifest-generated or direct `.glb`
+files when present, with procedural Three.js primitive fallbacks for anything
+missing or blocked from runtime review.
 
 > [ProjectWAR](https://github.com/Shmerrick/ProjectWAR) is used as the authoritative
 > reference for zone layouts, NPC data, and game mechanics. No code, assets, or
@@ -61,9 +62,10 @@ Class trainer titles use the renamed player-facing class roster above.
 - Scenarios (instanced PvP), Public Quests, and Open RvR zones follow WAR's layout
 
 ### Asset Pipeline
-When `.glb` model files land in `public/assets/models/`, they use the same filename
-the zone JSON references — no code changes required. Until then all geometry uses
-Three.js primitive fallbacks. **Never hard-fail on a missing asset.**
+Prefer manifest-backed assets under `scripts/blender-character-pipeline/data/asset-blueprints/`
+with runtime resolver entries in `public/assets/models/asset-index.json`. Direct
+zone `model` filenames remain valid for legacy terrain/building/prop assets.
+**Never hard-fail on a missing asset.**
 
 ---
 
@@ -75,6 +77,9 @@ npm run dev          # Vite dev server → http://localhost:5173
 npm run build        # TypeScript check + production bundle → dist/
 npm run preview      # serve the production bundle locally
 npm run typecheck    # TypeScript check only (no emit)
+npm run world:validate
+npm run models:validate
+npm run models:sync-playables
 ```
 
 ---
@@ -99,17 +104,30 @@ public/
     maps/
       zone1.json        # Nordland Outskirts zone definition (legacy test zone)
       altdorf.json      # Altdorf — Order capital city
-    models/             # .glb files (empty — primitive fallbacks used until Phase 2)
-    textures/           # .png/.jpg terrain textures (empty until Phase 2)
-    hdri/               # .hdr environment maps (empty until Phase 2)
+      reikland.json     # Reikland outdoor test/RvR-adjacent zone
+    models/             # generated/direct .glb files, asset-index.json, QC sidecars
+    textures/           # runtime terrain/building textures
+    hdri/               # optional environment maps
 
 scripts/
-  war-asset-pipeline/
-    README.md           # Phase 2 local asset-conversion workflow (not implemented yet)
+  validate-world-edits.mjs
+  blender-character-pipeline/
+    README.md           # manifest-first Blender model pipeline
+    blender/            # Blender generator/exporter backends
+    data/               # asset blueprints, schema, roster, style policy
+    tools/              # Node list/validate/sync/generate commands
+    mcp-server/         # Codex MCP wrapper
 
 src/
   main.tsx              # React app entry point
   vite-env.d.ts         # Vite env type declarations
+
+  data/
+    careers.ts          # player-facing race/class roster and legacy aliases
+    crafting.ts         # gathering/crafting professions and recipes
+    items.ts            # item catalog and equipment metadata
+    playableAssets.generated.ts
+    quests.ts
 
   config/
     env.ts              # reads VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY
@@ -122,13 +140,19 @@ src/
       authLocal.ts
       characterLocal.ts
       chatLocal.ts
+      craftingLocal.ts
       inventoryLocal.ts
+      questLocal.ts
+      worldEditLocal.ts
       worldLocal.ts
     supabase/           # typed stubs — each throws NotImplementedError until wired
       authSupabase.ts
       characterSupabase.ts
       chatSupabase.ts
+      craftingSupabase.ts
       inventorySupabase.ts
+      questSupabase.ts
+      worldEditSupabase.ts
       worldSupabase.ts
 
   state/
@@ -142,16 +166,27 @@ src/
     Player.ts           # player mesh, movement, jump physics
     Enemy.ts            # enemy mesh, respawn logic
     Combat.ts           # targeting, autoattack, floating damage numbers
+    CraftingLogic.ts
+    QuestLogic.ts
     Camera.ts           # FollowCamera (orbit + zoom)
     Input.ts            # keyboard + mouse state tracker
+    abilities/          # data-driven class kits, runtime, VFX, types
+    animation/          # shared procedural/GLB animation helpers
 
   world/
     ZoneLoader.ts       # fetches assets/maps/<id>.json; built-in default if missing
                         #   ZoneDefinition includes flatTerrain, zoneTriggers, npcs
+    BiomeKit.ts
+    PathKit.ts
     Terrain.ts          # procedural heightmap terrain mesh; flatTerrain=true for cities
     Skybox.ts           # HDR environment + directional light + ambient
     Props.ts            # spawns props from zone JSON (supports WAR city prop kinds)
     NpcSpawner.ts       # spawns NPC meshes from zone.npcs[]; pushes NpcState to store
+    editor/             # GM voxel/prefab/transform/collision authoring runtime
+
+  wiki/
+    wikiContent.ts      # guide pages generated from gameplay catalogs
+    wikiMetadata.ts     # overview copy, section order, and roadmap metadata
 
   ui/                   # React overlay (renders on top of the Three.js canvas)
     App.tsx             # root component — routes between login / char-select / world
@@ -159,15 +194,27 @@ src/
     screens/
       LoginScreen.tsx
       CharacterSelectScreen.tsx
+      CharacterPreviewStage.tsx
       GameScreen.tsx    # mounts Game, shows HUD
     hud/
       Hud.tsx
       PlayerFrame.tsx
       TargetFrame.tsx
       Hotbar.tsx
+      AbilityIcon.tsx
       ChatPanel.tsx
+      CharacterSheetPanel.tsx
+      CraftingPanel.tsx
       InventoryPanel.tsx
       Minimap.tsx
+      QuestDialog.tsx
+      QuestLogPanel.tsx
+      QuestMarkerLayer.tsx
+      SettingsPanel.tsx
+      TouchControls.tsx
+      WikiPanel.tsx
+      WorldEditorModeStrip.tsx
+      WorldEditorPanel.tsx
       DebugOverlay.tsx
       NameplateLayer.tsx
       FloatingDamageLayer.tsx
@@ -185,9 +232,9 @@ src/
   shared `services` object. Do not import service classes directly elsewhere.
 - **Asset paths** — always prefix with `import.meta.env.BASE_URL` so they work
   both in dev (`/`) and in the GitHub Pages deployment (`/War-js/`).
-- **Primitive fallbacks** — `AssetLoader` catches any file-not-found error and
-  returns a Three.js primitive. A counter in `gameStore` tracks fallback count;
-  the debug overlay shows it. **Never hard-fail on a missing asset.**
+- **Primitive fallbacks** — `AssetLoader` catches file-not-found or invalid-model
+  errors and returns a Three.js primitive. A counter in `gameStore` tracks
+  fallback count; the debug overlay shows it. **Never hard-fail on a missing asset.**
 - **Zone definitions** — all world content (props, enemies, spawn point) lives in
   `public/assets/maps/<zoneId>.json`. The TypeScript code does not need changes
   when adding zones or tweaking layouts.
@@ -235,14 +282,18 @@ Settings → General → Default branch → change from
 ## Supabase activation (when ready)
 
 1. Create a Supabase project.
-2. Copy `.env.example` → `.env` and fill in:
+2. Add the browser client dependency when implementing the stubs:
+   ```bash
+   npm install @supabase/supabase-js
+   ```
+3. Copy `.env.example` → `.env` and fill in:
    ```
    VITE_SUPABASE_URL=https://xxxx.supabase.co
    VITE_SUPABASE_ANON_KEY=eyJ...
    ```
-3. Implement the stubs in `src/services/supabase/*.ts` — each file has a `TODO`
+4. Implement the stubs in `src/services/supabase/*.ts` — each file has a `TODO`
    comment pointing at the exact Supabase call to make.
-4. Create the database tables from the SQL in `README.md`.
+5. Create the database tables from the SQL in `README.md`.
 
 ---
 
@@ -252,11 +303,11 @@ See `README.md` for the full list. Key items:
 
 | Phase | Description |
 |-------|-------------|
-| 2a | WAR asset pipeline (`scripts/war-asset-pipeline/`) |
+| 2a | Manifest-first Blender asset pipeline (`scripts/blender-character-pipeline/`) - active |
 | 2b | Supabase activation (implement service stubs) |
 | 2c | Real multiplayer (Supabase realtime, remote player interpolation) |
-| 2d | Abilities system (data-driven, cast bars) |
-| 2e | Quests / NPCs / vendors |
+| 2d | Abilities system (data-driven, cast bars) - active runtime; cast bars still future |
+| 2e | Quests / NPCs / vendors - local vertical slice active |
 | 2f | Multi-zone world |
 | 2g | PvP / RvR |
 | 2h | Auth hardening (Supabase Auth + RLS) |

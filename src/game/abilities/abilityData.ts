@@ -1,12 +1,22 @@
 import type {
   AbilityDefinition,
   AbilityAnimation,
+  AbilityClassFlair,
+  AbilityColorProfile,
   AbilityEffect,
   AbilityFamily,
+  AbilityIconAccent,
+  AbilityIconFrame,
+  AbilityIconSymbol,
+  AbilityImpactVfxKind,
+  AbilityMotionKind,
+  AbilityProjectileVfxKind,
   AbilitySchool,
   AbilityShape,
   AbilityStatusPayload,
+  AbilityTrailVfxKind,
   AbilityTargetKind,
+  AbilityVisualProfile,
   CareerAbilityKit,
   CareerResourceDefinition,
 } from './types';
@@ -436,6 +446,7 @@ function defineAbility(
   const target = seed.target ?? defaultTarget(seed.kind, seed.shape);
   const cooldownSec = seed.cooldownSec ?? defaultCooldown(seed.kind);
   const animation = animationFor(seed.kind, seed.shape, seed.school);
+  const visual = visualFor(career, classFamily, seed, slot);
   const resourceDelta = {
     manaCost: seed.manaCost ?? defaultManaCost(seed.kind),
     careerBuild: seed.careerBuild ?? defaultCareerBuild(seed.kind, res),
@@ -450,7 +461,7 @@ function defineAbility(
     classFamily,
     slot,
     key: HOTBAR_KEYS[slot] ?? String(slot + 1),
-    icon: iconFor(seed.kind, seed.school, seed.shape),
+    icon: visual.icon.symbol,
     name: seed.name,
     summary: seed.summary,
     cooldownSec,
@@ -458,6 +469,7 @@ function defineAbility(
     tags: tagsFor(seed, target),
     resource: resourceDelta,
     animation,
+    visual,
     targeting: {
       target,
       shape: seed.shape,
@@ -709,17 +721,377 @@ function socketsFor(shape: AbilityShape, school: AbilitySchool): string[] {
   return ['hand_r', 'ground_anchor'];
 }
 
-function iconFor(kind: AbilityKind, school: AbilitySchool, shape: AbilityShape): string {
-  if (kind === 'ultimate') return 'U';
-  if (kind === 'heal') return '+';
-  if (kind === 'defense') return '#';
-  if (kind === 'buff' || kind === 'stance') return '^';
-  if (kind === 'control') return '!';
-  if (kind === 'mobility') return '>';
-  if (shape === 'area' || shape === 'cone') return '*';
-  if (shape === 'projectile' || shape === 'beam') return school === 'physical' || school === 'engineer' ? '>' : '~';
-  if (kind === 'spender') return 'X';
-  return '/';
+function visualFor(
+  career: string,
+  classFamily: AbilityFamily,
+  seed: AbilitySeed,
+  slot: number,
+): AbilityVisualProfile {
+  const hash = hashString(`${career}:${seed.name}:${slot}`);
+  const colors = colorsFor(classFamily, seed.school);
+  return {
+    school: seed.school,
+    icon: {
+      symbol: iconSymbolFor(seed, hash),
+      frame: iconFrameFor(seed, hash),
+      accent: iconAccentFor(seed, hash),
+      seed: hash,
+    },
+    vfx: {
+      cast: castVfxFor(seed),
+      projectile: projectileVfxFor(seed, hash),
+      impact: impactVfxFor(seed, hash),
+      trail: trailVfxFor(seed, hash),
+      motion: motionFor(seed),
+      flair: flairFor(classFamily),
+      colors,
+      seed: hash,
+    },
+  };
+}
+
+function colorsFor(classFamily: AbilityFamily, school: AbilitySchool): AbilityColorProfile {
+  const profile = classColorsFor(classFamily);
+  if (school === 'fire') return tintProfile(profile, profile.fire ?? '#ff7a21', '#ffe08f');
+  if (school === 'holy') return tintProfile(profile, profile.holy ?? '#ffe08a', '#ffffff');
+  if (school === 'nature') return tintProfile(profile, profile.nature ?? '#80d76c', '#e3ff9f');
+  if (school === 'shadow') return tintProfile(profile, profile.schoolShadow ?? '#8f75ff', '#d7c8ff');
+  if (school === 'chaos') return tintProfile(profile, profile.chaos ?? '#c85cff', '#ff86d8');
+  if (school === 'rune') return tintProfile(profile, profile.rune ?? '#73d9ff', '#f4fbff');
+  if (school === 'engineer') return tintProfile(profile, profile.engineer ?? '#ffbe52', '#fff0b8');
+  if (school === 'poison') return tintProfile(profile, profile.poison ?? '#9bd84f', '#ddff88');
+  if (school === 'arcane') return tintProfile(profile, profile.arcane ?? '#84ddff', '#f2fbff');
+  return {
+    primary: profile.primary,
+    secondary: profile.secondary,
+    accent: profile.accent,
+    shadow: profile.shadow,
+    glow: profile.glow,
+  };
+}
+
+interface ClassColorSeed {
+  primary: string;
+  secondary: string;
+  accent: string;
+  shadow: string;
+  glow: string;
+  fire?: string;
+  holy?: string;
+  nature?: string;
+  schoolShadow?: string;
+  chaos?: string;
+  rune?: string;
+  engineer?: string;
+  poison?: string;
+  arcane?: string;
+}
+
+function tintProfile(profile: ClassColorSeed, primary: string, secondary: string): AbilityColorProfile {
+  return {
+    primary,
+    secondary,
+    accent: profile.accent,
+    shadow: profile.shadow,
+    glow: profile.glow,
+  };
+}
+
+function classColorsFor(classFamily: AbilityFamily): ClassColorSeed {
+  switch (classFamily) {
+    case 'risk_caster':
+      return {
+        primary: '#ff6a21', secondary: '#ffd27a', accent: '#8f2118', shadow: '#1a0804',
+        glow: 'rgba(255, 106, 33, 0.55)', fire: '#ff6a21', holy: '#ffe0a0',
+      };
+    case 'verdict_assassin':
+      return {
+        primary: '#d8d0b0', secondary: '#8aa2b8', accent: '#b13b2e', shadow: '#100d0b',
+        glow: 'rgba(210, 190, 150, 0.42)', fire: '#c84f28', holy: '#f2edd0',
+      };
+    case 'commander_tank':
+      return {
+        primary: '#ffd56a', secondary: '#fff2bd', accent: '#c43b2c', shadow: '#181006',
+        glow: 'rgba(255, 213, 106, 0.5)', holy: '#ffd56a',
+      };
+    case 'melee_healer':
+      return {
+        primary: '#f1d98b', secondary: '#fff7d2', accent: '#7aa0c8', shadow: '#17110a',
+        glow: 'rgba(241, 217, 139, 0.48)', holy: '#f1d98b',
+      };
+    case 'reactive_oath_tank':
+      return {
+        primary: '#a8b2b6', secondary: '#dcecff', accent: '#c28b3d', shadow: '#121415',
+        glow: 'rgba(116, 201, 255, 0.42)', rune: '#74c9ff',
+      };
+    case 'berserker':
+      return {
+        primary: '#e14b35', secondary: '#f3b56b', accent: '#7c1e18', shadow: '#170807',
+        glow: 'rgba(225, 75, 53, 0.5)',
+      };
+    case 'rune_mark_support':
+      return {
+        primary: '#6fd5ff', secondary: '#f5fbff', accent: '#d4a241', shadow: '#0d1518',
+        glow: 'rgba(111, 213, 255, 0.48)', rune: '#6fd5ff',
+      };
+    case 'deployable_artillery':
+      return {
+        primary: '#e3a84b', secondary: '#ffe7a4', accent: '#5d6d76', shadow: '#15120d',
+        glow: 'rgba(227, 168, 75, 0.48)', engineer: '#e3a84b',
+      };
+    case 'stance_chain_tank':
+      return {
+        primary: '#9edfff', secondary: '#f1fbff', accent: '#9db4c9', shadow: '#07131b',
+        glow: 'rgba(158, 223, 255, 0.45)', arcane: '#9edfff',
+      };
+    case 'bonded_beast_hunter':
+      return {
+        primary: '#e3c468', secondary: '#f8e9b0', accent: '#4b8f5c', shadow: '#10150d',
+        glow: 'rgba(227, 196, 104, 0.42)', nature: '#7fca63',
+      };
+    case 'balance_caster':
+      return {
+        primary: '#84dbff', secondary: '#fff6d8', accent: '#b58cff', shadow: '#07121a',
+        glow: 'rgba(132, 219, 255, 0.48)', nature: '#8bdc8f', arcane: '#84dbff',
+      };
+    case 'mobile_skirmisher':
+      return {
+        primary: '#8abcc7', secondary: '#d9f5ff', accent: '#5a8f6a', shadow: '#071111',
+        glow: 'rgba(138, 188, 199, 0.42)', schoolShadow: '#8390c8', arcane: '#b4dcff',
+      };
+    case 'dark_gift_tank':
+      return {
+        primary: '#9d3d5c', secondary: '#d985ff', accent: '#3b111a', shadow: '#090306',
+        glow: 'rgba(157, 61, 92, 0.5)', chaos: '#be54ff',
+      };
+    case 'mutation_disruptor':
+      return {
+        primary: '#c65cff', secondary: '#ff98d9', accent: '#77c94a', shadow: '#120315',
+        glow: 'rgba(198, 92, 255, 0.5)', chaos: '#c65cff',
+      };
+    case 'occult_artillery':
+      return {
+        primary: '#6c5cff', secondary: '#caa8ff', accent: '#41d1c4', shadow: '#060415',
+        glow: 'rgba(108, 92, 255, 0.52)', chaos: '#8c5cff', fire: '#ff7b38',
+      };
+    case 'ritual_support':
+      return {
+        primary: '#bb55ff', secondary: '#ffa7dd', accent: '#b3994c', shadow: '#100313',
+        glow: 'rgba(187, 85, 255, 0.5)', chaos: '#bb55ff',
+      };
+    case 'plan_bruiser':
+      return {
+        primary: '#8b9b31', secondary: '#d8c06f', accent: '#b53b26', shadow: '#101207',
+        glow: 'rgba(139, 155, 49, 0.45)',
+      };
+    case 'pet_skirmisher':
+      return {
+        primary: '#c7b06c', secondary: '#fff0b8', accent: '#5d8f3a', shadow: '#151006',
+        glow: 'rgba(199, 176, 108, 0.42)', nature: '#7fbf4d',
+      };
+    case 'hybrid_hexer':
+      return {
+        primary: '#9fd13a', secondary: '#f0ff86', accent: '#8b55b7', shadow: '#0c1205',
+        glow: 'rgba(159, 209, 58, 0.5)', poison: '#9fd13a', chaos: '#a25cff',
+      };
+    case 'frenzy_bruiser':
+      return {
+        primary: '#d14a2b', secondary: '#ffbc64', accent: '#6f8d34', shadow: '#160805',
+        glow: 'rgba(209, 74, 43, 0.5)',
+      };
+    case 'blood_assassin':
+      return {
+        primary: '#d83a52', secondary: '#ff8ca0', accent: '#c9c2dc', shadow: '#120406',
+        glow: 'rgba(216, 58, 82, 0.52)', schoolShadow: '#8f5dff',
+      };
+    case 'hatred_tank':
+      return {
+        primary: '#5d7f88', secondary: '#b9d5d8', accent: '#a6253a', shadow: '#050b0d',
+        glow: 'rgba(93, 127, 136, 0.42)', schoolShadow: '#7d6cff',
+      };
+    case 'dark_power_caster':
+      return {
+        primary: '#a077ff', secondary: '#e0ccff', accent: '#d83f84', shadow: '#090413',
+        glow: 'rgba(160, 119, 255, 0.52)', schoolShadow: '#a077ff',
+      };
+    case 'siphon_healer':
+      return {
+        primary: '#c93855', secondary: '#ff9aaa', accent: '#f0d6c0', shadow: '#120305',
+        glow: 'rgba(201, 56, 85, 0.5)', schoolShadow: '#9c6dff',
+      };
+    default:
+      return {
+        primary: '#d8d2bd', secondary: '#ffffff', accent: '#c9a257', shadow: '#0a0805',
+        glow: 'rgba(216, 210, 189, 0.28)',
+      };
+  }
+}
+
+function flairFor(classFamily: AbilityFamily): AbilityClassFlair {
+  switch (classFamily) {
+    case 'risk_caster':
+      return 'ember';
+    case 'verdict_assassin':
+      return 'inquisition';
+    case 'commander_tank':
+      return 'sun_banner';
+    case 'melee_healer':
+      return 'prelate_hymn';
+    case 'reactive_oath_tank':
+      return 'stone_oath';
+    case 'berserker':
+      return 'doom_axes';
+    case 'rune_mark_support':
+      return 'glyph_script';
+    case 'deployable_artillery':
+      return 'siege_engine';
+    case 'stance_chain_tank':
+      return 'blade_kata';
+    case 'bonded_beast_hunter':
+      return 'pride_beast';
+    case 'balance_caster':
+      return 'aether_stars';
+    case 'mobile_skirmisher':
+      return 'veil_arrows';
+    case 'dark_gift_tank':
+      return 'dread_aura';
+    case 'mutation_disruptor':
+      return 'mutation';
+    case 'occult_artillery':
+      return 'void_artillery';
+    case 'ritual_support':
+      return 'ruin_rite';
+    case 'plan_bruiser':
+      return 'warbrute_plan';
+    case 'pet_skirmisher':
+      return 'fang_pack';
+    case 'hybrid_hexer':
+      return 'bog_hex';
+    case 'frenzy_bruiser':
+      return 'cleaver_frenzy';
+    case 'blood_assassin':
+      return 'blood_dance';
+    case 'hatred_tank':
+      return 'dread_guard';
+    case 'dark_power_caster':
+      return 'dusk_weave';
+    case 'siphon_healer':
+      return 'crimson_siphon';
+    default:
+      return 'neutral';
+  }
+}
+
+function iconSymbolFor(seed: AbilitySeed, hash: number): AbilityIconSymbol {
+  if (seed.kind === 'ultimate') return 'crown';
+  if (seed.kind === 'heal') return seed.school === 'poison' || seed.school === 'shadow' ? 'chalice' : 'cross';
+  if (seed.kind === 'defense') return 'shield';
+  if (seed.kind === 'stance') return 'banner';
+  if (seed.kind === 'summon') return seed.school === 'engineer' ? 'turret' : 'rune';
+  if (seed.status?.kind === 'root') return 'chain';
+  if (seed.status?.kind === 'silence') return 'eye';
+  if (seed.status?.kind === 'burn') return 'flame';
+  if (seed.status?.kind === 'bleed') return 'fang';
+  if (seed.shape === 'beam') return 'bolt';
+  if (seed.shape === 'projectile' || seed.shape === 'pet') {
+    if (seed.school === 'physical') return hash % 2 === 0 ? 'arrow' : 'dagger';
+    if (seed.school === 'engineer') return hash % 3 === 0 ? 'bomb' : 'turret';
+    if (seed.school === 'poison') return 'fang';
+    if (seed.school === 'rune') return 'rune';
+    if (seed.school === 'fire') return 'flame';
+    return 'bolt';
+  }
+  if (seed.shape === 'area' || seed.shape === 'cone') {
+    if (seed.school === 'physical') return hash % 2 === 0 ? 'axe' : 'blade';
+    if (seed.school === 'engineer') return 'bomb';
+    if (seed.school === 'nature') return 'leaf';
+    if (seed.school === 'chaos' || seed.school === 'shadow') return 'vortex';
+    return 'star';
+  }
+  if (seed.shape === 'dash' || seed.kind === 'mobility') return seed.school === 'nature' ? 'paw' : 'spear';
+  if (seed.school === 'holy') return 'hammer';
+  if (seed.school === 'chaos') return 'claw';
+  if (seed.school === 'shadow') return 'skull';
+  if (seed.school === 'rune') return 'rune';
+  return seed.kind === 'spender' ? 'axe' : 'blade';
+}
+
+function iconFrameFor(seed: AbilitySeed, hash: number): AbilityIconFrame {
+  if (seed.kind === 'ultimate') return 'burst';
+  if (seed.kind === 'defense' || seed.kind === 'stance') return 'shield';
+  if (seed.school === 'rune' || seed.kind === 'summon') return 'rune';
+  if (seed.shape === 'projectile' || seed.shape === 'beam') return 'diamond';
+  return hash % 2 === 0 ? 'round' : 'diamond';
+}
+
+function iconAccentFor(seed: AbilitySeed, hash: number): AbilityIconAccent {
+  if (seed.kind === 'ultimate') return 'spark';
+  if (seed.kind === 'spender' || seed.spendAllCareer) return 'tear';
+  if (seed.kind === 'heal') return 'cross';
+  if (seed.kind === 'mobility') return 'chevron';
+  if (seed.status) return seed.status.kind === 'slow' || seed.status.kind === 'root' ? 'dot' : 'spark';
+  return (['none', 'chevron', 'dot'] as const)[hash % 3];
+}
+
+function castVfxFor(seed: AbilitySeed) {
+  if (seed.kind === 'defense' || seed.kind === 'stance') return 'guard';
+  if (seed.kind === 'heal' || seed.school === 'holy' || seed.school === 'rune') return 'chant';
+  if (seed.kind === 'ultimate' || seed.kind === 'summon') return 'ritual';
+  if (seed.school === 'poison') return 'venom';
+  if (seed.kind === 'spender' || seed.shape === 'area') return 'surge';
+  return 'flare';
+}
+
+function projectileVfxFor(seed: AbilitySeed, hash: number): AbilityProjectileVfxKind {
+  if (seed.shape !== 'projectile' && seed.shape !== 'pet') return 'none';
+  if (seed.school === 'physical') return hash % 2 === 0 ? 'arrow' : 'knife';
+  if (seed.school === 'engineer') return hash % 2 === 0 ? 'bomb' : 'bolt';
+  if (seed.school === 'poison') return 'venom';
+  if (seed.school === 'rune') return 'rune';
+  if (seed.school === 'fire') return 'ember';
+  if (seed.school === 'holy') return hash % 2 === 0 ? 'hammer' : 'spirit';
+  if (seed.school === 'shadow' || seed.school === 'chaos') return 'shard';
+  return 'bolt';
+}
+
+function impactVfxFor(seed: AbilitySeed, hash: number): AbilityImpactVfxKind {
+  if (seed.status?.kind === 'bleed' || seed.school === 'poison') return 'venom';
+  if (seed.status?.kind === 'root' || seed.school === 'rune') return 'rune';
+  if (seed.shape === 'area' || seed.shape === 'dash') return 'quake';
+  if (seed.kind === 'heal' || seed.kind === 'defense') return 'cross';
+  if (seed.school === 'shadow' || seed.school === 'chaos') return 'shatter';
+  if (seed.school === 'nature') return 'splash';
+  if (seed.school === 'fire') return 'flare';
+  return hash % 2 === 0 ? 'burst' : 'shatter';
+}
+
+function trailVfxFor(seed: AbilitySeed, hash: number): AbilityTrailVfxKind {
+  if (seed.school === 'fire') return 'embers';
+  if (seed.school === 'rune' || seed.kind === 'defense') return 'runes';
+  if (seed.school === 'shadow' || seed.school === 'chaos') return 'smoke';
+  if (seed.school === 'poison') return 'venom';
+  if (seed.shape === 'beam' || seed.kind === 'ultimate') return 'spiral';
+  if (seed.shape === 'projectile' || seed.shape === 'melee') return 'sparks';
+  return hash % 2 === 0 ? 'none' : 'spiral';
+}
+
+function motionFor(seed: AbilitySeed): AbilityMotionKind {
+  if (seed.kind === 'defense' || seed.kind === 'heal') return 'ward';
+  if (seed.kind === 'summon' || seed.kind === 'ultimate') return 'ritual';
+  if (seed.shape === 'dash') return 'leap';
+  if (seed.shape === 'projectile' || seed.shape === 'beam') return 'shot';
+  if (seed.shape === 'area') return 'slam';
+  if (seed.shape === 'melee') return seed.kind === 'builder' ? 'jab' : 'cleave';
+  return 'weave';
+}
+
+function hashString(value: string): number {
+  let hash = 2166136261;
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 function burn(label: string, durationSec: number): AbilityStatusPayload {

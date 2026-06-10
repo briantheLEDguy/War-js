@@ -233,6 +233,17 @@ export class Player {
     this.playGlbClip(clipName, false);
   }
 
+  updateVisuals(dt: number): void {
+    if (this.animator) {
+      this.animator.update({ dt, speed: this.lastSpeed, airborne: !this.grounded });
+    }
+
+    if (this.glbMixer) {
+      this.updateGlbLocomotion(dt);
+      this.glbMixer.update(dt);
+    }
+  }
+
   update(
     dt: number,
     input: Input,
@@ -310,14 +321,7 @@ export class Player {
       this.lastSpeed = this.lastSpeed * 0.6 + frameSpeed * 0.4;
     }
 
-    if (this.animator) {
-      this.animator.update({ dt, speed: this.lastSpeed, airborne: !this.grounded });
-    }
-
-    if (this.glbMixer) {
-      this.updateGlbLocomotion(dt);
-      this.glbMixer.update(dt);
-    }
+    this.updateVisuals(dt);
   }
 
   private updateGlbLocomotion(dt: number): void {

@@ -1,0 +1,235 @@
+{
+  "assetId": "prop.preview.blight_shrub.t1",
+  "category": "prop",
+  "model": "prop_preview_blight_shrub_t1.glb",
+  "fileSizeBytes": 28408,
+  "meshCount": 26,
+  "totalTris": 364,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "crooked_stem_0",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_0",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_1",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_1",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_2",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_2",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_3",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_3",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_4",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_4",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_5",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_5",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_6",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_6",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_7",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_7",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_8",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_8",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_9",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_9",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_10",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_10",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_11",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_11",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crooked_stem_12",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "matted_leaf_12",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    }
+  ],
+  "artifactDir": "artifacts/blender/manifest/prop_preview_blight_shrub_t1",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "preset": "preview_blight_shrub"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "assetId": "prop.preview.twisted_tree.t1",
+  "category": "prop",
+  "model": "prop_preview_twisted_tree_t1.glb",
+  "fileSizeBytes": 18412,
+  "meshCount": 14,
+  "totalTris": 268,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "curved_trunk_lower",
+      "verts": 20,
+      "faces": 12,
+      "tris": 36,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "curved_trunk_upper",
+      "verts": 18,
+      "faces": 11,
+      "tris": 32,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "split_trunk_core",
+      "verts": 16,
+      "faces": 10,
+      "tris": 28,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "left_hook",
+      "verts": 14,
+      "faces": 9,
+      "tris": 24,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "right_hook",
+      "verts": 14,
+      "faces": 9,
+      "tris": 24,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "crown_splinter",
+      "verts": 14,
+      "faces": 9,
+      "tris": 24,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "rear_bough",
+      "verts": 14,
+      "faces": 9,
+      "tris": 24,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "thorn_cluster_0",
+      "verts": 7,
+      "faces": 7,
+      "tris": 10,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "thorn_cluster_1",
+      "verts": 7,
+      "faces": 7,
+      "tris": 10,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "thorn_cluster_2",
+      "verts": 7,
+      "faces": 7,
+      "tris": 10,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "thorn_cluster_3",
+      "verts": 7,
+      "faces": 7,
+      "tris": 10,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "withered_leaf_clump_0",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "withered_leaf_clump_1",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "withered_leaf_clump_2",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    }
+  ],
+  "artifactDir": "artifacts/blender/manifest/prop_preview_twisted_tree_t1",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "preset": "preview_twisted_tree"
+  }
+}

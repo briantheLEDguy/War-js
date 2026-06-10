@@ -671,6 +671,126 @@ def build_castle_stairs(spec: dict) -> list[bpy.types.Object]:
     return objs
 
 
+def build_preview_twisted_tree(spec: dict) -> list[bpy.types.Object]:
+    bark = make_material("preview_twisted_tree_bark", spec["bark"], roughness=0.97)
+    split = make_material("preview_twisted_tree_split", spec["split"], roughness=0.95)
+    thorn = make_material("preview_twisted_tree_thorn", spec["thorn"], roughness=0.88)
+    leaf = make_material("preview_twisted_tree_leaf", spec["leaf"], roughness=0.93)
+
+    root = create_empty("preview_twisted_tree_export_root")
+    objs: list[bpy.types.Object] = [
+        create_cylinder("curved_trunk_lower", 0.18, 1.25, 10, bark, location=(-0.05, 0.62, 0), rotation=(0, 0, -0.13)),
+        create_cylinder("curved_trunk_upper", 0.115, 1.15, 9, bark, location=(0.13, 1.62, 0.02), rotation=(0, 0, 0.28)),
+        create_cylinder("split_trunk_core", 0.072, 0.85, 8, split, location=(0.03, 1.25, 0.055), rotation=(0, 0, 0.08)),
+    ]
+    branches = [
+        ("left_hook", -0.52, 1.78, -0.05, 0.92, 0.72),
+        ("right_hook", 0.55, 1.55, 0.02, -0.82, 0.82),
+        ("crown_splinter", 0.24, 2.15, 0.05, -0.28, 0.7),
+        ("rear_bough", -0.12, 1.58, -0.38, 0.25, 0.62),
+    ]
+    for name, x, y, z, rz, length in branches:
+        objs.append(create_cylinder(name, 0.045, length, 7, bark, location=(x, y, z), rotation=(0, 0, rz)))
+
+    for i, (x, y, z, rz) in enumerate([
+        (-0.77, 2.0, -0.05, 0.85),
+        (0.83, 1.75, 0.04, -0.7),
+        (0.36, 2.45, 0.06, -0.18),
+        (-0.22, 1.9, -0.42, 0.32),
+    ]):
+        objs.append(create_cone(f"thorn_cluster_{i}", 0.055, 0.0, 0.32, 6, thorn, location=(x, y, z), rotation=(0, 0, rz)))
+
+    for i, (x, y, z) in enumerate([(-0.6, 1.62, -0.08), (0.6, 1.36, 0.03), (0.2, 1.95, 0.08)]):
+        clump = create_box(f"withered_leaf_clump_{i}", (0.42, 0.13, 0.32), leaf, location=(x, y, z), rotation=(0, 0, 0.4 + i * 0.5))
+        objs.append(clump)
+
+    parent_to(root, objs)
+    shade_smooth(objs)
+    return objs
+
+
+def build_preview_blight_shrub(spec: dict) -> list[bpy.types.Object]:
+    stem = make_material("preview_blight_shrub_stem", spec["stem"], roughness=0.97)
+    leaf = make_material("preview_blight_shrub_leaf", spec["leaf"], roughness=0.94)
+    rot = make_material("preview_blight_shrub_rot", spec["rot"], roughness=0.9)
+
+    root = create_empty("preview_blight_shrub_export_root")
+    objs: list[bpy.types.Object] = []
+    for i in range(13):
+        angle = i * 0.72
+        radius = 0.16 + (i % 4) * 0.07
+        height = 0.46 + (i % 5) * 0.085
+        x = math.cos(angle) * radius
+        z = math.sin(angle) * radius * 0.75
+        objs.append(create_cylinder(f"crooked_stem_{i}", 0.018, height, 5, stem, location=(x, height / 2, z), rotation=(0, 0, math.sin(angle) * 0.36)))
+        objs.append(create_box(
+            f"matted_leaf_{i}",
+            (0.26 + (i % 3) * 0.04, 0.07, 0.16),
+            leaf if i % 4 else rot,
+            location=(x + math.cos(angle) * 0.09, height + 0.02, z + math.sin(angle) * 0.06),
+            rotation=(0, 0, angle * 0.15),
+        ))
+
+    parent_to(root, objs)
+    shade_smooth(objs)
+    return objs
+
+
+def build_preview_jagged_stone(spec: dict) -> list[bpy.types.Object]:
+    stone = make_material("preview_jagged_stone", spec["stone"], roughness=0.96)
+    dark = make_material("preview_jagged_stone_dark", spec["dark"], roughness=0.98)
+    stain = make_material("preview_jagged_stone_stain", spec["stain"], roughness=0.9)
+
+    root = create_empty("preview_jagged_stone_export_root")
+    objs: list[bpy.types.Object] = []
+    for i in range(7):
+        height = 0.7 + i * 0.16
+        radius = 0.16 + (i % 3) * 0.035
+        x = -0.62 + i * 0.2
+        z = math.sin(i * 1.1) * 0.16
+        mat = stain if i == 3 else dark if i % 2 else stone
+        spike = create_cone(
+            f"broken_shard_{i}",
+            radius,
+            0.03,
+            height,
+            5,
+            mat,
+            location=(x, height / 2, z),
+            rotation=(0, 0, -0.28 + i * 0.08),
+        )
+        objs.append(spike)
+    objs.append(create_box("buried_slab", (1.45, 0.16, 0.62), dark, location=(0, 0.08, 0.02), rotation=(0, 0, 0.08)))
+
+    parent_to(root, objs)
+    shade_smooth(objs)
+    return objs
+
+
+def build_preview_dreary_reeds(spec: dict) -> list[bpy.types.Object]:
+    reed = make_material("preview_dreary_reed", spec["reed"], roughness=0.98)
+    seed = make_material("preview_dreary_seed", spec["seed"], roughness=0.94)
+    mud = make_material("preview_dreary_mud", spec["mud"], roughness=0.98)
+
+    root = create_empty("preview_dreary_reeds_export_root")
+    objs: list[bpy.types.Object] = [
+        create_cylinder("muddy_root_clump", 0.46, 0.08, 18, mud, location=(0, 0.04, 0)),
+    ]
+    for i in range(18):
+        angle = i * 0.63
+        radius = 0.14 + (i % 6) * 0.055
+        height = 0.56 + (i % 4) * 0.13
+        x = math.cos(angle) * radius
+        z = math.sin(angle) * radius * 0.72
+        lean = math.sin(angle) * 0.24
+        objs.append(create_cylinder(f"bent_reed_{i}", 0.01, height, 5, reed, location=(x, height / 2, z), rotation=(0, 0, lean)))
+        objs.append(create_cylinder(f"reed_seed_{i}", 0.028, 0.12, 6, seed, location=(x + lean * 0.08, height + 0.04, z), rotation=(0, 0, lean)))
+
+    parent_to(root, objs)
+    shade_smooth(objs)
+    return objs
+
+
 BUILDERS = {
     "dummy": build_dummy,
     "gate": build_gate,
@@ -680,6 +800,10 @@ BUILDERS = {
     "castle_gate": build_castle_gate,
     "castle_door": build_castle_door,
     "castle_stairs": build_castle_stairs,
+    "preview_twisted_tree": build_preview_twisted_tree,
+    "preview_blight_shrub": build_preview_blight_shrub,
+    "preview_jagged_stone": build_preview_jagged_stone,
+    "preview_dreary_reeds": build_preview_dreary_reeds,
 }
 
 

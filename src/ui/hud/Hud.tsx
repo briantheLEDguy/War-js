@@ -16,6 +16,7 @@ import { QuestMarkerLayer } from './QuestMarkerLayer';
 import { SettingsPanel } from './SettingsPanel';
 import { TargetFrame } from './TargetFrame';
 import { TouchControls } from './TouchControls';
+import { WikiPanel } from './WikiPanel';
 import { WorldEditorModeStrip } from './WorldEditorModeStrip';
 import { WorldEditorPanel } from './WorldEditorPanel';
 
@@ -30,7 +31,9 @@ export function Hud({ game }: Props) {
   const questLogOpen = useGameStore((s) => s.questLogOpen);
   const activeQuestDialogNpcId = useGameStore((s) => s.activeQuestDialogNpcId);
   const playerDead   = useGameStore((s) => s.playerDead);
+  const wikiOpen = useGameStore((s) => s.wikiOpen);
   const settingsOpen = useGameStore((s) => s.settingsOpen);
+  const toggleWiki = useGameStore((s) => s.toggleWiki);
   const toggleSettings = useGameStore((s) => s.toggleSettings);
   const gmBuildMode = useGameStore((s) => s.gmBuildMode);
 
@@ -42,6 +45,14 @@ export function Hud({ game }: Props) {
     <div className="hud">
       <PlayerFrame />
       <TargetFrame />
+      <button
+        className={`guide-toggle-btn${wikiOpen ? ' active' : ''}`}
+        type="button"
+        onClick={toggleWiki}
+        aria-pressed={wikiOpen}
+      >
+        Guide
+      </button>
       <button
         className={`settings-toggle-btn${settingsOpen ? ' active' : ''}`}
         type="button"
@@ -59,6 +70,7 @@ export function Hud({ game }: Props) {
       {questLogOpen && <QuestLogPanel />}
       {activeQuestDialogNpcId && <QuestDialog />}
       {debugOpen && <DebugOverlay game={game} />}
+      {wikiOpen && <WikiPanel />}
       <NameplateLayer game={game} />
       <QuestMarkerLayer game={game} />
       <FloatingDamageLayer game={game} />

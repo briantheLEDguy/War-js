@@ -1,0 +1,50 @@
+{
+  "assetId": "prop.preview.blight_shrub.t1",
+  "displayName": "Blight Preview Shrub",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": ["props", "preview", "destruction_preview"],
+  "runtime": { "staticKey": "preview_blight_shrub" },
+  "output": {
+    "model": "prop_preview_blight_shrub_t1.glb",
+    "artifactDir": "artifacts/blender/manifest/prop_preview_blight_shrub_t1"
+  },
+  "generator": { "kind": "staticPreset", "preset": "preview_blight_shrub" },
+  "geometry": {
+    "originRule": "base_center_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      { "name": "LOD0", "triTarget": 4200, "screenCoverageMin": 0.18 },
+      { "name": "LOD1", "triTarget": 1500, "screenCoverageMin": 0.06 }
+    ]
+  },
+  "materials": {
+    "master": "MM_PropPbr",
+    "textureSet": "preview_blight_shrub_t1",
+    "channels": ["baseColor", "roughness", "normal", "occlusion"]
+  },
+  "rigging": { "skinned": false, "maxInfluences": 1, "requiredClips": [] },
+  "collision": {
+    "policy": "compound_primitive",
+    "primitives": [{ "type": "sphere", "tag": "preview_foliage" }]
+  },
+  "compatibility": { "occupiesSlots": ["world_prop"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 64,
+    "maxMeshObjects": 64,
+    "maxFileSizeMb": 1,
+    "groundToleranceM": 0.03,
+    "expectedHeightM": 0.95
+  }
+}

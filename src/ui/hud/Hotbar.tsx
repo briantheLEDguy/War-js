@@ -1,8 +1,10 @@
+import type { CSSProperties } from 'react';
 import {
   abilityHasEnoughResources,
   getCareerAbilityKit,
 } from '../../game/abilities/abilityData';
 import { useGameStore } from '../../state/gameStore';
+import { AbilityIcon } from './AbilityIcon';
 
 function activateSlot(slot: number) {
   useGameStore.getState().setPendingTouchAbility(slot);
@@ -31,6 +33,14 @@ export function Hotbar() {
           ability.resource.careerBuild ? `builds ${ability.resource.careerBuild} ${kit.resource.label}` : null,
         ].filter(Boolean);
         const tooltip = `${ability.key}. ${ability.name} - ${ability.summary}${costParts.length ? ` (${costParts.join(', ')})` : ''}`;
+        const colors = ability.visual.vfx.colors;
+        const colorStyle = {
+          '--ability-primary': colors.primary,
+          '--ability-secondary': colors.secondary,
+          '--ability-accent': colors.accent,
+          '--ability-shadow': colors.shadow,
+          '--ability-glow': colors.glow,
+        } as CSSProperties;
 
         return (
           <button
@@ -38,9 +48,12 @@ export function Hotbar() {
             className={`hotbar-slot school-${school}${!canPay && cd <= 0 ? ' no-mana' : ''}`}
             title={tooltip}
             type="button"
+            style={colorStyle}
             onClick={() => activateSlot(ability.slot)}
           >
-            <span className="ability-icon">{ability.icon}</span>
+            <span className="ability-icon">
+              <AbilityIcon ability={ability} />
+            </span>
             <span className="key">{ability.key}</span>
             {cd > 0 && <span className="cd-overlay">{cd.toFixed(1)}</span>}
           </button>

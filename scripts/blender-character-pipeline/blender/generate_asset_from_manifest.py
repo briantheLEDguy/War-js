@@ -36,6 +36,10 @@ CHARACTER_PRESETS = {
 
 STATIC_PRESETS = {
     "dummy": "dummy",
+    "preview_twisted_tree": "preview_twisted_tree",
+    "preview_blight_shrub": "preview_blight_shrub",
+    "preview_jagged_stone": "preview_jagged_stone",
+    "preview_dreary_reeds": "preview_dreary_reeds",
 }
 
 

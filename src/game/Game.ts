@@ -316,10 +316,19 @@ export class Game {
       }
     }
 
-    // Debug / inventory / quest log / settings toggles
-    if (this.input.wasPressed('Escape') && !store.chatFocused) store.toggleSettings();
-    const settingsOpen = useGameStore.getState().settingsOpen;
-    if (store.gmBuildMode && !store.chatFocused && !settingsOpen && this.input.wasPressed('Tab')) {
+    // Debug / panels / settings toggles
+    if (this.input.wasPressed('Escape') && !store.chatFocused) {
+      if (store.wikiOpen) store.setWikiOpen(false);
+      else store.toggleSettings();
+    }
+    if (!store.chatFocused && !useGameStore.getState().settingsOpen && this.input.wasPressed('KeyH')) {
+      store.toggleWiki();
+    }
+    const uiState = useGameStore.getState();
+    const settingsOpen = uiState.settingsOpen;
+    const wikiOpen = uiState.wikiOpen;
+    const uiBlockingOpen = settingsOpen || wikiOpen;
+    if (store.gmBuildMode && !store.chatFocused && !uiBlockingOpen && this.input.wasPressed('Tab')) {
       const direction = this.input.isDown('ShiftLeft') || this.input.isDown('ShiftRight') ? -1 : 1;
       const nextTool = cycleBuildModeTool(store.worldEditorTool, direction);
       store.setWorldEditorTool(nextTool);
@@ -330,12 +339,12 @@ export class Game {
       store.gmBuildMode &&
       store.worldEditorTool === 'select' &&
       !store.chatFocused &&
-      !settingsOpen &&
+      !uiBlockingOpen &&
       (this.input.wasPressed('Delete') || this.input.wasPressed('Backspace'))
     ) {
       this.deleteSelectedWorldEditorObject();
     }
-    if (!settingsOpen) {
+    if (!uiBlockingOpen) {
       if (this.input.wasPressed('Backquote')) store.toggleDebug();
       if (this.input.wasPressed('KeyI')) store.toggleInventory();
       if (this.input.wasPressed('KeyC') && !store.chatFocused) store.toggleCharacterSheet();
@@ -350,19 +359,19 @@ export class Game {
     }
 
     // Interact with nearby corpses, crafting stations, or quest-givers.
-    if (this.input.wasPressed('KeyE') && !store.chatFocused && !settingsOpen) {
+    if (this.input.wasPressed('KeyE') && !store.chatFocused && !uiBlockingOpen) {
       this.tryGatherNearestCorpse() ||
         this.tryOpenNearestCraftingStation() ||
         this.tryOpenNearestQuestgiver();
     }
 
     // Chat focus
-    if (this.input.wasPressed('Enter') && !store.chatFocused && !settingsOpen) {
+    if (this.input.wasPressed('Enter') && !store.chatFocused && !uiBlockingOpen) {
       store.setChatFocused(true);
     }
 
     // Combat inputs (blocked while dead or typing in chat)
-    if (!store.chatFocused && !store.playerDead && !settingsOpen && !store.gmBuildMode) {
+    if (!store.chatFocused && !store.playerDead && !uiBlockingOpen && !store.gmBuildMode) {
       if (this.input.mouseLeftClickedThisFrame) {
         const id = this.combat.tryTargetAt(this.input.lastClickNDC, this.camera.camera);
         if (id) {
@@ -400,7 +409,7 @@ export class Game {
 
     // Tick
     store.tickCooldowns(dt);
-    if (!store.playerDead && !settingsOpen) {
+    if (!store.playerDead && !uiBlockingOpen) {
       this.player.update(dt, this.input, this.camera, this.resolvePlayerCollisions);
     }
     if (store.gmBuildMode) {

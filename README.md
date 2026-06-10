@@ -1,8 +1,8 @@
 # War-js
 
 Browser-based MMO/RPG vertical slice built with **Three.js + React + Vite +
-TypeScript** and a **Supabase-ready** service layer. Local mode works without
-backend configuration by using in-memory/localStorage services.
+TypeScript** and Supabase-ready service interfaces. Local mode works without
+backend configuration by using in-memory, localStorage, and IndexedDB services.
 
 The runtime renders with generated or licensed `.glb` files when present and
 falls back to procedural Three.js primitives when assets are missing.
@@ -19,6 +19,7 @@ Dev server: `http://localhost:5173`
 Useful checks:
 
 ```bash
+npm run test
 npm run typecheck
 npm run world:validate
 npm run models:sync-playables
@@ -42,6 +43,7 @@ npm run models:validate
 | `E` | Interact with quest givers, crafting stations, and harvestable corpses |
 | `I` | Toggle inventory |
 | `C` | Toggle character sheet |
+| `H` | Toggle in-game guide / wiki |
 | `Esc` | Toggle settings |
 | `Enter` | Focus chat |
 | `` ` `` | Toggle debug overlay |
@@ -73,15 +75,50 @@ src/
   editor/                GM authorization helpers
   services/              Local/Supabase service abstraction
     local/               In-memory services and browser-compatible ID helpers
+    supabase/            NotImplemented stubs that preserve the backend contract
   state/                 Zustand game store
   game/                  Three.js runtime, loader, player, combat, input,
                          data-driven ability runtime
   game/abilities/        Class kits, ability schema, activation runtime,
                          projectile/impact VFX
+  game/animation/        Shared procedural/GLB animation and VFX helpers
   world/                 Zone loading, terrain, props, NPCs, biome/path kits,
                          GM world-edit validation and runtime editor helpers
+  world/editor/          Voxel terrain, prefab, transform, collider, and
+                         walkable-surface authoring runtime
+  wiki/                  React-agnostic guide/wiki content generation from
+                         gameplay catalogs plus roadmap metadata
   ui/                    React screens and HUD overlay
 ```
+
+## In-Game Wiki Guide
+
+`src/wiki/wikiContent.ts` builds the reusable guide index from the same catalogs
+used by gameplay: races/classes, ability kits, crafting professions/recipes,
+cultivation seeds, quests, and referenced item names. Hand-authored metadata in
+`src/wiki/wikiMetadata.ts` provides section order, overview text, race copy, and
+planned roadmap pages.
+
+`src/ui/hud/WikiPanel.tsx` renders that index as an in-game HUD guide with
+section tabs, search, page navigation, detail rows, and data tables. The guide
+opens from the HUD `Guide` button or `H`; while open, movement, combat,
+interaction, and chat shortcuts are blocked, and `Esc` closes the guide before
+falling back to settings.
+
+## Character Select Preview
+
+`src/ui/screens/CharacterPreviewStage.tsx` renders the selected character beside
+the character-select list with a compact Three.js scene. It creates a preview
+`Player` with a zeroed position, so model loading, generated profile resolution,
+idle animation playback, and compatible equipment overlays use the same runtime
+path as the in-world player without mounting the full game loop.
+
+Saved characters load their full `CharacterState` before previewing. While the
+create form is open, the preview uses the unsaved race, class, and body variant
+choices. Race-themed preview environments are procedural except for the
+Destruction foliage/stone accents, which are manifest-backed static props:
+`preview_twisted_tree`, `preview_blight_shrub`, `preview_jagged_stone`, and
+`preview_dreary_reeds`.
 
 ## Gathering And Crafting
 
@@ -121,6 +158,9 @@ Ability definitions include:
   or pet.
 - effect payloads for damage, healing, and tracked combat statuses.
 - animation metadata with release/active notify windows and generic action ids.
+- visual profile metadata for class/race palettes, thematic hotbar icons,
+  class-family flair, cast windups, projectile silhouettes, trails, motion
+  style, and target-contact impact effects.
 - VFX socket intent for future authored assets.
 
 `src/game/abilities/AbilityRuntime.ts` validates range and resources, starts
@@ -130,8 +170,24 @@ and hands off damage/healing/status application to `src/game/Combat.ts` so XP,
 loot, respawn, enemy hit reactions, and quest kill credit stay on the existing
 combat path.
 
-`src/game/abilities/AbilityVfx.ts` provides generic runtime visuals for
-projectiles, beams, melee arcs, ground pulses, impact bursts, and self auras.
+`tests/abilityCatalog.test.ts` and `tests/abilityRuntime.test.ts` run under
+Vitest and guard the ability catalog, legacy class aliases, resource rules,
+targeting metadata, visual profiles, activation gating, resource spending,
+cooldowns, animation calls, and VFX handoff.
+
+`src/ui/hud/AbilityIcon.tsx` renders generated SVG icons from each ability's
+visual profile, replacing text-glyph hotbar placeholders with class- and
+school-themed frames, symbols, accents, and a shared palette used by the
+hotbar and runtime VFX.
+
+`src/game/abilities/AbilityVfx.ts` provides runtime visuals for cast windups,
+class-family flourishes, projectiles, beams, melee arcs, ground pulses, impact
+bursts, and self auras. Projectile abilities now carry a shaped projectile,
+trail, arcing/swaying travel motion, and delayed target-contact burst that
+lines up with the scheduled impact window. Class families add their own
+race-appropriate palettes, glyphs, orbit behavior, beam pulse rings, area
+spokes, and impact fragments so careers share the same runtime system without
+all looking like the same recolored spell.
 Current generated character GLBs can keep exposing `attack_melee`,
 `attack_ranged`, and `cast`; `src/game/Player.ts` maps the richer ability
 action ids (`light_attack_a`, `heavy_attack`, `shoot_standing`, `cast_short`,
@@ -194,6 +250,7 @@ npm run models:all -- playable_smoke
 npm run models:all -- playable_characters
 npm run models:all -- playable_armor
 npm run models:all -- playable_all
+npm run models:all -- destruction_preview
 npm run models:all -- equipment
 npm run models:all -- characters
 npm run models:all -- weapons
@@ -205,7 +262,8 @@ Generated output contract:
 - `.asset.json` blueprint in `scripts/blender-character-pipeline/data/asset-blueprints/`
 - `.glb` runtime asset in `public/assets/models/`
 - `.qc.json` sidecar beside the generated GLB with `qcPassed: true`
-- preview/QC artifacts under `artifacts/blender/manifest/`
+- preview/QC artifacts under `artifacts/blender/manifest/` (ignored, safe to
+  delete, and regenerated by Blender)
 - runtime resolver entry in `public/assets/models/asset-index.json`
 
 `npm run models:validate` checks manifests, neutral generated semantics,
@@ -233,6 +291,10 @@ Codex MCP tools are exposed by `scripts/blender-character-pipeline/mcp-server/se
 
 Zone JSON in `public/assets/maps/` drives terrain, props, NPCs, enemies,
 colliders, walkable surfaces, paths, and biome kits.
+
+Current committed maps are `altdorf`, `reikland`, and the legacy `zone1`
+test map. Missing future zone files still load through the built-in fallback
+path; the runtime must never hard-fail on absent content.
 
 - `terrainModel` can load a visible GLB terrain and use it for height sampling.
 - `props[].colliders` and `props[].walkableSurfaces` make multi-floor props navigable.
@@ -310,18 +372,26 @@ models, colliders, walkable surfaces, paths, and core map shape.
 
 ## Supabase Setup
 
-Local mode is default. To route through Supabase later:
+Local mode is default. The Supabase service classes currently preserve the
+backend contract as explicit `NotImplementedError` stubs. To route through
+Supabase later:
 
 1. Create a Supabase project.
-2. Copy `.env.example` to `.env`.
-3. Set:
+2. Add the browser client dependency and a shared client helper:
+
+   ```bash
+   npm install @supabase/supabase-js
+   ```
+
+3. Copy `.env.example` to `.env`.
+4. Set:
 
    ```text
    VITE_SUPABASE_URL=https://xxxx.supabase.co
    VITE_SUPABASE_ANON_KEY=eyJ...
    ```
 
-4. Implement the stubs in `src/services/supabase/*`.
+5. Implement the stubs in `src/services/supabase/*`.
 
 Suggested tables:
 
@@ -340,7 +410,7 @@ create table characters (
   race text not null,
   level int default 1,
   xp int default 0,
-  zone_id text default 'zone1',
+  zone_id text not null,
   position jsonb default '{"x":0,"y":0,"z":0}',
   rotation_y real default 0,
   health int default 100,
@@ -422,6 +492,9 @@ create table gm_user_roles (
 );
 ```
 
+Character creation chooses starting `zone_id` in the service layer: Order races
+start in `altdorf`, while Destruction races start in `inevitable_city`.
+
 Enable Row Level Security on all world-edit tables before exposing Supabase to
 the browser. Published rows can be readable by players; draft, restore, and
 publish writes should be limited to `gm`/`admin` users.
@@ -446,6 +519,8 @@ The workflow builds with `vite --base=/War-js/`; runtime asset paths must use
 | `npm run dev` | Vite dev server |
 | `npm run build` | TypeScript check plus production bundle |
 | `npm run preview` | Preview production bundle |
+| `npm run test` | Vitest unit tests for wiki/data consistency plus ability catalog and runtime behavior |
+| `npm run test:watch` | Watch mode for the Vitest unit suite |
 | `npm run typecheck` | TypeScript check only |
 | `npm run world:validate` | Validate zone JSON for world-editor compatibility |
 | `npm run models:list` | List model blueprints and generated status |

@@ -50,5 +50,26 @@
     "stone": "#827a6e",
     "darkStone": "#4b4742",
     "trim": "#4b4742"
+  },
+  "preview_twisted_tree": {
+    "bark": "#211713",
+    "split": "#3a2419",
+    "thorn": "#4a1715",
+    "leaf": "#283020"
+  },
+  "preview_blight_shrub": {
+    "stem": "#20170f",
+    "leaf": "#29351d",
+    "rot": "#4b3119"
+  },
+  "preview_jagged_stone": {
+    "stone": "#3a3634",
+    "dark": "#201e1d",
+    "stain": "#4a1715"
+  },
+  "preview_dreary_reeds": {
+    "reed": "#2d2a18",
+    "seed": "#51481f",
+    "mud": "#17120d"
   }
 }

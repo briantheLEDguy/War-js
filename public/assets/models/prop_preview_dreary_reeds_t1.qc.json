@@ -1,0 +1,323 @@
+{
+  "assetId": "prop.preview.dreary_reeds.t1",
+  "category": "prop",
+  "model": "prop_preview_dreary_reeds_t1.glb",
+  "fileSizeBytes": 43392,
+  "meshCount": 37,
+  "totalTris": 716,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "muddy_root_clump",
+      "verts": 36,
+      "faces": 20,
+      "tris": 68,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_0",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_0",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_1",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_1",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_2",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_2",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_3",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_3",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_4",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_4",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_5",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_5",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_6",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_6",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_7",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_7",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_8",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_8",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_9",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_9",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_10",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_10",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_11",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_11",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_12",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_12",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_13",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_13",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_14",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_14",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_15",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_15",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_16",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_16",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "bent_reed_17",
+      "verts": 10,
+      "faces": 7,
+      "tris": 16,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    },
+    {
+      "name": "reed_seed_17",
+      "verts": 12,
+      "faces": 8,
+      "tris": 20,
+      "materials": 1,
+      "assetSlot": "world_prop"
+    }
+  ],
+  "artifactDir": "artifacts/blender/manifest/prop_preview_dreary_reeds_t1",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "preset": "preview_dreary_reeds"
+  }
+}

@@ -230,6 +230,11 @@ interface GameStore {
   pendingTouchAbility: number | null;
   setPendingTouchAbility: (slot: number | null) => void;
 
+  // ------- guide / wiki -------
+  wikiOpen: boolean;
+  setWikiOpen: (b: boolean) => void;
+  toggleWiki: () => void;
+
   // ------- settings -------
   settingsOpen: boolean;
   setSettingsOpen: (b: boolean) => void;
@@ -425,9 +430,25 @@ export const useGameStore = create<GameStore>((set) => ({
   pendingTouchAbility: null,
   setPendingTouchAbility: (pendingTouchAbility) => set({ pendingTouchAbility }),
 
+  wikiOpen: false,
+  setWikiOpen: (wikiOpen) =>
+    set((s) => ({
+      wikiOpen,
+      settingsOpen: wikiOpen ? false : s.settingsOpen,
+    })),
+  toggleWiki: () =>
+    set((s) => ({
+      wikiOpen: !s.wikiOpen,
+      settingsOpen: !s.wikiOpen ? false : s.settingsOpen,
+    })),
+
   settingsOpen: false,
   setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
-  toggleSettings: () => set((s) => ({ settingsOpen: !s.settingsOpen })),
+  toggleSettings: () =>
+    set((s) => ({
+      settingsOpen: !s.settingsOpen,
+      wikiOpen: !s.settingsOpen ? false : s.wikiOpen,
+    })),
   settings: loadGameplaySettings(),
   updateSettings: (patch) =>
     set((s) => {
