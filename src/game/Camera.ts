@@ -5,6 +5,7 @@ import type { Input } from './Input';
 const MOUSE_YAW_SENSITIVITY = 0.005;
 const MOUSE_PITCH_SENSITIVITY = 0.003;
 const CAMERA_COLLISION_PADDING = 0.35;
+const CAMERA_TERRAIN_PADDING = 0.45;
 
 export interface CameraCollider {
   id: string;
@@ -14,6 +15,7 @@ export interface CameraCollider {
   depth: number;
   rotY: number;
 }
+type TerrainHeightResolver = (x: number, z: number) => number;
 
 /**
  * Third-person follow camera. Orbit with either mouse button + drag on canvas,
@@ -192,14 +194,19 @@ export class FollowCamera {
     return this.yaw + Math.PI;
   }
 
-  update(target: THREE.Vector3, _input: Input, colliders: CameraCollider[] = []) {
+  update(
+    target: THREE.Vector3,
+    _input: Input,
+    colliders: CameraCollider[] = [],
+    terrainHeightAt?: TerrainHeightResolver,
+  ) {
     const focus = new THREE.Vector3(target.x, target.y + 0.9, target.z);
     const desired = new THREE.Vector3(
       target.x + Math.sin(this.yaw) * Math.cos(this.pitch) * this.distance,
       target.y + Math.sin(this.pitch) * this.distance + 1.2,
       target.z + Math.cos(this.yaw) * Math.cos(this.pitch) * this.distance,
     );
-    const resolved = resolveCameraCollision(focus, desired, colliders);
+    const resolved = resolveCameraCollision(focus, desired, colliders, terrainHeightAt);
     this.camera.position.copy(resolved);
     this.camera.lookAt(focus);
   }
@@ -226,8 +233,11 @@ function resolveCameraCollision(
   focus: THREE.Vector3,
   desired: THREE.Vector3,
   colliders: CameraCollider[],
+  terrainHeightAt?: TerrainHeightResolver,
 ): THREE.Vector3 {
-  if (colliders.length === 0) return desired;
+  if (colliders.length === 0) {
+    return resolveCameraTerrainCollision(focus, desired, terrainHeightAt);
+  }
 
   const direction = desired.clone().sub(focus);
   const distance = direction.length();
@@ -245,7 +255,7 @@ function resolveCameraCollision(
   }
 
   const resolved = nearestT < 1
-    ? focus.clone().add(direction.multiplyScalar(Math.max(0.05, nearestT - CAMERA_COLLISION_PADDING / distance)))
+    ? focus.clone().add(direction.clone().multiplyScalar(Math.max(0.05, nearestT - CAMERA_COLLISION_PADDING / distance)))
     : desired.clone();
 
   for (let pass = 0; pass < 3; pass += 1) {
@@ -256,7 +266,44 @@ function resolveCameraCollision(
     if (!moved) break;
   }
 
-  return resolved;
+  return resolveCameraTerrainCollision(focus, resolved, terrainHeightAt);
+}
+
+function resolveCameraTerrainCollision(
+  focus: THREE.Vector3,
+  desired: THREE.Vector3,
+  terrainHeightAt?: TerrainHeightResolver,
+): THREE.Vector3 {
+  if (!terrainHeightAt || isAboveTerrain(desired, terrainHeightAt)) return desired;
+
+  const direction = desired.clone().sub(focus);
+  const distance = direction.length();
+  if (distance <= 0.001) {
+    return desired.clone().setY(Math.max(desired.y, terrainHeightAt(desired.x, desired.z) + CAMERA_TERRAIN_PADDING));
+  }
+
+  if (!isAboveTerrain(focus, terrainHeightAt)) {
+    return focus.clone().setY(Math.max(focus.y, terrainHeightAt(focus.x, focus.z) + CAMERA_TERRAIN_PADDING));
+  }
+
+  let validT = 0;
+  let blockedT = 1;
+  for (let i = 0; i < 14; i += 1) {
+    const t = (validT + blockedT) * 0.5;
+    const probe = focus.clone().add(direction.clone().multiplyScalar(t));
+    if (isAboveTerrain(probe, terrainHeightAt)) {
+      validT = t;
+    } else {
+      blockedT = t;
+    }
+  }
+
+  const safeT = Math.max(0.05, validT - CAMERA_COLLISION_PADDING / distance);
+  return focus.clone().add(direction.multiplyScalar(safeT));
+}
+
+function isAboveTerrain(point: THREE.Vector3, terrainHeightAt: TerrainHeightResolver): boolean {
+  return point.y >= terrainHeightAt(point.x, point.z) + CAMERA_TERRAIN_PADDING;
 }
 
 function intersectSegmentWithColliderXZ(

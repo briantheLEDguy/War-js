@@ -1,4 +1,5 @@
 import type { BodyVariant, PlayableRace } from '../data/careers';
+import type { CampaignClaimResult, CampaignRealm, CampaignSnapshot } from '../data/campaign';
 
 export interface User {
   id: string;
@@ -104,6 +105,10 @@ export interface ZonePlayerBroadcast {
   rotationY: number;
 }
 
+export interface ZonePlayerPresence extends ZonePlayerBroadcast {
+  zoneId: string;
+}
+
 export interface Vec3 {
   x: number;
   y: number;
@@ -168,6 +173,8 @@ export interface WorldPropObject extends WorldObjectBase {
     width: number;
     depth: number;
     rotY?: number;
+    minY?: number;
+    maxY?: number;
     blocksWhen?: 'always' | 'closed';
     interactionId?: string;
   }>;
@@ -182,12 +189,25 @@ export interface WorldPropObject extends WorldObjectBase {
     toY?: number;
     axis?: 'x' | 'z';
   }>;
+  interaction?: WorldPropInteraction;
+}
+
+export interface WorldPropInteraction {
+  id: string;
+  type: 'gate';
+  label?: string;
+  maxDistance?: number;
+  openClip?: string;
+  closeClip?: string;
+  startsOpen?: boolean;
 }
 
 export interface WorldColliderObject extends WorldObjectBase {
   type: 'collider';
   width: number;
   depth: number;
+  minY?: number;
+  maxY?: number;
   blocksWhen?: 'always' | 'closed';
   interactionId?: string;
 }
@@ -259,6 +279,7 @@ export interface CharacterService {
   create(userId: string, data: Omit<CharacterSummary, 'id' | 'level' | 'zoneId'>): Promise<CharacterSummary>;
   load(characterId: string): Promise<CharacterState>;
   save(characterId: string, state: Partial<CharacterState>): Promise<void>;
+  findByName(name: string): Promise<CharacterState[]>;
 }
 
 export interface InventoryService {
@@ -302,6 +323,8 @@ export interface CultivationSlot {
 export interface CraftingState {
   professions: ProfessionProgress[];
   cultivationSlots: CultivationSlot[];
+  /** resource node cooldown key -> unix timestamp in ms when the node can be gathered again. */
+  resourceNodeCooldowns: Record<string, number>;
 }
 
 export interface CraftingService {
@@ -322,6 +345,7 @@ export interface WorldService {
   leaveZone(zoneId: string): Promise<void>;
   updatePosition(zoneId: string, me: ZonePlayerBroadcast): Promise<void>;
   subscribeToPlayers(zoneId: string, cb: (players: ZonePlayerBroadcast[]) => void): Unsubscribe;
+  findPlayerByName(name: string): Promise<ZonePlayerPresence | null>;
 }
 
 export interface WorldEditService {
@@ -331,6 +355,13 @@ export interface WorldEditService {
   publishDraft(zoneId: string, notes: string): Promise<WorldEditDocument>;
   listVersions(zoneId: string): Promise<WorldEditVersionSummary[]>;
   restoreVersion(zoneId: string, versionId: string): Promise<WorldEditDocument>;
+}
+
+export interface CampaignService {
+  getSnapshot(currentZoneId?: string | null): Promise<CampaignSnapshot>;
+  subscribeSnapshot(cb: (snapshot: CampaignSnapshot) => void, currentZoneId?: string | null): Unsubscribe;
+  claimObjective(zoneId: string, objectiveId: string, realm: CampaignRealm): Promise<CampaignClaimResult>;
+  resetCampaign(): Promise<CampaignSnapshot>;
 }
 
 // ---------------------------------------------------------------------------
@@ -406,6 +437,7 @@ export interface Services {
   chat: ChatService;
   world: WorldService;
   worldEdits: WorldEditService;
+  campaign: CampaignService;
   quests: QuestService;
   readonly backend: 'local' | 'supabase';
 }

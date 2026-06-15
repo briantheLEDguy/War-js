@@ -1,14 +1,21 @@
 import { useGameStore } from '../../state/gameStore';
+import { useDraggableWindow } from './useDraggableWindow';
 
 export function TargetFrame() {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const targetId = useGameStore((s) => s.targetId);
   const enemies = useGameStore((s) => s.enemies);
   const target = enemies.find((e) => e.id === targetId);
   if (!target || !target.alive) return null;
   const pct = target.health / target.maxHealth;
   return (
-    <div className="panel target-frame">
-      <div className="unit-name">
+    <div ref={panelRef} className={`panel target-frame${dragClassName}`} style={dragStyle}>
+      <div className="unit-name draggable-window-handle" {...dragHandleProps}>
         <span>{target.name}</span>
         <span className="unit-level">Lv {target.level}</span>
       </div>

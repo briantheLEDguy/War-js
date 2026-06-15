@@ -1,20 +1,25 @@
 import * as THREE from 'three';
+import { DEFAULT_VIEW_DISTANCE, clampViewDistance, viewDistanceFogNear } from '../config/viewDistance';
 import type { AssetLoader } from '../game/AssetLoader';
 
 /**
  * Skybox + scene lighting. Uses HDRI environment if available, otherwise
  * a gradient sky + sun+ambient lights. Dark fantasy atmosphere inspired
- * by Warhammer's grim, war-torn aesthetic.
+ * by a grim, war-torn fantasy aesthetic.
  */
 export async function setupSky(
   scene: THREE.Scene,
   loader: AssetLoader,
   renderer: THREE.WebGLRenderer,
   hdriPath?: string,
+  viewDistance = DEFAULT_VIEW_DISTANCE,
 ): Promise<{ sun: THREE.DirectionalLight }> {
-  // Gradient sky fallback via a large inverted sphere.
-  // Dark, brooding sky with stormy undertones.
-  const geo = new THREE.SphereGeometry(500, 32, 32);
+  // Use a screen-space gradient for the player view, and keep the procedural
+  // gradient sphere only for environment lighting below. Rendering a finite
+  // sky sphere in the main scene causes circular frustum artifacts at long view
+  // distances.
+  scene.background = createSkyBackgroundTexture() ?? new THREE.Color(0x8a7a60);
+  const geo = new THREE.SphereGeometry(1400, 32, 32);
   const mat = new THREE.ShaderMaterial({
     uniforms: {
       topColor:     { value: new THREE.Color(0x2c3f5c) },
@@ -27,8 +32,8 @@ export async function setupSky(
     vertexShader: `
       varying vec3 vWorldPosition;
       void main() {
+        vWorldPosition = position;
         vec4 p = modelMatrix * vec4(position, 1.0);
-        vWorldPosition = p.xyz;
         gl_Position = projectionMatrix * viewMatrix * p;
       }`,
     fragmentShader: `
@@ -55,10 +60,8 @@ export async function setupSky(
         gl_FragColor = vec4(color, 1.0);
       }`,
     side: THREE.BackSide,
+    depthWrite: false,
   });
-  const skyMesh = new THREE.Mesh(geo, mat);
-  scene.add(skyMesh);
-
   if (hdriPath) {
     const tex = await loader.loadHDRI(hdriPath);
     if (tex) {
@@ -82,7 +85,7 @@ export async function setupSky(
   }
 
   // Atmospheric fog — slightly warm, hazy
-  scene.fog = new THREE.Fog(0x8a7a60, 50, 200);
+  applySceneViewDistance(scene, viewDistance);
 
   // Warm ambient for the grim look
   const ambient = new THREE.AmbientLight(0xc8b090, 0.75);
@@ -114,4 +117,42 @@ export async function setupSky(
   scene.add(fill);
 
   return { sun };
+}
+
+export function applySceneViewDistance(scene: THREE.Scene, viewDistance: number): number {
+  const fogFar = clampViewDistance(viewDistance);
+  const fogNear = viewDistanceFogNear(fogFar);
+  if (scene.fog instanceof THREE.Fog) {
+    scene.fog.near = fogNear;
+    scene.fog.far = fogFar;
+  } else {
+    scene.fog = new THREE.Fog(0x8a7a60, fogNear, fogFar);
+  }
+  return fogFar;
+}
+
+function createSkyBackgroundTexture(): THREE.Texture | null {
+  if (typeof document === 'undefined') return null;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 16;
+  canvas.height = 512;
+  const context = canvas.getContext('2d');
+  if (!context) return null;
+
+  const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+  gradient.addColorStop(0, '#2c3f5c');
+  gradient.addColorStop(0.45, '#4a5a6a');
+  gradient.addColorStop(0.68, '#c49a50');
+  gradient.addColorStop(1, '#8a7a60');
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearFilter;
+  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+  return texture;
 }

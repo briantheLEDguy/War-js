@@ -41,6 +41,7 @@ Run from the repository root:
 ```bash
 npm run models:list
 npm run models:sync-playables
+npm run models:sync-npcs
 npm run models:validate
 npm run models:generate -- chr.human.devout_guardian.t1.m
 npm run models:all -- smoke
@@ -48,6 +49,9 @@ npm run models:all -- playable_smoke
 npm run models:all -- playable_characters
 npm run models:all -- playable_armor
 npm run models:all -- playable_all
+npm run models:all -- npc_characters
+npm run models:all -- enemy_characters
+npm run models:all -- enemy_creatures
 npm run models:all -- destruction_preview
 npm run models:all -- equipment
 npm run models:all -- characters
@@ -63,6 +67,13 @@ profile key, item key, or static key.
 432 starter armor-module manifests, `asset-index.json` entries, and
 `src/data/playableAssets.generated.ts`. It is deterministic and should be run
 after any playable race, class, body-variant, or armor-slot theme change.
+
+`models:sync-npcs` scans `public/assets/maps/*.json`, applies the shared rules
+from `scripts/npc-profile-rules.mjs`, and emits deterministic NPC/enemy
+character manifests, creature static prop manifests, `asset-index.json`
+entries, and `data/npc-character-roster.json`. Static NPCs and humanoid enemies
+use `characterProfileKey`; training dummies and creature enemies use indexed
+static `assetKey` values.
 
 Generated artifacts:
 

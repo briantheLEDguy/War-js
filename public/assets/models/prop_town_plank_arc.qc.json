@@ -1,0 +1,30 @@
+{
+  "assetId": "prop.town.plank_arc",
+  "category": "prop",
+  "model": "prop_town_plank_arc.glb",
+  "fileSizeBytes": 95180,
+  "meshCount": 1,
+  "totalTris": 136,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_plank_arc",
+      "verts": 72,
+      "faces": 68,
+      "tris": 136,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

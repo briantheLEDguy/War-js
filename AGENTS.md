@@ -5,61 +5,59 @@ the project layout, conventions, and commands before doing any work.
 
 ## What this project is
 
-A browser-based recreation of **Warhammer Online: Age of Reckoning** (WAR), built
-with **Three.js + React + Vite + TypeScript**, architected around local services
-now and Supabase-ready service interfaces later.
+A browser-based fantasy MMO/RPG vertical slice built with **Three.js + React +
+Vite + TypeScript**, architected around local services now and Supabase-ready
+service interfaces later.
 
-The goal is a faithful carbon copy of WAR's gameplay, systems, and world running
-entirely in the browser. Runtime assets are manifest-generated or direct `.glb`
+The project now uses an original static Realm-vs-Realm campaign: **Aegis Accord**
+versus **Riftbound Host**. Runtime assets are manifest-generated or direct `.glb`
 files when present, with procedural Three.js primitive fallbacks for anything
 missing or blocked from runtime review.
 
-> [ProjectWAR](https://github.com/Shmerrick/ProjectWAR) is used as the authoritative
-> reference for zone layouts, NPC data, and game mechanics. No code, assets, or
-> branding from that project are vendored here.
-
 ---
 
-## Reference Fidelity Rules
+## Original Campaign Rules
 
 **These rules override everything else. All code and content must conform to them.**
 
 ### Races & Classes
-Use the player-facing class names from `ability-system.md`. Legacy WAR career
+Use the player-facing class names from `ability-system.md`. Legacy class
 names may appear only in compatibility aliases, historical changelog entries,
 or source-reference notes.
 
 | Realm       | Race       | Classes |
 |-------------|------------|---------|
-| Order       | Empire     | Ember Arcanist, Hex Inquisitor, Sunfire Templar, Battle Prelate |
-| Order       | Dwarf      | Stoneguard, Doomseeker, Glyphbinder, Siegewright |
-| Order       | High Elf   | Blade Savant, Pride Warden, Aether Sage, Veil Ranger |
-| Destruction | Chaos      | Dreadsworn, Warped Reaver, Void Magister, Ruin Oracle |
-| Destruction | Greenskin  | Warbrute, Fang Herder, Bog Hexer, Cleaver |
-| Destruction | Dark Elf   | Blood Dancer, Dread Guard, Dusk Weaver, Crimson Acolyte |
+| Aegis Accord | Empire     | Ember Arcanist, Hex Inquisitor, Sunfire Templar, Battle Prelate |
+| Aegis Accord | Dwarf      | Stoneguard, Doomseeker, Glyphbinder, Siegewright |
+| Aegis Accord | High Elf   | Blade Savant, Pride Warden, Aether Sage, Veil Ranger |
+| Riftbound Host | Chaos      | Dreadsworn, Warped Reaver, Void Magister, Ruin Oracle |
+| Riftbound Host | Greenskin  | Warbrute, Fang Herder, Bog Hexer, Cleaver |
+| Riftbound Host | Dark Elf   | Blood Dancer, Dread Guard, Dusk Weaver, Crimson Acolyte |
 
 ### Capital Cities
-- **Order capital**: `altdorf` — Altdorf, City of the Empire
-- **Destruction capital**: `inevitable_city` — The Inevitable City
-- Order characters (empire, dwarf, high_elf) default to `altdorf` on creation
-- Destruction characters (chaos, greenskin, dark_elf) default to `inevitable_city`
+- **Aegis capital**: `aegis_capital` - Bastion of Aegis
+- **Riftbound capital**: `riftspire_capital` - Riftspire Citadel
+- Aegis-aligned characters (empire, dwarf, high_elf) default to `aegis_capital`
+- Riftbound-aligned characters (chaos, greenskin, dark_elf) default to `riftspire_capital`
 
 ### Zone Names & IDs
-Zone IDs use WAR's naming convention (lowercase, underscored):
-`altdorf`, `inevitable_city`, `nordland`, `norsca`, `troll_country`, `high_pass`,
-`praag`, `thunder_mountain`, `kadrin_valley`, `mount_gunbad`, `black_crag`, etc.
+Zone IDs use original lowercase, underscored names from
+`scripts/campaign/static-campaign-source.mjs`, such as `dawnline_expanse`,
+`shatterline_expanse`, `aegis_gate_fortress`, and `rift_gate_fortress`.
 
 ### District & NPC Names
-All district names, NPC names, and titles must match the original WAR game exactly.
-Never invent names for content that existed in WAR.
-Class trainer titles use the renamed player-facing class roster above.
+New districts, NPC names, and titles must be original Aegis/Riftbound content.
+Do not add protected IP names to new campaign-facing surfaces.
+Class trainer titles use the player-facing class roster above.
 
 ### Mechanics
-- No invented mechanics. Every system must correspond to something in WAR.
-- RvR (Realm vs Realm) pairing structure: Nordland/Norsca → Ostland/Troll Country →
-  Talabecland/High Pass → Reikland → Altdorf/Inevitable City
-- City siege mechanics: cities are attackable when the realm holds all T4 RvR zones
-- Scenarios (instanced PvP), Public Quests, and Open RvR zones follow WAR's layout
+- The static campaign graph follows the attached Aegis/Riftbound sketch:
+  side T1-T3 lanes feed into inner T4 zones, central T4 fronts push toward
+  fortresses, and fortresses open city siege pressure.
+- City siege readiness: a realm must control the enemy T4 front, enemy inner
+  T4 zone, and enemy fortress.
+- Boss/lair branches are optional side objectives and do not block travel.
+- Every campaign arrow is represented by bidirectional `zoneTriggers`.
 
 ### Asset Pipeline
 Prefer manifest-backed assets under `scripts/blender-character-pipeline/data/asset-blueprints/`
@@ -77,6 +75,7 @@ npm run dev          # Vite dev server → http://localhost:5173
 npm run build        # TypeScript check + production bundle → dist/
 npm run preview      # serve the production bundle locally
 npm run typecheck    # TypeScript check only (no emit)
+npm run campaign:generate
 npm run world:validate
 npm run models:validate
 npm run models:sync-playables
@@ -102,15 +101,19 @@ public/
   assets/
     README.md           # explains asset layout
     maps/
-      zone1.json        # Nordland Outskirts zone definition (legacy test zone)
-      altdorf.json      # Altdorf — Order capital city
-      reikland.json     # Reikland outdoor test/RvR-adjacent zone
+      aegis_capital.json      # Bastion of Aegis
+      riftspire_capital.json  # Riftspire Citadel
+      ...                     # generated static Aegis/Riftbound campaign maps
+      zone1.json              # legacy dev test zone
     models/             # generated/direct .glb files, asset-index.json, QC sidecars
     textures/           # runtime terrain/building textures
     hdri/               # optional environment maps
 
 scripts/
   validate-world-edits.mjs
+  campaign/
+    static-campaign-source.mjs
+    generate-static-campaign.mjs
   blender-character-pipeline/
     README.md           # manifest-first Blender model pipeline
     blender/            # Blender generator/exporter backends
@@ -123,6 +126,8 @@ src/
   vite-env.d.ts         # Vite env type declarations
 
   data/
+    campaign.ts         # static campaign helpers, control state summaries
+    campaign.generated.ts
     careers.ts          # player-facing race/class roster and legacy aliases
     crafting.ts         # gathering/crafting professions and recipes
     items.ts            # item catalog and equipment metadata
@@ -140,6 +145,7 @@ src/
       authLocal.ts
       characterLocal.ts
       chatLocal.ts
+      campaignLocal.ts
       craftingLocal.ts
       inventoryLocal.ts
       questLocal.ts
@@ -149,6 +155,7 @@ src/
       authSupabase.ts
       characterSupabase.ts
       chatSupabase.ts
+      campaignSupabase.ts
       craftingSupabase.ts
       inventorySupabase.ts
       questSupabase.ts
@@ -180,7 +187,7 @@ src/
     PathKit.ts
     Terrain.ts          # procedural heightmap terrain mesh; flatTerrain=true for cities
     Skybox.ts           # HDR environment + directional light + ambient
-    Props.ts            # spawns props from zone JSON (supports WAR city prop kinds)
+    Props.ts            # spawns props from zone JSON with primitive fallbacks
     NpcSpawner.ts       # spawns NPC meshes from zone.npcs[]; pushes NpcState to store
     editor/             # GM voxel/prefab/transform/collision authoring runtime
 
@@ -203,6 +210,7 @@ src/
       Hotbar.tsx
       AbilityIcon.tsx
       ChatPanel.tsx
+      CampaignPanel.tsx
       CharacterSheetPanel.tsx
       CraftingPanel.tsx
       InventoryPanel.tsx
@@ -291,9 +299,10 @@ Settings → General → Default branch → change from
    VITE_SUPABASE_URL=https://xxxx.supabase.co
    VITE_SUPABASE_ANON_KEY=eyJ...
    ```
-4. Implement the stubs in `src/services/supabase/*.ts` — each file has a `TODO`
+4. Apply `supabase/migrations/20260611120000_campaign_static_map.sql`.
+5. Apply `supabase/seed_campaign_static.sql` after every campaign graph change.
+6. Implement the stubs in `src/services/supabase/*.ts` — each file has a `TODO`
    comment pointing at the exact Supabase call to make.
-5. Create the database tables from the SQL in `README.md`.
 
 ---
 
@@ -317,12 +326,13 @@ See `README.md` for the full list. Key items:
 ## Common AI coding tasks
 
 ### Add a new zone
-1. Create `public/assets/maps/<zoneId>.json` following the shape in existing zone files.
-2. Use WAR-accurate `id`, `name`, district layout, and NPC placement.
-3. Set `"flatTerrain": true` for capital cities and indoor zones.
-4. Add `"zoneTriggers"` for exits to adjacent zones.
-5. Add `"npcs"` for vendors, trainers, bankers, guards.
-6. No TypeScript changes needed — `ZoneLoader` discovers it by `id`.
+1. For campaign zones, edit `scripts/campaign/static-campaign-source.mjs` first.
+2. Run `npm run campaign:generate` to regenerate map JSON, campaign hashes, and Supabase seed SQL.
+3. Use original Aegis/Riftbound `id`, `name`, district layout, and NPC placement.
+4. Set `"flatTerrain": true` for capital cities and indoor zones.
+5. Add `"zoneTriggers"` for exits to adjacent zones.
+6. Add `"npcs"` for vendors, trainers, bankers, guards.
+7. Run `npm run world:validate` to verify static hashes, objectives, and reverse portals.
 
 ### Add a new service method
 1. Add the signature to the appropriate interface in `src/services/types.ts`.

@@ -6,6 +6,7 @@ import {
   strengthFromEquipment,
 } from '../../game/Equipment';
 import { useGameStore } from '../../state/gameStore';
+import { useDraggableWindow } from './useDraggableWindow';
 
 const RACE_DISPLAY: Record<string, string> = {
   empire: 'Empire',
@@ -17,6 +18,12 @@ const RACE_DISPLAY: Record<string, string> = {
 };
 
 export function CharacterSheetPanel() {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const character = useGameStore((s) => s.character);
   const inventory = useGameStore((s) => s.inventory);
   const toggleCharacterSheet = useGameStore((s) => s.toggleCharacterSheet);
@@ -27,8 +34,8 @@ export function CharacterSheetPanel() {
   const baseStrength = baseStrengthForCharacter(character, inventory);
 
   return (
-    <div className="panel character-sheet">
-      <div className="character-sheet-header">
+    <div ref={panelRef} className={`panel character-sheet${dragClassName}`} style={dragStyle}>
+      <div className="character-sheet-header draggable-window-handle" {...dragHandleProps}>
         <div>
           <h2>Character</h2>
           <div className="character-sheet-name">{character.name}</div>

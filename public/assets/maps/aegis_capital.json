@@ -1,0 +1,869 @@
+{
+  "id": "aegis_capital",
+  "name": "Bastion of Aegis",
+  "size": 360,
+  "segments": 96,
+  "terrainTexture": "cobblestone.svg",
+  "terrainModel": "terrain_aegis_capital_medieval_city.glb",
+  "skybox": "sky.hdr",
+  "flatTerrain": true,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "City",
+    "lane": "central",
+    "laneLabel": "Central Front",
+    "nodeRole": "capital",
+    "levelBand": "Capital"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -136
+  },
+  "paths": [],
+  "props": [
+    {
+      "id": "aegis_capital_apothecary_station_visual",
+      "kind": "vendor_stall",
+      "x": -40,
+      "z": -72,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_capital_talisman_station_visual",
+      "kind": "statue",
+      "x": 40,
+      "z": -72,
+      "rotY": 0.35,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_capital_cultivation_station_visual",
+      "kind": "pnw_grass_clump",
+      "x": -42,
+      "z": 72,
+      "rotY": 0.7,
+      "scale": 1.35
+    },
+    {
+      "id": "aegis_capital_salvage_station_visual",
+      "kind": "vendor_stall",
+      "x": 42,
+      "z": 72,
+      "rotY": 1.05,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_capital_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -104,
+      "rotY": 1.4,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_capital_imported_city_collision_proxy",
+      "kind": "aegis_capital_collision_proxy",
+      "x": 0,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1,
+      "visible": false,
+      "colliders": [
+        {
+          "id": "aegis_capital_imported_front_wall_west_collider",
+          "x": -103,
+          "z": -164,
+          "width": 118,
+          "depth": 12,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_front_wall_east_collider",
+          "x": 103,
+          "z": -164,
+          "width": 118,
+          "depth": 12,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_west_wall_south_collider",
+          "x": -164,
+          "z": -88,
+          "width": 12,
+          "depth": 92,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_west_wall_north_collider",
+          "x": -164,
+          "z": 76,
+          "width": 12,
+          "depth": 144,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_east_wall_south_collider",
+          "x": 164,
+          "z": -88,
+          "width": 12,
+          "depth": 92,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_east_wall_north_collider",
+          "x": 164,
+          "z": 76,
+          "width": 12,
+          "depth": 144,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_rear_wall_west_collider",
+          "x": -96,
+          "z": 164,
+          "width": 122,
+          "depth": 12,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_rear_wall_east_collider",
+          "x": 96,
+          "z": 164,
+          "width": 122,
+          "depth": 12,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_lower_houses_west_collider",
+          "x": -88,
+          "z": -86,
+          "width": 82,
+          "depth": 56,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_lower_houses_east_collider",
+          "x": 88,
+          "z": -86,
+          "width": 82,
+          "depth": 56,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_market_block_west_collider",
+          "x": -86,
+          "z": -40,
+          "width": 72,
+          "depth": 28,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_market_block_east_collider",
+          "x": 86,
+          "z": -40,
+          "width": 72,
+          "depth": 28,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_middle_houses_west_collider",
+          "x": -104,
+          "z": 22,
+          "width": 60,
+          "depth": 64,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_middle_houses_east_collider",
+          "x": 104,
+          "z": 22,
+          "width": 60,
+          "depth": 64,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_upper_houses_west_collider",
+          "x": -94,
+          "z": 84,
+          "width": 76,
+          "depth": 58,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_upper_houses_east_collider",
+          "x": 94,
+          "z": 84,
+          "width": 76,
+          "depth": 58,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_rear_houses_west_collider",
+          "x": -68,
+          "z": 132,
+          "width": 58,
+          "depth": 38,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_rear_houses_east_collider",
+          "x": 68,
+          "z": 132,
+          "width": 58,
+          "depth": 38,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_north_court_cluster_collider",
+          "x": 0,
+          "z": 100,
+          "width": 48,
+          "depth": 54,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_south_market_cluster_west_collider",
+          "x": -40,
+          "z": -106,
+          "width": 30,
+          "depth": 34,
+          "rotY": 0
+        },
+        {
+          "id": "aegis_capital_imported_south_market_cluster_east_collider",
+          "x": 40,
+          "z": -106,
+          "width": 30,
+          "depth": 34,
+          "rotY": 0
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_scrap_node_01_visual",
+      "kind": "rock",
+      "x": -135.1,
+      "z": -129.4,
+      "rotY": 3.5365,
+      "scale": 0.75
+    },
+    {
+      "id": "aegis_capital_ore_node_02_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 140.1,
+      "z": -129,
+      "rotY": 3.086,
+      "scale": 0.91
+    },
+    {
+      "id": "aegis_capital_herb_node_03_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -149.2,
+      "z": 35.5,
+      "rotY": 0.528,
+      "scale": 1.09
+    },
+    {
+      "id": "aegis_capital_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 149.7,
+      "z": 33.8,
+      "rotY": 4.8843,
+      "scale": 0.85
+    },
+    {
+      "id": "aegis_capital_relic_node_05_visual",
+      "kind": "statue",
+      "x": -37.6,
+      "z": 144.5,
+      "rotY": 3.7769,
+      "scale": 0.55
+    },
+    {
+      "id": "aegis_capital_water_node_06_visual",
+      "kind": "pnw_low_shrub",
+      "x": 30.9,
+      "z": 152.7,
+      "rotY": 2.8677,
+      "scale": 1.09
+    },
+    {
+      "id": "aegis_capital_scrap_node_07_visual",
+      "kind": "rock",
+      "x": -37.6,
+      "z": 71.8,
+      "rotY": 3.3213,
+      "scale": 0.75
+    },
+    {
+      "id": "aegis_capital_ore_node_08_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 42.1,
+      "z": 63.8,
+      "rotY": 2.2694,
+      "scale": 0.91
+    }
+  ],
+  "npcs": [
+    {
+      "id": "aegis_capital_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -30,
+      "z": -76,
+      "rotY": 0.65,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "aegis_capital_marshal",
+      "name": "Corren Vale",
+      "title": "Capital Campaign Marshal",
+      "role": "guard",
+      "x": 0,
+      "z": -24,
+      "rotY": -0.45,
+      "characterProfileKey": "npc_aegis_corren_vale_capital_campaign_marshal"
+    },
+    {
+      "id": "aegis_capital_banker",
+      "name": "Mira Stonewake",
+      "title": "Vault Keeper",
+      "role": "banker",
+      "x": -42,
+      "z": 18,
+      "rotY": 1.5708,
+      "characterProfileKey": "npc_aegis_mira_stonewake_vault_keeper"
+    },
+    {
+      "id": "aegis_capital_class_trainer",
+      "name": "Alden Voss",
+      "title": "Aegis Class Trainer",
+      "role": "trainer",
+      "x": 42,
+      "z": 18,
+      "rotY": -1.5708,
+      "characterProfileKey": "npc_aegis_alden_voss_aegis_class_trainer"
+    },
+    {
+      "id": "aegis_capital_craft_trainer",
+      "name": "Serra Brightfield",
+      "title": "Crafting Mentor",
+      "role": "trainer",
+      "x": -42,
+      "z": 58,
+      "rotY": 1.1,
+      "characterProfileKey": "npc_aegis_serra_brightfield_crafting_mentor"
+    },
+    {
+      "id": "aegis_capital_portal_guard",
+      "name": "Tovin Greyford",
+      "title": "Portal Guard",
+      "role": "guard",
+      "x": 0,
+      "z": -128,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_tovin_greyford_portal_guard"
+    },
+    {
+      "id": "quest-1",
+      "name": "Mara Vell",
+      "title": "Dawnline Dispatch Officer",
+      "role": "questgiver",
+      "x": 10,
+      "z": -94,
+      "rotY": 2.85,
+      "characterProfileKey": "npc_aegis_mara_vell_dawnline_dispatch_officer"
+    },
+    {
+      "id": "aegis_capital_front_gate_west",
+      "name": "Brann Hartwell",
+      "title": "Main Gate Guard",
+      "role": "guard",
+      "x": -15,
+      "z": -148,
+      "rotY": 0.2,
+      "characterProfileKey": "npc_external_medieval_character"
+    },
+    {
+      "id": "aegis_capital_front_gate_east",
+      "name": "Orrin Valecross",
+      "title": "Main Gate Guard",
+      "role": "guard",
+      "x": 15,
+      "z": -148,
+      "rotY": -0.2,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_west_gate_south",
+      "name": "Cedric Wold",
+      "title": "West Gate Guard",
+      "role": "guard",
+      "x": -148,
+      "z": -28,
+      "rotY": 1.5708,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_west_gate_north",
+      "name": "Hale Durn",
+      "title": "West Gate Guard",
+      "role": "guard",
+      "x": -148,
+      "z": -4,
+      "rotY": 1.5708,
+      "characterProfileKey": "npc_external_medieval_character"
+    },
+    {
+      "id": "aegis_capital_east_gate_south",
+      "name": "Tamsin Reed",
+      "title": "East Gate Guard",
+      "role": "guard",
+      "x": 148,
+      "z": -28,
+      "rotY": -1.5708,
+      "characterProfileKey": "npc_external_medieval_character"
+    },
+    {
+      "id": "aegis_capital_east_gate_north",
+      "name": "Veyra Sunholt",
+      "title": "East Gate Guard",
+      "role": "guard",
+      "x": 148,
+      "z": -4,
+      "rotY": -1.5708,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_market_west",
+      "name": "Garron Pike",
+      "title": "Market Watch",
+      "role": "guard",
+      "x": -48,
+      "z": -42,
+      "rotY": 0.8,
+      "characterProfileKey": "npc_external_swordsman"
+    },
+    {
+      "id": "aegis_capital_market_east",
+      "name": "Lysa Bright",
+      "title": "Market Watch",
+      "role": "guard",
+      "x": 48,
+      "z": -42,
+      "rotY": -0.8,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_plaza_west",
+      "name": "Merek Flint",
+      "title": "Plaza Watch",
+      "role": "guard",
+      "x": -22,
+      "z": -4,
+      "rotY": 1.2,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_plaza_east",
+      "name": "Rowan Hale",
+      "title": "Plaza Watch",
+      "role": "guard",
+      "x": 22,
+      "z": -4,
+      "rotY": -1.2,
+      "characterProfileKey": "npc_external_swordsman"
+    },
+    {
+      "id": "aegis_capital_side_street_west",
+      "name": "Iven Stonebrook",
+      "title": "Street Patrol",
+      "role": "guard",
+      "x": -52,
+      "z": 62,
+      "rotY": 0.45,
+      "characterProfileKey": "npc_external_medieval_character"
+    },
+    {
+      "id": "aegis_capital_side_street_east",
+      "name": "Kara Voss",
+      "title": "Street Patrol",
+      "role": "guard",
+      "x": 52,
+      "z": 62,
+      "rotY": -0.45,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_rear_district_west",
+      "name": "Brenna Vale",
+      "title": "Rear District Guard",
+      "role": "guard",
+      "x": -32,
+      "z": 118,
+      "rotY": 2.7,
+      "characterProfileKey": "npc_external_warrior_guard"
+    },
+    {
+      "id": "aegis_capital_rear_district_east",
+      "name": "Tor Caldus",
+      "title": "Rear District Guard",
+      "role": "guard",
+      "x": 32,
+      "z": 118,
+      "rotY": -2.7,
+      "characterProfileKey": "npc_external_medieval_character"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "aegis_capital_apothecary_station",
+      "label": "Apothecary Table",
+      "kind": "apothecary",
+      "x": -40,
+      "z": -72,
+      "radius": 6
+    },
+    {
+      "id": "aegis_capital_talisman_station",
+      "label": "Talisman Workbench",
+      "kind": "talisman_making",
+      "x": 40,
+      "z": -72,
+      "radius": 6
+    },
+    {
+      "id": "aegis_capital_cultivation_station",
+      "label": "Cultivation Plots",
+      "kind": "cultivation",
+      "x": -42,
+      "z": 72,
+      "radius": 7
+    },
+    {
+      "id": "aegis_capital_salvage_station",
+      "label": "Salvage Bench",
+      "kind": "salvage",
+      "x": 42,
+      "z": 72,
+      "radius": 6
+    },
+    {
+      "id": "aegis_capital_general_station",
+      "label": "Campaign Supply Table",
+      "kind": "general",
+      "x": 0,
+      "z": -104,
+      "radius": 6
+    }
+  ],
+  "enemies": [],
+  "resourceNodes": [
+    {
+      "id": "aegis_capital_scrap_node_01",
+      "label": "Aegis War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": -135.1,
+      "z": -129.4,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_scrap_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_ore_node_02",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 140.1,
+      "z": -129,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_ore_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_herb_node_03",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -149.2,
+      "z": 35.5,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_herb_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_soil_node_04",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 149.7,
+      "z": 33.8,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_relic_node_05",
+      "label": "Aegis Relic Shards",
+      "kind": "relic",
+      "professionId": "salvaging",
+      "x": -37.6,
+      "z": 144.5,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_relic_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_arcane_dust",
+          "qty": 1,
+          "chance": 0.75,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.44
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1,
+          "chance": 0.14
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_water_node_06",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": 30.9,
+      "z": 152.7,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_water_node_06_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_scrap_node_07",
+      "label": "Aegis War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": -37.6,
+      "z": 71.8,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_scrap_node_07_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_ore_node_08",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 42.1,
+      "z": 63.8,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 75,
+      "visualPropId": "aegis_capital_ore_node_08_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "aegis_capital_city_gate",
+      "type": "city_gate",
+      "label": "Bastion of Aegis Main Gate",
+      "x": 0,
+      "z": -136,
+      "captureRadius": 16,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "aegis_capital_plaza",
+      "type": "battle_objective",
+      "label": "Market Plaza",
+      "x": 0,
+      "z": -18,
+      "captureRadius": 14,
+      "defaultRealm": "aegis"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "aegis_capital_to_brightfen_approach",
+      "label": "Travel to Brightfen Approach",
+      "x": 164,
+      "z": -18,
+      "radius": 12,
+      "targetZoneId": "brightfen_approach",
+      "targetSpawn": {
+        "x": -115,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "aegis_capital_to_sunmeadow_march",
+      "label": "Travel to Sunmeadow March",
+      "x": -164,
+      "z": -18,
+      "radius": 12,
+      "targetZoneId": "sunmeadow_march",
+      "targetSpawn": {
+        "x": 115,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "aegis_capital_to_aegis_gate_fortress",
+      "label": "Travel to Starfall Gate",
+      "x": 0,
+      "z": -164,
+      "radius": 12,
+      "targetZoneId": "aegis_gate_fortress",
+      "targetSpawn": {
+        "x": 0,
+        "y": 0,
+        "z": 132.2
+      }
+    }
+  ],
+  "biomeKits": [],
+  "staticMapHash": "e1631385ea5b3dbc"
+}

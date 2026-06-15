@@ -5,6 +5,9 @@ import {
   getEquipmentVisualForKey,
 } from '../data/items';
 import type { EquipmentVisualFallback } from '../data/items';
+import {
+  playerModelOverrideForRace,
+} from '../data/modelOverrides';
 import { playableCharacterProfileKeyFor } from '../data/playableAssets.generated';
 import type { CharacterState, EquipmentState, EquipSlot } from '../services/types';
 import type { Terrain } from '../world/Terrain';
@@ -13,6 +16,16 @@ import { buildCharacterMesh } from './CharacterMeshes';
 import type { FollowCamera } from './Camera';
 import type { Input } from './Input';
 import type { CharacterAnimator } from './animation/CharacterAnimator';
+import { StaticModelAnimator } from './animation/StaticModelAnimator';
+import type { AbilityDefinition } from './abilities/types';
+import {
+  inferWeaponKindFromEquipment,
+  inferWeaponKindFromText,
+  markWeaponAttachment,
+  positionEquipmentWeaponOverlay,
+  WeaponAnimationController,
+  type WeaponAnimationRequest,
+} from './WeaponAnimation';
 
 const MOVE_SPEED = 6.0;
 const TURN_SPEED = 6.0;
@@ -22,6 +35,9 @@ const PLAYER_COLLISION_RADIUS = 0.45;
 const WALKABLE_SURFACE_STEP_UP = 0.85;
 const VISUAL_EQUIP_SLOTS: EquipSlot[] = EQUIP_SLOT_ORDER;
 type GroundResolver = (x: number, z: number, currentY?: number) => number;
+interface MovementOptions {
+  flying?: boolean;
+}
 
 export class Player {
   object!: THREE.Object3D;
@@ -34,6 +50,7 @@ export class Player {
   private glbActions = new Map<string, THREE.AnimationAction>();
   private activeGlbAction: THREE.AnimationAction | null = null;
   private activeGlbClipName: string | null = null;
+  private defaultGlbClipName: string | null = null;
   private glbActionLock = 0;
   private playerSkeleton: THREE.Skeleton | null = null;
   private playerBodyFamily: string | null = null;
@@ -41,6 +58,8 @@ export class Player {
   private equipmentOverlays = new Map<EquipSlot, THREE.Object3D>();
   private equipmentBaseBody: THREE.Object3D | null = null;
   private equipmentVisualRequestId = 0;
+  private usesExternalPlayerOverride = false;
+  private weaponAnimations = new WeaponAnimationController();
   private verticalV = 0;
   private grounded = true;
   /** Horizontal speed (m/s) computed from last frame's displacement. */
@@ -53,33 +72,40 @@ export class Player {
   ) {}
 
   async build(loader: AssetLoader, scene: THREE.Scene): Promise<void> {
-    const profileKey = characterAssetProfile(
+    const playableProfileKey = playableCharacterProfileKeyFor(
       this.character.race,
       this.character.className,
       this.character.bodyVariant,
     );
-    const indexedModel = await loader.resolveCharacterModel(profileKey);
+    const playableModel = await loader.resolveCharacterModel(playableProfileKey);
+    const modelOverride = playerModelOverrideForRace(this.character.race);
+    const overrideModel = playableModel
+      ? null
+      : await loader.resolveCharacterModel(modelOverride.profileKey);
+    const indexedModel = playableModel ?? overrideModel ?? modelOverride.fallbackModel;
     const primitive = () => buildCharacterMesh(this.character.race, this.character.className);
 
-    const { object, animations } = indexedModel
-      ? await loader.loadModelFull(indexedModel, primitive)
-      : { object: primitive(), animations: [] };
-    this.object = object;
+    const { object: loadedObject, animations } = await loader.loadModelFull(indexedModel, primitive);
+    this.usesExternalPlayerOverride = !playableModel;
+    this.object = wrapStaticPlayerVisual(loadedObject);
     prepareLoadedPlayerObject(this.object);
     this.playerSkeleton = findFirstSkeleton(this.object);
     this.playerBodyFamily = readMetadataString(this.object, 'bodyFamily');
     this.playerSkeletonId = readMetadataString(this.object, 'skeletonId');
 
     if (animations.length > 0) {
-      this.animator = null;
       this.glbMixer = new THREE.AnimationMixer(this.object);
       for (const clip of animations) {
         const safeClip = sanitizePlayerAnimationClip(clip);
         this.glbActions.set(safeClip.name, this.glbMixer.clipAction(safeClip));
+        this.defaultGlbClipName ??= safeClip.name;
       }
-      this.playGlbClip('idle', true);
+      this.animator = this.hasExplicitGlbLocomotion()
+        ? null
+        : new StaticModelAnimator(loadedObject, { preserveMixedPose: true });
+      this.playGlbClip(this.preferredGlbClip('idle'), true);
     } else {
-      this.animator = null;
+      this.animator = new StaticModelAnimator(loadedObject);
     }
     this.position.set(
       this.character.position.x,
@@ -93,7 +119,20 @@ export class Player {
     this.rotationY = this.character.rotationY;
     this.object.position.copy(this.position);
     this.object.rotation.y = this.rotationY;
+    this.weaponAnimations.setRoot(this.object);
     scene.add(this.object);
+  }
+
+  teleportTo(
+    position: { x: number; y: number; z: number },
+    rotationY = this.rotationY,
+  ): void {
+    this.position.set(position.x, position.y, position.z);
+    this.rotationY = rotationY;
+    this.verticalV = 0;
+    this.grounded = true;
+    this.object.position.copy(this.position);
+    this.object.rotation.y = this.rotationY;
   }
 
   async applyEquipmentVisuals(
@@ -102,6 +141,12 @@ export class Player {
   ): Promise<void> {
     if (!this.object) return;
     const requestId = ++this.equipmentVisualRequestId;
+    if (this.usesExternalPlayerOverride) {
+      this.clearEquipmentVisuals();
+      setOriginalPlayerBodyVisible(this.object, true);
+      this.weaponAnimations.refreshTargets();
+      return;
+    }
     const activeSlots = new Set<EquipSlot>();
     const activeBodyRegions = new Set<string>();
     const activeKeys = VISUAL_EQUIP_SLOTS
@@ -147,8 +192,19 @@ export class Player {
 
       overlay.name = `EquipmentOverlay_${slot}_${key}`;
       overlay.userData.equipmentKey = key;
+      overlay.userData.equipmentSlot = slot;
       overlay.userData.equipmentOverlay = true;
       prepareEquipmentOverlay(overlay);
+      if (slot === 'mainHand' || slot === 'offHand') {
+        const weaponKind = inferWeaponKindFromEquipment(equipment?.[slot]);
+        markWeaponAttachment(overlay, {
+          slot,
+          kind: weaponKind,
+          source: 'equipment',
+          key,
+        });
+        positionEquipmentWeaponOverlay(overlay, slot, weaponKind);
+      }
       if (resolvedVisual.skinned) {
         const rebound = bindSkinnedOverlayToPlayer(
           overlay,
@@ -176,6 +232,8 @@ export class Player {
     if (!this.equipmentBaseBody) {
       applyBodyRegionMask(this.object, activeBodyRegions);
     }
+    this.syncBakedWeaponVisibility();
+    this.weaponAnimations.refreshTargets();
   }
 
   private canUseSkinnedEquipment(resolution: EquipmentAssetResolution): boolean {
@@ -223,25 +281,62 @@ export class Player {
     return true;
   }
 
+  private clearEquipmentVisuals(): void {
+    for (const overlay of this.equipmentOverlays.values()) {
+      overlay.removeFromParent();
+    }
+    this.equipmentOverlays.clear();
+    this.equipmentBaseBody?.removeFromParent();
+    this.equipmentBaseBody = null;
+  }
+
   playGlbAction(actionId: string, duration = 0): void {
-    if (!this.glbMixer) return;
+    if (!this.glbMixer) {
+      this.animator?.playAction(actionId, duration);
+      return;
+    }
     const clipName = glbActionClipName(actionId);
-    if (!clipName) return;
+    if (!clipName) {
+      this.animator?.playAction(actionId, duration);
+      return;
+    }
     const action = this.glbActions.get(clipName);
-    if (!action) return;
+    if (!action) {
+      this.animator?.playAction(actionId, duration);
+      return;
+    }
     this.glbActionLock = Math.max(duration, action.getClip().duration);
     this.playGlbClip(clipName, false);
   }
 
-  updateVisuals(dt: number): void {
-    if (this.animator) {
-      this.animator.update({ dt, speed: this.lastSpeed, airborne: !this.grounded });
-    }
+  playWeaponAction(request: WeaponAnimationRequest): void {
+    this.weaponAnimations.play(request);
+  }
 
+  playAbilityWeaponAction(
+    ability: AbilityDefinition,
+    targetPosition: { x: number; y: number; z: number } | null = null,
+  ): void {
+    this.playWeaponAction({
+      actionId: ability.animation.actionId,
+      durationSec: ability.animation.durationSec,
+      abilityName: ability.name,
+      shape: ability.targeting.shape,
+      school: ability.visual.school,
+      motion: ability.visual.vfx.motion,
+      targetPosition,
+    });
+  }
+
+  updateVisuals(dt: number): void {
     if (this.glbMixer) {
       this.updateGlbLocomotion(dt);
       this.glbMixer.update(dt);
     }
+    if (this.animator) {
+      this.animator.update({ dt, speed: this.lastSpeed, airborne: !this.grounded });
+    }
+    this.weaponAnimations.update(dt);
   }
 
   update(
@@ -249,7 +344,10 @@ export class Player {
     input: Input,
     camera: FollowCamera,
     resolveCollision?: (position: THREE.Vector3, radius: number) => void,
+    moveMultiplier = 1,
+    options: MovementOptions = {},
   ) {
+    const flying = options.flying === true;
     // Input relative to camera yaw — combine keyboard and touch joystick
     let mx = input.touchMoveX;
     let mz = input.touchMoveZ;
@@ -278,9 +376,10 @@ export class Player {
     const prevZ = this.position.z;
 
     if (len > 0) {
-      this.position.x += wx * MOVE_SPEED * dt;
-      this.position.z += wz * MOVE_SPEED * dt;
-      resolveCollision?.(this.position, PLAYER_COLLISION_RADIUS);
+      const speed = MOVE_SPEED * Math.max(0, moveMultiplier);
+      this.position.x += wx * speed * dt;
+      this.position.z += wz * speed * dt;
+      if (!flying) resolveCollision?.(this.position, PLAYER_COLLISION_RADIUS);
       const targetYaw = Math.atan2(wx, wz);
       const turnT = input.mouseRightDown ? 1 : Math.min(1, TURN_SPEED * dt);
       this.rotationY = lerpAngle(this.rotationY, targetYaw, turnT);
@@ -288,25 +387,33 @@ export class Player {
       this.rotationY = camera.forwardYaw;
     }
 
-    // Ground check and jump (keyboard Space or touch jump button)
-    const groundProbeY = this.grounded
-      ? this.position.y
-      : this.position.y - WALKABLE_SURFACE_STEP_UP;
-    const groundY = this.groundHeightAt(this.position.x, this.position.z, groundProbeY);
-    if (this.grounded && (input.wasPressed('Space') || input.touchJumpThisFrame)) {
-      this.verticalV = JUMP_V;
+    if (flying) {
+      const vertical = (input.isDown('KeyE') ? 1 : 0) - (input.isDown('KeyQ') ? 1 : 0);
+      this.position.y += vertical * MOVE_SPEED * Math.max(0, moveMultiplier) * dt;
+      this.verticalV = 0;
       this.grounded = false;
-    }
-    if (!this.grounded) {
-      this.verticalV -= GRAVITY * dt;
-      this.position.y += this.verticalV * dt;
-      if (this.position.y <= groundY) {
-        this.position.y = groundY;
-        this.verticalV = 0;
-        this.grounded = true;
-      }
     } else {
-      this.position.y = groundY;
+      // Ground check and jump (keyboard Space or touch jump button)
+      const groundProbeY = this.grounded
+        ? this.position.y
+        : this.position.y - WALKABLE_SURFACE_STEP_UP;
+      const groundY = this.groundHeightAt(this.position.x, this.position.z, groundProbeY);
+      if (this.grounded && (input.wasPressed('Space') || input.touchJumpThisFrame)) {
+        this.verticalV = JUMP_V;
+        this.grounded = false;
+        this.animator?.playAction('jump', 0.45);
+      }
+      if (!this.grounded) {
+        this.verticalV -= GRAVITY * dt;
+        this.position.y += this.verticalV * dt;
+        if (this.position.y <= groundY) {
+          this.position.y = groundY;
+          this.verticalV = 0;
+          this.grounded = true;
+        }
+      } else {
+        this.position.y = groundY;
+      }
     }
 
     this.object.position.copy(this.position);
@@ -345,7 +452,17 @@ export class Player {
       return;
     }
 
-    this.playGlbClip('idle', true);
+    this.playGlbClip(this.preferredGlbClip('idle'), true);
+  }
+
+  private preferredGlbClip(name: string): string {
+    return this.glbActions.has(name)
+      ? name
+      : this.defaultGlbClipName ?? name;
+  }
+
+  private hasExplicitGlbLocomotion(): boolean {
+    return this.glbActions.has('walk') || this.glbActions.has('run');
   }
 
   private playGlbClip(name: string, loop: boolean): void {
@@ -365,6 +482,17 @@ export class Player {
     this.activeGlbAction = next;
     this.activeGlbClipName = name;
   }
+
+  private syncBakedWeaponVisibility(): void {
+    const overlaySlots = new Set(this.equipmentOverlays.keys());
+    this.object.traverse((node) => {
+      if (node.userData.weaponSource !== 'baked') return;
+      const slot = node.userData.weaponSlot;
+      if (slot === 'mainHand' || slot === 'offHand') {
+        node.visible = !overlaySlots.has(slot);
+      }
+    });
+  }
 }
 
 function lerpAngle(a: number, b: number, t: number): number {
@@ -372,14 +500,6 @@ function lerpAngle(a: number, b: number, t: number): number {
   if (d > Math.PI) d -= Math.PI * 2;
   if (d < -Math.PI) d += Math.PI * 2;
   return a + d * t;
-}
-
-function characterAssetProfile(
-  race: string,
-  className: string,
-  bodyVariant: string | null | undefined,
-): string {
-  return playableCharacterProfileKeyFor(race, className, bodyVariant);
 }
 
 function glbActionClipName(actionId: string): string | null {
@@ -417,8 +537,17 @@ function sanitizePlayerAnimationClip(clip: THREE.AnimationClip): THREE.Animation
   return new THREE.AnimationClip(clip.name, clip.duration, tracks, clip.blendMode);
 }
 
+function wrapStaticPlayerVisual(visual: THREE.Object3D): THREE.Object3D {
+  const root = new THREE.Group();
+  root.name = 'PlayerStaticModelRoot';
+  visual.name = visual.name || 'PlayerStaticModelVisual';
+  root.add(visual);
+  return root;
+}
+
 function prepareLoadedPlayerObject(object: THREE.Object3D): void {
   object.updateMatrixWorld(true);
+  markImportedWeaponAttachments(object);
   object.traverse((node) => {
     const mesh = node as THREE.Mesh;
     if (!mesh.isMesh) return;
@@ -432,8 +561,32 @@ function prepareLoadedPlayerObject(object: THREE.Object3D): void {
     for (const mat of materials) {
       if (!mat) continue;
       mat.side = THREE.DoubleSide;
+      mat.opacity = Math.max(mat.opacity ?? 1, 1);
+      mat.transparent = false;
+      mat.alphaTest = 0;
+      mat.depthWrite = true;
+      mat.depthTest = true;
       mat.needsUpdate = true;
     }
+  });
+}
+
+function markImportedWeaponAttachments(root: THREE.Object3D): void {
+  let mainHandMarked = false;
+  root.traverse((node) => {
+    if (node.userData.weaponAttachment === true) return;
+    const name = node.name;
+    if (!name || /^AP_/i.test(name)) return;
+    if (!/(weapon|sword|blade|maul|hammer|axe|dagger|staff|bow|gun|spear)/i.test(name)) return;
+    if (/(case|sheath|scabbard|holster|socket|anchor|goal|pole)/i.test(name)) return;
+
+    const kind = inferWeaponKindFromText(name, 'generic');
+    markWeaponAttachment(node, {
+      slot: mainHandMarked ? 'offHand' : 'mainHand',
+      kind,
+      source: 'baked',
+    });
+    mainHandMarked = true;
   });
 }
 
@@ -556,7 +709,7 @@ function buildEquipmentVisualFallback(
     case 'head':
       return buildHelmetFallback();
     case 'mainHand':
-      return buildMainHandFallback();
+      return buildMainHandFallback(key);
     case 'neck':
       return buildNeckFallback();
     case 'offHand':
@@ -637,7 +790,8 @@ function buildHelmetFallback(): THREE.Object3D {
   return group;
 }
 
-function buildMainHandFallback(): THREE.Object3D {
+function buildMainHandFallback(key: string): THREE.Object3D {
+  const kind = inferWeaponKindFromText(key, 'generic');
   const group = new THREE.Group();
   const steel = new THREE.MeshStandardMaterial({
     color: 0x4a5254,
@@ -654,22 +808,135 @@ function buildMainHandFallback(): THREE.Object3D {
     roughness: 0.86,
   });
 
+  if (kind === 'staff' || kind === 'focus') {
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.04, 2.05, 10), grip);
+    shaft.name = 'FallbackStaffShaft';
+    shaft.position.y = 0.52;
+    shaft.castShadow = true;
+    const cap = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 8), brass);
+    cap.name = 'FallbackStaffFocus';
+    cap.position.y = 1.62;
+    cap.castShadow = true;
+    group.add(shaft, cap);
+    return group;
+  }
+
+  if (kind === 'sword' || kind === 'generic') {
+    const h = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.036, 0.38, 8), grip);
+    h.name = 'FallbackSwordGrip';
+    h.position.y = 0.16;
+    h.castShadow = true;
+    const guard = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.045, 0.055), brass);
+    guard.name = 'FallbackSwordGuard';
+    guard.position.y = 0.36;
+    guard.castShadow = true;
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.92, 0.035), steel);
+    blade.name = 'FallbackSwordBlade';
+    blade.position.y = 0.84;
+    blade.castShadow = true;
+    group.add(h, guard, blade);
+    return group;
+  }
+
+  if (kind === 'hammer') {
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.042, 1.42, 8), grip);
+    shaft.name = 'FallbackHammerShaft';
+    shaft.position.y = 0.64;
+    shaft.castShadow = true;
+    const head = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.2, 0.16), steel);
+    head.name = 'FallbackHammerHead';
+    head.position.y = 1.38;
+    head.castShadow = true;
+    const band = new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.04, 0.18), brass);
+    band.name = 'FallbackHammerBand';
+    band.position.y = 1.5;
+    band.castShadow = true;
+    group.add(shaft, head, band);
+    return group;
+  }
+
+  if (kind === 'axe' || kind === 'cleaver') {
+    const haft = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.042, 1.26, 8), grip);
+    haft.name = 'FallbackAxeHaft';
+    haft.position.y = 0.56;
+    haft.castShadow = true;
+    const blade = new THREE.Mesh(
+      new THREE.BoxGeometry(kind === 'cleaver' ? 0.36 : 0.28, kind === 'cleaver' ? 0.44 : 0.34, 0.06),
+      steel,
+    );
+    blade.name = kind === 'cleaver' ? 'FallbackCleaverBlade' : 'FallbackAxeBlade';
+    blade.position.set(0.08, 1.24, 0);
+    blade.castShadow = true;
+    group.add(haft, blade);
+    return group;
+  }
+
+  if (kind === 'dagger') {
+    const h = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.032, 0.24, 8), grip);
+    h.name = 'FallbackDaggerGrip';
+    h.position.y = 0.1;
+    h.castShadow = true;
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.52, 0.032), steel);
+    blade.name = 'FallbackDaggerBlade';
+    blade.position.y = 0.46;
+    blade.castShadow = true;
+    group.add(h, blade);
+    return group;
+  }
+
+  if (kind === 'spear') {
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.032, 1.55, 8), grip);
+    shaft.name = 'FallbackSpearShaft';
+    shaft.position.y = 0.68;
+    shaft.castShadow = true;
+    const tip = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.26, 8), steel);
+    tip.name = 'FallbackSpearTip';
+    tip.position.y = 1.58;
+    tip.castShadow = true;
+    group.add(shaft, tip);
+    return group;
+  }
+
+  if (kind === 'bow') {
+    const stave = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.03, 1.55, 8), grip);
+    stave.name = 'FallbackBowStave';
+    stave.position.set(0.08, 0.7, 0);
+    stave.scale.x = 0.55;
+    stave.castShadow = true;
+    const string = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 1.35, 6), brass);
+    string.name = 'FallbackBowString';
+    string.position.set(-0.12, 0.7, 0);
+    string.castShadow = true;
+    group.add(stave, string);
+    return group;
+  }
+
+  if (kind === 'gun') {
+    const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.032, 0.9, 10), steel);
+    barrel.name = 'FallbackGunBarrel';
+    barrel.position.y = 0.48;
+    barrel.castShadow = true;
+    const stock = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.34, 0.08), grip);
+    stock.name = 'FallbackGunStock';
+    stock.position.set(0, 0.08, -0.03);
+    stock.castShadow = true;
+    group.add(barrel, stock);
+    return group;
+  }
+
   const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.04, 1.25, 10), grip);
   shaft.name = 'FallbackMainHandGrip';
-  shaft.position.set(0.46, 1.08, 0.14);
-  shaft.rotation.z = -0.18;
+  shaft.position.y = 0.5;
   shaft.castShadow = true;
 
   const head = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.18, 0.16), steel);
   head.name = 'FallbackMainHandHead';
-  head.position.set(0.34, 1.68, 0.14);
-  head.rotation.z = -0.18;
+  head.position.y = 1.12;
   head.castShadow = true;
 
   const band = new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.035, 0.18), brass);
   band.name = 'FallbackMainHandBand';
-  band.position.set(0.34, 1.78, 0.14);
-  band.rotation.z = -0.18;
+  band.position.y = 1.22;
   band.castShadow = true;
 
   group.add(shaft, head, band);
@@ -721,20 +988,20 @@ function buildShieldFallback(key: string): THREE.Object3D {
 
   const shield = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.06, 24), face);
   shield.name = 'FallbackShieldFace';
-  shield.position.set(-0.52, 1.05, 0.2);
+  shield.position.set(0, 0, 0.02);
   shield.rotation.x = Math.PI / 2;
   shield.scale.y = 1.2;
   shield.castShadow = true;
 
   const boss = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 8), rim);
   boss.name = 'FallbackShieldBoss';
-  boss.position.set(-0.52, 1.05, 0.24);
+  boss.position.set(0, 0, 0.08);
   boss.scale.z = 0.35;
   boss.castShadow = true;
 
   const strap = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.45, 0.03), rim);
   strap.name = 'FallbackShieldStrap';
-  strap.position.set(-0.52, 1.05, 0.16);
+  strap.position.set(0, 0, -0.04);
   strap.castShadow = true;
 
   group.add(shield, boss, strap);

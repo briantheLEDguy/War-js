@@ -1,0 +1,980 @@
+{
+  "id": "rotwreath_nest",
+  "name": "Rotwreath Nest",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "Boss",
+    "lane": "riftbound_west",
+    "laneLabel": "Riftbound West March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 2 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "rotwreath_nest_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "rotwreath_nest_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "rotwreath_nest_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "rotwreath_nest_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "rotwreath_nest_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "rotwreath_nest_portal_bleakroot_causeway",
+      "kind": "gate",
+      "x": -81.7,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "rotwreath_nest_portal_bleakroot_causeway_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "rotwreath_nest_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "rotwreath_nest_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "rotwreath_nest_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "rotwreath_nest_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "rotwreath_nest_herb_node_01_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -47.8,
+      "z": -23.8,
+      "rotY": 0.8073,
+      "scale": 0.85
+    },
+    {
+      "id": "rotwreath_nest_wood_node_02_visual",
+      "kind": "pnw_fallen_log",
+      "x": 47.3,
+      "z": -22.4,
+      "rotY": 0.6532,
+      "scale": 0.97
+    },
+    {
+      "id": "rotwreath_nest_ore_node_03_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -42.7,
+      "z": 32.8,
+      "rotY": 5.5954,
+      "scale": 1.07
+    },
+    {
+      "id": "rotwreath_nest_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 44.8,
+      "z": 35.5,
+      "rotY": 0.287,
+      "scale": 0.85
+    },
+    {
+      "id": "rotwreath_nest_water_node_05_visual",
+      "kind": "pnw_low_shrub",
+      "x": 4.2,
+      "z": 72.5,
+      "rotY": 3.035,
+      "scale": 0.97
+    },
+    {
+      "id": "rotwreath_nest_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 69.5,
+      "z": -2.1,
+      "rotY": 5.5659,
+      "scale": 1.02
+    },
+    {
+      "id": "rotwreath_nest_tree_02",
+      "kind": "tree",
+      "x": 74.8,
+      "z": -12.2,
+      "rotY": 4.3853,
+      "scale": 1.25
+    },
+    {
+      "id": "rotwreath_nest_tree_03",
+      "kind": "tree",
+      "x": 52.3,
+      "z": 55.3,
+      "rotY": 4.8647,
+      "scale": 1.33
+    },
+    {
+      "id": "rotwreath_nest_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": 0.7,
+      "z": -67.2,
+      "rotY": 1.6464,
+      "scale": 1.06
+    },
+    {
+      "id": "rotwreath_nest_tree_05",
+      "kind": "tree",
+      "x": -56.7,
+      "z": 16.9,
+      "rotY": 6.1353,
+      "scale": 1.15
+    },
+    {
+      "id": "rotwreath_nest_tree_06",
+      "kind": "tree",
+      "x": -56.1,
+      "z": 33,
+      "rotY": 3.1256,
+      "scale": 1.06
+    },
+    {
+      "id": "rotwreath_nest_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": 53.5,
+      "z": 37.2,
+      "rotY": 0.0537,
+      "scale": 1.29
+    },
+    {
+      "id": "rotwreath_nest_tree_08",
+      "kind": "tree",
+      "x": -25.3,
+      "z": 44.4,
+      "rotY": 3.1741,
+      "scale": 1.32
+    },
+    {
+      "id": "rotwreath_nest_tree_09",
+      "kind": "tree",
+      "x": 51.5,
+      "z": 44.6,
+      "rotY": 1.2064,
+      "scale": 1.34
+    },
+    {
+      "id": "rotwreath_nest_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": 50.3,
+      "z": 37,
+      "rotY": 4.8003,
+      "scale": 0.92
+    },
+    {
+      "id": "rotwreath_nest_tree_11",
+      "kind": "tree",
+      "x": 45,
+      "z": -10.3,
+      "rotY": 0.5427,
+      "scale": 0.84
+    },
+    {
+      "id": "rotwreath_nest_tree_12",
+      "kind": "tree",
+      "x": -32.5,
+      "z": 37.7,
+      "rotY": 3.402,
+      "scale": 1.25
+    },
+    {
+      "id": "rotwreath_nest_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": -27.1,
+      "z": -76.4,
+      "rotY": 5.6889,
+      "scale": 1.13
+    },
+    {
+      "id": "rotwreath_nest_tree_14",
+      "kind": "tree",
+      "x": 20.7,
+      "z": 43.9,
+      "rotY": 0.4101,
+      "scale": 0.93
+    },
+    {
+      "id": "rotwreath_nest_tree_15",
+      "kind": "tree",
+      "x": -65.4,
+      "z": 24.9,
+      "rotY": 1.018,
+      "scale": 1.21
+    },
+    {
+      "id": "rotwreath_nest_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": 59.9,
+      "z": 33.2,
+      "rotY": 5.0551,
+      "scale": 1.4
+    },
+    {
+      "id": "rotwreath_nest_tree_17",
+      "kind": "tree",
+      "x": 15,
+      "z": -73.9,
+      "rotY": 1.9088,
+      "scale": 1.45
+    },
+    {
+      "id": "rotwreath_nest_tree_18",
+      "kind": "tree",
+      "x": 32.8,
+      "z": -29.7,
+      "rotY": 1.6103,
+      "scale": 1.04
+    },
+    {
+      "id": "rotwreath_nest_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": -52.2,
+      "z": 45.7,
+      "rotY": 3.4641,
+      "scale": 0.84
+    },
+    {
+      "id": "rotwreath_nest_tree_20",
+      "kind": "tree",
+      "x": -61.9,
+      "z": -21.4,
+      "rotY": 2.0317,
+      "scale": 1.3
+    },
+    {
+      "id": "rotwreath_nest_rock_01",
+      "kind": "rock",
+      "x": 65.1,
+      "z": -2.3,
+      "rotY": 1.443,
+      "scale": 2.16
+    },
+    {
+      "id": "rotwreath_nest_rock_02",
+      "kind": "rock",
+      "x": -52.1,
+      "z": -13.4,
+      "rotY": 4.9957,
+      "scale": 2.14
+    },
+    {
+      "id": "rotwreath_nest_rock_03",
+      "kind": "rock",
+      "x": -55.9,
+      "z": 36.6,
+      "rotY": 3.0464,
+      "scale": 1.75
+    },
+    {
+      "id": "rotwreath_nest_rock_04",
+      "kind": "rock",
+      "x": 33.4,
+      "z": 57,
+      "rotY": 0.5488,
+      "scale": 2.47
+    },
+    {
+      "id": "rotwreath_nest_rock_05",
+      "kind": "rock",
+      "x": -65.2,
+      "z": -20.2,
+      "rotY": 5.6212,
+      "scale": 1.62
+    },
+    {
+      "id": "rotwreath_nest_rock_06",
+      "kind": "rock",
+      "x": 55.2,
+      "z": 34.1,
+      "rotY": 6.1832,
+      "scale": 0.94
+    },
+    {
+      "id": "rotwreath_nest_rock_07",
+      "kind": "rock",
+      "x": -56.6,
+      "z": -60.2,
+      "rotY": 1.895,
+      "scale": 2.31
+    },
+    {
+      "id": "rotwreath_nest_rock_08",
+      "kind": "rock",
+      "x": -45,
+      "z": -53.8,
+      "rotY": 4.9416,
+      "scale": 1.62
+    },
+    {
+      "id": "rotwreath_nest_rock_09",
+      "kind": "rock",
+      "x": -57.3,
+      "z": 12.4,
+      "rotY": 5.0122,
+      "scale": 1.49
+    },
+    {
+      "id": "rotwreath_nest_rock_10",
+      "kind": "rock",
+      "x": 16.3,
+      "z": 79.4,
+      "rotY": 2.0394,
+      "scale": 1.9
+    },
+    {
+      "id": "rotwreath_nest_rock_11",
+      "kind": "rock",
+      "x": 47,
+      "z": -73.7,
+      "rotY": 3.9696,
+      "scale": 1.02
+    },
+    {
+      "id": "rotwreath_nest_rock_12",
+      "kind": "rock",
+      "x": -82,
+      "z": 12.8,
+      "rotY": 5.7855,
+      "scale": 2.23
+    },
+    {
+      "id": "rotwreath_nest_rock_13",
+      "kind": "rock",
+      "x": 65.8,
+      "z": 19.8,
+      "rotY": 3.3851,
+      "scale": 1.8
+    },
+    {
+      "id": "rotwreath_nest_rock_14",
+      "kind": "rock",
+      "x": -64.2,
+      "z": 12.2,
+      "rotY": 4.1789,
+      "scale": 1.46
+    },
+    {
+      "id": "rotwreath_nest_rock_15",
+      "kind": "rock",
+      "x": 10.7,
+      "z": 59.9,
+      "rotY": 0.1739,
+      "scale": 1.02
+    },
+    {
+      "id": "rotwreath_nest_rock_16",
+      "kind": "rock",
+      "x": 21,
+      "z": 57.2,
+      "rotY": 3.3977,
+      "scale": 1.78
+    },
+    {
+      "id": "rotwreath_nest_rock_17",
+      "kind": "rock",
+      "x": -78.2,
+      "z": -6.1,
+      "rotY": 0.5382,
+      "scale": 1.08
+    },
+    {
+      "id": "rotwreath_nest_rock_18",
+      "kind": "rock",
+      "x": 35.5,
+      "z": -57.9,
+      "rotY": 0.3807,
+      "scale": 0.86
+    },
+    {
+      "id": "rotwreath_nest_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "rotwreath_nest_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "rotwreath_nest_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "rotwreath_nest_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "rotwreath_nest_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "rotwreath_nest_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "rotwreath_nest_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "rotwreath_nest_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "rotwreath_nest_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "rotwreath_nest_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "rotwreath_nest_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "rotwreath_nest_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "rotwreath_nest_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "rotwreath_nest_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "rotwreath_nest_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "rotwreath_nest_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "rotwreath_nest_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "rotwreath_nest_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "rotwreath_nest_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "rotwreath_nest_marshal",
+      "name": "Nyra Vex",
+      "title": "Tier 2 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_tier_2_boss_campaign_marshal"
+    },
+    {
+      "id": "rotwreath_nest_expedition_guide",
+      "name": "Gorvak Mirehand",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "rotwreath_nest_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "rotwreath_nest_overlord",
+      "name": "Rotwreath Nest Overlord",
+      "level": 16,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_riftbound_rotwreath_nest_overlord_captain"
+    },
+    {
+      "id": "rotwreath_nest_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 15,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 39,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "rotwreath_nest_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 15,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 39,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "rotwreath_nest_beast_1",
+      "name": "Lair Spider",
+      "level": 14,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 36,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_lair_spider"
+    },
+    {
+      "id": "rotwreath_nest_beast_2",
+      "name": "Lair Spider",
+      "level": 14,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 36,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_lair_spider"
+    },
+    {
+      "id": "rotwreath_nest_adept_1",
+      "name": "Lair Cultist",
+      "level": 15,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 20,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    },
+    {
+      "id": "rotwreath_nest_adept_2",
+      "name": "Lair Cultist",
+      "level": 15,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 20,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "rotwreath_nest_herb_node_01",
+      "label": "Riftbound Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -47.8,
+      "z": -23.8,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "rotwreath_nest_herb_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "rotwreath_nest_wood_node_02",
+      "label": "Riftbound Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": 47.3,
+      "z": -22.4,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "rotwreath_nest_wood_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "rotwreath_nest_ore_node_03",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -42.7,
+      "z": 32.8,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "rotwreath_nest_ore_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "rotwreath_nest_soil_node_04",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 44.8,
+      "z": 35.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "rotwreath_nest_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "rotwreath_nest_water_node_05",
+      "label": "Riftbound Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": 4.2,
+      "z": 72.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "rotwreath_nest_water_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "rotwreath_nest_boss",
+      "type": "boss",
+      "label": "Rotwreath Nest Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "rotwreath_nest_to_bleakroot_causeway",
+      "label": "Travel to Bleakroot Causeway",
+      "x": -81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "bleakroot_causeway",
+      "targetSpawn": {
+        "x": -108.4,
+        "y": 0,
+        "z": 38.4
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "rotwreath_nest_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 197695625,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    }
+  ],
+  "staticMapHash": "dfa506466df9a38c"
+}

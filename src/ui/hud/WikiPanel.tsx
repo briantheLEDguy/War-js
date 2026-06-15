@@ -1,13 +1,19 @@
 import type { CSSProperties } from 'react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { buildWikiIndex } from '../../wiki/wikiContent';
 import { SECTION_EMPTY_PAGE } from '../../wiki/wikiMetadata';
 import type { WikiPage, WikiSectionId } from '../../wiki/wikiTypes';
 import { useGameStore } from '../../state/gameStore';
 import { AbilityIcon } from './AbilityIcon';
+import { useDraggableWindow } from './useDraggableWindow';
 
 export function WikiPanel() {
-  const panelRef = useRef<HTMLElement>(null);
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLElement>();
   const setWikiOpen = useGameStore((s) => s.setWikiOpen);
   const index = useMemo(() => buildWikiIndex(), []);
   const [activeSection, setActiveSection] = useState<WikiSectionId>('overview');
@@ -37,17 +43,14 @@ export function WikiPanel() {
       <div className="wiki-backdrop" onClick={() => setWikiOpen(false)} />
       <section
         ref={panelRef}
-        className="wiki-panel panel"
+        className={`wiki-panel panel${dragClassName}`}
+        style={dragStyle}
         role="dialog"
         aria-modal="true"
         aria-labelledby="wiki-title"
         tabIndex={-1}
-        onKeyDown={(event) => {
-          event.stopPropagation();
-          if (event.key === 'Escape') setWikiOpen(false);
-        }}
       >
-        <header className="wiki-header">
+        <header className="wiki-header draggable-window-handle" {...dragHandleProps}>
           <div>
             <h2 id="wiki-title">Guide</h2>
             <span>Game Wiki</span>

@@ -158,7 +158,7 @@ export function validateBlueprintRecord(filePath, blueprint) {
   }
 
   if (blueprint.generator) {
-    const allowed = ["characterPreset", "staticPreset", "armorModule", "bodyModule", "weaponModule", "jewelModule", "copyExisting"];
+    const allowed = ["characterPreset", "staticPreset", "armorModule", "bodyModule", "weaponModule", "jewelModule", "copyExisting", "externalImport"];
     if (!allowed.includes(blueprint.generator.kind)) {
       errors.push(`unsupported generator.kind: ${blueprint.generator.kind}`);
     }

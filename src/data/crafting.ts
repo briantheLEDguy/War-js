@@ -50,6 +50,12 @@ export interface EnemyGatheringDefinition {
   loot: Array<CraftingRewardItem & { chance: number; minQty?: number; maxQty?: number }>;
 }
 
+export type GatheringLootEntry = CraftingRewardItem & {
+  chance: number;
+  minQty?: number;
+  maxQty?: number;
+};
+
 export interface EnemyGatheringState {
   professionId: EnemyGatheringDefinition['professionId'];
   actionLabel: string;
@@ -225,6 +231,7 @@ export function createDefaultCraftingState(): CraftingState {
   return {
     professions: DEFAULT_PROFESSIONS.map((profession) => ({ ...profession })),
     cultivationSlots: [],
+    resourceNodeCooldowns: {},
   };
 }
 
@@ -269,7 +276,63 @@ export function normalizeCraftingState(value: unknown): CraftingState {
             additives: Array.isArray(slot.additives) ? slot.additives.filter((key) => typeof key === 'string') : [],
           }))
       : [],
+    resourceNodeCooldowns: normalizeResourceNodeCooldowns(partial.resourceNodeCooldowns),
   };
+}
+
+export function resourceNodeCooldownKey(zoneId: string, nodeId: string): string {
+  return `${zoneId}:${nodeId}`;
+}
+
+export function isResourceNodeAvailable(
+  state: CraftingState,
+  zoneId: string,
+  nodeId: string,
+  now = Date.now(),
+): boolean {
+  const cooldowns = normalizeCraftingState(state).resourceNodeCooldowns;
+  return (cooldowns[resourceNodeCooldownKey(zoneId, nodeId)] ?? 0) <= now;
+}
+
+export function withResourceNodeCooldown(
+  state: CraftingState,
+  zoneId: string,
+  nodeId: string,
+  availableAt: number,
+  now = Date.now(),
+): CraftingState {
+  const normalized = normalizeCraftingState(state);
+  const nextCooldowns = Object.fromEntries(
+    Object.entries(normalized.resourceNodeCooldowns)
+      .filter(([, expiresAt]) => expiresAt > now),
+  );
+  nextCooldowns[resourceNodeCooldownKey(zoneId, nodeId)] = Math.max(now, availableAt);
+  return {
+    ...normalized,
+    resourceNodeCooldowns: nextCooldowns,
+  };
+}
+
+export function rollGatheringLootTable(loot: GatheringLootEntry[]): CraftingRewardItem[] {
+  const results: CraftingRewardItem[] = [];
+  for (const entry of loot) {
+    if (Math.random() > entry.chance) continue;
+    const min = entry.minQty ?? entry.qty;
+    const max = entry.maxQty ?? entry.qty;
+    results.push({
+      key: entry.key,
+      qty: randomInt(min, max),
+      name: entry.name,
+      kind: entry.kind,
+      equipSlot: entry.equipSlot,
+      strengthRoll: entry.strengthRoll,
+    });
+  }
+  if (results.length === 0 && loot.length > 0) {
+    const fallback = loot[0];
+    results.push({ key: fallback.key, qty: fallback.qty, name: fallback.name });
+  }
+  return results;
 }
 
 export function rankForXp(xp: number): number {
@@ -336,25 +399,7 @@ export function getEnemyGatheringDefinition(enemyName: string): EnemyGatheringDe
 }
 
 export function rollGatheringLoot(definition: EnemyGatheringDefinition): CraftingRewardItem[] {
-  const results: CraftingRewardItem[] = [];
-  for (const entry of definition.loot) {
-    if (Math.random() > entry.chance) continue;
-    const min = entry.minQty ?? entry.qty;
-    const max = entry.maxQty ?? entry.qty;
-    results.push({
-      key: entry.key,
-      qty: randomInt(min, max),
-      name: entry.name,
-      kind: entry.kind,
-      equipSlot: entry.equipSlot,
-      strengthRoll: entry.strengthRoll,
-    });
-  }
-  if (results.length === 0) {
-    const fallback = definition.loot[0];
-    results.push({ key: fallback.key, qty: fallback.qty });
-  }
-  return results;
+  return rollGatheringLootTable(definition.loot);
 }
 
 export function getSalvageOutputs(item: InventoryItem): CraftingRewardItem[] {
@@ -397,4 +442,19 @@ export function hasIngredients(items: InventoryItem[], ingredients: CraftingItem
 
 function randomInt(min: number, max: number): number {
   return Math.floor(min + Math.random() * (max - min + 1));
+}
+
+function normalizeResourceNodeCooldowns(value: unknown): Record<string, number> {
+  if (!value || typeof value !== 'object') return {};
+  const now = Date.now();
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>)
+      .filter(([key, expiresAt]) =>
+        typeof key === 'string' &&
+        typeof expiresAt === 'number' &&
+        Number.isFinite(expiresAt) &&
+        expiresAt > now,
+      )
+      .map(([key, expiresAt]) => [key, Math.floor(expiresAt as number)]),
+  );
 }

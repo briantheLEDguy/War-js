@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   CRAFTING_PROFESSIONS,
   CRAFTING_RECIPES,
+  CULTIVATION_SLOT_COUNT,
   CULTIVATION_SEEDS,
   getProfessionProgress,
   getSalvageOutputs,
-  hasIngredients,
   inventoryQty,
   professionLabel,
   type CraftingItemStack,
@@ -21,6 +21,15 @@ import {
 } from '../../game/CraftingLogic';
 import type { CraftingProfessionId, CraftingStationKind, InventoryItem } from '../../services/types';
 import { useGameStore } from '../../state/gameStore';
+import {
+  countCraftableRecipes,
+  filterRecipeAvailability,
+  getCultivationReadyCount,
+  getRecipeAvailability,
+  type RecipeAvailability,
+  type RecipeFilterMode,
+} from './inventoryCraftingQoL';
+import { useDraggableWindow } from './useDraggableWindow';
 
 type CraftingTab = 'apothecary' | 'talisman_making' | 'cultivation' | 'salvage' | 'progress';
 
@@ -32,7 +41,20 @@ const TAB_LABELS: Record<CraftingTab, string> = {
   progress: 'Progress',
 };
 
+const RECIPE_FILTERS: Array<{ value: RecipeFilterMode; label: string }> = [
+  { value: 'all', label: 'All' },
+  { value: 'craftable', label: 'Craftable' },
+  { value: 'missing', label: 'Missing mats' },
+  { value: 'rank', label: 'Rank gated' },
+];
+
 export function CraftingPanel() {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const inventory = useGameStore((s) => s.inventory);
   const craftingState = useGameStore((s) => s.craftingState);
   const craftingOpen = useGameStore((s) => s.craftingOpen);
@@ -68,8 +90,8 @@ export function CraftingPanel() {
     station.kind === 'general' || station.kind === kind;
 
   return (
-    <div className="panel crafting-panel">
-      <div className="crafting-header">
+    <div ref={panelRef} className={`panel crafting-panel${dragClassName}`} style={dragStyle}>
+      <div className="crafting-header draggable-window-handle" {...dragHandleProps}>
         <div>
           <h2>Crafting</h2>
           <div className="crafting-station">{station.label}</div>
@@ -132,21 +154,51 @@ function RecipeList({
   inventory: InventoryItem[];
 }) {
   const craftingState = useGameStore((s) => s.craftingState);
+  const [recipeFilter, setRecipeFilter] = useState<RecipeFilterMode>('all');
   const progress = getProfessionProgress(craftingState, professionId);
   const recipes = CRAFTING_RECIPES.filter((recipe) => recipe.professionId === professionId);
+  const availability = useMemo(
+    () => recipes.map((recipe) =>
+      getRecipeAvailability(recipe, inventory, progress.rank, stationAllowed),
+    ),
+    [inventory, progress.rank, recipes, stationAllowed],
+  );
+  const visibleRecipes = useMemo(
+    () => filterRecipeAvailability(availability, recipeFilter),
+    [availability, recipeFilter],
+  );
+  const craftableCount = countCraftableRecipes(availability);
 
   return (
     <div className="crafting-content">
       <div className="crafting-profession-row">
         <span>{professionLabel(professionId)}</span>
-        <strong>Rank {progress.rank}</strong>
+        <div className="crafting-row-metrics">
+          <strong>Rank {progress.rank}</strong>
+          <span>{craftableCount}/{recipes.length} craftable</span>
+        </div>
       </div>
-      {recipes.map((recipe) => {
-        const enoughRank = progress.rank >= recipe.minRank;
-        const enoughItems = hasIngredients(inventory, recipe.inputs);
-        const disabled = !stationAllowed || !enoughRank || !enoughItems;
+
+      <div className="crafting-filter-row" role="group" aria-label={`${professionLabel(professionId)} recipe filter`}>
+        {RECIPE_FILTERS.map((filter) => (
+          <button
+            type="button"
+            key={filter.value}
+            className={recipeFilter === filter.value ? 'active' : ''}
+            onClick={() => setRecipeFilter(filter.value)}
+          >
+            {filter.label}
+          </button>
+        ))}
+      </div>
+
+      {visibleRecipes.length === 0 && (
+        <div className="crafting-empty">No recipes match this filter.</div>
+      )}
+      {visibleRecipes.map((entry) => {
+        const { recipe } = entry;
         return (
-          <div className={`crafting-recipe${disabled ? ' disabled' : ''}`} key={recipe.id}>
+          <div className={`crafting-recipe${entry.canCraft ? '' : ' disabled'}`} key={recipe.id}>
             <div className="crafting-recipe-main">
               <div>
                 <div className="crafting-recipe-name">{recipe.name}</div>
@@ -154,13 +206,13 @@ function RecipeList({
               </div>
               <button
                 type="button"
-                disabled={disabled}
+                disabled={!entry.canCraft}
                 onClick={() => craftRecipe(recipe.id)}
               >
                 Craft
               </button>
             </div>
-            <RecipeMeta recipe={recipe} inventory={inventory} enoughRank={enoughRank} />
+            <RecipeMeta recipe={recipe} inventory={inventory} availability={entry} />
           </div>
         );
       })}
@@ -171,27 +223,42 @@ function RecipeList({
 function RecipeMeta({
   recipe,
   inventory,
-  enoughRank,
+  availability,
 }: {
   recipe: CraftingRecipe;
   inventory: InventoryItem[];
-  enoughRank: boolean;
+  availability: RecipeAvailability;
 }) {
+  const deficitSummary = availability.missingInputs
+    .map((input) => `${itemName(input.key)} x${input.missing}`)
+    .join(', ');
+
   return (
-    <div className="crafting-meta">
-      <div>
-        <span>Needs</span>
-        <ItemStackList stacks={recipe.inputs} inventory={inventory} />
+    <>
+      <div className="crafting-meta">
+        <div>
+          <span>Needs</span>
+          <ItemStackList stacks={recipe.inputs} inventory={inventory} />
+        </div>
+        <div>
+          <span>Makes</span>
+          <RewardList rewards={recipe.outputs} />
+        </div>
+        <div className={availability.enoughRank ? '' : 'missing'}>
+          <span>Rank</span>
+          <strong>{recipe.minRank}</strong>
+        </div>
       </div>
-      <div>
-        <span>Makes</span>
-        <RewardList rewards={recipe.outputs} />
-      </div>
-      <div className={enoughRank ? '' : 'missing'}>
-        <span>Rank</span>
-        <strong>{recipe.minRank}</strong>
-      </div>
-    </div>
+      {deficitSummary && (
+        <div className="crafting-deficit">Missing: {deficitSummary}</div>
+      )}
+      {!availability.enoughRank && (
+        <div className="crafting-deficit">Requires rank {recipe.minRank}.</div>
+      )}
+      {!availability.stationAllowed && (
+        <div className="crafting-deficit">This station cannot craft this recipe.</div>
+      )}
+    </>
   );
 }
 
@@ -207,9 +274,17 @@ function CultivationView({
   const craftingState = useGameStore((s) => s.craftingState);
   const slots = craftingState.cultivationSlots;
   const hasSoil = inventoryQty(inventory, 'craft_fertile_soil') > 0;
+  const soilQty = inventoryQty(inventory, 'craft_fertile_soil');
+  const readyCount = getCultivationReadyCount(slots, now);
 
   return (
     <div className="crafting-content">
+      <div className="crafting-summary-row">
+        <span>Plots <strong>{slots.length}/{CULTIVATION_SLOT_COUNT}</strong></span>
+        <span className={readyCount > 0 ? 'ready' : ''}>Ready <strong>{readyCount}</strong></span>
+        <span>Soil <strong>{soilQty}</strong></span>
+      </div>
+
       <div className="cultivation-slots">
         {slots.length === 0 && <div className="crafting-empty">No active plots.</div>}
         {slots.map((slot) => {
@@ -277,13 +352,54 @@ function SalvageView({
   items: InventoryItem[];
   stationAllowed: boolean;
 }) {
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
+  const selectedItem = selectedSlot === null
+    ? null
+    : items.find((item) => item.slot === selectedSlot) ?? null;
+  const selectedRewards = selectedItem ? getSalvageOutputs(selectedItem) : [];
+
+  useEffect(() => {
+    if (selectedSlot === null) return;
+    if (!items.some((item) => item.slot === selectedSlot)) setSelectedSlot(null);
+  }, [items, selectedSlot]);
+
   return (
     <div className="crafting-content">
+      <div className={`salvage-preview${selectedItem ? ' selected' : ''}`}>
+        {selectedItem ? (
+          <>
+            <div>
+              <div className="crafting-recipe-name">
+                {selectedItem.icon} {selectedItem.name}
+              </div>
+              <div className="crafting-recipe-summary">
+                Review outputs before breaking this item down.
+              </div>
+              <RewardList rewards={selectedRewards} />
+            </div>
+            <button
+              type="button"
+              disabled={!stationAllowed}
+              onClick={() => {
+                salvageInventorySlot(selectedItem.slot);
+                setSelectedSlot(null);
+              }}
+            >
+              Salvage Selected
+            </button>
+          </>
+        ) : (
+          <div className="crafting-recipe-summary">
+            Select equipment below to preview salvage outputs before destroying it.
+          </div>
+        )}
+      </div>
       {items.length === 0 && <div className="crafting-empty">No salvageable equipment.</div>}
       {items.map((item) => {
         const rewards = getSalvageOutputs(item);
+        const selected = selectedSlot === item.slot;
         return (
-          <div className="crafting-recipe" key={`${item.slot}-${item.key}`}>
+          <div className={`crafting-recipe salvage-option${selected ? ' selected' : ''}`} key={`${item.slot}-${item.key}`}>
             <div className="crafting-recipe-main">
               <div>
                 <div className="crafting-recipe-name">{item.icon} {item.name}</div>
@@ -293,10 +409,9 @@ function SalvageView({
               </div>
               <button
                 type="button"
-                disabled={!stationAllowed}
-                onClick={() => salvageInventorySlot(item.slot)}
+                onClick={() => setSelectedSlot(item.slot)}
               >
-                Salvage
+                {selected ? 'Selected' : 'Select'}
               </button>
             </div>
             <RewardList rewards={rewards} />

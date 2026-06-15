@@ -7,12 +7,19 @@ import {
   turnInQuest,
 } from '../../game/QuestLogic';
 import { useGameStore } from '../../state/gameStore';
+import { useDraggableWindow } from './useDraggableWindow';
 
 /**
  * Dialog shown when the player presses E near a quest-giver. Lists turn-ins
  * first, then new offers, then active (in-progress) quests with live counters.
  */
 export function QuestDialog() {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const activeNpcId = useGameStore((s) => s.activeQuestDialogNpcId);
   const close = () => useGameStore.getState().setActiveQuestDialogNpcId(null);
 
@@ -33,8 +40,13 @@ export function QuestDialog() {
 
   return (
     <div className="dialog-overlay" onClick={close}>
-      <div className="panel quest-dialog" onClick={(e) => e.stopPropagation()}>
-        <div className="quest-log-header">
+      <div
+        ref={panelRef}
+        className={`panel quest-dialog${dragClassName}`}
+        style={dragStyle}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="quest-log-header draggable-window-handle" {...dragHandleProps}>
           <h2>{npc.name}</h2>
           <button className="quest-close" onClick={close}>
             Leave

@@ -1,0 +1,86 @@
+{
+  "assetId": "prop.creature.rift_hound.t1",
+  "displayName": "Creature Rift Hound",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "enemy_creatures",
+    "npc_model_buildout"
+  ],
+  "runtime": {
+    "staticKey": "creature_rift_hound"
+  },
+  "output": {
+    "model": "prop_creature_rift_hound_t1.glb",
+    "artifactDir": "artifacts/blender/manifest/prop_creature_rift_hound_t1"
+  },
+  "generator": {
+    "kind": "staticPreset",
+    "preset": "creature_rift_hound"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 12000,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 6000,
+        "screenCoverageMin": 0.08
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_StaticCreaturePbr",
+    "textureSet": "creature_rift_hound_t1",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ]
+  },
+  "collision": {
+    "policy": "simple_capsule",
+    "primitives": [
+      {
+        "type": "capsule",
+        "tag": "creature_body"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "creature"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": true,
+    "aiStages": [
+      "enemy_roster_scan",
+      "creature_silhouette_preset",
+      "procedural_generation"
+    ],
+    "promptIds": [
+      "creature_creature_rift_hound"
+    ],
+    "referencePackId": "neutral_dark_fantasy_creatures_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 24,
+    "maxFileSizeMb": 8,
+    "maxMeshObjects": 48
+  }
+}

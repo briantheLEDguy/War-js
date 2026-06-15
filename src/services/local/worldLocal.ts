@@ -1,15 +1,15 @@
-import type { Unsubscribe, WorldService, ZonePlayerBroadcast } from '../types';
+import type { Unsubscribe, WorldService, ZonePlayerBroadcast, ZonePlayerPresence } from '../types';
 
 /**
  * Local single-player stand-in for multiplayer world state.
  * Tracks only the local player; subscribers receive a 1-element array.
  */
 export class WorldLocal implements WorldService {
-  private me: ZonePlayerBroadcast | null = null;
+  private me: ZonePlayerPresence | null = null;
   private subs = new Set<(players: ZonePlayerBroadcast[]) => void>();
 
-  async joinZone(_zoneId: string, me: ZonePlayerBroadcast): Promise<void> {
-    this.me = me;
+  async joinZone(zoneId: string, me: ZonePlayerBroadcast): Promise<void> {
+    this.me = { ...me, zoneId };
     this.broadcast();
   }
 
@@ -18,8 +18,8 @@ export class WorldLocal implements WorldService {
     this.broadcast();
   }
 
-  async updatePosition(_zoneId: string, me: ZonePlayerBroadcast): Promise<void> {
-    this.me = me;
+  async updatePosition(zoneId: string, me: ZonePlayerBroadcast): Promise<void> {
+    this.me = { ...me, zoneId };
     this.broadcast();
   }
 
@@ -32,6 +32,12 @@ export class WorldLocal implements WorldService {
     return () => this.subs.delete(cb);
   }
 
+  async findPlayerByName(name: string): Promise<ZonePlayerPresence | null> {
+    const needle = normalizeName(name);
+    if (!needle || normalizeName(this.me?.name) !== needle) return null;
+    return this.me ? { ...this.me, position: { ...this.me.position } } : null;
+  }
+
   private snapshot(): ZonePlayerBroadcast[] {
     return this.me ? [this.me] : [];
   }
@@ -40,4 +46,8 @@ export class WorldLocal implements WorldService {
     const snap = this.snapshot();
     for (const s of this.subs) s(snap);
   }
+}
+
+function normalizeName(name: string | null | undefined): string {
+  return name?.trim().toLowerCase() ?? '';
 }

@@ -3,25 +3,22 @@ import type { QuestDefinition } from '../services/types';
 /**
  * Static catalog of all quests in the game. Quests form a linear chain via
  * `prereqQuestId`; completing one unlocks the next. The early chain sends an
- * Empire recruit out through Altdorf's south gate to the Reikland encampment
- * and escalates through goblin raiders, ogres, and a warboss.
- *
- * Names and placements are kept plausible for a WAR Empire chapter — raider
- * goblins, an ogre thug, and a warboss are faithful to Reikland's invaders.
+ * Aegis recruit from Bastion of Aegis toward Dawnline Expanse
+ * and escalates through campaign raiders, objective guards, and a field commander.
  */
 export const QUESTS: QuestDefinition[] = [
   {
-    id: 'reikland-01-scouting',
-    title: 'Scouts of the Reikwald',
+    id: 'dawnline-01-scouting',
+    title: 'Scouts of the Dawnline',
     description:
-      'Wilhelm Krupp has dispatched you to the Reikwald to investigate greenskin sightings. Venture through the south gate and slay the Goblin Raiders camped beyond the wall.',
+      'The Aegis marshal has dispatched you toward Dawnline Expanse to investigate Riftbound pressure. Venture through the gate and break the raider camp beyond the wall.',
     minLevel: 1,
     giverNpcId: 'quest-1',
     objectives: [
       {
         id: 'kill-raiders',
-        description: 'Slay Goblin Raiders',
-        killTarget: 'Goblin Raider',
+        description: 'Slay Campaign Raiders',
+        killTarget: 'Campaign Raider',
         required: 4,
       },
     ],
@@ -31,7 +28,7 @@ export const QUESTS: QuestDefinition[] = [
       items: [
         {
           key: 'sword_recruit',
-          name: 'Reikguard Recruit Sword',
+          name: 'Aegis Recruit Sword',
           qty: 1,
           kind: 'weapon',
           equipSlot: 'mainHand',
@@ -41,24 +38,24 @@ export const QUESTS: QuestDefinition[] = [
     },
   },
   {
-    id: 'reikland-02-shamans',
-    title: 'The Twisted Shamans',
+    id: 'dawnline-02-guards',
+    title: 'The Objective Guards',
     description:
-      "Night Goblin Shamans are inciting the raiders. Put them to the sword before they summon something fouler.",
+      'Riftbound guards are anchoring the field standards. Drive them away before the front line collapses.',
     minLevel: 1,
     giverNpcId: 'quest-1',
-    prereqQuestId: 'reikland-01-scouting',
+    prereqQuestId: 'dawnline-01-scouting',
     objectives: [
       {
-        id: 'kill-shamans',
-        description: 'Slay Night Goblin Shamans',
-        killTarget: 'Night Goblin Shaman',
+        id: 'kill-guards',
+        description: 'Slay Objective Guards',
+        killTarget: 'Objective Guard',
         required: 2,
       },
       {
         id: 'kill-raiders-2',
         description: 'Thin the ranks of the raiders',
-        killTarget: 'Goblin Raider',
+        killTarget: 'Campaign Raider',
         required: 3,
       },
     ],
@@ -68,7 +65,7 @@ export const QUESTS: QuestDefinition[] = [
       items: [
         {
           key: 'armor_chain',
-          name: 'Reikguard Chain Hauberk',
+          name: 'Aegis Chain Hauberk',
           qty: 1,
           kind: 'armor',
           equipSlot: 'chest',
@@ -78,18 +75,18 @@ export const QUESTS: QuestDefinition[] = [
     },
   },
   {
-    id: 'reikland-03-ogre',
-    title: 'The Ogre Thug',
+    id: 'dawnline-03-captain',
+    title: 'The Field Captain',
     description:
-      'A hulking ogre has joined the raiders and bullies Sigmar\u2019s patrols. Bring him down.',
+      'A field captain has taken command of the raiders near the keep. Bring the captain down.',
     minLevel: 2,
     giverNpcId: 'quest-1',
-    prereqQuestId: 'reikland-02-shamans',
+    prereqQuestId: 'dawnline-02-guards',
     objectives: [
       {
-        id: 'kill-ogre',
-        description: "Slay Grulg the Ogre Thug",
-        killTarget: 'Grulg the Ogre Thug',
+        id: 'kill-captain',
+        description: 'Slay the field captain',
+        killTarget: 'Objective Guard',
         required: 1,
       },
     ],
@@ -109,18 +106,18 @@ export const QUESTS: QuestDefinition[] = [
     },
   },
   {
-    id: 'reikland-04-warboss',
-    title: 'Break the Warboss',
+    id: 'dawnline-04-keep',
+    title: 'Break the Keep Line',
     description:
-      'The greenskin warband is led by Warboss Gorfang. End him and the raiders will scatter.',
+      'The Dawnline keep is the field anchor. Clear its guards and open the road deeper into the campaign.',
     minLevel: 3,
     giverNpcId: 'quest-1',
-    prereqQuestId: 'reikland-03-ogre',
+    prereqQuestId: 'dawnline-03-captain',
     objectives: [
       {
-        id: 'kill-warboss',
-        description: 'Slay Warboss Gorfang',
-        killTarget: 'Warboss Gorfang',
+        id: 'kill-keep-guards',
+        description: 'Slay keep guards',
+        killTarget: 'Objective Guard',
         required: 1,
       },
     ],
@@ -130,7 +127,7 @@ export const QUESTS: QuestDefinition[] = [
       items: [
         {
           key: 'helm_reikguard',
-          name: 'Reikguard Helm',
+          name: 'Aegis Helm',
           qty: 1,
           kind: 'armor',
           equipSlot: 'head',

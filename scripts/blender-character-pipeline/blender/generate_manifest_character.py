@@ -35,6 +35,7 @@ from rig_utils import apply_animations, create_humanoid_rig
 
 PIPELINE_ROOT = Path(__file__).resolve().parents[1]
 PLAYABLE_ROSTER_PATH = PIPELINE_ROOT / "data" / "playable-character-roster.json"
+NPC_ROSTER_PATH = PIPELINE_ROOT / "data" / "npc-character-roster.json"
 
 
 PROFILE_STYLES = {
@@ -77,6 +78,7 @@ PROFILE_STYLES = {
 }
 
 _PLAYABLE_ROSTER: dict | None = None
+_NPC_ROSTER: dict | None = None
 
 
 def playable_roster() -> dict:
@@ -87,6 +89,16 @@ def playable_roster() -> dict:
         else:
             _PLAYABLE_ROSTER = json.loads(PLAYABLE_ROSTER_PATH.read_text(encoding="utf-8"))
     return _PLAYABLE_ROSTER
+
+
+def npc_roster() -> dict:
+    global _NPC_ROSTER
+    if _NPC_ROSTER is None:
+        if not NPC_ROSTER_PATH.exists():
+            _NPC_ROSTER = {"profiles": []}
+        else:
+            _NPC_ROSTER = json.loads(NPC_ROSTER_PATH.read_text(encoding="utf-8"))
+    return _NPC_ROSTER
 
 
 def playable_profile_key(race: dict, klass: dict, variant_key: str) -> str:
@@ -134,8 +146,41 @@ def playable_profile_style(profile: str) -> dict | None:
     return None
 
 
+def npc_profile_style(profile: str) -> dict | None:
+    for entry in npc_roster().get("profiles", []):
+        if entry.get("profileKey") != profile:
+            continue
+        return {
+            "profile": profile,
+            "raceKey": entry.get("raceKey", "empire"),
+            "classKey": entry.get("classKey", "npc"),
+            "className": entry.get("className", "NPC"),
+            "variant": entry.get("variant", "m"),
+            "variantLabel": entry.get("variantLabel", "NPC"),
+            "bodyScale": tuple(entry.get("bodyScale", [1.0, 1.0, 1.0])),
+            "skin": entry.get("skin", "#bd8664"),
+            "hair": entry.get("hair", "#211713"),
+            "traits": entry.get("traits", []),
+            "archetype": entry.get("archetype", "fighter"),
+            "animationProfile": entry.get("animationProfile", "sword_shield"),
+            "headgear": entry.get("headgear", "helmet"),
+            "cloth": entry.get("cloth", "#26242a"),
+            "cloth2": entry.get("cloth2", "#5d4f42"),
+            "metal": entry.get("metal", "#3f464a"),
+            "trim": entry.get("trim", "#a77a34"),
+            "leather": entry.get("leather", "#2f1d12"),
+            "accent": entry.get("accent", "#b98a35"),
+            "hood": entry.get("headgear") == "hood",
+            "helmet": entry.get("headgear") not in {"hood", "circlet", "mask"},
+            "npcRole": entry.get("npcRole"),
+            "npcAccessory": entry.get("npcAccessory"),
+            "variationSeed": entry.get("variationSeed", 0),
+        }
+    return None
+
+
 def is_playable_profile(profile: str) -> bool:
-    return playable_profile_style(profile) is not None
+    return playable_profile_style(profile) is not None or npc_profile_style(profile) is not None
 
 
 def clear_scene() -> None:
@@ -331,6 +376,8 @@ def build_playable_character(manifest: dict, style: dict) -> tuple[list[bpy.type
     class_mark = torus("body_class_core", 0.118, 0.009, mats["accent"], (0, 1.30, 0.176), rotation=(math.pi / 2, 0, 0), major_segments=30, minor_segments=8)
     tag_region([class_mark], "torso")
     objects.append(class_mark)
+    if style.get("npcAccessory"):
+        objects.extend(build_npc_character_adornments(style, mats))
 
     scale = style["bodyScale"]
     scale_objects(objects, scale)
@@ -398,6 +445,64 @@ def build_head_slot(style: dict, mats: dict[str, bpy.types.Material]) -> list[bp
                     {"coord": side * 0.310, "cy": 2.020, "cz": -0.010, "ry": 0.014, "rz": 0.010},
                 ], mats["ivory"], segments=16)
                 objects.append(horn)
+    return objects
+
+
+def build_npc_character_adornments(style: dict, mats: dict[str, bpy.types.Material]) -> list[bpy.types.Object]:
+    accessory = style.get("npcAccessory", "civilian")
+    archetype = style.get("archetype", "fighter")
+    objects: list[bpy.types.Object] = []
+    objects.extend(build_head_slot(style, mats))
+
+    if accessory in {"guard", "captain", "raider"}:
+        objects.append(torso_shell("npc_breastplate", 1.00, 1.55, -1.38, 1.38,
+                                  lambda v: 0.225 + 0.064 * math.sin(v * math.pi),
+                                  lambda v: 0.146 + 0.032 * math.sin(v * math.pi),
+                                  mats["metal"], u_steps=64, v_steps=24, center_z=0.024, thickness=0.020))
+        objects.append(torso_shell("npc_belt_plate", 0.90, 1.00, -1.36, 1.36,
+                                  lambda _v: 0.300,
+                                  lambda _v: 0.170,
+                                  mats["leather"], u_steps=48, v_steps=6, center_z=0.020, thickness=0.016))
+        for side in (-1, 1):
+            objects.append(pauldron_shell(f"npc_pauldron_{side}", side, mats["metal"]))
+            if accessory == "captain":
+                objects.append(loft_axis(f"npc_command_spike_{side}", "y", [
+                    {"coord": 1.52, "cx": side * 0.44, "cz": 0.02, "rx": 0.040, "rz": 0.026},
+                    {"coord": 1.74, "cx": side * 0.49, "cz": 0.02, "rx": 0.010, "rz": 0.008},
+                ], mats["accent"], segments=12))
+        if accessory == "captain":
+            objects.append(cloth_panel("npc_command_cape", 0.0, 1.48, 0.36, -0.190, 0.260, 0.430, mats["cloth"], u_steps=16, v_steps=28, wave=0.014, thickness=0.006))
+    elif accessory in {"trainer", "caster"} or archetype in {"caster", "rune_caster", "occult", "ritual", "bog_caster"}:
+        objects.append(loft_axis("npc_robed_overlay", "y", [
+            {"coord": 0.70, "rx": 0.240, "rz": 0.118},
+            {"coord": 1.02, "rx": 0.300, "rz": 0.152},
+            {"coord": 1.38, "rx": 0.322, "rz": 0.166},
+            {"coord": 1.58, "rx": 0.220, "rz": 0.114},
+        ], mats["cloth"], segments=56))
+        objects.append(torus("npc_focus_ring", 0.118, 0.010, mats["accent"], (0, 1.34, -0.205), rotation=(math.pi / 2, 0, 0), major_segments=28, minor_segments=8))
+        objects.append(tube_shell_between("npc_staff", (0.55, 0.70, 0.20), (0.55, 1.72, 0.12),
+                                          lambda _v: 0.018,
+                                          lambda _v: 0.018,
+                                          -math.pi, math.pi, mats["leather"], u_steps=14, v_steps=12, thickness=0.004))
+        objects.append(sphere("npc_staff_focus", 0.060, mats["accent"], (0.55, 1.78, 0.115), segments=12))
+    elif accessory in {"vendor", "banker", "questgiver", "civilian"}:
+        objects.append(cloth_panel("npc_front_apron", 0.0, 1.08, 0.34, 0.190, 0.180, 0.265, mats["cloth"], u_steps=14, v_steps=24, wave=0.006, thickness=0.005))
+        objects.append(torso_shell("npc_utility_belt", 0.88, 0.98, -1.30, 1.30,
+                                  lambda _v: 0.306,
+                                  lambda _v: 0.174,
+                                  mats["leather"], u_steps=46, v_steps=6, center_z=0.018, thickness=0.014))
+        for side in (-1, 1):
+            objects.append(box_prism(f"npc_belt_pouch_{side}", (side * 0.245, 0.84, 0.152), (0.090, 0.125, 0.052), mats["leather"]))
+        if accessory == "banker":
+            objects.append(box_prism("npc_ledger", (-0.215, 1.08, 0.185), (0.180, 0.230, 0.026), mats["accent"], rot_z=-0.18))
+        elif accessory == "questgiver":
+            objects.append(box_prism("npc_dispatch_scroll_case", (0.215, 1.10, 0.182), (0.095, 0.260, 0.050), mats["leather"], rot_z=0.16))
+    elif accessory == "scout":
+        objects.append(box_prism("npc_scout_pack", (0.0, 1.18, -0.195), (0.320, 0.470, 0.115), mats["leather"]))
+        objects.append(cloth_panel("npc_travel_cloak", 0.0, 1.46, 0.34, -0.205, 0.250, 0.410, mats["cloth"], u_steps=16, v_steps=26, wave=0.012, thickness=0.006))
+    else:
+        objects.append(cloth_panel("npc_simple_tabard", 0.0, 1.18, 0.32, 0.190, 0.160, 0.230, mats["cloth"], u_steps=12, v_steps=20, wave=0.006, thickness=0.005))
+
     return objects
 
 
@@ -507,6 +612,9 @@ def build_manifest_character(manifest: dict) -> tuple[list[bpy.types.Object], bp
     playable_style = playable_profile_style(profile)
     if playable_style:
         return build_playable_character(manifest, playable_style)
+    npc_style = npc_profile_style(profile)
+    if npc_style:
+        return build_playable_character(manifest, npc_style)
 
     style = PROFILE_STYLES.get(profile, PROFILE_STYLES["human_devout_guardian"])
     mats = materials(style)
@@ -801,12 +909,13 @@ def write_character_qc(
     qc = manifest.get("qc", {})
     is_character = manifest.get("category") == "character"
     expected_height = qc.get("expectedHeightM")
+    height_tolerance = qc.get("heightToleranceM", 0.22)
     runtime_min = Vector((min_v.x, min_v.z, -max_v.y))
     runtime_max = Vector((max_v.x, max_v.z, -min_v.y))
     runtime_height = runtime_max.y - runtime_min.y
     checks = {
         "grounded": abs(runtime_min.y) <= qc.get("groundToleranceM", 0.03) if is_character else True,
-        "heightWithinTolerance": abs(runtime_height - expected_height) <= 0.22 if expected_height else True,
+        "heightWithinTolerance": abs(runtime_height - expected_height) <= height_tolerance if expected_height else True,
         "allMeshesSkinned": skinned == len(meshes) if qc.get("requiresSkinnedMeshes", True) else True,
         "requiredClipsPresent": len(missing_clips) == 0,
         "meshObjectBudget": len(meshes) <= qc.get("maxMeshObjects", 64),

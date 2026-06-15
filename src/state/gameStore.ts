@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { DEFAULT_VIEW_DISTANCE, clampViewDistance } from '../config/viewDistance';
 import {
   createDefaultCraftingState,
   type EnemyGatheringState,
@@ -32,7 +33,52 @@ export interface GameplaySettings {
   mouseLookSensitivity: number;
   touchLookSensitivity: number;
   zoomSensitivity: number;
+  viewDistance: number;
 }
+
+export type ContextPromptKind =
+  | 'quest'
+  | 'crafting'
+  | 'gathering'
+  | 'gate'
+  | 'objective'
+  | 'target'
+  | 'travel';
+
+export interface ContextPromptState {
+  kind: ContextPromptKind;
+  action: string;
+  label: string;
+  detail?: string;
+  distance?: number;
+}
+
+export function contextPromptKey(prompt: ContextPromptState | null): string {
+  if (!prompt) return '';
+  return `${prompt.kind}:${prompt.action}:${prompt.label}:${prompt.detail ?? ''}`;
+}
+
+export type AbilityFeedbackKind = 'blocked' | 'cooldown' | 'resource' | 'target' | 'range';
+
+export interface AbilityFeedbackState {
+  id: string;
+  kind: AbilityFeedbackKind;
+  message: string;
+  abilityName?: string;
+  expiresAt: number;
+}
+
+export type GuidedTaskId =
+  | 'move'
+  | 'camera'
+  | 'interact'
+  | 'kill'
+  | 'gather'
+  | 'equip'
+  | 'guide'
+  | 'craft';
+
+export type GuidedTaskProgress = Record<GuidedTaskId, boolean>;
 
 export const DEFAULT_GAMEPLAY_SETTINGS: GameplaySettings = {
   invertCameraX: false,
@@ -40,9 +86,33 @@ export const DEFAULT_GAMEPLAY_SETTINGS: GameplaySettings = {
   mouseLookSensitivity: 1,
   touchLookSensitivity: 1,
   zoomSensitivity: 1,
+  viewDistance: DEFAULT_VIEW_DISTANCE,
 };
 
 const SETTINGS_STORAGE_KEY = 'war-js:gameplay-settings';
+const GUIDED_TASKS_STORAGE_KEY = 'war-js:guided-tasks';
+
+export const GUIDED_TASK_IDS: GuidedTaskId[] = [
+  'move',
+  'camera',
+  'interact',
+  'kill',
+  'gather',
+  'equip',
+  'guide',
+  'craft',
+];
+
+const DEFAULT_GUIDED_TASKS: GuidedTaskProgress = {
+  move: false,
+  camera: false,
+  interact: false,
+  kill: false,
+  gather: false,
+  equip: false,
+  guide: false,
+  craft: false,
+};
 
 const DEFAULT_WORLD_EDITOR_SETTINGS: WorldEditorSettings = {
   brushSize: 4,
@@ -84,6 +154,10 @@ function normalizeGameplaySettings(value: unknown): GameplaySettings {
       3,
       DEFAULT_GAMEPLAY_SETTINGS.zoomSensitivity,
     ),
+    viewDistance: clampViewDistance(
+      partial.viewDistance,
+      DEFAULT_GAMEPLAY_SETTINGS.viewDistance,
+    ),
   };
 }
 
@@ -108,6 +182,35 @@ function persistGameplaySettings(settings: GameplaySettings): void {
   }
 }
 
+function normalizeGuidedTaskProgress(value: unknown): GuidedTaskProgress {
+  const partial = value && typeof value === 'object'
+    ? value as Partial<GuidedTaskProgress>
+    : {};
+  return GUIDED_TASK_IDS.reduce<GuidedTaskProgress>(
+    (acc, id) => ({ ...acc, [id]: partial[id] === true }),
+    { ...DEFAULT_GUIDED_TASKS },
+  );
+}
+
+function loadGuidedTaskProgress(): GuidedTaskProgress {
+  if (typeof window === 'undefined') return { ...DEFAULT_GUIDED_TASKS };
+  try {
+    const raw = window.localStorage.getItem(GUIDED_TASKS_STORAGE_KEY);
+    return raw ? normalizeGuidedTaskProgress(JSON.parse(raw)) : { ...DEFAULT_GUIDED_TASKS };
+  } catch {
+    return { ...DEFAULT_GUIDED_TASKS };
+  }
+}
+
+function persistGuidedTaskProgress(progress: GuidedTaskProgress): void {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(GUIDED_TASKS_STORAGE_KEY, JSON.stringify(progress));
+  } catch {
+    // Local progress is optional; keep the session state even when storage is blocked.
+  }
+}
+
 export interface FloatingDamage {
   id: string;
   amount: number;
@@ -123,6 +226,15 @@ export interface CombatStatusEffect {
   expiresAt: number;
   magnitude?: number;
   sourceAbilityId: string;
+}
+
+export interface PlayerStatusEffect {
+  id: string;
+  label: string;
+  kind: 'slow' | 'root' | 'stagger' | 'debuff';
+  expiresAt: number;
+  magnitude?: number;
+  sourceEnemyId: string;
 }
 
 export interface EnemyState {
@@ -174,6 +286,9 @@ interface GameStore {
   floatingDamage: FloatingDamage[];
   pushDamage: (d: FloatingDamage) => void;
   expireDamage: (id: string) => void;
+  playerStatusEffects: PlayerStatusEffect[];
+  addPlayerStatusEffect: (effect: PlayerStatusEffect) => void;
+  clearExpiredPlayerStatusEffects: (now: number) => void;
   abilityResource: AbilityResourceState | null;
   setAbilityResource: (resource: AbilityResourceState | null) => void;
 
@@ -189,6 +304,7 @@ interface GameStore {
   // ------- hotbar -------
   hotbarCooldowns: number[]; // seconds remaining; 0 = ready
   setHotbarCooldown: (slot: number, seconds: number) => void;
+  resetHotbarCooldowns: () => void;
   tickCooldowns: (dt: number) => void;
 
   // ------- chat -------
@@ -225,6 +341,16 @@ interface GameStore {
   openCrafting: (station: { kind: CraftingStationKind; label: string }) => void;
   closeCrafting: () => void;
 
+  // ------- contextual QoL -------
+  contextPrompt: ContextPromptState | null;
+  setContextPrompt: (prompt: ContextPromptState | null) => void;
+  abilityFeedback: AbilityFeedbackState | null;
+  showAbilityFeedback: (feedback: Omit<AbilityFeedbackState, 'id' | 'expiresAt'> & { durationMs?: number }) => void;
+  clearExpiredAbilityFeedback: (now: number) => void;
+  guidedTasks: GuidedTaskProgress;
+  completeGuidedTask: (id: GuidedTaskId) => void;
+  resetGuidedTasks: () => void;
+
   // ------- touch abilities -------
   /** Set by the touch hotbar buttons; consumed once per game-loop frame. */
   pendingTouchAbility: number | null;
@@ -234,6 +360,16 @@ interface GameStore {
   wikiOpen: boolean;
   setWikiOpen: (b: boolean) => void;
   toggleWiki: () => void;
+
+  // ------- world map -------
+  worldMapOpen: boolean;
+  setWorldMapOpen: (b: boolean) => void;
+  toggleWorldMap: () => void;
+
+  // ------- campaign -------
+  campaignOpen: boolean;
+  setCampaignOpen: (b: boolean) => void;
+  toggleCampaign: () => void;
 
   // ------- settings -------
   settingsOpen: boolean;
@@ -251,9 +387,19 @@ interface GameStore {
   assetFallbacks: number;
   incAssetFallbacks: () => void;
 
-  // ------- GM world editor -------
+  // ------- GM tools -------
+  gmMenuOpen: boolean;
+  setGmMenuOpen: (open: boolean) => void;
+  toggleGmMenu: () => void;
+  gmMoveSpeedMultiplier: number;
+  setGmMoveSpeedMultiplier: (multiplier: number) => void;
+  gmFlyingMode: boolean;
+  setGmFlyingMode: (enabled: boolean) => void;
+  toggleGmFlyingMode: () => void;
   gmBuildMode: boolean;
   setGmBuildMode: (enabled: boolean) => void;
+
+  // ------- GM world editor -------
   worldEditorTool: WorldEditorTool;
   setWorldEditorTool: (tool: WorldEditorTool) => void;
   worldEditorSettings: WorldEditorSettings;
@@ -262,9 +408,12 @@ interface GameStore {
   setWorldEditorStatus: (status: string) => void;
   worldEditorSelectedObjectId: string | null;
   setWorldEditorSelectedObjectId: (id: string | null) => void;
+
+  // ------- UI windows -------
+  closeTopWindow: () => boolean;
 }
 
-export const useGameStore = create<GameStore>((set) => ({
+export const useGameStore = create<GameStore>((set, get) => ({
   screen: 'login',
   setScreen: (screen) => set({ screen }),
 
@@ -363,6 +512,18 @@ export const useGameStore = create<GameStore>((set) => ({
   pushDamage: (d) => set((s) => ({ floatingDamage: [...s.floatingDamage, d] })),
   expireDamage: (id) =>
     set((s) => ({ floatingDamage: s.floatingDamage.filter((x) => x.id !== id) })),
+  playerStatusEffects: [],
+  addPlayerStatusEffect: (effect) =>
+    set((s) => ({
+      playerStatusEffects: [
+        ...s.playerStatusEffects.filter((existing) => existing.id !== effect.id),
+        effect,
+      ],
+    })),
+  clearExpiredPlayerStatusEffects: (now) =>
+    set((s) => ({
+      playerStatusEffects: s.playerStatusEffects.filter((effect) => effect.expiresAt > now),
+    })),
   abilityResource: null,
   setAbilityResource: (abilityResource) => set({ abilityResource }),
 
@@ -384,6 +545,8 @@ export const useGameStore = create<GameStore>((set) => ({
     set((s) => ({
       hotbarCooldowns: normalizeCooldowns(s.hotbarCooldowns).map((c) => Math.max(0, c - dt)),
     })),
+  resetHotbarCooldowns: () =>
+    set({ hotbarCooldowns: Array.from({ length: HOTBAR_SLOT_COUNT }, () => 0) }),
 
   chat: [],
   appendChat: (m) => set((s) => ({ chat: [...s.chat, m].slice(-200) })),
@@ -427,20 +590,95 @@ export const useGameStore = create<GameStore>((set) => ({
     craftingOpen: false,
   }),
 
+  contextPrompt: null,
+  setContextPrompt: (contextPrompt) =>
+    set((s) => (
+      promptsEqual(s.contextPrompt, contextPrompt) ? s : { contextPrompt }
+    )),
+  abilityFeedback: null,
+  showAbilityFeedback: (feedback) =>
+    set({
+      abilityFeedback: {
+        id: `ability-feedback-${Date.now()}`,
+        kind: feedback.kind,
+        message: feedback.message,
+        abilityName: feedback.abilityName,
+        expiresAt: Date.now() + (feedback.durationMs ?? 1400),
+      },
+    }),
+  clearExpiredAbilityFeedback: (now) =>
+    set((s) => (
+      s.abilityFeedback && s.abilityFeedback.expiresAt <= now
+        ? { abilityFeedback: null }
+        : s
+    )),
+  guidedTasks: loadGuidedTaskProgress(),
+  completeGuidedTask: (id) =>
+    set((s) => {
+      if (s.guidedTasks[id]) return s;
+      const guidedTasks = { ...s.guidedTasks, [id]: true };
+      persistGuidedTaskProgress(guidedTasks);
+      return { guidedTasks };
+    }),
+  resetGuidedTasks: () =>
+    set(() => {
+      const guidedTasks = { ...DEFAULT_GUIDED_TASKS };
+      persistGuidedTaskProgress(guidedTasks);
+      return { guidedTasks };
+    }),
+
   pendingTouchAbility: null,
   setPendingTouchAbility: (pendingTouchAbility) => set({ pendingTouchAbility }),
 
   wikiOpen: false,
   setWikiOpen: (wikiOpen) =>
-    set((s) => ({
-      wikiOpen,
-      settingsOpen: wikiOpen ? false : s.settingsOpen,
-    })),
+    set((s) => {
+      const guidedTasks = wikiOpen && !s.guidedTasks.guide
+        ? { ...s.guidedTasks, guide: true }
+        : s.guidedTasks;
+      if (guidedTasks !== s.guidedTasks) persistGuidedTaskProgress(guidedTasks);
+      return {
+        wikiOpen,
+        worldMapOpen: wikiOpen ? false : s.worldMapOpen,
+        settingsOpen: wikiOpen ? false : s.settingsOpen,
+        guidedTasks,
+      };
+    }),
   toggleWiki: () =>
+    set((s) => {
+      const opening = !s.wikiOpen;
+      const guidedTasks = opening && !s.guidedTasks.guide
+        ? { ...s.guidedTasks, guide: true }
+        : s.guidedTasks;
+      if (guidedTasks !== s.guidedTasks) persistGuidedTaskProgress(guidedTasks);
+      return {
+        wikiOpen: opening,
+        worldMapOpen: opening ? false : s.worldMapOpen,
+        settingsOpen: opening ? false : s.settingsOpen,
+        guidedTasks,
+      };
+    }),
+
+  worldMapOpen: false,
+  setWorldMapOpen: (worldMapOpen) =>
     set((s) => ({
-      wikiOpen: !s.wikiOpen,
-      settingsOpen: !s.wikiOpen ? false : s.settingsOpen,
+      worldMapOpen,
+      settingsOpen: worldMapOpen ? false : s.settingsOpen,
+      wikiOpen: worldMapOpen ? false : s.wikiOpen,
     })),
+  toggleWorldMap: () =>
+    set((s) => {
+      const opening = !s.worldMapOpen;
+      return {
+        worldMapOpen: opening,
+        settingsOpen: opening ? false : s.settingsOpen,
+        wikiOpen: opening ? false : s.wikiOpen,
+      };
+    }),
+
+  campaignOpen: false,
+  setCampaignOpen: (campaignOpen) => set({ campaignOpen }),
+  toggleCampaign: () => set((s) => ({ campaignOpen: !s.campaignOpen })),
 
   settingsOpen: false,
   setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
@@ -448,6 +686,7 @@ export const useGameStore = create<GameStore>((set) => ({
     set((s) => ({
       settingsOpen: !s.settingsOpen,
       wikiOpen: !s.settingsOpen ? false : s.wikiOpen,
+      worldMapOpen: !s.settingsOpen ? false : s.worldMapOpen,
     })),
   settings: loadGameplaySettings(),
   updateSettings: (patch) =>
@@ -469,6 +708,30 @@ export const useGameStore = create<GameStore>((set) => ({
   assetFallbacks: 0,
   incAssetFallbacks: () => set((s) => ({ assetFallbacks: s.assetFallbacks + 1 })),
 
+  gmMenuOpen: false,
+  setGmMenuOpen: (gmMenuOpen) =>
+    set((s) => ({
+      gmMenuOpen,
+      settingsOpen: gmMenuOpen ? false : s.settingsOpen,
+      wikiOpen: gmMenuOpen ? false : s.wikiOpen,
+      worldMapOpen: gmMenuOpen ? false : s.worldMapOpen,
+    })),
+  toggleGmMenu: () =>
+    set((s) => {
+      const opening = !s.gmMenuOpen;
+      return {
+        gmMenuOpen: opening,
+        settingsOpen: opening ? false : s.settingsOpen,
+        wikiOpen: opening ? false : s.wikiOpen,
+        worldMapOpen: opening ? false : s.worldMapOpen,
+      };
+    }),
+  gmMoveSpeedMultiplier: 1,
+  setGmMoveSpeedMultiplier: (gmMoveSpeedMultiplier) =>
+    set({ gmMoveSpeedMultiplier: clampNumber(gmMoveSpeedMultiplier, 0.25, 6, 1) }),
+  gmFlyingMode: false,
+  setGmFlyingMode: (gmFlyingMode) => set({ gmFlyingMode }),
+  toggleGmFlyingMode: () => set((s) => ({ gmFlyingMode: !s.gmFlyingMode })),
   gmBuildMode: false,
   setGmBuildMode: (gmBuildMode) => set({ gmBuildMode }),
   worldEditorTool: 'select',
@@ -489,9 +752,68 @@ export const useGameStore = create<GameStore>((set) => ({
   setWorldEditorStatus: (worldEditorStatus) => set({ worldEditorStatus }),
   worldEditorSelectedObjectId: null,
   setWorldEditorSelectedObjectId: (worldEditorSelectedObjectId) => set({ worldEditorSelectedObjectId }),
+
+  closeTopWindow: () => {
+    const s = get();
+    if (s.settingsOpen) {
+      set({ settingsOpen: false });
+      return true;
+    }
+    if (s.gmMenuOpen) {
+      set({ gmMenuOpen: false });
+      return true;
+    }
+    if (s.worldMapOpen) {
+      set({ worldMapOpen: false });
+      return true;
+    }
+    if (s.wikiOpen) {
+      set({ wikiOpen: false });
+      return true;
+    }
+    if (s.activeQuestDialogNpcId) {
+      set({ activeQuestDialogNpcId: null });
+      return true;
+    }
+    if (s.craftingOpen) {
+      set({ craftingOpen: false, activeCraftingStation: null });
+      return true;
+    }
+    if (s.campaignOpen) {
+      set({ campaignOpen: false });
+      return true;
+    }
+    if (s.questLogOpen) {
+      set({ questLogOpen: false });
+      return true;
+    }
+    if (s.characterSheetOpen) {
+      set({ characterSheetOpen: false });
+      return true;
+    }
+    if (s.inventoryOpen) {
+      set({ inventoryOpen: false });
+      return true;
+    }
+    if (s.debugOpen) {
+      set({ debugOpen: false });
+      return true;
+    }
+    if (s.gmBuildMode) {
+      set({ gmBuildMode: false });
+      return true;
+    }
+    return false;
+  },
 }));
 
 function normalizeCooldowns(cooldowns: number[]): number[] {
   const next = Array.from({ length: HOTBAR_SLOT_COUNT }, (_, index) => cooldowns[index] ?? 0);
   return next;
+}
+
+function promptsEqual(a: ContextPromptState | null, b: ContextPromptState | null): boolean {
+  if (a === b) return true;
+  if (!a || !b) return false;
+  return contextPromptKey(a) === contextPromptKey(b);
 }

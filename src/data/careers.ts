@@ -19,6 +19,12 @@ export const BODY_VARIANT_DISPLAY: Record<BodyVariant, string> = {
   f: 'Female',
 };
 
+export type PlayerRealm = 'aegis' | 'riftbound';
+
+export function playerRealmForRace(race: PlayableRace): PlayerRealm {
+  return ORDER_RACES.includes(race) ? 'aegis' : 'riftbound';
+}
+
 export const CLASS_RENAMES: Record<string, string> = {
   'Bright Wizard': 'Ember Arcanist',
   'Witch Hunter': 'Hex Inquisitor',

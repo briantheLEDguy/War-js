@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "scripts/blender-character-pipeline/data/asset-blueprints",
-  "assetVersion": "2026-06-09-playable-modular-roster",
+  "assetVersion": "2026-06-13-npc-variants",
   "characterProfiles": {
     "human_pyromancer": {
       "assetId": "chr.human.pyromancer.t1.m",
@@ -305,6 +305,670 @@
       "assetId": "chr.umbra.crimson_acolyte.t1.f",
       "model": "chr_umbra_crimson_acolyte_t1_f.glb",
       "bodyFamily": "umbra_crimson_acolyte_f",
+      "skeletonId": "humanoid_v1"
+    },
+    "player_medieval_knight": {
+      "assetId": "chr.external.player_medieval_knight",
+      "model": "chr_player_medieval_knight.glb"
+    },
+    "aegis_warrior_guard": {
+      "assetId": "chr.external.warrior_guard",
+      "model": "chr_external_warrior_guard.glb"
+    },
+    "riftbound_evil_guy": {
+      "assetId": "chr.external.riftbound_evil_guy",
+      "model": "chr_external_evil_guy.glb"
+    },
+    "player_strong_knight": {
+      "assetId": "chr.external.player_strong_knight",
+      "model": "chr_player_strong_knight.glb"
+    },
+    "npc_external_swordsman": {
+      "assetId": "chr.external.npc_swordsman",
+      "model": "chr_external_swordsman_npc.glb"
+    },
+    "npc_external_medieval_character": {
+      "assetId": "chr.external.npc_medieval_character_sample",
+      "model": "chr_external_medieval_character_npc.glb"
+    },
+    "npc_external_warrior_guard": {
+      "assetId": "chr.external.warrior_guard",
+      "model": "chr_external_warrior_guard.glb"
+    },
+    "enemy_aegis_aegis_keep_guard_guard": {
+      "assetId": "chr.enemy.aegis.aegis.keep.guard.guard.t1",
+      "model": "chr_enemy_aegis_aegis_keep_guard_guard_t1.glb",
+      "bodyFamily": "enemy_aegis_aegis_keep_guard_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_aegis_keep_sage_caster": {
+      "assetId": "chr.enemy.aegis.aegis.keep.sage.caster.t1",
+      "model": "chr_enemy_aegis_aegis_keep_sage_caster_t1.glb",
+      "bodyFamily": "enemy_aegis_aegis_keep_sage_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_battlefield_hexer_caster": {
+      "assetId": "chr.enemy.aegis.battlefield.hexer.caster.t1",
+      "model": "chr_enemy_aegis_battlefield_hexer_caster_t1.glb",
+      "bodyFamily": "enemy_aegis_battlefield_hexer_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_briarwatch_den_overlord_captain": {
+      "assetId": "chr.enemy.aegis.briarwatch.den.overlord.captain.t1",
+      "model": "chr_enemy_aegis_briarwatch_den_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_briarwatch_den_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_campaign_raider_raider": {
+      "assetId": "chr.enemy.aegis.campaign.raider.raider.t1",
+      "model": "chr_enemy_aegis_campaign_raider_raider_t1.glb",
+      "bodyFamily": "enemy_aegis_campaign_raider_raider",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_glassriver_depths_overlord_captain": {
+      "assetId": "chr.enemy.aegis.glassriver.depths.overlord.captain.t1",
+      "model": "chr_enemy_aegis_glassriver_depths_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_glassriver_depths_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_highvale_sanctum_overlord_captain": {
+      "assetId": "chr.enemy.aegis.highvale.sanctum.overlord.captain.t1",
+      "model": "chr_enemy_aegis_highvale_sanctum_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_highvale_sanctum_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_keep_captain_captain": {
+      "assetId": "chr.enemy.aegis.keep.captain.captain.t1",
+      "model": "chr_enemy_aegis_keep_captain_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_keep_captain_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_lair_cultist_caster": {
+      "assetId": "chr.enemy.aegis.lair.cultist.caster.t1",
+      "model": "chr_enemy_aegis_lair_cultist_caster_t1.glb",
+      "bodyFamily": "enemy_aegis_lair_cultist_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_lair_sentinel_guard": {
+      "assetId": "chr.enemy.aegis.lair.sentinel.guard.t1",
+      "model": "chr_enemy_aegis_lair_sentinel_guard_t1.glb",
+      "bodyFamily": "enemy_aegis_lair_sentinel_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_mireglass_den_overlord_captain": {
+      "assetId": "chr.enemy.aegis.mireglass.den.overlord.captain.t1",
+      "model": "chr_enemy_aegis_mireglass_den_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_mireglass_den_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_objective_guard_guard": {
+      "assetId": "chr.enemy.aegis.objective.guard.guard.t1",
+      "model": "chr_enemy_aegis_objective_guard_guard_t1.glb",
+      "bodyFamily": "enemy_aegis_objective_guard_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_siege_hexer_caster": {
+      "assetId": "chr.enemy.aegis.siege.hexer.caster.t1",
+      "model": "chr_enemy_aegis_siege_hexer_caster_t1.glb",
+      "bodyFamily": "enemy_aegis_siege_hexer_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_stormbarrow_lair_overlord_captain": {
+      "assetId": "chr.enemy.aegis.stormbarrow.lair.overlord.captain.t1",
+      "model": "chr_enemy_aegis_stormbarrow_lair_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_stormbarrow_lair_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_aegis_warden_s_hollow_overlord_captain": {
+      "assetId": "chr.enemy.aegis.warden.s.hollow.overlord.captain.t1",
+      "model": "chr_enemy_aegis_warden_s_hollow_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_ashfang_pit_overlord_captain": {
+      "assetId": "chr.enemy.riftbound.ashfang.pit.overlord.captain.t1",
+      "model": "chr_enemy_riftbound_ashfang_pit_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_ashfang_pit_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_battlefield_hexer_caster": {
+      "assetId": "chr.enemy.riftbound.battlefield.hexer.caster.t1",
+      "model": "chr_enemy_riftbound_battlefield_hexer_caster_t1.glb",
+      "bodyFamily": "enemy_riftbound_battlefield_hexer_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_campaign_raider_raider": {
+      "assetId": "chr.enemy.riftbound.campaign.raider.raider.t1",
+      "model": "chr_enemy_riftbound_campaign_raider_raider_t1.glb",
+      "bodyFamily": "enemy_riftbound_campaign_raider_raider",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_cindermaw_pit_overlord_captain": {
+      "assetId": "chr.enemy.riftbound.cindermaw.pit.overlord.captain.t1",
+      "model": "chr_enemy_riftbound_cindermaw_pit_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_cindermaw_pit_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_gorepine_warrens_overlord_captain": {
+      "assetId": "chr.enemy.riftbound.gorepine.warrens.overlord.captain.t1",
+      "model": "chr_enemy_riftbound_gorepine_warrens_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_gorepine_warrens_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_greenskin_brute_raider": {
+      "assetId": "chr.enemy.riftbound.greenskin.brute.raider.t1",
+      "model": "chr_enemy_riftbound_greenskin_brute_raider_t1.glb",
+      "bodyFamily": "enemy_riftbound_greenskin_brute_raider",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_greenskin_ruffian_raider": {
+      "assetId": "chr.enemy.riftbound.greenskin.ruffian.raider.t1",
+      "model": "chr_enemy_riftbound_greenskin_ruffian_raider_t1.glb",
+      "bodyFamily": "enemy_riftbound_greenskin_ruffian_raider",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_keep_captain_captain": {
+      "assetId": "chr.enemy.riftbound.keep.captain.captain.t1",
+      "model": "chr_enemy_riftbound_keep_captain_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_keep_captain_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_lair_cultist_caster": {
+      "assetId": "chr.enemy.riftbound.lair.cultist.caster.t1",
+      "model": "chr_enemy_riftbound_lair_cultist_caster_t1.glb",
+      "bodyFamily": "enemy_riftbound_lair_cultist_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_lair_sentinel_guard": {
+      "assetId": "chr.enemy.riftbound.lair.sentinel.guard.t1",
+      "model": "chr_enemy_riftbound_lair_sentinel_guard_t1.glb",
+      "bodyFamily": "enemy_riftbound_lair_sentinel_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_nightglass_hollow_overlord_captain": {
+      "assetId": "chr.enemy.riftbound.nightglass.hollow.overlord.captain.t1",
+      "model": "chr_enemy_riftbound_nightglass_hollow_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_nightglass_hollow_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_objective_guard_guard": {
+      "assetId": "chr.enemy.riftbound.objective.guard.guard.t1",
+      "model": "chr_enemy_riftbound_objective_guard_guard_t1.glb",
+      "bodyFamily": "enemy_riftbound_objective_guard_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_obsidian_maw_overlord_captain": {
+      "assetId": "chr.enemy.riftbound.obsidian.maw.overlord.captain.t1",
+      "model": "chr_enemy_riftbound_obsidian_maw_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_obsidian_maw_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_riftbound_keep_guard_guard": {
+      "assetId": "chr.enemy.riftbound.riftbound.keep.guard.guard.t1",
+      "model": "chr_enemy_riftbound_riftbound_keep_guard_guard_t1.glb",
+      "bodyFamily": "enemy_riftbound_riftbound_keep_guard_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_riftbound_keep_magister_caster": {
+      "assetId": "chr.enemy.riftbound.riftbound.keep.magister.caster.t1",
+      "model": "chr_enemy_riftbound_riftbound_keep_magister_caster_t1.glb",
+      "bodyFamily": "enemy_riftbound_riftbound_keep_magister_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_rotwreath_nest_overlord_captain": {
+      "assetId": "chr.enemy.riftbound.rotwreath.nest.overlord.captain.t1",
+      "model": "chr_enemy_riftbound_rotwreath_nest_overlord_captain_t1.glb",
+      "bodyFamily": "enemy_riftbound_rotwreath_nest_overlord_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "enemy_riftbound_siege_hexer_caster": {
+      "assetId": "chr.enemy.riftbound.siege.hexer.caster.t1",
+      "model": "chr_enemy_riftbound_siege_hexer_caster_t1.glb",
+      "bodyFamily": "enemy_riftbound_siege_hexer_caster",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_aegisguard_sergeant_city_guard": {
+      "assetId": "chr.npc.aegis.aegisguard.sergeant.city.guard.t1",
+      "model": "chr_npc_aegis_aegisguard_sergeant_city_guard_t1.glb",
+      "bodyFamily": "npc_aegis_aegisguard_sergeant_city_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_aegisguard_warden_city_guard": {
+      "assetId": "chr.npc.aegis.aegisguard.warden.city.guard.t1",
+      "model": "chr_npc_aegis_aegisguard_warden_city_guard_t1.glb",
+      "bodyFamily": "npc_aegis_aegisguard_warden_city_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_alden_voss_aegis_class_trainer": {
+      "assetId": "chr.npc.aegis.alden.voss.aegis.class.trainer.t1",
+      "model": "chr_npc_aegis_alden_voss_aegis_class_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_alden_voss_aegis_class_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_alden_voss_field_crafting_mentor": {
+      "assetId": "chr.npc.aegis.alden.voss.field.crafting.mentor.t1",
+      "model": "chr_npc_aegis_alden_voss_field_crafting_mentor_t1.glb",
+      "bodyFamily": "npc_aegis_alden_voss_field_crafting_mentor",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_alden_voss_field_medic": {
+      "assetId": "chr.npc.aegis.alden.voss.field.medic.t1",
+      "model": "chr_npc_aegis_alden_voss_field_medic_t1.glb",
+      "bodyFamily": "npc_aegis_alden_voss_field_medic",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_brann_hartwell_main_gate_guard": {
+      "assetId": "chr.npc.aegis.brann.hartwell.main.gate.guard.t1",
+      "model": "chr_npc_aegis_brann_hartwell_main_gate_guard_t1.glb",
+      "bodyFamily": "npc_aegis_brann_hartwell_main_gate_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_brenna_vale_rear_district_guard": {
+      "assetId": "chr.npc.aegis.brenna.vale.rear.district.guard.t1",
+      "model": "chr_npc_aegis_brenna_vale_rear_district_guard_t1.glb",
+      "bodyFamily": "npc_aegis_brenna_vale_rear_district_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_brigitte_holtz_merchant": {
+      "assetId": "chr.npc.aegis.brigitte.holtz.merchant.t1",
+      "model": "chr_npc_aegis_brigitte_holtz_merchant_t1.glb",
+      "bodyFamily": "npc_aegis_brigitte_holtz_merchant",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_brother_steffan_battle_prelate_trainer": {
+      "assetId": "chr.npc.aegis.brother.steffan.battle.prelate.trainer.t1",
+      "model": "chr_npc_aegis_brother_steffan_battle_prelate_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_brother_steffan_battle_prelate_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_cedric_wold_west_gate_guard": {
+      "assetId": "chr.npc.aegis.cedric.wold.west.gate.guard.t1",
+      "model": "chr_npc_aegis_cedric_wold_west_gate_guard_t1.glb",
+      "bodyFamily": "npc_aegis_cedric_wold_west_gate_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_capital_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.capital.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_capital_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_capital_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_endgame_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.endgame.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_endgame_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_endgame_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_1_boss_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.1.boss.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_1_boss_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_1_boss_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_1_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.1.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_1_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_1_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_2_boss_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.boss.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_2_boss_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_2_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_2_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_3_boss_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.3.boss.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_3_boss_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_3_boss_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_3_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.3.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_3_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_3_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_corren_vale_tier_4_campaign_marshal": {
+      "assetId": "chr.npc.aegis.corren.vale.tier.4.campaign.marshal.t1",
+      "model": "chr_npc_aegis_corren_vale_tier_4_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_aegis_corren_vale_tier_4_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_diedrick_stein_general_goods": {
+      "assetId": "chr.npc.aegis.diedrick.stein.general.goods.t1",
+      "model": "chr_npc_aegis_diedrick_stein_general_goods_t1.glb",
+      "bodyFamily": "npc_aegis_diedrick_stein_general_goods",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_elira_dawnmarch_aegis_quartermaster": {
+      "assetId": "chr.npc.aegis.elira.dawnmarch.aegis.quartermaster.t1",
+      "model": "chr_npc_aegis_elira_dawnmarch_aegis_quartermaster_t1.glb",
+      "bodyFamily": "npc_aegis_elira_dawnmarch_aegis_quartermaster",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_ernst_gerber_merchant": {
+      "assetId": "chr.npc.aegis.ernst.gerber.merchant.t1",
+      "model": "chr_npc_aegis_ernst_gerber_merchant_t1.glb",
+      "bodyFamily": "npc_aegis_ernst_gerber_merchant",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_freia_voss_banker": {
+      "assetId": "chr.npc.aegis.freia.voss.banker.t1",
+      "model": "chr_npc_aegis_freia_voss_banker_t1.glb",
+      "bodyFamily": "npc_aegis_freia_voss_banker",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_garron_pike_market_watch": {
+      "assetId": "chr.npc.aegis.garron.pike.market.watch.t1",
+      "model": "chr_npc_aegis_garron_pike_market_watch_t1.glb",
+      "bodyFamily": "npc_aegis_garron_pike_market_watch",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_gate_sergeant_city_guard": {
+      "assetId": "chr.npc.aegis.gate.sergeant.city.guard.t1",
+      "model": "chr_npc_aegis_gate_sergeant_city_guard_t1.glb",
+      "bodyFamily": "npc_aegis_gate_sergeant_city_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_gate_warden_city_guard": {
+      "assetId": "chr.npc.aegis.gate.warden.city.guard.t1",
+      "model": "chr_npc_aegis_gate_warden_city_guard_t1.glb",
+      "bodyFamily": "npc_aegis_gate_warden_city_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_hale_durn_west_gate_guard": {
+      "assetId": "chr.npc.aegis.hale.durn.west.gate.guard.t1",
+      "model": "chr_npc_aegis_hale_durn_west_gate_guard_t1.glb",
+      "bodyFamily": "npc_aegis_hale_durn_west_gate_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_hannelore_braun_innkeeper": {
+      "assetId": "chr.npc.aegis.hannelore.braun.innkeeper.t1",
+      "model": "chr_npc_aegis_hannelore_braun_innkeeper_t1.glb",
+      "bodyFamily": "npc_aegis_hannelore_braun_innkeeper",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_inquisitor_hess_hex_inquisitor_trainer": {
+      "assetId": "chr.npc.aegis.inquisitor.hess.hex.inquisitor.trainer.t1",
+      "model": "chr_npc_aegis_inquisitor_hess_hex_inquisitor_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_iven_stonebrook_street_patrol": {
+      "assetId": "chr.npc.aegis.iven.stonebrook.street.patrol.t1",
+      "model": "chr_npc_aegis_iven_stonebrook_street_patrol_t1.glb",
+      "bodyFamily": "npc_aegis_iven_stonebrook_street_patrol",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_kara_voss_street_patrol": {
+      "assetId": "chr.npc.aegis.kara.voss.street.patrol.t1",
+      "model": "chr_npc_aegis_kara_voss_street_patrol_t1.glb",
+      "bodyFamily": "npc_aegis_kara_voss_street_patrol",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_konrad_hausman_banker": {
+      "assetId": "chr.npc.aegis.konrad.hausman.banker.t1",
+      "model": "chr_npc_aegis_konrad_hausman_banker_t1.glb",
+      "bodyFamily": "npc_aegis_konrad_hausman_banker",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_lysa_bright_market_watch": {
+      "assetId": "chr.npc.aegis.lysa.bright.market.watch.t1",
+      "model": "chr_npc_aegis_lysa_bright_market_watch_t1.glb",
+      "bodyFamily": "npc_aegis_lysa_bright_market_watch",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_magister_roth_ember_arcanist_trainer": {
+      "assetId": "chr.npc.aegis.magister.roth.ember.arcanist.trainer.t1",
+      "model": "chr_npc_aegis_magister_roth_ember_arcanist_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_magister_roth_ember_arcanist_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_mara_vell_dawnline_dispatch_officer": {
+      "assetId": "chr.npc.aegis.mara.vell.dawnline.dispatch.officer.t1",
+      "model": "chr_npc_aegis_mara_vell_dawnline_dispatch_officer_t1.glb",
+      "bodyFamily": "npc_aegis_mara_vell_dawnline_dispatch_officer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_master_bryngar_stoneguard_trainer": {
+      "assetId": "chr.npc.aegis.master.bryngar.stoneguard.trainer.t1",
+      "model": "chr_npc_aegis_master_bryngar_stoneguard_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_master_bryngar_stoneguard_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_merek_flint_plaza_watch": {
+      "assetId": "chr.npc.aegis.merek.flint.plaza.watch.t1",
+      "model": "chr_npc_aegis_merek_flint_plaza_watch_t1.glb",
+      "bodyFamily": "npc_aegis_merek_flint_plaza_watch",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_mira_stonewake_expedition_guide": {
+      "assetId": "chr.npc.aegis.mira.stonewake.expedition.guide.t1",
+      "model": "chr_npc_aegis_mira_stonewake_expedition_guide_t1.glb",
+      "bodyFamily": "npc_aegis_mira_stonewake_expedition_guide",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_mira_stonewake_forward_scout": {
+      "assetId": "chr.npc.aegis.mira.stonewake.forward.scout.t1",
+      "model": "chr_npc_aegis_mira_stonewake_forward_scout_t1.glb",
+      "bodyFamily": "npc_aegis_mira_stonewake_forward_scout",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_mira_stonewake_siege_engineer": {
+      "assetId": "chr.npc.aegis.mira.stonewake.siege.engineer.t1",
+      "model": "chr_npc_aegis_mira_stonewake_siege_engineer_t1.glb",
+      "bodyFamily": "npc_aegis_mira_stonewake_siege_engineer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_mira_stonewake_vault_keeper": {
+      "assetId": "chr.npc.aegis.mira.stonewake.vault.keeper.t1",
+      "model": "chr_npc_aegis_mira_stonewake_vault_keeper_t1.glb",
+      "bodyFamily": "npc_aegis_mira_stonewake_vault_keeper",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_orrin_valecross_main_gate_guard": {
+      "assetId": "chr.npc.aegis.orrin.valecross.main.gate.guard.t1",
+      "model": "chr_npc_aegis_orrin_valecross_main_gate_guard_t1.glb",
+      "bodyFamily": "npc_aegis_orrin_valecross_main_gate_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_rowan_hale_plaza_watch": {
+      "assetId": "chr.npc.aegis.rowan.hale.plaza.watch.t1",
+      "model": "chr_npc_aegis_rowan_hale_plaza_watch_t1.glb",
+      "bodyFamily": "npc_aegis_rowan_hale_plaza_watch",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_serra_brightfield_crafting_mentor": {
+      "assetId": "chr.npc.aegis.serra.brightfield.crafting.mentor.t1",
+      "model": "chr_npc_aegis_serra_brightfield_crafting_mentor_t1.glb",
+      "bodyFamily": "npc_aegis_serra_brightfield_crafting_mentor",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_serra_brightfield_gate_captain": {
+      "assetId": "chr.npc.aegis.serra.brightfield.gate.captain.t1",
+      "model": "chr_npc_aegis_serra_brightfield_gate_captain_t1.glb",
+      "bodyFamily": "npc_aegis_serra_brightfield_gate_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_serra_brightfield_resource_warden": {
+      "assetId": "chr.npc.aegis.serra.brightfield.resource.warden.t1",
+      "model": "chr_npc_aegis_serra_brightfield_resource_warden_t1.glb",
+      "bodyFamily": "npc_aegis_serra_brightfield_resource_warden",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_siegewright_metzger_siegewright_trainer": {
+      "assetId": "chr.npc.aegis.siegewright.metzger.siegewright.trainer.t1",
+      "model": "chr_npc_aegis_siegewright_metzger_siegewright_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_siegewright_metzger_siegewright_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_sir_emmerich_sunfire_templar_trainer": {
+      "assetId": "chr.npc.aegis.sir.emmerich.sunfire.templar.trainer.t1",
+      "model": "chr_npc_aegis_sir_emmerich_sunfire_templar_trainer_t1.glb",
+      "bodyFamily": "npc_aegis_sir_emmerich_sunfire_templar_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_tamsin_reed_east_gate_guard": {
+      "assetId": "chr.npc.aegis.tamsin.reed.east.gate.guard.t1",
+      "model": "chr_npc_aegis_tamsin_reed_east_gate_guard_t1.glb",
+      "bodyFamily": "npc_aegis_tamsin_reed_east_gate_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_tor_caldus_rear_district_guard": {
+      "assetId": "chr.npc.aegis.tor.caldus.rear.district.guard.t1",
+      "model": "chr_npc_aegis_tor_caldus_rear_district_guard_t1.glb",
+      "bodyFamily": "npc_aegis_tor_caldus_rear_district_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_tovin_greyford_portal_guard": {
+      "assetId": "chr.npc.aegis.tovin.greyford.portal.guard.t1",
+      "model": "chr_npc_aegis_tovin_greyford_portal_guard_t1.glb",
+      "bodyFamily": "npc_aegis_tovin_greyford_portal_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_veyra_sunholt_east_gate_guard": {
+      "assetId": "chr.npc.aegis.veyra.sunholt.east.gate.guard.t1",
+      "model": "chr_npc_aegis_veyra_sunholt_east_gate_guard_t1.glb",
+      "bodyFamily": "npc_aegis_veyra_sunholt_east_gate_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_aegis_wilhelm_krupp_dispatch_officer": {
+      "assetId": "chr.npc.aegis.wilhelm.krupp.dispatch.officer.t1",
+      "model": "chr_npc_aegis_wilhelm_krupp_dispatch_officer_t1.glb",
+      "bodyFamily": "npc_aegis_wilhelm_krupp_dispatch_officer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_drog_thornjaw_portal_guard": {
+      "assetId": "chr.npc.riftbound.drog.thornjaw.portal.guard.t1",
+      "model": "chr_npc_riftbound_drog_thornjaw_portal_guard_t1.glb",
+      "bodyFamily": "npc_riftbound_drog_thornjaw_portal_guard",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_gorvak_mirehand_expedition_guide": {
+      "assetId": "chr.npc.riftbound.gorvak.mirehand.expedition.guide.t1",
+      "model": "chr_npc_riftbound_gorvak_mirehand_expedition_guide_t1.glb",
+      "bodyFamily": "npc_riftbound_gorvak_mirehand_expedition_guide",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_gorvak_mirehand_forward_scout": {
+      "assetId": "chr.npc.riftbound.gorvak.mirehand.forward.scout.t1",
+      "model": "chr_npc_riftbound_gorvak_mirehand_forward_scout_t1.glb",
+      "bodyFamily": "npc_riftbound_gorvak_mirehand_forward_scout",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_gorvak_mirehand_siege_engineer": {
+      "assetId": "chr.npc.riftbound.gorvak.mirehand.siege.engineer.t1",
+      "model": "chr_npc_riftbound_gorvak_mirehand_siege_engineer_t1.glb",
+      "bodyFamily": "npc_riftbound_gorvak_mirehand_siege_engineer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_gorvak_mirehand_vault_keeper": {
+      "assetId": "chr.npc.riftbound.gorvak.mirehand.vault.keeper.t1",
+      "model": "chr_npc_riftbound_gorvak_mirehand_vault_keeper_t1.glb",
+      "bodyFamily": "npc_riftbound_gorvak_mirehand_vault_keeper",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_kara_ashvein_crafting_mentor": {
+      "assetId": "chr.npc.riftbound.kara.ashvein.crafting.mentor.t1",
+      "model": "chr_npc_riftbound_kara_ashvein_crafting_mentor_t1.glb",
+      "bodyFamily": "npc_riftbound_kara_ashvein_crafting_mentor",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_kara_ashvein_gate_captain": {
+      "assetId": "chr.npc.riftbound.kara.ashvein.gate.captain.t1",
+      "model": "chr_npc_riftbound_kara_ashvein_gate_captain_t1.glb",
+      "bodyFamily": "npc_riftbound_kara_ashvein_gate_captain",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_kara_ashvein_resource_warden": {
+      "assetId": "chr.npc.riftbound.kara.ashvein.resource.warden.t1",
+      "model": "chr_npc_riftbound_kara_ashvein_resource_warden_t1.glb",
+      "bodyFamily": "npc_riftbound_kara_ashvein_resource_warden",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_capital_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.capital.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_capital_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_capital_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_endgame_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.endgame.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_endgame_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_endgame_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_1_boss_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.1.boss.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_1_boss_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_1_boss_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_1_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.1.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_1_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_1_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_2_boss_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.2.boss.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_2_boss_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_2_boss_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_2_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.2.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_2_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_2_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.3.boss.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_3_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.3.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_3_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_nyra_vex_tier_4_campaign_marshal": {
+      "assetId": "chr.npc.riftbound.nyra.vex.tier.4.campaign.marshal.t1",
+      "model": "chr_npc_riftbound_nyra_vex_tier_4_campaign_marshal_t1.glb",
+      "bodyFamily": "npc_riftbound_nyra_vex_tier_4_campaign_marshal",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_selk_dreadspire_field_crafting_mentor": {
+      "assetId": "chr.npc.riftbound.selk.dreadspire.field.crafting.mentor.t1",
+      "model": "chr_npc_riftbound_selk_dreadspire_field_crafting_mentor_t1.glb",
+      "bodyFamily": "npc_riftbound_selk_dreadspire_field_crafting_mentor",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_selk_dreadspire_field_medic": {
+      "assetId": "chr.npc.riftbound.selk.dreadspire.field.medic.t1",
+      "model": "chr_npc_riftbound_selk_dreadspire_field_medic_t1.glb",
+      "bodyFamily": "npc_riftbound_selk_dreadspire_field_medic",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_selk_dreadspire_riftbound_class_trainer": {
+      "assetId": "chr.npc.riftbound.selk.dreadspire.riftbound.class.trainer.t1",
+      "model": "chr_npc_riftbound_selk_dreadspire_riftbound_class_trainer_t1.glb",
+      "bodyFamily": "npc_riftbound_selk_dreadspire_riftbound_class_trainer",
+      "skeletonId": "humanoid_v1"
+    },
+    "npc_riftbound_vask_rauth_riftbound_quartermaster": {
+      "assetId": "chr.npc.riftbound.vask.rauth.riftbound.quartermaster.t1",
+      "model": "chr_npc_riftbound_vask_rauth_riftbound_quartermaster_t1.glb",
+      "bodyFamily": "npc_riftbound_vask_rauth_riftbound_quartermaster",
       "skeletonId": "humanoid_v1"
     }
   },
@@ -5204,6 +5868,114 @@
     "preview_dreary_reeds": {
       "assetId": "prop.preview.dreary_reeds.t1",
       "model": "prop_preview_dreary_reeds_t1.glb"
+    },
+    "aegis_capital_medieval_city": {
+      "assetId": "terrain.aegis_capital.medieval_city",
+      "model": "terrain_aegis_capital_medieval_city.glb"
+    },
+    "town_house_1": {
+      "assetId": "prop.town.house_1",
+      "model": "prop_town_house_1.glb"
+    },
+    "town_house_2": {
+      "assetId": "prop.town.house_2",
+      "model": "prop_town_house_2.glb"
+    },
+    "town_roof": {
+      "assetId": "prop.town.roof",
+      "model": "prop_town_roof.glb"
+    },
+    "town_wooden_wall_light": {
+      "assetId": "prop.town.wooden_wall_light",
+      "model": "prop_town_wooden_wall_light.glb"
+    },
+    "town_wooden_wall_dark": {
+      "assetId": "prop.town.wooden_wall_dark",
+      "model": "prop_town_wooden_wall_dark.glb"
+    },
+    "town_rock_wall_large": {
+      "assetId": "prop.town.rock_wall_large",
+      "model": "prop_town_rock_wall_large.glb"
+    },
+    "town_rock_wall_small": {
+      "assetId": "prop.town.rock_wall_small",
+      "model": "prop_town_rock_wall_small.glb"
+    },
+    "town_door": {
+      "assetId": "prop.town.door",
+      "model": "prop_town_door.glb"
+    },
+    "town_door_2": {
+      "assetId": "prop.town.door_2",
+      "model": "prop_town_door_2.glb"
+    },
+    "town_window": {
+      "assetId": "prop.town.window",
+      "model": "prop_town_window.glb"
+    },
+    "town_diamond_window": {
+      "assetId": "prop.town.diamond_window",
+      "model": "prop_town_diamond_window.glb"
+    },
+    "town_chimney": {
+      "assetId": "prop.town.chimney",
+      "model": "prop_town_chimney.glb"
+    },
+    "town_spire": {
+      "assetId": "prop.town.spire",
+      "model": "prop_town_spire.glb"
+    },
+    "town_roof_plank_small": {
+      "assetId": "prop.town.roof_plank_small",
+      "model": "prop_town_roof_plank_small.glb"
+    },
+    "town_roof_plank_medium": {
+      "assetId": "prop.town.roof_plank_medium",
+      "model": "prop_town_roof_plank_medium.glb"
+    },
+    "town_roof_plank_large": {
+      "assetId": "prop.town.roof_plank_large",
+      "model": "prop_town_roof_plank_large.glb"
+    },
+    "town_horizontal_beam": {
+      "assetId": "prop.town.horizontal_beam",
+      "model": "prop_town_horizontal_beam.glb"
+    },
+    "town_vertical_beam": {
+      "assetId": "prop.town.vertical_beam",
+      "model": "prop_town_vertical_beam.glb"
+    },
+    "town_plank_arc": {
+      "assetId": "prop.town.plank_arc",
+      "model": "prop_town_plank_arc.glb"
+    },
+    "creature_ash_hound": {
+      "assetId": "prop.creature.ash_hound.t1",
+      "model": "prop_creature_ash_hound_t1.glb"
+    },
+    "creature_barrow_wolf": {
+      "assetId": "prop.creature.barrow_wolf.t1",
+      "model": "prop_creature_barrow_wolf_t1.glb"
+    },
+    "creature_lair_spider": {
+      "assetId": "prop.creature.lair_spider.t1",
+      "model": "prop_creature_lair_spider_t1.glb"
+    },
+    "creature_mire_hound": {
+      "assetId": "prop.creature.mire_hound.t1",
+      "model": "prop_creature_mire_hound_t1.glb"
+    },
+    "creature_rift_hound": {
+      "assetId": "prop.creature.rift_hound.t1",
+      "model": "prop_creature_rift_hound_t1.glb"
+    },
+    "creature_war_boar": {
+      "assetId": "prop.creature.war_boar.t1",
+      "model": "prop_creature_war_boar_t1.glb"
+    },
+    "creature_wild_stag": {
+      "assetId": "prop.creature.wild_stag.t1",
+      "model": "prop_creature_wild_stag_t1.glb"
     }
   }
 }

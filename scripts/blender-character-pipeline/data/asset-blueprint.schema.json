@@ -215,6 +215,7 @@
         "maxFileSizeMb": { "type": "number", "minimum": 0.1 },
         "groundToleranceM": { "type": "number", "minimum": 0 },
         "expectedHeightM": { "type": "number", "minimum": 0 },
+        "heightToleranceM": { "type": "number", "minimum": 0 },
         "maxMeshObjects": { "type": "integer", "minimum": 1 },
         "requiresSkinnedMeshes": { "type": "boolean" },
         "requiresPreview": { "type": "boolean" }

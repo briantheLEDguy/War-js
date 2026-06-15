@@ -1,6 +1,10 @@
 import * as THREE from 'three';
 import { AssetLoader } from '../game/AssetLoader';
 import type { WorldPropObject } from '../services/types';
+import {
+  isPrefabCameraSolidKind,
+  prefabFallbackKindForKind,
+} from './editor/PrefabCatalog';
 import type { Terrain } from './Terrain';
 import type { PropSpawn } from './ZoneLoader';
 
@@ -11,6 +15,8 @@ export interface WorldCollider {
   width: number;
   depth: number;
   rotY: number;
+  minY?: number;
+  maxY?: number;
   blocksWhen: 'always' | 'closed';
   interactionId?: string;
   sourceObjectId?: string;
@@ -35,10 +41,17 @@ export interface InteractiveGate {
   object: THREE.Object3D;
   mixer: THREE.AnimationMixer | null;
   actions: Map<string, THREE.AnimationAction>;
+  fallbackVisual: GateFallbackVisual | null;
   isOpen: boolean;
   maxDistance: number;
   openClip: string;
   closeClip: string;
+}
+
+export interface GateFallbackVisual {
+  progress: number;
+  target: number;
+  speed: number;
 }
 
 export interface SpawnedProps {
@@ -57,7 +70,14 @@ export interface SpawnedStaticWorldObject {
 
 const CAMERA_SOLID_KINDS = new Set([
   'building',
+  'castle_floor',
   'wall_segment',
+  'rift_house',
+  'rift_wall_segment',
+  'rift_tower',
+  'rift_obelisk',
+  'rift_brazier',
+  'rift_spike_cluster',
   'tower',
   'gate',
   'castle',
@@ -68,6 +88,8 @@ const CAMERA_SOLID_KINDS = new Set([
   'fountain',
   'vendor_stall',
 ]);
+const PATH_TERRAIN_SAMPLE_SPACING = 3.25;
+const PATH_VISUAL_LIFT = 0.035;
 
 /**
  * Spawns props described by zone JSON. Each prop either loads a .glb or
@@ -87,28 +109,42 @@ export async function spawnProps(
 
   for (const [index, s] of spawns.entries()) {
     const sourceObjectId = s.id ?? `static-prop-${index.toString().padStart(4, '0')}`;
-    const pickedFallback = pickFallback(s.kind);
-    const fallback = typeof pickedFallback === 'function'
-      ? pickedFallback
-      : AssetLoader.primitives.rock;
-    const model = (s.model || s.assetKey || s.kind === 'dummy')
-      ? await resolvePropModel(loader, s.kind, s.model ?? '', s.assetKey)
-      : null;
-    const animated = s.interaction?.type === 'gate' && model
-      ? await loader.loadModelWithAnimations(model, fallback)
-      : null;
-    const obj = animated
-      ? animated.object
-      : model
-        ? await loader.loadModel(model, fallback)
-        : fallback();
-    const y = terrain.heightAt(s.x, s.z) + (s.y ?? 0);
-    obj.position.set(s.x, y, s.z);
     const propRotY = s.rotY ?? Math.random() * Math.PI * 2;
     const propScale = s.scale ?? 1;
-    const propScaleX = propScale * (s.scaleX ?? 1);
-    const propScaleY = propScale * (s.scaleY ?? 1);
-    const propScaleZ = propScale * (s.scaleZ ?? 1);
+    let propScaleX = propScale * (s.scaleX ?? 1);
+    let propScaleY = propScale * (s.scaleY ?? 1);
+    let propScaleZ = propScale * (s.scaleZ ?? 1);
+    let animated: Awaited<ReturnType<AssetLoader['loadModelWithAnimations']>> | null = null;
+    let obj: THREE.Object3D;
+    let y = terrain.heightAt(s.x, s.z) + (s.y ?? 0);
+
+    if (s.visible === false) {
+      obj = new THREE.Group();
+      obj.visible = false;
+    } else if (isTerrainPathKind(s.kind)) {
+      obj = buildTerrainPathObject(s.kind, terrain, s.x, s.z, propRotY, propScaleX, propScaleZ, s.y ?? 0);
+      propScaleX = 1;
+      propScaleY = 1;
+      propScaleZ = 1;
+    } else {
+      const pickedFallback = pickFallback(s.kind);
+      const fallback = typeof pickedFallback === 'function'
+        ? pickedFallback
+        : AssetLoader.primitives.rock;
+      const model = (s.model || s.assetKey || s.kind === 'dummy')
+        ? await resolvePropModel(loader, s.kind, s.model ?? '', s.assetKey)
+        : null;
+      animated = s.interaction?.type === 'gate' && model
+        ? await loader.loadModelWithAnimations(model, fallback)
+        : null;
+      obj = animated
+        ? animated.object
+        : model
+          ? await loader.loadModel(model, fallback)
+          : fallback();
+    }
+
+    obj.position.set(s.x, y, s.z);
     obj.rotation.y = propRotY;
     obj.scale.set(propScaleX, propScaleY, propScaleZ);
     obj.userData.worldEditObjectId = sourceObjectId;
@@ -133,6 +169,7 @@ export async function spawnProps(
         },
         colliders: s.colliders ? cloneJson(s.colliders) : undefined,
         walkableSurfaces: s.walkableSurfaces ? cloneJson(s.walkableSurfaces) : undefined,
+        interaction: s.interaction ? cloneJson(s.interaction) : undefined,
         createdAt: 0,
         updatedAt: 0,
       },
@@ -152,6 +189,8 @@ export async function spawnProps(
           width: c.width * propScaleX,
           depth: c.depth * propScaleZ,
           rotY: propRotY + (c.rotY ?? 0),
+          minY: c.minY === undefined ? undefined : y + c.minY * propScaleY,
+          maxY: c.maxY === undefined ? undefined : y + c.maxY * propScaleY,
           blocksWhen: c.blocksWhen ?? 'always',
           interactionId: c.interactionId,
           sourceObjectId,
@@ -159,7 +198,7 @@ export async function spawnProps(
         colliders.push(collider);
         cameraColliders.push(collider);
       }
-    } else if (CAMERA_SOLID_KINDS.has(s.kind)) {
+    } else if (CAMERA_SOLID_KINDS.has(s.kind) || isPrefabCameraSolidKind(s.kind)) {
       const cameraCollider = buildCameraColliderFromObject(
         obj,
         s.kind,
@@ -202,13 +241,23 @@ export async function spawnProps(
           actions.set(clip.name, mixer.clipAction(clip));
         }
       }
+      const startsOpen = s.interaction.startsOpen ?? false;
+      const fallbackVisual = hasGateFallbackLeaves(obj)
+        ? {
+            progress: startsOpen ? 1 : 0,
+            target: startsOpen ? 1 : 0,
+            speed: 4,
+          }
+        : null;
+      if (fallbackVisual) applyGateFallbackVisual(obj, fallbackVisual.progress);
       gates.push({
         id: s.interaction.id,
         label: s.interaction.label ?? 'Gate',
         object: obj,
         mixer,
         actions,
-        isOpen: s.interaction.startsOpen ?? false,
+        fallbackVisual,
+        isOpen: startsOpen,
         maxDistance: s.interaction.maxDistance ?? 18,
         openClip: s.interaction.openClip ?? 'open',
         closeClip: s.interaction.closeClip ?? 'close',
@@ -247,6 +296,104 @@ function buildCameraColliderFromObject(
   };
 }
 
+function isTerrainPathKind(kind: string): boolean {
+  return kind === 'path_dirt' || kind === 'path_cobblestone';
+}
+
+function buildTerrainPathObject(
+  kind: string,
+  terrain: Terrain,
+  centerX: number,
+  centerZ: number,
+  rotY: number,
+  width: number,
+  depth: number,
+  visualOffset: number,
+): THREE.Object3D {
+  const group = new THREE.Group();
+  const baseY = terrain.heightAt(centerX, centerZ) + visualOffset;
+  const isCobblestone = kind === 'path_cobblestone';
+  group.add(buildTerrainPathRibbon({
+    terrain,
+    centerX,
+    centerZ,
+    baseY,
+    rotY,
+    x0: -width / 2,
+    x1: width / 2,
+    z0: -depth / 2,
+    z1: depth / 2,
+    yLift: PATH_VISUAL_LIFT,
+    material: new THREE.MeshStandardMaterial({
+      color: isCobblestone ? 0x716e66 : 0x5f4a31,
+      roughness: isCobblestone ? 0.9 : 0.96,
+      side: THREE.DoubleSide,
+    }),
+  }));
+  return group;
+}
+
+function buildTerrainPathRibbon(opts: {
+  terrain: Terrain;
+  centerX: number;
+  centerZ: number;
+  baseY: number;
+  rotY: number;
+  x0: number;
+  x1: number;
+  z0: number;
+  z1: number;
+  yLift: number;
+  material: THREE.Material;
+}): THREE.Mesh {
+  const width = Math.abs(opts.x1 - opts.x0);
+  const depth = Math.abs(opts.z1 - opts.z0);
+  const xSegments = Math.max(1, Math.ceil(width / PATH_TERRAIN_SAMPLE_SPACING));
+  const zSegments = Math.max(1, Math.ceil(depth / PATH_TERRAIN_SAMPLE_SPACING));
+  const positions: number[] = [];
+  const uvs: number[] = [];
+  const indices: number[] = [];
+  const cos = Math.cos(opts.rotY);
+  const sin = Math.sin(opts.rotY);
+
+  for (let zi = 0; zi <= zSegments; zi += 1) {
+    const zT = zi / zSegments;
+    const localZ = opts.z0 + (opts.z1 - opts.z0) * zT;
+    for (let xi = 0; xi <= xSegments; xi += 1) {
+      const xT = xi / xSegments;
+      const localX = opts.x0 + (opts.x1 - opts.x0) * xT;
+      const worldX = opts.centerX + localX * cos + localZ * sin;
+      const worldZ = opts.centerZ - localX * sin + localZ * cos;
+      positions.push(
+        localX,
+        opts.terrain.heightAt(worldX, worldZ) + opts.yLift - opts.baseY,
+        localZ,
+      );
+      uvs.push(xT, zT);
+    }
+  }
+
+  for (let zi = 0; zi < zSegments; zi += 1) {
+    for (let xi = 0; xi < xSegments; xi += 1) {
+      const a = zi * (xSegments + 1) + xi;
+      const b = a + 1;
+      const c = a + xSegments + 1;
+      const d = c + 1;
+      indices.push(a, c, b, b, c, d);
+    }
+  }
+
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+  geometry.setIndex(indices);
+  geometry.computeVertexNormals();
+
+  const mesh = new THREE.Mesh(geometry, opts.material);
+  mesh.receiveShadow = true;
+  return mesh;
+}
+
 async function resolvePropModel(
   loader: AssetLoader,
   kind: string,
@@ -261,10 +408,22 @@ async function resolvePropModel(
 }
 
 function pickFallback(kind: string) {
+  const primitives = AssetLoader.primitives as unknown as Record<string, () => THREE.Object3D>;
+  const catalogFallbackKind = prefabFallbackKindForKind(kind);
+  if (catalogFallbackKind && primitives[catalogFallbackKind]) {
+    return primitives[catalogFallbackKind];
+  }
   switch (kind) {
     case 'tree':        return AssetLoader.primitives.tree;
     case 'rock':        return AssetLoader.primitives.rock;
     case 'building':    return AssetLoader.primitives.building;
+    case 'castle_floor': return AssetLoader.primitives.castle_floor;
+    case 'rift_house': return AssetLoader.primitives.rift_house;
+    case 'rift_wall_segment': return AssetLoader.primitives.rift_wall_segment;
+    case 'rift_tower': return AssetLoader.primitives.rift_tower;
+    case 'rift_obelisk': return AssetLoader.primitives.rift_obelisk;
+    case 'rift_brazier': return AssetLoader.primitives.rift_brazier;
+    case 'rift_spike_cluster': return AssetLoader.primitives.rift_spike_cluster;
     case 'dummy':       return AssetLoader.primitives.dummy;
     // Biome kit props
     case 'pnw_douglas_fir': return AssetLoader.primitives.pnw_douglas_fir;
@@ -303,4 +462,21 @@ function pickFallback(kind: string) {
 
 function cloneJson<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T;
+}
+
+function hasGateFallbackLeaves(object: THREE.Object3D): boolean {
+  let found = false;
+  object.traverse((node) => {
+    if (typeof node.userData.gateLeafSide === 'number') found = true;
+  });
+  return found;
+}
+
+function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void {
+  const clamped = Math.max(0, Math.min(1, progress));
+  object.traverse((node) => {
+    const side = node.userData.gateLeafSide;
+    if (typeof side !== 'number') return;
+    node.rotation.y = -side * (Math.PI / 2) * clamped;
+  });
 }

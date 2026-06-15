@@ -5,6 +5,7 @@
 import * as THREE from 'three';
 import { normalizeClassName } from '../data/careers';
 import { buildHumanoidFace } from './FaceBuilder';
+import { markWeaponAttachment } from './WeaponAnimation';
 
 // Shared materials (created once, reused)
 const skinMat   = () => new THREE.MeshStandardMaterial({ color: 0xd4a875, roughness: 0.7 });
@@ -36,35 +37,58 @@ function cone(r: number, h: number, seg: number, mat: THREE.Material): THREE.Mes
 function addSword(group: THREE.Group, gripColor: number, bladeColor: number) {
   const grip = new THREE.MeshStandardMaterial({ color: gripColor, roughness: 0.9 });
   const blade = new THREE.MeshStandardMaterial({ color: bladeColor, metalness: 0.8, roughness: 0.3 });
-  const guard = new THREE.MeshStandardMaterial({ color: 0xc8a030, metalness: 0.7, roughness: 0.4 });
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'sword',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_sword_mainHand';
+  weapon.position.set(0.55, 0.9, 0.1);
   const h = cyl(0.04, 0.04, 0.4, 6, grip);
-  h.position.set(0.55, 0.9, 0.1);
+  h.position.set(0, 0, 0);
   const g = box(0.35, 0.06, 0.06, new THREE.MeshStandardMaterial({ color: 0xc8a030, metalness: 0.7 }));
-  g.position.set(0.55, 1.1, 0.1);
+  g.position.set(0, 0.2, 0);
   const b = box(0.06, 0.9, 0.04, blade);
-  b.position.set(0.55, 1.6, 0.1);
-  group.add(h, g, b);
+  b.position.set(0, 0.7, 0);
+  weapon.add(h, g, b);
+  group.add(weapon);
 }
 
 /** Adds a staff to the group at the right-hand position */
 function addStaff(group: THREE.Group, shaftColor: number, tipColor: number) {
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'staff',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_staff_mainHand';
+  weapon.position.set(0.5, 0.55, 0.1);
   const shaft = cyl(0.04, 0.05, 2.2, 6, new THREE.MeshStandardMaterial({ color: shaftColor, roughness: 0.8 }));
-  shaft.position.set(0.5, 1.1, 0.1);
+  shaft.position.set(0, 0.55, 0);
   const tip = sph(0.12, new THREE.MeshStandardMaterial({ color: tipColor, emissive: tipColor, emissiveIntensity: 0.4, roughness: 0.3 }));
-  tip.position.set(0.5, 2.25, 0.1);
-  group.add(shaft, tip);
+  tip.position.set(0, 1.7, 0);
+  weapon.add(shaft, tip);
+  group.add(weapon);
 }
 
 /** Adds a war hammer to the group */
 function addHammer(group: THREE.Group) {
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'hammer',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_hammer_mainHand';
+  weapon.position.set(0.5, 0.35, 0.1);
   const shaft = cyl(0.04, 0.05, 1.8, 6, new THREE.MeshStandardMaterial({ color: 0x4a2e10, roughness: 0.9 }));
-  shaft.position.set(0.5, 1.0, 0.1);
+  shaft.position.set(0, 0.65, 0);
   const head = box(0.2, 0.25, 0.18, new THREE.MeshStandardMaterial({ color: 0x8a8880, metalness: 0.5, roughness: 0.5 }));
-  head.position.set(0.5, 1.95, 0.1);
-  group.add(shaft, head);
+  head.position.set(0, 1.6, 0);
+  weapon.add(shaft, head);
+  group.add(weapon);
 }
 
-/** Base armored humanoid — Empire / generic Order. Returns group height ~1.9 units. */
+/** Base armored humanoid - Empire / generic Aegis. Returns group height ~1.9 units. */
 function empireBase(armorColor: number, trimColor: number): THREE.Group {
   const group = new THREE.Group();
   const armor  = new THREE.MeshStandardMaterial({ color: armorColor, metalness: 0.5, roughness: 0.5 });
@@ -249,12 +273,19 @@ export function dwarf(career?: string): THREE.Object3D {
   helm.castShadow = true;
   group.add(helm);
   // Axe
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'axe',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_axe_mainHand';
+  weapon.position.set(0.5, 0.3, 0);
   const haft = cyl(0.04, 0.04, 1.4, 6, new THREE.MeshStandardMaterial({ color: 0x3a2010, roughness: 0.9 }));
-  haft.position.set(0.5, 1.0, 0);
-  group.add(haft);
+  haft.position.set(0, 0.7, 0);
   const blade = box(0.28, 0.35, 0.05, new THREE.MeshStandardMaterial({ color: 0x909090, metalness: 0.7, roughness: 0.3 }));
-  blade.position.set(0.5, 1.75, 0);
-  group.add(blade);
+  blade.position.set(0, 1.45, 0);
+  weapon.add(haft, blade);
+  group.add(weapon);
 
   return group;
 }
@@ -335,12 +366,19 @@ export function chaos(career?: string): THREE.Object3D {
     group.add(horn);
   }
   // Chaos weapon (huge axe)
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'axe',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_axe_mainHand';
+  weapon.position.set(0.6, 0.25, 0.1);
   const haft = cyl(0.05, 0.06, 1.8, 6, new THREE.MeshStandardMaterial({ color: 0x0a0808, roughness: 0.9 }));
-  haft.position.set(0.6, 1.1, 0.1);
-  group.add(haft);
+  haft.position.set(0, 0.85, 0);
   const axeB = box(0.4, 0.5, 0.06, new THREE.MeshStandardMaterial({ color: 0x3a0808, metalness: 0.7, roughness: 0.4 }));
-  axeB.position.set(0.6, 2.1, 0.1);
-  group.add(axeB);
+  axeB.position.set(0, 1.85, 0);
+  weapon.add(haft, axeB);
+  group.add(weapon);
 
   return group;
 }
@@ -403,12 +441,19 @@ export function greenskin(career?: string): THREE.Object3D {
   helm.castShadow = true;
   group.add(helm);
   // Cleaver (crude blade)
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'cleaver',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_cleaver_mainHand';
+  weapon.position.set(0.55, 0.7, 0.1);
   const blade = box(0.32, 0.44, 0.06, metalRough);
-  blade.position.set(0.55, 1.8, 0.1);
-  group.add(blade);
+  blade.position.set(0, 1.1, 0);
   const haft = cyl(0.05, 0.05, 1.0, 6, leatherMat);
-  haft.position.set(0.55, 1.2, 0.1);
-  group.add(haft);
+  haft.position.set(0, 0.5, 0);
+  weapon.add(haft, blade);
+  group.add(weapon);
 
   return group;
 }
@@ -425,9 +470,17 @@ export function darkElf(career?: string): THREE.Object3D {
   cloak.position.set(0, 1.2, -0.18);
   g.add(cloak);
   // Dagger (short blade)
+  const weapon = markWeaponAttachment(new THREE.Group(), {
+    slot: 'mainHand',
+    kind: 'dagger',
+    source: 'baked',
+  });
+  weapon.name = 'BakedWeapon_dagger_mainHand';
+  weapon.position.set(0.52, 0.95, 0.1);
   const dagger = box(0.04, 0.55, 0.04, new THREE.MeshStandardMaterial({ color: 0xc0b0d0, metalness: 0.9, roughness: 0.2 }));
-  dagger.position.set(0.52, 1.4, 0.1);
-  g.add(dagger);
+  dagger.position.set(0, 0.45, 0);
+  weapon.add(dagger);
+  g.add(weapon);
   return g;
 }
 

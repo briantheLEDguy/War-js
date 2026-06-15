@@ -1,0 +1,30 @@
+{
+  "assetId": "prop.town.house_1",
+  "category": "prop",
+  "model": "prop_town_house_1.glb",
+  "fileSizeBytes": 2560056,
+  "meshCount": 1,
+  "totalTris": 17906,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_house_1",
+      "verts": 9381,
+      "faces": 7922,
+      "tris": 17906,
+      "materials": 5
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

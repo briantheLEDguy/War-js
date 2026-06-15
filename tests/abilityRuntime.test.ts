@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 import { createAbilityResourceState, getAbilityForCareer } from '../src/game/abilities/abilityData';
-import { tryActivateAbility } from '../src/game/abilities/AbilityRuntime';
+import { getAbilityActivationFailure, tryActivateAbility } from '../src/game/abilities/AbilityRuntime';
 import { spawnAbilityVfx } from '../src/game/abilities/AbilityVfx';
 import { useGameStore } from '../src/state/gameStore';
 import {
@@ -58,6 +58,56 @@ describe('ability runtime activation', () => {
     expect(vi.mocked(spawnAbilityVfx)).not.toHaveBeenCalled();
   });
 
+  test('maps blocked ability attempts to player-facing failure reasons', () => {
+    resetForCharacter();
+    expect(abilityFailure(0, { playerDead: true })).toMatchObject({
+      code: 'dead_player',
+      message: 'You are dead.',
+    });
+    expect(abilityFailure(0, { uiBlocked: true, uiBlockedMessage: 'Close the guide first.' })).toMatchObject({
+      code: 'blocked_ui',
+      message: 'Close the guide first.',
+    });
+
+    resetForCharacter();
+    useGameStore.getState().setHotbarCooldown(6, 1.2);
+    setTargetedEnemy(makeEnemy());
+    expect(abilityFailure(6)).toMatchObject({
+      code: 'cooldown',
+      message: 'Judgment of Ash is ready in 2s.',
+    });
+
+    resetForCharacter();
+    expect(abilityFailure(6)).toMatchObject({
+      code: 'no_target',
+      message: 'Select a target.',
+    });
+
+    resetForCharacter();
+    setTargetedEnemy(makeEnemy({ position: { x: 0, y: 0, z: 100 } }));
+    expect(abilityFailure(6)).toMatchObject({
+      code: 'out_of_range',
+      message: 'Move closer to Training Dummy.',
+    });
+
+    resetForCharacter({ mana: 0 });
+    useGameStore.getState().setTarget(null);
+    expect(abilityFailure(2)).toMatchObject({
+      code: 'insufficient_mana',
+      message: 'Need 14 mana.',
+    });
+
+    resetForCharacter();
+    useGameStore.getState().setAbilityResource({
+      ...createAbilityResourceState('Battle Prelate'),
+      current: 0,
+    });
+    expect(abilityFailure(7)).toMatchObject({
+      code: 'insufficient_resource',
+      message: 'Need 35 Zeal.',
+    });
+  });
+
   test('activates an enemy ability and schedules its impact', () => {
     const player = makePlayer();
     const vfx = makeVfxLayer();
@@ -85,6 +135,7 @@ describe('ability runtime activation', () => {
     expect(useGameStore.getState().hotbarCooldowns[6]).toBe(ability?.cooldownSec);
     expect(player.animator?.playAction).toHaveBeenCalledWith(ability?.animation.actionId, ability?.animation.durationSec);
     expect(player.playGlbAction).not.toHaveBeenCalled();
+    expect(player.playAbilityWeaponAction).toHaveBeenCalledWith(ability, enemy.position);
     expect(vi.mocked(spawnAbilityVfx)).toHaveBeenCalledTimes(1);
     expect(vi.mocked(spawnAbilityVfx).mock.calls[0][1]).toBe(ability);
   });
@@ -147,6 +198,20 @@ function activate(slot: number, player = makePlayer(), vfx = makeVfxLayer()) {
     vfx,
     getEnemyObject,
   });
+}
+
+function abilityFailure(
+  slot: number,
+  blockers: Parameters<typeof getAbilityActivationFailure>[1] = {},
+  player = makePlayer(),
+) {
+  return getAbilityActivationFailure({
+    slot,
+    player,
+    now: NOW,
+    vfx: makeVfxLayer(),
+    getEnemyObject,
+  }, blockers);
 }
 
 function resetForCharacter(overrides: Parameters<typeof makeCharacter>[0] = {}): void {

@@ -1,0 +1,981 @@
+{
+  "id": "ashfang_pit",
+  "name": "Ashfang Pit",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "Boss",
+    "lane": "riftbound_east",
+    "laneLabel": "Riftbound East March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 1 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "ashfang_pit_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "ashfang_pit_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "ashfang_pit_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "ashfang_pit_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "ashfang_pit_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "ashfang_pit_portal_ashen_steppe",
+      "kind": "gate",
+      "x": 81.7,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "ashfang_pit_portal_ashen_steppe_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "ashfang_pit_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "ashfang_pit_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "ashfang_pit_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "ashfang_pit_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "ashfang_pit_ore_node_01_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -47.7,
+      "z": -22.8,
+      "rotY": 3.9576,
+      "scale": 0.75
+    },
+    {
+      "id": "ashfang_pit_scrap_node_02_visual",
+      "kind": "rock",
+      "x": 48.2,
+      "z": -22.5,
+      "rotY": 3.995,
+      "scale": 0.91
+    },
+    {
+      "id": "ashfang_pit_relic_node_03_visual",
+      "kind": "statue",
+      "x": -43.4,
+      "z": 31.8,
+      "rotY": 4.7272,
+      "scale": 0.55
+    },
+    {
+      "id": "ashfang_pit_ore_node_04_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 42.6,
+      "z": 38.9,
+      "rotY": 0.1793,
+      "scale": 0.75
+    },
+    {
+      "id": "ashfang_pit_soil_node_05_visual",
+      "kind": "pnw_grass_clump",
+      "x": 2.6,
+      "z": 77.5,
+      "rotY": 0.9966,
+      "scale": 0.97
+    },
+    {
+      "id": "ashfang_pit_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 60.4,
+      "z": -19.9,
+      "rotY": 5.9461,
+      "scale": 1
+    },
+    {
+      "id": "ashfang_pit_tree_02",
+      "kind": "tree",
+      "x": 73.9,
+      "z": 3.9,
+      "rotY": 3.5672,
+      "scale": 1.23
+    },
+    {
+      "id": "ashfang_pit_tree_03",
+      "kind": "tree",
+      "x": 49.7,
+      "z": -7.2,
+      "rotY": 5.2948,
+      "scale": 0.77
+    },
+    {
+      "id": "ashfang_pit_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": 26.1,
+      "z": -39.9,
+      "rotY": 3.9927,
+      "scale": 1.41
+    },
+    {
+      "id": "ashfang_pit_tree_05",
+      "kind": "tree",
+      "x": -5.7,
+      "z": -62.9,
+      "rotY": 4.0654,
+      "scale": 0.8
+    },
+    {
+      "id": "ashfang_pit_tree_06",
+      "kind": "tree",
+      "x": 52.8,
+      "z": -20.3,
+      "rotY": 4.9948,
+      "scale": 1.5
+    },
+    {
+      "id": "ashfang_pit_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": 47.2,
+      "z": -8,
+      "rotY": 5.4735,
+      "scale": 0.78
+    },
+    {
+      "id": "ashfang_pit_tree_08",
+      "kind": "tree",
+      "x": 59.4,
+      "z": -5.3,
+      "rotY": 1.6359,
+      "scale": 1.45
+    },
+    {
+      "id": "ashfang_pit_tree_09",
+      "kind": "tree",
+      "x": -63.2,
+      "z": -15.7,
+      "rotY": 0.4404,
+      "scale": 0.94
+    },
+    {
+      "id": "ashfang_pit_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": -50.8,
+      "z": 53.8,
+      "rotY": 2.6283,
+      "scale": 1.5
+    },
+    {
+      "id": "ashfang_pit_tree_11",
+      "kind": "tree",
+      "x": -50,
+      "z": -23,
+      "rotY": 0.6858,
+      "scale": 1.5
+    },
+    {
+      "id": "ashfang_pit_tree_12",
+      "kind": "tree",
+      "x": -53.4,
+      "z": 47.4,
+      "rotY": 5.7755,
+      "scale": 1.13
+    },
+    {
+      "id": "ashfang_pit_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": -42.3,
+      "z": 44.5,
+      "rotY": 5.6368,
+      "scale": 0.78
+    },
+    {
+      "id": "ashfang_pit_tree_14",
+      "kind": "tree",
+      "x": 44,
+      "z": 14.8,
+      "rotY": 3.5804,
+      "scale": 1.36
+    },
+    {
+      "id": "ashfang_pit_tree_15",
+      "kind": "tree",
+      "x": 37.8,
+      "z": -63.3,
+      "rotY": 3.4596,
+      "scale": 1.06
+    },
+    {
+      "id": "ashfang_pit_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": -33.8,
+      "z": 52.4,
+      "rotY": 2.5338,
+      "scale": 1.14
+    },
+    {
+      "id": "ashfang_pit_tree_17",
+      "kind": "tree",
+      "x": -37.3,
+      "z": -41.3,
+      "rotY": 5.8944,
+      "scale": 0.77
+    },
+    {
+      "id": "ashfang_pit_tree_18",
+      "kind": "tree",
+      "x": 77,
+      "z": -22.8,
+      "rotY": 0.6238,
+      "scale": 1.48
+    },
+    {
+      "id": "ashfang_pit_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": -69.4,
+      "z": 4.1,
+      "rotY": 5.1352,
+      "scale": 1.14
+    },
+    {
+      "id": "ashfang_pit_tree_20",
+      "kind": "tree",
+      "x": -35.5,
+      "z": -31,
+      "rotY": 2.2106,
+      "scale": 1.17
+    },
+    {
+      "id": "ashfang_pit_rock_01",
+      "kind": "rock",
+      "x": -69.1,
+      "z": -1.5,
+      "rotY": 1.7003,
+      "scale": 1.05
+    },
+    {
+      "id": "ashfang_pit_rock_02",
+      "kind": "rock",
+      "x": -78.2,
+      "z": 22.8,
+      "rotY": 3.2414,
+      "scale": 2.06
+    },
+    {
+      "id": "ashfang_pit_rock_03",
+      "kind": "rock",
+      "x": -45.1,
+      "z": -40.2,
+      "rotY": 0.4505,
+      "scale": 0.81
+    },
+    {
+      "id": "ashfang_pit_rock_04",
+      "kind": "rock",
+      "x": 1.6,
+      "z": -60.2,
+      "rotY": 5.7871,
+      "scale": 1.27
+    },
+    {
+      "id": "ashfang_pit_rock_05",
+      "kind": "rock",
+      "x": -60,
+      "z": -34,
+      "rotY": 4.8595,
+      "scale": 2.27
+    },
+    {
+      "id": "ashfang_pit_rock_06",
+      "kind": "rock",
+      "x": -63.5,
+      "z": -51.1,
+      "rotY": 1.0671,
+      "scale": 1.84
+    },
+    {
+      "id": "ashfang_pit_rock_07",
+      "kind": "rock",
+      "x": -3.4,
+      "z": -84.6,
+      "rotY": 5.6038,
+      "scale": 0.98
+    },
+    {
+      "id": "ashfang_pit_rock_08",
+      "kind": "rock",
+      "x": -87,
+      "z": 7.4,
+      "rotY": 3.3041,
+      "scale": 2.07
+    },
+    {
+      "id": "ashfang_pit_rock_09",
+      "kind": "rock",
+      "x": -73.5,
+      "z": 22.3,
+      "rotY": 0.1543,
+      "scale": 2.31
+    },
+    {
+      "id": "ashfang_pit_rock_10",
+      "kind": "rock",
+      "x": -66.9,
+      "z": -45.7,
+      "rotY": 1.8607,
+      "scale": 1.83
+    },
+    {
+      "id": "ashfang_pit_rock_11",
+      "kind": "rock",
+      "x": 67.9,
+      "z": -7.4,
+      "rotY": 2.9704,
+      "scale": 1.03
+    },
+    {
+      "id": "ashfang_pit_rock_12",
+      "kind": "rock",
+      "x": -43,
+      "z": 74,
+      "rotY": 1.0523,
+      "scale": 2.25
+    },
+    {
+      "id": "ashfang_pit_rock_13",
+      "kind": "rock",
+      "x": 44.2,
+      "z": -66.9,
+      "rotY": 0.7587,
+      "scale": 1.7
+    },
+    {
+      "id": "ashfang_pit_rock_14",
+      "kind": "rock",
+      "x": 12.8,
+      "z": 59.9,
+      "rotY": 2.7693,
+      "scale": 2.1
+    },
+    {
+      "id": "ashfang_pit_rock_15",
+      "kind": "rock",
+      "x": 55.5,
+      "z": -55.6,
+      "rotY": 3.4645,
+      "scale": 0.86
+    },
+    {
+      "id": "ashfang_pit_rock_16",
+      "kind": "rock",
+      "x": -5.4,
+      "z": -54.4,
+      "rotY": 1.0214,
+      "scale": 1.11
+    },
+    {
+      "id": "ashfang_pit_rock_17",
+      "kind": "rock",
+      "x": 25.3,
+      "z": 58.5,
+      "rotY": 1.399,
+      "scale": 0.78
+    },
+    {
+      "id": "ashfang_pit_rock_18",
+      "kind": "rock",
+      "x": -38.7,
+      "z": 70.9,
+      "rotY": 0.7067,
+      "scale": 1.79
+    },
+    {
+      "id": "ashfang_pit_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "ashfang_pit_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "ashfang_pit_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "ashfang_pit_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "ashfang_pit_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "ashfang_pit_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "ashfang_pit_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "ashfang_pit_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "ashfang_pit_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "ashfang_pit_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "ashfang_pit_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "ashfang_pit_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "ashfang_pit_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "ashfang_pit_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "ashfang_pit_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "ashfang_pit_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "ashfang_pit_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "ashfang_pit_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "ashfang_pit_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "ashfang_pit_marshal",
+      "name": "Nyra Vex",
+      "title": "Tier 1 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_tier_1_boss_campaign_marshal"
+    },
+    {
+      "id": "ashfang_pit_expedition_guide",
+      "name": "Gorvak Mirehand",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "ashfang_pit_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "ashfang_pit_overlord",
+      "name": "Ashfang Pit Overlord",
+      "level": 8,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_riftbound_ashfang_pit_overlord_captain"
+    },
+    {
+      "id": "ashfang_pit_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "ashfang_pit_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "ashfang_pit_beast_1",
+      "name": "Rift Hound",
+      "level": 6,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "ashfang_pit_beast_2",
+      "name": "Rift Hound",
+      "level": 6,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "ashfang_pit_adept_1",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    },
+    {
+      "id": "ashfang_pit_adept_2",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "ashfang_pit_ore_node_01",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -47.7,
+      "z": -22.8,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "ashfang_pit_ore_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "ashfang_pit_scrap_node_02",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 48.2,
+      "z": -22.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "ashfang_pit_scrap_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "ashfang_pit_relic_node_03",
+      "label": "Riftbound Relic Shards",
+      "kind": "relic",
+      "professionId": "salvaging",
+      "x": -43.4,
+      "z": 31.8,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "ashfang_pit_relic_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_arcane_dust",
+          "qty": 1,
+          "chance": 0.75,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.44
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1,
+          "chance": 0.14
+        }
+      ]
+    },
+    {
+      "id": "ashfang_pit_ore_node_04",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 42.6,
+      "z": 38.9,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "ashfang_pit_ore_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "ashfang_pit_soil_node_05",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 2.6,
+      "z": 77.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "ashfang_pit_soil_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "ashfang_pit_boss",
+      "type": "boss",
+      "label": "Ashfang Pit Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "ashfang_pit_to_ashen_steppe",
+      "label": "Travel to Ashen Steppe",
+      "x": 81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "ashen_steppe",
+      "targetSpawn": {
+        "x": 113.3,
+        "y": 0,
+        "z": -19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "ashfang_pit_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 1564628566,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_low_shrub",
+        "pnw_grass_clump",
+        "pnw_mossy_boulder",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "a6afaf49b2722060"
+}

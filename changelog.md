@@ -1,5 +1,76 @@
 # Changelog
 
+## 2026-06-15
+
+- Fixed character animation routing so player characters prefer manifest-backed playable GLBs with authored `idle`, `walk`, `run`, `jump`, attack, ranged, and cast clips instead of static external overrides.
+- Added enemy locomotion animation switching between idle, walk, and run loops, with attack/cast/hit clips played as one-shot actions during combat.
+- Expanded the static/procedural fallback animator so primitive or imported characters without complete clips still move limb mesh groups during walking and body actions.
+
+## 2026-06-12
+
+- Added imported Swordsman and medieval character sample runtime GLBs, preserving their skins and animation clips, and mixed them into Aegis guard NPC/enemy visuals through a weighted deterministic variant picker.
+- Added the imported Strong Knight GLB as the default Aegis player model, preserving its rigged `idle1` clip and layering fallback locomotion/action motion over its named humanoid bones.
+- Added the imported `evil-guy` GLB as the default external player model for all Riftbound races while keeping the Strong Knight override for Aegis races.
+- Fixed Bastion of Aegis imported-city placement by using the medieval city GLB as terrain, preserving collision through a hidden proxy, and spreading services/resources onto accessible streets and courtyards.
+- Added `models:import-external`, an external GLB/FBX import manifest, Blender importer, generated blueprints, QC sidecars, and asset-index entries for the medieval knight player, animated Warrior guard, modular fantasy town kit, and imported Aegis capital city.
+- Replaced Bastion of Aegis generation with the imported medieval city visual, explicit city-wall/house/landmark colliders, relocated services/objectives/travel triggers, resource nodes, crafting stations, and additional Aegis guards spread through the town.
+- Routed the player to the imported Warrior rig because the supplied medieval knight GLBs are static, while keeping static root animation as a fallback for unrigged player overrides and suppressing incompatible skinned gear overlays.
+- Fixed imported Warrior visibility by forcing character-import materials to opaque output and defensively clearing zero-alpha character materials at runtime.
+- Relinked the imported Warrior FBX texture directory during export so `chr_external_warrior_guard.glb` embeds its albedo texture instead of rendering as plain white.
+- Layered fallback root locomotion, imported humanoid bone stride motion, and action recoil over imported player GLBs that lack explicit walk/run/attack clips, restoring visible movement while preserving the authored idle clip.
+- Routed Aegis guard NPCs and Aegis guard enemies to the imported animated Warrior profile while leaving Riftbound guards and non-guard NPCs on the normal generated profile pipeline.
+- Added the modular fantasy house kit to the GM build prefab catalog with asset-index previews, footprints, default colliders, snapping, wheel rotation, drag-chain placement, save, and reload support.
+- Added a GM Build Kit selector so the modular fantasy house pieces appear under `Modular Town Kit` instead of being buried in the full prefab list.
+- Reworked generated capital cities into dense navigable street grids with hard-colliding houses, 6-level walkable citadels, vertical-bounded upper-floor colliders, and Riftspire-only destruction props exposed in GM build mode.
+- Made in-game HUD windows draggable from their headers/title bars, including inventory, character, quest, crafting, campaign, map, guide, settings, GM, chat, tracker, minimap, debug, and death/quest dialogs.
+- Added manifest-backed unique static NPC and enemy model assignments across map JSON, including deterministic `characterProfileKey` profiles for humanoids and indexed creature/dummy `assetKey` visuals for non-humanoid enemies.
+- Added `models:sync-npcs`, generated NPC/enemy character blueprints, generated creature static prop blueprints, NPC roster style data, runtime asset-index entries, and tests that verify every map visual assignment resolves through the index.
+- Extended the Blender generators with NPC role adornments and static creature presets for hounds, wolves, boars, stags, and lair spiders.
+- Expanded generated capital cities with GM-editable outer walls, district buildings, realm-specific landmarks, and inner citadels with animated front, side, rear, and keep gates.
+- Added procedural weapon animation gestures for equipped and fallback weapons, including sword swings, staff/ranged aiming, heavy-weapon slams, dagger/spear thrusts, and shield bracing driven by ability motion metadata.
+- Moved generated fortress default spawns outside the contested yard and made death respawns use the zone's safe spawn instead of the character's last saved entry position.
+- Regenerated campaign battlefield, fortress, and capital gate structures from GM-editable modular keep pieces with animated front gates, rear exits, inner doors, and closed-only gate collision.
+- Replaced the visible procedural sky dome with a screen-space sky gradient background, fixing circular viewport artifacts while keeping the sky visible at long view distances.
+- Added a persisted Settings slider for world view distance and raised the default fog range so players can see much farther across keeps and battlefield zones.
+- Added GM movement controls for walking/flying speed multiplier and flying mode with `Q` descend and `E` ascend controls.
+- Added a GM tools menu opened with `/gm` or `/gm menu`, including campaign zone teleporting, character-name goto, coordinate copy, zone-spawn return, restore, cooldown reset, and build-mode toggle actions.
+- Made `Esc` close the active UI window across Settings, Guide, Map, Campaign, inventory, character, quest, crafting, debug, GM tools, and character creation surfaces.
+- Added enemy archetype AI for campaign camps, including chase/leash behavior, caster stand-off movement, cooldown abilities, player slows/roots/staggers/debuffs, and cast cancellation from control effects.
+- Reworked generated RvR battlefield and fortress zones to include three battlefield objectives plus Aegis and Riftbound keeps with matching props, defenders, static hashes, and Supabase seed data.
+- Added local per-zone realm influence: BO captures grant 75 XP and 25 influence, three-BO sweeps add the final keep-unlock influence, and enemy keeps require 100 influence before capture can flip zone control.
+- Fixed campaign portals so zone transitions preserve the destination `targetSpawn` instead of reloading at the zone default spawn.
+- Prevented intentional portal transfers from racing against old-position persistence during game disposal.
+- Spread generated same-side portal triggers apart and added tests to catch overlapping portal volumes or unsafe target spawns.
+- Removed the obsolete Reikland map from shipped zone data and normalized stale legacy playable zone IDs back onto the Aegis/Riftbound campaign guide.
+
+## 2026-06-11
+
+- Expanded generated Aegis/Riftbound campaign maps with deterministic NPCs, enemy camps, keep/fortress defenders, crafting stations, biome pockets, and interactive resource nodes across all 32 zones.
+- Added in-world resource node gathering with minimap markers, contextual prompts, loot rewards, crafting XP, local cooldown persistence, and validation/tests for visual prop references.
+- Added proximity capture for campaign objectives: standing inside an enemy or contested objective radius claims it for the character's Aegis/Riftbound realm through the existing campaign service.
+- Replaced the stacked in-world text controls for logout, settings, guide, map, and campaign with a compact horizontal HUD icon bar.
+- Added a detailed world map HUD panel opened with `M` or the Map icon, drawing terrain, roads, camps/objectives, landmarks, exits, NPCs, crafting stations, enemies, and the live player position from active zone data.
+- Added the original static Aegis Accord vs Riftbound Host campaign graph, generated 32 committed zone maps with static hashes, bidirectional portals, objectives, keeps, fortresses, capitals, and boss/lair branches.
+- Added the deterministic campaign generator, generated Supabase campaign seed SQL, and a Supabase migration for campaign static data, live control state, and world-edit tables.
+- Replaced the HUD Warfront panel with a Campaign panel backed by `services.campaign`, local campaign control persistence, and Aegis/Riftbound fortress and city-siege readiness rules.
+- Updated character starting zones to Bastion of Aegis and Riftspire Citadel and refreshed docs, guide copy, validation, and tests for the IP-neutral campaign map.
+- Added baseline health and mana regeneration for living players, scaling each resource pool to refill from empty in about 30 seconds across all classes.
+- Added a dismiss button for contextual HUD prompts so beginner interaction hints can be closed until the prompt context changes.
+- Fixed generated Altdorf paths so nearby path endpoints get connector strips and junction caps instead of leaving visible breaks.
+- Reworked generated path props as terrain-following visual ribbons without separate walkable shelves, preventing players from floating above the terrain while walking downhill on paths.
+- Added terrain-height collision resolution to the follow camera so it moves forward when hills or terrain surfaces would occlude the viewport.
+
+## 2026-06-10
+
+- Added an objective tracker and enhanced minimap with quest, NPC, crafting station, enemy, exit, edge-distance, and marker-toggle support.
+- Added inventory search, item type/slot/material filters, sort modes, capacity status, equipped-item comparison, and safer preview-before-salvage affordances.
+- Added crafting recipe filters, craftable counts, missing ingredient summaries, rank-gated visibility, and cultivation-ready/soil counts.
+- Added contextual interaction prompts for quest givers, crafting stations, harvestable corpses, gates, and targetable enemies.
+- Added ability failure feedback for blocked UI, defeated player state, cooldowns, missing targets, range, mana, and class-resource requirements.
+- Added optional first-session HUD goals for movement, camera control, interaction, combat, harvesting, gear equip, guide use, and crafting, with localStorage progress.
+- Added a compact local RvR / warfront status panel with Order vs Destruction placeholder control, WAR-accurate campaign zone IDs, city-siege readiness rules, and reserved scenario hook IDs.
+- Added focused helper tests for objective HUD data, inventory/crafting filters, ability failure mapping, first-session task progress, and warfront status rules.
+
 ## 2026-06-09
 
 - Switched unit tests to Vitest and added ability catalog/runtime coverage for kit integrity, legacy aliases, resource rules, activation gating, cooldowns, animation calls, and VFX handoff.

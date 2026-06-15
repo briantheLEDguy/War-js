@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Web-based vertical slice inspired by ProjectWAR (Warhammer Online emulator). Built with Three.js + React + Vite, with Supabase-ready service interfaces.",
+  "description": "Browser-based fantasy MMO/RPG vertical slice with a static Aegis vs Riftbound campaign. Built with Three.js + React + Vite, with Supabase-ready service interfaces.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
@@ -11,10 +11,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "campaign:generate": "node scripts/campaign/generate-static-campaign.mjs",
     "world:validate": "node scripts/validate-world-edits.mjs",
     "models:list": "node scripts/blender-character-pipeline/tools/list-blueprints.mjs",
     "models:validate": "node scripts/blender-character-pipeline/tools/validate-blueprints.mjs",
     "models:sync-playables": "node scripts/blender-character-pipeline/tools/sync-playable-assets.mjs",
+    "models:sync-npcs": "node scripts/blender-character-pipeline/tools/sync-npc-assets.mjs",
+    "models:import-external": "node scripts/blender-character-pipeline/tools/import-external-assets.mjs",
     "models:generate": "node scripts/blender-character-pipeline/tools/generate-asset.mjs",
     "models:all": "node scripts/blender-character-pipeline/tools/generate-all.mjs"
   },

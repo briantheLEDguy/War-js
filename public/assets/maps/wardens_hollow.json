@@ -1,0 +1,980 @@
+{
+  "id": "wardens_hollow",
+  "name": "Warden's Hollow",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "Boss",
+    "lane": "aegis_west",
+    "laneLabel": "Aegis West March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 1 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "wardens_hollow_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "wardens_hollow_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "wardens_hollow_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "wardens_hollow_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "wardens_hollow_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "wardens_hollow_portal_sunmeadow_march",
+      "kind": "gate",
+      "x": -81.7,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "wardens_hollow_portal_sunmeadow_march_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "wardens_hollow_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "wardens_hollow_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "wardens_hollow_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "wardens_hollow_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "wardens_hollow_herb_node_01_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -48,
+      "z": -20.4,
+      "rotY": 4.1674,
+      "scale": 0.85
+    },
+    {
+      "id": "wardens_hollow_wood_node_02_visual",
+      "kind": "pnw_fallen_log",
+      "x": 46.1,
+      "z": -15.2,
+      "rotY": 1.1758,
+      "scale": 0.97
+    },
+    {
+      "id": "wardens_hollow_ore_node_03_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -39.9,
+      "z": 39,
+      "rotY": 0.7527,
+      "scale": 1.07
+    },
+    {
+      "id": "wardens_hollow_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 42.8,
+      "z": 30,
+      "rotY": 3.1959,
+      "scale": 0.85
+    },
+    {
+      "id": "wardens_hollow_water_node_05_visual",
+      "kind": "pnw_low_shrub",
+      "x": -4.7,
+      "z": 73.7,
+      "rotY": 4.0356,
+      "scale": 0.97
+    },
+    {
+      "id": "wardens_hollow_tree_01",
+      "kind": "tree",
+      "x": 46.3,
+      "z": -33.9,
+      "rotY": 6.2196,
+      "scale": 1.45
+    },
+    {
+      "id": "wardens_hollow_tree_02",
+      "kind": "tree",
+      "x": 1.3,
+      "z": -76.3,
+      "rotY": 1.6727,
+      "scale": 1.46
+    },
+    {
+      "id": "wardens_hollow_tree_03",
+      "kind": "tree",
+      "x": 37.1,
+      "z": 66,
+      "rotY": 2.3368,
+      "scale": 1.11
+    },
+    {
+      "id": "wardens_hollow_tree_04",
+      "kind": "tree",
+      "x": 61,
+      "z": -4,
+      "rotY": 0.6233,
+      "scale": 1.18
+    },
+    {
+      "id": "wardens_hollow_tree_05",
+      "kind": "tree",
+      "x": -50.7,
+      "z": -3.4,
+      "rotY": 2.27,
+      "scale": 1.12
+    },
+    {
+      "id": "wardens_hollow_tree_06",
+      "kind": "tree",
+      "x": 29.4,
+      "z": -33.5,
+      "rotY": 0.4991,
+      "scale": 0.97
+    },
+    {
+      "id": "wardens_hollow_tree_07",
+      "kind": "tree",
+      "x": -41.7,
+      "z": 14,
+      "rotY": 1.89,
+      "scale": 1.41
+    },
+    {
+      "id": "wardens_hollow_tree_08",
+      "kind": "tree",
+      "x": 57,
+      "z": 18.3,
+      "rotY": 6.081,
+      "scale": 0.95
+    },
+    {
+      "id": "wardens_hollow_tree_09",
+      "kind": "tree",
+      "x": 77.5,
+      "z": 16,
+      "rotY": 4.2474,
+      "scale": 1.44
+    },
+    {
+      "id": "wardens_hollow_tree_10",
+      "kind": "tree",
+      "x": -53.4,
+      "z": 26.7,
+      "rotY": 5.0059,
+      "scale": 1.41
+    },
+    {
+      "id": "wardens_hollow_tree_11",
+      "kind": "tree",
+      "x": 11.3,
+      "z": 65,
+      "rotY": 3.7918,
+      "scale": 1.22
+    },
+    {
+      "id": "wardens_hollow_tree_12",
+      "kind": "tree",
+      "x": -64.8,
+      "z": -23.4,
+      "rotY": 1.2993,
+      "scale": 0.85
+    },
+    {
+      "id": "wardens_hollow_tree_13",
+      "kind": "tree",
+      "x": 33.3,
+      "z": 54.3,
+      "rotY": 0.373,
+      "scale": 1.16
+    },
+    {
+      "id": "wardens_hollow_tree_14",
+      "kind": "tree",
+      "x": 63.1,
+      "z": -21,
+      "rotY": 0.1874,
+      "scale": 1.22
+    },
+    {
+      "id": "wardens_hollow_tree_15",
+      "kind": "tree",
+      "x": 4.6,
+      "z": 61,
+      "rotY": 0.3074,
+      "scale": 1.4
+    },
+    {
+      "id": "wardens_hollow_tree_16",
+      "kind": "tree",
+      "x": 1.3,
+      "z": 60.4,
+      "rotY": 2.498,
+      "scale": 1.07
+    },
+    {
+      "id": "wardens_hollow_tree_17",
+      "kind": "tree",
+      "x": 50.2,
+      "z": -17.4,
+      "rotY": 0.3493,
+      "scale": 1.05
+    },
+    {
+      "id": "wardens_hollow_tree_18",
+      "kind": "tree",
+      "x": -79.4,
+      "z": -20.3,
+      "rotY": 5.431,
+      "scale": 1.18
+    },
+    {
+      "id": "wardens_hollow_tree_19",
+      "kind": "tree",
+      "x": -11,
+      "z": 56.6,
+      "rotY": 0.6058,
+      "scale": 0.8
+    },
+    {
+      "id": "wardens_hollow_tree_20",
+      "kind": "tree",
+      "x": -28.7,
+      "z": -48.5,
+      "rotY": 2.4416,
+      "scale": 1.11
+    },
+    {
+      "id": "wardens_hollow_rock_01",
+      "kind": "rock",
+      "x": 71.1,
+      "z": 12.2,
+      "rotY": 3.3709,
+      "scale": 1.06
+    },
+    {
+      "id": "wardens_hollow_rock_02",
+      "kind": "rock",
+      "x": 71.9,
+      "z": 6.5,
+      "rotY": 0.3619,
+      "scale": 2.33
+    },
+    {
+      "id": "wardens_hollow_rock_03",
+      "kind": "rock",
+      "x": 53.6,
+      "z": -54.5,
+      "rotY": 3.6067,
+      "scale": 0.7
+    },
+    {
+      "id": "wardens_hollow_rock_04",
+      "kind": "rock",
+      "x": 47.1,
+      "z": 55.9,
+      "rotY": 1.0017,
+      "scale": 1.37
+    },
+    {
+      "id": "wardens_hollow_rock_05",
+      "kind": "rock",
+      "x": 62.5,
+      "z": 42.5,
+      "rotY": 3.2732,
+      "scale": 0.73
+    },
+    {
+      "id": "wardens_hollow_rock_06",
+      "kind": "rock",
+      "x": -51.5,
+      "z": 46.1,
+      "rotY": 0.1628,
+      "scale": 2.08
+    },
+    {
+      "id": "wardens_hollow_rock_07",
+      "kind": "rock",
+      "x": -82.7,
+      "z": -24.8,
+      "rotY": 4.5093,
+      "scale": 1.65
+    },
+    {
+      "id": "wardens_hollow_rock_08",
+      "kind": "rock",
+      "x": 58.7,
+      "z": 62.8,
+      "rotY": 2.9356,
+      "scale": 1.24
+    },
+    {
+      "id": "wardens_hollow_rock_09",
+      "kind": "rock",
+      "x": 20.5,
+      "z": 61.8,
+      "rotY": 4.1389,
+      "scale": 0.81
+    },
+    {
+      "id": "wardens_hollow_rock_10",
+      "kind": "rock",
+      "x": -47.9,
+      "z": -26.6,
+      "rotY": 5.2066,
+      "scale": 1.47
+    },
+    {
+      "id": "wardens_hollow_rock_11",
+      "kind": "rock",
+      "x": -6.9,
+      "z": -58.8,
+      "rotY": 3.1402,
+      "scale": 1.4
+    },
+    {
+      "id": "wardens_hollow_rock_12",
+      "kind": "rock",
+      "x": -61.6,
+      "z": -22,
+      "rotY": 2.1866,
+      "scale": 1.75
+    },
+    {
+      "id": "wardens_hollow_rock_13",
+      "kind": "rock",
+      "x": 20.3,
+      "z": 75.5,
+      "rotY": 0.8544,
+      "scale": 1.37
+    },
+    {
+      "id": "wardens_hollow_rock_14",
+      "kind": "rock",
+      "x": -78.1,
+      "z": -7.8,
+      "rotY": 5.8934,
+      "scale": 1.57
+    },
+    {
+      "id": "wardens_hollow_rock_15",
+      "kind": "rock",
+      "x": 76.6,
+      "z": 29.3,
+      "rotY": 5.7095,
+      "scale": 1.71
+    },
+    {
+      "id": "wardens_hollow_rock_16",
+      "kind": "rock",
+      "x": 36.6,
+      "z": 57.2,
+      "rotY": 1.0434,
+      "scale": 2.11
+    },
+    {
+      "id": "wardens_hollow_rock_17",
+      "kind": "rock",
+      "x": 52.8,
+      "z": -46.7,
+      "rotY": 5.78,
+      "scale": 1.32
+    },
+    {
+      "id": "wardens_hollow_rock_18",
+      "kind": "rock",
+      "x": 54.4,
+      "z": 2.8,
+      "rotY": 1.4514,
+      "scale": 2.19
+    },
+    {
+      "id": "wardens_hollow_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "wardens_hollow_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "wardens_hollow_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "wardens_hollow_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "wardens_hollow_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "wardens_hollow_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "wardens_hollow_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "wardens_hollow_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "wardens_hollow_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "wardens_hollow_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "wardens_hollow_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "wardens_hollow_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "wardens_hollow_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "wardens_hollow_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "wardens_hollow_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "wardens_hollow_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "wardens_hollow_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "wardens_hollow_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "wardens_hollow_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "wardens_hollow_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 1 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_1_boss_campaign_marshal"
+    },
+    {
+      "id": "wardens_hollow_expedition_guide",
+      "name": "Mira Stonewake",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "wardens_hollow_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "wardens_hollow_overlord",
+      "name": "Warden's Hollow Overlord",
+      "level": 8,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain"
+    },
+    {
+      "id": "wardens_hollow_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "wardens_hollow_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "wardens_hollow_beast_1",
+      "name": "Barrow Wolf",
+      "level": 6,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "wardens_hollow_beast_2",
+      "name": "Barrow Wolf",
+      "level": 6,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "wardens_hollow_adept_1",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    },
+    {
+      "id": "wardens_hollow_adept_2",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "wardens_hollow_herb_node_01",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -48,
+      "z": -20.4,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "wardens_hollow_herb_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "wardens_hollow_wood_node_02",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": 46.1,
+      "z": -15.2,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "wardens_hollow_wood_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "wardens_hollow_ore_node_03",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -39.9,
+      "z": 39,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "wardens_hollow_ore_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "wardens_hollow_soil_node_04",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 42.8,
+      "z": 30,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "wardens_hollow_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "wardens_hollow_water_node_05",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": -4.7,
+      "z": 73.7,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "wardens_hollow_water_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "wardens_hollow_boss",
+      "type": "boss",
+      "label": "Warden's Hollow Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "wardens_hollow_to_sunmeadow_march",
+      "label": "Travel to Sunmeadow March",
+      "x": -81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "sunmeadow_march",
+      "targetSpawn": {
+        "x": -113.3,
+        "y": 0,
+        "z": 19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "wardens_hollow_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 1449153492,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    }
+  ],
+  "staticMapHash": "f0e728cb1cd6e5b0"
+}

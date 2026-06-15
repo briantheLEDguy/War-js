@@ -32,13 +32,23 @@ export class Input {
   private tapStartY = 0;
 
   private onKeyDown = (e: KeyboardEvent) => {
+    const k = e.code;
+    const target = e.target as HTMLElement | null;
+
+    if (k === 'Escape') {
+      this.clearHeldState();
+      if (e.repeat || isChatTextEntry(target) || useGameStore.getState().chatFocused) return;
+      e.preventDefault();
+      const store = useGameStore.getState();
+      if (!store.closeTopWindow()) store.setSettingsOpen(true);
+      return;
+    }
+
     if (this.shouldIgnoreKey(e)) {
       this.clearHeldState();
       return;
     }
-    const k = e.code;
     const gmBuildMode = useGameStore.getState().gmBuildMode;
-    const target = e.target as HTMLElement | null;
     if (gmBuildMode && (k === 'Delete' || k === 'Backspace')) {
       if (isFormControl(target)) {
         this.clearHeldState();
@@ -238,6 +248,11 @@ function isTextEntryControl(target: HTMLElement | null): boolean {
   if (tag !== 'INPUT') return false;
   const input = target as HTMLInputElement;
   return !['button', 'checkbox', 'color', 'file', 'number', 'radio', 'range', 'reset', 'submit'].includes(input.type);
+}
+
+function isChatTextEntry(target: HTMLElement | null): boolean {
+  if (!target || !isTextEntryControl(target)) return false;
+  return Boolean(target.closest('.chat'));
 }
 
 function isMovementKey(code: string): boolean {

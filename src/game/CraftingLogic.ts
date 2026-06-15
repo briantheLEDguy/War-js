@@ -6,9 +6,12 @@ import {
   getSalvageOutputs,
   getSeedDefinition,
   hasIngredients,
+  isResourceNodeAvailable,
   normalizeCraftingState,
   professionLabel,
   rollGatheringLoot,
+  rollGatheringLootTable,
+  withResourceNodeCooldown,
   type CraftingRewardItem,
 } from '../data/crafting';
 import {
@@ -23,6 +26,7 @@ import type {
   InventoryItem,
 } from '../services/types';
 import { useGameStore } from '../state/gameStore';
+import type { ResourceNodeSpawn } from '../world/ZoneLoader';
 import { isInventoryItemEquipped } from './Equipment';
 
 export function openCraftingStation(kind: CraftingStationKind, label: string): void {
@@ -54,8 +58,44 @@ export function gatherEnemy(enemyId: string): boolean {
 
   const nextCrafting = awardXp(store.craftingState, definition.professionId, definition.xp);
   store.setCraftingState(nextCrafting);
+  store.completeGuidedTask('gather');
   persistInventoryAndCrafting(nextInventory, nextCrafting);
   appendSystemMessage(`${definition.actionLabel}: ${formatRewards(rewards)}.`);
+  return true;
+}
+
+export function gatherResourceNode(zoneId: string, node: ResourceNodeSpawn): boolean {
+  const store = useGameStore.getState();
+  const character = store.character;
+  if (!character) return false;
+
+  const now = Date.now();
+  if (!isResourceNodeAvailable(store.craftingState, zoneId, node.id, now)) {
+    appendSystemMessage(`${node.label} is not ready to gather.`);
+    return true;
+  }
+
+  const rewards = rollGatheringLootTable(node.loot);
+  const nextInventory = addRewardsToInventory(store.inventory, rewards);
+  if (!nextInventory) {
+    appendSystemMessage('Inventory full.');
+    return true;
+  }
+
+  const withXp = awardXp(store.craftingState, node.professionId, node.xp);
+  const nextCrafting = withResourceNodeCooldown(
+    withXp,
+    zoneId,
+    node.id,
+    now + Math.max(1, node.respawnSeconds) * 1000,
+    now,
+  );
+
+  store.setInventory(nextInventory);
+  store.setCraftingState(nextCrafting);
+  store.completeGuidedTask('gather');
+  persistInventoryAndCrafting(nextInventory, nextCrafting);
+  appendSystemMessage(`Gathered ${node.label}: ${formatRewards(rewards)}.`);
   return true;
 }
 
@@ -92,6 +132,7 @@ export function craftRecipe(recipeId: string): boolean {
   const nextCrafting = awardXp(store.craftingState, recipe.professionId, recipe.xp);
   store.setInventory(nextInventory);
   store.setCraftingState(nextCrafting);
+  store.completeGuidedTask('craft');
   persistInventoryAndCrafting(nextInventory, nextCrafting);
   appendSystemMessage(`Crafted: ${formatRewards(recipe.outputs)}.`);
   return true;
@@ -124,6 +165,7 @@ export function salvageInventorySlot(slot: number): boolean {
   const nextCrafting = awardXp(store.craftingState, 'salvaging', 8);
   store.setInventory(nextInventory);
   store.setCraftingState(nextCrafting);
+  store.completeGuidedTask('craft');
   persistInventoryAndCrafting(nextInventory, nextCrafting);
   appendSystemMessage(`Salvaged ${item.name}: ${formatRewards(rewards)}.`);
   return true;
@@ -163,6 +205,7 @@ export function plantCultivationSeed(seedKey: string, useSoil: boolean): boolean
 
   store.setInventory(nextInventory);
   store.setCraftingState(nextCrafting);
+  store.completeGuidedTask('craft');
   persistInventoryAndCrafting(nextInventory, nextCrafting);
   appendSystemMessage(`Planted: ${seed.name}.`);
   return true;
@@ -198,6 +241,7 @@ export function harvestCultivationSlot(slotId: string): boolean {
   }, 'cultivation', seed.xp);
   store.setInventory(nextInventory);
   store.setCraftingState(nextCrafting);
+  store.completeGuidedTask('craft');
   persistInventoryAndCrafting(nextInventory, nextCrafting);
   appendSystemMessage(`Harvested: ${formatRewards(rewards)}.`);
   return true;

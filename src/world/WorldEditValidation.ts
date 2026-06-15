@@ -137,9 +137,28 @@ function validateWorldObject(
     if (object.model && !MODEL_NAME_RE.test(object.model)) {
       issues.push(`Prop "${object.id}" has unsafe model name "${object.model}".`);
     }
+    if (object.interaction) {
+      if (!object.interaction.id) issues.push(`Prop "${object.id}" has an interaction without an id.`);
+      if (object.interaction.type !== 'gate') {
+        issues.push(`Prop "${object.id}" has unsupported interaction type "${object.interaction.type}".`);
+      }
+      if (
+        object.interaction.maxDistance !== undefined &&
+        !isPositiveFinite(object.interaction.maxDistance)
+      ) {
+        issues.push(`Prop "${object.id}" has an invalid interaction maxDistance.`);
+      }
+    }
     for (const collider of object.colliders ?? []) {
       if (!isPositiveFinite(collider.width) || !isPositiveFinite(collider.depth)) {
         issues.push(`Prop "${object.id}" has an invalid collider size.`);
+      }
+      validateColliderVerticalBounds(`Prop "${object.id}"`, collider, issues);
+      if (collider.blocksWhen && collider.blocksWhen !== 'always' && collider.blocksWhen !== 'closed') {
+        issues.push(`Prop "${object.id}" has unsupported collider blocksWhen "${collider.blocksWhen}".`);
+      }
+      if (collider.blocksWhen === 'closed' && !collider.interactionId) {
+        issues.push(`Prop "${object.id}" has a closed-only collider without an interactionId.`);
       }
     }
     for (const surface of object.walkableSurfaces ?? []) {
@@ -156,6 +175,7 @@ function validateWorldObject(
     if (!isPositiveFinite(object.width) || !isPositiveFinite(object.depth)) {
       issues.push(`Collider "${object.id}" has an invalid size.`);
     }
+    validateColliderVerticalBounds(`Collider "${object.id}"`, object, issues);
   }
 
   if (object.type === 'walkableSurface') {
@@ -165,6 +185,28 @@ function validateWorldObject(
     if (!Number.isFinite(object.fromY) || !Number.isFinite(object.toY)) {
       issues.push(`Walkable surface "${object.id}" has invalid heights.`);
     }
+  }
+}
+
+function validateColliderVerticalBounds(
+  label: string,
+  collider: { minY?: number; maxY?: number },
+  issues: string[],
+): void {
+  if (collider.minY !== undefined && !Number.isFinite(collider.minY)) {
+    issues.push(`${label} has an invalid collider minY.`);
+  }
+  if (collider.maxY !== undefined && !Number.isFinite(collider.maxY)) {
+    issues.push(`${label} has an invalid collider maxY.`);
+  }
+  if (
+    collider.minY !== undefined &&
+    collider.maxY !== undefined &&
+    Number.isFinite(collider.minY) &&
+    Number.isFinite(collider.maxY) &&
+    collider.minY > collider.maxY
+  ) {
+    issues.push(`${label} has collider minY greater than maxY.`);
   }
 }
 

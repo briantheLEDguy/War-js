@@ -11,6 +11,7 @@ import { NotImplementedError } from '../types';
  *   - create: insert row, return summary
  *   - load:   select * where id = $
  *   - save:   update row; consider RPC for atomic xp/level-up logic
+ *   - findByName: GM-only exact lower(name) lookup across characters
  */
 export class CharacterSupabase implements CharacterService {
   list(_userId: string): Promise<CharacterSummary[]> {
@@ -27,5 +28,8 @@ export class CharacterSupabase implements CharacterService {
   }
   save(_characterId: string, _state: Partial<CharacterState>): Promise<void> {
     throw new NotImplementedError('CharacterSupabase.save');
+  }
+  findByName(_name: string): Promise<CharacterState[]> {
+    throw new NotImplementedError('CharacterSupabase.findByName');
   }
 }

@@ -1,0 +1,30 @@
+{
+  "assetId": "prop.town.horizontal_beam",
+  "category": "prop",
+  "model": "prop_town_horizontal_beam.glb",
+  "fileSizeBytes": 92696,
+  "meshCount": 1,
+  "totalTris": 84,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_horizontal_beam",
+      "verts": 44,
+      "faces": 42,
+      "tris": 84,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

@@ -1,0 +1,2582 @@
+{
+  "id": "rift_gate_fortress",
+  "name": "Voidgate Fortress",
+  "size": 340,
+  "segments": 96,
+  "terrainTexture": "stone_wall.svg",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "Fortress",
+    "lane": "central",
+    "laneLabel": "Central Front",
+    "nodeRole": "fortress",
+    "levelBand": "Endgame"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -118
+  },
+  "paths": [
+    {
+      "id": "rift_gate_fortress_main_road",
+      "style": "cobblestone_avenue",
+      "width": 11,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_portal_road_1",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": -146.2
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_portal_road_2",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 146.2
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "rift_gate_fortress_west_objective_banner",
+      "kind": "banner_post",
+      "x": -72,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "rift_gate_fortress_west_objective_stone_left",
+      "kind": "rock",
+      "x": -79,
+      "z": -20,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "rift_gate_fortress_west_objective_stone_right",
+      "kind": "rock",
+      "x": -65,
+      "z": -20,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "rift_gate_fortress_central_objective_banner",
+      "kind": "banner_post",
+      "x": 0,
+      "z": -6,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "rift_gate_fortress_central_objective_stone_left",
+      "kind": "rock",
+      "x": -7,
+      "z": -2,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "rift_gate_fortress_central_objective_stone_right",
+      "kind": "rock",
+      "x": 7,
+      "z": -2,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "rift_gate_fortress_east_objective_banner",
+      "kind": "banner_post",
+      "x": 72,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "rift_gate_fortress_east_objective_stone_left",
+      "kind": "rock",
+      "x": 65,
+      "z": -20,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "rift_gate_fortress_east_objective_stone_right",
+      "kind": "rock",
+      "x": 79,
+      "z": -20,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": -77.2,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": -38.8,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -75.6,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -40.4,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": -86.7,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.06,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": -29.3,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.06,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": -86.7,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": -29.3,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": -86.7,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": -29.3,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": -58,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 0.87,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_aegis_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_aegis_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": -58,
+      "z": 83.5,
+      "rotY": 3.1416,
+      "scale": 0.77,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_aegis_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_aegis_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": -68.1,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": -47.9,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -68.1,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -47.9,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": -74,
+      "z": 62.3,
+      "rotY": 1.5708,
+      "scale": 0.92,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": -42,
+      "z": 62.3,
+      "rotY": 1.5708,
+      "scale": 0.92,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": -74,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": -42,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": -74,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": -42,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": -58,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.7,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_aegis_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_aegis_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": -58,
+      "z": 74,
+      "rotY": 3.1416,
+      "scale": 0.66,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_aegis_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_aegis_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_banner_left",
+      "kind": "banner_post",
+      "x": -80,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_banner_right",
+      "kind": "banner_post",
+      "x": -36,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": 36.8,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": 79.2,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 38.6,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 77.4,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": 26.2,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.18,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": 89.8,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.18,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": 26.2,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": 89.8,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": 26.2,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": 89.8,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": 58,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 0.96,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_riftbound_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_riftbound_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": 58,
+      "z": 86.2,
+      "rotY": 3.1416,
+      "scale": 0.85,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_riftbound_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_riftbound_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": 46.8,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": 69.2,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 46.8,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 69.2,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": 40.4,
+      "z": 62.7,
+      "rotY": 1.5708,
+      "scale": 1.01,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": 75.6,
+      "z": 62.7,
+      "rotY": 1.5708,
+      "scale": 1.01,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": 40.4,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": 75.6,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": 40.4,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": 75.6,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": 58,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 0.78,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_riftbound_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_riftbound_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": 58,
+      "z": 75.6,
+      "rotY": 3.1416,
+      "scale": 0.73,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "rift_gate_fortress_riftbound_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "rift_gate_fortress_riftbound_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_banner_left",
+      "kind": "banner_post",
+      "x": 36,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_banner_right",
+      "kind": "banner_post",
+      "x": 80,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "rift_gate_fortress_portal_riftspire_capital",
+      "kind": "gate",
+      "x": 0,
+      "z": -146.2,
+      "rotY": 0,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_portal_riftspire_capital_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_portal_rift_crownworks",
+      "kind": "gate",
+      "x": 0,
+      "z": 146.2,
+      "rotY": 3.1416,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "rift_gate_fortress_portal_rift_crownworks_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_salvage_station_visual",
+      "kind": "vendor_stall",
+      "x": -42,
+      "z": -44,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "rift_gate_fortress_apothecary_station_visual",
+      "kind": "vendor_stall",
+      "x": 42,
+      "z": -44,
+      "rotY": 0.35,
+      "scale": 0.9
+    },
+    {
+      "id": "rift_gate_fortress_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -52,
+      "rotY": 0.7,
+      "scale": 0.9
+    },
+    {
+      "id": "rift_gate_fortress_outer_yard_barricade_left",
+      "kind": "wall_segment",
+      "x": -64,
+      "z": -40,
+      "rotY": 0.25,
+      "scale": 0.8
+    },
+    {
+      "id": "rift_gate_fortress_outer_yard_barricade_right",
+      "kind": "wall_segment",
+      "x": 64,
+      "z": -40,
+      "rotY": -0.25,
+      "scale": 0.8
+    },
+    {
+      "id": "rift_gate_fortress_siege_workshop",
+      "kind": "vendor_stall",
+      "x": 54,
+      "z": -38,
+      "rotY": -0.6,
+      "scale": 1.05
+    },
+    {
+      "id": "rift_gate_fortress_field_hospital",
+      "kind": "vendor_stall",
+      "x": -54,
+      "z": -38,
+      "rotY": 0.6,
+      "scale": 1.05
+    },
+    {
+      "id": "rift_gate_fortress_fortress_watchtower_west",
+      "kind": "tower",
+      "x": -88,
+      "z": 8,
+      "rotY": 0,
+      "scale": 0.85
+    },
+    {
+      "id": "rift_gate_fortress_fortress_watchtower_east",
+      "kind": "tower",
+      "x": 88,
+      "z": 8,
+      "rotY": 0,
+      "scale": 0.85
+    },
+    {
+      "id": "rift_gate_fortress_ore_node_01_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -99.1,
+      "z": -61.2,
+      "rotY": 6.185,
+      "scale": 0.75
+    },
+    {
+      "id": "rift_gate_fortress_scrap_node_02_visual",
+      "kind": "rock",
+      "x": -115.2,
+      "z": 3,
+      "rotY": 4.7883,
+      "scale": 0.91
+    },
+    {
+      "id": "rift_gate_fortress_relic_node_03_visual",
+      "kind": "statue",
+      "x": -75.1,
+      "z": 59.6,
+      "rotY": 0.4949,
+      "scale": 0.55
+    },
+    {
+      "id": "rift_gate_fortress_ore_node_04_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 93.6,
+      "z": -60.7,
+      "rotY": 2.4964,
+      "scale": 0.75
+    },
+    {
+      "id": "rift_gate_fortress_soil_node_05_visual",
+      "kind": "pnw_grass_clump",
+      "x": 113.7,
+      "z": 7.3,
+      "rotY": 6.2389,
+      "scale": 0.97
+    },
+    {
+      "id": "rift_gate_fortress_scrap_node_06_visual",
+      "kind": "rock",
+      "x": 71.8,
+      "z": 68.9,
+      "rotY": 5.5791,
+      "scale": 1.07
+    },
+    {
+      "id": "rift_gate_fortress_ore_node_07_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -23.2,
+      "z": -73,
+      "rotY": 4.9442,
+      "scale": 0.75
+    },
+    {
+      "id": "rift_gate_fortress_scrap_node_08_visual",
+      "kind": "rock",
+      "x": 29.2,
+      "z": -79.4,
+      "rotY": 5.2999,
+      "scale": 0.91
+    },
+    {
+      "id": "rift_gate_fortress_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 73.1,
+      "z": 68.4,
+      "rotY": 0.1969,
+      "scale": 0.87
+    },
+    {
+      "id": "rift_gate_fortress_tree_02",
+      "kind": "tree",
+      "x": -42.8,
+      "z": 104.7,
+      "rotY": 2.6711,
+      "scale": 1.34
+    },
+    {
+      "id": "rift_gate_fortress_tree_03",
+      "kind": "tree",
+      "x": -34.7,
+      "z": 74.4,
+      "rotY": 6.2176,
+      "scale": 1.19
+    },
+    {
+      "id": "rift_gate_fortress_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": -35.1,
+      "z": -74,
+      "rotY": 4.6067,
+      "scale": 0.97
+    },
+    {
+      "id": "rift_gate_fortress_tree_05",
+      "kind": "tree",
+      "x": 83,
+      "z": -56.7,
+      "rotY": 3.848,
+      "scale": 1.12
+    },
+    {
+      "id": "rift_gate_fortress_tree_06",
+      "kind": "tree",
+      "x": -54,
+      "z": -99.8,
+      "rotY": 0.3368,
+      "scale": 0.88
+    },
+    {
+      "id": "rift_gate_fortress_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": 124.7,
+      "z": 14.7,
+      "rotY": 1.2916,
+      "scale": 1.31
+    },
+    {
+      "id": "rift_gate_fortress_tree_08",
+      "kind": "tree",
+      "x": -48.4,
+      "z": 102.5,
+      "rotY": 6.1843,
+      "scale": 1.29
+    },
+    {
+      "id": "rift_gate_fortress_tree_09",
+      "kind": "tree",
+      "x": -89.6,
+      "z": 77.7,
+      "rotY": 5.0569,
+      "scale": 1.37
+    },
+    {
+      "id": "rift_gate_fortress_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": -52.8,
+      "z": -101.6,
+      "rotY": 5.8393,
+      "scale": 1.37
+    },
+    {
+      "id": "rift_gate_fortress_tree_11",
+      "kind": "tree",
+      "x": 117.8,
+      "z": -30.3,
+      "rotY": 5.2238,
+      "scale": 0.8
+    },
+    {
+      "id": "rift_gate_fortress_tree_12",
+      "kind": "tree",
+      "x": -125.8,
+      "z": 17.6,
+      "rotY": 3.9062,
+      "scale": 0.96
+    },
+    {
+      "id": "rift_gate_fortress_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": 42.1,
+      "z": -65.4,
+      "rotY": 1.6032,
+      "scale": 1.12
+    },
+    {
+      "id": "rift_gate_fortress_tree_14",
+      "kind": "tree",
+      "x": 140,
+      "z": -4.5,
+      "rotY": 5.6091,
+      "scale": 1.35
+    },
+    {
+      "id": "rift_gate_fortress_tree_15",
+      "kind": "tree",
+      "x": 73.4,
+      "z": -40.8,
+      "rotY": 4.3448,
+      "scale": 1.06
+    },
+    {
+      "id": "rift_gate_fortress_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": 81.4,
+      "z": 80.5,
+      "rotY": 5.2178,
+      "scale": 1.43
+    },
+    {
+      "id": "rift_gate_fortress_tree_17",
+      "kind": "tree",
+      "x": 104.6,
+      "z": 57.6,
+      "rotY": 4.6807,
+      "scale": 1.2
+    },
+    {
+      "id": "rift_gate_fortress_tree_18",
+      "kind": "tree",
+      "x": -64,
+      "z": -64.6,
+      "rotY": 0.9887,
+      "scale": 1.46
+    },
+    {
+      "id": "rift_gate_fortress_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": -56.7,
+      "z": 137.1,
+      "rotY": 2.8528,
+      "scale": 0.82
+    },
+    {
+      "id": "rift_gate_fortress_tree_20",
+      "kind": "tree",
+      "x": 50.2,
+      "z": 132.6,
+      "rotY": 5.4789,
+      "scale": 0.88
+    },
+    {
+      "id": "rift_gate_fortress_tree_21",
+      "kind": "tree",
+      "x": 50,
+      "z": -131.9,
+      "rotY": 5.6691,
+      "scale": 0.77
+    },
+    {
+      "id": "rift_gate_fortress_tree_22",
+      "kind": "pnw_low_shrub",
+      "x": -66.9,
+      "z": -55.9,
+      "rotY": 1.6466,
+      "scale": 1.45
+    },
+    {
+      "id": "rift_gate_fortress_tree_23",
+      "kind": "tree",
+      "x": -85.6,
+      "z": 4.8,
+      "rotY": 5.6505,
+      "scale": 1.24
+    },
+    {
+      "id": "rift_gate_fortress_tree_24",
+      "kind": "tree",
+      "x": 81.4,
+      "z": 42.6,
+      "rotY": 2.3022,
+      "scale": 1.13
+    },
+    {
+      "id": "rift_gate_fortress_tree_25",
+      "kind": "pnw_low_shrub",
+      "x": 116.9,
+      "z": -41.1,
+      "rotY": 0.6672,
+      "scale": 1.07
+    },
+    {
+      "id": "rift_gate_fortress_tree_26",
+      "kind": "tree",
+      "x": -17.9,
+      "z": -138.6,
+      "rotY": 0.9615,
+      "scale": 1.19
+    },
+    {
+      "id": "rift_gate_fortress_tree_27",
+      "kind": "tree",
+      "x": 76.8,
+      "z": -54,
+      "rotY": 3.8807,
+      "scale": 0.83
+    },
+    {
+      "id": "rift_gate_fortress_tree_28",
+      "kind": "pnw_low_shrub",
+      "x": 60.5,
+      "z": -44.1,
+      "rotY": 1.6942,
+      "scale": 1.13
+    },
+    {
+      "id": "rift_gate_fortress_tree_29",
+      "kind": "tree",
+      "x": -82.5,
+      "z": -54,
+      "rotY": 6.2782,
+      "scale": 0.86
+    },
+    {
+      "id": "rift_gate_fortress_tree_30",
+      "kind": "tree",
+      "x": 58.3,
+      "z": -49.7,
+      "rotY": 5.4637,
+      "scale": 0.93
+    },
+    {
+      "id": "rift_gate_fortress_tree_31",
+      "kind": "pnw_low_shrub",
+      "x": 70.1,
+      "z": -92.5,
+      "rotY": 2.1582,
+      "scale": 1.38
+    },
+    {
+      "id": "rift_gate_fortress_tree_32",
+      "kind": "tree",
+      "x": -89.6,
+      "z": -87.7,
+      "rotY": 4.6039,
+      "scale": 1.2
+    },
+    {
+      "id": "rift_gate_fortress_tree_33",
+      "kind": "tree",
+      "x": -90.2,
+      "z": 99.4,
+      "rotY": 2.5776,
+      "scale": 0.77
+    },
+    {
+      "id": "rift_gate_fortress_tree_34",
+      "kind": "pnw_low_shrub",
+      "x": 6.3,
+      "z": 118.6,
+      "rotY": 1.9263,
+      "scale": 0.89
+    },
+    {
+      "id": "rift_gate_fortress_tree_35",
+      "kind": "tree",
+      "x": 4.5,
+      "z": 82.1,
+      "rotY": 2.8072,
+      "scale": 1.27
+    },
+    {
+      "id": "rift_gate_fortress_tree_36",
+      "kind": "tree",
+      "x": 82.5,
+      "z": -114.4,
+      "rotY": 6.1792,
+      "scale": 0.93
+    },
+    {
+      "id": "rift_gate_fortress_tree_37",
+      "kind": "pnw_low_shrub",
+      "x": 63.9,
+      "z": 124.5,
+      "rotY": 2.3359,
+      "scale": 1.3
+    },
+    {
+      "id": "rift_gate_fortress_tree_38",
+      "kind": "tree",
+      "x": -84.3,
+      "z": 41.9,
+      "rotY": 1.0487,
+      "scale": 0.93
+    },
+    {
+      "id": "rift_gate_fortress_tree_39",
+      "kind": "tree",
+      "x": -47.5,
+      "z": 127.9,
+      "rotY": 0.6773,
+      "scale": 0.77
+    },
+    {
+      "id": "rift_gate_fortress_tree_40",
+      "kind": "pnw_low_shrub",
+      "x": 66.3,
+      "z": -130,
+      "rotY": 4.8408,
+      "scale": 1.27
+    },
+    {
+      "id": "rift_gate_fortress_tree_41",
+      "kind": "tree",
+      "x": 32.1,
+      "z": 96.8,
+      "rotY": 4.7132,
+      "scale": 1.46
+    },
+    {
+      "id": "rift_gate_fortress_tree_42",
+      "kind": "tree",
+      "x": 47.3,
+      "z": 62.5,
+      "rotY": 5.3352,
+      "scale": 0.93
+    },
+    {
+      "id": "rift_gate_fortress_rock_01",
+      "kind": "rock",
+      "x": 69.9,
+      "z": -98.3,
+      "rotY": 2.7298,
+      "scale": 2.2
+    },
+    {
+      "id": "rift_gate_fortress_rock_02",
+      "kind": "rock",
+      "x": -121.9,
+      "z": 32.6,
+      "rotY": 5.1995,
+      "scale": 2
+    },
+    {
+      "id": "rift_gate_fortress_rock_03",
+      "kind": "rock",
+      "x": -77.9,
+      "z": -122.3,
+      "rotY": 5.5303,
+      "scale": 1.54
+    },
+    {
+      "id": "rift_gate_fortress_rock_04",
+      "kind": "rock",
+      "x": -143.4,
+      "z": 32.7,
+      "rotY": 3.1388,
+      "scale": 1.93
+    },
+    {
+      "id": "rift_gate_fortress_rock_05",
+      "kind": "rock",
+      "x": -92.2,
+      "z": 81.5,
+      "rotY": 5.7082,
+      "scale": 2.28
+    },
+    {
+      "id": "rift_gate_fortress_rock_06",
+      "kind": "rock",
+      "x": -64.2,
+      "z": -120.9,
+      "rotY": 4.0688,
+      "scale": 1.3
+    },
+    {
+      "id": "rift_gate_fortress_rock_07",
+      "kind": "rock",
+      "x": 43.2,
+      "z": 91.6,
+      "rotY": 1.1954,
+      "scale": 0.89
+    },
+    {
+      "id": "rift_gate_fortress_rock_08",
+      "kind": "rock",
+      "x": 131.2,
+      "z": -28,
+      "rotY": 3.6987,
+      "scale": 2.31
+    },
+    {
+      "id": "rift_gate_fortress_rock_09",
+      "kind": "rock",
+      "x": -134.1,
+      "z": 66.5,
+      "rotY": 3.9661,
+      "scale": 1.29
+    },
+    {
+      "id": "rift_gate_fortress_rock_10",
+      "kind": "rock",
+      "x": -99.8,
+      "z": -38.1,
+      "rotY": 1.0282,
+      "scale": 1.55
+    },
+    {
+      "id": "rift_gate_fortress_rock_11",
+      "kind": "rock",
+      "x": -30.9,
+      "z": 113.7,
+      "rotY": 4.4348,
+      "scale": 2.37
+    },
+    {
+      "id": "rift_gate_fortress_rock_12",
+      "kind": "rock",
+      "x": -95.6,
+      "z": -121,
+      "rotY": 1.0065,
+      "scale": 2.31
+    },
+    {
+      "id": "rift_gate_fortress_rock_13",
+      "kind": "rock",
+      "x": 83.8,
+      "z": 47.3,
+      "rotY": 5.5729,
+      "scale": 0.94
+    },
+    {
+      "id": "rift_gate_fortress_rock_14",
+      "kind": "rock",
+      "x": -101.9,
+      "z": 102.1,
+      "rotY": 5.7258,
+      "scale": 2.25
+    },
+    {
+      "id": "rift_gate_fortress_rock_15",
+      "kind": "rock",
+      "x": -145.8,
+      "z": -17.1,
+      "rotY": 5.3711,
+      "scale": 1.34
+    },
+    {
+      "id": "rift_gate_fortress_rock_16",
+      "kind": "rock",
+      "x": -41.8,
+      "z": -89.7,
+      "rotY": 0.2354,
+      "scale": 1.04
+    },
+    {
+      "id": "rift_gate_fortress_rock_17",
+      "kind": "rock",
+      "x": 121.6,
+      "z": -84.7,
+      "rotY": 0.8827,
+      "scale": 1.44
+    },
+    {
+      "id": "rift_gate_fortress_rock_18",
+      "kind": "rock",
+      "x": 59.8,
+      "z": -105.6,
+      "rotY": 1.8954,
+      "scale": 1.41
+    },
+    {
+      "id": "rift_gate_fortress_rock_19",
+      "kind": "rock",
+      "x": -103.1,
+      "z": 52.4,
+      "rotY": 3.2233,
+      "scale": 1.46
+    },
+    {
+      "id": "rift_gate_fortress_rock_20",
+      "kind": "rock",
+      "x": 82.2,
+      "z": -124.5,
+      "rotY": 5.5613,
+      "scale": 1.03
+    },
+    {
+      "id": "rift_gate_fortress_rock_21",
+      "kind": "rock",
+      "x": -126.8,
+      "z": -50.9,
+      "rotY": 4.5408,
+      "scale": 1.36
+    },
+    {
+      "id": "rift_gate_fortress_rock_22",
+      "kind": "rock",
+      "x": -90.8,
+      "z": 118.1,
+      "rotY": 1.6078,
+      "scale": 2.22
+    },
+    {
+      "id": "rift_gate_fortress_rock_23",
+      "kind": "rock",
+      "x": -81.3,
+      "z": 98.7,
+      "rotY": 3.6689,
+      "scale": 1.5
+    },
+    {
+      "id": "rift_gate_fortress_rock_24",
+      "kind": "rock",
+      "x": -111.4,
+      "z": 25.7,
+      "rotY": 4.4371,
+      "scale": 1.29
+    },
+    {
+      "id": "rift_gate_fortress_rock_25",
+      "kind": "rock",
+      "x": 138.3,
+      "z": -7.9,
+      "rotY": 5.5447,
+      "scale": 2.43
+    },
+    {
+      "id": "rift_gate_fortress_rock_26",
+      "kind": "rock",
+      "x": -61,
+      "z": 140.8,
+      "rotY": 3.9044,
+      "scale": 2.25
+    },
+    {
+      "id": "rift_gate_fortress_rock_27",
+      "kind": "rock",
+      "x": 42,
+      "z": 139.6,
+      "rotY": 0.0633,
+      "scale": 2.25
+    },
+    {
+      "id": "rift_gate_fortress_rock_28",
+      "kind": "rock",
+      "x": 112.2,
+      "z": 45.9,
+      "rotY": 5.0135,
+      "scale": 2.02
+    },
+    {
+      "id": "rift_gate_fortress_rock_29",
+      "kind": "rock",
+      "x": 41.6,
+      "z": -125.2,
+      "rotY": 1.7453,
+      "scale": 1.31
+    },
+    {
+      "id": "rift_gate_fortress_rock_30",
+      "kind": "rock",
+      "x": -45.2,
+      "z": 105.8,
+      "rotY": 2.7187,
+      "scale": 0.77
+    },
+    {
+      "id": "rift_gate_fortress_ridge_01",
+      "kind": "rock",
+      "x": 156.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "rift_gate_fortress_ridge_02",
+      "kind": "rock",
+      "x": 154.5,
+      "z": 56.2,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "rift_gate_fortress_ridge_03",
+      "kind": "rock",
+      "x": 119.8,
+      "z": 100.5,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "rift_gate_fortress_ridge_04",
+      "kind": "rock",
+      "x": 82.2,
+      "z": 142.4,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "rift_gate_fortress_ridge_05",
+      "kind": "rock",
+      "x": 27.2,
+      "z": 154,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "rift_gate_fortress_ridge_06",
+      "kind": "rock",
+      "x": -28.5,
+      "z": 161.9,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "rift_gate_fortress_ridge_07",
+      "kind": "rock",
+      "x": -78.2,
+      "z": 135.4,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "rift_gate_fortress_ridge_08",
+      "kind": "rock",
+      "x": -125.9,
+      "z": 105.7,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "rift_gate_fortress_ridge_09",
+      "kind": "rock",
+      "x": -147,
+      "z": 53.5,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "rift_gate_fortress_ridge_10",
+      "kind": "rock",
+      "x": -164.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "rift_gate_fortress_ridge_11",
+      "kind": "rock",
+      "x": -147,
+      "z": -53.5,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "rift_gate_fortress_ridge_12",
+      "kind": "rock",
+      "x": -125.9,
+      "z": -105.7,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "rift_gate_fortress_ridge_13",
+      "kind": "rock",
+      "x": -78.2,
+      "z": -135.4,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "rift_gate_fortress_ridge_14",
+      "kind": "rock",
+      "x": -28.5,
+      "z": -161.9,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "rift_gate_fortress_ridge_15",
+      "kind": "rock",
+      "x": 27.2,
+      "z": -154,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "rift_gate_fortress_ridge_16",
+      "kind": "rock",
+      "x": 82.2,
+      "z": -142.4,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "rift_gate_fortress_ridge_17",
+      "kind": "rock",
+      "x": 119.8,
+      "z": -100.5,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "rift_gate_fortress_ridge_18",
+      "kind": "rock",
+      "x": 154.5,
+      "z": -56.2,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "rift_gate_fortress_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "rift_gate_fortress_marshal",
+      "name": "Nyra Vex",
+      "title": "Endgame Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_endgame_campaign_marshal"
+    },
+    {
+      "id": "rift_gate_fortress_siege_engineer",
+      "name": "Gorvak Mirehand",
+      "title": "Siege Engineer",
+      "role": "vendor",
+      "x": 46,
+      "z": -54,
+      "rotY": -0.4,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_siege_engineer"
+    },
+    {
+      "id": "rift_gate_fortress_field_medic",
+      "name": "Selk Dreadspire",
+      "title": "Field Medic",
+      "role": "ambient",
+      "x": -46,
+      "z": -54,
+      "rotY": 0.4,
+      "characterProfileKey": "npc_riftbound_selk_dreadspire_field_medic"
+    },
+    {
+      "id": "rift_gate_fortress_gate_captain",
+      "name": "Kara Ashvein",
+      "title": "Gate Captain",
+      "role": "guard",
+      "x": 0,
+      "z": -4,
+      "rotY": 3.1416,
+      "characterProfileKey": "npc_riftbound_kara_ashvein_gate_captain"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "rift_gate_fortress_salvage_station",
+      "label": "Siege Salvage Bench",
+      "kind": "salvage",
+      "x": -42,
+      "z": -44,
+      "radius": 6
+    },
+    {
+      "id": "rift_gate_fortress_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": 42,
+      "z": -44,
+      "radius": 6
+    },
+    {
+      "id": "rift_gate_fortress_general_station",
+      "label": "Fortress Supply Table",
+      "kind": "general",
+      "x": 0,
+      "z": -52,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "rift_gate_fortress_west_guard_1",
+      "name": "Objective Guard",
+      "level": 40,
+      "x": -72,
+      "z": -24,
+      "maxHealth": 220,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 89,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_objective_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_west_caster_1",
+      "name": "Siege Hexer",
+      "level": 40,
+      "x": -82,
+      "z": -14,
+      "maxHealth": 180,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 45,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_siege_hexer_caster"
+    },
+    {
+      "id": "rift_gate_fortress_central_guard_1",
+      "name": "Objective Guard",
+      "level": 40,
+      "x": -10,
+      "z": -4,
+      "maxHealth": 220,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 89,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_objective_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_central_raider_1",
+      "name": "Campaign Raider",
+      "level": 40,
+      "x": 10,
+      "z": -4,
+      "maxHealth": 180,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 87,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_riftbound_campaign_raider_raider"
+    },
+    {
+      "id": "rift_gate_fortress_east_guard_1",
+      "name": "Objective Guard",
+      "level": 40,
+      "x": 72,
+      "z": -24,
+      "maxHealth": 220,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 89,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_objective_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_east_caster_1",
+      "name": "Siege Hexer",
+      "level": 40,
+      "x": 82,
+      "z": -14,
+      "maxHealth": 180,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 45,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_siege_hexer_caster"
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_guard_1",
+      "name": "Aegis Keep Guard",
+      "level": 41,
+      "x": -72,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_aegis_keep_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep_guard_2",
+      "name": "Aegis Keep Guard",
+      "level": 41,
+      "x": -44,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_aegis_keep_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_guard_1",
+      "name": "Riftbound Keep Guard",
+      "level": 41,
+      "x": 44,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep_guard_2",
+      "name": "Riftbound Keep Guard",
+      "level": 41,
+      "x": 72,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_guard_guard"
+    },
+    {
+      "id": "rift_gate_fortress_beast_1",
+      "name": "Ash Hound",
+      "level": 40,
+      "x": -102,
+      "z": -52,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 88,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_ash_hound"
+    },
+    {
+      "id": "rift_gate_fortress_beast_2",
+      "name": "Ash Hound",
+      "level": 40,
+      "x": 102,
+      "z": -52,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 88,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_ash_hound"
+    },
+    {
+      "id": "rift_gate_fortress_captain",
+      "name": "Keep Captain",
+      "level": 42,
+      "x": 0,
+      "z": 72,
+      "maxHealth": 340,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.2,
+      "preferredRange": 2.7,
+      "attackDamage": 96,
+      "moveSpeed": 3.05,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "rift_gate_fortress_ore_node_01",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -99.1,
+      "z": -61.2,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_ore_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_scrap_node_02",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": -115.2,
+      "z": 3,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_scrap_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_relic_node_03",
+      "label": "Riftbound Relic Shards",
+      "kind": "relic",
+      "professionId": "salvaging",
+      "x": -75.1,
+      "z": 59.6,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_relic_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_arcane_dust",
+          "qty": 1,
+          "chance": 0.75,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.44
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1,
+          "chance": 0.14
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_ore_node_04",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 93.6,
+      "z": -60.7,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_ore_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_soil_node_05",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 113.7,
+      "z": 7.3,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_soil_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_scrap_node_06",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 71.8,
+      "z": 68.9,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_scrap_node_06_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_ore_node_07",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -23.2,
+      "z": -73,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_ore_node_07_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_scrap_node_08",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 29.2,
+      "z": -79.4,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "rift_gate_fortress_scrap_node_08_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "rift_gate_fortress_west_objective",
+      "type": "battle_objective",
+      "label": "West Siege Standard",
+      "x": -72,
+      "z": -24,
+      "captureRadius": 14,
+      "defaultRealm": "riftbound"
+    },
+    {
+      "id": "rift_gate_fortress_central_objective",
+      "type": "battle_objective",
+      "label": "Central Siege Standard",
+      "x": 0,
+      "z": -6,
+      "captureRadius": 14,
+      "defaultRealm": "riftbound"
+    },
+    {
+      "id": "rift_gate_fortress_east_objective",
+      "type": "battle_objective",
+      "label": "East Siege Standard",
+      "x": 72,
+      "z": -24,
+      "captureRadius": 14,
+      "defaultRealm": "riftbound"
+    },
+    {
+      "id": "rift_gate_fortress_aegis_keep",
+      "type": "keep",
+      "label": "Aegis War Keep",
+      "x": -58,
+      "z": 58,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "rift_gate_fortress_riftbound_keep",
+      "type": "keep",
+      "label": "Riftbound War Keep",
+      "x": 58,
+      "z": 58,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "rift_gate_fortress_to_riftspire_capital",
+      "label": "Travel to Riftspire Citadel",
+      "x": 0,
+      "z": -146.2,
+      "radius": 9,
+      "targetZoneId": "riftspire_capital",
+      "targetSpawn": {
+        "x": 0,
+        "y": 0,
+        "z": 140.8
+      }
+    },
+    {
+      "id": "rift_gate_fortress_to_rift_crownworks",
+      "label": "Travel to Rift Crownworks",
+      "x": 0,
+      "z": 146.2,
+      "radius": 9,
+      "targetZoneId": "rift_crownworks",
+      "targetSpawn": {
+        "x": 0,
+        "y": 0,
+        "z": -115
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "rift_gate_fortress_west_scarp",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": -96,
+      "z": -8,
+      "width": 94,
+      "depth": 170,
+      "count": 46,
+      "seed": 1950345316,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        },
+        {
+          "x": -58,
+          "z": 58,
+          "radius": 48
+        },
+        {
+          "x": 58,
+          "z": 58,
+          "radius": 48
+        }
+      ],
+      "allowedKinds": [
+        "pnw_low_shrub",
+        "pnw_grass_clump",
+        "pnw_mossy_boulder",
+        "pnw_fallen_log"
+      ]
+    },
+    {
+      "id": "rift_gate_fortress_east_scarp",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 96,
+      "z": -8,
+      "width": 94,
+      "depth": 170,
+      "count": 46,
+      "seed": 1987529294,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        },
+        {
+          "x": -58,
+          "z": 58,
+          "radius": 48
+        },
+        {
+          "x": 58,
+          "z": 58,
+          "radius": 48
+        }
+      ],
+      "allowedKinds": [
+        "pnw_low_shrub",
+        "pnw_grass_clump",
+        "pnw_mossy_boulder",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "07f4678dbcf92c2f"
+}

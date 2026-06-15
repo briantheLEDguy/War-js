@@ -1,0 +1,30 @@
+{
+  "assetId": "prop.town.vertical_beam",
+  "category": "prop",
+  "model": "prop_town_vertical_beam.glb",
+  "fileSizeBytes": 89548,
+  "meshCount": 1,
+  "totalTris": 36,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_vertical_beam",
+      "verts": 20,
+      "faces": 18,
+      "tris": 36,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

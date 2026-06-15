@@ -31,7 +31,7 @@ export function LoginScreen() {
       <div className="panel login-panel">
         <div className="backend-tag">Backend: {services.backend}</div>
         <h1>War-js</h1>
-        <div className="subtitle">Age of Reckoning</div>
+        <div className="subtitle">Aegis vs Riftbound</div>
         <div className="login-divider" />
         <p style={{ color: 'var(--dim)', fontSize: 12, marginTop: 4, marginBottom: 12, fontStyle: 'italic' }}>
           Web vertical slice &mdash; any credentials work in local mode.
@@ -50,7 +50,7 @@ export function LoginScreen() {
             />
           </div>
           <button type="submit" disabled={busy}>
-            {busy ? 'Signing In...' : 'Enter the War'}
+            {busy ? 'Signing In...' : 'Enter Campaign'}
           </button>
           {err && <div style={{ color: 'var(--red)', fontSize: 12 }}>{err}</div>}
         </form>

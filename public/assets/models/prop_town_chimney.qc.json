@@ -1,0 +1,30 @@
+{
+  "assetId": "prop.town.chimney",
+  "category": "prop",
+  "model": "prop_town_chimney.glb",
+  "fileSizeBytes": 68936,
+  "meshCount": 1,
+  "totalTris": 188,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_chimney",
+      "verts": 96,
+      "faces": 94,
+      "tris": 188,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

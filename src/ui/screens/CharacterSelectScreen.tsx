@@ -8,6 +8,7 @@ import {
   RACE_DISPLAY,
   normalizeClassName,
 } from '../../data/careers';
+import { defaultZoneForRace } from '../../data/zoneRouting';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
 import type { CharacterState, CharacterSummary } from '../../services/types';
@@ -59,6 +60,19 @@ export function CharacterSelectScreen() {
       active = false;
     };
   }, [selected]);
+
+  useEffect(() => {
+    if (!showCreate) return undefined;
+
+    function closeCreateOnEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      setShowCreate(false);
+    }
+
+    window.addEventListener('keydown', closeCreateOnEscape);
+    return () => window.removeEventListener('keydown', closeCreateOnEscape);
+  }, [showCreate]);
 
   const selectedSummary = useMemo(
     () => characterList.find((candidate) => candidate.id === selected) ?? null,
@@ -141,7 +155,7 @@ export function CharacterSelectScreen() {
               </div>
             )}
             {characterList.map((c) => {
-              const isOrder = ORDER_RACES.includes(c.race);
+              const isAegis = ORDER_RACES.includes(c.race);
               return (
                 <button
                   type="button"
@@ -156,8 +170,8 @@ export function CharacterSelectScreen() {
                       Lv {c.level} {BODY_VARIANT_DISPLAY[c.bodyVariant ?? 'm']} {RACE_DISPLAY[c.race] ?? c.race} {normalizeClassName(c.className)} &mdash; {c.zoneId}
                     </div>
                   </div>
-                  <span className={`realm-tag ${isOrder ? 'order' : 'destruction'}`}>
-                    {isOrder ? 'Order' : 'Destruction'}
+                  <span className={`realm-tag ${isAegis ? 'order' : 'destruction'}`}>
+                    {isAegis ? 'Aegis Accord' : 'Riftbound Host'}
                   </span>
                 </button>
               );
@@ -186,12 +200,12 @@ export function CharacterSelectScreen() {
                       setNewClass(CLASSES_BY_RACE[r][0]);
                     }}
                   >
-                    <optgroup label="Order">
+                    <optgroup label="Aegis Accord">
                       {ORDER_RACES.map((r) => (
                         <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
                       ))}
                     </optgroup>
-                    <optgroup label="Destruction">
+                    <optgroup label="Riftbound Host">
                       {DESTRUCTION_RACES.map((r) => (
                         <option key={r} value={r}>{RACE_DISPLAY[r]}</option>
                       ))}
@@ -243,10 +257,6 @@ export function CharacterSelectScreen() {
       </div>
     </div>
   );
-}
-
-function defaultZoneForRace(race: CharacterSummary['race']): string {
-  return ORDER_RACES.includes(race) ? 'altdorf' : 'inevitable_city';
 }
 
 function summaryToPreviewState(summary: CharacterSummary): CharacterState {

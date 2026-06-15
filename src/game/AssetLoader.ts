@@ -39,7 +39,7 @@ export interface EquipmentAssetResolution {
 }
 
 const BASE = import.meta.env.BASE_URL; // '/' in dev, '/War-js/' on GH Pages
-const PUBLIC_ASSET_VERSION = import.meta.env.VITE_ASSET_VERSION ?? '2026-06-09-playable-modular-roster';
+const PUBLIC_ASSET_VERSION = import.meta.env.VITE_ASSET_VERSION ?? '2026-06-13-npc-variants';
 const MODEL_ASSET_TOKEN = import.meta.env.DEV
   ? `${PUBLIC_ASSET_VERSION}-${Date.now()}`
   : PUBLIC_ASSET_VERSION;
@@ -63,6 +63,11 @@ function prepareLoadedModel(root: THREE.Object3D): void {
       for (const material of materials) {
         if (!material) continue;
         material.side = THREE.DoubleSide;
+        material.opacity = Math.max(material.opacity ?? 1, 1);
+        material.transparent = false;
+        material.alphaTest = 0;
+        material.depthWrite = true;
+        material.depthTest = true;
         material.needsUpdate = true;
       }
     }
@@ -841,6 +846,161 @@ export class AssetLoader {
       return group;
     },
 
+    /** Flat castle floor plate used for generated multi-level keeps. */
+    castle_floor(): THREE.Object3D {
+      const group = new THREE.Group();
+      const stoneMat = new THREE.MeshStandardMaterial({ color: 0x6f695f, roughness: 0.92 });
+      const edgeMat = new THREE.MeshStandardMaterial({ color: 0x4b4742, roughness: 0.95 });
+      const slab = new THREE.Mesh(new THREE.BoxGeometry(24, 0.32, 24), stoneMat);
+      slab.position.y = -0.16;
+      slab.receiveShadow = true;
+      group.add(slab);
+      for (const [x, z, sx, sz] of [
+        [0, -12.2, 24.8, 0.6],
+        [0, 12.2, 24.8, 0.6],
+        [-12.2, 0, 0.6, 24.8],
+        [12.2, 0, 0.6, 24.8],
+      ] as const) {
+        const trim = new THREE.Mesh(new THREE.BoxGeometry(sx, 0.4, sz), edgeMat);
+        trim.position.set(x, 0.06, z);
+        trim.castShadow = true;
+        trim.receiveShadow = true;
+        group.add(trim);
+      }
+      return group;
+    },
+
+    /** Riftbound city house: dark stone, uneven roof, and iron spikes. */
+    rift_house(): THREE.Object3D {
+      const group = new THREE.Group();
+      const stoneMat = new THREE.MeshStandardMaterial({ color: 0x2c2a2d, roughness: 0.92 });
+      const trimMat = new THREE.MeshStandardMaterial({ color: 0x111216, roughness: 0.82 });
+      const emberMat = new THREE.MeshStandardMaterial({ color: 0xcc3a14, emissive: 0x5a1208, emissiveIntensity: 0.35 });
+      const body = new THREE.Mesh(new THREE.BoxGeometry(7.4, 5.4, 7.8), stoneMat);
+      body.position.y = 2.7;
+      body.castShadow = true;
+      body.receiveShadow = true;
+      group.add(body);
+      const roof = new THREE.Mesh(new THREE.ConeGeometry(5.8, 3.4, 4), trimMat);
+      roof.rotation.y = Math.PI / 4;
+      roof.scale.set(1.15, 1, 0.82);
+      roof.position.y = 7;
+      roof.castShadow = true;
+      group.add(roof);
+      for (const x of [-2.8, 2.8]) {
+        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.35, 2.4, 6), trimMat);
+        spike.position.set(x, 9.1, 0.8);
+        spike.castShadow = true;
+        group.add(spike);
+      }
+      const window = new THREE.Mesh(new THREE.BoxGeometry(1.15, 1.4, 0.12), emberMat);
+      window.position.set(0, 3.2, 3.96);
+      group.add(window);
+      return group;
+    },
+
+    /** Riftbound spiked wall segment for destruction capital fortifications. */
+    rift_wall_segment(): THREE.Object3D {
+      const group = new THREE.Group();
+      const stoneMat = new THREE.MeshStandardMaterial({ color: 0x242326, roughness: 0.94 });
+      const capMat = new THREE.MeshStandardMaterial({ color: 0x111216, roughness: 0.9 });
+      const wall = new THREE.Mesh(new THREE.BoxGeometry(10, 4.8, 1.6), stoneMat);
+      wall.position.y = 2.4;
+      wall.castShadow = true;
+      wall.receiveShadow = true;
+      group.add(wall);
+      for (let i = -4; i <= 4; i += 2) {
+        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.45, 2.3, 5), capMat);
+        spike.position.set(i, 6.0, 0);
+        spike.castShadow = true;
+        group.add(spike);
+      }
+      return group;
+    },
+
+    /** Riftbound tower with a dark crown and jagged spikes. */
+    rift_tower(): THREE.Object3D {
+      const group = new THREE.Group();
+      const stoneMat = new THREE.MeshStandardMaterial({ color: 0x242326, roughness: 0.92 });
+      const ironMat = new THREE.MeshStandardMaterial({ color: 0x101114, metalness: 0.35, roughness: 0.75 });
+      const body = new THREE.Mesh(new THREE.CylinderGeometry(1.9, 2.25, 13.5, 10), stoneMat);
+      body.position.y = 6.75;
+      body.castShadow = true;
+      body.receiveShadow = true;
+      group.add(body);
+      const crown = new THREE.Mesh(new THREE.CylinderGeometry(2.25, 1.95, 1.0, 10), ironMat);
+      crown.position.y = 13.9;
+      crown.castShadow = true;
+      group.add(crown);
+      for (let i = 0; i < 10; i++) {
+        const a = (i / 10) * Math.PI * 2;
+        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.32, 2.5, 5), ironMat);
+        spike.position.set(Math.cos(a) * 2.1, 15.5, Math.sin(a) * 2.1);
+        spike.castShadow = true;
+        group.add(spike);
+      }
+      return group;
+    },
+
+    /** Tall Riftbound obelisk for plazas and citadel approaches. */
+    rift_obelisk(): THREE.Object3D {
+      const group = new THREE.Group();
+      const stoneMat = new THREE.MeshStandardMaterial({ color: 0x15161a, roughness: 0.86 });
+      const glowMat = new THREE.MeshStandardMaterial({ color: 0x6d1b80, emissive: 0x42115f, emissiveIntensity: 0.65 });
+      const base = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 2.4, 1.2, 6), stoneMat);
+      base.position.y = 0.6;
+      group.add(base);
+      const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.25, 10, 5), stoneMat);
+      shaft.position.y = 6;
+      shaft.castShadow = true;
+      group.add(shaft);
+      const tip = new THREE.Mesh(new THREE.ConeGeometry(0.85, 3.2, 5), glowMat);
+      tip.position.y = 12.6;
+      tip.castShadow = true;
+      group.add(tip);
+      return group;
+    },
+
+    /** Iron brazier with a simple ember flame. */
+    rift_brazier(): THREE.Object3D {
+      const group = new THREE.Group();
+      const ironMat = new THREE.MeshStandardMaterial({ color: 0x151515, metalness: 0.5, roughness: 0.55 });
+      const flameMat = new THREE.MeshStandardMaterial({ color: 0xff5a1f, emissive: 0xd83a10, emissiveIntensity: 0.85 });
+      const bowl = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.75, 0.55, 10), ironMat);
+      bowl.position.y = 1.1;
+      bowl.castShadow = true;
+      group.add(bowl);
+      for (const x of [-0.55, 0.55]) {
+        const leg = new THREE.Mesh(new THREE.BoxGeometry(0.16, 1.2, 0.16), ironMat);
+        leg.position.set(x, 0.55, 0);
+        group.add(leg);
+      }
+      const flame = new THREE.Mesh(new THREE.ConeGeometry(0.65, 1.6, 8), flameMat);
+      flame.position.y = 2.05;
+      group.add(flame);
+      return group;
+    },
+
+    /** Jagged dark-stone spike cluster used as destructive street dressing. */
+    rift_spike_cluster(): THREE.Object3D {
+      const group = new THREE.Group();
+      const stoneMat = new THREE.MeshStandardMaterial({ color: 0x1c1d22, roughness: 0.88 });
+      const points = [
+        [-0.8, 0, 2.8, 0.45],
+        [0.35, -0.25, 3.7, 0.55],
+        [1.0, 0.55, 2.2, 0.35],
+        [-0.15, 0.9, 2.6, 0.38],
+      ] as const;
+      for (const [x, z, height, radius] of points) {
+        const spike = new THREE.Mesh(new THREE.ConeGeometry(radius, height, 5), stoneMat);
+        spike.position.set(x, height / 2, z);
+        spike.rotation.x = (x + z) * 0.08;
+        spike.castShadow = true;
+        group.add(spike);
+      }
+      return group;
+    },
+
     // --- WAR city prop primitives ---
 
     /** City perimeter wall segment — long stone block. */
@@ -1063,14 +1223,19 @@ export class AssetLoader {
       const woodMat = new THREE.MeshStandardMaterial({ color: 0x4a2d16, roughness: 0.82 });
       const ironMat = new THREE.MeshStandardMaterial({ color: 0x2d3033, metalness: 0.65, roughness: 0.5 });
       for (const side of [-1, 1]) {
+        const leaf = new THREE.Group();
+        leaf.name = side < 0 ? 'FallbackGateLeaf_L' : 'FallbackGateLeaf_R';
+        leaf.position.set(side * 8, 0, 0);
+        leaf.userData.gateLeafSide = side;
+        group.add(leaf);
         const door = new THREE.Mesh(new THREE.BoxGeometry(8, 9.2, 0.55), woodMat);
-        door.position.set(side * 4, 4.7, 0);
+        door.position.set(-side * 4, 4.7, 0);
         door.castShadow = true;
-        group.add(door);
+        leaf.add(door);
         for (const y of [1.6, 4.6, 7.4]) {
           const strap = new THREE.Mesh(new THREE.BoxGeometry(7.8, 0.35, 0.68), ironMat);
-          strap.position.set(side * 4, y, 0.36);
-          group.add(strap);
+          strap.position.set(-side * 4, y, 0.36);
+          leaf.add(strap);
         }
       }
       return group;
@@ -1082,19 +1247,24 @@ export class AssetLoader {
       const woodMat = new THREE.MeshStandardMaterial({ color: 0x4a2d16, roughness: 0.84 });
       const darkWoodMat = new THREE.MeshStandardMaterial({ color: 0x2b1b10, roughness: 0.9 });
       const ironMat = new THREE.MeshStandardMaterial({ color: 0x2d3033, metalness: 0.65, roughness: 0.5 });
+      const leaf = new THREE.Group();
+      leaf.name = 'FallbackDoorLeaf';
+      leaf.position.set(-2.6, 0, 0);
+      leaf.userData.gateLeafSide = 1;
+      group.add(leaf);
       const panel = new THREE.Mesh(new THREE.BoxGeometry(5.2, 6, 0.38), woodMat);
-      panel.position.set(0, 3, 0);
+      panel.position.set(2.6, 3, 0);
       panel.castShadow = true;
-      group.add(panel);
+      leaf.add(panel);
       for (const x of [-1.6, 0, 1.6]) {
         const plank = new THREE.Mesh(new THREE.BoxGeometry(0.14, 5.7, 0.44), darkWoodMat);
-        plank.position.set(x, 3, 0.08);
-        group.add(plank);
+        plank.position.set(x + 2.6, 3, 0.08);
+        leaf.add(plank);
       }
       for (const y of [1.3, 3, 4.7]) {
         const strap = new THREE.Mesh(new THREE.BoxGeometry(5, 0.28, 0.5), ironMat);
-        strap.position.set(0, y, 0.28);
-        group.add(strap);
+        strap.position.set(2.6, y, 0.28);
+        leaf.add(strap);
       }
       return group;
     },

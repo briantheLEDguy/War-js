@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import type { Game } from '../../game/Game';
 import { useGameStore } from '../../state/gameStore';
+import {
+  prefabGroupForKind,
+  prefabsForGroup,
+  WORLD_EDITOR_PREFAB_GROUPS,
+} from '../../world/editor/PrefabCatalog';
 import type { WorldEditorTool } from '../../world/editor/WorldEditorRuntime';
+import { useDraggableWindow } from './useDraggableWindow';
 
 interface Props {
   game: Game | null;
@@ -30,26 +36,13 @@ const MATERIALS = [
   { id: 'water', label: 'Water' },
 ];
 
-const PREFABS = [
-  'building',
-  'wall_segment',
-  'tower',
-  'gate',
-  'castle_gate',
-  'castle_door',
-  'castle_stairs',
-  'temple',
-  'statue',
-  'fountain',
-  'banner_post',
-  'vendor_stall',
-  'bridge',
-  'dock',
-  'tree',
-  'rock',
-];
-
 export function WorldEditorPanel({ game }: Props) {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const tool = useGameStore((s) => s.worldEditorTool);
   const settings = useGameStore((s) => s.worldEditorSettings);
   const status = useGameStore((s) => s.worldEditorStatus);
@@ -60,6 +53,8 @@ export function WorldEditorPanel({ game }: Props) {
   const [publishNotes, setPublishNotes] = useState('');
   const [resetting, setResetting] = useState(false);
   const applyLabel = getApplyLabel(tool);
+  const selectedPrefabGroup = prefabGroupForKind(settings.prefabKind);
+  const visiblePrefabs = prefabsForGroup(selectedPrefabGroup);
 
   useEffect(() => {
     game?.setWorldEditorTool(tool);
@@ -84,8 +79,8 @@ export function WorldEditorPanel({ game }: Props) {
   }
 
   return (
-    <div className="world-editor-panel">
-      <div className="world-editor-header">
+    <div ref={panelRef} className={`world-editor-panel${dragClassName}`} style={dragStyle}>
+      <div className="world-editor-header draggable-window-handle" {...dragHandleProps}>
         <div>
           <div className="world-editor-title">GM Build</div>
           <div className="world-editor-subtitle">{status || 'Draft ready.'}</div>
@@ -113,7 +108,23 @@ export function WorldEditorPanel({ game }: Props) {
 
       <div className="world-editor-section world-editor-grid">
         <label>
-          Prefab
+          Kit
+          <select
+            value={selectedPrefabGroup}
+            onChange={(e) => {
+              const [firstPrefab] = prefabsForGroup(e.target.value);
+              if (!firstPrefab) return;
+              updateSettings({ prefabKind: firstPrefab.kind });
+              setTool('stamp_prefab');
+            }}
+          >
+            {WORLD_EDITOR_PREFAB_GROUPS.map((group) => (
+              <option key={group} value={group}>{group}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Piece
           <select
             value={settings.prefabKind}
             onChange={(e) => {
@@ -121,11 +132,14 @@ export function WorldEditorPanel({ game }: Props) {
               setTool('stamp_prefab');
             }}
           >
-            {PREFABS.map((prefab) => (
-              <option key={prefab} value={prefab}>{prefab}</option>
+            {visiblePrefabs.map((prefab) => (
+              <option key={prefab.kind} value={prefab.kind}>{prefab.label}</option>
             ))}
           </select>
         </label>
+      </div>
+
+      <div className="world-editor-section world-editor-apply">
         <button type="button" onClick={() => setTool('stamp_prefab')}>
           Preview
         </button>

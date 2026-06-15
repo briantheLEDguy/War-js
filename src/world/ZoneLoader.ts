@@ -1,6 +1,19 @@
 import { applyBiomeKits } from './BiomeKit';
 import { applyZonePaths } from './PathKit';
-import type { CraftingStationKind } from '../services/types';
+import type {
+  CampaignLane,
+  CampaignNodeRole,
+  CampaignObjectiveType,
+  CampaignRealm,
+  CampaignTier,
+} from '../data/campaign';
+import type {
+  CraftingProfessionId,
+  CraftingStationKind,
+  EquipSlot,
+  ItemKind,
+  WorldPropInteraction,
+} from '../services/types';
 
 export interface PropSpawn {
   /** Optional stable GM-editor id for static map props. Generated from prop index when omitted. */
@@ -20,6 +33,8 @@ export interface PropSpawn {
   model?: string;
   /** Optional asset-index static key. Prefer this over direct model names. */
   assetKey?: string;
+  /** If false, registers colliders/metadata without rendering a visible mesh. */
+  visible?: boolean;
   colliders?: Array<{
     id?: string;
     /** Local offset from prop origin. */
@@ -28,6 +43,10 @@ export interface PropSpawn {
     width: number;
     depth: number;
     rotY?: number;
+    /** Optional local lower vertical bound for player collision. */
+    minY?: number;
+    /** Optional local upper vertical bound for player collision. */
+    maxY?: number;
     blocksWhen?: 'always' | 'closed';
     interactionId?: string;
   }>;
@@ -46,15 +65,7 @@ export interface PropSpawn {
     /** Local axis used for the height ramp. Defaults to z. */
     axis?: 'x' | 'z';
   }>;
-  interaction?: {
-    id: string;
-    type: 'gate';
-    label?: string;
-    maxDistance?: number;
-    openClip?: string;
-    closeClip?: string;
-    startsOpen?: boolean;
-  };
+  interaction?: WorldPropInteraction;
 }
 
 export interface BiomeKitPlacement {
@@ -107,13 +118,19 @@ export interface EnemySpawn {
   y?: number;
   z: number;
   maxHealth: number;
+  /** Optional asset-index character profile key. Prefer this for humanoid enemies. */
+  characterProfileKey?: string;
   /** Optional asset-index static key. Prefer this over direct model names. */
   assetKey?: string;
   model?: string;
+  /** Lightweight combat behavior profile used by the enemy AI. */
+  archetype?: 'raider' | 'guard' | 'caster' | 'beast' | 'captain';
   /** 0 = passive (never aggros). Default: 0 */
   aggroRange?: number;
   /** Melee reach when attacking player. Default: 2.5 */
   attackRange?: number;
+  /** Preferred stand-off distance for ranged/caster enemies. */
+  preferredRange?: number;
   /** Base damage per hit. Default: 5 */
   attackDamage?: number;
   /** Movement speed in units/sec. Default: 3.5 */
@@ -123,7 +140,7 @@ export interface EnemySpawn {
 /** A trigger volume that transports the player to another zone. */
 export interface ZoneTrigger {
   id: string;
-  /** Shown in travel UI, e.g. "Travel to Reikland" */
+  /** Shown in travel UI, e.g. "Travel to Brightfen Approach" */
   label: string;
   x: number;
   z: number;
@@ -145,6 +162,8 @@ export interface NpcSpawn {
   y?: number;
   z: number;
   rotY?: number;
+  /** Optional asset-index character profile key. Prefer this over direct model names. */
+  characterProfileKey?: string;
   /** Optional .glb under /public/assets/models/ */
   model?: string;
 }
@@ -160,6 +179,59 @@ export interface CraftingStationSpawn {
   radius?: number;
 }
 
+export type ResourceNodeKind =
+  | 'herb'
+  | 'ore'
+  | 'wood'
+  | 'water'
+  | 'soil'
+  | 'scrap'
+  | 'relic';
+
+export interface ResourceNodeSpawn {
+  id: string;
+  label: string;
+  kind: ResourceNodeKind;
+  professionId: CraftingProfessionId;
+  x: number;
+  y?: number;
+  z: number;
+  radius?: number;
+  xp: number;
+  respawnSeconds: number;
+  /** Stable id of the visible prop that represents this node. */
+  visualPropId?: string;
+  loot: Array<{
+    key: string;
+    qty: number;
+    name?: string;
+    kind?: ItemKind;
+    equipSlot?: EquipSlot;
+    chance: number;
+    minQty?: number;
+    maxQty?: number;
+  }>;
+}
+
+export interface RvrObjectiveDefinition {
+  id: string;
+  type: CampaignObjectiveType;
+  label: string;
+  x: number;
+  z: number;
+  captureRadius: number;
+  defaultRealm: CampaignRealm;
+}
+
+export interface ZoneCampaignMetadata {
+  realm: CampaignRealm;
+  tier: CampaignTier;
+  lane: CampaignLane;
+  laneLabel: string;
+  nodeRole: CampaignNodeRole;
+  levelBand: string;
+}
+
 export interface ZoneDefinition {
   id: string;
   name: string;
@@ -172,6 +244,14 @@ export interface ZoneDefinition {
   heightmap?: string;      // .png (phase 2)
   /** If true, terrain is completely flat (y=0 everywhere). Use for city zones. */
   flatTerrain?: boolean;
+  /** Static campaign data version for generated Aegis/Riftbound maps. */
+  staticMapVersion?: string;
+  /** Hash of the committed static map data, excluding this hash field. */
+  staticMapHash?: string;
+  /** Campaign metadata for generated RvR zones. */
+  campaign?: ZoneCampaignMetadata;
+  /** Capturable objectives, keeps, fortresses, city gates, or boss goals. */
+  rvrObjectives?: RvrObjectiveDefinition[];
   props: PropSpawn[];
   enemies: EnemySpawn[];
   spawnPoint?: { x: number; y: number; z: number };
@@ -181,6 +261,8 @@ export interface ZoneDefinition {
   npcs?: NpcSpawn[];
   /** Crafting workbenches and cultivation plots opened with the interact key. */
   craftingStations?: CraftingStationSpawn[];
+  /** Data-driven harvest nodes opened with the interact key. */
+  resourceNodes?: ResourceNodeSpawn[];
   /** Data-driven landscaping kits expanded into props when the zone loads. */
   biomeKits?: BiomeKitPlacement[];
   /** Non-blocking visual walking paths generated into props when the zone loads. */
@@ -223,7 +305,7 @@ function buildInDefault(id: string): ZoneDefinition {
 
   return {
     id,
-    name: 'Nordland Outskirts',
+    name: 'Training Outskirts',
     size: 120,
     segments: 96,
     terrainTexture: 'grass.png',

@@ -1,4 +1,4 @@
-import type { Unsubscribe, WorldService, ZonePlayerBroadcast } from '../types';
+import type { Unsubscribe, WorldService, ZonePlayerBroadcast, ZonePlayerPresence } from '../types';
 import { NotImplementedError } from '../types';
 
 /**
@@ -8,6 +8,7 @@ import { NotImplementedError } from '../types';
  *   - updatePosition:       upsert at ~5 Hz
  *   - subscribeToPlayers:   supabase.channel(`zone:${zoneId}`)
  *                             .on('presence', ...) or broadcast transforms
+ *   - findPlayerByName:     GM-only current presence lookup by character name
  */
 export class WorldSupabase implements WorldService {
   joinZone(_zoneId: string, _me: ZonePlayerBroadcast): Promise<void> {
@@ -24,5 +25,8 @@ export class WorldSupabase implements WorldService {
     _cb: (players: ZonePlayerBroadcast[]) => void,
   ): Unsubscribe {
     throw new NotImplementedError('WorldSupabase.subscribeToPlayers');
+  }
+  findPlayerByName(_name: string): Promise<ZonePlayerPresence | null> {
+    throw new NotImplementedError('WorldSupabase.findPlayerByName');
   }
 }

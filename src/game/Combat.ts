@@ -8,7 +8,10 @@ import type { Enemy } from './Enemy';
 import { followObject, staticTarget, type VfxLayer } from './animation/VfxLayer';
 import { checkLevelUp, registerEnemyKill } from './QuestLogic';
 import {
+  getAbilityActivationFailure,
   tryActivateAbility,
+  type AbilityActivationBlockers,
+  type AbilityFailureReason,
   type PendingAbilityImpact,
 } from './abilities/AbilityRuntime';
 import type { AbilityEffect } from './abilities/types';
@@ -62,6 +65,92 @@ const ATTACK_COOLDOWN = 1.5;  // seconds — autoattack
 const ATTACK_RANGE    = 3.0;  // melee reach in world units
 const RESPAWN_DELAY   = 5000; // milliseconds
 const LEASH_RANGE     = 25;   // units from home before enemy resets
+
+type EnemyArchetype = NonNullable<Enemy['spawn']['archetype']>;
+
+interface EnemyAbilityProfile {
+  id: string;
+  label: string;
+  range: number;
+  cooldownSec: number;
+  windupSec: number;
+  kind: 'melee' | 'ranged' | 'cast';
+  damage: {
+    base: number;
+    levelScale: number;
+    variance: number;
+  };
+  status?: {
+    id: string;
+    label: string;
+    kind: 'slow' | 'root' | 'stagger' | 'debuff';
+    durationSec: number;
+    magnitude?: number;
+  };
+}
+
+const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
+  raider: [
+    {
+      id: 'raider_hamstring',
+      label: 'Hamstring',
+      range: 3.2,
+      cooldownSec: 5,
+      windupSec: 0.25,
+      kind: 'melee',
+      damage: { base: 6, levelScale: 1.35, variance: 4 },
+      status: { id: 'hamstrung', label: 'Hamstrung', kind: 'slow', durationSec: 2.5, magnitude: 0.35 },
+    },
+  ],
+  guard: [
+    {
+      id: 'guard_shield_bash',
+      label: 'Shield Bash',
+      range: 3.3,
+      cooldownSec: 6,
+      windupSec: 0.35,
+      kind: 'melee',
+      damage: { base: 8, levelScale: 1.45, variance: 3 },
+      status: { id: 'shield_bashed', label: 'Shield Bashed', kind: 'stagger', durationSec: 0.8 },
+    },
+  ],
+  caster: [
+    {
+      id: 'caster_rift_bolt',
+      label: 'Rift Bolt',
+      range: 16,
+      cooldownSec: 4.5,
+      windupSec: 0.7,
+      kind: 'cast',
+      damage: { base: 10, levelScale: 1.8, variance: 5 },
+      status: { id: 'rattled', label: 'Rattled', kind: 'debuff', durationSec: 4, magnitude: 0.15 },
+    },
+  ],
+  beast: [
+    {
+      id: 'beast_pounce',
+      label: 'Pounce',
+      range: 5,
+      cooldownSec: 5,
+      windupSec: 0.2,
+      kind: 'melee',
+      damage: { base: 7, levelScale: 1.6, variance: 4 },
+      status: { id: 'pinned', label: 'Pinned', kind: 'root', durationSec: 0.75 },
+    },
+  ],
+  captain: [
+    {
+      id: 'captain_breaker',
+      label: 'Line Breaker',
+      range: 4,
+      cooldownSec: 5.5,
+      windupSec: 0.45,
+      kind: 'melee',
+      damage: { base: 12, levelScale: 2.0, variance: 5 },
+      status: { id: 'pressed', label: 'Pressed', kind: 'debuff', durationSec: 5, magnitude: 0.2 },
+    },
+  ],
+};
 
 export class Combat {
   private enemiesById = new Map<string, Enemy>();
@@ -126,6 +215,21 @@ export class Combat {
     return true;
   }
 
+  getAbilityFailure(
+    slot: number,
+    player: Player,
+    now: number,
+    blockers: AbilityActivationBlockers = {},
+  ): AbilityFailureReason | null {
+    return getAbilityActivationFailure({
+      slot,
+      player,
+      now,
+      vfx: this.vfx,
+      getEnemyObject: (id) => this.enemiesById.get(id)?.object ?? null,
+    }, blockers);
+  }
+
   /** Resolve delayed release/projectile impacts from activated abilities. */
   tickAbilityImpacts(now: number): void {
     if (this.pendingImpacts.length === 0) return;
@@ -142,6 +246,7 @@ export class Combat {
   /** Expire enemy status tags produced by ability effects. */
   tickStatusEffects(now: number): void {
     const store = useGameStore.getState();
+    store.clearExpiredPlayerStatusEffects(now);
     for (const enemy of store.enemies) {
       if (!enemy.statusEffects?.length) continue;
       const active = enemy.statusEffects.filter((effect) => effect.expiresAt > now);
@@ -158,12 +263,18 @@ export class Combat {
   /** Chase, attack, and leash enemies each game tick. */
   tickEnemies(dt: number, now: number, player: Player) {
     const store = useGameStore.getState();
-    if (store.playerDead) return;
+    if (store.playerDead) {
+      for (const enemy of this.enemiesById.values()) enemy.pendingAbility = null;
+      return;
+    }
 
     for (const e of store.enemies) {
-      if (!e.alive) continue;
       const enemy = this.enemiesById.get(e.id);
       if (!enemy) continue;
+      if (!e.alive) {
+        enemy.pendingAbility = null;
+        continue;
+      }
 
       const aggroRange  = enemy.spawn.aggroRange  ?? 0;
       if (aggroRange <= 0) continue; // passive — skip AI
@@ -171,6 +282,13 @@ export class Combat {
       const attackRange = enemy.spawn.attackRange  ?? 2.5;
       const moveSpeed   = (enemy.spawn.moveSpeed ?? 3.5) * enemyMoveMultiplier(e, now);
       const baseDmg     = enemy.spawn.attackDamage ?? 5;
+      const archetype = enemy.spawn.archetype ?? 'raider';
+      const abilityProfile = ENEMY_ABILITY_PROFILES[archetype];
+      const preferredRange = enemy.spawn.preferredRange
+        ?? (archetype === 'caster' ? 12 : attackRange * 0.85);
+      const castingBlocked =
+        hasBlockingStatus(e, 'silence', now) ||
+        hasBlockingStatus(e, 'stagger', now);
 
       const distToPlayer  = dist2D(player.position, enemy.position);
       const distFromHome  = enemy.position.distanceTo(enemy.homePosition);
@@ -190,26 +308,45 @@ export class Combat {
         enemy.aggroed = true;
       } else if (enemy.aggroed && distToPlayer > LEASH_RANGE) {
         enemy.aggroed = false;
+        enemy.pendingAbility = null;
       }
       if (!enemy.aggroed) continue;
 
-      // Chase
-      if (distToPlayer > attackRange * 0.9 && moveSpeed > 0) {
+      if (castingBlocked) enemy.pendingAbility = null;
+      enemy.faceToward(player.position);
+
+      // Movement: melee enemies close; casters maintain a stand-off band.
+      let moved = false;
+      if (distToPlayer > preferredRange + 0.75 && moveSpeed > 0) {
         enemy.moveToward(player.position, moveSpeed, dt);
+        moved = true;
+      } else if (archetype === 'caster' && distToPlayer < preferredRange - 2 && moveSpeed > 0) {
+        enemy.moveAwayFrom(player.position, moveSpeed * 0.85, dt);
+        moved = true;
+      }
+      if (moved) {
         store.updateEnemy(e.id, { position: vecToPlain(enemy.position) });
+      }
+
+      this.tickEnemyAbilityCast(enemy, e, player, now, store);
+      enemy.abilityCooldown = Math.max(0, enemy.abilityCooldown - dt);
+      if (!castingBlocked && !enemy.pendingAbility && enemy.abilityCooldown <= 0) {
+        this.tryStartEnemyAbility(enemy, abilityProfile, dist2D(player.position, enemy.position), now);
       }
 
       // Melee attack
       enemy.attackCooldown = Math.max(0, enemy.attackCooldown - dt);
       if (
+        archetype !== 'caster' &&
         enemy.attackCooldown <= 0 &&
-        distToPlayer <= attackRange + 0.5 &&
-        !hasBlockingStatus(e, 'stagger')
+        dist2D(player.position, enemy.position) <= attackRange + 0.5 &&
+        !hasBlockingStatus(e, 'stagger', now)
       ) {
         enemy.attackCooldown = 2.0 + Math.random() * 0.5;
         const dmg = baseDmg + Math.floor(Math.random() * 4);
         const { character, updateCharacter, setPlayerDead } = store;
         if (character) {
+          enemy.playAttackAction('melee');
           const newHp = Math.max(0, character.health - dmg);
           updateCharacter({ health: newHp });
           store.pushDamage(makeDmg(now, dmg, 'damage', player.position));
@@ -217,6 +354,93 @@ export class Combat {
         }
       }
     }
+  }
+
+  private tryStartEnemyAbility(
+    enemy: Enemy,
+    abilities: EnemyAbilityProfile[],
+    distanceToPlayer: number,
+    now: number,
+  ): void {
+    const ability = abilities.find((entry) => distanceToPlayer <= entry.range);
+    if (!ability) return;
+    enemy.pendingAbility = {
+      abilityId: ability.id,
+      dueAt: now + ability.windupSec * 1000,
+    };
+    enemy.abilityCooldown = ability.cooldownSec;
+    enemy.playAttackAction(ability.kind);
+  }
+
+  private tickEnemyAbilityCast(
+    enemy: Enemy,
+    state: EnemyState,
+    player: Player,
+    now: number,
+    store: ReturnType<typeof useGameStore.getState>,
+  ): void {
+    const pending = enemy.pendingAbility;
+    if (!pending || pending.dueAt > now) return;
+
+    const ability = enemyAbilityById(enemy.spawn.archetype ?? 'raider', pending.abilityId);
+    enemy.pendingAbility = null;
+    if (!ability) return;
+    if (
+      hasBlockingStatus(state, 'silence', now) ||
+      hasBlockingStatus(state, 'stagger', now) ||
+      dist2D(player.position, enemy.position) > ability.range + 1.5
+    ) {
+      return;
+    }
+
+    this.applyEnemyAbility(enemy, state, ability, player, now, store);
+  }
+
+  private applyEnemyAbility(
+    enemy: Enemy,
+    state: EnemyState,
+    ability: EnemyAbilityProfile,
+    player: Player,
+    now: number,
+    store: ReturnType<typeof useGameStore.getState>,
+  ): void {
+    const current = useGameStore.getState();
+    const character = current.character;
+    if (!character || current.playerDead) return;
+
+    const dmg = Math.max(
+      1,
+      Math.round(
+        ability.damage.base +
+        state.level * ability.damage.levelScale +
+        Math.random() * ability.damage.variance,
+      ),
+    );
+    const newHp = Math.max(0, character.health - dmg);
+    current.updateCharacter({ health: newHp });
+    current.pushDamage(makeDmg(now, dmg, 'damage', player.position));
+
+    if (ability.status) {
+      current.addPlayerStatusEffect({
+        id: `${ability.status.id}-${state.id}`,
+        label: ability.status.label,
+        kind: ability.status.kind,
+        expiresAt: now + ability.status.durationSec * 1000,
+        magnitude: ability.status.magnitude,
+        sourceEnemyId: state.id,
+      });
+    }
+
+    store.appendChat({
+      id: `enemy-ability-${Date.now()}-${state.id}-${ability.id}`,
+      channel: 'system',
+      from: state.name,
+      body: `${state.name} used ${ability.label}.`,
+      timestamp: Date.now(),
+    });
+
+    enemy.faceToward(player.position);
+    if (newHp <= 0) current.setPlayerDead(true);
   }
 
   // ---------------------------------------------------------------------------
@@ -386,6 +610,8 @@ export class Combat {
       enemyObj.respawnAt = now + RESPAWN_DELAY;
       enemyObj.aggroed = false;
       enemyObj.attackCooldown = 0;
+      enemyObj.abilityCooldown = 0;
+      enemyObj.pendingAbility = null;
     }
     store.updateEnemy(targetId, {
       alive: false,
@@ -404,6 +630,7 @@ export class Combat {
     // Quest progress + level-up check from the kill's XP award.
     registerEnemyKill(target.name);
     checkLevelUp();
+    store.completeGuidedTask('kill');
   }
 
   private tryLootDrop(store: ReturnType<typeof useGameStore.getState>) {
@@ -496,9 +723,15 @@ function enemyMoveMultiplier(enemy: EnemyState, now: number): number {
   return Math.max(0.15, 1 - strongestSlow);
 }
 
-function hasBlockingStatus(enemy: EnemyState, kind: CombatStatusEffect['kind']): boolean {
-  const now = performance.now();
+function hasBlockingStatus(enemy: EnemyState, kind: CombatStatusEffect['kind'], now: number): boolean {
   return (enemy.statusEffects ?? []).some((effect) => effect.kind === kind && effect.expiresAt > now);
+}
+
+function enemyAbilityById(
+  archetype: EnemyArchetype,
+  abilityId: string,
+): EnemyAbilityProfile | null {
+  return ENEMY_ABILITY_PROFILES[archetype].find((ability) => ability.id === abilityId) ?? null;
 }
 
 function vecToPlain(v: { x: number; y: number; z: number }) {

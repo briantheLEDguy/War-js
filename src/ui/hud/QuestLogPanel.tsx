@@ -1,9 +1,16 @@
 import { QUESTS_BY_ID } from '../../data/quests';
 import { useGameStore } from '../../state/gameStore';
 import type { QuestProgress } from '../../services/types';
+import { useDraggableWindow } from './useDraggableWindow';
 
 /** Quest log — toggled with L. Shows active and completed quests with progress. */
 export function QuestLogPanel() {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const quests = useGameStore((s) => s.quests);
   const toggle = useGameStore((s) => s.toggleQuestLog);
 
@@ -13,8 +20,8 @@ export function QuestLogPanel() {
   const completed = quests.filter((q) => q.status === 'completed');
 
   return (
-    <div className="panel quest-log">
-      <div className="quest-log-header">
+    <div ref={panelRef} className={`panel quest-log${dragClassName}`} style={dragStyle}>
+      <div className="quest-log-header draggable-window-handle" {...dragHandleProps}>
         <h2>Quest Log</h2>
         <button className="quest-close" onClick={toggle}>
           Close

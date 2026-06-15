@@ -1,0 +1,981 @@
+{
+  "id": "cindermaw_pit",
+  "name": "Cindermaw Pit",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "Boss",
+    "lane": "riftbound_west",
+    "laneLabel": "Riftbound West March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 1 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "cindermaw_pit_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "cindermaw_pit_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "cindermaw_pit_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "cindermaw_pit_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "cindermaw_pit_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "cindermaw_pit_portal_cinderfen_outskirts",
+      "kind": "gate",
+      "x": -81.7,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "cindermaw_pit_portal_cinderfen_outskirts_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "cindermaw_pit_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "cindermaw_pit_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "cindermaw_pit_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "cindermaw_pit_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "cindermaw_pit_ore_node_01_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -52.6,
+      "z": -21.2,
+      "rotY": 3.5886,
+      "scale": 0.75
+    },
+    {
+      "id": "cindermaw_pit_scrap_node_02_visual",
+      "kind": "rock",
+      "x": 45.6,
+      "z": -22.1,
+      "rotY": 1.071,
+      "scale": 0.91
+    },
+    {
+      "id": "cindermaw_pit_relic_node_03_visual",
+      "kind": "statue",
+      "x": -44.8,
+      "z": 30.2,
+      "rotY": 2.7518,
+      "scale": 0.55
+    },
+    {
+      "id": "cindermaw_pit_ore_node_04_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 45,
+      "z": 36,
+      "rotY": 5.2373,
+      "scale": 0.75
+    },
+    {
+      "id": "cindermaw_pit_soil_node_05_visual",
+      "kind": "pnw_grass_clump",
+      "x": 2.6,
+      "z": 72.1,
+      "rotY": 3.6224,
+      "scale": 0.97
+    },
+    {
+      "id": "cindermaw_pit_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 6,
+      "z": -41.8,
+      "rotY": 1.8627,
+      "scale": 1.47
+    },
+    {
+      "id": "cindermaw_pit_tree_02",
+      "kind": "tree",
+      "x": -42.6,
+      "z": 54.9,
+      "rotY": 0.4616,
+      "scale": 1.17
+    },
+    {
+      "id": "cindermaw_pit_tree_03",
+      "kind": "tree",
+      "x": -30.2,
+      "z": 67.1,
+      "rotY": 6.1343,
+      "scale": 1.32
+    },
+    {
+      "id": "cindermaw_pit_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": -31.9,
+      "z": 27.5,
+      "rotY": 1.5163,
+      "scale": 1.27
+    },
+    {
+      "id": "cindermaw_pit_tree_05",
+      "kind": "tree",
+      "x": 32.1,
+      "z": -65.4,
+      "rotY": 1.0072,
+      "scale": 1.3
+    },
+    {
+      "id": "cindermaw_pit_tree_06",
+      "kind": "tree",
+      "x": -39.5,
+      "z": 50.6,
+      "rotY": 1.2819,
+      "scale": 0.83
+    },
+    {
+      "id": "cindermaw_pit_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": 69.1,
+      "z": -13.8,
+      "rotY": 3.8667,
+      "scale": 0.84
+    },
+    {
+      "id": "cindermaw_pit_tree_08",
+      "kind": "tree",
+      "x": -37.4,
+      "z": 63.8,
+      "rotY": 2.8411,
+      "scale": 0.82
+    },
+    {
+      "id": "cindermaw_pit_tree_09",
+      "kind": "tree",
+      "x": 55.5,
+      "z": 18.9,
+      "rotY": 2.0777,
+      "scale": 1.14
+    },
+    {
+      "id": "cindermaw_pit_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": -71.4,
+      "z": 40.3,
+      "rotY": 3.1473,
+      "scale": 1.18
+    },
+    {
+      "id": "cindermaw_pit_tree_11",
+      "kind": "tree",
+      "x": -22.3,
+      "z": -50.2,
+      "rotY": 3.2758,
+      "scale": 1.3
+    },
+    {
+      "id": "cindermaw_pit_tree_12",
+      "kind": "tree",
+      "x": -46.3,
+      "z": 21.3,
+      "rotY": 2.2754,
+      "scale": 1.09
+    },
+    {
+      "id": "cindermaw_pit_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": 18,
+      "z": -70.2,
+      "rotY": 6.2386,
+      "scale": 1.42
+    },
+    {
+      "id": "cindermaw_pit_tree_14",
+      "kind": "tree",
+      "x": 9,
+      "z": -42.5,
+      "rotY": 2.4562,
+      "scale": 1.24
+    },
+    {
+      "id": "cindermaw_pit_tree_15",
+      "kind": "tree",
+      "x": 61,
+      "z": -44.4,
+      "rotY": 3.5542,
+      "scale": 1.18
+    },
+    {
+      "id": "cindermaw_pit_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": 37.2,
+      "z": -48.3,
+      "rotY": 2.1693,
+      "scale": 1.48
+    },
+    {
+      "id": "cindermaw_pit_tree_17",
+      "kind": "tree",
+      "x": 60.6,
+      "z": -50.1,
+      "rotY": 5.8023,
+      "scale": 1.44
+    },
+    {
+      "id": "cindermaw_pit_tree_18",
+      "kind": "tree",
+      "x": 45.4,
+      "z": 1.6,
+      "rotY": 3.3824,
+      "scale": 0.82
+    },
+    {
+      "id": "cindermaw_pit_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": 40.8,
+      "z": -30.7,
+      "rotY": 4.4297,
+      "scale": 0.9
+    },
+    {
+      "id": "cindermaw_pit_tree_20",
+      "kind": "tree",
+      "x": -6.7,
+      "z": 70.2,
+      "rotY": 2.174,
+      "scale": 1.11
+    },
+    {
+      "id": "cindermaw_pit_rock_01",
+      "kind": "rock",
+      "x": 28.6,
+      "z": -65.7,
+      "rotY": 3.0832,
+      "scale": 1.8
+    },
+    {
+      "id": "cindermaw_pit_rock_02",
+      "kind": "rock",
+      "x": 49.6,
+      "z": 29.3,
+      "rotY": 0.597,
+      "scale": 1.22
+    },
+    {
+      "id": "cindermaw_pit_rock_03",
+      "kind": "rock",
+      "x": 53.3,
+      "z": 45.5,
+      "rotY": 1.648,
+      "scale": 1.44
+    },
+    {
+      "id": "cindermaw_pit_rock_04",
+      "kind": "rock",
+      "x": 34.1,
+      "z": -77.9,
+      "rotY": 1.4424,
+      "scale": 0.99
+    },
+    {
+      "id": "cindermaw_pit_rock_05",
+      "kind": "rock",
+      "x": -38.5,
+      "z": -62.6,
+      "rotY": 3.5323,
+      "scale": 2.5
+    },
+    {
+      "id": "cindermaw_pit_rock_06",
+      "kind": "rock",
+      "x": -75.6,
+      "z": 2.5,
+      "rotY": 3.0962,
+      "scale": 1.15
+    },
+    {
+      "id": "cindermaw_pit_rock_07",
+      "kind": "rock",
+      "x": -12,
+      "z": 76.6,
+      "rotY": 3.9888,
+      "scale": 0.75
+    },
+    {
+      "id": "cindermaw_pit_rock_08",
+      "kind": "rock",
+      "x": -53.3,
+      "z": -27.3,
+      "rotY": 0.2044,
+      "scale": 2.41
+    },
+    {
+      "id": "cindermaw_pit_rock_09",
+      "kind": "rock",
+      "x": -39,
+      "z": 70.4,
+      "rotY": 6.1591,
+      "scale": 1.14
+    },
+    {
+      "id": "cindermaw_pit_rock_10",
+      "kind": "rock",
+      "x": 10,
+      "z": 66.5,
+      "rotY": 2.9285,
+      "scale": 1.05
+    },
+    {
+      "id": "cindermaw_pit_rock_11",
+      "kind": "rock",
+      "x": -82.9,
+      "z": 8.2,
+      "rotY": 2.0543,
+      "scale": 1.45
+    },
+    {
+      "id": "cindermaw_pit_rock_12",
+      "kind": "rock",
+      "x": -7.7,
+      "z": 86.8,
+      "rotY": 4.8793,
+      "scale": 1.17
+    },
+    {
+      "id": "cindermaw_pit_rock_13",
+      "kind": "rock",
+      "x": 10.8,
+      "z": 75.9,
+      "rotY": 1.0619,
+      "scale": 1.03
+    },
+    {
+      "id": "cindermaw_pit_rock_14",
+      "kind": "rock",
+      "x": -4.2,
+      "z": -63.5,
+      "rotY": 1.5223,
+      "scale": 1.25
+    },
+    {
+      "id": "cindermaw_pit_rock_15",
+      "kind": "rock",
+      "x": -11.8,
+      "z": 72.5,
+      "rotY": 0.2069,
+      "scale": 1.47
+    },
+    {
+      "id": "cindermaw_pit_rock_16",
+      "kind": "rock",
+      "x": 10.4,
+      "z": -64.7,
+      "rotY": 3.2303,
+      "scale": 1.38
+    },
+    {
+      "id": "cindermaw_pit_rock_17",
+      "kind": "rock",
+      "x": -77,
+      "z": -22.8,
+      "rotY": 1.9759,
+      "scale": 2.22
+    },
+    {
+      "id": "cindermaw_pit_rock_18",
+      "kind": "rock",
+      "x": 57.4,
+      "z": -34.4,
+      "rotY": 2.4612,
+      "scale": 1.18
+    },
+    {
+      "id": "cindermaw_pit_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "cindermaw_pit_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "cindermaw_pit_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "cindermaw_pit_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "cindermaw_pit_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "cindermaw_pit_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "cindermaw_pit_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "cindermaw_pit_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "cindermaw_pit_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "cindermaw_pit_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "cindermaw_pit_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "cindermaw_pit_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "cindermaw_pit_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "cindermaw_pit_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "cindermaw_pit_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "cindermaw_pit_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "cindermaw_pit_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "cindermaw_pit_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "cindermaw_pit_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "cindermaw_pit_marshal",
+      "name": "Nyra Vex",
+      "title": "Tier 1 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_tier_1_boss_campaign_marshal"
+    },
+    {
+      "id": "cindermaw_pit_expedition_guide",
+      "name": "Gorvak Mirehand",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "cindermaw_pit_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "cindermaw_pit_overlord",
+      "name": "Cindermaw Pit Overlord",
+      "level": 8,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_riftbound_cindermaw_pit_overlord_captain"
+    },
+    {
+      "id": "cindermaw_pit_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "cindermaw_pit_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "cindermaw_pit_beast_1",
+      "name": "Rift Hound",
+      "level": 6,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "cindermaw_pit_beast_2",
+      "name": "Rift Hound",
+      "level": 6,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "cindermaw_pit_adept_1",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    },
+    {
+      "id": "cindermaw_pit_adept_2",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "cindermaw_pit_ore_node_01",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -52.6,
+      "z": -21.2,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "cindermaw_pit_ore_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "cindermaw_pit_scrap_node_02",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 45.6,
+      "z": -22.1,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "cindermaw_pit_scrap_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "cindermaw_pit_relic_node_03",
+      "label": "Riftbound Relic Shards",
+      "kind": "relic",
+      "professionId": "salvaging",
+      "x": -44.8,
+      "z": 30.2,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "cindermaw_pit_relic_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_arcane_dust",
+          "qty": 1,
+          "chance": 0.75,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.44
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1,
+          "chance": 0.14
+        }
+      ]
+    },
+    {
+      "id": "cindermaw_pit_ore_node_04",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 45,
+      "z": 36,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "cindermaw_pit_ore_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "cindermaw_pit_soil_node_05",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 2.6,
+      "z": 72.1,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "cindermaw_pit_soil_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "cindermaw_pit_boss",
+      "type": "boss",
+      "label": "Cindermaw Pit Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "cindermaw_pit_to_cinderfen_outskirts",
+      "label": "Travel to Cinderfen Outskirts",
+      "x": -81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "cinderfen_outskirts",
+      "targetSpawn": {
+        "x": -113.3,
+        "y": 0,
+        "z": 19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "cindermaw_pit_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 1955045324,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_low_shrub",
+        "pnw_grass_clump",
+        "pnw_mossy_boulder",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "d1d93cb28b3bbc24"
+}

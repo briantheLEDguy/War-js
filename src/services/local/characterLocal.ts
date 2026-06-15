@@ -5,23 +5,13 @@ import type {
 } from '../types';
 import { normalizeClassName } from '../../data/careers';
 import { normalizeBodyVariant, starterArmorEquipmentFor } from '../../data/playableAssets.generated';
+import {
+  defaultZoneForRace,
+  defaultZoneSpawnPoint,
+  normalizePlayableZoneId,
+  zoneWasNormalized,
+} from '../../data/zoneRouting';
 import { createLocalId } from './id';
-
-/** Order races start in Altdorf; Destruction races in the Inevitable City. */
-function defaultZoneForRace(race: CharacterState['race']): string {
-  switch (race) {
-    case 'empire':
-    case 'dwarf':
-    case 'high_elf':
-      return 'altdorf';
-    case 'chaos':
-    case 'greenskin':
-    case 'dark_elf':
-      return 'inevitable_city';
-    default:
-      return 'altdorf';
-  }
-}
 
 const PREBUILT: Record<string, CharacterState> = {
   'char-sigmund': {
@@ -32,7 +22,7 @@ const PREBUILT: Record<string, CharacterState> = {
     bodyVariant: 'm',
     level: 5,
     xp: 320,
-    zoneId: 'altdorf',
+    zoneId: 'aegis_capital',
     health: 180,
     maxHealth: 180,
     mana: 60,
@@ -51,7 +41,7 @@ const PREBUILT: Record<string, CharacterState> = {
     bodyVariant: 'm',
     level: 4,
     xp: 110,
-    zoneId: 'inevitable_city',
+    zoneId: 'riftspire_capital',
     health: 120,
     maxHealth: 120,
     mana: 160,
@@ -118,7 +108,7 @@ export class CharacterLocal implements CharacterService {
       maxMana: 100,
       strength: 10,
       gold: 0,
-      position: { x: -20, y: 0, z: 31 },
+      position: { x: 0, y: 0, z: -40 },
       rotationY: Math.PI,
       equipment: starterArmorEquipmentFor(data.race, data.className, data.bodyVariant),
     };
@@ -130,28 +120,34 @@ export class CharacterLocal implements CharacterService {
   async load(characterId: string): Promise<CharacterState> {
     const c = this.store[characterId];
     if (!c) throw new Error(`Character not found: ${characterId}`);
+    const normalized = normalizeCharacterState(c);
+    if (normalized.zoneId !== c.zoneId) {
+      this.store[characterId] = normalized;
+      this.persist();
+    }
     // Backfill fields added after this character was first saved so older
     // localStorage payloads still load cleanly with sensible defaults.
-    return {
-      ...c,
-      className: normalizeClassName(c.className),
-      bodyVariant: normalizeBodyVariant(c.bodyVariant),
-      strength: c.strength ?? 10,
-      gold: c.gold ?? 0,
-      equipment: equipmentOrStarter(c),
-    };
+    return normalized;
   }
 
   async save(characterId: string, state: Partial<CharacterState>): Promise<void> {
     const c = this.store[characterId];
     if (!c) return;
-    this.store[characterId] = {
+    this.store[characterId] = normalizeCharacterState({
       ...c,
       ...state,
       className: normalizeClassName(state.className ?? c.className),
       bodyVariant: normalizeBodyVariant(state.bodyVariant ?? c.bodyVariant),
-    };
+    });
     this.persist();
+  }
+
+  async findByName(name: string): Promise<CharacterState[]> {
+    const needle = normalizeLookupName(name);
+    if (!needle) return [];
+    return Object.values(this.store)
+      .map(normalizeCharacterState)
+      .filter((character) => normalizeLookupName(character.name) === needle);
   }
 }
 
@@ -168,10 +164,15 @@ function toSummary(c: CharacterState): CharacterSummary {
 }
 
 function normalizeCharacterState(c: CharacterState): CharacterState {
+  const zoneId = normalizePlayableZoneId(c.zoneId, c.race);
   return {
     ...c,
     className: normalizeClassName(c.className),
     bodyVariant: normalizeBodyVariant(c.bodyVariant),
+    zoneId,
+    position: zoneWasNormalized(c.zoneId, zoneId) ? defaultZoneSpawnPoint(zoneId) : c.position,
+    strength: c.strength ?? 10,
+    gold: c.gold ?? 0,
     equipment: equipmentOrStarter(c),
   };
 }
@@ -180,4 +181,8 @@ function equipmentOrStarter(c: CharacterState): CharacterState['equipment'] {
   return c.equipment && Object.keys(c.equipment).length > 0
     ? c.equipment
     : starterArmorEquipmentFor(c.race, c.className, c.bodyVariant);
+}
+
+function normalizeLookupName(name: string | null | undefined): string {
+  return name?.trim().toLowerCase() ?? '';
 }

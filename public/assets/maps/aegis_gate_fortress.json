@@ -1,0 +1,2584 @@
+{
+  "id": "aegis_gate_fortress",
+  "name": "Starfall Gate",
+  "size": 340,
+  "segments": 96,
+  "terrainTexture": "stone_wall.svg",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "Fortress",
+    "lane": "central",
+    "laneLabel": "Central Front",
+    "nodeRole": "fortress",
+    "levelBand": "Endgame"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -118
+  },
+  "paths": [
+    {
+      "id": "aegis_gate_fortress_main_road",
+      "style": "cobblestone_avenue",
+      "width": 11,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_portal_road_1",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 146.2
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_portal_road_2",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": -146.2
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "aegis_gate_fortress_west_objective_banner",
+      "kind": "banner_post",
+      "x": -72,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "aegis_gate_fortress_west_objective_stone_left",
+      "kind": "rock",
+      "x": -79,
+      "z": -20,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_gate_fortress_west_objective_stone_right",
+      "kind": "rock",
+      "x": -65,
+      "z": -20,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_gate_fortress_central_objective_banner",
+      "kind": "banner_post",
+      "x": 0,
+      "z": -6,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "aegis_gate_fortress_central_objective_stone_left",
+      "kind": "rock",
+      "x": -7,
+      "z": -2,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_gate_fortress_central_objective_stone_right",
+      "kind": "rock",
+      "x": 7,
+      "z": -2,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_gate_fortress_east_objective_banner",
+      "kind": "banner_post",
+      "x": 72,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "aegis_gate_fortress_east_objective_stone_left",
+      "kind": "rock",
+      "x": 65,
+      "z": -20,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_gate_fortress_east_objective_stone_right",
+      "kind": "rock",
+      "x": 79,
+      "z": -20,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": -77.2,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": -38.8,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -75.6,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -40.4,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.06,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": -86.7,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.06,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": -29.3,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.06,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": -86.7,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": -29.3,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": -86.7,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": -29.3,
+      "z": 83.5,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": -58,
+      "z": 32.5,
+      "rotY": 0,
+      "scale": 0.87,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_aegis_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_aegis_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": -58,
+      "z": 83.5,
+      "rotY": 3.1416,
+      "scale": 0.77,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_aegis_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_aegis_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": -68.1,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": -47.9,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -68.1,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -47.9,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.92,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": -74,
+      "z": 62.3,
+      "rotY": 1.5708,
+      "scale": 0.92,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": -42,
+      "z": 62.3,
+      "rotY": 1.5708,
+      "scale": 0.92,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": -74,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": -42,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": -74,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": -42,
+      "z": 74,
+      "rotY": 0,
+      "scale": 0.87,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": -58,
+      "z": 50,
+      "rotY": 0,
+      "scale": 0.7,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_aegis_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_aegis_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": -58,
+      "z": 74,
+      "rotY": 3.1416,
+      "scale": 0.66,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_aegis_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_aegis_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_banner_left",
+      "kind": "banner_post",
+      "x": -80,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_banner_right",
+      "kind": "banner_post",
+      "x": -36,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": 36.8,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": 79.2,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 38.6,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 77.4,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.18,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": 26.2,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.18,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": 89.8,
+      "z": 58,
+      "rotY": 1.5708,
+      "scale": 1.18,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": 26.2,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": 89.8,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": 26.2,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": 89.8,
+      "z": 86.2,
+      "rotY": 0,
+      "scale": 1.23,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": 58,
+      "z": 29.8,
+      "rotY": 0,
+      "scale": 0.96,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_riftbound_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_riftbound_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": 58,
+      "z": 86.2,
+      "rotY": 3.1416,
+      "scale": 0.85,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_riftbound_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_riftbound_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": 46.8,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": 69.2,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 46.8,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 69.2,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 1.01,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": 40.4,
+      "z": 62.7,
+      "rotY": 1.5708,
+      "scale": 1.01,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": 75.6,
+      "z": 62.7,
+      "rotY": 1.5708,
+      "scale": 1.01,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": 40.4,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": 75.6,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": 40.4,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": 75.6,
+      "z": 75.6,
+      "rotY": 0,
+      "scale": 0.96,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": 58,
+      "z": 49.2,
+      "rotY": 0,
+      "scale": 0.78,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_riftbound_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_riftbound_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": 58,
+      "z": 75.6,
+      "rotY": 3.1416,
+      "scale": 0.73,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_gate_fortress_riftbound_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_banner_left",
+      "kind": "banner_post",
+      "x": 36,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_banner_right",
+      "kind": "banner_post",
+      "x": 80,
+      "z": 38,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "aegis_gate_fortress_portal_aegis_capital",
+      "kind": "gate",
+      "x": 0,
+      "z": 146.2,
+      "rotY": 3.1416,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_portal_aegis_capital_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_portal_aegis_crownworks",
+      "kind": "gate",
+      "x": 0,
+      "z": -146.2,
+      "rotY": 0,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "aegis_gate_fortress_portal_aegis_crownworks_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_salvage_station_visual",
+      "kind": "vendor_stall",
+      "x": -42,
+      "z": -44,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_gate_fortress_apothecary_station_visual",
+      "kind": "vendor_stall",
+      "x": 42,
+      "z": -44,
+      "rotY": 0.35,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_gate_fortress_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -52,
+      "rotY": 0.7,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_gate_fortress_outer_yard_barricade_left",
+      "kind": "wall_segment",
+      "x": -64,
+      "z": -40,
+      "rotY": 0.25,
+      "scale": 0.8
+    },
+    {
+      "id": "aegis_gate_fortress_outer_yard_barricade_right",
+      "kind": "wall_segment",
+      "x": 64,
+      "z": -40,
+      "rotY": -0.25,
+      "scale": 0.8
+    },
+    {
+      "id": "aegis_gate_fortress_siege_workshop",
+      "kind": "vendor_stall",
+      "x": 54,
+      "z": -38,
+      "rotY": -0.6,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_gate_fortress_field_hospital",
+      "kind": "vendor_stall",
+      "x": -54,
+      "z": -38,
+      "rotY": 0.6,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_gate_fortress_fortress_watchtower_west",
+      "kind": "tower",
+      "x": -88,
+      "z": 8,
+      "rotY": 0,
+      "scale": 0.85
+    },
+    {
+      "id": "aegis_gate_fortress_fortress_watchtower_east",
+      "kind": "tower",
+      "x": 88,
+      "z": 8,
+      "rotY": 0,
+      "scale": 0.85
+    },
+    {
+      "id": "aegis_gate_fortress_scrap_node_01_visual",
+      "kind": "rock",
+      "x": -95.2,
+      "z": -56.7,
+      "rotY": 2.1155,
+      "scale": 0.75
+    },
+    {
+      "id": "aegis_gate_fortress_ore_node_02_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -114.7,
+      "z": 2.8,
+      "rotY": 0.189,
+      "scale": 0.91
+    },
+    {
+      "id": "aegis_gate_fortress_herb_node_03_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -70.2,
+      "z": 66.6,
+      "rotY": 1.7605,
+      "scale": 1.09
+    },
+    {
+      "id": "aegis_gate_fortress_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 93.6,
+      "z": -62.4,
+      "rotY": 2.3881,
+      "scale": 0.85
+    },
+    {
+      "id": "aegis_gate_fortress_relic_node_05_visual",
+      "kind": "statue",
+      "x": 108.7,
+      "z": 0.8,
+      "rotY": 5.4553,
+      "scale": 0.55
+    },
+    {
+      "id": "aegis_gate_fortress_water_node_06_visual",
+      "kind": "pnw_low_shrub",
+      "x": 77.6,
+      "z": 66.2,
+      "rotY": 5.2729,
+      "scale": 1.09
+    },
+    {
+      "id": "aegis_gate_fortress_scrap_node_07_visual",
+      "kind": "rock",
+      "x": -23.3,
+      "z": -77.7,
+      "rotY": 3.593,
+      "scale": 0.75
+    },
+    {
+      "id": "aegis_gate_fortress_ore_node_08_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 30.8,
+      "z": -74.4,
+      "rotY": 4.9246,
+      "scale": 0.91
+    },
+    {
+      "id": "aegis_gate_fortress_tree_01",
+      "kind": "tree",
+      "x": 75.1,
+      "z": -119,
+      "rotY": 5.407,
+      "scale": 0.87
+    },
+    {
+      "id": "aegis_gate_fortress_tree_02",
+      "kind": "tree",
+      "x": 141.6,
+      "z": 43.5,
+      "rotY": 3.8702,
+      "scale": 0.92
+    },
+    {
+      "id": "aegis_gate_fortress_tree_03",
+      "kind": "tree",
+      "x": 109.7,
+      "z": 32.2,
+      "rotY": 1.6139,
+      "scale": 1.49
+    },
+    {
+      "id": "aegis_gate_fortress_tree_04",
+      "kind": "tree",
+      "x": 104.5,
+      "z": -21.2,
+      "rotY": 1.7387,
+      "scale": 1.35
+    },
+    {
+      "id": "aegis_gate_fortress_tree_05",
+      "kind": "tree",
+      "x": 98.3,
+      "z": 29.9,
+      "rotY": 6.194,
+      "scale": 1.37
+    },
+    {
+      "id": "aegis_gate_fortress_tree_06",
+      "kind": "tree",
+      "x": -107,
+      "z": -23.2,
+      "rotY": 3.2791,
+      "scale": 1.41
+    },
+    {
+      "id": "aegis_gate_fortress_tree_07",
+      "kind": "tree",
+      "x": -70.1,
+      "z": -64.9,
+      "rotY": 2.4725,
+      "scale": 1.28
+    },
+    {
+      "id": "aegis_gate_fortress_tree_08",
+      "kind": "tree",
+      "x": 29.6,
+      "z": -89,
+      "rotY": 2.6626,
+      "scale": 1.29
+    },
+    {
+      "id": "aegis_gate_fortress_tree_09",
+      "kind": "tree",
+      "x": 113.6,
+      "z": 19,
+      "rotY": 3.9841,
+      "scale": 0.88
+    },
+    {
+      "id": "aegis_gate_fortress_tree_10",
+      "kind": "tree",
+      "x": -77.7,
+      "z": 1.4,
+      "rotY": 1.1481,
+      "scale": 1.01
+    },
+    {
+      "id": "aegis_gate_fortress_tree_11",
+      "kind": "tree",
+      "x": 104.7,
+      "z": 86.6,
+      "rotY": 4.9435,
+      "scale": 0.76
+    },
+    {
+      "id": "aegis_gate_fortress_tree_12",
+      "kind": "tree",
+      "x": 145.7,
+      "z": -30.2,
+      "rotY": 3.0845,
+      "scale": 1.49
+    },
+    {
+      "id": "aegis_gate_fortress_tree_13",
+      "kind": "tree",
+      "x": -75.5,
+      "z": 7.4,
+      "rotY": 2.5198,
+      "scale": 0.93
+    },
+    {
+      "id": "aegis_gate_fortress_tree_14",
+      "kind": "tree",
+      "x": -65.1,
+      "z": 43.4,
+      "rotY": 0.9324,
+      "scale": 0.83
+    },
+    {
+      "id": "aegis_gate_fortress_tree_15",
+      "kind": "tree",
+      "x": -111.4,
+      "z": -91.1,
+      "rotY": 4.2319,
+      "scale": 1.11
+    },
+    {
+      "id": "aegis_gate_fortress_tree_16",
+      "kind": "tree",
+      "x": 73.9,
+      "z": -32.7,
+      "rotY": 2.3654,
+      "scale": 0.93
+    },
+    {
+      "id": "aegis_gate_fortress_tree_17",
+      "kind": "tree",
+      "x": -130.5,
+      "z": -31.8,
+      "rotY": 4.0688,
+      "scale": 1.46
+    },
+    {
+      "id": "aegis_gate_fortress_tree_18",
+      "kind": "tree",
+      "x": 115.4,
+      "z": 3.8,
+      "rotY": 6.0839,
+      "scale": 0.83
+    },
+    {
+      "id": "aegis_gate_fortress_tree_19",
+      "kind": "tree",
+      "x": 41,
+      "z": 120,
+      "rotY": 2.0997,
+      "scale": 1.02
+    },
+    {
+      "id": "aegis_gate_fortress_tree_20",
+      "kind": "tree",
+      "x": 103.4,
+      "z": -11.6,
+      "rotY": 0.53,
+      "scale": 1.33
+    },
+    {
+      "id": "aegis_gate_fortress_tree_21",
+      "kind": "tree",
+      "x": -121.4,
+      "z": 15.5,
+      "rotY": 2.3171,
+      "scale": 0.95
+    },
+    {
+      "id": "aegis_gate_fortress_tree_22",
+      "kind": "tree",
+      "x": -43.3,
+      "z": -98.8,
+      "rotY": 0.408,
+      "scale": 1.34
+    },
+    {
+      "id": "aegis_gate_fortress_tree_23",
+      "kind": "tree",
+      "x": 70.8,
+      "z": -78.2,
+      "rotY": 6.1997,
+      "scale": 1.12
+    },
+    {
+      "id": "aegis_gate_fortress_tree_24",
+      "kind": "tree",
+      "x": -38.4,
+      "z": -127.2,
+      "rotY": 5.0866,
+      "scale": 1.3
+    },
+    {
+      "id": "aegis_gate_fortress_tree_25",
+      "kind": "tree",
+      "x": 63.2,
+      "z": -119,
+      "rotY": 5.2383,
+      "scale": 0.76
+    },
+    {
+      "id": "aegis_gate_fortress_tree_26",
+      "kind": "tree",
+      "x": -59.4,
+      "z": 113.4,
+      "rotY": 1.7076,
+      "scale": 1.15
+    },
+    {
+      "id": "aegis_gate_fortress_tree_27",
+      "kind": "tree",
+      "x": 76.2,
+      "z": -22.4,
+      "rotY": 2.3363,
+      "scale": 1.29
+    },
+    {
+      "id": "aegis_gate_fortress_tree_28",
+      "kind": "tree",
+      "x": 19.6,
+      "z": -100.3,
+      "rotY": 3.5616,
+      "scale": 1.12
+    },
+    {
+      "id": "aegis_gate_fortress_tree_29",
+      "kind": "tree",
+      "x": -1.2,
+      "z": 115.1,
+      "rotY": 0.9794,
+      "scale": 1.33
+    },
+    {
+      "id": "aegis_gate_fortress_tree_30",
+      "kind": "tree",
+      "x": 32.6,
+      "z": -80,
+      "rotY": 1.0211,
+      "scale": 1.16
+    },
+    {
+      "id": "aegis_gate_fortress_tree_31",
+      "kind": "tree",
+      "x": 90.9,
+      "z": -43,
+      "rotY": 2.7198,
+      "scale": 1.46
+    },
+    {
+      "id": "aegis_gate_fortress_tree_32",
+      "kind": "tree",
+      "x": -126.6,
+      "z": -73.5,
+      "rotY": 3.6908,
+      "scale": 1.33
+    },
+    {
+      "id": "aegis_gate_fortress_tree_33",
+      "kind": "tree",
+      "x": -93.3,
+      "z": 35.6,
+      "rotY": 3.7299,
+      "scale": 1.35
+    },
+    {
+      "id": "aegis_gate_fortress_tree_34",
+      "kind": "tree",
+      "x": -78.2,
+      "z": 108,
+      "rotY": 5.8848,
+      "scale": 0.9
+    },
+    {
+      "id": "aegis_gate_fortress_tree_35",
+      "kind": "tree",
+      "x": -50.7,
+      "z": -84.7,
+      "rotY": 5.1602,
+      "scale": 1.42
+    },
+    {
+      "id": "aegis_gate_fortress_tree_36",
+      "kind": "tree",
+      "x": 23,
+      "z": -112.8,
+      "rotY": 4.2844,
+      "scale": 1.43
+    },
+    {
+      "id": "aegis_gate_fortress_tree_37",
+      "kind": "tree",
+      "x": -71.2,
+      "z": 40.4,
+      "rotY": 1.012,
+      "scale": 0.81
+    },
+    {
+      "id": "aegis_gate_fortress_tree_38",
+      "kind": "tree",
+      "x": 83,
+      "z": 43.5,
+      "rotY": 4.8303,
+      "scale": 1.25
+    },
+    {
+      "id": "aegis_gate_fortress_tree_39",
+      "kind": "tree",
+      "x": 23.9,
+      "z": 105,
+      "rotY": 0.583,
+      "scale": 1.47
+    },
+    {
+      "id": "aegis_gate_fortress_tree_40",
+      "kind": "tree",
+      "x": -2.8,
+      "z": -82.9,
+      "rotY": 3.1294,
+      "scale": 0.81
+    },
+    {
+      "id": "aegis_gate_fortress_tree_41",
+      "kind": "tree",
+      "x": 93.4,
+      "z": 101.1,
+      "rotY": 0.6337,
+      "scale": 0.89
+    },
+    {
+      "id": "aegis_gate_fortress_tree_42",
+      "kind": "tree",
+      "x": -16.8,
+      "z": 102.5,
+      "rotY": 3.4887,
+      "scale": 1.34
+    },
+    {
+      "id": "aegis_gate_fortress_rock_01",
+      "kind": "rock",
+      "x": 89.4,
+      "z": -125.4,
+      "rotY": 2.212,
+      "scale": 1.91
+    },
+    {
+      "id": "aegis_gate_fortress_rock_02",
+      "kind": "rock",
+      "x": 22.1,
+      "z": -112.6,
+      "rotY": 3.1994,
+      "scale": 2.38
+    },
+    {
+      "id": "aegis_gate_fortress_rock_03",
+      "kind": "rock",
+      "x": 109.6,
+      "z": -46.1,
+      "rotY": 5.17,
+      "scale": 0.71
+    },
+    {
+      "id": "aegis_gate_fortress_rock_04",
+      "kind": "rock",
+      "x": 131.8,
+      "z": 71.3,
+      "rotY": 0.6936,
+      "scale": 2.28
+    },
+    {
+      "id": "aegis_gate_fortress_rock_05",
+      "kind": "rock",
+      "x": -99.4,
+      "z": -113.9,
+      "rotY": 3.6571,
+      "scale": 2.09
+    },
+    {
+      "id": "aegis_gate_fortress_rock_06",
+      "kind": "rock",
+      "x": -46.7,
+      "z": 91.2,
+      "rotY": 3.9209,
+      "scale": 0.94
+    },
+    {
+      "id": "aegis_gate_fortress_rock_07",
+      "kind": "rock",
+      "x": -111.7,
+      "z": -15.8,
+      "rotY": 0.0073,
+      "scale": 2.2
+    },
+    {
+      "id": "aegis_gate_fortress_rock_08",
+      "kind": "rock",
+      "x": 23.8,
+      "z": -129,
+      "rotY": 5.8588,
+      "scale": 1.36
+    },
+    {
+      "id": "aegis_gate_fortress_rock_09",
+      "kind": "rock",
+      "x": -28.3,
+      "z": -131.8,
+      "rotY": 4.484,
+      "scale": 0.73
+    },
+    {
+      "id": "aegis_gate_fortress_rock_10",
+      "kind": "rock",
+      "x": 119.5,
+      "z": 6.2,
+      "rotY": 2.4166,
+      "scale": 1.48
+    },
+    {
+      "id": "aegis_gate_fortress_rock_11",
+      "kind": "rock",
+      "x": 48,
+      "z": -86,
+      "rotY": 2.0499,
+      "scale": 2.17
+    },
+    {
+      "id": "aegis_gate_fortress_rock_12",
+      "kind": "rock",
+      "x": -58.8,
+      "z": 98.2,
+      "rotY": 4.9427,
+      "scale": 1.73
+    },
+    {
+      "id": "aegis_gate_fortress_rock_13",
+      "kind": "rock",
+      "x": 122.1,
+      "z": 2.4,
+      "rotY": 2.0371,
+      "scale": 2.25
+    },
+    {
+      "id": "aegis_gate_fortress_rock_14",
+      "kind": "rock",
+      "x": -17.1,
+      "z": 94.5,
+      "rotY": 6.2379,
+      "scale": 1.81
+    },
+    {
+      "id": "aegis_gate_fortress_rock_15",
+      "kind": "rock",
+      "x": -81.3,
+      "z": 109.6,
+      "rotY": 5.8009,
+      "scale": 1.39
+    },
+    {
+      "id": "aegis_gate_fortress_rock_16",
+      "kind": "rock",
+      "x": -121.5,
+      "z": 43.7,
+      "rotY": 1.7768,
+      "scale": 1.37
+    },
+    {
+      "id": "aegis_gate_fortress_rock_17",
+      "kind": "rock",
+      "x": 133.9,
+      "z": -15.5,
+      "rotY": 1.681,
+      "scale": 1.86
+    },
+    {
+      "id": "aegis_gate_fortress_rock_18",
+      "kind": "rock",
+      "x": 121.7,
+      "z": 79.2,
+      "rotY": 0.8594,
+      "scale": 0.89
+    },
+    {
+      "id": "aegis_gate_fortress_rock_19",
+      "kind": "rock",
+      "x": -87.9,
+      "z": -79.6,
+      "rotY": 5.3203,
+      "scale": 1.63
+    },
+    {
+      "id": "aegis_gate_fortress_rock_20",
+      "kind": "rock",
+      "x": 45.7,
+      "z": 141.6,
+      "rotY": 6.2419,
+      "scale": 2.37
+    },
+    {
+      "id": "aegis_gate_fortress_rock_21",
+      "kind": "rock",
+      "x": -126.1,
+      "z": -54.1,
+      "rotY": 3.2099,
+      "scale": 2.47
+    },
+    {
+      "id": "aegis_gate_fortress_rock_22",
+      "kind": "rock",
+      "x": 91.7,
+      "z": 34.2,
+      "rotY": 4.8291,
+      "scale": 1.59
+    },
+    {
+      "id": "aegis_gate_fortress_rock_23",
+      "kind": "rock",
+      "x": 97.8,
+      "z": 119.4,
+      "rotY": 0.8205,
+      "scale": 1.75
+    },
+    {
+      "id": "aegis_gate_fortress_rock_24",
+      "kind": "rock",
+      "x": 22.6,
+      "z": -96,
+      "rotY": 3.4092,
+      "scale": 1.68
+    },
+    {
+      "id": "aegis_gate_fortress_rock_25",
+      "kind": "rock",
+      "x": 60.6,
+      "z": -124.2,
+      "rotY": 5.7633,
+      "scale": 0.85
+    },
+    {
+      "id": "aegis_gate_fortress_rock_26",
+      "kind": "rock",
+      "x": 133.7,
+      "z": -60.9,
+      "rotY": 0.2332,
+      "scale": 1.34
+    },
+    {
+      "id": "aegis_gate_fortress_rock_27",
+      "kind": "rock",
+      "x": -142.1,
+      "z": 22,
+      "rotY": 0.0092,
+      "scale": 0.74
+    },
+    {
+      "id": "aegis_gate_fortress_rock_28",
+      "kind": "rock",
+      "x": -12.1,
+      "z": -126.6,
+      "rotY": 4.3732,
+      "scale": 2
+    },
+    {
+      "id": "aegis_gate_fortress_rock_29",
+      "kind": "rock",
+      "x": 71.1,
+      "z": -102.8,
+      "rotY": 0.4135,
+      "scale": 2.04
+    },
+    {
+      "id": "aegis_gate_fortress_rock_30",
+      "kind": "rock",
+      "x": -78.7,
+      "z": -98.7,
+      "rotY": 0.3259,
+      "scale": 2
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_01",
+      "kind": "rock",
+      "x": 156.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_02",
+      "kind": "rock",
+      "x": 154.5,
+      "z": 56.2,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_03",
+      "kind": "rock",
+      "x": 119.8,
+      "z": 100.5,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_04",
+      "kind": "rock",
+      "x": 82.2,
+      "z": 142.4,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_05",
+      "kind": "rock",
+      "x": 27.2,
+      "z": 154,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_06",
+      "kind": "rock",
+      "x": -28.5,
+      "z": 161.9,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_07",
+      "kind": "rock",
+      "x": -78.2,
+      "z": 135.4,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_08",
+      "kind": "rock",
+      "x": -125.9,
+      "z": 105.7,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_09",
+      "kind": "rock",
+      "x": -147,
+      "z": 53.5,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_10",
+      "kind": "rock",
+      "x": -164.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_11",
+      "kind": "rock",
+      "x": -147,
+      "z": -53.5,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_12",
+      "kind": "rock",
+      "x": -125.9,
+      "z": -105.7,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_13",
+      "kind": "rock",
+      "x": -78.2,
+      "z": -135.4,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_14",
+      "kind": "rock",
+      "x": -28.5,
+      "z": -161.9,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_15",
+      "kind": "rock",
+      "x": 27.2,
+      "z": -154,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_16",
+      "kind": "rock",
+      "x": 82.2,
+      "z": -142.4,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_17",
+      "kind": "rock",
+      "x": 119.8,
+      "z": -100.5,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_gate_fortress_ridge_18",
+      "kind": "rock",
+      "x": 154.5,
+      "z": -56.2,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "aegis_gate_fortress_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "aegis_gate_fortress_marshal",
+      "name": "Corren Vale",
+      "title": "Endgame Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_endgame_campaign_marshal"
+    },
+    {
+      "id": "aegis_gate_fortress_siege_engineer",
+      "name": "Mira Stonewake",
+      "title": "Siege Engineer",
+      "role": "vendor",
+      "x": 46,
+      "z": -54,
+      "rotY": -0.4,
+      "characterProfileKey": "npc_aegis_mira_stonewake_siege_engineer"
+    },
+    {
+      "id": "aegis_gate_fortress_field_medic",
+      "name": "Alden Voss",
+      "title": "Field Medic",
+      "role": "ambient",
+      "x": -46,
+      "z": -54,
+      "rotY": 0.4,
+      "characterProfileKey": "npc_aegis_alden_voss_field_medic"
+    },
+    {
+      "id": "aegis_gate_fortress_gate_captain",
+      "name": "Serra Brightfield",
+      "title": "Gate Captain",
+      "role": "guard",
+      "x": 0,
+      "z": -4,
+      "rotY": 3.1416,
+      "characterProfileKey": "npc_aegis_serra_brightfield_gate_captain"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "aegis_gate_fortress_salvage_station",
+      "label": "Siege Salvage Bench",
+      "kind": "salvage",
+      "x": -42,
+      "z": -44,
+      "radius": 6
+    },
+    {
+      "id": "aegis_gate_fortress_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": 42,
+      "z": -44,
+      "radius": 6
+    },
+    {
+      "id": "aegis_gate_fortress_general_station",
+      "label": "Fortress Supply Table",
+      "kind": "general",
+      "x": 0,
+      "z": -52,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "aegis_gate_fortress_west_guard_1",
+      "name": "Objective Guard",
+      "level": 40,
+      "x": -72,
+      "z": -24,
+      "maxHealth": 220,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 89,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_objective_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_west_caster_1",
+      "name": "Siege Hexer",
+      "level": 40,
+      "x": -82,
+      "z": -14,
+      "maxHealth": 180,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 45,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_siege_hexer_caster"
+    },
+    {
+      "id": "aegis_gate_fortress_central_guard_1",
+      "name": "Objective Guard",
+      "level": 40,
+      "x": -10,
+      "z": -4,
+      "maxHealth": 220,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 89,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_objective_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_central_raider_1",
+      "name": "Campaign Raider",
+      "level": 40,
+      "x": 10,
+      "z": -4,
+      "maxHealth": 180,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 87,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_aegis_campaign_raider_raider"
+    },
+    {
+      "id": "aegis_gate_fortress_east_guard_1",
+      "name": "Objective Guard",
+      "level": 40,
+      "x": 72,
+      "z": -24,
+      "maxHealth": 220,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 89,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_objective_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_east_caster_1",
+      "name": "Siege Hexer",
+      "level": 40,
+      "x": 82,
+      "z": -14,
+      "maxHealth": 180,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 45,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_siege_hexer_caster"
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_guard_1",
+      "name": "Aegis Keep Guard",
+      "level": 41,
+      "x": -72,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_aegis_keep_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_guard_2",
+      "name": "Aegis Keep Guard",
+      "level": 41,
+      "x": -44,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_aegis_keep_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_guard_1",
+      "name": "Riftbound Keep Guard",
+      "level": 41,
+      "x": 44,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_guard_2",
+      "name": "Riftbound Keep Guard",
+      "level": 41,
+      "x": 72,
+      "z": 42,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 91,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_guard_guard"
+    },
+    {
+      "id": "aegis_gate_fortress_beast_1",
+      "name": "War Boar",
+      "level": 40,
+      "x": -102,
+      "z": -52,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 88,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_war_boar"
+    },
+    {
+      "id": "aegis_gate_fortress_beast_2",
+      "name": "War Boar",
+      "level": 40,
+      "x": 102,
+      "z": -52,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 88,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_war_boar"
+    },
+    {
+      "id": "aegis_gate_fortress_captain",
+      "name": "Keep Captain",
+      "level": 42,
+      "x": 0,
+      "z": 72,
+      "maxHealth": 340,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.2,
+      "preferredRange": 2.7,
+      "attackDamage": 96,
+      "moveSpeed": 3.05,
+      "characterProfileKey": "enemy_aegis_keep_captain_captain"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "aegis_gate_fortress_scrap_node_01",
+      "label": "Aegis War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": -95.2,
+      "z": -56.7,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_scrap_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_ore_node_02",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -114.7,
+      "z": 2.8,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_ore_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_herb_node_03",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -70.2,
+      "z": 66.6,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_herb_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_soil_node_04",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 93.6,
+      "z": -62.4,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_relic_node_05",
+      "label": "Aegis Relic Shards",
+      "kind": "relic",
+      "professionId": "salvaging",
+      "x": 108.7,
+      "z": 0.8,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_relic_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_arcane_dust",
+          "qty": 1,
+          "chance": 0.75,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.44
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1,
+          "chance": 0.14
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_water_node_06",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": 77.6,
+      "z": 66.2,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_water_node_06_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_scrap_node_07",
+      "label": "Aegis War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": -23.3,
+      "z": -77.7,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_scrap_node_07_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_ore_node_08",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 30.8,
+      "z": -74.4,
+      "radius": 5,
+      "xp": 12,
+      "respawnSeconds": 90,
+      "visualPropId": "aegis_gate_fortress_ore_node_08_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "aegis_gate_fortress_west_objective",
+      "type": "battle_objective",
+      "label": "West Siege Standard",
+      "x": -72,
+      "z": -24,
+      "captureRadius": 14,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "aegis_gate_fortress_central_objective",
+      "type": "battle_objective",
+      "label": "Central Siege Standard",
+      "x": 0,
+      "z": -6,
+      "captureRadius": 14,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "aegis_gate_fortress_east_objective",
+      "type": "battle_objective",
+      "label": "East Siege Standard",
+      "x": 72,
+      "z": -24,
+      "captureRadius": 14,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep",
+      "type": "keep",
+      "label": "Aegis War Keep",
+      "x": -58,
+      "z": 58,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep",
+      "type": "keep",
+      "label": "Riftbound War Keep",
+      "x": 58,
+      "z": 58,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "aegis_gate_fortress_to_aegis_capital",
+      "label": "Travel to Bastion of Aegis",
+      "x": 0,
+      "z": 146.2,
+      "radius": 9,
+      "targetZoneId": "aegis_capital",
+      "targetSpawn": {
+        "x": 0,
+        "y": 0,
+        "z": -140.8
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_to_aegis_crownworks",
+      "label": "Travel to Aegis Crownworks",
+      "x": 0,
+      "z": -146.2,
+      "radius": 9,
+      "targetZoneId": "aegis_crownworks",
+      "targetSpawn": {
+        "x": 0,
+        "y": 0,
+        "z": 115
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "aegis_gate_fortress_west_scarp",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": -96,
+      "z": -8,
+      "width": 94,
+      "depth": 170,
+      "count": 46,
+      "seed": 2772990102,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        },
+        {
+          "x": -58,
+          "z": 58,
+          "radius": 48
+        },
+        {
+          "x": 58,
+          "z": 58,
+          "radius": 48
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    },
+    {
+      "id": "aegis_gate_fortress_east_scarp",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 96,
+      "z": -8,
+      "width": 94,
+      "depth": 170,
+      "count": 46,
+      "seed": 3896060004,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        },
+        {
+          "x": -58,
+          "z": 58,
+          "radius": 48
+        },
+        {
+          "x": 58,
+          "z": 58,
+          "radius": 48
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    }
+  ],
+  "staticMapHash": "73b8327e9d9bb980"
+}

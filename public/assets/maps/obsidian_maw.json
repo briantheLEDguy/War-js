@@ -1,0 +1,981 @@
+{
+  "id": "obsidian_maw",
+  "name": "Obsidian Maw",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "Boss",
+    "lane": "riftbound_east",
+    "laneLabel": "Riftbound East March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 3 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "obsidian_maw_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "obsidian_maw_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "obsidian_maw_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "obsidian_maw_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "obsidian_maw_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "obsidian_maw_portal_obsidian_scar",
+      "kind": "gate",
+      "x": 81.7,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "obsidian_maw_portal_obsidian_scar_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "obsidian_maw_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "obsidian_maw_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "obsidian_maw_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "obsidian_maw_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "obsidian_maw_ore_node_01_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -43.8,
+      "z": -18.8,
+      "rotY": 1.4671,
+      "scale": 0.75
+    },
+    {
+      "id": "obsidian_maw_scrap_node_02_visual",
+      "kind": "rock",
+      "x": 43.9,
+      "z": -21,
+      "rotY": 3.6234,
+      "scale": 0.91
+    },
+    {
+      "id": "obsidian_maw_relic_node_03_visual",
+      "kind": "statue",
+      "x": -44.8,
+      "z": 36.4,
+      "rotY": 0.5284,
+      "scale": 0.55
+    },
+    {
+      "id": "obsidian_maw_ore_node_04_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": 42.1,
+      "z": 35.2,
+      "rotY": 1.1346,
+      "scale": 0.75
+    },
+    {
+      "id": "obsidian_maw_soil_node_05_visual",
+      "kind": "pnw_grass_clump",
+      "x": 1.2,
+      "z": 74.9,
+      "rotY": 2.1259,
+      "scale": 0.97
+    },
+    {
+      "id": "obsidian_maw_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 22.8,
+      "z": -55.1,
+      "rotY": 1.6797,
+      "scale": 1.08
+    },
+    {
+      "id": "obsidian_maw_tree_02",
+      "kind": "tree",
+      "x": -47.9,
+      "z": -39.7,
+      "rotY": 4.9476,
+      "scale": 1.17
+    },
+    {
+      "id": "obsidian_maw_tree_03",
+      "kind": "tree",
+      "x": -7,
+      "z": 80.3,
+      "rotY": 1.2674,
+      "scale": 1.48
+    },
+    {
+      "id": "obsidian_maw_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": 22.5,
+      "z": -60,
+      "rotY": 0.6574,
+      "scale": 1.18
+    },
+    {
+      "id": "obsidian_maw_tree_05",
+      "kind": "tree",
+      "x": -59,
+      "z": -3.2,
+      "rotY": 0.131,
+      "scale": 0.86
+    },
+    {
+      "id": "obsidian_maw_tree_06",
+      "kind": "tree",
+      "x": 31.6,
+      "z": -29.1,
+      "rotY": 0.101,
+      "scale": 1.18
+    },
+    {
+      "id": "obsidian_maw_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": -5.2,
+      "z": 61.9,
+      "rotY": 5.9287,
+      "scale": 1.42
+    },
+    {
+      "id": "obsidian_maw_tree_08",
+      "kind": "tree",
+      "x": 42.8,
+      "z": 11,
+      "rotY": 2.5897,
+      "scale": 0.75
+    },
+    {
+      "id": "obsidian_maw_tree_09",
+      "kind": "tree",
+      "x": -17.4,
+      "z": -61.6,
+      "rotY": 0.7292,
+      "scale": 1.25
+    },
+    {
+      "id": "obsidian_maw_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": 36.3,
+      "z": -57.4,
+      "rotY": 0.1541,
+      "scale": 1.17
+    },
+    {
+      "id": "obsidian_maw_tree_11",
+      "kind": "tree",
+      "x": 63.2,
+      "z": 11.1,
+      "rotY": 2.3817,
+      "scale": 0.94
+    },
+    {
+      "id": "obsidian_maw_tree_12",
+      "kind": "tree",
+      "x": 63.7,
+      "z": -10.4,
+      "rotY": 2.7499,
+      "scale": 1.22
+    },
+    {
+      "id": "obsidian_maw_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": -28.7,
+      "z": 56.7,
+      "rotY": 0.5803,
+      "scale": 1.09
+    },
+    {
+      "id": "obsidian_maw_tree_14",
+      "kind": "tree",
+      "x": 51,
+      "z": -14.3,
+      "rotY": 3.1737,
+      "scale": 1.34
+    },
+    {
+      "id": "obsidian_maw_tree_15",
+      "kind": "tree",
+      "x": 50.4,
+      "z": 62.3,
+      "rotY": 2.323,
+      "scale": 0.97
+    },
+    {
+      "id": "obsidian_maw_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": -38.3,
+      "z": 60.4,
+      "rotY": 2.3945,
+      "scale": 1.02
+    },
+    {
+      "id": "obsidian_maw_tree_17",
+      "kind": "tree",
+      "x": 35,
+      "z": -48.3,
+      "rotY": 0.7183,
+      "scale": 1.32
+    },
+    {
+      "id": "obsidian_maw_tree_18",
+      "kind": "tree",
+      "x": 21.8,
+      "z": 72.7,
+      "rotY": 3.7504,
+      "scale": 1.05
+    },
+    {
+      "id": "obsidian_maw_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": -36,
+      "z": 37.1,
+      "rotY": 3.2968,
+      "scale": 1.17
+    },
+    {
+      "id": "obsidian_maw_tree_20",
+      "kind": "tree",
+      "x": -23.8,
+      "z": -53.4,
+      "rotY": 3.5447,
+      "scale": 0.91
+    },
+    {
+      "id": "obsidian_maw_rock_01",
+      "kind": "rock",
+      "x": 61.7,
+      "z": -17.9,
+      "rotY": 0.4533,
+      "scale": 2.44
+    },
+    {
+      "id": "obsidian_maw_rock_02",
+      "kind": "rock",
+      "x": -26.4,
+      "z": -75.4,
+      "rotY": 5.7974,
+      "scale": 0.94
+    },
+    {
+      "id": "obsidian_maw_rock_03",
+      "kind": "rock",
+      "x": -27.3,
+      "z": 82.4,
+      "rotY": 5.9621,
+      "scale": 1.72
+    },
+    {
+      "id": "obsidian_maw_rock_04",
+      "kind": "rock",
+      "x": -5.8,
+      "z": 69,
+      "rotY": 0.4541,
+      "scale": 1.56
+    },
+    {
+      "id": "obsidian_maw_rock_05",
+      "kind": "rock",
+      "x": 7.9,
+      "z": -65.6,
+      "rotY": 3.6473,
+      "scale": 1.5
+    },
+    {
+      "id": "obsidian_maw_rock_06",
+      "kind": "rock",
+      "x": -8.7,
+      "z": 74.9,
+      "rotY": 1.026,
+      "scale": 1.84
+    },
+    {
+      "id": "obsidian_maw_rock_07",
+      "kind": "rock",
+      "x": -55.1,
+      "z": -30.4,
+      "rotY": 4.7386,
+      "scale": 2.43
+    },
+    {
+      "id": "obsidian_maw_rock_08",
+      "kind": "rock",
+      "x": 9.3,
+      "z": -57.5,
+      "rotY": 3.4822,
+      "scale": 1.46
+    },
+    {
+      "id": "obsidian_maw_rock_09",
+      "kind": "rock",
+      "x": 75.3,
+      "z": -23,
+      "rotY": 6.1376,
+      "scale": 1.8
+    },
+    {
+      "id": "obsidian_maw_rock_10",
+      "kind": "rock",
+      "x": 47,
+      "z": -36.7,
+      "rotY": 0.7613,
+      "scale": 1.7
+    },
+    {
+      "id": "obsidian_maw_rock_11",
+      "kind": "rock",
+      "x": 10.6,
+      "z": 84.7,
+      "rotY": 4.7421,
+      "scale": 2.21
+    },
+    {
+      "id": "obsidian_maw_rock_12",
+      "kind": "rock",
+      "x": -77.8,
+      "z": 28.5,
+      "rotY": 4.8079,
+      "scale": 1.7
+    },
+    {
+      "id": "obsidian_maw_rock_13",
+      "kind": "rock",
+      "x": -14.1,
+      "z": -80.4,
+      "rotY": 2.6392,
+      "scale": 0.75
+    },
+    {
+      "id": "obsidian_maw_rock_14",
+      "kind": "rock",
+      "x": -49.3,
+      "z": 38.5,
+      "rotY": 3.4769,
+      "scale": 2.26
+    },
+    {
+      "id": "obsidian_maw_rock_15",
+      "kind": "rock",
+      "x": 16.3,
+      "z": -79.1,
+      "rotY": 2.0396,
+      "scale": 1.28
+    },
+    {
+      "id": "obsidian_maw_rock_16",
+      "kind": "rock",
+      "x": -37.7,
+      "z": 70.3,
+      "rotY": 5.6433,
+      "scale": 2.46
+    },
+    {
+      "id": "obsidian_maw_rock_17",
+      "kind": "rock",
+      "x": 7.6,
+      "z": 60.5,
+      "rotY": 5.1463,
+      "scale": 1.87
+    },
+    {
+      "id": "obsidian_maw_rock_18",
+      "kind": "rock",
+      "x": -33.2,
+      "z": 76,
+      "rotY": 0.8904,
+      "scale": 1.04
+    },
+    {
+      "id": "obsidian_maw_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "obsidian_maw_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "obsidian_maw_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "obsidian_maw_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "obsidian_maw_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "obsidian_maw_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "obsidian_maw_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "obsidian_maw_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "obsidian_maw_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "obsidian_maw_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "obsidian_maw_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "obsidian_maw_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "obsidian_maw_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "obsidian_maw_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "obsidian_maw_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "obsidian_maw_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "obsidian_maw_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "obsidian_maw_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "obsidian_maw_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "obsidian_maw_marshal",
+      "name": "Nyra Vex",
+      "title": "Tier 3 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal"
+    },
+    {
+      "id": "obsidian_maw_expedition_guide",
+      "name": "Gorvak Mirehand",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "obsidian_maw_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "obsidian_maw_overlord",
+      "name": "Obsidian Maw Overlord",
+      "level": 28,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_riftbound_obsidian_maw_overlord_captain"
+    },
+    {
+      "id": "obsidian_maw_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 27,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 63,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "obsidian_maw_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 27,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 63,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "obsidian_maw_beast_1",
+      "name": "Rift Hound",
+      "level": 26,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 60,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "obsidian_maw_beast_2",
+      "name": "Rift Hound",
+      "level": 26,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 60,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "obsidian_maw_adept_1",
+      "name": "Lair Cultist",
+      "level": 27,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 32,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    },
+    {
+      "id": "obsidian_maw_adept_2",
+      "name": "Lair Cultist",
+      "level": 27,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 32,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "obsidian_maw_ore_node_01",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -43.8,
+      "z": -18.8,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "obsidian_maw_ore_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "obsidian_maw_scrap_node_02",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 43.9,
+      "z": -21,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "obsidian_maw_scrap_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "obsidian_maw_relic_node_03",
+      "label": "Riftbound Relic Shards",
+      "kind": "relic",
+      "professionId": "salvaging",
+      "x": -44.8,
+      "z": 36.4,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "obsidian_maw_relic_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_arcane_dust",
+          "qty": 1,
+          "chance": 0.75,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.44
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1,
+          "chance": 0.14
+        }
+      ]
+    },
+    {
+      "id": "obsidian_maw_ore_node_04",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": 42.1,
+      "z": 35.2,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "obsidian_maw_ore_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "obsidian_maw_soil_node_05",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 1.2,
+      "z": 74.9,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "obsidian_maw_soil_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "obsidian_maw_boss",
+      "type": "boss",
+      "label": "Obsidian Maw Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "obsidian_maw_to_obsidian_scar",
+      "label": "Travel to Obsidian Scar",
+      "x": 81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "obsidian_scar",
+      "targetSpawn": {
+        "x": 113.3,
+        "y": 0,
+        "z": -19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "obsidian_maw_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 3381089637,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_low_shrub",
+        "pnw_grass_clump",
+        "pnw_mossy_boulder",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "3386530fc9ec1526"
+}

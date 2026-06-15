@@ -1,12 +1,26 @@
 import * as THREE from 'three';
+import { isResourceNodeAvailable } from '../data/crafting';
+import type { CampaignControl, CampaignObjectiveStatus, CampaignRealm } from '../data/campaign';
+import {
+  defaultZoneSpawnPoint,
+  normalizePlayableZoneId,
+  zoneWasNormalized,
+} from '../data/zoneRouting';
 import { services } from '../services';
 import type { CharacterState, WorldEditDocument, WorldPropObject } from '../services/types';
-import { useGameStore, type EnemyState } from '../state/gameStore';
+import { contextPromptKey, useGameStore, type AbilityFeedbackKind, type ContextPromptState, type EnemyState, type PlayerStatusEffect } from '../state/gameStore';
 import { spawnNpcs } from '../world/NpcSpawner';
 import { spawnProps, type InteractiveGate, type WorldCollider, type WorldWalkableSurface } from '../world/Props';
-import { setupSky } from '../world/Skybox';
+import { applySceneViewDistance, setupSky } from '../world/Skybox';
 import { Terrain } from '../world/Terrain';
-import { loadZone, type CraftingStationSpawn, type ZoneTrigger } from '../world/ZoneLoader';
+import {
+  loadZone,
+  type CraftingStationSpawn,
+  type ResourceNodeSpawn,
+  type RvrObjectiveDefinition,
+  type ZoneDefinition,
+  type ZoneTrigger,
+} from '../world/ZoneLoader';
 import {
   WorldEditorRuntime,
   type WorldEditorSettings,
@@ -19,16 +33,46 @@ import {
   makeVersionId,
 } from '../world/WorldEditValidation';
 import { AssetLoader } from './AssetLoader';
+import {
+  canCaptureCampaignObjective,
+  captureProgressPct,
+  campaignRealmForCharacter,
+  claimObjectiveForCharacter,
+} from './CampaignObjectiveLogic';
 import { FollowCamera } from './Camera';
 import { Combat } from './Combat';
-import { gatherEnemy, openCraftingStation } from './CraftingLogic';
+import { gatherEnemy, gatherResourceNode, openCraftingStation } from './CraftingLogic';
 import { Enemy } from './Enemy';
 import { equipmentVisualSignature } from './Equipment';
 import { Input } from './Input';
 import { Player } from './Player';
+import { checkLevelUp } from './QuestLogic';
+import { ResourceRegeneration } from './ResourceRegeneration';
+import {
+  resolveZoneEntryPoint,
+  ZONE_TRANSITION_GRACE_MS,
+  zoneTransitionCanArm,
+} from './ZoneTransition';
 import { VfxLayer } from './animation/VfxLayer';
 
 const WALKABLE_SURFACE_STEP_UP = 0.85;
+const CORPSE_INTERACT_RADIUS = 4;
+const RESOURCE_NODE_INTERACT_RADIUS = 4.5;
+const QUEST_INTERACT_RADIUS = 4;
+const TARGETABLE_ENEMY_PROMPT_RADIUS = 12;
+const HUD_FEEDBACK_DURATION_MS = 1800;
+const ABILITY_KEYS: Array<[string, number]> = [
+  ['Digit1', 0],
+  ['Digit2', 1],
+  ['Digit3', 2],
+  ['Digit4', 3],
+  ['Digit5', 4],
+  ['Digit6', 5],
+  ['Digit7', 6],
+  ['Digit8', 7],
+  ['Digit9', 8],
+  ['Digit0', 9],
+];
 
 export class Game {
   private renderer!: THREE.WebGLRenderer;
@@ -41,6 +85,7 @@ export class Game {
   private enemies: Enemy[] = [];
   private npcMixers: THREE.AnimationMixer[] = [];
   private combat = new Combat();
+  private resourceRegeneration = new ResourceRegeneration();
   private vfx!: VfxLayer;
 
   private lastT = 0;
@@ -53,10 +98,19 @@ export class Game {
   private saveTimer = 0;
   private equipmentSignature = '';
   private spawnPoint = { x: 0, y: 0, z: 0 };
+  private appliedViewDistance = 0;
 
   private currentZoneName = '';
+  private currentZone: ZoneDefinition | null = null;
   private zoneTriggers: ZoneTrigger[] = [];
+  private zoneTransitionArmed = false;
+  private zoneTransitionGraceUntilMs = 0;
   private craftingStations: CraftingStationSpawn[] = [];
+  private resourceNodes: ResourceNodeSpawn[] = [];
+  private objectiveControl = new Map<string, CampaignControl>();
+  private objectiveStatus = new Map<string, CampaignObjectiveStatus>();
+  private objectiveCapture: { objectiveId: string; startedAtMs: number; realm: CampaignRealm } | null = null;
+  private objectiveClaimsInFlight = new Set<string>();
   private propColliders: WorldCollider[] = [];
   private cameraColliders: WorldCollider[] = [];
   private walkableSurfaces: WorldWalkableSurface[] = [];
@@ -67,6 +121,7 @@ export class Game {
   private currentEditorDraft: WorldEditDocument | null = null;
   private editorAutosaveTimer: number | null = null;
   private editorSaveInFlight: Promise<void> = Promise.resolve();
+  private lastContextualPromptKey = '';
 
   /** World → screen projection used by HUD for nameplates + damage numbers. */
   worldToScreen(world: THREE.Vector3, out: THREE.Vector2): boolean {
@@ -81,6 +136,46 @@ export class Game {
 
   get playerPos(): THREE.Vector3 { return this.player?.position ?? new THREE.Vector3(); }
   get zoneName(): string { return this.currentZoneName; }
+  get zoneDefinition(): ZoneDefinition | null { return this.currentZone; }
+  teleportPlayerTo(
+    point: { x: number; y?: number; z: number },
+    rotationY = this.player?.rotationY ?? this.character.rotationY,
+  ): { x: number; y: number; z: number } {
+    if (!this.player) throw new Error('Player is not ready.');
+    if (!Number.isFinite(point.x) || !Number.isFinite(point.z)) {
+      throw new Error('Teleport target must include finite x and z coordinates.');
+    }
+
+    const yHint = Number.isFinite(point.y) ? point.y : undefined;
+    const nextPosition = {
+      x: point.x,
+      y: this.groundHeightAt(point.x, point.z, yHint),
+      z: point.z,
+    };
+    this.player.teleportTo(nextPosition, rotationY);
+    this.character.position = nextPosition;
+    this.character.rotationY = rotationY;
+    this.zoneTransitionArmed = false;
+    this.zoneTransitionGraceUntilMs = performance.now() + ZONE_TRANSITION_GRACE_MS;
+
+    const store = useGameStore.getState();
+    store.updateCharacter({ position: nextPosition, rotationY });
+    store.setPlayerDead(false);
+    for (const enemy of this.enemies) {
+      enemy.aggroed = false;
+      enemy.attackCooldown = 0;
+    }
+    void services.characters.save(this.character.id, { position: nextPosition, rotationY });
+    void services.world.updatePosition(this.character.zoneId, {
+      userId: store.user?.id ?? 'unknown',
+      characterId: this.character.id,
+      name: this.character.name,
+      position: nextPosition,
+      rotationY,
+    }).catch(() => {});
+    return nextPosition;
+  }
+
   get craftingStationMarkers(): Array<{
     id: string;
     label: string;
@@ -95,6 +190,27 @@ export class Game {
         x: station.x,
         y: this.groundHeightAt(station.x, station.z, station.y),
         z: station.z,
+      },
+    }));
+  }
+  get resourceNodeMarkers(): Array<{
+    id: string;
+    label: string;
+    kind: ResourceNodeSpawn['kind'];
+    available: boolean;
+    position: { x: number; y: number; z: number };
+  }> {
+    const zoneId = this.currentZone?.id;
+    const craftingState = useGameStore.getState().craftingState;
+    return this.resourceNodes.map((node) => ({
+      id: node.id,
+      label: node.label,
+      kind: node.kind,
+      available: Boolean(zoneId && isResourceNodeAvailable(craftingState, zoneId, node.id)),
+      position: {
+        x: node.x,
+        y: this.groundHeightAt(node.x, node.z, node.y),
+        z: node.z,
       },
     }));
   }
@@ -133,9 +249,20 @@ export class Game {
     this.combat.setVfxLayer(this.vfx);
 
     // Zone
-    const zone = await loadZone(this.character.zoneId ?? 'zone1');
+    const normalizedZoneId = normalizePlayableZoneId(this.character.zoneId, this.character.race);
+    if (zoneWasNormalized(this.character.zoneId, normalizedZoneId)) {
+      this.character.zoneId = normalizedZoneId;
+      this.character.position = defaultZoneSpawnPoint(normalizedZoneId);
+      void services.characters.save(this.character.id, {
+        zoneId: normalizedZoneId,
+        position: this.character.position,
+      });
+    }
+    const zone = await loadZone(normalizedZoneId);
     if (this.disposed) return; // guard: React Strict Mode may dispose before first await resolves
     this.currentZoneName = zone.name;
+    this.currentZone = zone;
+    void this.warnIfCampaignMapOutOfDate(zone);
     this.publishedWorldEdit = await services.worldEdits
       .getPublished(zone.id)
       .catch((err) => {
@@ -144,7 +271,7 @@ export class Game {
       });
 
     // Sky + lights
-    await setupSky(this.scene, this.loader, this.renderer, zone.skybox);
+    await setupSky(this.scene, this.loader, this.renderer, zone.skybox, useGameStore.getState().settings.viewDistance);
     if (this.disposed) return;
 
     // Terrain
@@ -203,12 +330,31 @@ export class Game {
     // Zone triggers
     this.zoneTriggers = zone.zoneTriggers ?? [];
     this.craftingStations = zone.craftingStations ?? [];
+    this.resourceNodes = zone.resourceNodes ?? [];
+    try {
+      const campaignUnsubscribe = services.campaign.subscribeSnapshot((snapshot) => {
+        const active = snapshot.zones.find((entry) => entry.id === zone.id);
+        this.objectiveStatus = new Map(
+          (active?.objectives ?? []).map((objective) => [objective.id, objective]),
+        );
+        this.objectiveControl = new Map(
+          (active?.objectives ?? []).map((objective) => [objective.id, objective.control]),
+        );
+      }, zone.id);
+      this.onDispose.push(campaignUnsubscribe);
+    } catch (err) {
+      console.warn('[Campaign] objective capture subscription unavailable:', err);
+    }
 
     // Player
-    const sp = zone.spawnPoint ?? { x: 0, y: 0, z: 0 };
-    const spawnY = this.groundHeightAt(sp.x, sp.z, sp.y);
-    this.spawnPoint = { x: sp.x, y: spawnY, z: sp.z };
-    this.character.position = { x: sp.x, y: spawnY, z: sp.z };
+    const entryPoint = resolveZoneEntryPoint(this.character.position, zone.spawnPoint);
+    const entryY = this.groundHeightAt(entryPoint.x, entryPoint.z, entryPoint.y);
+    const safeRespawnPoint = resolveZoneEntryPoint(zone.spawnPoint, defaultZoneSpawnPoint(zone.id));
+    const respawnY = this.groundHeightAt(safeRespawnPoint.x, safeRespawnPoint.z, safeRespawnPoint.y);
+    this.spawnPoint = { x: safeRespawnPoint.x, y: respawnY, z: safeRespawnPoint.z };
+    this.character.position = { x: entryPoint.x, y: entryY, z: entryPoint.z };
+    this.zoneTransitionArmed = false;
+    this.zoneTransitionGraceUntilMs = performance.now() + ZONE_TRANSITION_GRACE_MS;
     this.player = new Player(this.character, this.terrain, this.groundHeightAt);
     await this.player.build(this.loader, this.scene);
     if (this.disposed) return;
@@ -243,7 +389,7 @@ export class Game {
       userId: useGameStore.getState().user?.id ?? 'unknown',
       characterId: this.character.id,
       name: this.character.name,
-      position: this.spawnPoint,
+      position: this.character.position,
       rotationY: 0,
     });
     const history = await services.chat.history('zone');
@@ -263,6 +409,22 @@ export class Game {
     }
   }
 
+  private async warnIfCampaignMapOutOfDate(zone: ZoneDefinition): Promise<void> {
+    if (!zone.staticMapVersion || !zone.staticMapHash) return;
+    const snapshot = await services.campaign.getSnapshot(zone.id).catch((err) => {
+      console.warn('[Campaign] failed to load campaign metadata:', err);
+      return null;
+    });
+    if (!snapshot) return;
+    const expectedHash = snapshot.mapHashes[zone.id];
+    if (snapshot.staticVersion !== zone.staticMapVersion || expectedHash !== zone.staticMapHash) {
+      console.warn(
+        `[Campaign] static map mismatch for ${zone.id}: asset ${zone.staticMapVersion}/${zone.staticMapHash}, ` +
+        `campaign ${snapshot.staticVersion}/${expectedHash ?? 'missing'}`,
+      );
+    }
+  }
+
   private onResize = () => {
     if (!this.container) return;
     const w = this.container.clientWidth;
@@ -270,6 +432,16 @@ export class Game {
     this.renderer.setSize(w, h);
     this.camera.resize(w / h);
   };
+
+  private applyViewDistanceSetting(viewDistance: number): void {
+    if (viewDistance === this.appliedViewDistance) return;
+    const applied = applySceneViewDistance(this.scene, viewDistance);
+    this.appliedViewDistance = applied;
+    if (this.camera) {
+      this.camera.camera.far = Math.max(1200, applied + 200);
+      this.camera.camera.updateProjectionMatrix();
+    }
+  }
 
   private loop = (tMs: number) => {
     if (this.disposed) return;
@@ -293,41 +465,77 @@ export class Game {
 
   private update(dt: number, tMs: number) {
     const store = useGameStore.getState();
+    this.applyViewDistanceSetting(store.settings.viewDistance);
 
     // Handle respawn requested from the death-overlay button
     if (store.pendingRespawn) {
       store.setPendingRespawn(false);
       store.setPlayerDead(false);
       const rp = store.respawnPoint;
-      this.player.position.set(
-        rp.x,
-        this.groundHeightAt(rp.x, rp.z),
-        rp.z,
-      );
-      this.player.object.position.copy(this.player.position);
+      const nextPosition = {
+        x: rp.x,
+        y: this.groundHeightAt(rp.x, rp.z, rp.y),
+        z: rp.z,
+      };
+      const maxHealth = store.character?.maxHealth ?? 100;
+      const maxMana = store.character?.maxMana ?? 100;
+      this.player.teleportTo(nextPosition);
+      this.character.position = nextPosition;
+      this.character.health = maxHealth;
+      this.character.mana = maxMana;
       store.updateCharacter({
-        health: store.character?.maxHealth ?? 100,
-        mana: store.character?.maxMana ?? 100,
+        health: maxHealth,
+        mana: maxMana,
+        position: nextPosition,
       });
       // Deaggro all enemies so they don't instantly kill the player again
       for (const enemy of this.enemies) {
         enemy.aggroed = false;
         enemy.attackCooldown = 0;
       }
+      void services.characters.save(this.character.id, {
+        health: maxHealth,
+        mana: maxMana,
+        position: nextPosition,
+        rotationY: this.player.rotationY,
+      });
+      void services.world.updatePosition(this.character.zoneId, {
+        userId: store.user?.id ?? 'unknown',
+        characterId: this.character.id,
+        name: this.character.name,
+        position: nextPosition,
+        rotationY: this.player.rotationY,
+      }).catch(() => {});
     }
 
     // Debug / panels / settings toggles
-    if (this.input.wasPressed('Escape') && !store.chatFocused) {
-      if (store.wikiOpen) store.setWikiOpen(false);
-      else store.toggleSettings();
-    }
-    if (!store.chatFocused && !useGameStore.getState().settingsOpen && this.input.wasPressed('KeyH')) {
+    if (
+      !store.chatFocused &&
+      !useGameStore.getState().settingsOpen &&
+      !useGameStore.getState().worldMapOpen &&
+      !useGameStore.getState().gmMenuOpen &&
+      this.input.wasPressed('KeyH')
+    ) {
       store.toggleWiki();
+    }
+    if (
+      !store.chatFocused &&
+      !useGameStore.getState().settingsOpen &&
+      !useGameStore.getState().wikiOpen &&
+      !useGameStore.getState().gmMenuOpen &&
+      this.input.wasPressed('KeyM')
+    ) {
+      store.toggleWorldMap();
     }
     const uiState = useGameStore.getState();
     const settingsOpen = uiState.settingsOpen;
     const wikiOpen = uiState.wikiOpen;
-    const uiBlockingOpen = settingsOpen || wikiOpen;
+    const worldMapOpen = uiState.worldMapOpen;
+    const gmMenuOpen = uiState.gmMenuOpen;
+    const uiBlockingOpen = settingsOpen || wikiOpen || worldMapOpen || gmMenuOpen;
+    this.updateGuidedTaskProgress(store);
+    this.updateObjectiveCapture(tMs, uiBlockingOpen);
+    this.updateContextualPrompt(uiState, uiBlockingOpen);
     if (store.gmBuildMode && !store.chatFocused && !uiBlockingOpen && this.input.wasPressed('Tab')) {
       const direction = this.input.isDown('ShiftLeft') || this.input.isDown('ShiftRight') ? -1 : 1;
       const nextTool = cycleBuildModeTool(store.worldEditorTool, direction);
@@ -359,10 +567,13 @@ export class Game {
     }
 
     // Interact with nearby corpses, crafting stations, or quest-givers.
-    if (this.input.wasPressed('KeyE') && !store.chatFocused && !uiBlockingOpen) {
-      this.tryGatherNearestCorpse() ||
+    if (this.input.wasPressed('KeyE') && !store.chatFocused && !uiBlockingOpen && !store.gmFlyingMode) {
+      const interacted = this.tryGatherNearestCorpse() ||
+        this.tryGatherNearestResourceNode() ||
         this.tryOpenNearestCraftingStation() ||
-        this.tryOpenNearestQuestgiver();
+        this.tryOpenNearestQuestgiver() ||
+        this.tryToggleNearestGate();
+      if (interacted) store.completeGuidedTask('interact');
     }
 
     // Chat focus
@@ -370,7 +581,17 @@ export class Game {
       store.setChatFocused(true);
     }
 
-    // Combat inputs (blocked while dead or typing in chat)
+    const attemptedAbilitySlot = this.consumeAbilityAttempt(store);
+    if (attemptedAbilitySlot !== null) {
+      this.handleAbilityAttempt(attemptedAbilitySlot, tMs, {
+        chatFocused: store.chatFocused,
+        playerDead: store.playerDead,
+        uiBlockingOpen,
+        gmBuildMode: store.gmBuildMode,
+      });
+    }
+
+    // Combat targeting inputs (blocked while dead or typing in chat)
     if (!store.chatFocused && !store.playerDead && !uiBlockingOpen && !store.gmBuildMode) {
       if (this.input.mouseLeftClickedThisFrame) {
         const id = this.combat.tryTargetAt(this.input.lastClickNDC, this.camera.camera);
@@ -383,34 +604,21 @@ export class Game {
       if (this.input.mouseRightClickedThisFrame) {
         this.tryInteractAt(this.input.lastRightClickNDC);
       }
-      const abilityKeys: Array<[string, number]> = [
-        ['Digit1', 0],
-        ['Digit2', 1],
-        ['Digit3', 2],
-        ['Digit4', 3],
-        ['Digit5', 4],
-        ['Digit6', 5],
-        ['Digit7', 6],
-        ['Digit8', 7],
-        ['Digit9', 8],
-        ['Digit0', 9],
-      ];
-      for (const [code, slot] of abilityKeys) {
-        if (this.input.wasPressed(code)) this.combat.tryAbility(slot, this.player, tMs);
-      }
-
-      // Touch hotbar taps (set by Hotbar component via the store)
-      const touchSlot = store.pendingTouchAbility;
-      if (touchSlot !== null) {
-        store.setPendingTouchAbility(null);
-        this.combat.tryAbility(touchSlot, this.player, tMs);
-      }
     }
 
     // Tick
     store.tickCooldowns(dt);
     if (!store.playerDead && !uiBlockingOpen) {
-      this.player.update(dt, this.input, this.camera, this.resolvePlayerCollisions);
+      this.player.update(
+        dt,
+        this.input,
+        this.camera,
+        this.resolvePlayerCollisions,
+        store.gmFlyingMode
+          ? store.gmMoveSpeedMultiplier
+          : playerMoveMultiplier(store.playerStatusEffects, tMs) * store.gmMoveSpeedMultiplier,
+        { flying: store.gmFlyingMode },
+      );
     }
     if (store.gmBuildMode) {
       this.worldEditor?.setPlayerPose(
@@ -422,14 +630,23 @@ export class Game {
         this.player.rotationY,
       );
     }
-    this.camera.update(this.player.position, this.input, this.getActiveCameraColliders());
+    this.camera.update(
+      this.player.position,
+      this.input,
+      this.getActiveCameraColliders(),
+      this.terrain.heightAt.bind(this.terrain),
+    );
     this.combat.tickAbilityImpacts(tMs);
     this.combat.tickStatusEffects(tMs);
     this.combat.tickEnemies(dt, tMs, this.player);
+    this.tickResourceRegeneration(dt);
     this.combat.tickRespawns(tMs);
     this.combat.tickFloatingDamage(tMs);
     this.vfx.update(dt);
-    for (const gate of this.gates.values()) gate.mixer?.update(dt);
+    for (const gate of this.getAllGates()) {
+      gate.mixer?.update(dt);
+      updateGateFallbackVisual(gate, dt);
+    }
     for (const mixer of this.npcMixers) mixer.update(dt);
 
     // Enemy visibility sync
@@ -439,20 +656,17 @@ export class Game {
     }
 
     // Zone trigger detection
-    if (!store.pendingZoneTransition && this.zoneTriggers.length > 0) {
-      const px = this.player.position.x;
-      const pz = this.player.position.z;
-      for (const trigger of this.zoneTriggers) {
-        const dx = px - trigger.x;
-        const dz = pz - trigger.z;
-        if (dx * dx + dz * dz < trigger.radius * trigger.radius) {
-          store.setPendingZoneTransition({
-            targetZoneId: trigger.targetZoneId,
-            targetSpawn: trigger.targetSpawn,
-          });
-          break;
-        }
-      }
+    const zoneTrigger = this.findContainingZoneTrigger();
+    if (!this.zoneTransitionArmed) {
+      this.zoneTransitionArmed = zoneTransitionCanArm(tMs, this.zoneTransitionGraceUntilMs, Boolean(zoneTrigger));
+    } else if (!store.pendingZoneTransition && zoneTrigger) {
+      const targetZoneId = normalizePlayableZoneId(zoneTrigger.targetZoneId, this.character.race);
+      store.setPendingZoneTransition({
+        targetZoneId,
+        targetSpawn: zoneWasNormalized(zoneTrigger.targetZoneId, targetZoneId)
+          ? defaultZoneSpawnPoint(targetZoneId)
+          : zoneTrigger.targetSpawn,
+      });
     }
 
     // Position sync to world service (every 0.2 s)
@@ -484,6 +698,396 @@ export class Game {
     this.input.endFrame();
   }
 
+  private findContainingZoneTrigger(): ZoneTrigger | null {
+    if (!this.player || this.zoneTriggers.length === 0) return null;
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    for (const trigger of this.zoneTriggers) {
+      const dx = px - trigger.x;
+      const dz = pz - trigger.z;
+      if (dx * dx + dz * dz < trigger.radius * trigger.radius) return trigger;
+    }
+    return null;
+  }
+
+  private consumeAbilityAttempt(store: ReturnType<typeof useGameStore.getState>): number | null {
+    const touchSlot = store.pendingTouchAbility;
+    if (touchSlot !== null) store.setPendingTouchAbility(null);
+
+    for (const [code, slot] of ABILITY_KEYS) {
+      if (this.input.wasPressed(code)) return slot;
+    }
+
+    return touchSlot !== null && touchSlot >= 0 && touchSlot < ABILITY_KEYS.length
+      ? touchSlot
+      : null;
+  }
+
+  private tickResourceRegeneration(dt: number): void {
+    const store = useGameStore.getState();
+    if (store.playerDead || !store.character) {
+      this.resourceRegeneration.reset();
+      return;
+    }
+
+    const patch = this.resourceRegeneration.tick(store.character, dt);
+    if (!patch) return;
+
+    store.updateCharacter(patch);
+    Object.assign(this.character, patch);
+  }
+
+  private updateGuidedTaskProgress(store: ReturnType<typeof useGameStore.getState>): void {
+    store.clearExpiredAbilityFeedback(Date.now());
+    if (!this.player) return;
+
+    if (!store.guidedTasks.move) {
+      const distanceFromSpawn = Math.hypot(
+        this.player.position.x - this.spawnPoint.x,
+        this.player.position.z - this.spawnPoint.z,
+      );
+      const keyboardMove =
+        this.input.isDown('KeyW') ||
+        this.input.isDown('KeyA') ||
+        this.input.isDown('KeyS') ||
+        this.input.isDown('KeyD') ||
+        this.input.isDown('Space');
+      const touchMove = Math.hypot(this.input.touchMoveX, this.input.touchMoveZ) > 0.1;
+      if (distanceFromSpawn > 1.5 || keyboardMove || touchMove) {
+        store.completeGuidedTask('move');
+      }
+    }
+
+    if (!store.guidedTasks.camera && (this.input.mouseLeftDown || this.input.mouseRightDown)) {
+      store.completeGuidedTask('camera');
+    }
+  }
+
+  private handleAbilityAttempt(
+    slot: number,
+    tMs: number,
+    state: {
+      chatFocused: boolean;
+      playerDead: boolean;
+      uiBlockingOpen: boolean;
+      gmBuildMode: boolean;
+    },
+  ): void {
+    if (!this.player) return;
+
+    if (state.playerDead) {
+      this.showAbilityFeedback(
+        this.combat.getAbilityFailure(slot, this.player, tMs, { playerDead: true }) ?? {
+          code: 'dead_player',
+          message: 'You are dead.',
+        },
+      );
+      return;
+    }
+
+    const blockedMessage = state.chatFocused
+      ? 'Close chat to use abilities.'
+      : state.uiBlockingOpen
+        ? 'Close the guide or settings to use abilities.'
+        : state.gmBuildMode
+          ? 'Leave GM build mode to use abilities.'
+          : '';
+    if (blockedMessage) {
+      this.showAbilityFeedback(
+        this.combat.getAbilityFailure(slot, this.player, tMs, {
+          uiBlocked: true,
+          uiBlockedMessage: blockedMessage,
+        }) ?? { code: 'blocked_ui', message: blockedMessage },
+      );
+      return;
+    }
+
+    if (this.combat.tryAbility(slot, this.player, tMs)) return;
+
+    const failure = this.combat.getAbilityFailure(slot, this.player, tMs);
+    if (failure) this.showAbilityFeedback(failure);
+  }
+
+  private showAbilityFeedback(failure: { code: string; message: string; ability?: { name: string } }): void {
+    useGameStore.getState().showAbilityFeedback({
+      message: failure.message,
+      abilityName: failure.ability?.name,
+      kind: abilityFeedbackKind(failure.code),
+      durationMs: HUD_FEEDBACK_DURATION_MS,
+    });
+  }
+
+  private updateContextualPrompt(
+    store: ReturnType<typeof useGameStore.getState>,
+    uiBlockingOpen: boolean,
+  ): void {
+    if (!this.player || store.chatFocused || store.playerDead || uiBlockingOpen || store.gmBuildMode) {
+      this.publishContextualPrompt(null);
+      return;
+    }
+
+    this.publishContextualPrompt(
+      this.findHarvestPrompt(store) ??
+        this.findResourceNodePrompt(store) ??
+        this.findCraftingPrompt() ??
+        this.findQuestgiverPrompt(store) ??
+        this.findGatePrompt() ??
+        this.findObjectivePrompt(store) ??
+        this.findEnemyPrompt(store),
+    );
+  }
+
+  private publishContextualPrompt(prompt: ContextPromptState | null): void {
+    const key = contextPromptKey(prompt);
+    if (key === this.lastContextualPromptKey) return;
+    this.lastContextualPromptKey = key;
+    useGameStore.getState().setContextPrompt(prompt);
+  }
+
+  private findHarvestPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    let best: { enemy: EnemyState; dist: number } | null = null;
+
+    for (const enemy of store.enemies) {
+      if (enemy.alive || !enemy.gathering || enemy.gathering.harvested) continue;
+      const dist = Math.hypot(px - enemy.position.x, pz - enemy.position.z);
+      if (dist <= CORPSE_INTERACT_RADIUS && (!best || dist < best.dist)) best = { enemy, dist };
+    }
+
+    if (!best) return null;
+    const { enemy } = best;
+    return {
+      kind: 'gathering',
+      action: 'E',
+      label: `${enemy.gathering?.actionLabel ?? 'Harvest'} ${enemy.gathering?.corpseLabel ?? enemy.name}`,
+      detail: enemy.name,
+      distance: best.dist,
+    };
+  }
+
+  private findResourceNodePrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
+    const best = this.findNearestResourceNode(store);
+    if (!best) return null;
+    return {
+      kind: 'gathering',
+      action: 'E',
+      label: `Gather ${best.node.label}`,
+      detail: resourceNodeKindLabel(best.node.kind),
+      distance: best.dist,
+    };
+  }
+
+  private findCraftingPrompt(): ContextPromptState | null {
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    let best: { station: CraftingStationSpawn; dist: number } | null = null;
+
+    for (const station of this.craftingStations) {
+      const radius = station.radius ?? 5;
+      const dist = Math.hypot(px - station.x, pz - station.z);
+      if (dist <= radius && (!best || dist < best.dist)) best = { station, dist };
+    }
+
+    if (!best) return null;
+    return {
+      kind: 'crafting',
+      action: 'E',
+      label: `Use ${best.station.label}`,
+      detail: 'Crafting station',
+      distance: best.dist,
+    };
+  }
+
+  private findQuestgiverPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    let best: { npc: (typeof store.npcs)[number]; dist: number } | null = null;
+
+    for (const npc of store.npcs) {
+      if (npc.role !== 'questgiver') continue;
+      const dist = Math.hypot(px - npc.position.x, pz - npc.position.z);
+      if (dist < QUEST_INTERACT_RADIUS && (!best || dist < best.dist)) best = { npc, dist };
+    }
+
+    if (!best) return null;
+    return {
+      kind: 'quest',
+      action: 'E',
+      label: `Talk to ${best.npc.name}`,
+      detail: best.npc.title,
+      distance: best.dist,
+    };
+  }
+
+  private findGatePrompt(): ContextPromptState | null {
+    const best = this.findNearestGate();
+    if (!best) return null;
+    return {
+      kind: 'gate',
+      action: 'E',
+      label: `${best.gate.isOpen ? 'Close' : 'Open'} ${best.gate.label}`,
+      distance: best.dist,
+    };
+  }
+
+  private findObjectivePrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
+    const best = this.findCapturableObjective(store);
+    if (!best) return null;
+    const capture = this.objectiveCapture?.objectiveId === best.objective.id
+      ? Math.round(captureProgressPct(this.objectiveCapture.startedAtMs, performance.now()) * 100)
+      : 0;
+    return {
+      kind: 'objective',
+      action: 'Hold',
+      label: `Capture ${best.objective.label}`,
+      detail: capture > 0 ? `${capture}%` : 'Stand in the objective area',
+      distance: best.dist,
+    };
+  }
+
+  private findEnemyPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    let best: { enemy: EnemyState; dist: number } | null = null;
+
+    for (const enemy of store.enemies) {
+      if (!enemy.alive) continue;
+      const dist = Math.hypot(px - enemy.position.x, pz - enemy.position.z);
+      if (dist <= TARGETABLE_ENEMY_PROMPT_RADIUS && (!best || dist < best.dist)) {
+        best = { enemy, dist };
+      }
+    }
+
+    if (!best) return null;
+    const selected = store.targetId === best.enemy.id;
+    return {
+      kind: 'target',
+      action: selected ? '1-0' : 'LMB',
+      label: selected ? `Use abilities on ${best.enemy.name}` : `Target ${best.enemy.name}`,
+      detail: `Lv ${best.enemy.level}`,
+      distance: best.dist,
+    };
+  }
+
+  private updateObjectiveCapture(tMs: number, uiBlockingOpen: boolean): void {
+    const store = useGameStore.getState();
+    if (
+      !this.player ||
+      !this.currentZone ||
+      store.chatFocused ||
+      store.playerDead ||
+      uiBlockingOpen ||
+      store.gmBuildMode
+    ) {
+      this.objectiveCapture = null;
+      return;
+    }
+
+    const best = this.findCapturableObjective(store);
+    if (!best) {
+      this.objectiveCapture = null;
+      return;
+    }
+
+    const realm = campaignRealmForCharacter(store.character!);
+    if (
+      !this.objectiveCapture ||
+      this.objectiveCapture.objectiveId !== best.objective.id ||
+      this.objectiveCapture.realm !== realm
+    ) {
+      this.objectiveCapture = { objectiveId: best.objective.id, startedAtMs: tMs, realm };
+      return;
+    }
+
+    if (captureProgressPct(this.objectiveCapture.startedAtMs, tMs) < 1) return;
+    if (this.objectiveClaimsInFlight.has(best.objective.id)) return;
+
+    this.objectiveClaimsInFlight.add(best.objective.id);
+    this.objectiveCapture = null;
+    void claimObjectiveForCharacter(this.currentZone.id, best.objective.id, store.character!)
+      .then((result) => {
+        const snapshot = result.snapshot;
+        const active = snapshot.zones.find((entry) => entry.id === this.currentZone?.id);
+        this.objectiveStatus = new Map(
+          (active?.objectives ?? []).map((objective) => [objective.id, objective]),
+        );
+        this.objectiveControl = new Map(
+          (active?.objectives ?? []).map((objective) => [objective.id, objective.control]),
+        );
+        const updated = active?.objectives.find((objective) => objective.id === best.objective.id);
+        const currentStore = useGameStore.getState();
+        if (result.reward.xp > 0 && currentStore.character) {
+          currentStore.updateCharacter({ xp: currentStore.character.xp + result.reward.xp });
+          checkLevelUp();
+        }
+        useGameStore.getState().completeGuidedTask('interact');
+        const rewardCopy = result.reward.xp > 0
+          ? ` +${result.reward.xp} XP, +${result.reward.influence} influence.`
+          : '';
+        const controlCopy = result.zoneControlChanged && active
+          ? ` ${active.name} is now controlled by ${campaignControlLabel(active.control)}.`
+          : '';
+        useGameStore.getState().appendChat({
+          id: `objective-capture-${Date.now()}-${best.objective.id}`,
+          channel: 'system',
+          from: 'System',
+          body: `Captured ${best.objective.label} for ${campaignControlLabel(updated?.control ?? realm)}.${rewardCopy}${controlCopy}`,
+          timestamp: Date.now(),
+        });
+      })
+      .catch((err) => {
+        console.warn('[Campaign] objective capture failed:', err);
+      })
+      .finally(() => {
+        this.objectiveClaimsInFlight.delete(best.objective.id);
+      });
+  }
+
+  private findNearestResourceNode(
+    store: ReturnType<typeof useGameStore.getState>,
+  ): { node: ResourceNodeSpawn; dist: number } | null {
+    const zoneId = this.currentZone?.id;
+    if (!zoneId || !this.player) return null;
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    let best: { node: ResourceNodeSpawn; dist: number } | null = null;
+
+    for (const node of this.resourceNodes) {
+      if (!isResourceNodeAvailable(store.craftingState, zoneId, node.id)) continue;
+      const radius = node.radius ?? RESOURCE_NODE_INTERACT_RADIUS;
+      const dist = Math.hypot(px - node.x, pz - node.z);
+      if (dist <= radius && (!best || dist < best.dist)) best = { node, dist };
+    }
+
+    return best;
+  }
+
+  private findCapturableObjective(
+    store: ReturnType<typeof useGameStore.getState>,
+  ): { objective: RvrObjectiveDefinition; control: CampaignControl; dist: number } | null {
+    const objectives = this.currentZone?.rvrObjectives ?? [];
+    if (!this.player || !store.character || objectives.length === 0) return null;
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    const realm = campaignRealmForCharacter(store.character);
+    let best: { objective: RvrObjectiveDefinition; control: CampaignControl; dist: number } | null = null;
+
+    for (const objective of objectives) {
+      if (this.objectiveClaimsInFlight.has(objective.id)) continue;
+      const status = this.objectiveStatus.get(objective.id);
+      const control = status?.control ?? this.objectiveControl.get(objective.id) ?? objective.defaultRealm;
+      if (!canCaptureCampaignObjective(control, store.character)) continue;
+      if (status && !status.capturableBy.includes(realm)) continue;
+      const dist = Math.hypot(px - objective.x, pz - objective.z);
+      if (dist <= objective.captureRadius && (!best || dist < best.dist)) {
+        best = { objective, control, dist };
+      }
+    }
+
+    return best;
+  }
+
   private tryGatherNearestCorpse(): boolean {
     const store = useGameStore.getState();
     const px = this.player.position.x;
@@ -493,10 +1097,17 @@ export class Game {
     for (const enemy of store.enemies) {
       if (enemy.alive || !enemy.gathering || enemy.gathering.harvested) continue;
       const d = Math.hypot(px - enemy.position.x, pz - enemy.position.z);
-      if (d <= 4 && (!best || d < best.dist)) best = { id: enemy.id, dist: d };
+      if (d <= CORPSE_INTERACT_RADIUS && (!best || d < best.dist)) best = { id: enemy.id, dist: d };
     }
 
     return best ? gatherEnemy(best.id) : false;
+  }
+
+  private tryGatherNearestResourceNode(): boolean {
+    const zoneId = this.currentZone?.id;
+    if (!zoneId) return false;
+    const best = this.findNearestResourceNode(useGameStore.getState());
+    return best ? gatherResourceNode(zoneId, best.node) : false;
   }
 
   private tryOpenNearestCraftingStation(): boolean {
@@ -524,11 +1135,18 @@ export class Game {
     for (const npc of store.npcs) {
       if (npc.role !== 'questgiver') continue;
       const d = Math.hypot(px - npc.position.x, pz - npc.position.z);
-      if (d < 4 && (!best || d < best.dist)) best = { id: npc.id, dist: d };
+      if (d < QUEST_INTERACT_RADIUS && (!best || d < best.dist)) best = { id: npc.id, dist: d };
     }
 
     if (!best) return false;
     store.setActiveQuestDialogNpcId(best.id);
+    return true;
+  }
+
+  private tryToggleNearestGate(): boolean {
+    const best = this.findNearestGate();
+    if (!best) return false;
+    this.toggleGate(best.gate);
     return true;
   }
 
@@ -791,18 +1409,24 @@ export class Game {
   }
 
   private isColliderActive(collider: WorldCollider): boolean {
+    const playerY = this.player?.position.y;
+    if (playerY !== undefined) {
+      if (collider.minY !== undefined && playerY < collider.minY) return false;
+      if (collider.maxY !== undefined && playerY > collider.maxY) return false;
+    }
     if (collider.blocksWhen === 'always') return true;
     if (!collider.interactionId) return true;
-    return !this.gates.get(collider.interactionId)?.isOpen;
+    return !this.findGateById(collider.interactionId)?.isOpen;
   }
 
   private tryInteractAt(ndc: Float32Array): boolean {
-    if (!this.player || this.gates.size === 0) return false;
+    const gates = this.getVisibleGates();
+    if (!this.player || gates.length === 0) return false;
     this.interactRaycaster.setFromCamera(
       new THREE.Vector2(ndc[0], ndc[1]),
       this.camera.camera,
     );
-    const gateObjects = Array.from(this.gates.values(), (gate) => gate.object);
+    const gateObjects = gates.map((gate) => gate.object);
     const hits = this.interactRaycaster.intersectObjects(gateObjects, true);
     for (const hit of hits) {
       const gate = this.findGateForObject(hit.object);
@@ -821,7 +1445,7 @@ export class Game {
 
   private findGateNearRay(): InteractiveGate | null {
     let best: { gate: InteractiveGate; score: number } | null = null;
-    for (const gate of this.gates.values()) {
+    for (const gate of this.getVisibleGates()) {
       if (!this.isGateInRange(gate)) continue;
       const box = new THREE.Box3().setFromObject(gate.object);
       if (box.isEmpty()) continue;
@@ -840,19 +1464,56 @@ export class Game {
     return Math.hypot(dx, dz) <= gate.maxDistance;
   }
 
+  private findNearestGate(): { gate: InteractiveGate; dist: number } | null {
+    const gates = this.getVisibleGates();
+    if (!this.player || gates.length === 0) return null;
+
+    let best: { gate: InteractiveGate; dist: number } | null = null;
+    for (const gate of gates) {
+      const dx = gate.object.position.x - this.player.position.x;
+      const dz = gate.object.position.z - this.player.position.z;
+      const dist = Math.hypot(dx, dz);
+      if (dist > gate.maxDistance) continue;
+      if (!best || dist < best.dist) best = { gate, dist };
+    }
+
+    return best;
+  }
+
   private findGateForObject(object: THREE.Object3D): InteractiveGate | null {
     let node: THREE.Object3D | null = object;
     while (node) {
       const id = node.userData.interactionId as string | undefined;
-      if (id && this.gates.has(id)) return this.gates.get(id)!;
+      if (id) {
+        const gate = this.findGateById(id);
+        if (gate) return gate;
+      }
       node = node.parent;
     }
     return null;
   }
 
+  private getAllGates(): InteractiveGate[] {
+    return [
+      ...this.gates.values(),
+      ...(this.worldEditor?.getGates() ?? []),
+    ];
+  }
+
+  private getVisibleGates(): InteractiveGate[] {
+    return this.getAllGates().filter((gate) => gate.object.visible);
+  }
+
+  private findGateById(id: string): InteractiveGate | null {
+    return this.gates.get(id)
+      ?? this.worldEditor?.getGates().find((gate) => gate.id === id)
+      ?? null;
+  }
+
   private toggleGate(gate: InteractiveGate): void {
     const opening = !gate.isOpen;
     gate.isOpen = opening;
+    if (gate.fallbackVisual) gate.fallbackVisual.target = opening ? 1 : 0;
     const clipName = opening ? gate.openClip : gate.closeClip;
     if (!gate.mixer) return;
     const actions = Array.from(gate.actions.entries())
@@ -872,7 +1533,7 @@ export class Game {
 
   private onDispose: Array<() => void> = [];
 
-  dispose() {
+  dispose(options: { persistCharacter?: boolean } = {}) {
     if (this.disposed) return;
     this.disposed = true;
     cancelAnimationFrame(this.raf);
@@ -894,15 +1555,17 @@ export class Game {
     if (this.renderer?.domElement.parentElement === this.container) {
       this.container.removeChild(this.renderer.domElement);
     }
-    // Persist character snapshot
-    void services.characters.save(this.character.id, {
-      position: {
-        x: this.player?.position.x ?? 0,
-        y: this.player?.position.y ?? 0,
-        z: this.player?.position.z ?? 0,
-      },
-      rotationY: this.player?.rotationY ?? 0,
-    });
+    if (options.persistCharacter ?? true) {
+      // Persist character snapshot
+      void services.characters.save(this.character.id, {
+        position: {
+          x: this.player?.position.x ?? 0,
+          y: this.player?.position.y ?? 0,
+          z: this.player?.position.z ?? 0,
+        },
+        rotationY: this.player?.rotationY ?? 0,
+      });
+    }
   }
 }
 
@@ -949,6 +1612,33 @@ function pushCircleOutOfCollider(
   return true;
 }
 
+function updateGateFallbackVisual(gate: InteractiveGate, dt: number): void {
+  const visual = gate.fallbackVisual;
+  if (!visual) return;
+  if (Math.abs(visual.progress - visual.target) < 0.001) {
+    visual.progress = visual.target;
+  } else {
+    const direction = visual.target > visual.progress ? 1 : -1;
+    visual.progress += direction * visual.speed * dt;
+    if (
+      (direction > 0 && visual.progress > visual.target) ||
+      (direction < 0 && visual.progress < visual.target)
+    ) {
+      visual.progress = visual.target;
+    }
+  }
+  applyGateFallbackVisual(gate.object, visual.progress);
+}
+
+function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void {
+  const clamped = Math.max(0, Math.min(1, progress));
+  object.traverse((node) => {
+    const side = node.userData.gateLeafSide;
+    if (typeof side !== 'number') return;
+    node.rotation.y = -side * (Math.PI / 2) * clamped;
+  });
+}
+
 function getWalkableSurfaceHeight(
   x: number,
   z: number,
@@ -972,6 +1662,52 @@ function getWalkableSurfaceHeight(
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
+}
+
+function resourceNodeKindLabel(kind: ResourceNodeSpawn['kind']): string {
+  switch (kind) {
+    case 'herb': return 'Herb';
+    case 'ore': return 'Ore';
+    case 'wood': return 'Timber';
+    case 'water': return 'Water';
+    case 'soil': return 'Soil';
+    case 'scrap': return 'Scrap';
+    case 'relic': return 'Relic';
+    default: return 'Resource';
+  }
+}
+
+function campaignControlLabel(control: CampaignControl): string {
+  switch (control) {
+    case 'aegis': return 'Aegis';
+    case 'riftbound': return 'Riftbound';
+    case 'contested':
+    default: return 'Contested';
+  }
+}
+
+function playerMoveMultiplier(effects: PlayerStatusEffect[], now: number): number {
+  const active = effects.filter((effect) => effect.expiresAt > now);
+  if (active.some((effect) => effect.kind === 'root' || effect.kind === 'stagger')) return 0;
+  const strongestSlow = active
+    .filter((effect) => effect.kind === 'slow')
+    .reduce((best, effect) => Math.max(best, effect.magnitude ?? 0.35), 0);
+  return Math.max(0.2, 1 - strongestSlow);
+}
+
+function abilityFeedbackKind(code: string): AbilityFeedbackKind {
+  switch (code) {
+    case 'cooldown': return 'cooldown';
+    case 'insufficient_mana':
+    case 'insufficient_resource':
+      return 'resource';
+    case 'no_target':
+      return 'target';
+    case 'out_of_range':
+      return 'range';
+    default:
+      return 'blocked';
+  }
 }
 
 function buildStaticTerrainObject(

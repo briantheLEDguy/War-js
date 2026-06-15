@@ -50,12 +50,12 @@ export const SECTION_EMPTY_PAGE: Record<WikiSectionId, string> = {
 };
 
 export const RACE_GUIDE_COPY: Record<PlayableRace, string> = {
-  empire: 'Order humans based from Altdorf, with classes built around fire magic, investigation, command, and battle prayers.',
-  dwarf: 'Order mountain folk with defensive oathcraft, berserker pressure, rune support, and engineering tools.',
-  high_elf: 'Order elves with disciplined blade forms, beast hunting, balanced magic, and mobile archery.',
-  chaos: 'Destruction servants of ruin with dread auras, mutations, occult artillery, and ritual support.',
-  greenskin: 'Destruction brawlers and skirmishers with plan-based tanking, beast handling, bog magic, and frenzied melee.',
-  dark_elf: 'Destruction raiders with blood assassination, hatred tanking, dark power casting, and siphon healing.',
+  empire: 'Aegis Accord humans based from Bastion of Aegis, with classes built around fire magic, investigation, command, and battle prayers.',
+  dwarf: 'Aegis Accord mountain folk with defensive oathcraft, berserker pressure, rune support, and engineering tools.',
+  high_elf: 'Aegis Accord elves with disciplined blade forms, beast hunting, balanced magic, and mobile archery.',
+  chaos: 'Riftbound Host zealots with dread auras, mutations, occult artillery, and ritual support.',
+  greenskin: 'Riftbound Host brawlers and skirmishers with plan-based tanking, beast handling, bog magic, and frenzied melee.',
+  dark_elf: 'Riftbound Host raiders with blood assassination, hatred tanking, dark power casting, and siphon healing.',
 };
 
 export const CLASS_FAMILY_LABELS: Record<string, string> = {
@@ -132,6 +132,25 @@ export const OVERVIEW_PAGES: WikiPage[] = [
       },
     ],
   },
+  {
+    id: 'overview-player-qol',
+    sectionId: 'overview',
+    title: 'Player QoL HUD',
+    subtitle: 'Orientation, feedback, first-session goals, and campaign preview',
+    status: 'implemented',
+    tags: ['qol', 'hud', 'campaign', 'tutorial', 'rvr', 'minimap', 'inventory'],
+    body: [
+      'The HUD includes an objective tracker, enhanced minimap markers, contextual interaction prompts, ability failure feedback, optional first-session goals backed by local browser storage, and a local campaign preview for RvR orientation.',
+      'The campaign panel reads the service snapshot. Local mode persists control in browser storage; Supabase activation uses the campaign tables seeded from the static graph.',
+    ],
+    details: [
+      { label: 'Orientation', value: 'Quest, NPC, crafting, enemy, exit, and off-range priority markers with objective progress.' },
+      { label: 'Inventory/Crafting', value: 'Search, filters, sort controls, comparison, ingredient deficits, and safer salvage preview.' },
+      { label: 'Feedback', value: 'Nearby action prompts and ability failure reasons for target, range, cooldown, resource, defeated, and UI-blocked states.' },
+      { label: 'First Steps', value: 'Move, camera, interaction, combat, harvest, gear equip, guide, and crafting.' },
+      { label: 'Campaign', value: 'Aegis Accord vs Riftbound Host control, static graph lanes, fortress pressure, and city siege readiness.' },
+    ],
+  },
 ];
 
 export const ROADMAP_PAGES: WikiPage[] = [
@@ -176,7 +195,7 @@ export const ROADMAP_PAGES: WikiPage[] = [
     status: 'planned',
     tags: ['roadmap', 'quests', 'npcs', 'vendors'],
     body: [
-      'The first quest chain and NPC interaction path exist. Future work expands quest types, NPC services, vendors, and WAR-accurate district placement.',
+      'The first quest chain and NPC interaction path exist. Future work expands quest types, NPC services, vendors, and original district placement.',
     ],
   },
   {
@@ -187,11 +206,11 @@ export const ROADMAP_PAGES: WikiPage[] = [
     status: 'planned',
     tags: ['roadmap', 'world', 'rvr', 'pvp'],
     body: [
-      'Future world pages will cover additional WAR-accurate zones, scenarios, open RvR, and city siege rules as those systems land in data and code.',
+      'Future world pages will cover additional original zones, scenarios, open RvR, and city siege rules as those systems land in data and code.',
     ],
     details: [
-      { label: 'Pairing path', value: 'Nordland/Norsca -> Ostland/Troll Country -> Talabecland/High Pass -> Reikland -> Altdorf/Inevitable City' },
-      { label: 'City siege rule', value: 'Cities become attackable when the realm holds all T4 RvR zones.' },
+      { label: 'Central path', value: 'Riftspire Citadel -> Voidgate Fortress -> Rift Crownworks -> Shatterline Expanse -> Dawnline Expanse -> Aegis Crownworks -> Starfall Gate -> Bastion of Aegis' },
+      { label: 'City siege rule', value: 'A city siege opens when a realm controls the enemy T4 front, inner T4 zone, and fortress.' },
     ],
   },
 ];

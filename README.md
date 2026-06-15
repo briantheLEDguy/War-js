@@ -20,9 +20,12 @@ Useful checks:
 
 ```bash
 npm run test
+npm run campaign:generate
 npm run typecheck
 npm run world:validate
+npm run models:import-external
 npm run models:sync-playables
+npm run models:sync-npcs
 npm run build
 npm run models:validate
 ```
@@ -40,13 +43,16 @@ npm run models:validate
 | Left click | Target enemy |
 | Right click | Open/close interactive gates and doors; equip gear in inventory |
 | `1`-`0` | Class ability hotbar |
-| `E` | Interact with quest givers, crafting stations, and harvestable corpses |
+| `E` | Interact with quest givers, crafting stations, harvestable corpses, and nearby gates |
 | `I` | Toggle inventory |
 | `C` | Toggle character sheet |
+| `M` | Toggle detailed world map |
 | `H` | Toggle in-game guide / wiki |
-| `Esc` | Toggle settings |
+| HUD Campaign icon | Toggle Aegis/Riftbound campaign status |
+| `Esc` | Close the active window; opens Settings when no window is open |
 | `Enter` | Focus chat |
 | `` ` `` | Toggle debug overlay |
+| HUD window headers/title bars | Drag windows around the viewport |
 | `/gm build` | Enable GM world-edit mode when `VITE_GM_ENABLED=true` and your email is allowlisted |
 | `/gm build off` | Leave GM world-edit mode |
 
@@ -62,26 +68,31 @@ public/
     textures/            Runtime textures
     hdri/                Environment maps
 scripts/
+  campaign/             Static Aegis/Riftbound graph and map generator
   blender-character-pipeline/
     data/asset-blueprints/ Manifest-first model blueprints
+    data/external-imports.json User-supplied GLB/FBX import manifest
     data/asset-blueprint.schema.json
+    data/npc-character-roster.json Generated NPC/enemy profile style data
     data/style-policy.md
     blender/             Blender generator backends and manifest entrypoint
     tools/               Node list/validate/generate commands
     mcp-server/          Codex MCP wrapper
 src/
   config/                Environment flag parsing
-  data/                  Class roster, item/crafting catalogs, equipment visuals
+  data/                  Campaign graph, class roster, item/crafting catalogs,
+                         equipment visuals
   editor/                GM authorization helpers
   services/              Local/Supabase service abstraction
     local/               In-memory services and browser-compatible ID helpers
     supabase/            NotImplemented stubs that preserve the backend contract
   state/                 Zustand game store
   game/                  Three.js runtime, loader, player, combat, input,
-                         data-driven ability runtime
+                         data-driven ability runtime, resource regeneration
   game/abilities/        Class kits, ability schema, activation runtime,
                          projectile/impact VFX
   game/animation/        Shared procedural/GLB animation and VFX helpers
+  game/WeaponAnimation.ts Procedural weapon gestures for equipped and fallback weapons
   world/                 Zone loading, terrain, props, NPCs, biome/path kits,
                          GM world-edit validation and runtime editor helpers
   world/editor/          Voxel terrain, prefab, transform, collider, and
@@ -90,6 +101,93 @@ src/
                          gameplay catalogs plus roadmap metadata
   ui/                    React screens and HUD overlay
 ```
+
+Runtime terrain notes:
+
+- `src/world/PathKit.ts` expands zone `paths` into connected visual road props, including endpoint connectors and junction caps for close path endpoints.
+- Generated path props render through terrain-following ribbons in `src/world/Props.ts`; they do not create separate walkable shelves, so player grounding stays tied to the active terrain or authored walkable surfaces.
+- `src/game/Camera.ts` resolves the third-person camera against prop colliders and terrain height so the viewport moves forward when terrain would occlude it.
+- The Settings panel persists camera inversion, look sensitivity, zoom speed, and view distance in localStorage; view distance updates scene fog live without changing zone data.
+- HUD windows share `src/ui/hud/useDraggableWindow.ts`, which keeps dragged panels inside the viewport while preserving each window's default CSS placement until moved.
+
+Runtime animation notes:
+
+- `src/game/Player.ts` resolves the manifest-backed playable character profile first so player bodies use authored locomotion and combat clips when available; external player overrides remain fallback assets.
+- `src/game/Enemy.ts` drives enemy `idle`/`walk`/`run` loops from AI movement and plays attack, cast, and hit reactions as one-shot clips.
+- `src/game/animation/StaticModelAnimator.ts` layers procedural limb motion over imported or primitive characters that lack complete GLB animation clips.
+
+## External Model Imports
+
+User-supplied GLB/FBX assets live under `public/assets/new_models/` and are
+converted into runtime-safe assets with:
+
+```bash
+npm run models:import-external
+```
+
+The import manifest is
+`scripts/blender-character-pipeline/data/external-imports.json`; the Blender
+backend is `scripts/blender-character-pipeline/blender/import_external_assets.py`.
+The command writes manifest blueprints, exports runtime GLBs into
+`public/assets/models/`, writes `.qc.json` sidecars, and updates
+`public/assets/models/asset-index.json`.
+
+Current external imports include the static medieval knight reference, the
+rigged Strong Knight profile used for the Aegis player override, the animated
+Warrior profile used for most Aegis guards, the Swordsman and medieval
+character sample profiles used as deterministic Aegis guard/NPC variants, the
+`evil-guy` profile used for Riftbound player overrides, the fantasy town-kit prefabs, and
+`terrain_aegis_capital_medieval_city.glb`. The Aegis capital source model is
+recentered, grounded, scaled to the 360-unit capital footprint, texture-size
+reduced, and exported without Draco so the existing `GLTFLoader` path can load
+it with primitive fallbacks still available.
+
+Because both medieval knight GLBs are static, `src/game/Player.ts` currently
+uses imported external overrides for player bodies: Strong Knight for Aegis
+races and `evil-guy` for Riftbound races. It still keeps
+`src/game/animation/StaticModelAnimator.ts` available as a fallback when an
+external player override has no clips or only idle-style clips without explicit
+`walk`/`run` actions. The fallback detects the Strong Knight and Warrior source
+rig bone names and layers a procedural stride over the authored idle clip.
+Skinned equipment overlays are suppressed while an external player override is
+active because those generated gear modules target the manifest humanoid
+skeleton, not arbitrary imported rigs.
+
+Aegis guard NPCs and Aegis guard enemies use a weighted deterministic external
+variant picker in `src/data/modelOverrides.ts`: Warrior remains the majority
+visual, while the imported Swordsman and medieval character sample are mixed
+into guard placements by stable spawn id.
+
+## Aegis Capital Replacement
+
+`scripts/campaign/generate-static-campaign.mjs` is authoritative for Bastion of
+Aegis. For `aegis_capital`, it now removes the old procedural city paths,
+houses, walls, citadel, portal props, objective props, biome scatter, and
+environment scatter, then emits one imported city visual prop backed by
+`aegis_capital_medieval_city`.
+
+Gameplay services are preserved and relocated around the imported town: spawn
+near the front gate, city gate and market plaza objectives, fortress/west/east
+travel triggers, banker, quartermaster, class trainer, crafting trainer, quest
+giver, crafting stations, resource nodes, and extra Aegis guard NPCs at gates,
+market, plaza, side streets, and the rear district. The generated map carries
+explicit colliders for outer walls, dense house blocks, and landmark clusters.
+Run `npm run campaign:generate` after changing this layout so map hashes,
+`src/data/campaign.generated.ts`, and `supabase/seed_campaign_static.sql` stay
+aligned.
+
+## GM Build Town Kit
+
+The GM builder prefab list comes from
+`src/world/editor/PrefabCatalog.ts`. The modular fantasy house kit is indexed as
+`town_*` prefabs with labels, preview models, footprints, default colliders,
+camera-solid behavior, and asset-index static keys. In the GM Build panel, pick
+`Modular Town Kit` in the Kit selector, then choose the individual house, wall,
+roof, door, window, beam, chimney, spire, or plank piece in the Piece selector.
+Existing grid snapping, angle snapping, wheel rotation, drag-chain placement,
+transform controls, save, publish, and reload behavior continue through
+`WorldEditorRuntime` because the town-kit prefabs are ordinary
+`WorldPropObject` entries with `assetKey` and `model` metadata.
 
 ## In-Game Wiki Guide
 
@@ -101,9 +199,52 @@ planned roadmap pages.
 
 `src/ui/hud/WikiPanel.tsx` renders that index as an in-game HUD guide with
 section tabs, search, page navigation, detail rows, and data tables. The guide
-opens from the HUD `Guide` button or `H`; while open, movement, combat,
+opens from the HUD Guide icon or `H`; while open, movement, combat,
 interaction, and chat shortcuts are blocked, and `Esc` closes the guide before
 falling back to settings.
+
+## Player QoL HUD
+
+`src/ui/hud/ObjectiveTracker.tsx`, `src/ui/hud/Minimap.tsx`, and
+`src/ui/hud/WorldMapPanel.tsx` improve orientation during play. The objective
+tracker summarizes active and ready-to-turn-in quests with nearby enemy/NPC
+distance context, while the minimap shows toggled marker categories for quests,
+NPCs, crafting stations, resource nodes, enemies, exits, and off-range priority indicators. The
+full map opens with `M` or the HUD Map icon and renders the active zone JSON
+as terrain shading, roads, camps/objectives, landmarks, exits, and live markers.
+
+`src/ui/hud/InventoryPanel.tsx` and `src/ui/hud/CraftingPanel.tsx` reduce menu
+friction with inventory search, type/slot/material filters, sort controls,
+capacity state, equipped-item comparison, recipe availability filters,
+ingredient deficits, cultivation-ready counts, and preview-before-salvage.
+
+`src/ui/hud/InteractionFeedback.tsx` surfaces local context prompts and ability
+failure messages. Nearby quest givers, crafting stations, resource nodes,
+harvestable corpses, objectives, gates, and targetable enemies advertise the expected action, and blocked
+ability attempts explain cooldowns, resources, missing targets, range, defeated
+player state, or UI focus.
+
+`src/ui/hud/GuidedTasksPanel.tsx` adds optional first-session goals for core
+player actions: movement, camera control, interaction, combat, corpse
+harvesting, gear equip, guide use, and crafting. Progress is driven by local
+gameplay events and persisted in localStorage, so it does not change service
+contracts or require Supabase.
+
+`src/ui/hud/CampaignPanel.tsx` exposes the static Aegis Accord vs Riftbound Host
+campaign graph. Its data lives in `src/data/campaign.ts`, generated map hashes
+live in `src/data/campaign.generated.ts`, and static maps live under
+`public/assets/maps/`. The panel shows lane control, active-zone objectives,
+realm influence, fortress pressure, city-siege readiness, and side boss/lair
+branches. Local mode persists campaign control and influence in browser storage;
+Supabase activation uses the `campaign_*` tables seeded from
+`supabase/seed_campaign_static.sql`.
+In-world `rvrObjectives` can also be claimed locally by standing inside their
+capture radius for three seconds; battlefield objective captures grant 75 XP and
+25 realm influence, with a 25 influence sweep bonus for controlling all three
+BOs. A realm needs all three BOs and 100 local zone influence before the enemy
+keep becomes capturable. The player realm is derived from race alignment, so
+Aegis races claim for Aegis and Riftbound races claim for
+Riftbound.
 
 ## Character Select Preview
 
@@ -116,7 +257,7 @@ path as the in-world player without mounting the full game loop.
 Saved characters load their full `CharacterState` before previewing. While the
 create form is open, the preview uses the unsaved race, class, and body variant
 choices. Race-themed preview environments are procedural except for the
-Destruction foliage/stone accents, which are manifest-backed static props:
+Riftbound foliage/stone accents, which are manifest-backed static props:
 `preview_twisted_tree`, `preview_blight_shrub`, `preview_jagged_stone`, and
 `preview_dreary_reeds`.
 
@@ -136,9 +277,10 @@ Supported v1 professions:
 - **Talisman Making**: fragments bind into equipable neck-slot talismans with
   rolled Strength bonuses.
 
-Altdorf contains the first crafting hub in `public/assets/maps/altdorf.json` via
-`craftingStations`. Stations are interaction points, so real models can replace
-their primitive/vendor-stall props later without TypeScript changes.
+Generated campaign zones now contain `craftingStations` and `resourceNodes`.
+Stations open the crafting panel, while resource nodes are in-world gathering
+points with stable IDs, minimap markers, local cooldowns, crafting XP, and loot
+tables that feed the existing inventory/crafting recipes.
 
 ## Ability System
 
@@ -169,6 +311,19 @@ impact resolution from animation release windows and projectile travel time,
 and hands off damage/healing/status application to `src/game/Combat.ts` so XP,
 loot, respawn, enemy hit reactions, and quest kill credit stay on the existing
 combat path.
+
+`src/game/WeaponAnimation.ts` adds procedural weapon gestures on top of body
+animations. Equipped main-hand/off-hand overlays and tagged fallback weapons
+share the same controller: blades swing or thrust, staves and ranged weapons
+point toward the attack direction, heavy weapons slam, and shields brace for
+ward/block abilities. Ability visual motion metadata (`cleave`, `jab`, `shot`,
+`slam`, `ward`, `ritual`, and similar) selects the gesture so weapon-implied
+abilities read differently even before bespoke GLB clips exist.
+
+`src/game/ResourceRegeneration.ts` applies the baseline player recovery loop.
+All classes currently regenerate health and mana from empty to full in about
+30 seconds, with the per-second rate scaled from each character's max health
+and max mana.
 
 `tests/abilityCatalog.test.ts` and `tests/abilityRuntime.test.ts` run under
 Vitest and guard the ability catalog, legacy class aliases, resource rules,
@@ -215,6 +370,15 @@ starter armor for `head`, `shoulders`, `chest`, `hands`, `waist`, `legs`,
 `feet`, `back`, and `tabard`, for 432 generated modular armor item definitions.
 `neck`, `mainHand`, and `offHand` remain separate equipment pipelines.
 
+Static NPCs and humanoid enemies resolve through zone `characterProfileKey`
+values backed by `asset-index.json` character profiles. Beast, dummy, and
+training-target enemies resolve through `assetKey` static props such as
+`dummy`, `creature_barrow_wolf`, or `creature_rift_hound`. The shared visual
+assignment rules live in `scripts/npc-profile-rules.mjs`, and
+`npm run models:sync-npcs` regenerates NPC/enemy manifests, creature manifests,
+`scripts/blender-character-pipeline/data/npc-character-roster.json`, and the
+matching model-index entries.
+
 Runtime-ready armor modules must declare matching `bodyFamily`, `skeletonId`,
 `skinned: true`, and `coveredRegions` in `asset-index.json`. The player renderer
 loads those modules as skinned overlays, rebinds compatible armor to the loaded
@@ -243,6 +407,7 @@ Commands:
 ```bash
 npm run models:list
 npm run models:sync-playables
+npm run models:sync-npcs
 npm run models:validate
 npm run models:generate -- chr.human.devout_guardian.t1.m
 npm run models:all -- smoke
@@ -250,6 +415,9 @@ npm run models:all -- playable_smoke
 npm run models:all -- playable_characters
 npm run models:all -- playable_armor
 npm run models:all -- playable_all
+npm run models:all -- npc_characters
+npm run models:all -- enemy_characters
+npm run models:all -- enemy_creatures
 npm run models:all -- destruction_preview
 npm run models:all -- equipment
 npm run models:all -- characters
@@ -277,6 +445,11 @@ entries, and `src/data/playableAssets.generated.ts` starter item catalog. Run it
 after changing any race/class/body-variant theme data, then validate before
 generating GLBs.
 
+`npm run models:sync-npcs` scans all committed map JSON, assigns deterministic
+unique visual profiles to static NPCs and humanoid enemies, keeps training
+dummies on the static dummy asset, maps creature enemies to creature static
+presets, and emits manifest/index data for the resulting NPC model buildout.
+
 Codex MCP tools are exposed by `scripts/blender-character-pipeline/mcp-server/server.mjs`:
 
 | Tool | Purpose |
@@ -290,23 +463,63 @@ Codex MCP tools are exposed by `scripts/blender-character-pipeline/mcp-server/se
 ## World Data
 
 Zone JSON in `public/assets/maps/` drives terrain, props, NPCs, enemies,
-colliders, walkable surfaces, paths, and biome kits.
+colliders, walkable surfaces, paths, campaign objectives, resource nodes, and
+biome kits.
 
-Current committed maps are `altdorf`, `reikland`, and the legacy `zone1`
-test map. Missing future zone files still load through the built-in fallback
-path; the runtime must never hard-fail on absent content.
+The Aegis/Riftbound campaign maps are generated once from
+`scripts/campaign/static-campaign-source.mjs` by `npm run campaign:generate`
+and committed as static JSON. Each generated map has `staticMapVersion`,
+`staticMapHash`, concrete prop transforms, `rvrObjectives`, `resourceNodes`,
+crafting stations, and bidirectional `zoneTriggers`, so every player loads the
+same scenery and portal graph. Portal `targetSpawn` positions are applied as
+the character's entry point in the destination zone, then portal triggering is
+held until the player clears the entry volume. Zone `spawnPoint` values are
+kept as safe death/GM-return respawn positions outside enemy aggro, rather than
+being overwritten by the character's last saved entry position.
+Playable character routing is campaign-only: stale local saves or stale portal
+targets for `altdorf`, `reikland`, or other unknown map IDs normalize back onto
+the Aegis/Riftbound campaign graph before loading. Missing future zone files
+still load through the built-in fallback path; the runtime must never hard-fail
+on absent content.
 
 - `terrainModel` can load a visible GLB terrain and use it for height sampling.
 - `props[].colliders` and `props[].walkableSurfaces` make multi-floor props navigable.
+  Collider `minY` / `maxY` bounds are optional; when present they limit player
+  blocking to that vertical band, which keeps upper castle walls from blocking
+  lower floors.
+- `props[].interaction` marks animated gate/door props; closed-only colliders
+  reference the interaction id so `E` or right-click can visually open/close
+  the gate and release the blocker.
 - `props[].id` can provide a stable GM-editor id for static-object overrides;
   when omitted, the loader generates one from the expanded prop order.
 - `paths` expand into visible, walkable path strips.
 - `biomeKits` expand deterministic landscaping while avoiding path corridors.
+- `rvrObjectives` define static battle objectives, faction keeps, city gates,
+  and boss/lair targets used by the campaign service. Generated battlefield and
+  fortress zones each have three BOs, one Aegis keep, and one Riftbound keep.
+  Keeps are generated from the same editable prop pieces exposed in GM build
+  mode: wall segments, towers, animated front gates, rear posterns, and inner
+  keep doors.
+  Capital cities use the same prop pipeline for dense hard-colliding house
+  blocks, full street networks, outer city walls, portal-facing side gates, rear
+  gates, realm-specific landmarks, and six-level walkable citadels so GMs can
+  adjust those pieces in build mode. Riftspire uses Riftbound-only destructive
+  prop kinds such as `rift_house`, `rift_wall_segment`, `rift_tower`,
+  `rift_obelisk`, `rift_brazier`, and `rift_spike_cluster`.
+- `enemies[].archetype` selects lightweight NPC combat behavior such as raider,
+  guard, caster, beast, or captain. Archetypes drive chase/leash behavior,
+  ranged stand-off spacing, cooldown abilities, and status effects.
+- `npcs[].characterProfileKey` and `enemies[].characterProfileKey` select
+  manifest-backed humanoid models. `enemies[].assetKey` selects indexed static
+  enemy props for creatures and training targets.
+- `resourceNodes` define gatherable world resources. Each node references a
+  visible `props[].id` via `visualPropId`, has loot/XP/cooldown data, and is
+  persisted through `CraftingState.resourceNodeCooldowns`.
 
 ## GM World Editor
 
-GM build mode is an in-game authoring layer for sculpting and improving Altdorf
-and future zones without replacing the static zone JSON pipeline.
+GM build mode is an in-game authoring layer for sculpting and improving static
+zones without replacing the generated campaign JSON baseline.
 
 Enable it locally with:
 
@@ -315,9 +528,26 @@ VITE_GM_ENABLED=true
 VITE_GM_EMAILS=you@example.com
 ```
 
-Then sign in as that email and submit `/gm build` in chat. The command is
-intercepted locally and never sent to zone chat. Unauthorized users receive a
-system message and cannot open the tools.
+Then sign in as that email and submit `/gm` or `/gm menu` in chat to open the
+GM tools menu. GM commands are intercepted locally and never sent to zone chat.
+Unauthorized users receive a system message and cannot open the tools.
+
+The GM tools menu currently includes:
+
+- Campaign zone teleporting across the committed Aegis/Riftbound campaign
+  zones from `CAMPAIGN_ZONES`.
+- Go-to-character lookup by exact case-insensitive character name. The menu
+  uses the online world presence first, then falls back to the saved character
+  record and teleports to that stored zone/position.
+- Current coordinate display and copy-to-clipboard.
+- Return to the current zone spawn.
+- Restore health, mana, and class resource, plus a separate ability-cooldown reset.
+- Walking/flying speed multiplier slider.
+- Flying mode toggle; while flying, use `Q` to descend and `E` to ascend.
+- GM build mode toggle.
+
+`/gm build`, `/gm build on`, `/gm build off`, `/gm off`, and `/gm exit` remain
+available as direct chat shortcuts for the world editor.
 
 The editor currently focuses on world geometry:
 
@@ -344,7 +574,9 @@ The editor currently focuses on world geometry:
   transform is stored as a draft override and the runtime height sampler is
   refreshed when it moves, rotates, scales, or is hidden.
 - Collision authoring: add standalone blocking colliders and walkable surfaces,
-  plus default collider/walkable metadata for common authored prefabs.
+  plus default collider/walkable metadata for common authored prefabs. Stamped
+  `castle_gate` and `castle_door` prefabs get animated GLB models, closed-only
+  colliders, and interaction ids by default, matching generated campaign gates.
 - Persistence: static zone JSON loads first, then the latest published world
   edit overlay. In GM mode, a draft overlay replaces the published overlay,
   autosaves to IndexedDB, and can be published as a named version. Use
@@ -368,7 +600,8 @@ restoreVersion(zoneId, versionId)
 ```
 
 Run `npm run world:validate` to check static zone data for editor-compatible
-models, colliders, walkable surfaces, paths, and core map shape.
+models, colliders, walkable surfaces, paths, core map shape, campaign
+objectives, static hashes, and bidirectional portals.
 
 ## Supabase Setup
 
@@ -391,7 +624,9 @@ Supabase later:
    VITE_SUPABASE_ANON_KEY=eyJ...
    ```
 
-5. Implement the stubs in `src/services/supabase/*`.
+5. Apply `supabase/migrations/20260611120000_campaign_static_map.sql`.
+6. Apply `supabase/seed_campaign_static.sql` after every campaign graph change.
+7. Implement the stubs in `src/services/supabase/*`.
 
 Suggested tables:
 
@@ -492,8 +727,16 @@ create table gm_user_roles (
 );
 ```
 
-Character creation chooses starting `zone_id` in the service layer: Order races
-start in `altdorf`, while Destruction races start in `inevitable_city`.
+The migration above includes the campaign tables:
+`campaign_static_zones`, `campaign_edges`, `campaign_objectives`,
+`campaign_zone_state`, and `campaign_objective_state`. The seed file is
+generated from the same source as the committed map JSON and stores each
+zone's `map_hash` for client-side mismatch warnings. A follow-up migration adds
+`campaign_zone_influence` for per-zone Aegis/Riftbound keep-siege influence.
+
+Character creation chooses starting `zone_id` in the service layer:
+Aegis-aligned races start in `aegis_capital`, while Riftbound-aligned races
+start in `riftspire_capital`.
 
 Enable Row Level Security on all world-edit tables before exposing Supabase to
 the browser. Published rows can be readable by players; draft, restore, and
@@ -525,6 +768,7 @@ The workflow builds with `vite --base=/War-js/`; runtime asset paths must use
 | `npm run world:validate` | Validate zone JSON for world-editor compatibility |
 | `npm run models:list` | List model blueprints and generated status |
 | `npm run models:sync-playables` | Regenerate the 48-profile playable roster manifests and starter armor catalog |
+| `npm run models:sync-npcs` | Regenerate NPC/enemy character manifests, creature manifests, and model-index entries |
 | `npm run models:validate` | Validate manifests and asset index |
 | `npm run models:generate -- <ref>` | Generate one manifest-backed model |
 | `npm run models:all -- <set>` | Generate a manifest set |

@@ -1,0 +1,37 @@
+{
+  "assetId": "prop.town.window",
+  "category": "prop",
+  "model": "prop_town_window.glb",
+  "fileSizeBytes": 156060,
+  "meshCount": 2,
+  "totalTris": 96,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_window",
+      "verts": 36,
+      "faces": 34,
+      "tris": 68,
+      "materials": 1
+    },
+    {
+      "name": "obj_window_pane",
+      "verts": 16,
+      "faces": 14,
+      "tris": 28,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

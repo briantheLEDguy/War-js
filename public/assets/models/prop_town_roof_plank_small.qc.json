@@ -1,0 +1,30 @@
+{
+  "assetId": "prop.town.roof_plank_small",
+  "category": "prop",
+  "model": "prop_town_roof_plank_small.glb",
+  "fileSizeBytes": 110684,
+  "meshCount": 1,
+  "totalTris": 12,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_single_plank_roof_small.001",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

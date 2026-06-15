@@ -1,7 +1,14 @@
 import { xpForLevel } from '../../game/QuestLogic';
 import { useGameStore } from '../../state/gameStore';
+import { useDraggableWindow } from './useDraggableWindow';
 
 export function PlayerFrame() {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const c = useGameStore((s) => s.character);
   const abilityResource = useGameStore((s) => s.abilityResource);
   if (!c) return null;
@@ -13,8 +20,8 @@ export function PlayerFrame() {
   const xpNeed = xpForLevel(c.level);
   const xpPct = Math.min(1, c.xp / xpNeed);
   return (
-    <div className="panel player-frame">
-      <div className="unit-name">
+    <div ref={panelRef} className={`panel player-frame${dragClassName}`} style={dragStyle}>
+      <div className="unit-name draggable-window-handle" {...dragHandleProps}>
         <span>{c.name}</span>
         <span className="unit-level">Lv {c.level} {c.className}</span>
       </div>

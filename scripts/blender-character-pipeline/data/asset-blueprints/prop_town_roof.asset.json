@@ -1,0 +1,80 @@
+{
+  "assetId": "prop.town.roof",
+  "displayName": "Fantasy Town Roof",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "external_imports"
+  ],
+  "runtime": {
+    "staticKey": "town_roof"
+  },
+  "output": {
+    "model": "prop_town_roof.glb",
+    "artifactDir": "artifacts/blender/external/prop_town_roof"
+  },
+  "generator": {
+    "kind": "externalImport",
+    "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+    "sourceType": "fbx",
+    "objects": [
+      "obj_roof"
+    ]
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 30000,
+        "screenCoverageMin": 0.2
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_ExternalPropPbr",
+    "textureSet": "prop_town_roof",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ]
+  },
+  "collision": {
+    "policy": "editor_prefab_default",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "prefab_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "external_asset_import",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "external_user_supplied_assets",
+    "similarityReview": "not_required",
+    "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 12,
+    "maxFileSizeMb": 8,
+    "maxMeshObjects": 8,
+    "requiresSkinnedMeshes": false
+  }
+}

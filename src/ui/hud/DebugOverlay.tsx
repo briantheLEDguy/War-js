@@ -1,12 +1,19 @@
 import type { Game } from '../../game/Game';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
+import { useDraggableWindow } from './useDraggableWindow';
 
 interface Props {
   game: Game | null;
 }
 
 export function DebugOverlay({ game }: Props) {
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLDivElement>();
   const fps = useGameStore((s) => s.fps);
   const fallbacks = useGameStore((s) => s.assetFallbacks);
   const gmBuildMode = useGameStore((s) => s.gmBuildMode);
@@ -16,7 +23,12 @@ export function DebugOverlay({ game }: Props) {
   const zone = game?.zoneName ?? '?';
 
   return (
-    <div className="debug">
+    <div
+      ref={panelRef}
+      className={`debug draggable-window-handle${dragClassName}`}
+      style={dragStyle}
+      {...dragHandleProps}
+    >
       {`FPS:        ${fps}
 Zone:       ${zone}
 Pos:        ${px.toFixed(2)}, ${py.toFixed(2)}, ${pz.toFixed(2)}

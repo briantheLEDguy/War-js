@@ -1,0 +1,990 @@
+{
+  "id": "gorepine_warrens",
+  "name": "Gorepine Warrens",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "Boss",
+    "lane": "riftbound_east",
+    "laneLabel": "Riftbound East March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 2 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "gorepine_warrens_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "gorepine_warrens_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "gorepine_warrens_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "gorepine_warrens_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "gorepine_warrens_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "gorepine_warrens_portal_gorepine_pass",
+      "kind": "gate",
+      "x": 81.7,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "gorepine_warrens_portal_gorepine_pass_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "gorepine_warrens_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "gorepine_warrens_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "gorepine_warrens_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "gorepine_warrens_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "gorepine_warrens_wood_node_01_visual",
+      "kind": "pnw_fallen_log",
+      "x": -48.6,
+      "z": -19.6,
+      "rotY": 2.8135,
+      "scale": 0.85
+    },
+    {
+      "id": "gorepine_warrens_herb_node_02_visual",
+      "kind": "pnw_sword_fern",
+      "x": 51,
+      "z": -16.3,
+      "rotY": 3.6161,
+      "scale": 0.97
+    },
+    {
+      "id": "gorepine_warrens_wood_node_03_visual",
+      "kind": "pnw_fallen_log",
+      "x": -41.4,
+      "z": 37.5,
+      "rotY": 2.8205,
+      "scale": 1.09
+    },
+    {
+      "id": "gorepine_warrens_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 37.8,
+      "z": 37.3,
+      "rotY": 0.3061,
+      "scale": 0.85
+    },
+    {
+      "id": "gorepine_warrens_herb_node_05_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": 4.3,
+      "z": 80.5,
+      "rotY": 1.8647,
+      "scale": 0.97
+    },
+    {
+      "id": "gorepine_warrens_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 61.7,
+      "z": -52,
+      "rotY": 5.675,
+      "scale": 0.8
+    },
+    {
+      "id": "gorepine_warrens_tree_02",
+      "kind": "tree",
+      "x": 31.6,
+      "z": 36.2,
+      "rotY": 5.1583,
+      "scale": 1.04
+    },
+    {
+      "id": "gorepine_warrens_tree_03",
+      "kind": "tree",
+      "x": -45,
+      "z": 11.3,
+      "rotY": 1.8894,
+      "scale": 0.98
+    },
+    {
+      "id": "gorepine_warrens_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": -32.7,
+      "z": -40.1,
+      "rotY": 1.317,
+      "scale": 0.86
+    },
+    {
+      "id": "gorepine_warrens_tree_05",
+      "kind": "tree",
+      "x": 13,
+      "z": 51,
+      "rotY": 6.116,
+      "scale": 1.04
+    },
+    {
+      "id": "gorepine_warrens_tree_06",
+      "kind": "tree",
+      "x": -62.2,
+      "z": 1.1,
+      "rotY": 0.7484,
+      "scale": 1.36
+    },
+    {
+      "id": "gorepine_warrens_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": 6.2,
+      "z": 61.7,
+      "rotY": 1.0675,
+      "scale": 1.39
+    },
+    {
+      "id": "gorepine_warrens_tree_08",
+      "kind": "tree",
+      "x": -5,
+      "z": 41.9,
+      "rotY": 2.1299,
+      "scale": 1.42
+    },
+    {
+      "id": "gorepine_warrens_tree_09",
+      "kind": "tree",
+      "x": 31.3,
+      "z": -59.7,
+      "rotY": 0.8353,
+      "scale": 0.95
+    },
+    {
+      "id": "gorepine_warrens_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": 46.7,
+      "z": -6.9,
+      "rotY": 1.2416,
+      "scale": 1.31
+    },
+    {
+      "id": "gorepine_warrens_tree_11",
+      "kind": "tree",
+      "x": -70.7,
+      "z": -36.4,
+      "rotY": 3.5135,
+      "scale": 0.87
+    },
+    {
+      "id": "gorepine_warrens_tree_12",
+      "kind": "tree",
+      "x": 15.9,
+      "z": -79.6,
+      "rotY": 0.1315,
+      "scale": 1.49
+    },
+    {
+      "id": "gorepine_warrens_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": -15.2,
+      "z": 81.7,
+      "rotY": 3.2832,
+      "scale": 1.01
+    },
+    {
+      "id": "gorepine_warrens_tree_14",
+      "kind": "tree",
+      "x": 15.5,
+      "z": 39.2,
+      "rotY": 4.3333,
+      "scale": 0.84
+    },
+    {
+      "id": "gorepine_warrens_tree_15",
+      "kind": "tree",
+      "x": 25.4,
+      "z": 74.3,
+      "rotY": 5.6139,
+      "scale": 0.91
+    },
+    {
+      "id": "gorepine_warrens_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": 47.4,
+      "z": -34,
+      "rotY": 0.2402,
+      "scale": 1.29
+    },
+    {
+      "id": "gorepine_warrens_tree_17",
+      "kind": "tree",
+      "x": -43.2,
+      "z": -23.5,
+      "rotY": 4.9144,
+      "scale": 1.23
+    },
+    {
+      "id": "gorepine_warrens_tree_18",
+      "kind": "tree",
+      "x": 69,
+      "z": 46.2,
+      "rotY": 2.774,
+      "scale": 1.13
+    },
+    {
+      "id": "gorepine_warrens_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": -29.2,
+      "z": 75.8,
+      "rotY": 4.0568,
+      "scale": 1.03
+    },
+    {
+      "id": "gorepine_warrens_tree_20",
+      "kind": "tree",
+      "x": 37.7,
+      "z": 61.1,
+      "rotY": 3.2523,
+      "scale": 1.06
+    },
+    {
+      "id": "gorepine_warrens_rock_01",
+      "kind": "rock",
+      "x": 69.2,
+      "z": -53.2,
+      "rotY": 1.3437,
+      "scale": 1.79
+    },
+    {
+      "id": "gorepine_warrens_rock_02",
+      "kind": "rock",
+      "x": 38.6,
+      "z": -64.4,
+      "rotY": 1.2749,
+      "scale": 0.78
+    },
+    {
+      "id": "gorepine_warrens_rock_03",
+      "kind": "rock",
+      "x": -39.8,
+      "z": -75.6,
+      "rotY": 5.11,
+      "scale": 1.46
+    },
+    {
+      "id": "gorepine_warrens_rock_04",
+      "kind": "rock",
+      "x": -10.8,
+      "z": -52.9,
+      "rotY": 1.0601,
+      "scale": 1.47
+    },
+    {
+      "id": "gorepine_warrens_rock_05",
+      "kind": "rock",
+      "x": -67.2,
+      "z": 47.7,
+      "rotY": 4.0824,
+      "scale": 0.83
+    },
+    {
+      "id": "gorepine_warrens_rock_06",
+      "kind": "rock",
+      "x": 40.7,
+      "z": -38.6,
+      "rotY": 3.5709,
+      "scale": 2.43
+    },
+    {
+      "id": "gorepine_warrens_rock_07",
+      "kind": "rock",
+      "x": -21,
+      "z": -54.8,
+      "rotY": 0.48,
+      "scale": 2.26
+    },
+    {
+      "id": "gorepine_warrens_rock_08",
+      "kind": "rock",
+      "x": -45.7,
+      "z": -40.8,
+      "rotY": 0.7354,
+      "scale": 1.9
+    },
+    {
+      "id": "gorepine_warrens_rock_09",
+      "kind": "rock",
+      "x": 53.3,
+      "z": -57.7,
+      "rotY": 3.2826,
+      "scale": 2.18
+    },
+    {
+      "id": "gorepine_warrens_rock_10",
+      "kind": "rock",
+      "x": 49.4,
+      "z": 36.5,
+      "rotY": 6.0669,
+      "scale": 2.39
+    },
+    {
+      "id": "gorepine_warrens_rock_11",
+      "kind": "rock",
+      "x": -41.5,
+      "z": 48.9,
+      "rotY": 4.0171,
+      "scale": 2.41
+    },
+    {
+      "id": "gorepine_warrens_rock_12",
+      "kind": "rock",
+      "x": -62.6,
+      "z": -49.8,
+      "rotY": 5.2986,
+      "scale": 1.95
+    },
+    {
+      "id": "gorepine_warrens_rock_13",
+      "kind": "rock",
+      "x": -2.4,
+      "z": 65,
+      "rotY": 3.0492,
+      "scale": 1.54
+    },
+    {
+      "id": "gorepine_warrens_rock_14",
+      "kind": "rock",
+      "x": 50.5,
+      "z": 49.8,
+      "rotY": 0.4241,
+      "scale": 1.01
+    },
+    {
+      "id": "gorepine_warrens_rock_15",
+      "kind": "rock",
+      "x": -80.9,
+      "z": 29.6,
+      "rotY": 3.3296,
+      "scale": 1.27
+    },
+    {
+      "id": "gorepine_warrens_rock_16",
+      "kind": "rock",
+      "x": 34.9,
+      "z": 43.7,
+      "rotY": 1.7142,
+      "scale": 1.62
+    },
+    {
+      "id": "gorepine_warrens_rock_17",
+      "kind": "rock",
+      "x": 21.5,
+      "z": -74.3,
+      "rotY": 6.0458,
+      "scale": 2.34
+    },
+    {
+      "id": "gorepine_warrens_rock_18",
+      "kind": "rock",
+      "x": 60.5,
+      "z": -12.5,
+      "rotY": 5.8069,
+      "scale": 2.24
+    },
+    {
+      "id": "gorepine_warrens_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "gorepine_warrens_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "gorepine_warrens_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "gorepine_warrens_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "gorepine_warrens_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "gorepine_warrens_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "gorepine_warrens_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "gorepine_warrens_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "gorepine_warrens_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "gorepine_warrens_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "gorepine_warrens_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "gorepine_warrens_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "gorepine_warrens_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "gorepine_warrens_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "gorepine_warrens_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "gorepine_warrens_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "gorepine_warrens_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "gorepine_warrens_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "gorepine_warrens_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "gorepine_warrens_marshal",
+      "name": "Nyra Vex",
+      "title": "Tier 2 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_tier_2_boss_campaign_marshal"
+    },
+    {
+      "id": "gorepine_warrens_expedition_guide",
+      "name": "Gorvak Mirehand",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "gorepine_warrens_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "gorepine_warrens_overlord",
+      "name": "Gorepine Warrens Overlord",
+      "level": 16,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_riftbound_gorepine_warrens_overlord_captain"
+    },
+    {
+      "id": "gorepine_warrens_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 15,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 39,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "gorepine_warrens_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 15,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 39,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_lair_sentinel_guard"
+    },
+    {
+      "id": "gorepine_warrens_beast_1",
+      "name": "Barrow Wolf",
+      "level": 14,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 36,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "gorepine_warrens_beast_2",
+      "name": "Barrow Wolf",
+      "level": 14,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 36,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "gorepine_warrens_adept_1",
+      "name": "Lair Cultist",
+      "level": 15,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 20,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    },
+    {
+      "id": "gorepine_warrens_adept_2",
+      "name": "Lair Cultist",
+      "level": 15,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 20,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "gorepine_warrens_wood_node_01",
+      "label": "Riftbound Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": -48.6,
+      "z": -19.6,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "gorepine_warrens_wood_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "gorepine_warrens_herb_node_02",
+      "label": "Riftbound Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 51,
+      "z": -16.3,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "gorepine_warrens_herb_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "gorepine_warrens_wood_node_03",
+      "label": "Riftbound Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": -41.4,
+      "z": 37.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "gorepine_warrens_wood_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "gorepine_warrens_soil_node_04",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 37.8,
+      "z": 37.3,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "gorepine_warrens_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "gorepine_warrens_herb_node_05",
+      "label": "Riftbound Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 4.3,
+      "z": 80.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "gorepine_warrens_herb_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "gorepine_warrens_boss",
+      "type": "boss",
+      "label": "Gorepine Warrens Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "gorepine_warrens_to_gorepine_pass",
+      "label": "Travel to Gorepine Pass",
+      "x": 81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "gorepine_pass",
+      "targetSpawn": {
+        "x": 108.4,
+        "y": 0,
+        "z": -38.4
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "gorepine_warrens_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 4115681726,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_western_red_cedar",
+        "pnw_hemlock",
+        "pnw_sword_fern",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "8bc66f28a72f4948"
+}

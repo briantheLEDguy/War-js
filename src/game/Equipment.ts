@@ -144,6 +144,7 @@ export function equipFromInventory(slot: number): void {
   const strength = effectiveStrength(character, equipment, store.inventory);
 
   store.updateCharacter({ equipment, strength });
+  store.completeGuidedTask('equip');
   store.appendChat({
     id: `equip-${Date.now()}`,
     channel: 'system',

@@ -1,0 +1,87 @@
+{
+  "assetId": "chr.external.npc_medieval_character_sample",
+  "category": "character",
+  "model": "chr_external_medieval_character_npc.glb",
+  "fileSizeBytes": 4968000,
+  "meshCount": 9,
+  "totalTris": 25360,
+  "availableClips": [
+    "mixamo.com"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "triangleBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "Object_7",
+      "verts": 6445,
+      "faces": 11184,
+      "tris": 11184,
+      "materials": 1
+    },
+    {
+      "name": "Object_8",
+      "verts": 804,
+      "faces": 1520,
+      "tris": 1520,
+      "materials": 1
+    },
+    {
+      "name": "Object_9",
+      "verts": 98,
+      "faces": 106,
+      "tris": 106,
+      "materials": 1
+    },
+    {
+      "name": "Object_10",
+      "verts": 876,
+      "faces": 1384,
+      "tris": 1384,
+      "materials": 1
+    },
+    {
+      "name": "Object_11",
+      "verts": 639,
+      "faces": 604,
+      "tris": 604,
+      "materials": 1
+    },
+    {
+      "name": "Object_12",
+      "verts": 2959,
+      "faces": 2784,
+      "tris": 2784,
+      "materials": 1
+    },
+    {
+      "name": "Object_14",
+      "verts": 1280,
+      "faces": 1956,
+      "tris": 1956,
+      "materials": 1
+    },
+    {
+      "name": "Object_16",
+      "verts": 1963,
+      "faces": 2970,
+      "tris": 2970,
+      "materials": 1
+    },
+    {
+      "name": "Object_18",
+      "verts": 1700,
+      "faces": 2852,
+      "tris": 2852,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/medieval_character_sample.glb",
+  "manifestVersion": "1.0.0"
+}

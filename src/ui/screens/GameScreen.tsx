@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import {
+  defaultZoneSpawnPoint,
+  normalizePlayableZoneId,
+  zoneWasNormalized,
+} from '../../data/zoneRouting';
 import { Game } from '../../game/Game';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
@@ -21,18 +26,21 @@ export function GameScreen() {
   useEffect(() => {
     if (!pendingZoneTransition || !character) return;
     const { targetZoneId, targetSpawn } = pendingZoneTransition;
+    const normalizedTargetZoneId = normalizePlayableZoneId(targetZoneId, character.race);
 
-    gameRef.current?.dispose();
+    gameRef.current?.dispose({ persistCharacter: false });
     gameRef.current = null;
     setReady(false);
 
     useGameStore.getState().setPendingZoneTransition(null);
 
-    const newPos = targetSpawn ?? { x: 0, y: 0, z: 0 };
-    const newChar = { ...character, zoneId: targetZoneId, position: newPos };
+    const newPos = zoneWasNormalized(targetZoneId, normalizedTargetZoneId)
+      ? defaultZoneSpawnPoint(normalizedTargetZoneId)
+      : targetSpawn ?? defaultZoneSpawnPoint(normalizedTargetZoneId);
+    const newChar = { ...character, zoneId: normalizedTargetZoneId, position: newPos };
     useGameStore.getState().setCharacter(newChar);
 
-    void services.characters.save(character.id, { zoneId: targetZoneId, position: newPos });
+    void services.characters.save(character.id, { zoneId: normalizedTargetZoneId, position: newPos });
   }, [pendingZoneTransition, character]);
 
   useEffect(() => {
@@ -74,7 +82,11 @@ export function GameScreen() {
     useGameStore.getState().setUser(null);
     useGameStore.getState().setCharacter(null);
     useGameStore.getState().setWikiOpen(false);
+    useGameStore.getState().setWorldMapOpen(false);
     useGameStore.getState().setSettingsOpen(false);
+    useGameStore.getState().setGmMenuOpen(false);
+    useGameStore.getState().setGmMoveSpeedMultiplier(1);
+    useGameStore.getState().setGmFlyingMode(false);
     useGameStore.getState().setGmBuildMode(false);
     setScreen('login');
   }
@@ -87,12 +99,9 @@ export function GameScreen() {
     <div className="game-root">
       <div ref={containerRef} className="game-canvas-container" />
       {!ready && <div className="loading">Entering the world...</div>}
-      {ready && <Hud game={gameRef.current} />}
-      <button className="logout-btn" onClick={logout}>
-        Exit to Login
-      </button>
+      {ready && <Hud game={gameRef.current} onLogout={logout} />}
       <div className="controls-hint">
-        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; I inventory &middot; C character &middot; L quest log &middot; H guide &middot; Enter chat &middot; Esc settings &middot; ` debug
+        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; hold objectives to capture &middot; I inventory &middot; C character &middot; L quest log &middot; M map &middot; H guide &middot; Enter chat &middot; Esc close window/settings &middot; ` debug
         &nbsp;&nbsp;|&nbsp;&nbsp;Touch: joystick move &middot; ↑ jump &middot; drag camera &middot; pinch zoom &middot; tap target/ability
       </div>
     </div>

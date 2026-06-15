@@ -1,0 +1,990 @@
+{
+  "id": "briarwatch_den",
+  "name": "Briarwatch Den",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "Boss",
+    "lane": "aegis_west",
+    "laneLabel": "Aegis West March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 2 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "briarwatch_den_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "briarwatch_den_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "briarwatch_den_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "briarwatch_den_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "briarwatch_den_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "briarwatch_den_portal_greybrook_crossing",
+      "kind": "gate",
+      "x": -81.7,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "briarwatch_den_portal_greybrook_crossing_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "briarwatch_den_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "briarwatch_den_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "briarwatch_den_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "briarwatch_den_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "briarwatch_den_wood_node_01_visual",
+      "kind": "pnw_fallen_log",
+      "x": -50.9,
+      "z": -18.5,
+      "rotY": 0.2496,
+      "scale": 0.85
+    },
+    {
+      "id": "briarwatch_den_herb_node_02_visual",
+      "kind": "pnw_sword_fern",
+      "x": 47.2,
+      "z": -19.1,
+      "rotY": 3.9372,
+      "scale": 0.97
+    },
+    {
+      "id": "briarwatch_den_wood_node_03_visual",
+      "kind": "pnw_fallen_log",
+      "x": -37.3,
+      "z": 34.7,
+      "rotY": 2.7945,
+      "scale": 1.09
+    },
+    {
+      "id": "briarwatch_den_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 43.9,
+      "z": 34.5,
+      "rotY": 4.1823,
+      "scale": 0.85
+    },
+    {
+      "id": "briarwatch_den_herb_node_05_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": 2.2,
+      "z": 75,
+      "rotY": 5.9268,
+      "scale": 0.97
+    },
+    {
+      "id": "briarwatch_den_tree_01",
+      "kind": "tree",
+      "x": 80.7,
+      "z": -16.6,
+      "rotY": 2.522,
+      "scale": 0.94
+    },
+    {
+      "id": "briarwatch_den_tree_02",
+      "kind": "tree",
+      "x": -37.9,
+      "z": -19.7,
+      "rotY": 0.42,
+      "scale": 0.8
+    },
+    {
+      "id": "briarwatch_den_tree_03",
+      "kind": "tree",
+      "x": -22.2,
+      "z": 80.3,
+      "rotY": 5.0749,
+      "scale": 1.02
+    },
+    {
+      "id": "briarwatch_den_tree_04",
+      "kind": "tree",
+      "x": 61.1,
+      "z": 41.8,
+      "rotY": 0.195,
+      "scale": 1.08
+    },
+    {
+      "id": "briarwatch_den_tree_05",
+      "kind": "tree",
+      "x": 2.2,
+      "z": 52.4,
+      "rotY": 5.3612,
+      "scale": 0.82
+    },
+    {
+      "id": "briarwatch_den_tree_06",
+      "kind": "tree",
+      "x": 32,
+      "z": -33.4,
+      "rotY": 0.1224,
+      "scale": 0.88
+    },
+    {
+      "id": "briarwatch_den_tree_07",
+      "kind": "tree",
+      "x": 48.7,
+      "z": 63.1,
+      "rotY": 3.5749,
+      "scale": 1.2
+    },
+    {
+      "id": "briarwatch_den_tree_08",
+      "kind": "tree",
+      "x": 47.9,
+      "z": 40.2,
+      "rotY": 4.7924,
+      "scale": 0.84
+    },
+    {
+      "id": "briarwatch_den_tree_09",
+      "kind": "tree",
+      "x": 19.4,
+      "z": 64.8,
+      "rotY": 5.2843,
+      "scale": 1.15
+    },
+    {
+      "id": "briarwatch_den_tree_10",
+      "kind": "tree",
+      "x": 25.8,
+      "z": -51.4,
+      "rotY": 4.9377,
+      "scale": 0.88
+    },
+    {
+      "id": "briarwatch_den_tree_11",
+      "kind": "tree",
+      "x": 54.9,
+      "z": 50.5,
+      "rotY": 0.0828,
+      "scale": 1.29
+    },
+    {
+      "id": "briarwatch_den_tree_12",
+      "kind": "tree",
+      "x": -48,
+      "z": -64.8,
+      "rotY": 6.0412,
+      "scale": 1.2
+    },
+    {
+      "id": "briarwatch_den_tree_13",
+      "kind": "tree",
+      "x": 40.2,
+      "z": 24.8,
+      "rotY": 3.2082,
+      "scale": 1.27
+    },
+    {
+      "id": "briarwatch_den_tree_14",
+      "kind": "tree",
+      "x": 5.3,
+      "z": 69.4,
+      "rotY": 3.6407,
+      "scale": 1.4
+    },
+    {
+      "id": "briarwatch_den_tree_15",
+      "kind": "tree",
+      "x": 13.3,
+      "z": 67.4,
+      "rotY": 5.9692,
+      "scale": 0.79
+    },
+    {
+      "id": "briarwatch_den_tree_16",
+      "kind": "tree",
+      "x": 29.8,
+      "z": 60.1,
+      "rotY": 4.1217,
+      "scale": 1.19
+    },
+    {
+      "id": "briarwatch_den_tree_17",
+      "kind": "tree",
+      "x": 31.9,
+      "z": -28.6,
+      "rotY": 0.0244,
+      "scale": 0.97
+    },
+    {
+      "id": "briarwatch_den_tree_18",
+      "kind": "tree",
+      "x": 36.7,
+      "z": 68.2,
+      "rotY": 2.1724,
+      "scale": 0.82
+    },
+    {
+      "id": "briarwatch_den_tree_19",
+      "kind": "tree",
+      "x": 3,
+      "z": 60.3,
+      "rotY": 5.9571,
+      "scale": 1.34
+    },
+    {
+      "id": "briarwatch_den_tree_20",
+      "kind": "tree",
+      "x": 42.7,
+      "z": -52,
+      "rotY": 1.7907,
+      "scale": 0.93
+    },
+    {
+      "id": "briarwatch_den_rock_01",
+      "kind": "rock",
+      "x": 29.9,
+      "z": 69.8,
+      "rotY": 0.4183,
+      "scale": 0.88
+    },
+    {
+      "id": "briarwatch_den_rock_02",
+      "kind": "rock",
+      "x": 71.7,
+      "z": 35.3,
+      "rotY": 0.0618,
+      "scale": 1.91
+    },
+    {
+      "id": "briarwatch_den_rock_03",
+      "kind": "rock",
+      "x": -61,
+      "z": 7.1,
+      "rotY": 2.9561,
+      "scale": 2.42
+    },
+    {
+      "id": "briarwatch_den_rock_04",
+      "kind": "rock",
+      "x": -15,
+      "z": -64.2,
+      "rotY": 5.854,
+      "scale": 1.38
+    },
+    {
+      "id": "briarwatch_den_rock_05",
+      "kind": "rock",
+      "x": -67.8,
+      "z": 8,
+      "rotY": 1.2696,
+      "scale": 2.18
+    },
+    {
+      "id": "briarwatch_den_rock_06",
+      "kind": "rock",
+      "x": 81.7,
+      "z": 10.3,
+      "rotY": 1.2625,
+      "scale": 1.48
+    },
+    {
+      "id": "briarwatch_den_rock_07",
+      "kind": "rock",
+      "x": -37.4,
+      "z": 57.8,
+      "rotY": 5.2058,
+      "scale": 1.43
+    },
+    {
+      "id": "briarwatch_den_rock_08",
+      "kind": "rock",
+      "x": -2,
+      "z": -70.1,
+      "rotY": 1.3554,
+      "scale": 2.32
+    },
+    {
+      "id": "briarwatch_den_rock_09",
+      "kind": "rock",
+      "x": 78.2,
+      "z": 19.1,
+      "rotY": 3.4725,
+      "scale": 0.87
+    },
+    {
+      "id": "briarwatch_den_rock_10",
+      "kind": "rock",
+      "x": 14.7,
+      "z": 64.3,
+      "rotY": 1.3044,
+      "scale": 1.71
+    },
+    {
+      "id": "briarwatch_den_rock_11",
+      "kind": "rock",
+      "x": -48.6,
+      "z": 23.6,
+      "rotY": 2.9971,
+      "scale": 0.84
+    },
+    {
+      "id": "briarwatch_den_rock_12",
+      "kind": "rock",
+      "x": -70.8,
+      "z": -41.6,
+      "rotY": 1.8026,
+      "scale": 2.33
+    },
+    {
+      "id": "briarwatch_den_rock_13",
+      "kind": "rock",
+      "x": -58.1,
+      "z": 22.9,
+      "rotY": 2.0202,
+      "scale": 1.8
+    },
+    {
+      "id": "briarwatch_den_rock_14",
+      "kind": "rock",
+      "x": -83.5,
+      "z": 5.1,
+      "rotY": 2.7937,
+      "scale": 0.91
+    },
+    {
+      "id": "briarwatch_den_rock_15",
+      "kind": "rock",
+      "x": 46.1,
+      "z": 59.6,
+      "rotY": 0.0643,
+      "scale": 2.35
+    },
+    {
+      "id": "briarwatch_den_rock_16",
+      "kind": "rock",
+      "x": 46.2,
+      "z": 27.5,
+      "rotY": 2.429,
+      "scale": 1
+    },
+    {
+      "id": "briarwatch_den_rock_17",
+      "kind": "rock",
+      "x": -62.6,
+      "z": 36.3,
+      "rotY": 2.8124,
+      "scale": 0.94
+    },
+    {
+      "id": "briarwatch_den_rock_18",
+      "kind": "rock",
+      "x": -53.1,
+      "z": 14.4,
+      "rotY": 0.3202,
+      "scale": 1.64
+    },
+    {
+      "id": "briarwatch_den_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "briarwatch_den_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "briarwatch_den_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "briarwatch_den_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "briarwatch_den_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "briarwatch_den_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "briarwatch_den_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "briarwatch_den_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "briarwatch_den_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "briarwatch_den_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "briarwatch_den_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "briarwatch_den_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "briarwatch_den_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "briarwatch_den_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "briarwatch_den_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "briarwatch_den_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "briarwatch_den_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "briarwatch_den_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "briarwatch_den_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "briarwatch_den_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 2 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_2_boss_campaign_marshal"
+    },
+    {
+      "id": "briarwatch_den_expedition_guide",
+      "name": "Mira Stonewake",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "briarwatch_den_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "briarwatch_den_overlord",
+      "name": "Briarwatch Den Overlord",
+      "level": 16,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_aegis_briarwatch_den_overlord_captain"
+    },
+    {
+      "id": "briarwatch_den_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 15,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 39,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "briarwatch_den_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 15,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 39,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "briarwatch_den_beast_1",
+      "name": "Barrow Wolf",
+      "level": 14,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 36,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "briarwatch_den_beast_2",
+      "name": "Barrow Wolf",
+      "level": 14,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 36,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "briarwatch_den_adept_1",
+      "name": "Lair Cultist",
+      "level": 15,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 20,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    },
+    {
+      "id": "briarwatch_den_adept_2",
+      "name": "Lair Cultist",
+      "level": 15,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 20,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "briarwatch_den_wood_node_01",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": -50.9,
+      "z": -18.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "briarwatch_den_wood_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "briarwatch_den_herb_node_02",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 47.2,
+      "z": -19.1,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "briarwatch_den_herb_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "briarwatch_den_wood_node_03",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": -37.3,
+      "z": 34.7,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "briarwatch_den_wood_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "briarwatch_den_soil_node_04",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 43.9,
+      "z": 34.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "briarwatch_den_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "briarwatch_den_herb_node_05",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 2.2,
+      "z": 75,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "briarwatch_den_herb_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "briarwatch_den_boss",
+      "type": "boss",
+      "label": "Briarwatch Den Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "briarwatch_den_to_greybrook_crossing",
+      "label": "Travel to Greybrook Crossing",
+      "x": -81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "greybrook_crossing",
+      "targetSpawn": {
+        "x": -108.4,
+        "y": 0,
+        "z": 38.4
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "briarwatch_den_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 2773907811,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_western_red_cedar",
+        "pnw_hemlock",
+        "pnw_sword_fern",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "3c7314bb2777de45"
+}

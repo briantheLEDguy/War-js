@@ -1,0 +1,37 @@
+{
+  "assetId": "prop.town.diamond_window",
+  "category": "prop",
+  "model": "prop_town_diamond_window.glb",
+  "fileSizeBytes": 152792,
+  "meshCount": 2,
+  "totalTris": 48,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_diamond_window",
+      "verts": 20,
+      "faces": 18,
+      "tris": 36,
+      "materials": 1
+    },
+    {
+      "name": "obj_diamond_window_pane",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

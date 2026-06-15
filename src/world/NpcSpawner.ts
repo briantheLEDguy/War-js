@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+import {
+  aegisNpcGuardVariantFor,
+} from '../data/modelOverrides';
 import { AssetLoader } from '../game/AssetLoader';
 import type { Terrain } from './Terrain';
 import type { NpcSpawn } from './ZoneLoader';
@@ -35,9 +38,20 @@ export async function spawnNpcs(
 
   for (const s of spawns) {
     const fallback = pickNpcFallback(s.role);
-    const model = s.model ?? pickNpcRoleModel(s.role);
+    const guardVariant = aegisNpcGuardVariantFor(s.role, s.characterProfileKey, s.id);
+    const guardVariantModel = guardVariant
+      ? await loader.resolveCharacterModel(guardVariant.profileKey)
+      : null;
+    const profileModel = !guardVariantModel && s.characterProfileKey
+      ? await loader.resolveCharacterModel(s.characterProfileKey)
+      : null;
+    const model = guardVariantModel
+      ?? guardVariant?.fallbackModel
+      ?? profileModel
+      ?? s.model
+      ?? pickNpcRoleModel(s.role);
     const { object: obj, animations } = model
-      ? await loader.loadModelWithAnimations(model, fallback)
+      ? await loader.loadModelFull(model, fallback)
       : { object: fallback(), animations: [] };
     if (s.role === 'guard') prepareGuardNpcRuntimeObject(obj);
 
@@ -94,7 +108,9 @@ function prepareGuardNpcRuntimeObject(object: THREE.Object3D): void {
     for (const material of materials) {
       if (!material) continue;
       material.side = THREE.FrontSide;
+      material.opacity = Math.max(material.opacity ?? 1, 1);
       material.transparent = false;
+      material.alphaTest = 0;
       material.depthWrite = true;
       material.depthTest = true;
       material.needsUpdate = true;

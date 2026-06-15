@@ -13,12 +13,23 @@ import type {
   WorldWalkableSurfaceObject,
 } from '../../services/types';
 import type { Terrain } from '../Terrain';
-import type { WorldCollider, WorldWalkableSurface } from '../Props';
+import type { InteractiveGate, WorldCollider, WorldWalkableSurface } from '../Props';
 import {
   applyVoxelBrushToDocument,
   type VoxelBrushTool,
   VoxelTerrainRuntime,
 } from './VoxelTerrainRuntime';
+import {
+  prefabDefaultAssetKeyForKind,
+  prefabDefaultCollidersForKind,
+  prefabDefaultModelForKind,
+  prefabDefaultScaleForKind,
+  prefabDefaultWalkablesForKind,
+  prefabFallbackKindForKind,
+  prefabFootprintForKind,
+  prefabLabelForKind,
+  type PrefabFootprint,
+} from './PrefabCatalog';
 
 export type WorldEditorTool =
   | 'select'
@@ -83,12 +94,6 @@ interface BrushChainState {
   step: number;
 }
 
-interface PrefabFootprint {
-  width: number;
-  depth: number;
-  chainAxis: 'x' | 'z';
-}
-
 const DEFAULT_SETTINGS: WorldEditorSettings = {
   brushSize: 4,
   brushStrength: 0.5,
@@ -147,6 +152,7 @@ export class WorldEditorRuntime {
   private colliders: WorldCollider[] = [];
   private cameraColliders: WorldCollider[] = [];
   private walkableSurfaces: WorldWalkableSurface[] = [];
+  private gates = new Map<string, InteractiveGate>();
   private undoStack: WorldEditDocument[] = [];
   private redoStack: WorldEditDocument[] = [];
 
@@ -311,6 +317,10 @@ export class WorldEditorRuntime {
     return this.walkableSurfaces;
   }
 
+  getGates(): InteractiveGate[] {
+    return Array.from(this.gates.values());
+  }
+
   undo(): WorldEditDocument | null {
     if (!this.document || this.undoStack.length === 0) return null;
     this.redoStack.push(cloneDoc(this.document));
@@ -361,6 +371,7 @@ export class WorldEditorRuntime {
     if (entry) {
       this.group.remove(entry.object);
       disposeObject(entry.object);
+      this.unregisterGateForDefinition(entry.definition);
       this.spawned.delete(id);
     }
     this.document.objects = this.document.objects.filter((candidate) => candidate.id !== id);
@@ -700,19 +711,58 @@ export class WorldEditorRuntime {
     const model = definition.assetKey
       ? await this.loader.resolveStaticModel(definition.assetKey, definition.model ?? `${definition.kind}.glb`)
       : definition.model;
-    const object = model
-      ? await this.loader.loadModel(model, fallback)
-      : fallback();
+    const animated = definition.interaction?.type === 'gate' && model
+      ? await this.loader.loadModelWithAnimations(model, fallback)
+      : null;
+    const object = animated
+      ? animated.object
+      : model
+        ? await this.loader.loadModel(model, fallback)
+        : fallback();
     applyTransform(object, definition.transform);
     object.userData.worldEditObjectId = definition.id;
     object.traverse((node) => {
       node.userData.worldEditObjectId = definition.id;
+      if (definition.interaction?.type === 'gate') {
+        node.userData.interactionId = definition.interaction.id;
+      }
       if ((node as THREE.Mesh).isMesh) {
         const mesh = node as THREE.Mesh;
         mesh.castShadow = true;
         mesh.receiveShadow = true;
       }
     });
+    if (definition.interaction?.type === 'gate') {
+      const actions = new Map<string, THREE.AnimationAction>();
+      const mixer = animated && animated.animations.length > 0
+        ? new THREE.AnimationMixer(object)
+        : null;
+      if (mixer && animated) {
+        for (const clip of animated.animations) {
+          actions.set(clip.name, mixer.clipAction(clip));
+        }
+      }
+      const startsOpen = definition.interaction.startsOpen ?? false;
+      this.gates.set(definition.interaction.id, {
+        id: definition.interaction.id,
+        label: definition.interaction.label ?? 'Gate',
+        object,
+        mixer,
+        actions,
+        fallbackVisual: hasGateFallbackLeaves(object)
+          ? {
+              progress: startsOpen ? 1 : 0,
+              target: startsOpen ? 1 : 0,
+              speed: 4,
+            }
+          : null,
+        isOpen: startsOpen,
+        maxDistance: definition.interaction.maxDistance ?? 18,
+        openClip: definition.interaction.openClip ?? 'open',
+        closeClip: definition.interaction.closeClip ?? 'close',
+      });
+      applyGateFallbackVisual(object, startsOpen ? 1 : 0);
+    }
     this.group.add(object);
     this.spawned.set(definition.id, { definition, object, helper: null });
     this.rebuildStandaloneCollision();
@@ -729,6 +779,13 @@ export class WorldEditorRuntime {
     this.colliders = [];
     this.cameraColliders = [];
     this.walkableSurfaces = [];
+    this.gates.clear();
+  }
+
+  private unregisterGateForDefinition(definition: WorldObject): void {
+    if (definition.type === 'prop' && definition.interaction?.type === 'gate') {
+      this.gates.delete(definition.interaction.id);
+    }
   }
 
   private applyStaticObjectOverrides(): void {
@@ -888,7 +945,11 @@ export class WorldEditorRuntime {
 
   private async createPrefabPreviewObject(): Promise<THREE.Object3D> {
     const fallback = primitiveForKind(this.settings.prefabKind);
-    const model = await this.loader.resolveStaticModel(this.settings.prefabKind, '');
+    const assetKey = defaultAssetKeyForKind(this.settings.prefabKind);
+    const fallbackModel = defaultModelForKind(this.settings.prefabKind) ?? '';
+    const model = assetKey
+      ? await this.loader.resolveStaticModel(assetKey, fallbackModel)
+      : fallbackModel;
     const object = model
       ? await this.loader.loadModel(model, fallback)
       : fallback();
@@ -1023,17 +1084,23 @@ export class WorldEditorRuntime {
 
 function buildPropObject(kind: string, position: Vec3, rotation?: Vec3): WorldPropObject {
   const now = Date.now();
+  const id = makeObjectId(kind);
+  const interaction = defaultInteractionForKind(kind, id);
   return {
-    id: makeObjectId(kind),
+    id,
     type: 'prop',
     kind,
-    label: kind.replaceAll('_', ' '),
+    label: prefabLabelForKind(kind),
+    model: defaultModelForKind(kind),
+    assetKey: defaultAssetKeyForKind(kind),
     transform: {
       ...defaultTransform(position),
       rotation: rotation ?? { x: 0, y: 0, z: 0 },
+      scale: prefabDefaultScaleForKind(kind),
     },
-    colliders: defaultCollidersForKind(kind),
+    colliders: defaultCollidersForKind(kind, interaction?.id),
     walkableSurfaces: defaultWalkablesForKind(kind),
+    interaction,
     createdAt: now,
     updatedAt: now,
   };
@@ -1227,6 +1294,8 @@ function colliderFromObject(object: WorldColliderObject): WorldCollider {
     width: object.width * object.transform.scale.x,
     depth: object.depth * object.transform.scale.z,
     rotY: object.transform.rotation.y,
+    minY: object.minY === undefined ? undefined : object.transform.position.y + object.minY * object.transform.scale.y,
+    maxY: object.maxY === undefined ? undefined : object.transform.position.y + object.maxY * object.transform.scale.y,
     blocksWhen: object.blocksWhen ?? 'always',
     interactionId: object.interactionId,
     sourceObjectId: object.id,
@@ -1256,6 +1325,8 @@ function propCollidersFromObject(object: WorldPropObject): WorldCollider[] {
     width: collider.width * object.transform.scale.x,
     depth: collider.depth * object.transform.scale.z,
     rotY: object.transform.rotation.y + (collider.rotY ?? 0),
+    minY: collider.minY === undefined ? undefined : object.transform.position.y + collider.minY * object.transform.scale.y,
+    maxY: collider.maxY === undefined ? undefined : object.transform.position.y + collider.maxY * object.transform.scale.y,
     blocksWhen: collider.blocksWhen ?? 'always',
     interactionId: collider.interactionId,
     sourceObjectId: object.id,
@@ -1277,60 +1348,48 @@ function propWalkablesFromObject(object: WorldPropObject): WorldWalkableSurface[
   }));
 }
 
-function defaultCollidersForKind(kind: string): WorldPropObject['colliders'] {
-  if (kind === 'building') return [{ width: 7, depth: 7 }];
-  if (kind === 'wall_segment') return [{ width: 12, depth: 2 }];
-  if (kind === 'tower') return [{ width: 7, depth: 7 }];
-  if (kind === 'castle_gate') return [{ width: 18, depth: 2.5, blocksWhen: 'always' }];
+function defaultModelForKind(kind: string): string | undefined {
+  return prefabDefaultModelForKind(kind);
+}
+
+function defaultAssetKeyForKind(kind: string): string | undefined {
+  return prefabDefaultAssetKeyForKind(kind);
+}
+
+function defaultInteractionForKind(kind: string, id: string): WorldPropObject['interaction'] {
+  if (kind === 'castle_gate') {
+    return {
+      id: `${id}-gate`,
+      type: 'gate',
+      label: 'Castle Gate',
+      maxDistance: 20,
+      openClip: 'open',
+      closeClip: 'close',
+    };
+  }
+  if (kind === 'castle_door') {
+    return {
+      id: `${id}-door`,
+      type: 'gate',
+      label: 'Castle Door',
+      maxDistance: 14,
+      openClip: 'open',
+      closeClip: 'close',
+    };
+  }
   return undefined;
+}
+
+function defaultCollidersForKind(kind: string, interactionId?: string): WorldPropObject['colliders'] {
+  return prefabDefaultCollidersForKind(kind, interactionId);
 }
 
 function defaultWalkablesForKind(kind: string): WorldPropObject['walkableSurfaces'] {
-  if (kind === 'castle_stairs') {
-    return [
-      { width: 8, depth: 12, fromY: 0, toY: 4, axis: 'z' },
-      { z: 7, width: 9, depth: 4, fromY: 4, toY: 4 },
-    ];
-  }
-  return undefined;
+  return prefabDefaultWalkablesForKind(kind);
 }
 
 function footprintForKind(kind: string): PrefabFootprint {
-  switch (kind) {
-    case 'wall_segment':
-      return { width: 12, depth: 2, chainAxis: 'x' };
-    case 'gate':
-      return { width: 16, depth: 4, chainAxis: 'x' };
-    case 'castle_gate':
-      return { width: 18, depth: 2.5, chainAxis: 'x' };
-    case 'castle_door':
-      return { width: 5.2, depth: 0.5, chainAxis: 'x' };
-    case 'castle_stairs':
-      return { width: 8, depth: 12, chainAxis: 'z' };
-    case 'bridge':
-      return { width: 4, depth: 12, chainAxis: 'z' };
-    case 'dock':
-      return { width: 4, depth: 14, chainAxis: 'z' };
-    case 'banner_post':
-      return { width: 1.5, depth: 1.5, chainAxis: 'z' };
-    case 'vendor_stall':
-      return { width: 3, depth: 2, chainAxis: 'x' };
-    case 'tree':
-      return { width: 3, depth: 3, chainAxis: 'z' };
-    case 'rock':
-      return { width: 1.4, depth: 1.4, chainAxis: 'z' };
-    case 'tower':
-      return { width: 7, depth: 7, chainAxis: 'z' };
-    case 'temple':
-      return { width: 12, depth: 20, chainAxis: 'z' };
-    case 'fountain':
-      return { width: 5.6, depth: 5.6, chainAxis: 'z' };
-    case 'statue':
-      return { width: 1.8, depth: 1.8, chainAxis: 'z' };
-    case 'building':
-    default:
-      return { width: 7, depth: 7, chainAxis: 'z' };
-  }
+  return prefabFootprintForKind(kind);
 }
 
 function applyGhostMaterial(root: THREE.Object3D, color: number, opacity: number): void {
@@ -1362,7 +1421,26 @@ function disposeObject(root: THREE.Object3D): void {
 
 function primitiveForKind(kind: string): PrimitiveFactory {
   const primitives = RuntimeAssetLoader.primitives as unknown as Record<string, PrimitiveFactory>;
+  const fallbackKind = prefabFallbackKindForKind(kind);
+  if (fallbackKind && primitives[fallbackKind]) return primitives[fallbackKind];
   return primitives[kind] ?? primitives.rock;
+}
+
+function hasGateFallbackLeaves(object: THREE.Object3D): boolean {
+  let found = false;
+  object.traverse((node) => {
+    if (typeof node.userData.gateLeafSide === 'number') found = true;
+  });
+  return found;
+}
+
+function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void {
+  const clamped = Math.max(0, Math.min(1, progress));
+  object.traverse((node) => {
+    const side = node.userData.gateLeafSide;
+    if (typeof side !== 'number') return;
+    node.rotation.y = -side * (Math.PI / 2) * clamped;
+  });
 }
 
 function findWorldEditObjectId(object: THREE.Object3D | null): string | null {

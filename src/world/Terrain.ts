@@ -88,7 +88,7 @@ export class Terrain {
     if (this.flat) {
       // City zones: cobblestone-like color variation
       for (let i = 0; i < vertCount; i++) {
-        const variation = 0.85 + Math.random() * 0.15;
+        const variation = 0.85 + deterministicVertexNoise(i, opts.size, opts.segments) * 0.15;
         color.setRGB(0.45 * variation, 0.42 * variation, 0.38 * variation);
         colors[i * 3] = color.r;
         colors[i * 3 + 1] = color.g;
@@ -104,7 +104,7 @@ export class Terrain {
         const slope = 1.0 - ny;
 
         // Height-based gradient with some noise
-        const noise = (Math.random() - 0.5) * 0.06;
+        const noise = (deterministicVertexNoise(i, opts.size, opts.segments) - 0.5) * 0.06;
         if (y < -0.5) {
           // Low ground: darker grass / mud
           color.setRGB(0.18 + noise, 0.28 + noise, 0.12 + noise);
@@ -279,4 +279,12 @@ export class Terrain {
     mesh.receiveShadow = true;
     return mesh;
   }
+}
+
+function deterministicVertexNoise(index: number, size: number, segments: number): number {
+  let state = Math.imul(index + 1, 374761393)
+    ^ Math.imul(Math.round(size * 10) + 17, 668265263)
+    ^ Math.imul(segments + 101, 2246822519);
+  state = Math.imul(state ^ (state >>> 13), 1274126177);
+  return ((state ^ (state >>> 16)) >>> 0) / 4294967295;
 }

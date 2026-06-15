@@ -1,12 +1,24 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import {
+  VIEW_DISTANCE_MAX,
+  VIEW_DISTANCE_MIN,
+  VIEW_DISTANCE_STEP,
+  formatViewDistance,
+} from '../../config/viewDistance';
 import { DEFAULT_GAMEPLAY_SETTINGS, useGameStore } from '../../state/gameStore';
+import { useDraggableWindow } from './useDraggableWindow';
 
 function formatMultiplier(value: number): string {
   return `${value.toFixed(2)}x`;
 }
 
 export function SettingsPanel() {
-  const panelRef = useRef<HTMLElement>(null);
+  const {
+    panelRef,
+    dragHandleProps,
+    dragStyle,
+    dragClassName,
+  } = useDraggableWindow<HTMLElement>();
   const settingsOpen = useGameStore((s) => s.settingsOpen);
   const settings = useGameStore((s) => s.settings);
   const setSettingsOpen = useGameStore((s) => s.setSettingsOpen);
@@ -27,16 +39,14 @@ export function SettingsPanel() {
       />
       <section
         ref={panelRef}
-        className="settings-panel panel"
+        className={`settings-panel panel${dragClassName}`}
+        style={dragStyle}
         role="dialog"
         aria-modal="true"
         aria-labelledby="settings-title"
         tabIndex={-1}
-        onKeyDown={(e) => {
-          if (e.key === 'Escape') setSettingsOpen(false);
-        }}
       >
-        <header className="settings-header">
+        <header className="settings-header draggable-window-handle" {...dragHandleProps}>
           <div>
             <h2 id="settings-title">Settings</h2>
             <span>Controls</span>
@@ -115,6 +125,21 @@ export function SettingsPanel() {
               onChange={(e) => updateSettings({ zoomSensitivity: e.currentTarget.valueAsNumber })}
             />
           </label>
+
+          <label className="settings-range">
+            <span>
+              View distance
+              <strong>{formatViewDistance(settings.viewDistance)}</strong>
+            </span>
+            <input
+              type="range"
+              min={VIEW_DISTANCE_MIN}
+              max={VIEW_DISTANCE_MAX}
+              step={VIEW_DISTANCE_STEP}
+              value={settings.viewDistance}
+              onChange={(e) => updateSettings({ viewDistance: e.currentTarget.valueAsNumber })}
+            />
+          </label>
         </div>
 
         <footer className="settings-actions">
@@ -126,7 +151,8 @@ export function SettingsPanel() {
               settings.invertCameraY === DEFAULT_GAMEPLAY_SETTINGS.invertCameraY &&
               settings.mouseLookSensitivity === DEFAULT_GAMEPLAY_SETTINGS.mouseLookSensitivity &&
               settings.touchLookSensitivity === DEFAULT_GAMEPLAY_SETTINGS.touchLookSensitivity &&
-              settings.zoomSensitivity === DEFAULT_GAMEPLAY_SETTINGS.zoomSensitivity
+              settings.zoomSensitivity === DEFAULT_GAMEPLAY_SETTINGS.zoomSensitivity &&
+              settings.viewDistance === DEFAULT_GAMEPLAY_SETTINGS.viewDistance
             }
           >
             Defaults

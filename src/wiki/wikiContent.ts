@@ -39,18 +39,18 @@ import type {
   WikiTableRow,
 } from './wikiTypes';
 
-const REALM_BY_RACE: Record<PlayableRace, 'Order' | 'Destruction'> = {
-  empire: 'Order',
-  dwarf: 'Order',
-  high_elf: 'Order',
-  chaos: 'Destruction',
-  greenskin: 'Destruction',
-  dark_elf: 'Destruction',
+const REALM_BY_RACE: Record<PlayableRace, 'Aegis Accord' | 'Riftbound Host'> = {
+  empire: 'Aegis Accord',
+  dwarf: 'Aegis Accord',
+  high_elf: 'Aegis Accord',
+  chaos: 'Riftbound Host',
+  greenskin: 'Riftbound Host',
+  dark_elf: 'Riftbound Host',
 };
 
-const CAPITAL_BY_REALM: Record<'Order' | 'Destruction', string> = {
-  Order: 'Altdorf, City of the Empire',
-  Destruction: 'The Inevitable City',
+const CAPITAL_BY_REALM: Record<'Aegis Accord' | 'Riftbound Host', string> = {
+  'Aegis Accord': 'Bastion of Aegis',
+  'Riftbound Host': 'Riftspire Citadel',
 };
 
 const STATION_LABELS: Record<string, string> = {
@@ -111,9 +111,9 @@ function buildRaceAndClassPages(): WikiPage[] {
       title: 'Playable Roster',
       subtitle: 'Realms, races, classes, and class resources',
       status: 'implemented',
-      tags: ['roster', 'races', 'classes', 'order', 'destruction'],
+      tags: ['roster', 'races', 'classes', 'aegis', 'riftbound'],
       body: [
-        'The current roster uses the player-facing renamed class list from ability-system.md. Legacy WAR career names are compatibility aliases only.',
+        'The current roster uses the player-facing renamed class list from ability-system.md. Legacy class names are compatibility aliases only.',
       ],
       tables: [
         {
@@ -163,7 +163,7 @@ function buildRaceAndClassPages(): WikiPage[] {
 
   for (const kit of orderedKits()) {
     const race = raceForClass(kit.career);
-    const realm = race ? REALM_BY_RACE[race] : 'Order';
+    const realm = race ? REALM_BY_RACE[race] : 'Aegis Accord';
     pages.push({
       id: `class-${slug(kit.career)}`,
       sectionId: 'races_classes',
@@ -480,7 +480,7 @@ function buildQuestPages(): WikiPage[] {
       tables: [
         {
           title: 'Quest chain',
-          columns: ['Order', 'Quest', 'Level', 'Prerequisite', 'Reward'],
+          columns: ['Step', 'Quest', 'Level', 'Prerequisite', 'Reward'],
           rows: QUESTS.map((quest, index) => ({
             id: quest.id,
             cells: [
@@ -548,13 +548,13 @@ function buildWorldPages(): WikiPage[] {
       title: 'Current World Data',
       subtitle: 'Implemented zone loading',
       status: 'implemented',
-      tags: ['world', 'zones', 'maps', 'altdorf', 'reikland'],
+      tags: ['world', 'zones', 'maps', 'aegis', 'riftbound', 'campaign'],
       body: [
-        'Zone definitions load from public/assets/maps by zone ID. Missing assets fall back to procedural primitives and must not hard-fail the browser.',
+        'Zone definitions load from public/assets/maps by zone ID. The generated Aegis/Riftbound campaign maps are static committed assets; missing assets fall back to procedural primitives and must not hard-fail the browser.',
       ],
       details: [
         { label: 'Map Source', value: 'public/assets/maps/<zoneId>.json' },
-        { label: 'Implemented examples', value: 'zone1, altdorf, reikland' },
+        { label: 'Implemented examples', value: 'Aegis/Riftbound campaign maps, plus legacy dev maps' },
         { label: 'Asset behavior', value: 'GLB assets when present, primitive fallbacks otherwise' },
       ],
     },

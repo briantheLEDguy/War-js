@@ -26,6 +26,10 @@ def normalize_y_up_scene_to_blender_z_up() -> None:
     except RuntimeError:
         pass
 
+    roots = [obj for obj in bpy.context.scene.objects if obj.parent is None]
+    for obj in roots:
+        obj.matrix_world = Y_UP_TO_BLENDER_Z_UP @ obj.matrix_world
+
     bpy.context.view_layer.update()
 
 
@@ -38,8 +42,3 @@ def repo_relative_path(value: str | Path | None) -> str | None:
         return path.resolve().relative_to(REPO_ROOT).as_posix()
     except ValueError:
         return str(path).replace("\\", "/")
-    roots = [obj for obj in bpy.context.scene.objects if obj.parent is None]
-    for obj in roots:
-        obj.matrix_world = Y_UP_TO_BLENDER_Z_UP @ obj.matrix_world
-
-    bpy.context.view_layer.update()

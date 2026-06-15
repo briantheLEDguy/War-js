@@ -1,0 +1,37 @@
+{
+  "assetId": "prop.town.door",
+  "category": "prop",
+  "model": "prop_town_door.glb",
+  "fileSizeBytes": 161652,
+  "meshCount": 2,
+  "totalTris": 256,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "obj_door",
+      "verts": 36,
+      "faces": 34,
+      "tris": 68,
+      "materials": 1
+    },
+    {
+      "name": "obj_door_handle",
+      "verts": 98,
+      "faces": 94,
+      "tris": 188,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
+}

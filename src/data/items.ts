@@ -13,6 +13,18 @@ export interface ConsumableEffect {
 }
 
 export type EquipmentVisualFallback = 'chest' | 'head' | 'mainHand' | 'neck' | 'offHand' | 'overlay';
+export type WeaponVisualKind =
+  | 'sword'
+  | 'staff'
+  | 'hammer'
+  | 'axe'
+  | 'dagger'
+  | 'spear'
+  | 'bow'
+  | 'gun'
+  | 'shield'
+  | 'focus'
+  | 'generic';
 
 export interface EquipmentVisualDefinition {
   /** Fallback model. Asset-index entries override this when available. */
@@ -28,6 +40,7 @@ export interface ItemDefinition {
   equipSlot?: EquipSlot;
   consumable?: ConsumableEffect;
   visual?: EquipmentVisualDefinition;
+  weaponKind?: WeaponVisualKind;
 }
 
 const equipmentModel = (key: string) => `equipment_${key}.glb`;
@@ -71,6 +84,8 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     icon: '\u2694',
     kind: 'weapon',
     equipSlot: 'mainHand',
+    visual: { model: equipmentModel('sword_iron'), fallback: 'mainHand' },
+    weaponKind: 'sword',
   },
   sword_recruit: {
     key: 'sword_recruit',
@@ -78,6 +93,8 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     icon: '\u2694',
     kind: 'weapon',
     equipSlot: 'mainHand',
+    visual: { model: equipmentModel('sword_recruit'), fallback: 'mainHand' },
+    weaponKind: 'sword',
   },
   sword_veteran: {
     key: 'sword_veteran',
@@ -85,6 +102,8 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     icon: '\u2694',
     kind: 'weapon',
     equipSlot: 'mainHand',
+    visual: { model: equipmentModel('sword_veteran'), fallback: 'mainHand' },
+    weaponKind: 'sword',
   },
   shield_wood: {
     key: 'shield_wood',
@@ -93,6 +112,7 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     kind: 'armor',
     equipSlot: 'offHand',
     visual: { model: equipmentModel('shield_wood'), fallback: 'offHand' },
+    weaponKind: 'shield',
   },
   shield_steel: {
     key: 'shield_steel',
@@ -101,6 +121,7 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     kind: 'armor',
     equipSlot: 'offHand',
     visual: { model: equipmentModel('shield_steel'), fallback: 'offHand' },
+    weaponKind: 'shield',
   },
   weapon_hammer_reliquary_2h: {
     key: 'weapon_hammer_reliquary_2h',
@@ -109,6 +130,7 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     kind: 'weapon',
     equipSlot: 'mainHand',
     visual: { model: 'wep_hammer_2h_reliquary_steel_t1.glb', fallback: 'mainHand' },
+    weaponKind: 'hammer',
   },
   jewel_amulet_bloodglass: {
     key: 'jewel_amulet_bloodglass',

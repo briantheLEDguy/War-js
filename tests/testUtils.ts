@@ -13,6 +13,7 @@ export interface MockPlayer {
   rotationY: number;
   animator: { playAction: Mock };
   playGlbAction: Mock;
+  playAbilityWeaponAction: Mock;
 }
 
 export interface MockVfxLayer {
@@ -25,9 +26,12 @@ export function resetGameStore(): void {
     enemies: [],
     targetId: null,
     floatingDamage: [],
+    playerStatusEffects: [],
     abilityResource: null,
     hotbarCooldowns: Array.from({ length: HOTBAR_SLOT_COUNT }, () => 0),
     pendingTouchAbility: null,
+    contextPrompt: null,
+    abilityFeedback: null,
   });
 }
 
@@ -39,7 +43,7 @@ export function makeCharacter(overrides: Partial<CharacterState> = {}): Characte
     race: 'empire',
     bodyVariant: 'm',
     level: 5,
-    zoneId: 'altdorf',
+    zoneId: 'aegis_capital',
     xp: 0,
     health: 120,
     maxHealth: 180,
@@ -76,6 +80,7 @@ export function makePlayer(overrides: Partial<MockPlayer> = {}): Player {
     rotationY: 0,
     animator: { playAction: vi.fn() },
     playGlbAction: vi.fn(),
+    playAbilityWeaponAction: vi.fn(),
     ...overrides,
   } as unknown as Player;
 }

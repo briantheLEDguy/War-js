@@ -156,6 +156,29 @@ def create_cone(
     return add_mesh_obj(name, mesh, mat, location, (rotation[0] - math.pi / 2, rotation[1], rotation[2]))
 
 
+def create_uv_sphere(
+    name: str,
+    radius: float,
+    mat: bpy.types.Material,
+    location=(0, 0, 0),
+    scale=(1, 1, 1),
+    segments=24,
+    rings=12,
+) -> bpy.types.Object:
+    bpy.ops.mesh.primitive_uv_sphere_add(
+        segments=segments,
+        ring_count=rings,
+        radius=radius,
+        location=location,
+    )
+    obj = bpy.context.object
+    obj.name = name
+    obj.data.name = f"{name}_mesh"
+    obj.scale = scale
+    obj.data.materials.append(mat)
+    return obj
+
+
 def shade_smooth(objects: list[bpy.types.Object]) -> None:
     for obj in objects:
         if obj.type != "MESH":
@@ -791,6 +814,61 @@ def build_preview_dreary_reeds(spec: dict) -> list[bpy.types.Object]:
     return objs
 
 
+def build_creature(spec: dict) -> list[bpy.types.Object]:
+    shape = spec.get("shape", "hound")
+    hide = make_material("creature_hide", spec["hide"], roughness=0.88)
+    dark = make_material("creature_dark", spec.get("dark", spec["hide"]), roughness=0.94)
+    accent = make_material("creature_accent", spec.get("accent", spec["hide"]), roughness=0.72)
+    bone = make_material("creature_bone", spec.get("bone", "#d8c090"), roughness=0.68)
+    root = create_empty("creature_export_root")
+    objs: list[bpy.types.Object] = []
+
+    if shape == "spider":
+        objs.extend([
+            create_uv_sphere("spider_abdomen", 0.55, hide, location=(0, 0.54, -0.18), scale=(1.2, 0.72, 1.0), segments=28, rings=12),
+            create_uv_sphere("spider_thorax", 0.38, dark, location=(0, 0.55, 0.42), scale=(1.0, 0.68, 0.92), segments=24, rings=10),
+            create_uv_sphere("spider_head", 0.24, dark, location=(0, 0.57, 0.78), scale=(0.95, 0.74, 0.82), segments=18, rings=8),
+        ])
+        for side in (-1, 1):
+            for index, z in enumerate([-0.36, -0.08, 0.20, 0.48]):
+                upper = create_box(f"spider_leg_upper_{side}_{index}", (0.60, 0.055, 0.050), dark, location=(side * 0.48, 0.50, z), rotation=(0, 0, side * (0.42 + index * 0.05)))
+                lower = create_box(f"spider_leg_lower_{side}_{index}", (0.72, 0.045, 0.042), hide, location=(side * 0.92, 0.28, z + 0.10), rotation=(0, 0, side * (-0.36 - index * 0.03)))
+                objs.extend([upper, lower])
+        for side in (-1, 1):
+            objs.append(create_cone(f"spider_fang_{side}", 0.030, 0.008, 0.22, 8, bone, location=(side * 0.07, 0.48, 1.00), rotation=(0.45, 0, 0)))
+    else:
+        body_scale = tuple(spec.get("bodyScale", [1.25, 0.58, 0.48]))
+        head_scale = tuple(spec.get("headScale", [0.78, 0.68, 0.90]))
+        objs.extend([
+            create_uv_sphere("creature_body", 0.62, hide, location=(0, 0.72, 0.00), scale=body_scale, segments=28, rings=12),
+            create_uv_sphere("creature_chest", 0.42, dark, location=(0, 0.78, 0.46), scale=(0.88, 0.76, 0.95), segments=22, rings=10),
+            create_uv_sphere("creature_head", 0.30, hide, location=(0, 0.94, 0.83), scale=head_scale, segments=22, rings=10),
+            create_cone("creature_snout", 0.15, 0.055, 0.32, 14, dark, location=(0, 0.91, 1.08), rotation=(math.pi / 2, 0, 0)),
+            create_cone("creature_tail", 0.10, 0.025, 0.48, 10, dark, location=(0, 0.86, -0.78), rotation=(-math.pi / 2, 0, 0)),
+        ])
+        for side in (-1, 1):
+            for index, z in enumerate([-0.34, 0.34]):
+                objs.append(create_cylinder(f"creature_leg_{side}_{index}", 0.070, 0.62, 10, dark, location=(side * 0.28, 0.34, z)))
+                objs.append(create_uv_sphere(f"creature_paw_{side}_{index}", 0.105, accent, location=(side * 0.28, 0.04, z + 0.06), scale=(1.15, 0.45, 0.78), segments=12, rings=6))
+            objs.append(create_cone(f"creature_ear_{side}", 0.070, 0.010, 0.22, 8, dark, location=(side * 0.15, 1.20, 0.78), rotation=(0.20, 0, side * 0.24)))
+
+        if shape == "boar":
+            for side in (-1, 1):
+                objs.append(create_cone(f"boar_tusk_{side}", 0.030, 0.006, 0.25, 8, bone, location=(side * 0.12, 0.82, 1.08), rotation=(0.85, 0, side * 0.35)))
+            objs.append(create_box("boar_back_bristles", (0.08, 0.36, 0.95), accent, location=(0, 1.15, -0.02), rotation=(0, 0, 0)))
+        elif shape == "stag":
+            for side in (-1, 1):
+                objs.append(create_cylinder(f"stag_antler_main_{side}", 0.025, 0.50, 8, bone, location=(side * 0.13, 1.34, 0.73), rotation=(0, 0, side * 0.32)))
+                objs.append(create_cylinder(f"stag_antler_tine_{side}_a", 0.017, 0.28, 8, bone, location=(side * 0.24, 1.50, 0.74), rotation=(0.25, 0, side * -0.45)))
+                objs.append(create_cylinder(f"stag_antler_tine_{side}_b", 0.015, 0.23, 8, bone, location=(side * 0.18, 1.43, 0.64), rotation=(-0.10, 0, side * -0.30)))
+        elif shape == "wolf":
+            objs.append(create_box("wolf_raised_hackle", (0.10, 0.24, 0.78), accent, location=(0, 1.08, 0.04)))
+
+    parent_to(root, objs)
+    shade_smooth(objs)
+    return objs
+
+
 BUILDERS = {
     "dummy": build_dummy,
     "gate": build_gate,
@@ -804,6 +882,13 @@ BUILDERS = {
     "preview_blight_shrub": build_preview_blight_shrub,
     "preview_jagged_stone": build_preview_jagged_stone,
     "preview_dreary_reeds": build_preview_dreary_reeds,
+    "creature_ash_hound": build_creature,
+    "creature_barrow_wolf": build_creature,
+    "creature_lair_spider": build_creature,
+    "creature_mire_hound": build_creature,
+    "creature_rift_hound": build_creature,
+    "creature_war_boar": build_creature,
+    "creature_wild_stag": build_creature,
 }
 
 
