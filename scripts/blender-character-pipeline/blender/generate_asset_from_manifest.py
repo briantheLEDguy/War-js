@@ -172,6 +172,17 @@ def run_character_preset(manifest: dict, output_path: Path, artifact_dir: str | 
 
 def run_static_preset(manifest: dict, output_path: Path, artifact_dir: str | None) -> None:
     preset = manifest["generator"]["preset"]
+    if preset.startswith("dark_fantasy_town_"):
+        from generate_dark_fantasy_town import generate_dark_fantasy_town
+        generate_dark_fantasy_town(
+            manifest,
+            output_path,
+            artifact_dir,
+            write_qc_report,
+            apply_manifest_metadata,
+            export_selected,
+        )
+        return
     if preset not in STATIC_PRESETS:
         raise RuntimeError(f"Unknown static preset: {preset}")
     args = [

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://war-js.local/schemas/local-candidate-provenance.schema.json",
+  "title": "War-js Free Local Candidate Provenance",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "candidateId",
+    "creationMethod",
+    "provider",
+    "bodyFamily",
+    "bodyVariant",
+    "skeletonId",
+    "bindPoseId",
+    "inputs",
+    "sourceArtifacts",
+    "license",
+    "qc",
+    "review"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "candidateId": { "type": ["string", "null"], "pattern": "^[a-z0-9_.-]+$" },
+    "creationMethod": { "enum": ["mpfb_local", "stable_fast_3d_local_handoff"] },
+    "provider": {
+      "type": "object",
+      "required": ["kind", "name", "version", "taskId", "costCurrency"],
+      "properties": {
+        "kind": { "enum": ["local_open_source", "manual_local"] },
+        "name": { "enum": ["MPFB", "Stable Fast 3D"] },
+        "version": { "type": ["string", "null"] },
+        "gitRevision": { "type": ["string", "null"] },
+        "taskId": { "type": ["string", "null"] },
+        "costCurrency": { "const": 0 }
+      },
+      "additionalProperties": false
+    },
+    "bodyFamily": { "enum": ["civic_humanoid_v2", "mire_brutish_v1", null] },
+    "bodyVariant": { "enum": ["m", "f", null] },
+    "skeletonId": { "enum": ["humanoid_game_v2", null] },
+    "bindPoseId": { "enum": ["a_pose_v2", null] },
+    "inputs": {
+      "type": "object",
+      "required": ["presetSha256", "prompt", "promptSha256", "seed", "referenceSha256"],
+      "properties": {
+        "presetSha256": { "$ref": "#/$defs/nullableSha256" },
+        "prompt": { "type": ["string", "null"] },
+        "promptSha256": { "$ref": "#/$defs/nullableSha256" },
+        "seed": { "type": ["integer", "null"] },
+        "referenceSha256": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "checkpointSha256": { "$ref": "#/$defs/nullableSha256" },
+        "commandArguments": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "device": { "enum": ["cpu", null] }
+      },
+      "additionalProperties": false
+    },
+    "sourceArtifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "$ref": "#/$defs/nullableSha256" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "license": {
+      "type": "object",
+      "required": ["sourceLicense", "termsReference", "operatorAcceptedAt"],
+      "properties": {
+        "sourceLicense": { "type": "string" },
+        "termsReference": { "type": "string" },
+        "operatorAcceptedAt": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "qc": {
+      "type": "object",
+      "required": ["policyId", "status", "reportPath", "reportSha256"],
+      "properties": {
+        "policyId": { "const": "real_character_two_race_pilot_v1" },
+        "status": { "enum": ["not_run", "failed", "passed"] },
+        "reportPath": { "type": ["string", "null"] },
+        "reportSha256": { "$ref": "#/$defs/nullableSha256" }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "required": ["state", "reviewer", "reviewedAt", "reviewArtifactSha256", "notes"],
+      "properties": {
+        "state": { "enum": ["draft", "qc_failed", "awaiting_review", "approved", "rejected", "blocked"] },
+        "reviewer": { "type": ["string", "null"] },
+        "reviewedAt": { "type": ["string", "null"], "format": "date-time" },
+        "reviewArtifactSha256": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "nullableSha256": {
+      "anyOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

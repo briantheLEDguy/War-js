@@ -13,7 +13,7 @@ import type {
   WorldWalkableSurfaceObject,
 } from '../../services/types';
 import type { Terrain } from '../Terrain';
-import type { InteractiveGate, WorldCollider, WorldWalkableSurface } from '../Props';
+import type { InteractiveGate, InteractiveHousePortal, WorldCollider, WorldWalkableSurface } from '../Props';
 import {
   applyVoxelBrushToDocument,
   type VoxelBrushTool,
@@ -28,6 +28,7 @@ import {
   prefabFallbackKindForKind,
   prefabFootprintForKind,
   prefabLabelForKind,
+  prefabHouseInteriorVariantForKind,
   type PrefabFootprint,
 } from './PrefabCatalog';
 
@@ -153,6 +154,7 @@ export class WorldEditorRuntime {
   private cameraColliders: WorldCollider[] = [];
   private walkableSurfaces: WorldWalkableSurface[] = [];
   private gates = new Map<string, InteractiveGate>();
+  private housePortals = new Map<string, InteractiveHousePortal>();
   private undoStack: WorldEditDocument[] = [];
   private redoStack: WorldEditDocument[] = [];
 
@@ -319,6 +321,10 @@ export class WorldEditorRuntime {
 
   getGates(): InteractiveGate[] {
     return Array.from(this.gates.values());
+  }
+
+  getHousePortals(): InteractiveHousePortal[] {
+    return Array.from(this.housePortals.values());
   }
 
   undo(): WorldEditDocument | null {
@@ -726,6 +732,9 @@ export class WorldEditorRuntime {
       if (definition.interaction?.type === 'gate') {
         node.userData.interactionId = definition.interaction.id;
       }
+      if (definition.interaction?.type === 'house_portal') {
+        node.userData.housePortalId = definition.interaction.id;
+      }
       if ((node as THREE.Mesh).isMesh) {
         const mesh = node as THREE.Mesh;
         mesh.castShadow = true;
@@ -763,6 +772,16 @@ export class WorldEditorRuntime {
       });
       applyGateFallbackVisual(object, startsOpen ? 1 : 0);
     }
+    if (definition.interaction?.type === 'house_portal') {
+      this.housePortals.set(definition.interaction.id, {
+        id: definition.interaction.id,
+        label: definition.interaction.label ?? 'House Door',
+        object,
+        interiorVariant: definition.interaction.interiorVariant ?? 'small',
+        maxDistance: definition.interaction.maxDistance ?? 9,
+        direction: 'enter',
+      });
+    }
     this.group.add(object);
     this.spawned.set(definition.id, { definition, object, helper: null });
     this.rebuildStandaloneCollision();
@@ -780,11 +799,15 @@ export class WorldEditorRuntime {
     this.cameraColliders = [];
     this.walkableSurfaces = [];
     this.gates.clear();
+    this.housePortals.clear();
   }
 
   private unregisterGateForDefinition(definition: WorldObject): void {
     if (definition.type === 'prop' && definition.interaction?.type === 'gate') {
       this.gates.delete(definition.interaction.id);
+    }
+    if (definition.type === 'prop' && definition.interaction?.type === 'house_portal') {
+      this.housePortals.delete(definition.interaction.id);
     }
   }
 
@@ -1357,6 +1380,16 @@ function defaultAssetKeyForKind(kind: string): string | undefined {
 }
 
 function defaultInteractionForKind(kind: string, id: string): WorldPropObject['interaction'] {
+  const interiorVariant = prefabHouseInteriorVariantForKind(kind);
+  if (interiorVariant) {
+    return {
+      id: `${id}-house-door`,
+      type: 'house_portal',
+      label: 'Enter House',
+      maxDistance: interiorVariant === 'large' ? 11 : 9,
+      interiorVariant,
+    };
+  }
   if (kind === 'castle_gate') {
     return {
       id: `${id}-gate`,

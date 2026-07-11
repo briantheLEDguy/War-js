@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, PointerEvent } from 'react';
 import type { Game } from '../../game/Game';
 import { useGameStore, type EnemyState } from '../../state/gameStore';
 import type {
@@ -51,6 +51,17 @@ interface Projection {
   toCanvas: (position: { x: number; z: number }) => Point;
 }
 
+interface MapHoverTarget {
+  id: string;
+  label: string;
+  detail?: string;
+  kind: string;
+  color: string;
+  priority?: boolean;
+  position: Point;
+  radius: number;
+}
+
 export function WorldMapPanel({ game }: Props) {
   const {
     panelRef,
@@ -60,6 +71,7 @@ export function WorldMapPanel({ game }: Props) {
   } = useDraggableWindow<HTMLElement>({ draggedPosition: 'fixed' });
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef(0);
+  const hoverTargetsRef = useRef<MapHoverTarget[]>([]);
   const zone = game?.zoneDefinition ?? null;
   const enemies = useGameStore((state) => state.enemies);
   const character = useGameStore((state) => state.character);
@@ -67,6 +79,7 @@ export function WorldMapPanel({ game }: Props) {
   const quests = useGameStore((state) => state.quests);
   const setWorldMapOpen = useGameStore((state) => state.setWorldMapOpen);
   const [layers, setLayers] = useState<Record<WorldMapLayer, boolean>>(DEFAULT_WORLD_MAP_LAYERS);
+  const [hoveredLocation, setHoveredLocation] = useState<MapHoverTarget | null>(null);
 
   const markerVisible = useMemo<Record<MarkerToggle, boolean>>(() => ({
     quests: layers.quests,
@@ -85,7 +98,7 @@ export function WorldMapPanel({ game }: Props) {
 
     const draw = () => {
       const size = prepareCanvas(canvas, ctx);
-      drawWorldMap(ctx, {
+      hoverTargetsRef.current = drawWorldMap(ctx, {
         character,
         enemies: enemies.length > 0 ? enemies : zoneEnemyFallbacks(zone),
         game,
@@ -115,6 +128,20 @@ export function WorldMapPanel({ game }: Props) {
     setWorldMapOpen(false);
   }
 
+  function handleMapPointerMove(event: PointerEvent<HTMLCanvasElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const target = findMapHoverTarget(
+      hoverTargetsRef.current,
+      event.clientX - rect.left,
+      event.clientY - rect.top,
+    );
+    setHoveredLocation((current) => current?.id === target?.id ? current : target);
+  }
+
+  function clearMapHover() {
+    setHoveredLocation(null);
+  }
+
   return (
     <div
       className="world-map-backdrop"
@@ -139,7 +166,30 @@ export function WorldMapPanel({ game }: Props) {
         <div className="world-map-body">
           <div className="world-map-canvas-frame">
             {zone ? (
-              <canvas ref={canvasRef} aria-label={`${zone.name} detailed map`} />
+              <>
+                <canvas
+                  ref={canvasRef}
+                  aria-label={`${zone.name} detailed map`}
+                  onPointerMove={handleMapPointerMove}
+                  onPointerLeave={clearMapHover}
+                />
+                {hoveredLocation && (
+                  <div
+                    className={`world-map-hover-card${hoveredLocation.position.y < 120 ? ' below' : ''}`}
+                    role="status"
+                    style={{
+                      left: `clamp(84px, ${hoveredLocation.position.x}px, calc(100% - 84px))`,
+                      top: hoveredLocation.position.y,
+                    }}
+                  >
+                    <span style={{ '--marker-color': hoveredLocation.color } as CSSProperties}>
+                      {hoveredLocation.kind}
+                    </span>
+                    <strong>{hoveredLocation.label}</strong>
+                    {hoveredLocation.detail && <small>{hoveredLocation.detail}</small>}
+                  </div>
+                )}
+              </>
             ) : (
               <div className="world-map-empty">Map data unavailable.</div>
             )}
@@ -216,7 +266,7 @@ function drawWorldMap(
     width: number;
     zone: ZoneDefinition;
   },
-) {
+): MapHoverTarget[] {
   const { ctxWidth, ctxHeight } = { ctxWidth: input.width, ctxHeight: input.height };
   ctx.clearRect(0, 0, ctxWidth, ctxHeight);
   ctx.fillStyle = '#070604';
@@ -253,11 +303,99 @@ function drawWorldMap(
   if (input.zone.spawnPoint) drawSpawnPoint(ctx, input.zone.spawnPoint, projection);
 
   for (const marker of markers) {
-    drawWorldMarker(ctx, marker, projection, markers.length);
+    drawWorldMarker(ctx, marker, projection);
   }
   drawPlayerMarker(ctx, playerPosition, projection);
   drawCompass(ctx, projection);
   drawScale(ctx, projection);
+
+  return buildMapHoverTargets(input.zone, projection, markers, input.layers);
+}
+
+function buildMapHoverTargets(
+  zone: ZoneDefinition,
+  projection: Projection,
+  markers: MapMarker[],
+  layers: Record<WorldMapLayer, boolean>,
+): MapHoverTarget[] {
+  const targets: MapHoverTarget[] = [];
+
+  if (layers.landmarks) {
+    for (const prop of zone.props ?? []) {
+      if (isTerrainProp(prop) || !shouldLabelProp(prop)) continue;
+      targets.push({
+        id: `prop-${prop.id ?? `${prop.kind}-${prop.x}-${prop.z}`}`,
+        label: propLabel(prop, zone.id),
+        detail: propKind(prop.kind),
+        kind: 'Landmark',
+        color: '#d4b060',
+        position: projection.toCanvas(prop),
+        radius: Math.max(10, (prop.scale ?? 1) * projection.scale * 8),
+      });
+    }
+
+    for (const objective of zone.rvrObjectives ?? []) {
+      targets.push({
+        id: `objective-${objective.id}`,
+        label: objective.label,
+        detail: objectiveKind(objective),
+        kind: 'Objective',
+        color: objective.defaultRealm === 'aegis' ? '#72a6d8' : '#d06161',
+        priority: true,
+        position: projection.toCanvas(objective),
+        radius: Math.max(14, objective.captureRadius * projection.scale),
+      });
+    }
+  }
+
+  for (const marker of markers) {
+    if (!marker.label) continue;
+    targets.push({
+      id: marker.id,
+      label: marker.label,
+      detail: [marker.detail, marker.edgeLabel].filter(Boolean).join(' · '),
+      kind: markerKindLabel(marker.kind),
+      color: marker.color,
+      priority: marker.priority,
+      position: projection.toCanvas(marker.position),
+      radius: marker.priority ? 15 : 11,
+    });
+  }
+
+  return targets;
+}
+
+function findMapHoverTarget(
+  targets: MapHoverTarget[],
+  x: number,
+  y: number,
+): MapHoverTarget | null {
+  let nearest: MapHoverTarget | null = null;
+  let nearestDistance = Number.POSITIVE_INFINITY;
+
+  for (const target of targets) {
+    const distance = Math.hypot(target.position.x - x, target.position.y - y);
+    if (distance > target.radius) continue;
+    const isPreferred = target.priority && !nearest?.priority;
+    if (isPreferred || (!isPreferred && distance < nearestDistance)) {
+      nearest = target;
+      nearestDistance = distance;
+    }
+  }
+
+  return nearest;
+}
+
+function markerKindLabel(kind: MapMarker['kind']): string {
+  switch (kind) {
+    case 'quests': return 'Quest';
+    case 'npcs': return 'NPC';
+    case 'crafting': return 'Crafting';
+    case 'resources': return 'Resource';
+    case 'enemies': return 'Foe';
+    case 'exits': return 'Exit';
+    default: return 'Location';
+  }
 }
 
 function prepareCanvas(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D): { width: number; height: number } {
@@ -313,7 +451,7 @@ function drawTerrain(
   ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
 
   if (showDetail) {
-    if (zone.flatTerrain) drawCityTerrain(ctx, projection);
+    if (zone.flatTerrain) drawCityTerrain(ctx, zone, projection);
     else drawNaturalTerrain(ctx, zone, projection);
   }
 
@@ -359,30 +497,68 @@ function drawNaturalTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition,
   }
 }
 
-function drawCityTerrain(ctx: CanvasRenderingContext2D, projection: Projection) {
-  const tile = Math.max(10, projection.width / 24);
-  ctx.fillStyle = '#282923';
+function drawCityTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
+  const gradient = ctx.createRadialGradient(
+    projection.left + projection.width * 0.5,
+    projection.top + projection.height * 0.48,
+    projection.width * 0.05,
+    projection.left + projection.width * 0.5,
+    projection.top + projection.height * 0.5,
+    projection.width * 0.7,
+  );
+  gradient.addColorStop(0, '#30332d');
+  gradient.addColorStop(0.6, '#292c27');
+  gradient.addColorStop(1, '#232621');
+  ctx.fillStyle = gradient;
   ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
+
+  ctx.save();
+  clipMap(ctx, projection);
+  const structuralProps = (zone.props ?? []).filter((prop) => !isTerrainProp(prop));
+  ctx.fillStyle = 'rgba(121, 102, 69, 0.16)';
+  for (const prop of structuralProps) {
+    const point = projection.toCanvas(prop);
+    const radius = Math.max(8, (prop.scale ?? 1) * projection.scale * 7);
+    ctx.beginPath();
+    ctx.ellipse(point.x, point.y, radius * 1.55, radius, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Broad contour lines preserve a sense of connected districts without making
+  // the terrain a grid of equal visual-weight rectangles.
   ctx.strokeStyle = 'rgba(202, 197, 178, 0.08)';
   ctx.lineWidth = 1;
-  for (let x = projection.left; x <= projection.left + projection.width; x += tile) {
+  const half = projection.size / 2;
+  const contourStep = projection.size / 6;
+  for (let x = -half + contourStep; x < half; x += contourStep) {
     ctx.beginPath();
-    ctx.moveTo(x, projection.top);
-    ctx.lineTo(x, projection.top + projection.height);
+    for (let i = 0; i <= 32; i += 1) {
+      const z = -half + (i / 32) * projection.size;
+      const waveX = x + Math.sin(z * 0.035 + zone.id.length) * 3.5;
+      const point = projection.toCanvas({ x: waveX, z });
+      if (i === 0) ctx.moveTo(point.x, point.y);
+      else ctx.lineTo(point.x, point.y);
+    }
     ctx.stroke();
   }
-  for (let y = projection.top; y <= projection.top + projection.height; y += tile) {
+  for (let z = -half + contourStep; z < half; z += contourStep) {
     ctx.beginPath();
-    ctx.moveTo(projection.left, y);
-    ctx.lineTo(projection.left + projection.width, y);
+    for (let i = 0; i <= 32; i += 1) {
+      const x = -half + (i / 32) * projection.size;
+      const waveZ = z + Math.cos(x * 0.03 + zone.id.length) * 3.5;
+      const point = projection.toCanvas({ x, z: waveZ });
+      if (i === 0) ctx.moveTo(point.x, point.y);
+      else ctx.lineTo(point.x, point.y);
+    }
     ctx.stroke();
   }
 
   const center = projection.toCanvas({ x: 0, z: 0 });
-  ctx.fillStyle = 'rgba(184, 166, 118, 0.12)';
+  ctx.fillStyle = 'rgba(184, 166, 118, 0.1)';
   ctx.beginPath();
   ctx.arc(center.x, center.y, projection.width * 0.1, 0, Math.PI * 2);
   ctx.fill();
+  ctx.restore();
 }
 
 function drawMapGrid(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
@@ -466,7 +642,7 @@ function drawProps(
       continue;
     }
     if (!isTerrainProp(prop) && !layers.landmarks) continue;
-    drawProp(ctx, prop, zone, projection);
+      drawProp(ctx, prop, projection);
   }
   ctx.restore();
 }
@@ -474,7 +650,6 @@ function drawProps(
 function drawProp(
   ctx: CanvasRenderingContext2D,
   prop: PropSpawn,
-  zone: ZoneDefinition,
   projection: Projection,
 ) {
   const p = projection.toCanvas(prop);
@@ -501,7 +676,6 @@ function drawProp(
       break;
     case 'castle':
       drawCastle(ctx, p, prop.rotY ?? 0, scale);
-      if (projection.width >= 360) drawMapLabel(ctx, p.x, p.y - 20, propLabel(prop, zone.id), '#f0d880');
       break;
     case 'bridge':
     case 'dock':
@@ -515,9 +689,6 @@ function drawProp(
     case 'dummy':
     default:
       drawStructure(ctx, p, prop.rotY ?? 0, scale, prop.kind);
-      if (projection.width >= 360 && shouldLabelProp(prop)) {
-        drawMapLabel(ctx, p.x, p.y - 13, propLabel(prop, zone.id), '#d4b060');
-      }
       break;
   }
 }
@@ -540,9 +711,6 @@ function drawObjectives(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, pro
     ctx.beginPath();
     ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
     ctx.fill();
-    if (projection.width >= 360) {
-      drawMapLabel(ctx, p.x, p.y - radius - 9, `${objectiveKind(objective)}: ${objective.label}`, '#f0d880');
-    }
   }
   ctx.restore();
 }
@@ -562,7 +730,6 @@ function drawZoneExits(ctx: CanvasRenderingContext2D, exits: ZoneExitMarker[], p
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
-    if (projection.width >= 360) drawMapLabel(ctx, p.x, p.y + 17, exit.label, '#cad8ff');
   }
   ctx.restore();
 }
@@ -581,7 +748,6 @@ function drawSpawnPoint(
   ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
   ctx.fill();
   ctx.stroke();
-  if (projection.width >= 360) drawMapLabel(ctx, p.x, p.y + 20, 'Spawn', '#f0d880');
   ctx.restore();
 }
 
@@ -589,7 +755,6 @@ function drawWorldMarker(
   ctx: CanvasRenderingContext2D,
   marker: MapMarker,
   projection: Projection,
-  markerCount: number,
 ) {
   const p = projection.toCanvas(marker.position);
   const size = marker.priority ? 6 : 4.5;
@@ -601,16 +766,6 @@ function drawWorldMarker(
   ) return;
 
   drawMarkerShape(ctx, marker, p.x, p.y, size);
-  const shouldLabel = projection.width >= 360 && (
-    marker.priority ||
-    marker.kind === 'exits' ||
-    marker.kind === 'crafting' ||
-    marker.kind === 'npcs' ||
-    markerCount < 14
-  );
-  if (shouldLabel && marker.label) {
-    drawMapLabel(ctx, p.x, p.y + 15, marker.label, marker.color);
-  }
 }
 
 function drawPlayerMarker(
@@ -797,19 +952,46 @@ function drawBridge(ctx: CanvasRenderingContext2D, p: Point, rotY: number, scale
 
 function drawStructure(ctx: CanvasRenderingContext2D, p: Point, rotY: number, scale: number, kind: string) {
   drawRotated(ctx, p, rotY, () => {
-    ctx.fillStyle = kind === 'fountain' ? '#6f91a2' : kind === 'statue' ? '#989078' : '#755b36';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.82)';
-    ctx.lineWidth = 1.5;
+    ctx.fillStyle = kind === 'fountain'
+      ? 'rgba(111, 145, 162, 0.78)'
+      : kind === 'statue'
+        ? 'rgba(152, 144, 120, 0.78)'
+        : 'rgba(117, 91, 54, 0.72)';
+    ctx.strokeStyle = 'rgba(20, 16, 11, 0.62)';
+    ctx.lineWidth = 1;
     if (kind === 'fountain' || kind === 'statue' || kind === 'dummy') {
       ctx.beginPath();
       ctx.arc(0, 0, 6 * scale, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
     } else {
-      ctx.fillRect(-8 * scale, -6 * scale, 16 * scale, 12 * scale);
-      ctx.strokeRect(-8 * scale, -6 * scale, 16 * scale, 12 * scale);
+      drawRoundedRect(ctx, -7 * scale, -5 * scale, 14 * scale, 10 * scale, 2 * scale);
+      ctx.fill();
+      ctx.stroke();
     }
   });
+}
+
+function drawRoundedRect(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  radius: number,
+) {
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+  ctx.lineTo(x + width, y + height - r);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+  ctx.lineTo(x + r, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
 }
 
 function drawRotated(ctx: CanvasRenderingContext2D, p: Point, rotY: number, draw: () => void) {

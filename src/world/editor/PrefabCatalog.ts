@@ -28,15 +28,21 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   {
     kind: 'building',
     label: 'Aegis House',
-    footprint: { width: 7, depth: 7, chainAxis: 'z' },
-    colliders: [{ width: 7, depth: 7 }],
+    model: 'prop_town_house_1.glb',
+    assetKey: 'town_house_1',
+    fallbackKind: 'building',
+    footprint: { width: 9.8, depth: 7.4, chainAxis: 'z' },
+    colliders: [{ width: 9.8, depth: 7.4 }],
     cameraSolid: true,
   },
   {
     kind: 'rift_house',
     label: 'Rift House',
-    footprint: { width: 7, depth: 7, chainAxis: 'z' },
-    colliders: [{ width: 8, depth: 8 }],
+    model: 'prop_town_house_2.glb',
+    assetKey: 'town_house_2',
+    fallbackKind: 'rift_house',
+    footprint: { width: 12.2, depth: 9, chainAxis: 'z' },
+    colliders: [{ width: 12.2, depth: 9 }],
     cameraSolid: true,
   },
   {
@@ -135,6 +141,7 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
 
   townPrefab('town_house_1', 'Town House 1', 'prop_town_house_1.glb', 14, 18, [{ width: 12, depth: 15 }]),
   townPrefab('town_house_2', 'Town House 2', 'prop_town_house_2.glb', 18, 22, [{ width: 15, depth: 18 }]),
+  townPrefab('town_castle', 'Capital Castle', 'prop_town_castle.glb', 38, 34, [{ width: 38, depth: 34 }]),
   townPrefab('town_roof', 'Town Roof', 'prop_town_roof.glb', 6, 7),
   townPrefab('town_wooden_wall_light', 'Light Wood Wall', 'prop_town_wooden_wall_light.glb', 5, 0.6, [{ width: 5, depth: 0.6 }], 'x'),
   townPrefab('town_wooden_wall_dark', 'Dark Wood Wall', 'prop_town_wooden_wall_dark.glb', 5, 0.6, [{ width: 5, depth: 0.6 }], 'x'),
@@ -215,6 +222,12 @@ export function prefabFootprintForKind(kind: string): PrefabFootprint {
 
 export function isPrefabCameraSolidKind(kind: string): boolean {
   return prefabDefinitionForKind(kind)?.cameraSolid === true;
+}
+
+export function prefabHouseInteriorVariantForKind(kind: string): 'small' | 'large' | undefined {
+  if (kind === 'building' || kind === 'town_house_1') return 'small';
+  if (kind === 'rift_house' || kind === 'town_house_2') return 'large';
+  return undefined;
 }
 
 function townPrefab(

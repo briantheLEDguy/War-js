@@ -8,6 +8,11 @@ dist
 tmp/
 __pycache__/
 artifacts/
+# Atomic model jobs and local authoring inputs never ship through Vite.
+artifacts/model-jobs/
+authoring/quarantine/
+authoring/work/
 *.blend1
 blends/human_v1.blend
+# Retired public source location; keep empty so Vite cannot copy raw models.
 public/assets/new_models/

@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "toolchainId": "war_js_free_character_toolchain_v1",
+  "mode": "local_only",
+  "paidProviders": [],
+  "networkPolicy": "The pipeline never makes network calls. Dependencies are downloaded and installed manually by the user.",
+  "dependencies": {
+    "blender": {
+      "minimumVersion": "4.2.0",
+      "license": "GPL-3.0-or-later",
+      "officialUrl": "https://www.blender.org/download/"
+    },
+    "mpfb": {
+      "requiredVersion": "2.0.16",
+      "extensionIdAliases": ["mpfb", "mpfb2"],
+      "license": "GPL-3.0-or-later",
+      "officialUrl": "https://extensions.blender.org/add-ons/mpfb/"
+    }
+  },
+  "assetPacks": [
+    {
+      "id": "makehuman_system_assets",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["makehuman_system_assets", "makehuman system assets"],
+      "archiveFile": "makehuman_system_assets_cc0.zip",
+      "requiredMarkers": [
+        "skins/young_caucasian_male/young_caucasian_male.mhmat",
+        "skins/young_caucasian_female/young_caucasian_female.mhmat",
+        "eyes/high-poly/high-poly.mhclo",
+        "teeth/teeth_base/teeth_base.mhclo",
+        "tongue/tongue01/tongue01.mhclo"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+        "expectedEnvironmentVariable": "MPFB_SYSTEM_ASSETS_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "skins03",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["skins03", "skins 03"],
+      "archiveFile": "skins03_cc0.zip",
+      "requiredMarkers": [
+        "skins/sonntag78_orkifyheadtarget_custom_skin/sonntag78_orkifyheadtarget_custom_skin.mhmat"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/skins03.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "be159362000e008d996366e3dd5977a40854e20ac6da98be267560c31f7e3fc5",
+        "expectedEnvironmentVariable": "MPFB_SKINS03_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "ears01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["ears01", "ears 01"],
+      "archiveFile": "ears01_cc0.zip",
+      "requiredMarkers": ["targets/ears/mindfront_ear_details.target"],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/ears01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "d32691d10015c7cd0f382f0101dca375153ecfaabd2a875d2b26cc38e17a30dd",
+        "expectedEnvironmentVariable": "MPFB_EARS01_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "hands01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["hands01", "hands 01"],
+      "archiveFile": "hands01_cc0.zip",
+      "requiredMarkers": ["targets/hands/mindfront_hand_fingers_correction.target"],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/hands01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "b874210dc3a9a179b73a3dd04976bc27521f47f985d106ce46fb45a480ee1701",
+        "expectedEnvironmentVariable": "MPFB_HANDS01_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "nose01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["nose01", "nose 01"],
+      "archiveFile": "nose01_cc0.zip",
+      "requiredMarkers": ["targets/nose/mindfront_nose_alar_crease.target"],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/nose01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "21ab5bbd05ec3f1ccad44ff2d7a679cf8f2d8e8b368f5b7367ba00c7701db906",
+        "expectedEnvironmentVariable": "MPFB_NOSE01_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "cheek01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["cheek01", "cheek 01"],
+      "archiveFile": "cheek01_cc0.zip",
+      "requiredMarkers": ["targets/cheek/elvs_high_chubby_cheekbones_1.target"],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/cheek01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "ee96e19850878bbacaa8ac2b6a8ea871b667d36b21ca079e74062385b8fae1e9",
+        "expectedEnvironmentVariable": "MPFB_CHEEK01_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "faceunits01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["faceunits01", "faceunits 01"],
+      "archiveFile": "faceunits01.zip",
+      "requiredMarkers": [
+        "targets/faceunits/eyeBlinkLeft.target",
+        "targets/faceunits/eyeBlinkRight.target"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/faceunits01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "d113107bd7eb59f3af4df6fc0ec29bfcc593f496d0b336aec14f086a80ce7146",
+        "expectedEnvironmentVariable": "MPFB_FACEUNITS01_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "suits02",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["suits02", "suits 02"],
+      "archiveFile": "suits02_cc0.zip",
+      "requiredMarkers": [
+        "clothes/rehmanpolanski_viking_tunic/rehmanpolanski_viking_tunic.mhclo",
+        "clothes/rehmanpolanski_viking_pants/rehmanpolanski_viking_pants.mhclo",
+        "clothes/rehmanpolanski_viking_boots/rehmanpolanski_viking_boots.mhclo"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/suits02.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "437f4d7ab92b698c1fb1047e7d62b22c11f195b2473e936118661dc8e6b7eb7a",
+        "expectedEnvironmentVariable": "MPFB_SUITS02_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "hats02",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["hats02", "hats 02"],
+      "archiveFile": "hats02_cc0.zip",
+      "requiredMarkers": [
+        "clothes/culturalibre_warrior_helmet/culturalibre_warrior_helmet.mhclo",
+        "clothes/javherre_casco_caballero_templario_templar_knight_helmet/javherre_casco_caballero_templario_templar_knight_helmet.mhclo"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/hats02.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "838b9b51ba31d27f21198ad4506eb9b23e1c03eb246fe68f26da99e26b40e1aa",
+        "expectedEnvironmentVariable": "MPFB_HATS02_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "gloves01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["gloves01", "gloves 01"],
+      "archiveFile": "gloves01_cc0.zip",
+      "requiredMarkers": [
+        "clothes/culturalibre_hero-heroine_gloves_1/culturalibre_hero-heroine_gloves_1.mhclo"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/gloves01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "ecdaee1d02749d17352791d415cb622a883350cc8a4b90eda3725aef35d9afb2",
+        "expectedEnvironmentVariable": "MPFB_GLOVES01_SHA256",
+        "requiredForPromotion": true
+      }
+    },
+    {
+      "id": "equipment01",
+      "required": true,
+      "license": "CC0-1.0",
+      "packIdAliases": ["equipment01", "equipment 01"],
+      "archiveFile": "equipment01_cc0.zip",
+      "requiredMarkers": [
+        "clothes/culturalibre_war_hammer/culturalibre_war_hammer.mhclo"
+      ],
+      "downloadPage": "https://static.makehumancommunity.org/assets/assetpacks/equipment01.html",
+      "checksum": {
+        "algorithm": "sha256",
+        "expectedSha256": "d8afa9d98c52f0a5e92a0d3e9f691f5699dd878499d9f6681740d38ca2640236",
+        "expectedEnvironmentVariable": "MPFB_EQUIPMENT01_SHA256",
+        "requiredForPromotion": true
+      }
+    }
+  ],
+  "stableFast3dHandoff": {
+    "enabledByDefault": false,
+    "optional": true,
+    "mode": "local_subprocess_handoff",
+    "device": "cpu",
+    "repository": "https://github.com/Stability-AI/stable-fast-3d",
+    "license": "Stability AI Community License",
+    "requiredLocalMetadata": [
+      "repositoryPath",
+      "gitRevision",
+      "checkpointPath",
+      "checkpointSha256",
+      "inputImageSha256",
+      "outputModelSha256"
+    ],
+    "constraints": [
+      "No model or checkpoint download is performed by this pipeline.",
+      "The operator must review and accept the model license before use.",
+      "CPU output is candidate-only and must pass the same retopology, fitting, rigging, QC, and review gates as manually authored input.",
+      "Texture baking support depends on the pinned local revision and must be verified before promotion."
+    ]
+  }
+}

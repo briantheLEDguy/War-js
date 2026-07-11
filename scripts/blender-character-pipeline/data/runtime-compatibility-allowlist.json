@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "model": "altdorf_castle.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "altdorf_land.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "banner_post.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "castle_door.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "castle_gate.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "castle_stairs.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "gate.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "vendor_stall.glb",
+      "reason": "legacy active non-character runtime asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_training_dummy_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "dummy"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_preview_twisted_tree_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "preview_twisted_tree"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_preview_blight_shrub_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "preview_blight_shrub"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_preview_jagged_stone_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "preview_jagged_stone"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_preview_dreary_reeds_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "preview_dreary_reeds"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_ash_hound_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_ash_hound"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_barrow_wolf_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_barrow_wolf"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_lair_spider_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_lair_spider"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_mire_hound_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_mire_hound"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_rift_hound_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_rift_hound"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_war_boar_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_war_boar"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_creature_wild_stag_t1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "creature_wild_stag"
+      },
+      "reason": "character-pipeline compatibility exemption for an active non-character asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_castle.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_castle"
+      },
+      "reason": "original generated capital castle validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_chimney.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_chimney"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_diamond_window.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_diamond_window"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_door.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_door"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_door_2.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_door_2"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_horizontal_beam.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_horizontal_beam"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_house_1.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_house_1"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_house_2.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_house_2"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_plank_arc.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_plank_arc"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_rock_wall_large.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_rock_wall_large"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_rock_wall_small.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_rock_wall_small"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_roof.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_roof"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_roof_plank_large.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_roof_plank_large"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_roof_plank_medium.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_roof_plank_medium"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_roof_plank_small.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_roof_plank_small"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_spire.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_spire"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_vertical_beam.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_vertical_beam"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_window.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_window"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_wooden_wall_dark.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_wooden_wall_dark"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_wooden_wall_light.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_wooden_wall_light"
+      },
+      "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "wep_hammer_2h_reliquary_steel_t1.glb",
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "runtime": {
+        "section": "equipment",
+        "key": "weapon_hammer_reliquary_2h"
+      },
+      "runtimeReady": false,
+      "reason": "retained legacy weapon awaiting reviewed socket attachment",
+      "reviewStatus": "blocked_socket_attachment_pending"
+    },
+    {
+      "model": "jwl_amulet_bloodglass_t1.glb",
+      "assetId": "jwl.amulet.bloodglass.t1",
+      "runtime": {
+        "section": "equipment",
+        "key": "jewel_amulet_bloodglass"
+      },
+      "runtimeReady": false,
+      "reason": "retained legacy equipment awaiting reviewed socket attachment",
+      "reviewStatus": "blocked_socket_attachment_pending"
+    }
+  ]
+}

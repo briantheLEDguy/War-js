@@ -1,0 +1,98 @@
+{
+  "assetId": "prop.town.castle",
+  "category": "prop",
+  "model": "prop_town_castle.glb",
+  "fileSizeBytes": 2944704,
+  "meshCount": 7,
+  "totalTris": 40680,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 15824,
+      "faces": 15204,
+      "tris": 30536,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "mortar",
+      "verts": 960,
+      "faces": 816,
+      "tris": 1888,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 3232,
+      "faces": 3094,
+      "tris": 6260,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "slate",
+      "verts": 576,
+      "faces": 506,
+      "tris": 1132,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "oak",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "aged_oak",
+      "verts": 168,
+      "faces": 162,
+      "tris": 324,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "glass",
+      "verts": 224,
+      "faces": 216,
+      "tris": 432,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_11705b52-1534-4880-9b75-10f87b8d0259/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "castle",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "90c666fb183abebed1cc32bbe980475e5b9506a74847e5b201d00070b5a400a6",
+  "generatedAt": "2026-07-11T20:33:11.675Z",
+  "previewImages": []
+}

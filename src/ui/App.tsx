@@ -4,9 +4,11 @@ import { useGameStore } from '../state/gameStore';
 import { LoginScreen } from './screens/LoginScreen';
 import { CharacterSelectScreen } from './screens/CharacterSelectScreen';
 import { GameScreen } from './screens/GameScreen';
+import { ModelReviewScreen } from './screens/ModelReviewScreen';
 import './styles.css';
 
 export function App() {
+  const modelReview = new URLSearchParams(window.location.search).get('modelReview');
   const screen = useGameStore((s) => s.screen);
   const setUser = useGameStore((s) => s.setUser);
   const setScreen = useGameStore((s) => s.setScreen);
@@ -21,9 +23,12 @@ export function App() {
 
   return (
     <div className="app-root">
+      {modelReview === 'battle-prelate' && <ModelReviewScreen />}
+      {modelReview !== 'battle-prelate' && <>
       {screen === 'login' && <LoginScreen />}
       {screen === 'character-select' && <CharacterSelectScreen />}
       {screen === 'world' && <GameScreen />}
+      </>}
     </div>
   );
 }
