@@ -41,6 +41,7 @@ export type ContextPromptKind =
   | 'crafting'
   | 'gathering'
   | 'gate'
+  | 'house'
   | 'objective'
   | 'target'
   | 'travel';

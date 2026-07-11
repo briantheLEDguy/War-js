@@ -4,7 +4,6 @@
   "size": 360,
   "segments": 96,
   "terrainTexture": "cobblestone.svg",
-  "terrainModel": "terrain_aegis_capital_medieval_city.glb",
   "skybox": "sky.hdr",
   "flatTerrain": true,
   "staticMapVersion": "aegis-riftbound-v1",
@@ -19,23 +18,511 @@
   "spawnPoint": {
     "x": 0,
     "y": 0,
-    "z": -136
+    "z": -118
   },
-  "paths": [],
+  "paths": [
+    {
+      "id": "aegis_capital_main_road",
+      "style": "cobblestone_avenue",
+      "width": 11,
+      "points": [
+        {
+          "x": 0,
+          "z": -122
+        },
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 58
+        },
+        {
+          "x": 0,
+          "z": 136
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_portal_road_1",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 154.8,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_portal_road_2",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -154.8,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_portal_road_3",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": -154.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_west_gate_road",
+      "style": "cobblestone_avenue",
+      "width": 9,
+      "points": [
+        {
+          "x": -126,
+          "z": 0
+        },
+        {
+          "x": -84,
+          "z": 0
+        },
+        {
+          "x": -36,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_east_gate_road",
+      "style": "cobblestone_avenue",
+      "width": 9,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 36,
+          "z": 0
+        },
+        {
+          "x": 84,
+          "z": 0
+        },
+        {
+          "x": 126,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_cross_street_1",
+      "style": "cobblestone_avenue",
+      "width": 7,
+      "points": [
+        {
+          "x": -108,
+          "z": -58
+        },
+        {
+          "x": -56,
+          "z": -58
+        },
+        {
+          "x": -18,
+          "z": -58
+        },
+        {
+          "x": 18,
+          "z": -58
+        },
+        {
+          "x": 56,
+          "z": -58
+        },
+        {
+          "x": 108,
+          "z": -58
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_cross_street_2",
+      "style": "cobblestone_avenue",
+      "width": 7,
+      "points": [
+        {
+          "x": -108,
+          "z": -30
+        },
+        {
+          "x": -56,
+          "z": -30
+        },
+        {
+          "x": -18,
+          "z": -30
+        },
+        {
+          "x": 18,
+          "z": -30
+        },
+        {
+          "x": 56,
+          "z": -30
+        },
+        {
+          "x": 108,
+          "z": -30
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_cross_street_3",
+      "style": "cobblestone_avenue",
+      "width": 7,
+      "points": [
+        {
+          "x": -108,
+          "z": 28
+        },
+        {
+          "x": -56,
+          "z": 28
+        },
+        {
+          "x": -18,
+          "z": 28
+        },
+        {
+          "x": 18,
+          "z": 28
+        },
+        {
+          "x": 56,
+          "z": 28
+        },
+        {
+          "x": 108,
+          "z": 28
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_cross_street_4",
+      "style": "cobblestone_avenue",
+      "width": 8,
+      "points": [
+        {
+          "x": -108,
+          "z": 70
+        },
+        {
+          "x": -56,
+          "z": 70
+        },
+        {
+          "x": -18,
+          "z": 70
+        },
+        {
+          "x": 18,
+          "z": 70
+        },
+        {
+          "x": 56,
+          "z": 70
+        },
+        {
+          "x": 108,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_cross_street_5",
+      "style": "cobblestone_avenue",
+      "width": 7,
+      "points": [
+        {
+          "x": -108,
+          "z": 112
+        },
+        {
+          "x": -56,
+          "z": 112
+        },
+        {
+          "x": -18,
+          "z": 112
+        },
+        {
+          "x": 18,
+          "z": 112
+        },
+        {
+          "x": 56,
+          "z": 112
+        },
+        {
+          "x": 108,
+          "z": 112
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_west_inner_lane",
+      "style": "cobblestone_avenue",
+      "width": 6,
+      "points": [
+        {
+          "x": -92,
+          "z": -70
+        },
+        {
+          "x": -92,
+          "z": -24
+        },
+        {
+          "x": -92,
+          "z": 34
+        },
+        {
+          "x": -92,
+          "z": 92
+        },
+        {
+          "x": -92,
+          "z": 132
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_east_inner_lane",
+      "style": "cobblestone_avenue",
+      "width": 6,
+      "points": [
+        {
+          "x": 92,
+          "z": -70
+        },
+        {
+          "x": 92,
+          "z": -24
+        },
+        {
+          "x": 92,
+          "z": 34
+        },
+        {
+          "x": 92,
+          "z": 92
+        },
+        {
+          "x": 92,
+          "z": 132
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_castle_service_lane",
+      "style": "cobblestone_avenue",
+      "width": 6,
+      "points": [
+        {
+          "x": -44,
+          "z": 54
+        },
+        {
+          "x": -54,
+          "z": 88
+        },
+        {
+          "x": -44,
+          "z": 126
+        },
+        {
+          "x": 0,
+          "z": 136
+        },
+        {
+          "x": 44,
+          "z": 126
+        },
+        {
+          "x": 54,
+          "z": 88
+        },
+        {
+          "x": 44,
+          "z": 54
+        }
+      ]
+    }
+  ],
   "props": [
+    {
+      "id": "aegis_capital_city_gate_gate",
+      "kind": "castle_gate",
+      "x": 0,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1.55,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_gate_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_capital_city_gate_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_capital_city_gate_gate_interaction",
+        "type": "gate",
+        "label": "Bastion of Aegis Gate",
+        "maxDistance": 28,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_capital_city_gate_tower_left",
+      "kind": "tower",
+      "x": -34,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1.3,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_gate_tower_left_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_gate_tower_right",
+      "kind": "tower",
+      "x": 34,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1.3,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_gate_tower_right_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_plaza_banner",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "aegis_capital_plaza_stone_left",
+      "kind": "rock",
+      "x": -7,
+      "z": 4,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_capital_plaza_stone_right",
+      "kind": "rock",
+      "x": 7,
+      "z": 4,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_capital_portal_brightfen_approach",
+      "kind": "gate",
+      "x": 154.8,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "aegis_capital_portal_brightfen_approach_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_portal_sunmeadow_march",
+      "kind": "gate",
+      "x": -154.8,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "aegis_capital_portal_sunmeadow_march_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_portal_aegis_gate_fortress",
+      "kind": "gate",
+      "x": 0,
+      "z": -154.8,
+      "rotY": 0,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "aegis_capital_portal_aegis_gate_fortress_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
     {
       "id": "aegis_capital_apothecary_station_visual",
       "kind": "vendor_stall",
-      "x": -40,
-      "z": -72,
+      "x": -42,
+      "z": -18,
       "rotY": 0,
       "scale": 0.9
     },
     {
       "id": "aegis_capital_talisman_station_visual",
       "kind": "statue",
-      "x": 40,
-      "z": -72,
+      "x": 42,
+      "z": -18,
       "rotY": 0.35,
       "scale": 0.9
     },
@@ -43,7 +530,7 @@
       "id": "aegis_capital_cultivation_station_visual",
       "kind": "pnw_grass_clump",
       "x": -42,
-      "z": 72,
+      "z": 22,
       "rotY": 0.7,
       "scale": 1.35
     },
@@ -51,7 +538,7 @@
       "id": "aegis_capital_salvage_station_visual",
       "kind": "vendor_stall",
       "x": 42,
-      "z": 72,
+      "z": 22,
       "rotY": 1.05,
       "scale": 0.9
     },
@@ -59,209 +546,1907 @@
       "id": "aegis_capital_general_station_visual",
       "kind": "vendor_stall",
       "x": 0,
-      "z": -104,
+      "z": -12,
       "rotY": 1.4,
       "scale": 0.9
     },
     {
-      "id": "aegis_capital_imported_city_collision_proxy",
-      "kind": "aegis_capital_collision_proxy",
-      "x": 0,
-      "z": 0,
+      "id": "aegis_capital_city_wall_front_left",
+      "kind": "wall_segment",
+      "x": -74,
+      "z": -86,
       "rotY": 0,
-      "scale": 1,
-      "visible": false,
+      "scale": 1.16,
+      "scaleX": 5.2,
       "colliders": [
         {
-          "id": "aegis_capital_imported_front_wall_west_collider",
-          "x": -103,
-          "z": -164,
-          "width": 118,
-          "depth": 12,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_front_wall_east_collider",
-          "x": 103,
-          "z": -164,
-          "width": 118,
-          "depth": 12,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_west_wall_south_collider",
-          "x": -164,
-          "z": -88,
-          "width": 12,
-          "depth": 92,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_west_wall_north_collider",
-          "x": -164,
-          "z": 76,
-          "width": 12,
-          "depth": 144,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_east_wall_south_collider",
-          "x": 164,
-          "z": -88,
-          "width": 12,
-          "depth": 92,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_east_wall_north_collider",
-          "x": 164,
-          "z": 76,
-          "width": 12,
-          "depth": 144,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_rear_wall_west_collider",
-          "x": -96,
-          "z": 164,
-          "width": 122,
-          "depth": 12,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_rear_wall_east_collider",
-          "x": 96,
-          "z": 164,
-          "width": 122,
-          "depth": 12,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_lower_houses_west_collider",
-          "x": -88,
-          "z": -86,
-          "width": 82,
-          "depth": 56,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_lower_houses_east_collider",
-          "x": 88,
-          "z": -86,
-          "width": 82,
-          "depth": 56,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_market_block_west_collider",
-          "x": -86,
-          "z": -40,
-          "width": 72,
-          "depth": 28,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_market_block_east_collider",
-          "x": 86,
-          "z": -40,
-          "width": 72,
-          "depth": 28,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_middle_houses_west_collider",
-          "x": -104,
-          "z": 22,
-          "width": 60,
-          "depth": 64,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_middle_houses_east_collider",
-          "x": 104,
-          "z": 22,
-          "width": 60,
-          "depth": 64,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_upper_houses_west_collider",
-          "x": -94,
-          "z": 84,
-          "width": 76,
-          "depth": 58,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_upper_houses_east_collider",
-          "x": 94,
-          "z": 84,
-          "width": 76,
-          "depth": 58,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_rear_houses_west_collider",
-          "x": -68,
-          "z": 132,
-          "width": 58,
-          "depth": 38,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_rear_houses_east_collider",
-          "x": 68,
-          "z": 132,
-          "width": 58,
-          "depth": 38,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_north_court_cluster_collider",
-          "x": 0,
-          "z": 100,
-          "width": 48,
-          "depth": 54,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_south_market_cluster_west_collider",
-          "x": -40,
-          "z": -106,
-          "width": 30,
-          "depth": 34,
-          "rotY": 0
-        },
-        {
-          "id": "aegis_capital_imported_south_market_cluster_east_collider",
-          "x": 40,
-          "z": -106,
-          "width": 30,
-          "depth": 34,
-          "rotY": 0
+          "id": "aegis_capital_city_wall_front_left_collider",
+          "width": 10,
+          "depth": 1.8
         }
       ]
     },
     {
+      "id": "aegis_capital_city_wall_front_right",
+      "kind": "wall_segment",
+      "x": 74,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1.16,
+      "scaleX": 5.2,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_front_right_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_west_lower",
+      "kind": "wall_segment",
+      "x": -126,
+      "z": -51,
+      "rotY": 1.5708,
+      "scale": 1.1,
+      "scaleX": 7,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_west_lower_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_west_upper",
+      "kind": "wall_segment",
+      "x": -126,
+      "z": 76,
+      "rotY": 1.5708,
+      "scale": 1.1,
+      "scaleX": 12,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_west_upper_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_east_lower",
+      "kind": "wall_segment",
+      "x": 126,
+      "z": -51,
+      "rotY": 1.5708,
+      "scale": 1.1,
+      "scaleX": 7,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_east_lower_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_east_upper",
+      "kind": "wall_segment",
+      "x": 126,
+      "z": 76,
+      "rotY": 1.5708,
+      "scale": 1.1,
+      "scaleX": 12,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_east_upper_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_rear_left",
+      "kind": "wall_segment",
+      "x": -64,
+      "z": 136,
+      "rotY": 0,
+      "scale": 1.12,
+      "scaleX": 7.6,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_rear_left_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_rear_right",
+      "kind": "wall_segment",
+      "x": 64,
+      "z": 136,
+      "rotY": 0,
+      "scale": 1.12,
+      "scaleX": 7.6,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_rear_right_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_west_gate",
+      "kind": "castle_gate",
+      "x": -126,
+      "z": 0,
+      "rotY": -1.5708,
+      "scale": 1.18,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_west_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_capital_city_wall_west_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_capital_city_wall_west_gate_interaction",
+        "type": "gate",
+        "label": "Bastion of Aegis West Gate",
+        "maxDistance": 28,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_capital_city_wall_east_gate",
+      "kind": "castle_gate",
+      "x": 126,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 1.18,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_east_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_capital_city_wall_east_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_capital_city_wall_east_gate_interaction",
+        "type": "gate",
+        "label": "Bastion of Aegis East Gate",
+        "maxDistance": 28,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_capital_city_wall_rear_gate",
+      "kind": "castle_gate",
+      "x": 0,
+      "z": 136,
+      "rotY": 3.1416,
+      "scale": 1.3,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_rear_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "aegis_capital_city_wall_rear_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "aegis_capital_city_wall_rear_gate_interaction",
+        "type": "gate",
+        "label": "Bastion of Aegis Rear Gate",
+        "maxDistance": 28,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "aegis_capital_city_wall_tower_front_west",
+      "kind": "tower",
+      "x": -126,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1.35,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_tower_front_west_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_tower_front_east",
+      "kind": "tower",
+      "x": 126,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1.35,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_tower_front_east_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_tower_rear_west",
+      "kind": "tower",
+      "x": -126,
+      "z": 136,
+      "rotY": 0,
+      "scale": 1.45,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_tower_rear_west_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_tower_rear_east",
+      "kind": "tower",
+      "x": 126,
+      "z": 136,
+      "rotY": 0,
+      "scale": 1.45,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_tower_rear_east_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_west_gate_tower_south",
+      "kind": "tower",
+      "x": -126,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1.08,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_west_gate_tower_south_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_west_gate_tower_north",
+      "kind": "tower",
+      "x": -126,
+      "z": 22,
+      "rotY": 0,
+      "scale": 1.08,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_west_gate_tower_north_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_east_gate_tower_south",
+      "kind": "tower",
+      "x": 126,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1.08,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_east_gate_tower_south_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_east_gate_tower_north",
+      "kind": "tower",
+      "x": 126,
+      "z": 22,
+      "rotY": 0,
+      "scale": 1.08,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_east_gate_tower_north_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_rear_gate_tower_west",
+      "kind": "tower",
+      "x": -34,
+      "z": 136,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_rear_gate_tower_west_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_rear_gate_tower_east",
+      "kind": "tower",
+      "x": 34,
+      "z": 136,
+      "rotY": 0,
+      "scale": 1.12,
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_rear_gate_tower_east_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_01",
+      "kind": "building",
+      "x": -112,
+      "z": -72,
+      "rotY": -0.105,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_01_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_01_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_02",
+      "kind": "building",
+      "x": -90,
+      "z": -72,
+      "rotY": -0.06,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_02_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_02_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_03",
+      "kind": "building",
+      "x": -68,
+      "z": -72,
+      "rotY": -0.015,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_03_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_03_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_04",
+      "kind": "building",
+      "x": -44,
+      "z": -72,
+      "rotY": 0.03,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_04_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_04_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_05",
+      "kind": "building",
+      "x": -24,
+      "z": -72,
+      "rotY": 0.075,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_05_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_05_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_06",
+      "kind": "building",
+      "x": 24,
+      "z": -72,
+      "rotY": 0.06,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_06_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_06_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_07",
+      "kind": "building",
+      "x": 44,
+      "z": -72,
+      "rotY": 0.105,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_07_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_07_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_08",
+      "kind": "building",
+      "x": 68,
+      "z": -72,
+      "rotY": -0.165,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_08_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_08_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_09",
+      "kind": "building",
+      "x": 90,
+      "z": -72,
+      "rotY": -0.12,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_09_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_09_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_10",
+      "kind": "building",
+      "x": 112,
+      "z": -72,
+      "rotY": -0.075,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_10_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_10_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_11",
+      "kind": "building",
+      "x": -106,
+      "z": -43,
+      "rotY": 0.03,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_11_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_11_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_12",
+      "kind": "building",
+      "x": -80,
+      "z": -43,
+      "rotY": 0.075,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_12_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_12_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_13",
+      "kind": "building",
+      "x": -54,
+      "z": -43,
+      "rotY": 0.12,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_13_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_13_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_14",
+      "kind": "building",
+      "x": -29,
+      "z": -43,
+      "rotY": 0.165,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_14_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_14_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_15",
+      "kind": "building",
+      "x": 29,
+      "z": -43,
+      "rotY": -0.165,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_15_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_15_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_16",
+      "kind": "building",
+      "x": 54,
+      "z": -43,
+      "rotY": -0.12,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_16_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_16_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_17",
+      "kind": "building",
+      "x": 80,
+      "z": -43,
+      "rotY": -0.075,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_17_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_17_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_18",
+      "kind": "building",
+      "x": 106,
+      "z": -43,
+      "rotY": -0.03,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_18_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_18_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_19",
+      "kind": "building",
+      "x": -106,
+      "z": -14,
+      "rotY": 0.075,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_19_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_19_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_20",
+      "kind": "building",
+      "x": -80,
+      "z": -14,
+      "rotY": 0.12,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_20_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_20_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_21",
+      "kind": "building",
+      "x": -54,
+      "z": -14,
+      "rotY": 0.165,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_21_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_21_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_22",
+      "kind": "building",
+      "x": -28,
+      "z": -14,
+      "rotY": -0.105,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_22_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_22_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_23",
+      "kind": "building",
+      "x": 28,
+      "z": -14,
+      "rotY": -0.12,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_23_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_23_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_24",
+      "kind": "building",
+      "x": 54,
+      "z": -14,
+      "rotY": -0.075,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_24_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_24_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_25",
+      "kind": "building",
+      "x": 80,
+      "z": -14,
+      "rotY": -0.03,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_25_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_25_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_26",
+      "kind": "building",
+      "x": 106,
+      "z": -14,
+      "rotY": 0.015,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_26_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_26_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_27",
+      "kind": "building",
+      "x": -108,
+      "z": 44,
+      "rotY": 0.12,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_27_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_27_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_28",
+      "kind": "building",
+      "x": -82,
+      "z": 44,
+      "rotY": 0.165,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_28_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_28_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_29",
+      "kind": "building",
+      "x": -55,
+      "z": 44,
+      "rotY": -0.105,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_29_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_29_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_30",
+      "kind": "building",
+      "x": -29,
+      "z": 44,
+      "rotY": -0.06,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_30_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_30_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_31",
+      "kind": "building",
+      "x": 29,
+      "z": 44,
+      "rotY": -0.075,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_31_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_31_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_32",
+      "kind": "building",
+      "x": 55,
+      "z": 44,
+      "rotY": -0.03,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_32_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_32_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_33",
+      "kind": "building",
+      "x": 82,
+      "z": 44,
+      "rotY": 0.015,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_33_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_33_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_34",
+      "kind": "building",
+      "x": 108,
+      "z": 44,
+      "rotY": 0.06,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_34_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_34_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_35",
+      "kind": "building",
+      "x": -109,
+      "z": 91,
+      "rotY": 0.165,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_35_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_35_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_36",
+      "kind": "building",
+      "x": -84,
+      "z": 91,
+      "rotY": -0.105,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_36_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_36_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_37",
+      "kind": "building",
+      "x": 84,
+      "z": 91,
+      "rotY": -0.12,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_37_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_37_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_38",
+      "kind": "building",
+      "x": 109,
+      "z": 91,
+      "rotY": -0.075,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_38_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_38_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_39",
+      "kind": "building",
+      "x": -108,
+      "z": 124,
+      "rotY": 0.03,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_39_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_39_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_40",
+      "kind": "building",
+      "x": -83,
+      "z": 124,
+      "rotY": 0.075,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_40_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_40_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_41",
+      "kind": "building",
+      "x": -58,
+      "z": 124,
+      "rotY": 0.12,
+      "scale": 0.78,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_41_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_41_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_42",
+      "kind": "building",
+      "x": 58,
+      "z": 124,
+      "rotY": 0.105,
+      "scale": 0.83,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_42_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_42_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_43",
+      "kind": "building",
+      "x": 83,
+      "z": 124,
+      "rotY": -0.165,
+      "scale": 0.87,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_43_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_43_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_house_44",
+      "kind": "building",
+      "x": 108,
+      "z": 124,
+      "rotY": -0.12,
+      "scale": 0.92,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_house_44_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_house_44_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_market_hall_west",
+      "kind": "building",
+      "x": -43,
+      "z": -18,
+      "rotY": 0.12,
+      "scale": 1.02,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_market_hall_west_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_market_hall_west_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_market_hall_east",
+      "kind": "building",
+      "x": 43,
+      "z": -18,
+      "rotY": -0.12,
+      "scale": 1.02,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_market_hall_east_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_market_hall_east_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_craft_hall_west",
+      "kind": "building",
+      "x": -43,
+      "z": 17,
+      "rotY": -0.12,
+      "scale": 0.94,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_craft_hall_west_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_craft_hall_west_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_training_hall_east",
+      "kind": "building",
+      "x": 43,
+      "z": 17,
+      "rotY": 0.12,
+      "scale": 0.94,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_training_hall_east_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_training_hall_east_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_barracks_west",
+      "kind": "building",
+      "x": -63,
+      "z": 74,
+      "rotY": 0.06,
+      "scale": 1.02,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_barracks_west_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_barracks_west_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_barracks_east",
+      "kind": "building",
+      "x": 63,
+      "z": 74,
+      "rotY": -0.06,
+      "scale": 1.02,
+      "assetKey": "town_house_2",
+      "model": "prop_town_house_2.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_barracks_east_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 11,
+        "interiorVariant": "large"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_barracks_east_collider",
+          "width": 12.2,
+          "depth": 9,
+          "minY": -0.25,
+          "maxY": 12
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_upper_residence_west",
+      "kind": "building",
+      "x": -42,
+      "z": 122,
+      "rotY": -0.08,
+      "scale": 0.9,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_upper_residence_west_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_upper_residence_west_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_upper_residence_east",
+      "kind": "building",
+      "x": 42,
+      "z": 122,
+      "rotY": 0.08,
+      "scale": 0.9,
+      "assetKey": "town_house_1",
+      "model": "prop_town_house_1.glb",
+      "interaction": {
+        "id": "aegis_capital_capital_district_upper_residence_east_house_door",
+        "type": "house_portal",
+        "label": "Enter House",
+        "maxDistance": 9,
+        "interiorVariant": "small"
+      },
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_district_upper_residence_east_collider",
+          "width": 9.8,
+          "depth": 7.4,
+          "minY": -0.25,
+          "maxY": 10
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_district_avenue_banner_west",
+      "kind": "banner_post",
+      "x": -22,
+      "z": 54,
+      "rotY": 0,
+      "scale": 1.12
+    },
+    {
+      "id": "aegis_capital_capital_district_avenue_banner_east",
+      "kind": "banner_post",
+      "x": 22,
+      "z": 54,
+      "rotY": 0,
+      "scale": 1.12
+    },
+    {
+      "id": "aegis_capital_capital_district_rear_banner_west",
+      "kind": "banner_post",
+      "x": -24,
+      "z": 124,
+      "rotY": 0,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_capital_capital_district_rear_banner_east",
+      "kind": "banner_post",
+      "x": 24,
+      "z": 124,
+      "rotY": 0,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_capital_capital_citadel",
+      "kind": "castle",
+      "x": 0,
+      "z": 86,
+      "rotY": 0,
+      "scale": 1.22,
+      "assetKey": "town_castle",
+      "model": "prop_town_castle.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_capital_citadel_collider",
+          "width": 38,
+          "depth": 34,
+          "minY": -0.4,
+          "maxY": 34
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_capital_citadel_banner_west",
+      "kind": "banner_post",
+      "x": -24,
+      "z": 66,
+      "rotY": 0,
+      "scale": 1.14
+    },
+    {
+      "id": "aegis_capital_capital_citadel_banner_east",
+      "kind": "banner_post",
+      "x": 24,
+      "z": 66,
+      "rotY": 0,
+      "scale": 1.14
+    },
+    {
+      "id": "aegis_capital_capital_citadel_forecourt_statue",
+      "kind": "statue",
+      "x": 0,
+      "z": 60,
+      "rotY": 0,
+      "scale": 1.1
+    },
+    {
+      "id": "aegis_capital_sun_court_temple",
+      "kind": "temple",
+      "x": -58,
+      "z": 92,
+      "rotY": 0.28,
+      "scale": 1.05,
+      "colliders": [
+        {
+          "id": "aegis_capital_sun_court_temple_collider",
+          "width": 11,
+          "depth": 14
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_sun_court_bell_tower",
+      "kind": "tower",
+      "x": 58,
+      "z": 96,
+      "rotY": 0,
+      "scale": 1.22,
+      "colliders": [
+        {
+          "id": "aegis_capital_sun_court_bell_tower_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_sun_court_fountain",
+      "kind": "fountain",
+      "x": -58,
+      "z": 72,
+      "rotY": 0,
+      "scale": 1.05
+    },
+    {
+      "id": "aegis_capital_sun_court_statue",
+      "kind": "statue",
+      "x": 58,
+      "z": 116,
+      "rotY": 0,
+      "scale": 1.18
+    },
+    {
+      "id": "aegis_capital_sun_court_banner_west",
+      "kind": "banner_post",
+      "x": -44,
+      "z": 74,
+      "rotY": 0,
+      "scale": 1.16
+    },
+    {
+      "id": "aegis_capital_sun_court_banner_east",
+      "kind": "banner_post",
+      "x": 44,
+      "z": 74,
+      "rotY": 0,
+      "scale": 1.16
+    },
+    {
+      "id": "aegis_capital_market_stall_west",
+      "kind": "vendor_stall",
+      "x": -64,
+      "z": -12,
+      "rotY": 0.4,
+      "scale": 0.95
+    },
+    {
+      "id": "aegis_capital_market_stall_east",
+      "kind": "vendor_stall",
+      "x": 64,
+      "z": -12,
+      "rotY": -0.4,
+      "scale": 0.95
+    },
+    {
+      "id": "aegis_capital_central_fountain",
+      "kind": "fountain",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "aegis_capital_marshal_statue",
+      "kind": "statue",
+      "x": 0,
+      "z": 40,
+      "rotY": 0,
+      "scale": 1.35
+    },
+    {
       "id": "aegis_capital_scrap_node_01_visual",
       "kind": "rock",
-      "x": -135.1,
-      "z": -129.4,
+      "x": -97.1,
+      "z": 32.6,
       "rotY": 3.5365,
       "scale": 0.75
     },
     {
       "id": "aegis_capital_ore_node_02_visual",
       "kind": "pnw_mossy_boulder",
-      "x": 140.1,
-      "z": -129,
+      "x": -97.9,
+      "z": 91,
       "rotY": 3.086,
       "scale": 0.91
     },
     {
       "id": "aegis_capital_herb_node_03_visual",
       "kind": "pnw_wildflower_clump",
-      "x": -149.2,
+      "x": 100.8,
       "z": 35.5,
       "rotY": 0.528,
       "scale": 1.09
@@ -269,42 +2454,346 @@
     {
       "id": "aegis_capital_soil_node_04_visual",
       "kind": "pnw_grass_clump",
-      "x": 149.7,
-      "z": 33.8,
+      "x": 99.7,
+      "z": 91.8,
       "rotY": 4.8843,
       "scale": 0.85
     },
     {
       "id": "aegis_capital_relic_node_05_visual",
       "kind": "statue",
-      "x": -37.6,
-      "z": 144.5,
+      "x": -85.6,
+      "z": -61.5,
       "rotY": 3.7769,
       "scale": 0.55
     },
     {
       "id": "aegis_capital_water_node_06_visual",
       "kind": "pnw_low_shrub",
-      "x": 30.9,
-      "z": 152.7,
+      "x": 78.9,
+      "z": -53.3,
       "rotY": 2.8677,
       "scale": 1.09
     },
     {
       "id": "aegis_capital_scrap_node_07_visual",
       "kind": "rock",
-      "x": -37.6,
-      "z": 71.8,
+      "x": -55.6,
+      "z": 125.8,
       "rotY": 3.3213,
       "scale": 0.75
     },
     {
       "id": "aegis_capital_ore_node_08_visual",
       "kind": "pnw_mossy_boulder",
-      "x": 42.1,
-      "z": 63.8,
+      "x": 60.1,
+      "z": 117.8,
       "rotY": 2.2694,
       "scale": 0.91
+    },
+    {
+      "id": "aegis_capital_tree_03",
+      "kind": "tree",
+      "x": 29.3,
+      "z": -113.2,
+      "rotY": 1.4283,
+      "scale": 0.96
+    },
+    {
+      "id": "aegis_capital_tree_05",
+      "kind": "tree",
+      "x": -19.4,
+      "z": -131.1,
+      "rotY": 4.4461,
+      "scale": 1.2
+    },
+    {
+      "id": "aegis_capital_tree_06",
+      "kind": "tree",
+      "x": 1.3,
+      "z": -155.9,
+      "rotY": 3.9894,
+      "scale": 1.18
+    },
+    {
+      "id": "aegis_capital_tree_10",
+      "kind": "tree",
+      "x": -3.8,
+      "z": -112.1,
+      "rotY": 2.3249,
+      "scale": 1.16
+    },
+    {
+      "id": "aegis_capital_tree_11",
+      "kind": "tree",
+      "x": 8.7,
+      "z": -139.3,
+      "rotY": 5.4411,
+      "scale": 0.87
+    },
+    {
+      "id": "aegis_capital_tree_14",
+      "kind": "tree",
+      "x": -103.5,
+      "z": -117.3,
+      "rotY": 0.851,
+      "scale": 1.27
+    },
+    {
+      "id": "aegis_capital_tree_17",
+      "kind": "tree",
+      "x": -53.8,
+      "z": -139.5,
+      "rotY": 3.4495,
+      "scale": 1.44
+    },
+    {
+      "id": "aegis_capital_tree_20",
+      "kind": "tree",
+      "x": 13.1,
+      "z": -107.2,
+      "rotY": 3.2463,
+      "scale": 1.02
+    },
+    {
+      "id": "aegis_capital_tree_24",
+      "kind": "tree",
+      "x": -7.4,
+      "z": 157.1,
+      "rotY": 5.2511,
+      "scale": 1.49
+    },
+    {
+      "id": "aegis_capital_tree_26",
+      "kind": "tree",
+      "x": -132.6,
+      "z": -64.2,
+      "rotY": 5.4065,
+      "scale": 0.85
+    },
+    {
+      "id": "aegis_capital_rock_06",
+      "kind": "rock",
+      "x": -2.8,
+      "z": -115.9,
+      "rotY": 4.2777,
+      "scale": 2.44
+    },
+    {
+      "id": "aegis_capital_rock_07",
+      "kind": "rock",
+      "x": 63.8,
+      "z": -146.1,
+      "rotY": 2.1491,
+      "scale": 1.84
+    },
+    {
+      "id": "aegis_capital_rock_10",
+      "kind": "rock",
+      "x": -135.5,
+      "z": 1.2,
+      "rotY": 0.2395,
+      "scale": 1.17
+    },
+    {
+      "id": "aegis_capital_rock_12",
+      "kind": "rock",
+      "x": 16.6,
+      "z": -124.5,
+      "rotY": 2.6932,
+      "scale": 1.41
+    },
+    {
+      "id": "aegis_capital_rock_14",
+      "kind": "rock",
+      "x": -137.2,
+      "z": -44.6,
+      "rotY": 0.9789,
+      "scale": 1.78
+    },
+    {
+      "id": "aegis_capital_rock_15",
+      "kind": "rock",
+      "x": 135.6,
+      "z": 33.8,
+      "rotY": 4.5053,
+      "scale": 0.96
+    },
+    {
+      "id": "aegis_capital_rock_17",
+      "kind": "rock",
+      "x": -22.8,
+      "z": 148.9,
+      "rotY": 2.8563,
+      "scale": 1.29
+    },
+    {
+      "id": "aegis_capital_rock_20",
+      "kind": "rock",
+      "x": -53.2,
+      "z": 153.5,
+      "rotY": 4.6488,
+      "scale": 1.69
+    },
+    {
+      "id": "aegis_capital_rock_25",
+      "kind": "rock",
+      "x": -91.1,
+      "z": -111.1,
+      "rotY": 5.7307,
+      "scale": 1.02
+    },
+    {
+      "id": "aegis_capital_rock_29",
+      "kind": "rock",
+      "x": -85.3,
+      "z": -106.3,
+      "rotY": 4.0847,
+      "scale": 2.06
+    },
+    {
+      "id": "aegis_capital_ridge_01",
+      "kind": "rock",
+      "x": 165.6,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_capital_ridge_02",
+      "kind": "rock",
+      "x": 163.1,
+      "z": 59.4,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_capital_ridge_03",
+      "kind": "rock",
+      "x": 126.9,
+      "z": 106.4,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_capital_ridge_04",
+      "kind": "rock",
+      "x": 86.8,
+      "z": 150.3,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_capital_ridge_05",
+      "kind": "rock",
+      "x": 28.8,
+      "z": 163.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_capital_ridge_06",
+      "kind": "rock",
+      "x": -30.1,
+      "z": 171,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_capital_ridge_07",
+      "kind": "rock",
+      "x": -82.8,
+      "z": 143.4,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_capital_ridge_08",
+      "kind": "rock",
+      "x": -133,
+      "z": 111.6,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_capital_ridge_09",
+      "kind": "rock",
+      "x": -155.6,
+      "z": 56.6,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_capital_ridge_10",
+      "kind": "rock",
+      "x": -173.6,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_capital_ridge_11",
+      "kind": "rock",
+      "x": -155.6,
+      "z": -56.6,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_capital_ridge_12",
+      "kind": "rock",
+      "x": -133,
+      "z": -111.6,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_capital_ridge_13",
+      "kind": "rock",
+      "x": -82.8,
+      "z": -143.4,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_capital_ridge_14",
+      "kind": "rock",
+      "x": -30.1,
+      "z": -171,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "aegis_capital_ridge_15",
+      "kind": "rock",
+      "x": 28.8,
+      "z": -163.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "aegis_capital_ridge_16",
+      "kind": "rock",
+      "x": 86.8,
+      "z": -150.3,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "aegis_capital_ridge_17",
+      "kind": "rock",
+      "x": 126.9,
+      "z": -106.4,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "aegis_capital_ridge_18",
+      "kind": "rock",
+      "x": 163.1,
+      "z": -59.4,
+      "rotY": 5.9341,
+      "scale": 2.35
     }
   ],
   "npcs": [
@@ -313,9 +2802,9 @@
       "name": "Elira Dawnmarch",
       "title": "Aegis Quartermaster",
       "role": "vendor",
-      "x": -30,
-      "z": -76,
-      "rotY": 0.65,
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
       "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
     },
     {
@@ -323,9 +2812,9 @@
       "name": "Corren Vale",
       "title": "Capital Campaign Marshal",
       "role": "guard",
-      "x": 0,
-      "z": -24,
-      "rotY": -0.45,
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
       "characterProfileKey": "npc_aegis_corren_vale_capital_campaign_marshal"
     },
     {
@@ -333,8 +2822,8 @@
       "name": "Mira Stonewake",
       "title": "Vault Keeper",
       "role": "banker",
-      "x": -42,
-      "z": 18,
+      "x": -24,
+      "z": 12,
       "rotY": 1.5708,
       "characterProfileKey": "npc_aegis_mira_stonewake_vault_keeper"
     },
@@ -343,8 +2832,8 @@
       "name": "Alden Voss",
       "title": "Aegis Class Trainer",
       "role": "trainer",
-      "x": 42,
-      "z": 18,
+      "x": 24,
+      "z": 12,
       "rotY": -1.5708,
       "characterProfileKey": "npc_aegis_alden_voss_aegis_class_trainer"
     },
@@ -353,9 +2842,9 @@
       "name": "Serra Brightfield",
       "title": "Crafting Mentor",
       "role": "trainer",
-      "x": -42,
-      "z": 58,
-      "rotY": 1.1,
+      "x": 0,
+      "z": -24,
+      "rotY": 0,
       "characterProfileKey": "npc_aegis_serra_brightfield_crafting_mentor"
     },
     {
@@ -364,7 +2853,7 @@
       "title": "Portal Guard",
       "role": "guard",
       "x": 0,
-      "z": -128,
+      "z": -72,
       "rotY": 0,
       "characterProfileKey": "npc_aegis_tovin_greyford_portal_guard"
     },
@@ -373,150 +2862,10 @@
       "name": "Mara Vell",
       "title": "Dawnline Dispatch Officer",
       "role": "questgiver",
-      "x": 10,
-      "z": -94,
-      "rotY": 2.85,
+      "x": 0,
+      "z": 38,
+      "rotY": 3.1416,
       "characterProfileKey": "npc_aegis_mara_vell_dawnline_dispatch_officer"
-    },
-    {
-      "id": "aegis_capital_front_gate_west",
-      "name": "Brann Hartwell",
-      "title": "Main Gate Guard",
-      "role": "guard",
-      "x": -15,
-      "z": -148,
-      "rotY": 0.2,
-      "characterProfileKey": "npc_external_medieval_character"
-    },
-    {
-      "id": "aegis_capital_front_gate_east",
-      "name": "Orrin Valecross",
-      "title": "Main Gate Guard",
-      "role": "guard",
-      "x": 15,
-      "z": -148,
-      "rotY": -0.2,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_west_gate_south",
-      "name": "Cedric Wold",
-      "title": "West Gate Guard",
-      "role": "guard",
-      "x": -148,
-      "z": -28,
-      "rotY": 1.5708,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_west_gate_north",
-      "name": "Hale Durn",
-      "title": "West Gate Guard",
-      "role": "guard",
-      "x": -148,
-      "z": -4,
-      "rotY": 1.5708,
-      "characterProfileKey": "npc_external_medieval_character"
-    },
-    {
-      "id": "aegis_capital_east_gate_south",
-      "name": "Tamsin Reed",
-      "title": "East Gate Guard",
-      "role": "guard",
-      "x": 148,
-      "z": -28,
-      "rotY": -1.5708,
-      "characterProfileKey": "npc_external_medieval_character"
-    },
-    {
-      "id": "aegis_capital_east_gate_north",
-      "name": "Veyra Sunholt",
-      "title": "East Gate Guard",
-      "role": "guard",
-      "x": 148,
-      "z": -4,
-      "rotY": -1.5708,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_market_west",
-      "name": "Garron Pike",
-      "title": "Market Watch",
-      "role": "guard",
-      "x": -48,
-      "z": -42,
-      "rotY": 0.8,
-      "characterProfileKey": "npc_external_swordsman"
-    },
-    {
-      "id": "aegis_capital_market_east",
-      "name": "Lysa Bright",
-      "title": "Market Watch",
-      "role": "guard",
-      "x": 48,
-      "z": -42,
-      "rotY": -0.8,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_plaza_west",
-      "name": "Merek Flint",
-      "title": "Plaza Watch",
-      "role": "guard",
-      "x": -22,
-      "z": -4,
-      "rotY": 1.2,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_plaza_east",
-      "name": "Rowan Hale",
-      "title": "Plaza Watch",
-      "role": "guard",
-      "x": 22,
-      "z": -4,
-      "rotY": -1.2,
-      "characterProfileKey": "npc_external_swordsman"
-    },
-    {
-      "id": "aegis_capital_side_street_west",
-      "name": "Iven Stonebrook",
-      "title": "Street Patrol",
-      "role": "guard",
-      "x": -52,
-      "z": 62,
-      "rotY": 0.45,
-      "characterProfileKey": "npc_external_medieval_character"
-    },
-    {
-      "id": "aegis_capital_side_street_east",
-      "name": "Kara Voss",
-      "title": "Street Patrol",
-      "role": "guard",
-      "x": 52,
-      "z": 62,
-      "rotY": -0.45,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_rear_district_west",
-      "name": "Brenna Vale",
-      "title": "Rear District Guard",
-      "role": "guard",
-      "x": -32,
-      "z": 118,
-      "rotY": 2.7,
-      "characterProfileKey": "npc_external_warrior_guard"
-    },
-    {
-      "id": "aegis_capital_rear_district_east",
-      "name": "Tor Caldus",
-      "title": "Rear District Guard",
-      "role": "guard",
-      "x": 32,
-      "z": 118,
-      "rotY": -2.7,
-      "characterProfileKey": "npc_external_medieval_character"
     }
   ],
   "craftingStations": [
@@ -524,16 +2873,16 @@
       "id": "aegis_capital_apothecary_station",
       "label": "Apothecary Table",
       "kind": "apothecary",
-      "x": -40,
-      "z": -72,
+      "x": -42,
+      "z": -18,
       "radius": 6
     },
     {
       "id": "aegis_capital_talisman_station",
       "label": "Talisman Workbench",
       "kind": "talisman_making",
-      "x": 40,
-      "z": -72,
+      "x": 42,
+      "z": -18,
       "radius": 6
     },
     {
@@ -541,7 +2890,7 @@
       "label": "Cultivation Plots",
       "kind": "cultivation",
       "x": -42,
-      "z": 72,
+      "z": 22,
       "radius": 7
     },
     {
@@ -549,7 +2898,7 @@
       "label": "Salvage Bench",
       "kind": "salvage",
       "x": 42,
-      "z": 72,
+      "z": 22,
       "radius": 6
     },
     {
@@ -557,7 +2906,7 @@
       "label": "Campaign Supply Table",
       "kind": "general",
       "x": 0,
-      "z": -104,
+      "z": -12,
       "radius": 6
     }
   ],
@@ -568,8 +2917,8 @@
       "label": "Aegis War Scrap",
       "kind": "scrap",
       "professionId": "salvaging",
-      "x": -135.1,
-      "z": -129.4,
+      "x": -97.1,
+      "z": 32.6,
       "radius": 5,
       "xp": 8,
       "respawnSeconds": 75,
@@ -601,8 +2950,8 @@
       "label": "Aegis Ore Vein",
       "kind": "ore",
       "professionId": "salvaging",
-      "x": 140.1,
-      "z": -129,
+      "x": -97.9,
+      "z": 91,
       "radius": 5,
       "xp": 10,
       "respawnSeconds": 75,
@@ -627,7 +2976,7 @@
       "label": "Aegis Herb Patch",
       "kind": "herb",
       "professionId": "cultivation",
-      "x": -149.2,
+      "x": 100.8,
       "z": 35.5,
       "radius": 5,
       "xp": 8,
@@ -660,8 +3009,8 @@
       "label": "Aegis Fertile Soil",
       "kind": "soil",
       "professionId": "cultivation",
-      "x": 149.7,
-      "z": 33.8,
+      "x": 99.7,
+      "z": 91.8,
       "radius": 5,
       "xp": 8,
       "respawnSeconds": 75,
@@ -691,8 +3040,8 @@
       "label": "Aegis Relic Shards",
       "kind": "relic",
       "professionId": "salvaging",
-      "x": -37.6,
-      "z": 144.5,
+      "x": -85.6,
+      "z": -61.5,
       "radius": 5,
       "xp": 10,
       "respawnSeconds": 75,
@@ -722,8 +3071,8 @@
       "label": "Aegis Springwater",
       "kind": "water",
       "professionId": "cultivation",
-      "x": 30.9,
-      "z": 152.7,
+      "x": 78.9,
+      "z": -53.3,
       "radius": 5,
       "xp": 8,
       "respawnSeconds": 75,
@@ -748,8 +3097,8 @@
       "label": "Aegis War Scrap",
       "kind": "scrap",
       "professionId": "salvaging",
-      "x": -37.6,
-      "z": 71.8,
+      "x": -55.6,
+      "z": 125.8,
       "radius": 5,
       "xp": 8,
       "respawnSeconds": 75,
@@ -781,8 +3130,8 @@
       "label": "Aegis Ore Vein",
       "kind": "ore",
       "professionId": "salvaging",
-      "x": 42.1,
-      "z": 63.8,
+      "x": 60.1,
+      "z": 117.8,
       "radius": 5,
       "xp": 10,
       "respawnSeconds": 75,
@@ -807,18 +3156,18 @@
     {
       "id": "aegis_capital_city_gate",
       "type": "city_gate",
-      "label": "Bastion of Aegis Main Gate",
+      "label": "Bastion of Aegis Gate",
       "x": 0,
-      "z": -136,
+      "z": -86,
       "captureRadius": 16,
       "defaultRealm": "aegis"
     },
     {
       "id": "aegis_capital_plaza",
       "type": "battle_objective",
-      "label": "Market Plaza",
+      "label": "Central Plaza",
       "x": 0,
-      "z": -18,
+      "z": 0,
       "captureRadius": 14,
       "defaultRealm": "aegis"
     }
@@ -827,9 +3176,9 @@
     {
       "id": "aegis_capital_to_brightfen_approach",
       "label": "Travel to Brightfen Approach",
-      "x": 164,
-      "z": -18,
-      "radius": 12,
+      "x": 154.8,
+      "z": 0,
+      "radius": 9,
       "targetZoneId": "brightfen_approach",
       "targetSpawn": {
         "x": -115,
@@ -840,9 +3189,9 @@
     {
       "id": "aegis_capital_to_sunmeadow_march",
       "label": "Travel to Sunmeadow March",
-      "x": -164,
-      "z": -18,
-      "radius": 12,
+      "x": -154.8,
+      "z": 0,
+      "radius": 9,
       "targetZoneId": "sunmeadow_march",
       "targetSpawn": {
         "x": 115,
@@ -854,8 +3203,8 @@
       "id": "aegis_capital_to_aegis_gate_fortress",
       "label": "Travel to Starfall Gate",
       "x": 0,
-      "z": -164,
-      "radius": 12,
+      "z": -154.8,
+      "radius": 9,
       "targetZoneId": "aegis_gate_fortress",
       "targetSpawn": {
         "x": 0,
@@ -864,6 +3213,125 @@
       }
     }
   ],
-  "biomeKits": [],
-  "staticMapHash": "e1631385ea5b3dbc"
+  "biomeKits": [
+    {
+      "id": "aegis_capital_west_garden",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": -104,
+      "z": 58,
+      "width": 46,
+      "depth": 118,
+      "count": 24,
+      "seed": 127952636,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 44
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 92,
+          "radius": 78
+        },
+        {
+          "x": 0,
+          "z": -86,
+          "radius": 42
+        },
+        {
+          "x": -116,
+          "z": 0,
+          "radius": 26
+        },
+        {
+          "x": 116,
+          "z": 0,
+          "radius": 26
+        },
+        {
+          "x": 0,
+          "z": 136,
+          "radius": 34
+        }
+      ],
+      "allowedKinds": [
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_low_shrub"
+      ]
+    },
+    {
+      "id": "aegis_capital_east_garden",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 104,
+      "z": 58,
+      "width": 46,
+      "depth": 118,
+      "count": 24,
+      "seed": 457005290,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 44
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 92,
+          "radius": 78
+        },
+        {
+          "x": 0,
+          "z": -86,
+          "radius": 42
+        },
+        {
+          "x": -116,
+          "z": 0,
+          "radius": 26
+        },
+        {
+          "x": 116,
+          "z": 0,
+          "radius": 26
+        },
+        {
+          "x": 0,
+          "z": 136,
+          "radius": 34
+        }
+      ],
+      "allowedKinds": [
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_low_shrub"
+      ]
+    }
+  ],
+  "staticMapHash": "08c7099b82524761"
 }

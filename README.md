@@ -23,9 +23,8 @@ npm run test
 npm run campaign:generate
 npm run typecheck
 npm run world:validate
-npm run models:import-external
-npm run models:sync-playables
-npm run models:sync-npcs
+npm run models:doctor
+npm run models:cleanup-proxies:check
 npm run build
 npm run models:validate
 ```
@@ -71,13 +70,14 @@ scripts/
   campaign/             Static Aegis/Riftbound graph and map generator
   blender-character-pipeline/
     data/asset-blueprints/ Manifest-first model blueprints
-    data/external-imports.json User-supplied GLB/FBX import manifest
+    data/body-families/  Free MPFB body/skeleton/pilot definitions
+    data/external-imports.json Quarantined external-source inventory
     data/asset-blueprint.schema.json
     data/npc-character-roster.json Generated NPC/enemy profile style data
     data/style-policy.md
-    blender/             Blender generator backends and manifest entrypoint
-    tools/               Node list/validate/generate commands
-    mcp-server/          Codex MCP wrapper
+    blender/             MPFB body, review, and retained static generators
+    tools/               Atomic jobs, QC, registry, doctor, and validation
+    mcp-server/          Local-only reviewed model MCP
 src/
   config/                Environment flag parsing
   data/                  Campaign graph, class roster, item/crafting catalogs,
@@ -116,78 +116,71 @@ Runtime animation notes:
 - `src/game/Enemy.ts` drives enemy `idle`/`walk`/`run` loops from AI movement and plays attack, cast, and hit reactions as one-shot clips.
 - `src/game/animation/StaticModelAnimator.ts` layers procedural limb motion over imported or primitive characters that lack complete GLB animation clips.
 
-## External Model Imports
+## Quarantined External Sources
 
-User-supplied GLB/FBX assets live under `public/assets/new_models/` and are
-converted into runtime-safe assets with:
+Raw external files no longer live under `public/`, so Vite cannot copy them
+into production builds. Existing authoring sources are retained unchanged under
+ignored `authoring/quarantine/external-sources/`. They are not eligible for
+runtime character resolution until author, license, source URL, and source hash
+records are complete. The eight active non-character legacy GLBs are isolated
+by an explicit compatibility allowlist; Three.js fallbacks cover all removed or
+unapproved character models.
 
-```bash
-npm run models:import-external
-```
-
-The import manifest is
-`scripts/blender-character-pipeline/data/external-imports.json`; the Blender
-backend is `scripts/blender-character-pipeline/blender/import_external_assets.py`.
-The command writes manifest blueprints, exports runtime GLBs into
-`public/assets/models/`, writes `.qc.json` sidecars, and updates
-`public/assets/models/asset-index.json`.
-
-Current external imports include the static medieval knight reference, the
-rigged Strong Knight profile used for the Aegis player override, the animated
-Warrior profile used for most Aegis guards, the Swordsman and medieval
-character sample profiles used as deterministic Aegis guard/NPC variants, the
-`evil-guy` profile used for Riftbound player overrides, the fantasy town-kit prefabs, and
-`terrain_aegis_capital_medieval_city.glb`. The Aegis capital source model is
-recentered, grounded, scaled to the 360-unit capital footprint, texture-size
-reduced, and exported without Draco so the existing `GLTFLoader` path can load
-it with primitive fallbacks still available.
-
-Because both medieval knight GLBs are static, `src/game/Player.ts` currently
-uses imported external overrides for player bodies: Strong Knight for Aegis
-races and `evil-guy` for Riftbound races. It still keeps
-`src/game/animation/StaticModelAnimator.ts` available as a fallback when an
-external player override has no clips or only idle-style clips without explicit
-`walk`/`run` actions. The fallback detects the Strong Knight and Warrior source
-rig bone names and layers a procedural stride over the authored idle clip.
-Skinned equipment overlays are suppressed while an external player override is
-active because those generated gear modules target the manifest humanoid
-skeleton, not arbitrary imported rigs.
-
-Aegis guard NPCs and Aegis guard enemies use a weighted deterministic external
-variant picker in `src/data/modelOverrides.ts`: Warrior remains the majority
-visual, while the imported Swordsman and medieval character sample are mixed
-into guard placements by stable spawn id.
-
-## Aegis Capital Replacement
+## Capital Cities
 
 `scripts/campaign/generate-static-campaign.mjs` is authoritative for Bastion of
-Aegis. For `aegis_capital`, it now removes the old procedural city paths,
-houses, walls, citadel, portal props, objective props, biome scatter, and
-environment scatter, then emits one imported city visual prop backed by
-`aegis_capital_medieval_city`.
+Aegis and Riftspire Citadel. Both capitals use the original generated
+dark-fantasy town family: varied timber-and-stone houses form dense medieval
+blocks around open cobbled avenues, markets, crafting services, gates, and NPC
+routes. A large generated stone-and-slate castle anchors each city center while
+realm-specific monuments, banners, braziers, and fortifications preserve each
+capital's identity.
 
-Gameplay services are preserved and relocated around the imported town: spawn
-near the front gate, city gate and market plaza objectives, fortress/west/east
-travel triggers, banker, quartermaster, class trainer, crafting trainer, quest
-giver, crafting stations, resource nodes, and extra Aegis guard NPCs at gates,
-market, plaza, side streets, and the rear district. The generated map carries
-explicit colliders for outer walls, dense house blocks, and landmark clusters.
-Run `npm run campaign:generate` after changing this layout so map hashes,
+Generated and GM-placed town houses expose an `Enter House` interaction on
+their exterior door. The runtime moves the player into a reusable footprint-
+matched interior beyond the zone boundary, with solid room collision, a tighter
+indoor follow-camera profile, warm lighting, residents, beds, tables, benches,
+storage, shelving, rugs, and a working hearth. The interior exit returns the
+player to the exact street position and facing they entered from; transient
+interior coordinates are never persisted as the character's world location.
+The same behavior is attached automatically to `Aegis House`, `Rift House`,
+`Town House 1`, and `Town House 2` objects stamped through GM Build mode.
+
+The retired imported Aegis city mesh and source pack are no longer registered
+or used. Run `npm run models:all -- dark_fantasy_town`, then
+`npm run models:registry` and `npm run campaign:generate` after changing the
+architecture or layout so model QC, map hashes,
 `src/data/campaign.generated.ts`, and `supabase/seed_campaign_static.sql` stay
 aligned.
 
 ## GM Build Town Kit
 
 The GM builder prefab list comes from
-`src/world/editor/PrefabCatalog.ts`. The modular fantasy house kit is indexed as
-`town_*` prefabs with labels, preview models, footprints, default colliders,
-camera-solid behavior, and asset-index static keys. In the GM Build panel, pick
-`Modular Town Kit` in the Kit selector, then choose the individual house, wall,
-roof, door, window, beam, chimney, spire, or plank piece in the Piece selector.
+`src/world/editor/PrefabCatalog.ts`. The original dark-fantasy town family is
+indexed as `town_*` prefabs with labels, preview models, footprints, default
+colliders, camera-solid behavior, and asset-index static keys. Its two hero
+houses, capital castle, and 17 modular pieces share weathered stone, framed plaster, warped oak,
+staggered slate, forged iron, and leaded amber glass PBR materials. In the GM
+Build panel, pick `Modular Town Kit` in the Kit selector, then choose the
+individual house, wall, roof, door, window, beam, chimney, spire, or plank piece.
 Existing grid snapping, angle snapping, wheel rotation, drag-chain placement,
 transform controls, save, publish, and reload behavior continue through
 `WorldEditorRuntime` because the town-kit prefabs are ordinary
 `WorldPropObject` entries with `assetKey` and `model` metadata.
+
+The pack is generated locally and does not depend on the retired external house
+FBX. Rebuild it deterministically with:
+
+```bash
+npm run models:all -- dark_fantasy_town
+npm run models:registry
+```
+
+`scripts/blender-character-pipeline/blender/generate_dark_fantasy_town.py`
+contains the shared construction and material rules. Use the local MCP
+`validate_model_asset` and `render_model_review` jobs after regeneration; the
+review renderer scales its lights for building-sized subjects so dark surfaces
+remain inspectable without changing their in-game palette.
 
 ## In-Game Wiki Guide
 
@@ -363,102 +356,87 @@ Indexed equipment can be present on disk but blocked from runtime with
 valid manifest output but are not yet skinned/socketed well enough to mount in
 gameplay.
 
-Playable character models are resolved from `race`, player-facing `className`,
-and `bodyVariant` (`m` or `f`). The generated playable roster currently expands
-the 6 races and 24 classes into 48 neutral character profiles. Each profile has
-starter armor for `head`, `shoulders`, `chest`, `hands`, `waist`, `legs`,
-`feet`, `back`, and `tabard`, for 432 generated modular armor item definitions.
-`neck`, `mainHand`, and `offHand` remain separate equipment pipelines.
-
-Static NPCs and humanoid enemies resolve through zone `characterProfileKey`
-values backed by `asset-index.json` character profiles. Beast, dummy, and
-training-target enemies resolve through `assetKey` static props such as
-`dummy`, `creature_barrow_wolf`, or `creature_rift_hound`. The shared visual
-assignment rules live in `scripts/npc-profile-rules.mjs`, and
-`npm run models:sync-npcs` regenerates NPC/enemy manifests, creature manifests,
-`scripts/blender-character-pipeline/data/npc-character-roster.json`, and the
-matching model-index entries.
-
-Runtime-ready armor modules must declare matching `bodyFamily`, `skeletonId`,
-`skinned: true`, and `coveredRegions` in `asset-index.json`. The player renderer
-loads those modules as skinned overlays, rebinds compatible armor to the loaded
-player skeleton, and masks only the body regions covered by the equipped slots.
-Incompatible or review-blocked modules are skipped instead of mounted in
-bind-pose.
+Character entries must be approved and present on disk before the resolver will
+return them. Body and equipment compatibility is checked by `bodyFamily`,
+`bodyVariant`, `skeletonId`, and `bindPoseId`; equipment can expose `m`/`f`
+variants under one logical item. Missing, draft, blocked, unapproved, or
+incompatible models are skipped and use the existing Three.js fallback path.
 
 The fallback counter is visible in the debug overlay. Missing assets must never
 hard-fail the browser.
 
-## Manifest-First Model Pipeline
+## Free Reviewed Character Pipeline
 
-The model creation pipeline is driven by manifests under:
+Character generation is local-only and has a currency budget of zero. Blender
+plus MPFB 2.0.16 creates stable-topology anatomical bodies; pinned CC0 asset
+packs supply skin and facial detail. Original project targets derive the
+Greenskin family from the same topology. No Meshy key, paid API, remote model
+generation, or CI generation is used.
 
-```text
-scripts/blender-character-pipeline/data/asset-blueprints/
-```
-
-The research report in `deep-research-report.md` is the technical source of
-truth for the pipeline: manifests own slots, anchors, LOD intent, material
-channels, collider policy, QC thresholds, and AI provenance. Generated asset
-IDs, filenames, GLTF extras, and manifest metadata use neutral IP-safe names.
-
-Commands:
+The pilot also pins the official CC0 `suits02`, `hats02`, `gloves01`, and
+`equipment01` packs. A local-only in-game review route loads the current draft
+Battle Prelate male body, nine armor modules, hammer, and embedded animation
+clips directly from ignored job artifacts without adding it to the approved
+runtime registry:
 
 ```bash
-npm run models:list
-npm run models:sync-playables
-npm run models:sync-npcs
-npm run models:validate
-npm run models:generate -- chr.human.devout_guardian.t1.m
-npm run models:all -- smoke
-npm run models:all -- playable_smoke
-npm run models:all -- playable_characters
-npm run models:all -- playable_armor
-npm run models:all -- playable_all
-npm run models:all -- npc_characters
-npm run models:all -- enemy_characters
-npm run models:all -- enemy_creatures
-npm run models:all -- destruction_preview
-npm run models:all -- equipment
-npm run models:all -- characters
-npm run models:all -- weapons
-npm run models:all -- jewels
+npm run dev
+# open http://localhost:5173/?modelReview=battle-prelate
 ```
 
-Generated output contract:
+The review route exposes all nine canonical clips as live controls, with pause
+and auto-rotation toggles. A geometry-only acceptance is stored as a separate
+hash-bound phase record and remains `promotionEligible: false`; it does not
+stand in for the final materials, clipping, stress-pose, and animation review.
 
-- `.asset.json` blueprint in `scripts/blender-character-pipeline/data/asset-blueprints/`
-- `.glb` runtime asset in `public/assets/models/`
-- `.qc.json` sidecar beside the generated GLB with `qcPassed: true`
-- preview/QC artifacts under `artifacts/blender/manifest/` (ignored, safe to
-  delete, and regenerated by Blender)
-- runtime resolver entry in `public/assets/models/asset-index.json`
+While `npm run dev` is active, the normal male Battle Prelate character preview
+and world-player path also loads the exact v19 assembled candidate from its
+ignored job artifact. The Vite-only virtual route verifies SHA-256
+`02e44d3ae6192682de93cd15bd9441d75c5c55173f3e7c1a41099b79ae6ffc4a`
+before serving it and treats its armor and hammer as already assembled, so the
+runtime does not stack modular equipment on top. This development integration
+does not add the GLB to `public/`, does not modify the approved registry, and is
+absent from production builds. A missing or changed candidate falls through to
+the normal approval-aware resolver and existing fallback behavior. When an
+assembled character provides the mapped authored GLB clip, that clip owns its
+embedded weapon transforms; procedural weapon motion is limited to separately
+equipped overlays. Characters without the mapped clip retain the procedural
+fallback, and imported weapon hierarchies mark only their highest attachment
+root so descendant meshes are never double-driven.
 
-`npm run models:validate` checks manifests, neutral generated semantics,
-asset-index references, blocked runtime-review statuses, and generated QC
-sidecars for existing outputs.
+```bash
+npm run models:doctor
+npm run models:assemble-battle-prelate
+npm run models:audit-clearance
+npm run models:validate
+npm run models:validate:strict
+npm run models:registry
+npm run models:cleanup-proxies:check
+```
 
-`npm run models:sync-playables` reads
-`scripts/blender-character-pipeline/data/playable-character-roster.json` and
-deterministically emits the playable `.asset.json` blueprints, asset-index
-entries, and `src/data/playableAssets.generated.ts` starter item catalog. Run it
-after changing any race/class/body-variant theme data, then validate before
-generating GLBs.
+`models:assemble-battle-prelate` is the zero-cost reproducible review command.
+It uses the doctor-discovered Blender executable, the verified runtime body,
+the nine contoured colored v18 draft modules, including a curved belt and a
+shoulder-attached folded cape with waist clearance, plus a socketed hammer;
+bone-relative sleeve/gauntlet and trouser/boot trims preserve short hidden
+underlaps without leaving both garments in the same visible space;
+earlier iterations remain ignored review history. It emits ignored draft
+artifacts only and fails unless the re-imported GLB has one canonical rig/skin,
+all nine clips and modules, and stable bind-to-idle bounds. Paths can be
+overridden with `--body=`, `--modules=`, `--hammer=`, `--output=`,
+`--review-dir=`, and `--report=`; use `--dry-run --json` to inspect the plan.
 
-`npm run models:sync-npcs` scans all committed map JSON, assigns deterministic
-unique visual profiles to static NPCs and humanoid enemies, keeps training
-dummies on the static dummy asset, maps creature enemies to creature static
-presets, and emits manifest/index data for the resulting NPC model buildout.
+Long operations run inside ignored `artifacts/model-jobs/` directories with
+locks, cancellation, structured errors, hash-bound QC, and atomic publication.
+Runtime registry entries are compiled only from explicitly approved manifests.
+The retired playable/NPC sync commands fail intentionally so proxy characters
+and armor cannot be recreated.
 
-Codex MCP tools are exposed by `scripts/blender-character-pipeline/mcp-server/server.mjs`:
-
-| Tool | Purpose |
-| --- | --- |
-| `list_asset_blueprints` | Show manifests and generated status |
-| `generate_asset` | Generate one manifest-backed asset |
-| `generate_asset_set` | Generate a manifest set |
-| `validate_asset` | Validate manifests and asset-index references |
-| `list_generated_assets` | Show GLB and QC sidecar status |
+The local MCP exposes `create_body_family`, `ingest_generated_candidate`,
+`build_modular_set`, `validate_model_asset`, `render_model_review`,
+`get_model_job`, `cancel_model_job`, `record_model_review`, and
+`promote_model_set`. Promotion requires matching hashes plus explicit body,
+equipped, and animation review; draft output is never mapped into gameplay.
 
 ## World Data
 
@@ -767,11 +745,11 @@ The workflow builds with `vite --base=/War-js/`; runtime asset paths must use
 | `npm run typecheck` | TypeScript check only |
 | `npm run world:validate` | Validate zone JSON for world-editor compatibility |
 | `npm run models:list` | List model blueprints and generated status |
-| `npm run models:sync-playables` | Regenerate the 48-profile playable roster manifests and starter armor catalog |
-| `npm run models:sync-npcs` | Regenerate NPC/enemy character manifests, creature manifests, and model-index entries |
-| `npm run models:validate` | Validate manifests and asset index |
-| `npm run models:generate -- <ref>` | Generate one manifest-backed model |
-| `npm run models:all -- <set>` | Generate a manifest set |
+| `npm run models:doctor` | Verify Blender, MPFB, required packs, targets, and the zero-cost policy |
+| `npm run models:validate` | Validate retained blueprints and runtime index |
+| `npm run models:validate:strict` | Enforce approval, hashes, previews, PBR, rig, topology, and clip evidence |
+| `npm run models:registry` | Compile the deterministic approved-only runtime registry |
+| `npm run models:cleanup-proxies:check` | Confirm removed proxy assets cannot return |
 
 ## License
 

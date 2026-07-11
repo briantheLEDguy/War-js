@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "generatorKind": "mpfbFittedModularArmor",
+  "generatorVersion": "1.0.0-draft",
+  "license": "CC0-1.0",
+  "promotionEligible": false,
+  "sourcePacks": {
+    "suits02": {
+      "sha256": "437f4d7ab92b698c1fb1047e7d62b22c11f195b2473e936118661dc8e6b7eb7a",
+      "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/suits02.html"
+    },
+    "hats02": {
+      "sha256": "838b9b51ba31d27f21198ad4506eb9b23e1c03eb246fe68f26da99e26b40e1aa",
+      "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/hats02.html"
+    },
+    "gloves01": {
+      "sha256": "ecdaee1d02749d17352791d415cb622a883350cc8a4b90eda3725aef35d9afb2",
+      "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/gloves01.html"
+    }
+  },
+  "sets": {
+    "civic_humanoid_v2": {
+      "setId": "battle_prelate_v1",
+      "displayName": "Battle Prelate Vestments",
+      "bodyVariants": ["m", "f"],
+      "palette": {
+        "metal": "#77736b",
+        "cloth": "#741d24",
+        "leather": "#3b241a",
+        "accent": "#d3b263"
+      },
+      "modules": {
+        "head": {
+          "kind": "mpfbAsset",
+          "pack": "hats02",
+          "asset": "javherre_casco_caballero_templario_templar_knight_helmet",
+          "materialStyle": "metal"
+        },
+        "shoulders": {
+          "kind": "bodySurface",
+          "bones": ["shoulder_L", "upper_arm_L", "shoulder_R", "upper_arm_R"],
+          "materialStyle": "metal",
+          "normalOffsetM": 0.016,
+          "thicknessM": 0.006
+        },
+        "chest": {
+          "kind": "mpfbAsset",
+          "pack": "suits02",
+          "asset": "rehmanpolanski_viking_tunic",
+          "materialStyle": "cloth"
+        },
+        "hands": {
+          "kind": "mpfbAsset",
+          "pack": "gloves01",
+          "asset": "culturalibre_hero-heroine_gloves_1",
+          "materialStyle": "leather"
+        },
+        "waist": {
+          "kind": "bodySurface",
+          "bones": ["hips", "spine"],
+          "materialStyle": "leather",
+          "normalOffsetM": 0.018,
+          "thicknessM": 0.01
+        },
+        "legs": {
+          "kind": "mpfbAsset",
+          "pack": "suits02",
+          "asset": "rehmanpolanski_viking_pants",
+          "materialStyle": "cloth"
+        },
+        "feet": {
+          "kind": "mpfbAsset",
+          "pack": "suits02",
+          "asset": "rehmanpolanski_viking_boots",
+          "materialStyle": "leather"
+        },
+        "back": {
+          "kind": "weightedPanel",
+          "panel": "back",
+          "materialStyle": "cloth"
+        },
+        "tabard": {
+          "kind": "weightedPanel",
+          "panel": "front",
+          "materialStyle": "accent"
+        }
+      }
+    },
+    "mire_brutish_v1": {
+      "setId": "warbrute_v1",
+      "displayName": "Warbrute Scrap Harness",
+      "bodyVariants": ["m", "f"],
+      "palette": {
+        "metal": "#4e5148",
+        "cloth": "#4f321f",
+        "leather": "#2d2118",
+        "accent": "#a56b2a"
+      },
+      "modules": {
+        "head": {
+          "kind": "mpfbAsset",
+          "pack": "hats02",
+          "asset": "culturalibre_skull_helmet",
+          "materialStyle": "metal"
+        },
+        "shoulders": {
+          "kind": "bodySurface",
+          "bones": ["shoulder_L", "upper_arm_L", "shoulder_R", "upper_arm_R"],
+          "materialStyle": "metal",
+          "normalOffsetM": 0.022,
+          "thicknessM": 0.012
+        },
+        "chest": {
+          "kind": "mpfbAsset",
+          "pack": "suits02",
+          "asset": "rehmanpolanski_viking_tunic",
+          "materialStyle": "leather"
+        },
+        "hands": {
+          "kind": "mpfbAsset",
+          "pack": "gloves01",
+          "asset": "culturalibre_hero-heroine_gloves_3",
+          "materialStyle": "leather"
+        },
+        "waist": {
+          "kind": "bodySurface",
+          "bones": ["hips", "spine"],
+          "materialStyle": "leather",
+          "normalOffsetM": 0.024,
+          "thicknessM": 0.012
+        },
+        "legs": {
+          "kind": "mpfbAsset",
+          "pack": "suits02",
+          "asset": "rehmanpolanski_viking_pants",
+          "materialStyle": "cloth"
+        },
+        "feet": {
+          "kind": "mpfbAsset",
+          "pack": "suits02",
+          "asset": "rehmanpolanski_viking_boots",
+          "materialStyle": "leather"
+        },
+        "back": {
+          "kind": "weightedPanel",
+          "panel": "back",
+          "materialStyle": "cloth"
+        },
+        "tabard": {
+          "kind": "weightedPanel",
+          "panel": "front",
+          "materialStyle": "accent"
+        }
+      }
+    }
+  }
+}

@@ -2,21 +2,26 @@ import * as THREE from 'three';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { clone as cloneSkeleton } from 'three/examples/jsm/utils/SkeletonUtils.js';
+import { developmentCharacterAssetFor } from '../config/developmentModelCandidates';
 import { useGameStore } from '../state/gameStore';
 import { buildCharacterMesh } from './CharacterMeshes';
 
 export type PrimitiveFactory = () => THREE.Object3D;
 
 interface IndexedModel {
-  assetId: string;
-  model: string;
+  assetId?: string;
+  model?: string;
   bodyModel?: string;
   runtimeReady?: boolean;
+  lifecycleStatus?: string;
   reviewStatus?: string;
   bodyFamily?: string;
+  bodyVariant?: string;
   skeletonId?: string;
+  bindPoseId?: string;
   skinned?: boolean;
   coveredRegions?: string[];
+  variants?: Partial<Record<'m' | 'f', IndexedModel>>;
 }
 
 interface AssetIndex {
@@ -33,9 +38,29 @@ export interface EquipmentAssetResolution {
   bodyModel: string | null;
   disabled?: boolean;
   bodyFamily?: string;
+  bodyVariant?: string;
   skeletonId?: string;
+  bindPoseId?: string;
   skinned?: boolean;
   coveredRegions?: string[];
+}
+
+export interface CharacterAssetResolution {
+  assetId?: string;
+  model: string;
+  bodyFamily?: string;
+  bodyVariant?: string;
+  skeletonId?: string;
+  bindPoseId?: string;
+  developmentOnly?: boolean;
+  equipmentMode?: 'assembled';
+}
+
+export interface EquipmentCompatibilityContext {
+  bodyFamily?: string | null;
+  bodyVariant?: string | null;
+  skeletonId?: string | null;
+  bindPoseId?: string | null;
 }
 
 const BASE = import.meta.env.BASE_URL; // '/' in dev, '/War-js/' on GH Pages
@@ -45,7 +70,65 @@ const MODEL_ASSET_TOKEN = import.meta.env.DEV
   : PUBLIC_ASSET_VERSION;
 
 function modelUrl(path: string): string {
+  if (import.meta.env.DEV && path.startsWith('__model-development/')) {
+    return `${BASE}${path}?v=${encodeURIComponent(MODEL_ASSET_TOKEN)}`;
+  }
   return `${BASE}assets/models/${path}?v=${encodeURIComponent(MODEL_ASSET_TOKEN)}`;
+}
+
+function normalizedStatus(status: string | undefined): string | null {
+  const normalized = status?.trim().toLowerCase();
+  return normalized || null;
+}
+
+function isRuntimeApproved(entry: IndexedModel): boolean {
+  if (entry.runtimeReady === false) return false;
+
+  const lifecycleStatus = normalizedStatus(entry.lifecycleStatus);
+  const reviewStatus = normalizedStatus(entry.reviewStatus);
+  if (reviewStatus && reviewStatus !== 'approved') return false;
+
+  // New manifests must opt in explicitly. Legacy entries did not have a
+  // lifecycle field, so an absent/approved review remains backwards compatible.
+  return lifecycleStatus ? lifecycleStatus === 'approved' : true;
+}
+
+function normalizedBodyVariant(value: string | null | undefined): 'm' | 'f' | null {
+  const normalized = value?.trim().toLowerCase();
+  return normalized === 'm' || normalized === 'f' ? normalized : null;
+}
+
+function selectEquipmentVariant(
+  entry: IndexedModel,
+  context?: EquipmentCompatibilityContext,
+): IndexedModel | null {
+  if (!entry.variants) return entry;
+
+  const requestedVariant = normalizedBodyVariant(context?.bodyVariant);
+  const selected = requestedVariant
+    ? entry.variants[requestedVariant]
+    : entry.variants.m ?? entry.variants.f;
+  if (!selected) return null;
+
+  return {
+    ...entry,
+    ...selected,
+    variants: undefined,
+  };
+}
+
+function isEquipmentCompatible(
+  entry: IndexedModel,
+  context?: EquipmentCompatibilityContext,
+): boolean {
+  if (!context) return true;
+  const entryVariant = normalizedBodyVariant(entry.bodyVariant);
+  const playerVariant = normalizedBodyVariant(context.bodyVariant);
+  if (entryVariant && entryVariant !== playerVariant) return false;
+  if (entry.bodyFamily && entry.bodyFamily !== context.bodyFamily) return false;
+  if (entry.skeletonId && entry.skeletonId !== context.skeletonId) return false;
+  if (entry.bindPoseId && entry.bindPoseId !== context.bindPoseId) return false;
+  return true;
 }
 
 function prepareLoadedModel(root: THREE.Object3D): void {
@@ -104,37 +187,101 @@ export class AssetLoader {
     return this.assetIndex;
   }
 
-  async resolveCharacterModel(profileKey: string): Promise<string | null> {
+  async resolveCharacterAsset(
+    profileKey: string,
+    bodyVariant?: string | null,
+  ): Promise<CharacterAssetResolution | null> {
+    const developmentAsset = developmentCharacterAssetFor(
+      profileKey,
+      bodyVariant,
+      import.meta.env.DEV,
+    );
+    if (
+      developmentAsset
+      && await this.canLoadAsset(modelUrl(developmentAsset.model))
+    ) {
+      return developmentAsset;
+    }
+
     const index = await this.loadAssetIndex();
-    return index?.characterProfiles?.[profileKey]?.model ?? null;
+    const entry = index?.characterProfiles?.[profileKey];
+    if (!entry?.model || !isRuntimeApproved(entry)) return null;
+
+    const requestedVariant = normalizedBodyVariant(bodyVariant);
+    const entryVariant = normalizedBodyVariant(entry.bodyVariant);
+    if (requestedVariant && entryVariant && requestedVariant !== entryVariant) return null;
+    if (!await this.canLoadAsset(modelUrl(entry.model))) return null;
+
+    return {
+      assetId: entry.assetId,
+      model: entry.model,
+      bodyFamily: entry.bodyFamily,
+      bodyVariant: entry.bodyVariant,
+      skeletonId: entry.skeletonId,
+      bindPoseId: entry.bindPoseId,
+    };
+  }
+
+  async resolveCharacterModel(
+    profileKey: string,
+    bodyVariant?: string | null,
+  ): Promise<string | null> {
+    return (await this.resolveCharacterAsset(profileKey, bodyVariant))?.model ?? null;
   }
 
   async resolveEquipmentModel(
     itemKey: string,
     fallbackModel: string,
+    context?: EquipmentCompatibilityContext,
   ): Promise<EquipmentAssetResolution> {
     const index = await this.loadAssetIndex();
-    const entry = index?.equipment?.[itemKey];
-    if (entry?.runtimeReady === false) {
+    const indexedEntry = index?.equipment?.[itemKey];
+    if (!indexedEntry) {
+      return { model: fallbackModel, bodyModel: null };
+    }
+    if (!isRuntimeApproved(indexedEntry)) {
       return { model: fallbackModel, bodyModel: null, disabled: true };
     }
+
+    const entry = selectEquipmentVariant(indexedEntry, context);
+    if (
+      !entry?.model
+      || !isRuntimeApproved(entry)
+      || !isEquipmentCompatible(entry, context)
+      || !await this.canLoadAsset(modelUrl(entry.model))
+    ) {
+      return { model: fallbackModel, bodyModel: null, disabled: true };
+    }
+
+    const bodyModel = entry.bodyModel
+      && await this.canLoadAsset(modelUrl(entry.bodyModel))
+      ? entry.bodyModel
+      : null;
     return {
-      model: entry?.model ?? fallbackModel,
-      bodyModel: entry?.bodyModel ?? null,
-      bodyFamily: entry?.bodyFamily,
-      skeletonId: entry?.skeletonId,
-      skinned: entry?.skinned,
-      coveredRegions: entry?.coveredRegions,
+      model: entry.model,
+      bodyModel,
+      bodyFamily: entry.bodyFamily,
+      bodyVariant: entry.bodyVariant,
+      skeletonId: entry.skeletonId,
+      bindPoseId: entry.bindPoseId,
+      skinned: entry.skinned,
+      coveredRegions: entry.coveredRegions,
     };
   }
 
-  async resolveEquipmentBaseBodyModel(itemKeys: string[]): Promise<string | null> {
+  async resolveEquipmentBaseBodyModel(
+    itemKeys: string[],
+    context?: EquipmentCompatibilityContext,
+  ): Promise<string | null> {
     const index = await this.loadAssetIndex();
     for (const key of itemKeys) {
-      const entry = index?.equipment?.[key];
-      if (entry?.runtimeReady === false) continue;
-      const bodyModel = entry?.bodyModel;
-      if (bodyModel) return bodyModel;
+      const indexedEntry = index?.equipment?.[key];
+      if (!indexedEntry || !isRuntimeApproved(indexedEntry)) continue;
+      const entry = selectEquipmentVariant(indexedEntry, context);
+      if (!entry || !isRuntimeApproved(entry) || !isEquipmentCompatible(entry, context)) continue;
+      if (entry.bodyModel && await this.canLoadAsset(modelUrl(entry.bodyModel))) {
+        return entry.bodyModel;
+      }
     }
     return null;
   }

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://war-js.local/schemas/model-candidate.schema.json",
+  "title": "War-js Local Model Candidate",
+  "type": "object",
+  "required": ["schemaVersion", "candidateId", "assetId", "category", "source", "provenance", "compatibility", "lifecycle"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "candidateId": { "type": "string", "pattern": "^candidate_[a-f0-9]{16}$" },
+    "assetId": { "type": "string", "pattern": "^(chr|body|arm|wep|jwl|prop|terrain)\\.[a-z0-9_.-]+$" },
+    "displayName": { "type": "string" },
+    "category": { "enum": ["character", "body", "armor", "weapon", "jewel", "prop", "terrain"] },
+    "source": {
+      "type": "object",
+      "required": ["path", "sha256", "format"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "format": { "const": "glb" },
+        "qcPath": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["provider", "sourceHashes", "license"],
+      "properties": {
+        "provider": {
+          "type": "object",
+          "required": ["name", "modelVersion"],
+          "properties": {
+            "name": { "type": "string" },
+            "taskId": { "type": "string" },
+            "modelVersion": { "type": "string" },
+            "seed": { "type": ["integer", "string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "promptSha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "referenceSha256": { "type": "array", "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" } },
+        "sourceHashes": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" } },
+        "author": { "type": "string" },
+        "license": {
+          "type": "object",
+          "required": ["name", "sourceUrl"],
+          "properties": {
+            "name": { "type": "string" },
+            "sourceUrl": { "type": "string" },
+            "termsUrl": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["bodyFamily", "bodyVariant", "skeletonId", "bindPoseId"],
+      "properties": {
+        "bodyFamily": { "type": "string" },
+        "bodyVariant": { "enum": ["m", "f"] },
+        "skeletonId": { "type": "string" },
+        "bindPoseId": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "runtime": { "type": "object" },
+    "lifecycle": {
+      "type": "object",
+      "required": ["status", "createdAt", "updatedAt"],
+      "properties": {
+        "status": { "enum": ["draft", "qc_passed", "review_pending", "approved", "rejected", "blocked", "promoted"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

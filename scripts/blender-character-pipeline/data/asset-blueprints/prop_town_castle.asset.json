@@ -1,0 +1,83 @@
+{
+  "assetId": "prop.town.castle",
+  "displayName": "Dark Fantasy Capital Castle",
+  "category": "prop",
+  "version": "2.0.0",
+  "sets": [
+    "dark_fantasy_town",
+    "original_procedural"
+  ],
+  "runtime": {
+    "staticKey": "town_castle"
+  },
+  "output": {
+    "model": "prop_town_castle.glb",
+    "artifactDir": "artifacts/blender/dark-fantasy-town/town_castle"
+  },
+  "generator": {
+    "kind": "staticPreset",
+    "preset": "dark_fantasy_town_castle"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 120000,
+        "screenCoverageMin": 0.1
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_DarkFantasyTownPbr",
+    "textureSet": "generated_town_castle",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ]
+  },
+  "collision": {
+    "policy": "capital_landmark_compound",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "keep_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "capital_dark_fantasy_castle_v1"
+    ],
+    "referencePackId": "original_aegis_architecture",
+    "similarityReview": "not_required",
+    "source": "scripts/blender-character-pipeline/blender/generate_dark_fantasy_town.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 32,
+    "maxMeshObjects": 8,
+    "maxTris": 260000,
+    "requiresSkinnedMeshes": false
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://war-js.local/schemas/body-family.schema.json",
+  "title": "War-js MPFB Body Family",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "bodyFamily",
+    "displayName",
+    "pilotProfile",
+    "sourceTopology",
+    "skeletonId",
+    "bindPoseId",
+    "armorSlots",
+    "variants",
+    "promotion"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "bodyFamily": { "type": "string", "pattern": "^[a-z][a-z0-9_]*_v[0-9]+$" },
+    "displayName": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "pilotProfile": {
+      "type": "object",
+      "required": ["race", "classKey", "className"],
+      "properties": {
+        "race": { "type": "string" },
+        "classKey": { "type": "string" },
+        "className": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "sourceTopology": {
+      "type": "object",
+      "required": ["generator", "generatorVersion", "baseMesh", "license"],
+      "properties": {
+        "generator": { "const": "MPFB" },
+        "generatorVersion": { "const": "2.0.16" },
+        "baseMesh": { "const": "hm08" },
+        "license": { "const": "CC0-1.0" },
+        "topologyInvariant": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "skeletonId": { "const": "humanoid_game_v2" },
+    "bindPoseId": { "const": "a_pose_v2" },
+    "armorSlots": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "head" },
+        { "const": "shoulders" },
+        { "const": "chest" },
+        { "const": "hands" },
+        { "const": "waist" },
+        { "const": "legs" },
+        { "const": "feet" },
+        { "const": "back" },
+        { "const": "tabard" }
+      ],
+      "items": false,
+      "minItems": 9,
+      "maxItems": 9
+    },
+    "requiredAssetPacks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "variants": {
+      "type": "object",
+      "required": ["m", "f"],
+      "properties": {
+        "m": { "$ref": "#/$defs/variant" },
+        "f": { "$ref": "#/$defs/variant" }
+      },
+      "additionalProperties": false
+    },
+    "promotion": {
+      "type": "object",
+      "required": ["state", "promotionEligible", "reason"],
+      "properties": {
+        "state": { "enum": ["specification", "candidate", "approved", "blocked"] },
+        "promotionEligible": { "type": "boolean" },
+        "reason": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "variant": {
+      "type": "object",
+      "required": [
+        "variant",
+        "profileKey",
+        "outputModel",
+        "mpfbPreset",
+        "skin",
+        "customTargets",
+        "attachments"
+      ],
+      "properties": {
+        "variant": { "enum": ["m", "f"] },
+        "profileKey": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "outputModel": { "type": "string", "pattern": "^[a-z0-9_.-]+\\.glb$" },
+        "expectedHeightM": { "type": "number", "minimum": 1.2, "maximum": 2.6 },
+        "mpfbPreset": {
+          "type": "object",
+          "required": ["creationApi", "propertyValues", "rig"],
+          "properties": {
+            "creationApi": { "const": "HumanService.create_human" },
+            "propertyValues": {
+              "type": "object",
+              "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+            },
+            "rig": { "const": "game_engine" },
+            "skinModel": { "const": "GAME_ENGINE" }
+          },
+          "additionalProperties": false
+        },
+        "skin": {
+          "type": "object",
+          "required": ["assetPack", "assetName", "tint"],
+          "properties": {
+            "assetPack": { "type": "string" },
+            "assetName": { "type": "string" },
+            "tint": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+          },
+          "additionalProperties": false
+        },
+        "customTargets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "relativePath", "weight", "license", "required"],
+            "properties": {
+              "id": { "type": "string" },
+              "relativePath": { "type": "string" },
+              "weight": { "type": "number", "minimum": -1, "maximum": 1 },
+              "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+              "license": { "type": "string" },
+              "required": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "attachments": {
+          "type": "object",
+          "required": ["eyes", "eyebrows", "eyelashes", "teeth", "tongue"],
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

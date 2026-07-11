@@ -2,36 +2,65 @@
   "assetId": "prop.town.door_2",
   "category": "prop",
   "model": "prop_town_door_2.glb",
-  "fileSizeBytes": 162080,
-  "meshCount": 2,
-  "totalTris": 310,
-  "availableClips": [
-    "Armature|Scene"
-  ],
+  "fileSizeBytes": 121456,
+  "meshCount": 3,
+  "totalTris": 1052,
+  "availableClips": [],
+  "missingRequiredClips": [],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "obj_door_2",
-      "verts": 36,
-      "faces": 34,
-      "tris": 68,
-      "materials": 1
+      "name": "oak",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
     },
     {
-      "name": "obj_door_handle_2",
-      "verts": 123,
-      "faces": 92,
-      "tris": 242,
-      "materials": 1
+      "name": "aged_oak",
+      "verts": 168,
+      "faces": 162,
+      "tris": 324,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 320,
+      "faces": 298,
+      "tris": 620,
+      "materials": 1,
+      "assetSlot": "prop"
     }
   ],
-  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
-  "manifestVersion": "1.0.0"
+  "artifactDir": "artifacts/model-jobs/standalone_513fc315-ee63-4afa-b5aa-059600cffb5c/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "door_2",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered Aegis frontier architecture"
+  },
+  "modelSha256": "3551d250058e8d4ca1d84134e11ff621e04787891523cc902f24a4a84a745dd3",
+  "generatedAt": "2026-07-11T20:06:46.556Z",
+  "previewImages": []
 }
