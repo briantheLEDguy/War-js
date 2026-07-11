@@ -1,0 +1,50 @@
+{
+  "assetId": "prop.town.roof_plank_medium",
+  "category": "prop",
+  "model": "prop_town_roof_plank_medium.glb",
+  "fileSizeBytes": 84492,
+  "meshCount": 1,
+  "totalTris": 972,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "slate",
+      "verts": 504,
+      "faces": 486,
+      "tris": 972,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_e55a6e9a-377e-4d6f-a004-dfcd0227ff51/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "roof_plank_medium",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered Aegis frontier architecture"
+  },
+  "modelSha256": "01a29cd77761965b38b05c10281740af7bb68be741a179d1daa4cdc4a9ce2411",
+  "generatedAt": "2026-07-11T20:08:03.051Z",
+  "previewImages": []
+}

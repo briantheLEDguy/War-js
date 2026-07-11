@@ -1,0 +1,2776 @@
+{
+  "id": "vilemere_heights",
+  "name": "Vilemere Heights",
+  "size": 300,
+  "segments": 96,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "riftbound",
+    "tier": "T3",
+    "lane": "riftbound_west",
+    "laneLabel": "Riftbound West March",
+    "nodeRole": "battlefield",
+    "levelBand": "Tier 3"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -40
+  },
+  "paths": [
+    {
+      "id": "vilemere_heights_main_road",
+      "style": "dirt_trail",
+      "width": 11,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_portal_road_1",
+      "style": "dirt_trail",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 129,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_portal_road_2",
+      "style": "dirt_trail",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -127.1,
+          "z": 21.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_portal_road_3",
+      "style": "dirt_trail",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -127.1,
+          "z": -21.8
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "vilemere_heights_west_objective_banner",
+      "kind": "banner_post",
+      "x": -64,
+      "z": -18,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "vilemere_heights_west_objective_stone_left",
+      "kind": "rock",
+      "x": -71,
+      "z": -14,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "vilemere_heights_west_objective_stone_right",
+      "kind": "rock",
+      "x": -57,
+      "z": -14,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "vilemere_heights_central_objective_banner",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 6,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "vilemere_heights_central_objective_stone_left",
+      "kind": "rock",
+      "x": -7,
+      "z": 10,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "vilemere_heights_central_objective_stone_right",
+      "kind": "rock",
+      "x": 7,
+      "z": 10,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "vilemere_heights_east_objective_banner",
+      "kind": "banner_post",
+      "x": 64,
+      "z": -18,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "vilemere_heights_east_objective_stone_left",
+      "kind": "rock",
+      "x": 57,
+      "z": -14,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "vilemere_heights_east_objective_stone_right",
+      "kind": "rock",
+      "x": 71,
+      "z": -14,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": -69.1,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": -34.9,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -67.7,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -36.3,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": -77.6,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 0.95,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": -26.3,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 0.95,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": -77.6,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": -26.3,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": -77.6,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": -26.3,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": -52,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 0.78,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_aegis_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_aegis_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": -52,
+      "z": 84.8,
+      "rotY": 3.1416,
+      "scale": 0.68,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_aegis_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_aegis_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": -61,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": -43,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -61,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -43,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": -66.2,
+      "z": 65.8,
+      "rotY": 1.5708,
+      "scale": 0.82,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": -37.7,
+      "z": 65.8,
+      "rotY": 1.5708,
+      "scale": 0.82,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": -66.2,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": -37.7,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": -66.2,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": -37.7,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": -52,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.63,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_aegis_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_aegis_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": -52,
+      "z": 76.3,
+      "rotY": 3.1416,
+      "scale": 0.59,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_aegis_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_aegis_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_aegis_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_banner_left",
+      "kind": "banner_post",
+      "x": -74,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_banner_right",
+      "kind": "banner_post",
+      "x": -30,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": 33.1,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": 70.9,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 34.7,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 69.3,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": 23.7,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 1.05,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": 80.4,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 1.05,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": 23.7,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": 80.4,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": 23.7,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": 80.4,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": 52,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 0.86,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_riftbound_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_riftbound_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": 52,
+      "z": 87.2,
+      "rotY": 3.1416,
+      "scale": 0.76,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_riftbound_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_riftbound_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": 42,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": 62,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 42,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 62,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": 36.3,
+      "z": 66.2,
+      "rotY": 1.5708,
+      "scale": 0.9,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": 67.8,
+      "z": 66.2,
+      "rotY": 1.5708,
+      "scale": 0.9,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": 36.3,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": 67.8,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": 36.3,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": 67.8,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": 52,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.69,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_riftbound_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_riftbound_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": 52,
+      "z": 77.8,
+      "rotY": 3.1416,
+      "scale": 0.65,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "vilemere_heights_riftbound_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "vilemere_heights_riftbound_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "vilemere_heights_riftbound_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_banner_left",
+      "kind": "banner_post",
+      "x": 30,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_banner_right",
+      "kind": "banner_post",
+      "x": 74,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "vilemere_heights_portal_rift_crownworks",
+      "kind": "gate",
+      "x": 129,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "vilemere_heights_portal_rift_crownworks_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_portal_nightglass_hollow",
+      "kind": "gate",
+      "x": -127.1,
+      "z": 21.8,
+      "rotY": 4.5424,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "vilemere_heights_portal_nightglass_hollow_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_portal_bleakroot_causeway",
+      "kind": "gate",
+      "x": -127.1,
+      "z": -21.8,
+      "rotY": 4.8824,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "vilemere_heights_portal_bleakroot_causeway_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_cultivation_station_visual",
+      "kind": "pnw_grass_clump",
+      "x": -34,
+      "z": -48,
+      "rotY": 0,
+      "scale": 1.35
+    },
+    {
+      "id": "vilemere_heights_salvage_station_visual",
+      "kind": "vendor_stall",
+      "x": 34,
+      "z": -48,
+      "rotY": 0.35,
+      "scale": 0.9
+    },
+    {
+      "id": "vilemere_heights_apothecary_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -56,
+      "rotY": 0.7,
+      "scale": 0.9
+    },
+    {
+      "id": "vilemere_heights_west_camp_tent",
+      "kind": "vendor_stall",
+      "x": -46,
+      "z": 12,
+      "rotY": 0.55,
+      "scale": 0.95
+    },
+    {
+      "id": "vilemere_heights_west_camp_banner",
+      "kind": "banner_post",
+      "x": -58,
+      "z": 6,
+      "rotY": 0,
+      "scale": 1.05
+    },
+    {
+      "id": "vilemere_heights_east_camp_tent",
+      "kind": "vendor_stall",
+      "x": 46,
+      "z": 12,
+      "rotY": -0.55,
+      "scale": 0.95
+    },
+    {
+      "id": "vilemere_heights_east_camp_banner",
+      "kind": "banner_post",
+      "x": 58,
+      "z": 6,
+      "rotY": 0,
+      "scale": 1.05
+    },
+    {
+      "id": "vilemere_heights_keep_supply_cart",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": 26,
+      "rotY": 0,
+      "scale": 0.85
+    },
+    {
+      "id": "vilemere_heights_field_bridge",
+      "kind": "bridge",
+      "x": 0,
+      "z": -8,
+      "rotY": 0,
+      "scale": 0.75
+    },
+    {
+      "id": "vilemere_heights_herb_node_01_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -103,
+      "z": -66.4,
+      "rotY": 5.2308,
+      "scale": 0.85
+    },
+    {
+      "id": "vilemere_heights_wood_node_02_visual",
+      "kind": "pnw_fallen_log",
+      "x": -106.6,
+      "z": -2.3,
+      "rotY": 2.4106,
+      "scale": 0.97
+    },
+    {
+      "id": "vilemere_heights_ore_node_03_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -98.5,
+      "z": 55,
+      "rotY": 5.4049,
+      "scale": 1.07
+    },
+    {
+      "id": "vilemere_heights_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": -33.5,
+      "z": 90.7,
+      "rotY": 0.5126,
+      "scale": 0.85
+    },
+    {
+      "id": "vilemere_heights_water_node_05_visual",
+      "kind": "pnw_low_shrub",
+      "x": 104.1,
+      "z": -62.8,
+      "rotY": 0.0578,
+      "scale": 0.97
+    },
+    {
+      "id": "vilemere_heights_scrap_node_06_visual",
+      "kind": "rock",
+      "x": 108.2,
+      "z": -1.2,
+      "rotY": 2.2763,
+      "scale": 1.07
+    },
+    {
+      "id": "vilemere_heights_herb_node_07_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": 96.1,
+      "z": 52.8,
+      "rotY": 2.4737,
+      "scale": 0.85
+    },
+    {
+      "id": "vilemere_heights_wood_node_08_visual",
+      "kind": "pnw_fallen_log",
+      "x": 35.5,
+      "z": 85,
+      "rotY": 3.9209,
+      "scale": 0.97
+    },
+    {
+      "id": "vilemere_heights_ore_node_09_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -19.4,
+      "z": -88.3,
+      "rotY": 2.6613,
+      "scale": 1.07
+    },
+    {
+      "id": "vilemere_heights_soil_node_10_visual",
+      "kind": "pnw_grass_clump",
+      "x": 21.6,
+      "z": -95.4,
+      "rotY": 4.746,
+      "scale": 0.85
+    },
+    {
+      "id": "vilemere_heights_water_node_11_visual",
+      "kind": "pnw_low_shrub",
+      "x": -71.7,
+      "z": -102.1,
+      "rotY": 5.6856,
+      "scale": 0.97
+    },
+    {
+      "id": "vilemere_heights_scrap_node_12_visual",
+      "kind": "rock",
+      "x": 68.5,
+      "z": -101.6,
+      "rotY": 1.1622,
+      "scale": 1.07
+    },
+    {
+      "id": "vilemere_heights_tree_01",
+      "kind": "pnw_low_shrub",
+      "x": 58.3,
+      "z": 58.2,
+      "rotY": 3.1352,
+      "scale": 1.11
+    },
+    {
+      "id": "vilemere_heights_tree_02",
+      "kind": "tree",
+      "x": 85.2,
+      "z": 50.8,
+      "rotY": 3.4878,
+      "scale": 1.13
+    },
+    {
+      "id": "vilemere_heights_tree_03",
+      "kind": "tree",
+      "x": -66.4,
+      "z": -29.1,
+      "rotY": 0.2539,
+      "scale": 1.03
+    },
+    {
+      "id": "vilemere_heights_tree_04",
+      "kind": "pnw_low_shrub",
+      "x": -17.7,
+      "z": 74.8,
+      "rotY": 5.5749,
+      "scale": 0.96
+    },
+    {
+      "id": "vilemere_heights_tree_05",
+      "kind": "tree",
+      "x": 123.1,
+      "z": -11.9,
+      "rotY": 0.2394,
+      "scale": 1.41
+    },
+    {
+      "id": "vilemere_heights_tree_06",
+      "kind": "tree",
+      "x": 96,
+      "z": -46.3,
+      "rotY": 2.3059,
+      "scale": 0.81
+    },
+    {
+      "id": "vilemere_heights_tree_07",
+      "kind": "pnw_low_shrub",
+      "x": 116.3,
+      "z": 59.3,
+      "rotY": 3.536,
+      "scale": 1.41
+    },
+    {
+      "id": "vilemere_heights_tree_08",
+      "kind": "tree",
+      "x": 8.1,
+      "z": 81.6,
+      "rotY": 5.1915,
+      "scale": 1.02
+    },
+    {
+      "id": "vilemere_heights_tree_09",
+      "kind": "tree",
+      "x": 59.4,
+      "z": -58.8,
+      "rotY": 2.9781,
+      "scale": 1.04
+    },
+    {
+      "id": "vilemere_heights_tree_10",
+      "kind": "pnw_low_shrub",
+      "x": -84.2,
+      "z": -15.5,
+      "rotY": 5.0724,
+      "scale": 0.92
+    },
+    {
+      "id": "vilemere_heights_tree_11",
+      "kind": "tree",
+      "x": -117.9,
+      "z": 45.3,
+      "rotY": 4.3765,
+      "scale": 1.31
+    },
+    {
+      "id": "vilemere_heights_tree_12",
+      "kind": "tree",
+      "x": -36.7,
+      "z": 63,
+      "rotY": 3.6913,
+      "scale": 1.25
+    },
+    {
+      "id": "vilemere_heights_tree_13",
+      "kind": "pnw_low_shrub",
+      "x": 62,
+      "z": 113.8,
+      "rotY": 4.2161,
+      "scale": 0.95
+    },
+    {
+      "id": "vilemere_heights_tree_14",
+      "kind": "tree",
+      "x": -58.9,
+      "z": -98.9,
+      "rotY": 0.1856,
+      "scale": 1.01
+    },
+    {
+      "id": "vilemere_heights_tree_15",
+      "kind": "tree",
+      "x": 42.3,
+      "z": -56.1,
+      "rotY": 5.0781,
+      "scale": 0.77
+    },
+    {
+      "id": "vilemere_heights_tree_16",
+      "kind": "pnw_low_shrub",
+      "x": -72.2,
+      "z": 2.9,
+      "rotY": 3.8839,
+      "scale": 0.77
+    },
+    {
+      "id": "vilemere_heights_tree_17",
+      "kind": "tree",
+      "x": 99.5,
+      "z": 71.6,
+      "rotY": 5.2564,
+      "scale": 0.96
+    },
+    {
+      "id": "vilemere_heights_tree_18",
+      "kind": "tree",
+      "x": -11.3,
+      "z": -92.1,
+      "rotY": 5.4745,
+      "scale": 0.84
+    },
+    {
+      "id": "vilemere_heights_tree_19",
+      "kind": "pnw_low_shrub",
+      "x": 110.2,
+      "z": 57.1,
+      "rotY": 1.4854,
+      "scale": 1.15
+    },
+    {
+      "id": "vilemere_heights_tree_20",
+      "kind": "tree",
+      "x": -35.5,
+      "z": 104.4,
+      "rotY": 1.6576,
+      "scale": 1.1
+    },
+    {
+      "id": "vilemere_heights_tree_21",
+      "kind": "tree",
+      "x": 16.2,
+      "z": 109.2,
+      "rotY": 0.1699,
+      "scale": 1.18
+    },
+    {
+      "id": "vilemere_heights_tree_22",
+      "kind": "pnw_low_shrub",
+      "x": 2.5,
+      "z": -131.5,
+      "rotY": 5.6982,
+      "scale": 0.97
+    },
+    {
+      "id": "vilemere_heights_tree_23",
+      "kind": "tree",
+      "x": 55.8,
+      "z": 75.5,
+      "rotY": 4.9243,
+      "scale": 1.14
+    },
+    {
+      "id": "vilemere_heights_tree_24",
+      "kind": "tree",
+      "x": 39.2,
+      "z": -81.1,
+      "rotY": 4.1537,
+      "scale": 1.38
+    },
+    {
+      "id": "vilemere_heights_tree_25",
+      "kind": "pnw_low_shrub",
+      "x": 4.9,
+      "z": 100.5,
+      "rotY": 0.1813,
+      "scale": 1.39
+    },
+    {
+      "id": "vilemere_heights_tree_26",
+      "kind": "tree",
+      "x": -23.1,
+      "z": 107.3,
+      "rotY": 0.5086,
+      "scale": 1.34
+    },
+    {
+      "id": "vilemere_heights_tree_27",
+      "kind": "tree",
+      "x": -58.5,
+      "z": 34.3,
+      "rotY": 4.8899,
+      "scale": 1.12
+    },
+    {
+      "id": "vilemere_heights_tree_28",
+      "kind": "pnw_low_shrub",
+      "x": -68.3,
+      "z": 25.3,
+      "rotY": 5.3554,
+      "scale": 1.3
+    },
+    {
+      "id": "vilemere_heights_tree_29",
+      "kind": "tree",
+      "x": -35,
+      "z": 108.9,
+      "rotY": 5.2072,
+      "scale": 0.96
+    },
+    {
+      "id": "vilemere_heights_tree_30",
+      "kind": "tree",
+      "x": 11.5,
+      "z": -99.4,
+      "rotY": 2.8289,
+      "scale": 0.88
+    },
+    {
+      "id": "vilemere_heights_tree_31",
+      "kind": "pnw_low_shrub",
+      "x": -18.3,
+      "z": -88.3,
+      "rotY": 5.0631,
+      "scale": 0.92
+    },
+    {
+      "id": "vilemere_heights_tree_32",
+      "kind": "tree",
+      "x": -17.7,
+      "z": -119.5,
+      "rotY": 3.4114,
+      "scale": 0.97
+    },
+    {
+      "id": "vilemere_heights_tree_33",
+      "kind": "tree",
+      "x": 80.9,
+      "z": 42.1,
+      "rotY": 5.2799,
+      "scale": 0.84
+    },
+    {
+      "id": "vilemere_heights_tree_34",
+      "kind": "pnw_low_shrub",
+      "x": -81.1,
+      "z": -77.3,
+      "rotY": 2.7223,
+      "scale": 1.12
+    },
+    {
+      "id": "vilemere_heights_tree_35",
+      "kind": "tree",
+      "x": -81.2,
+      "z": 26.4,
+      "rotY": 3.6531,
+      "scale": 1.48
+    },
+    {
+      "id": "vilemere_heights_tree_36",
+      "kind": "tree",
+      "x": 30.5,
+      "z": 58.7,
+      "rotY": 5.0121,
+      "scale": 0.82
+    },
+    {
+      "id": "vilemere_heights_tree_37",
+      "kind": "pnw_low_shrub",
+      "x": 41.8,
+      "z": 104.1,
+      "rotY": 1.0748,
+      "scale": 0.76
+    },
+    {
+      "id": "vilemere_heights_tree_38",
+      "kind": "tree",
+      "x": -112.4,
+      "z": -36.1,
+      "rotY": 2.1967,
+      "scale": 1.33
+    },
+    {
+      "id": "vilemere_heights_tree_39",
+      "kind": "tree",
+      "x": 63.2,
+      "z": 53.8,
+      "rotY": 2.2449,
+      "scale": 1.33
+    },
+    {
+      "id": "vilemere_heights_tree_40",
+      "kind": "pnw_low_shrub",
+      "x": -55.5,
+      "z": -86.4,
+      "rotY": 6.253,
+      "scale": 0.85
+    },
+    {
+      "id": "vilemere_heights_tree_41",
+      "kind": "tree",
+      "x": 102.8,
+      "z": 65.6,
+      "rotY": 6.2577,
+      "scale": 0.81
+    },
+    {
+      "id": "vilemere_heights_tree_42",
+      "kind": "tree",
+      "x": 59.3,
+      "z": -111.3,
+      "rotY": 2.5418,
+      "scale": 0.91
+    },
+    {
+      "id": "vilemere_heights_rock_01",
+      "kind": "rock",
+      "x": 46.7,
+      "z": 97.9,
+      "rotY": 6.0214,
+      "scale": 1.2
+    },
+    {
+      "id": "vilemere_heights_rock_02",
+      "kind": "rock",
+      "x": -52.5,
+      "z": 122.1,
+      "rotY": 1.0047,
+      "scale": 1.69
+    },
+    {
+      "id": "vilemere_heights_rock_03",
+      "kind": "rock",
+      "x": -46.6,
+      "z": -110.8,
+      "rotY": 4.2811,
+      "scale": 1.3
+    },
+    {
+      "id": "vilemere_heights_rock_04",
+      "kind": "rock",
+      "x": 65.7,
+      "z": 56.8,
+      "rotY": 2.3862,
+      "scale": 1.14
+    },
+    {
+      "id": "vilemere_heights_rock_05",
+      "kind": "rock",
+      "x": 96.3,
+      "z": 36.1,
+      "rotY": 3.9787,
+      "scale": 1.11
+    },
+    {
+      "id": "vilemere_heights_rock_06",
+      "kind": "rock",
+      "x": -38.7,
+      "z": -92.1,
+      "rotY": 1.2626,
+      "scale": 2.46
+    },
+    {
+      "id": "vilemere_heights_rock_07",
+      "kind": "rock",
+      "x": -94.3,
+      "z": -54.1,
+      "rotY": 2.4901,
+      "scale": 1.52
+    },
+    {
+      "id": "vilemere_heights_rock_08",
+      "kind": "rock",
+      "x": 21.6,
+      "z": 90.6,
+      "rotY": 1.0343,
+      "scale": 1.33
+    },
+    {
+      "id": "vilemere_heights_rock_09",
+      "kind": "rock",
+      "x": 56.6,
+      "z": -66.8,
+      "rotY": 5.1853,
+      "scale": 2.48
+    },
+    {
+      "id": "vilemere_heights_rock_10",
+      "kind": "rock",
+      "x": 103.2,
+      "z": -90.6,
+      "rotY": 6.2812,
+      "scale": 1.55
+    },
+    {
+      "id": "vilemere_heights_rock_11",
+      "kind": "rock",
+      "x": 34.4,
+      "z": 132.7,
+      "rotY": 1.7433,
+      "scale": 1.11
+    },
+    {
+      "id": "vilemere_heights_rock_12",
+      "kind": "rock",
+      "x": -56.5,
+      "z": 96.7,
+      "rotY": 3.0259,
+      "scale": 1.89
+    },
+    {
+      "id": "vilemere_heights_rock_13",
+      "kind": "rock",
+      "x": 10,
+      "z": -97.7,
+      "rotY": 0.0362,
+      "scale": 0.96
+    },
+    {
+      "id": "vilemere_heights_rock_14",
+      "kind": "rock",
+      "x": -9.9,
+      "z": -101.8,
+      "rotY": 1.4933,
+      "scale": 2.19
+    },
+    {
+      "id": "vilemere_heights_rock_15",
+      "kind": "rock",
+      "x": 73.3,
+      "z": -108.7,
+      "rotY": 4.066,
+      "scale": 1.41
+    },
+    {
+      "id": "vilemere_heights_rock_16",
+      "kind": "rock",
+      "x": 130.3,
+      "z": -42.7,
+      "rotY": 0.3868,
+      "scale": 0.96
+    },
+    {
+      "id": "vilemere_heights_rock_17",
+      "kind": "rock",
+      "x": -62.3,
+      "z": -58.1,
+      "rotY": 5.7659,
+      "scale": 1.35
+    },
+    {
+      "id": "vilemere_heights_rock_18",
+      "kind": "rock",
+      "x": 59.3,
+      "z": -92,
+      "rotY": 0.718,
+      "scale": 1.47
+    },
+    {
+      "id": "vilemere_heights_rock_19",
+      "kind": "rock",
+      "x": 114.9,
+      "z": -48.6,
+      "rotY": 6.2719,
+      "scale": 2.04
+    },
+    {
+      "id": "vilemere_heights_rock_20",
+      "kind": "rock",
+      "x": -93.8,
+      "z": -25.9,
+      "rotY": 0.8519,
+      "scale": 1.68
+    },
+    {
+      "id": "vilemere_heights_rock_21",
+      "kind": "rock",
+      "x": 7.9,
+      "z": 84.9,
+      "rotY": 0.798,
+      "scale": 1.67
+    },
+    {
+      "id": "vilemere_heights_rock_22",
+      "kind": "rock",
+      "x": 94.5,
+      "z": -76,
+      "rotY": 3.4579,
+      "scale": 2.33
+    },
+    {
+      "id": "vilemere_heights_rock_23",
+      "kind": "rock",
+      "x": -110.2,
+      "z": 22,
+      "rotY": 5.9733,
+      "scale": 1.84
+    },
+    {
+      "id": "vilemere_heights_rock_24",
+      "kind": "rock",
+      "x": -49.2,
+      "z": -85.2,
+      "rotY": 2.1526,
+      "scale": 2.15
+    },
+    {
+      "id": "vilemere_heights_rock_25",
+      "kind": "rock",
+      "x": -72,
+      "z": 49.7,
+      "rotY": 5.6955,
+      "scale": 2.12
+    },
+    {
+      "id": "vilemere_heights_rock_26",
+      "kind": "rock",
+      "x": 64.2,
+      "z": 76.8,
+      "rotY": 4.4213,
+      "scale": 1.41
+    },
+    {
+      "id": "vilemere_heights_rock_27",
+      "kind": "rock",
+      "x": 72.1,
+      "z": 99.7,
+      "rotY": 3.1397,
+      "scale": 1.19
+    },
+    {
+      "id": "vilemere_heights_rock_28",
+      "kind": "rock",
+      "x": -135.5,
+      "z": 8.9,
+      "rotY": 4.7293,
+      "scale": 1.59
+    },
+    {
+      "id": "vilemere_heights_rock_29",
+      "kind": "rock",
+      "x": 38.8,
+      "z": -101,
+      "rotY": 0.4814,
+      "scale": 1.34
+    },
+    {
+      "id": "vilemere_heights_rock_30",
+      "kind": "rock",
+      "x": 127.5,
+      "z": 6.2,
+      "rotY": 2.8529,
+      "scale": 1.91
+    },
+    {
+      "id": "vilemere_heights_ridge_01",
+      "kind": "rock",
+      "x": 138,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "vilemere_heights_ridge_02",
+      "kind": "rock",
+      "x": 137.2,
+      "z": 49.9,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "vilemere_heights_ridge_03",
+      "kind": "rock",
+      "x": 105.7,
+      "z": 88.7,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "vilemere_heights_ridge_04",
+      "kind": "rock",
+      "x": 73,
+      "z": 126.4,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "vilemere_heights_ridge_05",
+      "kind": "rock",
+      "x": 24,
+      "z": 135.9,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "vilemere_heights_ridge_06",
+      "kind": "rock",
+      "x": -25.4,
+      "z": 143.8,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "vilemere_heights_ridge_07",
+      "kind": "rock",
+      "x": -69,
+      "z": 119.5,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "vilemere_heights_ridge_08",
+      "kind": "rock",
+      "x": -111.8,
+      "z": 93.8,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "vilemere_heights_ridge_09",
+      "kind": "rock",
+      "x": -129.7,
+      "z": 47.2,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "vilemere_heights_ridge_10",
+      "kind": "rock",
+      "x": -146,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "vilemere_heights_ridge_11",
+      "kind": "rock",
+      "x": -129.7,
+      "z": -47.2,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "vilemere_heights_ridge_12",
+      "kind": "rock",
+      "x": -111.8,
+      "z": -93.8,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "vilemere_heights_ridge_13",
+      "kind": "rock",
+      "x": -69,
+      "z": -119.5,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "vilemere_heights_ridge_14",
+      "kind": "rock",
+      "x": -25.4,
+      "z": -143.8,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "vilemere_heights_ridge_15",
+      "kind": "rock",
+      "x": 24,
+      "z": -135.9,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "vilemere_heights_ridge_16",
+      "kind": "rock",
+      "x": 73,
+      "z": -126.4,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "vilemere_heights_ridge_17",
+      "kind": "rock",
+      "x": 105.7,
+      "z": -88.7,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "vilemere_heights_ridge_18",
+      "kind": "rock",
+      "x": 137.2,
+      "z": -49.9,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "vilemere_heights_quartermaster",
+      "name": "Vask Rauth",
+      "title": "Riftbound Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_vask_rauth_riftbound_quartermaster"
+    },
+    {
+      "id": "vilemere_heights_marshal",
+      "name": "Nyra Vex",
+      "title": "Tier 3 Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_nyra_vex_tier_3_campaign_marshal"
+    },
+    {
+      "id": "vilemere_heights_scout",
+      "name": "Gorvak Mirehand",
+      "title": "Forward Scout",
+      "role": "guard",
+      "x": -22,
+      "z": -52,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_gorvak_mirehand_forward_scout"
+    },
+    {
+      "id": "vilemere_heights_craft_mentor",
+      "name": "Selk Dreadspire",
+      "title": "Field Crafting Mentor",
+      "role": "trainer",
+      "x": 22,
+      "z": -52,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_selk_dreadspire_field_crafting_mentor"
+    },
+    {
+      "id": "vilemere_heights_forager",
+      "name": "Kara Ashvein",
+      "title": "Resource Warden",
+      "role": "ambient",
+      "x": 0,
+      "z": -62,
+      "rotY": 0,
+      "characterProfileKey": "npc_riftbound_kara_ashvein_resource_warden"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "vilemere_heights_cultivation_station",
+      "label": "Field Cultivation Patch",
+      "kind": "cultivation",
+      "x": -34,
+      "z": -48,
+      "radius": 7
+    },
+    {
+      "id": "vilemere_heights_salvage_station",
+      "label": "War Salvage Bench",
+      "kind": "salvage",
+      "x": 34,
+      "z": -48,
+      "radius": 6
+    },
+    {
+      "id": "vilemere_heights_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": 0,
+      "z": -56,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "vilemere_heights_west_raider_1",
+      "name": "Campaign Raider",
+      "level": 18,
+      "x": -46,
+      "z": 2,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 43,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_riftbound_campaign_raider_raider"
+    },
+    {
+      "id": "vilemere_heights_west_guard_1",
+      "name": "Objective Guard",
+      "level": 18,
+      "x": -64,
+      "z": -18,
+      "maxHealth": 190,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 45,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_objective_guard_guard"
+    },
+    {
+      "id": "vilemere_heights_central_caster_1",
+      "name": "Battlefield Hexer",
+      "level": 18,
+      "x": -10,
+      "z": 14,
+      "maxHealth": 165,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 23,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_battlefield_hexer_caster"
+    },
+    {
+      "id": "vilemere_heights_central_raider_1",
+      "name": "Campaign Raider",
+      "level": 18,
+      "x": 10,
+      "z": 14,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 43,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_riftbound_campaign_raider_raider"
+    },
+    {
+      "id": "vilemere_heights_east_raider_1",
+      "name": "Campaign Raider",
+      "level": 18,
+      "x": 46,
+      "z": 2,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 43,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_riftbound_campaign_raider_raider"
+    },
+    {
+      "id": "vilemere_heights_east_guard_1",
+      "name": "Objective Guard",
+      "level": 18,
+      "x": 64,
+      "z": -18,
+      "maxHealth": 190,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 45,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_objective_guard_guard"
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_guard_1",
+      "name": "Aegis Keep Guard",
+      "level": 19,
+      "x": -66,
+      "z": 42,
+      "maxHealth": 210,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 47,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_aegis_keep_guard_guard"
+    },
+    {
+      "id": "vilemere_heights_aegis_keep_caster_1",
+      "name": "Aegis Keep Sage",
+      "level": 19,
+      "x": -38,
+      "z": 44,
+      "maxHealth": 190,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 24,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_aegis_keep_sage_caster"
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_guard_1",
+      "name": "Riftbound Keep Guard",
+      "level": 19,
+      "x": 38,
+      "z": 44,
+      "maxHealth": 210,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 47,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_guard_guard"
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep_caster_1",
+      "name": "Riftbound Keep Magister",
+      "level": 19,
+      "x": 66,
+      "z": 42,
+      "maxHealth": 190,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 24,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_magister_caster"
+    },
+    {
+      "id": "vilemere_heights_field_captain",
+      "name": "Keep Captain",
+      "level": 20,
+      "x": 0,
+      "z": 78,
+      "maxHealth": 300,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.2,
+      "preferredRange": 2.7,
+      "attackDamage": 52,
+      "moveSpeed": 3.05,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain"
+    },
+    {
+      "id": "vilemere_heights_beast_1",
+      "name": "War Boar",
+      "level": 18,
+      "x": -96,
+      "z": -74,
+      "maxHealth": 160,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 44,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_war_boar"
+    },
+    {
+      "id": "vilemere_heights_beast_2",
+      "name": "War Boar",
+      "level": 18,
+      "x": 96,
+      "z": -74,
+      "maxHealth": 160,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 44,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_war_boar"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "vilemere_heights_herb_node_01",
+      "label": "Riftbound Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -103,
+      "z": -66.4,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_herb_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_wood_node_02",
+      "label": "Riftbound Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": -106.6,
+      "z": -2.3,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_wood_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_ore_node_03",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -98.5,
+      "z": 55,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_ore_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_soil_node_04",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": -33.5,
+      "z": 90.7,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_water_node_05",
+      "label": "Riftbound Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": 104.1,
+      "z": -62.8,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_water_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_scrap_node_06",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 108.2,
+      "z": -1.2,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_scrap_node_06_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_herb_node_07",
+      "label": "Riftbound Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 96.1,
+      "z": 52.8,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_herb_node_07_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_wood_node_08",
+      "label": "Riftbound Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": 35.5,
+      "z": 85,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_wood_node_08_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_ore_node_09",
+      "label": "Riftbound Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -19.4,
+      "z": -88.3,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_ore_node_09_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_soil_node_10",
+      "label": "Riftbound Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 21.6,
+      "z": -95.4,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_soil_node_10_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_water_node_11",
+      "label": "Riftbound Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": -71.7,
+      "z": -102.1,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_water_node_11_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "vilemere_heights_scrap_node_12",
+      "label": "Riftbound War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 68.5,
+      "z": -101.6,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "vilemere_heights_scrap_node_12_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "vilemere_heights_west_objective",
+      "type": "battle_objective",
+      "label": "West Field Standard",
+      "x": -64,
+      "z": -18,
+      "captureRadius": 13,
+      "defaultRealm": "riftbound"
+    },
+    {
+      "id": "vilemere_heights_central_objective",
+      "type": "battle_objective",
+      "label": "Central Field Standard",
+      "x": 0,
+      "z": 6,
+      "captureRadius": 13,
+      "defaultRealm": "riftbound"
+    },
+    {
+      "id": "vilemere_heights_east_objective",
+      "type": "battle_objective",
+      "label": "East Field Standard",
+      "x": 64,
+      "z": -18,
+      "captureRadius": 13,
+      "defaultRealm": "riftbound"
+    },
+    {
+      "id": "vilemere_heights_aegis_keep",
+      "type": "keep",
+      "label": "Aegis War Keep",
+      "x": -52,
+      "z": 62,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "vilemere_heights_riftbound_keep",
+      "type": "keep",
+      "label": "Riftbound War Keep",
+      "x": 52,
+      "z": 62,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "vilemere_heights_to_rift_crownworks",
+      "label": "Travel to Rift Crownworks",
+      "x": 129,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "rift_crownworks",
+      "targetSpawn": {
+        "x": -115,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "vilemere_heights_to_nightglass_hollow",
+      "label": "Travel to Nightglass Hollow",
+      "x": -127.1,
+      "z": 21.8,
+      "radius": 9,
+      "targetZoneId": "nightglass_hollow",
+      "targetSpawn": {
+        "x": -67.7,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "vilemere_heights_to_bleakroot_causeway",
+      "label": "Travel to Bleakroot Causeway",
+      "x": -127.1,
+      "z": -21.8,
+      "radius": 9,
+      "targetZoneId": "bleakroot_causeway",
+      "targetSpawn": {
+        "x": -108.4,
+        "y": 0,
+        "z": -38.4
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "vilemere_heights_west_wilds",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": -86,
+      "z": 12,
+      "width": 92,
+      "depth": 176,
+      "count": 58,
+      "seed": 329559718,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 42
+        },
+        {
+          "x": -52,
+          "z": 62,
+          "radius": 42
+        },
+        {
+          "x": 52,
+          "z": 62,
+          "radius": 42
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    },
+    {
+      "id": "vilemere_heights_east_wilds",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 86,
+      "z": 12,
+      "width": 92,
+      "depth": 176,
+      "count": 58,
+      "seed": 1419412068,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 42
+        },
+        {
+          "x": -52,
+          "z": 62,
+          "radius": 42
+        },
+        {
+          "x": 52,
+          "z": 62,
+          "radius": 42
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    }
+  ],
+  "staticMapHash": "6004dfd81a6973e1"
+}

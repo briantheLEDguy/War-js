@@ -1,0 +1,987 @@
+{
+  "id": "mireglass_den",
+  "name": "Mireglass Den",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "Boss",
+    "lane": "aegis_east",
+    "laneLabel": "Aegis East March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 1 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "mireglass_den_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "mireglass_den_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "mireglass_den_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "mireglass_den_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "mireglass_den_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "mireglass_den_portal_brightfen_approach",
+      "kind": "gate",
+      "x": 81.7,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "mireglass_den_portal_brightfen_approach_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "mireglass_den_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "mireglass_den_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "mireglass_den_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "mireglass_den_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "mireglass_den_herb_node_01_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -52.2,
+      "z": -20.4,
+      "rotY": 0.776,
+      "scale": 0.85
+    },
+    {
+      "id": "mireglass_den_water_node_02_visual",
+      "kind": "pnw_low_shrub",
+      "x": 48,
+      "z": -19.9,
+      "rotY": 3.1613,
+      "scale": 0.97
+    },
+    {
+      "id": "mireglass_den_soil_node_03_visual",
+      "kind": "pnw_grass_clump",
+      "x": -39.5,
+      "z": 35.9,
+      "rotY": 0.8842,
+      "scale": 1.09
+    },
+    {
+      "id": "mireglass_den_herb_node_04_visual",
+      "kind": "pnw_sword_fern",
+      "x": 38.3,
+      "z": 37.5,
+      "rotY": 0.6153,
+      "scale": 0.85
+    },
+    {
+      "id": "mireglass_den_wood_node_05_visual",
+      "kind": "pnw_fallen_log",
+      "x": 1.5,
+      "z": 80,
+      "rotY": 6.2558,
+      "scale": 0.97
+    },
+    {
+      "id": "mireglass_den_tree_01",
+      "kind": "tree",
+      "x": 41.2,
+      "z": 12.3,
+      "rotY": 0.8811,
+      "scale": 1.17
+    },
+    {
+      "id": "mireglass_den_tree_02",
+      "kind": "tree",
+      "x": -44,
+      "z": -29.3,
+      "rotY": 0.8773,
+      "scale": 1.41
+    },
+    {
+      "id": "mireglass_den_tree_03",
+      "kind": "tree",
+      "x": -50.4,
+      "z": 44.2,
+      "rotY": 0.6876,
+      "scale": 1.41
+    },
+    {
+      "id": "mireglass_den_tree_04",
+      "kind": "tree",
+      "x": 37,
+      "z": -30.6,
+      "rotY": 4.1667,
+      "scale": 1.07
+    },
+    {
+      "id": "mireglass_den_tree_05",
+      "kind": "tree",
+      "x": -49.1,
+      "z": -23.9,
+      "rotY": 5.4723,
+      "scale": 1.15
+    },
+    {
+      "id": "mireglass_den_tree_06",
+      "kind": "tree",
+      "x": 27.6,
+      "z": 63.9,
+      "rotY": 1.6311,
+      "scale": 0.97
+    },
+    {
+      "id": "mireglass_den_tree_07",
+      "kind": "tree",
+      "x": 34.1,
+      "z": 35.9,
+      "rotY": 1.372,
+      "scale": 1.1
+    },
+    {
+      "id": "mireglass_den_tree_08",
+      "kind": "tree",
+      "x": -26.6,
+      "z": -77.9,
+      "rotY": 3.633,
+      "scale": 1.39
+    },
+    {
+      "id": "mireglass_den_tree_09",
+      "kind": "tree",
+      "x": -72.8,
+      "z": -1,
+      "rotY": 3.1703,
+      "scale": 1.07
+    },
+    {
+      "id": "mireglass_den_tree_10",
+      "kind": "tree",
+      "x": -65,
+      "z": -19.9,
+      "rotY": 3.18,
+      "scale": 1.11
+    },
+    {
+      "id": "mireglass_den_tree_11",
+      "kind": "tree",
+      "x": -32.2,
+      "z": -51.5,
+      "rotY": 5.2452,
+      "scale": 0.92
+    },
+    {
+      "id": "mireglass_den_tree_12",
+      "kind": "tree",
+      "x": -26.5,
+      "z": -47.2,
+      "rotY": 5.3034,
+      "scale": 0.88
+    },
+    {
+      "id": "mireglass_den_tree_13",
+      "kind": "tree",
+      "x": 3.5,
+      "z": 52.7,
+      "rotY": 4.3745,
+      "scale": 1.23
+    },
+    {
+      "id": "mireglass_den_tree_14",
+      "kind": "tree",
+      "x": 60,
+      "z": -13.6,
+      "rotY": 2.0732,
+      "scale": 1.17
+    },
+    {
+      "id": "mireglass_den_tree_15",
+      "kind": "tree",
+      "x": 22.9,
+      "z": 48.1,
+      "rotY": 5.6178,
+      "scale": 1.25
+    },
+    {
+      "id": "mireglass_den_tree_16",
+      "kind": "tree",
+      "x": 22.1,
+      "z": 42.1,
+      "rotY": 1.527,
+      "scale": 1.06
+    },
+    {
+      "id": "mireglass_den_tree_17",
+      "kind": "tree",
+      "x": 35.9,
+      "z": -67.4,
+      "rotY": 0.6441,
+      "scale": 1.28
+    },
+    {
+      "id": "mireglass_den_tree_18",
+      "kind": "tree",
+      "x": -29.9,
+      "z": 69.1,
+      "rotY": 1.1978,
+      "scale": 0.95
+    },
+    {
+      "id": "mireglass_den_tree_19",
+      "kind": "tree",
+      "x": 48.4,
+      "z": -4.7,
+      "rotY": 5.5783,
+      "scale": 1.01
+    },
+    {
+      "id": "mireglass_den_tree_20",
+      "kind": "tree",
+      "x": -10.2,
+      "z": -79.1,
+      "rotY": 0.4303,
+      "scale": 0.76
+    },
+    {
+      "id": "mireglass_den_rock_01",
+      "kind": "rock",
+      "x": -27.1,
+      "z": -72.5,
+      "rotY": 5.9489,
+      "scale": 0.91
+    },
+    {
+      "id": "mireglass_den_rock_02",
+      "kind": "rock",
+      "x": 56,
+      "z": -25.9,
+      "rotY": 5.2334,
+      "scale": 1.55
+    },
+    {
+      "id": "mireglass_den_rock_03",
+      "kind": "rock",
+      "x": 72,
+      "z": -12.1,
+      "rotY": 0.2888,
+      "scale": 2.27
+    },
+    {
+      "id": "mireglass_den_rock_04",
+      "kind": "rock",
+      "x": -56.9,
+      "z": -35.6,
+      "rotY": 3.8224,
+      "scale": 2.23
+    },
+    {
+      "id": "mireglass_den_rock_05",
+      "kind": "rock",
+      "x": -13.4,
+      "z": -63.2,
+      "rotY": 1.9777,
+      "scale": 2.09
+    },
+    {
+      "id": "mireglass_den_rock_06",
+      "kind": "rock",
+      "x": 69.6,
+      "z": -35.1,
+      "rotY": 3.8614,
+      "scale": 1.49
+    },
+    {
+      "id": "mireglass_den_rock_07",
+      "kind": "rock",
+      "x": 11.1,
+      "z": -57.4,
+      "rotY": 2.0065,
+      "scale": 1.59
+    },
+    {
+      "id": "mireglass_den_rock_08",
+      "kind": "rock",
+      "x": -75.5,
+      "z": 18.4,
+      "rotY": 3.4341,
+      "scale": 1.85
+    },
+    {
+      "id": "mireglass_den_rock_09",
+      "kind": "rock",
+      "x": -26.3,
+      "z": 65.6,
+      "rotY": 1.6518,
+      "scale": 0.86
+    },
+    {
+      "id": "mireglass_den_rock_10",
+      "kind": "rock",
+      "x": -22.3,
+      "z": -57,
+      "rotY": 3.2581,
+      "scale": 0.83
+    },
+    {
+      "id": "mireglass_den_rock_11",
+      "kind": "rock",
+      "x": -40.7,
+      "z": 34.6,
+      "rotY": 0.6226,
+      "scale": 1
+    },
+    {
+      "id": "mireglass_den_rock_12",
+      "kind": "rock",
+      "x": -73.4,
+      "z": 31.9,
+      "rotY": 3.3261,
+      "scale": 1.53
+    },
+    {
+      "id": "mireglass_den_rock_13",
+      "kind": "rock",
+      "x": -0.9,
+      "z": 66.1,
+      "rotY": 3.1301,
+      "scale": 1.08
+    },
+    {
+      "id": "mireglass_den_rock_14",
+      "kind": "rock",
+      "x": -4.6,
+      "z": 57.7,
+      "rotY": 4.1061,
+      "scale": 2.49
+    },
+    {
+      "id": "mireglass_den_rock_15",
+      "kind": "rock",
+      "x": -59.4,
+      "z": -41.3,
+      "rotY": 5.1075,
+      "scale": 1.92
+    },
+    {
+      "id": "mireglass_den_rock_16",
+      "kind": "rock",
+      "x": 53.4,
+      "z": -23,
+      "rotY": 1.2609,
+      "scale": 2.44
+    },
+    {
+      "id": "mireglass_den_rock_17",
+      "kind": "rock",
+      "x": 59.5,
+      "z": 9.6,
+      "rotY": 5.0826,
+      "scale": 1.19
+    },
+    {
+      "id": "mireglass_den_rock_18",
+      "kind": "rock",
+      "x": 52.6,
+      "z": -34.4,
+      "rotY": 1.5691,
+      "scale": 2.5
+    },
+    {
+      "id": "mireglass_den_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "mireglass_den_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "mireglass_den_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "mireglass_den_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "mireglass_den_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "mireglass_den_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "mireglass_den_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "mireglass_den_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "mireglass_den_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "mireglass_den_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "mireglass_den_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "mireglass_den_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "mireglass_den_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "mireglass_den_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "mireglass_den_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "mireglass_den_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "mireglass_den_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "mireglass_den_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "mireglass_den_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "mireglass_den_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 1 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_1_boss_campaign_marshal"
+    },
+    {
+      "id": "mireglass_den_expedition_guide",
+      "name": "Mira Stonewake",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "mireglass_den_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "mireglass_den_overlord",
+      "name": "Mireglass Den Overlord",
+      "level": 8,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_aegis_mireglass_den_overlord_captain"
+    },
+    {
+      "id": "mireglass_den_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "mireglass_den_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 7,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 23,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "mireglass_den_beast_1",
+      "name": "Lair Spider",
+      "level": 6,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_lair_spider"
+    },
+    {
+      "id": "mireglass_den_beast_2",
+      "name": "Lair Spider",
+      "level": 6,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 20,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_lair_spider"
+    },
+    {
+      "id": "mireglass_den_adept_1",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    },
+    {
+      "id": "mireglass_den_adept_2",
+      "name": "Lair Cultist",
+      "level": 7,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 12,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "mireglass_den_herb_node_01",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -52.2,
+      "z": -20.4,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "mireglass_den_herb_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "mireglass_den_water_node_02",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": 48,
+      "z": -19.9,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "mireglass_den_water_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "mireglass_den_soil_node_03",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": -39.5,
+      "z": 35.9,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "mireglass_den_soil_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "mireglass_den_herb_node_04",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 38.3,
+      "z": 37.5,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "mireglass_den_herb_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "mireglass_den_wood_node_05",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": 1.5,
+      "z": 80,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "mireglass_den_wood_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "mireglass_den_boss",
+      "type": "boss",
+      "label": "Mireglass Den Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "mireglass_den_to_brightfen_approach",
+      "label": "Travel to Brightfen Approach",
+      "x": 81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "brightfen_approach",
+      "targetSpawn": {
+        "x": 113.3,
+        "y": 0,
+        "z": -19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "mireglass_den_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 494213019,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_sword_fern",
+        "pnw_low_shrub",
+        "pnw_grass_clump",
+        "pnw_mossy_boulder",
+        "pnw_fallen_log"
+      ]
+    }
+  ],
+  "staticMapHash": "5b660dab8f5dd3c6"
+}

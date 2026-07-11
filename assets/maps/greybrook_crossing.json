@@ -1,0 +1,2776 @@
+{
+  "id": "greybrook_crossing",
+  "name": "Greybrook Crossing",
+  "size": 300,
+  "segments": 96,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "T2",
+    "lane": "aegis_west",
+    "laneLabel": "Aegis West March",
+    "nodeRole": "battlefield",
+    "levelBand": "Tier 2"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -40
+  },
+  "paths": [
+    {
+      "id": "greybrook_crossing_main_road",
+      "style": "dirt_trail",
+      "width": 11,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_portal_road_1",
+      "style": "dirt_trail",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -121.6,
+          "z": 43
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_portal_road_2",
+      "style": "dirt_trail",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -129,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_portal_road_3",
+      "style": "dirt_trail",
+      "width": 8,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -121.6,
+          "z": -43
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "greybrook_crossing_west_objective_banner",
+      "kind": "banner_post",
+      "x": -64,
+      "z": -18,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "greybrook_crossing_west_objective_stone_left",
+      "kind": "rock",
+      "x": -71,
+      "z": -14,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "greybrook_crossing_west_objective_stone_right",
+      "kind": "rock",
+      "x": -57,
+      "z": -14,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "greybrook_crossing_central_objective_banner",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 6,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "greybrook_crossing_central_objective_stone_left",
+      "kind": "rock",
+      "x": -7,
+      "z": 10,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "greybrook_crossing_central_objective_stone_right",
+      "kind": "rock",
+      "x": 7,
+      "z": 10,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "greybrook_crossing_east_objective_banner",
+      "kind": "banner_post",
+      "x": 64,
+      "z": -18,
+      "rotY": 0,
+      "scale": 1.15
+    },
+    {
+      "id": "greybrook_crossing_east_objective_stone_left",
+      "kind": "rock",
+      "x": 57,
+      "z": -14,
+      "rotY": 0.3,
+      "scale": 1.1
+    },
+    {
+      "id": "greybrook_crossing_east_objective_stone_right",
+      "kind": "rock",
+      "x": 71,
+      "z": -14,
+      "rotY": -0.4,
+      "scale": 1.05
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": -69.1,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": -34.9,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -67.7,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -36.3,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 0.95,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": -77.6,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 0.95,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": -26.3,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 0.95,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": -77.6,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": -26.3,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": -77.6,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": -26.3,
+      "z": 84.8,
+      "rotY": 0,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": -52,
+      "z": 39.2,
+      "rotY": 0,
+      "scale": 0.78,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_aegis_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_aegis_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": -52,
+      "z": 84.8,
+      "rotY": 3.1416,
+      "scale": 0.68,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_aegis_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_aegis_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": -61,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": -43,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": -61,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": -43,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.82,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": -66.2,
+      "z": 65.8,
+      "rotY": 1.5708,
+      "scale": 0.82,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": -37.7,
+      "z": 65.8,
+      "rotY": 1.5708,
+      "scale": 0.82,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": -66.2,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": -37.7,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": -66.2,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": -37.7,
+      "z": 76.3,
+      "rotY": 0,
+      "scale": 0.78,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": -52,
+      "z": 54.9,
+      "rotY": 0,
+      "scale": 0.63,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_aegis_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_aegis_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": -52,
+      "z": 76.3,
+      "rotY": 3.1416,
+      "scale": 0.59,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_aegis_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_aegis_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_aegis_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Aegis Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_banner_left",
+      "kind": "banner_post",
+      "x": -74,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_banner_right",
+      "kind": "banner_post",
+      "x": -30,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_front_left_wall",
+      "kind": "wall_segment",
+      "x": 33.1,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_front_right_wall",
+      "kind": "wall_segment",
+      "x": 70.9,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 1.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 34.7,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 69.3,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.05,
+      "scaleX": 2.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_west_wall",
+      "kind": "wall_segment",
+      "x": 23.7,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 1.05,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_east_wall",
+      "kind": "wall_segment",
+      "x": 80.4,
+      "z": 62,
+      "rotY": 1.5708,
+      "scale": 1.05,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_nw",
+      "kind": "tower",
+      "x": 23.7,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_ne",
+      "kind": "tower",
+      "x": 80.4,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_sw",
+      "kind": "tower",
+      "x": 23.7,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_se",
+      "kind": "tower",
+      "x": 80.4,
+      "z": 87.2,
+      "rotY": 0,
+      "scale": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_outer_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_front_gate",
+      "kind": "castle_gate",
+      "x": 52,
+      "z": 36.8,
+      "rotY": 0,
+      "scale": 0.86,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_riftbound_keep_keep_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_riftbound_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Gate",
+        "maxDistance": 20,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_rear_postern",
+      "kind": "castle_door",
+      "x": 52,
+      "z": 87.2,
+      "rotY": 3.1416,
+      "scale": 0.76,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_rear_postern_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_riftbound_keep_keep_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_riftbound_keep_keep_rear_postern_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Postern",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_front_left_wall",
+      "kind": "wall_segment",
+      "x": 42,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_front_right_wall",
+      "kind": "wall_segment",
+      "x": 62,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_left_wall",
+      "kind": "wall_segment",
+      "x": 42,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_right_wall",
+      "kind": "wall_segment",
+      "x": 62,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.9,
+      "scaleX": 1.1,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_west_wall",
+      "kind": "wall_segment",
+      "x": 36.3,
+      "z": 66.2,
+      "rotY": 1.5708,
+      "scale": 0.9,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_west_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_east_wall",
+      "kind": "wall_segment",
+      "x": 67.8,
+      "z": 66.2,
+      "rotY": 1.5708,
+      "scale": 0.9,
+      "scaleX": 2.3,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_east_wall_collider",
+          "width": 10,
+          "depth": 1.8
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_nw",
+      "kind": "tower",
+      "x": 36.3,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_nw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_ne",
+      "kind": "tower",
+      "x": 67.8,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_ne_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_sw",
+      "kind": "tower",
+      "x": 36.3,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_sw_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_se",
+      "kind": "tower",
+      "x": 67.8,
+      "z": 77.8,
+      "rotY": 0,
+      "scale": 0.86,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_tower_se_collider",
+          "width": 7,
+          "depth": 7
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_front_door",
+      "kind": "castle_door",
+      "x": 52,
+      "z": 54.1,
+      "rotY": 0,
+      "scale": 0.69,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_riftbound_keep_keep_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_riftbound_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_door",
+      "kind": "castle_door",
+      "x": 52,
+      "z": 77.8,
+      "rotY": 3.1416,
+      "scale": 0.65,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "greybrook_crossing_riftbound_keep_keep_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "greybrook_crossing_riftbound_keep_keep_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Keep Rear Door",
+        "maxDistance": 12,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_banner_left",
+      "kind": "banner_post",
+      "x": 30,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_banner_right",
+      "kind": "banner_post",
+      "x": 74,
+      "z": 42,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "greybrook_crossing_portal_briarwatch_den",
+      "kind": "gate",
+      "x": -121.6,
+      "z": 43,
+      "rotY": 4.3724,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_portal_briarwatch_den_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_portal_sunmeadow_march",
+      "kind": "gate",
+      "x": -129,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_portal_sunmeadow_march_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_portal_ironwood_redoubt",
+      "kind": "gate",
+      "x": -121.6,
+      "z": -43,
+      "rotY": 5.0524,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "greybrook_crossing_portal_ironwood_redoubt_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_cultivation_station_visual",
+      "kind": "pnw_grass_clump",
+      "x": -34,
+      "z": -48,
+      "rotY": 0,
+      "scale": 1.35
+    },
+    {
+      "id": "greybrook_crossing_salvage_station_visual",
+      "kind": "vendor_stall",
+      "x": 34,
+      "z": -48,
+      "rotY": 0.35,
+      "scale": 0.9
+    },
+    {
+      "id": "greybrook_crossing_apothecary_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -56,
+      "rotY": 0.7,
+      "scale": 0.9
+    },
+    {
+      "id": "greybrook_crossing_west_camp_tent",
+      "kind": "vendor_stall",
+      "x": -46,
+      "z": 12,
+      "rotY": 0.55,
+      "scale": 0.95
+    },
+    {
+      "id": "greybrook_crossing_west_camp_banner",
+      "kind": "banner_post",
+      "x": -58,
+      "z": 6,
+      "rotY": 0,
+      "scale": 1.05
+    },
+    {
+      "id": "greybrook_crossing_east_camp_tent",
+      "kind": "vendor_stall",
+      "x": 46,
+      "z": 12,
+      "rotY": -0.55,
+      "scale": 0.95
+    },
+    {
+      "id": "greybrook_crossing_east_camp_banner",
+      "kind": "banner_post",
+      "x": 58,
+      "z": 6,
+      "rotY": 0,
+      "scale": 1.05
+    },
+    {
+      "id": "greybrook_crossing_keep_supply_cart",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": 26,
+      "rotY": 0,
+      "scale": 0.85
+    },
+    {
+      "id": "greybrook_crossing_field_bridge",
+      "kind": "bridge",
+      "x": 0,
+      "z": -8,
+      "rotY": 0,
+      "scale": 0.75
+    },
+    {
+      "id": "greybrook_crossing_herb_node_01_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -101.7,
+      "z": -64.6,
+      "rotY": 4.8192,
+      "scale": 0.85
+    },
+    {
+      "id": "greybrook_crossing_wood_node_02_visual",
+      "kind": "pnw_fallen_log",
+      "x": -108.5,
+      "z": -3.3,
+      "rotY": 5.9762,
+      "scale": 0.97
+    },
+    {
+      "id": "greybrook_crossing_ore_node_03_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -92.3,
+      "z": 49.4,
+      "rotY": 3.9012,
+      "scale": 1.07
+    },
+    {
+      "id": "greybrook_crossing_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": -38.5,
+      "z": 86.3,
+      "rotY": 2.9916,
+      "scale": 0.85
+    },
+    {
+      "id": "greybrook_crossing_water_node_05_visual",
+      "kind": "pnw_low_shrub",
+      "x": 108.6,
+      "z": -58.3,
+      "rotY": 1.792,
+      "scale": 0.97
+    },
+    {
+      "id": "greybrook_crossing_scrap_node_06_visual",
+      "kind": "rock",
+      "x": 111.7,
+      "z": -7.3,
+      "rotY": 5.9757,
+      "scale": 1.07
+    },
+    {
+      "id": "greybrook_crossing_herb_node_07_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": 93.1,
+      "z": 48.1,
+      "rotY": 2.3636,
+      "scale": 0.85
+    },
+    {
+      "id": "greybrook_crossing_wood_node_08_visual",
+      "kind": "pnw_fallen_log",
+      "x": 40.7,
+      "z": 81.5,
+      "rotY": 3.7517,
+      "scale": 0.97
+    },
+    {
+      "id": "greybrook_crossing_ore_node_09_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -15.5,
+      "z": -90.4,
+      "rotY": 1.2018,
+      "scale": 1.07
+    },
+    {
+      "id": "greybrook_crossing_soil_node_10_visual",
+      "kind": "pnw_grass_clump",
+      "x": 18.7,
+      "z": -91.7,
+      "rotY": 0.1482,
+      "scale": 0.85
+    },
+    {
+      "id": "greybrook_crossing_water_node_11_visual",
+      "kind": "pnw_low_shrub",
+      "x": -75.7,
+      "z": -101.1,
+      "rotY": 5.9498,
+      "scale": 0.97
+    },
+    {
+      "id": "greybrook_crossing_scrap_node_12_visual",
+      "kind": "rock",
+      "x": 68.2,
+      "z": -104.9,
+      "rotY": 1.9712,
+      "scale": 1.07
+    },
+    {
+      "id": "greybrook_crossing_tree_01",
+      "kind": "tree",
+      "x": 26.7,
+      "z": -72.2,
+      "rotY": 0.7707,
+      "scale": 1.46
+    },
+    {
+      "id": "greybrook_crossing_tree_02",
+      "kind": "tree",
+      "x": 23.8,
+      "z": 65.7,
+      "rotY": 3.5518,
+      "scale": 1.38
+    },
+    {
+      "id": "greybrook_crossing_tree_03",
+      "kind": "tree",
+      "x": -111.9,
+      "z": 53.8,
+      "rotY": 0.3415,
+      "scale": 1.03
+    },
+    {
+      "id": "greybrook_crossing_tree_04",
+      "kind": "tree",
+      "x": -48.3,
+      "z": 59.2,
+      "rotY": 5.8931,
+      "scale": 1.13
+    },
+    {
+      "id": "greybrook_crossing_tree_05",
+      "kind": "tree",
+      "x": -19.2,
+      "z": 67.5,
+      "rotY": 4.2106,
+      "scale": 0.86
+    },
+    {
+      "id": "greybrook_crossing_tree_06",
+      "kind": "tree",
+      "x": 4.1,
+      "z": -130.5,
+      "rotY": 3.1059,
+      "scale": 1.37
+    },
+    {
+      "id": "greybrook_crossing_tree_07",
+      "kind": "tree",
+      "x": 2.7,
+      "z": -124.4,
+      "rotY": 0.1429,
+      "scale": 1.47
+    },
+    {
+      "id": "greybrook_crossing_tree_08",
+      "kind": "tree",
+      "x": -11.2,
+      "z": 126,
+      "rotY": 1.0635,
+      "scale": 0.82
+    },
+    {
+      "id": "greybrook_crossing_tree_09",
+      "kind": "tree",
+      "x": 128.7,
+      "z": 11.9,
+      "rotY": 4.4179,
+      "scale": 0.94
+    },
+    {
+      "id": "greybrook_crossing_tree_10",
+      "kind": "tree",
+      "x": -7.9,
+      "z": 91.8,
+      "rotY": 0.5434,
+      "scale": 0.91
+    },
+    {
+      "id": "greybrook_crossing_tree_11",
+      "kind": "tree",
+      "x": 32.1,
+      "z": -117.5,
+      "rotY": 1.401,
+      "scale": 0.94
+    },
+    {
+      "id": "greybrook_crossing_tree_12",
+      "kind": "tree",
+      "x": 92.3,
+      "z": 65,
+      "rotY": 4.6405,
+      "scale": 1.05
+    },
+    {
+      "id": "greybrook_crossing_tree_13",
+      "kind": "tree",
+      "x": 65.1,
+      "z": -24.5,
+      "rotY": 2.1896,
+      "scale": 0.82
+    },
+    {
+      "id": "greybrook_crossing_tree_14",
+      "kind": "tree",
+      "x": -64.9,
+      "z": -36.9,
+      "rotY": 4.7283,
+      "scale": 0.77
+    },
+    {
+      "id": "greybrook_crossing_tree_15",
+      "kind": "tree",
+      "x": -109.9,
+      "z": 1.7,
+      "rotY": 6.1062,
+      "scale": 1.43
+    },
+    {
+      "id": "greybrook_crossing_tree_16",
+      "kind": "tree",
+      "x": 101.4,
+      "z": 8.9,
+      "rotY": 3.2538,
+      "scale": 1.02
+    },
+    {
+      "id": "greybrook_crossing_tree_17",
+      "kind": "tree",
+      "x": 88.7,
+      "z": 66.7,
+      "rotY": 4.5398,
+      "scale": 1.29
+    },
+    {
+      "id": "greybrook_crossing_tree_18",
+      "kind": "tree",
+      "x": 88.4,
+      "z": 20,
+      "rotY": 4.1826,
+      "scale": 0.82
+    },
+    {
+      "id": "greybrook_crossing_tree_19",
+      "kind": "tree",
+      "x": 84.5,
+      "z": 72.5,
+      "rotY": 6.1944,
+      "scale": 1.07
+    },
+    {
+      "id": "greybrook_crossing_tree_20",
+      "kind": "tree",
+      "x": 104.7,
+      "z": 0.3,
+      "rotY": 2.7629,
+      "scale": 0.82
+    },
+    {
+      "id": "greybrook_crossing_tree_21",
+      "kind": "tree",
+      "x": -21.9,
+      "z": -123.3,
+      "rotY": 5.8534,
+      "scale": 1.48
+    },
+    {
+      "id": "greybrook_crossing_tree_22",
+      "kind": "tree",
+      "x": -6.5,
+      "z": -73.2,
+      "rotY": 3.9424,
+      "scale": 0.79
+    },
+    {
+      "id": "greybrook_crossing_tree_23",
+      "kind": "tree",
+      "x": 114.3,
+      "z": 31.6,
+      "rotY": 3.353,
+      "scale": 1.1
+    },
+    {
+      "id": "greybrook_crossing_tree_24",
+      "kind": "tree",
+      "x": -107.4,
+      "z": 65.5,
+      "rotY": 4.56,
+      "scale": 0.91
+    },
+    {
+      "id": "greybrook_crossing_tree_25",
+      "kind": "tree",
+      "x": -56.2,
+      "z": 44.4,
+      "rotY": 6.2726,
+      "scale": 1.01
+    },
+    {
+      "id": "greybrook_crossing_tree_26",
+      "kind": "tree",
+      "x": 62.2,
+      "z": 71.3,
+      "rotY": 0.1803,
+      "scale": 0.79
+    },
+    {
+      "id": "greybrook_crossing_tree_27",
+      "kind": "tree",
+      "x": 110.3,
+      "z": 24.4,
+      "rotY": 1.4678,
+      "scale": 1.27
+    },
+    {
+      "id": "greybrook_crossing_tree_28",
+      "kind": "tree",
+      "x": -25.1,
+      "z": 70,
+      "rotY": 5.9574,
+      "scale": 1.46
+    },
+    {
+      "id": "greybrook_crossing_tree_29",
+      "kind": "tree",
+      "x": -86.8,
+      "z": -79,
+      "rotY": 3.7392,
+      "scale": 0.89
+    },
+    {
+      "id": "greybrook_crossing_tree_30",
+      "kind": "tree",
+      "x": 88.4,
+      "z": 4.8,
+      "rotY": 6.0578,
+      "scale": 1.1
+    },
+    {
+      "id": "greybrook_crossing_tree_31",
+      "kind": "tree",
+      "x": 78,
+      "z": -42.9,
+      "rotY": 2.61,
+      "scale": 1.11
+    },
+    {
+      "id": "greybrook_crossing_tree_32",
+      "kind": "tree",
+      "x": -79,
+      "z": -50.9,
+      "rotY": 0.2719,
+      "scale": 1.36
+    },
+    {
+      "id": "greybrook_crossing_tree_33",
+      "kind": "tree",
+      "x": -24.1,
+      "z": 66,
+      "rotY": 0.5468,
+      "scale": 1.43
+    },
+    {
+      "id": "greybrook_crossing_tree_34",
+      "kind": "tree",
+      "x": 86,
+      "z": 13.1,
+      "rotY": 5.9654,
+      "scale": 0.78
+    },
+    {
+      "id": "greybrook_crossing_tree_35",
+      "kind": "tree",
+      "x": -110.3,
+      "z": 56.1,
+      "rotY": 4.5044,
+      "scale": 0.83
+    },
+    {
+      "id": "greybrook_crossing_tree_36",
+      "kind": "tree",
+      "x": -74.9,
+      "z": 91.6,
+      "rotY": 1.5332,
+      "scale": 1.45
+    },
+    {
+      "id": "greybrook_crossing_tree_37",
+      "kind": "tree",
+      "x": -83,
+      "z": -52.4,
+      "rotY": 5.6785,
+      "scale": 1.47
+    },
+    {
+      "id": "greybrook_crossing_tree_38",
+      "kind": "tree",
+      "x": -86.4,
+      "z": 2.9,
+      "rotY": 5.3055,
+      "scale": 1.1
+    },
+    {
+      "id": "greybrook_crossing_tree_39",
+      "kind": "tree",
+      "x": 73.2,
+      "z": -57.9,
+      "rotY": 0.3408,
+      "scale": 0.82
+    },
+    {
+      "id": "greybrook_crossing_tree_40",
+      "kind": "tree",
+      "x": 13.8,
+      "z": 85.4,
+      "rotY": 1.802,
+      "scale": 1.08
+    },
+    {
+      "id": "greybrook_crossing_tree_41",
+      "kind": "tree",
+      "x": -30,
+      "z": 72.5,
+      "rotY": 3.1544,
+      "scale": 1.46
+    },
+    {
+      "id": "greybrook_crossing_tree_42",
+      "kind": "tree",
+      "x": 20.5,
+      "z": -66.6,
+      "rotY": 5.9071,
+      "scale": 0.87
+    },
+    {
+      "id": "greybrook_crossing_rock_01",
+      "kind": "rock",
+      "x": 92.5,
+      "z": 17.6,
+      "rotY": 4.4987,
+      "scale": 1.51
+    },
+    {
+      "id": "greybrook_crossing_rock_02",
+      "kind": "rock",
+      "x": -32.7,
+      "z": 78.8,
+      "rotY": 0.2371,
+      "scale": 1.38
+    },
+    {
+      "id": "greybrook_crossing_rock_03",
+      "kind": "rock",
+      "x": -91.7,
+      "z": -37.4,
+      "rotY": 6.0589,
+      "scale": 0.97
+    },
+    {
+      "id": "greybrook_crossing_rock_04",
+      "kind": "rock",
+      "x": 38.4,
+      "z": 103.7,
+      "rotY": 3.2623,
+      "scale": 1.29
+    },
+    {
+      "id": "greybrook_crossing_rock_05",
+      "kind": "rock",
+      "x": -33.3,
+      "z": 104.8,
+      "rotY": 0.5319,
+      "scale": 1.26
+    },
+    {
+      "id": "greybrook_crossing_rock_06",
+      "kind": "rock",
+      "x": -48.3,
+      "z": 92.4,
+      "rotY": 0.4426,
+      "scale": 1.11
+    },
+    {
+      "id": "greybrook_crossing_rock_07",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 39,
+      "rotY": 0.1566,
+      "scale": 2.12
+    },
+    {
+      "id": "greybrook_crossing_rock_08",
+      "kind": "rock",
+      "x": 87.2,
+      "z": -16.8,
+      "rotY": 3.1862,
+      "scale": 2.06
+    },
+    {
+      "id": "greybrook_crossing_rock_09",
+      "kind": "rock",
+      "x": 32.8,
+      "z": -93.4,
+      "rotY": 1.6439,
+      "scale": 1.47
+    },
+    {
+      "id": "greybrook_crossing_rock_10",
+      "kind": "rock",
+      "x": 32.7,
+      "z": -84.7,
+      "rotY": 0.7515,
+      "scale": 2.14
+    },
+    {
+      "id": "greybrook_crossing_rock_11",
+      "kind": "rock",
+      "x": 134.1,
+      "z": -0.4,
+      "rotY": 5.8696,
+      "scale": 1.66
+    },
+    {
+      "id": "greybrook_crossing_rock_12",
+      "kind": "rock",
+      "x": -40.5,
+      "z": -82.3,
+      "rotY": 2.8899,
+      "scale": 1.25
+    },
+    {
+      "id": "greybrook_crossing_rock_13",
+      "kind": "rock",
+      "x": -42.8,
+      "z": -116.9,
+      "rotY": 2.466,
+      "scale": 2.41
+    },
+    {
+      "id": "greybrook_crossing_rock_14",
+      "kind": "rock",
+      "x": -63.5,
+      "z": -98.6,
+      "rotY": 4.5627,
+      "scale": 2.28
+    },
+    {
+      "id": "greybrook_crossing_rock_15",
+      "kind": "rock",
+      "x": 54.4,
+      "z": 85.9,
+      "rotY": 4.1463,
+      "scale": 0.86
+    },
+    {
+      "id": "greybrook_crossing_rock_16",
+      "kind": "rock",
+      "x": 118.5,
+      "z": -7.3,
+      "rotY": 4.7609,
+      "scale": 2.49
+    },
+    {
+      "id": "greybrook_crossing_rock_17",
+      "kind": "rock",
+      "x": 74,
+      "z": -72,
+      "rotY": 1.1103,
+      "scale": 1.55
+    },
+    {
+      "id": "greybrook_crossing_rock_18",
+      "kind": "rock",
+      "x": 25.8,
+      "z": 113,
+      "rotY": 6.0045,
+      "scale": 2.43
+    },
+    {
+      "id": "greybrook_crossing_rock_19",
+      "kind": "rock",
+      "x": 78,
+      "z": -54.9,
+      "rotY": 2.8854,
+      "scale": 1.8
+    },
+    {
+      "id": "greybrook_crossing_rock_20",
+      "kind": "rock",
+      "x": 93.5,
+      "z": -96.3,
+      "rotY": 3.7456,
+      "scale": 1.11
+    },
+    {
+      "id": "greybrook_crossing_rock_21",
+      "kind": "rock",
+      "x": -5.4,
+      "z": 114.3,
+      "rotY": 0.0798,
+      "scale": 1.01
+    },
+    {
+      "id": "greybrook_crossing_rock_22",
+      "kind": "rock",
+      "x": 6.5,
+      "z": -105.2,
+      "rotY": 0.9554,
+      "scale": 1.25
+    },
+    {
+      "id": "greybrook_crossing_rock_23",
+      "kind": "rock",
+      "x": -64.5,
+      "z": -78.8,
+      "rotY": 0.2812,
+      "scale": 1.99
+    },
+    {
+      "id": "greybrook_crossing_rock_24",
+      "kind": "rock",
+      "x": -15.8,
+      "z": -126.7,
+      "rotY": 0.7121,
+      "scale": 2.26
+    },
+    {
+      "id": "greybrook_crossing_rock_25",
+      "kind": "rock",
+      "x": -72.4,
+      "z": 98.4,
+      "rotY": 2.313,
+      "scale": 1.97
+    },
+    {
+      "id": "greybrook_crossing_rock_26",
+      "kind": "rock",
+      "x": -52.4,
+      "z": -93.1,
+      "rotY": 3.7619,
+      "scale": 1.81
+    },
+    {
+      "id": "greybrook_crossing_rock_27",
+      "kind": "rock",
+      "x": -47.2,
+      "z": 83.5,
+      "rotY": 3.8059,
+      "scale": 0.9
+    },
+    {
+      "id": "greybrook_crossing_rock_28",
+      "kind": "rock",
+      "x": -129.7,
+      "z": 22.4,
+      "rotY": 4.5718,
+      "scale": 1.12
+    },
+    {
+      "id": "greybrook_crossing_rock_29",
+      "kind": "rock",
+      "x": -122.9,
+      "z": 3.9,
+      "rotY": 4.7921,
+      "scale": 2.21
+    },
+    {
+      "id": "greybrook_crossing_rock_30",
+      "kind": "rock",
+      "x": 132.1,
+      "z": -31.4,
+      "rotY": 3.3464,
+      "scale": 1.49
+    },
+    {
+      "id": "greybrook_crossing_ridge_01",
+      "kind": "rock",
+      "x": 138,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "greybrook_crossing_ridge_02",
+      "kind": "rock",
+      "x": 137.2,
+      "z": 49.9,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "greybrook_crossing_ridge_03",
+      "kind": "rock",
+      "x": 105.7,
+      "z": 88.7,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "greybrook_crossing_ridge_04",
+      "kind": "rock",
+      "x": 73,
+      "z": 126.4,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "greybrook_crossing_ridge_05",
+      "kind": "rock",
+      "x": 24,
+      "z": 135.9,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "greybrook_crossing_ridge_06",
+      "kind": "rock",
+      "x": -25.4,
+      "z": 143.8,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "greybrook_crossing_ridge_07",
+      "kind": "rock",
+      "x": -69,
+      "z": 119.5,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "greybrook_crossing_ridge_08",
+      "kind": "rock",
+      "x": -111.8,
+      "z": 93.8,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "greybrook_crossing_ridge_09",
+      "kind": "rock",
+      "x": -129.7,
+      "z": 47.2,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "greybrook_crossing_ridge_10",
+      "kind": "rock",
+      "x": -146,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "greybrook_crossing_ridge_11",
+      "kind": "rock",
+      "x": -129.7,
+      "z": -47.2,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "greybrook_crossing_ridge_12",
+      "kind": "rock",
+      "x": -111.8,
+      "z": -93.8,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "greybrook_crossing_ridge_13",
+      "kind": "rock",
+      "x": -69,
+      "z": -119.5,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "greybrook_crossing_ridge_14",
+      "kind": "rock",
+      "x": -25.4,
+      "z": -143.8,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "greybrook_crossing_ridge_15",
+      "kind": "rock",
+      "x": 24,
+      "z": -135.9,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "greybrook_crossing_ridge_16",
+      "kind": "rock",
+      "x": 73,
+      "z": -126.4,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "greybrook_crossing_ridge_17",
+      "kind": "rock",
+      "x": 105.7,
+      "z": -88.7,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "greybrook_crossing_ridge_18",
+      "kind": "rock",
+      "x": 137.2,
+      "z": -49.9,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "greybrook_crossing_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "greybrook_crossing_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 2 Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_2_campaign_marshal"
+    },
+    {
+      "id": "greybrook_crossing_scout",
+      "name": "Mira Stonewake",
+      "title": "Forward Scout",
+      "role": "guard",
+      "x": -22,
+      "z": -52,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_forward_scout"
+    },
+    {
+      "id": "greybrook_crossing_craft_mentor",
+      "name": "Alden Voss",
+      "title": "Field Crafting Mentor",
+      "role": "trainer",
+      "x": 22,
+      "z": -52,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_alden_voss_field_crafting_mentor"
+    },
+    {
+      "id": "greybrook_crossing_forager",
+      "name": "Serra Brightfield",
+      "title": "Resource Warden",
+      "role": "ambient",
+      "x": 0,
+      "z": -62,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "greybrook_crossing_cultivation_station",
+      "label": "Field Cultivation Patch",
+      "kind": "cultivation",
+      "x": -34,
+      "z": -48,
+      "radius": 7
+    },
+    {
+      "id": "greybrook_crossing_salvage_station",
+      "label": "War Salvage Bench",
+      "kind": "salvage",
+      "x": 34,
+      "z": -48,
+      "radius": 6
+    },
+    {
+      "id": "greybrook_crossing_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": 0,
+      "z": -56,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "greybrook_crossing_west_raider_1",
+      "name": "Campaign Raider",
+      "level": 9,
+      "x": -46,
+      "z": 2,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 25,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_aegis_campaign_raider_raider"
+    },
+    {
+      "id": "greybrook_crossing_west_guard_1",
+      "name": "Objective Guard",
+      "level": 9,
+      "x": -64,
+      "z": -18,
+      "maxHealth": 190,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 27,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_objective_guard_guard"
+    },
+    {
+      "id": "greybrook_crossing_central_caster_1",
+      "name": "Battlefield Hexer",
+      "level": 9,
+      "x": -10,
+      "z": 14,
+      "maxHealth": 165,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 14,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_battlefield_hexer_caster"
+    },
+    {
+      "id": "greybrook_crossing_central_raider_1",
+      "name": "Campaign Raider",
+      "level": 9,
+      "x": 10,
+      "z": 14,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 25,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_aegis_campaign_raider_raider"
+    },
+    {
+      "id": "greybrook_crossing_east_raider_1",
+      "name": "Campaign Raider",
+      "level": 9,
+      "x": 46,
+      "z": 2,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 25,
+      "moveSpeed": 3.25,
+      "characterProfileKey": "enemy_aegis_campaign_raider_raider"
+    },
+    {
+      "id": "greybrook_crossing_east_guard_1",
+      "name": "Objective Guard",
+      "level": 9,
+      "x": 64,
+      "z": -18,
+      "maxHealth": 190,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 27,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_objective_guard_guard"
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_guard_1",
+      "name": "Aegis Keep Guard",
+      "level": 10,
+      "x": -66,
+      "z": 42,
+      "maxHealth": 210,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 29,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_aegis_keep_guard_guard"
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep_caster_1",
+      "name": "Aegis Keep Sage",
+      "level": 10,
+      "x": -38,
+      "z": 44,
+      "maxHealth": 190,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 15,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_aegis_keep_sage_caster"
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_guard_1",
+      "name": "Riftbound Keep Guard",
+      "level": 10,
+      "x": 38,
+      "z": 44,
+      "maxHealth": 210,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 29,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_guard_guard"
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep_caster_1",
+      "name": "Riftbound Keep Magister",
+      "level": 10,
+      "x": 66,
+      "z": 42,
+      "maxHealth": 190,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 15,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_riftbound_riftbound_keep_magister_caster"
+    },
+    {
+      "id": "greybrook_crossing_field_captain",
+      "name": "Keep Captain",
+      "level": 11,
+      "x": 0,
+      "z": 78,
+      "maxHealth": 300,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.2,
+      "preferredRange": 2.7,
+      "attackDamage": 34,
+      "moveSpeed": 3.05,
+      "characterProfileKey": "enemy_aegis_keep_captain_captain"
+    },
+    {
+      "id": "greybrook_crossing_beast_1",
+      "name": "War Boar",
+      "level": 9,
+      "x": -96,
+      "z": -74,
+      "maxHealth": 160,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 26,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_war_boar"
+    },
+    {
+      "id": "greybrook_crossing_beast_2",
+      "name": "War Boar",
+      "level": 9,
+      "x": 96,
+      "z": -74,
+      "maxHealth": 160,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 26,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_war_boar"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "greybrook_crossing_herb_node_01",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -101.7,
+      "z": -64.6,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_herb_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_wood_node_02",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": -108.5,
+      "z": -3.3,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_wood_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_ore_node_03",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -92.3,
+      "z": 49.4,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_ore_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_soil_node_04",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": -38.5,
+      "z": 86.3,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_water_node_05",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": 108.6,
+      "z": -58.3,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_water_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_scrap_node_06",
+      "label": "Aegis War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 111.7,
+      "z": -7.3,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_scrap_node_06_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_herb_node_07",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": 93.1,
+      "z": 48.1,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_herb_node_07_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_wood_node_08",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": 40.7,
+      "z": 81.5,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_wood_node_08_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_ore_node_09",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -15.5,
+      "z": -90.4,
+      "radius": 5,
+      "xp": 10,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_ore_node_09_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_soil_node_10",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 18.7,
+      "z": -91.7,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_soil_node_10_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_water_node_11",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": -75.7,
+      "z": -101.1,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_water_node_11_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    },
+    {
+      "id": "greybrook_crossing_scrap_node_12",
+      "label": "Aegis War Scrap",
+      "kind": "scrap",
+      "professionId": "salvaging",
+      "x": 68.2,
+      "z": -104.9,
+      "radius": 5,
+      "xp": 8,
+      "respawnSeconds": 90,
+      "visualPropId": "greybrook_crossing_scrap_node_12_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.8,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.55,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "greybrook_crossing_west_objective",
+      "type": "battle_objective",
+      "label": "West Field Standard",
+      "x": -64,
+      "z": -18,
+      "captureRadius": 13,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "greybrook_crossing_central_objective",
+      "type": "battle_objective",
+      "label": "Central Field Standard",
+      "x": 0,
+      "z": 6,
+      "captureRadius": 13,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "greybrook_crossing_east_objective",
+      "type": "battle_objective",
+      "label": "East Field Standard",
+      "x": 64,
+      "z": -18,
+      "captureRadius": 13,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "greybrook_crossing_aegis_keep",
+      "type": "keep",
+      "label": "Aegis War Keep",
+      "x": -52,
+      "z": 62,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    },
+    {
+      "id": "greybrook_crossing_riftbound_keep",
+      "type": "keep",
+      "label": "Riftbound War Keep",
+      "x": 52,
+      "z": 62,
+      "captureRadius": 18,
+      "defaultRealm": "riftbound"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "greybrook_crossing_to_briarwatch_den",
+      "label": "Travel to Briarwatch Den",
+      "x": -121.6,
+      "z": 43,
+      "radius": 9,
+      "targetZoneId": "briarwatch_den",
+      "targetSpawn": {
+        "x": -67.7,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "greybrook_crossing_to_sunmeadow_march",
+      "label": "Travel to Sunmeadow March",
+      "x": -129,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "sunmeadow_march",
+      "targetSpawn": {
+        "x": -113.3,
+        "y": 0,
+        "z": -19.5
+      }
+    },
+    {
+      "id": "greybrook_crossing_to_ironwood_redoubt",
+      "label": "Travel to Ironwood Redoubt",
+      "x": -121.6,
+      "z": -43,
+      "radius": 9,
+      "targetZoneId": "ironwood_redoubt",
+      "targetSpawn": {
+        "x": -113.3,
+        "y": 0,
+        "z": -19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "greybrook_crossing_west_wilds",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": -86,
+      "z": 12,
+      "width": 92,
+      "depth": 176,
+      "count": 58,
+      "seed": 2411936937,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 42
+        },
+        {
+          "x": -52,
+          "z": 62,
+          "radius": 42
+        },
+        {
+          "x": 52,
+          "z": 62,
+          "radius": 42
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    },
+    {
+      "id": "greybrook_crossing_east_wilds",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 86,
+      "z": 12,
+      "width": 92,
+      "depth": 176,
+      "count": 58,
+      "seed": 463334307,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 42
+        },
+        {
+          "x": -52,
+          "z": 62,
+          "radius": 42
+        },
+        {
+          "x": 52,
+          "z": 62,
+          "radius": 42
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    }
+  ],
+  "staticMapHash": "359b0c95d4cbccaf"
+}

@@ -1,0 +1,98 @@
+{
+  "assetId": "prop.town.house_2",
+  "category": "prop",
+  "model": "prop_town_house_2.glb",
+  "fileSizeBytes": 6353184,
+  "meshCount": 7,
+  "totalTris": 83648,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 4760,
+      "faces": 4590,
+      "tris": 9180,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "plaster",
+      "verts": 196,
+      "faces": 190,
+      "tris": 376,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "oak",
+      "verts": 1736,
+      "faces": 1674,
+      "tris": 3348,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "slate",
+      "verts": 33110,
+      "faces": 31925,
+      "tris": 63860,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "aged_oak",
+      "verts": 168,
+      "faces": 162,
+      "tris": 324,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 3120,
+      "faces": 2998,
+      "tris": 6020,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "glass",
+      "verts": 280,
+      "faces": 270,
+      "tris": 540,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_1a8bfdcb-81fb-4cf4-a822-0afb4523fbec/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "house_2",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "f3c387fc9f60c2634e8bce09fb60d260a202b227bef88ca1e641d9c9d53b3a96",
+  "generatedAt": "2026-07-11T20:54:40.434Z",
+  "previewImages": []
+}

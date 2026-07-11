@@ -1,0 +1,980 @@
+{
+  "id": "stormbarrow_lair",
+  "name": "Stormbarrow Lair",
+  "size": 190,
+  "segments": 64,
+  "terrainTexture": "grass.png",
+  "skybox": "sky.hdr",
+  "flatTerrain": false,
+  "staticMapVersion": "aegis-riftbound-v1",
+  "campaign": {
+    "realm": "aegis",
+    "tier": "Boss",
+    "lane": "aegis_west",
+    "laneLabel": "Aegis West March",
+    "nodeRole": "boss_lair",
+    "levelBand": "Tier 3 Boss"
+  },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": -58
+  },
+  "paths": [
+    {
+      "id": "stormbarrow_lair_main_road",
+      "style": "dirt_trail",
+      "width": 7,
+      "points": [
+        {
+          "x": 0,
+          "z": -70
+        },
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "z": 70
+        }
+      ]
+    },
+    {
+      "id": "stormbarrow_lair_portal_road_1",
+      "style": "dirt_trail",
+      "width": 6,
+      "points": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": -81.7,
+          "z": 0
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "stormbarrow_lair_boss_altar",
+      "kind": "statue",
+      "x": 0,
+      "z": 53,
+      "rotY": 0,
+      "scale": 1.7
+    },
+    {
+      "id": "stormbarrow_lair_boss_banner_left",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 38,
+      "rotY": 0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "stormbarrow_lair_boss_banner_right",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 38,
+      "rotY": -0.2,
+      "scale": 1.1
+    },
+    {
+      "id": "stormbarrow_lair_portal_ironwood_redoubt",
+      "kind": "gate",
+      "x": -81.7,
+      "z": 0,
+      "rotY": 4.7124,
+      "scale": 0.85,
+      "colliders": [
+        {
+          "id": "stormbarrow_lair_portal_ironwood_redoubt_marker",
+          "width": 9,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "stormbarrow_lair_general_station_visual",
+      "kind": "vendor_stall",
+      "x": 0,
+      "z": -26,
+      "rotY": 0,
+      "scale": 0.9
+    },
+    {
+      "id": "stormbarrow_lair_lair_cache_left",
+      "kind": "vendor_stall",
+      "x": -20,
+      "z": -18,
+      "rotY": 0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "stormbarrow_lair_lair_cache_right",
+      "kind": "vendor_stall",
+      "x": 20,
+      "z": -18,
+      "rotY": -0.7,
+      "scale": 0.75
+    },
+    {
+      "id": "stormbarrow_lair_lair_warning_totem",
+      "kind": "banner_post",
+      "x": 0,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.2
+    },
+    {
+      "id": "stormbarrow_lair_herb_node_01_visual",
+      "kind": "pnw_wildflower_clump",
+      "x": -47,
+      "z": -24.2,
+      "rotY": 0.0615,
+      "scale": 0.85
+    },
+    {
+      "id": "stormbarrow_lair_wood_node_02_visual",
+      "kind": "pnw_fallen_log",
+      "x": 46.3,
+      "z": -15.6,
+      "rotY": 5.8928,
+      "scale": 0.97
+    },
+    {
+      "id": "stormbarrow_lair_ore_node_03_visual",
+      "kind": "pnw_mossy_boulder",
+      "x": -39,
+      "z": 31.1,
+      "rotY": 0.6037,
+      "scale": 1.07
+    },
+    {
+      "id": "stormbarrow_lair_soil_node_04_visual",
+      "kind": "pnw_grass_clump",
+      "x": 44.7,
+      "z": 33.1,
+      "rotY": 4.8674,
+      "scale": 0.85
+    },
+    {
+      "id": "stormbarrow_lair_water_node_05_visual",
+      "kind": "pnw_low_shrub",
+      "x": -0.9,
+      "z": 74,
+      "rotY": 2.3639,
+      "scale": 0.97
+    },
+    {
+      "id": "stormbarrow_lair_tree_01",
+      "kind": "tree",
+      "x": -3.9,
+      "z": 52.5,
+      "rotY": 3.5418,
+      "scale": 1.17
+    },
+    {
+      "id": "stormbarrow_lair_tree_02",
+      "kind": "tree",
+      "x": -22.7,
+      "z": -79.8,
+      "rotY": 1.3132,
+      "scale": 0.8
+    },
+    {
+      "id": "stormbarrow_lair_tree_03",
+      "kind": "tree",
+      "x": -71.8,
+      "z": -24.4,
+      "rotY": 4.9398,
+      "scale": 1.41
+    },
+    {
+      "id": "stormbarrow_lair_tree_04",
+      "kind": "tree",
+      "x": 34.6,
+      "z": 55.7,
+      "rotY": 0.8993,
+      "scale": 0.77
+    },
+    {
+      "id": "stormbarrow_lair_tree_05",
+      "kind": "tree",
+      "x": -4.1,
+      "z": 46.7,
+      "rotY": 2.8923,
+      "scale": 1.18
+    },
+    {
+      "id": "stormbarrow_lair_tree_06",
+      "kind": "tree",
+      "x": -15.9,
+      "z": 71,
+      "rotY": 1.2675,
+      "scale": 0.99
+    },
+    {
+      "id": "stormbarrow_lair_tree_07",
+      "kind": "tree",
+      "x": 40,
+      "z": 73.1,
+      "rotY": 2.5356,
+      "scale": 1.42
+    },
+    {
+      "id": "stormbarrow_lair_tree_08",
+      "kind": "tree",
+      "x": -17.1,
+      "z": -60.5,
+      "rotY": 1.2118,
+      "scale": 1.07
+    },
+    {
+      "id": "stormbarrow_lair_tree_09",
+      "kind": "tree",
+      "x": 5.1,
+      "z": -45.3,
+      "rotY": 5.806,
+      "scale": 1.42
+    },
+    {
+      "id": "stormbarrow_lair_tree_10",
+      "kind": "tree",
+      "x": -68.4,
+      "z": 26.1,
+      "rotY": 4.4384,
+      "scale": 1.08
+    },
+    {
+      "id": "stormbarrow_lair_tree_11",
+      "kind": "tree",
+      "x": -18.4,
+      "z": -43.4,
+      "rotY": 0.6546,
+      "scale": 0.94
+    },
+    {
+      "id": "stormbarrow_lair_tree_12",
+      "kind": "tree",
+      "x": -57.2,
+      "z": -3,
+      "rotY": 3.8562,
+      "scale": 0.79
+    },
+    {
+      "id": "stormbarrow_lair_tree_13",
+      "kind": "tree",
+      "x": 61.1,
+      "z": 2.3,
+      "rotY": 6.1554,
+      "scale": 0.83
+    },
+    {
+      "id": "stormbarrow_lair_tree_14",
+      "kind": "tree",
+      "x": 24.7,
+      "z": 56.1,
+      "rotY": 3.8433,
+      "scale": 0.99
+    },
+    {
+      "id": "stormbarrow_lair_tree_15",
+      "kind": "tree",
+      "x": 20.1,
+      "z": -48.2,
+      "rotY": 1.4047,
+      "scale": 0.88
+    },
+    {
+      "id": "stormbarrow_lair_tree_16",
+      "kind": "tree",
+      "x": 8.6,
+      "z": 50.6,
+      "rotY": 0.7196,
+      "scale": 1.09
+    },
+    {
+      "id": "stormbarrow_lair_tree_17",
+      "kind": "tree",
+      "x": -57.5,
+      "z": -36.9,
+      "rotY": 3.7155,
+      "scale": 1.24
+    },
+    {
+      "id": "stormbarrow_lair_tree_18",
+      "kind": "tree",
+      "x": -39.1,
+      "z": 42.1,
+      "rotY": 3.2624,
+      "scale": 1.04
+    },
+    {
+      "id": "stormbarrow_lair_tree_19",
+      "kind": "tree",
+      "x": 28.8,
+      "z": -76.1,
+      "rotY": 2.8659,
+      "scale": 1.35
+    },
+    {
+      "id": "stormbarrow_lair_tree_20",
+      "kind": "tree",
+      "x": 0.8,
+      "z": -60.9,
+      "rotY": 5.488,
+      "scale": 1.25
+    },
+    {
+      "id": "stormbarrow_lair_rock_01",
+      "kind": "rock",
+      "x": 56.4,
+      "z": -7.8,
+      "rotY": 2.4324,
+      "scale": 2.26
+    },
+    {
+      "id": "stormbarrow_lair_rock_02",
+      "kind": "rock",
+      "x": -71,
+      "z": 24.9,
+      "rotY": 3.7902,
+      "scale": 1.08
+    },
+    {
+      "id": "stormbarrow_lair_rock_03",
+      "kind": "rock",
+      "x": -40.1,
+      "z": 73.6,
+      "rotY": 3.7733,
+      "scale": 2.2
+    },
+    {
+      "id": "stormbarrow_lair_rock_04",
+      "kind": "rock",
+      "x": 37.2,
+      "z": -76.1,
+      "rotY": 4.3739,
+      "scale": 2.28
+    },
+    {
+      "id": "stormbarrow_lair_rock_05",
+      "kind": "rock",
+      "x": -15.2,
+      "z": -64.2,
+      "rotY": 3.2389,
+      "scale": 0.79
+    },
+    {
+      "id": "stormbarrow_lair_rock_06",
+      "kind": "rock",
+      "x": 15.4,
+      "z": -51.9,
+      "rotY": 0.0242,
+      "scale": 2.17
+    },
+    {
+      "id": "stormbarrow_lair_rock_07",
+      "kind": "rock",
+      "x": 68,
+      "z": 32.1,
+      "rotY": 1.6394,
+      "scale": 1.95
+    },
+    {
+      "id": "stormbarrow_lair_rock_08",
+      "kind": "rock",
+      "x": -59.2,
+      "z": -59.6,
+      "rotY": 2.0811,
+      "scale": 0.74
+    },
+    {
+      "id": "stormbarrow_lair_rock_09",
+      "kind": "rock",
+      "x": -66.7,
+      "z": 32.6,
+      "rotY": 0.7076,
+      "scale": 1.8
+    },
+    {
+      "id": "stormbarrow_lair_rock_10",
+      "kind": "rock",
+      "x": 71.6,
+      "z": 7.5,
+      "rotY": 5.1026,
+      "scale": 1.82
+    },
+    {
+      "id": "stormbarrow_lair_rock_11",
+      "kind": "rock",
+      "x": 25.6,
+      "z": -76.3,
+      "rotY": 6.035,
+      "scale": 2.3
+    },
+    {
+      "id": "stormbarrow_lair_rock_12",
+      "kind": "rock",
+      "x": 8.3,
+      "z": -61.4,
+      "rotY": 0.703,
+      "scale": 1.65
+    },
+    {
+      "id": "stormbarrow_lair_rock_13",
+      "kind": "rock",
+      "x": 70.5,
+      "z": -40.5,
+      "rotY": 3.9196,
+      "scale": 2.18
+    },
+    {
+      "id": "stormbarrow_lair_rock_14",
+      "kind": "rock",
+      "x": 17,
+      "z": -59.7,
+      "rotY": 1.2498,
+      "scale": 1.25
+    },
+    {
+      "id": "stormbarrow_lair_rock_15",
+      "kind": "rock",
+      "x": -44.4,
+      "z": -73.8,
+      "rotY": 3.2686,
+      "scale": 1.34
+    },
+    {
+      "id": "stormbarrow_lair_rock_16",
+      "kind": "rock",
+      "x": -17,
+      "z": -77.4,
+      "rotY": 0.6711,
+      "scale": 2.11
+    },
+    {
+      "id": "stormbarrow_lair_rock_17",
+      "kind": "rock",
+      "x": 4.5,
+      "z": -58.8,
+      "rotY": 3.8956,
+      "scale": 0.98
+    },
+    {
+      "id": "stormbarrow_lair_rock_18",
+      "kind": "rock",
+      "x": 79.1,
+      "z": -11.8,
+      "rotY": 0.5971,
+      "scale": 1.1
+    },
+    {
+      "id": "stormbarrow_lair_ridge_01",
+      "kind": "rock",
+      "x": 87.4,
+      "z": 0,
+      "rotY": 0,
+      "scale": 1.9
+    },
+    {
+      "id": "stormbarrow_lair_ridge_02",
+      "kind": "rock",
+      "x": 89.6,
+      "z": 32.6,
+      "rotY": 0.3491,
+      "scale": 2.35
+    },
+    {
+      "id": "stormbarrow_lair_ridge_03",
+      "kind": "rock",
+      "x": 67,
+      "z": 56.2,
+      "rotY": 0.6981,
+      "scale": 2.8
+    },
+    {
+      "id": "stormbarrow_lair_ridge_04",
+      "kind": "rock",
+      "x": 47.7,
+      "z": 82.6,
+      "rotY": 1.0472,
+      "scale": 3.25
+    },
+    {
+      "id": "stormbarrow_lair_ridge_05",
+      "kind": "rock",
+      "x": 15.2,
+      "z": 86.1,
+      "rotY": 1.3963,
+      "scale": 1.9
+    },
+    {
+      "id": "stormbarrow_lair_ridge_06",
+      "kind": "rock",
+      "x": -16.6,
+      "z": 94,
+      "rotY": 1.7453,
+      "scale": 2.35
+    },
+    {
+      "id": "stormbarrow_lair_ridge_07",
+      "kind": "rock",
+      "x": -43.7,
+      "z": 75.7,
+      "rotY": 2.0944,
+      "scale": 2.8
+    },
+    {
+      "id": "stormbarrow_lair_ridge_08",
+      "kind": "rock",
+      "x": -73.1,
+      "z": 61.3,
+      "rotY": 2.4435,
+      "scale": 3.25
+    },
+    {
+      "id": "stormbarrow_lair_ridge_09",
+      "kind": "rock",
+      "x": -82.1,
+      "z": 29.9,
+      "rotY": 2.7925,
+      "scale": 1.9
+    },
+    {
+      "id": "stormbarrow_lair_ridge_10",
+      "kind": "rock",
+      "x": -95.4,
+      "z": 0,
+      "rotY": 3.1416,
+      "scale": 2.35
+    },
+    {
+      "id": "stormbarrow_lair_ridge_11",
+      "kind": "rock",
+      "x": -82.1,
+      "z": -29.9,
+      "rotY": 3.4907,
+      "scale": 2.8
+    },
+    {
+      "id": "stormbarrow_lair_ridge_12",
+      "kind": "rock",
+      "x": -73.1,
+      "z": -61.3,
+      "rotY": 3.8397,
+      "scale": 3.25
+    },
+    {
+      "id": "stormbarrow_lair_ridge_13",
+      "kind": "rock",
+      "x": -43.7,
+      "z": -75.7,
+      "rotY": 4.1888,
+      "scale": 1.9
+    },
+    {
+      "id": "stormbarrow_lair_ridge_14",
+      "kind": "rock",
+      "x": -16.6,
+      "z": -94,
+      "rotY": 4.5379,
+      "scale": 2.35
+    },
+    {
+      "id": "stormbarrow_lair_ridge_15",
+      "kind": "rock",
+      "x": 15.2,
+      "z": -86.1,
+      "rotY": 4.8869,
+      "scale": 2.8
+    },
+    {
+      "id": "stormbarrow_lair_ridge_16",
+      "kind": "rock",
+      "x": 47.7,
+      "z": -82.6,
+      "rotY": 5.236,
+      "scale": 3.25
+    },
+    {
+      "id": "stormbarrow_lair_ridge_17",
+      "kind": "rock",
+      "x": 67,
+      "z": -56.2,
+      "rotY": 5.5851,
+      "scale": 1.9
+    },
+    {
+      "id": "stormbarrow_lair_ridge_18",
+      "kind": "rock",
+      "x": 89.6,
+      "z": -32.6,
+      "rotY": 5.9341,
+      "scale": 2.35
+    }
+  ],
+  "npcs": [
+    {
+      "id": "stormbarrow_lair_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "stormbarrow_lair_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 3 Boss Campaign Marshal",
+      "role": "guard",
+      "x": 16,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_3_boss_campaign_marshal"
+    },
+    {
+      "id": "stormbarrow_lair_expedition_guide",
+      "name": "Mira Stonewake",
+      "title": "Expedition Guide",
+      "role": "ambient",
+      "x": 0,
+      "z": -34,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_expedition_guide"
+    }
+  ],
+  "craftingStations": [
+    {
+      "id": "stormbarrow_lair_general_station",
+      "label": "Expedition Supply Cache",
+      "kind": "general",
+      "x": 0,
+      "z": -26,
+      "radius": 6
+    }
+  ],
+  "enemies": [
+    {
+      "id": "stormbarrow_lair_overlord",
+      "name": "Stormbarrow Lair Overlord",
+      "level": 28,
+      "x": 0,
+      "z": 48,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.5,
+      "attackDamage": 34,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_aegis_stormbarrow_lair_overlord_captain"
+    },
+    {
+      "id": "stormbarrow_lair_sentinel_1",
+      "name": "Lair Sentinel",
+      "level": 27,
+      "x": -18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 63,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "stormbarrow_lair_sentinel_2",
+      "name": "Lair Sentinel",
+      "level": 27,
+      "x": 18,
+      "z": 30,
+      "maxHealth": 260,
+      "archetype": "guard",
+      "aggroRange": 14,
+      "attackRange": 3,
+      "preferredRange": 2.4,
+      "attackDamage": 63,
+      "moveSpeed": 2.75,
+      "characterProfileKey": "enemy_aegis_lair_sentinel_guard"
+    },
+    {
+      "id": "stormbarrow_lair_beast_1",
+      "name": "Barrow Wolf",
+      "level": 26,
+      "x": -38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 60,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "stormbarrow_lair_beast_2",
+      "name": "Barrow Wolf",
+      "level": 26,
+      "x": 38,
+      "z": -2,
+      "maxHealth": 190,
+      "archetype": "beast",
+      "aggroRange": 16,
+      "attackRange": 2.4,
+      "preferredRange": 1.9,
+      "attackDamage": 60,
+      "moveSpeed": 3.85,
+      "assetKey": "creature_barrow_wolf"
+    },
+    {
+      "id": "stormbarrow_lair_adept_1",
+      "name": "Lair Cultist",
+      "level": 27,
+      "x": -24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 32,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    },
+    {
+      "id": "stormbarrow_lair_adept_2",
+      "name": "Lair Cultist",
+      "level": 27,
+      "x": 24,
+      "z": 58,
+      "maxHealth": 220,
+      "archetype": "caster",
+      "aggroRange": 18,
+      "attackRange": 14,
+      "preferredRange": 12,
+      "attackDamage": 32,
+      "moveSpeed": 2.55,
+      "characterProfileKey": "enemy_aegis_lair_cultist_caster"
+    }
+  ],
+  "resourceNodes": [
+    {
+      "id": "stormbarrow_lair_herb_node_01",
+      "label": "Aegis Herb Patch",
+      "kind": "herb",
+      "professionId": "cultivation",
+      "x": -47,
+      "z": -24.2,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "stormbarrow_lair_herb_node_01_visual",
+      "loot": [
+        {
+          "key": "craft_mandrake_root",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "craft_goldweed",
+          "qty": 1,
+          "chance": 0.65,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.18
+        }
+      ]
+    },
+    {
+      "id": "stormbarrow_lair_wood_node_02",
+      "label": "Aegis Fallen Timber",
+      "kind": "wood",
+      "professionId": "cultivation",
+      "x": 46.3,
+      "z": -15.6,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "stormbarrow_lair_wood_node_02_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.62
+        },
+        {
+          "key": "seed_mandrake",
+          "qty": 1,
+          "chance": 0.24
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1,
+          "chance": 0.22
+        }
+      ]
+    },
+    {
+      "id": "stormbarrow_lair_ore_node_03",
+      "label": "Aegis Ore Vein",
+      "kind": "ore",
+      "professionId": "salvaging",
+      "x": -39,
+      "z": 31.1,
+      "radius": 5,
+      "xp": 13,
+      "respawnSeconds": 120,
+      "visualPropId": "stormbarrow_lair_ore_node_03_visual",
+      "loot": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1,
+          "chance": 0.26
+        }
+      ]
+    },
+    {
+      "id": "stormbarrow_lair_soil_node_04",
+      "label": "Aegis Fertile Soil",
+      "kind": "soil",
+      "professionId": "cultivation",
+      "x": 44.7,
+      "z": 33.1,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "stormbarrow_lair_soil_node_04_visual",
+      "loot": [
+        {
+          "key": "craft_fertile_soil",
+          "qty": 1,
+          "chance": 0.85,
+          "minQty": 1,
+          "maxQty": 2
+        },
+        {
+          "key": "seed_goldweed",
+          "qty": 1,
+          "chance": 0.18
+        },
+        {
+          "key": "craft_stabilizing_salt",
+          "qty": 1,
+          "chance": 0.16
+        }
+      ]
+    },
+    {
+      "id": "stormbarrow_lair_water_node_05",
+      "label": "Aegis Springwater",
+      "kind": "water",
+      "professionId": "cultivation",
+      "x": -0.9,
+      "z": 74,
+      "radius": 5,
+      "xp": 11,
+      "respawnSeconds": 120,
+      "visualPropId": "stormbarrow_lair_water_node_05_visual",
+      "loot": [
+        {
+          "key": "craft_clear_water",
+          "qty": 1,
+          "chance": 0.9,
+          "minQty": 1,
+          "maxQty": 3
+        },
+        {
+          "key": "craft_vial_cloudy",
+          "qty": 1,
+          "chance": 0.28
+        }
+      ]
+    }
+  ],
+  "rvrObjectives": [
+    {
+      "id": "stormbarrow_lair_boss",
+      "type": "boss",
+      "label": "Stormbarrow Lair Overlord",
+      "x": 0,
+      "z": 48,
+      "captureRadius": 18,
+      "defaultRealm": "aegis"
+    }
+  ],
+  "zoneTriggers": [
+    {
+      "id": "stormbarrow_lair_to_ironwood_redoubt",
+      "label": "Travel to Ironwood Redoubt",
+      "x": -81.7,
+      "z": 0,
+      "radius": 9,
+      "targetZoneId": "ironwood_redoubt",
+      "targetSpawn": {
+        "x": -113.3,
+        "y": 0,
+        "z": 19.5
+      }
+    }
+  ],
+  "biomeKits": [
+    {
+      "id": "stormbarrow_lair_lair_ring",
+      "biomeId": "evergreen_pnw",
+      "activeSeason": "summer",
+      "x": 0,
+      "z": 8,
+      "width": 171,
+      "depth": 142.5,
+      "count": 42,
+      "seed": 2707105059,
+      "shape": "ellipse",
+      "exclude": [
+        {
+          "x": 0,
+          "z": -40,
+          "radius": 24
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "radius": 34
+        },
+        {
+          "x": 0,
+          "z": 58,
+          "radius": 24
+        }
+      ],
+      "allowedKinds": [
+        "pnw_douglas_fir",
+        "pnw_sword_fern",
+        "pnw_grass_clump",
+        "pnw_wildflower_clump",
+        "pnw_mossy_boulder"
+      ]
+    }
+  ],
+  "staticMapHash": "835cc13e04be3af8"
+}

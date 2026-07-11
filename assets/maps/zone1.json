@@ -5,40 +5,197 @@
   "segments": 112,
   "terrainTexture": "grass.png",
   "skybox": "sky.hdr",
-  "spawnPoint": { "x": 0, "y": 0, "z": 0 },
+  "spawnPoint": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
   "props": [
-    { "kind": "building", "x": 14, "z": -12, "rotY": 0.6 },
-    { "kind": "building", "x": -18, "z": 8, "rotY": -0.3, "scale": 0.9 },
-    { "kind": "building", "x": 2, "z": -28, "rotY": 0.0, "scale": 1.1 },
-    { "kind": "tree", "x": 8, "z": 10 },
-    { "kind": "tree", "x": -10, "z": -4 },
-    { "kind": "tree", "x": 22, "z": 4 },
-    { "kind": "tree", "x": -22, "z": -18 },
-    { "kind": "tree", "x": 28, "z": 22 },
-    { "kind": "tree", "x": -28, "z": 22 },
-    { "kind": "tree", "x": 14, "z": 28 },
-    { "kind": "tree", "x": -14, "z": 32 },
-    { "kind": "tree", "x": 34, "z": -14 },
-    { "kind": "tree", "x": -34, "z": 4 },
-    { "kind": "tree", "x": 42, "z": 12 },
-    { "kind": "tree", "x": -42, "z": -22 },
-    { "kind": "tree", "x": 6, "z": -38 },
-    { "kind": "tree", "x": -6, "z": 40 },
-    { "kind": "rock", "x": 4, "z": 6 },
-    { "kind": "rock", "x": -7, "z": 2 },
-    { "kind": "rock", "x": 18, "z": -2 },
-    { "kind": "rock", "x": -18, "z": 14, "scale": 1.4 },
-    { "kind": "rock", "x": 26, "z": -8 },
-    { "kind": "rock", "x": -26, "z": -10, "scale": 0.8 },
-    { "kind": "rock", "x": 10, "z": 20 }
+    {
+      "kind": "building",
+      "x": 14,
+      "z": -12,
+      "rotY": 0.6
+    },
+    {
+      "kind": "building",
+      "x": -18,
+      "z": 8,
+      "rotY": -0.3,
+      "scale": 0.9
+    },
+    {
+      "kind": "building",
+      "x": 2,
+      "z": -28,
+      "rotY": 0,
+      "scale": 1.1
+    },
+    {
+      "kind": "tree",
+      "x": 8,
+      "z": 10
+    },
+    {
+      "kind": "tree",
+      "x": -10,
+      "z": -4
+    },
+    {
+      "kind": "tree",
+      "x": 22,
+      "z": 4
+    },
+    {
+      "kind": "tree",
+      "x": -22,
+      "z": -18
+    },
+    {
+      "kind": "tree",
+      "x": 28,
+      "z": 22
+    },
+    {
+      "kind": "tree",
+      "x": -28,
+      "z": 22
+    },
+    {
+      "kind": "tree",
+      "x": 14,
+      "z": 28
+    },
+    {
+      "kind": "tree",
+      "x": -14,
+      "z": 32
+    },
+    {
+      "kind": "tree",
+      "x": 34,
+      "z": -14
+    },
+    {
+      "kind": "tree",
+      "x": -34,
+      "z": 4
+    },
+    {
+      "kind": "tree",
+      "x": 42,
+      "z": 12
+    },
+    {
+      "kind": "tree",
+      "x": -42,
+      "z": -22
+    },
+    {
+      "kind": "tree",
+      "x": 6,
+      "z": -38
+    },
+    {
+      "kind": "tree",
+      "x": -6,
+      "z": 40
+    },
+    {
+      "kind": "rock",
+      "x": 4,
+      "z": 6
+    },
+    {
+      "kind": "rock",
+      "x": -7,
+      "z": 2
+    },
+    {
+      "kind": "rock",
+      "x": 18,
+      "z": -2
+    },
+    {
+      "kind": "rock",
+      "x": -18,
+      "z": 14,
+      "scale": 1.4
+    },
+    {
+      "kind": "rock",
+      "x": 26,
+      "z": -8
+    },
+    {
+      "kind": "rock",
+      "x": -26,
+      "z": -10,
+      "scale": 0.8
+    },
+    {
+      "kind": "rock",
+      "x": 10,
+      "z": 20
+    }
   ],
   "enemies": [
-    { "id": "dummy-1",    "name": "Training Dummy",    "level": 1, "x":  5,   "z": -3,  "maxHealth":  60, "aggroRange": 0 },
-    { "id": "dummy-2",    "name": "Heavy Dummy",        "level": 3, "x": -4,   "z": -5,  "maxHealth": 120, "aggroRange": 0 },
-    { "id": "dummy-3",    "name": "Stout Target",       "level": 2, "x":  0,   "z": -10, "maxHealth":  90, "aggroRange": 0 },
-    { "id": "ruffian-1",  "name": "Greenskin Ruffian",  "level": 2, "x": -16,  "z": -10, "maxHealth":  80,
-      "aggroRange": 8, "attackRange": 2.5, "attackDamage": 6, "moveSpeed": 3.5 },
-    { "id": "brute-1",    "name": "Greenskin Brute",    "level": 4, "x":  20,  "z": -18, "maxHealth": 160,
-      "aggroRange": 10, "attackRange": 2.5, "attackDamage": 10, "moveSpeed": 3.0 }
-  ]
+    {
+      "id": "dummy-1",
+      "name": "Training Dummy",
+      "level": 1,
+      "x": 5,
+      "z": -3,
+      "maxHealth": 60,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "dummy-2",
+      "name": "Heavy Dummy",
+      "level": 3,
+      "x": -4,
+      "z": -5,
+      "maxHealth": 120,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "dummy-3",
+      "name": "Stout Target",
+      "level": 2,
+      "x": 0,
+      "z": -10,
+      "maxHealth": 90,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "ruffian-1",
+      "name": "Greenskin Ruffian",
+      "level": 2,
+      "x": -16,
+      "z": -10,
+      "maxHealth": 80,
+      "aggroRange": 8,
+      "attackRange": 2.5,
+      "attackDamage": 6,
+      "moveSpeed": 3.5,
+      "characterProfileKey": "enemy_riftbound_greenskin_ruffian_raider"
+    },
+    {
+      "id": "brute-1",
+      "name": "Greenskin Brute",
+      "level": 4,
+      "x": 20,
+      "z": -18,
+      "maxHealth": 160,
+      "aggroRange": 10,
+      "attackRange": 2.5,
+      "attackDamage": 10,
+      "moveSpeed": 3,
+      "characterProfileKey": "enemy_riftbound_greenskin_brute_raider"
+    }
+  ],
+  "npcs": []
 }

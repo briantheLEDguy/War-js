@@ -1,0 +1,50 @@
+{
+  "assetId": "prop.town.vertical_beam",
+  "category": "prop",
+  "model": "prop_town_vertical_beam.glb",
+  "fileSizeBytes": 23748,
+  "meshCount": 1,
+  "totalTris": 108,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "oak",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_d82a1fcf-4b8e-44ae-8ff9-2669a8a692c1/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "vertical_beam",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered Aegis frontier architecture"
+  },
+  "modelSha256": "6ce03f9c393bdb571d955cba619db7efac44a1505dc296cd9165f4191a5be429",
+  "generatedAt": "2026-07-11T20:08:12.421Z",
+  "previewImages": []
+}

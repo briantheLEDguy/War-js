@@ -1,0 +1,58 @@
+{
+  "assetId": "prop.town.diamond_window",
+  "category": "prop",
+  "model": "prop_town_diamond_window.glb",
+  "fileSizeBytes": 115748,
+  "meshCount": 2,
+  "totalTris": 1188,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "glass",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 560,
+      "faces": 540,
+      "tris": 1080,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_6c3347fa-9875-4ca3-9a84-f15d34b43913/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "diamond_window",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered Aegis frontier architecture"
+  },
+  "modelSha256": "c5d8f781eef1829c714d70f4af1688161c41f8d2eb24de671027f774cb5d0b47",
+  "generatedAt": "2026-07-11T20:06:44.590Z",
+  "previewImages": []
+}

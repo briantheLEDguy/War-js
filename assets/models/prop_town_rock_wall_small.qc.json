@@ -1,0 +1,50 @@
+{
+  "assetId": "prop.town.rock_wall_small",
+  "category": "prop",
+  "model": "prop_town_rock_wall_small.glb",
+  "fileSizeBytes": 107972,
+  "meshCount": 1,
+  "totalTris": 1296,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 672,
+      "faces": 648,
+      "tris": 1296,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_8b8a6fe2-e9cb-4b5d-8bb0-5e2caa8a13a6/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "rock_wall_small",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered Aegis frontier architecture"
+  },
+  "modelSha256": "72f29e9f2e7d2c727c06b05be3db9967ddbe5b68ee89dcd07b4840f6e0fdd073",
+  "generatedAt": "2026-07-11T20:07:59.588Z",
+  "previewImages": []
+}
