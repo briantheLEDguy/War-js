@@ -40,4 +40,25 @@ describe('dark-fantasy town building system', () => {
       cameraSolid: true,
     }));
   });
+
+  test('maps the dark-fantasy fortress build pack into the GM prefab catalog', () => {
+    const prefabs = prefabsForGroup('Fortress Build Pack');
+    expect(prefabs.map((prefab) => prefab.kind)).toEqual(expect.arrayContaining([
+      'castle_gate',
+      'town_fortress_wall',
+      'town_fortress_corner_tower',
+      'town_fortress_gatehouse',
+      'town_fortress_wall_stairs',
+      'town_fortress_brazier',
+      'town_fortress_banner',
+      'town_fortress_barricade',
+    ]));
+
+    for (const prefab of prefabs.filter((entry) => entry.kind.startsWith('town_fortress_'))) {
+      expect(prefab.assetKey, prefab.kind).toBe(prefab.kind);
+      expect(prefab.model, prefab.kind).toMatch(/^prop_town_fortress_.*\.glb$/);
+      expect(assetIndex.staticProps[prefab.assetKey!]?.model, prefab.kind).toBe(prefab.model);
+      expect(existsSync(path.join(modelDir, prefab.model!)), prefab.kind).toBe(true);
+    }
+  });
 });

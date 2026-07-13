@@ -1,0 +1,29 @@
+{
+  "assetId": "prop.town.fortress_wall",
+  "displayName": "Dark Fantasy Fortress Wall",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": ["dark_fantasy_town", "fortress_build_pack", "original_procedural"],
+  "runtime": { "staticKey": "town_fortress_wall" },
+  "output": { "model": "prop_town_fortress_wall.glb", "artifactDir": "artifacts/blender/dark-fantasy-town/fortress_wall" },
+  "generator": { "kind": "staticPreset", "preset": "dark_fantasy_town_fortress_wall" },
+  "geometry": {
+    "originRule": "base_center_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [{ "name": "LOD0", "triTarget": 52000, "screenCoverageMin": 0.14 }]
+  },
+  "materials": { "master": "MM_DarkFantasyTownPbr", "textureSet": "generated_town_fortress_wall", "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion"] },
+  "collision": { "policy": "editor_prefab_wall", "primitives": [{ "type": "box", "tag": "curtain_wall" }] },
+  "compatibility": { "occupiesSlots": ["prop"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": ["art_direction", "procedural_geometry"],
+    "promptIds": ["original_dark_fantasy_fortress_pack_v1"],
+    "referencePackId": "original_aegis_riftbound_architecture",
+    "similarityReview": "not_required",
+    "source": "scripts/blender-character-pipeline/blender/generate_dark_fantasy_town.py"
+  },
+  "qc": { "allowNonManifold": true, "allowUvOverlap": true, "maxDrawCalls": 8, "maxFileSizeMb": 24, "maxMeshObjects": 8, "maxTris": 140000, "requiresSkinnedMeshes": false }
+}

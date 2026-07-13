@@ -1,0 +1,29 @@
+{
+  "assetId": "prop.town.fortress_corner_tower",
+  "displayName": "Dark Fantasy Fortress Corner Tower",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": ["dark_fantasy_town", "fortress_build_pack", "original_procedural"],
+  "runtime": { "staticKey": "town_fortress_corner_tower" },
+  "output": { "model": "prop_town_fortress_corner_tower.glb", "artifactDir": "artifacts/blender/dark-fantasy-town/fortress_corner_tower" },
+  "generator": { "kind": "staticPreset", "preset": "dark_fantasy_town_fortress_corner_tower" },
+  "geometry": {
+    "originRule": "base_center_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [{ "name": "LOD0", "triTarget": 48000, "screenCoverageMin": 0.12 }]
+  },
+  "materials": { "master": "MM_DarkFantasyTownPbr", "textureSet": "generated_town_fortress_corner_tower", "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion"] },
+  "collision": { "policy": "editor_prefab_tower", "primitives": [{ "type": "cylinder", "tag": "tower_footprint" }] },
+  "compatibility": { "occupiesSlots": ["prop"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": ["art_direction", "procedural_geometry"],
+    "promptIds": ["original_dark_fantasy_fortress_pack_v1"],
+    "referencePackId": "original_aegis_riftbound_architecture",
+    "similarityReview": "not_required",
+    "source": "scripts/blender-character-pipeline/blender/generate_dark_fantasy_town.py"
+  },
+  "qc": { "allowNonManifold": true, "allowUvOverlap": true, "maxDrawCalls": 8, "maxFileSizeMb": 24, "maxMeshObjects": 8, "maxTris": 130000, "requiresSkinnedMeshes": false }
+}

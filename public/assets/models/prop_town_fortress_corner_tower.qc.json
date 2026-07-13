@@ -1,0 +1,74 @@
+{
+  "assetId": "prop.town.fortress_corner_tower",
+  "category": "prop",
+  "model": "prop_town_fortress_corner_tower.glb",
+  "fileSizeBytes": 279612,
+  "meshCount": 4,
+  "totalTris": 3124,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "mortar",
+      "verts": 360,
+      "faces": 306,
+      "tris": 708,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "stone",
+      "verts": 904,
+      "faces": 858,
+      "tris": 1748,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "slate",
+      "verts": 120,
+      "faces": 102,
+      "tris": 236,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 224,
+      "faces": 216,
+      "tris": 432,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_2f6fdcdf-b9dd-4bdd-a55c-550a456d70ac/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_corner_tower",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "b6b7746fe68ac258f01560351399d17a05952ec28221052c9c902d982d449967",
+  "generatedAt": "2026-07-13T13:52:44.147Z",
+  "previewImages": []
+}

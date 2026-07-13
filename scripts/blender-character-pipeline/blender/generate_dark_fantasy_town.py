@@ -495,6 +495,161 @@ def town_castle(mats):
     return parts
 
 
+def fortress_wall(mats):
+    """A repeatable high curtain wall with a usable-looking crenellated walk."""
+    parts = [
+        box("fortress_wall_core", (0, 0, 3.2), (12.0, 2.65, 6.4), mats["stone"], 0.12),
+        box("fortress_wall_crown", (0, 0, 6.35), (12.35, 2.9, 0.55), mats["mortar"], 0.07),
+        box("fortress_wall_walk", (0, 0, 6.72), (11.75, 2.35, 0.20), mats["slate"], 0.04),
+    ]
+    for side in (-1, 1):
+        face = stone_wall("fortress_wall_face", 11.55, 5.95, 0.20, mats, 10)
+        for obj in face:
+            obj.location += Vector((0, side * 1.38, 0.10))
+        parts += face
+    for x in (-5.15, -3.1, -1.05, 1.05, 3.1, 5.15):
+        parts.append(box("fortress_wall_merlon", (x, 0, 7.45), (1.28, 2.9, 1.75), mats["stone"], 0.07))
+    for x in (-4.5, 4.5):
+        parts.append(box("fortress_wall_buttress_front", (x, -1.58, 2.65), (1.2, 0.72, 5.3), mats["stone"], 0.08))
+        parts.append(box("fortress_wall_buttress_back", (x, 1.58, 2.65), (1.2, 0.72, 5.3), mats["stone"], 0.08))
+    for x in (-2.25, 2.25):
+        parts.append(box("fortress_wall_arrow_slit", (x, -1.48, 4.0), (0.28, 0.12, 1.7), mats["iron"], 0.02))
+    return parts
+
+
+def fortress_corner_tower(mats):
+    """An open-topped, battered tower that connects cleanly to curtain walls."""
+    parts = [
+        cylinder("fortress_tower_base", (0, 0, 0.65), 5.15, 1.3, mats["mortar"], 20),
+        cylinder("fortress_tower_core", (0, 0, 6.7), 4.65, 12.0, mats["stone"], 20),
+        cylinder("fortress_tower_lower_band", (0, 0, 2.2), 4.84, 0.48, mats["mortar"], 20),
+        cylinder("fortress_tower_upper_band", (0, 0, 10.8), 4.84, 0.48, mats["mortar"], 20),
+        cylinder("fortress_tower_walk", (0, 0, 12.55), 5.08, 0.42, mats["slate"], 20),
+    ]
+    for index in range(10):
+        angle = (index / 10) * math.pi * 2
+        x = math.cos(angle) * 4.35
+        y = math.sin(angle) * 4.35
+        parts.append(box(
+            "fortress_tower_merlon",
+            (x, y, 13.55),
+            (1.35, 1.35, 1.9),
+            mats["stone"],
+            0.07,
+            (0, 0, angle),
+        ))
+    for angle in (0, math.pi / 2, math.pi, math.pi * 1.5):
+        x = math.cos(angle) * 4.67
+        y = math.sin(angle) * 4.67
+        parts.append(box("fortress_tower_arrow_slit", (x, y, 7.1), (0.16, 0.7, 1.9), mats["iron"], 0.02, (0, 0, angle)))
+    for x, y in ((-3.8, -3.8), (3.8, -3.8), (-3.8, 3.8), (3.8, 3.8)):
+        parts.append(box("fortress_tower_buttress", (x, y, 2.6), (1.05, 1.05, 5.2), mats["stone"], 0.08))
+    return parts
+
+
+def fortress_gatehouse(mats):
+    """A gateway shell. The playable portcullis remains a separate animated prop."""
+    parts = [
+        box("fortress_gatehouse_left_jamb", (-10.0, 0, 4.15), (3.2, 5.4, 8.3), mats["stone"], 0.12),
+        box("fortress_gatehouse_right_jamb", (10.0, 0, 4.15), (3.2, 5.4, 8.3), mats["stone"], 0.12),
+        box("fortress_gatehouse_lintel", (0, 0, 8.55), (26.0, 5.4, 3.8), mats["stone"], 0.12),
+        box("fortress_gatehouse_walk", (0, 0, 10.3), (26.6, 5.8, 0.42), mats["slate"], 0.06),
+    ]
+    for x in (-10.0, 10.0):
+        parts.extend([
+            cylinder("fortress_gatehouse_tower", (x, 0, 6.8), 3.45, 13.2, mats["stone"], 18),
+            cylinder("fortress_gatehouse_tower_band", (x, 0, 10.7), 3.62, 0.44, mats["mortar"], 18),
+        ])
+    for x in (-11.5, -8.2, -4.9, -1.6, 1.6, 4.9, 8.2, 11.5):
+        parts.append(box("fortress_gatehouse_merlon", (x, 0, 11.4), (1.38, 5.8, 1.85), mats["stone"], 0.07))
+    for side in (-1, 1):
+        for z in (3.0, 6.1):
+            parts.append(box("fortress_gatehouse_iron_slit", (side * 10.0, -2.77, z), (0.32, 0.14, 1.45), mats["iron"], 0.02))
+        parts.append(box("fortress_gatehouse_buttress", (side * 11.0, -3.0, 2.55), (1.25, 0.82, 5.1), mats["stone"], 0.08))
+    for index in range(9):
+        x = -8.0 + index * 2.0
+        parts.append(box("fortress_gatehouse_arch", (x, -2.82, 7.15 + 0.65 * math.sin((index / 8) * math.pi)), (1.12, 0.28, 0.72), mats["mortar"], 0.04))
+    return parts
+
+
+def fortress_wall_stairs(mats):
+    """A freestanding stair set for connecting a street to the parapet level."""
+    parts = []
+    step_count = 11
+    step_height = 0.58
+    for index in range(step_count):
+        height = (index + 1) * step_height
+        depth = 0.98
+        parts.append(box(
+            "fortress_stair_tread",
+            (0, -5.0 + index * depth, height / 2),
+            (6.2 - min(index * 0.07, 0.55), depth + 0.04, height),
+            mats["stone"],
+            0.05,
+        ))
+        if index % 2 == 0:
+            parts.append(box("fortress_stair_edge", (0, -5.0 + index * depth - 0.48, height), (6.25, 0.12, 0.14), mats["mortar"], 0.02))
+    for side in (-1, 1):
+        parts.append(box("fortress_stair_sidewall", (side * 3.35, 0, 3.55), (0.52, 11.2, 7.1), mats["stone"], 0.07))
+        for index in range(4):
+            parts.append(box("fortress_stair_side_merlon", (side * 3.35, -4.1 + index * 3.0, 7.65), (0.72, 1.05, 1.1), mats["stone"], 0.05))
+    parts.append(box("fortress_stair_landing", (0, 5.6, 6.55), (7.2, 2.2, 0.44), mats["slate"], 0.05))
+    return parts
+
+
+def fortress_brazier(mats):
+    """A low, ember-lit brazier for gate courts and wall approaches."""
+    parts = [
+        cylinder("fortress_brazier_plinth", (0, 0, 0.3), 1.32, 0.6, mats["stone"], 16),
+        cylinder("fortress_brazier_iron_bowl", (0, 0, 1.72), 0.88, 0.48, mats["iron"], 16),
+        cylinder("fortress_brazier_coals", (0, 0, 1.88), 0.56, 0.18, mats["glass"], 14),
+    ]
+    for x, y in ((-0.57, -0.57), (0.57, -0.57), (-0.57, 0.57), (0.57, 0.57)):
+        parts.append(box("fortress_brazier_leg", (x, y, 1.0), (0.18, 0.18, 1.25), mats["iron"], 0.03))
+    for index, (radius, height) in enumerate(((0.54, 1.32), (0.34, 1.75), (0.16, 1.35))):
+        bpy.ops.mesh.primitive_cone_add(vertices=9, radius1=radius, radius2=0.03, depth=height, location=(0.14 * math.sin(index), 0.12 * math.cos(index), 2.15 + height / 2))
+        flame = bpy.context.object
+        flame.name = f"fortress_brazier_flame_{index}"
+        flame.data.materials.append(mats["glass"])
+        apply_bevel(flame, 0.025)
+        parts.append(flame)
+    return parts
+
+
+def fortress_banner(mats):
+    """A neutral torn banner that can be realm-colored by its surrounding scene."""
+    parts = [
+        cylinder("fortress_banner_stone_base", (0, 0, 0.28), 0.75, 0.56, mats["stone"], 12),
+        cylinder("fortress_banner_pole", (0, 0, 4.5), 0.09, 8.5, mats["iron"], 10),
+        box("fortress_banner_crossbar", (1.55, 0, 8.2), (3.3, 0.16, 0.16), mats["iron"], 0.025),
+        box("fortress_banner_cloth_main", (1.5, 0.05, 6.65), (2.95, 0.12, 3.0), mats["aged_oak"], 0.05),
+        box("fortress_banner_cloth_tail_left", (0.74, 0.05, 4.85), (0.68, 0.12, 1.25), mats["aged_oak"], 0.04, (0, 0, 0.18)),
+        box("fortress_banner_cloth_tail_right", (2.32, 0.05, 4.65), (0.72, 0.12, 1.62), mats["aged_oak"], 0.04, (0, 0, -0.16)),
+    ]
+    for z in (5.7, 7.45):
+        parts.append(box("fortress_banner_hem", (1.5, -0.05, z), (3.05, 0.18, 0.11), mats["iron"], 0.02))
+    return parts
+
+
+def fortress_barricade(mats):
+    """A rough field barricade for staging siege approaches without IP-specific symbols."""
+    parts = [
+        box("fortress_barricade_rail_low", (0, 0, 0.9), (6.4, 0.30, 0.30), mats["aged_oak"], 0.04, (0, 0.18, 0)),
+        box("fortress_barricade_rail_high", (0, 0, 2.0), (6.4, 0.30, 0.30), mats["aged_oak"], 0.04, (0, -0.18, 0)),
+    ]
+    for index in range(7):
+        x = -2.7 + index * 0.9
+        bpy.ops.mesh.primitive_cone_add(vertices=7, radius1=0.24, radius2=0.035, depth=3.5, location=(x, 0, 1.75), rotation=(0, 0.28 if index % 2 else -0.28, 0))
+        stake = bpy.context.object
+        stake.name = "fortress_barricade_stake"
+        stake.data.materials.append(mats["oak"])
+        apply_bevel(stake, 0.025)
+        parts.append(stake)
+    for x in (-2.9, 2.9):
+        parts.append(box("fortress_barricade_foot", (x, 0, 0.3), (0.65, 2.6, 0.36), mats["stone"], 0.05))
+    return parts
+
+
 def build_variant(variant: str, mats):
     if variant == "house_1": return house_one(mats)
     if variant == "house_2": return house_two(mats)
@@ -516,6 +671,13 @@ def build_variant(variant: str, mats):
     if variant == "spire": return spire(mats)
     if variant == "plank_arc": return plank_arc(mats)
     if variant == "castle": return town_castle(mats)
+    if variant == "fortress_wall": return fortress_wall(mats)
+    if variant == "fortress_corner_tower": return fortress_corner_tower(mats)
+    if variant == "fortress_gatehouse": return fortress_gatehouse(mats)
+    if variant == "fortress_wall_stairs": return fortress_wall_stairs(mats)
+    if variant == "fortress_brazier": return fortress_brazier(mats)
+    if variant == "fortress_banner": return fortress_banner(mats)
+    if variant == "fortress_barricade": return fortress_barricade(mats)
     raise RuntimeError(f"Unknown dark-fantasy town variant: {variant}")
 
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-13
+
+- Added a reusable original dark-fantasy Fortress Build Pack with crenellated curtain walls, corner towers, gatehouses, wall stairs, ember braziers, torn banners, siege barricades, and the existing animated fortress gate exposed together in GM Build mode. Rebuilt Bastion of Aegis and Riftspire Citadel with the pack, gatehouse-wrapped interactive city gates, walkable wall surfaces, and perimeter scenery.
+
 ## 2026-07-12
 
 - Cleaned up the detailed world map with quieter icon-only rendering, connected city terrain treatment, responsive square map framing, and hover cards that reveal location names and context without overlapping the map.

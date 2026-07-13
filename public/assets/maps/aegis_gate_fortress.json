@@ -322,6 +322,7 @@
         "type": "gate",
         "label": "Aegis Keep Gate",
         "maxDistance": 20,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -348,6 +349,7 @@
         "type": "gate",
         "label": "Aegis Keep Postern",
         "maxDistance": 13,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -530,6 +532,7 @@
         "type": "gate",
         "label": "Aegis Keep Door",
         "maxDistance": 12,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -556,6 +559,7 @@
         "type": "gate",
         "label": "Aegis Keep Rear Door",
         "maxDistance": 12,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -754,6 +758,7 @@
         "type": "gate",
         "label": "Riftbound Keep Gate",
         "maxDistance": 20,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -780,6 +785,7 @@
         "type": "gate",
         "label": "Riftbound Keep Postern",
         "maxDistance": 13,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -962,6 +968,7 @@
         "type": "gate",
         "label": "Riftbound Keep Door",
         "maxDistance": 12,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -988,6 +995,7 @@
         "type": "gate",
         "label": "Riftbound Keep Rear Door",
         "maxDistance": 12,
+        "startsOpen": false,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -2580,5 +2588,5 @@
       ]
     }
   ],
-  "staticMapHash": "73b8327e9d9bb980"
+  "staticMapHash": "cabb246f9525c00f"
 }

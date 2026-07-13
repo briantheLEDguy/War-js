@@ -1,0 +1,66 @@
+{
+  "assetId": "prop.town.fortress_barricade",
+  "category": "prop",
+  "model": "prop_town_fortress_barricade.glb",
+  "fileSizeBytes": 172996,
+  "meshCount": 3,
+  "totalTris": 1776,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "aged_oak",
+      "verts": 112,
+      "faces": 108,
+      "tris": 216,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "oak",
+      "verts": 686,
+      "faces": 651,
+      "tris": 1344,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "stone",
+      "verts": 112,
+      "faces": 108,
+      "tris": 216,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_55184e62-9e52-474b-ad38-b65d52e67af6/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_barricade",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "2bac194b8c91f80de40f52363a486fc4bcaa37ca69e3d82e410f6275956270db",
+  "generatedAt": "2026-07-13T13:52:38.262Z",
+  "previewImages": []
+}

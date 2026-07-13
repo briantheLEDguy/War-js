@@ -522,6 +522,7 @@ function buildCampProps(node) {
 function capitalCityProps(node) {
   return [
     ...capitalOuterWallProps(node),
+    ...capitalFortressSceneryProps(node),
     ...capitalHousingProps(node),
     ...capitalDistrictProps(node),
     ...capitalCitadelProps(node),
@@ -582,30 +583,53 @@ function importedCollider(zoneId, suffix, x, z, width, depth, rotY = 0) {
 
 function capitalOuterWallProps(node) {
   const id = `${node.id}_city_wall`;
-  const wallKind = node.realm === 'riftbound' ? 'rift_wall_segment' : 'wall_segment';
-  const towerKind = node.realm === 'riftbound' ? 'rift_tower' : 'tower';
   return [
-    wallPropKind(`${id}_front_left`, wallKind, -74, -86, 0, 1.16, 52),
-    wallPropKind(`${id}_front_right`, wallKind, 74, -86, 0, 1.16, 52),
-    wallPropKind(`${id}_west_lower`, wallKind, -126, -51, Math.PI / 2, 1.1, 70),
-    wallPropKind(`${id}_west_upper`, wallKind, -126, 76, Math.PI / 2, 1.1, 120),
-    wallPropKind(`${id}_east_lower`, wallKind, 126, -51, Math.PI / 2, 1.1, 70),
-    wallPropKind(`${id}_east_upper`, wallKind, 126, 76, Math.PI / 2, 1.1, 120),
-    wallPropKind(`${id}_rear_left`, wallKind, -64, 136, 0, 1.12, 76),
-    wallPropKind(`${id}_rear_right`, wallKind, 64, 136, 0, 1.12, 76),
-    cityGateProp(`${id}_west_gate`, `${node.name} West Gate`, -126, 0, -Math.PI / 2, 1.18),
-    cityGateProp(`${id}_east_gate`, `${node.name} East Gate`, 126, 0, Math.PI / 2, 1.18),
-    cityGateProp(`${id}_rear_gate`, `${node.name} Rear Gate`, 0, 136, Math.PI, 1.3),
-    towerProp(`${id}_tower_front_west`, -126, -86, 1.35, 0, towerKind),
-    towerProp(`${id}_tower_front_east`, 126, -86, 1.35, 0, towerKind),
-    towerProp(`${id}_tower_rear_west`, -126, 136, 1.45, 0, towerKind),
-    towerProp(`${id}_tower_rear_east`, 126, 136, 1.45, 0, towerKind),
-    towerProp(`${id}_west_gate_tower_south`, -126, -22, 1.08, 0, towerKind),
-    towerProp(`${id}_west_gate_tower_north`, -126, 22, 1.08, 0, towerKind),
-    towerProp(`${id}_east_gate_tower_south`, 126, -22, 1.08, 0, towerKind),
-    towerProp(`${id}_east_gate_tower_north`, 126, 22, 1.08, 0, towerKind),
-    towerProp(`${id}_rear_gate_tower_west`, -34, 136, 1.12, 0, towerKind),
-    towerProp(`${id}_rear_gate_tower_east`, 34, 136, 1.12, 0, towerKind),
+    fortressWallProp(`${id}_front_left`, -70, -86, 0, 112),
+    fortressWallProp(`${id}_front_right`, 70, -86, 0, 112),
+    fortressWallProp(`${id}_west_lower`, -126, -50, Math.PI / 2, 72),
+    fortressWallProp(`${id}_west_upper`, -126, 75, Math.PI / 2, 122),
+    fortressWallProp(`${id}_east_lower`, 126, -50, Math.PI / 2, 72),
+    fortressWallProp(`${id}_east_upper`, 126, 75, Math.PI / 2, 122),
+    fortressWallProp(`${id}_rear_left`, -70, 136, 0, 112),
+    fortressWallProp(`${id}_rear_right`, 70, 136, 0, 112),
+    fortressGatehouseProp(`${id}_west_gatehouse`, -126, 0, -Math.PI / 2),
+    fortressGatehouseProp(`${id}_east_gatehouse`, 126, 0, Math.PI / 2),
+    fortressGatehouseProp(`${id}_rear_gatehouse`, 0, 136, Math.PI),
+    cityGateProp(`${id}_west_gate`, `${node.name} West Gate`, -126, 0, -Math.PI / 2, 1),
+    cityGateProp(`${id}_east_gate`, `${node.name} East Gate`, 126, 0, Math.PI / 2, 1),
+    cityGateProp(`${id}_rear_gate`, `${node.name} Rear Gate`, 0, 136, Math.PI, 1),
+    fortressTowerProp(`${id}_tower_front_west`, -126, -86, 1.08),
+    fortressTowerProp(`${id}_tower_front_east`, 126, -86, 1.08),
+    fortressTowerProp(`${id}_tower_rear_west`, -126, 136, 1.16),
+    fortressTowerProp(`${id}_tower_rear_east`, 126, 136, 1.16),
+    fortressTowerProp(`${id}_west_gate_tower_south`, -126, -22, 0.93),
+    fortressTowerProp(`${id}_west_gate_tower_north`, -126, 22, 0.93),
+    fortressTowerProp(`${id}_east_gate_tower_south`, 126, -22, 0.93),
+    fortressTowerProp(`${id}_east_gate_tower_north`, 126, 22, 0.93),
+    fortressTowerProp(`${id}_rear_gate_tower_west`, -34, 136, 0.98),
+    fortressTowerProp(`${id}_rear_gate_tower_east`, 34, 136, 0.98),
+  ];
+}
+
+function capitalFortressSceneryProps(node) {
+  const id = `${node.id}_fortress_scenery`;
+  return [
+    fortressSceneryProp(`${id}_front_brazier_west`, 'town_fortress_brazier', -15, -74, 0, 1.05),
+    fortressSceneryProp(`${id}_front_brazier_east`, 'town_fortress_brazier', 15, -74, 0, 1.05),
+    fortressSceneryProp(`${id}_west_brazier_south`, 'town_fortress_brazier', -114, -12, 0, 0.94),
+    fortressSceneryProp(`${id}_west_brazier_north`, 'town_fortress_brazier', -114, 12, 0, 0.94),
+    fortressSceneryProp(`${id}_east_brazier_south`, 'town_fortress_brazier', 114, -12, 0, 0.94),
+    fortressSceneryProp(`${id}_east_brazier_north`, 'town_fortress_brazier', 114, 12, 0, 0.94),
+    fortressSceneryProp(`${id}_rear_brazier_west`, 'town_fortress_brazier', -15, 124, 0, 0.98),
+    fortressSceneryProp(`${id}_rear_brazier_east`, 'town_fortress_brazier', 15, 124, 0, 0.98),
+    fortressSceneryProp(`${id}_front_banner_west`, 'town_fortress_banner', -30, -78, 0, 1.05),
+    fortressSceneryProp(`${id}_front_banner_east`, 'town_fortress_banner', 30, -78, 0, 1.05),
+    fortressSceneryProp(`${id}_rear_banner_west`, 'town_fortress_banner', -28, 126, Math.PI, 1.05),
+    fortressSceneryProp(`${id}_rear_banner_east`, 'town_fortress_banner', 28, 126, Math.PI, 1.05),
+    fortressSceneryProp(`${id}_front_barricade_west`, 'town_fortress_barricade', -35, -108, -0.12, 0.9),
+    fortressSceneryProp(`${id}_front_barricade_east`, 'town_fortress_barricade', 35, -108, 0.12, 0.9),
+    fortressSceneryProp(`${id}_wall_stairs_west`, 'town_fortress_wall_stairs', -111, 68, Math.PI / 2, 0.94),
+    fortressSceneryProp(`${id}_wall_stairs_east`, 'town_fortress_wall_stairs', 111, 68, -Math.PI / 2, 0.94),
   ];
 }
 
@@ -1045,10 +1069,10 @@ function buildObjectiveProps(node, objectives) {
       props.push(...fortressProps(`${obj.id}_fortress`, obj.x, obj.z, node.realm));
     }
     if (obj.type === 'city_gate') {
-      props.push(cityGateProp(`${obj.id}_gate`, obj.label, obj.x, obj.z, 0, 1.55));
-      const towerKind = node.realm === 'riftbound' ? 'rift_tower' : 'tower';
-      props.push(towerProp(`${obj.id}_tower_left`, obj.x - 34, obj.z, 1.3, 0, towerKind));
-      props.push(towerProp(`${obj.id}_tower_right`, obj.x + 34, obj.z, 1.3, 0, towerKind));
+      props.push(fortressGatehouseProp(`${obj.id}_gatehouse`, obj.x, obj.z, 0));
+      props.push(cityGateProp(`${obj.id}_gate`, obj.label, obj.x, obj.z, 0, 1));
+      props.push(fortressTowerProp(`${obj.id}_tower_left`, obj.x - 34, obj.z, 1.06));
+      props.push(fortressTowerProp(`${obj.id}_tower_right`, obj.x + 34, obj.z, 1.06));
     }
     if (obj.type === 'boss') {
       props.push(prop(`${obj.id}_altar`, 'statue', obj.x, obj.z + 5, 0, 1.7));
@@ -1166,6 +1190,72 @@ function wallPropKind(id, kind, x, z, rotY, scale, length, extra = {}) {
   });
 }
 
+function fortressWallProp(id, x, z, rotY, length, scale = 1) {
+  return prop(id, 'town_fortress_wall', x, z, rotY, scale, {
+    assetKey: 'town_fortress_wall',
+    model: 'prop_town_fortress_wall.glb',
+    scaleX: roundScale(length / 12),
+    colliders: [
+      { id: `${id}_collider`, width: 12, depth: 3 },
+    ],
+    walkableSurfaces: [
+      { id: `${id}_wall_walk`, width: 11.6, depth: 2.2, fromY: 6.7, toY: 6.7 },
+    ],
+  });
+}
+
+function fortressTowerProp(id, x, z, scale, rotY = 0) {
+  return solidProp(id, 'town_fortress_corner_tower', x, z, rotY, scale, 10.4, 10.4, {
+    assetKey: 'town_fortress_corner_tower',
+    model: 'prop_town_fortress_corner_tower.glb',
+  });
+}
+
+function fortressGatehouseProp(id, x, z, rotY, scale = 1) {
+  return prop(id, 'town_fortress_gatehouse', x, z, rotY, scale, {
+    assetKey: 'town_fortress_gatehouse',
+    model: 'prop_town_fortress_gatehouse.glb',
+    colliders: [
+      { id: `${id}_left_tower_collider`, x: -10, width: 7, depth: 6 },
+      { id: `${id}_right_tower_collider`, x: 10, width: 7, depth: 6 },
+    ],
+    walkableSurfaces: [
+      { id: `${id}_wall_walk`, width: 26, depth: 5.4, fromY: 10.2, toY: 10.2 },
+    ],
+  });
+}
+
+function fortressSceneryProp(id, kind, x, z, rotY, scale) {
+  const specs = {
+    town_fortress_brazier: {
+      model: 'prop_town_fortress_brazier.glb',
+      collider: { width: 2.7, depth: 2.7 },
+    },
+    town_fortress_banner: {
+      model: 'prop_town_fortress_banner.glb',
+      collider: { width: 1.5, depth: 1.5 },
+    },
+    town_fortress_barricade: {
+      model: 'prop_town_fortress_barricade.glb',
+      collider: { width: 6.5, depth: 2.8 },
+    },
+    town_fortress_wall_stairs: {
+      model: 'prop_town_fortress_wall_stairs.glb',
+      walkableSurfaces: [
+        { id: `${id}_ramp`, width: 6.2, depth: 10.8, fromY: 0, toY: 6.4, axis: 'z' },
+      ],
+    },
+  };
+  const spec = specs[kind];
+  if (!spec) throw new Error(`Unknown fortress scenery prop kind: ${kind}`);
+  return prop(id, kind, x, z, rotY, scale, {
+    assetKey: kind,
+    model: spec.model,
+    ...(spec.collider ? { colliders: [{ id: `${id}_collider`, ...spec.collider }] } : {}),
+    ...(spec.walkableSurfaces ? { walkableSurfaces: spec.walkableSurfaces } : {}),
+  });
+}
+
 function castleFloorProp(id, x, z, y, width, depth) {
   return prop(id, 'castle_floor', x, z, 0, 1, {
     y,
@@ -1203,7 +1293,7 @@ function levelTowerProp(id, kind, x, z, y, levelNumber) {
 }
 
 function cityGateProp(id, label, x, z, rotY, scale) {
-  return interactiveDoorProp(id, label, x, z, rotY, scale, 28, 'castle_gate', 18, 2.5);
+  return interactiveDoorProp(id, label, x, z, rotY, scale, 28, 'castle_gate', 18, 2.5, true);
 }
 
 function interactiveDoorProp(
@@ -1217,6 +1307,7 @@ function interactiveDoorProp(
   kind = 'castle_door',
   colliderWidth = 5.4,
   colliderDepth = 1.2,
+  startsOpen = false,
 ) {
   const interactionId = `${id}_interaction`;
   return prop(id, kind, x, z, rotY, scale, {
@@ -1235,6 +1326,7 @@ function interactiveDoorProp(
       type: 'gate',
       label,
       maxDistance,
+      startsOpen,
       openClip: 'open',
       closeClip: 'close',
     },

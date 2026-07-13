@@ -1,0 +1,29 @@
+{
+  "assetId": "prop.town.fortress_brazier",
+  "displayName": "Dark Fantasy Fortress Ember Brazier",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": ["dark_fantasy_town", "fortress_build_pack", "original_procedural"],
+  "runtime": { "staticKey": "town_fortress_brazier" },
+  "output": { "model": "prop_town_fortress_brazier.glb", "artifactDir": "artifacts/blender/dark-fantasy-town/fortress_brazier" },
+  "generator": { "kind": "staticPreset", "preset": "dark_fantasy_town_fortress_brazier" },
+  "geometry": {
+    "originRule": "base_center_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [{ "name": "LOD0", "triTarget": 12000, "screenCoverageMin": 0.2 }]
+  },
+  "materials": { "master": "MM_DarkFantasyTownPbr", "textureSet": "generated_town_fortress_brazier", "channels": ["baseColor", "roughness", "metallic", "normal", "occlusion", "emissive"] },
+  "collision": { "policy": "editor_prefab_small_prop", "primitives": [{ "type": "cylinder", "tag": "brazier_base" }] },
+  "compatibility": { "occupiesSlots": ["prop"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": ["art_direction", "procedural_geometry"],
+    "promptIds": ["original_dark_fantasy_fortress_pack_v1"],
+    "referencePackId": "original_aegis_riftbound_architecture",
+    "similarityReview": "not_required",
+    "source": "scripts/blender-character-pipeline/blender/generate_dark_fantasy_town.py"
+  },
+  "qc": { "allowNonManifold": true, "allowUvOverlap": true, "maxDrawCalls": 8, "maxFileSizeMb": 12, "maxMeshObjects": 8, "maxTris": 45000, "requiresSkinnedMeshes": false }
+}

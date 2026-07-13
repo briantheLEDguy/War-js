@@ -23,6 +23,7 @@ export interface WorldEditorPrefabDefinition {
 const DEFAULT_SCALE: Vec3 = { x: 1, y: 1, z: 1 };
 const GENERAL_PREFAB_GROUP = 'General';
 const MODULAR_TOWN_KIT_GROUP = 'Modular Town Kit';
+const FORTRESS_BUILD_PACK_GROUP = 'Fortress Build Pack';
 
 export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   {
@@ -84,7 +85,8 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   { kind: 'gate', label: 'Field Gate', footprint: { width: 16, depth: 4, chainAxis: 'x' } },
   {
     kind: 'castle_gate',
-    label: 'Castle Gate',
+    label: 'Fortress Gate',
+    group: FORTRESS_BUILD_PACK_GROUP,
     model: 'castle_gate.glb',
     footprint: { width: 18, depth: 2.5, chainAxis: 'x' },
     colliders: [{ width: 18, depth: 2.5, blocksWhen: 'closed' }],
@@ -93,6 +95,7 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   {
     kind: 'castle_door',
     label: 'Castle Door',
+    group: FORTRESS_BUILD_PACK_GROUP,
     model: 'castle_door.glb',
     footprint: { width: 5.2, depth: 0.5, chainAxis: 'x' },
     colliders: [{ width: 5.4, depth: 1.2, blocksWhen: 'closed' }],
@@ -101,6 +104,7 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   {
     kind: 'castle_stairs',
     label: 'Castle Stairs',
+    group: FORTRESS_BUILD_PACK_GROUP,
     model: 'castle_stairs.glb',
     footprint: { width: 8, depth: 12, chainAxis: 'z' },
     walkableSurfaces: [
@@ -159,6 +163,17 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   townPrefab('town_horizontal_beam', 'Horizontal Beam', 'prop_town_horizontal_beam.glb', 4.8, 0.5, [{ width: 4.8, depth: 0.5 }], 'x'),
   townPrefab('town_vertical_beam', 'Vertical Beam', 'prop_town_vertical_beam.glb', 0.8, 0.8, [{ width: 0.8, depth: 0.8 }]),
   townPrefab('town_plank_arc', 'Plank Arc', 'prop_town_plank_arc.glb', 4.4, 1.2, [{ width: 4.4, depth: 1.2 }], 'x'),
+
+  fortressPrefab('town_fortress_wall', 'Crenellated Curtain Wall', 'prop_town_fortress_wall.glb', 12, 3, [{ width: 12, depth: 3 }], [{ width: 11.6, depth: 2.2, fromY: 6.7, toY: 6.7 }], 'x'),
+  fortressPrefab('town_fortress_corner_tower', 'Fortress Corner Tower', 'prop_town_fortress_corner_tower.glb', 10.4, 10.4, [{ width: 10.4, depth: 10.4 }]),
+  fortressPrefab('town_fortress_gatehouse', 'Fortress Gatehouse', 'prop_town_fortress_gatehouse.glb', 28, 6, [
+    { x: -10, width: 7, depth: 6 },
+    { x: 10, width: 7, depth: 6 },
+  ], [{ width: 26, depth: 5.4, fromY: 10.2, toY: 10.2 }], 'x'),
+  fortressPrefab('town_fortress_wall_stairs', 'Wall Stairs', 'prop_town_fortress_wall_stairs.glb', 7.2, 11.5, undefined, [{ width: 6.2, depth: 10.8, fromY: 0, toY: 6.4, axis: 'z' }]),
+  fortressPrefab('town_fortress_brazier', 'Ember Brazier', 'prop_town_fortress_brazier.glb', 2.7, 2.7, [{ width: 2.7, depth: 2.7 }]),
+  fortressPrefab('town_fortress_banner', 'Torn War Banner', 'prop_town_fortress_banner.glb', 3.5, 1.5, [{ width: 1.5, depth: 1.5 }]),
+  fortressPrefab('town_fortress_barricade', 'Siege Barricade', 'prop_town_fortress_barricade.glb', 6.5, 2.8, [{ width: 6.5, depth: 2.8 }], undefined, 'x'),
 ];
 
 const PREFABS_BY_KIND = new Map(WORLD_EDITOR_PREFABS.map((prefab) => [prefab.kind, prefab]));
@@ -248,6 +263,30 @@ function townPrefab(
     fallbackKind: 'building',
     footprint: { width, depth, chainAxis },
     colliders,
+    cameraSolid: Boolean(colliders),
+  };
+}
+
+function fortressPrefab(
+  kind: string,
+  label: string,
+  model: string,
+  width: number,
+  depth: number,
+  colliders?: WorldPropObject['colliders'],
+  walkableSurfaces?: WorldPropObject['walkableSurfaces'],
+  chainAxis: 'x' | 'z' = 'z',
+): WorldEditorPrefabDefinition {
+  return {
+    kind,
+    label,
+    group: FORTRESS_BUILD_PACK_GROUP,
+    model,
+    assetKey: kind,
+    fallbackKind: 'building',
+    footprint: { width, depth, chainAxis },
+    colliders,
+    walkableSurfaces,
     cameraSolid: Boolean(colliders),
   };
 }
