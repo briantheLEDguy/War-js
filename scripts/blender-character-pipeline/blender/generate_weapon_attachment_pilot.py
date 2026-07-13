@@ -335,8 +335,46 @@ def join_parts(parts: list[bpy.types.Object], name: str) -> bpy.types.Object:
     return result
 
 
-def apply_metadata(root: bpy.types.Object, grip: bpy.types.Object, mesh: bpy.types.Object, weapon: dict, recipe: dict, source: dict) -> None:
+def create_semantic_markers(root: bpy.types.Object, weapon: dict) -> dict[str, bpy.types.Object]:
+    markers = {}
+    handling = weapon["handling"]
+    marker_specs = (
+        ("secondaryGrip", "ARROWS", 0.10),
+        ("strikeHead", "SPHERE", 0.10),
+    )
+    for role, display_type, display_size in marker_specs:
+        spec = handling.get(role)
+        if spec is None:
+            continue
+        marker = bpy.data.objects.new(spec["node"], None)
+        bpy.context.collection.objects.link(marker)
+        marker.parent = root
+        marker.location = Vector(spec["localTranslation"])
+        marker.empty_display_type = display_type
+        marker.empty_display_size = display_size
+        markers[role] = marker
+    return markers
+
+
+def marker_at_local_translation(marker: bpy.types.Object | None, expected: list[float]) -> bool:
+    if marker is None:
+        return False
+    actual = tuple(round(value, 6) for value in marker.location)
+    target = tuple(round(float(value), 6) for value in expected)
+    return actual == target
+
+
+def apply_metadata(
+    root: bpy.types.Object,
+    grip: bpy.types.Object,
+    mesh: bpy.types.Object,
+    semantic_markers: dict[str, bpy.types.Object],
+    weapon: dict,
+    recipe: dict,
+    source: dict,
+) -> None:
     attachment = recipe["attachment"]
+    handling = weapon["handling"]
     metadata = {
         "assetId": weapon["assetId"],
         "assetCategory": "weapon",
@@ -352,13 +390,32 @@ def apply_metadata(root: bpy.types.Object, grip: bpy.types.Object, mesh: bpy.typ
         "runtimeReady": False,
         "promotionEligible": False,
         "sourceKind": source.get("sourceUsed", "original_project_mesh"),
+        "handedness": handling["handedness"],
+        "massClass": handling["massClass"],
     }
-    for obj in (root, grip, mesh):
+    for obj in (root, grip, mesh, *semantic_markers.values()):
         for key, value in metadata.items():
             obj[key] = value
     grip["isAttachmentAnchor"] = True
+    grip["gripRole"] = "primary"
     grip["localGripTranslation"] = attachment["localGripTranslation"]
     grip["localGripRotationDegrees"] = attachment["localGripRotationDegrees"]
+    secondary_spec = handling.get("secondaryGrip")
+    if secondary_spec is not None:
+        secondary_grip = semantic_markers["secondaryGrip"]
+        secondary_grip["isAttachmentAnchor"] = True
+        secondary_grip["gripRole"] = "secondary"
+        secondary_grip["targetSocket"] = secondary_spec["targetSocket"]
+        secondary_grip["socketParentBone"] = secondary_spec["socketParentBone"]
+        secondary_grip["localGripTranslation"] = secondary_spec["localTranslation"]
+        root["secondaryGripNode"] = secondary_spec["node"]
+    strike_spec = handling.get("strikeHead")
+    if strike_spec is not None:
+        strike_head = semantic_markers["strikeHead"]
+        strike_head["isStrikeHeadMarker"] = True
+        strike_head["markerRole"] = "strike_head"
+        strike_head["localMarkerTranslation"] = strike_spec["localTranslation"]
+        root["strikeHeadNode"] = strike_spec["node"]
 
 
 def mesh_stats(mesh_obj: bpy.types.Object) -> dict:
@@ -378,10 +435,16 @@ def mesh_stats(mesh_obj: bpy.types.Object) -> dict:
     }
 
 
-def export_weapon(root: bpy.types.Object, grip: bpy.types.Object, mesh: bpy.types.Object, output_path: Path) -> None:
+def export_weapon(
+    root: bpy.types.Object,
+    grip: bpy.types.Object,
+    semantic_markers: dict[str, bpy.types.Object],
+    mesh: bpy.types.Object,
+    output_path: Path,
+) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.object.select_all(action="DESELECT")
-    for obj in (root, grip, mesh):
+    for obj in (root, grip, mesh, *semantic_markers.values()):
         obj.select_set(True)
     bpy.context.view_layer.objects.active = mesh
     bpy.ops.export_scene.gltf(
@@ -530,12 +593,13 @@ def generate_weapon(weapon: dict, recipe: dict, output_root: Path, asset_root: P
     grip.empty_display_size = 0.12
     mesh_obj.parent = root
     grip.parent = root
-    apply_metadata(root, grip, mesh_obj, weapon, recipe, source)
+    semantic_markers = create_semantic_markers(root, weapon)
+    apply_metadata(root, grip, mesh_obj, semantic_markers, weapon, recipe, source)
 
     weapon_dir = output_root / weapon["key"]
     weapon_dir.mkdir(parents=True, exist_ok=True)
     output_model = weapon_dir / weapon["outputModel"]
-    export_weapon(root, grip, mesh_obj, output_model)
+    export_weapon(root, grip, semantic_markers, mesh_obj, output_model)
     model_hash = sha256_file(output_model)
 
     # Evidence and QC must inspect the serialized GLB, not the authoring scene.
@@ -544,7 +608,16 @@ def generate_weapon(weapon: dict, recipe: dict, output_root: Path, asset_root: P
     roundtrip_meshes = [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]
     roundtrip_root = bpy.data.objects.get(f"{weapon['key']}_root")
     roundtrip_grip = bpy.data.objects.get(recipe["attachment"]["gripNode"])
-    if not roundtrip_meshes or roundtrip_root is None or roundtrip_grip is None:
+    handling = weapon["handling"]
+    secondary_spec = handling.get("secondaryGrip")
+    strike_spec = handling.get("strikeHead")
+    roundtrip_secondary_grip = bpy.data.objects.get(secondary_spec["node"]) if secondary_spec else None
+    roundtrip_strike_head = bpy.data.objects.get(strike_spec["node"]) if strike_spec else None
+    required_semantic_markers_present = (
+        (secondary_spec is None or roundtrip_secondary_grip is not None)
+        and (strike_spec is None or roundtrip_strike_head is not None)
+    )
+    if not roundtrip_meshes or roundtrip_root is None or roundtrip_grip is None or not required_semantic_markers_present:
         raise RuntimeError(f"GLB round-trip lost required nodes for {weapon['assetId']}")
     roundtrip_mesh = max(roundtrip_meshes, key=lambda obj: len(obj.data.vertices))
     review_dir = weapon_dir / "review"
@@ -556,6 +629,25 @@ def generate_weapon(weapon: dict, recipe: dict, output_root: Path, asset_root: P
         "roundTripImported": True,
         "canonicalSocket": roundtrip_root.get("targetSocket") == "socket_hand_R" and roundtrip_grip.get("targetSocket") == "socket_hand_R",
         "gripAtLocalOrigin": tuple(round(value, 6) for value in roundtrip_grip.location) == (0.0, 0.0, 0.0),
+        "semanticHandling": (
+            roundtrip_root.get("handedness") == handling["handedness"]
+            and roundtrip_root.get("massClass") == handling["massClass"]
+        ),
+        "secondaryGripContract": secondary_spec is None or (
+            roundtrip_secondary_grip is not None
+            and roundtrip_secondary_grip.parent == roundtrip_root
+            and roundtrip_secondary_grip.get("gripRole") == "secondary"
+            and roundtrip_secondary_grip.get("targetSocket") == secondary_spec["targetSocket"]
+            and roundtrip_secondary_grip.get("socketParentBone") == secondary_spec["socketParentBone"]
+            and marker_at_local_translation(roundtrip_secondary_grip, secondary_spec["localTranslation"])
+        ),
+        "strikeHeadContract": strike_spec is None or (
+            roundtrip_strike_head is not None
+            and roundtrip_strike_head.parent == roundtrip_root
+            and roundtrip_strike_head.get("isStrikeHeadMarker") is True
+            and roundtrip_strike_head.get("markerRole") == "strike_head"
+            and marker_at_local_translation(roundtrip_strike_head, strike_spec["localTranslation"])
+        ),
         "triangleBudget": stats["totalTris"] <= qc_policy["maxTrianglesPerWeapon"],
         "drawCallBudget": stats["drawCalls"] <= qc_policy["maxDrawCallsPerWeapon"],
         "fileSizeBudget": output_model.stat().st_size <= qc_policy["maxFileSizeMb"] * 1024 * 1024,
@@ -581,6 +673,16 @@ def generate_weapon(weapon: dict, recipe: dict, output_root: Path, asset_root: P
             "gripNode": recipe["attachment"]["gripNode"],
             "localGripTranslation": [0, 0, 0],
             "verified": checks["canonicalSocket"] and checks["gripAtLocalOrigin"],
+            "handedness": handling["handedness"],
+            "massClass": handling["massClass"],
+            "secondaryGrip": {
+                **secondary_spec,
+                "verified": checks["secondaryGripContract"],
+            } if secondary_spec else None,
+            "strikeHead": {
+                **strike_spec,
+                "verified": checks["strikeHeadContract"],
+            } if strike_spec else None,
         },
         "source": source,
         "roundTrip": {
@@ -588,6 +690,8 @@ def generate_weapon(weapon: dict, recipe: dict, output_root: Path, asset_root: P
             "importedNodeCount": len(bpy.context.scene.objects),
             "rootNode": roundtrip_root.name,
             "gripNode": roundtrip_grip.name,
+            "secondaryGripNode": roundtrip_secondary_grip.name if roundtrip_secondary_grip else None,
+            "strikeHeadNode": roundtrip_strike_head.name if roundtrip_strike_head else None,
             "serializedModelSha256": model_hash,
         },
         "previewImages": [f"review/{entry['path']}" for entry in evidence.values()],
@@ -631,6 +735,37 @@ def generate_weapon(weapon: dict, recipe: dict, output_root: Path, asset_root: P
     }
 
 
+def validate_handling_contract(weapon: dict) -> None:
+    handling = weapon.get("handling")
+    if not isinstance(handling, dict):
+        raise RuntimeError(f"{weapon['assetId']} is missing its semantic handling contract.")
+    if handling.get("handedness") not in {"one_handed", "two_handed"}:
+        raise RuntimeError(f"{weapon['assetId']} has an unsupported handedness.")
+    if handling.get("massClass") not in {"light", "medium", "heavy"}:
+        raise RuntimeError(f"{weapon['assetId']} has an unsupported mass class.")
+
+    secondary = handling.get("secondaryGrip")
+    if handling["handedness"] == "two_handed":
+        if not isinstance(secondary, dict):
+            raise RuntimeError(f"{weapon['assetId']} is two-handed but has no secondary grip marker.")
+        if (
+            secondary.get("node") != "weapon_grip_socket_hand_L"
+            or secondary.get("targetSocket") != "socket_hand_L"
+            or secondary.get("socketParentBone") != "hand_L"
+            or secondary.get("localTranslation") != [0, 0, 0.3]
+        ):
+            raise RuntimeError(f"{weapon['assetId']} has an invalid canonical left-hand grip contract.")
+
+    if weapon["kind"] == "hammer":
+        strike_head = handling.get("strikeHead")
+        if handling["handedness"] != "two_handed" or handling["massClass"] != "heavy":
+            raise RuntimeError(f"{weapon['assetId']} must be classified as a two-handed heavy hammer.")
+        if not isinstance(strike_head, dict) or strike_head.get("node") != "weapon_strike_head":
+            raise RuntimeError(f"{weapon['assetId']} is missing its canonical strike-head marker.")
+        if strike_head.get("localTranslation") != [0, 0, 0.91]:
+            raise RuntimeError(f"{weapon['assetId']} has an invalid strike-head marker position.")
+
+
 def main() -> None:
     args = parse_args()
     recipe_path = Path(args.recipe).resolve()
@@ -641,6 +776,8 @@ def main() -> None:
         raise RuntimeError("Weapon pilot recipe must remain draft-only.")
     if recipe["attachment"]["targetSocket"] != "socket_hand_R":
         raise RuntimeError("Weapon pilot must target canonical socket_hand_R.")
+    for weapon in recipe["weapons"]:
+        validate_handling_contract(weapon)
     output_root.mkdir(parents=True, exist_ok=False)
     results = [
         generate_weapon(weapon, recipe, output_root, asset_root, args.resolution, args.require_preferred_hammer)

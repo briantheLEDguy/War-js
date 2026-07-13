@@ -26,6 +26,7 @@ export interface WikiDetailRow {
 export interface WikiTableRow {
   id: string;
   cells: string[];
+  iconAbilityId?: string;
 }
 
 export interface WikiTable {

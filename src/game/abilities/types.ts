@@ -113,6 +113,7 @@ export interface AbilityCancelRules {
 }
 
 export type AbilityIconSymbol =
+  | 'aura'
   | 'arrow'
   | 'axe'
   | 'banner'
@@ -130,13 +131,20 @@ export type AbilityIconSymbol =
   | 'flame'
   | 'hammer'
   | 'leaf'
+  | 'mark'
+  | 'meteor'
+  | 'orb'
   | 'paw'
   | 'rune'
   | 'shield'
+  | 'shockwave'
   | 'skull'
+  | 'snare'
   | 'spear'
   | 'star'
   | 'turret'
+  | 'totem'
+  | 'venom'
   | 'vortex';
 
 export type AbilityIconFrame = 'round' | 'diamond' | 'shield' | 'rune' | 'burst';

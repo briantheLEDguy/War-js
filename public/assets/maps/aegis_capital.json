@@ -2910,7 +2910,38 @@
       "radius": 6
     }
   ],
-  "enemies": [],
+  "enemies": [
+    {
+      "id": "aegis_capital_training_dummy_1",
+      "name": "Training Dummy",
+      "level": 1,
+      "x": 58,
+      "z": 16,
+      "maxHealth": 60,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "aegis_capital_training_dummy_2",
+      "name": "Heavy Training Dummy",
+      "level": 3,
+      "x": 70,
+      "z": 16,
+      "maxHealth": 120,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "aegis_capital_training_dummy_3",
+      "name": "Dueling Target",
+      "level": 2,
+      "x": 82,
+      "z": 16,
+      "maxHealth": 90,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    }
+  ],
   "resourceNodes": [
     {
       "id": "aegis_capital_scrap_node_01",
@@ -3333,5 +3364,5 @@
       ]
     }
   ],
-  "staticMapHash": "08c7099b82524761"
+  "staticMapHash": "0e6f0ecdf58243db"
 }

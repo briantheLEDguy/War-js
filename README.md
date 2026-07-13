@@ -328,6 +328,19 @@ visual profile, replacing text-glyph hotbar placeholders with class- and
 school-themed frames, symbols, accents, and a shared palette used by the
 hotbar and runtime VFX.
 
+`src/game/abilities/abilityIconOverrides.ts` is the explicit art-direction
+catalog for all 240 playable abilities. Each stable ability ID selects an
+effect-oriented SVG motif such as an orb, meteor, shockwave, ward, summon,
+snare, mark, bleed, or venom shape. Missing entries still use the safe generic
+resolver, while `tests/abilityCatalog.test.ts` prevents playable abilities
+from losing their explicit recipe.
+
+`src/wiki/classGuides.ts` contains the role-aware PvE opener, single-target
+loop, AoE sequence, resource rule, and utility priorities shown on every class
+guide page. Rotations are practical catalog-based recommendations rather than
+simulator-proven DPS rankings because the current combat slice has no encounter
+simulation model.
+
 `src/game/abilities/AbilityVfx.ts` provides runtime visuals for cast windups,
 class-family flourishes, projectiles, beams, melee arcs, ground pulses, impact
 bursts, and self auras. Projectile abilities now carry a shaped projectile,

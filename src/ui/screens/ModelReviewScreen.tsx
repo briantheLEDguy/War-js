@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {
+  BATTLE_PRELATE_DEVELOPMENT_REVISION,
+  BATTLE_PRELATE_DEVELOPMENT_ROUTE,
+} from '../../config/developmentModelCandidates';
 
-const ASSEMBLED_MODEL = '/__model-review/battle-prelate-m.glb';
+const ASSEMBLED_MODEL = BATTLE_PRELATE_DEVELOPMENT_ROUTE;
 const REQUIRED_REVIEW_CLIPS = [
   'idle', 'walk', 'run', 'combat_idle', 'attack_melee', 'attack_ranged', 'cast', 'death', 'jump',
 ] as const;
@@ -247,15 +251,17 @@ export function ModelReviewScreen() {
       <div ref={containerRef} className="model-review-canvas" />
       <section className="model-review-card">
         <span className="model-review-badge">DRAFT - LOCAL REVIEW ONLY</span>
-        <h1>Battle Prelate - Male v19 Animation Pilot</h1>
+        <h1>Battle Prelate - Male {BATTLE_PRELATE_DEVELOPMENT_REVISION} Animation Pilot</h1>
         <p>{status}</p>
         <p>This route displays the exact assembled, hash-reviewed body, armor, socketed hammer, and animation candidate. It does not bypass promotion in normal play.</p>
         <a href="/">Exit review</a>
       </section>
       <aside className="model-review-animation-panel" aria-label="Animation review controls">
-        <span className="model-review-badge">GEOMETRY v18 ACCEPTED · ANIMATION v19 REVIEW</span>
+        <span className="model-review-badge">
+          GEOMETRY v18 ACCEPTED · ANIMATION {BATTLE_PRELATE_DEVELOPMENT_REVISION} REVIEW
+        </span>
         <h2>Animation Review</h2>
-        <p>v18 animation was rejected. Play every revised runtime clip before final promotion approval.</p>
+        <p>Earlier animation candidates were rejected. Play every revised runtime clip before final promotion approval.</p>
         <div className="model-review-clip-grid">
           {REQUIRED_REVIEW_CLIPS.map((clip) => (
             <button

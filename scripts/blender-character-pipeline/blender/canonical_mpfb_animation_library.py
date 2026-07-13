@@ -24,10 +24,45 @@ DEFAULT_ANIMATION_PROFILE = "unarmed"
 ANIMATION_PROFILES = (DEFAULT_ANIMATION_PROFILE, "battle_prelate_hammer")
 
 
+# MPFB's game-engine bind pose is intentionally broad so clothing can be fitted
+# in an A-pose. Runtime locomotion must not inherit that authoring stance. These
+# symmetric armature-space offsets place the ankles close to hip width, keep the
+# shins nearly vertical, and return the feet to a level orientation.
+_NEUTRAL_STANCE = {
+    "thigh_L": (0.0, 0.11, 0.0),
+    "thigh_R": (0.0, -0.11, 0.0),
+    "shin_L": (0.0, -0.04, 0.0),
+    "shin_R": (0.0, 0.04, 0.0),
+    "foot_L": (0.0, -0.07, 0.0),
+    "foot_R": (0.0, 0.07, 0.0),
+}
+
+# The A-pose also leaves relaxed hands roughly half a metre from the torso.
+# These offsets adduct the upper arms while retaining a small, natural gap.
+_RELAXED_ARMS = {
+    "upper_arm_L": (0.03, 0.48, 0.01),
+    "upper_arm_R": (-0.03, -0.48, -0.01),
+}
+
+
+def _constant_pose(frames: tuple[int, ...], rotations: dict[str, tuple]) -> dict:
+    return {
+        bone_name: [(frame, (0, 0, 0), rotation) for frame in frames]
+        for bone_name, rotation in rotations.items()
+    }
+
+
 # Narrow, in-place locomotion shared by every MPFB humanoid.  Rotating around
 # armature X avoids the mirrored thigh rest axes that made the old local-X
 # values throw both knees sideways.
 MPFB_BASE_OVERRIDES = {
+    "idle": {
+        "rotation_space": "ARMATURE",
+        "keyframes": {
+            **_constant_pose((0, 30, 60), _NEUTRAL_STANCE),
+            **_constant_pose((0, 30, 60), _RELAXED_ARMS),
+        },
+    },
     "walk": {
         "rotation_space": "ARMATURE",
         "keyframes": {
@@ -170,16 +205,35 @@ MPFB_BASE_OVERRIDES = {
 }
 
 
+def _apply_neutral_lateral_pose() -> None:
+    """Compose neutral coronal alignment with sagittal locomotion keys."""
+    for clip_name in ("walk", "run"):
+        keyframes = MPFB_BASE_OVERRIDES[clip_name]["keyframes"]
+        for bone_name, neutral_rotation in _NEUTRAL_STANCE.items():
+            rows = keyframes[bone_name]
+            keyframes[bone_name] = [
+                (frame, location, (rotation[0], neutral_rotation[1], rotation[2]))
+                for frame, location, rotation in rows
+            ]
+        arm_roll = 0.44 if clip_name == "walk" else 0.40
+        for bone_name, sign in (("upper_arm_L", 1.0), ("upper_arm_R", -1.0)):
+            rows = keyframes[bone_name]
+            keyframes[bone_name] = [
+                (frame, location, (rotation[0], sign * arm_roll, rotation[2]))
+                for frame, location, rotation in rows
+            ]
+
+
+_apply_neutral_lateral_pose()
+
+
 _HAMMER_CARRY = {
-    # Low-rib one-hand shoulder carry: the grip stays below the chest while
-    # the attachment cant places the head behind the right shoulder.
-    "shoulder_R": (0.00, 0.02, -0.02),
-    "upper_arm_R": (-0.16, 0.06, -0.04),
-    "forearm_R": (-0.40, 0.02, -0.05),
-    # The attachment adapter aligns the shaft with the palm.  The wrist only
-    # supplies a modest, reviewable carry angle instead of compensating for a
-    # mismatched socket with an anatomically impossible bend.
-    "hand_R": (0.08, -0.15, -0.06),
+    # Close-body precursor pose. The equipped assembly replaces these arm
+    # channels with a two-hand IK bake against semantic grip markers.
+    "shoulder_R": (0.00, -0.03, -0.02),
+    "upper_arm_R": (-0.18, -0.42, -0.04),
+    "forearm_R": (-0.82, -0.04, -0.05),
+    "hand_R": (0.08, -0.12, -0.04),
 }
 
 
@@ -215,9 +269,9 @@ BATTLE_PRELATE_HAMMER_OVERRIDES = {
                 (60, (0, 0, 0), (0.025, 0.000, 0.020)),
             ],
             "upper_arm_L": [
-                (0, (0, 0, 0), (0.04, -0.03, 0.02)),
-                (30, (0, 0, 0), (0.02, -0.03, 0.02)),
-                (60, (0, 0, 0), (0.04, -0.03, 0.02)),
+                (0, (0, 0, 0), (0.04, 0.48, 0.02)),
+                (30, (0, 0, 0), (0.02, 0.48, 0.02)),
+                (60, (0, 0, 0), (0.04, 0.48, 0.02)),
             ],
             **_held_pose((0, 30, 60), breathing=0.015),
         },
@@ -244,6 +298,7 @@ BATTLE_PRELATE_HAMMER_OVERRIDES = {
     "combat_idle": {
         "rotation_space": "ARMATURE",
         "keyframes": {
+            **_constant_pose((0, 40, 80), _NEUTRAL_STANCE),
             "hips": [
                 (0, (0, -0.025, 0), (0.055, 0.000, -0.08)),
                 (40, (0, -0.018, 0), (0.060, 0.000, -0.06)),
@@ -265,9 +320,9 @@ BATTLE_PRELATE_HAMMER_OVERRIDES = {
                 (80, (0, 0, 0), (0.10, 0.000, 0.000)),
             ],
             "upper_arm_L": [
-                (0, (0, 0, 0), (-0.28, -0.10, 0.10)),
-                (40, (0, 0, 0), (-0.25, -0.10, 0.08)),
-                (80, (0, 0, 0), (-0.28, -0.10, 0.10)),
+                (0, (0, 0, 0), (-0.28, 0.24, 0.10)),
+                (40, (0, 0, 0), (-0.25, 0.24, 0.08)),
+                (80, (0, 0, 0), (-0.28, 0.24, 0.10)),
             ],
             **_held_pose((0, 40, 80), breathing=0.020),
         },
@@ -275,6 +330,7 @@ BATTLE_PRELATE_HAMMER_OVERRIDES = {
     "attack_melee": {
         "rotation_space": "ARMATURE",
         "keyframes": {
+            **_constant_pose((0, 7, 14, 21, 30), _NEUTRAL_STANCE),
             "hips": [
                 (0, (0, 0, 0), (0.045, 0.000, -0.08)),
                 (7, (0, 0, 0), (0.030, 0.000, -0.18)),

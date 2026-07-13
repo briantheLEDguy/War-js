@@ -21,6 +21,7 @@ import {
 import { OVERVIEW_PAGES, ROADMAP_PAGES, WIKI_SECTIONS } from '../src/wiki/wikiMetadata';
 import { buildWikiIndex } from '../src/wiki/wikiContent';
 import type { WikiPage } from '../src/wiki/wikiTypes';
+import { CLASS_GUIDES } from '../src/wiki/classGuides';
 
 const index = buildWikiIndex();
 const allRaces = [...ORDER_RACES, ...DESTRUCTION_RACES];
@@ -131,6 +132,8 @@ function testRaceAndClassCoverage() {
     assertEqual(classPage.status, 'implemented', `Class page status for ${className}`);
     assertEqual(classPage.title, className, `Class page title for ${className}`);
     assertEqual(rowCount(`class-${slug(className)}`, 'Ability kit'), HOTBAR_SLOT_COUNT, `Class page ability rows for ${className}`);
+    assertEqual(rowCount(`class-${slug(className)}`, 'Recommended Rotation'), 4, `Rotation rows for ${className}`);
+    assertEqual(rowCount(`class-${slug(className)}`, 'Priority Notes'), CLASS_GUIDES[className].priorities.length, `Priority rows for ${className}`);
 
     const seenSlots = new Set<number>();
     const seenKeys = new Set<string>();
@@ -140,6 +143,29 @@ function testRaceAndClassCoverage() {
     }
     assertEqual(seenSlots.size, HOTBAR_SLOT_COUNT, `${className} ability slots must be unique`);
     assertArrayEqual([...seenKeys], [...HOTBAR_KEYS], `${className} hotbar keys must match HOTBAR_KEYS`);
+  }
+}
+
+function testClassGuideCoverage() {
+  assertEqual(Object.keys(CLASS_GUIDES).length, allClasses.length, 'Every playable class must have guide data');
+
+  for (const className of allClasses) {
+    const guide = CLASS_GUIDES[className];
+    assert(guide, `Missing class guide data for ${className}`);
+    assert(guide.opener.length > 0, `Class guide opener must not be empty: ${className}`);
+    assert(guide.singleTarget.length > 0, `Class guide single-target loop must not be empty: ${className}`);
+    assert(guide.area.length > 0, `Class guide AoE sequence must not be empty: ${className}`);
+    assert(guide.resourceRule.length > 0, `Class guide resource rule must not be empty: ${className}`);
+    assert(guide.priorities.length > 0, `Class guide priorities must not be empty: ${className}`);
+
+    const kit = CAREER_ABILITY_KITS[className];
+    for (const name of [...guide.opener, ...guide.singleTarget, ...guide.area]) {
+      const normalized = normalizeAbilityName(name);
+      assert(
+        kit.abilities.some((ability) => normalizeAbilityName(ability.name) === normalized),
+        `Guide references missing ability ${name} for ${className}`,
+      );
+    }
   }
 }
 
@@ -255,7 +281,12 @@ function testQuestCoverage() {
 describe('wiki content index', () => {
   test('keeps section and page metadata consistent', testIndexShape);
   test('documents every playable race and class', testRaceAndClassCoverage);
+  test('documents a validated role-aware guide for every class', testClassGuideCoverage);
   test('documents every generated ability page', testAbilityPageCoverage);
   test('documents crafting data and referenced items', testCraftingCoverage);
   test('documents quest data', testQuestCoverage);
 });
+
+function normalizeAbilityName(name: string): string {
+  return name.replace(/[’‘]/g, "'").replace(/[‐‑‒–—]/g, '-').toLowerCase();
+}

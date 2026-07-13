@@ -17,6 +17,7 @@ import { getItemDefinition, ITEM_CATALOG, type ItemDefinition } from '../data/it
 import { QUESTS } from '../data/quests';
 import type { QuestDefinition, QuestRewardItem } from '../services/types';
 import { CAREER_ABILITY_KITS } from '../game/abilities/abilityData';
+import { getClassGuide } from './classGuides';
 import type {
   AbilityAmount,
   AbilityDefinition,
@@ -178,31 +179,61 @@ function buildRaceAndClassPages(): WikiPage[] {
         race ? RACE_DISPLAY[race] : '',
         realm,
       ],
-      body: [
-        `${kit.career} is a ${familyLabel(kit.classFamily).toLowerCase()} class using ${resourceSummary(kit.resource)}.`,
-      ],
       details: [
         { label: 'Realm', value: realm },
         { label: 'Race', value: race ? RACE_DISPLAY[race] : 'Unknown' },
         { label: 'Role Family', value: familyLabel(kit.classFamily) },
         { label: 'Class Resource', value: resourceSummary(kit.resource) },
+        { label: 'Rotation Standard', value: 'Role-aware PvE opener, single-target loop, and AoE priority' },
       ],
-      tables: [
-        {
-          title: 'Ability kit',
-          columns: ['Slot', 'Ability', 'School', 'Targeting', 'Resource'],
-          rows: kit.abilities.map((ability) => ({
-            id: ability.id,
-            cells: [
-              ability.key,
-              ability.name,
-              ability.visual.school,
-              formatTargeting(ability),
-              formatResourceCost(ability, kit.resource),
+      ...(getClassGuide(kit.career)
+        ? {
+            body: [
+              `${kit.career} is a ${familyLabel(kit.classFamily).toLowerCase()} class using ${resourceSummary(kit.resource)}.`,
+              getClassGuide(kit.career)!.summary,
             ],
-          })),
-        },
-      ],
+            tables: [
+              {
+                title: 'Ability kit',
+                columns: ['Slot', 'Ability', 'School', 'Targeting', 'Resource'],
+                rows: kit.abilities.map((ability) => ({
+                  id: ability.id,
+                  cells: [
+                    ability.key,
+                    ability.name,
+                    ability.visual.school,
+                    formatTargeting(ability),
+                    formatResourceCost(ability, kit.resource),
+                  ],
+                  iconAbilityId: ability.id,
+                })),
+              },
+              guideRotationTable(kit.career, kit.abilities),
+              guidePriorityTable(kit.career),
+            ],
+          }
+        : {
+            body: [
+              `${kit.career} is a ${familyLabel(kit.classFamily).toLowerCase()} class using ${resourceSummary(kit.resource)}.`,
+            ],
+            tables: [
+              {
+                title: 'Ability kit',
+                columns: ['Slot', 'Ability', 'School', 'Targeting', 'Resource'],
+                rows: kit.abilities.map((ability) => ({
+                  id: ability.id,
+                  cells: [
+                    ability.key,
+                    ability.name,
+                    ability.visual.school,
+                    formatTargeting(ability),
+                    formatResourceCost(ability, kit.resource),
+                  ],
+                  iconAbilityId: ability.id,
+                })),
+              },
+            ],
+          }),
     });
   }
 
@@ -559,6 +590,66 @@ function buildWorldPages(): WikiPage[] {
       ],
     },
   ];
+}
+
+function guideRotationTable(career: string, abilities: AbilityDefinition[]): WikiTable {
+  const guide = getClassGuide(career);
+  if (!guide) {
+    throw new Error(`Missing class guide for ${career}`);
+  }
+  return {
+    title: 'Recommended Rotation',
+    columns: ['Phase', 'Sequence', 'Purpose'],
+    rows: [
+      {
+        id: 'opener',
+        cells: ['Opener', formatGuideSequence(guide.opener, abilities), 'Establish the class setup and first resource window.'],
+      },
+      {
+        id: 'single-target',
+        cells: ['Single target', formatGuideSequence(guide.singleTarget, abilities), 'Highest-efficiency practical boss or elite loop.'],
+      },
+      {
+        id: 'area',
+        cells: ['AoE', formatGuideSequence(guide.area, abilities), 'Use when multiple enemies can be kept in the effect.'],
+      },
+      {
+        id: 'resource',
+        cells: ['Resource rule', guide.resourceRule, 'Do not spend the class resource before its stated payoff.'],
+      },
+    ],
+  };
+}
+
+function guidePriorityTable(career: string): WikiTable {
+  const guide = getClassGuide(career);
+  if (!guide) {
+    throw new Error(`Missing class guide for ${career}`);
+  }
+  return {
+    title: 'Priority Notes',
+    columns: ['Situation', 'Guidance'],
+    rows: guide.priorities.map((priority, index) => ({
+      id: `priority-${index}`,
+      cells: [`Priority ${index + 1}`, priority],
+    })),
+  };
+}
+
+function formatGuideSequence(sequence: string[], abilities: AbilityDefinition[]): string {
+  return sequence
+    .map((name) => {
+      const ability = abilities.find((candidate) => normalizeAbilityName(candidate.name) === normalizeAbilityName(name));
+      return ability ? `${ability.key} ${ability.name}` : name;
+    })
+    .join(' → ');
+}
+
+function normalizeAbilityName(name: string): string {
+  return name
+    .replace(/[’‘]/g, "'")
+    .replace(/[‐‑‒–—]/g, '-')
+    .toLowerCase();
 }
 
 function orderedKits(): CareerAbilityKit[] {

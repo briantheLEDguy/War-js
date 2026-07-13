@@ -1,7 +1,9 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import {
-  BATTLE_PRELATE_V19_DEVELOPMENT_MODEL,
-  BATTLE_PRELATE_V19_SHA256,
+  BATTLE_PRELATE_DEVELOPMENT_MODEL,
+  BATTLE_PRELATE_DEVELOPMENT_REVISION,
+  BATTLE_PRELATE_DEVELOPMENT_ROUTE,
+  BATTLE_PRELATE_DEVELOPMENT_SHA256,
   developmentCharacterAssetFor,
 } from '../src/config/developmentModelCandidates';
 import { AssetLoader } from '../src/game/AssetLoader';
@@ -113,9 +115,10 @@ describe('approval-aware character model resolution', () => {
 });
 
 describe('development-only assembled character integration', () => {
-  test('selects only the male Battle Prelate v19 candidate in development mode', () => {
+  test('selects only the current male Battle Prelate candidate in development mode', () => {
     expect(developmentCharacterAssetFor('civic_battle_prelate_m', 'm', true)).toMatchObject({
-      model: BATTLE_PRELATE_V19_DEVELOPMENT_MODEL,
+      assetId: expect.stringContaining(`.${BATTLE_PRELATE_DEVELOPMENT_REVISION}`),
+      model: BATTLE_PRELATE_DEVELOPMENT_MODEL,
       bodyFamily: 'civic_humanoid_v2',
       bodyVariant: 'm',
       skeletonId: 'humanoid_game_v2',
@@ -123,7 +126,10 @@ describe('development-only assembled character integration', () => {
       developmentOnly: true,
       equipmentMode: 'assembled',
     });
-    expect(BATTLE_PRELATE_V19_SHA256).toHaveLength(64);
+    expect(BATTLE_PRELATE_DEVELOPMENT_ROUTE).toBe(`/${BATTLE_PRELATE_DEVELOPMENT_MODEL}`);
+    expect(BATTLE_PRELATE_DEVELOPMENT_SHA256).toMatch(
+      /^(?:[a-f0-9]{64}|__REPLACE_WITH_BATTLE_PRELATE_V20_SHA256__)$/u,
+    );
     expect(developmentCharacterAssetFor('civic_battle_prelate_m', 'f', true)).toBeNull();
     expect(developmentCharacterAssetFor('civic_battle_prelate_f', 'f', true)).toBeNull();
   });
@@ -143,7 +149,7 @@ describe('development-only assembled character integration', () => {
           runtimeReady: false,
         },
       },
-    }, ['battle-prelate-v19.glb']);
+    }, [BATTLE_PRELATE_DEVELOPMENT_MODEL.split('/').at(-1) ?? '']);
 
     const resolution = await new AssetLoader().resolveCharacterAsset(
       'civic_battle_prelate_m',
@@ -151,13 +157,13 @@ describe('development-only assembled character integration', () => {
     );
 
     expect(resolution).toMatchObject({
-      model: BATTLE_PRELATE_V19_DEVELOPMENT_MODEL,
+      model: BATTLE_PRELATE_DEVELOPMENT_MODEL,
       developmentOnly: true,
       equipmentMode: 'assembled',
     });
     const fetchMock = vi.mocked(fetch);
     expect(fetchMock.mock.calls.some(([input]) => (
-      String(input).includes('/__model-development/battle-prelate-v19.glb')
+      String(input).includes(BATTLE_PRELATE_DEVELOPMENT_ROUTE)
     ))).toBe(true);
     expect(fetchMock.mock.calls.some(([input]) => String(input).includes('must-not-load.glb'))).toBe(false);
   });
