@@ -83,8 +83,6 @@ Some zone-authored assets are still direct model references and are not yet
 manifest-backed:
 
 ```text
-altdorf_land.glb
-altdorf_castle.glb
 castle_gate.glb
 castle_door.glb
 castle_stairs.glb
