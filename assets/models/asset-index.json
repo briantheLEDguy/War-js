@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-e04401c9121e2f69",
+  "assetVersion": "approved-725e976aca47baa7",
   "baseBodies": {},
   "characterProfiles": {},
   "equipment": {
@@ -188,6 +188,55 @@
       "lifecycleStatus": "compatibility_allowed",
       "model": "prop_town_door_2.glb",
       "reason": "original generated dark-fantasy town prop validated through the local Blender MCP",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_banner": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_banner.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_barricade": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_barricade.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_brazier": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_brazier.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_corner_tower": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_corner_tower.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_gatehouse": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_gatehouse.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_wall": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_wall.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed",
+      "runtimeReady": true
+    },
+    "town_fortress_wall_stairs": {
+      "lifecycleStatus": "compatibility_allowed",
+      "model": "prop_town_fortress_wall_stairs.glb",
+      "reason": "original generated dark-fantasy fortress build pack asset",
       "reviewStatus": "compatibility_allowed",
       "runtimeReady": true
     },

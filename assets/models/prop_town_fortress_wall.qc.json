@@ -1,0 +1,74 @@
+{
+  "assetId": "prop.town.fortress_wall",
+  "category": "prop",
+  "model": "prop_town_fortress_wall.glb",
+  "fileSizeBytes": 1614980,
+  "meshCount": 4,
+  "totalTris": 22140,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 11256,
+      "faces": 10854,
+      "tris": 21708,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "mortar",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "slate",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 112,
+      "faces": 108,
+      "tris": 216,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_2052df91-59cb-4d0b-9264-b58a2ec6e2f0/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_wall",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "f49fef4025cfe7d3668996ab747a96f00e4bbf0f277f820997118c495d8d8f82",
+  "generatedAt": "2026-07-13T13:52:53.441Z",
+  "previewImages": []
+}

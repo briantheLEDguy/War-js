@@ -1,0 +1,66 @@
+{
+  "assetId": "prop.town.fortress_wall_stairs",
+  "category": "prop",
+  "model": "prop_town_fortress_wall_stairs.glb",
+  "fileSizeBytes": 262220,
+  "meshCount": 3,
+  "totalTris": 3024,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 1176,
+      "faces": 1134,
+      "tris": 2268,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "mortar",
+      "verts": 336,
+      "faces": 324,
+      "tris": 648,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "slate",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_94aea525-4a1d-4c0e-8e05-c8ee3b2da0bb/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_wall_stairs",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "4e904653bfa762f058e3cd072aa175bc63943f7cdd98726d6c3a73db845b7dec",
+  "generatedAt": "2026-07-13T13:52:49.936Z",
+  "previewImages": []
+}

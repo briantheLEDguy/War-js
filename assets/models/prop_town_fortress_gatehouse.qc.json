@@ -1,0 +1,74 @@
+{
+  "assetId": "prop.town.fortress_gatehouse",
+  "category": "prop",
+  "model": "prop_town_fortress_gatehouse.glb",
+  "fileSizeBytes": 325940,
+  "meshCount": 4,
+  "totalTris": 3764,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 944,
+      "faces": 886,
+      "tris": 1828,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "slate",
+      "verts": 56,
+      "faces": 54,
+      "tris": 108,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "mortar",
+      "verts": 720,
+      "faces": 670,
+      "tris": 1396,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 224,
+      "faces": 216,
+      "tris": 432,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_00857dc2-ec15-4d4a-acf5-33558d1b7bd0/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_gatehouse",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "b7eb02607a7f5a4f22c787f3c8f34d0076e7a6f79179a8860df6d85eaf11380a",
+  "generatedAt": "2026-07-13T13:56:22.461Z",
+  "previewImages": []
+}

@@ -1,0 +1,66 @@
+{
+  "assetId": "prop.town.fortress_banner",
+  "category": "prop",
+  "model": "prop_town_fortress_banner.glb",
+  "fileSizeBytes": 122992,
+  "meshCount": 3,
+  "totalTris": 1064,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 72,
+      "faces": 62,
+      "tris": 140,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 308,
+      "faces": 294,
+      "tris": 600,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "aged_oak",
+      "verts": 168,
+      "faces": 162,
+      "tris": 324,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_27abc675-2715-4733-94e1-7c2b5fac899e/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_banner",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "f1a51ec99dd94dc65e23aafc0139910598535868e6e09419e6de50d3ba09ccbe",
+  "generatedAt": "2026-07-13T13:52:34.322Z",
+  "previewImages": []
+}
