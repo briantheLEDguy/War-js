@@ -3368,6 +3368,36 @@
       "z": -59.4,
       "rotY": 5.9341,
       "scale": 2.35
+    },
+    {
+      "id": "riftspire_capital_training_dummy_1",
+      "name": "Riftbound Training Dummy",
+      "kind": "dummy",
+      "x": -10,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "riftspire_capital_training_dummy_2",
+      "name": "Riftbound Training Dummy",
+      "kind": "dummy",
+      "x": 0,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "riftspire_capital_training_dummy_3",
+      "name": "Heavy Riftbound Training Dummy",
+      "kind": "dummy",
+      "x": 10,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1.25,
+      "assetKey": "dummy"
     }
   ],
   "npcs": [

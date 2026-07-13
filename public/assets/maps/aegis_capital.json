@@ -3320,6 +3320,36 @@
       "z": -59.4,
       "rotY": 5.9341,
       "scale": 2.35
+    },
+    {
+      "id": "aegis_capital_training_dummy_1",
+      "name": "Aegis Training Dummy",
+      "kind": "dummy",
+      "x": -10,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "aegis_capital_training_dummy_2",
+      "name": "Aegis Training Dummy",
+      "kind": "dummy",
+      "x": 0,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "aegis_capital_training_dummy_3",
+      "name": "Heavy Aegis Training Dummy",
+      "kind": "dummy",
+      "x": 10,
+      "z": -22,
+      "rotY": 0,
+      "scale": 1.25,
+      "assetKey": "dummy"
     }
   ],
   "npcs": [
