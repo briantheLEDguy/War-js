@@ -23,20 +23,6 @@
   "generatedFrom": "scripts/blender-character-pipeline/data/approved-assets",
   "schemaVersion": 2,
   "staticProps": {
-    "altdorf_castle": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "altdorf_castle.glb",
-      "reason": "legacy active non-character runtime asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "altdorf_land": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "altdorf_land.glb",
-      "reason": "legacy active non-character runtime asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
     "banner_post": {
       "lifecycleStatus": "compatibility_allowed",
       "model": "banner_post.glb",
