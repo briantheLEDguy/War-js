@@ -1,0 +1,89 @@
+{
+  "assetId": "arm.aether.veil_ranger.back.t1.m",
+  "category": "armor",
+  "model": "arm_aether_veil_ranger_back_t1_m.glb",
+  "fileSizeBytes": 223240,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3254,
+      0.9165,
+      -0.215
+    ],
+    "max": [
+      -0.061,
+      1.9206,
+      -0.1148
+    ],
+    "height": 1.0041
+  },
+  "meshCount": 5,
+  "skinnedMeshCount": 5,
+  "totalTris": 204,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_veil_ranger_back_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_quiver",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.back.t1.m",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_0",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.back.t1.m",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_1",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.back.t1.m",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_2",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.back.t1.m",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_arrow_3",
+      "verts": 32,
+      "faces": 24,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.veil_ranger.back.t1.m",
+      "assetSlot": "back"
+    }
+  ]
+}

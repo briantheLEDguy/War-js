@@ -185,7 +185,7 @@ function pointAt(angle, radius) {
 }
 
 function defaultSpawnPoint(node) {
-  if (node.nodeRole === 'capital') return { x: 0, y: 0, z: -118 };
+  if (isImportedAegisCapital(node)) return { x: 0, y: 0, z: -136 };
   if (node.nodeRole === 'fortress') return { x: 0, y: 0, z: -118 };
   if (node.nodeRole === 'boss_lair') return { x: 0, y: 0, z: -58 };
   return { x: 0, y: 0, z: -40 };
@@ -199,6 +199,7 @@ function buildZone(node) {
     size,
     segments: ROLE_SEGMENTS[node.nodeRole],
     terrainTexture: THEME_TEXTURE[node.theme] ?? 'grass.png',
+    terrainModel: isImportedAegisCapital(node) ? 'terrain_aegis_capital_medieval_city.glb' : undefined,
     skybox: 'sky.hdr',
     flatTerrain: node.nodeRole === 'capital',
     staticMapVersion: CAMPAIGN_STATIC_VERSION,
@@ -248,10 +249,8 @@ function zoneContext(node) {
   };
 }
 
-function isImportedAegisCapital(_node) {
-  // The legacy imported capital mesh is intentionally retired. Both capitals
-  // now use the deterministic original town and castle asset family.
-  return false;
+function isImportedAegisCapital(node) {
+  return node.id === IMPORTED_AEGIS_CAPITAL_ID;
 }
 
 function buildPaths(node) {
@@ -610,35 +609,39 @@ function capitalOuterWallProps(node) {
 }
 
 function capitalHousingProps(node) {
+  const houseKind = node.realm === 'riftbound' ? 'rift_house' : 'building';
   const coords = [
-    [-112, -72], [-90, -72], [-68, -72], [-44, -72], [-24, -72], [24, -72], [44, -72], [68, -72], [90, -72], [112, -72],
-    [-106, -43], [-80, -43], [-54, -43], [-29, -43], [29, -43], [54, -43], [80, -43], [106, -43],
-    [-106, -14], [-80, -14], [-54, -14], [-28, -14], [28, -14], [54, -14], [80, -14], [106, -14],
-    [-108, 44], [-82, 44], [-55, 44], [-29, 44], [29, 44], [55, 44], [82, 44], [108, 44],
-    [-109, 91], [-84, 91], [84, 91], [109, 91],
-    [-108, 124], [-83, 124], [-58, 124], [58, 124], [83, 124], [108, 124],
+    [-108, -62], [-88, -62], [-66, -62], [66, -62], [88, -62], [108, -62],
+    [-108, -34], [-84, -34], [-60, -34], [60, -34], [84, -34], [108, -34],
+    [-108, 18], [-84, 18], [-60, 18], [60, 18], [84, 18], [108, 18],
+    [-108, 46], [-82, 46], [82, 46], [108, 46],
+    [-110, 78], [-88, 78], [88, 78], [110, 78],
+    [-106, 108], [-82, 108], [82, 108], [106, 108],
+    [-106, 128], [-82, 128], [82, 128], [106, 128],
   ];
-  return coords.map(([x, z], index) => townBuildingProp(
+  return coords.map(([x, z], index) => buildingProp(
     `${node.id}_capital_house_${String(index + 1).padStart(2, '0')}`,
     x,
     z,
-    ((index % 7) - 3) * 0.045 + (x < 0 ? 0.03 : -0.03),
-    0.78 + (index % 4) * 0.045,
-    index % 4 === 0 ? 2 : 1,
+    ((index % 5) - 2) * 0.12,
+    node.realm === 'riftbound' ? 1.05 + (index % 3) * 0.08 : 0.98 + (index % 4) * 0.05,
+    node.realm === 'riftbound' ? 8.5 : 7.6,
+    node.realm === 'riftbound' ? 8.5 : 7.4,
+    houseKind,
   ));
 }
 
 function capitalDistrictProps(node) {
   const prefix = `${node.id}_capital_district`;
   return [
-    townBuildingProp(`${prefix}_market_hall_west`, -43, -18, 0.12, 1.02, 2),
-    townBuildingProp(`${prefix}_market_hall_east`, 43, -18, -0.12, 1.02, 2),
-    townBuildingProp(`${prefix}_craft_hall_west`, -43, 17, -0.12, 0.94, 2),
-    townBuildingProp(`${prefix}_training_hall_east`, 43, 17, 0.12, 0.94, 2),
-    townBuildingProp(`${prefix}_barracks_west`, -63, 74, 0.06, 1.02, 2),
-    townBuildingProp(`${prefix}_barracks_east`, 63, 74, -0.06, 1.02, 2),
-    townBuildingProp(`${prefix}_upper_residence_west`, -42, 122, -0.08, 0.9, 1),
-    townBuildingProp(`${prefix}_upper_residence_east`, 42, 122, 0.08, 0.9, 1),
+    buildingProp(`${prefix}_market_hall_west`, -46, -62, 0.18, 1.12, 9, 12, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_market_hall_east`, 46, -62, -0.18, 1.12, 9, 12, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_craft_hall_west`, -48, 18, -0.28, 1.04, 8, 10, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_training_hall_east`, 48, 18, 0.28, 1.04, 8, 10, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_barracks_west`, -64, 70, 0.12, 1.1, 10, 12, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_barracks_east`, 64, 70, -0.12, 1.1, 10, 12, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_upper_residence_west`, -62, 126, -0.18, 1.02, 8, 10, node.realm === 'riftbound' ? 'rift_house' : 'building'),
+    buildingProp(`${prefix}_upper_residence_east`, 62, 126, 0.18, 1.02, 8, 10, node.realm === 'riftbound' ? 'rift_house' : 'building'),
     prop(`${prefix}_avenue_banner_west`, 'banner_post', -22, 54, 0, 1.12),
     prop(`${prefix}_avenue_banner_east`, 'banner_post', 22, 54, 0, 1.12),
     prop(`${prefix}_rear_banner_west`, 'banner_post', -24, 124, 0, 1.1),
@@ -648,18 +651,44 @@ function capitalDistrictProps(node) {
 
 function capitalCitadelProps(node) {
   const id = `${node.id}_capital_citadel`;
-  const props = [solidProp(id, 'castle', 0, 86, 0, 1.22, 38, 34, {
-    assetKey: 'town_castle',
-    model: 'prop_town_castle.glb',
-    collider: { minY: -0.4, maxY: 34 },
-  })];
-  props.push(prop(`${id}_banner_west`, 'banner_post', -24, 66, 0, 1.14));
-  props.push(prop(`${id}_banner_east`, 'banner_post', 24, 66, 0, 1.14));
+  const wallKind = node.realm === 'riftbound' ? 'rift_wall_segment' : 'wall_segment';
+  const towerKind = node.realm === 'riftbound' ? 'rift_tower' : 'tower';
+  const labelPrefix = node.realm === 'aegis' ? 'Aegis' : 'Riftbound';
+  const levels = [
+    { y: 0, width: 84, depth: 82, z: 92 },
+    { y: 4, width: 72, depth: 70, z: 94 },
+    { y: 8, width: 60, depth: 58, z: 96 },
+    { y: 12, width: 48, depth: 46, z: 98 },
+    { y: 16, width: 36, depth: 36, z: 100 },
+    { y: 20, width: 26, depth: 28, z: 102 },
+  ];
+  const props = [];
+  for (const [index, level] of levels.entries()) {
+    props.push(castleFloorProp(`${id}_floor_${index + 1}`, 0, level.z, level.y, level.width, level.depth));
+    props.push(...capitalCitadelLevelWalls(id, index + 1, level, wallKind, towerKind));
+  }
+  const stairRuns = [
+    { x: -24, z: 66, y: 0, rotY: 0 },
+    { x: 24, z: 84, y: 4, rotY: Math.PI },
+    { x: -20, z: 98, y: 8, rotY: 0 },
+    { x: 20, z: 110, y: 12, rotY: Math.PI },
+    { x: -12, z: 108, y: 16, rotY: 0 },
+  ];
+  for (const [index, stair] of stairRuns.entries()) {
+    props.push(castleStairsProp(`${id}_stair_${index + 1}`, stair.x, stair.z, stair.y, stair.rotY));
+  }
+  props.push(interactiveDoorProp(`${id}_front_gate`, `${labelPrefix} Citadel Gate`, 0, 51, 0, node.realm === 'riftbound' ? 1.34 : 1.22, 22, 'castle_gate', 18, 2.5));
+  props.push(interactiveDoorProp(`${id}_rear_postern`, `${labelPrefix} Citadel Rear Gate`, 0, 133, Math.PI, 1.06, 18, 'castle_gate', 16, 2.2));
+  props.push(interactiveDoorProp(`${id}_inner_front_door`, `${labelPrefix} Citadel Door`, 0, 76, 0, 0.92, 13));
+  props.push(interactiveDoorProp(`${id}_inner_rear_door`, `${labelPrefix} Citadel Rear Door`, 0, 116, Math.PI, 0.88, 13));
+  props.push(prop(`${id}_top_banner_west`, 'banner_post', -12, 102, 0, 1.0, { y: 20 }));
+  props.push(prop(`${id}_top_banner_east`, 'banner_post', 12, 102, 0, 1.0, { y: 20 }));
   if (node.realm === 'riftbound') {
-    props.push(prop(`${id}_brazier_west`, 'rift_brazier', -19, 66, 0, 1.0));
-    props.push(prop(`${id}_brazier_east`, 'rift_brazier', 19, 66, 0, 1.0));
+    props.push(prop(`${id}_top_obelisk`, 'rift_obelisk', 0, 102, 0, 0.78, { y: 20 }));
+    props.push(prop(`${id}_stair_brazier_west`, 'rift_brazier', -34, 56, 0, 1.0));
+    props.push(prop(`${id}_stair_brazier_east`, 'rift_brazier', 34, 56, 0, 1.0));
   } else {
-    props.push(prop(`${id}_forecourt_statue`, 'statue', 0, 60, 0, 1.1));
+    props.push(prop(`${id}_top_statue`, 'statue', 0, 102, 0, 0.85, { y: 20 }));
   }
   return props;
 }
@@ -1119,22 +1148,6 @@ function fortressProps(id, x, z, realm) {
 
 function buildingProp(id, x, z, rotY, scale, width = 8, depth = 8, kind = 'building') {
   return solidProp(id, kind, x, z, rotY, scale, width, depth);
-}
-
-function townBuildingProp(id, x, z, rotY, scale, variant = 1) {
-  const isLarge = variant === 2;
-  return solidProp(id, 'building', x, z, rotY, scale, isLarge ? 12.2 : 9.8, isLarge ? 9 : 7.4, {
-    assetKey: isLarge ? 'town_house_2' : 'town_house_1',
-    model: isLarge ? 'prop_town_house_2.glb' : 'prop_town_house_1.glb',
-    collider: { minY: -0.25, maxY: isLarge ? 12 : 10 },
-    interaction: {
-      id: `${id}_house_door`,
-      type: 'house_portal',
-      label: 'Enter House',
-      maxDistance: isLarge ? 11 : 9,
-      interiorVariant: isLarge ? 'large' : 'small',
-    },
-  });
 }
 
 function towerProp(id, x, z, scale, rotY = 0, kind = 'tower') {

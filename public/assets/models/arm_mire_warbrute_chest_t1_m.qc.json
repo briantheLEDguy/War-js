@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.mire.warbrute.chest.t1.m",
+  "category": "armor",
+  "model": "arm_mire_warbrute_chest_t1_m.glb",
+  "fileSizeBytes": 810360,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3459,
+      0.9564,
+      -0.1926
+    ],
+    "max": [
+      0.3459,
+      1.5524,
+      0.2493
+    ],
+    "height": 0.596
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 4352,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_mire_warbrute_chest_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_plate_cuirass",
+      "verts": 2117,
+      "faces": 2016,
+      "tris": 4032,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.warbrute.chest.t1.m",
+      "assetSlot": "chest"
+    },
+    {
+      "name": "armor_front_emblem",
+      "verts": 189,
+      "faces": 160,
+      "tris": 320,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.warbrute.chest.t1.m",
+      "assetSlot": "chest"
+    }
+  ]
+}

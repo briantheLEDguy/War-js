@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.riven.void_magister.head.t1.m",
+  "category": "armor",
+  "model": "arm_riven_void_magister_head_t1_m.glb",
+  "fileSizeBytes": 227568,
+  "boundsYUpMeters": {
+    "min": [
+      -0.2365,
+      1.674,
+      -0.1835
+    ],
+    "max": [
+      0.2365,
+      2.1492,
+      0.1625
+    ],
+    "height": 0.4752
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 464,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_void_magister_head_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_hood_cowl",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.void_magister.head.t1.m",
+      "assetSlot": "head"
+    }
+  ]
+}

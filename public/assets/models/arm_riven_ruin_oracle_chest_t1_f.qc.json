@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.riven.ruin_oracle.chest.t1.f",
+  "category": "armor",
+  "model": "arm_riven_ruin_oracle_chest_t1_f.glb",
+  "fileSizeBytes": 220248,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3098,
+      0.8679,
+      -0.1584
+    ],
+    "max": [
+      0.3098,
+      1.6723,
+      0.1584
+    ],
+    "height": 0.8044
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 480,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_ruin_oracle_chest_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_robed_chest",
+      "verts": 242,
+      "faces": 300,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.ruin_oracle.chest.t1.f",
+      "assetSlot": "chest"
+    }
+  ]
+}

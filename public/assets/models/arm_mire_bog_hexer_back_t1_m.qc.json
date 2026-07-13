@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.mire.bog_hexer.back.t1.m",
+  "category": "armor",
+  "model": "arm_mire_bog_hexer_back_t1_m.glb",
+  "fileSizeBytes": 227168,
+  "boundsYUpMeters": {
+    "min": [
+      -0.1836,
+      0.882,
+      -0.4049
+    ],
+    "max": [
+      0.1836,
+      1.3916,
+      -0.1348
+    ],
+    "height": 0.5096
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 492,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_mire_bog_hexer_back_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_backpack_core",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.bog_hexer.back.t1.m",
+      "assetSlot": "back"
+    },
+    {
+      "name": "armor_back_focus",
+      "verts": 240,
+      "faces": 240,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.mire.bog_hexer.back.t1.m",
+      "assetSlot": "back"
+    }
+  ]
+}

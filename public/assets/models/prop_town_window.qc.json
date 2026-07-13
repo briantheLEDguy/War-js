@@ -2,57 +2,36 @@
   "assetId": "prop.town.window",
   "category": "prop",
   "model": "prop_town_window.glb",
-  "fileSizeBytes": 85864,
+  "fileSizeBytes": 156060,
   "meshCount": 2,
-  "totalTris": 756,
-  "availableClips": [],
-  "missingRequiredClips": [],
+  "totalTris": 96,
+  "availableClips": [
+    "Armature|Scene"
+  ],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true,
-    "requiredClipsPresent": true,
-    "hasColliderPolicy": true
+    "meshObjectBudget": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "glass",
-      "verts": 56,
-      "faces": 54,
-      "tris": 108,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_window",
+      "verts": 36,
+      "faces": 34,
+      "tris": 68,
+      "materials": 1
     },
     {
-      "name": "oak",
-      "verts": 336,
-      "faces": 324,
-      "tris": 648,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_window_pane",
+      "verts": 16,
+      "faces": 14,
+      "tris": 28,
+      "materials": 1
     }
   ],
-  "artifactDir": "artifacts/model-jobs/standalone_bef66e25-37e7-4123-8bdd-4d22af7585de/artifacts/generated-previews",
-  "manifestVersion": "2.0.0",
-  "notes": {
-    "generator": "original_dark_fantasy_town_v2",
-    "variant": "window",
-    "materials": [
-      "aged_oak",
-      "glass",
-      "iron",
-      "mortar",
-      "oak",
-      "plaster",
-      "slate",
-      "stone"
-    ],
-    "artDirection": "realistic weathered Aegis frontier architecture"
-  },
-  "modelSha256": "fca3a0f89cf5b42d5365489c427468687d39e1ebc0b3b0d922790f2534a469e4",
-  "generatedAt": "2026-07-11T20:08:14.276Z",
-  "previewImages": []
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
 }

@@ -2,65 +2,36 @@
   "assetId": "prop.town.door",
   "category": "prop",
   "model": "prop_town_door.glb",
-  "fileSizeBytes": 106320,
-  "meshCount": 3,
-  "totalTris": 836,
-  "availableClips": [],
-  "missingRequiredClips": [],
+  "fileSizeBytes": 161652,
+  "meshCount": 2,
+  "totalTris": 256,
+  "availableClips": [
+    "Armature|Scene"
+  ],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true,
-    "requiredClipsPresent": true,
-    "hasColliderPolicy": true
+    "meshObjectBudget": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "oak",
-      "verts": 56,
-      "faces": 54,
-      "tris": 108,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_door",
+      "verts": 36,
+      "faces": 34,
+      "tris": 68,
+      "materials": 1
     },
     {
-      "name": "aged_oak",
-      "verts": 168,
-      "faces": 162,
-      "tris": 324,
-      "materials": 1,
-      "assetSlot": "prop"
-    },
-    {
-      "name": "iron",
-      "verts": 208,
-      "faces": 190,
-      "tris": 404,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_door_handle",
+      "verts": 98,
+      "faces": 94,
+      "tris": 188,
+      "materials": 1
     }
   ],
-  "artifactDir": "artifacts/model-jobs/standalone_5c4d11b9-9bf6-4015-97da-db2caaa69b13/artifacts/generated-previews",
-  "manifestVersion": "2.0.0",
-  "notes": {
-    "generator": "original_dark_fantasy_town_v2",
-    "variant": "door",
-    "materials": [
-      "aged_oak",
-      "glass",
-      "iron",
-      "mortar",
-      "oak",
-      "plaster",
-      "slate",
-      "stone"
-    ],
-    "artDirection": "realistic weathered Aegis frontier architecture"
-  },
-  "modelSha256": "3a23e4997a158c87475b5ac600f5a7a2044aba5c416dc7352551b27274d2e79e",
-  "generatedAt": "2026-07-11T20:06:50.478Z",
-  "previewImages": []
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
 }

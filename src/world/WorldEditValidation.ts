@@ -139,15 +139,8 @@ function validateWorldObject(
     }
     if (object.interaction) {
       if (!object.interaction.id) issues.push(`Prop "${object.id}" has an interaction without an id.`);
-      if (object.interaction.type !== 'gate' && object.interaction.type !== 'house_portal') {
+      if (object.interaction.type !== 'gate') {
         issues.push(`Prop "${object.id}" has unsupported interaction type "${object.interaction.type}".`);
-      }
-      if (
-        object.interaction.type === 'house_portal' &&
-        object.interaction.interiorVariant !== 'small' &&
-        object.interaction.interiorVariant !== 'large'
-      ) {
-        issues.push(`Prop "${object.id}" has an invalid house interior variant.`);
       }
       if (
         object.interaction.maxDistance !== undefined &&

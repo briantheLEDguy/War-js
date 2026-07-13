@@ -1,13 +1,13 @@
 {
   "name": "blender-character-mcp",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "description": "Local-only MCP server for MPFB recipes, candidate integrity, review, and atomic model promotion",
+  "description": "MCP server that exposes Blender character generation as Claude Code tools",
   "main": "server.mjs",
   "scripts": {
     "start": "node server.mjs"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0"
+    "@modelcontextprotocol/sdk": "^1.0.0"
   }
 }

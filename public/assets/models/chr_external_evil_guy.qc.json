@@ -1,0 +1,29 @@
+{
+  "assetId": "chr.external.riftbound_evil_guy",
+  "category": "character",
+  "model": "chr_external_evil_guy.glb",
+  "fileSizeBytes": 5285484,
+  "meshCount": 1,
+  "totalTris": 119998,
+  "availableClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "triangleBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "mesh_0",
+      "verts": 105799,
+      "faces": 119998,
+      "tris": 119998,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/evil-guy/source/model.glb",
+  "manifestVersion": "1.0.0"
+}

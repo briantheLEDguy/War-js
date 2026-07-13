@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.civic.ember_arcanist.back.t1.m",
+  "category": "armor",
+  "model": "arm_civic_ember_arcanist_back_t1_m.glb",
+  "fileSizeBytes": 254380,
+  "boundsYUpMeters": {
+    "min": [
+      -0.42,
+      0.3399,
+      -0.2057
+    ],
+    "max": [
+      0.42,
+      1.4801,
+      -0.1643
+    ],
+    "height": 1.1403
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 1152,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_civic_ember_arcanist_back_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_cape_back",
+      "verts": 627,
+      "faces": 576,
+      "tris": 1152,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.ember_arcanist.back.t1.m",
+      "assetSlot": "back"
+    }
+  ]
+}

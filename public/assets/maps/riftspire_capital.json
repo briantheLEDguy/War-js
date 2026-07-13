@@ -18,7 +18,7 @@
   "spawnPoint": {
     "x": 0,
     "y": 0,
-    "z": -118
+    "z": -40
   },
   "paths": [
     {
@@ -908,1353 +908,631 @@
     },
     {
       "id": "riftspire_capital_capital_house_01",
-      "kind": "building",
-      "x": -112,
-      "z": -72,
-      "rotY": -0.105,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_01_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": -108,
+      "z": -62,
+      "rotY": -0.24,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_01_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_02",
-      "kind": "building",
-      "x": -90,
-      "z": -72,
-      "rotY": -0.06,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_02_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -88,
+      "z": -62,
+      "rotY": -0.12,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_02_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_03",
-      "kind": "building",
-      "x": -68,
-      "z": -72,
-      "rotY": -0.015,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_03_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -66,
+      "z": -62,
+      "rotY": 0,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_03_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_04",
-      "kind": "building",
-      "x": -44,
-      "z": -72,
-      "rotY": 0.03,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_04_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 66,
+      "z": -62,
+      "rotY": 0.12,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_04_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_05",
-      "kind": "building",
-      "x": -24,
-      "z": -72,
-      "rotY": 0.075,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_05_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 88,
+      "z": -62,
+      "rotY": 0.24,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_05_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_06",
-      "kind": "building",
-      "x": 24,
-      "z": -72,
-      "rotY": 0.06,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_06_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 108,
+      "z": -62,
+      "rotY": -0.24,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_06_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_07",
-      "kind": "building",
-      "x": 44,
-      "z": -72,
-      "rotY": 0.105,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_07_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -108,
+      "z": -34,
+      "rotY": -0.12,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_07_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_08",
-      "kind": "building",
-      "x": 68,
-      "z": -72,
-      "rotY": -0.165,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_08_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -84,
+      "z": -34,
+      "rotY": 0,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_08_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_09",
-      "kind": "building",
-      "x": 90,
-      "z": -72,
-      "rotY": -0.12,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_09_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": -60,
+      "z": -34,
+      "rotY": 0.12,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_09_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_10",
-      "kind": "building",
-      "x": 112,
-      "z": -72,
-      "rotY": -0.075,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_10_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 60,
+      "z": -34,
+      "rotY": 0.24,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_10_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_11",
-      "kind": "building",
-      "x": -106,
-      "z": -43,
-      "rotY": 0.03,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_11_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 84,
+      "z": -34,
+      "rotY": -0.24,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_11_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_12",
-      "kind": "building",
-      "x": -80,
-      "z": -43,
-      "rotY": 0.075,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_12_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 108,
+      "z": -34,
+      "rotY": -0.12,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_12_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_13",
-      "kind": "building",
-      "x": -54,
-      "z": -43,
-      "rotY": 0.12,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_13_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": -108,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_13_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_14",
-      "kind": "building",
-      "x": -29,
-      "z": -43,
-      "rotY": 0.165,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_14_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -84,
+      "z": 18,
+      "rotY": 0.12,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_14_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_15",
-      "kind": "building",
-      "x": 29,
-      "z": -43,
-      "rotY": -0.165,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_15_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -60,
+      "z": 18,
+      "rotY": 0.24,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_15_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_16",
-      "kind": "building",
-      "x": 54,
-      "z": -43,
-      "rotY": -0.12,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_16_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 60,
+      "z": 18,
+      "rotY": -0.24,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_16_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_17",
-      "kind": "building",
-      "x": 80,
-      "z": -43,
-      "rotY": -0.075,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_17_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 84,
+      "z": 18,
+      "rotY": -0.12,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_17_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_18",
-      "kind": "building",
-      "x": 106,
-      "z": -43,
-      "rotY": -0.03,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_18_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 108,
+      "z": 18,
+      "rotY": 0,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_18_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_19",
-      "kind": "building",
-      "x": -106,
-      "z": -14,
-      "rotY": 0.075,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_19_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -108,
+      "z": 46,
+      "rotY": 0.12,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_19_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_20",
-      "kind": "building",
-      "x": -80,
-      "z": -14,
-      "rotY": 0.12,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_20_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -82,
+      "z": 46,
+      "rotY": 0.24,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_20_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_21",
-      "kind": "building",
-      "x": -54,
-      "z": -14,
-      "rotY": 0.165,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_21_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 82,
+      "z": 46,
+      "rotY": -0.24,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_21_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_22",
-      "kind": "building",
-      "x": -28,
-      "z": -14,
-      "rotY": -0.105,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_22_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 108,
+      "z": 46,
+      "rotY": -0.12,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_22_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_23",
-      "kind": "building",
-      "x": 28,
-      "z": -14,
-      "rotY": -0.12,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_23_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -110,
+      "z": 78,
+      "rotY": 0,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_23_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_24",
-      "kind": "building",
-      "x": 54,
-      "z": -14,
-      "rotY": -0.075,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_24_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -88,
+      "z": 78,
+      "rotY": 0.12,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_24_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_25",
-      "kind": "building",
-      "x": 80,
-      "z": -14,
-      "rotY": -0.03,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_25_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 88,
+      "z": 78,
+      "rotY": 0.24,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_25_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_26",
-      "kind": "building",
-      "x": 106,
-      "z": -14,
-      "rotY": 0.015,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_26_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 110,
+      "z": 78,
+      "rotY": -0.24,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_26_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_27",
-      "kind": "building",
-      "x": -108,
-      "z": 44,
-      "rotY": 0.12,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_27_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -106,
+      "z": 108,
+      "rotY": -0.12,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_27_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_28",
-      "kind": "building",
+      "kind": "rift_house",
       "x": -82,
-      "z": 44,
-      "rotY": 0.165,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_28_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "z": 108,
+      "rotY": 0,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_28_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_29",
-      "kind": "building",
-      "x": -55,
-      "z": 44,
-      "rotY": -0.105,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_29_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 82,
+      "z": 108,
+      "rotY": 0.12,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_29_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_30",
-      "kind": "building",
-      "x": -29,
-      "z": 44,
-      "rotY": -0.06,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_30_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 106,
+      "z": 108,
+      "rotY": 0.24,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_30_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_31",
-      "kind": "building",
-      "x": 29,
-      "z": 44,
-      "rotY": -0.075,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_31_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -106,
+      "z": 128,
+      "rotY": -0.24,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_31_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_32",
-      "kind": "building",
-      "x": 55,
-      "z": 44,
-      "rotY": -0.03,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_32_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -82,
+      "z": 128,
+      "rotY": -0.12,
+      "scale": 1.13,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_32_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_33",
-      "kind": "building",
+      "kind": "rift_house",
       "x": 82,
-      "z": 44,
-      "rotY": 0.015,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_33_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "z": 128,
+      "rotY": 0,
+      "scale": 1.21,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_33_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_house_34",
-      "kind": "building",
-      "x": 108,
-      "z": 44,
-      "rotY": 0.06,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_34_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 106,
+      "z": 128,
+      "rotY": 0.12,
+      "scale": 1.05,
       "colliders": [
         {
           "id": "riftspire_capital_capital_house_34_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_35",
-      "kind": "building",
-      "x": -109,
-      "z": 91,
-      "rotY": 0.165,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_35_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_35_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_36",
-      "kind": "building",
-      "x": -84,
-      "z": 91,
-      "rotY": -0.105,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_36_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_36_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_37",
-      "kind": "building",
-      "x": 84,
-      "z": 91,
-      "rotY": -0.12,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_37_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_37_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_38",
-      "kind": "building",
-      "x": 109,
-      "z": 91,
-      "rotY": -0.075,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_38_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_38_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_39",
-      "kind": "building",
-      "x": -108,
-      "z": 124,
-      "rotY": 0.03,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_39_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_39_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_40",
-      "kind": "building",
-      "x": -83,
-      "z": 124,
-      "rotY": 0.075,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_40_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_40_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_41",
-      "kind": "building",
-      "x": -58,
-      "z": 124,
-      "rotY": 0.12,
-      "scale": 0.78,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_41_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_41_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_42",
-      "kind": "building",
-      "x": 58,
-      "z": 124,
-      "rotY": 0.105,
-      "scale": 0.83,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_42_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_42_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_43",
-      "kind": "building",
-      "x": 83,
-      "z": 124,
-      "rotY": -0.165,
-      "scale": 0.87,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_43_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_43_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
-        }
-      ]
-    },
-    {
-      "id": "riftspire_capital_capital_house_44",
-      "kind": "building",
-      "x": 108,
-      "z": 124,
-      "rotY": -0.12,
-      "scale": 0.92,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_house_44_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
-      "colliders": [
-        {
-          "id": "riftspire_capital_capital_house_44_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8.5,
+          "depth": 8.5
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_market_hall_west",
-      "kind": "building",
-      "x": -43,
-      "z": -18,
-      "rotY": 0.12,
-      "scale": 1.02,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_market_hall_west_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": -46,
+      "z": -62,
+      "rotY": 0.18,
+      "scale": 1.12,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_market_hall_west_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 9,
+          "depth": 12
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_market_hall_east",
-      "kind": "building",
-      "x": 43,
-      "z": -18,
-      "rotY": -0.12,
-      "scale": 1.02,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_market_hall_east_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 46,
+      "z": -62,
+      "rotY": -0.18,
+      "scale": 1.12,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_market_hall_east_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 9,
+          "depth": 12
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_craft_hall_west",
-      "kind": "building",
-      "x": -43,
-      "z": 17,
-      "rotY": -0.12,
-      "scale": 0.94,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_craft_hall_west_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": -48,
+      "z": 18,
+      "rotY": -0.28,
+      "scale": 1.04,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_craft_hall_west_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8,
+          "depth": 10
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_training_hall_east",
-      "kind": "building",
-      "x": 43,
-      "z": 17,
-      "rotY": 0.12,
-      "scale": 0.94,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_training_hall_east_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 48,
+      "z": 18,
+      "rotY": 0.28,
+      "scale": 1.04,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_training_hall_east_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 8,
+          "depth": 10
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_barracks_west",
-      "kind": "building",
-      "x": -63,
-      "z": 74,
-      "rotY": 0.06,
-      "scale": 1.02,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_barracks_west_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": -64,
+      "z": 70,
+      "rotY": 0.12,
+      "scale": 1.1,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_barracks_west_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 10,
+          "depth": 12
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_barracks_east",
-      "kind": "building",
-      "x": 63,
-      "z": 74,
-      "rotY": -0.06,
-      "scale": 1.02,
-      "assetKey": "town_house_2",
-      "model": "prop_town_house_2.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_barracks_east_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 11,
-        "interiorVariant": "large"
-      },
+      "kind": "rift_house",
+      "x": 64,
+      "z": 70,
+      "rotY": -0.12,
+      "scale": 1.1,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_barracks_east_collider",
-          "width": 12.2,
-          "depth": 9,
-          "minY": -0.25,
-          "maxY": 12
+          "width": 10,
+          "depth": 12
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_upper_residence_west",
-      "kind": "building",
-      "x": -42,
-      "z": 122,
-      "rotY": -0.08,
-      "scale": 0.9,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_upper_residence_west_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": -62,
+      "z": 126,
+      "rotY": -0.18,
+      "scale": 1.02,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_upper_residence_west_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8,
+          "depth": 10
         }
       ]
     },
     {
       "id": "riftspire_capital_capital_district_upper_residence_east",
-      "kind": "building",
-      "x": 42,
-      "z": 122,
-      "rotY": 0.08,
-      "scale": 0.9,
-      "assetKey": "town_house_1",
-      "model": "prop_town_house_1.glb",
-      "interaction": {
-        "id": "riftspire_capital_capital_district_upper_residence_east_house_door",
-        "type": "house_portal",
-        "label": "Enter House",
-        "maxDistance": 9,
-        "interiorVariant": "small"
-      },
+      "kind": "rift_house",
+      "x": 62,
+      "z": 126,
+      "rotY": 0.18,
+      "scale": 1.02,
       "colliders": [
         {
           "id": "riftspire_capital_capital_district_upper_residence_east_collider",
-          "width": 9.8,
-          "depth": 7.4,
-          "minY": -0.25,
-          "maxY": 10
+          "width": 8,
+          "depth": 10
         }
       ]
     },
@@ -2291,53 +1569,1425 @@
       "scale": 1.1
     },
     {
-      "id": "riftspire_capital_capital_citadel",
-      "kind": "castle",
+      "id": "riftspire_capital_capital_citadel_floor_1",
+      "kind": "castle_floor",
       "x": 0,
-      "z": 86,
+      "z": 92,
       "rotY": 0,
-      "scale": 1.22,
-      "assetKey": "town_castle",
-      "model": "prop_town_castle.glb",
-      "colliders": [
+      "scale": 1,
+      "y": 0,
+      "scaleX": 3.5,
+      "scaleZ": 3.42,
+      "walkableSurfaces": [
         {
-          "id": "riftspire_capital_capital_citadel_collider",
-          "width": 38,
-          "depth": 34,
-          "minY": -0.4,
-          "maxY": 34
+          "id": "riftspire_capital_capital_citadel_floor_1_walkable",
+          "width": 24,
+          "depth": 24,
+          "fromY": 0,
+          "toY": 0
         }
       ]
     },
     {
-      "id": "riftspire_capital_capital_citadel_banner_west",
-      "kind": "banner_post",
+      "id": "riftspire_capital_capital_citadel_level_1_front_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -26.5,
+      "z": 51,
+      "rotY": 0,
+      "scale": 1,
+      "y": 0,
+      "scaleX": 3.1,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_front_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 26.5,
+      "z": 51,
+      "rotY": 0,
+      "scale": 1,
+      "y": 0,
+      "scaleX": 3.1,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_rear_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -25.5,
+      "z": 133,
+      "rotY": 0,
+      "scale": 1,
+      "y": 0,
+      "scaleX": 3.3,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_rear_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_rear_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 25.5,
+      "z": 133,
+      "rotY": 0,
+      "scale": 1,
+      "y": 0,
+      "scaleX": 3.3,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_rear_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_west_wall",
+      "kind": "rift_wall_segment",
+      "x": -42,
+      "z": 92,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 0,
+      "scaleX": 8.2,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_west_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_east_wall",
+      "kind": "rift_wall_segment",
+      "x": 42,
+      "z": 92,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 0,
+      "scaleX": 8.2,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_east_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_tower_nw",
+      "kind": "rift_tower",
+      "x": -42,
+      "z": 51,
+      "rotY": 0,
+      "scale": 0.89,
+      "y": 0,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_tower_nw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_tower_ne",
+      "kind": "rift_tower",
+      "x": 42,
+      "z": 51,
+      "rotY": 0,
+      "scale": 0.89,
+      "y": 0,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_tower_ne_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_tower_sw",
+      "kind": "rift_tower",
+      "x": -42,
+      "z": 133,
+      "rotY": 0,
+      "scale": 0.89,
+      "y": 0,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_tower_sw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_1_tower_se",
+      "kind": "rift_tower",
+      "x": 42,
+      "z": 133,
+      "rotY": 0,
+      "scale": 0.89,
+      "y": 0,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_1_tower_se_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_floor_2",
+      "kind": "castle_floor",
+      "x": 0,
+      "z": 94,
+      "rotY": 0,
+      "scale": 1,
+      "y": 4,
+      "scaleX": 3,
+      "scaleZ": 2.92,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_floor_2_walkable",
+          "width": 24,
+          "depth": 24,
+          "fromY": 0,
+          "toY": 0
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_front_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -20.5,
+      "z": 59,
+      "rotY": 0,
+      "scale": 1,
+      "y": 4,
+      "scaleX": 3.1,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_front_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 20.5,
+      "z": 59,
+      "rotY": 0,
+      "scale": 1,
+      "y": 4,
+      "scaleX": 3.1,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_rear_wall",
+      "kind": "rift_wall_segment",
+      "x": 0,
+      "z": 129,
+      "rotY": 0,
+      "scale": 1,
+      "y": 4,
+      "scaleX": 7.2,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_rear_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_west_wall",
+      "kind": "rift_wall_segment",
+      "x": -36,
+      "z": 94,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 4,
+      "scaleX": 7,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_west_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_east_wall",
+      "kind": "rift_wall_segment",
+      "x": 36,
+      "z": 94,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 4,
+      "scaleX": 7,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_east_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_tower_nw",
+      "kind": "rift_tower",
+      "x": -36,
+      "z": 59,
+      "rotY": 0,
+      "scale": 0.83,
+      "y": 4,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_tower_nw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_tower_ne",
+      "kind": "rift_tower",
+      "x": 36,
+      "z": 59,
+      "rotY": 0,
+      "scale": 0.83,
+      "y": 4,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_tower_ne_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_tower_sw",
+      "kind": "rift_tower",
+      "x": -36,
+      "z": 129,
+      "rotY": 0,
+      "scale": 0.83,
+      "y": 4,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_tower_sw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_2_tower_se",
+      "kind": "rift_tower",
+      "x": 36,
+      "z": 129,
+      "rotY": 0,
+      "scale": 0.83,
+      "y": 4,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_2_tower_se_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_floor_3",
+      "kind": "castle_floor",
+      "x": 0,
+      "z": 96,
+      "rotY": 0,
+      "scale": 1,
+      "y": 8,
+      "scaleX": 2.5,
+      "scaleZ": 2.42,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_floor_3_walkable",
+          "width": 24,
+          "depth": 24,
+          "fromY": 0,
+          "toY": 0
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_front_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -17.5,
+      "z": 67,
+      "rotY": 0,
+      "scale": 1,
+      "y": 8,
+      "scaleX": 2.5,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_front_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 17.5,
+      "z": 67,
+      "rotY": 0,
+      "scale": 1,
+      "y": 8,
+      "scaleX": 2.5,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_rear_wall",
+      "kind": "rift_wall_segment",
+      "x": 0,
+      "z": 125,
+      "rotY": 0,
+      "scale": 1,
+      "y": 8,
+      "scaleX": 6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_rear_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_west_wall",
+      "kind": "rift_wall_segment",
+      "x": -30,
+      "z": 96,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 8,
+      "scaleX": 5.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_west_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_east_wall",
+      "kind": "rift_wall_segment",
+      "x": 30,
+      "z": 96,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 8,
+      "scaleX": 5.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_east_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_tower_nw",
+      "kind": "rift_tower",
+      "x": -30,
+      "z": 67,
+      "rotY": 0,
+      "scale": 0.77,
+      "y": 8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_tower_nw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_tower_ne",
+      "kind": "rift_tower",
+      "x": 30,
+      "z": 67,
+      "rotY": 0,
+      "scale": 0.77,
+      "y": 8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_tower_ne_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_tower_sw",
+      "kind": "rift_tower",
+      "x": -30,
+      "z": 125,
+      "rotY": 0,
+      "scale": 0.77,
+      "y": 8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_tower_sw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_3_tower_se",
+      "kind": "rift_tower",
+      "x": 30,
+      "z": 125,
+      "rotY": 0,
+      "scale": 0.77,
+      "y": 8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_3_tower_se_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_floor_4",
+      "kind": "castle_floor",
+      "x": 0,
+      "z": 98,
+      "rotY": 0,
+      "scale": 1,
+      "y": 12,
+      "scaleX": 2,
+      "scaleZ": 1.92,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_floor_4_walkable",
+          "width": 24,
+          "depth": 24,
+          "fromY": 0,
+          "toY": 0
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_front_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -14.5,
+      "z": 75,
+      "rotY": 0,
+      "scale": 1,
+      "y": 12,
+      "scaleX": 1.9,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_front_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 14.5,
+      "z": 75,
+      "rotY": 0,
+      "scale": 1,
+      "y": 12,
+      "scaleX": 1.9,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_rear_wall",
+      "kind": "rift_wall_segment",
+      "x": 0,
+      "z": 121,
+      "rotY": 0,
+      "scale": 1,
+      "y": 12,
+      "scaleX": 4.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_rear_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_west_wall",
+      "kind": "rift_wall_segment",
+      "x": -24,
+      "z": 98,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 12,
+      "scaleX": 4.6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_west_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_east_wall",
+      "kind": "rift_wall_segment",
+      "x": 24,
+      "z": 98,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 12,
+      "scaleX": 4.6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_east_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_tower_nw",
+      "kind": "rift_tower",
+      "x": -24,
+      "z": 75,
+      "rotY": 0,
+      "scale": 0.71,
+      "y": 12,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_tower_nw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_tower_ne",
+      "kind": "rift_tower",
+      "x": 24,
+      "z": 75,
+      "rotY": 0,
+      "scale": 0.71,
+      "y": 12,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_tower_ne_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_tower_sw",
+      "kind": "rift_tower",
+      "x": -24,
+      "z": 121,
+      "rotY": 0,
+      "scale": 0.71,
+      "y": 12,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_tower_sw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_4_tower_se",
+      "kind": "rift_tower",
+      "x": 24,
+      "z": 121,
+      "rotY": 0,
+      "scale": 0.71,
+      "y": 12,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_4_tower_se_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_floor_5",
+      "kind": "castle_floor",
+      "x": 0,
+      "z": 100,
+      "rotY": 0,
+      "scale": 1,
+      "y": 16,
+      "scaleX": 1.5,
+      "scaleZ": 1.5,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_floor_5_walkable",
+          "width": 24,
+          "depth": 24,
+          "fromY": 0,
+          "toY": 0
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_front_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -11.5,
+      "z": 82,
+      "rotY": 0,
+      "scale": 1,
+      "y": 16,
+      "scaleX": 1.3,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_front_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 11.5,
+      "z": 82,
+      "rotY": 0,
+      "scale": 1,
+      "y": 16,
+      "scaleX": 1.3,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_rear_wall",
+      "kind": "rift_wall_segment",
+      "x": 0,
+      "z": 118,
+      "rotY": 0,
+      "scale": 1,
+      "y": 16,
+      "scaleX": 3.6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_rear_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_west_wall",
+      "kind": "rift_wall_segment",
+      "x": -18,
+      "z": 100,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 16,
+      "scaleX": 3.6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_west_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_east_wall",
+      "kind": "rift_wall_segment",
+      "x": 18,
+      "z": 100,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 16,
+      "scaleX": 3.6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_east_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_tower_nw",
+      "kind": "rift_tower",
+      "x": -18,
+      "z": 82,
+      "rotY": 0,
+      "scale": 0.65,
+      "y": 16,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_tower_nw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_tower_ne",
+      "kind": "rift_tower",
+      "x": 18,
+      "z": 82,
+      "rotY": 0,
+      "scale": 0.65,
+      "y": 16,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_tower_ne_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_tower_sw",
+      "kind": "rift_tower",
+      "x": -18,
+      "z": 118,
+      "rotY": 0,
+      "scale": 0.65,
+      "y": 16,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_tower_sw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_5_tower_se",
+      "kind": "rift_tower",
+      "x": 18,
+      "z": 118,
+      "rotY": 0,
+      "scale": 0.65,
+      "y": 16,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_5_tower_se_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_floor_6",
+      "kind": "castle_floor",
+      "x": 0,
+      "z": 102,
+      "rotY": 0,
+      "scale": 1,
+      "y": 20,
+      "scaleX": 1.08,
+      "scaleZ": 1.17,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_floor_6_walkable",
+          "width": 24,
+          "depth": 24,
+          "fromY": 0,
+          "toY": 0
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_front_left_wall",
+      "kind": "rift_wall_segment",
+      "x": -9,
+      "z": 88,
+      "rotY": 0,
+      "scale": 1,
+      "y": 20,
+      "scaleX": 0.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_front_left_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_front_right_wall",
+      "kind": "rift_wall_segment",
+      "x": 9,
+      "z": 88,
+      "rotY": 0,
+      "scale": 1,
+      "y": 20,
+      "scaleX": 0.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_front_right_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_rear_wall",
+      "kind": "rift_wall_segment",
+      "x": 0,
+      "z": 116,
+      "rotY": 0,
+      "scale": 1,
+      "y": 20,
+      "scaleX": 2.6,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_rear_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_west_wall",
+      "kind": "rift_wall_segment",
+      "x": -13,
+      "z": 102,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 20,
+      "scaleX": 2.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_west_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_east_wall",
+      "kind": "rift_wall_segment",
+      "x": 13,
+      "z": 102,
+      "rotY": 1.5708,
+      "scale": 1,
+      "y": 20,
+      "scaleX": 2.8,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_east_wall_collider",
+          "width": 10,
+          "depth": 1.8,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_tower_nw",
+      "kind": "rift_tower",
+      "x": -13,
+      "z": 88,
+      "rotY": 0,
+      "scale": 0.59,
+      "y": 20,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_tower_nw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_tower_ne",
+      "kind": "rift_tower",
+      "x": 13,
+      "z": 88,
+      "rotY": 0,
+      "scale": 0.59,
+      "y": 20,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_tower_ne_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_tower_sw",
+      "kind": "rift_tower",
+      "x": -13,
+      "z": 116,
+      "rotY": 0,
+      "scale": 0.59,
+      "y": 20,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_tower_sw_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_level_6_tower_se",
+      "kind": "rift_tower",
+      "x": 13,
+      "z": 116,
+      "rotY": 0,
+      "scale": 0.59,
+      "y": 20,
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_level_6_tower_se_collider",
+          "width": 7.5,
+          "depth": 7.5,
+          "minY": -0.35,
+          "maxY": 3.85
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_stair_1",
+      "kind": "castle_stairs",
       "x": -24,
       "z": 66,
       "rotY": 0,
-      "scale": 1.14
+      "scale": 1,
+      "y": 0,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_stair_1_ramp",
+          "width": 8,
+          "depth": 12,
+          "fromY": 0,
+          "toY": 4,
+          "axis": "z"
+        },
+        {
+          "id": "riftspire_capital_capital_citadel_stair_1_landing",
+          "z": 7,
+          "width": 10,
+          "depth": 6,
+          "fromY": 4,
+          "toY": 4
+        }
+      ]
     },
     {
-      "id": "riftspire_capital_capital_citadel_banner_east",
-      "kind": "banner_post",
+      "id": "riftspire_capital_capital_citadel_stair_2",
+      "kind": "castle_stairs",
       "x": 24,
-      "z": 66,
-      "rotY": 0,
-      "scale": 1.14
+      "z": 84,
+      "rotY": 3.1416,
+      "scale": 1,
+      "y": 4,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_stair_2_ramp",
+          "width": 8,
+          "depth": 12,
+          "fromY": 0,
+          "toY": 4,
+          "axis": "z"
+        },
+        {
+          "id": "riftspire_capital_capital_citadel_stair_2_landing",
+          "z": 7,
+          "width": 10,
+          "depth": 6,
+          "fromY": 4,
+          "toY": 4
+        }
+      ]
     },
     {
-      "id": "riftspire_capital_capital_citadel_brazier_west",
+      "id": "riftspire_capital_capital_citadel_stair_3",
+      "kind": "castle_stairs",
+      "x": -20,
+      "z": 98,
+      "rotY": 0,
+      "scale": 1,
+      "y": 8,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_stair_3_ramp",
+          "width": 8,
+          "depth": 12,
+          "fromY": 0,
+          "toY": 4,
+          "axis": "z"
+        },
+        {
+          "id": "riftspire_capital_capital_citadel_stair_3_landing",
+          "z": 7,
+          "width": 10,
+          "depth": 6,
+          "fromY": 4,
+          "toY": 4
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_stair_4",
+      "kind": "castle_stairs",
+      "x": 20,
+      "z": 110,
+      "rotY": 3.1416,
+      "scale": 1,
+      "y": 12,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_stair_4_ramp",
+          "width": 8,
+          "depth": 12,
+          "fromY": 0,
+          "toY": 4,
+          "axis": "z"
+        },
+        {
+          "id": "riftspire_capital_capital_citadel_stair_4_landing",
+          "z": 7,
+          "width": 10,
+          "depth": 6,
+          "fromY": 4,
+          "toY": 4
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_stair_5",
+      "kind": "castle_stairs",
+      "x": -12,
+      "z": 108,
+      "rotY": 0,
+      "scale": 1,
+      "y": 16,
+      "walkableSurfaces": [
+        {
+          "id": "riftspire_capital_capital_citadel_stair_5_ramp",
+          "width": 8,
+          "depth": 12,
+          "fromY": 0,
+          "toY": 4,
+          "axis": "z"
+        },
+        {
+          "id": "riftspire_capital_capital_citadel_stair_5_landing",
+          "z": 7,
+          "width": 10,
+          "depth": 6,
+          "fromY": 4,
+          "toY": 4
+        }
+      ]
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_front_gate",
+      "kind": "castle_gate",
+      "x": 0,
+      "z": 51,
+      "rotY": 0,
+      "scale": 1.34,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_front_gate_closed_collider",
+          "width": 18,
+          "depth": 2.5,
+          "blocksWhen": "closed",
+          "interactionId": "riftspire_capital_capital_citadel_front_gate_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "riftspire_capital_capital_citadel_front_gate_interaction",
+        "type": "gate",
+        "label": "Riftbound Citadel Gate",
+        "maxDistance": 22,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_rear_postern",
+      "kind": "castle_gate",
+      "x": 0,
+      "z": 133,
+      "rotY": 3.1416,
+      "scale": 1.06,
+      "model": "castle_gate.glb",
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_rear_postern_closed_collider",
+          "width": 16,
+          "depth": 2.2,
+          "blocksWhen": "closed",
+          "interactionId": "riftspire_capital_capital_citadel_rear_postern_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "riftspire_capital_capital_citadel_rear_postern_interaction",
+        "type": "gate",
+        "label": "Riftbound Citadel Rear Gate",
+        "maxDistance": 18,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_inner_front_door",
+      "kind": "castle_door",
+      "x": 0,
+      "z": 76,
+      "rotY": 0,
+      "scale": 0.92,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_inner_front_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "riftspire_capital_capital_citadel_inner_front_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "riftspire_capital_capital_citadel_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Citadel Door",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_inner_rear_door",
+      "kind": "castle_door",
+      "x": 0,
+      "z": 116,
+      "rotY": 3.1416,
+      "scale": 0.88,
+      "model": "castle_door.glb",
+      "colliders": [
+        {
+          "id": "riftspire_capital_capital_citadel_inner_rear_door_closed_collider",
+          "width": 5.4,
+          "depth": 1.2,
+          "blocksWhen": "closed",
+          "interactionId": "riftspire_capital_capital_citadel_inner_rear_door_interaction"
+        }
+      ],
+      "interaction": {
+        "id": "riftspire_capital_capital_citadel_inner_rear_door_interaction",
+        "type": "gate",
+        "label": "Riftbound Citadel Rear Door",
+        "maxDistance": 13,
+        "openClip": "open",
+        "closeClip": "close"
+      }
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_top_banner_west",
+      "kind": "banner_post",
+      "x": -12,
+      "z": 102,
+      "rotY": 0,
+      "scale": 1,
+      "y": 20
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_top_banner_east",
+      "kind": "banner_post",
+      "x": 12,
+      "z": 102,
+      "rotY": 0,
+      "scale": 1,
+      "y": 20
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_top_obelisk",
+      "kind": "rift_obelisk",
+      "x": 0,
+      "z": 102,
+      "rotY": 0,
+      "scale": 0.78,
+      "y": 20
+    },
+    {
+      "id": "riftspire_capital_capital_citadel_stair_brazier_west",
       "kind": "rift_brazier",
-      "x": -19,
-      "z": 66,
+      "x": -34,
+      "z": 56,
       "rotY": 0,
       "scale": 1
     },
     {
-      "id": "riftspire_capital_capital_citadel_brazier_east",
+      "id": "riftspire_capital_capital_citadel_stair_brazier_east",
       "kind": "rift_brazier",
-      "x": 19,
-      "z": 66,
+      "x": 34,
+      "z": 56,
       "rotY": 0,
       "scale": 1
     },
@@ -3371,5 +4021,5 @@
       ]
     }
   ],
-  "staticMapHash": "24248c77eece6252"
+  "staticMapHash": "733d60d536cfa146"
 }

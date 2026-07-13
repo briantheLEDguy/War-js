@@ -48,17 +48,6 @@ export interface InteractiveGate {
   closeClip: string;
 }
 
-export type HouseInteriorVariant = 'small' | 'large';
-
-export interface InteractiveHousePortal {
-  id: string;
-  label: string;
-  object: THREE.Object3D;
-  interiorVariant: HouseInteriorVariant;
-  maxDistance: number;
-  direction: 'enter' | 'exit';
-}
-
 export interface GateFallbackVisual {
   progress: number;
   target: number;
@@ -70,7 +59,6 @@ export interface SpawnedProps {
   cameraColliders: WorldCollider[];
   walkableSurfaces: WorldWalkableSurface[];
   gates: InteractiveGate[];
-  housePortals: InteractiveHousePortal[];
   objects: SpawnedStaticWorldObject[];
 }
 
@@ -117,7 +105,6 @@ export async function spawnProps(
   const cameraColliders: WorldCollider[] = [];
   const walkableSurfaces: WorldWalkableSurface[] = [];
   const gates: InteractiveGate[] = [];
-  const housePortals: InteractiveHousePortal[] = [];
   const objects: SpawnedStaticWorldObject[] = [];
 
   for (const [index, s] of spawns.entries()) {
@@ -277,23 +264,9 @@ export async function spawnProps(
       });
       obj.userData.interactionId = s.interaction.id;
     }
-    if (s.interaction?.type === 'house_portal') {
-      housePortals.push({
-        id: s.interaction.id,
-        label: s.interaction.label ?? 'House Door',
-        object: obj,
-        interiorVariant: s.interaction.interiorVariant ?? 'small',
-        maxDistance: s.interaction.maxDistance ?? 9,
-        direction: 'enter',
-      });
-      obj.userData.housePortalId = s.interaction.id;
-      obj.traverse((node) => {
-        node.userData.housePortalId = s.interaction?.id;
-      });
-    }
   }
 
-  return { colliders, cameraColliders, walkableSurfaces, gates, housePortals, objects };
+  return { colliders, cameraColliders, walkableSurfaces, gates, objects };
 }
 
 function buildCameraColliderFromObject(

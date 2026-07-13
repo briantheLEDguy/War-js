@@ -9,8 +9,8 @@ import {
 import { services } from '../services';
 import type { CharacterState, WorldEditDocument, WorldPropObject } from '../services/types';
 import { contextPromptKey, useGameStore, type AbilityFeedbackKind, type ContextPromptState, type EnemyState, type PlayerStatusEffect } from '../state/gameStore';
-import { spawnNpcs, type NpcState } from '../world/NpcSpawner';
-import { spawnProps, type InteractiveGate, type InteractiveHousePortal, type WorldCollider, type WorldWalkableSurface } from '../world/Props';
+import { spawnNpcs } from '../world/NpcSpawner';
+import { spawnProps, type InteractiveGate, type WorldCollider, type WorldWalkableSurface } from '../world/Props';
 import { applySceneViewDistance, setupSky } from '../world/Skybox';
 import { Terrain } from '../world/Terrain';
 import {
@@ -45,7 +45,6 @@ import { gatherEnemy, gatherResourceNode, openCraftingStation } from './Crafting
 import { Enemy } from './Enemy';
 import { equipmentVisualSignature } from './Equipment';
 import { Input } from './Input';
-import { HouseInteriorRuntime } from './HouseInteriorRuntime';
 import { Player } from './Player';
 import { checkLevelUp } from './QuestLogic';
 import { ResourceRegeneration } from './ResourceRegeneration';
@@ -116,10 +115,6 @@ export class Game {
   private cameraColliders: WorldCollider[] = [];
   private walkableSurfaces: WorldWalkableSurface[] = [];
   private gates = new Map<string, InteractiveGate>();
-  private housePortals = new Map<string, InteractiveHousePortal>();
-  private houseInteriors: HouseInteriorRuntime | null = null;
-  private houseReturn: { position: THREE.Vector3; rotationY: number } | null = null;
-  private zoneNpcStates: NpcState[] = [];
   private interactRaycaster = new THREE.Raycaster();
   private worldEditor: WorldEditorRuntime | null = null;
   private publishedWorldEdit: WorldEditDocument | null = null;
@@ -313,8 +308,6 @@ export class Game {
     this.cameraColliders = spawnedProps.cameraColliders;
     this.walkableSurfaces = spawnedProps.walkableSurfaces;
     this.gates = new Map(spawnedProps.gates.map((gate) => [gate.id, gate]));
-    this.housePortals = new Map(spawnedProps.housePortals.map((portal) => [portal.id, portal]));
-    this.houseInteriors = new HouseInteriorRuntime(this.scene);
     for (const object of spawnedProps.objects) {
       this.worldEditor.registerStaticObject(object.definition, object.object);
     }
@@ -332,8 +325,7 @@ export class Game {
     );
     if (this.disposed) return;
     this.npcMixers = spawnedNpcs.mixers;
-    this.zoneNpcStates = spawnedNpcs.states;
-    useGameStore.getState().setNpcs(this.zoneNpcStates);
+    useGameStore.getState().setNpcs(spawnedNpcs.states);
 
     // Zone triggers
     this.zoneTriggers = zone.zoneTriggers ?? [];
@@ -580,7 +572,6 @@ export class Game {
         this.tryGatherNearestResourceNode() ||
         this.tryOpenNearestCraftingStation() ||
         this.tryOpenNearestQuestgiver() ||
-        this.tryUseNearestHousePortal() ||
         this.tryToggleNearestGate();
       if (interacted) store.completeGuidedTask('interact');
     }
@@ -680,7 +671,7 @@ export class Game {
 
     // Position sync to world service (every 0.2 s)
     this.saveTimer += dt;
-    if (this.saveTimer > 0.2 && !this.houseInteriors?.isActive) {
+    if (this.saveTimer > 0.2) {
       this.saveTimer = 0;
       void services.world.updatePosition(this.character.zoneId, {
         userId: store.user?.id ?? 'unknown',
@@ -838,9 +829,8 @@ export class Game {
     this.publishContextualPrompt(
       this.findHarvestPrompt(store) ??
         this.findResourceNodePrompt(store) ??
-      this.findCraftingPrompt() ??
-      this.findQuestgiverPrompt(store) ??
-        this.findHousePortalPrompt() ??
+        this.findCraftingPrompt() ??
+        this.findQuestgiverPrompt(store) ??
         this.findGatePrompt() ??
         this.findObjectivePrompt(store) ??
         this.findEnemyPrompt(store),
@@ -937,18 +927,6 @@ export class Game {
       kind: 'gate',
       action: 'E',
       label: `${best.gate.isOpen ? 'Close' : 'Open'} ${best.gate.label}`,
-      distance: best.dist,
-    };
-  }
-
-  private findHousePortalPrompt(): ContextPromptState | null {
-    const best = this.findNearestHousePortal();
-    if (!best) return null;
-    return {
-      kind: 'house',
-      action: 'E',
-      label: best.portal.direction === 'exit' ? 'Leave House' : best.portal.label,
-      detail: best.portal.direction === 'exit' ? 'Return to the street' : 'Enter furnished interior',
       distance: best.dist,
     };
   }
@@ -1172,18 +1150,10 @@ export class Game {
     return true;
   }
 
-  private tryUseNearestHousePortal(): boolean {
-    const best = this.findNearestHousePortal();
-    if (!best) return false;
-    this.useHousePortal(best.portal);
-    return true;
-  }
-
   private resolvePlayerCollisions = (position: THREE.Vector3, radius: number): void => {
     const activeColliders = [
       ...this.propColliders.filter((collider) => !this.isStaticSourceSuppressed(collider.sourceObjectId)),
       ...(this.worldEditor?.getColliders() ?? []),
-      ...(this.houseInteriors?.getColliders() ?? []),
     ];
     if (activeColliders.length === 0) return;
     for (let pass = 0; pass < 3; pass += 1) {
@@ -1200,7 +1170,6 @@ export class Game {
     const colliders = [
       ...this.cameraColliders.filter((collider) => !this.isStaticSourceSuppressed(collider.sourceObjectId)),
       ...(this.worldEditor?.getCameraColliders() ?? []),
-      ...(this.houseInteriors?.getCameraColliders() ?? []),
     ];
     if (colliders.length === 0) return colliders;
     return colliders.filter((collider) => this.isColliderActive(collider));
@@ -1452,32 +1421,18 @@ export class Game {
 
   private tryInteractAt(ndc: Float32Array): boolean {
     const gates = this.getVisibleGates();
-    const housePortals = this.getVisibleHousePortals();
-    if (!this.player || (gates.length === 0 && housePortals.length === 0)) return false;
+    if (!this.player || gates.length === 0) return false;
     this.interactRaycaster.setFromCamera(
       new THREE.Vector2(ndc[0], ndc[1]),
       this.camera.camera,
     );
-    const interactiveObjects = [
-      ...housePortals.map((portal) => portal.object),
-      ...gates.map((gate) => gate.object),
-    ];
-    const hits = this.interactRaycaster.intersectObjects(interactiveObjects, true);
+    const gateObjects = gates.map((gate) => gate.object);
+    const hits = this.interactRaycaster.intersectObjects(gateObjects, true);
     for (const hit of hits) {
-      const housePortal = this.findHousePortalForObject(hit.object);
-      if (housePortal && this.isHousePortalInRange(housePortal)) {
-        this.useHousePortal(housePortal);
-        return true;
-      }
       const gate = this.findGateForObject(hit.object);
       if (!gate) continue;
       if (!this.isGateInRange(gate)) continue;
       this.toggleGate(gate);
-      return true;
-    }
-    const fallbackHousePortal = this.findHousePortalNearRay();
-    if (fallbackHousePortal) {
-      this.useHousePortal(fallbackHousePortal);
       return true;
     }
     const fallbackGate = this.findGateNearRay();
@@ -1486,119 +1441,6 @@ export class Game {
       return true;
     }
     return false;
-  }
-
-  private findHousePortalNearRay(): InteractiveHousePortal | null {
-    let best: { portal: InteractiveHousePortal; score: number } | null = null;
-    for (const portal of this.getVisibleHousePortals()) {
-      if (!this.isHousePortalInRange(portal)) continue;
-      const box = new THREE.Box3().setFromObject(portal.object);
-      if (box.isEmpty()) continue;
-      const sphere = box.getBoundingSphere(new THREE.Sphere());
-      const rayDistance = this.interactRaycaster.ray.distanceSqToPoint(sphere.center);
-      const radius = Math.max(1.4, Math.min(3.2, sphere.radius * 0.38));
-      if (rayDistance > radius * radius) continue;
-      if (!best || rayDistance < best.score) best = { portal, score: rayDistance };
-    }
-    return best?.portal ?? null;
-  }
-
-  private findHousePortalForObject(object: THREE.Object3D): InteractiveHousePortal | null {
-    let node: THREE.Object3D | null = object;
-    while (node) {
-      const id = node.userData.housePortalId as string | undefined;
-      if (id) {
-        const portal = this.findHousePortalById(id);
-        if (portal) return portal;
-      }
-      node = node.parent;
-    }
-    return null;
-  }
-
-  private findNearestHousePortal(): { portal: InteractiveHousePortal; dist: number } | null {
-    if (!this.player) return null;
-    let best: { portal: InteractiveHousePortal; dist: number } | null = null;
-    for (const portal of this.getVisibleHousePortals()) {
-      const point = portal.object.getWorldPosition(new THREE.Vector3());
-      const dist = Math.hypot(point.x - this.player.position.x, point.z - this.player.position.z);
-      if (dist > portal.maxDistance) continue;
-      if (!best || dist < best.dist) best = { portal, dist };
-    }
-    return best;
-  }
-
-  private isHousePortalInRange(portal: InteractiveHousePortal): boolean {
-    if (!this.player) return false;
-    const point = portal.object.getWorldPosition(new THREE.Vector3());
-    return Math.hypot(point.x - this.player.position.x, point.z - this.player.position.z) <= portal.maxDistance;
-  }
-
-  private getVisibleHousePortals(): InteractiveHousePortal[] {
-    if (this.houseInteriors?.isActive) {
-      const exit = this.houseInteriors.getExitPortal();
-      return exit ? [exit] : [];
-    }
-    return [
-      ...this.housePortals.values(),
-      ...(this.worldEditor?.getHousePortals() ?? []),
-    ].filter((portal) => portal.object.visible);
-  }
-
-  private findHousePortalById(id: string): InteractiveHousePortal | null {
-    const exit = this.houseInteriors?.getExitPortal();
-    if (exit?.id === id) return exit;
-    return this.housePortals.get(id)
-      ?? this.worldEditor?.getHousePortals().find((portal) => portal.id === id)
-      ?? null;
-  }
-
-  private useHousePortal(portal: InteractiveHousePortal): void {
-    if (portal.direction === 'exit') {
-      this.leaveHouseInterior();
-      return;
-    }
-    if (!this.player || !this.houseInteriors || this.houseInteriors.isActive) return;
-    this.houseReturn = {
-      position: this.player.position.clone(),
-      rotationY: this.player.rotationY,
-    };
-    const interior = this.houseInteriors.enter(portal.interiorVariant);
-    this.camera.setIndoorMode(true);
-    this.movePlayerWithinZone(interior.spawn, interior.spawn.rotationY);
-    useGameStore.getState().setNpcs(this.houseInteriors.getOccupants());
-    useGameStore.getState().appendChat({
-      id: `house-enter-${Date.now()}`,
-      channel: 'system',
-      from: 'System',
-      body: `Entered ${portal.label.replace(/^Enter\s+/i, '')}.`,
-      timestamp: Date.now(),
-    });
-  }
-
-  private leaveHouseInterior(): void {
-    if (!this.player || !this.houseInteriors?.isActive || !this.houseReturn) return;
-    const destination = this.houseReturn;
-    this.houseInteriors.deactivate();
-    this.camera.setIndoorMode(false);
-    this.movePlayerWithinZone(destination.position, destination.rotationY);
-    this.houseReturn = null;
-    useGameStore.getState().setNpcs(this.zoneNpcStates);
-    void services.characters.save(this.character.id, {
-      position: this.character.position,
-      rotationY: this.character.rotationY,
-    });
-  }
-
-  private movePlayerWithinZone(
-    point: { x: number; y: number; z: number },
-    rotationY: number,
-  ): void {
-    const next = { x: point.x, y: point.y, z: point.z };
-    this.player.teleportTo(next, rotationY);
-    this.character.position = next;
-    this.character.rotationY = rotationY;
-    useGameStore.getState().updateCharacter({ position: next, rotationY });
   }
 
   private findGateNearRay(): InteractiveGate | null {
@@ -1704,7 +1546,6 @@ export class Game {
     }
     try { void services.world.leaveZone(this.character.zoneId); } catch { /* ignore */ }
     this.vfx?.dispose();
-    this.houseInteriors?.dispose(this.scene);
     this.worldEditor?.dispose();
     if (this.editorAutosaveTimer !== null) {
       window.clearTimeout(this.editorAutosaveTimer);
@@ -1716,15 +1557,13 @@ export class Game {
     }
     if (options.persistCharacter ?? true) {
       // Persist character snapshot
-      const persistedPosition = this.houseReturn?.position ?? this.player?.position ?? new THREE.Vector3();
-      const persistedRotation = this.houseReturn?.rotationY ?? this.player?.rotationY ?? 0;
       void services.characters.save(this.character.id, {
         position: {
-          x: persistedPosition.x,
-          y: persistedPosition.y,
-          z: persistedPosition.z,
+          x: this.player?.position.x ?? 0,
+          y: this.player?.position.y ?? 0,
+          z: this.player?.position.z ?? 0,
         },
-        rotationY: persistedRotation,
+        rotationY: this.player?.rotationY ?? 0,
       });
     }
   }

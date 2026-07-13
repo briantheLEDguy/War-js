@@ -1,0 +1,55 @@
+{
+  "assetId": "body.human.armor_fit.t1.m",
+  "displayName": "Human Armor-Fit Body",
+  "category": "body",
+  "version": "1.0.0",
+  "sets": ["equipment", "smoke"],
+  "runtime": { "profileKey": "human_armor_fit" },
+  "output": {
+    "model": "body_human_armor_fit_t1_m.glb",
+    "artifactDir": "artifacts/blender/manifest/body_human_armor_fit_t1_m"
+  },
+  "generator": { "kind": "bodyModule", "preset": "human_armor_fit" },
+  "geometry": {
+    "originRule": "same_origin_overlay_root",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "human_m_tall",
+    "skeletonId": "none",
+    "bindPoseId": "a_pose_v1",
+    "lods": [
+      { "name": "LOD0", "triTarget": 25000, "screenCoverageMin": 0.2 },
+      { "name": "LOD1", "triTarget": 15000, "screenCoverageMin": 0.08 }
+    ]
+  },
+  "attachments": [
+    { "name": "AP_ROOT", "type": "root", "parent": "root", "position": [0, 0, 0] }
+  ],
+  "materials": {
+    "master": "MM_BodyPbr",
+    "textureSet": "human_armor_fit_t1",
+    "channels": ["baseColor", "roughness", "normal", "occlusion"]
+  },
+  "rigging": { "skinned": false, "maxInfluences": 4, "requiredClips": [] },
+  "collision": {
+    "policy": "inherits_character_capsule",
+    "primitives": [{ "type": "capsule", "tag": "body_reference" }]
+  },
+  "compatibility": { "occupiesSlots": ["body"], "requires": [], "conflictsWith": [] },
+  "provenance": {
+    "createdBy": "procedural_blender_pipeline",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "neutral_dark_fantasy_v1",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 4,
+    "maxFileSizeMb": 6,
+    "groundToleranceM": 0.03,
+    "expectedHeightM": 1.9
+  }
+}

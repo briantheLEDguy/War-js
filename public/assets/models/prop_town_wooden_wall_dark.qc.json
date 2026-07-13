@@ -2,57 +2,29 @@
   "assetId": "prop.town.wooden_wall_dark",
   "category": "prop",
   "model": "prop_town_wooden_wall_dark.glb",
-  "fileSizeBytes": 78660,
-  "meshCount": 2,
-  "totalTris": 648,
-  "availableClips": [],
-  "missingRequiredClips": [],
+  "fileSizeBytes": 88188,
+  "meshCount": 1,
+  "totalTris": 12,
+  "availableClips": [
+    "Armature|Scene"
+  ],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true,
-    "requiredClipsPresent": true,
-    "hasColliderPolicy": true
+    "meshObjectBudget": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "plaster",
-      "verts": 56,
-      "faces": 54,
-      "tris": 108,
-      "materials": 1,
-      "assetSlot": "prop"
-    },
-    {
-      "name": "oak",
-      "verts": 280,
-      "faces": 270,
-      "tris": 540,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_wooden_wall_dark",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1
     }
   ],
-  "artifactDir": "artifacts/model-jobs/standalone_47cd4d91-0d0d-45ec-b54a-1cc12c61b614/artifacts/generated-previews",
-  "manifestVersion": "2.0.0",
-  "notes": {
-    "generator": "original_dark_fantasy_town_v2",
-    "variant": "wooden_wall_dark",
-    "materials": [
-      "aged_oak",
-      "glass",
-      "iron",
-      "mortar",
-      "oak",
-      "plaster",
-      "slate",
-      "stone"
-    ],
-    "artDirection": "realistic weathered Aegis frontier architecture"
-  },
-  "modelSha256": "0ec0aa1fc6388745ed38e9e5d916665b5dc8cc27dfe7c2502da66f2b87703f9f",
-  "generatedAt": "2026-07-11T20:08:16.117Z",
-  "previewImages": []
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
 }

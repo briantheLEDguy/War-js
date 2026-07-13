@@ -1,0 +1,344 @@
+{
+  "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+  "category": "character",
+  "model": "chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1.glb",
+  "fileSizeBytes": 2235164,
+  "boundsYUpMeters": {
+    "min": [
+      -0.7099,
+      -0.0045,
+      -0.1927
+    ],
+    "max": [
+      0.704,
+      1.5483,
+      0.2866
+    ],
+    "height": 1.5528
+  },
+  "meshCount": 29,
+  "skinnedMeshCount": 29,
+  "totalTris": 16840,
+  "availableClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "missingRequiredClips": [],
+  "previewImages": [
+    "artifacts/blender/manifest/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1_front.png",
+    "artifacts/blender/manifest/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1_side.png",
+    "artifacts/blender/manifest/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1_back.png",
+    "artifacts/blender/manifest/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1_iso.png"
+  ],
+  "artifactDir": "artifacts/blender/manifest/chr_npc_aegis_corren_vale_tier_2_campaign_marshal_t1",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "body_under_torso",
+      "verts": 302,
+      "faces": 360,
+      "tris": 600,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_under_hips",
+      "verts": 226,
+      "faces": 280,
+      "tris": 448,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_neck",
+      "verts": 66,
+      "faces": 96,
+      "tris": 128,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_head",
+      "verts": 218,
+      "faces": 270,
+      "tris": 432,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_eye_-1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_brow_-1",
+      "verts": 72,
+      "faces": 60,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_eye_1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_brow_1",
+      "verts": 72,
+      "faces": 60,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_nose",
+      "verts": 38,
+      "faces": 54,
+      "tris": 72,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_beard",
+      "verts": 128,
+      "faces": 168,
+      "tris": 252,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_upper_arm_-1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_forearm_-1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_hand_-1",
+      "verts": 46,
+      "faces": 66,
+      "tris": 88,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_thigh_-1",
+      "verts": 70,
+      "faces": 102,
+      "tris": 136,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_shin_-1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_foot_-1",
+      "verts": 98,
+      "faces": 128,
+      "tris": 192,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_upper_arm_1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_forearm_1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_hand_1",
+      "verts": 46,
+      "faces": 66,
+      "tris": 88,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_thigh_1",
+      "verts": 70,
+      "faces": 102,
+      "tris": 136,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_shin_1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_foot_1",
+      "verts": 98,
+      "faces": 128,
+      "tris": 192,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_class_core",
+      "verts": 240,
+      "faces": 240,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "armor_helmet_cap",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "armor_helmet_faceplate",
+      "verts": 104,
+      "faces": 136,
+      "tris": 204,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "npc_breastplate",
+      "verts": 1625,
+      "faces": 1536,
+      "tris": 3072,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "npc_belt_plate",
+      "verts": 343,
+      "faces": 288,
+      "tris": 576,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "npc_pauldron_-1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    },
+    {
+      "name": "npc_pauldron_1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.npc.aegis.corren.vale.tier.2.campaign.marshal.t1",
+      "assetSlot": "character"
+    }
+  ]
+}

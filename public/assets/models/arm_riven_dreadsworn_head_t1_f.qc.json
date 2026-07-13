@@ -1,0 +1,89 @@
+{
+  "assetId": "arm.riven.dreadsworn.head.t1.f",
+  "category": "armor",
+  "model": "arm_riven_dreadsworn_head_t1_f.glb",
+  "fileSizeBytes": 630768,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3001,
+      1.7252,
+      -0.1331
+    ],
+    "max": [
+      0.3001,
+      2.3814,
+      0.1871
+    ],
+    "height": 0.6562
+  },
+  "meshCount": 5,
+  "skinnedMeshCount": 5,
+  "totalTris": 868,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_riven_dreadsworn_head_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_helmet_cap",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_helmet_faceplate",
+      "verts": 104,
+      "faces": 136,
+      "tris": 204,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_helm_crest",
+      "verts": 38,
+      "faces": 54,
+      "tris": 72,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_horn_-1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_horn_1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.riven.dreadsworn.head.t1.f",
+      "assetSlot": "head"
+    }
+  ]
+}

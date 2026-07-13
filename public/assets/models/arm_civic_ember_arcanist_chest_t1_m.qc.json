@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.civic.ember_arcanist.chest.t1.m",
+  "category": "armor",
+  "model": "arm_civic_ember_arcanist_chest_t1_m.glb",
+  "fileSizeBytes": 197704,
+  "boundsYUpMeters": {
+    "min": [
+      -0.32,
+      0.82,
+      -0.164
+    ],
+    "max": [
+      0.32,
+      1.58,
+      0.164
+    ],
+    "height": 0.76
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 480,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_civic_ember_arcanist_chest_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_robed_chest",
+      "verts": 242,
+      "faces": 300,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.ember_arcanist.chest.t1.m",
+      "assetSlot": "chest"
+    }
+  ]
+}

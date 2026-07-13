@@ -31,10 +31,6 @@ export class FollowCamera {
   private maxDist = 14;
   private minPitch = 0.1;
   private maxPitch = 1.3;
-  private indoorMode = false;
-  private outdoorDistance = 7;
-  private outdoorYaw = 0;
-  private outdoorPitch = 0.45;
 
   private lastMouseX = 0;
   private lastMouseY = 0;
@@ -196,29 +192,6 @@ export class FollowCamera {
 
   get forwardYaw() {
     return this.yaw + Math.PI;
-  }
-
-  setIndoorMode(enabled: boolean): void {
-    if (this.indoorMode === enabled) return;
-    this.indoorMode = enabled;
-    if (enabled) {
-      this.outdoorDistance = this.distance;
-      this.outdoorYaw = this.yaw;
-      this.outdoorPitch = this.pitch;
-      this.minDist = 1.65;
-      this.maxDist = 3.8;
-      this.maxPitch = 0.82;
-      this.distance = 2.2;
-      this.yaw = 0;
-      this.pitch = 0.42;
-      return;
-    }
-    this.minDist = 3;
-    this.maxDist = 14;
-    this.maxPitch = 1.3;
-    this.distance = Math.max(this.minDist, Math.min(this.maxDist, this.outdoorDistance));
-    this.yaw = this.outdoorYaw;
-    this.pitch = Math.max(this.minPitch, Math.min(this.maxPitch, this.outdoorPitch));
   }
 
   update(

@@ -39,12 +39,7 @@
         "profileKey": { "type": "string" },
         "itemKey": { "type": "string" },
         "staticKey": { "type": "string" },
-        "bodyModel": { "type": "string" },
-        "bodyFamily": { "type": "string" },
-        "bodyVariant": { "type": "string", "enum": ["m", "f"] },
-        "skeletonId": { "type": "string" },
-        "bindPoseId": { "type": "string" },
-        "logicalSlot": { "type": "string" }
+        "bodyModel": { "type": "string" }
       },
       "additionalProperties": false
     },
@@ -63,22 +58,14 @@
       "properties": {
         "kind": {
           "type": "string",
-          "enum": ["characterPreset", "staticPreset", "armorModule", "bodyModule", "weaponModule", "jewelModule", "copyExisting", "externalImport", "mpfbBody", "localModularSet"]
+          "enum": ["characterPreset", "staticPreset", "armorModule", "bodyModule", "weaponModule", "jewelModule", "copyExisting"]
         },
         "preset": { "type": "string" },
         "objectNamePrefixes": {
           "type": "array",
           "items": { "type": "string" }
         },
-        "copyFrom": { "type": "string" },
-        "source": { "type": "string" },
-        "sourceType": { "type": "string", "enum": ["glb", "gltf", "fbx", "obj", "blend"] },
-        "objects": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "recipe": { "type": "string" },
-        "slotMap": { "type": "string" }
+        "copyFrom": { "type": "string" }
       },
       "additionalProperties": false
     },
@@ -90,7 +77,6 @@
         "upAxis": { "type": "string", "enum": ["+Y"] },
         "forwardAxis": { "type": "string", "enum": ["+Z"] },
         "bodyFamily": { "type": "string" },
-        "bodyVariant": { "type": "string", "enum": ["m", "f"] },
         "skeletonId": { "type": "string" },
         "bindPoseId": { "type": "string" },
         "lods": {
@@ -136,7 +122,6 @@
       "properties": {
         "master": { "type": "string" },
         "textureSet": { "type": "string" },
-        "maxTextureResolution": { "type": "integer", "minimum": 64, "maximum": 2048 },
         "channels": {
           "type": "array",
           "items": {
@@ -213,34 +198,6 @@
           "items": { "type": "string" }
         },
         "referencePackId": { "type": "string" },
-        "author": { "type": "string" },
-        "source": { "type": "string" },
-        "sourceSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-        "provider": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "taskId": { "type": "string" },
-            "modelVersion": { "type": "string" },
-            "seed": { "type": ["integer", "string"] },
-            "promptSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-            "referenceSha256": {
-              "type": "array",
-              "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
-            }
-          },
-          "additionalProperties": false
-        },
-        "license": {
-          "type": "object",
-          "required": ["name", "sourceUrl"],
-          "properties": {
-            "name": { "type": "string" },
-            "sourceUrl": { "type": "string" },
-            "termsUrl": { "type": "string" }
-          },
-          "additionalProperties": false
-        },
         "similarityReview": {
           "type": "string",
           "enum": ["not_required", "pending", "passed", "failed"]
@@ -261,25 +218,7 @@
         "heightToleranceM": { "type": "number", "minimum": 0 },
         "maxMeshObjects": { "type": "integer", "minimum": 1 },
         "requiresSkinnedMeshes": { "type": "boolean" },
-        "requiresPreview": { "type": "boolean" },
-        "maxTris": { "type": "integer", "minimum": 1 }
-      },
-      "additionalProperties": false
-    },
-    "lifecycle": {
-      "type": "object",
-      "required": ["status"],
-      "properties": {
-        "status": {
-          "type": "string",
-          "enum": ["draft", "qc_passed", "review_pending", "approved", "rejected", "blocked", "promoted"]
-        },
-        "createdAt": { "type": "string" },
-        "updatedAt": { "type": "string" },
-        "reviewedBy": { "type": "string" },
-        "reviewedAt": { "type": "string" },
-        "reviewHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-        "notes": { "type": "string" }
+        "requiresPreview": { "type": "boolean" }
       },
       "additionalProperties": false
     }

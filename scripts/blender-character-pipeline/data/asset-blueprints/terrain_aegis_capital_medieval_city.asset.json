@@ -1,0 +1,79 @@
+{
+  "assetId": "terrain.aegis_capital.medieval_city",
+  "displayName": "Bastion of Aegis Imported City",
+  "category": "terrain",
+  "version": "1.0.0",
+  "sets": [
+    "terrain",
+    "external_imports",
+    "aegis_capital"
+  ],
+  "runtime": {
+    "staticKey": "aegis_capital_medieval_city"
+  },
+  "output": {
+    "model": "terrain_aegis_capital_medieval_city.glb",
+    "artifactDir": "artifacts/blender/external/terrain_aegis_capital_medieval_city"
+  },
+  "generator": {
+    "kind": "externalImport",
+    "source": "public/assets/new_models/medieval_modular_city_realistic_-_wip.glb",
+    "sourceType": "glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 250000,
+        "screenCoverageMin": 0.2
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_ExternalPropPbr",
+    "textureSet": "terrain_aegis_capital_medieval_city",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ]
+  },
+  "collision": {
+    "policy": "authored_world_colliders",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "city_blockers"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "terrain"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "external_asset_import",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "external_user_supplied_assets",
+    "similarityReview": "not_required",
+    "source": "public/assets/new_models/medieval_modular_city_realistic_-_wip.glb"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 260,
+    "maxFileSizeMb": 700,
+    "maxMeshObjects": 260,
+    "requiresSkinnedMeshes": false
+  }
+}

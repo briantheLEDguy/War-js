@@ -1,29 +1,7 @@
 # Changelog
 
-## 2026-07-12
-
-- Cleaned up the detailed world map with quieter icon-only rendering, connected city terrain treatment, responsive square map framing, and hover cards that reveal location names and context without overlapping the map.
-- Added a SHA-256-pinned, Vite-development-only bridge that loads the exact Battle Prelate v19 assembled GLB in character preview and normal local gameplay without copying it into `public/`, changing approved registry state, stacking duplicate equipment, or affecting production/fallback resolution.
-- Prevented assembled characters from double-driving embedded weapons by giving mapped authored GLB clips authority over baked weapon transforms, while retaining procedural motion for equipment overlays and no-clip fallbacks and marking only the highest imported weapon attachment root.
-
-## 2026-07-11
-
-- Replaced the external modular fantasy-town FBX and imported Aegis city packs with 20 original, deterministic dark-fantasy Blender generations using realistic masonry, timber framing, staggered slate, PBR surface maps, ironwork, leaded glass, grounded building proportions, and a monumental capital castle; rebuilt both capitals as dense navigable medieval cities and mapped the full pack into the GM building/editor system with MCP validation and review coverage.
-- Fixed generated house and modular-roof geometry by adding closed manifold roof shells, outward-facing gable/end faces, and correctly pitched overlapping slate courses so roofs remain seamless and opaque under runtime backface culling.
-- Added reusable small and large furnished house interiors for generated and GM-placed town houses, including click/E door portals, exact street-position returns, ambient residents, furniture, warm lighting, room collision, and tighter collision-aware indoor camera tracking.
-- Replaced the procedural character/body/armor preset pipeline with a zero-cost local Blender + MPFB 2.0.16 workflow, original stable-topology Greenskin targets, four reproducible Human/Greenskin body recipes, canonical rig/socket metadata, and local QC/review rendering.
-- Added persistent MCP model jobs, locking, cancellation, provenance schemas, strict validation, explicit human review, hash-bound atomic promotion, and deterministic approved-only runtime registry compilation.
-- Removed the 48 proxy playable bodies, 432 proxy armor modules, related NPC/enemy character presets, generated outputs, and unverified external character mappings; quarantined raw authoring sources outside `public/` and retired commands that recreated proxies.
-- Made runtime character and equipment resolution approval-aware and family/variant/skeleton/bind-pose compatible while preserving Three.js fallbacks for every unbuilt or blocked profile.
-- Added a dev-only in-game Battle Prelate review route backed by the first local draft body, nine-slot fitted armor set, socketed hammer, and nine embedded animation clips; it remains outside the approved gameplay registry.
-- Added live selection for all nine Battle Prelate animation clips, pause and auto-rotation controls, formal bare/equipped review jobs, and a hash-bound geometry-only acceptance stage that cannot be mistaken for final promotion approval.
-- Added an opt-in local animation evidence profile with side/back walk and run contact phases plus front/side melee ready, windup, impact, follow-through, and recovery frames; all samples are hash-bound without breaking existing promotion evidence keys.
-- Added a one-command zero-cost Battle Prelate runtime assembly, now defaulting to the v18 seam-trimmed, flowing-cloth modules while retaining earlier review history. The revised set uses a closed curved belt, shoulder-attached cape folds, a shaped/scalloped hem, waist clearance, outward-only tabard pleats, rounded shoulder shells, and bone-relative sleeve/gauntlet plus trouser/boot seam ownership; assembly still rejects missing mesh/bone/clip evidence or unstable bind-to-idle round trips.
-- Rebuilt the Battle Prelate layering pass with a closed curved belt, tapered pleated tabard, swept/folded cape, outer glove and boot seams, and closed rounded pauldrons; added bind/idle BVH clearance reports so remaining hidden underlaps are measurable instead of judged from screenshots alone.
-
 ## 2026-06-15
 
-- Regenerated the Battle Prelate, Brother Steffan Battle Prelate trainer, Sunfire Templar, and reliquary hammer GLBs after reference review, then migrated local Battle Prelate saves away from legacy blackened armor/sword/shield gear so the class loads with manifest Battle Prelate armor and the two-handed reliquary hammer.
 - Fixed character animation routing so player characters prefer manifest-backed playable GLBs with authored `idle`, `walk`, `run`, `jump`, attack, ranged, and cast clips instead of static external overrides.
 - Added enemy locomotion animation switching between idle, walk, and run loops, with attack/cast/hit clips played as one-shot actions during combat.
 - Expanded the static/procedural fallback animator so primitive or imported characters without complete clips still move limb mesh groups during walking and body actions.

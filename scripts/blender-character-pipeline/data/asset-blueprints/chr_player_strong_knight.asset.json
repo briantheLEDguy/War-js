@@ -1,0 +1,88 @@
+{
+  "assetId": "chr.external.player_strong_knight",
+  "displayName": "External Strong Knight Player",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "characters",
+    "external_imports",
+    "player_override"
+  ],
+  "runtime": {
+    "profileKey": "player_strong_knight"
+  },
+  "output": {
+    "model": "chr_player_strong_knight.glb",
+    "artifactDir": "artifacts/blender/external/chr_player_strong_knight"
+  },
+  "generator": {
+    "kind": "externalImport",
+    "source": "public/assets/new_models/strong_knight.glb",
+    "sourceType": "glb",
+    "objects": [
+      "Sketchfab_model"
+    ]
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 20000,
+        "screenCoverageMin": 0.2
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_ExternalCharacterPbr",
+    "textureSet": "chr_player_strong_knight",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ]
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "simple_capsule",
+    "primitives": [
+      {
+        "type": "capsule",
+        "tag": "body"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "character"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "external_asset_import",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "external_user_supplied_assets",
+    "similarityReview": "not_required",
+    "source": "public/assets/new_models/strong_knight.glb"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 24,
+    "maxFileSizeMb": 24,
+    "maxMeshObjects": 16,
+    "maxTris": 20000,
+    "requiresSkinnedMeshes": true
+  }
+}

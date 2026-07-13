@@ -1,0 +1,69 @@
+{
+  "assetId": "arm.umbra.dusk_weaver.head.t1.f",
+  "category": "armor",
+  "model": "arm_umbra_dusk_weaver_head_t1_f.glb",
+  "fileSizeBytes": 649072,
+  "boundsYUpMeters": {
+    "min": [
+      -0.1472,
+      1.6293,
+      -0.1166
+    ],
+    "max": [
+      0.1472,
+      2.459,
+      0.1639
+    ],
+    "height": 0.8297
+  },
+  "meshCount": 3,
+  "skinnedMeshCount": 3,
+  "totalTris": 740,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_umbra_dusk_weaver_head_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_helmet_cap",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dusk_weaver.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_helmet_faceplate",
+      "verts": 104,
+      "faces": 136,
+      "tris": 204,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dusk_weaver.head.t1.f",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_helm_crest",
+      "verts": 38,
+      "faces": 54,
+      "tris": 72,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.umbra.dusk_weaver.head.t1.f",
+      "assetSlot": "head"
+    }
+  ]
+}

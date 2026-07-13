@@ -1,6 +1,5 @@
 import type { CharacterSummary, InventoryItem, InventoryService } from '../types';
 import { createInventoryItem, INVENTORY_CAPACITY } from '../../data/items';
-import { normalizeClassName } from '../../data/careers';
 import { normalizeBodyVariant, starterArmorInventoryFor } from '../../data/playableAssets.generated';
 
 const STORAGE_KEY = 'war-js:local-inventory';
@@ -16,13 +15,6 @@ const PREBUILT_CHARACTER_SEEDS: Record<string, CharacterInventorySeed> = {
 const BASE_DEFAULT_ITEMS: InventoryItem[] = [
   createInventoryItem('sword_iron', 0),
   createInventoryItem('shield_wood', 1),
-  createInventoryItem('potion_health', 2, { qty: 5 }),
-  createInventoryItem('potion_mana', 3, { qty: 3 }),
-  createInventoryItem('bread', 4, { qty: 2 }),
-];
-
-const BATTLE_PRELATE_DEFAULT_ITEMS: InventoryItem[] = [
-  createInventoryItem('weapon_hammer_reliquary_2h', 0),
   createInventoryItem('potion_health', 2, { qty: 5 }),
   createInventoryItem('potion_mana', 3, { qty: 3 }),
   createInventoryItem('bread', 4, { qty: 2 }),
@@ -76,18 +68,11 @@ export class InventoryLocal implements InventoryService {
 
 function defaultItemsForCharacter(characterId: string): InventoryItem[] {
   const character = characterSeedFor(characterId);
-  const baseItems = isBattlePrelate(character)
-    ? BATTLE_PRELATE_DEFAULT_ITEMS
-    : BASE_DEFAULT_ITEMS;
   return [
-    ...baseItems,
+    ...BASE_DEFAULT_ITEMS,
     ...starterArmorInventoryFor(character.race, character.className, character.bodyVariant, 5),
     ...CRAFTING_DEFAULT_ITEMS,
   ];
-}
-
-function isBattlePrelate(character: CharacterInventorySeed): boolean {
-  return character.race === 'empire' && normalizeClassName(character.className) === 'Battle Prelate';
 }
 
 function characterSeedFor(characterId: string): CharacterInventorySeed {

@@ -49,15 +49,8 @@ for (const file of files) {
     }
     if (prop.interaction) {
       if (!prop.interaction.id) errors.push(`${file}: props[${index}].interaction missing id`);
-      if (prop.interaction.type !== 'gate' && prop.interaction.type !== 'house_portal') {
-        errors.push(`${file}: props[${index}].interaction.type must be gate or house_portal`);
-      }
-      if (
-        prop.interaction.type === 'house_portal' &&
-        prop.interaction.interiorVariant !== 'small' &&
-        prop.interaction.interiorVariant !== 'large'
-      ) {
-        errors.push(`${file}: props[${index}].interaction.interiorVariant must be small or large`);
+      if (prop.interaction.type !== 'gate') {
+        errors.push(`${file}: props[${index}].interaction.type must be gate`);
       }
       validatePositive(file, `props[${index}].interaction.maxDistance`, prop.interaction.maxDistance ?? 1);
     }

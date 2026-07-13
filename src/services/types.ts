@@ -194,11 +194,9 @@ export interface WorldPropObject extends WorldObjectBase {
 
 export interface WorldPropInteraction {
   id: string;
-  type: 'gate' | 'house_portal';
+  type: 'gate';
   label?: string;
   maxDistance?: number;
-  /** Reusable furnished interior selected by an exterior house door. */
-  interiorVariant?: 'small' | 'large';
   openClip?: string;
   closeClip?: string;
   startsOpen?: boolean;

@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.aether.blade_savant.head.t1.m",
+  "category": "armor",
+  "model": "arm_aether_blade_savant_head_t1_m.glb",
+  "fileSizeBytes": 635332,
+  "boundsYUpMeters": {
+    "min": [
+      -0.1638,
+      1.7441,
+      -0.124
+    ],
+    "max": [
+      0.1638,
+      2.0651,
+      0.1743
+    ],
+    "height": 0.321
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 668,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_blade_savant_head_t1_m",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_helmet_cap",
+      "verts": 234,
+      "faces": 290,
+      "tris": 464,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.blade_savant.head.t1.m",
+      "assetSlot": "head"
+    },
+    {
+      "name": "armor_helmet_faceplate",
+      "verts": 104,
+      "faces": 136,
+      "tris": 204,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.blade_savant.head.t1.m",
+      "assetSlot": "head"
+    }
+  ]
+}

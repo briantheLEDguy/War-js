@@ -1,0 +1,59 @@
+{
+  "assetId": "arm.civic.hex_inquisitor.chest.t1.f",
+  "category": "armor",
+  "model": "arm_civic_hex_inquisitor_chest_t1_f.glb",
+  "fileSizeBytes": 798648,
+  "boundsYUpMeters": {
+    "min": [
+      -0.2837,
+      0.957,
+      -0.1627
+    ],
+    "max": [
+      0.2837,
+      1.5518,
+      0.2092
+    ],
+    "height": 0.5947
+  },
+  "meshCount": 2,
+  "skinnedMeshCount": 2,
+  "totalTris": 4352,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_civic_hex_inquisitor_chest_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_plate_cuirass",
+      "verts": 2117,
+      "faces": 2016,
+      "tris": 4032,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.hex_inquisitor.chest.t1.f",
+      "assetSlot": "chest"
+    },
+    {
+      "name": "armor_front_emblem",
+      "verts": 189,
+      "faces": 160,
+      "tris": 320,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.civic.hex_inquisitor.chest.t1.f",
+      "assetSlot": "chest"
+    }
+  ]
+}

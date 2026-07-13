@@ -8,7 +8,6 @@ import type { EquipmentEntry, EquipSlot } from '../services/types';
 import type { AbilityMotionKind, AbilitySchool, AbilityShape } from './abilities/types';
 
 export type WeaponAnimationKind = WeaponVisualKind | 'cleaver' | 'unarmed';
-export type WeaponAnimationSource = 'baked' | 'equipment';
 
 export interface WeaponAnimationRequest {
   actionId: string;
@@ -18,11 +17,6 @@ export interface WeaponAnimationRequest {
   school?: AbilitySchool;
   motion?: AbilityMotionKind;
   targetPosition?: { x: number; y: number; z: number } | null;
-  /**
-   * Restricts procedural motion to the listed visual sources. When omitted,
-   * both embedded and separately equipped weapons retain legacy behavior.
-   */
-  targetSources?: readonly WeaponAnimationSource[];
 }
 
 interface WeaponAttachmentOptions {
@@ -36,7 +30,7 @@ interface WeaponTarget {
   object: THREE.Object3D;
   slot: EquipSlot;
   kind: WeaponAnimationKind;
-  source: WeaponAnimationSource;
+  source: 'baked' | 'equipment';
   restPosition: THREE.Vector3;
   restRotation: THREE.Euler;
   restScale: THREE.Vector3;
@@ -119,49 +113,8 @@ export function inferWeaponKindFromText(
   return fallback;
 }
 
-/**
- * Marks imported weapon hierarchies once, at their highest attachment root.
- * Exporters commonly repeat a weapon name and metadata on both the transform
- * root and its mesh; treating every matching descendant as a separate weapon
- * creates false off-hand targets and applies the same motion more than once.
- */
-export function markImportedWeaponAttachments(root: THREE.Object3D): void {
-  const candidates: THREE.Object3D[] = [];
-  root.traverse((node) => {
-    if (node !== root && isImportedWeaponCandidate(node)) candidates.push(node);
-  });
-
-  const candidateSet = new Set(candidates);
-  const attachmentRoots = candidates.filter((candidate) => {
-    let ancestor = candidate.parent;
-    while (ancestor && ancestor !== root) {
-      if (candidateSet.has(ancestor)) return false;
-      ancestor = ancestor.parent;
-    }
-    return true;
-  });
-
-  let mainHandMarked = false;
-  for (const attachment of attachmentRoots) {
-    const declaredSlot = readDeclaredWeaponSlot(attachment);
-    const slot = declaredSlot ?? (mainHandMarked ? 'offHand' : 'mainHand');
-    if (attachment.userData.weaponAttachment !== true) {
-      markWeaponAttachment(attachment, {
-        slot,
-        kind: inferWeaponKindFromText(
-          `${attachment.name} ${attachment.userData.assetId ?? ''}`,
-          'generic',
-        ),
-        source: 'baked',
-      });
-    }
-    if (slot === 'mainHand') mainHandMarked = true;
-  }
-}
-
 export class WeaponAnimationController {
   private targets = new Map<string, WeaponTarget>();
-  private controlledTargetIds = new Set<string>();
   private active: ActiveWeaponAction | null = null;
 
   constructor(private root: THREE.Object3D | null = null) {}
@@ -169,7 +122,6 @@ export class WeaponAnimationController {
   setRoot(root: THREE.Object3D | null): void {
     this.root = root;
     this.targets.clear();
-    this.controlledTargetIds.clear();
     this.collectTargets();
   }
 
@@ -178,14 +130,6 @@ export class WeaponAnimationController {
   }
 
   play(request: WeaponAnimationRequest): void {
-    if (request.targetSources) {
-      for (const uuid of [...this.controlledTargetIds]) {
-        const target = this.targets.get(uuid);
-        if (!target || request.targetSources.includes(target.source)) continue;
-        restoreTarget(target);
-        this.controlledTargetIds.delete(uuid);
-      }
-    }
     this.active = {
       request,
       elapsed: 0,
@@ -195,27 +139,13 @@ export class WeaponAnimationController {
 
   update(dt: number): void {
     const targets = this.collectTargets();
-    for (const target of targets) {
-      if (this.controlledTargetIds.has(target.object.uuid)) restoreTarget(target);
-    }
-    this.controlledTargetIds.clear();
+    for (const target of targets) restoreTarget(target);
 
-    const active = this.active;
-    if (!active) {
-      return;
-    }
-    const activeTargets = targets.filter((target) => (
-      !active.request.targetSources
-      || active.request.targetSources.includes(target.source)
-    ));
-    for (const target of activeTargets) {
-      restoreTarget(target);
-      this.controlledTargetIds.add(target.object.uuid);
-    }
-    active.elapsed = Math.min(active.duration, active.elapsed + Math.max(0, dt));
-    const t = active.duration > 0 ? active.elapsed / active.duration : 1;
-    this.applyAction(activeTargets, active.request, clamp01(t));
-    if (active.elapsed >= active.duration) this.active = null;
+    if (!this.active) return;
+    this.active.elapsed = Math.min(this.active.duration, this.active.elapsed + Math.max(0, dt));
+    const t = this.active.duration > 0 ? this.active.elapsed / this.active.duration : 1;
+    this.applyAction(targets, this.active.request, clamp01(t));
+    if (this.active.elapsed >= this.active.duration) this.active = null;
   }
 
   private collectTargets(): WeaponTarget[] {
@@ -291,32 +221,9 @@ function isWeaponNode(node: THREE.Object3D): boolean {
   return node.userData.equipmentSlot === 'mainHand' || node.userData.equipmentSlot === 'offHand';
 }
 
-function isImportedWeaponCandidate(node: THREE.Object3D): boolean {
-  if (node.userData.weaponAttachment === true) return true;
-
-  const declaredSlot = readDeclaredWeaponSlot(node);
-  const category = typeof node.userData.assetCategory === 'string'
-    ? node.userData.assetCategory.toLowerCase()
-    : '';
-  if (category === 'weapon' && declaredSlot) return true;
-
-  const name = node.name;
-  if (!name || /^AP_/i.test(name)) return false;
-  if (!/(weapon|sword|blade|maul|hammer|axe|dagger|staff|bow|gun|spear)/i.test(name)) {
-    return false;
-  }
-  return !/(case|sheath|scabbard|holster|socket|anchor|goal|pole)/i.test(name);
-}
-
-function readDeclaredWeaponSlot(node: THREE.Object3D): EquipSlot | null {
-  const slot = node.userData.weaponSlot
-    ?? node.userData.equipmentSlot
-    ?? node.userData.assetSlot;
-  return slot === 'mainHand' || slot === 'offHand' ? slot : null;
-}
-
 function readWeaponSlot(node: THREE.Object3D): EquipSlot | null {
-  return readDeclaredWeaponSlot(node);
+  const slot = node.userData.weaponSlot ?? node.userData.equipmentSlot;
+  return slot === 'mainHand' || slot === 'offHand' ? slot : null;
 }
 
 function readWeaponKind(node: THREE.Object3D): WeaponAnimationKind {

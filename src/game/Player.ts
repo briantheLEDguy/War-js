@@ -11,12 +11,7 @@ import {
 import { playableCharacterProfileKeyFor } from '../data/playableAssets.generated';
 import type { CharacterState, EquipmentState, EquipSlot } from '../services/types';
 import type { Terrain } from '../world/Terrain';
-import {
-  AssetLoader,
-  type CharacterAssetResolution,
-  type EquipmentAssetResolution,
-  type EquipmentCompatibilityContext,
-} from './AssetLoader';
+import { AssetLoader, type EquipmentAssetResolution } from './AssetLoader';
 import { buildCharacterMesh } from './CharacterMeshes';
 import type { FollowCamera } from './Camera';
 import type { Input } from './Input';
@@ -26,7 +21,6 @@ import type { AbilityDefinition } from './abilities/types';
 import {
   inferWeaponKindFromEquipment,
   inferWeaponKindFromText,
-  markImportedWeaponAttachments,
   markWeaponAttachment,
   positionEquipmentWeaponOverlay,
   WeaponAnimationController,
@@ -60,14 +54,11 @@ export class Player {
   private glbActionLock = 0;
   private playerSkeleton: THREE.Skeleton | null = null;
   private playerBodyFamily: string | null = null;
-  private playerBodyVariant: string | null = null;
   private playerSkeletonId: string | null = null;
-  private playerBindPoseId: string | null = null;
-  private loadedCharacterModel: string | null = null;
   private equipmentOverlays = new Map<EquipSlot, THREE.Object3D>();
   private equipmentBaseBody: THREE.Object3D | null = null;
   private equipmentVisualRequestId = 0;
-  private usesCompleteCharacterVisual = false;
+  private usesExternalPlayerOverride = false;
   private weaponAnimations = new WeaponAnimationController();
   private verticalV = 0;
   private grounded = true;
@@ -86,26 +77,21 @@ export class Player {
       this.character.className,
       this.character.bodyVariant,
     );
-    const playableAsset = await loader.resolveCharacterAsset(
-      playableProfileKey,
-      this.character.bodyVariant,
-    );
+    const playableModel = await loader.resolveCharacterModel(playableProfileKey);
     const modelOverride = playerModelOverrideForRace(this.character.race);
-    const overrideAsset = playableAsset
+    const overrideModel = playableModel
       ? null
-      : await loader.resolveCharacterAsset(modelOverride.profileKey, this.character.bodyVariant);
-    const characterAsset = playableAsset ?? overrideAsset;
-    const indexedModel = characterAsset?.model ?? modelOverride.fallbackModel;
-    this.loadedCharacterModel = indexedModel;
+      : await loader.resolveCharacterModel(modelOverride.profileKey);
+    const indexedModel = playableModel ?? overrideModel ?? modelOverride.fallbackModel;
     const primitive = () => buildCharacterMesh(this.character.race, this.character.className);
 
     const { object: loadedObject, animations } = await loader.loadModelFull(indexedModel, primitive);
-    this.usesCompleteCharacterVisual = !playableAsset
-      || characterAsset?.equipmentMode === 'assembled';
+    this.usesExternalPlayerOverride = !playableModel;
     this.object = wrapStaticPlayerVisual(loadedObject);
     prepareLoadedPlayerObject(this.object);
     this.playerSkeleton = findFirstSkeleton(this.object);
-    this.applyCharacterCompatibilityMetadata(characterAsset);
+    this.playerBodyFamily = readMetadataString(this.object, 'bodyFamily');
+    this.playerSkeletonId = readMetadataString(this.object, 'skeletonId');
 
     if (animations.length > 0) {
       this.glbMixer = new THREE.AnimationMixer(this.object);
@@ -155,7 +141,7 @@ export class Player {
   ): Promise<void> {
     if (!this.object) return;
     const requestId = ++this.equipmentVisualRequestId;
-    if (this.usesCompleteCharacterVisual) {
+    if (this.usesExternalPlayerOverride) {
       this.clearEquipmentVisuals();
       setOriginalPlayerBodyVisible(this.object, true);
       this.weaponAnimations.refreshTargets();
@@ -166,8 +152,7 @@ export class Player {
     const activeKeys = VISUAL_EQUIP_SLOTS
       .map((slot) => equipmentEntryKey(equipment?.[slot]))
       .filter((key): key is string => Boolean(key));
-    const compatibility = this.equipmentCompatibilityContext();
-    const bodyModel = await loader.resolveEquipmentBaseBodyModel(activeKeys, compatibility);
+    const bodyModel = await loader.resolveEquipmentBaseBodyModel(activeKeys);
 
     const baseBodyReady = await this.applyBaseBodyOverride(bodyModel, loader, requestId);
     if (!baseBodyReady) return;
@@ -178,12 +163,9 @@ export class Player {
       if (!key || !visual) continue;
       activeSlots.add(slot);
 
-      const resolvedVisual = await loader.resolveEquipmentModel(key, visual.model, compatibility);
-      if (
-        resolvedVisual.disabled
-        || (resolvedVisual.skinned && !this.canUseSkinnedEquipment(resolvedVisual))
-      ) {
-        this.removeEquipmentOverlay(slot);
+      const resolvedVisual = await loader.resolveEquipmentModel(key, visual.model);
+      if (resolvedVisual.disabled) continue;
+      if (resolvedVisual.skinned && !this.canUseSkinnedEquipment(resolvedVisual)) {
         continue;
       }
 
@@ -256,39 +238,13 @@ export class Player {
 
   private canUseSkinnedEquipment(resolution: EquipmentAssetResolution): boolean {
     if (!this.playerSkeleton) return false;
-    if (resolution.bodyVariant && resolution.bodyVariant !== this.playerBodyVariant) {
-      return false;
-    }
     if (resolution.skeletonId && resolution.skeletonId !== this.playerSkeletonId) {
       return false;
     }
     if (resolution.bodyFamily && resolution.bodyFamily !== this.playerBodyFamily) {
       return false;
     }
-    if (resolution.bindPoseId && resolution.bindPoseId !== this.playerBindPoseId) {
-      return false;
-    }
     return true;
-  }
-
-  private applyCharacterCompatibilityMetadata(
-    asset: CharacterAssetResolution | null,
-  ): void {
-    this.playerBodyFamily = asset?.bodyFamily ?? readMetadataString(this.object, 'bodyFamily');
-    this.playerBodyVariant = asset?.bodyVariant
-      ?? readMetadataString(this.object, 'bodyVariant')
-      ?? this.character.bodyVariant;
-    this.playerSkeletonId = asset?.skeletonId ?? readMetadataString(this.object, 'skeletonId');
-    this.playerBindPoseId = asset?.bindPoseId ?? readMetadataString(this.object, 'bindPoseId');
-  }
-
-  private equipmentCompatibilityContext(): EquipmentCompatibilityContext {
-    return {
-      bodyFamily: this.playerBodyFamily,
-      bodyVariant: this.playerBodyVariant,
-      skeletonId: this.playerSkeletonId,
-      bindPoseId: this.playerBindPoseId,
-    };
   }
 
   private async applyBaseBodyOverride(
@@ -296,14 +252,7 @@ export class Player {
     loader: AssetLoader,
     requestId: number,
   ): Promise<boolean> {
-    if (!bodyModel || bodyModel === this.loadedCharacterModel) {
-      this.equipmentBaseBody?.removeFromParent();
-      this.equipmentBaseBody = null;
-      setOriginalPlayerBodyVisible(this.object, true);
-      return true;
-    }
-
-    if (!this.playerSkeleton) {
+    if (!bodyModel) {
       this.equipmentBaseBody?.removeFromParent();
       this.equipmentBaseBody = null;
       setOriginalPlayerBodyVisible(this.object, true);
@@ -320,11 +269,6 @@ export class Player {
       body.userData.equipmentBaseBody = true;
       body.userData.equipmentBodyModel = bodyModel;
       prepareEquipmentOverlay(body);
-      if (!bindSkinnedOverlayToPlayer(body, this.playerSkeleton)) {
-        body.removeFromParent();
-        setOriginalPlayerBodyVisible(this.object, true);
-        return true;
-      }
       this.object.add(body);
       this.equipmentBaseBody = body;
     } else if (this.equipmentBaseBody.userData.equipmentBodyModel !== bodyModel) {
@@ -344,11 +288,6 @@ export class Player {
     this.equipmentOverlays.clear();
     this.equipmentBaseBody?.removeFromParent();
     this.equipmentBaseBody = null;
-  }
-
-  private removeEquipmentOverlay(slot: EquipSlot): void {
-    this.equipmentOverlays.get(slot)?.removeFromParent();
-    this.equipmentOverlays.delete(slot);
   }
 
   playGlbAction(actionId: string, duration = 0): void {
@@ -378,9 +317,6 @@ export class Player {
     ability: AbilityDefinition,
     targetPosition: { x: number; y: number; z: number } | null = null,
   ): void {
-    const authoredClip = glbActionClipName(ability.animation.actionId);
-    const authoredClipOwnsBakedWeapon = authoredClip !== null
-      && this.glbActions.has(authoredClip);
     this.playWeaponAction({
       actionId: ability.animation.actionId,
       durationSec: ability.animation.durationSec,
@@ -389,7 +325,6 @@ export class Player {
       school: ability.visual.school,
       motion: ability.visual.vfx.motion,
       targetPosition,
-      ...(authoredClipOwnsBakedWeapon ? { targetSources: ['equipment'] as const } : {}),
     });
   }
 
@@ -633,6 +568,25 @@ function prepareLoadedPlayerObject(object: THREE.Object3D): void {
       mat.depthTest = true;
       mat.needsUpdate = true;
     }
+  });
+}
+
+function markImportedWeaponAttachments(root: THREE.Object3D): void {
+  let mainHandMarked = false;
+  root.traverse((node) => {
+    if (node.userData.weaponAttachment === true) return;
+    const name = node.name;
+    if (!name || /^AP_/i.test(name)) return;
+    if (!/(weapon|sword|blade|maul|hammer|axe|dagger|staff|bow|gun|spear)/i.test(name)) return;
+    if (/(case|sheath|scabbard|holster|socket|anchor|goal|pole)/i.test(name)) return;
+
+    const kind = inferWeaponKindFromText(name, 'generic');
+    markWeaponAttachment(node, {
+      slot: mainHandMarked ? 'offHand' : 'mainHand',
+      kind,
+      source: 'baked',
+    });
+    mainHandMarked = true;
   });
 }
 

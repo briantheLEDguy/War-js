@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.aether.aether_sage.chest.t1.f",
+  "category": "armor",
+  "model": "arm_aether_aether_sage_chest_t1_f.glb",
+  "fileSizeBytes": 261544,
+  "boundsYUpMeters": {
+    "min": [
+      -0.2591,
+      0.8599,
+      -0.1358
+    ],
+    "max": [
+      0.2591,
+      1.6568,
+      0.1358
+    ],
+    "height": 0.7969
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 480,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_aether_sage_chest_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_robed_chest",
+      "verts": 242,
+      "faces": 300,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.aether_sage.chest.t1.f",
+      "assetSlot": "chest"
+    }
+  ]
+}

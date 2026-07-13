@@ -1,22 +1,25 @@
 {
   "assetId": "prop.town.rock_wall_small",
-  "displayName": "Dark Fantasy Rock Wall Small",
+  "displayName": "Fantasy Town Small Stone Wall",
   "category": "prop",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "sets": [
-    "dark_fantasy_town",
-    "original_procedural"
+    "external_imports"
   ],
   "runtime": {
     "staticKey": "town_rock_wall_small"
   },
   "output": {
     "model": "prop_town_rock_wall_small.glb",
-    "artifactDir": "artifacts/blender/dark-fantasy-town/town_rock_wall_small"
+    "artifactDir": "artifacts/blender/external/prop_town_rock_wall_small"
   },
   "generator": {
-    "kind": "staticPreset",
-    "preset": "dark_fantasy_town_rock_wall_small"
+    "kind": "externalImport",
+    "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+    "sourceType": "fbx",
+    "objects": [
+      "obj_rock_wall_small"
+    ]
   },
   "geometry": {
     "originRule": "root_grounded",
@@ -31,8 +34,8 @@
     ]
   },
   "materials": {
-    "master": "MM_DarkFantasyTownPbr",
-    "textureSet": "generated_town_rock_wall_small",
+    "master": "MM_ExternalPropPbr",
+    "textureSet": "prop_town_rock_wall_small",
     "channels": [
       "baseColor",
       "roughness",
@@ -58,26 +61,20 @@
     "conflictsWith": []
   },
   "provenance": {
-    "createdBy": "original_procedural_blender_generation",
-    "aiAssisted": true,
-    "aiStages": [
-      "art_direction",
-      "procedural_geometry"
-    ],
-    "promptIds": [
-      "aegis_dark_fantasy_town_v2"
-    ],
-    "referencePackId": "original_aegis_architecture",
+    "createdBy": "external_asset_import",
+    "aiAssisted": false,
+    "aiStages": [],
+    "promptIds": [],
+    "referencePackId": "external_user_supplied_assets",
     "similarityReview": "not_required",
-    "source": "scripts/blender-character-pipeline/blender/generate_dark_fantasy_town.py"
+    "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx"
   },
   "qc": {
     "allowNonManifold": true,
     "allowUvOverlap": true,
     "maxDrawCalls": 8,
-    "maxFileSizeMb": 24,
-    "maxMeshObjects": 8,
-    "maxTris": 80000,
+    "maxFileSizeMb": 6,
+    "maxMeshObjects": 6,
     "requiresSkinnedMeshes": false
   }
 }

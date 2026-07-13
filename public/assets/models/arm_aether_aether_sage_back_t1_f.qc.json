@@ -1,0 +1,49 @@
+{
+  "assetId": "arm.aether.aether_sage.back.t1.f",
+  "category": "armor",
+  "model": "arm_aether_aether_sage_back_t1_f.glb",
+  "fileSizeBytes": 318220,
+  "boundsYUpMeters": {
+    "min": [
+      -0.3401,
+      0.3564,
+      -0.1709
+    ],
+    "max": [
+      0.3401,
+      1.552,
+      -0.1355
+    ],
+    "height": 1.1956
+  },
+  "meshCount": 1,
+  "skinnedMeshCount": 1,
+  "totalTris": 1152,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_aether_aether_sage_back_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_cape_back",
+      "verts": 627,
+      "faces": 576,
+      "tris": 1152,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.aether.aether_sage.back.t1.f",
+      "assetSlot": "back"
+    }
+  ]
+}

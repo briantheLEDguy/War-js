@@ -1,0 +1,30 @@
+{
+  "assetId": "chr.external.warrior_guard",
+  "category": "character",
+  "model": "chr_external_warrior_guard.glb",
+  "fileSizeBytes": 2649976,
+  "meshCount": 1,
+  "totalTris": 29076,
+  "availableClips": [
+    "Armature|Scene"
+  ],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "WariorLOW",
+      "verts": 14538,
+      "faces": 14602,
+      "tris": 29076,
+      "materials": 1
+    }
+  ],
+  "source": "public/assets/new_models/warrior/source/Warior_Lowpoly_Anim.fbx",
+  "manifestVersion": "1.0.0"
+}

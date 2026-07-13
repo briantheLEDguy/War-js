@@ -2,49 +2,29 @@
   "assetId": "prop.town.roof_plank_small",
   "category": "prop",
   "model": "prop_town_roof_plank_small.glb",
-  "fileSizeBytes": 61796,
+  "fileSizeBytes": 110684,
   "meshCount": 1,
-  "totalTris": 648,
-  "availableClips": [],
-  "missingRequiredClips": [],
+  "totalTris": 12,
+  "availableClips": [
+    "Armature|Scene"
+  ],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true,
-    "requiredClipsPresent": true,
-    "hasColliderPolicy": true
+    "meshObjectBudget": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "slate",
-      "verts": 336,
-      "faces": 324,
-      "tris": 648,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_single_plank_roof_small.001",
+      "verts": 8,
+      "faces": 6,
+      "tris": 12,
+      "materials": 1
     }
   ],
-  "artifactDir": "artifacts/model-jobs/standalone_0a0d0555-c9d3-4521-b793-ecba73a56bbd/artifacts/generated-previews",
-  "manifestVersion": "2.0.0",
-  "notes": {
-    "generator": "original_dark_fantasy_town_v2",
-    "variant": "roof_plank_small",
-    "materials": [
-      "aged_oak",
-      "glass",
-      "iron",
-      "mortar",
-      "oak",
-      "plaster",
-      "slate",
-      "stone"
-    ],
-    "artDirection": "realistic weathered Aegis frontier architecture"
-  },
-  "modelSha256": "2642c4812cb938acb0f3d5dff87d49f861afd4bfc08ab762125843f4cd410c01",
-  "generatedAt": "2026-07-11T20:08:05.041Z",
-  "previewImages": []
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
 }

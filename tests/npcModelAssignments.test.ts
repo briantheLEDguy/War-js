@@ -5,8 +5,6 @@ import { describe, expect, test } from 'vitest';
 interface IndexedModel {
   assetId?: string;
   model?: string;
-  lifecycleStatus?: string;
-  runtimeReady?: boolean;
 }
 
 interface AssetIndex {
@@ -52,10 +50,9 @@ function loadZones(): ZoneFile[] {
 }
 
 describe('NPC and enemy model assignments', () => {
-  test('keeps removed NPC proxy profiles on the safe runtime fallback path', () => {
+  test('resolve all static NPC character profiles through the model index', () => {
     const index = loadAssetIndex();
     const profiles = index.characterProfiles ?? {};
-    let fallbackProfiles = 0;
 
     for (const zone of loadZones()) {
       for (const npc of zone.npcs ?? []) {
@@ -65,24 +62,15 @@ describe('NPC and enemy model assignments', () => {
         if (!npc.characterProfileKey) continue;
 
         expect(npc.characterProfileKey, context).toMatch(profileKeyRe);
-        const indexed = profiles[npc.characterProfileKey];
-        if (!indexed) {
-          fallbackProfiles += 1;
-          continue;
-        }
-        expect(indexed.lifecycleStatus, context).toBe('approved');
-        expect(indexed.runtimeReady, context).not.toBe(false);
-        expect(indexed.model, context).toMatch(/^chr_.*\.glb$/);
+        expect(profiles[npc.characterProfileKey]?.model, context).toMatch(/^chr_.*\.glb$/);
       }
     }
-    expect(fallbackProfiles).toBeGreaterThan(0);
   });
 
-  test('keeps removed enemy proxies on fallback while indexed creatures still resolve', () => {
+  test('resolve all combat enemy character and creature visuals through the model index', () => {
     const index = loadAssetIndex();
     const profiles = index.characterProfiles ?? {};
     const staticProps = index.staticProps ?? {};
-    let fallbackProfiles = 0;
 
     for (const zone of loadZones()) {
       for (const enemy of zone.enemies ?? []) {
@@ -91,14 +79,7 @@ describe('NPC and enemy model assignments', () => {
 
         if (enemy.characterProfileKey) {
           expect(enemy.characterProfileKey, context).toMatch(profileKeyRe);
-          const indexed = profiles[enemy.characterProfileKey];
-          if (!indexed) {
-            fallbackProfiles += 1;
-          } else {
-            expect(indexed.lifecycleStatus, context).toBe('approved');
-            expect(indexed.runtimeReady, context).not.toBe(false);
-            expect(indexed.model, context).toMatch(/^chr_.*\.glb$/);
-          }
+          expect(profiles[enemy.characterProfileKey]?.model, context).toMatch(/^chr_.*\.glb$/);
         }
 
         if (enemy.assetKey) {
@@ -107,6 +88,5 @@ describe('NPC and enemy model assignments', () => {
         }
       }
     }
-    expect(fallbackProfiles).toBeGreaterThan(0);
   });
 });

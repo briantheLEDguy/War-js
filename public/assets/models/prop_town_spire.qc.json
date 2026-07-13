@@ -2,57 +2,29 @@
   "assetId": "prop.town.spire",
   "category": "prop",
   "model": "prop_town_spire.glb",
-  "fileSizeBytes": 88000,
-  "meshCount": 2,
-  "totalTris": 836,
-  "availableClips": [],
-  "missingRequiredClips": [],
+  "fileSizeBytes": 68124,
+  "meshCount": 1,
+  "totalTris": 92,
+  "availableClips": [
+    "Armature|Scene"
+  ],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true,
-    "requiredClipsPresent": true,
-    "hasColliderPolicy": true
+    "meshObjectBudget": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "slate",
-      "verts": 288,
-      "faces": 248,
-      "tris": 560,
-      "materials": 1,
-      "assetSlot": "prop"
-    },
-    {
-      "name": "iron",
-      "verts": 140,
-      "faces": 132,
-      "tris": 276,
-      "materials": 1,
-      "assetSlot": "prop"
+      "name": "obj_spire",
+      "verts": 48,
+      "faces": 50,
+      "tris": 92,
+      "materials": 1
     }
   ],
-  "artifactDir": "artifacts/model-jobs/standalone_3d4c88bf-c20d-429c-8e4a-10ceb348b15c/artifacts/generated-previews",
-  "manifestVersion": "2.0.0",
-  "notes": {
-    "generator": "original_dark_fantasy_town_v2",
-    "variant": "spire",
-    "materials": [
-      "aged_oak",
-      "glass",
-      "iron",
-      "mortar",
-      "oak",
-      "plaster",
-      "slate",
-      "stone"
-    ],
-    "artDirection": "realistic weathered Aegis frontier architecture"
-  },
-  "modelSha256": "1659139435717ac790ee1d3728480ab5cd698e1265e5ddbf51b01382c5b733d1",
-  "generatedAt": "2026-07-11T20:08:10.616Z",
-  "previewImages": []
+  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
+  "manifestVersion": "1.0.0"
 }

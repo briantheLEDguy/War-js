@@ -1,0 +1,274 @@
+{
+  "assetId": "chr.civic.hex_inquisitor.t1.f",
+  "category": "character",
+  "model": "chr_civic_hex_inquisitor_t1_f.glb",
+  "fileSizeBytes": 919868,
+  "boundsYUpMeters": {
+    "min": [
+      -0.5546,
+      -0.0033,
+      -0.1753
+    ],
+    "max": [
+      0.5488,
+      1.8578,
+      0.2895
+    ],
+    "height": 1.8611
+  },
+  "meshCount": 22,
+  "skinnedMeshCount": 22,
+  "totalTris": 4080,
+  "availableClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "missingRequiredClips": [],
+  "previewImages": [
+    "artifacts/blender/manifest/chr_civic_hex_inquisitor_t1_f/chr_civic_hex_inquisitor_t1_f_front.png",
+    "artifacts/blender/manifest/chr_civic_hex_inquisitor_t1_f/chr_civic_hex_inquisitor_t1_f_side.png",
+    "artifacts/blender/manifest/chr_civic_hex_inquisitor_t1_f/chr_civic_hex_inquisitor_t1_f_back.png",
+    "artifacts/blender/manifest/chr_civic_hex_inquisitor_t1_f/chr_civic_hex_inquisitor_t1_f_iso.png"
+  ],
+  "artifactDir": "artifacts/blender/manifest/chr_civic_hex_inquisitor_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "body_under_torso",
+      "verts": 302,
+      "faces": 360,
+      "tris": 600,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_under_hips",
+      "verts": 226,
+      "faces": 280,
+      "tris": 448,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_neck",
+      "verts": 66,
+      "faces": 96,
+      "tris": 128,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_head",
+      "verts": 218,
+      "faces": 270,
+      "tris": 432,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_eye_-1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_brow_-1",
+      "verts": 72,
+      "faces": 60,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_eye_1",
+      "verts": 34,
+      "faces": 48,
+      "tris": 64,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_brow_1",
+      "verts": 72,
+      "faces": 60,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_nose",
+      "verts": 38,
+      "faces": 54,
+      "tris": 72,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_upper_arm_-1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_forearm_-1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_hand_-1",
+      "verts": 46,
+      "faces": 66,
+      "tris": 88,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_thigh_-1",
+      "verts": 70,
+      "faces": 102,
+      "tris": 136,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_shin_-1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_foot_-1",
+      "verts": 98,
+      "faces": 128,
+      "tris": 192,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_upper_arm_1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_forearm_1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_hand_1",
+      "verts": 46,
+      "faces": 66,
+      "tris": 88,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_thigh_1",
+      "verts": 70,
+      "faces": 102,
+      "tris": 136,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_shin_1",
+      "verts": 62,
+      "faces": 90,
+      "tris": 120,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_foot_1",
+      "verts": 98,
+      "faces": 128,
+      "tris": 192,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    },
+    {
+      "name": "body_class_core",
+      "verts": 240,
+      "faces": 240,
+      "tris": 480,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "chr.civic.hex_inquisitor.t1.f",
+      "assetSlot": "character"
+    }
+  ]
+}

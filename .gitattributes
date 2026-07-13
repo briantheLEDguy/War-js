@@ -1,4 +1,1 @@
-# Approved runtime and authoring GLBs are binary assets managed by Git LFS.
-public/assets/models/*.glb filter=lfs diff=lfs merge=lfs -text
-authoring/approved/**/*.glb filter=lfs diff=lfs merge=lfs -text
-scripts/blender-character-pipeline/data/approved-assets/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/models/terrain_aegis_capital_medieval_city.glb filter=lfs diff=lfs merge=lfs -text

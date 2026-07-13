@@ -1,0 +1,79 @@
+{
+  "assetId": "arm.stone.stoneguard.shoulders.t1.f",
+  "category": "armor",
+  "model": "arm_stone_stoneguard_shoulders_t1_f.glb",
+  "fileSizeBytes": 1049024,
+  "boundsYUpMeters": {
+    "min": [
+      -0.5344,
+      0.9757,
+      -0.1846
+    ],
+    "max": [
+      0.5344,
+      1.3606,
+      0.2353
+    ],
+    "height": 0.385
+  },
+  "meshCount": 4,
+  "skinnedMeshCount": 4,
+  "totalTris": 8288,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "previewImages": [],
+  "artifactDir": "artifacts/blender/manifest/arm_stone_stoneguard_shoulders_t1_f",
+  "manifestVersion": "1.0.0",
+  "checks": {
+    "grounded": true,
+    "heightWithinTolerance": true,
+    "allMeshesSkinned": true,
+    "requiredClipsPresent": true,
+    "meshObjectBudget": true,
+    "previewWritten": true,
+    "fileSizeBudget": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "armor_pauldron_-1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.shoulders.t1.f",
+      "assetSlot": "shoulders"
+    },
+    {
+      "name": "armor_pauldron_spike_-1",
+      "verts": 26,
+      "faces": 36,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.shoulders.t1.f",
+      "assetSlot": "shoulders"
+    },
+    {
+      "name": "armor_pauldron_1",
+      "verts": 2145,
+      "faces": 2048,
+      "tris": 4096,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.shoulders.t1.f",
+      "assetSlot": "shoulders"
+    },
+    {
+      "name": "armor_pauldron_spike_1",
+      "verts": 26,
+      "faces": 36,
+      "tris": 48,
+      "materials": 1,
+      "skinned": true,
+      "assetId": "arm.stone.stoneguard.shoulders.t1.f",
+      "assetSlot": "shoulders"
+    }
+  ]
+}
