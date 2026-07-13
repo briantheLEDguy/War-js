@@ -101,7 +101,7 @@ export function GameScreen() {
       {!ready && <div className="loading">Entering the world...</div>}
       {ready && <Hud game={gameRef.current} onLogout={logout} />}
       <div className="controls-hint">
-        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; hold objectives to capture &middot; I inventory &middot; C character &middot; L quest log &middot; M map &middot; H guide &middot; Enter chat &middot; Esc close window/settings &middot; ` debug
+        WASD move &middot; Space jump &middot; RMB turn/click doors/equip gear &middot; LMB orbit/target &middot; MMB nearest enemy &middot; Tab cycle enemies &middot; NumLock autorun &middot; L+R move &middot; 1-0 class abilities &middot; E interact/gather/craft &middot; hold objectives to capture &middot; I inventory &middot; C character &middot; L quest log &middot; M map &middot; H guide &middot; Enter chat &middot; Esc close window/settings &middot; ` debug &middot; Settings rebinds controls
         &nbsp;&nbsp;|&nbsp;&nbsp;Touch: joystick move &middot; ↑ jump &middot; drag camera &middot; pinch zoom &middot; tap target/ability
       </div>
     </div>

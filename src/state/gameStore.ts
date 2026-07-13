@@ -5,6 +5,14 @@ import {
   type EnemyGatheringState,
 } from '../data/crafting';
 import { normalizeClassName } from '../data/careers';
+import {
+  assignKeybinding,
+  DEFAULT_KEYBINDINGS,
+  normalizeKeybindings,
+  type KeybindAction,
+  type Keybinding,
+  type Keybindings,
+} from '../data/keybindings';
 import { normalizeBodyVariant } from '../data/playableAssets.generated';
 import { getItemDefinition, INVENTORY_CAPACITY } from '../data/items';
 import {
@@ -34,6 +42,7 @@ export interface GameplaySettings {
   touchLookSensitivity: number;
   zoomSensitivity: number;
   viewDistance: number;
+  keybindings: Keybindings;
 }
 
 export type ContextPromptKind =
@@ -88,6 +97,7 @@ export const DEFAULT_GAMEPLAY_SETTINGS: GameplaySettings = {
   touchLookSensitivity: 1,
   zoomSensitivity: 1,
   viewDistance: DEFAULT_VIEW_DISTANCE,
+  keybindings: DEFAULT_KEYBINDINGS,
 };
 
 const SETTINGS_STORAGE_KEY = 'war-js:gameplay-settings';
@@ -159,6 +169,7 @@ function normalizeGameplaySettings(value: unknown): GameplaySettings {
       partial.viewDistance,
       DEFAULT_GAMEPLAY_SETTINGS.viewDistance,
     ),
+    keybindings: normalizeKeybindings(partial.keybindings),
   };
 }
 
@@ -378,6 +389,7 @@ interface GameStore {
   toggleSettings: () => void;
   settings: GameplaySettings;
   updateSettings: (patch: Partial<GameplaySettings>) => void;
+  updateKeybinding: (action: KeybindAction, binding: Keybinding) => void;
   resetSettings: () => void;
 
   // ------- debug -------
@@ -693,6 +705,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
   updateSettings: (patch) =>
     set((s) => {
       const settings = normalizeGameplaySettings({ ...s.settings, ...patch });
+      persistGameplaySettings(settings);
+      return { settings };
+    }),
+  updateKeybinding: (action, binding) =>
+    set((s) => {
+      const settings = {
+        ...s.settings,
+        keybindings: assignKeybinding(s.settings.keybindings, action, binding),
+      };
       persistGameplaySettings(settings);
       return { settings };
     }),

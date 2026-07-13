@@ -20,6 +20,7 @@ import {
 import { buildCharacterMesh } from './CharacterMeshes';
 import type { FollowCamera } from './Camera';
 import type { Input } from './Input';
+import { DEFAULT_KEYBINDINGS, type Keybindings } from '../data/keybindings';
 import type { CharacterAnimator } from './animation/CharacterAnimator';
 import { StaticModelAnimator } from './animation/StaticModelAnimator';
 import type { AbilityDefinition } from './abilities/types';
@@ -43,6 +44,8 @@ const VISUAL_EQUIP_SLOTS: EquipSlot[] = EQUIP_SLOT_ORDER;
 type GroundResolver = (x: number, z: number, currentY?: number) => number;
 interface MovementOptions {
   flying?: boolean;
+  autoRun?: boolean;
+  keybindings?: Pick<Keybindings, 'moveForward' | 'moveBackward' | 'strafeLeft' | 'strafeRight' | 'jump'>;
 }
 
 export class Player {
@@ -413,13 +416,15 @@ export class Player {
     options: MovementOptions = {},
   ) {
     const flying = options.flying === true;
+    const keybindings = options.keybindings ?? DEFAULT_KEYBINDINGS;
     // Input relative to camera yaw — combine keyboard and touch joystick
     let mx = input.touchMoveX;
     let mz = input.touchMoveZ;
-    if (input.isDown('KeyW')) mz -= 1;
-    if (input.isDown('KeyS')) mz += 1;
-    if (input.isDown('KeyA')) mx -= 1;
-    if (input.isDown('KeyD')) mx += 1;
+    if (input.isBindingDown(keybindings.moveForward)) mz -= 1;
+    if (input.isBindingDown(keybindings.moveBackward)) mz += 1;
+    if (input.isBindingDown(keybindings.strafeLeft)) mx -= 1;
+    if (input.isBindingDown(keybindings.strafeRight)) mx += 1;
+    if (options.autoRun) mz -= 1;
     if (input.mouseLeftDown && input.mouseRightDown) mz -= 1;
     // Clamp combined input to unit circle (keyboard diagonal = √2, joystick max = 1)
     const len = Math.hypot(mx, mz);
@@ -463,7 +468,7 @@ export class Player {
         ? this.position.y
         : this.position.y - WALKABLE_SURFACE_STEP_UP;
       const groundY = this.groundHeightAt(this.position.x, this.position.z, groundProbeY);
-      if (this.grounded && (input.wasPressed('Space') || input.touchJumpThisFrame)) {
+      if (this.grounded && (input.wasBindingPressed(keybindings.jump) || input.touchJumpThisFrame)) {
         this.verticalV = JUMP_V;
         this.grounded = false;
         this.animator?.playAction('jump', 0.45);

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { isResourceNodeAvailable } from '../data/crafting';
+import { formatKeybinding, type KeybindAction } from '../data/keybindings';
 import type { CampaignControl, CampaignObjectiveStatus, CampaignRealm } from '../data/campaign';
 import {
   defaultZoneSpawnPoint,
@@ -61,18 +62,11 @@ const CORPSE_INTERACT_RADIUS = 4;
 const RESOURCE_NODE_INTERACT_RADIUS = 4.5;
 const QUEST_INTERACT_RADIUS = 4;
 const TARGETABLE_ENEMY_PROMPT_RADIUS = 12;
+const TARGET_CYCLE_RADIUS = 65;
 const HUD_FEEDBACK_DURATION_MS = 1800;
-const ABILITY_KEYS: Array<[string, number]> = [
-  ['Digit1', 0],
-  ['Digit2', 1],
-  ['Digit3', 2],
-  ['Digit4', 3],
-  ['Digit5', 4],
-  ['Digit6', 5],
-  ['Digit7', 6],
-  ['Digit8', 7],
-  ['Digit9', 8],
-  ['Digit0', 9],
+const ABILITY_KEYBIND_ACTIONS: readonly KeybindAction[] = [
+  'ability1', 'ability2', 'ability3', 'ability4', 'ability5',
+  'ability6', 'ability7', 'ability8', 'ability9', 'ability10',
 ];
 
 export class Game {
@@ -100,6 +94,7 @@ export class Game {
   private equipmentSignature = '';
   private spawnPoint = { x: 0, y: 0, z: 0 };
   private appliedViewDistance = 0;
+  private autoRun = false;
 
   private currentZoneName = '';
   private currentZone: ZoneDefinition | null = null;
@@ -516,13 +511,18 @@ export class Game {
       }).catch(() => {});
     }
 
+    const keybindings = store.settings.keybindings;
+
     // Debug / panels / settings toggles
+    if (!store.chatFocused && this.input.wasBindingPressed(keybindings.openSettings)) {
+      if (!store.closeTopWindow()) store.setSettingsOpen(true);
+    }
     if (
       !store.chatFocused &&
       !useGameStore.getState().settingsOpen &&
       !useGameStore.getState().worldMapOpen &&
       !useGameStore.getState().gmMenuOpen &&
-      this.input.wasPressed('KeyH')
+      this.input.wasBindingPressed(keybindings.openGuide)
     ) {
       store.toggleWiki();
     }
@@ -531,7 +531,7 @@ export class Game {
       !useGameStore.getState().settingsOpen &&
       !useGameStore.getState().wikiOpen &&
       !useGameStore.getState().gmMenuOpen &&
-      this.input.wasPressed('KeyM')
+      this.input.wasBindingPressed(keybindings.openWorldMap)
     ) {
       store.toggleWorldMap();
     }
@@ -561,10 +561,10 @@ export class Game {
       this.deleteSelectedWorldEditorObject();
     }
     if (!uiBlockingOpen) {
-      if (this.input.wasPressed('Backquote')) store.toggleDebug();
-      if (this.input.wasPressed('KeyI')) store.toggleInventory();
-      if (this.input.wasPressed('KeyC') && !store.chatFocused) store.toggleCharacterSheet();
-      if (this.input.wasPressed('KeyL')) store.toggleQuestLog();
+      if (this.input.wasBindingPressed(keybindings.toggleDebug)) store.toggleDebug();
+      if (this.input.wasBindingPressed(keybindings.openInventory)) store.toggleInventory();
+      if (this.input.wasBindingPressed(keybindings.openCharacterSheet) && !store.chatFocused) store.toggleCharacterSheet();
+      if (this.input.wasBindingPressed(keybindings.openQuestLog)) store.toggleQuestLog();
     }
 
     const currentEquipmentSignature = equipmentVisualSignature(store.character?.equipment);
@@ -575,7 +575,7 @@ export class Game {
     }
 
     // Interact with nearby corpses, crafting stations, or quest-givers.
-    if (this.input.wasPressed('KeyE') && !store.chatFocused && !uiBlockingOpen && !store.gmFlyingMode) {
+    if (this.input.wasBindingPressed(keybindings.interactNearby) && !store.chatFocused && !uiBlockingOpen && !store.gmFlyingMode) {
       const interacted = this.tryGatherNearestCorpse() ||
         this.tryGatherNearestResourceNode() ||
         this.tryOpenNearestCraftingStation() ||
@@ -586,7 +586,7 @@ export class Game {
     }
 
     // Chat focus
-    if (this.input.wasPressed('Enter') && !store.chatFocused && !uiBlockingOpen) {
+    if (this.input.wasBindingPressed(keybindings.focusChat) && !store.chatFocused && !uiBlockingOpen) {
       store.setChatFocused(true);
     }
 
@@ -602,21 +602,36 @@ export class Game {
 
     // Combat targeting inputs (blocked while dead or typing in chat)
     if (!store.chatFocused && !store.playerDead && !uiBlockingOpen && !store.gmBuildMode) {
-      if (this.input.mouseLeftClickedThisFrame) {
-        const id = this.combat.tryTargetAt(this.input.lastClickNDC, this.camera.camera);
+      const targetClick = this.input.getPointerClickNdc(keybindings.targetAtCursor);
+      if (targetClick) {
+        const id = this.combat.tryTargetAt(targetClick, this.camera.camera);
         if (id) {
           store.setTarget(id);
-        } else if (!this.tryInteractAt(this.input.lastClickNDC)) {
+        } else if (!this.tryInteractAt(targetClick)) {
           store.setTarget(null);
         }
       }
-      if (this.input.mouseRightClickedThisFrame) {
-        this.tryInteractAt(this.input.lastRightClickNDC);
+      const interactClick = this.input.getPointerClickNdc(keybindings.interactAtCursor);
+      if (interactClick) {
+        this.tryInteractAt(interactClick);
       }
+      if (this.input.wasBindingPressed(keybindings.targetNearestEnemy)) this.selectNearestEnemy(store);
+      if (this.input.wasBindingPressed(keybindings.targetNextEnemy)) this.cycleEnemyTarget(store, 1);
+      if (this.input.wasBindingPressed(keybindings.targetPreviousEnemy)) this.cycleEnemyTarget(store, -1);
     }
 
     // Tick
     store.tickCooldowns(dt);
+    if (store.playerDead || store.gmFlyingMode) {
+      this.autoRun = false;
+    } else if (!store.chatFocused && !uiBlockingOpen && !store.gmBuildMode) {
+      if (this.input.wasBindingPressed(keybindings.autoRun)) this.autoRun = !this.autoRun;
+      const manualMovement = this.input.isBindingDown(keybindings.moveForward) ||
+        this.input.isBindingDown(keybindings.moveBackward) ||
+        this.input.isBindingDown(keybindings.strafeLeft) ||
+        this.input.isBindingDown(keybindings.strafeRight);
+      if (this.autoRun && manualMovement) this.autoRun = false;
+    }
     if (!store.playerDead && !uiBlockingOpen) {
       this.player.update(
         dt,
@@ -626,7 +641,11 @@ export class Game {
         store.gmFlyingMode
           ? store.gmMoveSpeedMultiplier
           : playerMoveMultiplier(store.playerStatusEffects, tMs) * store.gmMoveSpeedMultiplier,
-        { flying: store.gmFlyingMode },
+        {
+          flying: store.gmFlyingMode,
+          autoRun: this.autoRun,
+          keybindings,
+        },
       );
     }
     if (store.gmBuildMode) {
@@ -723,13 +742,41 @@ export class Game {
     const touchSlot = store.pendingTouchAbility;
     if (touchSlot !== null) store.setPendingTouchAbility(null);
 
-    for (const [code, slot] of ABILITY_KEYS) {
-      if (this.input.wasPressed(code)) return slot;
+    for (const [slot, action] of ABILITY_KEYBIND_ACTIONS.entries()) {
+      if (this.input.wasBindingPressed(store.settings.keybindings[action])) return slot;
     }
 
-    return touchSlot !== null && touchSlot >= 0 && touchSlot < ABILITY_KEYS.length
+    return touchSlot !== null && touchSlot >= 0 && touchSlot < ABILITY_KEYBIND_ACTIONS.length
       ? touchSlot
       : null;
+  }
+
+  private selectNearestEnemy(store: ReturnType<typeof useGameStore.getState>): void {
+    const candidates = this.getTargetCandidates(store);
+    if (candidates.length > 0) store.setTarget(candidates[0].id);
+  }
+
+  private cycleEnemyTarget(store: ReturnType<typeof useGameStore.getState>, direction: 1 | -1): void {
+    const candidates = this.getTargetCandidates(store);
+    if (candidates.length === 0) return;
+
+    const currentIndex = candidates.findIndex((enemy) => enemy.id === store.targetId);
+    const nextIndex = currentIndex < 0
+      ? (direction === 1 ? 0 : candidates.length - 1)
+      : (currentIndex + direction + candidates.length) % candidates.length;
+    store.setTarget(candidates[nextIndex].id);
+  }
+
+  private getTargetCandidates(store: ReturnType<typeof useGameStore.getState>): EnemyState[] {
+    const px = this.player.position.x;
+    const pz = this.player.position.z;
+    return store.enemies
+      .filter((enemy) => enemy.alive && Math.hypot(px - enemy.position.x, pz - enemy.position.z) <= TARGET_CYCLE_RADIUS)
+      .sort((a, b) => {
+        const aDistance = Math.hypot(px - a.position.x, pz - a.position.z);
+        const bDistance = Math.hypot(px - b.position.x, pz - b.position.z);
+        return aDistance - bDistance || a.name.localeCompare(b.name) || a.id.localeCompare(b.id);
+      });
   }
 
   private tickResourceRegeneration(dt: number): void {
@@ -755,12 +802,14 @@ export class Game {
         this.player.position.x - this.spawnPoint.x,
         this.player.position.z - this.spawnPoint.z,
       );
+      const keybindings = store.settings.keybindings;
       const keyboardMove =
-        this.input.isDown('KeyW') ||
-        this.input.isDown('KeyA') ||
-        this.input.isDown('KeyS') ||
-        this.input.isDown('KeyD') ||
-        this.input.isDown('Space');
+        this.autoRun ||
+        this.input.isBindingDown(keybindings.moveForward) ||
+        this.input.isBindingDown(keybindings.moveBackward) ||
+        this.input.isBindingDown(keybindings.strafeLeft) ||
+        this.input.isBindingDown(keybindings.strafeRight) ||
+        this.input.isBindingDown(keybindings.jump);
       const touchMove = Math.hypot(this.input.touchMoveX, this.input.touchMoveZ) > 0.1;
       if (distanceFromSpawn > 1.5 || keyboardMove || touchMove) {
         store.completeGuidedTask('move');
@@ -838,10 +887,10 @@ export class Game {
     this.publishContextualPrompt(
       this.findHarvestPrompt(store) ??
         this.findResourceNodePrompt(store) ??
-      this.findCraftingPrompt() ??
+      this.findCraftingPrompt(store) ??
       this.findQuestgiverPrompt(store) ??
-        this.findHousePortalPrompt() ??
-        this.findGatePrompt() ??
+        this.findHousePortalPrompt(store) ??
+        this.findGatePrompt(store) ??
         this.findObjectivePrompt(store) ??
         this.findEnemyPrompt(store),
     );
@@ -869,7 +918,7 @@ export class Game {
     const { enemy } = best;
     return {
       kind: 'gathering',
-      action: 'E',
+      action: formatKeybinding(store.settings.keybindings.interactNearby),
       label: `${enemy.gathering?.actionLabel ?? 'Harvest'} ${enemy.gathering?.corpseLabel ?? enemy.name}`,
       detail: enemy.name,
       distance: best.dist,
@@ -881,14 +930,14 @@ export class Game {
     if (!best) return null;
     return {
       kind: 'gathering',
-      action: 'E',
+      action: formatKeybinding(store.settings.keybindings.interactNearby),
       label: `Gather ${best.node.label}`,
       detail: resourceNodeKindLabel(best.node.kind),
       distance: best.dist,
     };
   }
 
-  private findCraftingPrompt(): ContextPromptState | null {
+  private findCraftingPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
     const px = this.player.position.x;
     const pz = this.player.position.z;
     let best: { station: CraftingStationSpawn; dist: number } | null = null;
@@ -902,7 +951,7 @@ export class Game {
     if (!best) return null;
     return {
       kind: 'crafting',
-      action: 'E',
+      action: formatKeybinding(store.settings.keybindings.interactNearby),
       label: `Use ${best.station.label}`,
       detail: 'Crafting station',
       distance: best.dist,
@@ -923,30 +972,30 @@ export class Game {
     if (!best) return null;
     return {
       kind: 'quest',
-      action: 'E',
+      action: formatKeybinding(store.settings.keybindings.interactNearby),
       label: `Talk to ${best.npc.name}`,
       detail: best.npc.title,
       distance: best.dist,
     };
   }
 
-  private findGatePrompt(): ContextPromptState | null {
+  private findGatePrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
     const best = this.findNearestGate();
     if (!best) return null;
     return {
       kind: 'gate',
-      action: 'E',
+      action: formatKeybinding(store.settings.keybindings.interactNearby),
       label: `${best.gate.isOpen ? 'Close' : 'Open'} ${best.gate.label}`,
       distance: best.dist,
     };
   }
 
-  private findHousePortalPrompt(): ContextPromptState | null {
+  private findHousePortalPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
     const best = this.findNearestHousePortal();
     if (!best) return null;
     return {
       kind: 'house',
-      action: 'E',
+      action: formatKeybinding(store.settings.keybindings.interactNearby),
       label: best.portal.direction === 'exit' ? 'Leave House' : best.portal.label,
       detail: best.portal.direction === 'exit' ? 'Return to the street' : 'Enter furnished interior',
       distance: best.dist,
@@ -985,7 +1034,7 @@ export class Game {
     const selected = store.targetId === best.enemy.id;
     return {
       kind: 'target',
-      action: selected ? '1-0' : 'LMB',
+      action: selected ? 'Abilities' : formatKeybinding(store.settings.keybindings.targetAtCursor),
       label: selected ? `Use abilities on ${best.enemy.name}` : `Target ${best.enemy.name}`,
       detail: `Lv ${best.enemy.level}`,
       distance: best.dist,

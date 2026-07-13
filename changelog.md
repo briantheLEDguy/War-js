@@ -2,6 +2,7 @@
 
 ## 2026-07-13
 
+- Added a persistent, conflict-safe settings page with Gameplay and Key binds tabs, covering camera controls plus movement, targeting, mouse selection, interactions, abilities, and interface shortcuts. Added MMO-standard Tab / Shift+Tab enemy cycling, middle-mouse nearest-enemy selection, and NumLock autorun that stops on manual movement.
 - Added a reusable original dark-fantasy Fortress Build Pack with crenellated curtain walls, corner towers, gatehouses, wall stairs, ember braziers, torn banners, siege barricades, and the existing animated fortress gate exposed together in GM Build mode. Rebuilt Bastion of Aegis and Riftspire Citadel with the pack, gatehouse-wrapped interactive city gates, walkable wall surfaces, and perimeter scenery.
 
 ## 2026-07-12

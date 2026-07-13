@@ -40,11 +40,15 @@ npm run models:validate
 | Left + right mouse | Move forward |
 | Mouse wheel | Zoom |
 | Left click | Target enemy |
+| Middle mouse press | Target nearest living enemy |
 | Right click | Open/close interactive gates and doors; equip gear in inventory |
+| `Tab` / `Shift` + `Tab` | Cycle forward / backward through nearby enemies |
+| `NumLock` | Toggle autorun (any movement key stops it) |
 | `1`-`0` | Class ability hotbar |
 | `E` | Interact with quest givers, crafting stations, harvestable corpses, and nearby gates |
 | `I` | Toggle inventory |
 | `C` | Toggle character sheet |
+| `L` | Toggle quest log |
 | `M` | Toggle detailed world map |
 | `H` | Toggle in-game guide / wiki |
 | HUD Campaign icon | Toggle Aegis/Riftbound campaign status |
@@ -52,6 +56,7 @@ npm run models:validate
 | `Enter` | Focus chat |
 | `` ` `` | Toggle debug overlay |
 | HUD window headers/title bars | Drag windows around the viewport |
+| Settings → Gameplay / Key binds | Adjust camera gameplay options or rebind controls; bindings persist locally |
 | `/gm build` | Enable GM world-edit mode when `VITE_GM_ENABLED=true` and your email is allowlisted |
 | `/gm build off` | Leave GM world-edit mode |
 

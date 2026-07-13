@@ -103,6 +103,8 @@ function makeInput(down: string[]): Input {
     touchJumpThisFrame: false,
     isDown: (code: string) => keys.has(code),
     wasPressed: () => false,
+    isBindingDown: (binding: string | null) => binding !== null && keys.has(binding),
+    wasBindingPressed: () => false,
   } as unknown as Input;
 }
 

@@ -2878,6 +2878,9 @@ input:focus, select:focus {
   overflow-x: hidden;
   padding: 14px;
 }
+.settings-keybindings-panel {
+  width: min(780px, calc(100vw - 32px));
+}
 .settings-panel:focus { outline: none; }
 .settings-panel::before {
   top: 0;
@@ -2906,6 +2909,34 @@ input:focus, select:focus {
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+.settings-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(122, 96, 53, 0.55);
+}
+.settings-tab {
+  min-width: 108px;
+  padding: 6px 12px;
+  color: var(--dim);
+  border-color: transparent;
+  background: rgba(0, 0, 0, 0.18);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.settings-tab:hover,
+.settings-tab:focus-visible {
+  color: var(--parchment);
+  border-color: rgba(190, 151, 75, 0.5);
+}
+.settings-tab.active {
+  color: var(--gold);
+  border-color: rgba(190, 151, 75, 0.82);
+  background: rgba(79, 54, 20, 0.62);
 }
 .settings-close {
   flex-shrink: 0;
@@ -2969,6 +3000,122 @@ input:focus, select:focus {
   justify-content: flex-end;
   gap: 8px;
   margin-top: 12px;
+}
+
+.settings-keybindings {
+  margin-top: 12px;
+  gap: 14px;
+}
+.settings-keybindings-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.settings-keybindings-heading p,
+.settings-gesture-note,
+.keybind-capture-error {
+  margin: 4px 0 0;
+  color: var(--dim);
+  font-size: 11px;
+  line-height: 1.4;
+}
+.settings-keybindings-heading button {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  font-size: 10px;
+}
+.settings-gesture-note {
+  margin: -4px 0 0;
+  color: var(--parchment-dim);
+}
+.keybind-capture-error {
+  margin: -4px 0 0;
+  color: #f09b7d;
+}
+.keybind-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.keybind-category {
+  min-width: 0;
+  border: 1px solid rgba(122, 96, 53, 0.48);
+  background: rgba(0, 0, 0, 0.18);
+}
+.keybind-category h4 {
+  margin: 0;
+  padding: 7px 9px;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(122, 96, 53, 0.4);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.keybind-list {
+  display: flex;
+  flex-direction: column;
+}
+.keybind-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  border-top: 1px solid rgba(122, 96, 53, 0.22);
+}
+.keybind-row:first-child { border-top: 0; }
+.keybind-row strong,
+.keybind-row span {
+  display: block;
+}
+.keybind-row strong {
+  color: var(--parchment);
+  font-size: 12px;
+  font-weight: 600;
+}
+.keybind-row span {
+  margin-top: 2px;
+  color: var(--dim);
+  font-size: 10px;
+  line-height: 1.25;
+}
+.keybind-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.keybind-capture,
+.keybind-clear {
+  min-height: 28px;
+  font-size: 10px;
+}
+.keybind-capture {
+  min-width: 100px;
+  color: var(--gold);
+  border-color: rgba(190, 151, 75, 0.72);
+  background: rgba(61, 43, 19, 0.5);
+}
+.keybind-capture.capturing {
+  color: #161008;
+  border-color: #e0bb65;
+  background: #e0bb65;
+}
+.keybind-clear {
+  padding-inline: 7px;
+}
+
+@media (max-width: 620px) {
+  .settings-keybindings-panel {
+    width: min(440px, calc(100vw - 20px));
+  }
+  .keybind-categories {
+    grid-template-columns: 1fr;
+  }
+  .settings-keybindings-heading {
+    flex-direction: column;
+  }
 }
 
 /* GM tools */
