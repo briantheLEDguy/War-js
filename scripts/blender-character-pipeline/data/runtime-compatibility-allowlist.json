@@ -159,6 +159,69 @@
       "reviewStatus": "compatibility_allowed"
     },
     {
+      "model": "prop_town_fortress_banner.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_banner"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_fortress_barricade.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_barricade"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_fortress_brazier.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_brazier"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_fortress_corner_tower.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_corner_tower"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_fortress_gatehouse.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_gatehouse"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_fortress_wall.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_wall"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
+      "model": "prop_town_fortress_wall_stairs.glb",
+      "runtime": {
+        "section": "staticProps",
+        "key": "town_fortress_wall_stairs"
+      },
+      "reason": "original generated dark-fantasy fortress build pack asset",
+      "reviewStatus": "compatibility_allowed"
+    },
+    {
       "model": "prop_town_chimney.glb",
       "runtime": {
         "section": "staticProps",

@@ -386,12 +386,45 @@
   ],
   "props": [
     {
+      "id": "aegis_capital_city_gate_gatehouse",
+      "kind": "town_fortress_gatehouse",
+      "x": 0,
+      "z": -86,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "town_fortress_gatehouse",
+      "model": "prop_town_fortress_gatehouse.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_gate_gatehouse_left_tower_collider",
+          "x": -10,
+          "width": 7,
+          "depth": 6
+        },
+        {
+          "id": "aegis_capital_city_gate_gatehouse_right_tower_collider",
+          "x": 10,
+          "width": 7,
+          "depth": 6
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_gate_gatehouse_wall_walk",
+          "width": 26,
+          "depth": 5.4,
+          "fromY": 10.2,
+          "toY": 10.2
+        }
+      ]
+    },
+    {
       "id": "aegis_capital_city_gate_gate",
       "kind": "castle_gate",
       "x": 0,
       "z": -86,
       "rotY": 0,
-      "scale": 1.55,
+      "scale": 1,
       "model": "castle_gate.glb",
       "colliders": [
         {
@@ -407,37 +440,42 @@
         "type": "gate",
         "label": "Bastion of Aegis Gate",
         "maxDistance": 28,
+        "startsOpen": true,
         "openClip": "open",
         "closeClip": "close"
       }
     },
     {
       "id": "aegis_capital_city_gate_tower_left",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": -34,
       "z": -86,
       "rotY": 0,
-      "scale": 1.3,
+      "scale": 1.06,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_gate_tower_left_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_gate_tower_right",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": 34,
       "z": -86,
       "rotY": 0,
-      "scale": 1.3,
+      "scale": 1.06,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_gate_tower_right_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
@@ -552,129 +590,316 @@
     },
     {
       "id": "aegis_capital_city_wall_front_left",
-      "kind": "wall_segment",
-      "x": -74,
+      "kind": "town_fortress_wall",
+      "x": -70,
       "z": -86,
       "rotY": 0,
-      "scale": 1.16,
-      "scaleX": 5.2,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 9.33,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_front_left_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_front_left_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_front_right",
-      "kind": "wall_segment",
-      "x": 74,
+      "kind": "town_fortress_wall",
+      "x": 70,
       "z": -86,
       "rotY": 0,
-      "scale": 1.16,
-      "scaleX": 5.2,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 9.33,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_front_right_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_front_right_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_west_lower",
-      "kind": "wall_segment",
+      "kind": "town_fortress_wall",
       "x": -126,
-      "z": -51,
+      "z": -50,
       "rotY": 1.5708,
-      "scale": 1.1,
-      "scaleX": 7,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 6,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_west_lower_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_west_lower_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_west_upper",
-      "kind": "wall_segment",
+      "kind": "town_fortress_wall",
       "x": -126,
-      "z": 76,
+      "z": 75,
       "rotY": 1.5708,
-      "scale": 1.1,
-      "scaleX": 12,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 10.17,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_west_upper_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_west_upper_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_east_lower",
-      "kind": "wall_segment",
+      "kind": "town_fortress_wall",
       "x": 126,
-      "z": -51,
+      "z": -50,
       "rotY": 1.5708,
-      "scale": 1.1,
-      "scaleX": 7,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 6,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_east_lower_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_east_lower_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_east_upper",
-      "kind": "wall_segment",
+      "kind": "town_fortress_wall",
       "x": 126,
-      "z": 76,
+      "z": 75,
       "rotY": 1.5708,
-      "scale": 1.1,
-      "scaleX": 12,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 10.17,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_east_upper_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_east_upper_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_rear_left",
-      "kind": "wall_segment",
-      "x": -64,
+      "kind": "town_fortress_wall",
+      "x": -70,
       "z": 136,
       "rotY": 0,
-      "scale": 1.12,
-      "scaleX": 7.6,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 9.33,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_rear_left_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_rear_left_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_rear_right",
-      "kind": "wall_segment",
-      "x": 64,
+      "kind": "town_fortress_wall",
+      "x": 70,
       "z": 136,
       "rotY": 0,
-      "scale": 1.12,
-      "scaleX": 7.6,
+      "scale": 1,
+      "assetKey": "town_fortress_wall",
+      "model": "prop_town_fortress_wall.glb",
+      "scaleX": 9.33,
       "colliders": [
         {
           "id": "aegis_capital_city_wall_rear_right_collider",
-          "width": 10,
-          "depth": 1.8
+          "width": 12,
+          "depth": 3
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_rear_right_wall_walk",
+          "width": 11.6,
+          "depth": 2.2,
+          "fromY": 6.7,
+          "toY": 6.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_west_gatehouse",
+      "kind": "town_fortress_gatehouse",
+      "x": -126,
+      "z": 0,
+      "rotY": -1.5708,
+      "scale": 1,
+      "assetKey": "town_fortress_gatehouse",
+      "model": "prop_town_fortress_gatehouse.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_west_gatehouse_left_tower_collider",
+          "x": -10,
+          "width": 7,
+          "depth": 6
+        },
+        {
+          "id": "aegis_capital_city_wall_west_gatehouse_right_tower_collider",
+          "x": 10,
+          "width": 7,
+          "depth": 6
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_west_gatehouse_wall_walk",
+          "width": 26,
+          "depth": 5.4,
+          "fromY": 10.2,
+          "toY": 10.2
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_east_gatehouse",
+      "kind": "town_fortress_gatehouse",
+      "x": 126,
+      "z": 0,
+      "rotY": 1.5708,
+      "scale": 1,
+      "assetKey": "town_fortress_gatehouse",
+      "model": "prop_town_fortress_gatehouse.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_east_gatehouse_left_tower_collider",
+          "x": -10,
+          "width": 7,
+          "depth": 6
+        },
+        {
+          "id": "aegis_capital_city_wall_east_gatehouse_right_tower_collider",
+          "x": 10,
+          "width": 7,
+          "depth": 6
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_east_gatehouse_wall_walk",
+          "width": 26,
+          "depth": 5.4,
+          "fromY": 10.2,
+          "toY": 10.2
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_city_wall_rear_gatehouse",
+      "kind": "town_fortress_gatehouse",
+      "x": 0,
+      "z": 136,
+      "rotY": 3.1416,
+      "scale": 1,
+      "assetKey": "town_fortress_gatehouse",
+      "model": "prop_town_fortress_gatehouse.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_city_wall_rear_gatehouse_left_tower_collider",
+          "x": -10,
+          "width": 7,
+          "depth": 6
+        },
+        {
+          "id": "aegis_capital_city_wall_rear_gatehouse_right_tower_collider",
+          "x": 10,
+          "width": 7,
+          "depth": 6
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_city_wall_rear_gatehouse_wall_walk",
+          "width": 26,
+          "depth": 5.4,
+          "fromY": 10.2,
+          "toY": 10.2
         }
       ]
     },
@@ -684,7 +909,7 @@
       "x": -126,
       "z": 0,
       "rotY": -1.5708,
-      "scale": 1.18,
+      "scale": 1,
       "model": "castle_gate.glb",
       "colliders": [
         {
@@ -700,6 +925,7 @@
         "type": "gate",
         "label": "Bastion of Aegis West Gate",
         "maxDistance": 28,
+        "startsOpen": true,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -710,7 +936,7 @@
       "x": 126,
       "z": 0,
       "rotY": 1.5708,
-      "scale": 1.18,
+      "scale": 1,
       "model": "castle_gate.glb",
       "colliders": [
         {
@@ -726,6 +952,7 @@
         "type": "gate",
         "label": "Bastion of Aegis East Gate",
         "maxDistance": 28,
+        "startsOpen": true,
         "openClip": "open",
         "closeClip": "close"
       }
@@ -736,7 +963,7 @@
       "x": 0,
       "z": 136,
       "rotY": 3.1416,
-      "scale": 1.3,
+      "scale": 1,
       "model": "castle_gate.glb",
       "colliders": [
         {
@@ -752,157 +979,456 @@
         "type": "gate",
         "label": "Bastion of Aegis Rear Gate",
         "maxDistance": 28,
+        "startsOpen": true,
         "openClip": "open",
         "closeClip": "close"
       }
     },
     {
       "id": "aegis_capital_city_wall_tower_front_west",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": -126,
       "z": -86,
       "rotY": 0,
-      "scale": 1.35,
+      "scale": 1.08,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_tower_front_west_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_tower_front_east",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": 126,
       "z": -86,
       "rotY": 0,
-      "scale": 1.35,
+      "scale": 1.08,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_tower_front_east_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_tower_rear_west",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": -126,
       "z": 136,
       "rotY": 0,
-      "scale": 1.45,
+      "scale": 1.16,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_tower_rear_west_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_tower_rear_east",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": 126,
       "z": 136,
       "rotY": 0,
-      "scale": 1.45,
+      "scale": 1.16,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_tower_rear_east_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_west_gate_tower_south",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": -126,
       "z": -22,
       "rotY": 0,
-      "scale": 1.08,
+      "scale": 0.93,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_west_gate_tower_south_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_west_gate_tower_north",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": -126,
       "z": 22,
       "rotY": 0,
-      "scale": 1.08,
+      "scale": 0.93,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_west_gate_tower_north_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_east_gate_tower_south",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": 126,
       "z": -22,
       "rotY": 0,
-      "scale": 1.08,
+      "scale": 0.93,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_east_gate_tower_south_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_east_gate_tower_north",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": 126,
       "z": 22,
       "rotY": 0,
-      "scale": 1.08,
+      "scale": 0.93,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_east_gate_tower_north_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_rear_gate_tower_west",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": -34,
       "z": 136,
       "rotY": 0,
-      "scale": 1.12,
+      "scale": 0.98,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_rear_gate_tower_west_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
         }
       ]
     },
     {
       "id": "aegis_capital_city_wall_rear_gate_tower_east",
-      "kind": "tower",
+      "kind": "town_fortress_corner_tower",
       "x": 34,
       "z": 136,
       "rotY": 0,
-      "scale": 1.12,
+      "scale": 0.98,
+      "assetKey": "town_fortress_corner_tower",
+      "model": "prop_town_fortress_corner_tower.glb",
       "colliders": [
         {
           "id": "aegis_capital_city_wall_rear_gate_tower_east_collider",
-          "width": 7,
-          "depth": 7
+          "width": 10.4,
+          "depth": 10.4
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_front_brazier_west",
+      "kind": "town_fortress_brazier",
+      "x": -15,
+      "z": -74,
+      "rotY": 0,
+      "scale": 1.05,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_front_brazier_west_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_front_brazier_east",
+      "kind": "town_fortress_brazier",
+      "x": 15,
+      "z": -74,
+      "rotY": 0,
+      "scale": 1.05,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_front_brazier_east_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_west_brazier_south",
+      "kind": "town_fortress_brazier",
+      "x": -114,
+      "z": -12,
+      "rotY": 0,
+      "scale": 0.94,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_west_brazier_south_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_west_brazier_north",
+      "kind": "town_fortress_brazier",
+      "x": -114,
+      "z": 12,
+      "rotY": 0,
+      "scale": 0.94,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_west_brazier_north_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_east_brazier_south",
+      "kind": "town_fortress_brazier",
+      "x": 114,
+      "z": -12,
+      "rotY": 0,
+      "scale": 0.94,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_east_brazier_south_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_east_brazier_north",
+      "kind": "town_fortress_brazier",
+      "x": 114,
+      "z": 12,
+      "rotY": 0,
+      "scale": 0.94,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_east_brazier_north_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_rear_brazier_west",
+      "kind": "town_fortress_brazier",
+      "x": -15,
+      "z": 124,
+      "rotY": 0,
+      "scale": 0.98,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_rear_brazier_west_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_rear_brazier_east",
+      "kind": "town_fortress_brazier",
+      "x": 15,
+      "z": 124,
+      "rotY": 0,
+      "scale": 0.98,
+      "assetKey": "town_fortress_brazier",
+      "model": "prop_town_fortress_brazier.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_rear_brazier_east_collider",
+          "width": 2.7,
+          "depth": 2.7
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_front_banner_west",
+      "kind": "town_fortress_banner",
+      "x": -30,
+      "z": -78,
+      "rotY": 0,
+      "scale": 1.05,
+      "assetKey": "town_fortress_banner",
+      "model": "prop_town_fortress_banner.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_front_banner_west_collider",
+          "width": 1.5,
+          "depth": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_front_banner_east",
+      "kind": "town_fortress_banner",
+      "x": 30,
+      "z": -78,
+      "rotY": 0,
+      "scale": 1.05,
+      "assetKey": "town_fortress_banner",
+      "model": "prop_town_fortress_banner.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_front_banner_east_collider",
+          "width": 1.5,
+          "depth": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_rear_banner_west",
+      "kind": "town_fortress_banner",
+      "x": -28,
+      "z": 126,
+      "rotY": 3.1416,
+      "scale": 1.05,
+      "assetKey": "town_fortress_banner",
+      "model": "prop_town_fortress_banner.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_rear_banner_west_collider",
+          "width": 1.5,
+          "depth": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_rear_banner_east",
+      "kind": "town_fortress_banner",
+      "x": 28,
+      "z": 126,
+      "rotY": 3.1416,
+      "scale": 1.05,
+      "assetKey": "town_fortress_banner",
+      "model": "prop_town_fortress_banner.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_rear_banner_east_collider",
+          "width": 1.5,
+          "depth": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_front_barricade_west",
+      "kind": "town_fortress_barricade",
+      "x": -35,
+      "z": -108,
+      "rotY": -0.12,
+      "scale": 0.9,
+      "assetKey": "town_fortress_barricade",
+      "model": "prop_town_fortress_barricade.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_front_barricade_west_collider",
+          "width": 6.5,
+          "depth": 2.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_front_barricade_east",
+      "kind": "town_fortress_barricade",
+      "x": 35,
+      "z": -108,
+      "rotY": 0.12,
+      "scale": 0.9,
+      "assetKey": "town_fortress_barricade",
+      "model": "prop_town_fortress_barricade.glb",
+      "colliders": [
+        {
+          "id": "aegis_capital_fortress_scenery_front_barricade_east_collider",
+          "width": 6.5,
+          "depth": 2.8
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_wall_stairs_west",
+      "kind": "town_fortress_wall_stairs",
+      "x": -111,
+      "z": 68,
+      "rotY": 1.5708,
+      "scale": 0.94,
+      "assetKey": "town_fortress_wall_stairs",
+      "model": "prop_town_fortress_wall_stairs.glb",
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_fortress_scenery_wall_stairs_west_ramp",
+          "width": 6.2,
+          "depth": 10.8,
+          "fromY": 0,
+          "toY": 6.4,
+          "axis": "z"
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_fortress_scenery_wall_stairs_east",
+      "kind": "town_fortress_wall_stairs",
+      "x": 111,
+      "z": 68,
+      "rotY": -1.5708,
+      "scale": 0.94,
+      "assetKey": "town_fortress_wall_stairs",
+      "model": "prop_town_fortress_wall_stairs.glb",
+      "walkableSurfaces": [
+        {
+          "id": "aegis_capital_fortress_scenery_wall_stairs_east_ramp",
+          "width": 6.2,
+          "depth": 10.8,
+          "fromY": 0,
+          "toY": 6.4,
+          "axis": "z"
         }
       ]
     },
@@ -2910,38 +3436,7 @@
       "radius": 6
     }
   ],
-  "enemies": [
-    {
-      "id": "aegis_capital_training_dummy_1",
-      "name": "Training Dummy",
-      "level": 1,
-      "x": 58,
-      "z": 16,
-      "maxHealth": 60,
-      "aggroRange": 0,
-      "assetKey": "dummy"
-    },
-    {
-      "id": "aegis_capital_training_dummy_2",
-      "name": "Heavy Training Dummy",
-      "level": 3,
-      "x": 70,
-      "z": 16,
-      "maxHealth": 120,
-      "aggroRange": 0,
-      "assetKey": "dummy"
-    },
-    {
-      "id": "aegis_capital_training_dummy_3",
-      "name": "Dueling Target",
-      "level": 2,
-      "x": 82,
-      "z": 16,
-      "maxHealth": 90,
-      "aggroRange": 0,
-      "assetKey": "dummy"
-    }
-  ],
+  "enemies": [],
   "resourceNodes": [
     {
       "id": "aegis_capital_scrap_node_01",
@@ -3364,5 +3859,5 @@
       ]
     }
   ],
-  "staticMapHash": "0e6f0ecdf58243db"
+  "staticMapHash": "4445102d585cadef"
 }

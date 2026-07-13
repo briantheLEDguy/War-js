@@ -133,8 +133,10 @@ Aegis and Riftspire Citadel. Both capitals use the original generated
 dark-fantasy town family: varied timber-and-stone houses form dense medieval
 blocks around open cobbled avenues, markets, crafting services, gates, and NPC
 routes. A large generated stone-and-slate castle anchors each city center while
-realm-specific monuments, banners, braziers, and fortifications preserve each
-capital's identity.
+realm-specific monuments and a shared dark-fantasy fortress build pack preserve
+each capital's identity. The capitals now use crenellated curtain walls,
+corner towers, gatehouses surrounding interactive gates, wall stairs, ember
+braziers, torn banners, and off-road siege barricades.
 
 Generated and GM-placed town houses expose an `Enter House` interaction on
 their exterior door. The runtime moves the player into a reusable footprint-
@@ -181,6 +183,25 @@ contains the shared construction and material rules. Use the local MCP
 `validate_model_asset` and `render_model_review` jobs after regeneration; the
 review renderer scales its lights for building-sized subjects so dark surfaces
 remain inspectable without changing their in-game palette.
+
+## Fortress Build Pack
+
+Pick `Fortress Build Pack` in the GM Build kit selector to place the reusable
+dark-fantasy castle pieces: a crenellated curtain wall, corner tower, gatehouse,
+animated fortress gate, wall stairs, ember brazier, torn banner, and siege
+barricade. Gatehouses intentionally leave their center clear; pair one with the
+animated `Fortress Gate` prefab to retain open/close interaction and closed-gate
+collision. Curtain walls, gatehouses, and stairs include walkable surfaces for
+future vertical city layouts.
+
+The pack is generated locally alongside the town kit and is deployed through the
+same manifest/runtime registry flow:
+
+```bash
+npm run models:all -- fortress_build_pack
+npm run models:registry
+npm run campaign:generate
+```
 
 ## In-Game Wiki Guide
 

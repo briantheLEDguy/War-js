@@ -2,9 +2,7 @@
 
 ## 2026-07-13
 
-- Added three passive, manifest-backed training dummies to each capital city’s training hall yard for combat and ability testing.
-- Reworked all 240 playable ability icons around explicit effect-oriented SVG recipes, adding recognizable orb, meteor, shockwave, aura, summon, snare, mark, and venom motifs while preserving shared class and school VFX palettes.
-- Added icon swatches and role-aware PvE opener, single-target, AoE, resource, and utility guidance to every playable class page through the generated wiki content layer.
+- Added a reusable original dark-fantasy Fortress Build Pack with crenellated curtain walls, corner towers, gatehouses, wall stairs, ember braziers, torn banners, siege barricades, and the existing animated fortress gate exposed together in GM Build mode. Rebuilt Bastion of Aegis and Riftspire Citadel with the pack, gatehouse-wrapped interactive city gates, walkable wall surfaces, and perimeter scenery.
 
 ## 2026-07-12
 

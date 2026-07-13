@@ -1,0 +1,66 @@
+{
+  "assetId": "prop.town.fortress_brazier",
+  "category": "prop",
+  "model": "prop_town_fortress_brazier.glb",
+  "fileSizeBytes": 166376,
+  "meshCount": 3,
+  "totalTris": 1716,
+  "availableClips": [],
+  "missingRequiredClips": [],
+  "checks": {
+    "hasModelFile": true,
+    "hasExportedMeshes": true,
+    "fileSizeBudget": true,
+    "drawCallBudget": true,
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "stone",
+      "verts": 96,
+      "faces": 82,
+      "tris": 188,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "iron",
+      "verts": 320,
+      "faces": 298,
+      "tris": 620,
+      "materials": 1,
+      "assetSlot": "prop"
+    },
+    {
+      "name": "glass",
+      "verts": 462,
+      "faces": 429,
+      "tris": 908,
+      "materials": 1,
+      "assetSlot": "prop"
+    }
+  ],
+  "artifactDir": "artifacts/model-jobs/standalone_0d4dd0b0-4325-4628-bfb9-65a942f14d7c/artifacts/generated-previews",
+  "manifestVersion": "1.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "fortress_brazier",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "5f6a517d9e336d3d44b361f3eff6a22a892109d0dd6d2c6804ad10f5e9daa70f",
+  "generatedAt": "2026-07-13T13:52:40.323Z",
+  "previewImages": []
+}

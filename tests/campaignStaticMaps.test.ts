@@ -277,22 +277,22 @@ describe('static campaign map files', () => {
     }
   });
 
-  test('capital cities use dense original town models around a central generated castle', () => {
+  test('capital cities use the reusable fortress build pack around dense original town districts', () => {
     for (const node of CAMPAIGN_ZONES.filter((entry) => entry.nodeRole === 'capital')) {
       const zone = loadZone(node.id);
       const wallPrefix = `${node.id}_city_wall`;
       const citadelPrefix = `${node.id}_capital_citadel`;
       const wallProps = zone.props.filter((prop) => prop.id?.startsWith(wallPrefix));
       const citadelProps = zone.props.filter((prop) => prop.id?.startsWith(citadelPrefix));
-      const wallKinds = node.realm === 'riftbound'
-        ? { wall: 'rift_wall_segment', tower: 'rift_tower' }
-        : { wall: 'wall_segment', tower: 'tower' };
 
       expect(zone.terrainModel, node.id).toBeUndefined();
       expect(zone.paths?.length ?? 0, node.id).toBeGreaterThanOrEqual(12);
       expect(zone.paths?.some((pathDef: any) => pathDef.id === `${node.id}_castle_service_lane`), node.id).toBe(true);
-      expect(wallProps.filter((prop) => prop.kind === wallKinds.wall).length, node.id).toBeGreaterThanOrEqual(8);
-      expect(wallProps.filter((prop) => prop.kind === wallKinds.tower).length, node.id).toBeGreaterThanOrEqual(10);
+      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_wall').length, node.id).toBeGreaterThanOrEqual(8);
+      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_corner_tower').length, node.id).toBeGreaterThanOrEqual(10);
+      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_gatehouse').length, node.id).toBeGreaterThanOrEqual(3);
+      expect(wallProps.filter((prop) => prop.assetKey === 'town_fortress_wall').every((prop) => prop.model === 'prop_town_fortress_wall.glb'), node.id).toBe(true);
+      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_wall').every((prop) => (prop.walkableSurfaces?.length ?? 0) > 0), node.id).toBe(true);
       const houses = zone.props.filter((prop) => prop.id?.startsWith(`${node.id}_capital_house_`));
       expect(houses.length, node.id).toBeGreaterThanOrEqual(44);
       expect(houses.every((prop) =>
@@ -315,14 +315,25 @@ describe('static campaign map files', () => {
       expect(castle?.colliders?.some((collider) => collider.width >= 38 && collider.depth >= 34), node.id).toBe(true);
 
       expectInteractiveGate(zone.props.find((prop) => prop.id === `${node.id}_city_gate_gate`), 'castle_gate.glb');
+      expect(zone.props.find((prop) => prop.id === `${node.id}_city_gate_gatehouse`)).toEqual(expect.objectContaining({
+        kind: 'town_fortress_gatehouse',
+        assetKey: 'town_fortress_gatehouse',
+        model: 'prop_town_fortress_gatehouse.glb',
+      }));
       expectInteractiveGate(zone.props.find((prop) => prop.id === `${wallPrefix}_west_gate`), 'castle_gate.glb');
       expectInteractiveGate(zone.props.find((prop) => prop.id === `${wallPrefix}_east_gate`), 'castle_gate.glb');
       expectInteractiveGate(zone.props.find((prop) => prop.id === `${wallPrefix}_rear_gate`), 'castle_gate.glb');
 
+      const fortressScenery = zone.props.filter((prop) => prop.id?.startsWith(`${node.id}_fortress_scenery`));
+      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_brazier').length, node.id).toBeGreaterThanOrEqual(8);
+      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_banner').length, node.id).toBeGreaterThanOrEqual(4);
+      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_barricade').length, node.id).toBeGreaterThanOrEqual(2);
+      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_wall_stairs').length, node.id).toBeGreaterThanOrEqual(2);
+
       if (node.realm === 'aegis') {
         expect(zone.props.some((prop) => prop.id === `${node.id}_sun_court_temple` && prop.kind === 'temple')).toBe(true);
       } else {
-        for (const kind of ['rift_wall_segment', 'rift_tower', 'rift_obelisk', 'rift_brazier', 'rift_spike_cluster']) {
+        for (const kind of ['rift_tower', 'rift_obelisk', 'rift_brazier', 'rift_spike_cluster']) {
           expect(zone.props.some((prop) => prop.kind === kind), `${node.id}:${kind}`).toBe(true);
         }
         expect(zone.props.some((prop) => prop.id?.includes('sun_court'))).toBe(false);
