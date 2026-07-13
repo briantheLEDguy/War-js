@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "policyId": "equipped_character_clearance_v1",
+  "units": "meters",
+  "bodyPenetration": {
+    "severeDepthMeters": 0.008,
+    "hardMaxDepthMeters": 0.03,
+    "maxProbeDistanceMeters": 0.12,
+    "allowedSevereVertexCount": 24,
+    "allowedSevereVertexRatio": 0.005
+  },
+  "armorIntersection": {
+    "default": {
+      "maxOverlapPairs": 12,
+      "maxUniqueTriangleRatio": 0.01,
+      "hardMaxOverlapPairs": 192
+    },
+    "intentionalLayer": {
+      "maxOverlapPairs": 96,
+      "maxUniqueTriangleRatio": 0.06,
+      "hardMaxOverlapPairs": 512
+    },
+    "intentionalLayerPairs": [
+      ["back", "chest"],
+      ["back", "shoulders"],
+      ["chest", "hands"],
+      ["chest", "shoulders"],
+      ["chest", "waist"],
+      ["feet", "legs"],
+      ["head", "shoulders"],
+      ["legs", "waist"],
+      ["tabard", "waist"]
+    ]
+  }
+}

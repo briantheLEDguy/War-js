@@ -2,29 +2,49 @@
   "assetId": "prop.town.roof",
   "category": "prop",
   "model": "prop_town_roof.glb",
-  "fileSizeBytes": 1379604,
+  "fileSizeBytes": 1492544,
   "meshCount": 1,
-  "totalTris": 356,
-  "availableClips": [
-    "Armature|Scene"
-  ],
+  "totalTris": 21092,
+  "availableClips": [],
+  "missingRequiredClips": [],
   "checks": {
     "hasModelFile": true,
     "hasExportedMeshes": true,
     "fileSizeBudget": true,
     "drawCallBudget": true,
-    "meshObjectBudget": true
+    "meshObjectBudget": true,
+    "requiredClipsPresent": true,
+    "hasColliderPolicy": true
   },
   "qcPassed": true,
   "meshes": [
     {
-      "name": "obj_roof",
-      "verts": 180,
-      "faces": 170,
-      "tris": 356,
-      "materials": 1
+      "name": "slate",
+      "verts": 10934,
+      "faces": 10541,
+      "tris": 21092,
+      "materials": 1,
+      "assetSlot": "prop"
     }
   ],
-  "source": "public/assets/new_models/modular-fantasy-house/source/Modular_Environment.fbx",
-  "manifestVersion": "1.0.0"
+  "artifactDir": "artifacts/model-jobs/standalone_7cb2d3f2-feee-4840-a0c8-d92e7b4aab35/artifacts/generated-previews",
+  "manifestVersion": "2.0.0",
+  "notes": {
+    "generator": "original_dark_fantasy_town_v2",
+    "variant": "roof",
+    "materials": [
+      "aged_oak",
+      "glass",
+      "iron",
+      "mortar",
+      "oak",
+      "plaster",
+      "slate",
+      "stone"
+    ],
+    "artDirection": "realistic weathered dark-fantasy medieval architecture"
+  },
+  "modelSha256": "653ea9975d3bf17687170c74b4eb7cc29a3501035b2fc30876fa189a95957ee9",
+  "generatedAt": "2026-07-11T20:53:44.956Z",
+  "previewImages": []
 }

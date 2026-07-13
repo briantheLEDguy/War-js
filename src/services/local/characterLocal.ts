@@ -2,6 +2,8 @@ import type {
   CharacterService,
   CharacterState,
   CharacterSummary,
+  EquipmentEntry,
+  EquipmentState,
 } from '../types';
 import { normalizeClassName } from '../../data/careers';
 import { normalizeBodyVariant, starterArmorEquipmentFor } from '../../data/playableAssets.generated';
@@ -31,7 +33,7 @@ const PREBUILT: Record<string, CharacterState> = {
     gold: 25,
     position: { x: -20, y: 0, z: 31 },
     rotationY: Math.PI,
-    equipment: starterArmorEquipmentFor('empire', 'Battle Prelate', 'm'),
+    equipment: defaultEquipmentFor('empire', 'Battle Prelate', 'm'),
   },
   'char-grik': {
     id: 'char-grik',
@@ -93,12 +95,14 @@ export class CharacterLocal implements CharacterService {
   ): Promise<CharacterSummary> {
     const id = createLocalId('char');
     const startZone = defaultZoneForRace(data.race);
+    const className = normalizeClassName(data.className);
+    const bodyVariant = normalizeBodyVariant(data.bodyVariant);
     const full: CharacterState = {
       id,
       name: data.name,
-      className: normalizeClassName(data.className),
+      className,
       race: data.race,
-      bodyVariant: normalizeBodyVariant(data.bodyVariant),
+      bodyVariant,
       level: 1,
       xp: 0,
       zoneId: startZone,
@@ -110,7 +114,7 @@ export class CharacterLocal implements CharacterService {
       gold: 0,
       position: { x: 0, y: 0, z: -40 },
       rotationY: Math.PI,
-      equipment: starterArmorEquipmentFor(data.race, data.className, data.bodyVariant),
+      equipment: defaultEquipmentFor(data.race, className, bodyVariant),
     };
     this.store[id] = full;
     this.persist();
@@ -178,9 +182,60 @@ function normalizeCharacterState(c: CharacterState): CharacterState {
 }
 
 function equipmentOrStarter(c: CharacterState): CharacterState['equipment'] {
-  return c.equipment && Object.keys(c.equipment).length > 0
-    ? c.equipment
-    : starterArmorEquipmentFor(c.race, c.className, c.bodyVariant);
+  const className = normalizeClassName(c.className);
+  const bodyVariant = normalizeBodyVariant(c.bodyVariant);
+  if (!c.equipment || Object.keys(c.equipment).length === 0) {
+    return defaultEquipmentFor(c.race, className, bodyVariant);
+  }
+  if (isBattlePrelate(c.race, className) && shouldResetBattlePrelateEquipment(c.equipment)) {
+    return defaultEquipmentFor(c.race, className, bodyVariant);
+  }
+  return c.equipment;
+}
+
+const LEGACY_BATTLE_PRELATE_EQUIPMENT_KEYS = new Set([
+  'base_male_blackened_chest',
+  'base_male_blackened_shoulders',
+  'base_male_blackened_bracers',
+  'base_male_blackened_belt',
+  'base_male_blackened_legs',
+  'base_male_blackened_boots',
+  'base_male_oath_tabard',
+  'base_male_crimson_cape',
+]);
+
+function defaultEquipmentFor(
+  race: CharacterSummary['race'],
+  className: string,
+  bodyVariant: CharacterSummary['bodyVariant'],
+): EquipmentState {
+  const equipment = starterArmorEquipmentFor(race, className, bodyVariant);
+  if (isBattlePrelate(race, className)) {
+    equipment.mainHand = 'weapon_hammer_reliquary_2h';
+    delete equipment.offHand;
+  }
+  return equipment;
+}
+
+function shouldResetBattlePrelateEquipment(equipment: EquipmentState): boolean {
+  const keys = Object.values(equipment)
+    .map(equipmentKey)
+    .filter((key): key is string => Boolean(key));
+  return (
+    keys.some((key) => LEGACY_BATTLE_PRELATE_EQUIPMENT_KEYS.has(key)) ||
+    equipmentKey(equipment.mainHand) === 'sword_iron' ||
+    equipmentKey(equipment.offHand) === 'shield_wood' ||
+    !equipment.mainHand
+  );
+}
+
+function equipmentKey(entry: EquipmentEntry | undefined): string | null {
+  if (!entry) return null;
+  return typeof entry === 'string' ? entry : entry.key;
+}
+
+function isBattlePrelate(race: CharacterSummary['race'], className: string): boolean {
+  return race === 'empire' && normalizeClassName(className) === 'Battle Prelate';
 }
 
 function normalizeLookupName(name: string | null | undefined): string {

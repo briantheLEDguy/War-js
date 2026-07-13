@@ -36,7 +36,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "aegis_city",
     "levelBand": "Capital",
-    "staticMapHash": "e1631385ea5b3dbc"
+    "staticMapHash": "08c7099b82524761"
   },
   {
     "id": "aegis_gate_fortress",
@@ -113,7 +113,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "rift_city",
     "levelBand": "Capital",
-    "staticMapHash": "733d60d536cfa146"
+    "staticMapHash": "24248c77eece6252"
   },
   {
     "id": "sunmeadow_march",
@@ -529,18 +529,18 @@ export const CAMPAIGN_OBJECTIVES = {
     {
       "id": "aegis_capital_city_gate",
       "type": "city_gate",
-      "label": "Bastion of Aegis Main Gate",
+      "label": "Bastion of Aegis Gate",
       "x": 0,
-      "z": -136,
+      "z": -86,
       "captureRadius": 16,
       "defaultRealm": "aegis"
     },
     {
       "id": "aegis_capital_plaza",
       "type": "battle_objective",
-      "label": "Market Plaza",
+      "label": "Central Plaza",
       "x": 0,
-      "z": -18,
+      "z": 0,
       "captureRadius": 14,
       "defaultRealm": "aegis"
     }
@@ -1546,14 +1546,14 @@ export const CAMPAIGN_OBJECTIVES = {
 } as const;
 
 export const CAMPAIGN_MAP_HASHES = {
-  "aegis_capital": "e1631385ea5b3dbc",
+  "aegis_capital": "08c7099b82524761",
   "aegis_gate_fortress": "73b8327e9d9bb980",
   "aegis_crownworks": "02d037fcd51520ff",
   "dawnline_expanse": "56ce16a4fb9a008f",
   "shatterline_expanse": "4e88cbc94d3c79e1",
   "rift_crownworks": "91b1ebcc69fb6629",
   "rift_gate_fortress": "07f4678dbcf92c2f",
-  "riftspire_capital": "733d60d536cfa146",
+  "riftspire_capital": "24248c77eece6252",
   "sunmeadow_march": "50a4cb00807a402d",
   "greybrook_crossing": "359b0c95d4cbccaf",
   "ironwood_redoubt": "188881fcdd45f14b",

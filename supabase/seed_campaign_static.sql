@@ -4,14 +4,14 @@
 insert into campaign_static_zones
   (zone_id, name, realm, tier, lane, node_role, static_map_version, map_hash)
 values
-  ('aegis_capital', 'Bastion of Aegis', 'aegis', 'City', 'central', 'capital', 'aegis-riftbound-v1', 'e1631385ea5b3dbc'),
+  ('aegis_capital', 'Bastion of Aegis', 'aegis', 'City', 'central', 'capital', 'aegis-riftbound-v1', '08c7099b82524761'),
   ('aegis_gate_fortress', 'Starfall Gate', 'aegis', 'Fortress', 'central', 'fortress', 'aegis-riftbound-v1', '73b8327e9d9bb980'),
   ('aegis_crownworks', 'Aegis Crownworks', 'aegis', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '02d037fcd51520ff'),
   ('dawnline_expanse', 'Dawnline Expanse', 'aegis', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '56ce16a4fb9a008f'),
   ('shatterline_expanse', 'Shatterline Expanse', 'riftbound', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '4e88cbc94d3c79e1'),
   ('rift_crownworks', 'Rift Crownworks', 'riftbound', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '91b1ebcc69fb6629'),
   ('rift_gate_fortress', 'Voidgate Fortress', 'riftbound', 'Fortress', 'central', 'fortress', 'aegis-riftbound-v1', '07f4678dbcf92c2f'),
-  ('riftspire_capital', 'Riftspire Citadel', 'riftbound', 'City', 'central', 'capital', 'aegis-riftbound-v1', '733d60d536cfa146'),
+  ('riftspire_capital', 'Riftspire Citadel', 'riftbound', 'City', 'central', 'capital', 'aegis-riftbound-v1', '24248c77eece6252'),
   ('sunmeadow_march', 'Sunmeadow March', 'aegis', 'T1', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '50a4cb00807a402d'),
   ('greybrook_crossing', 'Greybrook Crossing', 'aegis', 'T2', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '359b0c95d4cbccaf'),
   ('ironwood_redoubt', 'Ironwood Redoubt', 'aegis', 'T3', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '188881fcdd45f14b'),
@@ -122,8 +122,8 @@ on conflict (from_zone_id, to_zone_id) do nothing;
 insert into campaign_objectives
   (zone_id, objective_id, objective_type, label, x, z, capture_radius, default_realm)
 values
-  ('aegis_capital', 'aegis_capital_city_gate', 'city_gate', 'Bastion of Aegis Main Gate', 0, -136, 16, 'aegis'),
-  ('aegis_capital', 'aegis_capital_plaza', 'battle_objective', 'Market Plaza', 0, -18, 14, 'aegis'),
+  ('aegis_capital', 'aegis_capital_city_gate', 'city_gate', 'Bastion of Aegis Gate', 0, -86, 16, 'aegis'),
+  ('aegis_capital', 'aegis_capital_plaza', 'battle_objective', 'Central Plaza', 0, 0, 14, 'aegis'),
   ('aegis_gate_fortress', 'aegis_gate_fortress_west_objective', 'battle_objective', 'West Siege Standard', -72, -24, 14, 'aegis'),
   ('aegis_gate_fortress', 'aegis_gate_fortress_central_objective', 'battle_objective', 'Central Siege Standard', 0, -6, 14, 'aegis'),
   ('aegis_gate_fortress', 'aegis_gate_fortress_east_objective', 'battle_objective', 'East Siege Standard', 72, -24, 14, 'aegis'),
