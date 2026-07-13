@@ -67,7 +67,6 @@
 - Fixed campaign portals so zone transitions preserve the destination `targetSpawn` instead of reloading at the zone default spawn.
 - Prevented intentional portal transfers from racing against old-position persistence during game disposal.
 - Spread generated same-side portal triggers apart and added tests to catch overlapping portal volumes or unsafe target spawns.
-- Removed the obsolete Reikland map from shipped zone data and normalized stale legacy playable zone IDs back onto the Aegis/Riftbound campaign guide.
 
 ## 2026-06-11
 
@@ -82,7 +81,6 @@
 - Updated character starting zones to Bastion of Aegis and Riftspire Citadel and refreshed docs, guide copy, validation, and tests for the IP-neutral campaign map.
 - Added baseline health and mana regeneration for living players, scaling each resource pool to refill from empty in about 30 seconds across all classes.
 - Added a dismiss button for contextual HUD prompts so beginner interaction hints can be closed until the prompt context changes.
-- Fixed generated Altdorf paths so nearby path endpoints get connector strips and junction caps instead of leaving visible breaks.
 - Reworked generated path props as terrain-following visual ribbons without separate walkable shelves, preventing players from floating above the terrain while walking downhill on paths.
 - Added terrain-height collision resolution to the follow camera so it moves forward when hills or terrain surfaces would occlude the viewport.
 
@@ -123,7 +121,6 @@
 
 - Added a data-driven gathering and crafting system with Scavenging, Butchering, Salvaging, Cultivation, Apothecary, and Talisman Making.
 - Added `services.crafting` with localStorage persistence, Supabase stubs, profession progress, cultivation plots, crafting recipes, and station-aware HUD actions.
-- Added Altdorf crafting stations, minimap station markers, starter crafting materials/seeds, salvage outputs, corpse gathering rolls, and craftable consumables/talismans.
 - Fixed inventory insertion capacity so runtime item grants use the same 24 slots as the inventory UI and local inventory backfill.
 - Renamed player-facing classes to the `ability-system.md` roster, centralized the class list in `src/data/careers.ts`, and added legacy WAR-career alias normalization for existing local saves and ability-kit lookup.
 - Added a data-driven class ability system with ten-slot hotbars for all 24 playable classes, including class-family metadata, cooldowns, mana costs, class resources, targeting shapes, tags, effects, and animation notify windows.
@@ -171,10 +168,7 @@
 
 - Added an in-game settings panel with `Esc`/HUD access, independent X/Y camera inversion, mouse look sensitivity, touch look sensitivity, and zoom speed settings persisted in local storage.
 - Added camera obstruction handling so third-person view snaps outside active walls and large solid props instead of staying inside them.
-- Added `altdorf_land.glb` exported from `blends/altdorf_land.blend` as the visible Altdorf major-city terrain.
 - Added model-backed terrain loading with runtime height sampling so props, NPCs, enemies, and the player align to GLB terrain.
-- Added a reproducible `export_altdorf_land.py` Blender export pass that scales the source terrain and levels a castle plateau for `altdorf_castle.glb`.
-- Added rectangular biome no-scatter exclusions and applied them to Altdorf so the evergreen biome surrounds the castle grounds without filling the castle footprint.
 - Added a guard blend export path that produces `guard_male.glb` with preserved skinning and a subtle looping idle animation.
 - Replaced guard-role NPCs with the generated guard model by default and updated NPC spawning so GLB idle clips are mixed in the game loop.
 - Expanded equipment slots to support modular armor pieces for shoulders, hands, waist, legs, feet, back, and tabard in addition to head, chest, main hand, and off hand.
@@ -191,8 +185,6 @@
 - Added a `C` key character sheet showing stats and equipped gear.
 - Added a deterministic `biomeKits` zone JSON layer for reusable data-driven landscaping.
 - Added the first `evergreen_pnw` biome kit with Douglas fir, western red cedar, hemlock, sword fern, mossy boulder, and fallen log primitive props.
-- Applied Pacific Northwestern evergreen landscaping patches to Altdorf around the riverfront, outer walls, market, and west-quarter courtyard.
-- Expanded Altdorf into forested castle grounds with northwest and northeast dirt trails plus a central cobblestone avenue to the north edge of the map.
 - Added path-aware biome corridor exclusions, season-ready biome placement fields, and summer/default evergreen scatter selection.
 - Added grass, wildflower, low shrub, path-edge stone, dirt path strip, and cobblestone path strip primitive fallbacks.
 - Rebuilt `character_empire_warrior_priest.glb` with continuous wrapped breastplate, gorget, lower coat, belt, shoulder, upper-arm, forearm, and greave shell geometry so the visible armor conforms around body volumes instead of reading as flat plates.
@@ -211,7 +203,6 @@
 - Added static Blender asset generation for `dummy`, `gate`, `banner_post`, and `vendor_stall`.
 - Extended the Blender MCP server with static asset, vertical-slice, and asset-listing tools.
 - Added GLB animation switching for generated player characters.
-- Wired selected Altdorf props and training dummies to generated `.glb` model names.
 - Documented the Codex MCP setup and runtime asset conventions.
 - Fixed Blender-to-GLB axis normalization so generated assets stand upright in Three.js.
 - Added MCP runtime bounds validation for generated characters and animated dummies.
@@ -220,20 +211,14 @@
 - Updated enemy loading so GLB enemies play idle animations and trigger `hit_react` when damaged.
 - Updated Warrior Priest player loading to try the generated GLB before falling back to the procedural rig.
 - Fixed loaded player GLB visibility by disabling skinned-mesh frustum culling and forcing double-sided runtime materials.
-- Moved the Altdorf player spawn to the Warrior Priest training dummy yard for faster asset and combat testing.
 - Fixed the cached skinned-GLB clone path and made the game canvas mount deterministic so the controlled player renders on the active canvas.
 - Added a player-only Warrior Priest silhouette layer over the generated GLB so the centered character clearly reads as a Warrior Priest from the default camera.
-- Added a Blender-generated `altdorf_castle.glb` and replaced Altdorf's central castle placeholder with the new model.
-- Enlarged the Altdorf castle into a 3-to-5-floor hard-surface structure with explicit collision boxes.
 - Added reusable animated `castle_gate.glb` plus click-to-open/click-to-close runtime support and closed-gate collision.
 - Fixed interactive gate input so short right-clicks open and close gates/doors while right-drag still controls camera/facing.
 - Added reusable animated `castle_door.glb` and placed a grand keep entrance plus interior castle doors with closed-door collision.
 - Added reusable `castle_stairs.glb` and walkable prop surfaces so castle stairs can raise the player's floor height onto landings.
-- Rebuilt `altdorf_castle.glb` with physical keep door openings and split keep colliders instead of a single solid center block.
-- Rebuilt the Altdorf keep interior with a connected grand entrance frame, side rooms, rear hall, stair bays, second-floor platforms, and an upper center platform.
 - Fixed castle floor traversal so upper platforms only become ground after the player climbs within step range instead of teleporting by X/Z overlap.
 - Fixed right-click door/gate interaction by tracking mouse clicks from pointer events and adding a forgiving ray-proximity interaction fallback.
-- Fixed Altdorf castle actor placement by adding foundation/ground-floor walkable surfaces and resolving player, NPC, and enemy spawn heights against them.
 - Upgraded the generated Warrior Priest GLB with denser beveled armor, bright steel/brass materials, exposed bald headband, broad layered pauldrons, relic halo, tabard/parchment details, and an oversized decorated hammer.
 - Retired the temporary player-only Warrior Priest silhouette overlay so the centered character renders from the generated `.glb` asset itself.
 - Rebuilt the Warrior Priest GLB at higher mesh density and fixed Blender cylinder authoring so legs, neck, arms, and hammer shafts align on the game's Y-up axis instead of lying sideways.

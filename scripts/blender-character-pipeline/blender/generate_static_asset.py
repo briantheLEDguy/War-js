@@ -360,7 +360,7 @@ def build_vendor_stall(spec: dict) -> list[bpy.types.Object]:
     return objs
 
 
-def build_altdorf_castle(spec: dict) -> list[bpy.types.Object]:
+def build_aegis_fortress(spec: dict) -> list[bpy.types.Object]:
     stone = make_material("castle_stone", spec["stone"], roughness=0.88)
     dark_stone = make_material("castle_dark_stone", spec["darkStone"], roughness=0.92)
     roof = make_material("castle_roof", spec["roof"], roughness=0.72)
@@ -380,7 +380,7 @@ def build_altdorf_castle(spec: dict) -> list[bpy.types.Object]:
     top_y = outer_h + 0.75
 
     objs: list[bpy.types.Object] = []
-    root = create_empty("altdorf_castle_export_root")
+    root = create_empty("aegis_fortress_export_root")
 
     def add(obj: bpy.types.Object) -> bpy.types.Object:
         objs.append(obj)
@@ -874,7 +874,6 @@ BUILDERS = {
     "gate": build_gate,
     "banner_post": build_banner_post,
     "vendor_stall": build_vendor_stall,
-    "altdorf_castle": build_altdorf_castle,
     "castle_gate": build_castle_gate,
     "castle_door": build_castle_door,
     "castle_stairs": build_castle_stairs,

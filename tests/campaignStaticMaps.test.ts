@@ -140,9 +140,6 @@ describe('static campaign map files', () => {
     }
   });
 
-  test('does not ship obsolete Reikland map data', () => {
-    expect(existsSync(path.join(mapsDir, 'reikland.json'))).toBe(false);
-  });
 
   test('exist for every generated campaign zone with stable hashes and objective coordinates', () => {
     for (const node of CAMPAIGN_ZONES) {

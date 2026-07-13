@@ -277,7 +277,6 @@ metadata masks only the body regions hidden by the equipped slot.
 Keep source files only when referenced by a manifest-backed builder or exporter:
 
 - `blends/male_base.blend` for human body and fitted armor modules.
-- `blends/altdorf_land.blend` for the current terrain exporter.
 - `blends/guard_order.blend` for guard export fallback.
 
 The removed legacy showcase/mannequin scripts and old generated GLBs are
