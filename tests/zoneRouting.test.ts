@@ -15,8 +15,6 @@ describe('playable zone routing', () => {
   });
 
   test('migrates obsolete legacy zone ids onto the campaign guide', () => {
-    expect(normalizePlayableZoneId('altdorf', 'empire')).toBe('aegis_capital');
-    expect(normalizePlayableZoneId('reikland', 'empire')).toBe('sunmeadow_march');
     expect(normalizePlayableZoneId('inevitable_city', 'chaos')).toBe('riftspire_capital');
   });
 

@@ -2,16 +2,6 @@
   "schemaVersion": 1,
   "assets": [
     {
-      "model": "altdorf_castle.glb",
-      "reason": "legacy active non-character runtime asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "altdorf_land.glb",
-      "reason": "legacy active non-character runtime asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
       "model": "banner_post.glb",
       "reason": "legacy active non-character runtime asset",
       "reviewStatus": "compatibility_allowed"

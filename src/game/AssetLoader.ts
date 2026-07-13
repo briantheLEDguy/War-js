@@ -1219,7 +1219,6 @@ export class AssetLoader {
       return group;
     },
 
-    /** Altdorf castle fallback - large keep, gatehouse, and hard-surface walls. */
     castle(): THREE.Object3D {
       const group = new THREE.Group();
       const stoneMat = new THREE.MeshStandardMaterial({ color: 0x827a6e, roughness: 0.9 });

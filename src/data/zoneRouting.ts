@@ -4,8 +4,6 @@ import type { CharacterState } from '../services/types';
 type Race = CharacterState['race'];
 
 const LEGACY_ZONE_ALIASES: Record<string, string> = {
-  altdorf: 'aegis_capital',
-  reikland: 'sunmeadow_march',
   inevitable_city: 'riftspire_capital',
 };
 

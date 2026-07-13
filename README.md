@@ -489,7 +489,7 @@ held until the player clears the entry volume. Zone `spawnPoint` values are
 kept as safe death/GM-return respawn positions outside enemy aggro, rather than
 being overwritten by the character's last saved entry position.
 Playable character routing is campaign-only: stale local saves or stale portal
-targets for `altdorf`, `reikland`, or other unknown map IDs normalize back onto
+targets for unknown map IDs normalize back onto
 the Aegis/Riftbound campaign graph before loading. Missing future zone files
 still load through the built-in fallback path; the runtime must never hard-fail
 on absent content.
