@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { buildWikiIndex } from '../../wiki/wikiContent';
 import { SECTION_EMPTY_PAGE } from '../../wiki/wikiMetadata';
 import type { WikiPage, WikiSectionId } from '../../wiki/wikiTypes';
+import { CAREER_ABILITY_KITS } from '../../game/abilities/abilityData';
 import { useGameStore } from '../../state/gameStore';
 import { AbilityIcon } from './AbilityIcon';
 import { useDraggableWindow } from './useDraggableWindow';
@@ -118,13 +119,7 @@ export function WikiPanel() {
 function WikiPageView({ page }: { page: WikiPage }) {
   const abilitySource = page.source?.kind === 'ability' ? page.source : null;
   const abilityStyle = abilitySource
-    ? ({
-        '--ability-primary': abilitySource.ability.visual.vfx.colors.primary,
-        '--ability-secondary': abilitySource.ability.visual.vfx.colors.secondary,
-        '--ability-accent': abilitySource.ability.visual.vfx.colors.accent,
-        '--ability-shadow': abilitySource.ability.visual.vfx.colors.shadow,
-        '--ability-glow': abilitySource.ability.visual.vfx.colors.glow,
-      } as CSSProperties)
+    ? abilityColorStyle(abilitySource.ability)
     : undefined;
 
   return (
@@ -174,9 +169,19 @@ function WikiPageView({ page }: { page: WikiPage }) {
               <tbody>
                 {table.rows.map((row) => (
                   <tr key={row.id}>
-                    {row.cells.map((cell, index) => (
-                      <td key={`${row.id}-${table.columns[index] ?? index}`}>{cell}</td>
-                    ))}
+                    {row.cells.map((cell, index) => {
+                      const iconAbility = index === 1 && row.iconAbilityId ? findAbilityById(row.iconAbilityId) : null;
+                      return (
+                        <td key={`${row.id}-${table.columns[index] ?? index}`}>
+                          {iconAbility && (
+                            <span className="wiki-table-ability-icon" style={abilityColorStyle(iconAbility)}>
+                              <AbilityIcon ability={iconAbility} />
+                            </span>
+                          )}
+                          {cell}
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
@@ -186,6 +191,25 @@ function WikiPageView({ page }: { page: WikiPage }) {
       ))}
     </>
   );
+}
+
+function abilityColorStyle(ability: { visual: { vfx: { colors: { primary: string; secondary: string; accent: string; shadow: string; glow: string } } } }): CSSProperties {
+  const colors = ability.visual.vfx.colors;
+  return {
+    '--ability-primary': colors.primary,
+    '--ability-secondary': colors.secondary,
+    '--ability-accent': colors.accent,
+    '--ability-shadow': colors.shadow,
+    '--ability-glow': colors.glow,
+  } as CSSProperties;
+}
+
+function findAbilityById(id: string) {
+  for (const kit of Object.values(CAREER_ABILITY_KITS)) {
+    const ability = kit.abilities.find((candidate) => candidate.id === id);
+    if (ability) return ability;
+  }
+  return null;
 }
 
 function pageMatchesQuery(page: WikiPage, query: string): boolean {

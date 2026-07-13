@@ -43,6 +43,20 @@
       "kind": "hammer",
       "outputModel": "wep_civic_battle_prelate_dawn_maul_draft.glb",
       "sourcePreference": "preferredHammerSource",
+      "handling": {
+        "handedness": "two_handed",
+        "massClass": "heavy",
+        "secondaryGrip": {
+          "node": "weapon_grip_socket_hand_L",
+          "targetSocket": "socket_hand_L",
+          "socketParentBone": "hand_L",
+          "localTranslation": [0, 0, 0.3]
+        },
+        "strikeHead": {
+          "node": "weapon_strike_head",
+          "localTranslation": [0, 0, 0.91]
+        }
+      },
       "authoredDimensionsMeters": {
         "overallLength": 1.24,
         "headWidth": 0.52,
@@ -58,6 +72,10 @@
       "kind": "cleaver",
       "outputModel": "wep_mire_warbrute_mirejaw_cleaver_draft.glb",
       "sourcePreference": "original_project_mesh",
+      "handling": {
+        "handedness": "one_handed",
+        "massClass": "heavy"
+      },
       "authoredDimensionsMeters": {
         "overallLength": 1.16,
         "bladeWidth": 0.43,

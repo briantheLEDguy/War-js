@@ -79,6 +79,8 @@ function renderAccent(accent: AbilityIconAccent): ReactNode {
 
 function renderSymbol(symbol: AbilityIconSymbol): ReactNode {
   switch (symbol) {
+    case 'aura':
+      return <path d="M32 16a16 16 0 1 0 0 32 16 16 0 0 0 0-32Zm0-8a24 24 0 1 0 0 48 24 24 0 0 0 0-48Z" />;
     case 'arrow':
       return <path d="M15 46 46 15l3 13 10-10-13-3 10-10-3-3-10 10-3-13-31 31Z" />;
     case 'axe':
@@ -113,20 +115,34 @@ function renderSymbol(symbol: AbilityIconSymbol): ReactNode {
       return <path d="m13 49 24-24-7-7 8-8 17 17-8 8-7-7-24 24Z" />;
     case 'leaf':
       return <path d="M12 50c5-27 21-39 40-38 1 19-11 35-38 40 11-6 20-14 27-25-10 7-18 15-29 23Z" />;
+    case 'mark':
+      return <path d="M32 8 50 26 32 54 14 26Zm0 12 6 6-6 10-6-10Z" />;
+    case 'meteor':
+      return <path d="M40 12c9 0 15 7 13 15-2 8-11 14-19 12-8-2-13-9-11-17 2-6 9-10 17-10ZM22 40 10 52m20-16L17 53M37 44 25 56" />;
+    case 'orb':
+      return <path d="M32 11a21 21 0 1 0 0 42 21 21 0 0 0 0-42Zm-7 13a7 7 0 0 1 7-7" />;
     case 'paw':
       return <path d="M20 38c7 0 17 7 17 14 0 5-4 7-9 5-5-2-8-2-13 0s-9 0-9-5c0-7 7-14 14-14Zm-8-10a5 7 0 1 0 0-14 5 7 0 0 0 0 14Zm16-5a5 8 0 1 0 0-16 5 8 0 0 0 0 16Zm16 5a5 7 0 1 0 0-14 5 7 0 0 0 0 14Z" />;
     case 'rune':
       return <path d="M18 8h28L34 28h16L21 56l10-23H15Z" />;
     case 'shield':
       return <path d="M32 8 51 15v14c0 12-7 20-19 26-12-6-19-14-19-26V15Zm0 7v32" />;
+    case 'shockwave':
+      return <path d="M12 38c4 8 11 12 20 12s16-4 20-12M18 29c3 5 8 8 14 8s11-3 14-8M25 20c2 2 4 3 7 3s5-1 7-3" />;
     case 'skull':
       return <path d="M16 28c0-12 8-20 16-20s16 8 16 20c0 8-4 13-10 16v10H26V44c-6-3-10-8-10-16Zm7 1h8v7h-8Zm10 0h8v7h-8Z" />;
+    case 'snare':
+      return <path d="M14 42h36M18 42c0-13 6-22 14-22s14 9 14 22M24 42c0-7 3-12 8-12s8 5 8 12M32 14v8" />;
     case 'spear':
       return <path d="M17 55 42 30l-8-8L52 7l5 5-15 18-8-8-25 25Z" />;
     case 'star':
       return <path d="m32 6 7 18 19 1-15 12 5 19-16-11-16 11 5-19L6 25l19-1Z" />;
     case 'turret':
       return <path d="M18 45h28v9H18Zm5-17h18l6 17H17Zm4-16h10l6 9H21Z" />;
+    case 'totem':
+      return <path d="M25 54V18h14v36M20 18h24M18 54h28M28 9h8v9h-8Z" />;
+    case 'venom':
+      return <path d="M32 8c9 12 14 19 14 27a14 14 0 1 1-28 0c0-8 5-15 14-27Zm-5 25c0-4 2-8 5-12" />;
     case 'vortex':
       return <path d="M48 21c-8-11-29-7-31 8-2 17 21 23 29 8-10 7-23 2-22-8 1-11 16-15 24-8Zm-29 22c8 11 29 7 31-8 2-17-21-23-29-8 10-7 23-2 22 8-1 11-16 15-24 8Z" />;
     default:

@@ -4,12 +4,13 @@ import { createHash } from 'node:crypto';
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import {
-  BATTLE_PRELATE_V19_DEVELOPMENT_ROUTE,
-  BATTLE_PRELATE_V19_SHA256,
+  BATTLE_PRELATE_DEVELOPMENT_REVISION,
+  BATTLE_PRELATE_DEVELOPMENT_ROUTE,
+  BATTLE_PRELATE_DEVELOPMENT_SHA256,
 } from './src/config/developmentModelCandidates';
 
-const BATTLE_PRELATE_V19_ARTIFACT =
-  'artifacts/model-jobs/local-armor-pilot-v19/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb';
+const BATTLE_PRELATE_DEVELOPMENT_ARTIFACT =
+  'artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb';
 
 const REVIEW_MODULES = [
   'arm_civic_humanoid_v2_battle_prelate_v1_head_m.glb',
@@ -54,17 +55,19 @@ function streamPinnedDevelopmentModel(
   req: import('node:http').IncomingMessage,
   res: import('node:http').ServerResponse,
 ): void {
-  const model = path.resolve(process.cwd(), BATTLE_PRELATE_V19_ARTIFACT);
+  const model = path.resolve(process.cwd(), BATTLE_PRELATE_DEVELOPMENT_ARTIFACT);
   if (!existsSync(model)) {
     res.statusCode = 404;
-    res.end('Generate the Battle Prelate v19 animation candidate first.');
+    res.end(`Generate the Battle Prelate ${BATTLE_PRELATE_DEVELOPMENT_REVISION} animation candidate first.`);
     return;
   }
 
   const actualSha256 = createHash('sha256').update(readFileSync(model)).digest('hex');
-  if (actualSha256 !== BATTLE_PRELATE_V19_SHA256) {
+  if (actualSha256 !== BATTLE_PRELATE_DEVELOPMENT_SHA256) {
     res.statusCode = 409;
-    res.end('Battle Prelate v19 does not match the pinned development-review hash.');
+    res.end(
+      `Battle Prelate ${BATTLE_PRELATE_DEVELOPMENT_REVISION} does not match the pinned development-review hash.`,
+    );
     return;
   }
 
@@ -89,11 +92,12 @@ function localModelReview(): Plugin {
   return {
     name: 'war-js-local-model-review',
     configureServer(server) {
-      server.middlewares.use(BATTLE_PRELATE_V19_DEVELOPMENT_ROUTE, (req, res) => {
+      server.middlewares.use(BATTLE_PRELATE_DEVELOPMENT_ROUTE, (req, res) => {
         streamPinnedDevelopmentModel(req, res);
       });
       server.middlewares.use('/__model-review/battle-prelate-m.glb', (_req, res) => {
         streamModel(res, [
+          'artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb',
           'artifacts/model-jobs/local-armor-pilot-v19/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb',
           'artifacts/model-jobs/local-armor-pilot-v18/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb',
           'artifacts/model-jobs/local-armor-pilot-v3/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb',
@@ -106,6 +110,7 @@ function localModelReview(): Plugin {
       });
       server.middlewares.use('/__model-review/body.glb', (_req, res) => {
         streamModel(res, [
+          'artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/body/body_civic_humanoid_v2_m.glb',
           'artifacts/model-jobs/local-armor-pilot-v19/civic_humanoid_v2_m/body/body_civic_humanoid_v2_m.glb',
           'artifacts/model-jobs/body-roundtrip-final/civic_m/body_civic_humanoid_v2_m.glb',
           'artifacts/model-jobs/local-pilot/civic_humanoid_v2_m/body_civic_humanoid_v2_m.glb',

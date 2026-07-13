@@ -1027,6 +1027,7 @@ input:focus, select:focus {
   display: block;
   width: 32px;
   height: 32px;
+  overflow: visible;
 }
 .ability-icon-frame {
   fill: var(--ability-shadow);
@@ -3421,6 +3422,18 @@ input:focus, select:focus {
 .wiki-table td {
   overflow-wrap: anywhere;
   background: rgba(0, 0, 0, 0.14);
+}
+.wiki-table-ability-icon {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 4px var(--ability-glow));
+}
+.wiki-table-ability-icon .ability-icon-svg {
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 720px) {

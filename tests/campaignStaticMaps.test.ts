@@ -44,7 +44,16 @@ interface ZoneFile {
   paths?: Array<{ id?: string; points?: Array<{ x: number; z: number }> }>;
   npcs?: Array<{ id?: string; x?: number; z?: number }>;
   craftingStations?: Array<{ id?: string; kind?: string; x?: number; z?: number }>;
-  enemies?: Array<{ id?: string; x?: number; z?: number; aggroRange?: number }>;
+  enemies?: Array<{
+    id?: string;
+    name?: string;
+    level?: number;
+    x?: number;
+    z?: number;
+    maxHealth?: number;
+    aggroRange?: number;
+    assetKey?: string;
+  }>;
   resourceNodes?: Array<{
     id?: string;
     label?: string;
@@ -183,6 +192,26 @@ describe('static campaign map files', () => {
           Number.isFinite(loot.chance) &&
           (loot.chance ?? 0) > 0,
         ),
+      )).toBe(true);
+    }
+  });
+
+  test('provides passive indexed training dummies in both capital cities', () => {
+    for (const capitalId of ['aegis_capital', 'riftspire_capital']) {
+      const dummies = loadZone(capitalId).enemies?.filter((enemy) => enemy.assetKey === 'dummy') ?? [];
+
+      expect(dummies).toHaveLength(3);
+      expect(dummies.map((dummy) => dummy.name)).toEqual([
+        'Training Dummy',
+        'Heavy Training Dummy',
+        'Dueling Target',
+      ]);
+      expect(dummies.every((dummy) =>
+        dummy.id?.startsWith(`${capitalId}_training_dummy_`) &&
+        dummy.aggroRange === 0 &&
+        Number.isFinite(dummy.x) &&
+        Number.isFinite(dummy.z) &&
+        Number.isFinite(dummy.maxHealth),
       )).toBe(true);
     }
   });
@@ -436,7 +465,7 @@ function populationMinimums(role: string): {
 } {
   switch (role) {
     case 'capital':
-      return { npcs: 6, enemies: 0, stations: 5, resources: 8 };
+      return { npcs: 6, enemies: 3, stations: 5, resources: 8 };
     case 'fortress':
       return { npcs: 5, enemies: 9, stations: 3, resources: 8 };
     case 'boss_lair':

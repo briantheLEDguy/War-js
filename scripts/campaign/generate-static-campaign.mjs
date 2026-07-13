@@ -1302,7 +1302,13 @@ function randomRingPoint(rng, minRadius, maxRadius) {
 }
 
 function buildEnemies(node) {
-  if (node.nodeRole === 'capital') return [];
+  if (node.nodeRole === 'capital') {
+    return [
+      trainingDummy(node, 'training_dummy_1', 'Training Dummy', 58, 16, 1, 60),
+      trainingDummy(node, 'training_dummy_2', 'Heavy Training Dummy', 70, 16, 3, 120),
+      trainingDummy(node, 'training_dummy_3', 'Dueling Target', 82, 16, 2, 90),
+    ];
+  }
   if (node.nodeRole === 'boss_lair') {
     return [
       {
@@ -1358,6 +1364,19 @@ function buildEnemies(node) {
     enemy(node, 'beast_1', fieldBeastName(node), -96, -74, tierLevel(node), 160, { archetype: 'beast' }),
     enemy(node, 'beast_2', fieldBeastName(node), 96, -74, tierLevel(node), 160, { archetype: 'beast' }),
   ];
+}
+
+function trainingDummy(node, suffix, name, x, z, level, maxHealth) {
+  return {
+    id: `${node.id}_${suffix}`,
+    name,
+    level,
+    x,
+    z,
+    maxHealth,
+    aggroRange: 0,
+    assetKey: 'dummy',
+  };
 }
 
 function fieldBeastName(node) {

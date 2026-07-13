@@ -15,13 +15,23 @@ import {
 import { ModelJobStore } from "../scripts/blender-character-pipeline/tools/model-jobs.mjs";
 import {
   ANIMATION_EVIDENCE_PROFILES,
+  BODY_ANIMATION_PROFILES,
   evidenceFiles,
+  startWorkflowJob,
 } from "../scripts/blender-character-pipeline/tools/model-workflow.mjs";
 import { compileRuntimeRegistry } from "../scripts/blender-character-pipeline/tools/runtime-registry.mjs";
 
 const testRoots = [];
 const reviewRendererSource = readFileSync(
   path.resolve("scripts/blender-character-pipeline/blender/render_model_review.py"),
+  "utf8",
+);
+const modelWorkflowSource = readFileSync(
+  path.resolve("scripts/blender-character-pipeline/tools/model-workflow.mjs"),
+  "utf8",
+);
+const mcpServerSource = readFileSync(
+  path.resolve("scripts/blender-character-pipeline/mcp-server/server.mjs"),
   "utf8",
 );
 
@@ -86,6 +96,27 @@ describe("model review framing", () => {
       animationFrames: [{ clip: "idle", frame: 12, path: "idle.png", sha256: "a" }],
     }, "equipped");
     expect(evidence).toEqual([{ key: "animation_idle", path: "idle.png", sha256: "a" }]);
+  });
+});
+
+describe("MPFB animation profile workflow", () => {
+  it("publishes the supported profiles through the MCP create-body schema", () => {
+    expect(BODY_ANIMATION_PROFILES).toEqual(["unarmed", "battle_prelate_hammer"]);
+    expect(mcpServerSource).toContain('enum: ["unarmed", "battle_prelate_hammer"]');
+    expect(mcpServerSource).toContain('default: "unarmed"');
+  });
+
+  it("rejects unknown profiles before starting a body-generation job", () => {
+    expect(() => startWorkflowJob("create_body_family", {
+      bodyFamily: "civic_humanoid_v2",
+      bodyVariant: "m",
+      animationProfile: "impossible_weapon_pose",
+    })).toThrow(/animationProfile must be one of/);
+  });
+
+  it("passes the validated profile to Blender and records it in the request", () => {
+    expect(modelWorkflowSource).toContain('"--animation-profile", animationProfile');
+    expect(modelWorkflowSource).toMatch(/bindPoseId:[\s\S]*animationProfile,[\s\S]*recipeSource:/);
   });
 });
 

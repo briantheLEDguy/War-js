@@ -21,6 +21,7 @@ import type {
   CareerResourceDefinition,
 } from './types';
 import { DEFAULT_CLASS_NAME, normalizeClassName } from '../../data/careers';
+import { getAbilityIconOverride } from './abilityIconOverrides';
 
 export const HOTBAR_SLOT_COUNT = 10;
 export const HOTBAR_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'] as const;
@@ -729,12 +730,15 @@ function visualFor(
 ): AbilityVisualProfile {
   const hash = hashString(`${career}:${seed.name}:${slot}`);
   const colors = colorsFor(classFamily, seed.school);
+  const iconOverride = getAbilityIconOverride(career, seed.name);
   return {
     school: seed.school,
     icon: {
-      symbol: iconSymbolFor(seed, hash),
-      frame: iconFrameFor(seed, hash),
-      accent: iconAccentFor(seed, hash),
+      ...(iconOverride ?? {
+        symbol: iconSymbolFor(seed, hash),
+        frame: iconFrameFor(seed, hash),
+        accent: iconAccentFor(seed, hash),
+      }),
       seed: hash,
     },
     vfx: {
