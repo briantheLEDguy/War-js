@@ -1,9 +1,10 @@
-export const BATTLE_PRELATE_V19_DEVELOPMENT_MODEL =
-  '__model-development/battle-prelate-v19.glb';
-export const BATTLE_PRELATE_V19_DEVELOPMENT_ROUTE =
-  `/${BATTLE_PRELATE_V19_DEVELOPMENT_MODEL}`;
-export const BATTLE_PRELATE_V19_SHA256 =
-  '02e44d3ae6192682de93cd15bd9441d75c5c55173f3e7c1a41099b79ae6ffc4a';
+export const BATTLE_PRELATE_DEVELOPMENT_REVISION = 'v20';
+export const BATTLE_PRELATE_DEVELOPMENT_MODEL =
+  `__model-development/battle-prelate-${BATTLE_PRELATE_DEVELOPMENT_REVISION}.glb`;
+export const BATTLE_PRELATE_DEVELOPMENT_ROUTE =
+  `/${BATTLE_PRELATE_DEVELOPMENT_MODEL}`;
+export const BATTLE_PRELATE_DEVELOPMENT_SHA256 =
+  'ed108de374db56a7fbc9778e48725f9981170448c0eff5781c1501ff700a7f7c';
 
 export interface DevelopmentCharacterAsset {
   assetId: string;
@@ -16,9 +17,9 @@ export interface DevelopmentCharacterAsset {
   equipmentMode: 'assembled';
 }
 
-const BATTLE_PRELATE_V19: DevelopmentCharacterAsset = {
-  assetId: 'chr.civic_humanoid_v2.battle_prelate_m.runtime_assembled_review.v19',
-  model: BATTLE_PRELATE_V19_DEVELOPMENT_MODEL,
+const BATTLE_PRELATE_DEVELOPMENT_CANDIDATE: DevelopmentCharacterAsset = {
+  assetId: `chr.civic_humanoid_v2.battle_prelate_m.runtime_assembled_review.${BATTLE_PRELATE_DEVELOPMENT_REVISION}`,
+  model: BATTLE_PRELATE_DEVELOPMENT_MODEL,
   bodyFamily: 'civic_humanoid_v2',
   bodyVariant: 'm',
   skeletonId: 'humanoid_game_v2',
@@ -40,6 +41,9 @@ export function developmentCharacterAssetFor(
   if (!developmentMode || profileKey !== 'civic_battle_prelate_m') return null;
 
   const normalizedVariant = bodyVariant?.trim().toLowerCase();
-  if (normalizedVariant && normalizedVariant !== BATTLE_PRELATE_V19.bodyVariant) return null;
-  return { ...BATTLE_PRELATE_V19 };
+  if (
+    normalizedVariant
+    && normalizedVariant !== BATTLE_PRELATE_DEVELOPMENT_CANDIDATE.bodyVariant
+  ) return null;
+  return { ...BATTLE_PRELATE_DEVELOPMENT_CANDIDATE };
 }

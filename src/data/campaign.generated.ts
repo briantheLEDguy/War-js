@@ -36,7 +36,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "aegis_city",
     "levelBand": "Capital",
-    "staticMapHash": "08c7099b82524761"
+    "staticMapHash": "0e6f0ecdf58243db"
   },
   {
     "id": "aegis_gate_fortress",
@@ -113,7 +113,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "rift_city",
     "levelBand": "Capital",
-    "staticMapHash": "24248c77eece6252"
+    "staticMapHash": "eb1dec08442fdb9a"
   },
   {
     "id": "sunmeadow_march",
@@ -1546,14 +1546,14 @@ export const CAMPAIGN_OBJECTIVES = {
 } as const;
 
 export const CAMPAIGN_MAP_HASHES = {
-  "aegis_capital": "08c7099b82524761",
+  "aegis_capital": "0e6f0ecdf58243db",
   "aegis_gate_fortress": "73b8327e9d9bb980",
   "aegis_crownworks": "02d037fcd51520ff",
   "dawnline_expanse": "56ce16a4fb9a008f",
   "shatterline_expanse": "4e88cbc94d3c79e1",
   "rift_crownworks": "91b1ebcc69fb6629",
   "rift_gate_fortress": "07f4678dbcf92c2f",
-  "riftspire_capital": "24248c77eece6252",
+  "riftspire_capital": "eb1dec08442fdb9a",
   "sunmeadow_march": "50a4cb00807a402d",
   "greybrook_crossing": "359b0c95d4cbccaf",
   "ironwood_redoubt": "188881fcdd45f14b",

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-13
+
+- Added three passive, manifest-backed training dummies to each capital city’s training hall yard for combat and ability testing.
+- Reworked all 240 playable ability icons around explicit effect-oriented SVG recipes, adding recognizable orb, meteor, shockwave, aura, summon, snare, mark, and venom motifs while preserving shared class and school VFX palettes.
+- Added icon swatches and role-aware PvE opener, single-target, AoE, resource, and utility guidance to every playable class page through the generated wiki content layer.
+
 ## 2026-07-12
 
 - Cleaned up the detailed world map with quieter icon-only rendering, connected city terrain treatment, responsive square map framing, and hover cards that reveal location names and context without overlapping the map.

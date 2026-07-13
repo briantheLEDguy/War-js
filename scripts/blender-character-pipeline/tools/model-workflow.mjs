@@ -39,6 +39,7 @@ import { assertJsonSchema } from "./json-schema-validator.mjs";
 export const ARMOR_SLOTS = ["head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard"];
 export const REQUIRED_CLIPS = ["idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump"];
 export const ANIMATION_EVIDENCE_PROFILES = ["midpoint", "locomotion_melee_key_phases"];
+export const BODY_ANIMATION_PROFILES = ["unarmed", "battle_prelate_hammer"];
 const ASSET_ID_PATTERN = /^(chr|body|arm|wep|jwl|prop|terrain)\.[a-z0-9_.-]+$/;
 const SAFE_ID_PATTERN = /^[a-z0-9][a-z0-9_.-]*$/;
 const CANDIDATE_SCHEMA = readJson(path.join(PIPELINE_ROOT, "data", "model-candidate.schema.json"));
@@ -55,6 +56,17 @@ function requireString(value, name, pattern = null) {
 function requireVariant(value) {
   if (!["m", "f"].includes(value)) throw workflowError("INVALID_BODY_VARIANT", "bodyVariant must be m or f.");
   return value;
+}
+
+function requireBodyAnimationProfile(value) {
+  const profile = value === undefined ? BODY_ANIMATION_PROFILES[0] : value;
+  if (!BODY_ANIMATION_PROFILES.includes(profile)) {
+    throw workflowError(
+      "INVALID_ANIMATION_PROFILE",
+      `animationProfile must be one of: ${BODY_ANIMATION_PROFILES.join(", ")}.`,
+    );
+  }
+  return profile;
 }
 
 function ensureGlb(value, name = "modelPath") {
@@ -235,6 +247,7 @@ function reviewedBundleSha256(bundle) {
 function startCreateBodyFamily(input) {
   const bodyFamily = requireString(input.bodyFamily, "bodyFamily", SAFE_ID_PATTERN);
   const bodyVariant = requireVariant(input.bodyVariant);
+  const animationProfile = requireBodyAnimationProfile(input.animationProfile);
   return startModelJob("create_body_family", input, async (ctx) => {
     ctx.update(10, "Loading pinned MPFB body recipe");
     const familyPath = assertPathWithin(BODY_FAMILY_DIR, path.join(BODY_FAMILY_DIR, `${bodyFamily}.body-family.json`), "body family recipe");
@@ -249,6 +262,7 @@ function startCreateBodyFamily(input) {
       mpfbVersion: family.mpfbVersion ?? "2.0.16",
       skeletonId: family.skeletonId ?? "humanoid_game_v2",
       bindPoseId: family.bindPoseId ?? "a_pose_v2",
+      animationProfile,
       recipeSource: repoRelative(familyPath),
       variant,
       requiredAssetPacks: family.requiredAssetPacks ?? [],
@@ -285,6 +299,7 @@ function startCreateBodyFamily(input) {
         "--output", sourceModel,
         "--review-dir", reviewDir,
         "--save-blend", path.join(generatedDir, "source.blend"),
+        "--animation-profile", animationProfile,
       ], {
         cwd: PIPELINE_ROOT,
         timeout: input.timeoutMs ?? 900_000,
@@ -330,7 +345,14 @@ function startCreateBodyFamily(input) {
       runtime,
     };
     const result = writeCandidate(ctx, candidateInput, sourceModel, { category: "body", runtime });
-    return { bodyFamily, bodyVariant, candidate: repoRelative(result.candidatePath), requiresLocalGeneration: false, cost: "free_local_only" };
+    return {
+      bodyFamily,
+      bodyVariant,
+      animationProfile,
+      candidate: repoRelative(result.candidatePath),
+      requiresLocalGeneration: false,
+      cost: "free_local_only",
+    };
   }, { assetKeys: [`body-family:${bodyFamily}:${bodyVariant}`] });
 }
 

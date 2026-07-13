@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest';
 import * as THREE from 'three';
 import {
-  BATTLE_PRELATE_V19_DEVELOPMENT_MODEL,
+  BATTLE_PRELATE_DEVELOPMENT_MODEL,
   developmentCharacterAssetFor,
 } from '../src/config/developmentModelCandidates';
 import type { AssetLoader } from '../src/game/AssetLoader';
@@ -39,7 +39,7 @@ describe('Player development candidate integration', () => {
     await player.applyEquipmentVisuals(player.character.equipment, loader);
 
     expect(loadModelFull).toHaveBeenCalledWith(
-      BATTLE_PRELATE_V19_DEVELOPMENT_MODEL,
+      BATTLE_PRELATE_DEVELOPMENT_MODEL,
       expect.any(Function),
     );
     expect(resolveEquipmentBaseBodyModel).not.toHaveBeenCalled();

@@ -14,6 +14,10 @@ import {
   getCareerAbilityKit,
 } from '../src/game/abilities/abilityData';
 import type { AbilityDefinition } from '../src/game/abilities/types';
+import {
+  ABILITY_ICON_OVERRIDES,
+  abilityIconOverrideKey,
+} from '../src/game/abilities/abilityIconOverrides';
 
 const playableClasses = [...ORDER_RACES, ...DESTRUCTION_RACES]
   .flatMap((race) => CLASSES_BY_RACE[race]);
@@ -75,6 +79,31 @@ describe('ability catalog', () => {
       expect(getAbilityForCareer(legacyName, 0)?.career).toBe(renamedClass);
       expect(createAbilityResourceState(legacyName)).toEqual(createAbilityResourceState(renamedClass));
     }
+  });
+
+  test('has an explicit effect-oriented icon recipe for every playable ability', () => {
+    const abilities = allAbilities();
+    expect(Object.keys(ABILITY_ICON_OVERRIDES)).toHaveLength(abilities.length);
+
+    for (const ability of abilities) {
+      const key = abilityIconOverrideKey(ability.career, ability.name);
+      expect(ABILITY_ICON_OVERRIDES[key], `missing icon recipe for ${ability.id}`).toBeDefined();
+      expect(ability.visual.icon).toEqual({
+        ...ABILITY_ICON_OVERRIDES[key],
+        seed: ability.visual.icon.seed,
+      });
+    }
+  });
+
+  test('maps representative effect shapes to recognizable icon motifs', () => {
+    expect(getAbilityForCareer('Ember Arcanist', 5)?.visual.icon.symbol).toBe('shockwave');
+    expect(getAbilityForCareer('Ember Arcanist', 9)?.visual.icon.symbol).toBe('meteor');
+    expect(getAbilityForCareer('Glyphbinder', 3)?.visual.icon.symbol).toBe('snare');
+    expect(getAbilityForCareer('Siegewright', 0)?.visual.icon.symbol).toBe('turret');
+    expect(getAbilityForCareer('Battle Prelate', 8)?.visual.icon.symbol).toBe('totem');
+    expect(getAbilityForCareer('Blood Dancer', 1)?.visual.icon.symbol).toBe('venom');
+    expect(getAbilityForCareer('Sunfire Templar', 4)?.visual.icon.symbol).toBe('shield');
+    expect(getAbilityForCareer('Veil Ranger', 8)?.visual.icon.symbol).toBe('mark');
   });
 });
 

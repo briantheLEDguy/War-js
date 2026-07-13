@@ -66,6 +66,7 @@ function options(root: string) {
     outputPath: path.join(root, "assembled.glb"),
     reviewDir: path.join(root, "reviews"),
     reportPath: path.join(root, "assembled.qc.json"),
+    motionReportPath: path.join(root, "motion.qc.json"),
     timeoutMs: 900_000,
     dryRun: true,
     json: false,
@@ -80,11 +81,11 @@ afterEach(() => {
 });
 
 describe("runtime-equipped assembly wrapper", () => {
-  it("defaults to the seam-trimmed v18 armor pilot without deleting review history", () => {
+  it("defaults to the v20 armor pilot without deleting review history", () => {
     expect(DEFAULTS.modules).toContain("local-armor-pilot-v18");
-    expect(DEFAULTS.output).toContain("local-armor-pilot-v18");
-    expect(DEFAULTS.reviewDir).toContain("local-armor-pilot-v18");
-    expect(DEFAULTS.report).toContain("local-armor-pilot-v18");
+    expect(DEFAULTS.output).toContain("local-armor-pilot-v20");
+    expect(DEFAULTS.reviewDir).toContain("local-armor-pilot-v20");
+    expect(DEFAULTS.report).toContain("local-armor-pilot-v20");
   });
 
   it("requires exactly the canonical nine module inputs and builds the Blender invocation", () => {
@@ -137,6 +138,7 @@ describe("runtime-equipped assembly wrapper", () => {
       },
     };
     writeFileSync(resolved.reportPath, `${JSON.stringify(report)}\n`);
+    writeFileSync(resolved.motionReportPath, `${JSON.stringify({ modelSha256: report.modelSha256, passed: true })}\n`);
     expect(validateOutputs(resolved).actualHash).toBe(report.modelSha256);
 
     report.roundTrip.idleDeltaAudit.passed = false;

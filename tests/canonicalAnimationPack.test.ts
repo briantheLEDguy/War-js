@@ -70,13 +70,23 @@ describe('free canonical animation pack', () => {
     expect(adapterSource).toContain('rotation_quaternion');
   });
 
-  test('pose-space audit samples centerlines and a real hammer arc', () => {
+  test('pose-space audit hard-gates stance, two-hand ergonomics, and a bounded hammer arc', () => {
     expect(motionAuditSource).toContain('SAMPLE_COUNT = 101');
-    expect(motionAuditSource).toContain('"leftFootStaysLeftOfCenterline"');
-    expect(motionAuditSource).toContain('"rightFootStaysRightOfCenterline"');
+    expect(motionAuditSource).toContain('audit_neutral_stance');
+    expect(motionAuditSource).toContain('"stanceWidthNatural"');
+    expect(motionAuditSource).toContain('"kneesTrackHipFootLine"');
+    expect(motionAuditSource).toContain('"leftLegStaysLeftOfCenterline"');
+    expect(motionAuditSource).toContain('"rightLegStaysRightOfCenterline"');
+    expect(motionAuditSource).toContain('TWO_HAND_CLIPS');
+    expect(motionAuditSource).toContain('"secondaryGripAttached"');
+    expect(motionAuditSource).toContain('"shoulderReachCompact"');
+    expect(motionAuditSource).toContain('"wristsWithinAnatomicalLimit"');
     expect(motionAuditSource).toContain('"substantiveHammerArc"');
+    expect(motionAuditSource).toContain('"hammerArcCompact"');
     expect(motionAuditSource).toContain('"wristDrivesImpact"');
-    expect(motionAuditSource).toContain('"socketGripAttached"');
+    expect(motionAuditSource).toContain('weapon_strike_head');
+    expect(motionAuditSource).toContain('"modelSha256"');
+    expect(motionAuditSource).not.toContain('advisory_until_secondary_grip');
   });
 
   test('geometry preservation hashes logical position and index payloads', () => {
@@ -90,6 +100,6 @@ describe('free canonical animation pack', () => {
     expect(assemblySource).toContain('resolve_weapon_strike_axis');
     expect(assemblySource).toContain('weapon_strike_head_marker');
     expect(assemblySource).toContain('farthest_geometry_cluster_from_grip');
-    expect(assemblySource).toContain('maxWristDegrees');
+    expect(assemblySource).toContain('maxSecondaryGripErrorM');
   });
 });

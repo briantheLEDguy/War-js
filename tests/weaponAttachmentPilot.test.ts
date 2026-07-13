@@ -6,6 +6,10 @@ const recipePath = path.resolve(
   'scripts/blender-character-pipeline/data/body-families/weapon-attachment-pilot.recipe.json',
 );
 const recipe = JSON.parse(readFileSync(recipePath, 'utf8'));
+const generatorSource = readFileSync(
+  path.resolve('scripts/blender-character-pipeline/blender/generate_weapon_attachment_pilot.py'),
+  'utf8',
+);
 
 describe('zero-cost weapon attachment pilot', () => {
   it('is draft-only, local-only, and bound to the canonical right-hand socket', () => {
@@ -50,10 +54,37 @@ describe('zero-cost weapon attachment pilot', () => {
     expect(hammer).toMatchObject({
       bodyFamily: 'civic_humanoid_v2',
       sourcePreference: 'preferredHammerSource',
+      handling: {
+        handedness: 'two_handed',
+        massClass: 'heavy',
+        secondaryGrip: {
+          node: 'weapon_grip_socket_hand_L',
+          targetSocket: 'socket_hand_L',
+          socketParentBone: 'hand_L',
+          localTranslation: [0, 0, 0.3],
+        },
+        strikeHead: {
+          node: 'weapon_strike_head',
+          localTranslation: [0, 0, 0.91],
+        },
+      },
     });
     expect(cleaver).toMatchObject({
       bodyFamily: 'mire_brutish_v1',
       sourcePreference: 'original_project_mesh',
+      handling: {
+        handedness: 'one_handed',
+        massClass: 'heavy',
+      },
     });
+  });
+
+  it('exports and round-trip validates the semantic two-handed hammer markers', () => {
+    expect(generatorSource).toContain('create_semantic_markers(root, weapon)');
+    expect(generatorSource).toContain('for obj in (root, grip, mesh, *semantic_markers.values())');
+    expect(generatorSource).toContain('roundtrip_secondary_grip.parent == roundtrip_root');
+    expect(generatorSource).toContain('"secondaryGripContract"');
+    expect(generatorSource).toContain('"strikeHeadContract"');
+    expect(generatorSource).toContain('validate_handling_contract(weapon)');
   });
 });
