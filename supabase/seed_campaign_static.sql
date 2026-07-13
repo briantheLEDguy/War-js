@@ -4,14 +4,14 @@
 insert into campaign_static_zones
   (zone_id, name, realm, tier, lane, node_role, static_map_version, map_hash)
 values
-  ('aegis_capital', 'Bastion of Aegis', 'aegis', 'City', 'central', 'capital', 'aegis-riftbound-v1', '4445102d585cadef'),
+  ('aegis_capital', 'Bastion of Aegis', 'aegis', 'City', 'central', 'capital', 'aegis-riftbound-v1', '97667d158eefb43f'),
   ('aegis_gate_fortress', 'Starfall Gate', 'aegis', 'Fortress', 'central', 'fortress', 'aegis-riftbound-v1', 'cabb246f9525c00f'),
   ('aegis_crownworks', 'Aegis Crownworks', 'aegis', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '32e085235481c51e'),
   ('dawnline_expanse', 'Dawnline Expanse', 'aegis', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', 'ae419324dbafa803'),
   ('shatterline_expanse', 'Shatterline Expanse', 'riftbound', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', 'b6994574d221efef'),
   ('rift_crownworks', 'Rift Crownworks', 'riftbound', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', 'f0aa15ecfc296d4a'),
   ('rift_gate_fortress', 'Voidgate Fortress', 'riftbound', 'Fortress', 'central', 'fortress', 'aegis-riftbound-v1', '5b90f9e457df9675'),
-  ('riftspire_capital', 'Riftspire Citadel', 'riftbound', 'City', 'central', 'capital', 'aegis-riftbound-v1', 'c11e5919b64a144a'),
+  ('riftspire_capital', 'Riftspire Citadel', 'riftbound', 'City', 'central', 'capital', 'aegis-riftbound-v1', 'c7bf09017efeb8b5'),
   ('sunmeadow_march', 'Sunmeadow March', 'aegis', 'T1', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '3a6f33284a0d99d3'),
   ('greybrook_crossing', 'Greybrook Crossing', 'aegis', 'T2', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '19f55e811d2f8faa'),
   ('ironwood_redoubt', 'Ironwood Redoubt', 'aegis', 'T3', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', 'caccfbfe85713185'),

@@ -3320,36 +3320,6 @@
       "z": -59.4,
       "rotY": 5.9341,
       "scale": 2.35
-    },
-    {
-      "id": "aegis_capital_training_dummy_1",
-      "name": "Aegis Training Dummy",
-      "kind": "dummy",
-      "x": -10,
-      "z": -22,
-      "rotY": 0,
-      "scale": 1,
-      "assetKey": "dummy"
-    },
-    {
-      "id": "aegis_capital_training_dummy_2",
-      "name": "Aegis Training Dummy",
-      "kind": "dummy",
-      "x": 0,
-      "z": -22,
-      "rotY": 0,
-      "scale": 1,
-      "assetKey": "dummy"
-    },
-    {
-      "id": "aegis_capital_training_dummy_3",
-      "name": "Heavy Aegis Training Dummy",
-      "kind": "dummy",
-      "x": 10,
-      "z": -22,
-      "rotY": 0,
-      "scale": 1.25,
-      "assetKey": "dummy"
     }
   ],
   "npcs": [
@@ -3466,7 +3436,38 @@
       "radius": 6
     }
   ],
-  "enemies": [],
+  "enemies": [
+    {
+      "id": "aegis_capital_training_dummy_1",
+      "name": "Training Dummy",
+      "level": 1,
+      "x": 58,
+      "z": 16,
+      "maxHealth": 60,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "aegis_capital_training_dummy_2",
+      "name": "Heavy Training Dummy",
+      "level": 3,
+      "x": 70,
+      "z": 16,
+      "maxHealth": 120,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    },
+    {
+      "id": "aegis_capital_training_dummy_3",
+      "name": "Dueling Target",
+      "level": 2,
+      "x": 82,
+      "z": 16,
+      "maxHealth": 90,
+      "aggroRange": 0,
+      "assetKey": "dummy"
+    }
+  ],
   "resourceNodes": [
     {
       "id": "aegis_capital_scrap_node_01",
@@ -3889,5 +3890,5 @@
       ]
     }
   ],
-  "staticMapHash": "4445102d585cadef"
+  "staticMapHash": "97667d158eefb43f"
 }
