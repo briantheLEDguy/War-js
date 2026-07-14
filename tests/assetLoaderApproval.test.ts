@@ -173,6 +173,32 @@ describe('body-compatible equipment resolution', () => {
     )).resolves.toBe('prelate_body_f.glb');
   });
 
+  test('treats canonical-skeleton armor as a skinned overlay when the legacy flag is absent', async () => {
+    installAssetFetch({
+      schemaVersion: 2,
+      equipment: {
+        legacySkinnedArmor: {
+          model: 'legacy_skinned_armor.glb',
+          bodyFamily: compatibleFemale.bodyFamily,
+          bodyVariant: compatibleFemale.bodyVariant,
+          skeletonId: compatibleFemale.skeletonId,
+          bindPoseId: compatibleFemale.bindPoseId,
+          lifecycleStatus: 'approved',
+          runtimeReady: true,
+        },
+      },
+    }, ['legacy_skinned_armor.glb']);
+
+    await expect(new AssetLoader().resolveEquipmentModel(
+      'legacySkinnedArmor',
+      'fallback.glb',
+      compatibleFemale,
+    )).resolves.toMatchObject({
+      model: 'legacy_skinned_armor.glb',
+      skinned: true,
+    });
+  });
+
   test.each([
     ['body family', { ...compatibleFemale, bodyFamily: 'mire_brutish_v1' }],
     ['body variant', { ...compatibleFemale, bodyVariant: 'm' }],

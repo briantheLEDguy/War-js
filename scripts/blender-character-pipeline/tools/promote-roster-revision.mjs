@@ -321,7 +321,7 @@ function buildPlayableManifests({ revision, roster, sourceManifestSha256, review
         category: "armor",
         model: armorIds.armorModel,
         qc: armorOutputQc,
-        runtime: { itemKey: module.itemKey, bodyVariant: variant },
+        runtime: { itemKey: module.itemKey, bodyVariant: variant, skinned: true },
         compatibility: {
           bodyFamily: ids.bodyFamily,
           bodyVariant: variant,

@@ -68,6 +68,10 @@ function compatibilityRuntimeRecord(allowed) {
 
 function runtimeEntry(manifest) {
   const compatibility = manifest.compatibility ?? {};
+  const skinned = manifest.runtime?.skinned
+    ?? (manifest.category === "armor" && compatibility.skeletonId ? true : undefined);
+  const coveredRegions = manifest.runtime?.coveredRegions
+    ?? compatibility.coveredRegions;
   return {
     assetId: manifest.assetId,
     model: manifest.model,
@@ -77,8 +81,8 @@ function runtimeEntry(manifest) {
     skeletonId: compatibility.skeletonId,
     bindPoseId: compatibility.bindPoseId,
     ...(manifest.runtime?.bodyModel ? { bodyModel: manifest.runtime.bodyModel } : {}),
-    ...(manifest.runtime?.skinned === undefined ? {} : { skinned: manifest.runtime.skinned }),
-    ...(manifest.runtime?.coveredRegions ? { coveredRegions: manifest.runtime.coveredRegions } : {}),
+    ...(skinned === undefined ? {} : { skinned }),
+    ...(coveredRegions ? { coveredRegions } : {}),
     approvalState: "approved",
     lifecycleStatus: "approved",
     runtimeReady: true,

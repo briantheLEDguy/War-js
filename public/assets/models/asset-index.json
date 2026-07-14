@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-22fcdd49ab8640cf",
+  "assetVersion": "approved-1e79a3c618e82c8a",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -1138,6 +1138,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "back"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_back_t1_f.glb",
           "modelSha256": "9ea60b071ab2a5373cc42da02609414d8ffa1e3e9f54259118fe059b4eb31c10",
@@ -1151,7 +1154,8 @@
           "qcSha256": "476ef62b817328192b2c5216b1b1effc717db451e70995cb96db81376c2c2b96",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1163,6 +1167,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "back"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_back_t1_m.glb",
           "modelSha256": "2117d609735c70d341500ce0dcf15eb45892d2e38eff15779bbd84afa5c8a743",
@@ -1176,7 +1183,8 @@
           "qcSha256": "593a2c0b905407358691471e7b96ed95dfa522e5e464fd9e3f7cc4271a90224e",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1188,6 +1196,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "torso"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_chest_t1_f.glb",
           "modelSha256": "47633e406f417f0cbaecfa51b637a9dc4713b29a5a731d9a908f2ee84070941b",
@@ -1201,7 +1212,8 @@
           "qcSha256": "ee238dcd42fa6abcdb2e9724513be05193ea026abb68a9e38e7ae98deba37dc1",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1213,6 +1225,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "torso"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_chest_t1_m.glb",
           "modelSha256": "451d4db9b268ac8be456f24cc5cc51f7cba48413f2cccb3078a121fd2ef3daec",
@@ -1226,7 +1241,8 @@
           "qcSha256": "c925a52e09e6b408b207e416143d67bae3ffbde6ba5737b1ecd77e97603462fa",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1238,6 +1254,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "feet"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_feet_t1_f.glb",
           "modelSha256": "b86920c4169cc73f01abce6c86f05a4cb1a673eb4cb4afa57b9e7dece4bbc1bb",
@@ -1251,7 +1270,8 @@
           "qcSha256": "290c084f3019208ccb0452e2be2a388bed73fe5dea13f31eaefa0c92d9d9d880",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1263,6 +1283,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "feet"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_feet_t1_m.glb",
           "modelSha256": "d58ad187d0ff3b66790b218f4c4930b372c497025557aacdcee5137ad6dd541d",
@@ -1276,7 +1299,8 @@
           "qcSha256": "6a88636499f517e0ab16147e732f9b95610b6bef3cd4289dd072e993fe21b15f",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1288,6 +1312,10 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "arms",
+            "hands"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_hands_t1_f.glb",
           "modelSha256": "57fc70e0e028b57843ceb9eeafcc37eb5581d8c00383bfdfc39d2c94bbf9adfa",
@@ -1301,7 +1329,8 @@
           "qcSha256": "5e1916423a9f5c006ac193c3e2a059107b20998cf4753737f44a63704e66dd40",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1313,6 +1342,10 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "arms",
+            "hands"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_hands_t1_m.glb",
           "modelSha256": "9537ec82c1d89d7c29df7c0a639aa06e0794e30ab4e23ac9bcabb9f2b566c6af",
@@ -1326,7 +1359,8 @@
           "qcSha256": "164efb307f8e070df487c3fd1eb41a1683d55e6aa5e7baadd5e649452c6375e3",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1338,6 +1372,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "head"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_head_t1_f.glb",
           "modelSha256": "593449d112cad0f87d95ad4e243c168b5ec75d846fef917c797fda07c660e05a",
@@ -1351,7 +1388,8 @@
           "qcSha256": "8fb38823fc58d26f6f8b5d7b22b0350e444cfd069c45a3544c4006e6dc01812c",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1363,6 +1401,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "head"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_head_t1_m.glb",
           "modelSha256": "c720c5840c601d7b6a33c25d5b239d52fd2c66a3d65938b90eb8c19bd472975d",
@@ -1376,7 +1417,8 @@
           "qcSha256": "b088c5d1005d20e8b3df1341be67793808978183882eea36bf4ce7db93a94a88",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1388,6 +1430,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "legs"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_legs_t1_f.glb",
           "modelSha256": "b30503ae6802f5eca8498df361d02340c0f6196c608235897bfb300c02ad6347",
@@ -1401,7 +1446,8 @@
           "qcSha256": "95fe64ea0fc952c86148dd9694af2ac1b74f42254df5149f50ebbb03a0a47ace",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1413,6 +1459,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "legs"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_legs_t1_m.glb",
           "modelSha256": "d43ca63c9fef9fc39c72a417e31598727136f82e03a3389bfc3bd807d8f55c87",
@@ -1426,7 +1475,8 @@
           "qcSha256": "38450232efa6bca705ffe2fbcfce88eb4823b8c460d02804914acb7de5ad1750",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1438,6 +1488,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "shoulders"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_shoulders_t1_f.glb",
           "modelSha256": "9d0cb901a12f06898dd60a703df03b447791253a8c10598bb7b7f3aff793b8a6",
@@ -1451,7 +1504,8 @@
           "qcSha256": "356d7565a522d260134d75dbb0fc41dddf9bfeab3eb16c1e602fbfcf0e70723f",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1463,6 +1517,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "shoulders"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_shoulders_t1_m.glb",
           "modelSha256": "60eebe09a92edd39d701bef6f6ae5efb92eb574ecaba6b3e390415bcc551630f",
@@ -1476,7 +1533,8 @@
           "qcSha256": "5cde049528f741578811469b3a659afa8a3e4237fa317c9538ed894a7de36348",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1488,6 +1546,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "tabard"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_tabard_t1_f.glb",
           "modelSha256": "38012846f7263e58463fffc334d1af4038e5625f965410bd9bd861a4e978a9d4",
@@ -1501,7 +1562,8 @@
           "qcSha256": "37e7ab1bdd2abe2919915a503a7699ca1350a733cc1582c825ecfd6e2ad6f198",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1513,6 +1575,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "tabard"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_tabard_t1_m.glb",
           "modelSha256": "c3bab499ffb8e396e19a012332bb4d3b75a47578cde2e079bb5be9d5757cf74e",
@@ -1526,7 +1591,8 @@
           "qcSha256": "47e97b25915357882c6fe60ca4daff8579661107eeb2b2ed09627e10f6b54f11",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1538,6 +1604,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "waist"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_waist_t1_f.glb",
           "modelSha256": "7fae9f3097ef35b3686411dfdcbece69f331759715121385e64f3c9fa4df4294",
@@ -1551,7 +1620,8 @@
           "qcSha256": "0636f086672827756ba5a99aaf906e9ed5a76e813fa8a69e4a0e698a8fb296ec",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1563,6 +1633,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "civic_battle_prelate_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "waist"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_waist_t1_m.glb",
           "modelSha256": "bd7cf1da23c58975da6bc29ac98580aa61c6eaa388d55605a85ba828d52eab3d",
@@ -1576,7 +1649,8 @@
           "qcSha256": "95424b24083f5bd6a34d1e5cd5b7a6f0554c296ee547e0992d1d6a83d130d632",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1588,6 +1662,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "back"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_back_t1_f.glb",
           "modelSha256": "40c15d2fed6d7dc53b3242778cda7f4f9ba8adf3958ce906a3f26fd294a28a30",
@@ -1601,7 +1678,8 @@
           "qcSha256": "b567e11399bf20cb6949daf7d6708c7c4138e97619d4d30592c9444c6b830649",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1613,6 +1691,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "back"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_back_t1_m.glb",
           "modelSha256": "a8b600dc9337683c1445f12bd414e4a271a74bace32c33dac6ed4cce577b8759",
@@ -1626,7 +1707,8 @@
           "qcSha256": "889f847cd171a68d9e85c84fc590c71217f9bdda6e8af313f9aa61c99d1e49e2",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1638,6 +1720,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "torso"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_chest_t1_f.glb",
           "modelSha256": "ebdf48088f0dcfaf0ec7dda8dbda2c8ae1b54cd1f88f786e43b04aa1f2bafafd",
@@ -1651,7 +1736,8 @@
           "qcSha256": "eceee045c2f05a53bace3d4ad1bb3ea81a0fa789f455f6e929e478a5fe11323e",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1663,6 +1749,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "torso"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_chest_t1_m.glb",
           "modelSha256": "4a6ce526e0fee1e9e81e82c16e456e176b848c883103dcd6903f88998206ab7c",
@@ -1676,7 +1765,8 @@
           "qcSha256": "8f7bd4699ad3fe079771d93ac92f3d9df116b5ba1636a1b0e6b37037f18a6f0e",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1688,6 +1778,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "feet"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_feet_t1_f.glb",
           "modelSha256": "4099ef581f57d9852c7e0be08f83ce769939790d274e4f20b1d85d73c6972b1e",
@@ -1701,7 +1794,8 @@
           "qcSha256": "065fd7a472cb54a30b24f93addf8b64a3feed9bc95cad78e444df9f2b909f7b1",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1713,6 +1807,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "feet"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_feet_t1_m.glb",
           "modelSha256": "54277c054127189e70366229c6715a424f12ead8470eba73bae24f8aab7c91f2",
@@ -1726,7 +1823,8 @@
           "qcSha256": "071fcc3d09ebba0ebc15a4e508742a37a4c917edab902f14d889863d68922a67",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1738,6 +1836,10 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "arms",
+            "hands"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_hands_t1_f.glb",
           "modelSha256": "c3ec7cd6115a0797a8c5ce926fd5b09fa9c28958f1dc129dea65351598c6c247",
@@ -1751,7 +1853,8 @@
           "qcSha256": "0071a08e317d51069f77f7378c9e473c6dcea3f5949ec915b28ed72761898c27",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1763,6 +1866,10 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "arms",
+            "hands"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_hands_t1_m.glb",
           "modelSha256": "263d218990b42e40f3cc79c80e915f93b3a7ccad2dde89dd2426b1d800ab2f29",
@@ -1776,7 +1883,8 @@
           "qcSha256": "68d28ace50f838355d49ab39d07332db9b1da99bb77710e183c67e6c6af6061d",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1788,6 +1896,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "head"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_head_t1_f.glb",
           "modelSha256": "cdcec996422f50df70b3d70bd63bd71f7c0e567350dcf850fbf33a3a6ec588f2",
@@ -1801,7 +1912,8 @@
           "qcSha256": "6d1268d8487ef869d11f2d096a58aa06cd35106b9ed663c245170fdc9f1ffa9d",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1813,6 +1925,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "head"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_head_t1_m.glb",
           "modelSha256": "8bc6bcf3e4fe896446b806dd89ba0e9657f9e520afa4c757750e650d5751f82c",
@@ -1826,7 +1941,8 @@
           "qcSha256": "518636c54ad744041adfc240334fc2f365504a8e92a4f2bd14163d60d8b8633c",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1838,6 +1954,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "legs"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_legs_t1_f.glb",
           "modelSha256": "ee5fff7a9bdf14adaf1e27818c419c681833be2eacb6dea4a6b519d9313db340",
@@ -1851,7 +1970,8 @@
           "qcSha256": "b32d1af978f1a163c0873996c71986e1b9994a68af5db444d1f9b1a64c9c9ae0",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1863,6 +1983,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "legs"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_legs_t1_m.glb",
           "modelSha256": "b25eea2bbf0406b0c55f82b6c6adee38853ff01bd85ddd14eb86b6af204aa523",
@@ -1876,7 +1999,8 @@
           "qcSha256": "3a84354164c8baf12a643f3dea6dcef6d286e314d91458e6cc400ee02d017940",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1888,6 +2012,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "shoulders"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_shoulders_t1_f.glb",
           "modelSha256": "bc060cfcf4a3363fd84a6bba15ce616495d5f7b5ba65d6739a422c6e57ae6831",
@@ -1901,7 +2028,8 @@
           "qcSha256": "8d54fa78e490c699300c6dda67f56981e17319d497a487e17176b2d2ba23e345",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1913,6 +2041,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "shoulders"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_shoulders_t1_m.glb",
           "modelSha256": "ec81f61ab3f6071008f67b0a596db2d95d4361a7be0e4205921b0c36875dab23",
@@ -1926,7 +2057,8 @@
           "qcSha256": "12bb31c811627e3cbd8b6495caf55a32cb0e9d0f19c1a8db6ea7598d3a7ec51e",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1938,6 +2070,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "tabard"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_tabard_t1_f.glb",
           "modelSha256": "85ec945b6184a48da08e6fad4b30ef47a8d8b03e0a1002ed1a5a8d4c3dd608a2",
@@ -1951,7 +2086,8 @@
           "qcSha256": "f518440b9f6292c711e67002f7d455aa8c55a5453e618bb75fc82bae3d2db63a",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1963,6 +2099,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "tabard"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_tabard_t1_m.glb",
           "modelSha256": "ae08e0e97cc406996d60f78984e65d10fd72afd9fb94f7e72a69847199ad534c",
@@ -1976,7 +2115,8 @@
           "qcSha256": "b9c16a22f5d2552ec9857eed5f22077a7225f3fe7d63275e6a5f11ba17d54854",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -1988,6 +2128,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_f",
           "bodyVariant": "f",
+          "coveredRegions": [
+            "waist"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_waist_t1_f.glb",
           "modelSha256": "4c4890956637abfcf578e67ad8b03349de1a81d4372872aa42ad139d8367a430",
@@ -2001,7 +2144,8 @@
           "qcSha256": "7c6acb8e1c2af2913c0495a0fd9ae5d3858d7f4b70beb6561a8aefb968c514fc",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },
@@ -2013,6 +2157,9 @@
           "bindPoseId": "a_pose_v2",
           "bodyFamily": "mire_warbrute_m",
           "bodyVariant": "m",
+          "coveredRegions": [
+            "waist"
+          ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_waist_t1_m.glb",
           "modelSha256": "12b948c1f505e8c898342be48181a57dcd98a8d9d6bacf3906b533e20433cdfd",
@@ -2026,7 +2173,8 @@
           "qcSha256": "ad1e7533acb75a0b77884befa7eccd12fa5e74888de6aca660c7b0055e33ec27",
           "reviewStatus": "approved",
           "runtimeReady": true,
-          "skeletonId": "humanoid_game_v2"
+          "skeletonId": "humanoid_game_v2",
+          "skinned": true
         }
       }
     },

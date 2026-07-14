@@ -124,6 +124,10 @@ Runtime terrain notes:
 Runtime animation notes:
 
 - `src/game/Player.ts` resolves the manifest-backed playable character profile first so player bodies use authored locomotion and combat clips when available; external player overrides remain fallback assets.
+- Modular armor entries with canonical skeleton metadata are emitted as
+  `skinned: true` runtime overlays and carry their `coveredRegions` into the
+  registry. The player rebinds those overlays to the loaded body skeleton so
+  armor follows authored body animation and covered body surfaces are masked.
 - `src/game/Enemy.ts` drives enemy `idle`/`walk`/`run` loops from AI movement and plays attack, cast, and hit reactions as one-shot clips.
 - `src/game/animation/StaticModelAnimator.ts` layers procedural limb motion over imported or primitive characters that lack complete GLB animation clips.
 
