@@ -62,6 +62,9 @@ describe("free pilot armor recipes", () => {
     expect(generatorSource).toContain("def panel_half_width(");
     expect(generatorSource).toContain("def body_surface_y(");
     expect(generatorSource).toContain("def refine_shoulder_shell(");
+    expect(generatorSource).toContain("MINIMUM_BODY_CLEARANCE_M = 0.004");
+    expect(generatorSource).toContain('"back": 0.010');
+    expect(generatorSource).toContain("center_z = anchor.z + extent.z * 0.010");
     expect(generatorSource).toContain("edge_flutter");
     expect(generatorSource).toContain("collar_profile");
     expect(generatorSource).toContain("belt_window");

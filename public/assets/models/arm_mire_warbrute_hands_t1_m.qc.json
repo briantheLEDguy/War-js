@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "assetId": "arm.mire_brutish_v1.warbrute.hands.m",
   "model": "arm_mire_brutish_v1_warbrute_hands_m.glb",
-  "modelSha256": "263d218990b42e40f3cc79c80e915f93b3a7ccad2dde89dd2426b1d800ab2f29",
-  "fileSizeBytes": 185620,
+  "modelSha256": "0121c4d08de0adc8e185dc0871cf4bd384269ecb527c9fcaf0379a3008987f4f",
+  "fileSizeBytes": 182616,
   "category": "armor",
   "slot": "hands",
   "bodyFamily": "mire_brutish_v1",
@@ -13,9 +13,9 @@
   "lifecycleStatus": "draft",
   "reviewStatus": "pending",
   "promotionEligible": false,
-  "totalTriangles": 4498,
+  "totalTriangles": 4500,
   "drawCalls": 1,
-  "maxInfluencesBeforeLimit": 8,
+  "maxInfluencesBeforeLimit": 7,
   "maxInfluencesObserved": 4,
   "unweightedVertices": 0,
   "nonManifoldEdges": 0,
@@ -29,31 +29,31 @@
   ],
   "maxTextureDimension": 128,
   "previewImages": [
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\front.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\side.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\back.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\isometric.png"
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\isometric.png"
   ],
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\front.png",
-      "sha256": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\front.png",
+      "sha256": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
     },
     {
       "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\side.png",
-      "sha256": "d370244069c0b9676f87c0b163f5ab987665ed0d92e7a953ec3b9067dc39c7bd"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\side.png",
+      "sha256": "09bd05a13c4083eb8b3006f2847daf62bedec85d8f8bbe4b876fc589a5a1acab"
     },
     {
       "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\back.png",
-      "sha256": "8b221e7c1a37c903aa6b12a279bcf2b0b353636f3bee3e2c3fbb309a8fc0ddd2"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\back.png",
+      "sha256": "bc84e6ec18099a47b5fe3d0ca226e467b2617b4eb0e252359b38f83be203d27d"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\isometric.png",
-      "sha256": "be2d1a08fed804273b0ad7c8f7b3305768979a13c8f969c916db9f921a4091f8"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\isometric.png",
+      "sha256": "580bb96f669f0705c63a88c43db31724e9e5eac254a19f6acb8cf8058e9c6085"
     }
   ],
   "provenance": {

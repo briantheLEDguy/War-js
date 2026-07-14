@@ -49,14 +49,24 @@ GENERATOR_VERSION = "1.5.0-fixture-roster"
 # garment-on-garment intersections without changing the accepted silhouette.
 FITTED_LAYER_CLEARANCE = {
     "chest": 0.003,
-    "hands": 0.008,
+    "hands": 0.004,
     "legs": 0.002,
-    "feet": 0.008,
+    "feet": 0.004,
 }
 SURFACE_LAYER_CLEARANCE = {
     "shoulders": 0.016,
 }
-MINIMUM_BODY_CLEARANCE_M = 0.015
+# The accepted body is the collision reference, not a second rigid shell. A
+# 15 mm correction makes gloves and boots visibly float away from the limbs
+# after the nearest-surface pass. Keep a small anti-z-fighting margin and let
+# the authored fixture provide the rest of the garment volume.
+MINIMUM_BODY_CLEARANCE_M = 0.004
+SLOT_BODY_CLEARANCE = {
+    # The cape is intentionally authored behind the body and can fold into
+    # the back during idle. Keep its stricter audit margin without moving
+    # gloves, boots, or fitted clothing away from their limbs.
+    "back": 0.010,
+}
 SLOT_LAYER_ORDER = {
     "legs": 10,
     "chest": 20,
@@ -421,6 +431,10 @@ def enforce_body_clearance(
     obj["bodyClearanceMeters"] = clearance
     obj["bodyClearanceVerticesMoved"] = moved
     return moved
+
+
+def body_clearance_for_slot(slot: str) -> float:
+    return SLOT_BODY_CLEARANCE.get(slot, MINIMUM_BODY_CLEARANCE_M)
 
 
 def trim_distal_underlap(
@@ -1151,13 +1165,16 @@ def create_curved_pauldron_pair(
         upper_arm = rig.data.bones.get(f"upper_arm_{side}")
         if upper_arm is None:
             raise RuntimeError(f"Canonical pauldron anchor is missing: upper_arm_{side}")
-        half_width = extent.x * (0.135 if winged else 0.108)
-        half_depth = extent.y * 0.175
-        crown = extent.z * (0.032 if winged else 0.028)
+        half_width = extent.x * (0.105 if winged else 0.080)
+        half_depth = extent.y * 0.125
+        crown = extent.z * (0.024 if winged else 0.020)
         anchor = upper_arm.head_local
-        center_x = anchor.x + direction * half_width * 0.40
-        center_y = anchor.y
-        center_z = anchor.z + extent.z * 0.064
+        # The upper-arm head is the actual shoulder seam in the canonical
+        # A-pose. The old fixture raised the plate by 6.4% of body height and
+        # pushed it outward, which produced the detached wing seen in runtime.
+        center_x = anchor.x + direction * half_width * (1.50 if winged else 1.90)
+        center_y = anchor.y - extent.y * 0.055
+        center_z = anchor.z + extent.z * 0.010
         for layer in (0, 1):
             for row in range(rows + 1):
                 v = row / rows * 2.0 - 1.0
@@ -2242,7 +2259,7 @@ def main() -> None:
                 manifold_skinned_wearable(obj, rig, material)
         apply_shape_key_mix(obj)
         if slot != "shoulders":
-            enforce_body_clearance(obj, body)
+            enforce_body_clearance(obj, body, body_clearance_for_slot(slot))
         canonicalize_groups(obj)
         ensure_armature(obj, rig)
         max_before, unweighted = limit_influences(obj, bone_names, 4)
@@ -2264,7 +2281,7 @@ def main() -> None:
     runtime_body_finalization = bake_targets_and_strip_helpers(body)
     for slot, obj in modules.items():
         if slot != "shoulders":
-            enforce_body_clearance(obj, body)
+            enforce_body_clearance(obj, body, body_clearance_for_slot(slot))
         # Nearest-surface projection can collapse a tiny source triangle when
         # two vertices converge on the same cuff or helmet contour. Remove the
         # resulting zero-area face after projection; the 15 mm clearance margin
@@ -2277,7 +2294,7 @@ def main() -> None:
             else:
                 manifold_skinned_wearable(obj, rig, obj.active_material)
             if slot != "shoulders":
-                enforce_body_clearance(obj, body)
+                enforce_body_clearance(obj, body, body_clearance_for_slot(slot))
             cleanup_closed_mesh(obj)
         if non_manifold_edges(obj) or degenerate_faces(obj):
             raise RuntimeError(

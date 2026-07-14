@@ -16,9 +16,9 @@
   },
   "hashes": {
     "modelSha256": "0d2ec546fd6aeaa1eaf44548dda713e893e93b3f04365af3efa33894c62055a5",
-    "qcSha256": "66173f8b74d161ba525b87916fb8c09ec161d78f4a8798145a418d9462716ca2",
+    "qcSha256": "a348865ba97afa3b1e155231f8bf99d2a17ca3f9231ca0bdf5146e2d483f3a41",
     "previews": {
-      "front": "57750bee3a4b48101803ba6018878c64223817ed0924c0d0f877562c93c8e734"
+      "front": "a95440a40f8816d2260d4ce387328db8bef7e07fc325625eb123cb291c6b5197"
     }
   },
   "previews": {
@@ -27,14 +27,14 @@
   "provenance": {
     "kind": "roster_direct_promotion",
     "sourceRevision": 1,
-    "sourceRunId": "mpfb-two-pilot",
+    "sourceRunId": "armor-fit-final2-warbrute",
     "bypassApproval": true,
-    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+    "bypassReason": "User-authorized armor fit regeneration"
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T17:14:54.277Z",
-    "reviewHash": "ec516ac68529c1905d2792684a084895df9a020558eba958b87fe9071ad30ebf"
+    "reviewedAt": "2026-07-14T21:02:58.563Z",
+    "reviewHash": "3a9a1209226b8759079b911a8704fbf549c0990a85c697dda5b3c5c6a4468980"
   },
   "approvalState": "approved"
 }
