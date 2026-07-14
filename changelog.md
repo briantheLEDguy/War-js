@@ -1,7 +1,12 @@
 # Changelog
 
+## 2026-07-14
+
+- Refined the unified Campaign Atlas with dark-fantasy engraved relief styling, fit-to-pane defaults, shared physical scene scaling, cursor-anchored wheel zoom, drag panning, and reliable node/tier gesture handling.
+
 ## 2026-07-13
 
+- Combined the detailed zone map and Aegis/Riftbound campaign tracker into one three-tier Campaign Atlas. Map/M opens the current zone, the Campaign HUD action opens the full graph, left/right click moves between zone, route, and campaign tiers, wheel zoom works within each tier, and every generated campaign zone now has a static preview without fast travel.
 - Added a persistent, conflict-safe settings page with Gameplay and Key binds tabs, covering camera controls plus movement, targeting, mouse selection, interactions, abilities, and interface shortcuts. Added MMO-standard Tab / Shift+Tab enemy cycling, middle-mouse nearest-enemy selection, and NumLock autorun that stops on manual movement.
 - Added a reusable original dark-fantasy Fortress Build Pack with crenellated curtain walls, corner towers, gatehouses, wall stairs, ember braziers, torn banners, siege barricades, and the existing animated fortress gate exposed together in GM Build mode. Rebuilt Bastion of Aegis and Riftspire Citadel with the pack, gatehouse-wrapped interactive city gates, walkable wall surfaces, and perimeter scenery.
 
