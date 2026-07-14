@@ -1,0 +1,30 @@
+{
+  "$schema": "./body-family.schema.json",
+  "schemaVersion": 1,
+  "bodyFamily": "aether_humanoid_v1",
+  "displayName": "Aether Noble",
+  "description": "Tall, fine-boned High Elf foundation using the pinned CC0 MPFB hm08 topology.",
+  "pilotProfile": { "race": "high_elf", "classKey": "blade_savant", "className": "Blade Savant" },
+  "sourceTopology": { "generator": "MPFB", "generatorVersion": "2.0.16", "baseMesh": "hm08", "license": "CC0-1.0", "topologyInvariant": "Race and class differences are non-destructive MPFB macro variations." },
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "armorSlots": ["head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard"],
+  "requiredAssetPacks": ["makehuman_system_assets", "ears01", "hands01", "nose01", "cheek01", "faceunits01"],
+  "variants": {
+    "m": {
+      "variant": "m", "profileKey": "aether_blade_savant_m", "outputModel": "body_aether_humanoid_v1_m.glb", "expectedHeightM": 1.94,
+      "mpfbPreset": { "creationApi": "HumanService.create_human", "propertyValues": { "gender": 1.0, "age": 0.34, "muscle": 0.44, "weight": 0.38, "height": 0.66, "proportions": 0.62 }, "rig": "game_engine", "skinModel": "GAME_ENGINE" },
+      "skin": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_male", "tint": "#dac6a8" },
+      "customTargets": [],
+      "attachments": { "eyes": "high-poly", "eyebrows": "eyebrow006", "eyelashes": "eyelashes01", "teeth": "teeth_base", "tongue": "tongue01" }
+    },
+    "f": {
+      "variant": "f", "profileKey": "aether_blade_savant_f", "outputModel": "body_aether_humanoid_v1_f.glb", "expectedHeightM": 1.84,
+      "mpfbPreset": { "creationApi": "HumanService.create_human", "propertyValues": { "gender": 0.0, "age": 0.34, "muscle": 0.38, "weight": 0.36, "height": 0.62, "proportions": 0.62 }, "rig": "game_engine", "skinModel": "GAME_ENGINE" },
+      "skin": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_female", "tint": "#e0ccb0" },
+      "customTargets": [],
+      "attachments": { "eyes": "high-poly", "eyebrows": "eyebrow006", "eyelashes": "eyelashes01", "teeth": "teeth_base", "tongue": "tongue01" }
+    }
+  },
+  "promotion": { "state": "specification", "promotionEligible": false, "reason": "Model-stage output and explicit approval are pending." }
+}

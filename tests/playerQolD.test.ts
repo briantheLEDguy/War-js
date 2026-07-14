@@ -147,11 +147,10 @@ describe('hud window close helpers', () => {
     expect(useGameStore.getState().closeTopWindow()).toBe(false);
   });
 
-  test('closes crafting, campaign, debug, and GM editor windows', () => {
+  test('closes crafting, debug, and GM editor windows', () => {
     useGameStore.setState({
       craftingOpen: true,
       activeCraftingStation: { kind: 'general', label: 'Test Station' },
-      campaignOpen: true,
       debugOpen: true,
       gmMenuOpen: true,
       gmBuildMode: true,
@@ -163,9 +162,6 @@ describe('hud window close helpers', () => {
     expect(useGameStore.getState().closeTopWindow()).toBe(true);
     expect(useGameStore.getState().craftingOpen).toBe(false);
     expect(useGameStore.getState().activeCraftingStation).toBeNull();
-
-    expect(useGameStore.getState().closeTopWindow()).toBe(true);
-    expect(useGameStore.getState().campaignOpen).toBe(false);
 
     expect(useGameStore.getState().closeTopWindow()).toBe(true);
     expect(useGameStore.getState().debugOpen).toBe(false);

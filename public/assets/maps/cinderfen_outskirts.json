@@ -2211,7 +2211,7 @@
     },
     {
       "id": "cinderfen_outskirts_beast_1",
-      "name": "Mire Hound",
+      "name": "Lair Spider",
       "level": 3,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 14,
       "moveSpeed": 3.85,
-      "assetKey": "creature_mire_hound"
+      "assetKey": "creature_lair_spider"
     },
     {
       "id": "cinderfen_outskirts_beast_2",
-      "name": "Mire Hound",
+      "name": "Lair Spider",
       "level": 3,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 14,
       "moveSpeed": 3.85,
-      "assetKey": "creature_mire_hound"
+      "assetKey": "creature_lair_spider"
     }
   ],
   "resourceNodes": [
@@ -2780,5 +2780,5 @@
       ]
     }
   ],
-  "staticMapHash": "df03aff34c189188"
+  "staticMapHash": "ef4a0e4439ece0b0"
 }

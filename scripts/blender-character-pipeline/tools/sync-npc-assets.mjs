@@ -254,57 +254,6 @@ function characterBlueprint(profile) {
   };
 }
 
-function creatureBlueprint(assetKey) {
-  const stem = `prop_${assetKey}_t1`;
-  return {
-    assetId: `prop.creature.${slug(assetKey.replace(/^creature_/, ""))}.t1`,
-    displayName: assetKey.split("_").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" "),
-    category: "prop",
-    version: "1.0.0",
-    sets: ["enemy_creatures", "npc_model_buildout"],
-    runtime: { staticKey: assetKey },
-    output: {
-      model: `${stem}.glb`,
-      artifactDir: manifestArtifactDir(`${stem}.glb`),
-    },
-    generator: { kind: "staticPreset", preset: assetKey },
-    geometry: {
-      originRule: "root_grounded",
-      upAxis: "+Y",
-      forwardAxis: "+Z",
-      lods: [
-        { name: "LOD0", triTarget: 12000, screenCoverageMin: 0.2 },
-        { name: "LOD1", triTarget: 6000, screenCoverageMin: 0.08 },
-      ],
-    },
-    materials: {
-      master: "MM_StaticCreaturePbr",
-      textureSet: `${assetKey}_t1`,
-      channels: ["baseColor", "roughness", "metallic", "normal", "occlusion"],
-    },
-    collision: {
-      policy: "simple_capsule",
-      primitives: [{ type: "capsule", tag: "creature_body" }],
-    },
-    compatibility: { occupiesSlots: ["creature"], requires: [], conflictsWith: [] },
-    provenance: {
-      createdBy: "procedural_blender_pipeline",
-      aiAssisted: true,
-      aiStages: ["enemy_roster_scan", "creature_silhouette_preset", "procedural_generation"],
-      promptIds: [`creature_${assetKey}`],
-      referencePackId: "neutral_dark_fantasy_creatures_v1",
-      similarityReview: "not_required",
-    },
-    qc: {
-      allowNonManifold: false,
-      allowUvOverlap: true,
-      maxDrawCalls: 24,
-      maxFileSizeMb: 8,
-      maxMeshObjects: 48,
-    },
-  };
-}
-
 function cleanupGeneratedBlueprints() {
   for (const file of readdirSync(BLUEPRINT_DIR)) {
     if (/^(chr_(npc|enemy)_|prop_creature_).+\.asset\.json$/i.test(file)) {
@@ -390,15 +339,6 @@ for (const profile of profiles) {
   };
 }
 
-for (const assetKey of Array.from(creatureKeys).sort()) {
-  const blueprint = creatureBlueprint(assetKey);
-  writeJson(path.join(BLUEPRINT_DIR, blueprint.output.model.replace(/\.glb$/i, ".asset.json")), blueprint);
-  index.staticProps[assetKey] = {
-    assetId: blueprint.assetId,
-    model: blueprint.output.model,
-  };
-}
-
 writeJson(NPC_ROSTER_PATH, {
   schemaVersion: 1,
   generatedFrom: "public/assets/maps/*.json",
@@ -408,7 +348,7 @@ writeJson(NPC_ROSTER_PATH, {
 writeJson(ASSET_INDEX_PATH, index);
 
 console.log(`Synced ${profiles.length} NPC/enemy character profile manifest(s).`);
-console.log(`Synced ${creatureKeys.size} creature manifest(s).`);
+console.log(`Observed ${creatureKeys.size} creature key(s); generation is delegated to models:roster.`);
 console.log(`Updated ${path.relative(REPO_ROOT, NPC_ROSTER_PATH)}`);
 console.log(`Updated ${path.relative(REPO_ROOT, ASSET_INDEX_PATH)}`);
 if (legacyMapWrites > 0) console.log(`Updated ${legacyMapWrites} legacy map file(s) with visual keys.`);

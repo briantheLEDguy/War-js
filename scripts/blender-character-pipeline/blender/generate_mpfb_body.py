@@ -26,7 +26,7 @@ PIPELINE_ROOT = Path(__file__).resolve().parent.parent
 BODY_FAMILY_ROOT = PIPELINE_ROOT / "data" / "body-families"
 SKELETON_CONTRACT_PATH = BODY_FAMILY_ROOT / "humanoid_game_v2.skeleton.json"
 BODY_BUDGET_TRIANGLES = 45_000
-BODY_BUDGET_DRAW_CALLS = 4
+BODY_BUDGET_DRAW_CALLS = 7
 MPFB_AUTHORING_BODY_VERTICES = 19_158
 
 
@@ -64,8 +64,12 @@ for side in ("l", "r"):
 def parse_args() -> argparse.Namespace:
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--family", required=True, choices=("civic_humanoid_v2", "mire_brutish_v1"))
+    parser.add_argument("--family", required=True)
     parser.add_argument("--variant", required=True, choices=("m", "f"))
+    parser.add_argument(
+        "--profile-request",
+        help="Optional generated roster profile request containing a class-specific physique override.",
+    )
     parser.add_argument("--output", required=True)
     parser.add_argument("--review-dir", required=True)
     parser.add_argument("--save-blend")
@@ -79,8 +83,82 @@ def parse_args() -> argparse.Namespace:
 
 def load_recipe(family: str) -> dict:
     path = BODY_FAMILY_ROOT / f"{family}.body-family.json"
-    with path.open(encoding="utf-8") as handle:
-        return json.load(handle)
+    if path.is_file():
+        with path.open(encoding="utf-8") as handle:
+            return json.load(handle)
+
+    policy_path = PIPELINE_ROOT / "data" / "full-roster-policy.json"
+    policy = json.loads(policy_path.read_text(encoding="utf-8"))
+    race, definition = next(
+        ((race_key, value) for race_key, value in policy["bodyFamilies"].items() if value["id"] == family),
+        (None, None),
+    )
+    if not definition:
+        raise RuntimeError(f"Unknown full-roster body family: {family}")
+    variants = {}
+    for variant in ("m", "f"):
+        variants[variant] = {
+            "variant": variant,
+            "profileKey": f"npc_{race}_{variant}",
+            "outputModel": f"body_{family}_{variant}.glb",
+            "expectedHeightM": definition["expectedHeightM"][variant],
+            "mpfbPreset": {
+                "creationApi": "HumanService.create_human",
+                "propertyValues": {
+                    **definition["baseMacros"][variant],
+                    "gender": 1.0 if variant == "m" else 0.0,
+                },
+                "rig": "game_engine",
+                "skinModel": "GAME_ENGINE",
+            },
+            "skin": {
+                "assetPack": "makehuman_system_assets",
+                "assetName": "young_caucasian_male" if variant == "m" else "young_caucasian_female",
+                "tint": definition["skin"][variant],
+            },
+            "customTargets": [],
+            "attachments": {
+                "eyes": "high-poly",
+                "eyebrows": "eyebrow006",
+                "eyelashes": "eyelashes01",
+                "teeth": "teeth_base",
+                "tongue": "tongue01",
+            },
+        }
+    return {
+        "bodyFamily": family,
+        "displayName": definition["displayName"],
+        "race": race,
+        "skeletonId": policy["skeletonId"],
+        "bindPoseId": policy["bindPoseId"],
+        "variants": variants,
+    }
+
+
+def apply_profile_request(family_recipe: dict, variant_recipe: dict, request_path: str | None) -> tuple[dict, dict]:
+    if not request_path:
+        return family_recipe, variant_recipe
+    request = json.loads(Path(request_path).resolve().read_text(encoding="utf-8"))
+    if request.get("bodyFamily") != family_recipe["bodyFamily"]:
+        raise RuntimeError("Roster profile request body family does not match --family")
+    if request.get("bodyVariant") != variant_recipe["variant"]:
+        raise RuntimeError("Roster profile request body variant does not match --variant")
+    merged_variant = {
+        **variant_recipe,
+        "profileKey": request["profileKey"],
+        "expectedHeightM": request["expectedHeightM"],
+        "mpfbPreset": {
+            **variant_recipe["mpfbPreset"],
+            "propertyValues": {
+                **variant_recipe["mpfbPreset"]["propertyValues"],
+                **request["propertyValues"],
+            },
+        },
+        "skin": request.get("skin", variant_recipe["skin"]),
+        "fixtureTargets": request.get("fixtureTargets", variant_recipe.get("fixtureTargets", [])),
+        "grooming": request.get("grooming", variant_recipe.get("grooming", {})),
+    }
+    return {**family_recipe, "profileKey": request["profileKey"]}, merged_variant
 
 
 def clear_scene() -> None:
@@ -150,20 +228,37 @@ def load_checked_targets(human: bpy.types.Object, family_recipe: dict, variant_r
         applied.append({"id": target["id"], "weight": target["weight"], "sha256": actual_hash})
 
     user_targets = Path(LocationService.get_user_data("targets"))
-    common_details = [
-        ("hands/mindfront_hand_fingers_correction.target", 0.70),
-        ("hands/mindfront_hand_thenar_eminence.target", 0.38),
-        ("hands/mindfront_hand_hypothenar.target", 0.32),
-        ("ears/mindfront_ear_details.target", 0.18 if family_recipe["bodyFamily"] == "mire_brutish_v1" else 0.34),
-        ("nose/mindfront_nose_alar_crease.target", 0.20),
-        ("cheek/elvs_high_chubby_cheekbones_1.target", 0.08),
+    fixture_targets = variant_recipe.get("fixtureTargets") or [
+        {"pack": "hands01", "relativePath": "hands/mindfront_hand_fingers_correction.target", "weight": 0.70},
+        {"pack": "hands01", "relativePath": "hands/mindfront_hand_thenar_eminence.target", "weight": 0.38},
+        {"pack": "hands01", "relativePath": "hands/mindfront_hand_hypothenar.target", "weight": 0.32},
+        {"pack": "ears01", "relativePath": "ears/mindfront_ear_details.target", "weight": 0.18 if family_recipe["bodyFamily"] == "mire_brutish_v1" else 0.34},
+        {"pack": "nose01", "relativePath": "nose/mindfront_nose_alar_crease.target", "weight": 0.20},
+        {"pack": "cheek01", "relativePath": "cheek/elvs_high_chubby_cheekbones_1.target", "weight": 0.08},
+        {"pack": "faceunits01", "relativePath": "faceunits/browInnerUp.target", "weight": 0.012},
     ]
-    for relative_path, weight in common_details:
+    for target in fixture_targets:
+        relative_path = target["relativePath"]
+        weight = float(target["weight"])
         path = user_targets / relative_path
         if not path.is_file():
             raise FileNotFoundError(f"Required anatomical detail target is missing: {path}")
-        TargetService.load_target(human, str(path), weight=weight)
-        applied.append({"id": relative_path, "weight": weight, "sha256": sha256(path)})
+        TargetService.load_target(human, str(path), weight=weight, name=f"fixture:{target['pack']}:{path.stem}")
+        applied.append({
+            "id": relative_path,
+            "pack": target["pack"],
+            "weight": weight,
+            "sha256": sha256(path),
+        })
+
+    required_fixture_packs = {"ears01", "hands01", "nose01", "cheek01", "faceunits01"}
+    applied_fixture_packs = {row.get("pack") for row in applied if row.get("pack")}
+    missing_fixture_packs = required_fixture_packs - applied_fixture_packs
+    if missing_fixture_packs:
+        raise RuntimeError(
+            "Body recipe did not exercise every anatomical fixture pack: "
+            + ", ".join(sorted(missing_fixture_packs))
+        )
     return applied
 
 
@@ -229,6 +324,54 @@ def add_natural_body_parts(human: bpy.types.Object) -> list[bpy.types.Object]:
             import_weights=True,
         ))
     return objects
+
+
+def add_grooming(human: bpy.types.Object, variant_recipe: dict) -> tuple[list[bpy.types.Object], list[dict]]:
+    """Fit the installed system grooming proxies selected by the race recipe.
+
+    Earlier roster passes only recorded these names in JSON, so every bare head
+    remained bald and the six races read as the same base human. These proxies
+    are part of the pinned MakeHuman system pack and are now visible geometry.
+    """
+    grooming = variant_recipe.get("grooming") or {}
+    definitions = (
+        ("hair", grooming.get("hair"), "Hair"),
+        ("eyebrows", grooming.get("eyebrows"), "Eyebrows"),
+        ("eyelashes", grooming.get("eyelashes"), "Eyelashes"),
+    )
+    objects = []
+    provenance = []
+    for category, name, asset_type in definitions:
+        if not name:
+            raise RuntimeError(f"Race grooming recipe is missing {category}")
+        source = asset_path(category, name)
+        if not source.is_file():
+            raise FileNotFoundError(f"Required MPFB grooming fixture is missing: {source}")
+        obj = HumanService.add_mhclo_asset(
+            str(source),
+            human,
+            asset_type=asset_type,
+            subdiv_levels=0,
+            material_type="GAMEENGINE",
+            set_up_rigging=True,
+            interpolate_weights=True,
+            import_subrig=False,
+            import_weights=True,
+        )
+        obj.name = f"grooming_{category}_{name}"
+        obj["bodyAccessory"] = True
+        obj["groomingCategory"] = category
+        obj["groomingAsset"] = name
+        obj["requiresAlphaCutout"] = True
+        objects.append(obj)
+        provenance.append({
+            "category": category,
+            "asset": name,
+            "assetPack": "makehuman_system_assets",
+            "path": str(source),
+            "sha256": sha256(source),
+        })
+    return objects, provenance
 
 
 def bake_targets_and_strip_helpers(human: bpy.types.Object) -> dict:
@@ -313,20 +456,23 @@ def prepare_runtime_materials(meshes: list[bpy.types.Object]) -> list[dict]:
                 raise RuntimeError(f"Runtime material has no Principled shader: {material.name}")
             alpha = principled.inputs.get("Alpha")
             removed_links = 0
-            if alpha:
+            alpha_mode = "BLEND" if mesh.get("requiresAlphaCutout") else "OPAQUE"
+            if alpha and alpha_mode == "OPAQUE":
                 for link in list(alpha.links):
                     material.node_tree.links.remove(link)
                     removed_links += 1
                 alpha.default_value = 1.0
             removed_nodes = 0
-            for node in list(material.node_tree.nodes):
-                if node.type == "TEX_IMAGE" and node.name == "AlphaMapTexture" and not node.outputs[0].is_linked:
-                    material.node_tree.nodes.remove(node)
-                    removed_nodes += 1
-            material["runtimeAlphaMode"] = "OPAQUE"
+            if alpha_mode == "OPAQUE":
+                for node in list(material.node_tree.nodes):
+                    if node.type == "TEX_IMAGE" and node.name == "AlphaMapTexture" and not node.outputs[0].is_linked:
+                        material.node_tree.nodes.remove(node)
+                        removed_nodes += 1
+            material["runtimeAlphaMode"] = alpha_mode
             audited.append({
+                "mesh": mesh.name,
                 "material": material.name,
-                "alphaMode": "OPAQUE",
+                "alphaMode": alpha_mode,
                 "removedAlphaLinks": removed_links,
                 "removedDuplicateAlphaNodes": removed_nodes,
             })
@@ -532,10 +678,11 @@ def add_sockets(rig: bpy.types.Object) -> list[bpy.types.Object]:
 
 def set_metadata(objects: list[bpy.types.Object], family_recipe: dict, variant_recipe: dict) -> None:
     metadata = {
-        "assetId": f"body_{family_recipe['bodyFamily']}_{variant_recipe['variant']}",
+        "assetId": f"body.{variant_recipe['profileKey'].replace('.', '_')}",
         "assetCategory": "characterBody",
         "bodyFamily": family_recipe["bodyFamily"],
         "bodyVariant": variant_recipe["variant"],
+        "profileKey": variant_recipe["profileKey"],
         "skeletonId": family_recipe["skeletonId"],
         "bindPoseId": family_recipe["bindPoseId"],
         "generatorKind": "mpfbBodyFamily",
@@ -676,14 +823,19 @@ def embedded_material_audit(output: Path) -> list[dict]:
     payload = output.read_bytes()
     json_length = int.from_bytes(payload[12:16], "little")
     document = json.loads(payload[20:20 + json_length].rstrip(b" \t\r\n\0").decode("utf-8"))
-    return [
-        {
+    rows = []
+    for material in document.get("materials", []):
+        pbr = material.get("pbrMetallicRoughness", {})
+        has_texture = "baseColorTexture" in pbr
+        rows.append({
             "name": material.get("name"),
             "alphaMode": material.get("alphaMode", "OPAQUE"),
-            "hasBaseColorTexture": "baseColorTexture" in material.get("pbrMetallicRoughness", {}),
-        }
-        for material in document.get("materials", [])
-    ]
+            "hasBaseColorTexture": has_texture,
+            # glTF's default baseColorFactor is a valid scalar PBR source for
+            # untextured teeth/tusks; a texture is not mandatory for that part.
+            "baseColorSource": "texture" if has_texture else "material_factor",
+        })
+    return rows
 
 
 def write_qc(
@@ -699,6 +851,7 @@ def write_qc(
     helper_stripping: dict,
     roundtrip_audit: dict,
     authoring_source: dict,
+    grooming_provenance: list[dict],
 ) -> dict:
     depsgraph = bpy.context.evaluated_depsgraph_get()
     mesh_rows = []
@@ -721,6 +874,11 @@ def write_qc(
     required_clips = [clip["name"] for clip in animation_audit["clips"]]
     missing_required_clips = sorted(set(required_clips) - set(animation_clips))
     runtime_materials = embedded_material_audit(output)
+    alpha_fixture_materials = {
+        row["material"]
+        for row in material_preparation
+        if row["alphaMode"] != "OPAQUE"
+    }
     checks = {
         "modelExists": output.is_file(),
         "triangleBudget": total_triangles <= BODY_BUDGET_TRIANGLES,
@@ -731,10 +889,13 @@ def write_qc(
         "reviewViewsPresent": len(previews) == 4 and all(Path(row["path"]).is_file() for row in previews),
         "skinSourcePresent": skin.is_file(),
         "requiredAnimationClipsEmbedded": animation_clips == sorted(required_clips),
-        "runtimeMaterialsOpaque": bool(runtime_materials) and all(
-            row["alphaMode"] == "OPAQUE" and row["hasBaseColorTexture"]
+        "runtimeBodyMaterialsOpaque": bool(runtime_materials) and all(
+            row["alphaMode"] == "OPAQUE"
             for row in runtime_materials
+            if row["name"] not in alpha_fixture_materials
         ),
+        "groomingFixturesPresent": len(grooming_provenance) == 3
+        and all(Path(row["path"]).is_file() for row in grooming_provenance),
         "roundTripBindPose": roundtrip_audit["passed"],
         "authoringTopologyStable": authoring_source["bodyVertices"] == MPFB_AUTHORING_BODY_VERTICES,
     }
@@ -767,6 +928,7 @@ def write_qc(
         "meshes": mesh_rows,
         "targets": applied_targets,
         "skin": {"path": str(skin), "sha256": sha256(skin)},
+        "grooming": grooming_provenance,
         "previews": previews,
         "animationClips": animation_clips,
         "requiredAnimationClips": required_clips,
@@ -787,6 +949,11 @@ def main() -> None:
     args = parse_args()
     family_recipe = load_recipe(args.family)
     variant_recipe = family_recipe["variants"][args.variant]
+    family_recipe, variant_recipe = apply_profile_request(
+        family_recipe,
+        variant_recipe,
+        args.profile_request,
+    )
     clear_scene()
     human = create_scaled_human(variant_recipe)
     human.name = f"body_{args.family}_{args.variant}"
@@ -796,7 +963,8 @@ def main() -> None:
     if not rig:
         raise RuntimeError("MPFB failed to create the game-engine rig")
     body_parts = add_natural_body_parts(human)
-    meshes = [human, *body_parts]
+    grooming, grooming_provenance = add_grooming(human, variant_recipe)
+    meshes = [human, *body_parts, *grooming]
     canonicalize_rig(rig, meshes)
     if args.family == "mire_brutish_v1":
         join_tusks_into_teeth(create_tusks(human, rig, body_parts[1]), body_parts[1])
@@ -854,6 +1022,7 @@ def main() -> None:
         helper_stripping,
         roundtrip_audit,
         authoring_source,
+        grooming_provenance,
     )
     print("[real-character] " + json.dumps({
         "assetId": report["assetId"],

@@ -1472,16 +1472,53 @@ function trainingDummy(node, suffix, name, x, z, level, maxHealth) {
 }
 
 function fieldBeastName(node) {
-  if (/fen|mire|bleakroot|glassriver/i.test(node.theme)) return 'Mire Hound';
-  if (/forest|ironwood|gorepine|briar/i.test(node.theme)) return 'Wild Stag';
-  if (/obsidian|ash|cinder|rift|scar/i.test(node.theme)) return 'Ash Hound';
-  return 'War Boar';
+  return creatureNameFor(node, 'field');
 }
 
 function lairBeastName(node) {
-  if (/nest|rot|mire|fen/i.test(node.theme)) return 'Lair Spider';
-  if (/ash|cinder|obsidian|rift|night/i.test(node.theme)) return 'Rift Hound';
-  return 'Barrow Wolf';
+  return creatureNameFor(node, 'lair');
+}
+
+function creatureNameFor(node, placement) {
+  const realmRoster = creatureBiomeRosters()[node.realm];
+  const biome = /fen|mire|glassriver|rot|bleakroot/i.test(`${node.id} ${node.theme}`)
+    ? 'wetland'
+    : /forest|ironwood|gorepine|briar|wood/i.test(`${node.id} ${node.theme}`)
+      ? 'woodland'
+      : 'highland';
+  if (node.realm === 'aegis' && biome === 'woodland') {
+    if (/briar|ironwood/i.test(`${node.id} ${node.theme}`)) return 'Briarback Bear';
+    if (/gorepine/i.test(`${node.id} ${node.theme}`)) return 'Wild Stag';
+    return 'Barrow Wolf';
+  }
+  if (node.realm === 'aegis' && biome === 'highland' && /highvale/i.test(node.id)) return 'Wild Stag';
+  const candidates = realmRoster[biome];
+  const offset = placement === 'lair' ? 1 : 0;
+  return candidates[(stableNameHash(`${node.id}:${placement}`) + offset) % candidates.length];
+}
+
+function creatureBiomeRosters() {
+  return {
+    aegis: {
+      wetland: ['Glassriver Snapper', 'Suncrest Ram', 'War Boar'],
+      woodland: ['Briarback Bear', 'Wild Stag', 'Barrow Wolf'],
+      highland: ['Suncrest Ram', 'War Boar', 'Barrow Wolf'],
+    },
+    riftbound: {
+      wetland: ['Rotmaw Toad', 'Lair Spider', 'Mire Hound'],
+      woodland: ['Mire Hound', 'Rift Hound', 'Rotmaw Toad'],
+      highland: ['Cinderhide Drake', 'Ash Hound', 'Rift Hound'],
+    },
+  };
+}
+
+function stableNameHash(value) {
+  let hash = 2166136261;
+  for (const character of value) {
+    hash ^= character.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 function enemy(node, suffix, name, x, z, level, maxHealth, extra = {}) {
@@ -1501,7 +1538,7 @@ function enemy(node, suffix, name, x, z, level, maxHealth, extra = {}) {
 }
 
 function inferEnemyArchetype(suffix, name) {
-  if (/beast|hound|stag|boar|spider|wolf/i.test(`${suffix} ${name}`)) return 'beast';
+  if (/beast|hound|stag|boar|spider|wolf|bear|ram|snapper|drake|toad/i.test(`${suffix} ${name}`)) return 'beast';
   if (/caster|hexer|cultist|sage|magister|adept/i.test(`${suffix} ${name}`)) return 'caster';
   if (/captain|overlord/i.test(`${suffix} ${name}`)) return 'captain';
   if (/guard|sentinel/i.test(`${suffix} ${name}`)) return 'guard';

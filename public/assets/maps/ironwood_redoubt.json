@@ -2211,7 +2211,7 @@
     },
     {
       "id": "ironwood_redoubt_beast_1",
-      "name": "Wild Stag",
+      "name": "Briarback Bear",
       "level": 18,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_wild_stag"
+      "assetKey": "creature_briarback_bear"
     },
     {
       "id": "ironwood_redoubt_beast_2",
-      "name": "Wild Stag",
+      "name": "Briarback Bear",
       "level": 18,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_wild_stag"
+      "assetKey": "creature_briarback_bear"
     }
   ],
   "resourceNodes": [
@@ -2796,5 +2796,5 @@
       ]
     }
   ],
-  "staticMapHash": "caccfbfe85713185"
+  "staticMapHash": "ad05444990fa7c8c"
 }

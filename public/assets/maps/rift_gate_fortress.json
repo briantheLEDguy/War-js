@@ -2134,7 +2134,7 @@
     },
     {
       "id": "rift_gate_fortress_beast_1",
-      "name": "Ash Hound",
+      "name": "Cinderhide Drake",
       "level": 40,
       "x": -102,
       "z": -52,
@@ -2145,11 +2145,11 @@
       "preferredRange": 1.9,
       "attackDamage": 88,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_cinderhide_drake"
     },
     {
       "id": "rift_gate_fortress_beast_2",
-      "name": "Ash Hound",
+      "name": "Cinderhide Drake",
       "level": 40,
       "x": 102,
       "z": -52,
@@ -2160,7 +2160,7 @@
       "preferredRange": 1.9,
       "attackDamage": 88,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_cinderhide_drake"
     },
     {
       "id": "rift_gate_fortress_captain",
@@ -2586,5 +2586,5 @@
       ]
     }
   ],
-  "staticMapHash": "5b90f9e457df9675"
+  "staticMapHash": "101add5156f5c543"
 }

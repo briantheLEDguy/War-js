@@ -2134,7 +2134,7 @@
     },
     {
       "id": "aegis_gate_fortress_beast_1",
-      "name": "War Boar",
+      "name": "Suncrest Ram",
       "level": 40,
       "x": -102,
       "z": -52,
@@ -2145,11 +2145,11 @@
       "preferredRange": 1.9,
       "attackDamage": 88,
       "moveSpeed": 3.85,
-      "assetKey": "creature_war_boar"
+      "assetKey": "creature_suncrest_ram"
     },
     {
       "id": "aegis_gate_fortress_beast_2",
-      "name": "War Boar",
+      "name": "Suncrest Ram",
       "level": 40,
       "x": 102,
       "z": -52,
@@ -2160,7 +2160,7 @@
       "preferredRange": 1.9,
       "attackDamage": 88,
       "moveSpeed": 3.85,
-      "assetKey": "creature_war_boar"
+      "assetKey": "creature_suncrest_ram"
     },
     {
       "id": "aegis_gate_fortress_captain",
@@ -2588,5 +2588,5 @@
       ]
     }
   ],
-  "staticMapHash": "cabb246f9525c00f"
+  "staticMapHash": "4b98b7c116bedf1f"
 }

@@ -5,43 +5,44 @@ in `deep-research-report.md` is the source of truth for this pipeline:
 blueprints and metadata drive generation, Blender object names are labels, and
 generated asset IDs/filenames/GLTF extras stay neutral and IP-safe.
 
-## Free Real-Character Pilot
+## Free Full-Roster Model Stage
 
-The Battle Prelate and Warbrute pilot is a separate, zero-cost path for natural
-humanoid bodies. It uses Blender and MPFB locally. It does not configure Meshy,
-does not require an API key, and does not make paid or remote generation calls.
-The checked-in policy fixes the currency budget at zero and prohibits generation
-in CI.
+The full roster is a zero-cost local path for natural humanoids and rig-ready
+creatures. It uses Blender and MPFB locally. It does not configure a hosted
+model provider, require an API key, or make paid/remote generation calls. The
+checked-in policy fixes the currency budget at zero and prohibits generation in
+CI.
 
 The pilot specification lives under `data/body-families/`:
 
-- `civic_humanoid_v2.body-family.json` defines deterministic male and female
-  Battle Prelate MPFB presets.
-- `mire_brutish_v1.body-family.json` defines deterministic male and female
-  Warbrute presets backed by hashed, original ear, brow, jaw, and tusk targets.
+- The six `*.body-family.json` files define deterministic male/female Empire,
+  Dwarf, High Elf, Chaos, Greenskin, and Dark Elf MPFB foundations.
+- `mire_brutish_v1.body-family.json` is backed by hashed, original ear, brow,
+  jaw, and tusk targets derived from pinned CC0 sources.
 - `humanoid_game_v2.skeleton.json` defines the 56-bone canonical skeleton,
   `a_pose_v2`, and root, hand, and back sockets.
-- `pilot-policy.json` defines the nine armor slots, four-body/36-module
-  deliverable, animation list, review sheets, and QC budgets.
+- `pilot-policy.json` defines the six-family topology, nine armor slots, and QC
+  budgets used by the MPFB generators.
+- `../full-roster-policy.json` defines the 48 generation groups, shared weapon
+  handling, 106 NPC combinations, twelve creatures, LOD gates, and model-stage
+  approval requirements.
 - `free-toolchain.json` pins the local dependencies, official asset-pack URLs,
   licenses, and SHA-256 values.
 - `templates/*.provenance.template.json` records local inputs, exact revisions,
   prompts/references when applicable, source hashes, licenses, QC, and review
   state. A template is never approval evidence.
 
-Every body recipe remains `promotionEligible: false`. A local Battle Prelate
-male body and nine-slot equipped candidate can now be reproduced under the
-ignored `artifacts/model-jobs/` tree, but it is still a draft rather than an
-approved runtime asset. Generated output stays outside the runtime index until
-its content hashes match its QC and review artifacts and a reviewer explicitly
-approves it. Missing or rejected bodies continue through the game's existing
-Three.js fallback path.
+Every body recipe remains `promotionEligible: false`. Draft revisions stay in
+ignored `artifacts/model-jobs/roster-runs/`. Model approval copies a hash-bound
+bundle to `authoring/approved/model-stage/` but never changes the runtime index.
+Animation packs and lower LODs are later gates. Missing, blocked, or rejected
+models continue through the game's existing Three.js fallback path.
 
 ### Free toolchain setup
 
-The real-character path requires:
+The roster path requires:
 
-- Blender 4.2 or newer.
+- Blender 5.x (5.0.0 or newer).
 - MPFB exactly 2.0.16, installed from Blender's extension platform.
 - The CC0 MakeHuman system, Skins 03, Ears 01, Hands 01, Nose 01, Cheek 01,
   and Faceunits 01 packs from the official MakeHuman Community asset-pack page.
@@ -88,8 +89,8 @@ hosted endpoint.
 
 ## Legacy Manifest Pipeline Prerequisites
 
-- Blender 5.0 or a compatible 3.6+ install for retained non-pilot generators.
-  The MPFB real-character pilot above requires Blender 4.2+.
+- Blender 5.x for the full-roster generators. Retained non-character generators
+  may still work on older compatible Blender releases but are outside this gate.
 - Node.js 18+.
 - MCP server dependencies in `mcp-server/` when using Codex tools.
 
@@ -130,6 +131,10 @@ npm run models:validate
 npm run models:validate:strict
 npm run models:doctor
 npm run models:cleanup-proxies:check
+npm run models:cleanup-roster
+npm run models:roster -- --smoke --run-id full-roster-smoke-v1 --resume
+npm run models:roster -- --all --run-id full-roster-v2 --resume
+npm run models:roster -- --kind creature --key barrow_wolf --revision next
 npm run models:registry
 npm run models:assemble-battle-prelate
 npm run models:audit-clearance
@@ -140,6 +145,11 @@ npm run models:all -- equipment
 npm run models:all -- weapons
 npm run models:all -- jewels
 ```
+
+`models:roster` performs a strict doctor preflight before creating any revision,
+runs the selected groups sequentially, records blocked failures without
+stopping later groups, and emits a consolidated run report. The hidden local
+review screen is `/?modelReview=roster`; its approvals remain authoring-only.
 
 `models:generate` accepts an identifier for an active compatibility-allowlisted
 non-character manifest. The old playable/NPC character sync commands are
@@ -154,6 +164,7 @@ Generated artifacts:
 - Approved runtime GLB: `public/assets/models/<neutral_name>.glb`
 - Approved QC sidecar with matching hash: `public/assets/models/<neutral_name>.qc.json`
 - Draft source, preview, and QC artifacts: `artifacts/model-jobs/<job>/`
+- Model-stage-approved authoring bundles: `authoring/approved/model-stage/<kind>/<key>/`
 - Approved-only runtime resolver: `public/assets/models/asset-index.json`
 
 The `artifacts/` tree is ignored and disposable. Delete it during repo cleanup
@@ -211,6 +222,8 @@ The free character pilot uses these review-gated entrypoints:
 - `generate_mpfb_body.py` for topology-stable anatomical bodies and canonical rigging.
 - `generate_mpfb_modular_armor.py` for the fitted nine-slot local armor set.
 - `generate_weapon_attachment_pilot.py` for socketed melee attachments.
+- `generate_roster_review_assets.py` for the shared review weapon suite and
+  rigged LOD0 creature bodies with contact/attack markers and deformation evidence.
 - `assemble_runtime_equipped_review.py` for clean-body runtime assembly and bind/idle round-trip evidence.
 
 ### Reusable animation profiles

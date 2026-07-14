@@ -103,8 +103,7 @@ export class Player {
     const primitive = () => buildCharacterMesh(this.character.race, this.character.className);
 
     const { object: loadedObject, animations } = await loader.loadModelFull(indexedModel, primitive);
-    this.usesCompleteCharacterVisual = !playableAsset
-      || characterAsset?.equipmentMode === 'assembled';
+    this.usesCompleteCharacterVisual = !playableAsset;
     this.object = wrapStaticPlayerVisual(loadedObject);
     prepareLoadedPlayerObject(this.object);
     this.playerSkeleton = findFirstSkeleton(this.object);

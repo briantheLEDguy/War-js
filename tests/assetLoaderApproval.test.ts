@@ -1,11 +1,4 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import {
-  BATTLE_PRELATE_DEVELOPMENT_MODEL,
-  BATTLE_PRELATE_DEVELOPMENT_REVISION,
-  BATTLE_PRELATE_DEVELOPMENT_ROUTE,
-  BATTLE_PRELATE_DEVELOPMENT_SHA256,
-  developmentCharacterAssetFor,
-} from '../src/config/developmentModelCandidates';
 import { AssetLoader } from '../src/game/AssetLoader';
 
 type TestAssetIndex = {
@@ -111,82 +104,6 @@ describe('approval-aware character model resolution', () => {
     await expect(loader.resolveCharacterModel('pendingLegacy')).resolves.toBeNull();
     await expect(loader.resolveCharacterModel('missing')).resolves.toBeNull();
     await expect(loader.resolveCharacterModel('not-indexed')).resolves.toBeNull();
-  });
-});
-
-describe('development-only assembled character integration', () => {
-  test('selects only the current male Battle Prelate candidate in development mode', () => {
-    expect(developmentCharacterAssetFor('civic_battle_prelate_m', 'm', true)).toMatchObject({
-      assetId: expect.stringContaining(`.${BATTLE_PRELATE_DEVELOPMENT_REVISION}`),
-      model: BATTLE_PRELATE_DEVELOPMENT_MODEL,
-      bodyFamily: 'civic_humanoid_v2',
-      bodyVariant: 'm',
-      skeletonId: 'humanoid_game_v2',
-      bindPoseId: 'a_pose_v2',
-      developmentOnly: true,
-      equipmentMode: 'assembled',
-    });
-    expect(BATTLE_PRELATE_DEVELOPMENT_ROUTE).toBe(`/${BATTLE_PRELATE_DEVELOPMENT_MODEL}`);
-    expect(BATTLE_PRELATE_DEVELOPMENT_SHA256).toMatch(
-      /^(?:[a-f0-9]{64}|__REPLACE_WITH_BATTLE_PRELATE_V20_SHA256__)$/u,
-    );
-    expect(developmentCharacterAssetFor('civic_battle_prelate_m', 'f', true)).toBeNull();
-    expect(developmentCharacterAssetFor('civic_battle_prelate_f', 'f', true)).toBeNull();
-  });
-
-  test('cannot select the candidate when development mode is disabled', () => {
-    expect(developmentCharacterAssetFor('civic_battle_prelate_m', 'm', false)).toBeNull();
-  });
-
-  test('uses the virtual development route without changing registry approval state', async () => {
-    installAssetFetch({
-      schemaVersion: 2,
-      characterProfiles: {
-        civic_battle_prelate_m: {
-          assetId: 'chr.unapproved',
-          model: 'must-not-load.glb',
-          lifecycleStatus: 'review',
-          runtimeReady: false,
-        },
-      },
-    }, [BATTLE_PRELATE_DEVELOPMENT_MODEL.split('/').at(-1) ?? '']);
-
-    const resolution = await new AssetLoader().resolveCharacterAsset(
-      'civic_battle_prelate_m',
-      'm',
-    );
-
-    expect(resolution).toMatchObject({
-      model: BATTLE_PRELATE_DEVELOPMENT_MODEL,
-      developmentOnly: true,
-      equipmentMode: 'assembled',
-    });
-    const fetchMock = vi.mocked(fetch);
-    expect(fetchMock.mock.calls.some(([input]) => (
-      String(input).includes(BATTLE_PRELATE_DEVELOPMENT_ROUTE)
-    ))).toBe(true);
-    expect(fetchMock.mock.calls.some(([input]) => String(input).includes('must-not-load.glb'))).toBe(false);
-  });
-
-  test('falls through to approval-aware resolution when the pinned route is unavailable', async () => {
-    installAssetFetch({
-      schemaVersion: 2,
-      characterProfiles: {
-        civic_battle_prelate_m: {
-          assetId: 'chr.approved',
-          model: 'approved-published.glb',
-          bodyVariant: 'm',
-          lifecycleStatus: 'approved',
-          reviewStatus: 'approved',
-          runtimeReady: true,
-        },
-      },
-    }, ['approved-published.glb']);
-
-    await expect(new AssetLoader().resolveCharacterModel(
-      'civic_battle_prelate_m',
-      'm',
-    )).resolves.toBe('approved-published.glb');
   });
 });
 

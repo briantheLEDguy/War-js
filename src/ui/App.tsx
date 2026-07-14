@@ -23,8 +23,8 @@ export function App() {
 
   return (
     <div className="app-root">
-      {modelReview === 'battle-prelate' && <ModelReviewScreen />}
-      {modelReview !== 'battle-prelate' && <>
+      {modelReview === 'roster' && <ModelReviewScreen />}
+      {modelReview !== 'roster' && <>
       {screen === 'login' && <LoginScreen />}
       {screen === 'character-select' && <CharacterSelectScreen />}
       {screen === 'world' && <GameScreen />}

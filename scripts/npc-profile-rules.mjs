@@ -1,9 +1,14 @@
 export const CREATURE_ASSET_KEYS = {
   'Ash Hound': 'creature_ash_hound',
   'Barrow Wolf': 'creature_barrow_wolf',
+  'Briarback Bear': 'creature_briarback_bear',
+  'Cinderhide Drake': 'creature_cinderhide_drake',
+  'Glassriver Snapper': 'creature_glassriver_snapper',
   'Lair Spider': 'creature_lair_spider',
   'Mire Hound': 'creature_mire_hound',
   'Rift Hound': 'creature_rift_hound',
+  'Rotmaw Toad': 'creature_rotmaw_toad',
+  'Suncrest Ram': 'creature_suncrest_ram',
   'War Boar': 'creature_war_boar',
   'Wild Stag': 'creature_wild_stag',
 };

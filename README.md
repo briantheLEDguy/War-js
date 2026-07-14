@@ -25,6 +25,8 @@ npm run typecheck
 npm run world:validate
 npm run models:doctor
 npm run models:cleanup-proxies:check
+npm run models:cleanup-roster
+npm run models:roster -- --all --run-id full-roster-v2 --resume
 npm run build
 npm run models:validate
 ```
@@ -79,6 +81,7 @@ scripts/
   blender-character-pipeline/
     data/asset-blueprints/ Manifest-first model blueprints
     data/body-families/  Free MPFB body/skeleton/pilot definitions
+    data/full-roster-policy.json Playable/NPC/creature model-stage contract
     data/external-imports.json Quarantined external-source inventory
     data/asset-blueprint.schema.json
     data/npc-character-roster.json Generated NPC/enemy profile style data
@@ -412,78 +415,73 @@ incompatible models are skipped and use the existing Three.js fallback path.
 The fallback counter is visible in the debug overlay. Missing assets must never
 hard-fail the browser.
 
-## Free Reviewed Character Pipeline
+## Full Roster Model-Stage Pipeline
 
-Character generation is local-only and has a currency budget of zero. Blender
-plus MPFB 2.0.16 creates stable-topology anatomical bodies; pinned CC0 asset
-packs supply skin and facial detail. Original project targets derive the
-Greenskin family from the same topology. No Meshy key, paid API, remote model
-generation, or CI generation is used.
+Character and creature generation is local-only with a currency budget of
+zero. Blender 5.x plus MPFB 2.0.16 creates the six stable-topology humanoid
+families; pinned CC0 MakeHuman packs supply fitted source clothing and anatomy.
+Original project targets derive the Greenskin family. No paid provider, hosted
+generator, remote model service, or CI generation path is allowed.
 
-The pilot also pins the official CC0 `suits02`, `hats02`, `gloves01`, and
-`equipment01` packs. A local-only in-game review route loads the current draft
-Battle Prelate male body, nine armor modules, hammer, and embedded animation
-clips directly from ignored job artifacts without adding it to the approved
-runtime registry:
+`scripts/blender-character-pipeline/data/full-roster-policy.json` and the
+compiled roster contract define 48 resumable groups: 24 playable class pairs
+(48 appearances and 432 nine-slot T1 modules), 12 race/body NPC foundations
+covering 74 static NPC plus 32 humanoid-enemy combinations, and 12 rig-ready
+creatures. Every humanoid uses `humanoid_game_v2`, both hand sockets, and the
+shared review-only one-handed pair/two-handed weapon suite. Creatures declare a
+body-plan skeleton plus root, ground-contact, attack-origin, and hit-center
+markers. This phase produces LOD0 and model-stage evidence only.
+
+Run the exact preflight and batch commands from the repository root:
+
+```bash
+npm run models:doctor -- --strict
+npm run models:cleanup-roster                 # dry-run
+npm run models:cleanup-roster -- --apply      # exact manifest targets only
+npm run models:roster -- --smoke --run-id full-roster-smoke-v1 --resume
+npm run models:roster -- --all --run-id full-roster-v2 --resume
+npm run models:roster -- --kind playable --key battle_prelate --revision next
+```
+
+The full command checks the strict doctor before creating revisions. A missing
+MPFB installation, retained CC0 pack, source target, or matching source hash
+creates a consolidated preflight-blocked report without partially starting the
+batch. Once ready, groups run sequentially, failures are recorded as blocked,
+and later groups continue. Revision seeds deterministically vary bounded fit,
+wear, material, and silhouette details while preserving the class/species brief.
+`ready_for_review` means the generated LOD0 bundle and its automated QC evidence
+passed; it does not mean a reviewer approved the model. A clean resume of a
+finished run reports all 48 groups as skipped and zero groups as blocked.
+
+Start Vite and open the local authoring queue:
 
 ```bash
 npm run dev
-# open http://localhost:5173/?modelReview=battle-prelate
+# open http://localhost:5173/?modelReview=roster
 ```
 
-The review route exposes all nine canonical clips as live controls, with pause
-and auto-rotation toggles. A geometry-only acceptance is stored as a separate
-hash-bound phase record and remains `promotionEligible: false`; it does not
-stand in for the final materials, clipping, stress-pose, and animation review.
+The Classes, NPCs, and Creatures tabs provide item/version navigation,
+male/female class review, bare/equipped views, turntable and stress evidence,
+all three humanoid weapon modes, QC status, and Approve/Disapprove/Regenerate.
+Disapproval requires notes. Mutations require an ephemeral same-origin token;
+artifacts are resolved only through selected manifest indexes and re-hashed
+before streaming or approval.
 
-While `npm run dev` is active, the normal male Battle Prelate character preview
-and world-player path also loads the exact v19 assembled candidate from its
-ignored job artifact. The Vite-only virtual route verifies SHA-256
-`02e44d3ae6192682de93cd15bd9441d75c5c55173f3e7c1a41099b79ae6ffc4a`
-before serving it and treats its armor and hammer as already assembled, so the
-runtime does not stack modular equipment on top. This development integration
-does not add the GLB to `public/`, does not modify the approved registry, and is
-absent from production builds. A missing or changed candidate falls through to
-the normal approval-aware resolver and existing fallback behavior. When an
-assembled character provides the mapped authored GLB clip, that clip owns its
-embedded weapon transforms; procedural weapon motion is limited to separately
-equipped overlays. Characters without the mapped clip retain the procedural
-fallback, and imported weapon hierarchies mark only their highest attachment
-root so descendant meshes are never double-driven.
+Approval freezes the exact hash-bound model-stage bundle under
+`authoring/approved/model-stage/` (GLBs use Git LFS), records lightweight audit
+history, and removes only unselected revisions for that item in the same run.
+It never changes `public/assets/models/asset-index.json`. `runtimeEligible`
+remains false until later LOD and animation approval. The later phase will add
+24 unique nine-clip class packs retargeted to both variants, class plus role
+overlays for humanoid NPCs, and one unique pack per creature species. Current
+stress poses are QA evidence and cannot satisfy animation approval.
 
-```bash
-npm run models:doctor
-npm run models:assemble-battle-prelate
-npm run models:audit-clearance
-npm run models:validate
-npm run models:validate:strict
-npm run models:registry
-npm run models:cleanup-proxies:check
-```
-
-`models:assemble-battle-prelate` is the zero-cost reproducible review command.
-It uses the doctor-discovered Blender executable, the verified runtime body,
-the nine contoured colored v18 draft modules, including a curved belt and a
-shoulder-attached folded cape with waist clearance, plus a socketed hammer;
-bone-relative sleeve/gauntlet and trouser/boot trims preserve short hidden
-underlaps without leaving both garments in the same visible space;
-earlier iterations remain ignored review history. It emits ignored draft
-artifacts only and fails unless the re-imported GLB has one canonical rig/skin,
-all nine clips and modules, and stable bind-to-idle bounds. Paths can be
-overridden with `--body=`, `--modules=`, `--hammer=`, `--output=`,
-`--review-dir=`, and `--report=`; use `--dry-run --json` to inspect the plan.
-
-Long operations run inside ignored `artifacts/model-jobs/` directories with
-locks, cancellation, structured errors, hash-bound QC, and atomic publication.
-Runtime registry entries are compiled only from explicitly approved manifests.
-The retired playable/NPC sync commands fail intentionally so proxy characters
-and armor cannot be recreated.
-
-The local MCP exposes `create_body_family`, `ingest_generated_candidate`,
-`build_modular_set`, `validate_model_asset`, `render_model_review`,
-`get_model_job`, `cancel_model_job`, `record_model_review`, and
-`promote_model_set`. Promotion requires matching hashes plus explicit body,
-equipped, and animation review; draft output is never mapped into gameplay.
+Historical static creature GLBs, QC files, blueprints, compatibility entries,
+and the hard-coded Battle Prelate development route have been removed. The 60
+beast placements actually present in the canonical 32-map campaign source keep
+their IDs, levels, and coordinates while being redistributed across the six
+Aegis and six Riftbound species. Missing/unapproved assets continue through the
+existing Three.js primitive fallback path.
 
 ## World Data
 
@@ -797,6 +795,8 @@ The workflow builds with `vite --base=/War-js/`; runtime asset paths must use
 | `npm run models:validate:strict` | Enforce approval, hashes, previews, PBR, rig, topology, and clip evidence |
 | `npm run models:registry` | Compile the deterministic approved-only runtime registry |
 | `npm run models:cleanup-proxies:check` | Confirm removed proxy assets cannot return |
+| `npm run models:cleanup-roster` | Dry-run the exact manifest-driven historical roster cleanup; add `-- --apply` to execute |
+| `npm run models:roster -- --all --run-id <id> --resume` | Run or resume all 48 model-stage generation groups after strict preflight |
 
 ## License
 

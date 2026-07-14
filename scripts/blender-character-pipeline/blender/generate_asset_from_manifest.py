@@ -40,13 +40,6 @@ STATIC_PRESETS = {
     "preview_blight_shrub": "preview_blight_shrub",
     "preview_jagged_stone": "preview_jagged_stone",
     "preview_dreary_reeds": "preview_dreary_reeds",
-    "creature_ash_hound": "creature_ash_hound",
-    "creature_barrow_wolf": "creature_barrow_wolf",
-    "creature_lair_spider": "creature_lair_spider",
-    "creature_mire_hound": "creature_mire_hound",
-    "creature_rift_hound": "creature_rift_hound",
-    "creature_war_boar": "creature_war_boar",
-    "creature_wild_stag": "creature_wild_stag",
 }
 
 

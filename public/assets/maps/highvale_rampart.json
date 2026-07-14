@@ -2211,7 +2211,7 @@
     },
     {
       "id": "highvale_rampart_beast_1",
-      "name": "War Boar",
+      "name": "Wild Stag",
       "level": 18,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_war_boar"
+      "assetKey": "creature_wild_stag"
     },
     {
       "id": "highvale_rampart_beast_2",
-      "name": "War Boar",
+      "name": "Wild Stag",
       "level": 18,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_war_boar"
+      "assetKey": "creature_wild_stag"
     }
   ],
   "resourceNodes": [
@@ -2780,5 +2780,5 @@
       ]
     }
   ],
-  "staticMapHash": "0e326d9e3d676e20"
+  "staticMapHash": "e9642d0bee0d869a"
 }

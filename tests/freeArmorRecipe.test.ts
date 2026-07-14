@@ -43,7 +43,7 @@ describe("free pilot armor recipes", () => {
 
   it("writes Blender 5 generated-image pixels only after setting color space", () => {
     const createImage = generatorSource.match(
-      /def create_image[\s\S]*?\n\ndef gltf_occlusion_group/u,
+      /def create_image[\s\S]*?\r?\n\r?\ndef gltf_occlusion_group/u,
     )?.[0];
     expect(createImage).toBeDefined();
     expect(createImage!.indexOf("image.colorspace_settings.name = colorspace")).toBeLessThan(
