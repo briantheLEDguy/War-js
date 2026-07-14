@@ -20,6 +20,14 @@ import {
   HOTBAR_SLOT_COUNT,
   type AbilityResourceState,
 } from '../game/abilities/abilityData';
+import type { CampaignLane } from '../data/campaign';
+import {
+  campaignMapLevelIn,
+  campaignMapLevelOut,
+  campaignRouteForZone,
+  defaultCampaignMapZone,
+  type CampaignMapLevel,
+} from '../ui/hud/campaignMapModel';
 import type {
   CharacterState,
   CharacterSummary,
@@ -375,13 +383,17 @@ interface GameStore {
 
   // ------- world map -------
   worldMapOpen: boolean;
+  worldMapLevel: CampaignMapLevel;
+  worldMapZoneId: string;
+  worldMapRouteLane: CampaignLane;
   setWorldMapOpen: (b: boolean) => void;
+  openWorldMap: (level?: CampaignMapLevel, zoneId?: string | null) => void;
   toggleWorldMap: () => void;
-
-  // ------- campaign -------
-  campaignOpen: boolean;
-  setCampaignOpen: (b: boolean) => void;
-  toggleCampaign: () => void;
+  openCampaignMap: () => void;
+  setWorldMapLevel: (level: CampaignMapLevel) => void;
+  setWorldMapZoneId: (zoneId: string) => void;
+  zoomWorldMapIn: (zoneId: string) => void;
+  zoomWorldMapOut: () => void;
 
   // ------- settings -------
   settingsOpen: boolean;
@@ -679,19 +691,65 @@ export const useGameStore = create<GameStore>((set, get) => ({
       settingsOpen: worldMapOpen ? false : s.settingsOpen,
       wikiOpen: worldMapOpen ? false : s.wikiOpen,
     })),
+  worldMapLevel: 'zone',
+  worldMapZoneId: 'aegis_capital',
+  worldMapRouteLane: 'central',
+  openWorldMap: (level = 'zone', requestedZoneId = null) =>
+    set((s) => {
+      const zoneId = defaultCampaignMapZone(
+        requestedZoneId ?? s.character?.zoneId ?? s.worldMapZoneId,
+      );
+      return {
+        worldMapOpen: true,
+        worldMapLevel: level,
+        worldMapZoneId: zoneId,
+        worldMapRouteLane: campaignRouteForZone(zoneId).lane,
+        settingsOpen: false,
+        wikiOpen: false,
+      };
+    }),
   toggleWorldMap: () =>
     set((s) => {
       const opening = !s.worldMapOpen;
+      if (!opening) return { worldMapOpen: false };
+      const zoneId = defaultCampaignMapZone(s.character?.zoneId ?? s.worldMapZoneId);
       return {
-        worldMapOpen: opening,
-        settingsOpen: opening ? false : s.settingsOpen,
-        wikiOpen: opening ? false : s.wikiOpen,
+        worldMapOpen: true,
+        worldMapLevel: 'zone',
+        worldMapZoneId: zoneId,
+        worldMapRouteLane: campaignRouteForZone(zoneId).lane,
+        settingsOpen: false,
+        wikiOpen: false,
       };
     }),
-
-  campaignOpen: false,
-  setCampaignOpen: (campaignOpen) => set({ campaignOpen }),
-  toggleCampaign: () => set((s) => ({ campaignOpen: !s.campaignOpen })),
+  openCampaignMap: () =>
+    set((s) => {
+      const zoneId = defaultCampaignMapZone(s.character?.zoneId ?? s.worldMapZoneId);
+      if (s.worldMapOpen && s.worldMapLevel === 'campaign') return { worldMapOpen: false };
+      return {
+        worldMapOpen: true,
+        worldMapLevel: 'campaign',
+        worldMapZoneId: zoneId,
+        worldMapRouteLane: campaignRouteForZone(zoneId).lane,
+        settingsOpen: false,
+        wikiOpen: false,
+      };
+    }),
+  setWorldMapLevel: (worldMapLevel) => set({ worldMapLevel }),
+  setWorldMapZoneId: (worldMapZoneId) =>
+    set({
+      worldMapZoneId,
+      worldMapRouteLane: campaignRouteForZone(worldMapZoneId).lane,
+    }),
+  zoomWorldMapIn: (zoneId) =>
+    set((s) => ({
+      worldMapOpen: true,
+      worldMapLevel: campaignMapLevelIn(s.worldMapLevel, zoneId),
+      worldMapZoneId: defaultCampaignMapZone(zoneId),
+      worldMapRouteLane: campaignRouteForZone(zoneId).lane,
+    })),
+  zoomWorldMapOut: () =>
+    set((s) => ({ worldMapLevel: campaignMapLevelOut(s.worldMapLevel) })),
 
   settingsOpen: false,
   setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
@@ -799,10 +857,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
     if (s.craftingOpen) {
       set({ craftingOpen: false, activeCraftingStation: null });
-      return true;
-    }
-    if (s.campaignOpen) {
-      set({ campaignOpen: false });
       return true;
     }
     if (s.questLogOpen) {

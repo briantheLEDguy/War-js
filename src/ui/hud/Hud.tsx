@@ -3,7 +3,7 @@ import { canUseGmTools } from '../../editor/gmAuth';
 import type { Game } from '../../game/Game';
 import { useGameStore } from '../../state/gameStore';
 import { ChatPanel } from './ChatPanel';
-import { CampaignPanel } from './CampaignPanel';
+import { CampaignMapPanel } from './CampaignMapPanel';
 import { CharacterSheetPanel } from './CharacterSheetPanel';
 import { CraftingPanel } from './CraftingPanel';
 import { DebugOverlay } from './DebugOverlay';
@@ -25,7 +25,6 @@ import { TouchControls } from './TouchControls';
 import { WikiPanel } from './WikiPanel';
 import { WorldEditorModeStrip } from './WorldEditorModeStrip';
 import { WorldEditorPanel } from './WorldEditorPanel';
-import { WorldMapPanel } from './WorldMapPanel';
 import { useDraggableWindow } from './useDraggableWindow';
 
 interface Props {
@@ -42,16 +41,15 @@ export function Hud({ game, onLogout }: Props) {
   const playerDead   = useGameStore((s) => s.playerDead);
   const wikiOpen = useGameStore((s) => s.wikiOpen);
   const worldMapOpen = useGameStore((s) => s.worldMapOpen);
+  const worldMapLevel = useGameStore((s) => s.worldMapLevel);
   const settingsOpen = useGameStore((s) => s.settingsOpen);
-  const campaignOpen = useGameStore((s) => s.campaignOpen);
   const gmMenuOpen = useGameStore((s) => s.gmMenuOpen);
   const user = useGameStore((s) => s.user);
   const toggleWiki = useGameStore((s) => s.toggleWiki);
   const toggleWorldMap = useGameStore((s) => s.toggleWorldMap);
+  const openCampaignMap = useGameStore((s) => s.openCampaignMap);
   const toggleSettings = useGameStore((s) => s.toggleSettings);
-  const toggleCampaign = useGameStore((s) => s.toggleCampaign);
   const toggleGmMenu = useGameStore((s) => s.toggleGmMenu);
-  const setCampaignOpen = useGameStore((s) => s.setCampaignOpen);
   const gmBuildMode = useGameStore((s) => s.gmBuildMode);
   const gmToolsAvailable = canUseGmTools(user);
 
@@ -64,7 +62,7 @@ export function Hud({ game, onLogout }: Props) {
       <PlayerFrame />
       <TargetFrame />
       <GuidedTasksPanel />
-      <CampaignPanel open={campaignOpen} onOpenChange={setCampaignOpen} />
+      <CampaignMapPanel game={game} />
       <div className="hud-control-bar" role="toolbar" aria-label="Game actions">
         <HudActionButton label="Exit to Login" onClick={onLogout}>
           <ExitIcon />
@@ -78,7 +76,7 @@ export function Hud({ game, onLogout }: Props) {
         <HudActionButton label="Map" active={worldMapOpen} onClick={toggleWorldMap}>
           <MapIcon />
         </HudActionButton>
-        <HudActionButton label="Campaign" active={campaignOpen} onClick={toggleCampaign}>
+        <HudActionButton label="Campaign" active={worldMapOpen && worldMapLevel === 'campaign'} onClick={openCampaignMap}>
           <CampaignIcon />
         </HudActionButton>
         {gmToolsAvailable && (
@@ -98,7 +96,6 @@ export function Hud({ game, onLogout }: Props) {
       {activeQuestDialogNpcId && <QuestDialog />}
       {debugOpen && <DebugOverlay game={game} />}
       {wikiOpen && <WikiPanel />}
-      {worldMapOpen && <WorldMapPanel game={game} />}
       <NameplateLayer game={game} />
       <QuestMarkerLayer game={game} />
       <FloatingDamageLayer game={game} />
