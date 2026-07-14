@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { clone as cloneSkeleton } from 'three/examples/jsm/utils/SkeletonUtils.js';
-import { developmentCharacterAssetFor } from '../config/developmentModelCandidates';
 import { useGameStore } from '../state/gameStore';
 import { buildCharacterMesh } from './CharacterMeshes';
 
@@ -52,8 +51,6 @@ export interface CharacterAssetResolution {
   bodyVariant?: string;
   skeletonId?: string;
   bindPoseId?: string;
-  developmentOnly?: boolean;
-  equipmentMode?: 'assembled';
 }
 
 export interface EquipmentCompatibilityContext {
@@ -70,9 +67,6 @@ const MODEL_ASSET_TOKEN = import.meta.env.DEV
   : PUBLIC_ASSET_VERSION;
 
 function modelUrl(path: string): string {
-  if (import.meta.env.DEV && path.startsWith('__model-development/')) {
-    return `${BASE}${path}?v=${encodeURIComponent(MODEL_ASSET_TOKEN)}`;
-  }
   return `${BASE}assets/models/${path}?v=${encodeURIComponent(MODEL_ASSET_TOKEN)}`;
 }
 
@@ -191,18 +185,6 @@ export class AssetLoader {
     profileKey: string,
     bodyVariant?: string | null,
   ): Promise<CharacterAssetResolution | null> {
-    const developmentAsset = developmentCharacterAssetFor(
-      profileKey,
-      bodyVariant,
-      import.meta.env.DEV,
-    );
-    if (
-      developmentAsset
-      && await this.canLoadAsset(modelUrl(developmentAsset.model))
-    ) {
-      return developmentAsset;
-    }
-
     const index = await this.loadAssetIndex();
     const entry = index?.characterProfiles?.[profileKey];
     if (!entry?.model || !isRuntimeApproved(entry)) return null;

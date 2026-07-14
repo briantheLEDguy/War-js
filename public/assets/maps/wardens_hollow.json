@@ -706,7 +706,7 @@
     },
     {
       "id": "wardens_hollow_beast_1",
-      "name": "Barrow Wolf",
+      "name": "War Boar",
       "level": 6,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 20,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_war_boar"
     },
     {
       "id": "wardens_hollow_beast_2",
-      "name": "Barrow Wolf",
+      "name": "War Boar",
       "level": 6,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 20,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_war_boar"
     },
     {
       "id": "wardens_hollow_adept_1",
@@ -976,5 +976,5 @@
       ]
     }
   ],
-  "staticMapHash": "f0e728cb1cd6e5b0"
+  "staticMapHash": "ad27c1a0a2a8c128"
 }

@@ -15,11 +15,17 @@ import math
 from pathlib import Path
 import sys
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
 import bmesh
 import bpy
 from mathutils import Matrix, Vector
+from mathutils.bvhtree import BVHTree
+from mathutils.kdtree import KDTree
 
 from bl_ext.blender_org.mpfb.services import HumanService, LocationService
+from generate_mpfb_body import bake_targets_and_strip_helpers, prepare_runtime_materials
 
 
 PIPELINE_ROOT = Path(__file__).resolve().parent.parent
@@ -33,9 +39,10 @@ RECIPE_PATH = (
 ARMOR_SLOTS = ("head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard")
 REQUIRED_CLIPS = ("idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump")
 MODULE_TRIANGLE_LIMIT = 14_000
+FIXTURE_CAPE_TRIANGLE_LIMIT = 25_000
 MODULE_TRIANGLE_TARGET = 6_500
 EQUIPPED_TRIANGLE_LIMIT = 120_000
-GENERATOR_VERSION = "1.4.0-draft"
+GENERATOR_VERSION = "1.5.0-fixture-roster"
 
 # Each layer is authored with a deterministic clearance from the accepted body.
 # The values are deliberately small: enough to prevent coplanar fighting and
@@ -49,6 +56,7 @@ FITTED_LAYER_CLEARANCE = {
 SURFACE_LAYER_CLEARANCE = {
     "shoulders": 0.016,
 }
+MINIMUM_BODY_CLEARANCE_M = 0.015
 SLOT_LAYER_ORDER = {
     "legs": 10,
     "chest": 20,
@@ -97,8 +105,10 @@ for _side in ("l", "r"):
 def parse_args() -> argparse.Namespace:
     argv = sys.argv[sys.argv.index("--") + 1 :] if "--" in sys.argv else []
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--family", required=True, choices=("civic_humanoid_v2", "mire_brutish_v1"))
+    parser.add_argument("--family", required=True)
     parser.add_argument("--variant", required=True, choices=("m", "f"))
+    parser.add_argument("--recipe-file", default=str(RECIPE_PATH))
+    parser.add_argument("--set-id")
     parser.add_argument("--source-blend", required=True)
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--review-dir", required=True)
@@ -112,11 +122,16 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def load_recipe(family: str, variant: str) -> tuple[dict, dict]:
-    payload = json.loads(RECIPE_PATH.read_text(encoding="utf-8"))
-    recipe = payload["sets"].get(family)
+def load_recipe(recipe_path: str, family: str, variant: str, set_id: str | None) -> tuple[dict, dict]:
+    source = Path(recipe_path).resolve()
+    payload = json.loads(source.read_text(encoding="utf-8"))
+    recipe = payload["sets"].get(set_id) if set_id else payload["sets"].get(family)
+    if not recipe and set_id:
+        recipe = next((value for value in payload["sets"].values() if value.get("setId") == set_id), None)
     if not recipe:
-        raise RuntimeError(f"No free armor recipe exists for {family}")
+        raise RuntimeError(f"No armor recipe exists for {set_id or family} in {source}")
+    if recipe.get("bodyFamily", family) != family:
+        raise RuntimeError(f"Armor recipe {recipe['setId']} is not compatible with {family}")
     if variant not in recipe["bodyVariants"]:
         raise RuntimeError(f"Recipe {recipe['setId']} does not support {variant}")
     if tuple(recipe["modules"].keys()) != ARMOR_SLOTS:
@@ -270,6 +285,70 @@ def assign_material(obj: bpy.types.Object, material: bpy.types.Material) -> None
         polygon.material_index = 0
 
 
+def style_fixture_materials(
+    obj: bpy.types.Object,
+    fallback: bpy.types.Material,
+    style: str,
+) -> None:
+    """Use only glTF-stable fixture materials.
+
+    Blender's generic MixRGB tint renders in the authoring scene but is not a
+    supported glTF material path, so source colors reappear after round-trip.
+    Keep authored helmet/torso/leg textures directly. Gloves and boots vary
+    wildly across costume packs, so those leather slots use the deterministic
+    class PBR material in both Blender and the emitted GLB.
+    """
+    if not obj.material_slots:
+        assign_material(obj, fallback)
+        obj["fixtureMaterialsPreserved"] = False
+        return
+    source_names = [slot.material.name for slot in obj.material_slots if slot.material]
+    if style == "leather":
+        assign_material(obj, fallback)
+        obj["fixtureMaterialsPreserved"] = False
+        obj["fixtureSourceMaterialNames"] = ",".join(source_names)
+        return
+    styled = []
+    for index, slot in enumerate(obj.material_slots):
+        source = slot.material
+        if not source or not source.use_nodes or not source.node_tree:
+            continue
+        material = source.copy()
+        material.name = f"{obj.name}_{style}_fixture_{index}"
+        material.use_fake_user = True
+        obj.data.materials[index] = material
+        shader = next(
+            (node for node in material.node_tree.nodes if node.type == "BSDF_PRINCIPLED"),
+            None,
+        )
+        if not shader:
+            continue
+        roughness = shader.inputs.get("Roughness")
+        metallic = shader.inputs.get("Metallic")
+        if roughness and not roughness.is_linked:
+            roughness.default_value = {
+                "metal": 0.34, "leather": 0.56, "cloth": 0.72, "accent": 0.48,
+            }.get(style, 0.62)
+        if metallic and not metallic.is_linked:
+            metallic.default_value = 0.62 if style == "metal" else 0.10 if style == "accent" else 0.0
+        styled.append(material.name)
+    if not styled:
+        assign_material(obj, fallback)
+    obj["fixtureMaterialsPreserved"] = bool(styled)
+    obj["fixtureMaterialNames"] = ",".join(styled)
+    obj["fixtureSourceMaterialNames"] = ",".join(source_names)
+
+
+def apply_shape_key_mix(obj: bpy.types.Object) -> None:
+    """Bake MPFB's fitted-clothing shape into the exported LOD0 mesh."""
+    if not obj.data.shape_keys or not obj.data.shape_keys.key_blocks:
+        return
+    bpy.ops.object.select_all(action="DESELECT")
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+    bpy.ops.object.shape_key_remove(all=True, apply_mix=True)
+
+
 def offset_vertices_along_normals(obj: bpy.types.Object, distance: float) -> None:
     """Move an authored garment to its deterministic runtime layer."""
     if abs(distance) <= 1e-8:
@@ -277,6 +356,71 @@ def offset_vertices_along_normals(obj: bpy.types.Object, distance: float) -> Non
     for vertex in obj.data.vertices:
         vertex.co += vertex.normal * distance
     obj.data.update()
+
+
+def enforce_body_clearance(
+    obj: bpy.types.Object,
+    body: bpy.types.Object,
+    clearance: float = MINIMUM_BODY_CLEARANCE_M,
+) -> int:
+    """Project garment vertices outside the accepted body with a fixed margin.
+
+    MPFB fitting follows the source garment closely enough that authored seams
+    can remain slightly inside a class-proportioned body. The independent
+    clearance audit treats those intersections as failures, so apply one final
+    deterministic nearest-surface correction after topology cleanup. Vertices
+    farther than the audit probe radius are left unchanged.
+    """
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    evaluated_body = body.evaluated_get(depsgraph)
+    body_mesh = evaluated_body.to_mesh(preserve_all_data_layers=False, depsgraph=depsgraph)
+    try:
+        transform = evaluated_body.matrix_world
+        body_vertices = [transform @ vertex.co for vertex in body_mesh.vertices]
+        body_mesh.calc_loop_triangles()
+        triangles = [tuple(triangle.vertices) for triangle in body_mesh.loop_triangles]
+        signed_volume = sum(
+            body_vertices[a].dot(body_vertices[b].cross(body_vertices[c]))
+            for a, b, c in triangles
+        ) / 6.0
+        if signed_volume < 0.0:
+            triangles = [(a, c, b) for a, b, c in triangles]
+        body_bvh = BVHTree.FromPolygons(
+            body_vertices,
+            triangles,
+            all_triangles=True,
+            epsilon=1e-7,
+        )
+    finally:
+        evaluated_body.to_mesh_clear()
+    if body_bvh is None:
+        raise RuntimeError(f"Could not build clearance BVH for {body.name}")
+    obj_to_world = obj.matrix_world
+    world_to_obj = obj.matrix_world.inverted()
+    moved = 0
+    for vertex in obj.data.vertices:
+        world_point = obj_to_world @ vertex.co
+        corrected = world_point.copy()
+        was_moved = False
+        for _iteration in range(8):
+            nearest = body_bvh.find_nearest(corrected, 0.12)
+            if nearest[0] is None or nearest[1] is None:
+                break
+            location, normal, _face_index, _distance = nearest
+            normal = normal.normalized()
+            signed_distance = (corrected - location).dot(normal)
+            if signed_distance >= clearance:
+                break
+            corrected += normal * (clearance - signed_distance)
+            was_moved = True
+        if was_moved:
+            vertex.co = world_to_obj @ corrected
+            moved += 1
+    if moved:
+        obj.data.update()
+    obj["bodyClearanceMeters"] = clearance
+    obj["bodyClearanceVerticesMoved"] = moved
+    return moved
 
 
 def trim_distal_underlap(
@@ -314,9 +458,10 @@ def trim_distal_underlap(
                 if (group := obj.vertex_groups.get(name)) is not None
             ]
             if not group_indices:
-                raise RuntimeError(
-                    f"{obj.name} has no {proximal_bone}/{distal_bone} weights for {side}"
-                )
+                # Sleeveless tops and cropped leg fixtures have no distal
+                # geometry to trim; absence of both weight groups is the
+                # authored seam, not a fitting failure.
+                continue
             axis = bone.tail_local - bone.head_local
             if axis.length_squared <= 1e-10:
                 raise RuntimeError(f"Canonical seam bone has zero length: {bone_name}")
@@ -335,7 +480,7 @@ def trim_distal_underlap(
                 if max(side_weight(vertex) for vertex in face.verts) >= 0.35
             ]
             if not region_faces:
-                raise RuntimeError(f"No weighted seam region found for {obj.name}:{bone_name}")
+                continue
             region = set(region_faces)
             for face in region_faces:
                 region.update(face.edges)
@@ -359,7 +504,7 @@ def trim_distal_underlap(
                 > t_cut + 1e-5
             ]
             if not distal_faces:
-                raise RuntimeError(f"Seam trim removed no distal faces for {obj.name}:{bone_name}")
+                continue
             bmesh.ops.delete(mesh, geom=distal_faces, context="FACES")
 
         loose_edges = [edge for edge in mesh.edges if not edge.link_faces]
@@ -380,6 +525,134 @@ def canonicalize_groups(obj: bpy.types.Object) -> None:
         group = obj.vertex_groups.get(old_name)
         if group:
             group.name = new_name
+
+
+SLOT_BONE_FILTERS = {
+    "shoulders": {"shoulder_L", "upper_arm_L", "shoulder_R", "upper_arm_R", "upper_chest"},
+    "chest": {
+        "hips", "spine", "chest", "upper_chest", "neck",
+        "shoulder_L", "upper_arm_L", "forearm_L",
+        "shoulder_R", "upper_arm_R", "forearm_R",
+    },
+    "waist": {"hips", "spine"},
+    "legs": {"hips", "thigh_L", "shin_L", "thigh_R", "shin_R"},
+    "back": {"hips", "spine", "chest", "upper_chest", "thigh_L", "thigh_R"},
+    "tabard": {"hips", "spine", "thigh_L", "thigh_R"},
+}
+
+
+def trim_fixture_to_slot(
+    obj: bpy.types.Object,
+    body: bpy.types.Object,
+    slot: str,
+) -> None:
+    """Extract the requested module from full-outfit MakeClothes fixtures.
+
+    Several of the strongest installed assets are complete suits. Treating one
+    as a chest module while also exporting its boots and legs caused the old
+    chest/feet and chest/legs collision failures. This keeps the authored
+    surface and UVs but removes geometry owned by other modular slots.
+    """
+    allowed_names = SLOT_BONE_FILTERS.get(slot)
+    if not allowed_names:
+        return
+    allowed_indices = {
+        group.index for group in obj.vertex_groups if group.name in allowed_names
+    }
+    if not allowed_indices:
+        raise RuntimeError(f"{obj.name} has no canonical weights for {slot} extraction")
+
+    body_group = body.vertex_groups.get("body")
+    if body_group is None:
+        raise RuntimeError("Accepted MPFB body has no body vertex group for fixture segmentation")
+    body_world = [
+        body.matrix_world @ vertex.co
+        for vertex in body.data.vertices
+        if any(
+            assignment.group == body_group.index and assignment.weight > 0.0
+            for assignment in vertex.groups
+        )
+    ]
+    if not body_world:
+        raise RuntimeError("Accepted MPFB body has no weighted body vertices for fixture segmentation")
+    body_to_obj = obj.matrix_world.inverted()
+    bounds = [body_to_obj @ point for point in body_world]
+    minimum = Vector(tuple(min(point[axis] for point in bounds) for axis in range(3)))
+    maximum = Vector(tuple(max(point[axis] for point in bounds) for axis in range(3)))
+    extent = maximum - minimum
+    center = (minimum + maximum) * 0.5
+
+    mesh = bmesh.new()
+    mesh.from_mesh(obj.data)
+    try:
+        deform = mesh.verts.layers.deform.active
+        if deform is None:
+            raise RuntimeError(f"{obj.name} has no deform layer for {slot} extraction")
+
+        def allowed_weight(vertex: bmesh.types.BMVert) -> float:
+            weights = vertex[deform]
+            return sum(weights.get(index, 0.0) for index in allowed_indices)
+
+        def spatially_allowed(face: bmesh.types.BMFace) -> bool:
+            point = sum((vertex.co for vertex in face.verts), Vector()) / len(face.verts)
+            if slot == "shoulders":
+                return point.z >= minimum.z + extent.z * 0.66 and abs(point.x - center.x) >= extent.x * 0.18
+            if slot == "waist":
+                return minimum.z + extent.z * 0.46 <= point.z <= minimum.z + extent.z * 0.61
+            if slot == "back":
+                return (
+                    point.y >= center.y + extent.y * 0.10
+                    and face.normal.y >= 0.02
+                    and point.z >= minimum.z + extent.z * 0.28
+                )
+            if slot == "tabard":
+                return (
+                    point.y <= center.y - extent.y * 0.08
+                    and face.normal.y <= -0.02
+                    and minimum.z + extent.z * 0.27 <= point.z <= minimum.z + extent.z * 0.59
+                )
+            return True
+
+        # Robe-based cape/tabard extraction is primarily spatial. Some older
+        # MakeClothes robe files carry broad helper weights that do not map
+        # cleanly to the game-engine bone names, but their fitted coordinates
+        # remain deterministic and valid.
+        spatial_only = slot in {"back", "tabard"}
+        delete_faces = [
+            face
+            for face in mesh.faces
+            if (not spatial_only and max(allowed_weight(vertex) for vertex in face.verts) < 0.12)
+            or not spatially_allowed(face)
+        ]
+        if not delete_faces:
+            obj["fixtureSegment"] = slot
+            obj["fixtureSegmentFacesRemoved"] = 0
+            return
+        if len(delete_faces) == len(mesh.faces):
+            centroids = [
+                sum((vertex.co for vertex in face.verts), Vector()) / len(face.verts)
+                for face in mesh.faces
+            ]
+            source_minimum = tuple(min(point[axis] for point in centroids) for axis in range(3))
+            source_maximum = tuple(max(point[axis] for point in centroids) for axis in range(3))
+            raise RuntimeError(
+                f"Unexpected {slot} extraction for {obj.name}: removed {len(delete_faces)} of {len(mesh.faces)} faces; "
+                f"bodyBounds={tuple(minimum)}..{tuple(maximum)}, sourceBounds={source_minimum}..{source_maximum}"
+            )
+        bmesh.ops.delete(mesh, geom=delete_faces, context="FACES")
+        loose_edges = [edge for edge in mesh.edges if not edge.link_faces]
+        if loose_edges:
+            bmesh.ops.delete(mesh, geom=loose_edges, context="EDGES")
+        loose_vertices = [vertex for vertex in mesh.verts if not vertex.link_edges]
+        if loose_vertices:
+            bmesh.ops.delete(mesh, geom=loose_vertices, context="VERTS")
+        bmesh.ops.recalc_face_normals(mesh, faces=list(mesh.faces))
+        mesh.to_mesh(obj.data)
+        obj.data.update()
+        obj["fixtureSegment"] = slot
+        obj["fixtureSegmentFacesRemoved"] = len(delete_faces)
+    finally:
+        mesh.free()
 
 
 def ensure_armature(obj: bpy.types.Object, rig: bpy.types.Object) -> None:
@@ -403,6 +676,12 @@ def evaluated_triangles(obj: bpy.types.Object) -> int:
         evaluated.to_mesh_clear()
 
 
+def module_triangle_limit(slot: str) -> int:
+    # A robe-derived cape is a broad deforming surface; it may use additional
+    # triangles as long as the equipped character remains under the 120k cap.
+    return FIXTURE_CAPE_TRIANGLE_LIMIT if slot == "back" else MODULE_TRIANGLE_LIMIT
+
+
 def apply_modifier(obj: bpy.types.Object, modifier: bpy.types.Modifier) -> None:
     bpy.context.view_layer.objects.active = obj
     obj.select_set(True)
@@ -424,14 +703,15 @@ def close_open_surface(obj: bpy.types.Object, thickness: float = 0.003) -> None:
     apply_modifier(obj, solidify)
 
 
-def enforce_triangle_budget(obj: bpy.types.Object) -> None:
+def enforce_triangle_budget(obj: bpy.types.Object, target: int = MODULE_TRIANGLE_TARGET) -> bool:
     triangles = evaluated_triangles(obj)
-    if triangles <= MODULE_TRIANGLE_TARGET:
-        return
+    if triangles <= target:
+        return False
     decimate = obj.modifiers.new("draft_triangle_budget", "DECIMATE")
-    decimate.ratio = max(0.05, MODULE_TRIANGLE_TARGET / triangles)
+    decimate.ratio = max(0.05, target / triangles)
     decimate.use_collapse_triangulate = True
     apply_modifier(obj, decimate)
+    return True
 
 
 def manifold_rigid_headpiece(obj: bpy.types.Object, material: bpy.types.Material) -> None:
@@ -446,21 +726,23 @@ def manifold_rigid_headpiece(obj: bpy.types.Object, material: bpy.types.Material
     # old MakeClothes OBJ shells. Blender's object voxel-remesh operator
     # rebuilds the occupied volume instead, which is the invariant we need for
     # a closed runtime headpiece.
-    bpy.context.view_layer.objects.active = obj
-    bpy.ops.object.select_all(action="DESELECT")
-    obj.select_set(True)
-    obj.data.remesh_voxel_size = max(obj.dimensions) / 105.0
-    obj.data.remesh_voxel_adaptivity = 0.0
-    obj.data.use_remesh_fix_poles = True
-    obj.data.use_remesh_preserve_volume = True
-    bpy.ops.object.voxel_remesh()
-    obj.select_set(False)
-    for group in list(obj.vertex_groups):
-        obj.vertex_groups.remove(group)
-    head = obj.vertex_groups.new(name="head")
-    head.add(range(len(obj.data.vertices)), 1.0, "REPLACE")
-    assign_material(obj, material)
-    if not obj.data.uv_layers:
+    last_non_manifold = 0
+    last_degenerate = 0
+    for resolution_divisor in (105.0, 90.0, 75.0):
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.select_all(action="DESELECT")
+        obj.select_set(True)
+        obj.data.remesh_voxel_size = max(obj.dimensions) / resolution_divisor
+        obj.data.remesh_voxel_adaptivity = 0.0
+        obj.data.use_remesh_fix_poles = True
+        obj.data.use_remesh_preserve_volume = True
+        bpy.ops.object.voxel_remesh()
+        obj.select_set(False)
+        for group in list(obj.vertex_groups):
+            obj.vertex_groups.remove(group)
+        head = obj.vertex_groups.new(name="head")
+        head.add(range(len(obj.data.vertices)), 1.0, "REPLACE")
+        assign_material(obj, material)
         bpy.context.view_layer.objects.active = obj
         obj.select_set(True)
         bpy.ops.object.mode_set(mode="EDIT")
@@ -468,12 +750,22 @@ def manifold_rigid_headpiece(obj: bpy.types.Object, material: bpy.types.Material
         bpy.ops.uv.smart_project()
         bpy.ops.object.mode_set(mode="OBJECT")
         obj.select_set(False)
-    enforce_triangle_budget(obj)
-    cleanup_closed_mesh(obj)
-    if non_manifold_edges(obj) > 0:
-        raise RuntimeError(
-            f"Voxel-remeshed helmet is still non-manifold: {non_manifold_edges(obj)} edges"
-        )
+        enforce_triangle_budget(obj, MODULE_TRIANGLE_TARGET - 2000)
+        for _repair_iteration in range(6):
+            cleanup_closed_mesh(obj)
+            resolve_multi_face_edges(obj)
+            cleanup_closed_mesh(obj)
+            if non_manifold_edges(obj) == 0 and degenerate_faces(obj) == 0:
+                break
+        last_non_manifold = non_manifold_edges(obj)
+        last_degenerate = degenerate_faces(obj)
+        if last_non_manifold == 0 and last_degenerate == 0:
+            return
+    raise RuntimeError(
+        "Voxel-remeshed helmet did not converge after three resolutions: "
+        f"{last_non_manifold} non-manifold edges, "
+        f"{last_degenerate} degenerate faces"
+    )
 
 
 def cleanup_closed_mesh(obj: bpy.types.Object) -> None:
@@ -483,6 +775,22 @@ def cleanup_closed_mesh(obj: bpy.types.Object) -> None:
     try:
         bmesh.ops.remove_doubles(mesh, verts=list(mesh.verts), dist=1e-6)
         bmesh.ops.dissolve_degenerate(mesh, edges=list(mesh.edges), dist=1e-8)
+        # A projected triangle can become a long, near-collinear sliver whose
+        # edges are individually larger than dissolve_degenerate's distance.
+        # Collapse the shortest edge of that face so technical QC and the GLB
+        # triangulator agree that no zero-area geometry remains.
+        for _iteration in range(3):
+            sliver_edges = {
+                min(face.edges, key=lambda edge: edge.calc_length())
+                for face in mesh.faces
+                # Use one order of magnitude of headroom over the QC cutoff;
+                # Blender can round a BMesh face down slightly when writing it
+                # back to Mesh polygon storage.
+                if face.calc_area() <= 1e-9
+            }
+            if not sliver_edges:
+                break
+            bmesh.ops.collapse(mesh, edges=list(sliver_edges))
         loose_edges = [edge for edge in mesh.edges if not edge.link_faces]
         if loose_edges:
             bmesh.ops.delete(mesh, geom=loose_edges, context="EDGES")
@@ -499,11 +807,154 @@ def cleanup_closed_mesh(obj: bpy.types.Object) -> None:
         mesh.free()
 
 
+def triangulate_faces(obj: bpy.types.Object) -> None:
+    mesh = bmesh.new()
+    mesh.from_mesh(obj.data)
+    try:
+        bmesh.ops.triangulate(
+            mesh,
+            faces=list(mesh.faces),
+            quad_method="BEAUTY",
+            ngon_method="BEAUTY",
+        )
+        mesh.to_mesh(obj.data)
+        obj.data.update()
+    finally:
+        mesh.free()
+
+
+def resolve_multi_face_edges(obj: bpy.types.Object) -> None:
+    """Remove only the smallest surplus faces at rare voxel self-contacts."""
+    mesh = bmesh.new()
+    mesh.from_mesh(obj.data)
+    try:
+        surplus_faces = set()
+        for edge in mesh.edges:
+            if len(edge.link_faces) > 2:
+                ranked = sorted(edge.link_faces, key=lambda face: face.calc_area(), reverse=True)
+                surplus_faces.update(ranked[2:])
+        if surplus_faces:
+            bmesh.ops.delete(mesh, geom=list(surplus_faces), context="FACES")
+        boundary = [edge for edge in mesh.edges if len(edge.link_faces) == 1]
+        if boundary:
+            bmesh.ops.triangle_fill(mesh, edges=boundary, use_beauty=True)
+        bmesh.ops.recalc_face_normals(mesh, faces=list(mesh.faces))
+        mesh.to_mesh(obj.data)
+        obj.data.update()
+    finally:
+        mesh.free()
+
+
+def patch_small_non_manifold_region(obj: bpy.types.Object, edge_limit: int = 24) -> bool:
+    """Excise and refill a tiny invalid patch left by collapse decimation."""
+    mesh = bmesh.new()
+    mesh.from_mesh(obj.data)
+    try:
+        invalid = [edge for edge in mesh.edges if len(edge.link_faces) != 2]
+        if not invalid or len(invalid) > edge_limit:
+            return False
+        affected_faces = {face for edge in invalid for face in edge.link_faces}
+        if not affected_faces:
+            return False
+        # Include one surrounding face ring so the replacement boundary is a
+        # simple loop instead of the same pinched four-edge configuration.
+        affected_vertices = {vertex for face in affected_faces for vertex in face.verts}
+        affected_faces.update(
+            face for vertex in affected_vertices for face in vertex.link_faces
+        )
+        bmesh.ops.delete(mesh, geom=list(affected_faces), context="FACES")
+        loose_edges = [edge for edge in mesh.edges if not edge.link_faces]
+        if loose_edges:
+            bmesh.ops.delete(mesh, geom=loose_edges, context="EDGES")
+        loose_vertices = [vertex for vertex in mesh.verts if not vertex.link_edges]
+        if loose_vertices:
+            bmesh.ops.delete(mesh, geom=loose_vertices, context="VERTS")
+        boundary = [edge for edge in mesh.edges if len(edge.link_faces) == 1]
+        if boundary:
+            bmesh.ops.triangle_fill(mesh, edges=boundary, use_beauty=True)
+        bmesh.ops.recalc_face_normals(mesh, faces=list(mesh.faces))
+        mesh.to_mesh(obj.data)
+        obj.data.update()
+        return True
+    finally:
+        mesh.free()
+
+
+def manifold_skinned_wearable(
+    obj: bpy.types.Object,
+    rig: bpy.types.Object,
+    material: bpy.types.Material,
+) -> None:
+    """Rebuild a closed garment volume and restore its fitted skin weights."""
+    original_mesh = obj.data.copy()
+    group_names = {group.index: group.name for group in obj.vertex_groups}
+    source_weights: list[list[tuple[str, float]]] = []
+    tree = KDTree(len(original_mesh.vertices))
+    for vertex in original_mesh.vertices:
+        tree.insert(vertex.co, vertex.index)
+        source_weights.append([
+            (group_names[group.group], group.weight)
+            for group in vertex.groups
+            if group.group in group_names and group.weight > 1e-8
+        ])
+    tree.balance()
+    last_non_manifold = 0
+    last_degenerate = 0
+    # The source shells are only a few millimetres thick. The coarser helmet
+    # resolution erases cloth volume and creates point contacts, so preserve a
+    # sub-centimetre voxel here and reduce only after the shell is closed.
+    for resolution_divisor in (340.0, 285.0, 230.0):
+        obj.data = original_mesh.copy()
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.select_all(action="DESELECT")
+        obj.select_set(True)
+        obj.data.remesh_voxel_size = max(obj.dimensions) / resolution_divisor
+        obj.data.remesh_voxel_adaptivity = 0.0
+        obj.data.use_remesh_fix_poles = True
+        obj.data.use_remesh_preserve_volume = True
+        bpy.ops.object.voxel_remesh()
+        obj.select_set(False)
+        for group in list(obj.vertex_groups):
+            obj.vertex_groups.remove(group)
+        restored_groups = {
+            name: obj.vertex_groups.new(name=name)
+            for name in sorted(set(group_names.values()))
+        }
+        for vertex in obj.data.vertices:
+            _point, source_index, _distance = tree.find(vertex.co)
+            for group_name, weight in source_weights[source_index]:
+                restored_groups[group_name].add([vertex.index], weight, "REPLACE")
+        assign_material(obj, material)
+        cleanup_closed_mesh(obj)
+        resolve_multi_face_edges(obj)
+        cleanup_closed_mesh(obj)
+        enforce_triangle_budget(obj, MODULE_TRIANGLE_TARGET - 2000)
+        for _repair_iteration in range(6):
+            cleanup_closed_mesh(obj)
+            resolve_multi_face_edges(obj)
+            cleanup_closed_mesh(obj)
+            if non_manifold_edges(obj) == 0 and degenerate_faces(obj) == 0:
+                break
+        if non_manifold_edges(obj):
+            patch_small_non_manifold_region(obj)
+            cleanup_closed_mesh(obj)
+        ensure_armature(obj, rig)
+        last_non_manifold = non_manifold_edges(obj)
+        last_degenerate = degenerate_faces(obj)
+        if last_non_manifold == 0 and last_degenerate == 0:
+            return
+    raise RuntimeError(
+        f"Skinned voxel repair could not close {obj.name}: "
+        f"{last_non_manifold} non-manifold edges, {last_degenerate} degenerate faces"
+    )
+
+
 def refine_shoulder_shell(
     obj: bpy.types.Object,
     body: bpy.types.Object,
     rig: bpy.types.Object,
     material: bpy.types.Material,
+    module: dict,
 ) -> None:
     """Turn the selected shoulder volume into two clean rounded pauldrons.
 
@@ -568,6 +1019,27 @@ def refine_shoulder_shell(
     smooth.factor = 0.34
     smooth.iterations = 4
     apply_modifier(obj, smooth)
+
+    # Voxel-remeshed anatomical patches are intentionally watertight, but on
+    # short/broad bodies their vertical envelope can read as two boulders near
+    # the head. Compact each disconnected pauldron about its own center. A
+    # small deterministic outer flare retains class silhouette variation.
+    side_vertices = {
+        "L": [vertex for vertex in obj.data.vertices if vertex.co.x >= 0.0],
+        "R": [vertex for vertex in obj.data.vertices if vertex.co.x < 0.0],
+    }
+    winged = module.get("silhouetteProfile") == "winged"
+    for side, vertices in side_vertices.items():
+        if not vertices:
+            raise RuntimeError(f"Rounded shoulder remesh lost {side} pauldron vertices")
+        center = sum((vertex.co for vertex in vertices), Vector()) / len(vertices)
+        direction = 1.0 if side == "L" else -1.0
+        for vertex in vertices:
+            delta = vertex.co - center
+            vertex.co.x = center.x + delta.x * (0.92 if winged else 0.82) + direction * (0.018 if winged else 0.0)
+            vertex.co.y = center.y + delta.y * 0.68
+            vertex.co.z = center.z + delta.z * (0.54 if winged else 0.48) - 0.025
+    obj.data.update()
     offset_vertices_along_normals(obj, 0.004)
 
     for group in list(obj.vertex_groups):
@@ -648,6 +1120,108 @@ def body_group_weight(body: bpy.types.Object, vertex, group_name: str) -> float:
     if not group:
         return 0.0
     return next((assignment.weight for assignment in vertex.groups if assignment.group == group.index), 0.0)
+
+
+def create_curved_pauldron_pair(
+    body: bpy.types.Object,
+    rig: bpy.types.Object,
+    name: str,
+    module: dict,
+    material: bpy.types.Material,
+) -> bpy.types.Object:
+    """Build two compact, closed shoulder plates from accepted body bounds.
+
+    A full-outfit fixture rarely transfers shoulder-only weights reliably to
+    every race/variant. This small parametric plate supplies the modular seam
+    while the class's helmet, torso, gloves, legs, and boots remain authored
+    MPFB pack geometry.
+    """
+    minimum, maximum = body_bounds(body)
+    extent = maximum - minimum
+    winged = module.get("silhouetteProfile") == "winged"
+    columns = 8
+    rows = 5
+    thickness = max(float(module["thicknessM"]), extent.z * 0.014)
+    vertices: list[tuple[float, float, float]] = []
+    faces: list[tuple[int, ...]] = []
+
+    for side_index, direction in enumerate((-1.0, 1.0)):
+        start = len(vertices)
+        side = "L" if direction > 0.0 else "R"
+        upper_arm = rig.data.bones.get(f"upper_arm_{side}")
+        if upper_arm is None:
+            raise RuntimeError(f"Canonical pauldron anchor is missing: upper_arm_{side}")
+        half_width = extent.x * (0.135 if winged else 0.108)
+        half_depth = extent.y * 0.175
+        crown = extent.z * (0.032 if winged else 0.028)
+        anchor = upper_arm.head_local
+        center_x = anchor.x + direction * half_width * 0.40
+        center_y = anchor.y
+        center_z = anchor.z + extent.z * 0.064
+        for layer in (0, 1):
+            for row in range(rows + 1):
+                v = row / rows * 2.0 - 1.0
+                for column in range(columns + 1):
+                    u = column / columns * 2.0 - 1.0
+                    x = center_x + direction * u * half_width
+                    y = center_y + v * half_depth
+                    outer = max(0.0, u)
+                    flare = extent.z * 0.016 * outer * outer if winged else 0.0
+                    arch = crown * max(0.0, 1.0 - 0.72 * u * u - 0.42 * v * v)
+                    shoulder_slope = -extent.z * 0.012 * u
+                    z = center_z + arch + flare + shoulder_slope - layer * thickness
+                    vertices.append((x, y, z))
+        stride = columns + 1
+        layer_size = (rows + 1) * stride
+        for layer in (0, 1):
+            base = start + layer * layer_size
+            for row in range(rows):
+                for column in range(columns):
+                    a = base + row * stride + column
+                    quad = (a, a + 1, a + stride + 1, a + stride)
+                    faces.append(quad if layer == 0 else tuple(reversed(quad)))
+        top = start
+        bottom = start + layer_size
+        boundary = (
+            [row * stride for row in range(rows + 1)]
+            + [rows * stride + column for column in range(1, columns + 1)]
+            + [row * stride + columns for row in range(rows - 1, -1, -1)]
+            + [column for column in range(columns - 1, 0, -1)]
+        )
+        for index, current in enumerate(boundary):
+            following = boundary[(index + 1) % len(boundary)]
+            faces.append((top + current, top + following, bottom + following, bottom + current))
+
+    mesh = bpy.data.meshes.new(f"{name}_mesh")
+    mesh.from_pydata(vertices, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.scene.collection.objects.link(obj)
+    for group in list(obj.vertex_groups):
+        obj.vertex_groups.remove(group)
+    groups = {
+        bone: obj.vertex_groups.new(name=bone)
+        for bone in ("shoulder_L", "upper_arm_L", "shoulder_R", "upper_arm_R")
+        if rig.data.bones.get(bone)
+    }
+    for vertex in mesh.vertices:
+        side = "L" if vertex.co.x >= 0.0 else "R"
+        groups[f"shoulder_{side}"].add([vertex.index], 0.86, "REPLACE")
+        groups[f"upper_arm_{side}"].add([vertex.index], 0.14, "REPLACE")
+    assign_material(obj, material)
+    bevel = obj.modifiers.new("pauldron_edge_rounding", "BEVEL")
+    bevel.width = min(0.004, thickness * 0.32)
+    bevel.segments = 2
+    apply_modifier(obj, bevel)
+    bpy.context.view_layer.objects.active = obj
+    obj.select_set(True)
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.select_all(action="SELECT")
+    bpy.ops.uv.smart_project(angle_limit=math.radians(66.0), island_margin=0.02)
+    bpy.ops.object.mode_set(mode="OBJECT")
+    obj.select_set(False)
+    ensure_armature(obj, rig)
+    return obj
 
 
 def extract_surface_patch(
@@ -750,10 +1324,11 @@ def extract_surface_patch(
     bevel.width = min(0.003, float(module["thicknessM"]) * 0.28)
     bevel.segments = 2
     apply_modifier(obj, bevel)
-    if slot == "shoulders":
-        refine_shoulder_shell(obj, body, rig, material)
-    else:
-        ensure_armature(obj, rig)
+    # Keep the fitted, solidified MPFB shoulder surface. Voxel-remeshing this
+    # narrow anatomical patch rounds it into two detached pods, especially on
+    # short bodies; the source topology already provides the desired low,
+    # body-following pauldron silhouette.
+    ensure_armature(obj, rig)
     for polygon in obj.data.polygons:
         polygon.use_smooth = True
     return obj
@@ -1116,6 +1691,7 @@ def fitted_asset(
     asset_name: str,
     material: bpy.types.Material,
     slot: str,
+    material_style: str,
 ) -> tuple[bpy.types.Object, Path]:
     source = Path(LocationService.get_user_data("clothes")) / asset_name / f"{asset_name}.mhclo"
     if not source.is_file():
@@ -1134,7 +1710,9 @@ def fitted_asset(
     obj.name = name
     canonicalize_groups(obj)
     ensure_armature(obj, rig)
-    assign_material(obj, material)
+    style_fixture_materials(obj, material, material_style)
+    apply_shape_key_mix(obj)
+    trim_fixture_to_slot(obj, body, slot)
     offset_vertices_along_normals(obj, FITTED_LAYER_CLEARANCE.get(slot, 0.0))
     if slot == "chest":
         # Gauntlets own the forearm seam. Keep roughly 20 mm of hidden tunic
@@ -1346,6 +1924,39 @@ def render_reviews(meshes: list[bpy.types.Object], review_dir: Path) -> list[dic
     return rendered
 
 
+def render_stress_reviews(
+    rig: bpy.types.Object,
+    meshes: list[bpy.types.Object],
+    review_dir: Path,
+) -> list[dict]:
+    """Render shared QA deformation poses without creating animation approval."""
+    rotations = {
+        "upper_arm_L": (math.radians(-28), math.radians(12), math.radians(-62)),
+        "upper_arm_R": (math.radians(22), math.radians(-8), math.radians(58)),
+        "forearm_L": (math.radians(-72), 0.0, math.radians(-8)),
+        "forearm_R": (math.radians(-54), 0.0, math.radians(10)),
+        "thigh_L": (math.radians(38), 0.0, math.radians(-12)),
+        "shin_L": (math.radians(-58), 0.0, 0.0),
+        "thigh_R": (math.radians(-18), 0.0, math.radians(10)),
+        "spine": (math.radians(10), 0.0, math.radians(12)),
+    }
+    saved = {bone.name: bone.matrix_basis.copy() for bone in rig.pose.bones}
+    try:
+        for bone_name, rotation in rotations.items():
+            bone = rig.pose.bones.get(bone_name)
+            if not bone:
+                raise RuntimeError(f"Canonical stress pose requires missing bone: {bone_name}")
+            bone.rotation_mode = "XYZ"
+            bone.rotation_euler = rotation
+        bpy.context.view_layer.update()
+        rendered = render_reviews(meshes, review_dir)
+        return [{**row, "pose": "shared_deformation_stress", "animationApprovalEligible": False} for row in rendered]
+    finally:
+        for bone_name, matrix_basis in saved.items():
+            rig.pose.bones[bone_name].matrix_basis = matrix_basis
+        bpy.context.view_layer.update()
+
+
 def render_roundtrip_review(
     combined: Path,
     review_dir: Path,
@@ -1378,11 +1989,15 @@ def render_roundtrip_review(
         for material in obj.data.materials
         if material
     }
+    referenced_images = {
+        node.image
+        for material in bpy.data.materials
+        if material.use_nodes and material.node_tree
+        for node in material.node_tree.nodes
+        if node.type == "TEX_IMAGE" and node.image
+    }
     material_images = []
-    for image in sorted(
-        (image for image in bpy.data.images if "_draft_pbr_" in image.name),
-        key=lambda image: image.name,
-    ):
+    for image in sorted(referenced_images, key=lambda image: image.name):
         pixel_count = max(1, len(image.pixels) // 4)
         offsets = (0, (pixel_count // 2) * 4, (pixel_count - 1) * 4)
         samples = [list(image.pixels[offset : offset + 4]) for offset in offsets]
@@ -1392,9 +2007,22 @@ def render_roundtrip_review(
             "colorspace": image.colorspace_settings.name,
             "samples": samples,
             "populated": populated,
+            "sourceKind": "generated_palette" if "_draft_pbr_" in image.name else "authored_fixture",
         })
-    armor_images_populated = len(material_images) == 12 and all(
-        image["populated"] for image in material_images
+    authored_fixture_images = [
+        image for image in material_images if image["sourceKind"] == "authored_fixture"
+    ]
+    generated_palette_images = [
+        image for image in material_images if image["sourceKind"] == "generated_palette"
+    ]
+    # Transparent eyebrow cards and intentionally black metal masks can sample
+    # to zero at all three probe points. Require every generated PBR channel
+    # and at least one visibly populated authored texture instead of rejecting
+    # valid sparse/black fixture maps.
+    armor_images_populated = (
+        len(generated_palette_images) >= 9
+        and all(image["populated"] for image in generated_palette_images)
+        and any(image["populated"] for image in authored_fixture_images)
     )
     technical_passed = (
         not invalid_bounds
@@ -1406,7 +2034,7 @@ def render_roundtrip_review(
     )
     report = {
         "schemaVersion": 1,
-        "assetId": "chr.civic_humanoid_v2.battle_prelate_m.equipped_review",
+        "assetId": f"chr.review.{combined.stem}",
         "model": combined.name,
         "modelSha256": sha256(combined),
         "fileSizeBytes": combined.stat().st_size,
@@ -1420,6 +2048,7 @@ def render_roundtrip_review(
         "requiredAnimationClips": sorted(expected_clips),
         "armorMaterialImages": material_images,
         "armorMaterialImagesPopulated": armor_images_populated,
+        "authoredFixtureMaterialImageCount": len(authored_fixture_images),
         "previews": previews,
         "technicalRoundTripPassed": technical_passed,
         "visualApprovalPassed": False,
@@ -1453,7 +2082,7 @@ def module_report(
     degenerate = degenerate_faces(obj)
     checks = {
         "modelExists": output.is_file(),
-        "triangleBudget": triangles <= MODULE_TRIANGLE_LIMIT,
+        "triangleBudget": triangles <= module_triangle_limit(slot),
         "drawCallBudget": len(obj.material_slots) <= 2,
         "fourInfluenceLimitApplied": max_before >= 0,
         "allVerticesWeighted": unweighted == 0,
@@ -1515,7 +2144,7 @@ def module_report(
 
 def main() -> None:
     args = parse_args()
-    pack_recipe, recipe = load_recipe(args.family, args.variant)
+    pack_recipe, recipe = load_recipe(args.recipe_file, args.family, args.variant, args.set_id)
     source_blend = Path(args.source_blend).resolve()
     if not source_blend.is_file():
         raise FileNotFoundError(f"Accepted body source blend is missing: {source_blend}")
@@ -1535,6 +2164,14 @@ def main() -> None:
     sources: dict[str, tuple[Path | None, str | None]] = {}
     for slot in ARMOR_SLOTS:
         module = recipe["modules"][slot]
+        if slot == "head" and (
+            module.get("faceCoverage") != "open"
+            or module.get("faceOcclusionAllowed") is not False
+            or module.get("asset") == "culturalibre_skull_helmet"
+        ):
+            raise RuntimeError(
+                f"{recipe['setId']} head fixture is not certified open-face: {module.get('asset')}"
+            )
         asset_id = f"arm.{args.family}.{recipe['setId']}.{slot}.{args.variant}"
         object_name = asset_id.replace(".", "_")
         material = pbr_material(args.family, module["materialStyle"], recipe["palette"][module["materialStyle"]])
@@ -1545,13 +2182,13 @@ def main() -> None:
                 Path(LocationService.get_user_data("clothes"))
                 / module["asset"]
                 / f"{module['asset']}.mhclo"
-                if module["kind"] == "mpfbAsset"
+                if module["kind"] in {"mpfbAsset", "mpfbSegment"}
                 else None
             )
             sources[slot] = (source, module.get("pack"))
         elif args.resume_existing:
             raise RuntimeError(f"Resume blend is missing expected module: {object_name}")
-        elif module["kind"] == "mpfbAsset":
+        elif module["kind"] in {"mpfbAsset", "mpfbSegment"}:
             obj, source = fitted_asset(
                 body,
                 rig,
@@ -1559,14 +2196,16 @@ def main() -> None:
                 module["asset"],
                 material,
                 slot,
+                module["materialStyle"],
             )
             sources[slot] = (source, module["pack"])
         elif module["kind"] == "bodySurface":
-            obj = (
-                create_curved_belt(body, rig, object_name, material)
-                if slot == "waist"
-                else extract_surface_patch(body, rig, object_name, slot, module, material)
-            )
+            if slot == "waist":
+                obj = create_curved_belt(body, rig, object_name, material)
+            elif slot == "shoulders":
+                obj = create_curved_pauldron_pair(body, rig, object_name, module, material)
+            else:
+                obj = extract_surface_patch(body, rig, object_name, slot, module, material)
             sources[slot] = (None, None)
         elif module["kind"] == "weightedPanel":
             obj = create_weighted_panel(body, rig, object_name, module["panel"], material)
@@ -1596,8 +2235,14 @@ def main() -> None:
             cleanup_closed_mesh(obj)
         else:
             close_open_surface(obj)
-        if slot == "head" and non_manifold_edges(obj) > 0:
-            manifold_rigid_headpiece(obj, material)
+        if non_manifold_edges(obj) > 0:
+            if slot == "head":
+                manifold_rigid_headpiece(obj, material)
+            else:
+                manifold_skinned_wearable(obj, rig, material)
+        apply_shape_key_mix(obj)
+        if slot != "shoulders":
+            enforce_body_clearance(obj, body)
         canonicalize_groups(obj)
         ensure_armature(obj, rig)
         max_before, unweighted = limit_influences(obj, bone_names, 4)
@@ -1611,6 +2256,91 @@ def main() -> None:
         set_metadata(obj, asset_id, args.family, args.variant, slot, recipe)
         modules[slot] = obj
         obj["maxInfluencesBeforeLimit"] = max_before
+
+    # Finalize the body before the review renders and exports, then repeat the
+    # surface projection against that exact runtime mesh. MPFB's evaluated
+    # authoring body still contains masked helper topology; using it as the
+    # final collision surface can leave cuffs inside the stripped hand mesh.
+    runtime_body_finalization = bake_targets_and_strip_helpers(body)
+    for slot, obj in modules.items():
+        if slot != "shoulders":
+            enforce_body_clearance(obj, body)
+        # Nearest-surface projection can collapse a tiny source triangle when
+        # two vertices converge on the same cuff or helmet contour. Remove the
+        # resulting zero-area face after projection; the 15 mm clearance margin
+        # is intentionally much larger than the weld tolerance.
+        cleanup_closed_mesh(obj)
+        if non_manifold_edges(obj):
+            if slot == "head":
+                # Rebuild the occupied helmet volume and restore rigid weights.
+                manifold_rigid_headpiece(obj, obj.active_material)
+            else:
+                manifold_skinned_wearable(obj, rig, obj.active_material)
+            if slot != "shoulders":
+                enforce_body_clearance(obj, body)
+            cleanup_closed_mesh(obj)
+        if non_manifold_edges(obj) or degenerate_faces(obj):
+            raise RuntimeError(
+                f"{slot} failed final runtime topology repair: "
+                f"{non_manifold_edges(obj)} non-manifold edges, "
+                f"{degenerate_faces(obj)} degenerate faces"
+            )
+        triangles_before_final_budget = evaluated_triangles(obj)
+        # Final projection can add a large clean cap to fixture-derived capes.
+        # Reduce only to the hard per-module ceiling here; forcing every cape
+        # down to the 6.5k soft target damages its closed topology.
+        slot_limit = module_triangle_limit(slot)
+        # Helmet voxel repair can leave a dense but valid shell whose collapse
+        # modifier does not hit an exact ratio. Give rigid headpieces generous
+        # headroom instead of aiming one thousand triangles below the hard cap;
+        # the visible silhouette is already preserved by the voxel pass.
+        final_budget_target = (
+            min(MODULE_TRIANGLE_TARGET + 1500, slot_limit - 4000)
+            if slot == "head"
+            else slot_limit - 1000
+        )
+        final_budget_applied = enforce_triangle_budget(obj, final_budget_target)
+        if final_budget_applied:
+            cleanup_closed_mesh(obj)
+            if non_manifold_edges(obj):
+                patch_small_non_manifold_region(obj)
+                cleanup_closed_mesh(obj)
+        if any(len(polygon.vertices) > 3 for polygon in obj.data.polygons):
+            triangulate_faces(obj)
+            if non_manifold_edges(obj):
+                patch_small_non_manifold_region(obj)
+        final_max_before, final_unweighted = limit_influences(obj, bone_names, 4)
+        obj["maxInfluencesBeforeLimit"] = max(
+            int(obj.get("maxInfluencesBeforeLimit", 0)), final_max_before
+        )
+        if final_unweighted:
+            raise RuntimeError(f"{slot} has {final_unweighted} unweighted vertices after final repair")
+        if evaluated_triangles(obj) > slot_limit:
+            raise RuntimeError(
+                f"{slot} exceeds the final {slot_limit}-triangle module budget"
+            )
+        if non_manifold_edges(obj) or degenerate_faces(obj):
+            raise RuntimeError(
+                f"{slot} became invalid during final triangle budgeting: "
+                f"{non_manifold_edges(obj)} non-manifold edges, "
+                f"{degenerate_faces(obj)} degenerate faces; "
+                f"trianglesBefore={triangles_before_final_budget}, "
+                f"trianglesAfter={evaluated_triangles(obj)}, "
+                f"budgetApplied={final_budget_applied}"
+            )
+
+    runtime_body_meshes = [
+        obj
+        for obj in bpy.context.scene.objects
+        if obj.type == "MESH"
+        and (obj == body or obj.name.startswith(body_name + ".") or obj.get("bodyAccessory"))
+    ]
+    runtime_body_materials = prepare_runtime_materials(runtime_body_meshes)
+    core_body_materials = [
+        row for row in runtime_body_materials if not row["mesh"].startswith("grooming_")
+    ]
+    if not core_body_materials or any(row["alphaMode"] != "OPAQUE" for row in core_body_materials):
+        raise RuntimeError("Equipped export body materials were not normalized to opaque runtime materials")
 
     weapon_path = Path(args.weapon_glb).resolve() if args.weapon_glb else None
     existing_weapon_objects = [
@@ -1629,10 +2359,12 @@ def main() -> None:
             obj == body
             or obj in modules.values()
             or obj.name.startswith(body_name + ".")
+            or (obj.get("bodyAccessory") and obj.get("groomingCategory") != "hair")
             or obj in weapon_objects
         )
     ]
     previews = render_reviews(preview_meshes, review_dir)
+    stress_previews = render_stress_reviews(rig, preview_meshes, review_dir / "stress")
     reports = []
     for slot, obj in modules.items():
         asset_id = obj["assetId"]
@@ -1656,17 +2388,14 @@ def main() -> None:
             unweighted,
         ))
 
-    body_triangles = evaluated_triangles(body)
+    body_triangles = sum(evaluated_triangles(obj) for obj in runtime_body_meshes)
+    body_draw_calls = sum(max(1, len(obj.material_slots)) for obj in runtime_body_meshes)
     armor_triangles = sum(report["totalTriangles"] for report in reports)
-    combined_name = (
-        "battle_preplate_m_equipped_review.glb"
-        if args.family == "civic_humanoid_v2" and args.variant == "m"
-        else f"{recipe['setId']}_{args.variant}_equipped_review.glb"
-    )
+    combined_name = f"{recipe['setId']}_{args.variant}_equipped_review.glb"
     combined_output = output_dir.parent / combined_name
     sockets = [obj for obj in bpy.context.scene.objects if obj.type == "EMPTY" and obj.name.startswith("socket_")]
     combined_objects = [rig, *preview_meshes, *sockets, *[obj for obj in weapon_objects if obj not in preview_meshes]]
-    rig["assetId"] = "chr.civic_humanoid_v2.battle_prelate_m.equipped_review"
+    rig["assetId"] = f"chr.{args.family}.{recipe['setId']}.{args.variant}.equipped_review"
     rig["assetCategory"] = "characterReview"
     rig["lifecycleStatus"] = "draft"
     rig["reviewStatus"] = "pending"
@@ -1683,6 +2412,21 @@ def main() -> None:
         "bindPoseId": "a_pose_v2",
         "generatorKind": "mpfbFittedModularArmor",
         "generatorVersion": GENERATOR_VERSION,
+        "runtimeBodyFinalization": runtime_body_finalization,
+        "equippedFaceIntegrity": {
+            "bodyMeshes": [
+                obj.name for obj in runtime_body_meshes if not obj.get("bodyAccessory")
+            ],
+            "groomingMeshes": [
+                obj.name for obj in runtime_body_meshes if obj.get("bodyAccessory")
+            ],
+            "bodyVerticesAfter": runtime_body_finalization["bodyVerticesAfter"],
+            "materials": runtime_body_materials,
+            "opaqueMaterials": all(row["alphaMode"] == "OPAQUE" for row in core_body_materials),
+            "openFaceHeadFixture": recipe["modules"]["head"].get("faceCoverage") == "open",
+            "passed": all(row["alphaMode"] == "OPAQUE" for row in core_body_materials)
+            and recipe["modules"]["head"].get("faceCoverage") == "open",
+        },
         "currencyCost": 0,
         "equippedReviewModel": {
             "path": str(combined_output),
@@ -1697,14 +2441,15 @@ def main() -> None:
             "armorTriangles": armor_triangles,
             "totalTriangles": body_triangles + armor_triangles,
             "maxTriangles": EQUIPPED_TRIANGLE_LIMIT,
-            "drawCalls": 4 + sum(report["drawCalls"] for report in reports),
+            "drawCalls": body_draw_calls + sum(report["drawCalls"] for report in reports),
             "maxDrawCalls": 16,
             "passed": body_triangles + armor_triangles <= EQUIPPED_TRIANGLE_LIMIT
-            and 4 + sum(report["drawCalls"] for report in reports) <= 16,
+            and body_draw_calls + sum(report["drawCalls"] for report in reports) <= 16,
         },
         "review": {
             "orthographicViews": previews,
-            "stressPoseReview": "missing",
+            "stressPoseReview": stress_previews,
+            "stressPoseAnimationApprovalEligible": False,
             "animationReview": "missing",
             "humanApproval": "missing",
         },
@@ -1713,13 +2458,16 @@ def main() -> None:
             "reviewStatus": "pending",
             "promotionEligible": False,
             "blockingReasons": [
-                "stress_pose_review_missing",
                 "animation_review_missing",
                 "explicit_human_approval_missing",
             ],
         },
         "qcPassed": all(report["qcPassed"] for report in reports)
-        and body_triangles + armor_triangles <= EQUIPPED_TRIANGLE_LIMIT,
+        and body_triangles + armor_triangles <= EQUIPPED_TRIANGLE_LIMIT
+        and all(row["alphaMode"] == "OPAQUE" for row in core_body_materials)
+        and recipe["modules"]["head"].get("faceCoverage") == "open"
+        and len(stress_previews) == 4
+        and all(Path(row["path"]).is_file() for row in stress_previews),
     }
     if args.save_blend:
         save_blend = Path(args.save_blend).resolve()

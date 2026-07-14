@@ -706,7 +706,7 @@
     },
     {
       "id": "rotwreath_nest_beast_1",
-      "name": "Lair Spider",
+      "name": "Mire Hound",
       "level": 14,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_lair_spider"
+      "assetKey": "creature_mire_hound"
     },
     {
       "id": "rotwreath_nest_beast_2",
-      "name": "Lair Spider",
+      "name": "Mire Hound",
       "level": 14,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_lair_spider"
+      "assetKey": "creature_mire_hound"
     },
     {
       "id": "rotwreath_nest_adept_1",
@@ -976,5 +976,5 @@
       ]
     }
   ],
-  "staticMapHash": "dfa506466df9a38c"
+  "staticMapHash": "9ec9c9cb50420c11"
 }

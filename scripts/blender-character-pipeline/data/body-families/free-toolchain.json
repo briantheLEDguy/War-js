@@ -6,7 +6,7 @@
   "networkPolicy": "The pipeline never makes network calls. Dependencies are downloaded and installed manually by the user.",
   "dependencies": {
     "blender": {
-      "minimumVersion": "4.2.0",
+      "minimumVersion": "5.0.0",
       "license": "GPL-3.0-or-later",
       "officialUrl": "https://www.blender.org/download/"
     },

@@ -706,7 +706,7 @@
     },
     {
       "id": "mireglass_den_beast_1",
-      "name": "Lair Spider",
+      "name": "Suncrest Ram",
       "level": 6,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 20,
       "moveSpeed": 3.85,
-      "assetKey": "creature_lair_spider"
+      "assetKey": "creature_suncrest_ram"
     },
     {
       "id": "mireglass_den_beast_2",
-      "name": "Lair Spider",
+      "name": "Suncrest Ram",
       "level": 6,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 20,
       "moveSpeed": 3.85,
-      "assetKey": "creature_lair_spider"
+      "assetKey": "creature_suncrest_ram"
     },
     {
       "id": "mireglass_den_adept_1",
@@ -983,5 +983,5 @@
       ]
     }
   ],
-  "staticMapHash": "5b660dab8f5dd3c6"
+  "staticMapHash": "21473790e6d20ea8"
 }

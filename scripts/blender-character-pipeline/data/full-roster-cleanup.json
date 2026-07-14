@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "cleanupId": "full_roster_historical_generated_cleanup_v1",
+  "preserve": ["buildings", "environment_props", "preview_props", "weapons", "jewels"],
+  "files": [
+    "public/assets/models/prop_creature_ash_hound_t1.glb",
+    "public/assets/models/prop_creature_ash_hound_t1.qc.json",
+    "public/assets/models/prop_creature_barrow_wolf_t1.glb",
+    "public/assets/models/prop_creature_barrow_wolf_t1.qc.json",
+    "public/assets/models/prop_creature_lair_spider_t1.glb",
+    "public/assets/models/prop_creature_lair_spider_t1.qc.json",
+    "public/assets/models/prop_creature_mire_hound_t1.glb",
+    "public/assets/models/prop_creature_mire_hound_t1.qc.json",
+    "public/assets/models/prop_creature_rift_hound_t1.glb",
+    "public/assets/models/prop_creature_rift_hound_t1.qc.json",
+    "public/assets/models/prop_creature_war_boar_t1.glb",
+    "public/assets/models/prop_creature_war_boar_t1.qc.json",
+    "public/assets/models/prop_creature_wild_stag_t1.glb",
+    "public/assets/models/prop_creature_wild_stag_t1.qc.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_ash_hound_t1.asset.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_barrow_wolf_t1.asset.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_lair_spider_t1.asset.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_mire_hound_t1.asset.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_rift_hound_t1.asset.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_war_boar_t1.asset.json",
+    "scripts/blender-character-pipeline/data/asset-blueprints/prop_creature_wild_stag_t1.asset.json"
+  ],
+  "registryKeys": [
+    "creature_ash_hound",
+    "creature_barrow_wolf",
+    "creature_lair_spider",
+    "creature_mire_hound",
+    "creature_rift_hound",
+    "creature_war_boar",
+    "creature_wild_stag"
+  ],
+  "allowlistModels": [
+    "prop_creature_ash_hound_t1.glb",
+    "prop_creature_barrow_wolf_t1.glb",
+    "prop_creature_lair_spider_t1.glb",
+    "prop_creature_mire_hound_t1.glb",
+    "prop_creature_rift_hound_t1.glb",
+    "prop_creature_war_boar_t1.glb",
+    "prop_creature_wild_stag_t1.glb"
+  ]
+}

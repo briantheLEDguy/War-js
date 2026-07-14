@@ -706,7 +706,7 @@
     },
     {
       "id": "obsidian_maw_beast_1",
-      "name": "Rift Hound",
+      "name": "Ash Hound",
       "level": 26,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 60,
       "moveSpeed": 3.85,
-      "assetKey": "creature_rift_hound"
+      "assetKey": "creature_ash_hound"
     },
     {
       "id": "obsidian_maw_beast_2",
-      "name": "Rift Hound",
+      "name": "Ash Hound",
       "level": 26,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 60,
       "moveSpeed": 3.85,
-      "assetKey": "creature_rift_hound"
+      "assetKey": "creature_ash_hound"
     },
     {
       "id": "obsidian_maw_adept_1",
@@ -977,5 +977,5 @@
       ]
     }
   ],
-  "staticMapHash": "3386530fc9ec1526"
+  "staticMapHash": "81d934ec066029da"
 }

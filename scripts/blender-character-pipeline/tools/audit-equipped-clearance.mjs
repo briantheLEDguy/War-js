@@ -93,7 +93,7 @@ export function evaluateBodyMetric(metric, policy) {
 }
 
 export function evaluateArmorPairMetric(metric, policy) {
-  const thresholds = policy[metric.classification];
+  const thresholds = metric.thresholds ?? policy[metric.classification];
   if (!thresholds) throw new Error(`Unknown armor pair classification: ${metric.classification}`);
   return metric.overlapPairCount <= thresholds.hardMaxOverlapPairs
     && (

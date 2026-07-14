@@ -170,7 +170,10 @@ export class ModelJobStore {
             // A malformed lock is never silently broken while it is fresh.
           }
           const ageMs = Date.now() - statSync(lockPath).mtimeMs;
-          if (ageMs > 12 * 60 * 60 * 1000 && !processIsRunning(owner?.pid)) {
+          const provenDeadOwner = owner?.jobId && Number.isInteger(owner?.pid)
+            && !processIsRunning(owner.pid);
+          const staleMalformedLock = !owner?.jobId && ageMs > 12 * 60 * 60 * 1000;
+          if (provenDeadOwner || staleMalformedLock) {
             unlinkSync(lockPath);
             descriptor = openSync(lockPath, "wx");
           } else {

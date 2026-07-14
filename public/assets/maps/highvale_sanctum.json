@@ -706,7 +706,7 @@
     },
     {
       "id": "highvale_sanctum_beast_1",
-      "name": "Barrow Wolf",
+      "name": "Wild Stag",
       "level": 26,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 60,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_wild_stag"
     },
     {
       "id": "highvale_sanctum_beast_2",
-      "name": "Barrow Wolf",
+      "name": "Wild Stag",
       "level": 26,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 60,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_wild_stag"
     },
     {
       "id": "highvale_sanctum_adept_1",
@@ -976,5 +976,5 @@
       ]
     }
   ],
-  "staticMapHash": "ba4cfb48acda492a"
+  "staticMapHash": "d95b18999d3d05f4"
 }

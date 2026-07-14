@@ -1,0 +1,30 @@
+{
+  "$schema": "./body-family.schema.json",
+  "schemaVersion": 1,
+  "bodyFamily": "stone_humanoid_v1",
+  "displayName": "Stone Kin",
+  "description": "Compact, broad Dwarf foundation using the pinned CC0 MPFB hm08 topology.",
+  "pilotProfile": { "race": "dwarf", "classKey": "stoneguard", "className": "Stoneguard" },
+  "sourceTopology": { "generator": "MPFB", "generatorVersion": "2.0.16", "baseMesh": "hm08", "license": "CC0-1.0", "topologyInvariant": "Race and class differences are non-destructive MPFB macro variations." },
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "armorSlots": ["head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard"],
+  "requiredAssetPacks": ["makehuman_system_assets", "ears01", "hands01", "nose01", "cheek01", "faceunits01"],
+  "variants": {
+    "m": {
+      "variant": "m", "profileKey": "stone_stoneguard_m", "outputModel": "body_stone_humanoid_v1_m.glb", "expectedHeightM": 1.48,
+      "mpfbPreset": { "creationApi": "HumanService.create_human", "propertyValues": { "gender": 1.0, "age": 0.5, "muscle": 0.72, "weight": 0.68, "height": 0.15, "proportions": 0.38 }, "rig": "game_engine", "skinModel": "GAME_ENGINE" },
+      "skin": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_male", "tint": "#c89161" },
+      "customTargets": [],
+      "attachments": { "eyes": "high-poly", "eyebrows": "eyebrow006", "eyelashes": "eyelashes01", "teeth": "teeth_base", "tongue": "tongue01" }
+    },
+    "f": {
+      "variant": "f", "profileKey": "stone_stoneguard_f", "outputModel": "body_stone_humanoid_v1_f.glb", "expectedHeightM": 1.42,
+      "mpfbPreset": { "creationApi": "HumanService.create_human", "propertyValues": { "gender": 0.0, "age": 0.48, "muscle": 0.58, "weight": 0.62, "height": 0.13, "proportions": 0.4 }, "rig": "game_engine", "skinModel": "GAME_ENGINE" },
+      "skin": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_female", "tint": "#d09a6b" },
+      "customTargets": [],
+      "attachments": { "eyes": "high-poly", "eyebrows": "eyebrow006", "eyelashes": "eyelashes01", "teeth": "teeth_base", "tongue": "tongue01" }
+    }
+  },
+  "promotion": { "state": "specification", "promotionEligible": false, "reason": "Model-stage output and explicit approval are pending." }
+}

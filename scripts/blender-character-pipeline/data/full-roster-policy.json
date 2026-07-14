@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "policyId": "full_roster_model_stage_v1",
+  "costPolicy": {
+    "currencyBudget": 0,
+    "paidServicesAllowed": false,
+    "remoteGenerationAllowed": false,
+    "ciGenerationAllowed": false
+  },
+  "bodyVariants": ["m", "f"],
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lodsRequiredForModelStage": ["LOD0"],
+  "lodsRequiredForRuntime": ["LOD0", "LOD1", "LOD2"],
+  "bodyFamilies": {
+    "empire": {
+      "id": "civic_humanoid_v2",
+      "realm": "aegis",
+      "displayName": "Civic Humanoid",
+      "skin": { "m": "#bd8664", "f": "#c58d6b" },
+      "expectedHeightM": { "m": 1.86, "f": 1.76 },
+      "baseMacros": { "m": { "age": 0.42, "muscle": 0.58, "weight": 0.52, "height": 0.53, "proportions": 0.50 }, "f": { "age": 0.42, "muscle": 0.48, "weight": 0.49, "height": 0.49, "proportions": 0.50 } }
+    },
+    "dwarf": {
+      "id": "stone_humanoid_v1",
+      "realm": "aegis",
+      "displayName": "Stone Kin",
+      "skin": { "m": "#c89161", "f": "#d09a6b" },
+      "expectedHeightM": { "m": 1.48, "f": 1.42 },
+      "baseMacros": { "m": { "age": 0.50, "muscle": 0.72, "weight": 0.68, "height": 0.15, "proportions": 0.38 }, "f": { "age": 0.48, "muscle": 0.58, "weight": 0.62, "height": 0.13, "proportions": 0.40 } }
+    },
+    "high_elf": {
+      "id": "aether_humanoid_v1",
+      "realm": "aegis",
+      "displayName": "Aether Noble",
+      "skin": { "m": "#dac6a8", "f": "#e0ccb0" },
+      "expectedHeightM": { "m": 1.94, "f": 1.84 },
+      "baseMacros": { "m": { "age": 0.34, "muscle": 0.44, "weight": 0.38, "height": 0.66, "proportions": 0.62 }, "f": { "age": 0.34, "muscle": 0.38, "weight": 0.36, "height": 0.62, "proportions": 0.62 } }
+    },
+    "chaos": {
+      "id": "riven_humanoid_v1",
+      "realm": "riftbound",
+      "displayName": "Riven Champion",
+      "skin": { "m": "#8d6b5f", "f": "#97756a" },
+      "expectedHeightM": { "m": 2.02, "f": 1.90 },
+      "baseMacros": { "m": { "age": 0.52, "muscle": 0.78, "weight": 0.62, "height": 0.66, "proportions": 0.48 }, "f": { "age": 0.48, "muscle": 0.62, "weight": 0.56, "height": 0.60, "proportions": 0.49 } }
+    },
+    "greenskin": {
+      "id": "mire_brutish_v1",
+      "realm": "riftbound",
+      "displayName": "Mireborn",
+      "skin": { "m": "#4b7a32", "f": "#567f3a" },
+      "expectedHeightM": { "m": 2.05, "f": 1.94 },
+      "baseMacros": { "m": { "age": 0.47, "muscle": 0.88, "weight": 0.67, "height": 0.61, "proportions": 0.43 }, "f": { "age": 0.47, "muscle": 0.73, "weight": 0.61, "height": 0.57, "proportions": 0.45 } }
+    },
+    "dark_elf": {
+      "id": "umbra_humanoid_v1",
+      "realm": "riftbound",
+      "displayName": "Umbral Noble",
+      "skin": { "m": "#a7848e", "f": "#b08d98" },
+      "expectedHeightM": { "m": 1.88, "f": 1.79 },
+      "baseMacros": { "m": { "age": 0.38, "muscle": 0.50, "weight": 0.42, "height": 0.58, "proportions": 0.58 }, "f": { "age": 0.38, "muscle": 0.44, "weight": 0.40, "height": 0.54, "proportions": 0.58 } }
+    }
+  },
+  "raceIdentity": {
+    "empire": {
+      "skin": {
+        "m": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_male", "tint": "#bd8664" },
+        "f": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_female", "tint": "#c58d6b" }
+      },
+      "grooming": {
+        "m": { "hair": "short03", "eyebrows": "eyebrow006", "eyelashes": "eyelashes01" },
+        "f": { "hair": "long01", "eyebrows": "eyebrow006", "eyelashes": "eyelashes02" }
+      },
+      "fixtureTargets": [
+        { "pack": "ears01", "relativePath": "ears/mindfront_ear_details.target", "weight": 0.28 },
+        { "pack": "hands01", "relativePath": "hands/mindfront_hand_fingers_correction.target", "weight": 0.62 },
+        { "pack": "nose01", "relativePath": "nose/jujube_greek_statue_nose.target", "weight": 0.12 },
+        { "pack": "cheek01", "relativePath": "cheek/elvs_high_chubby_cheekbones_1.target", "weight": 0.07 },
+        { "pack": "faceunits01", "relativePath": "faceunits/browInnerUp.target", "weight": 0.018 }
+      ]
+    },
+    "dwarf": {
+      "skin": {
+        "m": { "assetPack": "makehuman_system_assets", "assetName": "middleage_caucasian_male", "tint": "#c89161" },
+        "f": { "assetPack": "makehuman_system_assets", "assetName": "middleage_caucasian_female", "tint": "#d09a6b" }
+      },
+      "grooming": {
+        "m": { "hair": "braid01", "eyebrows": "eyebrow011", "eyelashes": "eyelashes01" },
+        "f": { "hair": "braid01", "eyebrows": "eyebrow011", "eyelashes": "eyelashes02" }
+      },
+      "fixtureTargets": [
+        { "pack": "ears01", "relativePath": "ears/elvs_ear_flap_bottom_out.target", "weight": 0.20 },
+        { "pack": "hands01", "relativePath": "hands/jujube_knobby_knuckles.target", "weight": 0.34 },
+        { "pack": "nose01", "relativePath": "nose/elvs_bulbous_nose_1.target", "weight": 0.52 },
+        { "pack": "cheek01", "relativePath": "cheek/elvs_jowls_1.target", "weight": 0.34 },
+        { "pack": "faceunits01", "relativePath": "faceunits/browDownLeft.target", "weight": 0.025 },
+        { "pack": "faceunits01", "relativePath": "faceunits/browDownRight.target", "weight": 0.025 }
+      ]
+    },
+    "high_elf": {
+      "skin": {
+        "m": { "assetPack": "skins03", "assetName": "bogdan666_elfskinsohlen", "tint": "#dac6a8" },
+        "f": { "assetPack": "skins03", "assetName": "bogdan666_elfskinsohlen", "tint": "#e0ccb0" }
+      },
+      "grooming": {
+        "m": { "hair": "long01", "eyebrows": "eyebrow004", "eyelashes": "eyelashes03" },
+        "f": { "hair": "ponytail01", "eyebrows": "eyebrow004", "eyelashes": "eyelashes03" }
+      },
+      "fixtureTargets": [
+        { "pack": "ears01", "relativePath": "ears/elvs_flap_ears_3.target", "weight": 0.78 },
+        { "pack": "hands01", "relativePath": "hands/mindfront_hand_fingers_correction.target", "weight": 0.72 },
+        { "pack": "nose01", "relativePath": "nose/jujube_nose_straight_columella.target", "weight": 0.24 },
+        { "pack": "cheek01", "relativePath": "cheek/elvs_high_chubby_cheekbones_1.target", "weight": 0.17 },
+        { "pack": "faceunits01", "relativePath": "faceunits/browOuterUpLeft.target", "weight": 0.018 },
+        { "pack": "faceunits01", "relativePath": "faceunits/browOuterUpRight.target", "weight": 0.018 }
+      ]
+    },
+    "chaos": {
+      "skin": {
+        "m": { "assetPack": "skins03", "assetName": "spreadcore_gray_alien_bio_armor_skin_1", "tint": "#78605d" },
+        "f": { "assetPack": "skins03", "assetName": "spreadcore_gray_alien_bio_armor_skin_1", "tint": "#846967" }
+      },
+      "grooming": {
+        "m": { "hair": "short04", "eyebrows": "eyebrow012", "eyelashes": "eyelashes04" },
+        "f": { "hair": "short02", "eyebrows": "eyebrow012", "eyelashes": "eyelashes04" }
+      },
+      "fixtureTargets": [
+        { "pack": "ears01", "relativePath": "ears/mindfront_ear_in.target", "weight": 0.42 },
+        { "pack": "hands01", "relativePath": "hands/jujube_knobby_knuckles.target", "weight": 0.46 },
+        { "pack": "nose01", "relativePath": "nose/mindfront_nose_hole_up.target", "weight": 0.18 },
+        { "pack": "cheek01", "relativePath": "cheek/elvs_sunken_cheeks_1.target", "weight": 0.22 },
+        { "pack": "faceunits01", "relativePath": "faceunits/noseSneerLeft.target", "weight": 0.024 },
+        { "pack": "faceunits01", "relativePath": "faceunits/noseSneerRight.target", "weight": 0.024 }
+      ]
+    },
+    "greenskin": {
+      "skin": {
+        "m": { "assetPack": "skins03", "assetName": "sonntag78_orkifyheadtarget_custom_skin", "tint": "#4b7a32" },
+        "f": { "assetPack": "skins03", "assetName": "sonntag78_orkifyheadtarget_custom_skin", "tint": "#567f3a" }
+      },
+      "grooming": {
+        "m": { "hair": "short01", "eyebrows": "eyebrow010", "eyelashes": "eyelashes01" },
+        "f": { "hair": "braid01", "eyebrows": "eyebrow010", "eyelashes": "eyelashes01" }
+      },
+      "fixtureTargets": [
+        { "pack": "ears01", "relativePath": "ears/elvs_flap_ears_1.target", "weight": 0.46 },
+        { "pack": "hands01", "relativePath": "hands/jujube_knobby_knuckles.target", "weight": 0.52 },
+        { "pack": "nose01", "relativePath": "nose/elvs_nose_widening_1.target", "weight": 0.40 },
+        { "pack": "cheek01", "relativePath": "cheek/elvs_jowls_1.target", "weight": 0.22 },
+        { "pack": "faceunits01", "relativePath": "faceunits/jawForward.target", "weight": 0.035 }
+      ]
+    },
+    "dark_elf": {
+      "skin": {
+        "m": { "assetPack": "skins03", "assetName": "bobby_03_grey_skinned_person", "tint": "#806f87" },
+        "f": { "assetPack": "skins03", "assetName": "bobby_03_grey_skinned_person", "tint": "#8b788f" }
+      },
+      "grooming": {
+        "m": { "hair": "long01", "eyebrows": "eyebrow009", "eyelashes": "eyelashes04" },
+        "f": { "hair": "bob02", "eyebrows": "eyebrow009", "eyelashes": "eyelashes04" }
+      },
+      "fixtureTargets": [
+        { "pack": "ears01", "relativePath": "ears/elvs_flap_ears_3.target", "weight": 0.68 },
+        { "pack": "hands01", "relativePath": "hands/mindfront_hand_fingers_correction.target", "weight": 0.68 },
+        { "pack": "nose01", "relativePath": "nose/jujube_nasiolabial_sharp_angle.target", "weight": 0.18 },
+        { "pack": "cheek01", "relativePath": "cheek/elvs_sunken_cheeks_1.target", "weight": 0.14 },
+        { "pack": "faceunits01", "relativePath": "faceunits/cheekSquintLeft.target", "weight": 0.018 },
+        { "pack": "faceunits01", "relativePath": "faceunits/cheekSquintRight.target", "weight": 0.018 }
+      ]
+    }
+  },
+  "physiqueArchetypes": {
+    "tank": { "muscle": 0.16, "weight": 0.10, "height": -0.02, "proportions": -0.04 },
+    "bruiser": { "muscle": 0.14, "weight": 0.08, "height": 0.01, "proportions": -0.03 },
+    "berserker": { "muscle": 0.18, "weight": 0.02, "height": 0.03, "proportions": -0.05 },
+    "relic": { "muscle": 0.10, "weight": 0.06, "height": 0.01, "proportions": -0.01 },
+    "duelist": { "muscle": 0.05, "weight": -0.06, "height": 0.02, "proportions": 0.05 },
+    "assassin": { "muscle": 0.04, "weight": -0.10, "height": -0.01, "proportions": 0.08 },
+    "ranger": { "muscle": 0.04, "weight": -0.07, "height": 0.03, "proportions": 0.06 },
+    "hunter": { "muscle": 0.07, "weight": -0.03, "height": 0.04, "proportions": 0.04 },
+    "skirmisher": { "muscle": 0.05, "weight": -0.05, "height": -0.03, "proportions": 0.07 },
+    "caster": { "muscle": -0.08, "weight": -0.07, "height": 0.04, "proportions": 0.06 },
+    "rune_caster": { "muscle": 0.00, "weight": 0.02, "height": -0.03, "proportions": 0.01 },
+    "bog_caster": { "muscle": -0.04, "weight": 0.03, "height": -0.04, "proportions": -0.01 },
+    "occult": { "muscle": -0.10, "weight": -0.09, "height": 0.06, "proportions": 0.07 },
+    "ritual": { "muscle": -0.07, "weight": -0.05, "height": 0.02, "proportions": 0.04 },
+    "engineer": { "muscle": 0.03, "weight": 0.04, "height": -0.04, "proportions": -0.02 },
+    "mutant": { "muscle": 0.12, "weight": 0.05, "height": 0.05, "proportions": -0.06 }
+  },
+  "weaponReview": {
+    "handlingModes": ["one_handed", "two_handed", "dual_wield"],
+    "requiredSockets": ["socket_hand_R", "socket_hand_L"],
+    "assets": ["qc_blade_main", "qc_blade_off", "qc_great_weapon"]
+  },
+  "npc": {
+    "foundationStrategy": "race_body_variant",
+    "profileCount": 106,
+    "staticProfileCount": 74,
+    "enemyProfileCount": 32,
+    "manualReviewRoles": ["captain"],
+    "roles": ["ambient", "banker", "captain", "caster", "guard", "questgiver", "raider", "trainer", "vendor"]
+  },
+  "animationPlan": {
+    "phase": "next",
+    "qaStressPosesSatisfyAnimationApproval": false,
+    "playable": {
+      "uniquePackPerClass": true,
+      "retargetToBodyVariants": ["m", "f"],
+      "clips": ["idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump"]
+    },
+    "npc": {
+      "base": "mapped_class_pack",
+      "overlays": ["role_idle", "role_interaction"]
+    },
+    "creature": { "uniquePackPerSpecies": true }
+  },
+  "creatures": [
+    { "key": "barrow_wolf", "name": "Barrow Wolf", "realm": "aegis", "bodyPlan": "canid" },
+    { "key": "war_boar", "name": "War Boar", "realm": "aegis", "bodyPlan": "boar" },
+    { "key": "wild_stag", "name": "Wild Stag", "realm": "aegis", "bodyPlan": "cervid" },
+    { "key": "suncrest_ram", "name": "Suncrest Ram", "realm": "aegis", "bodyPlan": "caprine" },
+    { "key": "briarback_bear", "name": "Briarback Bear", "realm": "aegis", "bodyPlan": "ursine" },
+    { "key": "glassriver_snapper", "name": "Glassriver Snapper", "realm": "aegis", "bodyPlan": "chelonian" },
+    { "key": "ash_hound", "name": "Ash Hound", "realm": "riftbound", "bodyPlan": "canid" },
+    { "key": "mire_hound", "name": "Mire Hound", "realm": "riftbound", "bodyPlan": "canid" },
+    { "key": "rift_hound", "name": "Rift Hound", "realm": "riftbound", "bodyPlan": "canid" },
+    { "key": "lair_spider", "name": "Lair Spider", "realm": "riftbound", "bodyPlan": "arachnid" },
+    { "key": "cinderhide_drake", "name": "Cinderhide Drake", "realm": "riftbound", "bodyPlan": "ground_drake" },
+    { "key": "rotmaw_toad", "name": "Rotmaw Toad", "realm": "riftbound", "bodyPlan": "anuran" }
+  ],
+  "review": {
+    "initialRevision": 1,
+    "approvalUnit": { "playable": "class_pair", "npc": "foundation_kit", "creature": "species" },
+    "requiredHumanoidChecks": ["anatomyNatural", "materialsPbr", "seamsAcceptable", "clippingAcceptable", "stressPosesAcceptable", "weaponSocketsAcceptable"],
+    "requiredCreatureChecks": ["materialsPbr", "seamsAcceptable", "clippingAcceptable", "stressPosesAcceptable", "rigMarkersAcceptable"],
+    "promotionRequiresAnimationStage": true
+  }
+}

@@ -706,7 +706,7 @@
     },
     {
       "id": "gorepine_warrens_beast_1",
-      "name": "Barrow Wolf",
+      "name": "Rotmaw Toad",
       "level": 14,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_rotmaw_toad"
     },
     {
       "id": "gorepine_warrens_beast_2",
-      "name": "Barrow Wolf",
+      "name": "Rotmaw Toad",
       "level": 14,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_rotmaw_toad"
     },
     {
       "id": "gorepine_warrens_adept_1",
@@ -986,5 +986,5 @@
       ]
     }
   ],
-  "staticMapHash": "8bc66f28a72f4948"
+  "staticMapHash": "4e5159d73ab14854"
 }

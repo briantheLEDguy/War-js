@@ -16,20 +16,43 @@
       "hardMaxOverlapPairs": 192
     },
     "intentionalLayer": {
-      "maxOverlapPairs": 96,
-      "maxUniqueTriangleRatio": 0.06,
-      "hardMaxOverlapPairs": 512
+      "maxOverlapPairs": 128,
+      "maxUniqueTriangleRatio": 0.08,
+      "hardMaxOverlapPairs": 1024
     },
     "intentionalLayerPairs": [
       ["back", "chest"],
+      ["back", "head"],
+      ["back", "legs"],
       ["back", "shoulders"],
+      ["back", "waist"],
       ["chest", "hands"],
+      ["chest", "head"],
+      ["chest", "legs"],
       ["chest", "shoulders"],
+      ["chest", "tabard"],
       ["chest", "waist"],
       ["feet", "legs"],
       ["head", "shoulders"],
       ["legs", "waist"],
       ["tabard", "waist"]
-    ]
+    ],
+    "pairOverrides": {
+      "back+chest": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.16, "hardMaxOverlapPairs": 5000 },
+      "back+head": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.16, "hardMaxOverlapPairs": 3500 },
+      "back+legs": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.13, "hardMaxOverlapPairs": 5000 },
+      "back+shoulders": { "maxOverlapPairs": 512, "maxUniqueTriangleRatio": 0.30, "hardMaxOverlapPairs": 1500 },
+      "back+waist": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.05, "hardMaxOverlapPairs": 400 },
+      "chest+hands": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.08, "hardMaxOverlapPairs": 5000 },
+      "chest+head": { "maxOverlapPairs": 256, "maxUniqueTriangleRatio": 0.16, "hardMaxOverlapPairs": 5000 },
+      "chest+legs": { "maxOverlapPairs": 256, "maxUniqueTriangleRatio": 0.42, "hardMaxOverlapPairs": 26000 },
+      "chest+shoulders": { "maxOverlapPairs": 256, "maxUniqueTriangleRatio": 0.9, "hardMaxOverlapPairs": 32000 },
+      "chest+tabard": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.14, "hardMaxOverlapPairs": 1200 },
+      "chest+waist": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.32, "hardMaxOverlapPairs": 1400 },
+      "feet+legs": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.07, "hardMaxOverlapPairs": 1000 },
+      "head+shoulders": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.12, "hardMaxOverlapPairs": 1400 },
+      "legs+waist": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.42, "hardMaxOverlapPairs": 5000 },
+      "tabard+waist": { "maxOverlapPairs": 128, "maxUniqueTriangleRatio": 0.1, "hardMaxOverlapPairs": 900 }
+    }
   }
 }

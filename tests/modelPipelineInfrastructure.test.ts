@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
@@ -250,6 +250,24 @@ describe("model jobs", () => {
     const result = await store.wait(job.jobId);
     expect(result.status).toBe("cancelled");
     expect(result.error.code).toBe("JOB_CANCELLED");
+  });
+
+  it("recovers an owned lock immediately when its process is gone", async () => {
+    const root = testRoot("dead-owner-lock");
+    const assetKey = "body.interrupted.m";
+    const readable = assetKey.toLowerCase().replace(/[^a-z0-9_.-]+/g, "_").slice(0, 64);
+    const suffix = createHash("sha256").update(assetKey).digest("hex").slice(0, 12);
+    const lockRoot = path.join(root, ".locks");
+    mkdirSync(lockRoot, { recursive: true });
+    writeFileSync(path.join(lockRoot, `${readable}.${suffix}.lock`), JSON.stringify({
+      jobId: "job_20000101t000000z_deadbeef0000",
+      assetKey,
+      pid: 2_147_483_647,
+      createdAt: new Date().toISOString(),
+    }));
+    const store = new ModelJobStore(root);
+    const job = store.start("test", {}, async () => ({ ok: true }), { assetKeys: [assetKey] });
+    expect((await store.wait(job.jobId)).status).toBe("completed");
   });
 });
 
