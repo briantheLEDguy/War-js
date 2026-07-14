@@ -2211,7 +2211,7 @@
     },
     {
       "id": "vilemere_heights_beast_1",
-      "name": "War Boar",
+      "name": "Cinderhide Drake",
       "level": 18,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_war_boar"
+      "assetKey": "creature_cinderhide_drake"
     },
     {
       "id": "vilemere_heights_beast_2",
-      "name": "War Boar",
+      "name": "Cinderhide Drake",
       "level": 18,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_war_boar"
+      "assetKey": "creature_cinderhide_drake"
     }
   ],
   "resourceNodes": [
@@ -2780,5 +2780,5 @@
       ]
     }
   ],
-  "staticMapHash": "59e805881fc26a0c"
+  "staticMapHash": "ee1a54f2f3087494"
 }

@@ -698,7 +698,7 @@
     },
     {
       "id": "glassriver_depths_beast_1",
-      "name": "Barrow Wolf",
+      "name": "Suncrest Ram",
       "level": 14,
       "x": -38,
       "z": -2,
@@ -709,11 +709,11 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_suncrest_ram"
     },
     {
       "id": "glassriver_depths_beast_2",
-      "name": "Barrow Wolf",
+      "name": "Suncrest Ram",
       "level": 14,
       "x": 38,
       "z": -2,
@@ -724,7 +724,7 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_suncrest_ram"
     },
     {
       "id": "glassriver_depths_adept_1",
@@ -968,5 +968,5 @@
       ]
     }
   ],
-  "staticMapHash": "7da092e8cca08521"
+  "staticMapHash": "30bfbb9cb5c07183"
 }

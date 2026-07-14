@@ -2181,7 +2181,7 @@
     },
     {
       "id": "shatterline_expanse_beast_1",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 32,
       "x": -96,
       "z": -74,
@@ -2192,11 +2192,11 @@
       "preferredRange": 1.9,
       "attackDamage": 72,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     },
     {
       "id": "shatterline_expanse_beast_2",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 32,
       "x": 96,
       "z": -74,
@@ -2207,7 +2207,7 @@
       "preferredRange": 1.9,
       "attackDamage": 72,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     }
   ],
   "resourceNodes": [
@@ -2739,5 +2739,5 @@
       ]
     }
   ],
-  "staticMapHash": "b6994574d221efef"
+  "staticMapHash": "fd45d609372e577f"
 }

@@ -706,7 +706,7 @@
     },
     {
       "id": "cindermaw_pit_beast_1",
-      "name": "Rift Hound",
+      "name": "Ash Hound",
       "level": 6,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 20,
       "moveSpeed": 3.85,
-      "assetKey": "creature_rift_hound"
+      "assetKey": "creature_ash_hound"
     },
     {
       "id": "cindermaw_pit_beast_2",
-      "name": "Rift Hound",
+      "name": "Ash Hound",
       "level": 6,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 20,
       "moveSpeed": 3.85,
-      "assetKey": "creature_rift_hound"
+      "assetKey": "creature_ash_hound"
     },
     {
       "id": "cindermaw_pit_adept_1",
@@ -977,5 +977,5 @@
       ]
     }
   ],
-  "staticMapHash": "d1d93cb28b3bbc24"
+  "staticMapHash": "1570174ab644289b"
 }
