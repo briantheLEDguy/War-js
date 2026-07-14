@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-1e79a3c618e82c8a",
+  "assetVersion": "approved-0861e598af7ae079",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -15,10 +15,10 @@
         "front": "reviews/roster-direct/battle_prelate/f/body_front.png"
       },
       "previewSha256": {
-        "front": "6c7d0d3a0e658bf41b9abb0718cfcb711dc9f5fffe76aefacf3447021b40d043"
+        "front": "18af0cadd9429a4c1831fe336d62604462bda3c4b298e9696ed3060da88d3937"
       },
       "qc": "chr_civic_battle_prelate_t1_f.qc.json",
-      "qcSha256": "1af570ca5b94891f9572f360eb7983f7b242b585500b3c0b1a614e4c3721eed2",
+      "qcSha256": "504687b526ec46e33a02b04e1f723798225377d5dd3f833426a06682063a2671",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -36,10 +36,10 @@
         "front": "reviews/roster-direct/battle_prelate/m/body_front.png"
       },
       "previewSha256": {
-        "front": "11f8b57970fa3b937bdefa6046d80d9f8cf7ad1ac61b342ac32a533e4bf903e3"
+        "front": "38fad6a05facd31e91a5e881c270f4c7c4a4b68a7fe0f21d4b6fde32b4840fc6"
       },
       "qc": "chr_civic_battle_prelate_t1_m.qc.json",
-      "qcSha256": "6ffd599db95f7b9be9f1bb045bf0f7b008c75be68573a26d4a9296e8261111c3",
+      "qcSha256": "a24c06d8392106ecc55bbc0b3ef1cd268d16b814ba6b980680e4aefa0c6ec633",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -365,10 +365,10 @@
         "front": "reviews/roster-direct/warbrute/f/body_front.png"
       },
       "previewSha256": {
-        "front": "bfc1fdc984167a18ee1fefd54c1ecbf389c1629dc6c1b58759719bfb90570514"
+        "front": "6df65fe92567a48600c4283e1df4ddfd87dba6c2eee378577fec00902b7efd75"
       },
       "qc": "chr_mire_warbrute_t1_f.qc.json",
-      "qcSha256": "f8a6377c75a54913bc64c3b8deaa3a5f33b860445ca34d25b9bba4798cd5a321",
+      "qcSha256": "c94e01530c8fc5390b974c4626557106cb20407170ee1d4b869461ce306c2865",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -386,10 +386,10 @@
         "front": "reviews/roster-direct/warbrute/m/body_front.png"
       },
       "previewSha256": {
-        "front": "57750bee3a4b48101803ba6018878c64223817ed0924c0d0f877562c93c8e734"
+        "front": "a95440a40f8816d2260d4ce387328db8bef7e07fc325625eb123cb291c6b5197"
       },
       "qc": "chr_mire_warbrute_t1_m.qc.json",
-      "qcSha256": "66173f8b74d161ba525b87916fb8c09ec161d78f4a8798145a418d9462716ca2",
+      "qcSha256": "a348865ba97afa3b1e155231f8bf99d2a17ca3f9231ca0bdf5146e2d483f3a41",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -1143,15 +1143,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_back_t1_f.glb",
-          "modelSha256": "9ea60b071ab2a5373cc42da02609414d8ffa1e3e9f54259118fe059b4eb31c10",
+          "modelSha256": "1aa8735ae1a5d87b6fa350ea3a3f36e1362c8068ede306f0b9533a03fb43a7b5",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/back_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_back_t1_f.qc.json",
-          "qcSha256": "476ef62b817328192b2c5216b1b1effc717db451e70995cb96db81376c2c2b96",
+          "qcSha256": "e253619446d502f819f37004f3995a381a571ca518e6ba337a856ccea792df19",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1172,15 +1172,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_back_t1_m.glb",
-          "modelSha256": "2117d609735c70d341500ce0dcf15eb45892d2e38eff15779bbd84afa5c8a743",
+          "modelSha256": "b512106412034c6a206ea9640d9098e3086027d69c2163fb7df857b21b01d69f",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/back_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_back_t1_m.qc.json",
-          "qcSha256": "593a2c0b905407358691471e7b96ed95dfa522e5e464fd9e3f7cc4271a90224e",
+          "qcSha256": "de1b83289484aca32f587a9bb538716394767937465f200e90c1ac2cb06a3e58",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1201,15 +1201,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_chest_t1_f.glb",
-          "modelSha256": "47633e406f417f0cbaecfa51b637a9dc4713b29a5a731d9a908f2ee84070941b",
+          "modelSha256": "68595bf035ade94b8e1842617baa8d4d34a79fe44ebe3e7cffde957e8ba5c1aa",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/chest_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_chest_t1_f.qc.json",
-          "qcSha256": "ee238dcd42fa6abcdb2e9724513be05193ea026abb68a9e38e7ae98deba37dc1",
+          "qcSha256": "f634a1f1ab94c5835795ac71b1cc883eca3a5c0686de42b2920b9cfa404bed6e",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1230,15 +1230,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_chest_t1_m.glb",
-          "modelSha256": "451d4db9b268ac8be456f24cc5cc51f7cba48413f2cccb3078a121fd2ef3daec",
+          "modelSha256": "4414eac38f722b576f5b8d83baa2b2bfd7980af8c40f4d8efcf6178c20fa149a",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/chest_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_chest_t1_m.qc.json",
-          "qcSha256": "c925a52e09e6b408b207e416143d67bae3ffbde6ba5737b1ecd77e97603462fa",
+          "qcSha256": "3e30068ce2265b556dec1e5cedc8bd7466d49ffaa484291ea7ddb6c05d2ce99d",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1259,15 +1259,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_feet_t1_f.glb",
-          "modelSha256": "b86920c4169cc73f01abce6c86f05a4cb1a673eb4cb4afa57b9e7dece4bbc1bb",
+          "modelSha256": "699e38f9d9d4893fe06ba43cf940cf54fba66f1b73841b99ec1a29eaa2b4fbaa",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/feet_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_feet_t1_f.qc.json",
-          "qcSha256": "290c084f3019208ccb0452e2be2a388bed73fe5dea13f31eaefa0c92d9d9d880",
+          "qcSha256": "93ef3e84026bd2ba29266718282d29a488a12142208f098cdd2bfb1ceb667baf",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1288,15 +1288,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_feet_t1_m.glb",
-          "modelSha256": "d58ad187d0ff3b66790b218f4c4930b372c497025557aacdcee5137ad6dd541d",
+          "modelSha256": "4f13c92bd1a3544a9736b3ec00e00d796287f4a66ac45cde284bd4070d096f13",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/feet_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_feet_t1_m.qc.json",
-          "qcSha256": "6a88636499f517e0ab16147e732f9b95610b6bef3cd4289dd072e993fe21b15f",
+          "qcSha256": "c20c7e887982c86ae982f98b4e4a68e7b3e8bc9ddab731ab85e918272ffabfb6",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1318,15 +1318,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_hands_t1_f.glb",
-          "modelSha256": "57fc70e0e028b57843ceb9eeafcc37eb5581d8c00383bfdfc39d2c94bbf9adfa",
+          "modelSha256": "fa3e102eb76ca21249c46c8172fc99b77008b9902eb462b38a8ae55f9eb7f070",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/hands_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_hands_t1_f.qc.json",
-          "qcSha256": "5e1916423a9f5c006ac193c3e2a059107b20998cf4753737f44a63704e66dd40",
+          "qcSha256": "67b178b78046f504f9bf8068a8100adff9c2306d920d459e1f164df29f6c53d8",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1348,15 +1348,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_hands_t1_m.glb",
-          "modelSha256": "9537ec82c1d89d7c29df7c0a639aa06e0794e30ab4e23ac9bcabb9f2b566c6af",
+          "modelSha256": "14c38f8f49bbc7387f194188f175efa17536bd2abd0f46d9e7236a8ee253d401",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/hands_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_hands_t1_m.qc.json",
-          "qcSha256": "164efb307f8e070df487c3fd1eb41a1683d55e6aa5e7baadd5e649452c6375e3",
+          "qcSha256": "effc2cc51e0cad1392b4137130dfb4236b8f844b567d343dd2f5729c592bc7c2",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1377,15 +1377,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_head_t1_f.glb",
-          "modelSha256": "593449d112cad0f87d95ad4e243c168b5ec75d846fef917c797fda07c660e05a",
+          "modelSha256": "6e8fc4225676ac514a37791a8fc35411c69cd791e47e7edc39f7f9c1406f0275",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/head_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_head_t1_f.qc.json",
-          "qcSha256": "8fb38823fc58d26f6f8b5d7b22b0350e444cfd069c45a3544c4006e6dc01812c",
+          "qcSha256": "b8c98bcccb67ba3023afd2b13cdb181d77cc78b6c7a4cd321b34021c1b710fa9",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1406,15 +1406,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_head_t1_m.glb",
-          "modelSha256": "c720c5840c601d7b6a33c25d5b239d52fd2c66a3d65938b90eb8c19bd472975d",
+          "modelSha256": "847658ae9db77d45b7317ec41f9a5028c123f82e65972f07e32bb3dd67ffde89",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/head_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_head_t1_m.qc.json",
-          "qcSha256": "b088c5d1005d20e8b3df1341be67793808978183882eea36bf4ce7db93a94a88",
+          "qcSha256": "6b00a2b1812d748c029923c4f22188ad34d08f7842f28a1e40043919983514fa",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1435,15 +1435,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_legs_t1_f.glb",
-          "modelSha256": "b30503ae6802f5eca8498df361d02340c0f6196c608235897bfb300c02ad6347",
+          "modelSha256": "c155add587c328cb91da73716994e3035d260cf51a39d69b633708064854cf44",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/legs_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_legs_t1_f.qc.json",
-          "qcSha256": "95fe64ea0fc952c86148dd9694af2ac1b74f42254df5149f50ebbb03a0a47ace",
+          "qcSha256": "e535649f00040e9567b832a9824255d2aaf352f3a668e24212f93097c088f198",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1464,15 +1464,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_legs_t1_m.glb",
-          "modelSha256": "d43ca63c9fef9fc39c72a417e31598727136f82e03a3389bfc3bd807d8f55c87",
+          "modelSha256": "3b53ee3dd0f9e5b432990523c68c331812ff0072f93595cd65b088cccc832abc",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/legs_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_legs_t1_m.qc.json",
-          "qcSha256": "38450232efa6bca705ffe2fbcfce88eb4823b8c460d02804914acb7de5ad1750",
+          "qcSha256": "a3931c5bbc57e1927887bcd056df78c828a8f3362bafabb30026fe5cb204e174",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1493,15 +1493,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_shoulders_t1_f.glb",
-          "modelSha256": "9d0cb901a12f06898dd60a703df03b447791253a8c10598bb7b7f3aff793b8a6",
+          "modelSha256": "1bafb0e5b3f6c3e236b31a3aec1ae5d990e06c015b855b0d139287e20e99bdbc",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/shoulders_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_shoulders_t1_f.qc.json",
-          "qcSha256": "356d7565a522d260134d75dbb0fc41dddf9bfeab3eb16c1e602fbfcf0e70723f",
+          "qcSha256": "e69ce89f27f84b17c5e864104bfcfe16d51d714b64de39ea8045c312557e6e8b",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1522,15 +1522,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_shoulders_t1_m.glb",
-          "modelSha256": "60eebe09a92edd39d701bef6f6ae5efb92eb574ecaba6b3e390415bcc551630f",
+          "modelSha256": "ad53f3f5e7117d432a69e1915c5a2fef84b132c35d04fce7bba09d8f7db35482",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/shoulders_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_shoulders_t1_m.qc.json",
-          "qcSha256": "5cde049528f741578811469b3a659afa8a3e4237fa317c9538ed894a7de36348",
+          "qcSha256": "364bdb7c04a09de6ce05a0faf1937d2f92d7e2c508ddd1c1f59659e42a2ba360",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1551,15 +1551,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_tabard_t1_f.glb",
-          "modelSha256": "38012846f7263e58463fffc334d1af4038e5625f965410bd9bd861a4e978a9d4",
+          "modelSha256": "61daa2e779a507828131423b38d79b5c61f3ac24e7b478951597812c32af2e45",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/tabard_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_tabard_t1_f.qc.json",
-          "qcSha256": "37e7ab1bdd2abe2919915a503a7699ca1350a733cc1582c825ecfd6e2ad6f198",
+          "qcSha256": "b540aa0808cf1e485765cb5f180cae69771cf687f8d526b905af8f2ea9396df7",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1580,15 +1580,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_tabard_t1_m.glb",
-          "modelSha256": "c3bab499ffb8e396e19a012332bb4d3b75a47578cde2e079bb5be9d5757cf74e",
+          "modelSha256": "104e7372114b74d57e8e4aef758da9b729446db23600fc9546eb8609be0f66c4",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/tabard_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_tabard_t1_m.qc.json",
-          "qcSha256": "47e97b25915357882c6fe60ca4daff8579661107eeb2b2ed09627e10f6b54f11",
+          "qcSha256": "a5a2bcf8bb002255a3db1fec4ca9ac3fc29ab70462dc5e321b1d493b08b03691",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1609,15 +1609,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_waist_t1_f.glb",
-          "modelSha256": "7fae9f3097ef35b3686411dfdcbece69f331759715121385e64f3c9fa4df4294",
+          "modelSha256": "f906ebf831ffb4a1f28656de33853edabfe1005ff7ecb74683f84bf05535b886",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/f/waist_front.png"
           },
           "previewSha256": {
-            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+            "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
           },
           "qc": "arm_civic_battle_prelate_waist_t1_f.qc.json",
-          "qcSha256": "0636f086672827756ba5a99aaf906e9ed5a76e813fa8a69e4a0e698a8fb296ec",
+          "qcSha256": "2e6702ae9cdc42519e67c6f26f1f362eca412d92cfa3d3d95492e1a46832995c",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1638,15 +1638,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_civic_battle_prelate_waist_t1_m.glb",
-          "modelSha256": "bd7cf1da23c58975da6bc29ac98580aa61c6eaa388d55605a85ba828d52eab3d",
+          "modelSha256": "8139af764b03195b97b0c919588668498fc0218c80a974d1751df5ab7f95549a",
           "previews": {
             "front": "reviews/roster-direct/battle_prelate/m/waist_front.png"
           },
           "previewSha256": {
-            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+            "front": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
           },
           "qc": "arm_civic_battle_prelate_waist_t1_m.qc.json",
-          "qcSha256": "95424b24083f5bd6a34d1e5cd5b7a6f0554c296ee547e0992d1d6a83d130d632",
+          "qcSha256": "ce10bdc90160356528f45965edc71d95a54a0b6404cdc479a6bb4a69e6becbb1",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1667,15 +1667,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_back_t1_f.glb",
-          "modelSha256": "40c15d2fed6d7dc53b3242778cda7f4f9ba8adf3958ce906a3f26fd294a28a30",
+          "modelSha256": "b0cb85ade80a6e60e466ec31d03d9bd2ad726550ca4b4daeb298f2f1bc0df73b",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/back_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_back_t1_f.qc.json",
-          "qcSha256": "b567e11399bf20cb6949daf7d6708c7c4138e97619d4d30592c9444c6b830649",
+          "qcSha256": "651fc442f89e06293dd62f5460a043e1995976ce365659db871deac7e12323fa",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1696,15 +1696,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_back_t1_m.glb",
-          "modelSha256": "a8b600dc9337683c1445f12bd414e4a271a74bace32c33dac6ed4cce577b8759",
+          "modelSha256": "d9bae0a0aba86f63f0a21c832dd1d785ba7e22b7d3b6230c3b0587b238e3777e",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/back_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_back_t1_m.qc.json",
-          "qcSha256": "889f847cd171a68d9e85c84fc590c71217f9bdda6e8af313f9aa61c99d1e49e2",
+          "qcSha256": "363f394c6906ff34be3d5f0af7c809e46cf0efea1ee45307381c06ddd87ed1ec",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1725,15 +1725,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_chest_t1_f.glb",
-          "modelSha256": "ebdf48088f0dcfaf0ec7dda8dbda2c8ae1b54cd1f88f786e43b04aa1f2bafafd",
+          "modelSha256": "c91317c269e1944ba17d801cfe36b7b9d471dead976f8af4b60cef50e5af212c",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/chest_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_chest_t1_f.qc.json",
-          "qcSha256": "eceee045c2f05a53bace3d4ad1bb3ea81a0fa789f455f6e929e478a5fe11323e",
+          "qcSha256": "4710d1318c7fc858238123c52b2617277361650e5a4b6ca0153c743ece29006d",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1754,15 +1754,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_chest_t1_m.glb",
-          "modelSha256": "4a6ce526e0fee1e9e81e82c16e456e176b848c883103dcd6903f88998206ab7c",
+          "modelSha256": "7a0f8b61ef2c9be512c0d64304dc11d221d80f1237a6660f4f62fe6dc8dab6f3",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/chest_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_chest_t1_m.qc.json",
-          "qcSha256": "8f7bd4699ad3fe079771d93ac92f3d9df116b5ba1636a1b0e6b37037f18a6f0e",
+          "qcSha256": "25bb6cbdc15ec702326697b7eee46aaf733cee1e8b88008d948312a4c30a3d7a",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1783,15 +1783,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_feet_t1_f.glb",
-          "modelSha256": "4099ef581f57d9852c7e0be08f83ce769939790d274e4f20b1d85d73c6972b1e",
+          "modelSha256": "e9331739e8ea4339a8f9216712544bf58fd3bef41e8a12f509c898a0a1270478",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/feet_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_feet_t1_f.qc.json",
-          "qcSha256": "065fd7a472cb54a30b24f93addf8b64a3feed9bc95cad78e444df9f2b909f7b1",
+          "qcSha256": "a8173945de27bec58c1b1022c6cdddf42aef3ac746e4546568c972ccea3977d6",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1812,15 +1812,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_feet_t1_m.glb",
-          "modelSha256": "54277c054127189e70366229c6715a424f12ead8470eba73bae24f8aab7c91f2",
+          "modelSha256": "e2f0e105af1d341c65204ea1dd8207cb5d4eef6712be63afcab4e54f2e294012",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/feet_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_feet_t1_m.qc.json",
-          "qcSha256": "071fcc3d09ebba0ebc15a4e508742a37a4c917edab902f14d889863d68922a67",
+          "qcSha256": "40f5e6c677179f95ec3e1b7c411c985ed3098fb4b8f56f43da390215e56369bd",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1842,15 +1842,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_hands_t1_f.glb",
-          "modelSha256": "c3ec7cd6115a0797a8c5ce926fd5b09fa9c28958f1dc129dea65351598c6c247",
+          "modelSha256": "702ee4ff0d9f9ce656b16b26c7c3d8e054128652d1b0cdf7e4d3e2a9382bd932",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/hands_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_hands_t1_f.qc.json",
-          "qcSha256": "0071a08e317d51069f77f7378c9e473c6dcea3f5949ec915b28ed72761898c27",
+          "qcSha256": "2f20b9c94439bacf069f3ee5d190d540b35e879001afe09bdc5ad3ba6a6077f6",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1872,15 +1872,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_hands_t1_m.glb",
-          "modelSha256": "263d218990b42e40f3cc79c80e915f93b3a7ccad2dde89dd2426b1d800ab2f29",
+          "modelSha256": "0121c4d08de0adc8e185dc0871cf4bd384269ecb527c9fcaf0379a3008987f4f",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/hands_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_hands_t1_m.qc.json",
-          "qcSha256": "68d28ace50f838355d49ab39d07332db9b1da99bb77710e183c67e6c6af6061d",
+          "qcSha256": "f95f8d4fc0a481d979c2e0b43acddf54c912c95f0894d906f6850e1dfd48391d",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1901,15 +1901,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_head_t1_f.glb",
-          "modelSha256": "cdcec996422f50df70b3d70bd63bd71f7c0e567350dcf850fbf33a3a6ec588f2",
+          "modelSha256": "b9d8f5d7c69defdd45c97a9e04d67d79c1f1b248186a78954408de036849882b",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/head_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_head_t1_f.qc.json",
-          "qcSha256": "6d1268d8487ef869d11f2d096a58aa06cd35106b9ed663c245170fdc9f1ffa9d",
+          "qcSha256": "8fe4610bca214a1f68dec36b01cf2146c7f870ce21f289a3617845979b04f3d6",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1930,15 +1930,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_head_t1_m.glb",
-          "modelSha256": "8bc6bcf3e4fe896446b806dd89ba0e9657f9e520afa4c757750e650d5751f82c",
+          "modelSha256": "4c8de78afe683e6891bfccc600700a03101fbe4c5083e4fd7bbda7d925c60f25",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/head_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_head_t1_m.qc.json",
-          "qcSha256": "518636c54ad744041adfc240334fc2f365504a8e92a4f2bd14163d60d8b8633c",
+          "qcSha256": "917cc37e8caee2015d65d5afdd9b2400772368e1f7ea8d88dabc6382edfdd050",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1959,15 +1959,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_legs_t1_f.glb",
-          "modelSha256": "ee5fff7a9bdf14adaf1e27818c419c681833be2eacb6dea4a6b519d9313db340",
+          "modelSha256": "2a2a9884cd061c14050b7ea91c3cbb2811a03e9478f2b1f9c93fab4d67de92a3",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/legs_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_legs_t1_f.qc.json",
-          "qcSha256": "b32d1af978f1a163c0873996c71986e1b9994a68af5db444d1f9b1a64c9c9ae0",
+          "qcSha256": "1baa892403170b433c29a9b2fae902fef1710f5b460008e1be27fdfdab32becf",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -1988,15 +1988,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_legs_t1_m.glb",
-          "modelSha256": "b25eea2bbf0406b0c55f82b6c6adee38853ff01bd85ddd14eb86b6af204aa523",
+          "modelSha256": "27ef9270ab265688bbe384a5c07c4e43a509655b5cd88eb8ba20f8101f96446b",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/legs_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_legs_t1_m.qc.json",
-          "qcSha256": "3a84354164c8baf12a643f3dea6dcef6d286e314d91458e6cc400ee02d017940",
+          "qcSha256": "e32e09e7aa0e517a8d9d9a10bc53eafe4ea1abe92daa3fe41e44c0d4a834513b",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -2017,15 +2017,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_shoulders_t1_f.glb",
-          "modelSha256": "bc060cfcf4a3363fd84a6bba15ce616495d5f7b5ba65d6739a422c6e57ae6831",
+          "modelSha256": "9e14bf5b4083d41107886f49e6c4887a4c718e71b85aaed468f140c1dfaaa366",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/shoulders_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_shoulders_t1_f.qc.json",
-          "qcSha256": "8d54fa78e490c699300c6dda67f56981e17319d497a487e17176b2d2ba23e345",
+          "qcSha256": "be4fc860078039341e2278220271c5a8b0f31e2774b4ea2fe8ee3b69900412b8",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -2046,15 +2046,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_shoulders_t1_m.glb",
-          "modelSha256": "ec81f61ab3f6071008f67b0a596db2d95d4361a7be0e4205921b0c36875dab23",
+          "modelSha256": "698f840cfbe306519493e9cf86146bfb49119e67b1d0e8d5d4d6feb9fe8867ff",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/shoulders_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_shoulders_t1_m.qc.json",
-          "qcSha256": "12bb31c811627e3cbd8b6495caf55a32cb0e9d0f19c1a8db6ea7598d3a7ec51e",
+          "qcSha256": "0809b795510c53e4923017eeb974ff7deeed71522a05cbfc04d4632881cec200",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -2075,15 +2075,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_tabard_t1_f.glb",
-          "modelSha256": "85ec945b6184a48da08e6fad4b30ef47a8d8b03e0a1002ed1a5a8d4c3dd608a2",
+          "modelSha256": "1acb7b14a152191a9625beb6e2efb3e18d06d1ca90721a936a0b04a1feba507a",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/tabard_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_tabard_t1_f.qc.json",
-          "qcSha256": "f518440b9f6292c711e67002f7d455aa8c55a5453e618bb75fc82bae3d2db63a",
+          "qcSha256": "1c903e6b9fec695fb23972cd4af448fa7d225122384d8acdc699608ad8451b96",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -2104,15 +2104,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_tabard_t1_m.glb",
-          "modelSha256": "ae08e0e97cc406996d60f78984e65d10fd72afd9fb94f7e72a69847199ad534c",
+          "modelSha256": "525de8891cbc347efcab7d40cdb98cae17209605dbc35f0fb1fae50cfeda03b6",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/tabard_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_tabard_t1_m.qc.json",
-          "qcSha256": "b9c16a22f5d2552ec9857eed5f22077a7225f3fe7d63275e6a5f11ba17d54854",
+          "qcSha256": "f342dcf52251e627933c0877320efd072988e739cc9c52cbacbeb6f4807b6aa3",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -2133,15 +2133,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_waist_t1_f.glb",
-          "modelSha256": "4c4890956637abfcf578e67ad8b03349de1a81d4372872aa42ad139d8367a430",
+          "modelSha256": "b4b06ca35e4bd6a414dcb7cab7de0a8dca8811c318d61df67f6478fb1bf221c2",
           "previews": {
             "front": "reviews/roster-direct/warbrute/f/waist_front.png"
           },
           "previewSha256": {
-            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+            "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
           },
           "qc": "arm_mire_warbrute_waist_t1_f.qc.json",
-          "qcSha256": "7c6acb8e1c2af2913c0495a0fd9ae5d3858d7f4b70beb6561a8aefb968c514fc",
+          "qcSha256": "ce9389bfbdd8c28e5d3c9495ce9e769e4db246de2f91ffee8ac929fffe871277",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
@@ -2162,15 +2162,15 @@
           ],
           "lifecycleStatus": "approved",
           "model": "arm_mire_warbrute_waist_t1_m.glb",
-          "modelSha256": "12b948c1f505e8c898342be48181a57dcd98a8d9d6bacf3906b533e20433cdfd",
+          "modelSha256": "2ed3f03d983c49bc71d1727329a72ca9b0e389b36c7f9f3c114fa295974363c6",
           "previews": {
             "front": "reviews/roster-direct/warbrute/m/waist_front.png"
           },
           "previewSha256": {
-            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+            "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
           },
           "qc": "arm_mire_warbrute_waist_t1_m.qc.json",
-          "qcSha256": "ad1e7533acb75a0b77884befa7eccd12fa5e74888de6aca660c7b0055e33ec27",
+          "qcSha256": "294d16a2cc18a545aab8b74c54aad05df9e4604b8c2ecbae062c1989408543c6",
           "reviewStatus": "approved",
           "runtimeReady": true,
           "skeletonId": "humanoid_game_v2",
