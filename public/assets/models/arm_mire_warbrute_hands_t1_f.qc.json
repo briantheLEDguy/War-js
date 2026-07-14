@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire_brutish_v1.warbrute.hands.f",
+  "model": "arm_mire_brutish_v1_warbrute_hands_f.glb",
+  "modelSha256": "c3ec7cd6115a0797a8c5ce926fd5b09fa9c28958f1dc129dea65351598c6c247",
+  "fileSizeBytes": 186384,
+  "category": "armor",
+  "slot": "hands",
+  "bodyFamily": "mire_brutish_v1",
+  "bodyVariant": "f",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "totalTriangles": 4500,
+  "drawCalls": 1,
+  "maxInfluencesBeforeLimit": 7,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 128,
+  "previewImages": [
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\isometric.png"
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\front.png",
+      "sha256": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\side.png",
+      "sha256": "b0c0bb26906b8dbd59845f66979a8712997af10875010c2f6c7f9f324a3d0974"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\back.png",
+      "sha256": "d92707b831ecf6e82ada0688407a3ea203327846f2f540d6cebb4eea60024d98"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\isometric.png",
+      "sha256": "6f0880397a7257124087b74970beefac7e9e1cb2c37a058cad64b22a54b7b09b"
+    }
+  ],
+  "provenance": {
+    "provider": "local_mpfb",
+    "generator": "generate_mpfb_modular_armor.py",
+    "license": "CC0-1.0",
+    "assetSource": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\learning_mma_fighting_gloves\\learning_mma_fighting_gloves.mhclo",
+    "assetSourceSha256": "d9941430c0a6ce1029df1526606d66a5ff1e801975939e19808c2fd1c7eca38a",
+    "sourcePack": "gloves01",
+    "sourcePackSha256": "ecdaee1d02749d17352791d415cb622a883350cc8a4b90eda3725aef35d9afb2",
+    "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/gloves01.html"
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "manifold": true,
+    "noDegenerateFaces": true,
+    "reviewViewsPresent": true,
+    "pbrChannelsPresent": true
+  },
+  "qcPassed": true
+}

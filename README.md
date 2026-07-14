@@ -431,6 +431,10 @@ creatures. Every humanoid uses `humanoid_game_v2`, both hand sockets, and the
 shared review-only one-handed pair/two-handed weapon suite. Creatures declare a
 body-plan skeleton plus root, ground-contact, attack-origin, and hit-center
 markers. This phase produces LOD0 and model-stage evidence only.
+The Battle Prelate and Warbrute pilot additionally runs the animation stage:
+both body variants must embed the canonical nine-clip pack, and each equipped
+variant receives deterministic locomotion/melee frame evidence. Animation
+approval remains a separate human review gate.
 
 Run the exact preflight and batch commands from the repository root:
 
@@ -441,6 +445,25 @@ npm run models:cleanup-roster -- --apply      # exact manifest targets only
 npm run models:roster -- --smoke --run-id full-roster-smoke-v1 --resume
 npm run models:roster -- --all --run-id full-roster-v2 --resume
 npm run models:roster -- --kind playable --key battle_prelate --revision next
+```
+
+For a specifically authorized pilot exception, the direct promotion command
+requires an explicit `--bypass-approval` flag, rechecks source hashes/QC, and
+records the bypass in the revision and approved manifest metadata:
+
+```bash
+npm run models:promote-roster -- --run-id <id> --kind playable --key <key> --revision <n> --bypass-approval
+```
+
+The same explicitly authorized bypass can promote the NPC or creature pilot
+outputs. NPC promotions register every generated live profile against its
+equipped role model and preserve the nine embedded animation clips; creature
+promotions register the generated static prop key. The command records the
+bypass in each revision, approved manifest, and promotion transaction:
+
+```bash
+npm run models:promote-roster -- --run-id <id> --kind npc --key <body-foundation> --revision <n> --bypass-approval
+npm run models:promote-roster -- --run-id <id> --kind creature --key <creature-key> --revision <n> --bypass-approval
 ```
 
 The full command checks the strict doctor before creating revisions. A missing
@@ -471,10 +494,49 @@ Approval freezes the exact hash-bound model-stage bundle under
 `authoring/approved/model-stage/` (GLBs use Git LFS), records lightweight audit
 history, and removes only unselected revisions for that item in the same run.
 It never changes `public/assets/models/asset-index.json`. `runtimeEligible`
-remains false until later LOD and animation approval. The later phase will add
-24 unique nine-clip class packs retargeted to both variants, class plus role
-overlays for humanoid NPCs, and one unique pack per creature species. Current
-stress poses are QA evidence and cannot satisfy animation approval.
+remains false until later LOD and animation approval. The Battle Prelate and
+Warbrute pilot is the first playable animation-stage slice; the later phase
+will extend the same nine-clip contract to the remaining class pairs, class
+plus role overlays for humanoid NPCs, and one unique pack per creature species.
+Current stress poses and rendered animation frames are QA evidence and cannot
+satisfy animation approval.
+
+### Typed modular-character pilot
+
+The model pipeline now classifies every wearable before choosing an operation:
+
+- `rigid` equipment uses an explicit canonical socket and offset profile.
+- `skinned` wearables use nearest-face weight transfer or Surface Deform, then
+  normalized four-influence weights and reversible body-region masks.
+- `loose` garments use an armature-first, pinned Cloth stack and remain a later
+  tier until fitted wearables are stable.
+
+The stable contracts live in
+`scripts/blender-character-pipeline/pipeline-data/`: slot taxonomy, body
+archetypes, semantic socket aliases, body masks, the nine-pose core pack, and
+the runtime GLB export profile. The MCP server exposes these as resources and
+also provides narrow stage tools (`assemble_base_character`, `fit_wearable`,
+`apply_body_mask`, `attach_rigid_item`, `validate_pose_pack`,
+`render_turntable`, and `export_asset`). `repair_fit_failure` and
+`build_test_character` are reusable prompts. Filename similarity is never used
+to choose a fit or attachment path.
+
+Generate the local review fixtures and validate them without MPFB:
+
+```bash
+npm run models:generate:test-assets
+npm run models:validate:character
+```
+
+This produces draft-only canonical GLBs under
+`scripts/blender-character-pipeline/test-assets/`: a base skinned body, a
+socketed rigid sabre, and a skinned chest wearable with transferred weights and
+an under-chest body mask. They are test evidence, not runtime-approved assets;
+promotion still requires the existing human review and hash gates. The fixture
+validator performs local GLB 2.0 structure checks, canonical skeleton/socket
+checks, animation presence checks, four-influence/QC checks, pose-pack metadata
+checks, and rigid clearance checks. An external Khronos validator can be added
+as a final deployment gate when its CLI is available.
 
 Historical static creature GLBs, QC files, blueprints, compatibility entries,
 and the hard-coded Battle Prelate development route have been removed. The 60

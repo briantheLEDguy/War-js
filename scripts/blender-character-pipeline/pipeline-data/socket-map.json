@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "sockets": [
+    { "name": "socket_root", "parentBone": "root", "translation": [0, 0, 0], "rotationDegrees": [0, 0, 0] },
+    { "name": "socket_hand_L", "parentBone": "hand_L", "translation": [0, 0.08, 0], "rotationDegrees": [0, 0, 0] },
+    { "name": "socket_hand_R", "parentBone": "hand_R", "translation": [0, 0.08, 0], "rotationDegrees": [0, 180, 0] },
+    { "name": "socket_back", "parentBone": "upper_chest", "translation": [0, 0, -0.13], "rotationDegrees": [0, 0, 0] },
+    { "name": "socket_belt_L", "parentBone": "hips", "translation": [0.16, 0, 0.02], "rotationDegrees": [0, 0, 0] },
+    { "name": "socket_belt_R", "parentBone": "hips", "translation": [-0.16, 0, 0.02], "rotationDegrees": [0, 0, 0] }
+  ],
+  "semanticAliases": {
+    "hand_r_weapon": "socket_hand_R",
+    "hand_l_shield": "socket_hand_L",
+    "spine_back": "socket_back",
+    "belt_l": "socket_belt_L",
+    "belt_r": "socket_belt_R"
+  }
+}

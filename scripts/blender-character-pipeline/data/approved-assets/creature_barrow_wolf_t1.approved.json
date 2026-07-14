@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "assetId": "creature.barrow_wolf.t1",
+  "displayName": "Barrow Wolf",
+  "category": "prop",
+  "model": "prop_creature_barrow_wolf.glb",
+  "qc": "prop_creature_barrow_wolf.qc.json",
+  "runtime": {
+    "staticKey": "creature_barrow_wolf"
+  },
+  "compatibility": {
+    "bodyFamily": "creature_canid_v1",
+    "bodyVariant": "neutral",
+    "skeletonId": "creature_canid_v1",
+    "bindPoseId": "grounded_v1",
+    "markers": [
+      "root",
+      "ground_contact",
+      "attack_origin",
+      "hit_center"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "5264bd919b9355ee75233a7e0aa3af47210dcaac1666831fc0ca00c35b91ba26",
+    "qcSha256": "25eb354e6612c6c814cb52d1342d82ed33075554bb6be6ec672e77f558124c22",
+    "previews": {
+      "front": "9bc0362ab5394c2cf5be02f4bef7e2012d9e381324e7eaeb9c2538a12d6b7597"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/creature/barrow_wolf/front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:41.898Z",
+    "reviewHash": "5a308830af4129435e7c0df374b148ac28dec4758c04829c8ade8a1b86c78f9e"
+  },
+  "approvalState": "approved"
+}

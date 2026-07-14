@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.back.t1.m",
+  "displayName": "Warbrute Backpiece Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_back_t1_m.glb",
+  "qc": "arm_mire_warbrute_back_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_back_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "back"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "a8b600dc9337683c1445f12bd414e4a271a74bace32c33dac6ed4cce577b8759",
+    "qcSha256": "889f847cd171a68d9e85c84fc590c71217f9bdda6e8af313f9aa61c99d1e49e2",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/back_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "8579dadf1edcded5dceb121edb9277601536d79af26e81868768d1f928143461"
+  },
+  "approvalState": "approved"
+}

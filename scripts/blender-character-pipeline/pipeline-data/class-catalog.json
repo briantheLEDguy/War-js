@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "aegis_riftbound_player_classes_v1",
+  "classes": [
+    "Ember Arcanist", "Hex Inquisitor", "Sunfire Templar", "Battle Prelate",
+    "Stoneguard", "Doomseeker", "Glyphbinder", "Siegewright",
+    "Blade Savant", "Pride Warden", "Aether Sage", "Veil Ranger",
+    "Dreadsworn", "Warped Reaver", "Void Magister", "Ruin Oracle",
+    "Warbrute", "Fang Herder", "Bog Hexer", "Cleaver",
+    "Blood Dancer", "Dread Guard", "Dusk Weaver", "Crimson Acolyte"
+  ],
+  "source": "src/data/careers.ts"
+}

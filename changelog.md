@@ -3,6 +3,10 @@
 ## 2026-07-14
 
 - Refined the unified Campaign Atlas with dark-fantasy engraved relief styling, fit-to-pane defaults, shared physical scene scaling, cursor-anchored wheel zoom, drag panning, and reliable node/tier gesture handling.
+- Reworked the character-generation pilot around explicit rigid, skinned, and loose wearable paths with canonical socket/body-mask/pose-pack/export resources, narrow MCP stage tools and prompts, Blender BVH/weight-transfer helpers, and three draft-only generated GLB fixtures (base body, socketed sabre, and transferred chest wearable) validated before any runtime promotion.
+- Completed the first two end-to-end playable animation-stage pilots: Battle Prelate with the `battle_prelate_hammer` equipment profile and Warbrute with the canonical `unarmed` profile. Both variants per character embed the nine-clip pack and carry deterministic locomotion/melee review frames; artifacts remain draft-only and pending human approval.
+- Added an explicit user-authorized direct-promotion path for roster pilots. It requires `--bypass-approval`, revalidates model/QC hashes and review previews, publishes neutral runtime GLBs plus approved manifests atomically, and records the bypass instead of silently weakening the normal review workflow. Battle Prelate and Warbrute are now runtime-resolvable.
+- Built and directly promoted the first NPC/creature pilot batch: Aegis civic and Riftbound Greenskin NPC foundations with role-combination evidence, plus Barrow Wolf and Lair Spider. The bypass registers 47 live NPC/enemy profiles, preserves the nine embedded humanoid animation clips, registers both creature static keys, and records the authorization in each revision and approved manifest.
 <<<<<<< HEAD
 =======
 

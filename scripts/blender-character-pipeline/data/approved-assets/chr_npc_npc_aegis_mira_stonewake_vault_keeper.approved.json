@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.aegis.mira.stonewake.vault.keeper",
+  "displayName": "Mira Stonewake - Vault Keeper",
+  "category": "character",
+  "model": "chr_npc_empire_m_banker_m.glb",
+  "qc": "chr_npc_empire_m_banker_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_mira_stonewake_vault_keeper",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_humanoid_v2",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+    "qcSha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+    "previews": {
+      "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:17.992Z",
+    "reviewHash": "fe66045fb0684409481513c59293955e5e45f0c44e4eda35eaa714b418553abf"
+  },
+  "approvalState": "approved"
+}

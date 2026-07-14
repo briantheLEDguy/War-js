@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "assetId": "body.civic_humanoid_v2_battle_prelate_f",
+  "model": "body_battle_prelate_f.glb",
+  "modelSha256": "507637d1f5195195eea4234b611453f8c2fdb398597cfe1a174cc2eed7d65236",
+  "fileSizeBytes": 15139712,
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "boneCount": 56,
+  "totalTriangles": 41032,
+  "drawCalls": 7,
+  "maxInfluencesBeforeLimit": 7,
+  "unweightedVertices": 0,
+  "pbr": {
+    "baseColor": "texture-or-material",
+    "normal": "texture-or-flat-normal",
+    "roughness": "texture-or-scalar",
+    "metallic": "scalar",
+    "occlusion": "material-constant",
+    "maxTextureDimension": 2048
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "boneBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "reviewViewsPresent": true,
+    "skinSourcePresent": true,
+    "requiredAnimationClipsEmbedded": true,
+    "runtimeBodyMaterialsOpaque": true,
+    "groomingFixturesPresent": true,
+    "roundTripBindPose": true,
+    "authoringTopologyStable": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "body_civic_humanoid_v2_f",
+      "vertices": 13380,
+      "triangles": 26756,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.high-poly",
+      "vertices": 1064,
+      "triangles": 2040,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.teeth_base",
+      "vertices": 3868,
+      "triangles": 7120,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.tongue01",
+      "vertices": 226,
+      "triangles": 448,
+      "drawCalls": 1
+    },
+    {
+      "name": "grooming_hair_long01",
+      "vertices": 3239,
+      "triangles": 4108,
+      "drawCalls": 1
+    },
+    {
+      "name": "grooming_eyebrows_eyebrow006",
+      "vertices": 124,
+      "triangles": 192,
+      "drawCalls": 1
+    },
+    {
+      "name": "grooming_eyelashes_eyelashes02",
+      "vertices": 250,
+      "triangles": 368,
+      "drawCalls": 1
+    }
+  ],
+  "targets": [
+    {
+      "id": "ears/mindfront_ear_details.target",
+      "pack": "ears01",
+      "weight": 0.28,
+      "sha256": "4358c2f5008e17021e9416fb1434bc11160f385cdba7083f0d1a9458328a8b9e"
+    },
+    {
+      "id": "hands/mindfront_hand_fingers_correction.target",
+      "pack": "hands01",
+      "weight": 0.62,
+      "sha256": "3c882b1d915f91ff5b5b46a047bf9f3ddddaa8cdeccfc9c2444f5a3c3ef451f3"
+    },
+    {
+      "id": "nose/jujube_greek_statue_nose.target",
+      "pack": "nose01",
+      "weight": 0.12,
+      "sha256": "f7d7247bb3f2f3fb891bc82f7ac3f0c744d70cb15164bc29058c4bccd712f884"
+    },
+    {
+      "id": "cheek/elvs_high_chubby_cheekbones_1.target",
+      "pack": "cheek01",
+      "weight": 0.07,
+      "sha256": "937774f73dce9415ebdc7992cc2381172996788a303a9c92edea034d29aa5d0d"
+    },
+    {
+      "id": "faceunits/browInnerUp.target",
+      "pack": "faceunits01",
+      "weight": 0.018,
+      "sha256": "84c8be8c1cade46a51486786244c1a80dfbf6e1915bf1f5a72b74ef8eb951f6d"
+    }
+  ],
+  "skin": {
+    "path": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\skins\\young_caucasian_female\\young_caucasian_female.mhmat",
+    "sha256": "0bdea7786201f0b1132a24088336a97496ccdc54e9984db65d253a6a6d66f24f"
+  },
+  "grooming": [
+    {
+      "category": "hair",
+      "asset": "long01",
+      "assetPack": "makehuman_system_assets",
+      "path": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\hair\\long01\\long01.mhclo",
+      "sha256": "94ecbebfd834da2cbee2ce90b730972590eb22a252ecd9592038ea736e063646"
+    },
+    {
+      "category": "eyebrows",
+      "asset": "eyebrow006",
+      "assetPack": "makehuman_system_assets",
+      "path": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\eyebrows\\eyebrow006\\eyebrow006.mhclo",
+      "sha256": "3f14073a558605d78deb25b195c6db8c4ef1310ec5f3f230094b01f8cabd01ad"
+    },
+    {
+      "category": "eyelashes",
+      "asset": "eyelashes02",
+      "assetPack": "makehuman_system_assets",
+      "path": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\eyelashes\\eyelashes02\\eyelashes02.mhclo",
+      "sha256": "51b858de6005bf9476035a739a695726b2227b853daf60cbf0f6b5eb9f70628e"
+    }
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\body-review\\front.png",
+      "sha256": "6c7d0d3a0e658bf41b9abb0718cfcb711dc9f5fffe76aefacf3447021b40d043"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\body-review\\side.png",
+      "sha256": "d674e170b824dde0525ace12eebec0bf83c004949272b406371af16b0c050346"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\body-review\\back.png",
+      "sha256": "440ddc466e7fbb5579d62108336cd3b335a7b2cb286a1280f8d6ca0eac2028e2"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\body-review\\isometric.png",
+      "sha256": "f55e2e57a91d791fc7d47d0dc596ec9ebfaec1d276ba086073d5f3ecb0a9fa74"
+    }
+  ],
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "requiredAnimationClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "missingRequiredClips": [],
+  "animationAudit": {
+    "animationPackId": "humanoid_game_v2_local_keyframes_v2",
+    "version": "2.0.0",
+    "framesPerSecond": 30,
+    "cost": "free_local_only",
+    "source": {
+      "kind": "project_authored_keyframes",
+      "module": "blender/anim_library.py",
+      "externalAsset": false,
+      "description": "Original deterministic keyframes authored in this repository, including MPFB rest-axis locomotion and equipment-aware carry/melee profiles; no third-party motion data or paid service is used."
+    },
+    "sourceHashes": [
+      {
+        "path": "blender/anim_library.py",
+        "sha256": "caec25cdc4c5ec92b2448ee530368402283db7b223f5816215724826c8a5011c"
+      },
+      {
+        "path": "blender/canonical_mpfb_animation_library.py",
+        "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880"
+      },
+      {
+        "path": "data/body-families/canonical-animation-pack.json",
+        "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe"
+      }
+    ],
+    "coordinateConversion": {
+      "source": "legacy_y_up_forward_positive_z",
+      "target": "blender_z_up_forward_negative_y",
+      "translation": "(x, y, z) -> (x, -z, y)",
+      "rootMotion": "in_place_runtime",
+      "rotation": "armature-axis deltas are converted into each MPFB bone rest basis"
+    },
+    "profile": "battle_prelate_hammer",
+    "clips": [
+      {
+        "name": "idle",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": true,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "forearm_R",
+          "hand_R",
+          "head",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "shoulder_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 42
+      },
+      {
+        "name": "walk",
+        "durationFrames": 30,
+        "durationSeconds": 1.0,
+        "loop": true,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "forearm_R",
+          "hand_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "shoulder_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 59
+      },
+      {
+        "name": "run",
+        "durationFrames": 20,
+        "durationSeconds": 0.6666666666666666,
+        "loop": true,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "chest",
+          "foot_L",
+          "foot_R",
+          "forearm_R",
+          "hand_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "shoulder_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 62
+      },
+      {
+        "name": "combat_idle",
+        "durationFrames": 80,
+        "durationSeconds": 2.6666666666666665,
+        "loop": true,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "forearm_R",
+          "hand_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "shoulder_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 39
+      },
+      {
+        "name": "attack_melee",
+        "durationFrames": 30,
+        "durationSeconds": 1.0,
+        "loop": false,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "chest",
+          "foot_L",
+          "foot_R",
+          "forearm_L",
+          "forearm_R",
+          "hand_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "shoulder_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R",
+          "upper_chest"
+        ],
+        "keyframePoses": 80
+      },
+      {
+        "name": "attack_ranged",
+        "durationFrames": 40,
+        "durationSeconds": 1.3333333333333333,
+        "loop": false,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 15
+      },
+      {
+        "name": "cast",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": false,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "forearm_L",
+          "forearm_R",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 23
+      },
+      {
+        "name": "death",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": false,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "head",
+          "hips",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 18
+      },
+      {
+        "name": "jump",
+        "durationFrames": 40,
+        "durationSeconds": 1.3333333333333333,
+        "loop": false,
+        "profile": "battle_prelate_hammer",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "hips",
+          "shin_L",
+          "shin_R",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 30
+      }
+    ],
+    "lifecycle": {
+      "status": "draft",
+      "reviewRequired": true,
+      "limitations": [
+        "This is a bounded procedural baseline, not captured human motion.",
+        "Equipped stress-pose and animation review remains mandatory before promotion."
+      ]
+    }
+  },
+  "materialPreparation": [
+    {
+      "mesh": "body_civic_humanoid_v2_f",
+      "material": "body_civic_humanoid_v2_f.body",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "mesh": "body_civic_humanoid_v2_f.high-poly",
+      "material": "body_civic_humanoid_v2_f.high-poly",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "mesh": "body_civic_humanoid_v2_f.teeth_base",
+      "material": "body_civic_humanoid_v2_f.teeth_base",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "mesh": "body_civic_humanoid_v2_f.tongue01",
+      "material": "body_civic_humanoid_v2_f.tongue01",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "mesh": "grooming_hair_long01",
+      "material": "body_civic_humanoid_v2_f.long01",
+      "alphaMode": "BLEND",
+      "removedAlphaLinks": 0,
+      "removedDuplicateAlphaNodes": 0
+    },
+    {
+      "mesh": "grooming_eyebrows_eyebrow006",
+      "material": "body_civic_humanoid_v2_f.eyebrow006",
+      "alphaMode": "BLEND",
+      "removedAlphaLinks": 0,
+      "removedDuplicateAlphaNodes": 0
+    },
+    {
+      "mesh": "grooming_eyelashes_eyelashes02",
+      "material": "body_civic_humanoid_v2_f.eyelashes02",
+      "alphaMode": "BLEND",
+      "removedAlphaLinks": 0,
+      "removedDuplicateAlphaNodes": 0
+    }
+  ],
+  "runtimeMaterials": [
+    {
+      "name": "body_civic_humanoid_v2_f.body",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.high-poly",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.teeth_base",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.tongue01",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.eyebrow006",
+      "alphaMode": "BLEND",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.eyelashes02",
+      "alphaMode": "BLEND",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.long01",
+      "alphaMode": "BLEND",
+      "hasBaseColorTexture": true,
+      "baseColorSource": "texture"
+    }
+  ],
+  "helperStripping": {
+    "verticesBefore": 19158,
+    "bodyVerticesAfter": 13380,
+    "helperVerticesRemoved": 5778,
+    "shapeKeysBaked": 19,
+    "maskModifiersRemoved": true
+  },
+  "roundTrip": {
+    "passed": true,
+    "checks": {
+      "meshCountMatches": true,
+      "allMeshesRemainSkinned": true,
+      "triangleCountMatches": true,
+      "boneCountMatches": true,
+      "bindBoundsMatch": true
+    },
+    "expected": {
+      "meshNames": [
+        "body_civic_humanoid_v2_f",
+        "body_civic_humanoid_v2_f.high-poly",
+        "body_civic_humanoid_v2_f.teeth_base",
+        "body_civic_humanoid_v2_f.tongue01",
+        "grooming_eyebrows_eyebrow006",
+        "grooming_eyelashes_eyelashes02",
+        "grooming_hair_long01"
+      ],
+      "meshCount": 7,
+      "skinnedMeshCount": 7,
+      "vertices": 22151,
+      "triangles": 41032,
+      "boundsMin": [
+        -0.539949357509613,
+        -0.32964640855789185,
+        -5.927456925292063e-08
+      ],
+      "boundsMax": [
+        0.539949357509613,
+        0.11514054238796234,
+        1.781043529510498
+      ],
+      "boundsCenter": [
+        0.0,
+        -0.10725293308496475,
+        0.890521764755249
+      ],
+      "boundsExtent": [
+        1.079898715019226,
+        0.4447869658470154,
+        1.781043529510498
+      ]
+    },
+    "observed": {
+      "meshNames": [
+        "body_civic_humanoid_v2_f.001",
+        "body_civic_humanoid_v2_f.high-poly.001",
+        "body_civic_humanoid_v2_f.teeth_base.001",
+        "body_civic_humanoid_v2_f.tongue01.001",
+        "grooming_eyebrows_eyebrow006.001",
+        "grooming_eyelashes_eyelashes02.001",
+        "grooming_hair_long01.001"
+      ],
+      "meshCount": 7,
+      "skinnedMeshCount": 7,
+      "vertices": 24026,
+      "triangles": 41032,
+      "boundsMin": [
+        -0.5399492979049683,
+        -0.32964640855789185,
+        -1.7741920999014837e-07
+      ],
+      "boundsMax": [
+        0.5399494171142578,
+        0.11514054983854294,
+        1.7810437679290771
+      ],
+      "boundsCenter": [
+        5.960464477539063e-08,
+        -0.10725292563438416,
+        0.8905218243598938
+      ],
+      "boundsExtent": [
+        1.079898715019226,
+        0.4447869658470154,
+        1.7810438871383667
+      ]
+    },
+    "boneCountExpected": 56,
+    "boneCountObserved": 56,
+    "maximumExtentDelta": 3.5762786865234375e-07,
+    "maximumCenterDelta": 5.960464477539063e-08,
+    "tolerance": 0.00890521764755249
+  },
+  "authoringSource": {
+    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\body_battle_prelate_f.blend",
+    "sha256": "e89ebdf6cbfb85d9d69bf6c7cb24dc066f3f825f2d68324a65da6335907c6c35",
+    "bodyVertices": 19158,
+    "shapeKeys": 19,
+    "maskModifiers": [
+      "Hide helpers"
+    ],
+    "savedBeforeRuntimeOptimization": true
+  }
+}

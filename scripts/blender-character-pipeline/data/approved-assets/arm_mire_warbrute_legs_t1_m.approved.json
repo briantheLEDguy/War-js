@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.legs.t1.m",
+  "displayName": "Warbrute Legguards Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_legs_t1_m.glb",
+  "qc": "arm_mire_warbrute_legs_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_legs_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "legs"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "b25eea2bbf0406b0c55f82b6c6adee38853ff01bd85ddd14eb86b6af204aa523",
+    "qcSha256": "3a84354164c8baf12a643f3dea6dcef6d286e314d91458e6cc400ee02d017940",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/legs_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "ef6f28cb5246c9d85e47dd4eba3659998faa43e95664f9440fcbfa900b5adb3d"
+  },
+  "approvalState": "approved"
+}

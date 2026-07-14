@@ -333,7 +333,17 @@ def add_grooming(human: bpy.types.Object, variant_recipe: dict) -> tuple[list[bp
     remained bald and the six races read as the same base human. These proxies
     are part of the pinned MakeHuman system pack and are now visible geometry.
     """
+    # Roster jobs provide an explicit race grooming recipe in their profile
+    # request. Standalone body-family jobs do not, so derive the shared face
+    # proxies from the family attachments and use the pinned short hairstyle
+    # as a deterministic fallback instead of producing a bald or failed body.
     grooming = variant_recipe.get("grooming") or {}
+    attachments = variant_recipe.get("attachments") or {}
+    grooming = {
+        "hair": grooming.get("hair") or attachments.get("hair") or "short01",
+        "eyebrows": grooming.get("eyebrows") or attachments.get("eyebrows"),
+        "eyelashes": grooming.get("eyelashes") or attachments.get("eyelashes"),
+    }
     definitions = (
         ("hair", grooming.get("hair"), "Hair"),
         ("eyebrows", grooming.get("eyebrows"), "Eyebrows"),

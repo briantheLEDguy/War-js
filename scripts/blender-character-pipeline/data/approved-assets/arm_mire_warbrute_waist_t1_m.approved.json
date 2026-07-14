@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.waist.t1.m",
+  "displayName": "Warbrute Belt Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_waist_t1_m.glb",
+  "qc": "arm_mire_warbrute_waist_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_waist_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "waist"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "12b948c1f505e8c898342be48181a57dcd98a8d9d6bacf3906b533e20433cdfd",
+    "qcSha256": "ad1e7533acb75a0b77884befa7eccd12fa5e74888de6aca660c7b0055e33ec27",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/waist_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "173fe389533efc709f700f7dc05aeaea741fb2eeeadb6c77277f206c6b4eff6c"
+  },
+  "approvalState": "approved"
+}

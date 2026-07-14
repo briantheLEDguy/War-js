@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.aegis.gate.warden.city.guard",
+  "displayName": "Gate Warden - City Guard",
+  "category": "character",
+  "model": "chr_npc_empire_m_guard_m.glb",
+  "qc": "chr_npc_empire_m_guard_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_gate_warden_city_guard",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_humanoid_v2",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+    "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+    "previews": {
+      "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:17.992Z",
+    "reviewHash": "51a3aa04c3e4fbe506b1b270a4cc23e7923d1967c177af4987c68c39d99688d6"
+  },
+  "approvalState": "approved"
+}

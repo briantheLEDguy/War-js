@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "assetId": "creature.lair_spider.lod0",
+  "kind": "creature",
+  "creatureKey": "lair_spider",
+  "displayName": "Lair Spider",
+  "realm": "riftbound",
+  "bodyPlan": "arachnid",
+  "skeletonId": "creature_arachnid_v1",
+  "lod": 0,
+  "revisionSeed": 1772455467,
+  "modelingMethod": "original_closed_loft_v2",
+  "primitiveOperatorsUsed": false,
+  "speciesFeature": "fangs",
+  "meshCount": 38,
+  "boneCount": 20,
+  "totalTriangles": 11948,
+  "maxTriangles": 45000,
+  "maxInfluences": 1,
+  "markers": [
+    "root",
+    "ground_contact",
+    "attack_origin",
+    "hit_center"
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\lair_spider\\revision-0001\\review\\front.png",
+      "sha256": "99452f32e8aab198192c8386c7fb06ff46e6c904eb4aaeb2f9a3990c6f07d13b"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\lair_spider\\revision-0001\\review\\side.png",
+      "sha256": "4de02fe1bf60a891f146fd41033ec68f9a07778f4311c5403ffbadd105a745d5"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\lair_spider\\revision-0001\\review\\back.png",
+      "sha256": "91b8a226ea2edf73ccf9c057322b2a84e43507f30b202ab43f61247cac2047ed"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\lair_spider\\revision-0001\\review\\isometric.png",
+      "sha256": "84d4052ddaf1073eb55c289ad1d70681302ee24124aa07d0097199e3bf78bf80"
+    },
+    {
+      "view": "deformation_stress",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\lair_spider\\revision-0001\\review\\deformation_stress.png",
+      "sha256": "13d533e67a22cac083b1c61e448a9eca456f9c9ab90b417c7304ae01149d7af5"
+    }
+  ],
+  "deformationStressPose": "deformation_stress",
+  "modelStage": "pending",
+  "animationStage": "pending",
+  "animationApprovalEligible": false,
+  "runtimeEligible": false,
+  "checks": {
+    "lod0Present": true,
+    "armaturePresent": true,
+    "skinningPresent": true,
+    "markersPresent": true,
+    "reviewViewsPresent": true,
+    "originalLoftedAnatomy": true,
+    "noPrimitiveGeometry": true,
+    "speciesSpecificFeature": true,
+    "substantiveGeometry": true,
+    "triangleBudget": true,
+    "pbrMaterials": true
+  },
+  "qcPassed": true,
+  "output": {
+    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\lair_spider\\revision-0001\\creature_lair_spider_lod0.glb",
+    "sha256": "ef2e75b82a38ade52df2526168fca70d71f7dd60dab35a74e25621eb160e5ba0"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "model": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\scripts\\blender-character-pipeline\\test-assets\\test_skinned_chest_civic_m.glb",
+  "posePackId": "core_v1",
+  "method": "blender_bvhtree",
+  "bodyMeshCount": 2,
+  "rigidMeshCount": 0,
+  "bodyMeshes": [
+    "body_civic_m",
+    "test_chest_wearable"
+  ],
+  "rigidMeshes": [],
+  "poses": [
+    {
+      "pose": "neutral",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "shoulder_extreme",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "elbow_extreme",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "hip_extreme",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "knee_extreme",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "jump",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "attack_melee",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "cast",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    },
+    {
+      "pose": "death",
+      "rigidBodyOverlapPairs": 0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

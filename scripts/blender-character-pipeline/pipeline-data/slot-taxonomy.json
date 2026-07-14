@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "taxonomyId": "modular_character_slots_v1",
+  "description": "Typed attachment and wearable taxonomy. Classification is explicit and never inferred from filenames.",
+  "classificationOrder": ["rigid", "skinned", "loose"],
+  "rigid": {
+    "slots": ["weapon", "shield", "lantern", "pouch", "scabbard"],
+    "attachmentMode": "rigid_socket",
+    "allowedMethods": ["bone_parent", "child_of"],
+    "requiresSocket": true
+  },
+  "skinned": {
+    "slots": ["shirt", "gloves", "boots", "hood", "pants", "fitted_armor", "head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard"],
+    "attachmentMode": "canonical_skin",
+    "allowedMethods": ["data_transfer_nearest_face_interpolated", "surface_deform"],
+    "requiresCanonicalSkeleton": true,
+    "maxInfluencesPerVertex": 4
+  },
+  "loose": {
+    "slots": ["cape", "robe_skirt", "tabard_loose", "long_coat"],
+    "attachmentMode": "armature_then_cloth",
+    "allowedMethods": ["cloth_pinned"],
+    "requiresPinnedVertexGroup": true
+  },
+  "slots": {
+    "weapon": { "kind": "rigid", "socketIds": ["socket_hand_L", "socket_hand_R", "socket_back"] },
+    "shield": { "kind": "rigid", "socketIds": ["socket_hand_L", "socket_back"] },
+    "lantern": { "kind": "rigid", "socketIds": ["socket_hand_L", "socket_hand_R", "socket_belt_L", "socket_belt_R"] },
+    "pouch": { "kind": "rigid", "socketIds": ["socket_belt_L", "socket_belt_R"] },
+    "scabbard": { "kind": "rigid", "socketIds": ["socket_back", "socket_belt_L", "socket_belt_R"] },
+    "head": { "kind": "skinned", "coveredRegions": ["head"] },
+    "shoulders": { "kind": "skinned", "coveredRegions": ["shoulders"] },
+    "chest": { "kind": "skinned", "coveredRegions": ["torso"] },
+    "hands": { "kind": "skinned", "coveredRegions": ["forearms", "hands"] },
+    "waist": { "kind": "skinned", "coveredRegions": ["waist"] },
+    "legs": { "kind": "skinned", "coveredRegions": ["hips", "legs"] },
+    "feet": { "kind": "skinned", "coveredRegions": ["feet"] },
+    "back": { "kind": "skinned", "coveredRegions": ["back"] },
+    "tabard": { "kind": "skinned", "coveredRegions": ["tabard"] },
+    "shirt": { "kind": "skinned", "coveredRegions": ["torso"] },
+    "gloves": { "kind": "skinned", "coveredRegions": ["forearms", "hands"] },
+    "boots": { "kind": "skinned", "coveredRegions": ["feet"] },
+    "hood": { "kind": "skinned", "coveredRegions": ["head", "neck"] },
+    "pants": { "kind": "skinned", "coveredRegions": ["hips", "legs"] },
+    "fitted_armor": { "kind": "skinned", "coveredRegions": ["torso"] },
+    "cape": { "kind": "loose", "pinnedVertexGroup": "cape_pin" },
+    "robe_skirt": { "kind": "loose", "pinnedVertexGroup": "robe_pin" },
+    "tabard_loose": { "kind": "loose", "pinnedVertexGroup": "tabard_pin" },
+    "long_coat": { "kind": "loose", "pinnedVertexGroup": "coat_pin" }
+  }
+}

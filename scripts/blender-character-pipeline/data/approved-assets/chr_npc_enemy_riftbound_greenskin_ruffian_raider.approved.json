@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.enemy.riftbound.greenskin.ruffian.raider",
+  "displayName": "Greenskin Ruffian",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_raider_m.glb",
+  "qc": "chr_npc_greenskin_m_raider_m.qc.json",
+  "runtime": {
+    "profileKey": "enemy_riftbound_greenskin_ruffian_raider",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "1ab256e2977e85305e3015c1587114b5008e7949776c74b825d9f29e2bd7e930",
+    "qcSha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/raider_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "f2cda7c20011a032573835fa24d7ed7a73e496dabf2f4d76d1a3152a2fd6cfd3"
+  },
+  "approvalState": "approved"
+}

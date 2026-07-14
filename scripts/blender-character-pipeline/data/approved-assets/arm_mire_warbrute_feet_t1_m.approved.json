@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.feet.t1.m",
+  "displayName": "Warbrute Boots Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_feet_t1_m.glb",
+  "qc": "arm_mire_warbrute_feet_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_feet_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "feet"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "54277c054127189e70366229c6715a424f12ead8470eba73bae24f8aab7c91f2",
+    "qcSha256": "071fcc3d09ebba0ebc15a4e508742a37a4c917edab902f14d889863d68922a67",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/feet_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "dd4978a2e86844123debcebf9b6003887ee365563acdbf6d5166448c8fa9d490"
+  },
+  "approvalState": "approved"
+}

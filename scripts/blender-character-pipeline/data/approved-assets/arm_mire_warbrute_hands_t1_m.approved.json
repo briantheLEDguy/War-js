@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.hands.t1.m",
+  "displayName": "Warbrute Handguards Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_hands_t1_m.glb",
+  "qc": "arm_mire_warbrute_hands_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_hands_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "arms",
+      "hands"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "263d218990b42e40f3cc79c80e915f93b3a7ccad2dde89dd2426b1d800ab2f29",
+    "qcSha256": "68d28ace50f838355d49ab39d07332db9b1da99bb77710e183c67e6c6af6061d",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/hands_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "fa8a26adc1f0501bb0f3cad5dadcfb9407b2607952b98725a1a7a8d505d58520"
+  },
+  "approvalState": "approved"
+}

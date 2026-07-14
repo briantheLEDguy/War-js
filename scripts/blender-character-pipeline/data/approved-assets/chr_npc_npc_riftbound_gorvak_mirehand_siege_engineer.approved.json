@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.riftbound.gorvak.mirehand.siege.engineer",
+  "displayName": "Gorvak Mirehand - Siege Engineer",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_vendor_m.glb",
+  "qc": "chr_npc_greenskin_m_vendor_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftbound_gorvak_mirehand_siege_engineer",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "2a02341c61851dfecebcbffc781bbaa4cfba540e2c5fb14e31766df4ae169a25",
+    "qcSha256": "68231778448c371e32c30ec2ba29500cf8b9847dd2eaf7f0c5f85fa44ebf5153",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/vendor_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "8b0a40b701203c30f1a63f02299525c5bfde4a429d5a7a42ed4e650b45498bbf"
+  },
+  "approvalState": "approved"
+}

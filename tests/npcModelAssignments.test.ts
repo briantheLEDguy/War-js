@@ -52,6 +52,8 @@ function loadZones(): ZoneFile[] {
 }
 
 describe('NPC and enemy model assignments', () => {
+  const promotedCreatureKeys = new Set(['creature_barrow_wolf', 'creature_lair_spider']);
+
   test('keeps removed NPC proxy profiles on the safe runtime fallback path', () => {
     const index = loadAssetIndex();
     const profiles = index.characterProfiles ?? {};
@@ -76,6 +78,8 @@ describe('NPC and enemy model assignments', () => {
       }
     }
     expect(fallbackProfiles).toBeGreaterThan(0);
+    expect(profiles['npc_aegis_brann_hartwell_main_gate_guard']?.model).toMatch(/^chr_.*\.glb$/);
+    expect(profiles['npc_riftbound_kara_ashvein_resource_warden']?.model).toMatch(/^chr_.*\.glb$/);
   });
 
   test('keeps unapproved humanoids and regenerated creatures on runtime fallback', () => {
@@ -104,7 +108,14 @@ describe('NPC and enemy model assignments', () => {
         if (enemy.assetKey) {
           expect(enemy.assetKey, context).toMatch(staticKeyRe);
           if (enemy.assetKey.startsWith('creature_')) {
-            expect(staticProps[enemy.assetKey], context).toBeUndefined();
+            if (promotedCreatureKeys.has(enemy.assetKey)) {
+              expect(staticProps[enemy.assetKey], context).toBeDefined();
+              expect(staticProps[enemy.assetKey]?.lifecycleStatus, context).toBe('approved');
+              expect(staticProps[enemy.assetKey]?.runtimeReady, context).not.toBe(false);
+              expect(staticProps[enemy.assetKey]?.model, context).toMatch(/^prop_creature_.*\.glb$/);
+            } else {
+              expect(staticProps[enemy.assetKey], context).toBeUndefined();
+            }
           } else {
             expect(staticProps[enemy.assetKey]?.model, context).toMatch(/^prop_.*\.glb$/);
           }

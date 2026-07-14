@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.aegis.inquisitor.hess.hex.inquisitor.trainer",
+  "displayName": "Inquisitor Hess - Hex Inquisitor Trainer",
+  "category": "character",
+  "model": "chr_npc_empire_m_trainer_m.glb",
+  "qc": "chr_npc_empire_m_trainer_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_humanoid_v2",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+    "qcSha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+    "previews": {
+      "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:17.992Z",
+    "reviewHash": "d830401fc54ea0951c2acaf08686e61e38271ffde76b06967d428b7aeea59bdb"
+  },
+  "approvalState": "approved"
+}

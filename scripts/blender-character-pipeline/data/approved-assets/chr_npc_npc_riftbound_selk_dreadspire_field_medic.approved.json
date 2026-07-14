@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.riftbound.selk.dreadspire.field.medic",
+  "displayName": "Selk Dreadspire - Field Medic",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_ambient_m.glb",
+  "qc": "chr_npc_greenskin_m_ambient_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftbound_selk_dreadspire_field_medic",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+    "qcSha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/ambient_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "09044107b127e8bcab82de646c4f554f8daefee4db3e31ad880e6b2045d958e5"
+  },
+  "approvalState": "approved"
+}

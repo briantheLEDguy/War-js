@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.waist.t1.f",
+  "displayName": "Warbrute Belt Female",
+  "category": "armor",
+  "model": "arm_mire_warbrute_waist_t1_f.glb",
+  "qc": "arm_mire_warbrute_waist_t1_f.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_waist_f",
+    "bodyVariant": "f"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_f",
+    "bodyVariant": "f",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "waist"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "4c4890956637abfcf578e67ad8b03349de1a81d4372872aa42ad139d8367a430",
+    "qcSha256": "7c6acb8e1c2af2913c0495a0fd9ae5d3858d7f4b70beb6561a8aefb968c514fc",
+    "previews": {
+      "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/f/waist_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "a28cbd9e5a79e2ddf7a417b9cacb4cf737da5c993adbdd8eef66d70d4169d3d7"
+  },
+  "approvalState": "approved"
+}
