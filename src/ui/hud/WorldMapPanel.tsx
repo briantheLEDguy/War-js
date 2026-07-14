@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent } from 'react';
 import type { Game } from '../../game/Game';
+import type { CharacterState, QuestProgress } from '../../services/types';
 import { useGameStore, type EnemyState } from '../../state/gameStore';
 import type {
   PathDefinition,
@@ -8,6 +9,7 @@ import type {
   RvrObjectiveDefinition,
   ZoneDefinition,
 } from '../../world/ZoneLoader';
+import type { NpcState } from '../../world/NpcSpawner';
 import {
   buildMarkers,
   DEFAULT_VISIBLE,
@@ -22,7 +24,7 @@ interface Props {
   game: Game | null;
 }
 
-type WorldMapLayer = MarkerToggle | 'terrain' | 'landmarks';
+export type WorldMapLayer = MarkerToggle | 'terrain' | 'landmarks';
 
 const DEFAULT_WORLD_MAP_LAYERS: Record<WorldMapLayer, boolean> = {
   terrain: true,
@@ -62,7 +64,7 @@ interface MapHoverTarget {
   radius: number;
 }
 
-export function WorldMapPanel({ game }: Props) {
+function LegacyWorldMapPanel({ game }: Props) {
   const {
     panelRef,
     dragHandleProps,
@@ -107,6 +109,7 @@ export function WorldMapPanel({ game }: Props) {
         markerVisible,
         npcs,
         quests,
+        showPlayer: true,
         width: size.width,
         zone,
       });
@@ -129,12 +132,7 @@ export function WorldMapPanel({ game }: Props) {
   }
 
   function handleMapPointerMove(event: PointerEvent<HTMLCanvasElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const target = findMapHoverTarget(
-      hoverTargetsRef.current,
-      event.clientX - rect.left,
-      event.clientY - rect.top,
-    );
+    const target = findMapHoverTarget(hoverTargetsRef.current, ...canvasPointerPosition(event));
     setHoveredLocation((current) => current?.id === target?.id ? current : target);
   }
 
@@ -252,6 +250,114 @@ export function WorldMapPanel({ game }: Props) {
   );
 }
 
+export interface ZoneMapCanvasProps {
+  game: Game | null;
+  zone: ZoneDefinition | null;
+  character: CharacterState | null;
+  enemies: EnemyState[];
+  npcs: NpcState[];
+  quests: QuestProgress[];
+  layers: Record<WorldMapLayer, boolean>;
+  markerVisible: Record<MarkerToggle, boolean>;
+  renderScale: number;
+  showPlayer: boolean;
+}
+
+export function ZoneMapCanvas({
+  game,
+  zone,
+  character,
+  enemies,
+  npcs,
+  quests,
+  layers,
+  markerVisible,
+  renderScale,
+  showPlayer,
+}: ZoneMapCanvasProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef = useRef(0);
+  const hoverTargetsRef = useRef<MapHoverTarget[]>([]);
+  const [hoveredLocation, setHoveredLocation] = useState<MapHoverTarget | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !zone) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const draw = () => {
+      const size = prepareCanvas(canvas, ctx, renderScale);
+      hoverTargetsRef.current = drawWorldMap(ctx, {
+        character,
+        enemies,
+        game,
+        height: size.height,
+        layers,
+        markerVisible,
+        npcs,
+        quests,
+        showPlayer,
+        width: size.width,
+        zone,
+      });
+      rafRef.current = requestAnimationFrame(draw);
+    };
+
+    draw();
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [character, enemies, game, layers, markerVisible, npcs, quests, renderScale, showPlayer, zone]);
+
+  function handlePointerMove(event: PointerEvent<HTMLCanvasElement>) {
+    const target = findMapHoverTarget(hoverTargetsRef.current, ...canvasPointerPosition(event));
+    setHoveredLocation((current) => current?.id === target?.id ? current : target);
+  }
+
+  return (
+    <div className="zone-map-canvas-surface">
+      {zone ? (
+        <>
+          <canvas
+            ref={canvasRef}
+            aria-label={`${zone.name} detailed map`}
+            onPointerMove={handlePointerMove}
+            onPointerLeave={() => setHoveredLocation(null)}
+          />
+          {hoveredLocation && (
+            <div
+              className={`world-map-hover-card${hoveredLocation.position.y < 120 ? ' below' : ''}`}
+              role="status"
+              style={{
+                left: `clamp(84px, ${hoveredLocation.position.x}px, calc(100% - 84px))`,
+                top: hoveredLocation.position.y,
+              }}
+            >
+              <span style={{ '--marker-color': hoveredLocation.color } as CSSProperties}>
+                {hoveredLocation.kind}
+              </span>
+              <strong>{hoveredLocation.label}</strong>
+              {hoveredLocation.detail && <small>{hoveredLocation.detail}</small>}
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="world-map-empty">Map data unavailable.</div>
+      )}
+    </div>
+  );
+}
+
+function canvasPointerPosition(event: PointerEvent<HTMLCanvasElement>): [number, number] {
+  const canvas = event.currentTarget;
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = rect.width / Math.max(1, canvas.clientWidth);
+  const scaleY = rect.height / Math.max(1, canvas.clientHeight);
+  return [
+    (event.clientX - rect.left) / scaleX,
+    (event.clientY - rect.top) / scaleY,
+  ];
+}
+
 function drawWorldMap(
   ctx: CanvasRenderingContext2D,
   input: {
@@ -263,6 +369,7 @@ function drawWorldMap(
     markerVisible: Record<MarkerToggle, boolean>;
     npcs: ReturnType<typeof useGameStore.getState>['npcs'];
     quests: ReturnType<typeof useGameStore.getState>['quests'];
+    showPlayer: boolean;
     width: number;
     zone: ZoneDefinition;
   },
@@ -305,9 +412,10 @@ function drawWorldMap(
   for (const marker of markers) {
     drawWorldMarker(ctx, marker, projection);
   }
-  drawPlayerMarker(ctx, playerPosition, projection);
+  if (input.showPlayer) drawPlayerMarker(ctx, playerPosition, projection);
   drawCompass(ctx, projection);
   drawScale(ctx, projection);
+  drawMapRelief(ctx, projection, input.zone);
 
   return buildMapHoverTargets(input.zone, projection, markers, input.layers);
 }
@@ -398,20 +506,27 @@ function markerKindLabel(kind: MapMarker['kind']): string {
   }
 }
 
-function prepareCanvas(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D): { width: number; height: number } {
+function prepareCanvas(
+  canvas: HTMLCanvasElement,
+  ctx: CanvasRenderingContext2D,
+  renderScale = 1,
+): { width: number; height: number } {
   const rect = canvas.getBoundingClientRect();
   const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-  const width = Math.max(320, Math.floor(rect.width));
-  const height = Math.max(260, Math.floor(rect.height));
-  const backingWidth = Math.floor(width * pixelRatio);
-  const backingHeight = Math.floor(height * pixelRatio);
+  // The canvas may be inside the campaign zoom transform. clientWidth/Height
+  // preserve the logical drawing space; getBoundingClientRect() is screen space.
+  const width = Math.max(320, Math.floor(canvas.clientWidth || rect.width));
+  const height = Math.max(260, Math.floor(canvas.clientHeight || rect.height));
+  const resolutionScale = Math.max(1, renderScale);
+  const backingWidth = Math.floor(width * pixelRatio * resolutionScale);
+  const backingHeight = Math.floor(height * pixelRatio * resolutionScale);
 
   if (canvas.width !== backingWidth || canvas.height !== backingHeight) {
     canvas.width = backingWidth;
     canvas.height = backingHeight;
   }
 
-  ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+  ctx.setTransform(pixelRatio * resolutionScale, 0, 0, pixelRatio * resolutionScale, 0, 0);
   return { width, height };
 }
 
@@ -447,7 +562,7 @@ function drawTerrain(
 ) {
   ctx.save();
   clipMap(ctx, projection);
-  ctx.fillStyle = zone.flatTerrain ? '#242521' : '#23331f';
+  ctx.fillStyle = zone.flatTerrain ? '#1c2528' : '#182726';
   ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
 
   if (showDetail) {
@@ -457,10 +572,10 @@ function drawTerrain(
 
   ctx.restore();
 
-  ctx.strokeStyle = 'rgba(240, 216, 128, 0.58)';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(186, 151, 81, 0.72)';
+  ctx.lineWidth = 2.5;
   ctx.strokeRect(projection.left, projection.top, projection.width, projection.height);
-  ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.strokeStyle = 'rgba(4, 9, 11, 0.9)';
   ctx.lineWidth = 1;
   ctx.strokeRect(projection.left + 3, projection.top + 3, projection.width - 6, projection.height - 6);
 }
@@ -482,7 +597,7 @@ function drawNaturalTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition,
     }
   }
 
-  ctx.strokeStyle = 'rgba(232, 220, 180, 0.12)';
+  ctx.strokeStyle = 'rgba(173, 194, 186, 0.16)';
   ctx.lineWidth = 1;
   for (let z = -half + step * 3; z < half; z += step * 4) {
     ctx.beginPath();
@@ -506,16 +621,16 @@ function drawCityTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, pr
     projection.top + projection.height * 0.5,
     projection.width * 0.7,
   );
-  gradient.addColorStop(0, '#30332d');
-  gradient.addColorStop(0.6, '#292c27');
-  gradient.addColorStop(1, '#232621');
+  gradient.addColorStop(0, '#303a3b');
+  gradient.addColorStop(0.6, '#202c30');
+  gradient.addColorStop(1, '#111b20');
   ctx.fillStyle = gradient;
   ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
 
   ctx.save();
   clipMap(ctx, projection);
   const structuralProps = (zone.props ?? []).filter((prop) => !isTerrainProp(prop));
-  ctx.fillStyle = 'rgba(121, 102, 69, 0.16)';
+  ctx.fillStyle = 'rgba(153, 127, 75, 0.13)';
   for (const prop of structuralProps) {
     const point = projection.toCanvas(prop);
     const radius = Math.max(8, (prop.scale ?? 1) * projection.scale * 7);
@@ -526,7 +641,7 @@ function drawCityTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, pr
 
   // Broad contour lines preserve a sense of connected districts without making
   // the terrain a grid of equal visual-weight rectangles.
-  ctx.strokeStyle = 'rgba(202, 197, 178, 0.08)';
+  ctx.strokeStyle = 'rgba(167, 188, 183, 0.1)';
   ctx.lineWidth = 1;
   const half = projection.size / 2;
   const contourStep = projection.size / 6;
@@ -563,10 +678,10 @@ function drawCityTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, pr
 
 function drawMapGrid(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
   const half = projection.size / 2;
-  const step = projection.size / 4;
+  const step = projection.size / 2;
   ctx.save();
   clipMap(ctx, projection);
-  ctx.strokeStyle = 'rgba(240, 216, 128, 0.1)';
+  ctx.strokeStyle = 'rgba(167, 188, 183, 0.07)';
   ctx.lineWidth = 1;
   for (let x = -half + step; x < half; x += step) {
     const a = projection.toCanvas({ x, z: -half });
@@ -586,10 +701,33 @@ function drawMapGrid(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projec
   }
   ctx.restore();
 
-  ctx.font = '10px "Cinzel", serif';
-  ctx.fillStyle = 'rgba(230, 220, 192, 0.62)';
-  ctx.textAlign = 'center';
-  ctx.fillText(zone.name, projection.left + projection.width / 2, projection.top - 14);
+  drawMapLabel(
+    ctx,
+    projection.left + projection.width / 2,
+    projection.top - 15,
+    zone.name,
+    'rgba(230, 220, 192, 0.72)',
+  );
+
+  ctx.save();
+  ctx.strokeStyle = 'rgba(212, 176, 96, 0.42)';
+  ctx.lineWidth = 1;
+  const tick = Math.min(12, projection.width * 0.06);
+  const right = projection.left + projection.width;
+  const bottom = projection.top + projection.height;
+  for (const [x, y, dx, dy] of [
+    [projection.left, projection.top, tick, tick],
+    [right, projection.top, -tick, tick],
+    [projection.left, bottom, tick, -tick],
+    [right, bottom, -tick, -tick],
+  ] as const) {
+    ctx.beginPath();
+    ctx.moveTo(x, y + dy);
+    ctx.lineTo(x, y);
+    ctx.lineTo(x + dx, y);
+    ctx.stroke();
+  }
+  ctx.restore();
 }
 
 function drawPaths(ctx: CanvasRenderingContext2D, paths: PathDefinition[], projection: Projection) {
@@ -600,19 +738,19 @@ function drawPaths(ctx: CanvasRenderingContext2D, paths: PathDefinition[], proje
     const width = Math.max(3, path.width * projection.scale);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.strokeStyle = 'rgba(12, 10, 8, 0.72)';
-    ctx.lineWidth = width + 4;
+    ctx.strokeStyle = 'rgba(3, 7, 9, 0.92)';
+    ctx.lineWidth = width + 5;
     strokePath(ctx, path, projection);
     ctx.strokeStyle = path.style === 'cobblestone_avenue'
-      ? 'rgba(162, 155, 130, 0.8)'
-      : 'rgba(118, 86, 45, 0.82)';
+      ? 'rgba(153, 174, 169, 0.64)'
+      : 'rgba(133, 105, 61, 0.72)';
     ctx.lineWidth = width;
     strokePath(ctx, path, projection);
-    ctx.setLineDash([Math.max(6, width * 1.1), Math.max(5, width * 0.8)]);
+    ctx.setLineDash([Math.max(7, width * 1.4), Math.max(8, width * 1.2)]);
     ctx.strokeStyle = path.style === 'cobblestone_avenue'
-      ? 'rgba(234, 225, 190, 0.22)'
-      : 'rgba(236, 195, 120, 0.18)';
-    ctx.lineWidth = 1;
+      ? 'rgba(214, 228, 211, 0.3)'
+      : 'rgba(236, 195, 120, 0.28)';
+    ctx.lineWidth = Math.max(1, width * 0.16);
     strokePath(ctx, path, projection);
     ctx.setLineDash([]);
   }
@@ -1009,13 +1147,64 @@ function drawMapLabel(ctx: CanvasRenderingContext2D, x: number, y: number, text:
   ctx.font = '10px "Cinzel", serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  const width = Math.min(220, ctx.measureText(clean).width + 10);
-  ctx.fillStyle = 'rgba(6, 5, 4, 0.78)';
-  ctx.fillRect(x - width / 2, y - 8, width, 16);
-  ctx.strokeStyle = 'rgba(122, 96, 53, 0.55)';
-  ctx.strokeRect(x - width / 2, y - 8, width, 16);
+  const width = Math.min(220, ctx.measureText(clean).width + 14);
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.72)';
+  ctx.shadowBlur = 7;
+  ctx.fillStyle = 'rgba(5, 11, 13, 0.9)';
+  drawRoundedRect(ctx, x - width / 2, y - 9, width, 18, 3);
+  ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.strokeStyle = 'rgba(173, 139, 77, 0.64)';
+  ctx.stroke();
+  ctx.strokeStyle = 'rgba(224, 201, 135, 0.16)';
+  ctx.strokeRect(x - width / 2 + 2, y - 7, width - 4, 14);
   ctx.fillStyle = color;
   ctx.fillText(clean, x, y + 0.5, width - 8);
+  ctx.restore();
+}
+
+function drawMapRelief(
+  ctx: CanvasRenderingContext2D,
+  projection: Projection,
+  zone: ZoneDefinition,
+) {
+  ctx.save();
+  clipMap(ctx, projection);
+
+  const light = ctx.createRadialGradient(
+    projection.left + projection.width * 0.42,
+    projection.top + projection.height * 0.34,
+    projection.width * 0.08,
+    projection.left + projection.width * 0.5,
+    projection.top + projection.height * 0.48,
+    projection.width * 0.78,
+  );
+  light.addColorStop(0, 'rgba(215, 177, 95, 0.08)');
+  light.addColorStop(0.48, 'rgba(47, 80, 87, 0.02)');
+  light.addColorStop(1, 'rgba(0, 2, 3, 0.72)');
+  ctx.fillStyle = light;
+  ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
+
+  const half = projection.size / 2;
+  ctx.strokeStyle = 'rgba(222, 199, 139, 0.08)';
+  ctx.lineWidth = 1;
+  for (let ring = 1; ring <= 4; ring += 1) {
+    const radius = projection.width * (0.12 + ring * 0.1);
+    ctx.beginPath();
+    for (let i = 0; i <= 64; i += 1) {
+      const angle = (i / 64) * Math.PI * 2;
+      const x = Math.cos(angle) * radius * (1 + Math.sin(angle * 3 + zone.id.length) * 0.08);
+      const z = Math.sin(angle) * radius * (1 + Math.cos(angle * 2 + zone.id.length) * 0.06);
+      const point = projection.toCanvas({
+        x: (x / projection.scale) * 0.8 + half * 0.08,
+        z: (z / projection.scale) - half * 0.04,
+      });
+      if (i === 0) ctx.moveTo(point.x, point.y);
+      else ctx.lineTo(point.x, point.y);
+    }
+    ctx.stroke();
+  }
+
   ctx.restore();
 }
 
@@ -1079,11 +1268,11 @@ function terrainValue(x: number, z: number, seed: string): number {
 }
 
 function terrainColor(value: number, moisture: number): string {
-  if (value > 0.58) return 'rgba(108, 101, 84, 0.95)';
-  if (value > 0.25) return 'rgba(80, 74, 50, 0.95)';
-  if (moisture > 0.52) return 'rgba(36, 72, 42, 0.96)';
-  if (value < -0.55) return 'rgba(38, 61, 32, 0.96)';
-  return 'rgba(57, 73, 39, 0.96)';
+  if (value > 0.58) return 'rgba(64, 72, 72, 0.98)';
+  if (value > 0.25) return 'rgba(47, 57, 59, 0.98)';
+  if (moisture > 0.52) return 'rgba(27, 52, 48, 0.98)';
+  if (value < -0.55) return 'rgba(20, 39, 38, 0.98)';
+  return 'rgba(33, 48, 49, 0.98)';
 }
 
 function colorWithAlpha(color: string, alpha: number): string {

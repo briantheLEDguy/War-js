@@ -2,11 +2,16 @@
 
 ## 2026-07-14
 
+- Refined the unified Campaign Atlas with dark-fantasy engraved relief styling, fit-to-pane defaults, shared physical scene scaling, cursor-anchored wheel zoom, drag panning, and reliable node/tier gesture handling.
+
+## 2026-07-14
+
 - Rebuilt humanoid roster generation around the installed MPFB/MakeHuman fixture packs: race-specific bodies, skin, hair, brows, lashes, fitted class silhouettes, and Equipment01-authored one-handed, dual-wield, and two-handed review weapons now replace the earlier primitive draft approach. Reapplied equipped-body material cleanup after authoring reloads to prevent face holes, removed visually corrupt closed hoods and helmets from live recipes, strengthened race/class differentiation, and rebuilt creature drafts with closed rigged body-plan meshes and stress poses.
 - Reworked the staged model-review screen for phones and small tablets: landscape now reserves separate model and scrolling-control regions, portrait stacks a fixed model viewport above the review sheet, touch targets meet a 44px minimum, navigation labels compact cleanly, safe-area insets are respected, approval actions remain reachable, and reviewer entry no longer relies on a blocking browser prompt.
 
 ## 2026-07-13
 
+- Combined the detailed zone map and Aegis/Riftbound campaign tracker into one three-tier Campaign Atlas. Map/M opens the current zone, the Campaign HUD action opens the full graph, left/right click moves between zone, route, and campaign tiers, wheel zoom works within each tier, and every generated campaign zone now has a static preview without fast travel.
 - Added the full local roster model-stage pipeline: 24 playable class pairs (48 appearances/432 T1 modules), 12 NPC race/body foundations covering all 106 humanoid profiles, 12 rig-ready creature species, a shared one-/two-hand/dual-wield review suite, deterministic revisions, resumable generation, consolidated QC, and strict preflight gating.
 - Completed the initial `full-roster-v1` geometry batch with all 48 groups in `ready_for_review`, all 432 armor modules unique, all 106 NPC combinations rendered, and every generated artifact present with its recorded SHA-256; no model was promoted into the runtime registry. That draft is superseded by the fixture-backed `full-roster-v2` review run.
 - Hardened Blender 5/MPFB generation with explicit add-on activation, finalized-body armor reprojection, shape-key baking, deterministic topology cleanup and headgear remesh fallbacks, calibrated pair-specific seam clearance, traceback detection, and immediate recovery of locks whose owner process is proven dead.

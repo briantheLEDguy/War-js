@@ -51,9 +51,12 @@ npm run models:validate
 | `I` | Toggle inventory |
 | `C` | Toggle character sheet |
 | `L` | Toggle quest log |
-| `M` | Toggle detailed world map |
+| `M` | Open/close the unified campaign atlas at the current zone tier |
 | `H` | Toggle in-game guide / wiki |
-| HUD Campaign icon | Toggle Aegis/Riftbound campaign status |
+| HUD Campaign icon | Open/close the unified campaign atlas at the full campaign tier |
+| Map window left click | Zoom from campaign to route, or route to zone detail |
+| Map window right click | Zoom out from zone to route, or route to campaign |
+| Map window wheel | Continuously zoom the current map tier |
 | `Esc` | Close the active window; opens Settings when no window is open |
 | `Enter` | Focus chat |
 | `` ` `` | Toggle debug overlay |
@@ -252,14 +255,19 @@ harvesting, gear equip, guide use, and crafting. Progress is driven by local
 gameplay events and persisted in localStorage, so it does not change service
 contracts or require Supabase.
 
-`src/ui/hud/CampaignPanel.tsx` exposes the static Aegis Accord vs Riftbound Host
-campaign graph. Its data lives in `src/data/campaign.ts`, generated map hashes
-live in `src/data/campaign.generated.ts`, and static maps live under
-`public/assets/maps/`. The panel shows lane control, active-zone objectives,
-realm influence, fortress pressure, city-siege readiness, and side boss/lair
-branches. Local mode persists campaign control and influence in browser storage;
-Supabase activation uses the `campaign_*` tables seeded from
-`supabase/seed_campaign_static.sql`.
+`src/ui/hud/CampaignMapPanel.tsx` combines the static Aegis Accord vs Riftbound
+Host campaign graph with the detailed zone map. Its route model lives in
+`src/ui/hud/campaignMapModel.ts`; campaign data lives in `src/data/campaign.ts`,
+generated map hashes live in `src/data/campaign.generated.ts`, and static maps
+live under `public/assets/maps/`. The unified atlas shows lane control,
+active-zone objectives, realm influence, fortress pressure, city-siege
+readiness, boss/lair branches, and static previews of every zone. Local mode
+persists campaign control and influence in browser storage; Supabase activation
+uses the `campaign_*` tables seeded from `supabase/seed_campaign_static.sql`.
+`src/ui/hud/campaignMapViewport.ts` provides the shared logical scene sizing,
+fit-to-pane scale, physical scroll surface, cursor-anchored wheel zoom, and
+drag-pan behavior used by all three tiers. Terrain, backgrounds, connectors,
+markers, labels, and effects stay inside that same scaled scene.
 In-world `rvrObjectives` can also be claimed locally by standing inside their
 capture radius for three seconds; battlefield objective captures grant 75 XP and
 25 realm influence, with a 25 influence sweep bonus for controlling all three
