@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyId": "real_character_two_race_pilot_v1",
+  "policyId": "full_roster_six_race_model_stage_v1",
   "costPolicy": {
     "currencyBudget": 0,
     "paidServicesAllowed": false,
@@ -8,7 +8,14 @@
     "ciGenerationAllowed": false,
     "dependencyAcquisition": "manual_download_only"
   },
-  "bodyFamilies": ["civic_humanoid_v2", "mire_brutish_v1"],
+  "bodyFamilies": [
+    "aether_humanoid_v1",
+    "civic_humanoid_v2",
+    "riven_humanoid_v1",
+    "stone_humanoid_v1",
+    "mire_brutish_v1",
+    "umbra_humanoid_v1"
+  ],
   "bodyVariants": ["m", "f"],
   "skeletonId": "humanoid_game_v2",
   "bindPoseId": "a_pose_v2",
@@ -24,8 +31,8 @@
     { "slot": "tabard", "coveredRegions": ["tabard"] }
   ],
   "deliverables": {
-    "bodyModels": 4,
-    "armorModels": 36,
+    "bodyModels": 12,
+    "armorModels": 432,
     "armorModelsPerVariant": 9,
     "socketedWeapons": [
       { "family": "civic_humanoid_v2", "kind": "hammer", "socket": "socket_hand_R" },

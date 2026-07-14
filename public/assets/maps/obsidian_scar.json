@@ -2211,7 +2211,7 @@
     },
     {
       "id": "obsidian_scar_beast_1",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 18,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     },
     {
       "id": "obsidian_scar_beast_2",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 18,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 44,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     }
   ],
   "resourceNodes": [
@@ -2782,5 +2782,5 @@
       ]
     }
   ],
-  "staticMapHash": "68dd7ca0f87e366b"
+  "staticMapHash": "c787a096b70e6d2b"
 }

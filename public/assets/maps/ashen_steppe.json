@@ -2211,7 +2211,7 @@
     },
     {
       "id": "ashen_steppe_beast_1",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 3,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 14,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     },
     {
       "id": "ashen_steppe_beast_2",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 3,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 14,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     }
   ],
   "resourceNodes": [
@@ -2782,5 +2782,5 @@
       ]
     }
   ],
-  "staticMapHash": "55b393b86e068105"
+  "staticMapHash": "dd8ca0712c036b8e"
 }

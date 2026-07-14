@@ -2241,7 +2241,7 @@
     },
     {
       "id": "rift_crownworks_beast_1",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 32,
       "x": -96,
       "z": -74,
@@ -2252,11 +2252,11 @@
       "preferredRange": 1.9,
       "attackDamage": 72,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     },
     {
       "id": "rift_crownworks_beast_2",
-      "name": "Ash Hound",
+      "name": "Rift Hound",
       "level": 32,
       "x": 96,
       "z": -74,
@@ -2267,7 +2267,7 @@
       "preferredRange": 1.9,
       "attackDamage": 72,
       "moveSpeed": 3.85,
-      "assetKey": "creature_ash_hound"
+      "assetKey": "creature_rift_hound"
     }
   ],
   "resourceNodes": [
@@ -2825,5 +2825,5 @@
       ]
     }
   ],
-  "staticMapHash": "f0aa15ecfc296d4a"
+  "staticMapHash": "75bf79d632ff15ed"
 }

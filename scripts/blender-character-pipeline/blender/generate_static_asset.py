@@ -881,13 +881,6 @@ BUILDERS = {
     "preview_blight_shrub": build_preview_blight_shrub,
     "preview_jagged_stone": build_preview_jagged_stone,
     "preview_dreary_reeds": build_preview_dreary_reeds,
-    "creature_ash_hound": build_creature,
-    "creature_barrow_wolf": build_creature,
-    "creature_lair_spider": build_creature,
-    "creature_mire_hound": build_creature,
-    "creature_rift_hound": build_creature,
-    "creature_war_boar": build_creature,
-    "creature_wild_stag": build_creature,
 }
 
 

@@ -24,8 +24,10 @@
     "models:sync-npcs": "node scripts/blender-character-pipeline/tools/retired-proxy-sync.mjs NPC-character",
     "models:cleanup-proxies": "node scripts/blender-character-pipeline/tools/cleanup-proxy-assets.mjs --apply",
     "models:cleanup-proxies:check": "node scripts/blender-character-pipeline/tools/cleanup-proxy-assets.mjs --check",
+    "models:cleanup-roster": "node scripts/blender-character-pipeline/tools/cleanup-full-roster-history.mjs",
     "models:import-external": "node scripts/blender-character-pipeline/tools/import-external-assets.mjs",
     "models:generate": "node scripts/blender-character-pipeline/tools/generate-asset.mjs",
+    "models:roster": "node scripts/blender-character-pipeline/tools/generate-roster.mjs",
     "models:all": "node scripts/blender-character-pipeline/tools/generate-all.mjs"
   },
   "dependencies": {

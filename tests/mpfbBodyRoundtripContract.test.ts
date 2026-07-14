@@ -26,7 +26,8 @@ describe('MPFB body authoring/runtime boundary', () => {
 
   test('makes imported bind geometry and opaque materials part of QC', () => {
     expect(generator).toContain('"roundTripBindPose": roundtrip_audit["passed"]');
-    expect(generator).toContain('"runtimeMaterialsOpaque"');
+    expect(generator).toContain('"runtimeBodyMaterialsOpaque"');
+    expect(generator).toContain('"groomingFixturesPresent"');
     for (const invariant of [
       'meshCountMatches',
       'allMeshesRemainSkinned',

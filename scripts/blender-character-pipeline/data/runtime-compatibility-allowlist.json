@@ -77,69 +77,6 @@
       "reviewStatus": "compatibility_allowed"
     },
     {
-      "model": "prop_creature_ash_hound_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_ash_hound"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "prop_creature_barrow_wolf_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_barrow_wolf"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "prop_creature_lair_spider_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_lair_spider"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "prop_creature_mire_hound_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_mire_hound"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "prop_creature_rift_hound_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_rift_hound"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "prop_creature_war_boar_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_war_boar"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
-      "model": "prop_creature_wild_stag_t1.glb",
-      "runtime": {
-        "section": "staticProps",
-        "key": "creature_wild_stag"
-      },
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed"
-    },
-    {
       "model": "prop_town_castle.glb",
       "runtime": {
         "section": "staticProps",

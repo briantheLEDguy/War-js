@@ -42,7 +42,26 @@ describe("equipped armor clearance policy", () => {
       policy.armorIntersection,
     )).toBe(true);
     expect(evaluateArmorPairMetric(
-      { ...modestSeam, overlapPairCount: 513 },
+      { ...modestSeam, overlapPairCount: 1_025 },
+      policy.armorIntersection,
+    )).toBe(false);
+    expect(evaluateArmorPairMetric(
+      {
+        ...modestSeam,
+        overlapPairCount: 1_000,
+        maxUniqueTriangleRatio: 0.07,
+        thresholds: policy.armorIntersection.pairOverrides["back+chest"],
+      },
+      policy.armorIntersection,
+    )).toBe(true);
+    expect(evaluateArmorPairMetric(
+      {
+        ...modestSeam,
+        overlapPairCount:
+          policy.armorIntersection.pairOverrides["back+chest"].hardMaxOverlapPairs + 1,
+        maxUniqueTriangleRatio: 0.01,
+        thresholds: policy.armorIntersection.pairOverrides["back+chest"],
+      },
       policy.armorIntersection,
     )).toBe(false);
   });

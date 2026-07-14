@@ -78,7 +78,7 @@ describe('NPC and enemy model assignments', () => {
     expect(fallbackProfiles).toBeGreaterThan(0);
   });
 
-  test('keeps removed enemy proxies on fallback while indexed creatures still resolve', () => {
+  test('keeps unapproved humanoids and regenerated creatures on runtime fallback', () => {
     const index = loadAssetIndex();
     const profiles = index.characterProfiles ?? {};
     const staticProps = index.staticProps ?? {};
@@ -103,7 +103,11 @@ describe('NPC and enemy model assignments', () => {
 
         if (enemy.assetKey) {
           expect(enemy.assetKey, context).toMatch(staticKeyRe);
-          expect(staticProps[enemy.assetKey]?.model, context).toMatch(/^prop_.*\.glb$/);
+          if (enemy.assetKey.startsWith('creature_')) {
+            expect(staticProps[enemy.assetKey], context).toBeUndefined();
+          } else {
+            expect(staticProps[enemy.assetKey]?.model, context).toMatch(/^prop_.*\.glb$/);
+          }
         }
       }
     }

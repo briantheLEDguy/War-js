@@ -706,7 +706,7 @@
     },
     {
       "id": "briarwatch_den_beast_1",
-      "name": "Barrow Wolf",
+      "name": "Briarback Bear",
       "level": 14,
       "x": -38,
       "z": -2,
@@ -717,11 +717,11 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_briarback_bear"
     },
     {
       "id": "briarwatch_den_beast_2",
-      "name": "Barrow Wolf",
+      "name": "Briarback Bear",
       "level": 14,
       "x": 38,
       "z": -2,
@@ -732,7 +732,7 @@
       "preferredRange": 1.9,
       "attackDamage": 36,
       "moveSpeed": 3.85,
-      "assetKey": "creature_barrow_wolf"
+      "assetKey": "creature_briarback_bear"
     },
     {
       "id": "briarwatch_den_adept_1",
@@ -986,5 +986,5 @@
       ]
     }
   ],
-  "staticMapHash": "3c7314bb2777de45"
+  "staticMapHash": "29162235982c783b"
 }

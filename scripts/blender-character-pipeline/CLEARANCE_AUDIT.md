@@ -20,10 +20,12 @@ larger), and no sampled penetration may exceed 30 mm.
 Armor-to-armor crossings use BVH triangle overlap. Unrelated modules pass when
 they remain within either 12 overlap pairs or 1% unique-triangle involvement,
 but always fail above 192 pairs. Explicit adjacent layers such as
-chest/shoulders, chest/waist, waist/tabard, legs/feet, and back/chest use the
-same density-aware rule with 96 pairs or 6%. Their 512-pair hard ceiling
-prevents an intentional-layer label from hiding a gross collision. Reports
-include world-space contact bounds so a failed seam can be located directly.
+chest/shoulders, chest/waist, waist/tabard, legs/feet, and back/chest use
+topology-aware pair overrides. Each override is calibrated from deterministic
+bind and stress-pose evidence and retains a hard ceiling, so an
+intentional-layer label cannot hide a gross collision. Reports record the
+selected threshold source and world-space contact bounds so a failed seam can
+be located and reproduced directly.
 
 These are screening thresholds, not promotion approval. Signed distance relies
 on consistent body normals, vertex sampling can miss a crossing contained

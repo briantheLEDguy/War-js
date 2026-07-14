@@ -204,7 +204,11 @@ def audit_armor_pair(
 ) -> dict[str, Any]:
     key = pair_key(str(left.slot), str(right.slot))
     intentional = key in intentional_pairs
-    thresholds = policy["intentionalLayer" if intentional else "default"]
+    override_key = "+".join(key)
+    thresholds = policy.get("pairOverrides", {}).get(
+        override_key,
+        policy["intentionalLayer" if intentional else "default"],
+    )
     overlaps = left.bvh.overlap(right.bvh) or []
     unique_left = len({row[0] for row in overlaps})
     unique_right = len({row[1] for row in overlaps})
@@ -241,6 +245,11 @@ def audit_armor_pair(
         "slots": list(key),
         "meshes": [left.name, right.name],
         "classification": "intentionalLayer" if intentional else "default",
+        "thresholdSource": (
+            f"pairOverrides.{override_key}"
+            if override_key in policy.get("pairOverrides", {})
+            else "intentionalLayer" if intentional else "default"
+        ),
         "triangleCounts": [len(left.triangles), len(right.triangles)],
         "overlapPairCount": overlap_count,
         "uniqueOverlapTriangles": [unique_left, unique_right],

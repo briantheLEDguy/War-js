@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-725e976aca47baa7",
+  "assetVersion": "approved-09b6c731ccc6e925",
   "baseBodies": {},
   "characterProfiles": {},
   "equipment": {
@@ -48,55 +48,6 @@
       "lifecycleStatus": "compatibility_allowed",
       "model": "castle_stairs.glb",
       "reason": "legacy active non-character runtime asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_ash_hound": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_ash_hound_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_barrow_wolf": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_barrow_wolf_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_lair_spider": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_lair_spider_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_mire_hound": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_mire_hound_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_rift_hound": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_rift_hound_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_war_boar": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_war_boar_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
-      "reviewStatus": "compatibility_allowed",
-      "runtimeReady": true
-    },
-    "creature_wild_stag": {
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "prop_creature_wild_stag_t1.glb",
-      "reason": "character-pipeline compatibility exemption for an active non-character asset",
       "reviewStatus": "compatibility_allowed",
       "runtimeReady": true
     },

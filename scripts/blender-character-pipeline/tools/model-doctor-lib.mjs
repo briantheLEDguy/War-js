@@ -17,8 +17,12 @@ export const BODY_FAMILY_DIR = path.join(PIPELINE_ROOT, "data", "body-families")
 const CONFIG_PATH = path.join(PIPELINE_ROOT, "config.json");
 
 const FAMILY_FILES = [
+  "aether_humanoid_v1.body-family.json",
   "civic_humanoid_v2.body-family.json",
+  "riven_humanoid_v1.body-family.json",
+  "stone_humanoid_v1.body-family.json",
   "mire_brutish_v1.body-family.json",
+  "umbra_humanoid_v1.body-family.json",
 ];
 const TEMPLATE_FILES = [
   "templates/mpfb-local.provenance.template.json",
@@ -238,7 +242,7 @@ function validateFamilies(families, policy, toolchain, checks) {
     "definitions:body-families",
     errors.length === 0 ? "pass" : "fail",
     errors.length === 0
-      ? "Civic Humanoid and Mire Brutish each define deterministic male/female MPFB recipes."
+      ? "All six playable races define deterministic male/female MPFB body recipes."
       : "Body-family definitions violate the pilot contract.",
     errors.length === 0 ? undefined : { errors },
   );

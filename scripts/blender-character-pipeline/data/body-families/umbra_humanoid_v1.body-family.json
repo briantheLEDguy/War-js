@@ -1,0 +1,30 @@
+{
+  "$schema": "./body-family.schema.json",
+  "schemaVersion": 1,
+  "bodyFamily": "umbra_humanoid_v1",
+  "displayName": "Umbral Noble",
+  "description": "Lithe Dark Elf foundation using the pinned CC0 MPFB hm08 topology.",
+  "pilotProfile": { "race": "dark_elf", "classKey": "blood_dancer", "className": "Blood Dancer" },
+  "sourceTopology": { "generator": "MPFB", "generatorVersion": "2.0.16", "baseMesh": "hm08", "license": "CC0-1.0", "topologyInvariant": "Race and class differences are non-destructive MPFB macro variations." },
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "armorSlots": ["head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard"],
+  "requiredAssetPacks": ["makehuman_system_assets", "ears01", "hands01", "nose01", "cheek01", "faceunits01"],
+  "variants": {
+    "m": {
+      "variant": "m", "profileKey": "umbra_blood_dancer_m", "outputModel": "body_umbra_humanoid_v1_m.glb", "expectedHeightM": 1.88,
+      "mpfbPreset": { "creationApi": "HumanService.create_human", "propertyValues": { "gender": 1.0, "age": 0.38, "muscle": 0.5, "weight": 0.42, "height": 0.58, "proportions": 0.58 }, "rig": "game_engine", "skinModel": "GAME_ENGINE" },
+      "skin": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_male", "tint": "#a7848e" },
+      "customTargets": [],
+      "attachments": { "eyes": "high-poly", "eyebrows": "eyebrow010", "eyelashes": "eyelashes01", "teeth": "teeth_base", "tongue": "tongue01" }
+    },
+    "f": {
+      "variant": "f", "profileKey": "umbra_blood_dancer_f", "outputModel": "body_umbra_humanoid_v1_f.glb", "expectedHeightM": 1.79,
+      "mpfbPreset": { "creationApi": "HumanService.create_human", "propertyValues": { "gender": 0.0, "age": 0.38, "muscle": 0.44, "weight": 0.4, "height": 0.54, "proportions": 0.58 }, "rig": "game_engine", "skinModel": "GAME_ENGINE" },
+      "skin": { "assetPack": "makehuman_system_assets", "assetName": "young_caucasian_female", "tint": "#b08d98" },
+      "customTargets": [],
+      "attachments": { "eyes": "high-poly", "eyebrows": "eyebrow010", "eyelashes": "eyelashes01", "teeth": "teeth_base", "tongue": "tongue01" }
+    }
+  },
+  "promotion": { "state": "specification", "promotionEligible": false, "reason": "Model-stage output and explicit approval are pending." }
+}

@@ -2211,7 +2211,7 @@
     },
     {
       "id": "gorepine_pass_beast_1",
-      "name": "Wild Stag",
+      "name": "Mire Hound",
       "level": 9,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 26,
       "moveSpeed": 3.85,
-      "assetKey": "creature_wild_stag"
+      "assetKey": "creature_mire_hound"
     },
     {
       "id": "gorepine_pass_beast_2",
-      "name": "Wild Stag",
+      "name": "Mire Hound",
       "level": 9,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 26,
       "moveSpeed": 3.85,
-      "assetKey": "creature_wild_stag"
+      "assetKey": "creature_mire_hound"
     }
   ],
   "resourceNodes": [
@@ -2796,5 +2796,5 @@
       ]
     }
   ],
-  "staticMapHash": "34f0a0456f3d7596"
+  "staticMapHash": "4b10eda493e6d65f"
 }

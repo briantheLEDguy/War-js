@@ -2211,7 +2211,7 @@
     },
     {
       "id": "glassriver_ford_beast_1",
-      "name": "Mire Hound",
+      "name": "Glassriver Snapper",
       "level": 9,
       "x": -96,
       "z": -74,
@@ -2222,11 +2222,11 @@
       "preferredRange": 1.9,
       "attackDamage": 26,
       "moveSpeed": 3.85,
-      "assetKey": "creature_mire_hound"
+      "assetKey": "creature_glassriver_snapper"
     },
     {
       "id": "glassriver_ford_beast_2",
-      "name": "Mire Hound",
+      "name": "Glassriver Snapper",
       "level": 9,
       "x": 96,
       "z": -74,
@@ -2237,7 +2237,7 @@
       "preferredRange": 1.9,
       "attackDamage": 26,
       "moveSpeed": 3.85,
-      "assetKey": "creature_mire_hound"
+      "assetKey": "creature_glassriver_snapper"
     }
   ],
   "resourceNodes": [
@@ -2780,5 +2780,5 @@
       ]
     }
   ],
-  "staticMapHash": "5efb6a4731f88228"
+  "staticMapHash": "91f6f8e9789eb1ef"
 }
