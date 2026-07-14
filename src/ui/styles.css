@@ -5535,6 +5535,15 @@ input:focus, select:focus {
   }
 }
 
+<<<<<<< HEAD
+=======
+@media (pointer: coarse) {
+  .model-review-queue button { min-height: 44px; }
+  .model-review-field input,
+  .model-review-field textarea { min-height: 44px; font-size: 16px; }
+}
+
+>>>>>>> 655a43d9ba483c1a3ba565694e8c5e2816f9ee22
 /* ---------- Unified campaign atlas: dark relief treatment ---------- */
 .campaign-map-panel {
   background:
@@ -5801,10 +5810,13 @@ input:focus, select:focus {
 @media (max-width: 620px) {
   .campaign-map-zoom-scene::before { inset: 6px; }
   .campaign-map-zoom-scene::after { inset: 14px; }
+<<<<<<< HEAD
 }
 
 @media (pointer: coarse) {
   .model-review-queue button { min-height: 44px; }
   .model-review-field input,
   .model-review-field textarea { min-height: 44px; font-size: 16px; }
+=======
+>>>>>>> 655a43d9ba483c1a3ba565694e8c5e2816f9ee22
 }
