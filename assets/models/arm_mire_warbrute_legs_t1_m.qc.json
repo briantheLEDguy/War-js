@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire_brutish_v1.warbrute.legs.m",
+  "model": "arm_mire_brutish_v1_warbrute_legs_m.glb",
+  "modelSha256": "b25eea2bbf0406b0c55f82b6c6adee38853ff01bd85ddd14eb86b6af204aa523",
+  "fileSizeBytes": 1642080,
+  "category": "armor",
+  "slot": "legs",
+  "bodyFamily": "mire_brutish_v1",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "totalTriangles": 4608,
+  "drawCalls": 1,
+  "maxInfluencesBeforeLimit": 5,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 128,
+  "previewImages": [
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\isometric.png"
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\front.png",
+      "sha256": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\side.png",
+      "sha256": "d370244069c0b9676f87c0b163f5ab987665ed0d92e7a953ec3b9067dc39c7bd"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\back.png",
+      "sha256": "8b221e7c1a37c903aa6b12a279bcf2b0b353636f3bee3e2c3fbb309a8fc0ddd2"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\armor-review\\warbrute\\isometric.png",
+      "sha256": "be2d1a08fed804273b0ad7c8f7b3305768979a13c8f969c916db9f921a4091f8"
+    }
+  ],
+  "provenance": {
+    "provider": "local_mpfb",
+    "generator": "generate_mpfb_modular_armor.py",
+    "license": "CC0-1.0",
+    "assetSource": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\rehmanpolanski_viking_pants\\rehmanpolanski_viking_pants.mhclo",
+    "assetSourceSha256": "2afe050edefda93d4e47a58b31e6e65a14ac09e0d466d9debcacbe376f956c0f",
+    "sourcePack": "suits02",
+    "sourcePackSha256": "437f4d7ab92b698c1fb1047e7d62b22c11f195b2473e936118661dc8e6b7eb7a",
+    "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/suits02.html"
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "manifold": true,
+    "noDegenerateFaces": true,
+    "reviewViewsPresent": true,
+    "pbrChannelsPresent": true
+  },
+  "qcPassed": true
+}

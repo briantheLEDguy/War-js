@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "assetId": "creature.barrow_wolf.lod0",
+  "kind": "creature",
+  "creatureKey": "barrow_wolf",
+  "displayName": "Barrow Wolf",
+  "realm": "aegis",
+  "bodyPlan": "canid",
+  "skeletonId": "creature_canid_v1",
+  "lod": 0,
+  "revisionSeed": 241598518,
+  "modelingMethod": "original_closed_loft_v2",
+  "primitiveOperatorsUsed": false,
+  "speciesFeature": "mane",
+  "meshCount": 22,
+  "boneCount": 14,
+  "totalTriangles": 33262,
+  "maxTriangles": 45000,
+  "maxInfluences": 1,
+  "markers": [
+    "root",
+    "ground_contact",
+    "attack_origin",
+    "hit_center"
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\barrow_wolf\\revision-0001\\review\\front.png",
+      "sha256": "9bc0362ab5394c2cf5be02f4bef7e2012d9e381324e7eaeb9c2538a12d6b7597"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\barrow_wolf\\revision-0001\\review\\side.png",
+      "sha256": "fec9e46a3217e59763a51dbc3d725e2b7e1ef44bb46f5285a52c26bea2dd161f"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\barrow_wolf\\revision-0001\\review\\back.png",
+      "sha256": "c0dfa17c7f74b9b850942cc8d201614062c3733f9173b0a8db87c86637f3fae3"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\barrow_wolf\\revision-0001\\review\\isometric.png",
+      "sha256": "fd4041553021979fb3b433ac3bac179aea7f31293205d66f4f18037ab14d3859"
+    },
+    {
+      "view": "deformation_stress",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\barrow_wolf\\revision-0001\\review\\deformation_stress.png",
+      "sha256": "eca7ff0b7debea4fc8d2c63a4967b6d4cf919127aee07530afeb6d0de3eb14f3"
+    }
+  ],
+  "deformationStressPose": "deformation_stress",
+  "modelStage": "pending",
+  "animationStage": "pending",
+  "animationApprovalEligible": false,
+  "runtimeEligible": false,
+  "checks": {
+    "lod0Present": true,
+    "armaturePresent": true,
+    "skinningPresent": true,
+    "markersPresent": true,
+    "reviewViewsPresent": true,
+    "originalLoftedAnatomy": true,
+    "noPrimitiveGeometry": true,
+    "speciesSpecificFeature": true,
+    "substantiveGeometry": true,
+    "triangleBudget": true,
+    "pbrMaterials": true
+  },
+  "qcPassed": true,
+  "output": {
+    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\creature\\barrow_wolf\\revision-0001\\creature_barrow_wolf_lod0.glb",
+    "sha256": "5264bd919b9355ee75233a7e0aa3af47210dcaac1666831fc0ca00c35b91ba26"
+  }
+}

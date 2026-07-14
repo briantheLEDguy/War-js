@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.review.npc_empire_m_trainer_m_equipped_review",
+  "model": "npc_empire_m_trainer_m_equipped_review.glb",
+  "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+  "fileSizeBytes": 51424640,
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending_human_visual_review",
+  "promotionEligible": false,
+  "reimportedMeshCount": 16,
+  "reimportedMaterialCount": 13,
+  "invalidBounds": [],
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "requiredAnimationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "armorMaterialImages": [
+    {
+      "name": "MC-SkinSuit_2022_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "MC-SkinSuit_2022_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "brown_eye",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.6705882549285889,
+          0.6705882549285889,
+          0.6549019813537598,
+          1.0
+        ],
+        [
+          0.6666666865348816,
+          0.6666666865348816,
+          0.6509804129600525,
+          1.0
+        ],
+        [
+          0.6705882549285889,
+          0.6705882549285889,
+          0.6549019813537598,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "civic_humanoid_v2_accent_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.5490196347236633,
+          0.27843138575553894,
+          0.08235294371843338,
+          1.0
+        ],
+        [
+          0.545098066329956,
+          0.27450981736183167,
+          0.08235294371843338,
+          1.0
+        ],
+        [
+          0.5568627715110779,
+          0.2823529541492462,
+          0.08627451211214066,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_accent_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_accent_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.7803922295570374,
+          0.0784313753247261,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7686275243759155,
+          0.0784313753247261,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7333333492279053,
+          0.0784313753247261,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_cloth_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.06666667014360428,
+          0.0313725508749485,
+          0.019607843831181526,
+          1.0
+        ],
+        [
+          0.062745101749897,
+          0.0313725508749485,
+          0.019607843831181526,
+          1.0
+        ],
+        [
+          0.06666667014360428,
+          0.0313725508749485,
+          0.019607843831181526,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_cloth_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_cloth_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.7803922295570374,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7686275243759155,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7333333492279053,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_leather_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.04313725605607033,
+          0.019607843831181526,
+          0.011764707043766975,
+          1.0
+        ],
+        [
+          0.04313725605607033,
+          0.019607843831181526,
+          0.011764707043766975,
+          1.0
+        ],
+        [
+          0.04313725605607033,
+          0.019607843831181526,
+          0.011764707043766975,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_leather_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_leather_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.6392157077789307,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.6313725709915161,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.5960784554481506,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_metal_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0941176563501358,
+          0.125490203499794,
+          0.13725490868091583,
+          1.0
+        ],
+        [
+          0.0941176563501358,
+          0.125490203499794,
+          0.13725490868091583,
+          1.0
+        ],
+        [
+          0.09803922474384308,
+          0.12941177189350128,
+          0.13725490868091583,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_metal_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "civic_humanoid_v2_metal_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.3803921937942505,
+          0.7803922295570374,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.3686274588108063,
+          0.7803922295570374,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.3333333432674408,
+          0.7803922295570374,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "eyebrow006",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "eyelashes01",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "fedora_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.364705890417099,
+          0.3686274588108063,
+          0.3529411852359772,
+          1.0
+        ],
+        [
+          0.6039215922355652,
+          0.5568627715110779,
+          0.5137255191802979,
+          1.0
+        ],
+        [
+          0.364705890417099,
+          0.3686274588108063,
+          0.3529411852359772,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "fedora_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.4941176772117615,
+          0.4941176772117615,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "male_worksuit01_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "male_worksuit01_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.5058823823928833,
+          0.49803924560546875,
+          0.9960784912109375,
+          1.0
+        ],
+        [
+          0.5137255191802979,
+          0.5058823823928833,
+          0.9960784912109375,
+          1.0
+        ],
+        [
+          0.5058823823928833,
+          0.49803924560546875,
+          0.9960784912109375,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "teeth",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "tongue01_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.8901961445808411,
+          0.5058823823928833,
+          0.5137255191802979,
+          1.0
+        ],
+        [
+          0.8901961445808411,
+          0.5058823823928833,
+          0.5137255191802979,
+          1.0
+        ],
+        [
+          0.8901961445808411,
+          0.5058823823928833,
+          0.5137255191802979,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "young_lightskinned_male_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.9294118285179138,
+          0.7333333492279053,
+          0.5960784554481506,
+          1.0
+        ],
+        [
+          0.9294118285179138,
+          0.7333333492279053,
+          0.5960784554481506,
+          1.0
+        ],
+        [
+          0.9294118285179138,
+          0.7333333492279053,
+          0.5960784554481506,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    }
+  ],
+  "armorMaterialImagesPopulated": true,
+  "authoredFixtureMaterialImageCount": 12,
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\empire_m\\revision-0001\\m\\armor-review\\roundtrip-review\\front.png",
+      "sha256": "7847c5810d3bd0e91c07a758c434ac08b1e1dc5d062613a8f0115e5a4c4ff36c"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\empire_m\\revision-0001\\m\\armor-review\\roundtrip-review\\side.png",
+      "sha256": "6747c6211c852a1667cd8203688d8534492410654d90d066c443bf30527a2ad0"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\empire_m\\revision-0001\\m\\armor-review\\roundtrip-review\\back.png",
+      "sha256": "5097b36a6dcf89b4b539c19034cb8b4b0a4788ed7f2b99f37f267a5e869f646b"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\empire_m\\revision-0001\\m\\armor-review\\roundtrip-review\\isometric.png",
+      "sha256": "713b04d56f710c709308ec8b01e42ef1ee9feeb7c1c8401f8751bd0fecfbd4eb"
+    }
+  ],
+  "technicalRoundTripPassed": true,
+  "visualApprovalPassed": false,
+  "blockingReasons": [
+    "human_roundtrip_visual_approval_missing",
+    "stress_pose_review_missing"
+  ]
+}

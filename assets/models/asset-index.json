@@ -1,7 +1,1126 @@
 {
-  "assetVersion": "approved-09b6c731ccc6e925",
+  "assetVersion": "approved-22fcdd49ab8640cf",
   "baseBodies": {},
-  "characterProfiles": {},
+  "characterProfiles": {
+    "civic_battle_prelate_f": {
+      "approvalState": "approved",
+      "assetId": "chr.civic.battle_prelate.t1.f",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_battle_prelate_f",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "chr_civic_battle_prelate_t1_f.glb",
+      "modelSha256": "507637d1f5195195eea4234b611453f8c2fdb398597cfe1a174cc2eed7d65236",
+      "previews": {
+        "front": "reviews/roster-direct/battle_prelate/f/body_front.png"
+      },
+      "previewSha256": {
+        "front": "6c7d0d3a0e658bf41b9abb0718cfcb711dc9f5fffe76aefacf3447021b40d043"
+      },
+      "qc": "chr_civic_battle_prelate_t1_f.qc.json",
+      "qcSha256": "1af570ca5b94891f9572f360eb7983f7b242b585500b3c0b1a614e4c3721eed2",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "civic_battle_prelate_m": {
+      "approvalState": "approved",
+      "assetId": "chr.civic.battle_prelate.t1.m",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_battle_prelate_m",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_civic_battle_prelate_t1_m.glb",
+      "modelSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+      "previews": {
+        "front": "reviews/roster-direct/battle_prelate/m/body_front.png"
+      },
+      "previewSha256": {
+        "front": "11f8b57970fa3b937bdefa6046d80d9f8cf7ad1ac61b342ac32a533e4bf903e3"
+      },
+      "qc": "chr_civic_battle_prelate_t1_m.qc.json",
+      "qcSha256": "6ffd599db95f7b9be9f1bb045bf0f7b008c75be68573a26d4a9296e8261111c3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "enemy_aegis_aegis_keep_guard_guard": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.aegis.keep.guard.guard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_aegis_briarwatch_den_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.briarwatch.den.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_captain_m.qc.json",
+      "qcSha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_aegis_campaign_raider_raider": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.campaign.raider.raider",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_raider_m.glb",
+      "modelSha256": "29ddae8ad4f77962b3bfa813910b55ba6f5ba148e212c5ff4773d66b7aa157c5",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/raider_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_raider_m.qc.json",
+      "qcSha256": "626415577522d549a6c0a61273102bcc7f0ae263b266effa4cee38dba8013c29",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_aegis_glassriver_depths_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.glassriver.depths.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_captain_m.qc.json",
+      "qcSha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_aegis_mireglass_den_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.mireglass.den.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_captain_m.qc.json",
+      "qcSha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_aegis_stormbarrow_lair_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.stormbarrow.lair.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_captain_m.qc.json",
+      "qcSha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_aegis_warden_s_hollow_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.aegis.warden.s.hollow.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_captain_m.qc.json",
+      "qcSha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_cindermaw_pit_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.cindermaw.pit.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_captain_m.qc.json",
+      "qcSha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_gorepine_warrens_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.gorepine.warrens.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_captain_m.qc.json",
+      "qcSha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_greenskin_brute_raider": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.greenskin.brute.raider",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_raider_m.glb",
+      "modelSha256": "1ab256e2977e85305e3015c1587114b5008e7949776c74b825d9f29e2bd7e930",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/raider_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_raider_m.qc.json",
+      "qcSha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_greenskin_ruffian_raider": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.greenskin.ruffian.raider",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_raider_m.glb",
+      "modelSha256": "1ab256e2977e85305e3015c1587114b5008e7949776c74b825d9f29e2bd7e930",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/raider_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_raider_m.qc.json",
+      "qcSha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_keep_captain_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.keep.captain.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_captain_m.qc.json",
+      "qcSha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_lair_sentinel_guard": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.lair.sentinel.guard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+      "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "enemy_riftbound_rotwreath_nest_overlord_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.enemy.riftbound.rotwreath.nest.overlord.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_captain_m.qc.json",
+      "qcSha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "mire_warbrute_f": {
+      "approvalState": "approved",
+      "assetId": "chr.mire.warbrute.t1.f",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_warbrute_f",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "chr_mire_warbrute_t1_f.glb",
+      "modelSha256": "290803a2a6da46513518065119b3b273ceaddc2d202729e61130f24caff3597e",
+      "previews": {
+        "front": "reviews/roster-direct/warbrute/f/body_front.png"
+      },
+      "previewSha256": {
+        "front": "bfc1fdc984167a18ee1fefd54c1ecbf389c1629dc6c1b58759719bfb90570514"
+      },
+      "qc": "chr_mire_warbrute_t1_f.qc.json",
+      "qcSha256": "f8a6377c75a54913bc64c3b8deaa3a5f33b860445ca34d25b9bba4798cd5a321",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "mire_warbrute_m": {
+      "approvalState": "approved",
+      "assetId": "chr.mire.warbrute.t1.m",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_warbrute_m",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_mire_warbrute_t1_m.glb",
+      "modelSha256": "0d2ec546fd6aeaa1eaf44548dda713e893e93b3f04365af3efa33894c62055a5",
+      "previews": {
+        "front": "reviews/roster-direct/warbrute/m/body_front.png"
+      },
+      "previewSha256": {
+        "front": "57750bee3a4b48101803ba6018878c64223817ed0924c0d0f877562c93c8e734"
+      },
+      "qc": "chr_mire_warbrute_t1_m.qc.json",
+      "qcSha256": "66173f8b74d161ba525b87916fb8c09ec161d78f4a8798145a418d9462716ca2",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "npc_aegis_brann_hartwell_main_gate_guard": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.brann.hartwell.main.gate.guard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_brigitte_holtz_merchant": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.brigitte.holtz.merchant",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_vendor_m.qc.json",
+      "qcSha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_brother_steffan_battle_prelate_trainer": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.brother.steffan.battle.prelate.trainer",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_trainer_m.qc.json",
+      "qcSha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_corren_vale_capital_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.corren.vale.capital.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_corren_vale_endgame_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.corren.vale.endgame.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_corren_vale_tier_2_boss_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.corren.vale.tier.2.boss.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_corren_vale_tier_3_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.corren.vale.tier.3.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_diedrick_stein_general_goods": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.diedrick.stein.general.goods",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_vendor_m.qc.json",
+      "qcSha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_elira_dawnmarch_aegis_quartermaster": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.elira.dawnmarch.aegis.quartermaster",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_vendor_m.qc.json",
+      "qcSha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_freia_voss_banker": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.freia.voss.banker",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_banker_m.qc.json",
+      "qcSha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_gate_sergeant_city_guard": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.gate.sergeant.city.guard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_gate_warden_city_guard": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.gate.warden.city.guard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_inquisitor_hess_hex_inquisitor_trainer": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.inquisitor.hess.hex.inquisitor.trainer",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_trainer_m.qc.json",
+      "qcSha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_iven_stonebrook_street_patrol": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.iven.stonebrook.street.patrol",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_konrad_hausman_banker": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.konrad.hausman.banker",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_banker_m.qc.json",
+      "qcSha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_lysa_bright_market_watch": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.lysa.bright.market.watch",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_magister_roth_ember_arcanist_trainer": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.magister.roth.ember.arcanist.trainer",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_trainer_m.qc.json",
+      "qcSha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_mira_stonewake_forward_scout": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.mira.stonewake.forward.scout",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_mira_stonewake_siege_engineer": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.mira.stonewake.siege.engineer",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_vendor_m.qc.json",
+      "qcSha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_mira_stonewake_vault_keeper": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.mira.stonewake.vault.keeper",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_banker_m.qc.json",
+      "qcSha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_rowan_hale_plaza_watch": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.rowan.hale.plaza.watch",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_serra_brightfield_gate_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.serra.brightfield.gate.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_sir_emmerich_sunfire_templar_trainer": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.sir.emmerich.sunfire.templar.trainer",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_trainer_m.qc.json",
+      "qcSha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_aegis_veyra_sunholt_east_gate_guard": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.aegis.veyra.sunholt.east.gate.guard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "civic_humanoid_v2",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "previews": {
+        "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+      },
+      "qc": "chr_npc_empire_m_guard_m.qc.json",
+      "qcSha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_gorvak_mirehand_forward_scout": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.gorvak.mirehand.forward.scout",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+      "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_gorvak_mirehand_siege_engineer": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.gorvak.mirehand.siege.engineer",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_vendor_m.glb",
+      "modelSha256": "2a02341c61851dfecebcbffc781bbaa4cfba540e2c5fb14e31766df4ae169a25",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/vendor_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_vendor_m.qc.json",
+      "qcSha256": "68231778448c371e32c30ec2ba29500cf8b9847dd2eaf7f0c5f85fa44ebf5153",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_kara_ashvein_crafting_mentor": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.kara.ashvein.crafting.mentor",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_trainer_m.glb",
+      "modelSha256": "1aacdad9d3aea134cda17baa469a897c69dfc8e510fa725bd18301a60d2b65eb",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/trainer_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_trainer_m.qc.json",
+      "qcSha256": "5169d29d295141727d5e1dc5f424d44a1e626d421cd698d4ef387a27a6240b84",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_kara_ashvein_gate_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.kara.ashvein.gate.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+      "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_kara_ashvein_resource_warden": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.kara.ashvein.resource.warden",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_ambient_m.glb",
+      "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/ambient_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_ambient_m.qc.json",
+      "qcSha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_nyra_vex_endgame_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.nyra.vex.endgame.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+      "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.nyra.vex.tier.3.boss.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+      "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_nyra_vex_tier_3_campaign_marshal": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.nyra.vex.tier.3.campaign.marshal",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+      "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_riftbound_selk_dreadspire_field_medic": {
+      "approvalState": "approved",
+      "assetId": "chr.npc.npc.riftbound.selk.dreadspire.field.medic",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_npc_greenskin_m_ambient_m.glb",
+      "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+      "previews": {
+        "front": "reviews/roster-direct/npc/greenskin_m/ambient_front.png"
+      },
+      "previewSha256": {
+        "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+      },
+      "qc": "chr_npc_greenskin_m_ambient_m.qc.json",
+      "qcSha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    }
+  },
   "equipment": {
     "jewel_amulet_bloodglass": {
       "assetId": "jwl.amulet.bloodglass.t1",
@@ -10,6 +1129,906 @@
       "reason": "retained legacy equipment awaiting reviewed socket attachment",
       "reviewStatus": "blocked_socket_attachment_pending",
       "runtimeReady": false
+    },
+    "starter_civic_humanoid_battle_prelate_back_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.back.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_back_t1_f.glb",
+          "modelSha256": "9ea60b071ab2a5373cc42da02609414d8ffa1e3e9f54259118fe059b4eb31c10",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/back_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_back_t1_f.qc.json",
+          "qcSha256": "476ef62b817328192b2c5216b1b1effc717db451e70995cb96db81376c2c2b96",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_back_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.back.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_back_t1_m.glb",
+          "modelSha256": "2117d609735c70d341500ce0dcf15eb45892d2e38eff15779bbd84afa5c8a743",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/back_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_back_t1_m.qc.json",
+          "qcSha256": "593a2c0b905407358691471e7b96ed95dfa522e5e464fd9e3f7cc4271a90224e",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_chest_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.chest.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_chest_t1_f.glb",
+          "modelSha256": "47633e406f417f0cbaecfa51b637a9dc4713b29a5a731d9a908f2ee84070941b",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/chest_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_chest_t1_f.qc.json",
+          "qcSha256": "ee238dcd42fa6abcdb2e9724513be05193ea026abb68a9e38e7ae98deba37dc1",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_chest_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.chest.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_chest_t1_m.glb",
+          "modelSha256": "451d4db9b268ac8be456f24cc5cc51f7cba48413f2cccb3078a121fd2ef3daec",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/chest_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_chest_t1_m.qc.json",
+          "qcSha256": "c925a52e09e6b408b207e416143d67bae3ffbde6ba5737b1ecd77e97603462fa",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_feet_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.feet.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_feet_t1_f.glb",
+          "modelSha256": "b86920c4169cc73f01abce6c86f05a4cb1a673eb4cb4afa57b9e7dece4bbc1bb",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/feet_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_feet_t1_f.qc.json",
+          "qcSha256": "290c084f3019208ccb0452e2be2a388bed73fe5dea13f31eaefa0c92d9d9d880",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_feet_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.feet.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_feet_t1_m.glb",
+          "modelSha256": "d58ad187d0ff3b66790b218f4c4930b372c497025557aacdcee5137ad6dd541d",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/feet_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_feet_t1_m.qc.json",
+          "qcSha256": "6a88636499f517e0ab16147e732f9b95610b6bef3cd4289dd072e993fe21b15f",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_hands_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.hands.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_hands_t1_f.glb",
+          "modelSha256": "57fc70e0e028b57843ceb9eeafcc37eb5581d8c00383bfdfc39d2c94bbf9adfa",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/hands_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_hands_t1_f.qc.json",
+          "qcSha256": "5e1916423a9f5c006ac193c3e2a059107b20998cf4753737f44a63704e66dd40",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_hands_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.hands.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_hands_t1_m.glb",
+          "modelSha256": "9537ec82c1d89d7c29df7c0a639aa06e0794e30ab4e23ac9bcabb9f2b566c6af",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/hands_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_hands_t1_m.qc.json",
+          "qcSha256": "164efb307f8e070df487c3fd1eb41a1683d55e6aa5e7baadd5e649452c6375e3",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_head_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.head.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_head_t1_f.glb",
+          "modelSha256": "593449d112cad0f87d95ad4e243c168b5ec75d846fef917c797fda07c660e05a",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/head_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_head_t1_f.qc.json",
+          "qcSha256": "8fb38823fc58d26f6f8b5d7b22b0350e444cfd069c45a3544c4006e6dc01812c",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_head_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.head.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_head_t1_m.glb",
+          "modelSha256": "c720c5840c601d7b6a33c25d5b239d52fd2c66a3d65938b90eb8c19bd472975d",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/head_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_head_t1_m.qc.json",
+          "qcSha256": "b088c5d1005d20e8b3df1341be67793808978183882eea36bf4ce7db93a94a88",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_legs_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.legs.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_legs_t1_f.glb",
+          "modelSha256": "b30503ae6802f5eca8498df361d02340c0f6196c608235897bfb300c02ad6347",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/legs_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_legs_t1_f.qc.json",
+          "qcSha256": "95fe64ea0fc952c86148dd9694af2ac1b74f42254df5149f50ebbb03a0a47ace",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_legs_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.legs.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_legs_t1_m.glb",
+          "modelSha256": "d43ca63c9fef9fc39c72a417e31598727136f82e03a3389bfc3bd807d8f55c87",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/legs_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_legs_t1_m.qc.json",
+          "qcSha256": "38450232efa6bca705ffe2fbcfce88eb4823b8c460d02804914acb7de5ad1750",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_shoulders_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.shoulders.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_shoulders_t1_f.glb",
+          "modelSha256": "9d0cb901a12f06898dd60a703df03b447791253a8c10598bb7b7f3aff793b8a6",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/shoulders_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_shoulders_t1_f.qc.json",
+          "qcSha256": "356d7565a522d260134d75dbb0fc41dddf9bfeab3eb16c1e602fbfcf0e70723f",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_shoulders_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.shoulders.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_shoulders_t1_m.glb",
+          "modelSha256": "60eebe09a92edd39d701bef6f6ae5efb92eb574ecaba6b3e390415bcc551630f",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/shoulders_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_shoulders_t1_m.qc.json",
+          "qcSha256": "5cde049528f741578811469b3a659afa8a3e4237fa317c9538ed894a7de36348",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_tabard_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.tabard.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_tabard_t1_f.glb",
+          "modelSha256": "38012846f7263e58463fffc334d1af4038e5625f965410bd9bd861a4e978a9d4",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/tabard_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_tabard_t1_f.qc.json",
+          "qcSha256": "37e7ab1bdd2abe2919915a503a7699ca1350a733cc1582c825ecfd6e2ad6f198",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_tabard_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.tabard.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_tabard_t1_m.glb",
+          "modelSha256": "c3bab499ffb8e396e19a012332bb4d3b75a47578cde2e079bb5be9d5757cf74e",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/tabard_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_tabard_t1_m.qc.json",
+          "qcSha256": "47e97b25915357882c6fe60ca4daff8579661107eeb2b2ed09627e10f6b54f11",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_waist_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.waist.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_waist_t1_f.glb",
+          "modelSha256": "7fae9f3097ef35b3686411dfdcbece69f331759715121385e64f3c9fa4df4294",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/f/waist_front.png"
+          },
+          "previewSha256": {
+            "front": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+          },
+          "qc": "arm_civic_battle_prelate_waist_t1_f.qc.json",
+          "qcSha256": "0636f086672827756ba5a99aaf906e9ed5a76e813fa8a69e4a0e698a8fb296ec",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_civic_humanoid_battle_prelate_waist_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.civic.battle_prelate.waist.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_civic_battle_prelate_waist_t1_m.glb",
+          "modelSha256": "bd7cf1da23c58975da6bc29ac98580aa61c6eaa388d55605a85ba828d52eab3d",
+          "previews": {
+            "front": "reviews/roster-direct/battle_prelate/m/waist_front.png"
+          },
+          "previewSha256": {
+            "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+          },
+          "qc": "arm_civic_battle_prelate_waist_t1_m.qc.json",
+          "qcSha256": "95424b24083f5bd6a34d1e5cd5b7a6f0554c296ee547e0992d1d6a83d130d632",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_back_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.back.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_back_t1_f.glb",
+          "modelSha256": "40c15d2fed6d7dc53b3242778cda7f4f9ba8adf3958ce906a3f26fd294a28a30",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/back_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_back_t1_f.qc.json",
+          "qcSha256": "b567e11399bf20cb6949daf7d6708c7c4138e97619d4d30592c9444c6b830649",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_back_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.back.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_back_t1_m.glb",
+          "modelSha256": "a8b600dc9337683c1445f12bd414e4a271a74bace32c33dac6ed4cce577b8759",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/back_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_back_t1_m.qc.json",
+          "qcSha256": "889f847cd171a68d9e85c84fc590c71217f9bdda6e8af313f9aa61c99d1e49e2",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_chest_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.chest.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_chest_t1_f.glb",
+          "modelSha256": "ebdf48088f0dcfaf0ec7dda8dbda2c8ae1b54cd1f88f786e43b04aa1f2bafafd",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/chest_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_chest_t1_f.qc.json",
+          "qcSha256": "eceee045c2f05a53bace3d4ad1bb3ea81a0fa789f455f6e929e478a5fe11323e",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_chest_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.chest.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_chest_t1_m.glb",
+          "modelSha256": "4a6ce526e0fee1e9e81e82c16e456e176b848c883103dcd6903f88998206ab7c",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/chest_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_chest_t1_m.qc.json",
+          "qcSha256": "8f7bd4699ad3fe079771d93ac92f3d9df116b5ba1636a1b0e6b37037f18a6f0e",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_feet_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.feet.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_feet_t1_f.glb",
+          "modelSha256": "4099ef581f57d9852c7e0be08f83ce769939790d274e4f20b1d85d73c6972b1e",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/feet_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_feet_t1_f.qc.json",
+          "qcSha256": "065fd7a472cb54a30b24f93addf8b64a3feed9bc95cad78e444df9f2b909f7b1",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_feet_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.feet.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_feet_t1_m.glb",
+          "modelSha256": "54277c054127189e70366229c6715a424f12ead8470eba73bae24f8aab7c91f2",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/feet_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_feet_t1_m.qc.json",
+          "qcSha256": "071fcc3d09ebba0ebc15a4e508742a37a4c917edab902f14d889863d68922a67",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_hands_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.hands.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_hands_t1_f.glb",
+          "modelSha256": "c3ec7cd6115a0797a8c5ce926fd5b09fa9c28958f1dc129dea65351598c6c247",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/hands_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_hands_t1_f.qc.json",
+          "qcSha256": "0071a08e317d51069f77f7378c9e473c6dcea3f5949ec915b28ed72761898c27",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_hands_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.hands.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_hands_t1_m.glb",
+          "modelSha256": "263d218990b42e40f3cc79c80e915f93b3a7ccad2dde89dd2426b1d800ab2f29",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/hands_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_hands_t1_m.qc.json",
+          "qcSha256": "68d28ace50f838355d49ab39d07332db9b1da99bb77710e183c67e6c6af6061d",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_head_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.head.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_head_t1_f.glb",
+          "modelSha256": "cdcec996422f50df70b3d70bd63bd71f7c0e567350dcf850fbf33a3a6ec588f2",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/head_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_head_t1_f.qc.json",
+          "qcSha256": "6d1268d8487ef869d11f2d096a58aa06cd35106b9ed663c245170fdc9f1ffa9d",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_head_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.head.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_head_t1_m.glb",
+          "modelSha256": "8bc6bcf3e4fe896446b806dd89ba0e9657f9e520afa4c757750e650d5751f82c",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/head_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_head_t1_m.qc.json",
+          "qcSha256": "518636c54ad744041adfc240334fc2f365504a8e92a4f2bd14163d60d8b8633c",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_legs_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.legs.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_legs_t1_f.glb",
+          "modelSha256": "ee5fff7a9bdf14adaf1e27818c419c681833be2eacb6dea4a6b519d9313db340",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/legs_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_legs_t1_f.qc.json",
+          "qcSha256": "b32d1af978f1a163c0873996c71986e1b9994a68af5db444d1f9b1a64c9c9ae0",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_legs_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.legs.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_legs_t1_m.glb",
+          "modelSha256": "b25eea2bbf0406b0c55f82b6c6adee38853ff01bd85ddd14eb86b6af204aa523",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/legs_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_legs_t1_m.qc.json",
+          "qcSha256": "3a84354164c8baf12a643f3dea6dcef6d286e314d91458e6cc400ee02d017940",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_shoulders_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.shoulders.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_shoulders_t1_f.glb",
+          "modelSha256": "bc060cfcf4a3363fd84a6bba15ce616495d5f7b5ba65d6739a422c6e57ae6831",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/shoulders_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_shoulders_t1_f.qc.json",
+          "qcSha256": "8d54fa78e490c699300c6dda67f56981e17319d497a487e17176b2d2ba23e345",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_shoulders_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.shoulders.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_shoulders_t1_m.glb",
+          "modelSha256": "ec81f61ab3f6071008f67b0a596db2d95d4361a7be0e4205921b0c36875dab23",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/shoulders_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_shoulders_t1_m.qc.json",
+          "qcSha256": "12bb31c811627e3cbd8b6495caf55a32cb0e9d0f19c1a8db6ea7598d3a7ec51e",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_tabard_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.tabard.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_tabard_t1_f.glb",
+          "modelSha256": "85ec945b6184a48da08e6fad4b30ef47a8d8b03e0a1002ed1a5a8d4c3dd608a2",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/tabard_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_tabard_t1_f.qc.json",
+          "qcSha256": "f518440b9f6292c711e67002f7d455aa8c55a5453e618bb75fc82bae3d2db63a",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_tabard_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.tabard.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_tabard_t1_m.glb",
+          "modelSha256": "ae08e0e97cc406996d60f78984e65d10fd72afd9fb94f7e72a69847199ad534c",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/tabard_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_tabard_t1_m.qc.json",
+          "qcSha256": "b9c16a22f5d2552ec9857eed5f22077a7225f3fe7d63275e6a5f11ba17d54854",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_waist_f": {
+      "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.waist.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_waist_t1_f.glb",
+          "modelSha256": "4c4890956637abfcf578e67ad8b03349de1a81d4372872aa42ad139d8367a430",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/f/waist_front.png"
+          },
+          "previewSha256": {
+            "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+          },
+          "qc": "arm_mire_warbrute_waist_t1_f.qc.json",
+          "qcSha256": "7c6acb8e1c2af2913c0495a0fd9ae5d3858d7f4b70beb6561a8aefb968c514fc",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
+    },
+    "starter_mire_brutish_warbrute_waist_m": {
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "arm.mire.warbrute.waist.t1.m",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "mire_warbrute_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "arm_mire_warbrute_waist_t1_m.glb",
+          "modelSha256": "12b948c1f505e8c898342be48181a57dcd98a8d9d6bacf3906b533e20433cdfd",
+          "previews": {
+            "front": "reviews/roster-direct/warbrute/m/waist_front.png"
+          },
+          "previewSha256": {
+            "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+          },
+          "qc": "arm_mire_warbrute_waist_t1_m.qc.json",
+          "qcSha256": "ad1e7533acb75a0b77884befa7eccd12fa5e74888de6aca660c7b0055e33ec27",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
     },
     "weapon_hammer_reliquary_2h": {
       "assetId": "wep.hammer_2h.reliquary_steel.t1",
@@ -50,6 +2069,48 @@
       "reason": "legacy active non-character runtime asset",
       "reviewStatus": "compatibility_allowed",
       "runtimeReady": true
+    },
+    "creature_barrow_wolf": {
+      "approvalState": "approved",
+      "assetId": "creature.barrow_wolf.t1",
+      "bindPoseId": "grounded_v1",
+      "bodyFamily": "creature_canid_v1",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_creature_barrow_wolf.glb",
+      "modelSha256": "5264bd919b9355ee75233a7e0aa3af47210dcaac1666831fc0ca00c35b91ba26",
+      "previews": {
+        "front": "reviews/roster-direct/creature/barrow_wolf/front.png"
+      },
+      "previewSha256": {
+        "front": "9bc0362ab5394c2cf5be02f4bef7e2012d9e381324e7eaeb9c2538a12d6b7597"
+      },
+      "qc": "prop_creature_barrow_wolf.qc.json",
+      "qcSha256": "25eb354e6612c6c814cb52d1342d82ed33075554bb6be6ec672e77f558124c22",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "creature_canid_v1"
+    },
+    "creature_lair_spider": {
+      "approvalState": "approved",
+      "assetId": "creature.lair_spider.t1",
+      "bindPoseId": "grounded_v1",
+      "bodyFamily": "creature_arachnid_v1",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_creature_lair_spider.glb",
+      "modelSha256": "ef2e75b82a38ade52df2526168fca70d71f7dd60dab35a74e25621eb160e5ba0",
+      "previews": {
+        "front": "reviews/roster-direct/creature/lair_spider/front.png"
+      },
+      "previewSha256": {
+        "front": "99452f32e8aab198192c8386c7fb06ff46e6c904eb4aaeb2f9a3990c6f07d13b"
+      },
+      "qc": "prop_creature_lair_spider.qc.json",
+      "qcSha256": "cea602c3b5b50e2ca2e476e488bf7bed8248a422f6df7d734328b1d2a5abed98",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "creature_arachnid_v1"
     },
     "dummy": {
       "lifecycleStatus": "compatibility_allowed",

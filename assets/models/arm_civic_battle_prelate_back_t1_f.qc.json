@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic_humanoid_v2.battle_prelate.back.f",
+  "model": "arm_civic_humanoid_v2_battle_prelate_back_f.glb",
+  "modelSha256": "9ea60b071ab2a5373cc42da02609414d8ffa1e3e9f54259118fe059b4eb31c10",
+  "fileSizeBytes": 253436,
+  "category": "armor",
+  "slot": "back",
+  "bodyFamily": "civic_humanoid_v2",
+  "bodyVariant": "f",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "totalTriangles": 6440,
+  "drawCalls": 1,
+  "maxInfluencesBeforeLimit": 4,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 128,
+  "previewImages": [
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\isometric.png"
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\front.png",
+      "sha256": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\side.png",
+      "sha256": "1c0489aa66f592c88ee95bc81eacdd371aadfdd6601e4083bc975815280a14c9"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\back.png",
+      "sha256": "9d7ada86fc57a161f4e102d5d67923c386c557533bc71fbfceae86c7473acab6"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\isometric.png",
+      "sha256": "57fa181ddbcd70b10d0040681de2c4897b4692d806b0749a5af5b202ee28fc44"
+    }
+  ],
+  "provenance": {
+    "provider": "local_mpfb",
+    "generator": "generate_mpfb_modular_armor.py",
+    "license": "CC0-1.0",
+    "assetSource": "War-js topology-derived draft"
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "manifold": true,
+    "noDegenerateFaces": true,
+    "reviewViewsPresent": true,
+    "pbrChannelsPresent": true
+  },
+  "qcPassed": true
+}
