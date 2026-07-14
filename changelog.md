@@ -8,6 +8,7 @@
 - Added an explicit user-authorized direct-promotion path for roster pilots. It requires `--bypass-approval`, revalidates model/QC hashes and review previews, publishes neutral runtime GLBs plus approved manifests atomically, and records the bypass instead of silently weakening the normal review workflow. Battle Prelate and Warbrute are now runtime-resolvable.
 - Built and directly promoted the first NPC/creature pilot batch: Aegis civic and Riftbound Greenskin NPC foundations with role-combination evidence, plus Barrow Wolf and Lair Spider. The bypass registers 47 live NPC/enemy profiles, preserves the nine embedded humanoid animation clips, registers both creature static keys, and records the authorization in each revision and approved manifest.
 - Fixed modular armor runtime metadata so canonical-skeleton armor is rebound to the player body skeleton and covered body regions are masked. Existing approved rows also infer the skinned path from their skeleton metadata.
+- Regenerated the Battle Prelate and Warbrute body/armor pilots with corrected shoulder seam anchors and slot-specific body clearance, reran bind/idle geometry audits and animation evidence, and directly promoted the verified revisions with the authorized bypass.
 <<<<<<< HEAD
 =======
 

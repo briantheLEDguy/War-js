@@ -164,23 +164,23 @@
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\body-review\\front.png",
-      "sha256": "57750bee3a4b48101803ba6018878c64223817ed0924c0d0f877562c93c8e734"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\body-review\\front.png",
+      "sha256": "a95440a40f8816d2260d4ce387328db8bef7e07fc325625eb123cb291c6b5197"
     },
     {
       "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\body-review\\side.png",
-      "sha256": "105a27e18d0b81763681af1ee773d834841f1dd9096d50fbc607d03f823ab70c"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\body-review\\side.png",
+      "sha256": "751f861eeaabff72091e7cf0384ec9733e0283c33d010dcaec36ef0af28a2782"
     },
     {
       "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\body-review\\back.png",
-      "sha256": "695d65029a997db675cd77e877beed66302588fdf790c347fb8bab2e0ecd5248"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\body-review\\back.png",
+      "sha256": "96edcfd5fa3537fad6e5a227b64b81d0dcb69cb779806d8ae8297954d989bb46"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\body-review\\isometric.png",
-      "sha256": "2e161bbf41018c07db7169a62764299c027ed423105d5246b04d3c25bfe913d3"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\body-review\\isometric.png",
+      "sha256": "a21e86b203599e7a978457fccb262d29ea5ac45ebca0bfac823db1982c9ea900"
     }
   ],
   "animationClips": [
@@ -598,8 +598,8 @@
     "tolerance": 0.010322117805480957
   },
   "authoringSource": {
-    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\warbrute\\revision-0001\\m\\body_warbrute_m.blend",
-    "sha256": "e2efe4fa34964bd5e76819428141dc85d6ba586ac5d87c5402480a3b506f2a6a",
+    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\m\\body_warbrute_m.blend",
+    "sha256": "e740e524235fc015a7a8bebffdd66efa289cde1bc0e4d9de781cbf1e3cdcff3d",
     "bodyVertices": 19158,
     "shapeKeys": 26,
     "maskModifiers": [

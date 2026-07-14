@@ -20,10 +20,10 @@
     ]
   },
   "hashes": {
-    "modelSha256": "b25eea2bbf0406b0c55f82b6c6adee38853ff01bd85ddd14eb86b6af204aa523",
-    "qcSha256": "3a84354164c8baf12a643f3dea6dcef6d286e314d91458e6cc400ee02d017940",
+    "modelSha256": "27ef9270ab265688bbe384a5c07c4e43a509655b5cd88eb8ba20f8101f96446b",
+    "qcSha256": "e32e09e7aa0e517a8d9d9a10bc53eafe4ea1abe92daa3fe41e44c0d4a834513b",
     "previews": {
-      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+      "front": "27cf873c823857aee46370b2680b5bb5c8c367d4adabd3ec3292b21e288d914d"
     }
   },
   "previews": {
@@ -32,14 +32,14 @@
   "provenance": {
     "kind": "roster_direct_promotion",
     "sourceRevision": 1,
-    "sourceRunId": "mpfb-two-pilot",
+    "sourceRunId": "armor-fit-final2-warbrute",
     "bypassApproval": true,
-    "bypassReason": "User-authorized armor runtime alignment fix: mark modular armor as skinned overlays."
+    "bypassReason": "User-authorized armor fit regeneration"
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T18:38:50.398Z",
-    "reviewHash": "6bb4de6a05cf78dd70d74ded34f8e1bcd778c292dde2be59659c0571c56a5766"
+    "reviewedAt": "2026-07-14T21:02:58.563Z",
+    "reviewHash": "bbb003d79ca627774c16762118636c6554a2cfbbc37d33b6068a37cf559c0927"
   },
   "approvalState": "approved"
 }

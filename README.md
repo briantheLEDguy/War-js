@@ -470,6 +470,13 @@ npm run models:promote-roster -- --run-id <id> --kind npc --key <body-foundation
 npm run models:promote-roster -- --run-id <id> --kind creature --key <creature-key> --revision <n> --bypass-approval
 ```
 
+The promoted Battle Prelate and Warbrute pilots use the regenerated fitted
+armor geometry: body clearance is kept at a small anti-z-fighting margin for
+limb equipment, while the authored back layer retains a stricter clearance
+margin. Shoulder shells are anchored to the canonical upper-arm seam instead
+of being raised above it. Re-run both bind and idle clearance audits after
+changing these fit constants.
+
 The full command checks the strict doctor before creating revisions. A missing
 MPFB installation, retained CC0 pack, source target, or matching source hash
 creates a consolidated preflight-blocked report without partially starting the

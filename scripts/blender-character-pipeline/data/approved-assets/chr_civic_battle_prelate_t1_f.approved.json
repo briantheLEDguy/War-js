@@ -16,9 +16,9 @@
   },
   "hashes": {
     "modelSha256": "507637d1f5195195eea4234b611453f8c2fdb398597cfe1a174cc2eed7d65236",
-    "qcSha256": "1af570ca5b94891f9572f360eb7983f7b242b585500b3c0b1a614e4c3721eed2",
+    "qcSha256": "504687b526ec46e33a02b04e1f723798225377d5dd3f833426a06682063a2671",
     "previews": {
-      "front": "6c7d0d3a0e658bf41b9abb0718cfcb711dc9f5fffe76aefacf3447021b40d043"
+      "front": "18af0cadd9429a4c1831fe336d62604462bda3c4b298e9696ed3060da88d3937"
     }
   },
   "previews": {
@@ -27,14 +27,14 @@
   "provenance": {
     "kind": "roster_direct_promotion",
     "sourceRevision": 1,
-    "sourceRunId": "mpfb-two-pilot",
+    "sourceRunId": "armor-fit-final2-battle",
     "bypassApproval": true,
-    "bypassReason": "User-authorized production bypass for the Battle Prelate pilot."
+    "bypassReason": "User-authorized armor fit regeneration"
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T17:14:47.963Z",
-    "reviewHash": "10c7bb4e0c36ae49f7308654328e1ba90c5fd1ec5deff43ab60f3f764654b0f4"
+    "reviewedAt": "2026-07-14T21:02:51.293Z",
+    "reviewHash": "0ddd5f45e42eae8a7339a620415904ba12cd0f541ba86566636898419498cf4d"
   },
   "approvalState": "approved"
 }

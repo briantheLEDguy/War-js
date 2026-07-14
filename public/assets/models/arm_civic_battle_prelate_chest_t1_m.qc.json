@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "assetId": "arm.civic_humanoid_v2.battle_prelate.chest.m",
   "model": "arm_civic_humanoid_v2_battle_prelate_chest_m.glb",
-  "modelSha256": "451d4db9b268ac8be456f24cc5cc51f7cba48413f2cccb3078a121fd2ef3daec",
+  "modelSha256": "4414eac38f722b576f5b8d83baa2b2bfd7980af8c40f4d8efcf6178c20fa149a",
   "fileSizeBytes": 9336152,
   "category": "armor",
   "slot": "chest",
@@ -29,31 +29,31 @@
   ],
   "maxTextureDimension": 128,
   "previewImages": [
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\front.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\side.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\back.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\isometric.png"
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\isometric.png"
   ],
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\front.png",
-      "sha256": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\front.png",
+      "sha256": "798c4d42adb078a462ba096382c7d84517b024b150142e9932e1d07bccb9f3a3"
     },
     {
       "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\side.png",
-      "sha256": "37e5690816be30a27dfb88950e8d0e712f93ee312fdbd738e8b0495741b00b63"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\side.png",
+      "sha256": "9660b43f2cb2ae9fb369246089231615d8e3a7b49274c43f980400ff43c55410"
     },
     {
       "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\back.png",
-      "sha256": "fc5c6f777b2f4b299d2cbe2017eca2e7ec98755ce1454b4cb76f5a472d23a5e0"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\back.png",
+      "sha256": "f0694d74df59b52a5d9f8a476fec0d3e09244d623272189a3b24a62eab5c2c90"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\isometric.png",
-      "sha256": "68221961db252630a9219e94aca87b433596a011edd4e36159f0e3ac1080c7d3"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-battle\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\isometric.png",
+      "sha256": "0fe2e2e6fb3fd6fa6b49db0294711f1379e997ca3f73ce0adc6a3704516665b4"
     }
   ],
   "provenance": {
