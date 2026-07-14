@@ -7,7 +7,8 @@
   "qc": "arm_civic_battle_prelate_tabard_t1_f.qc.json",
   "runtime": {
     "itemKey": "starter_civic_humanoid_battle_prelate_tabard_f",
-    "bodyVariant": "f"
+    "bodyVariant": "f",
+    "skinned": true
   },
   "compatibility": {
     "bodyFamily": "civic_battle_prelate_f",
@@ -33,12 +34,12 @@
     "sourceRevision": 1,
     "sourceRunId": "mpfb-two-pilot",
     "bypassApproval": true,
-    "bypassReason": "User-authorized production bypass for the Battle Prelate pilot."
+    "bypassReason": "User-authorized armor runtime alignment fix: mark modular armor as skinned overlays."
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T17:14:47.963Z",
-    "reviewHash": "93a0483b4ae6cee3cd4b22a725917d9150399fe6b9987d83303e0bf02d6b6fdb"
+    "reviewedAt": "2026-07-14T18:38:49.776Z",
+    "reviewHash": "b0a43a63eedd736a788c8f4929c05bfd3aaee81ac5d0350299d5970adf26a9e9"
   },
   "approvalState": "approved"
 }

@@ -7,7 +7,8 @@
   "qc": "arm_mire_warbrute_head_t1_f.qc.json",
   "runtime": {
     "itemKey": "starter_mire_brutish_warbrute_head_f",
-    "bodyVariant": "f"
+    "bodyVariant": "f",
+    "skinned": true
   },
   "compatibility": {
     "bodyFamily": "mire_warbrute_f",
@@ -33,12 +34,12 @@
     "sourceRevision": 1,
     "sourceRunId": "mpfb-two-pilot",
     "bypassApproval": true,
-    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+    "bypassReason": "User-authorized armor runtime alignment fix: mark modular armor as skinned overlays."
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T17:14:54.277Z",
-    "reviewHash": "5116bd29ddc523f414bd094453f9e8cf64038b1b477a2571b768a0cb03f4ab83"
+    "reviewedAt": "2026-07-14T18:38:50.398Z",
+    "reviewHash": "037a513ee9a2fdba58ce8dc7c0d3db3d0287c9e8cae479b266fdb7c1cb7e01df"
   },
   "approvalState": "approved"
 }

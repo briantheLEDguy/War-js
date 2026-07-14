@@ -7,7 +7,8 @@
   "qc": "arm_mire_warbrute_legs_t1_m.qc.json",
   "runtime": {
     "itemKey": "starter_mire_brutish_warbrute_legs_m",
-    "bodyVariant": "m"
+    "bodyVariant": "m",
+    "skinned": true
   },
   "compatibility": {
     "bodyFamily": "mire_warbrute_m",
@@ -33,12 +34,12 @@
     "sourceRevision": 1,
     "sourceRunId": "mpfb-two-pilot",
     "bypassApproval": true,
-    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+    "bypassReason": "User-authorized armor runtime alignment fix: mark modular armor as skinned overlays."
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T17:14:54.277Z",
-    "reviewHash": "ef6f28cb5246c9d85e47dd4eba3659998faa43e95664f9440fcbfa900b5adb3d"
+    "reviewedAt": "2026-07-14T18:38:50.398Z",
+    "reviewHash": "6bb4de6a05cf78dd70d74ded34f8e1bcd778c292dde2be59659c0571c56a5766"
   },
   "approvalState": "approved"
 }

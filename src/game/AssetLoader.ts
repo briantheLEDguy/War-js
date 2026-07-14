@@ -125,6 +125,12 @@ function isEquipmentCompatible(
   return true;
 }
 
+function isSkinnedEquipment(entry: IndexedModel): boolean {
+  // Older approved registry rows omitted the explicit flag even though the
+  // canonical skeleton metadata proves that the asset is a deforming overlay.
+  return entry.skinned === true || (entry.skinned === undefined && Boolean(entry.skeletonId));
+}
+
 function prepareLoadedModel(root: THREE.Object3D): void {
   root.traverse((n) => {
     if (!(n as THREE.Mesh).isMesh) return;
@@ -246,7 +252,7 @@ export class AssetLoader {
       bodyVariant: entry.bodyVariant,
       skeletonId: entry.skeletonId,
       bindPoseId: entry.bindPoseId,
-      skinned: entry.skinned,
+      skinned: isSkinnedEquipment(entry),
       coveredRegions: entry.coveredRegions,
     };
   }
