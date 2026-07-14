@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.chest.t1.m",
+  "displayName": "Battle Prelate Chestguard Male",
+  "category": "armor",
+  "model": "arm_civic_battle_prelate_chest_t1_m.glb",
+  "qc": "arm_civic_battle_prelate_chest_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_civic_humanoid_battle_prelate_chest_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "civic_battle_prelate_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "torso"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "451d4db9b268ac8be456f24cc5cc51f7cba48413f2cccb3078a121fd2ef3daec",
+    "qcSha256": "c925a52e09e6b408b207e416143d67bae3ffbde6ba5737b1ecd77e97603462fa",
+    "previews": {
+      "front": "44067ac7e24726d8d5295280669889ae0b69fafabe2637db0be3057fdedfed64"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/battle_prelate/m/chest_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Battle Prelate pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:47.963Z",
+    "reviewHash": "6353f233e5ef03a3c79981f184c9b88d258acdafe31715bbc54c5dd8615e384f"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.enemy.riftbound.cindermaw.pit.overlord.captain",
+  "displayName": "Cindermaw Pit Overlord",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_captain_m.glb",
+  "qc": "chr_npc_greenskin_m_captain_m.qc.json",
+  "runtime": {
+    "profileKey": "enemy_riftbound_cindermaw_pit_overlord_captain",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+    "qcSha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "0041976efc47f7b3f3f6b77ad3a3d3971b2d56fdf87e236a63a8215046f7c02a"
+  },
+  "approvalState": "approved"
+}

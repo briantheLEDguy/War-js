@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.enemy.aegis.campaign.raider.raider",
+  "displayName": "Campaign Raider",
+  "category": "character",
+  "model": "chr_npc_empire_m_raider_m.glb",
+  "qc": "chr_npc_empire_m_raider_m.qc.json",
+  "runtime": {
+    "profileKey": "enemy_aegis_campaign_raider_raider",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_humanoid_v2",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "29ddae8ad4f77962b3bfa813910b55ba6f5ba148e212c5ff4773d66b7aa157c5",
+    "qcSha256": "626415577522d549a6c0a61273102bcc7f0ae263b266effa4cee38dba8013c29",
+    "previews": {
+      "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/empire_m/raider_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:17.992Z",
+    "reviewHash": "dadfc7ac24fa75736d71cf970dfa6939f6c836f012f4198d363d279d4dd2e188"
+  },
+  "approvalState": "approved"
+}

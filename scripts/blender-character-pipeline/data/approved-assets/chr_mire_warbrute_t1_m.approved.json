@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.mire.warbrute.t1.m",
+  "displayName": "Warbrute Male",
+  "category": "character",
+  "model": "chr_mire_warbrute_t1_m.glb",
+  "qc": "chr_mire_warbrute_t1_m.qc.json",
+  "runtime": {
+    "profileKey": "mire_warbrute_m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "0d2ec546fd6aeaa1eaf44548dda713e893e93b3f04365af3efa33894c62055a5",
+    "qcSha256": "66173f8b74d161ba525b87916fb8c09ec161d78f4a8798145a418d9462716ca2",
+    "previews": {
+      "front": "57750bee3a4b48101803ba6018878c64223817ed0924c0d0f877562c93c8e734"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/body_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "ec516ac68529c1905d2792684a084895df9a020558eba958b87fe9071ad30ebf"
+  },
+  "approvalState": "approved"
+}

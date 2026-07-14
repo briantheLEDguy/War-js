@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "canonical_body_archetypes_v1",
+  "canonicalSkeletonId": "humanoid_game_v2",
+  "canonicalBindPoseId": "a_pose_v2",
+  "archetypes": [
+    { "id": "civic_humanoid_v2.m", "bodyFamily": "civic_humanoid_v2", "bodyVariant": "m", "displayName": "Civic Humanoid M", "sourceRecipe": "data/body-families/civic_humanoid_v2.body-family.json", "topologyRole": "reference_male", "status": "candidate_only" },
+    { "id": "civic_humanoid_v2.f", "bodyFamily": "civic_humanoid_v2", "bodyVariant": "f", "displayName": "Civic Humanoid F", "sourceRecipe": "data/body-families/civic_humanoid_v2.body-family.json", "topologyRole": "reference_female", "status": "candidate_only" },
+    { "id": "mire_brutish_v1.m", "bodyFamily": "mire_brutish_v1", "bodyVariant": "m", "displayName": "Mire Brute M", "sourceRecipe": "data/body-families/mire_brutish_v1.body-family.json", "topologyRole": "reference_male", "status": "candidate_only" },
+    { "id": "mire_brutish_v1.f", "bodyFamily": "mire_brutish_v1", "bodyVariant": "f", "displayName": "Mire Brute F", "sourceRecipe": "data/body-families/mire_brutish_v1.body-family.json", "topologyRole": "reference_female", "status": "candidate_only" }
+  ]
+}

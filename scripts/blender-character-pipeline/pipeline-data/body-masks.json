@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "body_region_masks_v1",
+  "maskPolicy": "reversible_vertex_group_then_mask_modifier",
+  "masks": [
+    { "id": "under_head", "regions": ["head", "neck"], "vertexGroup": "body_mask_under_head", "defaultSlots": ["head", "hood"] },
+    { "id": "under_shoulders", "regions": ["shoulders", "upper_arms"], "vertexGroup": "body_mask_under_shoulders", "defaultSlots": ["shoulders"] },
+    { "id": "under_chest", "regions": ["torso"], "vertexGroup": "body_mask_under_chest", "defaultSlots": ["shirt", "chest", "fitted_armor"] },
+    { "id": "under_hands", "regions": ["forearms", "hands"], "vertexGroup": "body_mask_under_hands", "defaultSlots": ["gloves", "hands"] },
+    { "id": "under_waist", "regions": ["waist", "hips"], "vertexGroup": "body_mask_under_waist", "defaultSlots": ["waist", "pants", "legs"] },
+    { "id": "under_feet", "regions": ["feet"], "vertexGroup": "body_mask_under_feet", "defaultSlots": ["boots", "feet"] }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.enemy.riftbound.lair.sentinel.guard",
+  "displayName": "Lair Sentinel",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_guard_m.glb",
+  "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+  "runtime": {
+    "profileKey": "enemy_riftbound_lair_sentinel_guard",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+    "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "f7522fde5087b0220cabfecef09cb97e861c3878ddb83f043f007341ab01c71c"
+  },
+  "approvalState": "approved"
+}

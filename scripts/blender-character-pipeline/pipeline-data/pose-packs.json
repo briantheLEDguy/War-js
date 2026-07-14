@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "posePacks": [
+    {
+      "id": "core_v1",
+      "description": "Required modular-character deformation and clearance pack.",
+      "poses": ["neutral", "shoulder_extreme", "elbow_extreme", "hip_extreme", "knee_extreme", "jump", "attack_melee", "cast", "death"],
+      "acceptance": {
+        "rigidAgainstProtectedBody": "zero_overlap",
+        "clothingBodyPenetration": "masked_or_below_threshold",
+        "requiredEvidenceViews": ["front", "side", "back", "isometric"]
+      }
+    }
+  ]
+}

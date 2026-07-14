@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.chest.t1.m",
+  "displayName": "Warbrute Chestguard Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_chest_t1_m.glb",
+  "qc": "arm_mire_warbrute_chest_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_chest_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "torso"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "4a6ce526e0fee1e9e81e82c16e456e176b848c883103dcd6903f88998206ab7c",
+    "qcSha256": "8f7bd4699ad3fe079771d93ac92f3d9df116b5ba1636a1b0e6b37037f18a6f0e",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/chest_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "197bf8ccdafb5025a4674b12504347e73e7b6722180a831a86d052f01f9e6dcb"
+  },
+  "approvalState": "approved"
+}

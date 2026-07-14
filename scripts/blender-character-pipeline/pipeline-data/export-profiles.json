@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "runtime_glb_v1": {
+      "format": "glb",
+      "units": "meters",
+      "upAxis": "+Y",
+      "forwardAxis": "+Z",
+      "maxInfluencesPerVertex": 4,
+      "deformBonesOnly": true,
+      "includeLeafBones": false,
+      "embeddedTexturesOnly": true,
+      "requiredPbrChannels": ["baseColor", "roughness", "metallic", "normal", "occlusion"],
+      "khronosValidationRequired": true
+    }
+  }
+}

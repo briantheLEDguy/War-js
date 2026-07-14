@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "source": "generate_pipeline_test_assets.py",
+  "draftOnly": true,
+  "assets": [
+    {
+      "assetId": "body.test.civic.m",
+      "model": "scripts/blender-character-pipeline/test-assets/test_body_civic_m.glb",
+      "qc": "scripts/blender-character-pipeline/test-assets/test_body_civic_m.qc.json",
+      "qcPassed": true,
+      "runtimeReady": false,
+      "promotionEligible": false
+    },
+    {
+      "assetId": "chr.test.civic.socketed_sabre",
+      "model": "scripts/blender-character-pipeline/test-assets/test_socketed_sabre_civic_m.glb",
+      "qc": "scripts/blender-character-pipeline/test-assets/test_socketed_sabre_civic_m.qc.json",
+      "qcPassed": true,
+      "runtimeReady": false,
+      "promotionEligible": false
+    },
+    {
+      "assetId": "arm.test.chest.civic.m",
+      "model": "scripts/blender-character-pipeline/test-assets/test_skinned_chest_civic_m.glb",
+      "qc": "scripts/blender-character-pipeline/test-assets/test_skinned_chest_civic_m.qc.json",
+      "qcPassed": true,
+      "runtimeReady": false,
+      "promotionEligible": false
+    }
+  ]
+}

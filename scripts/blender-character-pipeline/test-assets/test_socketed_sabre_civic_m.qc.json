@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.test.civic.socketed_sabre",
+  "model": "test_socketed_sabre_civic_m.glb",
+  "modelSha256": "3d8fd764e04cede7baef7ae1560c2f3d76725679502fa446ee1233551cd94c31",
+  "qcPassed": true,
+  "assetCategory": "character",
+  "bodyFamily": "civic_humanoid_v2",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "totalTris": 2116,
+  "meshCount": 2,
+  "drawCalls": 2,
+  "nonManifoldEdges": 0,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 0,
+  "builtLods": [
+    "LOD0"
+  ],
+  "requiredClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "missingRequiredClips": [],
+  "posePackId": "core_v1",
+  "poseValidation": {
+    "passed": true,
+    "poses": [
+      "neutral",
+      "shoulder_extreme",
+      "elbow_extreme",
+      "hip_extreme",
+      "knee_extreme",
+      "jump",
+      "attack_melee",
+      "cast",
+      "death"
+    ],
+    "method": "blender_bvhtree",
+    "validator": "pipeline-tools/validate_pose_pack.py"
+  },
+  "pipelineStages": {
+    "base": {
+      "cleanup": {
+        "removedVertices": 0,
+        "removedEdges": 0
+      },
+      "weights": {
+        "maxInfluencesObserved": 4,
+        "maxInfluencesBeforeLimit": 4,
+        "unweightedVertices": 0
+      }
+    },
+    "classification": "rigid",
+    "attachmentMode": "rigid_socket",
+    "targetSocket": "socket_hand_R",
+    "protectedBodyOverlapPairs": 0
+  },
+  "previewImages": [
+    "scripts/blender-character-pipeline/test-assets/reviews/chr_test_civic_socketed_sabre/front.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/chr_test_civic_socketed_sabre/side.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/chr_test_civic_socketed_sabre/back.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/chr_test_civic_socketed_sabre/isometric.png"
+  ],
+  "reviewStatus": "fixture_draft",
+  "runtimeReady": false,
+  "promotionEligible": false,
+  "socketValidation": {
+    "passed": true,
+    "targetSocket": "socket_hand_R",
+    "overlapPairs": 0
+  }
+}

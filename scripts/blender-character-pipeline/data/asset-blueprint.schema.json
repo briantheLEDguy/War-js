@@ -130,6 +130,21 @@
       },
       "default": []
     },
+    "modular": {
+      "type": "object",
+      "description": "Explicit modular-character classification. The pipeline never selects an attachment method from a filename.",
+      "required": ["kind", "slot"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["rigid", "skinned", "loose"] },
+        "slot": { "type": "string" },
+        "fitMethod": { "type": "string" },
+        "bodyMasks": { "type": "array", "items": { "type": "string" } },
+        "socketId": { "type": "string" },
+        "offsetProfile": { "type": "string" },
+        "coveredRegions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
     "materials": {
       "type": "object",
       "required": ["master", "channels"],

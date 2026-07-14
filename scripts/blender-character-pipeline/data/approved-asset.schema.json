@@ -17,7 +17,7 @@
       "required": ["bodyFamily", "bodyVariant", "skeletonId", "bindPoseId"],
       "properties": {
         "bodyFamily": { "type": "string" },
-        "bodyVariant": { "enum": ["m", "f"] },
+        "bodyVariant": { "enum": ["m", "f", "neutral"] },
         "skeletonId": { "type": "string" },
         "bindPoseId": { "type": "string" }
       },

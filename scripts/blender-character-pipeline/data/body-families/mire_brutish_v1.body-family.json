@@ -49,7 +49,7 @@
           "id": "mire_cranium_brow_v1",
           "relativePath": "targets/mire_brutish_v1/mire_cranium_brow_v1.target",
           "weight": 0.78,
-          "sha256": "6e679d24d19e0c4bebad0df20492c065f8ce7828481e2f45f95c02f3d91ad736",
+          "sha256": "007846614de0ffbac241adf6bfcd8715e9661912aeb0f45be3536b188d44ebc3",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         },
@@ -57,7 +57,7 @@
           "id": "mire_ears_v1",
           "relativePath": "targets/mire_brutish_v1/mire_ears_v1.target",
           "weight": 0.72,
-          "sha256": "de3dd97ef4771be9e2efcbeb56024498d795d25fd527e3c0362e6ee8e6fc98ad",
+          "sha256": "83fcff4e9655d0d6b429841f5f4a08b24f02f076b7c6ccd55b64b264b9711398",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         },
@@ -65,7 +65,7 @@
           "id": "mire_jaw_v1",
           "relativePath": "targets/mire_brutish_v1/mire_jaw_v1.target",
           "weight": 0.82,
-          "sha256": "738b9ae4db2b48e71d2f3aade58f3061b2e0f1e9414db6144446ac904c479aa9",
+          "sha256": "fe1c9f42993f6d2bd1a409acde87eddf606ef45b02ccaa779f90f9ffaa8021df",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         },
@@ -73,7 +73,7 @@
           "id": "mire_tusks_v1",
           "relativePath": "targets/mire_brutish_v1/mire_tusks_v1.target",
           "weight": 0.7,
-          "sha256": "8740b7388aeb31bafbc045d69ad717f31bc90fac78a09b6c9c53c50e97bb7fe1",
+          "sha256": "94e0fb6f91681b7ed65a776ca3407ca4b36109ed1e47e5dc567d7ef3e1b54b9d",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         }
@@ -115,7 +115,7 @@
           "id": "mire_cranium_brow_v1",
           "relativePath": "targets/mire_brutish_v1/mire_cranium_brow_v1.target",
           "weight": 0.62,
-          "sha256": "6e679d24d19e0c4bebad0df20492c065f8ce7828481e2f45f95c02f3d91ad736",
+          "sha256": "007846614de0ffbac241adf6bfcd8715e9661912aeb0f45be3536b188d44ebc3",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         },
@@ -123,7 +123,7 @@
           "id": "mire_ears_v1",
           "relativePath": "targets/mire_brutish_v1/mire_ears_v1.target",
           "weight": 0.68,
-          "sha256": "de3dd97ef4771be9e2efcbeb56024498d795d25fd527e3c0362e6ee8e6fc98ad",
+          "sha256": "83fcff4e9655d0d6b429841f5f4a08b24f02f076b7c6ccd55b64b264b9711398",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         },
@@ -131,7 +131,7 @@
           "id": "mire_jaw_v1",
           "relativePath": "targets/mire_brutish_v1/mire_jaw_v1.target",
           "weight": 0.64,
-          "sha256": "738b9ae4db2b48e71d2f3aade58f3061b2e0f1e9414db6144446ac904c479aa9",
+          "sha256": "fe1c9f42993f6d2bd1a409acde87eddf606ef45b02ccaa779f90f9ffaa8021df",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         },
@@ -139,7 +139,7 @@
           "id": "mire_tusks_v1",
           "relativePath": "targets/mire_brutish_v1/mire_tusks_v1.target",
           "weight": 0.52,
-          "sha256": "8740b7388aeb31bafbc045d69ad717f31bc90fac78a09b6c9c53c50e97bb7fe1",
+          "sha256": "94e0fb6f91681b7ed65a776ca3407ca4b36109ed1e47e5dc567d7ef3e1b54b9d",
           "license": "LicenseRef-WarJS-Original",
           "required": true
         }

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "assetId": "body.test.civic.m",
+  "model": "test_body_civic_m.glb",
+  "modelSha256": "ca64bcf87bcdef9464551c2aaa78e5fec2b55706d99cf8654558648b68852291",
+  "qcPassed": true,
+  "assetCategory": "body",
+  "bodyFamily": "civic_humanoid_v2",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "totalTris": 2008,
+  "meshCount": 1,
+  "drawCalls": 1,
+  "nonManifoldEdges": 0,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 0,
+  "builtLods": [
+    "LOD0"
+  ],
+  "requiredClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "missingRequiredClips": [],
+  "posePackId": "core_v1",
+  "poseValidation": {
+    "passed": true,
+    "poses": [
+      "neutral",
+      "shoulder_extreme",
+      "elbow_extreme",
+      "hip_extreme",
+      "knee_extreme",
+      "jump",
+      "attack_melee",
+      "cast",
+      "death"
+    ],
+    "method": "blender_bvhtree",
+    "validator": "pipeline-tools/validate_pose_pack.py"
+  },
+  "pipelineStages": {
+    "base": {
+      "cleanup": {
+        "removedVertices": 0,
+        "removedEdges": 0
+      },
+      "weights": {
+        "maxInfluencesObserved": 4,
+        "maxInfluencesBeforeLimit": 4,
+        "unweightedVertices": 0
+      }
+    },
+    "classification": "base_body",
+    "restPose": "a_pose_v2"
+  },
+  "previewImages": [
+    "scripts/blender-character-pipeline/test-assets/reviews/body_test_civic_m/front.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/body_test_civic_m/side.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/body_test_civic_m/back.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/body_test_civic_m/isometric.png"
+  ],
+  "reviewStatus": "fixture_draft",
+  "runtimeReady": false,
+  "promotionEligible": false
+}

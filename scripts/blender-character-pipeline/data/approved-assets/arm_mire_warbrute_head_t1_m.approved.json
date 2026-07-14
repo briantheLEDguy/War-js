@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.head.t1.m",
+  "displayName": "Warbrute Headgear Male",
+  "category": "armor",
+  "model": "arm_mire_warbrute_head_t1_m.glb",
+  "qc": "arm_mire_warbrute_head_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_head_m",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "head"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "8bc6bcf3e4fe896446b806dd89ba0e9657f9e520afa4c757750e650d5751f82c",
+    "qcSha256": "518636c54ad744041adfc240334fc2f365504a8e92a4f2bd14163d60d8b8633c",
+    "previews": {
+      "front": "958d192fa6304912e027fef4c40d5ed809d93ace4c72bb69277eb6df924dbd87"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/m/head_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "1d5fbf94e561e7c90d45d01c15fef17601ff41555667af32ecfa172c343a333f"
+  },
+  "approvalState": "approved"
+}

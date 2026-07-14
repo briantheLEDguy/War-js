@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.aegis.mira.stonewake.siege.engineer",
+  "displayName": "Mira Stonewake - Siege Engineer",
+  "category": "character",
+  "model": "chr_npc_empire_m_vendor_m.glb",
+  "qc": "chr_npc_empire_m_vendor_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_mira_stonewake_siege_engineer",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_humanoid_v2",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+    "qcSha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+    "previews": {
+      "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:17.992Z",
+    "reviewHash": "b11d4efc8a1fed8fae4e9324926cb65f50c798d0d8f5f29d5a58f161c577f6c3"
+  },
+  "approvalState": "approved"
+}

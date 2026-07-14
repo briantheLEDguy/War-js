@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.review.npc_greenskin_m_ambient_m_equipped_review",
+  "model": "npc_greenskin_m_ambient_m_equipped_review.glb",
+  "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+  "fileSizeBytes": 57611444,
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending_human_visual_review",
+  "promotionEligible": false,
+  "reimportedMeshCount": 15,
+  "reimportedMaterialCount": 12,
+  "invalidBounds": [],
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "requiredAnimationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "armorMaterialImages": [
+    {
+      "name": "PantsViking",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.4078431725502014,
+          0.2980392277240753,
+          0.20784315466880798,
+          1.0
+        ],
+        [
+          0.32156863808631897,
+          0.22352942824363708,
+          0.14509804546833038,
+          1.0
+        ],
+        [
+          0.33725491166114807,
+          0.2392157018184662,
+          0.16078431904315948,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "brown_eye",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.6705882549285889,
+          0.6705882549285889,
+          0.6549019813537598,
+          1.0
+        ],
+        [
+          0.6666666865348816,
+          0.6666666865348816,
+          0.6509804129600525,
+          1.0
+        ],
+        [
+          0.6705882549285889,
+          0.6705882549285889,
+          0.6549019813537598,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "eyebrow010",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "eyelashes01",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "male_casualsuit03_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "male_casualsuit03_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "mire_brutish_v1_accent_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.26274511218070984,
+          0.2039215862751007,
+          0.12156863510608673,
+          1.0
+        ],
+        [
+          0.25882354378700256,
+          0.2039215862751007,
+          0.12156863510608673,
+          1.0
+        ],
+        [
+          0.26274511218070984,
+          0.20784315466880798,
+          0.12156863510608673,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_accent_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_accent_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.7803922295570374,
+          0.0784313753247261,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7686275243759155,
+          0.0784313753247261,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7333333492279053,
+          0.0784313753247261,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_cloth_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.06666667014360428,
+          0.05490196496248245,
+          0.03921568766236305,
+          1.0
+        ],
+        [
+          0.06666667014360428,
+          0.05490196496248245,
+          0.03921568766236305,
+          1.0
+        ],
+        [
+          0.06666667014360428,
+          0.05490196496248245,
+          0.03921568766236305,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_cloth_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_cloth_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.7803922295570374,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7686275243759155,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.7333333492279053,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_leather_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.019607843831181526,
+          0.007843137718737125,
+          0.011764707043766975,
+          1.0
+        ],
+        [
+          0.019607843831181526,
+          0.007843137718737125,
+          0.007843137718737125,
+          1.0
+        ],
+        [
+          0.019607843831181526,
+          0.007843137718737125,
+          0.011764707043766975,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_leather_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_leather_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.6392157077789307,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.6313725709915161,
+          0.0,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.5960784554481506,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_metal_draft_pbr_baseColor",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0313725508749485,
+          0.0313725508749485,
+          0.04313725605607033,
+          1.0
+        ],
+        [
+          0.0313725508749485,
+          0.0313725508749485,
+          0.04313725605607033,
+          1.0
+        ],
+        [
+          0.0313725508749485,
+          0.0313725508749485,
+          0.04313725605607033,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_metal_draft_pbr_normal",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.5254902243614197,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.5254902243614197,
+          0.4745098352432251,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "mire_brutish_v1_metal_draft_pbr_orm",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.960784375667572,
+          0.3803921937942505,
+          0.7803922295570374,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.3686274588108063,
+          0.7803922295570374,
+          1.0
+        ],
+        [
+          0.960784375667572,
+          0.3333333432674408,
+          0.7803922295570374,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "generated_palette"
+    },
+    {
+      "name": "orkMesh",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.6823529601097107,
+          0.615686297416687,
+          0.40000003576278687,
+          1.0
+        ],
+        [
+          0.6823529601097107,
+          0.615686297416687,
+          0.40000003576278687,
+          1.0
+        ],
+        [
+          0.6823529601097107,
+          0.615686297416687,
+          0.40000003576278687,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "orkMeshNORMAL",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ],
+        [
+          0.501960813999176,
+          0.501960813999176,
+          1.0,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "robe__normal_gl",
+      "colorspace": "Non-Color",
+      "samples": [
+        [
+          0.5176470875740051,
+          0.5647059082984924,
+          0.8666667342185974,
+          1.0
+        ],
+        [
+          0.5176470875740051,
+          0.5647059082984924,
+          0.8666667342185974,
+          1.0
+        ],
+        [
+          0.5176470875740051,
+          0.5647059082984924,
+          0.8666667342185974,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "robe_brown__diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "populated": false,
+      "sourceKind": "authored_fixture"
+    },
+    {
+      "name": "tongue01_diffuse",
+      "colorspace": "sRGB",
+      "samples": [
+        [
+          0.8901961445808411,
+          0.5058823823928833,
+          0.5137255191802979,
+          1.0
+        ],
+        [
+          0.8901961445808411,
+          0.5058823823928833,
+          0.5137255191802979,
+          1.0
+        ],
+        [
+          0.8901961445808411,
+          0.5058823823928833,
+          0.5137255191802979,
+          1.0
+        ]
+      ],
+      "populated": true,
+      "sourceKind": "authored_fixture"
+    }
+  ],
+  "armorMaterialImagesPopulated": true,
+  "authoredFixtureMaterialImageCount": 11,
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\greenskin_m\\revision-0001\\m\\armor-review\\roundtrip-review\\front.png",
+      "sha256": "6771b65f9cd7c21d8775c45488ec86f3cb580b0eefb39d1352cd51eb47e1af63"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\greenskin_m\\revision-0001\\m\\armor-review\\roundtrip-review\\side.png",
+      "sha256": "5cd07e7bb2dec30d97b8834b2dd27eddba4f2a8d0f481df8efe2c712686d12f7"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\greenskin_m\\revision-0001\\m\\armor-review\\roundtrip-review\\back.png",
+      "sha256": "ba0ec1cb187613cf9071beaeefb4afd82f5c2f943185dcf7a8911158780808c6"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\npc-creature-pilot\\npc\\greenskin_m\\revision-0001\\m\\armor-review\\roundtrip-review\\isometric.png",
+      "sha256": "35024efc3d187112fc980214e6d1826fdd933558bb1885c8f6e54af0381096d1"
+    }
+  ],
+  "technicalRoundTripPassed": true,
+  "visualApprovalPassed": false,
+  "blockingReasons": [
+    "human_roundtrip_visual_approval_missing",
+    "stress_pose_review_missing"
+  ]
+}

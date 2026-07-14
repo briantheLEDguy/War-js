@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.riftbound.nyra.vex.tier.3.boss.campaign.marshal",
+  "displayName": "Nyra Vex - Tier 3 Boss Campaign Marshal",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_guard_m.glb",
+  "qc": "chr_npc_greenskin_m_guard_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+    "qcSha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "83b7e2488e659e3316c77c994601482bb23d4c353c510546fc7d5ef1aa4eef9d"
+  },
+  "approvalState": "approved"
+}

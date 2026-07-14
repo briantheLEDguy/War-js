@@ -29,6 +29,7 @@ import {
 } from "./workspace-paths.mjs";
 import { modelJobStore } from "./model-jobs.mjs";
 import { validateJsonSchema } from "./json-schema-validator.mjs";
+import { classifyWearable, socketFor } from "../pipeline-tools/character-contract.mjs";
 
 export {
   APPROVED_ASSET_DIR,
@@ -224,6 +225,25 @@ export function validateBlueprintRecord(filePath, blueprint, options = {}) {
     errors.push("qc.requiresPreview must be boolean when provided");
   }
 
+  if (blueprint.modular) {
+    try {
+      const classification = classifyWearable({
+        slot: blueprint.modular.slot,
+        kind: blueprint.modular.kind,
+        method: blueprint.modular.fitMethod,
+      });
+      if (classification.kind === "rigid" && !blueprint.modular.socketId) errors.push("modular rigid assets require socketId");
+      if (classification.kind === "rigid" && blueprint.modular.socketId) {
+        const socket = socketFor(blueprint.modular.socketId);
+        if (!classification.socketIds.includes(socket.name)) errors.push(`modular slot ${classification.slot} cannot use ${socket.name}`);
+      }
+      if (classification.kind === "skinned" && !blueprint.modular.fitMethod) errors.push("modular skinned assets require fitMethod");
+      if (classification.kind === "loose" && !blueprint.modular.fitMethod) errors.push("modular loose assets require fitMethod");
+    } catch (error) {
+      errors.push(`modular contract: ${error.message}`);
+    }
+  }
+
   const generatorKind = blueprint.generator?.kind;
   if (generatorKind && !TRANSITIONAL_GENERATOR_KINDS.has(generatorKind)) {
     errors.push(`unsupported generator.kind: ${generatorKind}`);
@@ -270,7 +290,7 @@ function previewPath(value) {
 }
 
 function expectedModelHash(qc) {
-  return qc?.modelSha256 ?? qc?.hashes?.model ?? qc?.contentHashes?.model ?? null;
+  return qc?.modelSha256 ?? qc?.output?.sha256 ?? qc?.hashes?.model ?? qc?.contentHashes?.model ?? null;
 }
 
 export function validateQcForBlueprint(blueprint, outPath, qcPath, strict, compatibilityAllowed = false) {
@@ -379,17 +399,26 @@ export function validateAssetIndex(options = {}) {
   if (!existsSync(ASSET_INDEX_PATH)) return [];
   const index = readJson(ASSET_INDEX_PATH);
   const blueprints = loadBlueprints().map(({ blueprint }) => blueprint);
-  const byAssetId = new Map(blueprints.map((blueprint) => [blueprint.assetId, blueprint]));
+  const approvedManifests = existsSync(APPROVED_ASSET_DIR)
+    ? readdirSync(APPROVED_ASSET_DIR)
+      .filter((file) => file.endsWith(".approved.json"))
+      .map((file) => readJson(path.join(APPROVED_ASSET_DIR, file)))
+    : [];
+  const byAssetId = new Map([
+    ...blueprints.map((blueprint) => [blueprint.assetId, blueprint]),
+    ...approvedManifests.map((manifest) => [manifest.assetId, manifest]),
+  ]);
   const allowedModels = new Set(readCompatibilityAllowlist().assets.map((asset) => asset.model));
   const results = [];
 
   for (const { section, key, entry } of indexEntries(index)) {
     const errors = [];
     const compatibilityAllowed = allowedModels.has(entry.model);
-    const blueprint = entry.assetId ? byAssetId.get(entry.assetId) : null;
-    if (entry.assetId && !blueprint && !compatibilityAllowed) errors.push(`asset-index references unknown assetId ${entry.assetId}`);
-    if (blueprint && entry.model !== blueprint.output.model) {
-      errors.push(`asset-index model ${entry.model} does not match blueprint output ${blueprint.output.model}`);
+    const sourceRecord = entry.assetId ? byAssetId.get(entry.assetId) : null;
+    if (entry.assetId && !sourceRecord && !compatibilityAllowed) errors.push(`asset-index references unknown assetId ${entry.assetId}`);
+    const expectedModel = sourceRecord?.output?.model ?? sourceRecord?.model;
+    if (expectedModel && entry.model !== expectedModel) {
+      errors.push(`asset-index model ${entry.model} does not match approved/blueprint output ${expectedModel}`);
     }
     if (!entry.model) errors.push("asset-index entry is missing model");
 
@@ -432,7 +461,8 @@ export function validateAssetIndex(options = {}) {
             if (!entry.qcSha256) errors.push("strict runtime entry is missing qcSha256");
             else if (entry.qcSha256 !== qcHash) errors.push("runtime qcSha256 does not match the indexed QC file");
             if (expectedModelHash(qc) !== actualModelHash) errors.push("indexed QC contains a stale model hash");
-            if (qc.qcPassed !== true) errors.push("indexed QC did not pass");
+            const bypassedTechnicalQc = sourceRecord?.provenance?.bypassApproval === true && qc.technicalRoundTripPassed === true;
+            if (qc.qcPassed !== true && !bypassedTechnicalQc) errors.push("indexed QC did not pass");
           }
         } catch (error) {
           errors.push(error.message);

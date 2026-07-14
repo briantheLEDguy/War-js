@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.riftbound.kara.ashvein.crafting.mentor",
+  "displayName": "Kara Ashvein - Crafting Mentor",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_trainer_m.glb",
+  "qc": "chr_npc_greenskin_m_trainer_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftbound_kara_ashvein_crafting_mentor",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "1aacdad9d3aea134cda17baa469a897c69dfc8e510fa725bd18301a60d2b65eb",
+    "qcSha256": "5169d29d295141727d5e1dc5f424d44a1e626d421cd698d4ef387a27a6240b84",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/trainer_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "9a7facf476617ee3d6d88938331090ece76f41740ea7d754078b744d2b7b0676"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.npc.riftbound.kara.ashvein.resource.warden",
+  "displayName": "Kara Ashvein - Resource Warden",
+  "category": "character",
+  "model": "chr_npc_greenskin_m_ambient_m.glb",
+  "qc": "chr_npc_greenskin_m_ambient_m.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftbound_kara_ashvein_resource_warden",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+    "qcSha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+    "previews": {
+      "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/greenskin_m/ambient_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:24.650Z",
+    "reviewHash": "867ad4afa2fc94e2befeb58175731477284a308fb227ee85ba9533a5faf7f71c"
+  },
+  "approvalState": "approved"
+}

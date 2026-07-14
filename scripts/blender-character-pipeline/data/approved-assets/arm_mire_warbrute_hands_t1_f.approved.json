@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.hands.t1.f",
+  "displayName": "Warbrute Handguards Female",
+  "category": "armor",
+  "model": "arm_mire_warbrute_hands_t1_f.glb",
+  "qc": "arm_mire_warbrute_hands_t1_f.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_hands_f",
+    "bodyVariant": "f"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_f",
+    "bodyVariant": "f",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "arms",
+      "hands"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "c3ec7cd6115a0797a8c5ce926fd5b09fa9c28958f1dc129dea65351598c6c247",
+    "qcSha256": "0071a08e317d51069f77f7378c9e473c6dcea3f5949ec915b28ed72761898c27",
+    "previews": {
+      "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/f/hands_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "f9b6ecd30bc3f7c6d6386c571ed5bd7108c84268f78ee96c9f3a577f65d14a19"
+  },
+  "approvalState": "approved"
+}

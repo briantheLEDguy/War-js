@@ -10,6 +10,7 @@ import {
   createRevisionManifest,
 } from '../scripts/blender-character-pipeline/tools/roster-runs.mjs';
 import {
+  animationProfileForGroup,
   technicalQcPassed,
 } from '../scripts/blender-character-pipeline/tools/roster-generation.mjs';
 import {
@@ -156,7 +157,8 @@ describe('full playable, NPC, and creature roster contract', () => {
     expect(source).toContain('["--background", "--addons", "bl_ext.blender_org.mpfb"]');
     expect(source).toContain('], { mpfb: true }), { signal, onOutput });');
     expect(source).toContain('includes("Traceback (most recent call last):")');
-    expect(source).toContain('"--animation-profile", "unarmed"');
+    expect(source).toContain('"--animation-profile", animationProfileForGroup(group)');
+    expect(animationProfileForGroup({ key: 'warbrute' })).toBe('unarmed');
   });
 
   it('keeps pending human approval separate from completed technical QC', () => {

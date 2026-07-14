@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.npc.enemy.aegis.briarwatch.den.overlord.captain",
+  "displayName": "Briarwatch Den Overlord",
+  "category": "character",
+  "model": "chr_npc_empire_m_captain_m.glb",
+  "qc": "chr_npc_empire_m_captain_m.qc.json",
+  "runtime": {
+    "profileKey": "enemy_aegis_briarwatch_den_overlord_captain",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_humanoid_v2",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+    "qcSha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+    "previews": {
+      "front": "7c5b766b92651fbc817588f6f0c4d0897e971944740532d269b17ddcd315cb2a"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:17.992Z",
+    "reviewHash": "02999f505d5f6d67d75ea55272dd0de43bc642de52f50b3fcbcd0c19d51fcb6c"
+  },
+  "approvalState": "approved"
+}

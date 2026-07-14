@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "assetId": "creature.lair_spider.t1",
+  "displayName": "Lair Spider",
+  "category": "prop",
+  "model": "prop_creature_lair_spider.glb",
+  "qc": "prop_creature_lair_spider.qc.json",
+  "runtime": {
+    "staticKey": "creature_lair_spider"
+  },
+  "compatibility": {
+    "bodyFamily": "creature_arachnid_v1",
+    "bodyVariant": "neutral",
+    "skeletonId": "creature_arachnid_v1",
+    "bindPoseId": "grounded_v1",
+    "markers": [
+      "root",
+      "ground_contact",
+      "attack_origin",
+      "hit_center"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "ef2e75b82a38ade52df2526168fca70d71f7dd60dab35a74e25621eb160e5ba0",
+    "qcSha256": "cea602c3b5b50e2ca2e476e488bf7bed8248a422f6df7d734328b1d2a5abed98",
+    "previews": {
+      "front": "99452f32e8aab198192c8386c7fb06ff46e6c904eb4aaeb2f9a3990c6f07d13b"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/creature/lair_spider/front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "npc-creature-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T18:15:45.900Z",
+    "reviewHash": "b3b726fdb99fa6c3062c5f39adac2a64ec509eff4db30d56a6f32d57b4eea84f"
+  },
+  "approvalState": "approved"
+}

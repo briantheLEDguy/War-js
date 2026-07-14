@@ -56,6 +56,11 @@ default Blender 5.0 Windows installation it is commonly:
 %APPDATA%\Blender Foundation\Blender\5.0\extensions\.user\blender_org\mpfb\data
 ```
 
+Blender stores the extension code and user asset data separately. If automatic
+discovery is unavailable, set `MPFB_PATH` to
+`%APPDATA%\\Blender Foundation\\Blender\\5.0\\extensions\\blender_org\\mpfb` and
+`MPFB_ASSET_ROOT` to the `data` path above.
+
 Run the doctor from the repository root:
 
 ```bash
@@ -144,6 +149,9 @@ npm run models:all -- destruction_preview
 npm run models:all -- equipment
 npm run models:all -- weapons
 npm run models:all -- jewels
+npm run models:promote-roster -- --run-id <id> --kind playable --key <key> --revision <n> --bypass-approval
+npm run models:promote-roster -- --run-id <id> --kind npc --key <body-foundation> --revision <n> --bypass-approval
+npm run models:promote-roster -- --run-id <id> --kind creature --key <creature-key> --revision <n> --bypass-approval
 ```
 
 `models:roster` performs a strict doctor preflight before creating any revision,
@@ -165,6 +173,7 @@ Generated artifacts:
 - Approved QC sidecar with matching hash: `public/assets/models/<neutral_name>.qc.json`
 - Draft source, preview, and QC artifacts: `artifacts/model-jobs/<job>/`
 - Model-stage-approved authoring bundles: `authoring/approved/model-stage/<kind>/<key>/`
+- Directly authorized runtime manifests: `scripts/blender-character-pipeline/data/approved-assets/*.approved.json`
 - Approved-only runtime resolver: `public/assets/models/asset-index.json`
 
 The `artifacts/` tree is ignored and disposable. Delete it during repo cleanup
@@ -207,6 +216,37 @@ Available tools:
 | `record_model_review` | Record explicit review decisions and evidence hashes. |
 | `promote_model_set` | Atomically promote only hash-matching approved assets. |
 
+The typed modular-character surface also exposes `assemble_base_character`,
+`fit_wearable`, `apply_body_mask`, `attach_rigid_item`, `validate_pose_pack`,
+`render_turntable`, and `export_asset`. These stages read stable MCP resources
+(`catalog://body-archetypes`, `catalog://wearable-slots`,
+`rig://humanoid-v1/sockets`, `rig://humanoid-v1/body-masks`,
+`test://pose-packs/core`, and `export://profiles`) and reject a mismatched
+attachment method before a Blender job starts. The `repair_fit_failure` and
+`build_test_character` prompts encode the repair and fixture workflows.
+
+The resource JSON is checked in under `pipeline-data/`. Rigid equipment uses
+bone parenting/Child Of through a named socket; skinned wearables use
+nearest-face vertex-group transfer or Surface Deform, normalized to four
+influences; loose garments use an armature-first pinned Cloth stack. Body masks
+are reversible vertex groups plus Mask modifiers. `modular_character_utils.py`
+also provides transform hygiene, loose-geometry cleanup, canonical socket
+creation, and BVHTree overlap helpers.
+
+To produce a couple of real local fixtures without MPFB packs:
+
+```bash
+npm run models:generate:test-assets
+npm run models:validate:character
+```
+
+The command creates draft-only GLBs in `test-assets/` for a canonical body, a
+socketed rigid sabre, and a transferred skinned chest wearable, with four-view
+renders and QC sidecars. They are deliberately excluded from the runtime
+registry; human review and hash-bound promotion remain mandatory. The local
+GLB inspector is a structural gate, while an installed Khronos validator can
+be added as the final external conformance gate.
+
 For focused locomotion and melee review, call `render_model_review` with
 `includeAnimations: true` and
 `animationEvidenceProfile: "locomotion_melee_key_phases"`. The manifest keeps
@@ -214,6 +254,16 @@ the legacy midpoint promotion key for each clip while adding side/back walk and
 run phases plus front/side melee ready, windup, impact, follow-through, and
 recovery frames. Every emitted PNG receives a SHA-256 hash in the completed job
 manifest; the default `midpoint` profile remains available for faster checks.
+
+`models:roster` runs this animation evidence stage automatically for playable
+groups. It writes `animation-stage.qc.json` plus one
+`animation-review/<m|f>/review-render.json` manifest per body variant. The
+stage requires the exact nine clips from `canonical-animation-pack.json`,
+checks embedded clip names in body and equipped GLBs, and requires both
+variant evidence manifests. The technical result may be `ready_for_review`,
+but `animationApprovalEligible` remains false until a human reviews the
+evidence and later LOD gates are satisfied. The current end-to-end pilot is
+limited to Battle Prelate (`battle_prelate_hammer`) and Warbrute (`unarmed`).
 
 ## Blender Entry Points
 

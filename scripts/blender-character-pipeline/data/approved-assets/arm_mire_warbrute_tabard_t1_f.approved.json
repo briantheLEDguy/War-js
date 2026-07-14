@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.mire.warbrute.tabard.t1.f",
+  "displayName": "Warbrute Tabard Female",
+  "category": "armor",
+  "model": "arm_mire_warbrute_tabard_t1_f.glb",
+  "qc": "arm_mire_warbrute_tabard_t1_f.qc.json",
+  "runtime": {
+    "itemKey": "starter_mire_brutish_warbrute_tabard_f",
+    "bodyVariant": "f"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_warbrute_f",
+    "bodyVariant": "f",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "tabard"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "85ec945b6184a48da08e6fad4b30ef47a8d8b03e0a1002ed1a5a8d4c3dd608a2",
+    "qcSha256": "f518440b9f6292c711e67002f7d455aa8c55a5453e618bb75fc82bae3d2db63a",
+    "previews": {
+      "front": "fea0199fba3f555513a7a7e121393b9486839776e6455f0b80374f59f27113a9"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/warbrute/f/tabard_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Warbrute pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:54.277Z",
+    "reviewHash": "abe2f0096defb287390e7375723fc703d63631903c54e5d2162df05d550f8395"
+  },
+  "approvalState": "approved"
+}

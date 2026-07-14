@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic_humanoid_v2.battle_prelate.head.f",
+  "model": "arm_civic_humanoid_v2_battle_prelate_head_f.glb",
+  "modelSha256": "593449d112cad0f87d95ad4e243c168b5ec75d846fef917c797fda07c660e05a",
+  "fileSizeBytes": 1331736,
+  "category": "armor",
+  "slot": "head",
+  "bodyFamily": "civic_humanoid_v2",
+  "bodyVariant": "f",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "totalTriangles": 660,
+  "drawCalls": 1,
+  "maxInfluencesBeforeLimit": 4,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 128,
+  "previewImages": [
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\isometric.png"
+  ],
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\front.png",
+      "sha256": "ec6376cba6c1e991a8a962cf5d620d06e8bf219a674d2f6aa0e8eadb410170cf"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\side.png",
+      "sha256": "1c0489aa66f592c88ee95bc81eacdd371aadfdd6601e4083bc975815280a14c9"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\back.png",
+      "sha256": "9d7ada86fc57a161f4e102d5d67923c386c557533bc71fbfceae86c7473acab6"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\mpfb-two-pilot\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\isometric.png",
+      "sha256": "57fa181ddbcd70b10d0040681de2c4897b4692d806b0749a5af5b202ee28fc44"
+    }
+  ],
+  "provenance": {
+    "provider": "local_mpfb",
+    "generator": "generate_mpfb_modular_armor.py",
+    "license": "CC0-1.0",
+    "assetSource": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\grinsegold_corinthian_helmet\\grinsegold_corinthian_helmet.mhclo",
+    "assetSourceSha256": "2605ff8b36a3f1e46196416cede7ad88de753f6a297f51c9e8833de6ab35455f",
+    "sourcePack": "hats02",
+    "sourcePackSha256": "838b9b51ba31d27f21198ad4506eb9b23e1c03eb246fe68f26da99e26b40e1aa",
+    "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/hats02.html"
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "manifold": true,
+    "noDegenerateFaces": true,
+    "reviewViewsPresent": true,
+    "pbrChannelsPresent": true
+  },
+  "qcPassed": true
+}

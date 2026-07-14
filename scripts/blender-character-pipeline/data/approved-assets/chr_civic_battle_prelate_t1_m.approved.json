@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.civic.battle_prelate.t1.m",
+  "displayName": "Battle Prelate Male",
+  "category": "character",
+  "model": "chr_civic_battle_prelate_t1_m.glb",
+  "qc": "chr_civic_battle_prelate_t1_m.qc.json",
+  "runtime": {
+    "profileKey": "civic_battle_prelate_m"
+  },
+  "compatibility": {
+    "bodyFamily": "civic_battle_prelate_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "qcSha256": "6ffd599db95f7b9be9f1bb045bf0f7b008c75be68573a26d4a9296e8261111c3",
+    "previews": {
+      "front": "11f8b57970fa3b937bdefa6046d80d9f8cf7ad1ac61b342ac32a533e4bf903e3"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/battle_prelate/m/body_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "mpfb-two-pilot",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Battle Prelate pilot."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-14T17:14:47.963Z",
+    "reviewHash": "5d16ab5b832be1ee019ee83a3c4a8a5c9243dea83a3d17581808d979aa9c4daf"
+  },
+  "approvalState": "approved"
+}

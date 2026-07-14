@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.test.chest.civic.m",
+  "model": "test_skinned_chest_civic_m.glb",
+  "modelSha256": "43b30fe8fa9a1fc7f93a5a8603e2f6201f2e6916ae7da40821b483e6da9dc851",
+  "qcPassed": true,
+  "assetCategory": "armor",
+  "bodyFamily": "civic_humanoid_v2",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "totalTris": 2448,
+  "meshCount": 2,
+  "drawCalls": 2,
+  "nonManifoldEdges": 0,
+  "maxInfluencesObserved": 4,
+  "unweightedVertices": 0,
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 0,
+  "builtLods": [
+    "LOD0"
+  ],
+  "requiredClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "missingRequiredClips": [],
+  "posePackId": "core_v1",
+  "poseValidation": {
+    "passed": true,
+    "poses": [
+      "neutral",
+      "shoulder_extreme",
+      "elbow_extreme",
+      "hip_extreme",
+      "knee_extreme",
+      "jump",
+      "attack_melee",
+      "cast",
+      "death"
+    ],
+    "method": "blender_bvhtree",
+    "validator": "pipeline-tools/validate_pose_pack.py"
+  },
+  "pipelineStages": {
+    "base": {
+      "cleanup": {
+        "removedVertices": 0,
+        "removedEdges": 0
+      },
+      "weights": {
+        "maxInfluencesObserved": 4,
+        "maxInfluencesBeforeLimit": 4,
+        "unweightedVertices": 0
+      }
+    },
+    "classification": "skinned",
+    "fitMethod": "data_transfer_nearest_face_interpolated",
+    "bodyMask": {
+      "maskId": "under_chest",
+      "vertexGroup": "body_mask_under_chest",
+      "vertexCount": 0,
+      "modifier": "mask_under_chest"
+    },
+    "bodyMaskExport": {
+      "removedForGlbExport": [
+        "mask_under_chest"
+      ],
+      "vertexGroupRetained": true,
+      "runtimePolicy": "apply_body_mask_after_import"
+    }
+  },
+  "previewImages": [
+    "scripts/blender-character-pipeline/test-assets/reviews/arm_test_chest_civic_m/front.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/arm_test_chest_civic_m/side.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/arm_test_chest_civic_m/back.png",
+    "scripts/blender-character-pipeline/test-assets/reviews/arm_test_chest_civic_m/isometric.png"
+  ],
+  "reviewStatus": "fixture_draft",
+  "runtimeReady": false,
+  "promotionEligible": false,
+  "wearableValidation": {
+    "passed": true,
+    "slot": "chest",
+    "kind": "skinned",
+    "fitMethod": "data_transfer_nearest_face_interpolated",
+    "coveredRegions": [
+      "torso"
+    ],
+    "bodyMaskExport": {
+      "removedForGlbExport": [
+        "mask_under_chest"
+      ],
+      "vertexGroupRetained": true,
+      "runtimePolicy": "apply_body_mask_after_import"
+    }
+  }
+}
