@@ -2,6 +2,7 @@
 
 ## 2026-07-14
 
+- Preserved visible weapon attachments when an authored weapon is blocked or unavailable: the approval gate still prevents the unapproved model from loading, while the player now receives an animatable procedural fallback instead of appearing unarmed.
 - Fixed the runtime handoff for directly promoted playable armor: legacy local-save item keys now resolve to the family-prefixed approved registry entries, preserving the skinned overlay path instead of mounting detached static armor.
 - Refined the unified Campaign Atlas with dark-fantasy engraved relief styling, fit-to-pane defaults, shared physical scene scaling, cursor-anchored wheel zoom, drag panning, and reliable node/tier gesture handling.
 - Reworked the character-generation pilot around explicit rigid, skinned, and loose wearable paths with canonical socket/body-mask/pose-pack/export resources, narrow MCP stage tools and prompts, Blender BVH/weight-transfer helpers, and three draft-only generated GLB fixtures (base body, socketed sabre, and transferred chest wearable) validated before any runtime promotion.

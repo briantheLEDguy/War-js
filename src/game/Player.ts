@@ -181,8 +181,9 @@ export class Player {
       activeSlots.add(slot);
 
       const resolvedVisual = await loader.resolveEquipmentModel(key, visual.model, compatibility);
+      const isWeaponSlot = slot === 'mainHand' || slot === 'offHand';
       if (
-        resolvedVisual.disabled
+        (resolvedVisual.disabled && !isWeaponSlot)
         || (resolvedVisual.skinned && !this.canUseSkinnedEquipment(resolvedVisual))
       ) {
         this.removeEquipmentOverlay(slot);
@@ -201,10 +202,16 @@ export class Player {
       existing?.removeFromParent();
       this.equipmentOverlays.delete(slot);
 
-      const overlay = await loader.loadModel(
-        resolvedVisual.model,
-        () => buildEquipmentVisualFallback(visual.fallback, key),
-      );
+      // A blocked weapon still needs a visible, animatable representation. The
+      // approval gate must prevent the authored asset from loading, but it
+      // should not leave the character visibly unarmed when a safe primitive
+      // fallback is available.
+      const overlay = resolvedVisual.disabled && isWeaponSlot
+        ? buildEquipmentVisualFallback(visual.fallback, key)
+        : await loader.loadModel(
+          resolvedVisual.model,
+          () => buildEquipmentVisualFallback(visual.fallback, key),
+        );
       if (requestId !== this.equipmentVisualRequestId) {
         overlay.removeFromParent();
         return;
