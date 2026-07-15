@@ -199,6 +199,41 @@ describe('body-compatible equipment resolution', () => {
     });
   });
 
+  test('bridges legacy playable item keys to directly promoted runtime entries', async () => {
+    installAssetFetch({
+      schemaVersion: 2,
+      equipment: {
+        starter_civic_humanoid_battle_prelate_hands_m: {
+          assetId: 'arm.civic.battle_prelate.hands.t1.m',
+          model: 'arm_civic_battle_prelate_hands_t1_m.glb',
+          bodyFamily: 'civic_battle_prelate_m',
+          bodyVariant: 'm',
+          skeletonId: 'humanoid_game_v2',
+          bindPoseId: 'a_pose_v2',
+          lifecycleStatus: 'approved',
+          runtimeReady: true,
+          skinned: true,
+          coveredRegions: ['arms', 'hands'],
+        },
+      },
+    }, ['arm_civic_battle_prelate_hands_t1_m.glb']);
+
+    await expect(new AssetLoader().resolveEquipmentModel(
+      'starter_civic_battle_prelate_hands_m',
+      'fallback.glb',
+      {
+        bodyFamily: 'civic_battle_prelate_m',
+        bodyVariant: 'm',
+        skeletonId: 'humanoid_game_v2',
+        bindPoseId: 'a_pose_v2',
+      },
+    )).resolves.toMatchObject({
+      model: 'arm_civic_battle_prelate_hands_t1_m.glb',
+      skinned: true,
+      coveredRegions: ['arms', 'hands'],
+    });
+  });
+
   test.each([
     ['body family', { ...compatibleFemale, bodyFamily: 'mire_brutish_v1' }],
     ['body variant', { ...compatibleFemale, bodyVariant: 'm' }],
