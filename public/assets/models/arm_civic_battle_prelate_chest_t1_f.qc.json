@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "assetId": "arm.civic_humanoid_v2.battle_prelate.chest.f",
   "model": "arm_civic_humanoid_v2_battle_prelate_chest_f.glb",
-  "modelSha256": "81695300ac3eeac99299f6cc5049068f6308a97a5424817d7411726b6ad40fc3",
-  "fileSizeBytes": 230676,
+  "modelSha256": "b452dc31e0f3b11a6c53e3782f5a60c7138d96c2ec69d9a3680bbf0962fac397",
+  "fileSizeBytes": 240300,
   "category": "armor",
   "slot": "chest",
   "bodyFamily": "civic_humanoid_v2",
@@ -29,31 +29,31 @@
   ],
   "maxTextureDimension": 128,
   "previewImages": [
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\front.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\side.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\back.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\isometric.png"
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\isometric.png"
   ],
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\front.png",
-      "sha256": "534f45e9508dafa8f6b7af3426c2e5984d986c1e13065c7156d902aa4afc9665"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\front.png",
+      "sha256": "a6618efdc919160413b3f8e7067e2bf28449e42e243e06da8b0674ee311d4fd3"
     },
     {
       "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\side.png",
-      "sha256": "6bde20d9c46256452ef2aabb870dc1340ebb89993e3077eae4bdf83b4e6f44b1"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\side.png",
+      "sha256": "04a4180aecb6f90d370b3e265c1343e878339dc31ae53c0e9296f3ef6b43e8d1"
     },
     {
       "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\back.png",
-      "sha256": "a92460e989ddc960439d7a23bc5bc5312e109266d3ce97aa9622a159c6ef5c41"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\back.png",
+      "sha256": "ec64dd0fb7a4894b7485e977e62baf77536781338d6d4ad50d17427bdb45a1f1"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\battle_prelate\\revision-0002\\f\\armor-review\\battle_prelate\\isometric.png",
-      "sha256": "bb4b0dcc0134ee93617c4e20cbb56278b79c98adcabd70edcba93c19af406b65"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\f\\armor-review\\battle_prelate\\isometric.png",
+      "sha256": "5aba95adedb8995943986f7701ea74ff7e4a010d4bd6aecbec8c3b2b465459ef"
     }
   ],
   "provenance": {

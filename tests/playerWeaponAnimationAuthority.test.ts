@@ -141,4 +141,42 @@ describe('Player authored weapon animation authority', () => {
     expect(overlay?.position.toArray()).toEqual([0, 0, 0]);
     expect(overlay?.rotation.toArray()).toEqual([0, 0, 0, 'XYZ']);
   });
+
+  test('calibrates procedural sword geometry into a guarded carry pose', async () => {
+    const visual = new THREE.Group();
+    const rightSocket = new THREE.Object3D();
+    rightSocket.name = 'socket_hand_R';
+    visual.add(rightSocket);
+    const player = await buildPlayer(visual, []);
+
+    await player.applyEquipmentVisuals(
+      { mainHand: 'sword_iron' },
+      equipmentLoaderFor(new THREE.Group(), []),
+    );
+
+    const overlay = player.object.getObjectByName('EquipmentOverlay_mainHand_sword_iron');
+    expect(overlay?.parent).toBe(rightSocket);
+    expect(overlay?.userData.equipmentFallback).toBe(true);
+    const carryDirection = new THREE.Vector3(0, 1, 0)
+      .applyQuaternion(overlay!.quaternion);
+    expect(carryDirection.y).toBeLessThan(-0.8);
+  });
+
+  test('lowers a procedural shield from the wrist socket onto the forearm', async () => {
+    const visual = new THREE.Group();
+    const leftSocket = new THREE.Object3D();
+    leftSocket.name = 'socket_hand_L';
+    visual.add(leftSocket);
+    const player = await buildPlayer(visual, []);
+
+    await player.applyEquipmentVisuals(
+      { offHand: 'shield_steel' },
+      equipmentLoaderFor(new THREE.Group(), []),
+    );
+
+    const overlay = player.object.getObjectByName('EquipmentOverlay_offHand_shield_steel');
+    expect(overlay?.parent).toBe(leftSocket);
+    expect(overlay?.userData.equipmentFallback).toBe(true);
+    expect(overlay?.position.toArray()).toEqual([0, -0.045, 0.12]);
+  });
 });

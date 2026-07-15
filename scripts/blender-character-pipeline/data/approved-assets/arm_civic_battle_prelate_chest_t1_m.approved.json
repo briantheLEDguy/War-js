@@ -20,10 +20,10 @@
     ]
   },
   "hashes": {
-    "modelSha256": "83e5b6cbccab19424d8ebafbcf4c5cb8ea76bb94b9f9643101bc5c3cf388e8f3",
-    "qcSha256": "00877e55dd71b34d5e27d8a0980b126e4d6034d95f2d89229e3f648dc43ef6a3",
+    "modelSha256": "44b87d7824fc282f8f958caab201d4078d57bc7ff1b0d40ea57190eb686f4fb1",
+    "qcSha256": "36fdd40203be94903a37c20bd199b11b0a644f1d8fe00dffb48f04b66f084cf3",
     "previews": {
-      "front": "b8964a6089597cfd089cf087d37c2d3d4d377c6edab8b01b79d7bfd6089eb6f9"
+      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
     }
   },
   "previews": {
@@ -31,15 +31,15 @@
   },
   "provenance": {
     "kind": "roster_direct_promotion",
-    "sourceRevision": 2,
-    "sourceRunId": "dark-fantasy-character-pass-v1",
+    "sourceRevision": 1,
+    "sourceRunId": "dark-fantasy-character-pass-v3",
     "bypassApproval": true,
-    "bypassReason": "User-authorized dark-fantasy palette and canonical hand-socket attachment iteration"
+    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T08:58:45.603Z",
-    "reviewHash": "50b0d295efb2bb5b2b5ff00ab3f640bbeab8ac751a12baefda8098947c7741e1"
+    "reviewedAt": "2026-07-15T10:19:31.445Z",
+    "reviewHash": "d15f96acfe99cec0d9cc5dc18885a08a9915930c39d41ada85ef9e9f827ff389"
   },
   "approvalState": "approved"
 }

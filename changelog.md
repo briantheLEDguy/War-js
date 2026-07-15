@@ -4,6 +4,7 @@
 
 - Added a reusable dark-fantasy armor pass that applies muted class palettes over fitted MPFB silhouettes, removing bright contemporary source graphics and gold helmet materials from the Battle Prelate and Warbrute runtime sets.
 - Reparented rigid equipment overlays to the canonical animated hand sockets, added Warbrute starter cleaver and shield equipment, and regenerated/promoted both characters with animation, deformation, clearance, and round-trip QC evidence.
+- Corrected generated armor color encoding so dark cloth remains readable in the browser, added visible woven/normal variation, and calibrated procedural sword/shield fallbacks for guarded hand placement.
 
 ## 2026-07-14
 

@@ -42,7 +42,7 @@ MODULE_TRIANGLE_LIMIT = 14_000
 FIXTURE_CAPE_TRIANGLE_LIMIT = 25_000
 MODULE_TRIANGLE_TARGET = 6_500
 EQUIPPED_TRIANGLE_LIMIT = 120_000
-GENERATOR_VERSION = "1.6.0-dark-fantasy-palette"
+GENERATOR_VERSION = "1.7.0-readable-dark-fantasy"
 
 # Each layer is authored with a deterministic clearance from the accepted body.
 # The values are deliberately small: enough to prevent coplanar fighting and
@@ -150,15 +150,15 @@ def load_recipe(recipe_path: str, family: str, variant: str, set_id: str | None)
 
 
 def hex_color(value: str) -> tuple[float, float, float, float]:
+    """Return normalized sRGB channels for an sRGB base-color image.
+
+    The generated texture is tagged as sRGB below. Supplying linearized values
+    here causes the browser renderer to decode them a second time, crushing
+    dark cloth and leather toward black. Blender's material viewport can hide
+    that mistake, so keep the conversion boundary explicit here.
+    """
     value = value.lstrip("#")
-    srgb = tuple(int(value[index : index + 2], 16) / 255 for index in (0, 2, 4))
-    linear = tuple(
-        channel / 12.92
-        if channel <= 0.04045
-        else ((channel + 0.055) / 1.055) ** 2.4
-        for channel in srgb
-    )
-    return linear + (1.0,)
+    return tuple(int(value[index : index + 2], 16) / 255 for index in (0, 2, 4)) + (1.0,)
 
 
 def create_image(name: str, size: int, pixel_fn, colorspace: str) -> bpy.types.Image:
@@ -204,6 +204,7 @@ def pbr_material(family: str, style: str, color_value: str) -> bpy.types.Materia
     metallic = 0.78 if style == "metal" else 0.08 if style == "accent" else 0.0
     roughness = 0.38 if style == "metal" else 0.64 if style == "leather" else 0.78
     size = 128
+    weave_strength = 0.085 if style in {"cloth", "leather"} else 0.045
     base_image = create_image(
         f"{name}_baseColor",
         size,
@@ -212,11 +213,14 @@ def pbr_material(family: str, style: str, color_value: str) -> bpy.types.Materia
                 0.0,
                 min(
                     1.0,
-                    channel
-                    * (
-                        0.95
-                        + 0.022 * math.sin(u * 97.0) * math.sin(v * 103.0)
-                        + 0.010 * math.sin(u * 211.0 + v * 173.0)
+                    channel * (
+                        0.90
+                        + weave_strength * (
+                            0.52 * math.sin(u * 2.0 * math.pi * 57.0)
+                            + 0.35 * math.sin(v * 2.0 * math.pi * 53.0)
+                            + 0.18 * math.sin((u + v) * 2.0 * math.pi * 19.0)
+                        )
+                        + 0.025 * math.sin(u * 2.0 * math.pi * 11.0 + v * 2.0 * math.pi * 7.0)
                     ),
                 ),
             )
@@ -229,8 +233,8 @@ def pbr_material(family: str, style: str, color_value: str) -> bpy.types.Materia
         f"{name}_normal",
         size,
         lambda u, v: (
-            0.5 + 0.025 * math.sin(u * 52.0),
-            0.5 + 0.025 * math.cos(v * 47.0),
+            0.5 + (0.07 if style in {"cloth", "leather"} else 0.04) * math.sin(u * 52.0),
+            0.5 + (0.07 if style in {"cloth", "leather"} else 0.04) * math.cos(v * 47.0),
             1.0,
             1.0,
         ),
