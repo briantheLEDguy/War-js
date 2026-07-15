@@ -131,6 +131,37 @@ function isSkinnedEquipment(entry: IndexedModel): boolean {
   return entry.skinned === true || (entry.skinned === undefined && Boolean(entry.skeletonId));
 }
 
+// Directly promoted playable assets use the body-family prefix from the
+// runtime registry. Existing local character saves can still carry the
+// pre-promotion item keys, so resolve both names before falling back to a
+// static overlay. Without this bridge, the game mounts the same GLB shown in
+// review as an unbound object and it appears detached from the body.
+const LEGACY_EQUIPMENT_KEY_ALIASES = [
+  ['starter_civic_', 'starter_civic_humanoid_'],
+  ['starter_mire_', 'starter_mire_brutish_'],
+] as const;
+
+function equipmentKeyCandidates(itemKey: string): string[] {
+  const candidates = [itemKey];
+  for (const [legacyPrefix, runtimePrefix] of LEGACY_EQUIPMENT_KEY_ALIASES) {
+    if (itemKey.startsWith(legacyPrefix)) {
+      candidates.push(`${runtimePrefix}${itemKey.slice(legacyPrefix.length)}`);
+    }
+  }
+  return candidates;
+}
+
+function findIndexedEquipmentEntry(
+  index: AssetIndex | null,
+  itemKey: string,
+): IndexedModel | undefined {
+  for (const candidate of equipmentKeyCandidates(itemKey)) {
+    const entry = index?.equipment?.[candidate];
+    if (entry) return entry;
+  }
+  return undefined;
+}
+
 function prepareLoadedModel(root: THREE.Object3D): void {
   root.traverse((n) => {
     if (!(n as THREE.Mesh).isMesh) return;
@@ -223,7 +254,7 @@ export class AssetLoader {
     context?: EquipmentCompatibilityContext,
   ): Promise<EquipmentAssetResolution> {
     const index = await this.loadAssetIndex();
-    const indexedEntry = index?.equipment?.[itemKey];
+    const indexedEntry = findIndexedEquipmentEntry(index, itemKey);
     if (!indexedEntry) {
       return { model: fallbackModel, bodyModel: null };
     }
@@ -263,7 +294,7 @@ export class AssetLoader {
   ): Promise<string | null> {
     const index = await this.loadAssetIndex();
     for (const key of itemKeys) {
-      const indexedEntry = index?.equipment?.[key];
+      const indexedEntry = findIndexedEquipmentEntry(index, key);
       if (!indexedEntry || !isRuntimeApproved(indexedEntry)) continue;
       const entry = selectEquipmentVariant(indexedEntry, context);
       if (!entry || !isRuntimeApproved(entry) || !isEquipmentCompatible(entry, context)) continue;
