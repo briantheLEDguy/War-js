@@ -192,6 +192,13 @@ export class Player {
 
       const existing = this.equipmentOverlays.get(slot);
       if (existing?.userData.equipmentKey === key) {
+        if (isWeaponSlot) {
+          const socket = findWeaponAttachmentSocket(this.object, slot);
+          if (socket && existing.parent !== socket) {
+            socket.add(existing);
+            positionEquipmentWeaponOverlay(existing, slot, inferWeaponKindFromEquipment(equipment?.[slot]), true);
+          }
+        }
         if (!resolvedVisual.skinned || existing.userData.skinnedEquipmentOverlay) {
           for (const region of resolvedVisual.coveredRegions ?? []) {
             activeBodyRegions.add(region);
@@ -224,13 +231,17 @@ export class Player {
       prepareEquipmentOverlay(overlay);
       if (slot === 'mainHand' || slot === 'offHand') {
         const weaponKind = inferWeaponKindFromEquipment(equipment?.[slot]);
+        const socket = findWeaponAttachmentSocket(this.object, slot);
         markWeaponAttachment(overlay, {
           slot,
           kind: weaponKind,
           source: 'equipment',
           key,
         });
-        positionEquipmentWeaponOverlay(overlay, slot, weaponKind);
+        positionEquipmentWeaponOverlay(overlay, slot, weaponKind, Boolean(socket));
+        (socket ?? this.object).add(overlay);
+      } else {
+        this.object.add(overlay);
       }
       if (resolvedVisual.skinned) {
         const rebound = bindSkinnedOverlayToPlayer(
@@ -246,7 +257,6 @@ export class Player {
       for (const region of resolvedVisual.coveredRegions ?? []) {
         activeBodyRegions.add(region);
       }
-      this.object.add(overlay);
       this.equipmentOverlays.set(slot, overlay);
     }
 
@@ -667,6 +677,11 @@ function prepareEquipmentOverlay(object: THREE.Object3D): void {
       mat.needsUpdate = true;
     }
   });
+}
+
+function findWeaponAttachmentSocket(root: THREE.Object3D, slot: EquipSlot): THREE.Object3D | null {
+  const socketName = slot === 'offHand' ? 'socket_hand_L' : 'socket_hand_R';
+  return root.getObjectByName(socketName) ?? null;
 }
 
 function findFirstSkeleton(root: THREE.Object3D): THREE.Skeleton | null {

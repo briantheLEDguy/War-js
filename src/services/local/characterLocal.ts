@@ -213,6 +213,9 @@ function defaultEquipmentFor(
   if (isBattlePrelate(race, className)) {
     equipment.mainHand = 'weapon_hammer_reliquary_2h';
     delete equipment.offHand;
+  } else if (race === 'greenskin' && className === 'Warbrute') {
+    equipment.mainHand = 'weapon_warbrute_cleaver';
+    equipment.offHand = 'shield_steel';
   }
   return equipment;
 }

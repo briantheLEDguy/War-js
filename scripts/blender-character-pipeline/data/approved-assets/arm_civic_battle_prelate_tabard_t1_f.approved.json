@@ -20,10 +20,10 @@
     ]
   },
   "hashes": {
-    "modelSha256": "61daa2e779a507828131423b38d79b5c61f3ac24e7b478951597812c32af2e45",
-    "qcSha256": "b540aa0808cf1e485765cb5f180cae69771cf687f8d526b905af8f2ea9396df7",
+    "modelSha256": "508a8d31e30817599a2871dafca260abe4518481dfd7e6a3f2aa11447faf080a",
+    "qcSha256": "c0b47f012753e7fa7297787bf50b17ecee672fed80e04de416ad725f7cca0576",
     "previews": {
-      "front": "d0c4b361c027cc32d12d2d4bb017e55e9c07fff0f60eb62efd55e3c78d920b9d"
+      "front": "534f45e9508dafa8f6b7af3426c2e5984d986c1e13065c7156d902aa4afc9665"
     }
   },
   "previews": {
@@ -31,15 +31,15 @@
   },
   "provenance": {
     "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "armor-fit-final2-battle",
+    "sourceRevision": 2,
+    "sourceRunId": "dark-fantasy-character-pass-v1",
     "bypassApproval": true,
-    "bypassReason": "User-authorized armor fit regeneration"
+    "bypassReason": "User-authorized dark-fantasy palette and canonical hand-socket attachment iteration"
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T21:02:51.293Z",
-    "reviewHash": "a6a4b6e03cdbf7ede3cf86df067883a0992b3baed3c154574acccc7b5bfda8c5"
+    "reviewedAt": "2026-07-15T08:58:45.603Z",
+    "reviewHash": "bbd69066488847969e34145b3a5404c6c4e89ccd6fd9d16a8dacd6599a11e714"
   },
   "approvalState": "approved"
 }

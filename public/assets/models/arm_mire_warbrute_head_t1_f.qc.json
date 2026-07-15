@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "assetId": "arm.mire_brutish_v1.warbrute.head.f",
   "model": "arm_mire_brutish_v1_warbrute_head_f.glb",
-  "modelSha256": "b9d8f5d7c69defdd45c97a9e04d67d79c1f1b248186a78954408de036849882b",
-  "fileSizeBytes": 1331184,
+  "modelSha256": "642a426e79578d3ba03b1c62383f6d5880bde06e011b058c84a7d69e6227fdad",
+  "fileSizeBytes": 66904,
   "category": "armor",
   "slot": "head",
   "bodyFamily": "mire_brutish_v1",
@@ -29,31 +29,31 @@
   ],
   "maxTextureDimension": 128,
   "previewImages": [
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\front.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\side.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\back.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\isometric.png"
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\front.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\side.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\back.png",
+    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\isometric.png"
   ],
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\front.png",
-      "sha256": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\front.png",
+      "sha256": "0ba7910720f1a91829935a8cce8008eb1c560788731bb8b383d1df4c5e9c2c31"
     },
     {
       "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\side.png",
-      "sha256": "af58098e184c7657b109fed68bbf2246bd60cf53c2d6e1f7f68642fd4486889f"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\side.png",
+      "sha256": "546da91e6c4714c1158d28a4667e87b35b58e13d6011c61dfd232bd05f9e74d0"
     },
     {
       "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\back.png",
-      "sha256": "05f40c0d9aa3d8527581b971100168344add860c6b6734cd7702d973f9c4f090"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\back.png",
+      "sha256": "08e525cc783cf3df30506870d149aa3c4b12d615fb86aeed0b8be5445704e85b"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\armor-fit-final2-warbrute\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\isometric.png",
-      "sha256": "5e369b74d53be9da3815f8d6231327cbc596b6d4047c00381dee52f752d8f47a"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\armor-review\\warbrute\\isometric.png",
+      "sha256": "2dab5c57ae841d26bcfe09f921687bfd427e37c9a27b7ec78635f95aae3e597a"
     }
   ],
   "provenance": {

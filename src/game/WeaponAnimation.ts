@@ -79,7 +79,17 @@ export function positionEquipmentWeaponOverlay(
   object: THREE.Object3D,
   slot: EquipSlot,
   kind: WeaponAnimationKind,
+  socketed = false,
 ): void {
+  if (socketed) {
+    // Authored rigid equipment is exported in canonical socket space. Once it
+    // is parented to socket_hand_R/socket_hand_L, any extra world-space offset
+    // would move the grip away from the animated hand.
+    object.position.set(0, 0, 0);
+    object.rotation.set(0, 0, 0);
+    object.scale.set(1, 1, 1);
+    return;
+  }
   if (slot === 'offHand') {
     object.position.copy(OFF_HAND_ANCHOR);
     return;

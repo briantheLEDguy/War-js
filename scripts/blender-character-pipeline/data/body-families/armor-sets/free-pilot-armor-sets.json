@@ -24,10 +24,10 @@
       "displayName": "Battle Prelate Vestments",
       "bodyVariants": ["m", "f"],
       "palette": {
-        "metal": "#77736b",
-        "cloth": "#741d24",
-        "leather": "#3b241a",
-        "accent": "#d3b263"
+        "metal": "#4a5050",
+        "cloth": "#40536a",
+        "leather": "#33251d",
+        "accent": "#9b8265"
       },
       "modules": {
         "head": {
@@ -91,10 +91,10 @@
       "displayName": "Warbrute Scrap Harness",
       "bodyVariants": ["m", "f"],
       "palette": {
-        "metal": "#4e5148",
-        "cloth": "#4f321f",
-        "leather": "#2d2118",
-        "accent": "#a56b2a"
+        "metal": "#424740",
+        "cloth": "#3a342b",
+        "leather": "#2c2119",
+        "accent": "#6a2723"
       },
       "modules": {
         "head": {
