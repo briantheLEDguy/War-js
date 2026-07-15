@@ -39,6 +39,21 @@ function loaderFor(
   } as unknown as AssetLoader;
 }
 
+function equipmentLoaderFor(
+  visual: THREE.Object3D,
+  animations: THREE.AnimationClip[],
+): AssetLoader {
+  return {
+    ...loaderFor(visual, animations),
+    resolveEquipmentBaseBodyModel: vi.fn(async () => null),
+    resolveEquipmentModel: vi.fn(async () => ({
+      model: 'blocked-hammer.glb',
+      bodyModel: null,
+      disabled: true,
+    })),
+  } as unknown as AssetLoader;
+}
+
 async function buildPlayer(
   visual: THREE.Object3D,
   animations: THREE.AnimationClip[],
@@ -90,5 +105,20 @@ describe('Player authored weapon animation authority', () => {
     player.updateVisuals(0.24);
 
     expect(Math.abs(hammerRoot.rotation.x)).toBeGreaterThan(0.1);
+  });
+
+  test('keeps a procedural weapon visible when the authored weapon is blocked', async () => {
+    const player = await buildPlayer(new THREE.Group(), []);
+    await player.applyEquipmentVisuals(
+      { mainHand: 'weapon_hammer_reliquary_2h' },
+      equipmentLoaderFor(new THREE.Group(), []),
+    );
+
+    const overlay = player.object.getObjectByName(
+      'EquipmentOverlay_mainHand_weapon_hammer_reliquary_2h',
+    );
+    expect(overlay).toBeDefined();
+    expect(overlay?.userData.weaponSource).toBe('equipment');
+    expect(overlay?.getObjectByName('FallbackHammerHead')).toBeDefined();
   });
 });
