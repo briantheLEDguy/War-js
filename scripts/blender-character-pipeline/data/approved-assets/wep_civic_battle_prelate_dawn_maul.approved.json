@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "assetId": "wep.civic.battle_prelate.dawn_maul.t1",
+  "displayName": "Battle Prelate Equipment01 Dawn Maul",
+  "category": "weapon",
+  "model": "wep_civic_battle_prelate_dawn_maul.glb",
+  "qc": "wep_civic_battle_prelate_dawn_maul.qc.json",
+  "runtime": {
+    "itemKey": "weapon_hammer_reliquary_2h",
+    "bodyVariant": "m"
+  },
+  "compatibility": {
+    "bodyFamily": "civic_battle_prelate_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3",
+    "qcSha256": "fa75881403b01674343d283e10b0c946d46256c32e70447f08548efb5bb17739",
+    "previews": {
+      "front": "3eefe9dddb9e2ef6a8aed435074cac06f4f961e5a0263a0b270f1006dad2b9a3",
+      "side": "c39e9d1e81b006eef167f9a55fcdd70396ff0cacbf420289ce28c8109cc1cc9d",
+      "back": "08210bd09fb599b72bc92dd23f58ec3edba245f5f9050110ec24dc650d6cca01",
+      "isometric": "f8bc60c2d94e5393af8fc163f8b04b1d4f2993c17b97e85c9ec6aa39928fd96d",
+      "socket_alignment": "7aad025a0b5a49fb7d3e8b32162d06553ca342d0ae5197811e3f6703d78179bc"
+    }
+  },
+  "previews": {
+    "front": "reviews/weapon-battle-prelate/front.png",
+    "side": "reviews/weapon-battle-prelate/side.png",
+    "back": "reviews/weapon-battle-prelate/back.png",
+    "isometric": "reviews/weapon-battle-prelate/isometric.png",
+    "socket_alignment": "reviews/weapon-battle-prelate/socket_alignment.png"
+  },
+  "provenance": {
+    "kind": "weapon_attachment_pilot",
+    "sourceRunId": "run_20260715t082703427z",
+    "sourceAssetId": "wep.civic.battle_prelate.dawn_maul.draft",
+    "sourceKind": "makehuman_equipment01_culturalibre_war_hammer",
+    "license": "CC0-1.0",
+    "author": "culturalibre",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized production bypass for the Battle Prelate weapon."
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-15T08:27:03.427Z",
+    "reviewHash": "4b76d7b0a1febd95303c7650c04d59bf52e5783d713c855eb1c057470b034bc1"
+  },
+  "approvalState": "approved"
+}

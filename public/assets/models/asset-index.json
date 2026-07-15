@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-0861e598af7ae079",
+  "assetVersion": "approved-face22841345ac70",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -2179,12 +2179,37 @@
       }
     },
     "weapon_hammer_reliquary_2h": {
-      "assetId": "wep.hammer_2h.reliquary_steel.t1",
-      "lifecycleStatus": "compatibility_allowed",
-      "model": "wep_hammer_2h_reliquary_steel_t1.glb",
-      "reason": "retained legacy weapon awaiting reviewed socket attachment",
-      "reviewStatus": "blocked_socket_attachment_pending",
-      "runtimeReady": false
+      "variants": {
+        "m": {
+          "approvalState": "approved",
+          "assetId": "wep.civic.battle_prelate.dawn_maul.t1",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_m",
+          "bodyVariant": "m",
+          "lifecycleStatus": "approved",
+          "model": "wep_civic_battle_prelate_dawn_maul.glb",
+          "modelSha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3",
+          "previews": {
+            "back": "reviews/weapon-battle-prelate/back.png",
+            "front": "reviews/weapon-battle-prelate/front.png",
+            "isometric": "reviews/weapon-battle-prelate/isometric.png",
+            "side": "reviews/weapon-battle-prelate/side.png",
+            "socket_alignment": "reviews/weapon-battle-prelate/socket_alignment.png"
+          },
+          "previewSha256": {
+            "back": "08210bd09fb599b72bc92dd23f58ec3edba245f5f9050110ec24dc650d6cca01",
+            "front": "3eefe9dddb9e2ef6a8aed435074cac06f4f961e5a0263a0b270f1006dad2b9a3",
+            "isometric": "f8bc60c2d94e5393af8fc163f8b04b1d4f2993c17b97e85c9ec6aa39928fd96d",
+            "side": "c39e9d1e81b006eef167f9a55fcdd70396ff0cacbf420289ce28c8109cc1cc9d",
+            "socket_alignment": "7aad025a0b5a49fb7d3e8b32162d06553ca342d0ae5197811e3f6703d78179bc"
+          },
+          "qc": "wep_civic_battle_prelate_dawn_maul.qc.json",
+          "qcSha256": "fa75881403b01674343d283e10b0c946d46256c32e70447f08548efb5bb17739",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2"
+        }
+      }
     }
   },
   "generatedFrom": "scripts/blender-character-pipeline/data/approved-assets",
