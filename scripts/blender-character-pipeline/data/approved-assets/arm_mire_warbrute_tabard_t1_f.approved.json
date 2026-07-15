@@ -20,10 +20,10 @@
     ]
   },
   "hashes": {
-    "modelSha256": "1acb7b14a152191a9625beb6e2efb3e18d06d1ca90721a936a0b04a1feba507a",
-    "qcSha256": "1c903e6b9fec695fb23972cd4af448fa7d225122384d8acdc699608ad8451b96",
+    "modelSha256": "a74b6ae8670ff7deb5559fb51f0b4d62f89241f0aad288fa3d3eca551199ada9",
+    "qcSha256": "9dc4ad5da01eddf70a48f04bea2157ae9734a4827f293a73c73e1b9a1b0c6580",
     "previews": {
-      "front": "72379cd1aecbc745f9cc6dc39d85b69490e30c2026689e1bcd8458071030c0f6"
+      "front": "0ba7910720f1a91829935a8cce8008eb1c560788731bb8b383d1df4c5e9c2c31"
     }
   },
   "previews": {
@@ -32,14 +32,14 @@
   "provenance": {
     "kind": "roster_direct_promotion",
     "sourceRevision": 1,
-    "sourceRunId": "armor-fit-final2-warbrute",
+    "sourceRunId": "dark-fantasy-character-pass-v1",
     "bypassApproval": true,
-    "bypassReason": "User-authorized armor fit regeneration"
+    "bypassReason": "User-authorized dark-fantasy palette and canonical hand-socket attachment iteration"
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-14T21:02:58.563Z",
-    "reviewHash": "3c06eac9bbea91ac1f8abb13c5a91a0388ae717e5b318a121b3c0839979d633f"
+    "reviewedAt": "2026-07-15T08:59:00.021Z",
+    "reviewHash": "fddb198f0c7c179ec2aaddf19a651362bdecfeb993b9f5e09de55b61f746d3c9"
   },
   "approvalState": "approved"
 }

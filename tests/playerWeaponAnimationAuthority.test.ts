@@ -121,4 +121,24 @@ describe('Player authored weapon animation authority', () => {
     expect(overlay?.userData.weaponSource).toBe('equipment');
     expect(overlay?.getObjectByName('FallbackHammerHead')).toBeDefined();
   });
+
+  test('parents rigid equipment to the canonical hand socket', async () => {
+    const visual = new THREE.Group();
+    const rightSocket = new THREE.Object3D();
+    rightSocket.name = 'socket_hand_R';
+    visual.add(rightSocket);
+    const player = await buildPlayer(visual, []);
+
+    await player.applyEquipmentVisuals(
+      { mainHand: 'weapon_hammer_reliquary_2h' },
+      equipmentLoaderFor(new THREE.Group(), []),
+    );
+
+    const overlay = player.object.getObjectByName(
+      'EquipmentOverlay_mainHand_weapon_hammer_reliquary_2h',
+    );
+    expect(overlay?.parent).toBe(rightSocket);
+    expect(overlay?.position.toArray()).toEqual([0, 0, 0]);
+    expect(overlay?.rotation.toArray()).toEqual([0, 0, 0, 'XYZ']);
+  });
 });

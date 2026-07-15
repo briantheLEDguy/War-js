@@ -101,7 +101,7 @@
       "archetype": "relic",
       "animationProfile": "two_hand_relic",
       "headgear": "helmet",
-      "colors": { "cloth": "#781714", "cloth2": "#b8aa82", "metal": "#202b2d", "trim": "#9f7d2f", "leather": "#221611", "accent": "#e1d08a" }
+      "colors": { "cloth": "#40536a", "cloth2": "#5b4b38", "metal": "#4a5050", "trim": "#8d6d3a", "leather": "#33251d", "accent": "#9b8265" }
     },
     {
       "race": "dwarf",
@@ -218,7 +218,7 @@
       "archetype": "bruiser",
       "animationProfile": "sword_shield",
       "headgear": "helmet",
-      "colors": { "cloth": "#3b2b12", "cloth2": "#5a3216", "metal": "#4f5550", "trim": "#b06a24", "leather": "#33200f", "accent": "#d13b1f" },
+      "colors": { "cloth": "#3a342b", "cloth2": "#55402e", "metal": "#424740", "trim": "#76552f", "leather": "#2c2119", "accent": "#6a2723" },
       "sets": ["playable_smoke"]
     },
     {

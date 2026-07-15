@@ -42,7 +42,7 @@ MODULE_TRIANGLE_LIMIT = 14_000
 FIXTURE_CAPE_TRIANGLE_LIMIT = 25_000
 MODULE_TRIANGLE_TARGET = 6_500
 EQUIPPED_TRIANGLE_LIMIT = 120_000
-GENERATOR_VERSION = "1.5.0-fixture-roster"
+GENERATOR_VERSION = "1.6.0-dark-fantasy-palette"
 
 # Each layer is authored with a deterministic clearance from the accepted body.
 # The values are deliberately small: enough to prevent coplanar fighting and
@@ -300,52 +300,20 @@ def style_fixture_materials(
     fallback: bpy.types.Material,
     style: str,
 ) -> None:
-    """Use only glTF-stable fixture materials.
+    """Apply the authored class palette without carrying modern source colors.
 
-    Blender's generic MixRGB tint renders in the authoring scene but is not a
-    supported glTF material path, so source colors reappear after round-trip.
-    Keep authored helmet/torso/leg textures directly. Gloves and boots vary
-    wildly across costume packs, so those leather slots use the deterministic
-    class PBR material in both Blender and the emitted GLB.
+    The fitted MPFB fixtures are used for silhouette and topology, while their
+    source textures are intentionally not used for runtime armor. Several
+    packs contain bright contemporary graphics or gold/saturated materials that
+    defeat class art direction, and a post-export tint cannot reliably replace
+    a linked glTF base-color image. The deterministic generated PBR material is
+    therefore the single runtime material for every armor fixture.
     """
-    if not obj.material_slots:
-        assign_material(obj, fallback)
-        obj["fixtureMaterialsPreserved"] = False
-        return
     source_names = [slot.material.name for slot in obj.material_slots if slot.material]
-    if style == "leather":
-        assign_material(obj, fallback)
-        obj["fixtureMaterialsPreserved"] = False
-        obj["fixtureSourceMaterialNames"] = ",".join(source_names)
-        return
-    styled = []
-    for index, slot in enumerate(obj.material_slots):
-        source = slot.material
-        if not source or not source.use_nodes or not source.node_tree:
-            continue
-        material = source.copy()
-        material.name = f"{obj.name}_{style}_fixture_{index}"
-        material.use_fake_user = True
-        obj.data.materials[index] = material
-        shader = next(
-            (node for node in material.node_tree.nodes if node.type == "BSDF_PRINCIPLED"),
-            None,
-        )
-        if not shader:
-            continue
-        roughness = shader.inputs.get("Roughness")
-        metallic = shader.inputs.get("Metallic")
-        if roughness and not roughness.is_linked:
-            roughness.default_value = {
-                "metal": 0.34, "leather": 0.56, "cloth": 0.72, "accent": 0.48,
-            }.get(style, 0.62)
-        if metallic and not metallic.is_linked:
-            metallic.default_value = 0.62 if style == "metal" else 0.10 if style == "accent" else 0.0
-        styled.append(material.name)
-    if not styled:
-        assign_material(obj, fallback)
-    obj["fixtureMaterialsPreserved"] = bool(styled)
-    obj["fixtureMaterialNames"] = ",".join(styled)
+    assign_material(obj, fallback)
+    obj["fixtureMaterialsPreserved"] = False
+    obj["fixturePaletteApplied"] = True
+    obj["fixtureMaterialNames"] = fallback.name
     obj["fixtureSourceMaterialNames"] = ",".join(source_names)
 
 

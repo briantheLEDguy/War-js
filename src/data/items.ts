@@ -17,6 +17,7 @@ export type WeaponVisualKind =
   | 'sword'
   | 'staff'
   | 'hammer'
+  | 'cleaver'
   | 'axe'
   | 'dagger'
   | 'spear'
@@ -131,6 +132,15 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     equipSlot: 'mainHand',
     visual: { model: 'wep_civic_battle_prelate_dawn_maul.glb', fallback: 'mainHand' },
     weaponKind: 'hammer',
+  },
+  weapon_warbrute_cleaver: {
+    key: 'weapon_warbrute_cleaver',
+    name: 'Mirejaw Cleaver',
+    icon: '\u2692',
+    kind: 'weapon',
+    equipSlot: 'mainHand',
+    visual: { model: 'wep_mire_warbrute_mirejaw_cleaver.glb', fallback: 'mainHand' },
+    weaponKind: 'cleaver',
   },
   jewel_amulet_bloodglass: {
     key: 'jewel_amulet_bloodglass',

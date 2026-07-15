@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-15
+
+- Added a reusable dark-fantasy armor pass that applies muted class palettes over fitted MPFB silhouettes, removing bright contemporary source graphics and gold helmet materials from the Battle Prelate and Warbrute runtime sets.
+- Reparented rigid equipment overlays to the canonical animated hand sockets, added Warbrute starter cleaver and shield equipment, and regenerated/promoted both characters with animation, deformation, clearance, and round-trip QC evidence.
+
 ## 2026-07-14
 
 - Preserved visible weapon attachments when an authored weapon is blocked or unavailable: the approval gate still prevents the unapproved model from loading, while the player now receives an animatable procedural fallback instead of appearing unarmed.
@@ -12,12 +17,6 @@
 - Built and directly promoted the first NPC/creature pilot batch: Aegis civic and Riftbound Greenskin NPC foundations with role-combination evidence, plus Barrow Wolf and Lair Spider. The bypass registers 47 live NPC/enemy profiles, preserves the nine embedded humanoid animation clips, registers both creature static keys, and records the authorization in each revision and approved manifest.
 - Fixed modular armor runtime metadata so canonical-skeleton armor is rebound to the player body skeleton and covered body regions are masked. Existing approved rows also infer the skinned path from their skeleton metadata.
 - Regenerated the Battle Prelate and Warbrute body/armor pilots with corrected shoulder seam anchors and slot-specific body clearance, reran bind/idle geometry audits and animation evidence, and directly promoted the verified revisions with the authorized bypass.
-<<<<<<< HEAD
-=======
-
-## 2026-07-14
-
->>>>>>> 655a43d9ba483c1a3ba565694e8c5e2816f9ee22
 - Rebuilt humanoid roster generation around the installed MPFB/MakeHuman fixture packs: race-specific bodies, skin, hair, brows, lashes, fitted class silhouettes, and Equipment01-authored one-handed, dual-wield, and two-handed review weapons now replace the earlier primitive draft approach. Reapplied equipped-body material cleanup after authoring reloads to prevent face holes, removed visually corrupt closed hoods and helmets from live recipes, strengthened race/class differentiation, and rebuilt creature drafts with closed rigged body-plan meshes and stress poses.
 - Reworked the staged model-review screen for phones and small tablets: landscape now reserves separate model and scrolling-control regions, portrait stacks a fixed model viewport above the review sheet, touch targets meet a 44px minimum, navigation labels compact cleanly, safe-area insets are respected, approval actions remain reachable, and reviewer entry no longer relies on a blocking browser prompt.
 

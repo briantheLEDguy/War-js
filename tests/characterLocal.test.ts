@@ -36,4 +36,19 @@ describe('local character service GM lookup', () => {
 
     expect(matches.map((character) => character.name)).toEqual(['Mirror', 'Mirror']);
   });
+
+  test('gives the Warbrute its class weapons in the local starter state', async () => {
+    const characters = new CharacterLocal();
+
+    const warbrute = await characters.create('user-test', {
+      name: 'Brakka',
+      className: 'Warbrute',
+      race: 'greenskin',
+      bodyVariant: 'm',
+    });
+
+    const loaded = await characters.load(warbrute.id);
+    expect(loaded.equipment?.mainHand).toBe('weapon_warbrute_cleaver');
+    expect(loaded.equipment?.offHand).toBe('shield_steel');
+  });
 });
