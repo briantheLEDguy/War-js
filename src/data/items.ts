@@ -129,7 +129,7 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
     icon: '\u2692',
     kind: 'weapon',
     equipSlot: 'mainHand',
-    visual: { model: 'wep_hammer_2h_reliquary_steel_t1.glb', fallback: 'mainHand' },
+    visual: { model: 'wep_civic_battle_prelate_dawn_maul.glb', fallback: 'mainHand' },
     weaponKind: 'hammer',
   },
   jewel_amulet_bloodglass: {

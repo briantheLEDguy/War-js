@@ -301,7 +301,8 @@ describe("runtime registry compiler", () => {
     expect(first.equipment.pilot_chest.variants.m.assetId).toBe(male.assetId);
     expect(first.equipment.pilot_chest.variants.f.assetId).toBe(female.assetId);
     expect(first.staticProps.dummy.model).toBe("prop_training_dummy_t1.glb");
-    expect(first.equipment.weapon_hammer_reliquary_2h.runtimeReady).toBe(false);
-    expect(first.equipment.weapon_hammer_reliquary_2h.reviewStatus).toBe("blocked_socket_attachment_pending");
+    expect(first.equipment.weapon_hammer_reliquary_2h.variants.m.model).toBe("wep_civic_battle_prelate_dawn_maul.glb");
+    expect(first.equipment.weapon_hammer_reliquary_2h.variants.m.runtimeReady).toBe(true);
+    expect(first.equipment.weapon_hammer_reliquary_2h.variants.m.reviewStatus).toBe("approved");
   });
 });
