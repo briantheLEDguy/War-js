@@ -164,23 +164,23 @@
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\body-review\\front.png",
-      "sha256": "5f11f4444e648f07a5f7f328d44982acea510b8fdfc8bb2e21dcb0ca7a90d87f"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\warbrute\\revision-0001\\f\\body-review\\front.png",
+      "sha256": "d3abdbf6c2361fbb369176e027dd9ab330cff5e7e4f9a4a8794397a1343dc602"
     },
     {
       "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\body-review\\side.png",
-      "sha256": "8dacec8d5064f4f907c2ac1dbc3b8421b9a22d1a43fc985b2a19e488b59f9730"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\warbrute\\revision-0001\\f\\body-review\\side.png",
+      "sha256": "b2ff5ce471f5ba63fed890a5d59320673a1813f3e6d2124760723d0e562a46b9"
     },
     {
       "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\body-review\\back.png",
-      "sha256": "a8b0b4cdc7dbd09c566e9e90ce3e778450c7a8b9c99611b95d4a09e9c50b69b5"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\warbrute\\revision-0001\\f\\body-review\\back.png",
+      "sha256": "9d0b3392141574c792ccac5df399cda359519da66cd6818aad3c8f890b72bd59"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\body-review\\isometric.png",
-      "sha256": "443d88ca521136c876b1af60ee0ee6e017526a09abb6d0cabd2d86a77bd6b0b4"
+      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\warbrute\\revision-0001\\f\\body-review\\isometric.png",
+      "sha256": "d62aa81b1cce975e05eaf5e19e40282efe7c028fdc9a3a03bd6178401844e3e8"
     }
   ],
   "animationClips": [
@@ -598,8 +598,8 @@
     "tolerance": 0.009758722186088562
   },
   "authoringSource": {
-    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v1\\playable\\warbrute\\revision-0001\\f\\body_warbrute_f.blend",
-    "sha256": "0cba61ee05e64159e4531adf1418b74d6b4642639872049b664bdb6ae5bd9c1f",
+    "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\warbrute\\revision-0001\\f\\body_warbrute_f.blend",
+    "sha256": "2b0a0982cbfb4175bb1fa2a2c71726a7bda9ecc75bceb107a31e4662fea14376",
     "bodyVertices": 19158,
     "shapeKeys": 32,
     "maskModifiers": [

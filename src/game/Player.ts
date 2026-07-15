@@ -31,6 +31,7 @@ import {
   markWeaponAttachment,
   positionEquipmentWeaponOverlay,
   WeaponAnimationController,
+  type WeaponAnimationKind,
   type WeaponAnimationRequest,
 } from './WeaponAnimation';
 
@@ -196,7 +197,11 @@ export class Player {
           const socket = findWeaponAttachmentSocket(this.object, slot);
           if (socket && existing.parent !== socket) {
             socket.add(existing);
-            positionEquipmentWeaponOverlay(existing, slot, inferWeaponKindFromEquipment(equipment?.[slot]), true);
+          }
+          if (socket) {
+            const weaponKind = inferWeaponKindFromEquipment(equipment?.[slot]);
+            positionEquipmentWeaponOverlay(existing, slot, weaponKind, true);
+            applyProceduralWeaponSocketCalibration(existing, this.object, socket, slot, weaponKind);
           }
         }
         if (!resolvedVisual.skinned || existing.userData.skinnedEquipmentOverlay) {
@@ -213,11 +218,15 @@ export class Player {
       // approval gate must prevent the authored asset from loading, but it
       // should not leave the character visibly unarmed when a safe primitive
       // fallback is available.
+      let usingProceduralFallback = false;
       const overlay = resolvedVisual.disabled && isWeaponSlot
-        ? buildEquipmentVisualFallback(visual.fallback, key)
+        ? (usingProceduralFallback = true, buildEquipmentVisualFallback(visual.fallback, key))
         : await loader.loadModel(
           resolvedVisual.model,
-          () => buildEquipmentVisualFallback(visual.fallback, key),
+          () => {
+            usingProceduralFallback = true;
+            return buildEquipmentVisualFallback(visual.fallback, key);
+          },
         );
       if (requestId !== this.equipmentVisualRequestId) {
         overlay.removeFromParent();
@@ -228,6 +237,7 @@ export class Player {
       overlay.userData.equipmentKey = key;
       overlay.userData.equipmentSlot = slot;
       overlay.userData.equipmentOverlay = true;
+      overlay.userData.equipmentFallback = usingProceduralFallback;
       prepareEquipmentOverlay(overlay);
       if (slot === 'mainHand' || slot === 'offHand') {
         const weaponKind = inferWeaponKindFromEquipment(equipment?.[slot]);
@@ -239,6 +249,7 @@ export class Player {
           key,
         });
         positionEquipmentWeaponOverlay(overlay, slot, weaponKind, Boolean(socket));
+        if (socket) applyProceduralWeaponSocketCalibration(overlay, this.object, socket, slot, weaponKind);
         (socket ?? this.object).add(overlay);
       } else {
         this.object.add(overlay);
@@ -682,6 +693,41 @@ function prepareEquipmentOverlay(object: THREE.Object3D): void {
 function findWeaponAttachmentSocket(root: THREE.Object3D, slot: EquipSlot): THREE.Object3D | null {
   const socketName = slot === 'offHand' ? 'socket_hand_L' : 'socket_hand_R';
   return root.getObjectByName(socketName) ?? null;
+}
+
+function applyProceduralWeaponSocketCalibration(
+  object: THREE.Object3D,
+  playerRoot: THREE.Object3D,
+  socket: THREE.Object3D,
+  slot: EquipSlot,
+  kind: WeaponAnimationKind,
+): void {
+  // Authored equipment carries its own grip calibration. These offsets are
+  // only for primitive fallbacks, whose geometry is generated in this file
+  // rather than exported from a weapon pack.
+  if (object.userData.equipmentFallback !== true) return;
+
+  if (slot === 'offHand' && kind === 'shield') {
+    // Keep the boss just ahead of the palm and lower the shield onto the
+    // forearm instead of centering the disk on the wrist socket.
+    object.position.set(0, -0.045, 0.12);
+    return;
+  }
+
+  if (slot !== 'mainHand' || kind !== 'sword') return;
+
+  // The hand socket's authored +Y axis points laterally in the idle pose.
+  // Re-aim only the procedural sword toward a guarded, downward carry while
+  // retaining the socket parent so animation still drives the hand.
+  const socketWorldQuaternion = socket.getWorldQuaternion(new THREE.Quaternion());
+  const rootWorldQuaternion = playerRoot.getWorldQuaternion(new THREE.Quaternion());
+  const desiredWorldDirection = new THREE.Vector3(0.18, -0.92, 0.24)
+    .normalize()
+    .applyQuaternion(rootWorldQuaternion);
+  const desiredLocalDirection = desiredWorldDirection
+    .applyQuaternion(socketWorldQuaternion.invert());
+  object.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), desiredLocalDirection);
+  object.position.set(0, -0.015, 0.015);
 }
 
 function findFirstSkeleton(root: THREE.Object3D): THREE.Skeleton | null {
