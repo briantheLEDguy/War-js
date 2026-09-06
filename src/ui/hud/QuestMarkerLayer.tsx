@@ -35,7 +35,7 @@ export function QuestMarkerLayer({ game }: { game: Game | null }) {
       const next: Marker[] = [];
       for (const npc of npcs) {
         if (npc.role !== 'questgiver') continue;
-        const turnins = questsReadyToTurnIn(npc.id, quests);
+        const turnins = questsReadyToTurnIn(npc.id, quests, character);
         if (turnins.length > 0) {
           world.set(npc.position.x, npc.position.y + 2.6, npc.position.z);
           if (game.worldToScreen(world, out)) {

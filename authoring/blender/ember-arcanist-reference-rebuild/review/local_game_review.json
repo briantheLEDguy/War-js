@@ -1,0 +1,19 @@
+{
+  "reviewed_at": "2026-09-06T08:07:34.074344+00:00",
+  "character": "Ashward / male Empire Ember Arcanist",
+  "preview_url": "http://127.0.0.1:5192/",
+  "world_url": "http://127.0.0.1:5193/",
+  "checks": {
+    "character_preview": "outfit and staff visible; front inspected by rotation",
+    "world": "entered Bastion of Aegis in production build",
+    "jump": "airborne pose captured with robe and staff attached",
+    "ability": "White Cautery activated; mana fell from 100 to 83 after regeneration and cooldown appeared"
+  },
+  "screenshots": {
+    "local_character_preview.png": "efb15312eddadf93cb93f2dd5898cc297ea475cee46c7cc3af8460cf7702019b",
+    "local_world.png": "98d65ebfa76d373a1c02e280d74a40f26de8be83e060e311656e93fc629cfea8",
+    "local_jump.png": "aec6a1675daad37d26d1eb84c6dedfa5feeffb2698a97c14d6f803e1f3735521",
+    "local_ability.png": "94f2845be2b81c9122ad28479fa64dfd123d91e7378d80098efb2e6cb50cb489"
+  },
+  "note": "Shared dev server had transient unrelated abilityData hot-reload errors during another active task. Final gameplay check used production preview without HMR."
+}

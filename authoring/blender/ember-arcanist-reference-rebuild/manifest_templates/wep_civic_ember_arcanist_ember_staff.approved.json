@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "assetId": "wep.civic.ember_arcanist.ember_staff.t1",
+  "displayName": "Ember Arcanist Weapon",
+  "category": "weapon",
+  "model": "wep_civic_ember_arcanist_ember_staff.glb",
+  "qc": "wep_civic_ember_arcanist_ember_staff.qc.json",
+  "runtime": {
+    "itemKey": "weapon_ember_brazier_staff",
+    "bodyVariant": "m",
+    "skinned": false
+  },
+  "compatibility": {
+    "bodyFamily": "civic_ember_arcanist_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  }
+}

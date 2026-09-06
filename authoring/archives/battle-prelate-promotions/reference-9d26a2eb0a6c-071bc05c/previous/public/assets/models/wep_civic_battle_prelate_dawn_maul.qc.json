@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "assetId": "wep.civic.battle_prelate.dawn_maul.t1",
+  "category": "weapon",
+  "model": "wep_civic_battle_prelate_dawn_maul.glb",
+  "modelSha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3",
+  "fileSizeBytes": 154468,
+  "meshCount": 1,
+  "drawCalls": 1,
+  "totalTris": 2364,
+  "nonManifoldEdges": 0,
+  "materialChannels": [
+    "baseColor",
+    "roughness",
+    "metallic"
+  ],
+  "attachmentBinding": {
+    "mode": "rigid_socket",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "targetSocket": "socket_hand_R",
+    "socketParentBone": "hand_R",
+    "gripNode": "weapon_grip_socket_hand_R",
+    "localGripTranslation": [
+      0,
+      0,
+      0
+    ],
+    "verified": true,
+    "handedness": "two_handed",
+    "massClass": "heavy",
+    "secondaryGrip": {
+      "node": "weapon_grip_socket_hand_L",
+      "targetSocket": "socket_hand_L",
+      "socketParentBone": "hand_L",
+      "localTranslation": [
+        0,
+        0,
+        0.3
+      ],
+      "verified": true
+    },
+    "strikeHead": {
+      "node": "weapon_strike_head",
+      "localTranslation": [
+        0,
+        0,
+        0.91
+      ],
+      "verified": true
+    }
+  },
+  "source": {
+    "preferredSourceAvailable": true,
+    "sourceUsed": "makehuman_equipment01_culturalibre_war_hammer",
+    "license": "CC0-1.0",
+    "author": "culturalibre",
+    "marker": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\culturalibre_war_hammer\\culturalibre_war_hammer.mhclo",
+    "object": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\culturalibre_war_hammer\\warhammer.obj",
+    "sourceHashes": {
+      "markerSha256": "d0c279bf0aa2ccf2cada49be2f0045b2049c04d0e7de68eee86d6a9fc5bcf254",
+      "objectSha256": "4bb50626d07015312f5e696373a64ca49f7831e9ce9cc2c50646305ba273cbe6"
+    }
+  },
+  "roundTrip": {
+    "reviewedSerializedGlb": true,
+    "importedNodeCount": 9,
+    "rootNode": "battle_prelate_hammer_root",
+    "gripNode": "weapon_grip_socket_hand_R",
+    "secondaryGripNode": "weapon_grip_socket_hand_L",
+    "strikeHeadNode": "weapon_strike_head",
+    "serializedModelSha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3"
+  },
+  "previewImages": [
+    "review/front.png",
+    "review/side.png",
+    "review/back.png",
+    "review/isometric.png",
+    "review/socket_alignment.png"
+  ],
+  "checks": {
+    "modelWritten": true,
+    "roundTripImported": true,
+    "canonicalSocket": true,
+    "gripAtLocalOrigin": true,
+    "semanticHandling": true,
+    "secondaryGripContract": true,
+    "strikeHeadContract": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "fileSizeBudget": true,
+    "manifoldTopology": true,
+    "reviewEvidenceWritten": true,
+    "draftOnly": true
+  },
+  "qcPassed": true,
+  "lifecycleStatus": "draft",
+  "runtimeReady": false,
+  "promotionEligible": false
+}

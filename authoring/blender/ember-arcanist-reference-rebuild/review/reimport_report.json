@@ -1,0 +1,1424 @@
+{
+  "schema_version": 1,
+  "status": "rendered_pending_visual_review",
+  "created_utc": "2026-09-06T07:57:28.190815+00:00",
+  "blender_version": "5.0.1",
+  "validation_report_sha256": "98428bc32a584db4e8eb1ca052628926fa0c5044a068411fd04fb47054f94602",
+  "runtime_report_sha256": "5c39385cf27509871c8c5ebf7ade6a4a4d72e539fa363d01a85ff2ea351da020",
+  "scene_source_sha256": "9bc515aa96a179327cc0c2594e511d30e6c2bcdf8f0d99acdf9dc716be1cbee0",
+  "model_hashes": {
+    "chr_civic_ember_arcanist_t1_m.glb": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856",
+    "arm_civic_ember_arcanist_head_t1_m.glb": "a92fe790e7c0c5847747149db3f006afa6d4d48aabe2c8416f99152477dafd72",
+    "arm_civic_ember_arcanist_shoulders_t1_m.glb": "04351b63ea64fb1aae1d281cf2ab1c398962ab4a9526b6c790b37b26d1fdb3e1",
+    "arm_civic_ember_arcanist_chest_t1_m.glb": "cef0d455f5e2e89d0efc940467c2bda8658e3ad30c8093c06d30c289c8db76e0",
+    "arm_civic_ember_arcanist_hands_t1_m.glb": "f2759823a8649a6c4cba359da5fad573f994aea11ee0f5834d08a8ced48e992e",
+    "arm_civic_ember_arcanist_waist_t1_m.glb": "d244831281f97d31a4f1136ccf1720bf2a487a9701025a6c9b721cf34e0ca587",
+    "arm_civic_ember_arcanist_legs_t1_m.glb": "67a8f8c88225b50048a715a5e9ad4d1457ee3c6fb19fd1092784f7b0ba0862ef",
+    "arm_civic_ember_arcanist_feet_t1_m.glb": "7e8466d61347c837a09c81f6574c8ffce512efa0fc7ae0c1ff4fd3777da8adcc",
+    "arm_civic_ember_arcanist_back_t1_m.glb": "77215d864c43f15ca9dbc748a1835add77defd812dcbb7fadcb45fe9f3c0bd9a",
+    "arm_civic_ember_arcanist_tabard_t1_m.glb": "a8d1d2f36846f9d129b2e5641f065bf13ccc68d8a36ed1a120e7eca9a458a1ab",
+    "wep_civic_ember_arcanist_ember_staff.glb": "b490a66e017286071bdff4eacdfac9d5c8a1a95a599fc3413188e4cccd93f81e",
+    "chr_civic_ember_arcanist_t1_m_lod1.glb": "5e7dd63242b786c13b7a7c43355b2f155c01e3c16a06931391d17b2dc653afba",
+    "arm_civic_ember_arcanist_head_t1_m_lod1.glb": "701220470b8d0f1a38938f39a365f7df0ceb68e995a6ff56908af45695b179cd",
+    "arm_civic_ember_arcanist_shoulders_t1_m_lod1.glb": "eb243b4cb626ea54cbcdc0820ac770ca2172f191165b04b2c59a792986a049ba",
+    "arm_civic_ember_arcanist_chest_t1_m_lod1.glb": "7d82c60dda8a47c3b9f4a12320c508ecaaeb88bdd3490fc3920fa9e601e695db",
+    "arm_civic_ember_arcanist_hands_t1_m_lod1.glb": "9ac5ac899e33057eaa3f2473bf4584d091008caa5b56a1c5359c4553ec8d82e8",
+    "arm_civic_ember_arcanist_waist_t1_m_lod1.glb": "ffb4d1c76fce67c92fc5d28b067b1263d748253c46d08765911f08250d31c05c",
+    "arm_civic_ember_arcanist_legs_t1_m_lod1.glb": "3ac16dc619e665fb663f84951d1ce3d38039e6dd2722ebcc0fda01c395d9b271",
+    "arm_civic_ember_arcanist_feet_t1_m_lod1.glb": "6a22b6a3da31cfd089bae98864ebd6d6c006c16e1c859db48e121ec6e22ca639",
+    "arm_civic_ember_arcanist_back_t1_m_lod1.glb": "c1f4830758275092c0764013a54ebbedb8d6bbb5777a79babe2736249c2b916c",
+    "arm_civic_ember_arcanist_tabard_t1_m_lod1.glb": "c4efb269a4c39ba419fc61ed7f5bee3cb1b56f819c28347f3b298cea7929cb90",
+    "wep_civic_ember_arcanist_ember_staff_lod1.glb": "6552f3ecaf13a98b0648d25c7b29a0b40341ac1ee4c43fbe5049df2bc91111d8",
+    "chr_civic_ember_arcanist_t1_m_lod2.glb": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655",
+    "arm_civic_ember_arcanist_head_t1_m_lod2.glb": "185245d89944eab0ec1e169d84a2111e243882a1e630fabcb038b9682a50c270",
+    "arm_civic_ember_arcanist_shoulders_t1_m_lod2.glb": "b4837ad24ff2bf8bb9cf48a5632f8213ea302df0b177a9bafb012f87c61392e8",
+    "arm_civic_ember_arcanist_chest_t1_m_lod2.glb": "fbff27645d1e33cddceffe048ac0942cf1b550619e329dbca62baa0b982c0c3b",
+    "arm_civic_ember_arcanist_hands_t1_m_lod2.glb": "ce8259ac96caff84e707a9b7b75609e18eddeec8e8fb6b681e3d54e8216d2ca3",
+    "arm_civic_ember_arcanist_waist_t1_m_lod2.glb": "feb2bae53acbcd830933e566e7b6f3cdfd55f6f22a7d4becb582e89a73322dae",
+    "arm_civic_ember_arcanist_legs_t1_m_lod2.glb": "25a3a3dfb766067f7d654e488c13daa38c47d1cbb6055daf1ea266196f31f9f8",
+    "arm_civic_ember_arcanist_feet_t1_m_lod2.glb": "f13a2cc3f09f9316c8a942daa4c91b59cb0c47bfe69cadba8a0aeb4d2320ce0b",
+    "arm_civic_ember_arcanist_back_t1_m_lod2.glb": "a8f1af4ab934630b76f81e2303045c09e0f87aee7ff738587d2fe028c8143b8e",
+    "arm_civic_ember_arcanist_tabard_t1_m_lod2.glb": "c22a981a4cb84cf680c8c328be2036be2b149873c3016e339c4500bd660ea130",
+    "wep_civic_ember_arcanist_ember_staff_lod2.glb": "72ae9d9216999963e6656894ec2401c28e3084bf00ca8527037b1204b9beed09"
+  },
+  "lods": {
+    "0": {
+      "modules": {
+        "body": {
+          "source": "chr_civic_ember_arcanist_t1_m.glb",
+          "sha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856",
+          "bone_count": 56
+        },
+        "head": {
+          "source": "arm_civic_ember_arcanist_head_t1_m.glb",
+          "sha256": "a92fe790e7c0c5847747149db3f006afa6d4d48aabe2c8416f99152477dafd72",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "shoulders": {
+          "source": "arm_civic_ember_arcanist_shoulders_t1_m.glb",
+          "sha256": "04351b63ea64fb1aae1d281cf2ab1c398962ab4a9526b6c790b37b26d1fdb3e1",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "chest": {
+          "source": "arm_civic_ember_arcanist_chest_t1_m.glb",
+          "sha256": "cef0d455f5e2e89d0efc940467c2bda8658e3ad30c8093c06d30c289c8db76e0",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "hands": {
+          "source": "arm_civic_ember_arcanist_hands_t1_m.glb",
+          "sha256": "f2759823a8649a6c4cba359da5fad573f994aea11ee0f5834d08a8ced48e992e",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "waist": {
+          "source": "arm_civic_ember_arcanist_waist_t1_m.glb",
+          "sha256": "d244831281f97d31a4f1136ccf1720bf2a487a9701025a6c9b721cf34e0ca587",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "legs": {
+          "source": "arm_civic_ember_arcanist_legs_t1_m.glb",
+          "sha256": "67a8f8c88225b50048a715a5e9ad4d1457ee3c6fb19fd1092784f7b0ba0862ef",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "feet": {
+          "source": "arm_civic_ember_arcanist_feet_t1_m.glb",
+          "sha256": "7e8466d61347c837a09c81f6574c8ffce512efa0fc7ae0c1ff4fd3777da8adcc",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "back": {
+          "source": "arm_civic_ember_arcanist_back_t1_m.glb",
+          "sha256": "77215d864c43f15ca9dbc748a1835add77defd812dcbb7fadcb45fe9f3c0bd9a",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "tabard": {
+          "source": "arm_civic_ember_arcanist_tabard_t1_m.glb",
+          "sha256": "a8d1d2f36846f9d129b2e5641f065bf13ccc68d8a36ed1a120e7eca9a458a1ab",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "weapon": {
+          "source": "wep_civic_ember_arcanist_ember_staff.glb",
+          "sha256": "b490a66e017286071bdff4eacdfac9d5c8a1a95a599fc3413188e4cccd93f81e",
+          "socket": "socket_hand_R",
+          "policy": "Use exported grip-origin coordinates and imported local transforms; no fitting offset or extra rotation"
+        }
+      },
+      "bone_count": 56,
+      "sockets": [
+        "socket_back",
+        "socket_hand_L",
+        "socket_hand_R",
+        "socket_root"
+      ],
+      "actions": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    "1": {
+      "modules": {
+        "body": {
+          "source": "chr_civic_ember_arcanist_t1_m_lod1.glb",
+          "sha256": "5e7dd63242b786c13b7a7c43355b2f155c01e3c16a06931391d17b2dc653afba",
+          "bone_count": 56
+        },
+        "head": {
+          "source": "arm_civic_ember_arcanist_head_t1_m_lod1.glb",
+          "sha256": "701220470b8d0f1a38938f39a365f7df0ceb68e995a6ff56908af45695b179cd",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "shoulders": {
+          "source": "arm_civic_ember_arcanist_shoulders_t1_m_lod1.glb",
+          "sha256": "eb243b4cb626ea54cbcdc0820ac770ca2172f191165b04b2c59a792986a049ba",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "chest": {
+          "source": "arm_civic_ember_arcanist_chest_t1_m_lod1.glb",
+          "sha256": "7d82c60dda8a47c3b9f4a12320c508ecaaeb88bdd3490fc3920fa9e601e695db",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "hands": {
+          "source": "arm_civic_ember_arcanist_hands_t1_m_lod1.glb",
+          "sha256": "9ac5ac899e33057eaa3f2473bf4584d091008caa5b56a1c5359c4553ec8d82e8",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "waist": {
+          "source": "arm_civic_ember_arcanist_waist_t1_m_lod1.glb",
+          "sha256": "ffb4d1c76fce67c92fc5d28b067b1263d748253c46d08765911f08250d31c05c",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "legs": {
+          "source": "arm_civic_ember_arcanist_legs_t1_m_lod1.glb",
+          "sha256": "3ac16dc619e665fb663f84951d1ce3d38039e6dd2722ebcc0fda01c395d9b271",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "feet": {
+          "source": "arm_civic_ember_arcanist_feet_t1_m_lod1.glb",
+          "sha256": "6a22b6a3da31cfd089bae98864ebd6d6c006c16e1c859db48e121ec6e22ca639",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "back": {
+          "source": "arm_civic_ember_arcanist_back_t1_m_lod1.glb",
+          "sha256": "c1f4830758275092c0764013a54ebbedb8d6bbb5777a79babe2736249c2b916c",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "tabard": {
+          "source": "arm_civic_ember_arcanist_tabard_t1_m_lod1.glb",
+          "sha256": "c4efb269a4c39ba419fc61ed7f5bee3cb1b56f819c28347f3b298cea7929cb90",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "weapon": {
+          "source": "wep_civic_ember_arcanist_ember_staff_lod1.glb",
+          "sha256": "6552f3ecaf13a98b0648d25c7b29a0b40341ac1ee4c43fbe5049df2bc91111d8",
+          "socket": "socket_hand_R",
+          "policy": "Use exported grip-origin coordinates and imported local transforms; no fitting offset or extra rotation"
+        }
+      },
+      "bone_count": 56,
+      "sockets": [
+        "socket_back",
+        "socket_hand_L",
+        "socket_hand_R",
+        "socket_root"
+      ],
+      "actions": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    "2": {
+      "modules": {
+        "body": {
+          "source": "chr_civic_ember_arcanist_t1_m_lod2.glb",
+          "sha256": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655",
+          "bone_count": 56
+        },
+        "head": {
+          "source": "arm_civic_ember_arcanist_head_t1_m_lod2.glb",
+          "sha256": "185245d89944eab0ec1e169d84a2111e243882a1e630fabcb038b9682a50c270",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "shoulders": {
+          "source": "arm_civic_ember_arcanist_shoulders_t1_m_lod2.glb",
+          "sha256": "b4837ad24ff2bf8bb9cf48a5632f8213ea302df0b177a9bafb012f87c61392e8",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "chest": {
+          "source": "arm_civic_ember_arcanist_chest_t1_m_lod2.glb",
+          "sha256": "fbff27645d1e33cddceffe048ac0942cf1b550619e329dbca62baa0b982c0c3b",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "hands": {
+          "source": "arm_civic_ember_arcanist_hands_t1_m_lod2.glb",
+          "sha256": "ce8259ac96caff84e707a9b7b75609e18eddeec8e8fb6b681e3d54e8216d2ca3",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "waist": {
+          "source": "arm_civic_ember_arcanist_waist_t1_m_lod2.glb",
+          "sha256": "feb2bae53acbcd830933e566e7b6f3cdfd55f6f22a7d4becb582e89a73322dae",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "legs": {
+          "source": "arm_civic_ember_arcanist_legs_t1_m_lod2.glb",
+          "sha256": "25a3a3dfb766067f7d654e488c13daa38c47d1cbb6055daf1ea266196f31f9f8",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "feet": {
+          "source": "arm_civic_ember_arcanist_feet_t1_m_lod2.glb",
+          "sha256": "f13a2cc3f09f9316c8a942daa4c91b59cb0c47bfe69cadba8a0aeb4d2320ce0b",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "back": {
+          "source": "arm_civic_ember_arcanist_back_t1_m_lod2.glb",
+          "sha256": "a8f1af4ab934630b76f81e2303045c09e0f87aee7ff738587d2fe028c8143b8e",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "tabard": {
+          "source": "arm_civic_ember_arcanist_tabard_t1_m_lod2.glb",
+          "sha256": "c22a981a4cb84cf680c8c328be2036be2b149873c3016e339c4500bd660ea130",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "weapon": {
+          "source": "wep_civic_ember_arcanist_ember_staff_lod2.glb",
+          "sha256": "72ae9d9216999963e6656894ec2401c28e3084bf00ca8527037b1204b9beed09",
+          "socket": "socket_hand_R",
+          "policy": "Use exported grip-origin coordinates and imported local transforms; no fitting offset or extra rotation"
+        }
+      },
+      "bone_count": 56,
+      "sockets": [
+        "socket_back",
+        "socket_hand_L",
+        "socket_hand_R",
+        "socket_root"
+      ],
+      "actions": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "path": "review/reimport_lod0_full_front_material.png",
+      "sha256": "40ef65c4a476e27adcf6ff1602386832b00d60e0667b605e3cb86c85efb61c9a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_front",
+      "scope": "equipped",
+      "view": "front",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_three_quarter_material.png",
+      "sha256": "fa128e9141116154daf478d16576b97a881db63a9f0a89a23d1744149f18abab",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_three_quarter",
+      "scope": "equipped",
+      "view": "isometric",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_side_material.png",
+      "sha256": "51b79c38cc60a4c606499021469f5ca136ba6ff58e310d7b941d40e0dce700cc",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_side",
+        "position": [
+          5,
+          0,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_side",
+      "scope": "equipped",
+      "view": "side",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_back_material.png",
+      "sha256": "230cac70f362d7954b20e5f5054f209835e097f0b2b79abcd9e0a442f3697116",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_back",
+        "position": [
+          0,
+          5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_back",
+      "scope": "equipped",
+      "view": "back",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_front_neutral.png",
+      "sha256": "1eeca256657c68249562548c21fc661535bf1037401ca5ba28c4a6c4332e8da4",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_front_neutral",
+      "scope": "neutral",
+      "view": "front",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod1_full_front_material.png",
+      "sha256": "2dd3cf253ef913de0078f020ca7026d89df1df29311d054d1d40c557aa832797",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod1_full_front",
+      "scope": "lod",
+      "view": "front",
+      "lod": 1
+    },
+    {
+      "path": "review/reimport_lod2_full_front_material.png",
+      "sha256": "20fdd0bc5f85f9bd083f7f26a3574a50dd187316c69b6ea730f4fa9362e9d257",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod2_full_front",
+      "scope": "lod",
+      "view": "front",
+      "lod": 2
+    },
+    {
+      "id": "animation_stress_contact",
+      "scope": "animation_stress",
+      "path": "review/reimport_motion_contact.png",
+      "sha256": "7c47911c295b295a718dda0b65e73ec406fc439b8da732708dc4d4cb0a7ae184",
+      "kind": "Contact sheet of actual GLB action renders; no synthesized frames",
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "combat_idle",
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "death",
+        "jump"
+      ]
+    }
+  ],
+  "motion_frames": [
+    {
+      "path": "review/reimport_motion_idle_15.png",
+      "sha256": "982aba1c20288d346f6e657350bb16f1ae001ba6424c676b2fa7c916b2aaa503",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 7.199999999999999,
+      "clip": "idle",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_idle_50.png",
+      "sha256": "3d83e5c9c5b4b71a7a3d27761440f7a8989976d09d867c146778ac1dc83a30f1",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 24.0,
+      "clip": "idle",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_idle_85.png",
+      "sha256": "16ab28abe09020940251ffe196fae0f037e42482d39032540d1fe4abdfc4fa69",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 40.8,
+      "clip": "idle",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_walk_15.png",
+      "sha256": "6c23d2943ca7184f02bff6183a28769c7972da856c8475132e279edaabf5c27a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 3.5999999999999996,
+      "clip": "walk",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_walk_50.png",
+      "sha256": "38a5f06245c1e1f4bc06387178ded3b1d36d66a9185e4a8215a260da32ef802e",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 12.0,
+      "clip": "walk",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_walk_85.png",
+      "sha256": "ba17af1f18daf8313f70dadd2c12a3360e3ebeb9619861b2383e63e860648880",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 20.4,
+      "clip": "walk",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_run_15.png",
+      "sha256": "88a0ceb3a30a0c491f294ad36f4d6a645a8ac72d1051628b9962cc9bd2c68316",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 2.4,
+      "clip": "run",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_run_50.png",
+      "sha256": "db9bf8b5b6a9b74762a37c1f5a12d99ae9e6db7bf3b4992f155226736c195e1d",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 8.0,
+      "clip": "run",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_run_85.png",
+      "sha256": "32b89777ed3b2555f7221e0d7abc9514635f383f39ff3eb852ca91064d2dd58a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 13.6,
+      "clip": "run",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_15.png",
+      "sha256": "6ed9cca3c0d422155d7fcf2c2e8caa806b8ab119b7cad67e12d57e4e51386e98",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 9.6,
+      "clip": "combat_idle",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_50.png",
+      "sha256": "67ffff6aa9c0aab2eb0e440fbcedf698080eee04fd46182e0e58f8e3a3072bea",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 32.0,
+      "clip": "combat_idle",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_85.png",
+      "sha256": "23aed9b0da5fd2ee74506a7749b9e0fa078aa0dbd6bbc7f52c5b49ed5e8de7ee",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 54.4,
+      "clip": "combat_idle",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_15.png",
+      "sha256": "26ec16f5cafc69964dfb4f6a50a3ba5209137a803bc1145367362fce0881debc",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 3.5999999999999996,
+      "clip": "attack_melee",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_50.png",
+      "sha256": "643f8c5a0931aa44ea04d762b1f9a0e5c3211acb87935f9336072b92e8bbfd23",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 12.0,
+      "clip": "attack_melee",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_85.png",
+      "sha256": "3f5121376c715435ca8de55db38d5638a7f5130ea4e54f25433e382ae9027855",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 20.4,
+      "clip": "attack_melee",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_15.png",
+      "sha256": "673c7e66dc29a6423c27632eba18afc75d2dd4a8f47ae10eaae4853e729dcd6c",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 4.8,
+      "clip": "attack_ranged",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_50.png",
+      "sha256": "378c8122c82a40f9304d36fa4eca95d29f2a4617a54df3c6637bcd685a07499a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 16.0,
+      "clip": "attack_ranged",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_85.png",
+      "sha256": "a2c094517f8dd4eb74c2d045944b8cc28e6750d91482c176d914e9fe8a6fa5bd",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 27.2,
+      "clip": "attack_ranged",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_cast_15.png",
+      "sha256": "2afd4721a1d84f934dab680ce7c08863d0fc108240e5ae86d3794c3097a0b471",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 7.199999999999999,
+      "clip": "cast",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_cast_50.png",
+      "sha256": "3d85cb5f122797fadf423f592f57e107993b5d602a605cbb8cf45d1495add32c",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 24.0,
+      "clip": "cast",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_cast_85.png",
+      "sha256": "1b4be64b024221c9920833d10677163f0be8da483e743880d57c9cbac710c07e",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 40.8,
+      "clip": "cast",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_death_15.png",
+      "sha256": "f2b7697cc80552f0a71d5c869c7d3b2bb3ff28b064cb6e55371b7a6622848728",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 7.199999999999999,
+      "clip": "death",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_death_50.png",
+      "sha256": "9c8c72b5255751e0882df5c5d0b8b0f2b17f24589517e00066b27d2e1787b026",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 24.0,
+      "clip": "death",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_death_85.png",
+      "sha256": "4682379aa73e2c579bff187f97bfcd0280390cfffdcb64e8f2953176f720619a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 40.8,
+      "clip": "death",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_jump_15.png",
+      "sha256": "2d4e139b2f36b13315cea1919879c3f88a6f5635a484f6ab6b2dcd101bf37b6a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 4.8,
+      "clip": "jump",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_jump_50.png",
+      "sha256": "593e5b9499fa858db34dc8c42c295e576e5cca45b639a53701dc077173fee4e1",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 16.0,
+      "clip": "jump",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_jump_85.png",
+      "sha256": "d1dab0eba429e4cebf642b9cf2ef074aec6088d0b8fe3ec9b991f0814a4c0cd1",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          1.04
+        ],
+        "orthographic_scale": 2.6,
+        "resolution": [
+          1000,
+          1100
+        ]
+      },
+      "frame": 27.2,
+      "clip": "jump",
+      "fraction": 0.85
+    }
+  ],
+  "camera_policy": "Frozen source camera positions/targets/orthographic scales; only motion output resolution is reduced",
+  "pose_policy": "Canonical rest pose for fixed views; actual exported actions for stress frames; no source comparison offsets",
+  "complete_evidence": true,
+  "contact_sheet": {
+    "id": "animation_stress_contact",
+    "scope": "animation_stress",
+    "path": "review/reimport_motion_contact.png",
+    "sha256": "7c47911c295b295a718dda0b65e73ec406fc439b8da732708dc4d4cb0a7ae184",
+    "kind": "Contact sheet of actual GLB action renders; no synthesized frames",
+    "clips": [
+      "idle",
+      "walk",
+      "run",
+      "combat_idle",
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "death",
+      "jump"
+    ]
+  }
+}

@@ -1,0 +1,1294 @@
+{
+  "schema_version": 1,
+  "purpose": "High-detail source for chainmail image-map baking only; not a visible runtime primitive or a character generator.",
+  "provenance": "Every link-cage coordinate, every face, and every placement below is literal. One newly authored closed link is copied at an explicit finite set of transforms. Standard Subdivision Surface rounds the authored cage before Blender bakes its geometry.",
+  "link_vertices": [
+    [
+      0,
+      0.0135,
+      0
+    ],
+    [
+      0,
+      0.012,
+      0.0015
+    ],
+    [
+      0,
+      0.0105,
+      0
+    ],
+    [
+      0,
+      0.012,
+      -0.0015
+    ],
+    [
+      0.00525,
+      0.0117,
+      0
+    ],
+    [
+      0.0045,
+      0.0104,
+      0.0015
+    ],
+    [
+      0.00375,
+      0.0091,
+      0
+    ],
+    [
+      0.0045,
+      0.0104,
+      -0.0015
+    ],
+    [
+      0.0091,
+      0.00675,
+      0
+    ],
+    [
+      0.0078,
+      0.006,
+      0.0015
+    ],
+    [
+      0.0065,
+      0.00525,
+      0
+    ],
+    [
+      0.0078,
+      0.006,
+      -0.0015
+    ],
+    [
+      0.0105,
+      0,
+      0
+    ],
+    [
+      0.009,
+      0,
+      0.0015
+    ],
+    [
+      0.0075,
+      0,
+      0
+    ],
+    [
+      0.009,
+      0,
+      -0.0015
+    ],
+    [
+      0.0091,
+      -0.00675,
+      0
+    ],
+    [
+      0.0078,
+      -0.006,
+      0.0015
+    ],
+    [
+      0.0065,
+      -0.00525,
+      0
+    ],
+    [
+      0.0078,
+      -0.006,
+      -0.0015
+    ],
+    [
+      0.00525,
+      -0.0117,
+      0
+    ],
+    [
+      0.0045,
+      -0.0104,
+      0.0015
+    ],
+    [
+      0.00375,
+      -0.0091,
+      0
+    ],
+    [
+      0.0045,
+      -0.0104,
+      -0.0015
+    ],
+    [
+      0,
+      -0.0135,
+      0
+    ],
+    [
+      0,
+      -0.012,
+      0.0015
+    ],
+    [
+      0,
+      -0.0105,
+      0
+    ],
+    [
+      0,
+      -0.012,
+      -0.0015
+    ],
+    [
+      -0.00525,
+      -0.0117,
+      0
+    ],
+    [
+      -0.0045,
+      -0.0104,
+      0.0015
+    ],
+    [
+      -0.00375,
+      -0.0091,
+      0
+    ],
+    [
+      -0.0045,
+      -0.0104,
+      -0.0015
+    ],
+    [
+      -0.0091,
+      -0.00675,
+      0
+    ],
+    [
+      -0.0078,
+      -0.006,
+      0.0015
+    ],
+    [
+      -0.0065,
+      -0.00525,
+      0
+    ],
+    [
+      -0.0078,
+      -0.006,
+      -0.0015
+    ],
+    [
+      -0.0105,
+      0,
+      0
+    ],
+    [
+      -0.009,
+      0,
+      0.0015
+    ],
+    [
+      -0.0075,
+      0,
+      0
+    ],
+    [
+      -0.009,
+      0,
+      -0.0015
+    ],
+    [
+      -0.0091,
+      0.00675,
+      0
+    ],
+    [
+      -0.0078,
+      0.006,
+      0.0015
+    ],
+    [
+      -0.0065,
+      0.00525,
+      0
+    ],
+    [
+      -0.0078,
+      0.006,
+      -0.0015
+    ],
+    [
+      -0.00525,
+      0.0117,
+      0
+    ],
+    [
+      -0.0045,
+      0.0104,
+      0.0015
+    ],
+    [
+      -0.00375,
+      0.0091,
+      0
+    ],
+    [
+      -0.0045,
+      0.0104,
+      -0.0015
+    ]
+  ],
+  "link_faces": [
+    [
+      0,
+      4,
+      5,
+      1
+    ],
+    [
+      1,
+      5,
+      6,
+      2
+    ],
+    [
+      2,
+      6,
+      7,
+      3
+    ],
+    [
+      3,
+      7,
+      4,
+      0
+    ],
+    [
+      4,
+      8,
+      9,
+      5
+    ],
+    [
+      5,
+      9,
+      10,
+      6
+    ],
+    [
+      6,
+      10,
+      11,
+      7
+    ],
+    [
+      7,
+      11,
+      8,
+      4
+    ],
+    [
+      8,
+      12,
+      13,
+      9
+    ],
+    [
+      9,
+      13,
+      14,
+      10
+    ],
+    [
+      10,
+      14,
+      15,
+      11
+    ],
+    [
+      11,
+      15,
+      12,
+      8
+    ],
+    [
+      12,
+      16,
+      17,
+      13
+    ],
+    [
+      13,
+      17,
+      18,
+      14
+    ],
+    [
+      14,
+      18,
+      19,
+      15
+    ],
+    [
+      15,
+      19,
+      16,
+      12
+    ],
+    [
+      16,
+      20,
+      21,
+      17
+    ],
+    [
+      17,
+      21,
+      22,
+      18
+    ],
+    [
+      18,
+      22,
+      23,
+      19
+    ],
+    [
+      19,
+      23,
+      20,
+      16
+    ],
+    [
+      20,
+      24,
+      25,
+      21
+    ],
+    [
+      21,
+      25,
+      26,
+      22
+    ],
+    [
+      22,
+      26,
+      27,
+      23
+    ],
+    [
+      23,
+      27,
+      24,
+      20
+    ],
+    [
+      24,
+      28,
+      29,
+      25
+    ],
+    [
+      25,
+      29,
+      30,
+      26
+    ],
+    [
+      26,
+      30,
+      31,
+      27
+    ],
+    [
+      27,
+      31,
+      28,
+      24
+    ],
+    [
+      28,
+      32,
+      33,
+      29
+    ],
+    [
+      29,
+      33,
+      34,
+      30
+    ],
+    [
+      30,
+      34,
+      35,
+      31
+    ],
+    [
+      31,
+      35,
+      32,
+      28
+    ],
+    [
+      32,
+      36,
+      37,
+      33
+    ],
+    [
+      33,
+      37,
+      38,
+      34
+    ],
+    [
+      34,
+      38,
+      39,
+      35
+    ],
+    [
+      35,
+      39,
+      36,
+      32
+    ],
+    [
+      36,
+      40,
+      41,
+      37
+    ],
+    [
+      37,
+      41,
+      42,
+      38
+    ],
+    [
+      38,
+      42,
+      43,
+      39
+    ],
+    [
+      39,
+      43,
+      40,
+      36
+    ],
+    [
+      40,
+      44,
+      45,
+      41
+    ],
+    [
+      41,
+      45,
+      46,
+      42
+    ],
+    [
+      42,
+      46,
+      47,
+      43
+    ],
+    [
+      43,
+      47,
+      44,
+      40
+    ],
+    [
+      44,
+      0,
+      1,
+      45
+    ],
+    [
+      45,
+      1,
+      2,
+      46
+    ],
+    [
+      46,
+      2,
+      3,
+      47
+    ],
+    [
+      47,
+      3,
+      0,
+      44
+    ]
+  ],
+  "finishing": {
+    "type": "SUBSURF",
+    "levels": 2
+  },
+  "placements": [
+    {
+      "id": "link_01",
+      "location": [
+        -0.055,
+        -0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_02",
+      "location": [
+        -0.033,
+        -0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_03",
+      "location": [
+        -0.011,
+        -0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_04",
+      "location": [
+        0.011,
+        -0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_05",
+      "location": [
+        0.033,
+        -0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_06",
+      "location": [
+        0.055,
+        -0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_07",
+      "location": [
+        -0.044,
+        -0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_08",
+      "location": [
+        -0.022,
+        -0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_09",
+      "location": [
+        0,
+        -0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_10",
+      "location": [
+        0.022,
+        -0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_11",
+      "location": [
+        0.044,
+        -0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_12",
+      "location": [
+        -0.055,
+        -0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_13",
+      "location": [
+        -0.033,
+        -0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_14",
+      "location": [
+        -0.011,
+        -0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_15",
+      "location": [
+        0.011,
+        -0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_16",
+      "location": [
+        0.033,
+        -0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_17",
+      "location": [
+        0.055,
+        -0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_18",
+      "location": [
+        -0.044,
+        0,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_19",
+      "location": [
+        -0.022,
+        0,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_20",
+      "location": [
+        0,
+        0,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_21",
+      "location": [
+        0.022,
+        0,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_22",
+      "location": [
+        0.044,
+        0,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_23",
+      "location": [
+        -0.055,
+        0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_24",
+      "location": [
+        -0.033,
+        0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_25",
+      "location": [
+        -0.011,
+        0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_26",
+      "location": [
+        0.011,
+        0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_27",
+      "location": [
+        0.033,
+        0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_28",
+      "location": [
+        0.055,
+        0.011,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_29",
+      "location": [
+        -0.044,
+        0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_30",
+      "location": [
+        -0.022,
+        0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_31",
+      "location": [
+        0,
+        0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_32",
+      "location": [
+        0.022,
+        0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_33",
+      "location": [
+        0.044,
+        0.022,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_34",
+      "location": [
+        -0.055,
+        0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_35",
+      "location": [
+        -0.033,
+        0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_36",
+      "location": [
+        -0.011,
+        0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_37",
+      "location": [
+        0.011,
+        0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_38",
+      "location": [
+        0.033,
+        0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_39",
+      "location": [
+        0.055,
+        0.033,
+        0.002
+      ],
+      "rotation_degrees": [
+        35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_40",
+      "location": [
+        -0.044,
+        -0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_41",
+      "location": [
+        -0.022,
+        -0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_42",
+      "location": [
+        0,
+        -0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_43",
+      "location": [
+        0.022,
+        -0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_44",
+      "location": [
+        0.044,
+        -0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_45",
+      "location": [
+        -0.044,
+        0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_46",
+      "location": [
+        -0.022,
+        0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_47",
+      "location": [
+        0,
+        0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_48",
+      "location": [
+        0.022,
+        0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link_49",
+      "location": [
+        0.044,
+        0.044,
+        0.002
+      ],
+      "rotation_degrees": [
+        -35,
+        0,
+        0
+      ]
+    }
+  ],
+  "bake_backing": {
+    "vertices": [
+      [
+        -0.08,
+        -0.08,
+        -0.0095
+      ],
+      [
+        0.08,
+        -0.08,
+        -0.0095
+      ],
+      [
+        0.08,
+        0.08,
+        -0.0095
+      ],
+      [
+        -0.08,
+        0.08,
+        -0.0095
+      ]
+    ],
+    "faces": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ]
+  },
+  "bake_receiver": {
+    "vertices": [
+      [
+        -0.033,
+        -0.033,
+        -0.012
+      ],
+      [
+        0.033,
+        -0.033,
+        -0.012
+      ],
+      [
+        0.033,
+        0.033,
+        -0.012
+      ],
+      [
+        -0.033,
+        0.033,
+        -0.012
+      ]
+    ],
+    "faces": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "uv": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "material_paints": {
+    "link": {
+      "basecolor_linear": [
+        0.24,
+        0.265,
+        0.28
+      ],
+      "roughness": 0.57,
+      "metallic": 0.96
+    },
+    "backing": {
+      "basecolor_linear": [
+        0.014,
+        0.018,
+        0.02
+      ],
+      "roughness": 0.88,
+      "metallic": 0.0
+    }
+  },
+  "bake": {
+    "resolution": 1024,
+    "cage_extrusion": 0.035,
+    "max_ray_distance": 0.055,
+    "samples": 32
+  },
+  "notes": [
+    "The mesh is a bake source only. Flat receiver/backing surfaces are bake infrastructure, not character substitutes.",
+    "Adjacent row orientations alternate +35/-35 degrees and offset one half pitch; the finite table includes neighboring links outside the receiver for edge continuity.",
+    "The tile contains three horizontal link pitches and six row pitches. Final UV density must be calibrated on each joint panel, typically by repeating the tile before the final atlas bake.",
+    "Basecolor/roughness/metallic are material-color emission bakes, not lit photographs. Normal and occlusion come from the actual authored link geometry."
+  ]
+}

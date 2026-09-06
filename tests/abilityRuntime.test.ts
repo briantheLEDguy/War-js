@@ -126,7 +126,7 @@ describe('ability runtime activation', () => {
       sourcePosition: { x: 0, y: 0, z: 0 },
       sourceRotationY: 0,
       sourceStrength: 14,
-      sourceLevel: 5,
+      sourceLevel: 8,
       resourceSpent: 0,
     });
     expect(result?.impacts[0].dueAt).toBeGreaterThan(NOW);
@@ -174,6 +174,7 @@ describe('ability runtime activation', () => {
 
     expect(result?.ability.name).toBe("Martyr's Ward");
     expect(result?.impacts).toEqual([]);
+    expect(useGameStore.getState().playerStatusEffects).toEqual([expect.objectContaining({ kind: 'shield', remainingAbsorb: 45 })]);
     expect(useGameStore.getState().character?.mana).toBe(46);
     expect(vi.mocked(spawnAbilityVfx)).toHaveBeenCalledTimes(1);
   });
@@ -216,7 +217,7 @@ function abilityFailure(
 
 function resetForCharacter(overrides: Parameters<typeof makeCharacter>[0] = {}): void {
   resetGameStore();
-  useGameStore.getState().setCharacter(makeCharacter(overrides));
+  useGameStore.getState().setCharacter(makeCharacter({ level: 8, ...overrides }));
 }
 
 function setTargetedEnemy(enemy = makeEnemy()): void {

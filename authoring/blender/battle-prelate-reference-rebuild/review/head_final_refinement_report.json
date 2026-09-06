@@ -1,0 +1,53 @@
+{
+  "before_sha256": "74f32af7ec15974e8f63b8b43e89d37bda77148f1c142c43eef68cb605d110c1",
+  "after_sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+  "changed_coordinate_records": 106,
+  "max_displacement_m": 0.01757839583124694,
+  "invariants_passed": [
+    "vertex IDs/counts",
+    "face IDs/connectivity/materials",
+    "face-corner UVs",
+    "modifiers and levels",
+    "creases and seams",
+    "part transforms and landmarks"
+  ],
+  "source_validation": [
+    {
+      "part": "head_skin",
+      "control_vertices": 175,
+      "control_faces": 166,
+      "control_triangles": 301,
+      "control_boundary_edges": 49
+    },
+    {
+      "part": "eyes",
+      "control_vertices": 27,
+      "control_faces": 26,
+      "control_triangles": 42,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "ears",
+      "control_vertices": 45,
+      "control_faces": 49,
+      "control_triangles": 86,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "eyebrows",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    }
+  ],
+  "visual_status": "focused improvement; still stylized, not photographic likeness",
+  "review_images": [
+    "head_before_final_face_neutral.png",
+    "head_before_final_face_material.png",
+    "head_before_head_oblique_diagnostic_material.png",
+    "head_final_refined_face_neutral.png",
+    "head_final_refined_face_material.png",
+    "head_final_refined_head_oblique_diagnostic_material.png"
+  ]
+}

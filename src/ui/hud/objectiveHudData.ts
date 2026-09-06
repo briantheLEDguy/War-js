@@ -1,4 +1,6 @@
-import { QUESTS, QUESTS_BY_ID } from '../../data/quests';
+import { QUESTS, QUESTS_BY_ID, questAvailableToCharacter } from '../../data/quests';
+import { campaignZoneName } from '../../data/campaign';
+import { playerRealmForRace } from '../../data/careers';
 import type { CharacterState, QuestDefinition, QuestProgress, Vec3 } from '../../services/types';
 import type { EnemyState } from '../../state/gameStore';
 import type { NpcState } from '../../world/NpcSpawner';
@@ -49,19 +51,12 @@ export function questNpcStatus(
 ): QuestNpcStatus {
   const byId = new Map(progresses.map((progress) => [progress.questId, progress] as const));
   const readyCount = QUESTS.filter((quest) => (quest.turninNpcId ?? quest.giverNpcId) === npcId)
+    .filter((quest) => !character || !quest.realm || quest.realm === playerRealmForRace(character.race))
     .filter((quest) => byId.get(quest.id)?.status === 'ready_to_turn_in')
     .length;
   const offerCount = character
     ? QUESTS.filter((quest) => quest.giverNpcId === npcId)
-      .filter((quest) => character.level >= quest.minLevel)
-      .filter((quest) => {
-        if (!quest.prereqQuestId) return true;
-        return byId.get(quest.prereqQuestId)?.status === 'completed';
-      })
-      .filter((quest) => {
-        const own = byId.get(quest.id);
-        return !own || own.status === 'available';
-      })
+      .filter((quest) => questAvailableToCharacter(quest, progresses, character))
       .length
     : 0;
 
@@ -73,13 +68,16 @@ export function resolveTrackedQuests(input: {
   npcs: NpcState[];
   enemies: EnemyState[];
   playerPosition?: Pick<Vec3, 'x' | 'z'> | null;
+  zoneId?: string;
+  character?: CharacterState | null;
 }): ObjectiveTrackerQuest[] {
   const tracked = input.progresses
     .filter((progress) => progress.status === 'active' || progress.status === 'ready_to_turn_in')
     .map((progress) => {
       const definition = QUESTS_BY_ID[progress.questId];
       if (!definition) return null;
-      return resolveTrackedQuest(definition, progress, input.npcs, input.enemies, input.playerPosition);
+      if (definition.realm && input.character && definition.realm !== playerRealmForRace(input.character.race)) return null;
+      return resolveTrackedQuest(definition, progress, input.npcs, input.enemies, input.playerPosition, input.zoneId);
     })
     .filter((quest): quest is ObjectiveTrackerQuest => quest !== null);
 
@@ -92,6 +90,7 @@ function resolveTrackedQuest(
   npcs: NpcState[],
   enemies: EnemyState[],
   playerPosition?: Pick<Vec3, 'x' | 'z'> | null,
+  zoneId?: string,
 ): ObjectiveTrackerQuest {
   const rows = definition.objectives.map((objective) => {
     const current = progress.counters[objective.id] ?? 0;
@@ -104,7 +103,9 @@ function resolveTrackedQuest(
       complete,
       context: complete
         ? undefined
-        : objectiveContext(objective.killTarget, objective.talkTarget, npcs, enemies, playerPosition),
+        : objective.zoneId && zoneId && objective.zoneId !== zoneId
+          ? { label: campaignZoneName(objective.zoneId) }
+          : objectiveContext(objective.killTarget, objective.talkTarget, npcs, enemies, playerPosition),
     };
   });
 

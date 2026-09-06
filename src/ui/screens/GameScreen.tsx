@@ -5,6 +5,8 @@ import {
   zoneWasNormalized,
 } from '../../data/zoneRouting';
 import { Game } from '../../game/Game';
+import { restoreCampaignRewardNotice } from '../../game/CampaignRewards';
+import { migrateQuestProgressForRealm } from '../../data/quests';
 import { services } from '../../services';
 import { useGameStore } from '../../state/gameStore';
 import { Hud } from '../hud/Hud';
@@ -59,11 +61,20 @@ export function GameScreen() {
     });
 
     // preload inventory, quests, and crafting progress
-    services.inventory.get(characterSnapshot.id).then(setInventory);
-    services.crafting.get(characterSnapshot.id).then(setCraftingState);
+    services.inventory.get(characterSnapshot.id).then((items) => {
+      if (gameRef.current !== game) return;
+      setInventory(items);
+      restoreCampaignRewardNotice(characterSnapshot.id);
+    });
+    services.crafting.get(characterSnapshot.id).then((state) => {
+      if (gameRef.current === game) setCraftingState(state);
+    });
     services.quests
       .list(characterSnapshot.id)
-      .then((q) => useGameStore.getState().setQuests(q));
+      .then((q) => {
+        if (gameRef.current !== game) return;
+        useGameStore.getState().setQuests(migrateQuestProgressForRealm(q, characterSnapshot.race));
+      });
 
     return () => {
       game.dispose();

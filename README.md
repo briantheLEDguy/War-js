@@ -7,7 +7,43 @@ backend configuration by using in-memory, localStorage, and IndexedDB services.
 The runtime renders with generated or licensed `.glb` files when present and
 falls back to procedural Three.js primitives when assets are missing.
 
+The [reference-authored Battle Prelate workspace](authoring/blender/battle-prelate-reference-rebuild/README.md)
+contains the installed male character, nine armor modules, separate warhammer,
+editable Blender masters, explicit mesh sources, painted/baked maps and three LODs.
+The game selects LOD0; lower LODs and hash-bound visual/technical evidence remain
+available with the authoring package. Blender working files are excluded from
+Vite's watch list; runtime models still reload normally.
+
+Character previews use neutral room reflections, and in-game sky reflection
+capture includes the full sky sphere when HDRI is absent, keeping metallic armor
+readable without changing the delivered asset materials.
+
+The [Novitiate Field Harness](authoring/blender/battle-prelate-novitiate-set/README.md)
+adds nine simpler armor modules for the same male Battle Prelate. Character
+selection offers **Current armor / Novitiate armor** for comparison. This changes
+only the preview; entering the world retains saved equipment. Explicit source
+meshes, Blender masters, three LODs, maps and review evidence accompany the set.
+
+## Ember Arcanist reference outfit
+
+The male Ember Arcanist now has a fitted cloth-and-shoulder-armor outfit, auburn hair,
+stubble, belt equipment and an emissive Ashbound Brazier Staff. Authoring sources,
+Blender masters, three exported LODs and verification evidence live in
+`authoring/blender/ember-arcanist-reference-rebuild/`; its README documents rebuilds
+and the simplified likeness limitations. Runtime assets use the approved manifest
+registry and canonical `humanoid_game_v2` skeleton. The scarf preserves face visibility.
+
+New male characters receive the staff. Existing empty main-hand slots gain it while
+custom equipment stays intact. Female profiles keep their previous defaults. Run
+`npm run test -- tests/emberArcanistEquipment.test.ts` for starter/save behavior and
+`python -m unittest discover -s authoring/blender/ember-arcanist-reference-rebuild/tests -v`
+for authoring checks. No hosting change is included.
+
 ## Quick Start
+
+Install Git LFS and run `git lfs pull` after cloning to obtain the runtime models,
+Blender masters and large review artifacts. `.gitattributes` also preserves exact
+source and validation-report bytes so recorded hashes remain valid across platforms.
 
 ```bash
 npm install
@@ -170,6 +206,39 @@ architecture or layout so model QC, map hashes,
 `src/data/campaign.generated.ts`, and `supabase/seed_campaign_static.sql` stay
 aligned.
 
+## World Life
+
+Both capitals and the four Tier 1 routes (`sunmeadow_march`, `brightfen_approach`,
+`cinderfen_outskirts`, and `ashen_steppe`) include market deliveries, rest areas,
+washyards, gardens, and supply camps. Citizens and guards walk authored routes
+and pause at stops; deer graze and wander, birds fly overhead, and camps have
+smoke, embers, and gently moving cloth. This population is cosmetic: quest
+givers, vendors, combat targets, and their interaction markers remain managed
+by their existing systems.
+
+- `scripts/campaign/world-life-source.mjs` owns scene placement. The static
+  campaign source exports its decorator, which runs before map hashing. It
+  reserves road, building, spawn, objective, and interaction clearances and
+  excludes foliage from the resulting scenes. Run `npm run campaign:generate`
+  after editing it; generated maps, hashes, and campaign SQL must stay together.
+- `src/world/WorldLifeAssets.ts` builds ten lightweight scenery kinds plus
+  articulated citizens, guards, deer, and birds. They use local Three.js
+  geometry with merged material batches and require no additional downloads.
+  Normal prop `assetKey`/`model` fields can replace scenery with approved GLBs
+  while retaining these visual fallbacks.
+- `src/world/WorldLife.ts` handles animation, terrain grounding, distance
+  culling, and disposal. `worldLifeMotion.ts` samples closed routes in absolute
+  time, including pauses. `worldLifeTypes.ts` defines the optional zone JSON
+  `ambientLife.actors` and `ambientLife.emitters` fields.
+- Per-zone safety ceilings are 48 actors, 24 emitters, and 384 particles.
+  Decorative actors/effects render within the smaller of the player's view
+  distance and 100 metres. No additional point lights are created.
+
+Verification: run the four `tests/worldLife*.test.ts` suites with `npm run test`,
+then `npm run world:validate` and `npm run build`. Placement and movement tests
+cover deterministic regeneration, clear travel routes, bounded population,
+terrain following, culling, and resource cleanup.
+
 ## GM Build Town Kit
 
 The GM builder prefab list comes from
@@ -234,6 +303,55 @@ falling back to settings.
 
 ## Player QoL HUD
 
+### First expedition and ability progression
+
+Both realms now start with a four-part Tier 1 expedition: Aegis characters
+travel from Bastion of Aegis to Brightfen Approach, while Riftbound characters
+travel from Riftspire Citadel to Cinderfen Outskirts. Field officers handle
+turn-ins and follow-up missions within the frontier zone. Named captains and
+opposing keep guards provide distinct targets, and the final reward is an
+expedition amulet usable by every class. The intended first-session length is
+10–15 minutes; that pacing still needs a complete player playtest.
+Quest turn-ins remain ready when the reward cannot fit in the inventory, and
+the dialog explains how to make room before completing the mission.
+
+`src/data/quests.ts` defines realm eligibility, giver/turn-in zones and
+zone-scoped kill objectives. Existing Aegis quest IDs and counters remain
+compatible. Legacy Riftbound saves map their former Aegis quest progress to
+the equivalent Cinderfen quests when entering the world.
+`src/ui/hud/questNavigation.ts` selects the next offer, active objective or ready
+reward and finds its route through actual campaign links. The expedition card,
+minimap focus and all atlas tiers share that destination. Map filters and the
+full controls checklist expand on demand.
+
+`src/game/abilities/abilityProgression.ts` grants three usable starter abilities
+per class, followed by one additional ability at each level from 2 through 8.
+Working attacks, heals, control and resource actions unlock before unfinished
+utility actions. Existing hotbar positions and keys stay fixed; locked slots
+show their required level, and the activation runtime rejects locked actions
+before spending resources or starting cooldowns. Existing characters follow
+the same level rules. Level-up messages list newly learned abilities.
+Temporary self guards, finite shields, damage boosts, speed boosts, cleanses,
+and collision-checked movement now have runtime effects. Burns and bleeds tick
+once per second; marks and weakening effects change incoming or outgoing damage.
+The strongest modifier applies, shields share a capped absorb pool, and stance
+groups replace one another. `playerAbilityEffects.ts`, `EnemyStatusEffects.ts`,
+and `AbilityMovement.ts` contain these rules. Movement sweeps the full path
+against terrain and collisions before spending resources. The hotbar shows a
+shared recovery timer, and the player frame lists active effects.
+
+Ability summaries describe the current local effects. Party auras, persistent
+companion AI, channels, lifesteal procs, and form-specific chains remain future
+work. Icon of Wrath, Deploy Gunlet, and Summon Idol are explicitly unavailable;
+their learned slots show Planned and activation consumes nothing. Every class
+has a damaging level-one resource builder usable from zero mana and resource.
+
+Focused verification: `npm test -- tests/firstExpedition.test.ts
+tests/questNavigation.test.ts tests/objectiveHudData.test.ts
+tests/abilityProgression.test.ts tests/abilityRuntime.test.ts`.
+Run `npm run campaign:generate` after changing generated mission NPCs or enemies,
+then `npm run world:validate`, `npm run typecheck`, and `npm run build`.
+
 `src/ui/hud/ObjectiveTracker.tsx`, `src/ui/hud/Minimap.tsx`, and
 `src/ui/hud/WorldMapPanel.tsx` improve orientation during play. The objective
 tracker summarizes active and ready-to-turn-in quests with nearby enemy/NPC
@@ -272,13 +390,66 @@ uses the `campaign_*` tables seeded from `supabase/seed_campaign_static.sql`.
 fit-to-pane scale, physical scroll surface, cursor-anchored wheel zoom, and
 drag-pan behavior used by all three tiers. Terrain, backgrounds, connectors,
 markers, labels, and effects stay inside that same scaled scene.
-In-world `rvrObjectives` can also be claimed locally by standing inside their
-capture radius for three seconds; battlefield objective captures grant 75 XP and
-25 realm influence, with a 25 influence sweep bonus for controlling all three
-BOs. A realm needs all three BOs and 100 local zone influence before the enemy
-keep becomes capturable. The player realm is derived from race alignment, so
-Aegis races claim for Aegis and Riftbound races claim for
-Riftbound.
+In-world objectives require clearing their defenders before holding the capture
+radius for three seconds. Battlefield captures grant 75 XP and 25 realm
+influence, with a 25 influence sweep bonus for controlling all three standards.
+Friendly battlefield and fortress standards can instead be defended with an
+eight-second hold, earning 50 XP and 35 influence. Each standard has a persisted
+three-minute defense cooldown per realm. Three home defenses therefore earn
+105 influence without requiring an enemy player to recapture friendly territory.
+All three standards and 100 zone influence unlock the opposing keep.
+
+Each keep now has a staged commander encounter defined by `EnemySpawn.encounter`
+and `src/game/KeepEncounter.ts`. Clear the approach after unlocking the keep to
+summon its commander. Cleaving Order commits to a cone for 1.2 seconds; Siege
+Pulse gives 1.5 seconds to leave the surrounding circle. At 35% health the
+commander recovers faster while retaining both warning times. Approach guards
+stay defeated through the fight and capture window. Death, leaving the courtyard,
+leashing, or losing eligibility resets the encounter and cancels pending attacks.
+The commander must fall before the three-second capture can begin.
+
+Keep victories award 300 XP and 30 gold per zone tier, plus a universal Victor's
+Amulet (Strength 8–10 at T1, increasing by 3 each tier; fortresses count as T5).
+`src/game/CampaignObjectiveLogic.ts` shares eligibility, nearby defender checks,
+and timing with the runtime and HUD. Kiting a living defender outside the ring
+does not count as defeating it. Movement out of the ring, new defenders, death,
+blocking UI, and GM flight/build mode cancel a hold. The campaign card shows
+the next point, distance, influence, blockers and hold progress; nearby campaign
+activities temporarily take priority over expedition guidance.
+
+`src/game/CampaignRewards.ts` checks inventory capacity before a keep claim,
+grants and saves rewards, and presents a receipt. Gear awaiting space is retained
+per character in local storage and can be collected after reloading. Campaign
+and quest rewards share placement and capacity rules in `src/game/RewardInventory.ts`.
+Campaign control, influence and cooldowns are shared by local characters; rewards go to
+the character completing the activity. Supabase methods remain typed stubs.
+
+Ordinary enemy specials have 0.9–1.2-second windups with fixed cones or circles and a
+target-frame cast bar. Leaving the marked area avoids the hit; silence or
+stagger interrupts it. Enemies stop moving and making ordinary attacks during
+the windup. Guards, casters, captains and all objective-bound attackers respawn
+after 30 seconds; roaming raiders/beasts take 15 seconds, and passive training
+targets retain five seconds. `enemyAttackTelegraph.ts` defines the shared hit
+footprint and `EnemyAttackTelegraphVfx.ts` renders it with procedural geometry
+projected onto the ground so slopes do not hide the warning.
+Passive health recovery pauses while a hostile enemy is engaged; mana continues
+regenerating, and health recovery resumes after combat. Healing abilities remain
+usable during fights. Friendly capital standards no longer displace expedition
+guidance with an unavailable defense activity.
+
+Focused verification: `npm test -- tests/campaignDefense.test.ts
+tests/campaignActivityRuntime.test.ts tests/campaignObjectiveLogic.test.ts
+tests/campaignRewards.test.ts tests/campaignActivityCard.test.ts tests/questRewardCapacity.test.ts
+tests/combatEnemyAi.test.ts tests/enemyTelegraphs.test.ts tests/keepCommanderContent.test.ts
+tests/keepEncounterRuntime.test.ts tests/keepCommanderCombat.test.ts tests/combatStatusEffects.test.ts
+tests/abilityMovement.test.ts tests/abilityUtilitiesRuntime.test.ts tests/playerAbilityEffects.test.ts
+tests/resourceRegeneration.test.ts tests/soloCommanderPacing.test.ts`.
+The deterministic solo harness exercises five level-five classes against a
+generated Tier 1 commander with live cooldowns, regeneration, statuses and AI,
+comparing a 200 ms warning-response policy with ignoring warnings. It verifies
+combat feasibility and resource limits on flat ground; it does not measure a
+human player's route, reactions, gear choices or expedition duration. Multiplayer
+scaling and a timed 10–15-minute expedition playtest remain future work.
 
 ## Character Select Preview
 

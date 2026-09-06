@@ -1963,6 +1963,595 @@
       "z": -49.9,
       "rotY": 5.9341,
       "scale": 2.35
+    },
+    {
+      "id": "brightfen_approach_life_camp_wayfinding_1",
+      "kind": "life_signpost",
+      "x": -12,
+      "z": -42,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_camp_wayfinding_2",
+      "kind": "life_lantern",
+      "x": -12,
+      "z": -46,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_camp_wayfinding_3",
+      "kind": "life_planter",
+      "x": -16,
+      "z": -46,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_field_kitchen_1",
+      "kind": "life_campfire",
+      "x": 16,
+      "z": -75,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_field_kitchen_2",
+      "kind": "life_bench",
+      "x": 20,
+      "z": -74,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_field_kitchen_2_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_field_kitchen_3",
+      "kind": "life_bench",
+      "x": 12,
+      "z": -74,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_field_kitchen_3_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_field_kitchen_4",
+      "kind": "life_barrels",
+      "x": 20,
+      "z": -78,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_field_kitchen_4_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_field_kitchen_5",
+      "kind": "life_lantern",
+      "x": 12,
+      "z": -78,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_field_kitchen_6",
+      "kind": "life_signpost",
+      "x": 9,
+      "z": -75,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_outfitter_1",
+      "kind": "life_supply_tent",
+      "x": -20,
+      "z": -74,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_outfitter_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 3.05,
+          "depth": 2.9,
+          "minY": -0.05,
+          "maxY": 2.3
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_outfitter_2",
+      "kind": "life_crate_stack",
+      "x": -15,
+      "z": -77,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_outfitter_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_outfitter_3",
+      "kind": "life_barrels",
+      "x": -25,
+      "z": -74,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_outfitter_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_outfitter_4",
+      "kind": "life_handcart",
+      "x": -13,
+      "z": -72,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_outfitter_4_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "brightfen_approach_life_outfitter_4_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "brightfen_approach_life_outfitter_4_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_outfitter_5",
+      "kind": "life_lantern",
+      "x": -25,
+      "z": -70,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_camp_deliveries_1",
+      "kind": "life_handcart",
+      "x": 32,
+      "z": -28,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_camp_deliveries_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_1_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_1_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_camp_deliveries_2",
+      "kind": "life_crate_stack",
+      "x": 36,
+      "z": -31,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_camp_deliveries_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_camp_deliveries_3",
+      "kind": "life_barrels",
+      "x": 28,
+      "z": -31,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_camp_deliveries_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_camp_deliveries_4",
+      "kind": "life_lantern",
+      "x": 35,
+      "z": -25,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_camp_deliveries_5",
+      "kind": "life_signpost",
+      "x": 28,
+      "z": -25,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_camp_deliveries_6",
+      "kind": "life_crate_stack",
+      "x": 39,
+      "z": -27,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_camp_deliveries_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_field_rest_1",
+      "kind": "life_bench",
+      "x": -31,
+      "z": -25,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_field_rest_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_field_rest_2",
+      "kind": "life_planter",
+      "x": -27.5,
+      "z": -25,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_field_rest_3",
+      "kind": "life_planter",
+      "x": -34.5,
+      "z": -25,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_field_rest_4",
+      "kind": "life_clothesline",
+      "x": -31,
+      "z": -20,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_field_rest_5",
+      "kind": "life_barrels",
+      "x": -36,
+      "z": -21,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_field_rest_5_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_field_rest_6",
+      "kind": "life_lantern",
+      "x": -26,
+      "z": -22,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_roadside_caravan_1",
+      "kind": "life_supply_tent",
+      "x": -94,
+      "z": 16,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_roadside_caravan_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 3.05,
+          "depth": 2.9,
+          "minY": -0.05,
+          "maxY": 2.3
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_roadside_caravan_2",
+      "kind": "life_crate_stack",
+      "x": -89,
+      "z": 13,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_roadside_caravan_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_roadside_caravan_3",
+      "kind": "life_barrels",
+      "x": -99,
+      "z": 16,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_roadside_caravan_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_roadside_caravan_4",
+      "kind": "life_handcart",
+      "x": -89,
+      "z": 20,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_roadside_caravan_4_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_4_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_4_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_roadside_caravan_5",
+      "kind": "life_lantern",
+      "x": -99,
+      "z": 20,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_roadside_caravan_6",
+      "kind": "life_crate_stack",
+      "x": -94,
+      "z": 22,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_roadside_caravan_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_trail_garden_1",
+      "kind": "life_bench",
+      "x": 94,
+      "z": -46,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_trail_garden_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_trail_garden_3",
+      "kind": "life_planter",
+      "x": 90,
+      "z": -42,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_trail_garden_6",
+      "kind": "life_planter",
+      "x": 88,
+      "z": -38,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_watch_camp_1",
+      "kind": "life_campfire",
+      "x": 25,
+      "z": 29,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "brightfen_approach_life_watch_camp_2",
+      "kind": "life_bench",
+      "x": 29,
+      "z": 30,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_watch_camp_2_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "brightfen_approach_life_watch_camp_3",
+      "kind": "life_bench",
+      "x": 21,
+      "z": 30,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "brightfen_approach_life_watch_camp_3_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
     }
   ],
   "npcs": [
@@ -1985,6 +2574,16 @@
       "z": -34,
       "rotY": 0,
       "characterProfileKey": "npc_aegis_corren_vale_tier_1_campaign_marshal"
+    },
+    {
+      "id": "brightfen_approach_dispatch",
+      "name": "Ari Vell",
+      "title": "Brightfen Field Officer",
+      "role": "questgiver",
+      "x": -18,
+      "z": -66,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_ari_vell_brightfen_field_officer"
     },
     {
       "id": "brightfen_approach_scout",
@@ -2196,18 +2795,60 @@
     },
     {
       "id": "brightfen_approach_field_captain",
-      "name": "Keep Captain",
-      "level": 5,
+      "name": "Brightfen Field Captain",
+      "level": 4,
       "x": 0,
       "z": 78,
-      "maxHealth": 300,
+      "maxHealth": 220,
       "archetype": "captain",
       "aggroRange": 18,
       "attackRange": 3.2,
       "preferredRange": 2.7,
-      "attackDamage": 22,
+      "attackDamage": 20,
       "moveSpeed": 3.05,
       "characterProfileKey": "enemy_aegis_keep_captain_captain"
+    },
+    {
+      "id": "brightfen_approach_aegis_keep_commander",
+      "name": "Aegis Castellan Maelin Reedshield",
+      "level": 5,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 340,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 7,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "brightfen_approach_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "brightfen_approach_riftbound_keep_commander",
+      "name": "Riftbound Warlord Zorren Fenreaver",
+      "level": 5,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 340,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 7,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "brightfen_approach_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
     },
     {
       "id": "brightfen_approach_beast_1",
@@ -2731,6 +3372,306 @@
         "pnw_grass_clump",
         "pnw_mossy_boulder",
         "pnw_fallen_log"
+      ],
+      "excludeCorridors": [
+        {
+          "id": "brightfen_approach_life_outfitter_3_clearing",
+          "points": [
+            {
+              "x": -25,
+              "z": -74
+            },
+            {
+              "x": -25,
+              "z": -74
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "brightfen_approach_life_outfitter_5_clearing",
+          "points": [
+            {
+              "x": -25,
+              "z": -70
+            },
+            {
+              "x": -25,
+              "z": -70
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "brightfen_approach_life_field_rest_1_clearing",
+          "points": [
+            {
+              "x": -31,
+              "z": -25
+            },
+            {
+              "x": -31,
+              "z": -25
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_field_rest_2_clearing",
+          "points": [
+            {
+              "x": -27.5,
+              "z": -25
+            },
+            {
+              "x": -27.5,
+              "z": -25
+            }
+          ],
+          "radius": 4.1
+        },
+        {
+          "id": "brightfen_approach_life_field_rest_3_clearing",
+          "points": [
+            {
+              "x": -34.5,
+              "z": -25
+            },
+            {
+              "x": -34.5,
+              "z": -25
+            }
+          ],
+          "radius": 4.1
+        },
+        {
+          "id": "brightfen_approach_life_field_rest_4_clearing",
+          "points": [
+            {
+              "x": -31,
+              "z": -20
+            },
+            {
+              "x": -31,
+              "z": -20
+            }
+          ],
+          "radius": 5.6
+        },
+        {
+          "id": "brightfen_approach_life_field_rest_5_clearing",
+          "points": [
+            {
+              "x": -36,
+              "z": -21
+            },
+            {
+              "x": -36,
+              "z": -21
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "brightfen_approach_life_field_rest_6_clearing",
+          "points": [
+            {
+              "x": -26,
+              "z": -22
+            },
+            {
+              "x": -26,
+              "z": -22
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_1_clearing",
+          "points": [
+            {
+              "x": -94,
+              "z": 16
+            },
+            {
+              "x": -94,
+              "z": 16
+            }
+          ],
+          "radius": 6.1
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_2_clearing",
+          "points": [
+            {
+              "x": -89,
+              "z": 13
+            },
+            {
+              "x": -89,
+              "z": 13
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_3_clearing",
+          "points": [
+            {
+              "x": -99,
+              "z": 16
+            },
+            {
+              "x": -99,
+              "z": 16
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_4_clearing",
+          "points": [
+            {
+              "x": -89,
+              "z": 20
+            },
+            {
+              "x": -89,
+              "z": 20
+            }
+          ],
+          "radius": 5.5
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_5_clearing",
+          "points": [
+            {
+              "x": -99,
+              "z": 20
+            },
+            {
+              "x": -99,
+              "z": 20
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "brightfen_approach_life_roadside_caravan_6_clearing",
+          "points": [
+            {
+              "x": -94,
+              "z": 22
+            },
+            {
+              "x": -94,
+              "z": 22
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_supply_worker_clearing",
+          "points": [
+            {
+              "x": -27,
+              "z": -69
+            },
+            {
+              "x": -27,
+              "z": -69
+            },
+            {
+              "x": -31,
+              "z": -69
+            },
+            {
+              "x": -27,
+              "z": -69
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "brightfen_approach_life_trail_patrol_clearing",
+          "points": [
+            {
+              "x": -35,
+              "z": -15
+            },
+            {
+              "x": -35,
+              "z": -15
+            },
+            {
+              "x": -45,
+              "z": -15
+            },
+            {
+              "x": -35,
+              "z": -15
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "brightfen_approach_life_caravan_traveler_clearing",
+          "points": [
+            {
+              "x": -92,
+              "z": 9
+            },
+            {
+              "x": -92,
+              "z": 9
+            },
+            {
+              "x": -100,
+              "z": 9
+            },
+            {
+              "x": -92,
+              "z": 9
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "brightfen_approach_life_meadow_deer_3_clearing",
+          "points": [
+            {
+              "x": -85,
+              "z": -56
+            },
+            {
+              "x": -85,
+              "z": -56
+            },
+            {
+              "x": -93,
+              "z": -52
+            },
+            {
+              "x": -85,
+              "z": -56
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "brightfen_approach_life_camp_resting_guard_clearing",
+          "points": [
+            {
+              "x": -26,
+              "z": 25
+            },
+            {
+              "x": -26,
+              "z": 25
+            }
+          ],
+          "radius": 3
+        }
       ]
     },
     {
@@ -2777,8 +3718,528 @@
         "pnw_grass_clump",
         "pnw_mossy_boulder",
         "pnw_fallen_log"
+      ],
+      "excludeCorridors": [
+        {
+          "id": "brightfen_approach_life_camp_deliveries_1_clearing",
+          "points": [
+            {
+              "x": 32,
+              "z": -28
+            },
+            {
+              "x": 32,
+              "z": -28
+            }
+          ],
+          "radius": 5.5
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_2_clearing",
+          "points": [
+            {
+              "x": 36,
+              "z": -31
+            },
+            {
+              "x": 36,
+              "z": -31
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_3_clearing",
+          "points": [
+            {
+              "x": 28,
+              "z": -31
+            },
+            {
+              "x": 28,
+              "z": -31
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_4_clearing",
+          "points": [
+            {
+              "x": 35,
+              "z": -25
+            },
+            {
+              "x": 35,
+              "z": -25
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_5_clearing",
+          "points": [
+            {
+              "x": 28,
+              "z": -25
+            },
+            {
+              "x": 28,
+              "z": -25
+            }
+          ],
+          "radius": 4.1
+        },
+        {
+          "id": "brightfen_approach_life_camp_deliveries_6_clearing",
+          "points": [
+            {
+              "x": 39,
+              "z": -27
+            },
+            {
+              "x": 39,
+              "z": -27
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_trail_garden_1_clearing",
+          "points": [
+            {
+              "x": 94,
+              "z": -46
+            },
+            {
+              "x": 94,
+              "z": -46
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_trail_garden_3_clearing",
+          "points": [
+            {
+              "x": 90,
+              "z": -42
+            },
+            {
+              "x": 90,
+              "z": -42
+            }
+          ],
+          "radius": 4.1
+        },
+        {
+          "id": "brightfen_approach_life_trail_garden_6_clearing",
+          "points": [
+            {
+              "x": 88,
+              "z": -38
+            },
+            {
+              "x": 88,
+              "z": -38
+            }
+          ],
+          "radius": 4.1
+        },
+        {
+          "id": "brightfen_approach_life_watch_camp_1_clearing",
+          "points": [
+            {
+              "x": 25,
+              "z": 29
+            },
+            {
+              "x": 25,
+              "z": 29
+            }
+          ],
+          "radius": 4.6
+        },
+        {
+          "id": "brightfen_approach_life_watch_camp_2_clearing",
+          "points": [
+            {
+              "x": 29,
+              "z": 30
+            },
+            {
+              "x": 29,
+              "z": 30
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "brightfen_approach_life_gatherer_clearing",
+          "points": [
+            {
+              "x": 84,
+              "z": -44
+            },
+            {
+              "x": 84,
+              "z": -44
+            },
+            {
+              "x": 80,
+              "z": -44
+            },
+            {
+              "x": 84,
+              "z": -44
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "brightfen_approach_life_meadow_deer_1_clearing",
+          "points": [
+            {
+              "x": 61,
+              "z": -83
+            },
+            {
+              "x": 61,
+              "z": -83
+            },
+            {
+              "x": 69,
+              "z": -80
+            },
+            {
+              "x": 61,
+              "z": -83
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "brightfen_approach_life_meadow_deer_2_clearing",
+          "points": [
+            {
+              "x": 54,
+              "z": -71
+            },
+            {
+              "x": 54,
+              "z": -71
+            },
+            {
+              "x": 60,
+              "z": -74
+            },
+            {
+              "x": 54,
+              "z": -71
+            }
+          ],
+          "radius": 3
+        }
       ]
     }
   ],
-  "staticMapHash": "a525ff0e4a53cce0"
+  "ambientLife": {
+    "actors": [
+      {
+        "id": "brightfen_approach_life_kitchen_worker",
+        "kind": "citizen",
+        "x": 12,
+        "z": -82,
+        "route": [
+          {
+            "x": 12,
+            "z": -82
+          },
+          {
+            "x": 7,
+            "z": -82
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 4,
+        "scale": 0.94,
+        "variant": 0
+      },
+      {
+        "id": "brightfen_approach_life_supply_worker",
+        "kind": "citizen",
+        "x": -27,
+        "z": -69,
+        "route": [
+          {
+            "x": -27,
+            "z": -69
+          },
+          {
+            "x": -31,
+            "z": -69
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 5,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "brightfen_approach_life_camp_guard",
+        "kind": "guard",
+        "x": 12,
+        "z": -22,
+        "route": [
+          {
+            "x": 12,
+            "z": -22
+          },
+          {
+            "x": 12,
+            "z": -14
+          }
+        ],
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 1.01,
+        "variant": 2
+      },
+      {
+        "id": "brightfen_approach_life_trail_patrol",
+        "kind": "guard",
+        "x": -35,
+        "z": -15,
+        "route": [
+          {
+            "x": -35,
+            "z": -15
+          },
+          {
+            "x": -45,
+            "z": -15
+          }
+        ],
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 1.045,
+        "variant": 3
+      },
+      {
+        "id": "brightfen_approach_life_caravan_traveler",
+        "kind": "citizen",
+        "x": -92,
+        "z": 9,
+        "route": [
+          {
+            "x": -92,
+            "z": 9
+          },
+          {
+            "x": -100,
+            "z": 9
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 4,
+        "scale": 0.94,
+        "variant": 0
+      },
+      {
+        "id": "brightfen_approach_life_gatherer",
+        "kind": "citizen",
+        "x": 84,
+        "z": -44,
+        "route": [
+          {
+            "x": 84,
+            "z": -44
+          },
+          {
+            "x": 80,
+            "z": -44
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 5,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "brightfen_approach_life_meadow_deer_1",
+        "kind": "deer",
+        "x": 61,
+        "z": -83,
+        "route": [
+          {
+            "x": 61,
+            "z": -83
+          },
+          {
+            "x": 69,
+            "z": -80
+          }
+        ],
+        "speed": 1.1,
+        "pauseSeconds": 6,
+        "scale": 0.85,
+        "variant": 2
+      },
+      {
+        "id": "brightfen_approach_life_meadow_deer_2",
+        "kind": "deer",
+        "x": 54,
+        "z": -71,
+        "route": [
+          {
+            "x": 54,
+            "z": -71
+          },
+          {
+            "x": 60,
+            "z": -74
+          }
+        ],
+        "speed": 1.1,
+        "pauseSeconds": 7,
+        "scale": 0.9299999999999999,
+        "variant": 3
+      },
+      {
+        "id": "brightfen_approach_life_meadow_deer_3",
+        "kind": "deer",
+        "x": -85,
+        "z": -56,
+        "route": [
+          {
+            "x": -85,
+            "z": -56
+          },
+          {
+            "x": -93,
+            "z": -52
+          }
+        ],
+        "speed": 1.1,
+        "pauseSeconds": 4,
+        "scale": 1.01,
+        "variant": 0
+      },
+      {
+        "id": "brightfen_approach_life_camp_resting_guard",
+        "kind": "guard",
+        "x": -26,
+        "z": 25,
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "brightfen_approach_life_bird_1",
+        "kind": "bird",
+        "x": -45,
+        "z": -42,
+        "route": [
+          {
+            "x": -45,
+            "z": -42
+          },
+          {
+            "x": -27,
+            "z": -32
+          },
+          {
+            "x": -50,
+            "z": -22
+          }
+        ],
+        "speed": 3.4,
+        "pauseSeconds": 0,
+        "scale": 0.7,
+        "variant": 0
+      },
+      {
+        "id": "brightfen_approach_life_bird_2",
+        "kind": "bird",
+        "x": -15,
+        "z": -60,
+        "route": [
+          {
+            "x": -15,
+            "z": -60
+          },
+          {
+            "x": 3,
+            "z": -50
+          },
+          {
+            "x": -20,
+            "z": -40
+          }
+        ],
+        "speed": 3.6999999999999997,
+        "pauseSeconds": 0,
+        "scale": 0.7999999999999999,
+        "variant": 1
+      }
+    ],
+    "emitters": [
+      {
+        "id": "brightfen_approach_life_field_kitchen_1_smoke",
+        "kind": "smoke",
+        "x": 16,
+        "z": -75,
+        "y": 0.6,
+        "count": 8,
+        "radius": 0.8
+      },
+      {
+        "id": "brightfen_approach_life_field_kitchen_1_embers",
+        "kind": "embers",
+        "x": 16,
+        "z": -75,
+        "y": 0.35,
+        "count": 12,
+        "radius": 0.65
+      },
+      {
+        "id": "brightfen_approach_life_watch_camp_1_smoke",
+        "kind": "smoke",
+        "x": 25,
+        "z": 29,
+        "y": 0.6,
+        "count": 8,
+        "radius": 0.8
+      },
+      {
+        "id": "brightfen_approach_life_watch_camp_1_embers",
+        "kind": "embers",
+        "x": 25,
+        "z": 29,
+        "y": 0.35,
+        "count": 12,
+        "radius": 0.65
+      },
+      {
+        "id": "brightfen_approach_life_motes_1",
+        "kind": "motes",
+        "x": 84,
+        "z": -44,
+        "y": 1.4,
+        "count": 12,
+        "radius": 5
+      },
+      {
+        "id": "brightfen_approach_life_motes_2",
+        "kind": "motes",
+        "x": -28,
+        "z": 28,
+        "y": 1.4,
+        "count": 12,
+        "radius": 5
+      }
+    ]
+  },
+  "staticMapHash": "0d929b8be5975742"
 }

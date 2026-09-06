@@ -1,0 +1,9 @@
+{
+  "source": "source/garments.json",
+  "front_vertices": 56,
+  "rear_vertices": 42,
+  "new_faces": 13,
+  "fold_coordinates": "tools/refine_novitiate_cloth.py",
+  "hem_width_m": 0.022,
+  "purpose": "More natural folded cloth and visible stitched turned hems without adding ornate decoration."
+}

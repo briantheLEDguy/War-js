@@ -42,6 +42,15 @@ export class CampaignSupabase implements CampaignService {
     throw new NotImplementedError('CampaignSupabase.claimObjective');
   }
 
+  defendObjective(
+    _zoneId: string,
+    _objectiveId: string,
+    _realm: CampaignRealm,
+  ): Promise<CampaignClaimResult> {
+    // TODO(phase2): Atomically validate friendly control and the realm cooldown before rewarding defense.
+    throw new NotImplementedError('CampaignSupabase.defendObjective');
+  }
+
   resetCampaign(): Promise<CampaignSnapshot> {
     throw new NotImplementedError('CampaignSupabase.resetCampaign');
   }

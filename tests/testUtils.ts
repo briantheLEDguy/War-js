@@ -29,6 +29,8 @@ export function resetGameStore(): void {
     playerStatusEffects: [],
     abilityResource: null,
     hotbarCooldowns: Array.from({ length: HOTBAR_SLOT_COUNT }, () => 0),
+    globalCooldownUntil: 0,
+    playerDead: false,
     pendingTouchAbility: null,
     contextPrompt: null,
     abilityFeedback: null,

@@ -1,0 +1,225 @@
+diff --git a/src/ui/screens/CharacterPreviewStage.tsx b/src/ui/screens/CharacterPreviewStage.tsx
+index bc77222..8bd4956 100644
+--- a/src/ui/screens/CharacterPreviewStage.tsx
++++ b/src/ui/screens/CharacterPreviewStage.tsx
+@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
+ import * as THREE from 'three';
+ import { AssetLoader } from '../../game/AssetLoader';
+ import { Player } from '../../game/Player';
++import { setupPreviewReflections } from '../../game/PreviewReflections';
+ import type { CharacterState } from '../../services/types';
+ import type { Terrain } from '../../world/Terrain';
+ 
+@@ -68,6 +69,7 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
+     renderer.toneMappingExposure = 1.42;
+     renderer.shadowMap.enabled = true;
+     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
++    const disposeReflections = setupPreviewReflections(scene, renderer);
+     container.appendChild(renderer.domElement);
+ 
+     const hemi = new THREE.HemisphereLight(0xd8e4ff, 0x1a0c08, 0.92);
+@@ -173,6 +175,7 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
+       container.removeEventListener('pointermove', onPointerMove);
+       container.removeEventListener('pointerup', onPointerUp);
+       container.removeEventListener('pointercancel', onPointerUp);
++      disposeReflections();
+       renderer.dispose();
+       renderer.domElement.remove();
+     };
+diff --git a/src/world/Skybox.ts b/src/world/Skybox.ts
+index c4a934c..a3834f1 100644
+--- a/src/world/Skybox.ts
++++ b/src/world/Skybox.ts
+@@ -62,26 +62,29 @@ export async function setupSky(
+     side: THREE.BackSide,
+     depthWrite: false,
+   });
+-  if (hdriPath) {
+-    const tex = await loader.loadHDRI(hdriPath);
+-    if (tex) {
+-      scene.environment = tex;
++  try {
++    if (hdriPath) {
++      const tex = await loader.loadHDRI(hdriPath);
++      if (tex) {
++        scene.environment = tex;
++      }
+     }
+-  }
+ 
+-  // If no HDRI was supplied (or the asset was missing), bake the procedural
+-  // gradient sky into a PMREM environment map. Without this, PBR materials
+-  // with high metalness (gold 0.95, steel 0.85) have nothing to reflect and
+-  // render nearly black everywhere except where direct sunlight hits.
+-  if (!scene.environment) {
+-    const pmrem = new THREE.PMREMGenerator(renderer);
+-    pmrem.compileEquirectangularShader();
+-    // Render the sky mesh into a tiny scene and generate the env map from it.
+-    const envScene = new THREE.Scene();
+-    const envSky = new THREE.Mesh(geo.clone(), mat.clone());
+-    envScene.add(envSky);
+-    scene.environment = pmrem.fromScene(envScene, 0.04).texture;
+-    pmrem.dispose();
++    // Metallic materials need reflected sky light even when the HDRI is missing.
++    if (!scene.environment) {
++      const pmrem = new THREE.PMREMGenerator(renderer);
++      const envScene = new THREE.Scene();
++      envScene.add(new THREE.Mesh(geo, mat));
++      try {
++        // The default capture far plane is 100, inside this radius-1400 sky.
++        scene.environment = pmrem.fromScene(envScene, 0.04, 0.1, 2000).texture;
++      } finally {
++        pmrem.dispose();
++      }
++    }
++  } finally {
++    geo.dispose();
++    mat.dispose();
+   }
+ 
+   // Atmospheric fog — slightly warm, hazy
+diff --git a/src/game/PreviewReflections.ts b/src/game/PreviewReflections.ts
+new file mode 100644
+--- /dev/null
++++ b/src/game/PreviewReflections.ts
+@@ -0,0 +1,24 @@
++import * as THREE from 'three';
++import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
++
++/** Supplies neutral PBR reflections without replacing the themed preview backdrop. */
++export function setupPreviewReflections(scene: THREE.Scene, renderer: THREE.WebGLRenderer): () => void {
++  const environment = new RoomEnvironment();
++  const pmrem = new THREE.PMREMGenerator(renderer);
++  let target: THREE.WebGLRenderTarget;
++  try {
++    target = pmrem.fromScene(environment, 0.04);
++  } finally {
++    environment.dispose();
++    pmrem.dispose();
++  }
++  scene.environment = target.texture;
++
++  let disposed = false;
++  return () => {
++    if (disposed) return;
++    disposed = true;
++    if (scene.environment === target.texture) scene.environment = null;
++    target.dispose();
++  };
++}
+diff --git a/tests/reflectionEnvironment.test.ts b/tests/reflectionEnvironment.test.ts
+new file mode 100644
+--- /dev/null
++++ b/tests/reflectionEnvironment.test.ts
+@@ -0,0 +1,111 @@
++import * as THREE from 'three';
++import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
++import { afterEach, describe, expect, test, vi } from 'vitest';
++import type { AssetLoader } from '../src/game/AssetLoader';
++import { setupPreviewReflections } from '../src/game/PreviewReflections';
++import { setupSky } from '../src/world/Skybox';
++
++const renderer = { compile: vi.fn() } as unknown as THREE.WebGLRenderer;
++
++afterEach(() => vi.restoreAllMocks());
++
++describe('outdoor reflection fallback', () => {
++  test('missing HDRI captures sky within the cube camera range in every direction', async () => {
++    const scene = new THREE.Scene();
++    const target = new THREE.WebGLRenderTarget(4, 4);
++    const geometryDisposed = vi.fn();
++    const materialDisposed = vi.fn();
++    const generatorDisposed = vi.spyOn(THREE.PMREMGenerator.prototype, 'dispose');
++    const capture = vi.spyOn(THREE.PMREMGenerator.prototype, 'fromScene')
++      .mockImplementation((environment, _sigma, near = 0.1, far = 100) => {
++        const sky = environment.children[0] as THREE.Mesh<THREE.SphereGeometry, THREE.ShaderMaterial>;
++        sky.geometry.addEventListener('dispose', geometryDisposed);
++        sky.material.addEventListener('dispose', materialDisposed);
++        environment.updateMatrixWorld(true);
++        for (const direction of [
++          [1, 0, 0], [-1, 0, 0], [0.01, 1, 0.01], [0.01, -1, 0.01], [0, 0, 1], [0, 0, -1], [1, 1, 1],
++        ]) {
++          const ray = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(...direction).normalize(), near, far);
++          expect(ray.intersectObject(sky).length).toBeGreaterThan(0);
++        }
++        return target;
++      });
++    const loader = { loadHDRI: vi.fn(async () => null) } as unknown as AssetLoader;
++
++    await setupSky(scene, loader, renderer, 'missing.hdr');
++
++    expect(loader.loadHDRI).toHaveBeenCalledWith('missing.hdr');
++    expect(capture).toHaveBeenCalledOnce();
++    expect(scene.environment).toBe(target.texture);
++    expect(geometryDisposed).toHaveBeenCalledOnce();
++    expect(materialDisposed).toHaveBeenCalledOnce();
++    expect(generatorDisposed).toHaveBeenCalledOnce();
++    target.dispose();
++  });
++
++  test('available HDRI remains authoritative and skips fallback capture', async () => {
++    const scene = new THREE.Scene();
++    const hdri = new THREE.Texture();
++    const capture = vi.spyOn(THREE.PMREMGenerator.prototype, 'fromScene');
++    const loader = { loadHDRI: vi.fn(async () => hdri) } as unknown as AssetLoader;
++
++    await setupSky(scene, loader, renderer, 'available.hdr');
++
++    expect(scene.environment).toBe(hdri);
++    expect(capture).not.toHaveBeenCalled();
++    hdri.dispose();
++  });
++});
++
++describe('character preview reflections', () => {
++  test('retains the themed background and owns its reflection target until cleanup', () => {
++    const scene = new THREE.Scene();
++    const background = new THREE.Color(0x15100d);
++    scene.background = background;
++    const target = new THREE.WebGLRenderTarget(4, 4);
++    const targetDisposed = vi.spyOn(target, 'dispose');
++    const roomDisposed = vi.spyOn(RoomEnvironment.prototype, 'dispose');
++    const generatorDisposed = vi.spyOn(THREE.PMREMGenerator.prototype, 'dispose');
++    const capture = vi.spyOn(THREE.PMREMGenerator.prototype, 'fromScene').mockReturnValue(target);
++
++    const cleanup = setupPreviewReflections(scene, renderer);
++
++    expect(capture.mock.calls[0][0]).toBeInstanceOf(RoomEnvironment);
++    expect(scene.environment).toBe(target.texture);
++    expect(scene.background).toBe(background);
++    expect(roomDisposed).toHaveBeenCalledOnce();
++    expect(generatorDisposed).toHaveBeenCalledOnce();
++    expect(targetDisposed).not.toHaveBeenCalled();
++    cleanup();
++    cleanup();
++    expect(scene.environment).toBeNull();
++    expect(scene.background).toBe(background);
++    expect(targetDisposed).toHaveBeenCalledOnce();
++  });
++
++  test('old preview cleanup does not clear a replacement environment', () => {
++    const scene = new THREE.Scene();
++    const target = new THREE.WebGLRenderTarget(4, 4);
++    vi.spyOn(THREE.PMREMGenerator.prototype, 'fromScene').mockReturnValue(target);
++    const cleanup = setupPreviewReflections(scene, renderer);
++    const replacement = new THREE.Texture();
++    scene.environment = replacement;
++    cleanup();
++    expect(scene.environment).toBe(replacement);
++    replacement.dispose();
++  });
++
++  test('capture failure releases temporary room and generator resources', () => {
++    const scene = new THREE.Scene();
++    const roomDisposed = vi.spyOn(RoomEnvironment.prototype, 'dispose');
++    const generatorDisposed = vi.spyOn(THREE.PMREMGenerator.prototype, 'dispose');
++    vi.spyOn(THREE.PMREMGenerator.prototype, 'fromScene').mockImplementation(() => {
++      throw new Error('capture failed');
++    });
++
++    expect(() => setupPreviewReflections(scene, renderer)).toThrow('capture failed');
++    expect(roomDisposed).toHaveBeenCalledOnce();
++    expect(generatorDisposed).toHaveBeenCalledOnce();
++    expect(scene.environment).toBeNull();
++  });
++});

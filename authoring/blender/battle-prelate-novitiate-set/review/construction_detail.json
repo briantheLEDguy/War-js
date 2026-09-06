@@ -1,0 +1,52 @@
+{
+  "model_hashes": {
+    "body": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+    "head": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84",
+    "shoulders": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2",
+    "chest": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d",
+    "hands": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e",
+    "waist": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8",
+    "legs": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8",
+    "feet": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd",
+    "back": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a",
+    "tabard": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094",
+    "weapon": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de"
+  },
+  "camera_policy": "Supplemental detail cameras; frozen comparisons unchanged",
+  "renders": [
+    {
+      "file": "review/melee_fit_cycles.png",
+      "sha256": "e86a4d147eb8f805c6637cad271f75ddabab4d60c1021ebe3998f2a1e873ad39",
+      "clip": "attack_melee",
+      "fraction": 0.25,
+      "position": [
+        1.605405569076538,
+        -2.983168125152588,
+        2.247476100921631
+      ],
+      "target": [
+        0.005405517760664225,
+        0.016831809654831886,
+        1.2474761009216309
+      ],
+      "ortho_scale": 0.7799999713897705
+    },
+    {
+      "file": "review/construction_detail.png",
+      "sha256": "3eb4c59475629cdb55f3d606dd7fad6dd18654c64b331da31f365be82d589167",
+      "clip": "idle",
+      "fraction": 0.25,
+      "position": [
+        1.6007332801818848,
+        -2.9786999225616455,
+        2.2374424934387207
+      ],
+      "target": [
+        0.000733212917111814,
+        0.021300163120031357,
+        1.2374423742294312
+      ],
+      "ortho_scale": 0.7799999713897705
+    }
+  ]
+}

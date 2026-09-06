@@ -1,0 +1,1426 @@
+{
+  "schema_version": 1,
+  "status": "rendered_pending_visual_review",
+  "created_utc": "2026-09-06T08:12:03.975708+00:00",
+  "blender_version": "5.0.1",
+  "validation_report_sha256": "3482623101ff4f39b4afdab6a04238bf24cbb64db10d59f9a15792ff773d12dd",
+  "runtime_report_sha256": "07bc882361569f979572a08498f33fc2598a3b765f103bd8230a5c2c5dd35fbf",
+  "scene_source_sha256": "128ed04cf7d01d08c5da12be2b4851a1ac8c2fe5eea4a19e3a9eb3ec84f4ec7f",
+  "model_hashes": {
+    "chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+    "arm_civic_battle_prelate_head_novitiate_m.glb": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84",
+    "arm_civic_battle_prelate_shoulders_novitiate_m.glb": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2",
+    "arm_civic_battle_prelate_chest_novitiate_m.glb": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d",
+    "arm_civic_battle_prelate_hands_novitiate_m.glb": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e",
+    "arm_civic_battle_prelate_waist_novitiate_m.glb": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8",
+    "arm_civic_battle_prelate_legs_novitiate_m.glb": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8",
+    "arm_civic_battle_prelate_feet_novitiate_m.glb": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd",
+    "arm_civic_battle_prelate_back_novitiate_m.glb": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a",
+    "arm_civic_battle_prelate_tabard_novitiate_m.glb": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094",
+    "wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+    "chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+    "arm_civic_battle_prelate_head_novitiate_m_lod1.glb": "60b34bb64ac542c831a1aa3e2a470a550d5ba2c7c67c77d84dcd26158c26dd37",
+    "arm_civic_battle_prelate_shoulders_novitiate_m_lod1.glb": "be22d01a64f43421f8ef224c3373845eabe81dd13ac7eb90c09d56c750a05821",
+    "arm_civic_battle_prelate_chest_novitiate_m_lod1.glb": "59bbd04e771e22f7caae603288deb572bbde7be4c5f3c4ea3afb32338cc789a5",
+    "arm_civic_battle_prelate_hands_novitiate_m_lod1.glb": "b6aa7b66b6916e9bf1e83b15ab1a3140b7610b0fc25ab56002e7482499ffc863",
+    "arm_civic_battle_prelate_waist_novitiate_m_lod1.glb": "4b11755edd94f64318046dbbb3c630a9eb8b7be371f7e78bef6da070b90474a4",
+    "arm_civic_battle_prelate_legs_novitiate_m_lod1.glb": "6a188f23b41c328bf5f499019a7494fbfd377b3657e7d4a2e5500657c354a862",
+    "arm_civic_battle_prelate_feet_novitiate_m_lod1.glb": "21dce9efd3f63bdccdf76440cbd0e9c3f12843b5e08685a952521232d2553fe4",
+    "arm_civic_battle_prelate_back_novitiate_m_lod1.glb": "c70a3b6068a9797a59980b14111ad998ea3870666654b820ac522119558e6f1d",
+    "arm_civic_battle_prelate_tabard_novitiate_m_lod1.glb": "1e168426203d8c5990a9d3bd8a8208c8a54ae4f4fd78ec137b0cd91137de9283",
+    "wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+    "chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+    "arm_civic_battle_prelate_head_novitiate_m_lod2.glb": "81c7a4d79577cc11bb9f65e783336d92fc2cdec5d53a48031236b30917077837",
+    "arm_civic_battle_prelate_shoulders_novitiate_m_lod2.glb": "870337da4281cf0365698b22f4e933db1c2501b57595f361388f930e9f9184a5",
+    "arm_civic_battle_prelate_chest_novitiate_m_lod2.glb": "f533c5a3bc934181c8e5fa52b5d05e6bb8ba32824c79f2a47a424d428cfe412c",
+    "arm_civic_battle_prelate_hands_novitiate_m_lod2.glb": "39afa3a54adbfe0afc8c18c29095b504a9238a52563c62fbb226bcfc9d0f2c7f",
+    "arm_civic_battle_prelate_waist_novitiate_m_lod2.glb": "ead282c71de809bf53ca269ad67c2ac9131615bb2fca5f6890a4dd44d78a7852",
+    "arm_civic_battle_prelate_legs_novitiate_m_lod2.glb": "ba7b4205c98f7dee39119168a82e9aaa71cacc9afc189d401f721799be729086",
+    "arm_civic_battle_prelate_feet_novitiate_m_lod2.glb": "04a0f88e3625f10ae94ca77ec34f26c1e79274aebb504a32d4933e82ee02a84d",
+    "arm_civic_battle_prelate_back_novitiate_m_lod2.glb": "fc9f1fd29f80fd94a5a0b87a9eb0249f34e4e911ff38ec06cde498285cdebe23",
+    "arm_civic_battle_prelate_tabard_novitiate_m_lod2.glb": "b377dec4607e6c27ae5f44308a9e59b75f2552dc5f9e5bc97e6c36b298afa49f",
+    "wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+  },
+  "lods": {
+    "0": {
+      "modules": {
+        "body": {
+          "source": "chr_civic_battle_prelate_t1_m.glb",
+          "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+          "bone_count": 56
+        },
+        "head": {
+          "source": "arm_civic_battle_prelate_head_novitiate_m.glb",
+          "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "shoulders": {
+          "source": "arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+          "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "chest": {
+          "source": "arm_civic_battle_prelate_chest_novitiate_m.glb",
+          "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "hands": {
+          "source": "arm_civic_battle_prelate_hands_novitiate_m.glb",
+          "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "waist": {
+          "source": "arm_civic_battle_prelate_waist_novitiate_m.glb",
+          "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "legs": {
+          "source": "arm_civic_battle_prelate_legs_novitiate_m.glb",
+          "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "feet": {
+          "source": "arm_civic_battle_prelate_feet_novitiate_m.glb",
+          "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "back": {
+          "source": "arm_civic_battle_prelate_back_novitiate_m.glb",
+          "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "tabard": {
+          "source": "arm_civic_battle_prelate_tabard_novitiate_m.glb",
+          "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "weapon": {
+          "source": "wep_civic_battle_prelate_dawn_maul.glb",
+          "sha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+          "socket": "socket_hand_R",
+          "policy": "Use exported grip-origin coordinates and imported local transforms; no fitting offset or extra rotation"
+        }
+      },
+      "bone_count": 56,
+      "sockets": [
+        "socket_back",
+        "socket_hand_L",
+        "socket_hand_R",
+        "socket_root"
+      ],
+      "actions": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    "1": {
+      "modules": {
+        "body": {
+          "source": "chr_civic_battle_prelate_t1_m_lod1.glb",
+          "sha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+          "bone_count": 56
+        },
+        "head": {
+          "source": "arm_civic_battle_prelate_head_novitiate_m_lod1.glb",
+          "sha256": "60b34bb64ac542c831a1aa3e2a470a550d5ba2c7c67c77d84dcd26158c26dd37",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "shoulders": {
+          "source": "arm_civic_battle_prelate_shoulders_novitiate_m_lod1.glb",
+          "sha256": "be22d01a64f43421f8ef224c3373845eabe81dd13ac7eb90c09d56c750a05821",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "chest": {
+          "source": "arm_civic_battle_prelate_chest_novitiate_m_lod1.glb",
+          "sha256": "59bbd04e771e22f7caae603288deb572bbde7be4c5f3c4ea3afb32338cc789a5",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "hands": {
+          "source": "arm_civic_battle_prelate_hands_novitiate_m_lod1.glb",
+          "sha256": "b6aa7b66b6916e9bf1e83b15ab1a3140b7610b0fc25ab56002e7482499ffc863",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "waist": {
+          "source": "arm_civic_battle_prelate_waist_novitiate_m_lod1.glb",
+          "sha256": "4b11755edd94f64318046dbbb3c630a9eb8b7be371f7e78bef6da070b90474a4",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "legs": {
+          "source": "arm_civic_battle_prelate_legs_novitiate_m_lod1.glb",
+          "sha256": "6a188f23b41c328bf5f499019a7494fbfd377b3657e7d4a2e5500657c354a862",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "feet": {
+          "source": "arm_civic_battle_prelate_feet_novitiate_m_lod1.glb",
+          "sha256": "21dce9efd3f63bdccdf76440cbd0e9c3f12843b5e08685a952521232d2553fe4",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "back": {
+          "source": "arm_civic_battle_prelate_back_novitiate_m_lod1.glb",
+          "sha256": "c70a3b6068a9797a59980b14111ad998ea3870666654b820ac522119558e6f1d",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "tabard": {
+          "source": "arm_civic_battle_prelate_tabard_novitiate_m_lod1.glb",
+          "sha256": "1e168426203d8c5990a9d3bd8a8208c8a54ae4f4fd78ec137b0cd91137de9283",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "weapon": {
+          "source": "wep_civic_battle_prelate_dawn_maul_lod1.glb",
+          "sha256": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+          "socket": "socket_hand_R",
+          "policy": "Use exported grip-origin coordinates and imported local transforms; no fitting offset or extra rotation"
+        }
+      },
+      "bone_count": 56,
+      "sockets": [
+        "socket_back",
+        "socket_hand_L",
+        "socket_hand_R",
+        "socket_root"
+      ],
+      "actions": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    "2": {
+      "modules": {
+        "body": {
+          "source": "chr_civic_battle_prelate_t1_m_lod2.glb",
+          "sha256": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+          "bone_count": 56
+        },
+        "head": {
+          "source": "arm_civic_battle_prelate_head_novitiate_m_lod2.glb",
+          "sha256": "81c7a4d79577cc11bb9f65e783336d92fc2cdec5d53a48031236b30917077837",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "shoulders": {
+          "source": "arm_civic_battle_prelate_shoulders_novitiate_m_lod2.glb",
+          "sha256": "870337da4281cf0365698b22f4e933db1c2501b57595f361388f930e9f9184a5",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "chest": {
+          "source": "arm_civic_battle_prelate_chest_novitiate_m_lod2.glb",
+          "sha256": "f533c5a3bc934181c8e5fa52b5d05e6bb8ba32824c79f2a47a424d428cfe412c",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "hands": {
+          "source": "arm_civic_battle_prelate_hands_novitiate_m_lod2.glb",
+          "sha256": "39afa3a54adbfe0afc8c18c29095b504a9238a52563c62fbb226bcfc9d0f2c7f",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "waist": {
+          "source": "arm_civic_battle_prelate_waist_novitiate_m_lod2.glb",
+          "sha256": "ead282c71de809bf53ca269ad67c2ac9131615bb2fca5f6890a4dd44d78a7852",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "legs": {
+          "source": "arm_civic_battle_prelate_legs_novitiate_m_lod2.glb",
+          "sha256": "ba7b4205c98f7dee39119168a82e9aaa71cacc9afc189d401f721799be729086",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "feet": {
+          "source": "arm_civic_battle_prelate_feet_novitiate_m_lod2.glb",
+          "sha256": "04a0f88e3625f10ae94ca77ec34f26c1e79274aebb504a32d4933e82ee02a84d",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "back": {
+          "source": "arm_civic_battle_prelate_back_novitiate_m_lod2.glb",
+          "sha256": "fc9f1fd29f80fd94a5a0b87a9eb0249f34e4e911ff38ec06cde498285cdebe23",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "tabard": {
+          "source": "arm_civic_battle_prelate_tabard_novitiate_m_lod2.glb",
+          "sha256": "b377dec4607e6c27ae5f44308a9e59b75f2552dc5f9e5bc97e6c36b298afa49f",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 0.0,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 0.0
+        },
+        "weapon": {
+          "source": "wep_civic_battle_prelate_dawn_maul_lod2.glb",
+          "sha256": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b",
+          "socket": "socket_hand_R",
+          "policy": "Use exported grip-origin coordinates and imported local transforms; no fitting offset or extra rotation"
+        }
+      },
+      "bone_count": 56,
+      "sockets": [
+        "socket_back",
+        "socket_hand_L",
+        "socket_hand_R",
+        "socket_root"
+      ],
+      "actions": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "path": "review/reimport_lod0_full_front_material.png",
+      "sha256": "d3e2a7a37d5a089efb3b9d1206b0a5644b3e0fd28311f25353c5cc8909316abf",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_front",
+      "scope": "equipped",
+      "view": "front",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_three_quarter_material.png",
+      "sha256": "c001f8127d0461492e78c5146e717b86551a2005582d2aaa264330a560f44b6a",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_three_quarter",
+      "scope": "equipped",
+      "view": "isometric",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_side_material.png",
+      "sha256": "9165ef3e150d2867a0e8b612dd76facf9b70fe9bf66993fb62c8849cfa6e6563",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_side",
+        "position": [
+          5,
+          0,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_side",
+      "scope": "equipped",
+      "view": "side",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_back_material.png",
+      "sha256": "6ebb2232b3c076e96011cfe0c4490f56f6dca4820cb5a867e0ea46b487abc8d2",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_back",
+        "position": [
+          0,
+          5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_back",
+      "scope": "equipped",
+      "view": "back",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_front_neutral.png",
+      "sha256": "451678b3d292c1e6ff399c312a5c494be22a2bd339482d4cb9f131e87fc14c3e",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_front_neutral",
+      "scope": "neutral",
+      "view": "front",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod1_full_front_material.png",
+      "sha256": "f9d0a8899e3c6a53960a1b67bb356c9ee0674c3060bb9bc97299b339c8fc5db7",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod1_full_front",
+      "scope": "lod",
+      "view": "front",
+      "lod": 1
+    },
+    {
+      "path": "review/reimport_lod2_full_front_material.png",
+      "sha256": "0c15a3546ca2bb635d871d287757db1ad34ab21a18388837d61402dcbba068d3",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod2_full_front",
+      "scope": "lod",
+      "view": "front",
+      "lod": 2
+    },
+    {
+      "id": "animation_stress_contact",
+      "scope": "animation_stress",
+      "path": "review/reimport_motion_contact.png",
+      "sha256": "b15a63623fb6fe8feeb4dd2fe863e031c3d34c86ce55c1293bc6cb460c62c15f",
+      "kind": "Contact sheet of actual GLB action renders; no synthesized frames",
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "combat_idle",
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "death",
+        "jump"
+      ]
+    }
+  ],
+  "motion_frames": [
+    {
+      "path": "review/reimport_motion_idle_15.png",
+      "sha256": "58ade61071c21fc61612cd9f4876869590d07d8089553bb2088c8ab369432b6c",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 7.199999999999999,
+      "clip": "idle",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_idle_50.png",
+      "sha256": "25b233705fc19ad9fe1206e4ff7c111d8f85aa8f3cd29f7ba420e3dd42cb6363",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 24.0,
+      "clip": "idle",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_idle_85.png",
+      "sha256": "6c034799e9f25a4273a810e658d2d8a581a52cf0c03a3f213b057ff84f15ab0d",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 40.8,
+      "clip": "idle",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_walk_15.png",
+      "sha256": "c282916618468e2eae4e42112baa1e46f5b2f8ae0f6c0859243023c8297bd9fb",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 3.5999999999999996,
+      "clip": "walk",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_walk_50.png",
+      "sha256": "f6654e2f1702ede14faed6b56732228961c270ef6e1cf2f52d01eb93c3ac6f9c",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 12.0,
+      "clip": "walk",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_walk_85.png",
+      "sha256": "b6e677f879cbb705d1e2d1f7eba49ea53c4754a01142381968cd44e4cc186027",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 20.4,
+      "clip": "walk",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_run_15.png",
+      "sha256": "d3d9ab2d2a26b468fc241bfe86dd83ed980c607941840b0ecaabd08e6911301c",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 2.4,
+      "clip": "run",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_run_50.png",
+      "sha256": "3f00d19df525a7b109e3a8581b6351ec9acced51d69432367bbe9eaac75541f2",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 8.0,
+      "clip": "run",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_run_85.png",
+      "sha256": "da209bfdee4eba3559e192fb822fa89fb825f74cef943e537bdd2de51e3c379e",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 13.6,
+      "clip": "run",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_15.png",
+      "sha256": "e6bed16c8f698b2348f14fa46e5bfdbd4e6ee155e289f64572ab947a975f0cd5",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 9.6,
+      "clip": "combat_idle",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_50.png",
+      "sha256": "2d5b010ab70d1ec8b258f1d2b706fe5503796c26665d029b61e39470e9e782b2",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 32.0,
+      "clip": "combat_idle",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_85.png",
+      "sha256": "2218389df6c3f8d46f484ea435fc84b8f47312f7d381b33aed15bee2e0ae9250",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 54.4,
+      "clip": "combat_idle",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_15.png",
+      "sha256": "ff69450004c391aad043fade156146bb57333390e98f0348fc8fe0ece15ac295",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 3.5999999999999996,
+      "clip": "attack_melee",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_50.png",
+      "sha256": "3aa99cf3a528b910fbec1b8f7a9cd848ee7f4c8ee9c93c07912ac760ee7f59dd",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 12.0,
+      "clip": "attack_melee",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_85.png",
+      "sha256": "19a970c008bef2899609d4afb23706fbe5b89f3a025a29527c2c54aff9bd6dcd",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 20.4,
+      "clip": "attack_melee",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_15.png",
+      "sha256": "11c472974458b787ba5213146461c250928547354179061ef46bbffe6eb34f0c",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 4.8,
+      "clip": "attack_ranged",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_50.png",
+      "sha256": "4e9df8880307017f6a21636dda3351c1b03e1ff7468e8cba542f8b4eaa35d76a",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 16.0,
+      "clip": "attack_ranged",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_85.png",
+      "sha256": "823ba19fe02dcc1f20e15eb16ac8772fbc08b443c93ec6d5442b33a1cc67e919",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 27.2,
+      "clip": "attack_ranged",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_cast_15.png",
+      "sha256": "33371555f24e2e33ead5a66ce91bc2148d85a47832b09e220eb89751372ed2ce",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 7.199999999999999,
+      "clip": "cast",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_cast_50.png",
+      "sha256": "3b796c47d1e23296a9d13a8fa3ce1f5245f992947c94f24fe7b076d54092e1af",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 24.0,
+      "clip": "cast",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_cast_85.png",
+      "sha256": "94b78af9d66e378d13c356f10a0adb4c00964998b7261f193553b3ec27cdc2c7",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 40.8,
+      "clip": "cast",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_death_15.png",
+      "sha256": "e2d35ef1e5a9c13880e1d327df4706960cf0cf660c1f44f9929ea6aaff8d7b04",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 7.199999999999999,
+      "clip": "death",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_death_50.png",
+      "sha256": "ced7126c167ef6ba7abb80e463f7d00844696ebc291f3a434fc679ec47fe4010",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 24.0,
+      "clip": "death",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_death_85.png",
+      "sha256": "4657008dbf807f7ad559827ab66633d20b7159d3ef1ddf3e99a9921755812527",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 40.8,
+      "clip": "death",
+      "fraction": 0.85
+    },
+    {
+      "path": "review/reimport_motion_jump_15.png",
+      "sha256": "e5144b2c54de4206781f298520bce149f9c456b5906169f42b2c9c3edbf0873b",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 4.8,
+      "clip": "jump",
+      "fraction": 0.15
+    },
+    {
+      "path": "review/reimport_motion_jump_50.png",
+      "sha256": "9516083e7889a9d41915d037aa79b350dbf36f2500c0fc0bda2be540ff39db93",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 16.0,
+      "clip": "jump",
+      "fraction": 0.5
+    },
+    {
+      "path": "review/reimport_motion_jump_85.png",
+      "sha256": "c948130a0683b7fdd18fc5f26645c30c30fa35844737a21ad21c0facf58b4728",
+      "engine": "BLENDER_EEVEE",
+      "samples": null,
+      "resolution_percentage": 40,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 27.2,
+      "clip": "jump",
+      "fraction": 0.85
+    }
+  ],
+  "camera_policy": "Frozen source camera positions/targets/orthographic scales; only motion output resolution is reduced",
+  "pose_policy": "Canonical rest pose for fixed views; actual exported actions for stress frames; no source comparison offsets",
+  "complete_evidence": true,
+  "resumed_checkpoint_sha256": "278b0102fa785e648e828192684c1e928ce2dfff917dada1e606371598251215",
+  "resume_policy": "Verified exact input and image hashes before rendering only missing LOD2; retained actual LOD0/1 and 27 motion renders",
+  "contact_sheet": {
+    "id": "animation_stress_contact",
+    "scope": "animation_stress",
+    "path": "review/reimport_motion_contact.png",
+    "sha256": "b15a63623fb6fe8feeb4dd2fe863e031c3d34c86ce55c1293bc6cb460c62c15f",
+    "kind": "Contact sheet of actual GLB action renders; no synthesized frames",
+    "clips": [
+      "idle",
+      "walk",
+      "run",
+      "combat_idle",
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "death",
+      "jump"
+    ]
+  }
+}

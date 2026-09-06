@@ -20,26 +20,245 @@
     ]
   },
   "hashes": {
-    "modelSha256": "df663b9e93b271d8b0a9bd8af11b555dbf4a74f0a06ae04eb09c92eb02059f64",
-    "qcSha256": "0375dc938c9917ca37b4858f263401e703792a8d44fe3e3b2c6192f7fbdaa895",
+    "modelSha256": "d5dcdbc9d0a43af922436f177a28f0599f81d4f0171fee0e0e6d13cf3bb9907a",
+    "qcSha256": "4c52d60ed3067dec88ec32a458732d1db1219969bbcccbe5b335277c40b90672",
     "previews": {
-      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+      "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9"
     }
   },
   "previews": {
-    "front": "reviews/roster-direct/battle_prelate/m/feet_front.png"
+    "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
   },
   "provenance": {
-    "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "dark-fantasy-character-pass-v3",
-    "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "boot_contoured_welt_and_sole",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "boot_shaped_leather_upper",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "sabaton_shaped_toecap",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_first_articulated_lame",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_second_articulated_lame",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_instep_articulated_lame",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_brass_toe_rim",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_brass_instep_border",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_heel_steel_counter",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_heel_brass_upper_lip",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_outer_leather_buckle_strap",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_outer_brass_buckle",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "boot_buckle_tongue",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
   },
   "review": {
-    "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T10:19:31.445Z",
-    "reviewHash": "3f43411e57875fa210bda67d264ddf9dcce00735176d803a18eb5378d85edece"
+    "reviewedBy": "Codex primary agent, with independent source, export, and motion reviews",
+    "reviewedAt": "2026-09-06T01:10:06.609961+00:00",
+    "reviewHash": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42"
   },
   "approvalState": "approved"
 }

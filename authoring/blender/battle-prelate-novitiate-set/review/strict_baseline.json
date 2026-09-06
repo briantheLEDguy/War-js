@@ -1,0 +1,1412 @@
+{
+  "strict": true,
+  "ok": false,
+  "results": [
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\jwl_amulet_bloodglass_t1.asset.json",
+      "assetId": "jwl.amulet.bloodglass.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_preview_blight_shrub_t1.asset.json",
+      "assetId": "prop.preview.blight_shrub.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_preview_dreary_reeds_t1.asset.json",
+      "assetId": "prop.preview.dreary_reeds.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_preview_jagged_stone_t1.asset.json",
+      "assetId": "prop.preview.jagged_stone.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_preview_twisted_tree_t1.asset.json",
+      "assetId": "prop.preview.twisted_tree.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_castle.asset.json",
+      "assetId": "prop.town.castle",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_chimney.asset.json",
+      "assetId": "prop.town.chimney",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_diamond_window.asset.json",
+      "assetId": "prop.town.diamond_window",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_door_2.asset.json",
+      "assetId": "prop.town.door_2",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_door.asset.json",
+      "assetId": "prop.town.door",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_banner.asset.json",
+      "assetId": "prop.town.fortress_banner",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_barricade.asset.json",
+      "assetId": "prop.town.fortress_barricade",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_brazier.asset.json",
+      "assetId": "prop.town.fortress_brazier",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_corner_tower.asset.json",
+      "assetId": "prop.town.fortress_corner_tower",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_gatehouse.asset.json",
+      "assetId": "prop.town.fortress_gatehouse",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_wall_stairs.asset.json",
+      "assetId": "prop.town.fortress_wall_stairs",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_fortress_wall.asset.json",
+      "assetId": "prop.town.fortress_wall",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_horizontal_beam.asset.json",
+      "assetId": "prop.town.horizontal_beam",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_house_1.asset.json",
+      "assetId": "prop.town.house_1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_house_2.asset.json",
+      "assetId": "prop.town.house_2",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_plank_arc.asset.json",
+      "assetId": "prop.town.plank_arc",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_rock_wall_large.asset.json",
+      "assetId": "prop.town.rock_wall_large",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_rock_wall_small.asset.json",
+      "assetId": "prop.town.rock_wall_small",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_roof_plank_large.asset.json",
+      "assetId": "prop.town.roof_plank_large",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_roof_plank_medium.asset.json",
+      "assetId": "prop.town.roof_plank_medium",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_roof_plank_small.asset.json",
+      "assetId": "prop.town.roof_plank_small",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_roof.asset.json",
+      "assetId": "prop.town.roof",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_spire.asset.json",
+      "assetId": "prop.town.spire",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_vertical_beam.asset.json",
+      "assetId": "prop.town.vertical_beam",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_window.asset.json",
+      "assetId": "prop.town.window",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_wooden_wall_dark.asset.json",
+      "assetId": "prop.town.wooden_wall_dark",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_town_wooden_wall_light.asset.json",
+      "assetId": "prop.town.wooden_wall_light",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\prop_training_dummy_t1.asset.json",
+      "assetId": "prop.training_dummy.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\asset-blueprints\\wep_hammer_2h_reliquary_steel_t1.asset.json",
+      "assetId": "wep.hammer_2h.reliquary_steel.t1",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:civic_battle_prelate_f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:civic_battle_prelate_m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:civic_ember_arcanist_m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_aegis_keep_guard_guard",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_briarwatch_den_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_campaign_raider_raider",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_glassriver_depths_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_mireglass_den_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_stormbarrow_lair_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_aegis_warden_s_hollow_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_cindermaw_pit_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_gorepine_warrens_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_greenskin_brute_raider",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_greenskin_ruffian_raider",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_keep_captain_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_lair_sentinel_guard",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:enemy_riftbound_rotwreath_nest_overlord_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:mire_warbrute_f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:mire_warbrute_m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_brann_hartwell_main_gate_guard",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_brigitte_holtz_merchant",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_brother_steffan_battle_prelate_trainer",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_corren_vale_capital_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_corren_vale_endgame_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_corren_vale_tier_3_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_diedrick_stein_general_goods",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_elira_dawnmarch_aegis_quartermaster",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_freia_voss_banker",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_gate_sergeant_city_guard",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_gate_warden_city_guard",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_iven_stonebrook_street_patrol",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_konrad_hausman_banker",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_lysa_bright_market_watch",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_magister_roth_ember_arcanist_trainer",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_mira_stonewake_forward_scout",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_mira_stonewake_siege_engineer",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_mira_stonewake_vault_keeper",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_rowan_hale_plaza_watch",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_serra_brightfield_gate_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_sir_emmerich_sunfire_templar_trainer",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_aegis_veyra_sunholt_east_gate_guard",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_forward_scout",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_siege_engineer",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_crafting_mentor",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_gate_captain",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_resource_warden",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_nyra_vex_endgame_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:characterProfiles:npc_riftbound_selk_dreadspire_field_medic",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:banner_post",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:castle_door",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:castle_gate",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:castle_stairs",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:creature_barrow_wolf",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:creature_lair_spider",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:dummy",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:gate",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:preview_blight_shrub",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:preview_dreary_reeds",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:preview_jagged_stone",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:preview_twisted_tree",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_castle",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_chimney",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_diamond_window",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_door",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_door_2",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_banner",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_barricade",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_brazier",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_corner_tower",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_gatehouse",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_wall",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_fortress_wall_stairs",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_horizontal_beam",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_house_1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_house_2",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_plank_arc",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_rock_wall_large",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_rock_wall_small",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_roof",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_roof_plank_large",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_roof_plank_medium",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_roof_plank_small",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_spire",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_vertical_beam",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_window",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_wooden_wall_dark",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:town_wooden_wall_light",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:staticProps:vendor_stall",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:jewel_amulet_bloodglass",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_back_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_chest_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_feet_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_hands_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_head_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_legs_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_shoulders_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_tabard_m:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_ember_arcanist_waist_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_m:m",
+      "errors": []
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_back_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_back_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_chest_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_chest_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_feet_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_feet_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_hands_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_hands_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_head_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_head_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_legs_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_legs_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_tabard_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_tabard_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_waist_f:f",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": false,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:starter_mire_brutish_warbrute_waist_m:m",
+      "errors": [
+        "runtime qcSha256 does not match the indexed QC file"
+      ]
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:weapon_ember_brazier_staff:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+      "assetId": "asset-index:equipment:weapon_hammer_reliquary_2h:m",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\jwl_amulet_bloodglass_t1.qc.json",
+      "assetId": "generated-qc:jwl.amulet.bloodglass.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_preview_blight_shrub_t1.qc.json",
+      "assetId": "generated-qc:prop.preview.blight_shrub.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_preview_dreary_reeds_t1.qc.json",
+      "assetId": "generated-qc:prop.preview.dreary_reeds.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_preview_jagged_stone_t1.qc.json",
+      "assetId": "generated-qc:prop.preview.jagged_stone.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_preview_twisted_tree_t1.qc.json",
+      "assetId": "generated-qc:prop.preview.twisted_tree.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_castle.qc.json",
+      "assetId": "generated-qc:prop.town.castle",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_chimney.qc.json",
+      "assetId": "generated-qc:prop.town.chimney",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_diamond_window.qc.json",
+      "assetId": "generated-qc:prop.town.diamond_window",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_door_2.qc.json",
+      "assetId": "generated-qc:prop.town.door_2",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_door.qc.json",
+      "assetId": "generated-qc:prop.town.door",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_banner.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_banner",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_barricade.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_barricade",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_brazier.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_brazier",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_corner_tower.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_corner_tower",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_gatehouse.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_gatehouse",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_wall_stairs.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_wall_stairs",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_fortress_wall.qc.json",
+      "assetId": "generated-qc:prop.town.fortress_wall",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_horizontal_beam.qc.json",
+      "assetId": "generated-qc:prop.town.horizontal_beam",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_house_1.qc.json",
+      "assetId": "generated-qc:prop.town.house_1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_house_2.qc.json",
+      "assetId": "generated-qc:prop.town.house_2",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_plank_arc.qc.json",
+      "assetId": "generated-qc:prop.town.plank_arc",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_rock_wall_large.qc.json",
+      "assetId": "generated-qc:prop.town.rock_wall_large",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_rock_wall_small.qc.json",
+      "assetId": "generated-qc:prop.town.rock_wall_small",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_roof_plank_large.qc.json",
+      "assetId": "generated-qc:prop.town.roof_plank_large",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_roof_plank_medium.qc.json",
+      "assetId": "generated-qc:prop.town.roof_plank_medium",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_roof_plank_small.qc.json",
+      "assetId": "generated-qc:prop.town.roof_plank_small",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_roof.qc.json",
+      "assetId": "generated-qc:prop.town.roof",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_spire.qc.json",
+      "assetId": "generated-qc:prop.town.spire",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_vertical_beam.qc.json",
+      "assetId": "generated-qc:prop.town.vertical_beam",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_window.qc.json",
+      "assetId": "generated-qc:prop.town.window",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_wooden_wall_dark.qc.json",
+      "assetId": "generated-qc:prop.town.wooden_wall_dark",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_town_wooden_wall_light.qc.json",
+      "assetId": "generated-qc:prop.town.wooden_wall_light",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\prop_training_dummy_t1.qc.json",
+      "assetId": "generated-qc:prop.training_dummy.t1",
+      "errors": []
+    },
+    {
+      "ok": true,
+      "filePath": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\wep_hammer_2h_reliquary_steel_t1.qc.json",
+      "assetId": "generated-qc:wep.hammer_2h.reliquary_steel.t1",
+      "errors": []
+    }
+  ]
+}

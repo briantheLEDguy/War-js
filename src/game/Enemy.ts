@@ -6,6 +6,7 @@ import type { EnemySpawn } from '../world/ZoneLoader';
 import type { Terrain } from '../world/Terrain';
 import { AssetLoader } from './AssetLoader';
 import { StaticModelAnimator } from './animation/StaticModelAnimator';
+import type { EnemyCastState } from './enemyAttackTelegraph';
 
 type GroundResolver = (x: number, z: number, currentY?: number) => number;
 
@@ -14,6 +15,9 @@ export class Enemy {
   position = new THREE.Vector3();
   homePosition = new THREE.Vector3();
   respawnAt: number | null = null;
+  /** Spawn assigned to a campaign objective; clearing it grants a longer recovery window. */
+  objectiveDefender = false;
+  abilitySequence = 0;
   private glbMixer: THREE.AnimationMixer | null = null;
   private glbActions = new Map<string, THREE.AnimationAction>();
   private activeLoopAction: THREE.AnimationAction | null = null;
@@ -32,13 +36,17 @@ export class Enemy {
   /** Seconds until the next archetype ability can begin casting. */
   abilityCooldown = 0;
   /** Pending archetype ability cast, resolved by Combat once its windup finishes. */
-  pendingAbility: { abilityId: string; dueAt: number } | null = null;
+  pendingAbility: EnemyCastState | null = null;
 
   constructor(
     public spawn: EnemySpawn,
     private terrain: Terrain,
     private groundHeightAt: GroundResolver = (x, z) => terrain.heightAt(x, z),
   ) {}
+
+  sampleGroundHeight(x: number, z: number, currentY = this.position.y): number {
+    return this.groundHeightAt(x, z, currentY);
+  }
 
   async build(loader: AssetLoader, scene: THREE.Scene): Promise<void> {
     const fallback = pickEnemyFallback(this.spawn);
@@ -198,6 +206,7 @@ export class Enemy {
     this.aggroed = false;
     this.attackCooldown = 0;
     this.abilityCooldown = 0;
+    this.abilitySequence = 0;
     this.pendingAbility = null;
     this.lastSpeed = 0;
   }

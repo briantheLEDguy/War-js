@@ -1,0 +1,156 @@
+{
+  "status": "source_validated_and_rest_run50_visually_reviewed",
+  "source_sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+  "before_sha256": "c6c529f53f0dc34028eb781b3afe2aeccd0a44466dce3225b7ffcb317678940c",
+  "changed_coordinates": [
+    {
+      "part": "greave_shaped_front_shell",
+      "id": "v000",
+      "before": [
+        0.069,
+        0.02,
+        0.478
+      ],
+      "after": [
+        0.092,
+        0.032,
+        0.46
+      ],
+      "distance_m": 0.03157530680769386
+    },
+    {
+      "part": "greave_shaped_front_shell",
+      "id": "v005",
+      "before": [
+        0.073,
+        0.033,
+        0.425
+      ],
+      "after": [
+        0.093,
+        0.045,
+        0.425
+      ],
+      "distance_m": 0.023323807579381205
+    },
+    {
+      "part": "greave_shaped_front_shell",
+      "id": "v010",
+      "before": [
+        0.089,
+        0.049,
+        0.337
+      ],
+      "after": [
+        0.1,
+        0.054,
+        0.337
+      ],
+      "distance_m": 0.01208304597359458
+    },
+    {
+      "part": "greave_inner_brass_edge",
+      "id": "v000",
+      "before": [
+        0.067,
+        0.019,
+        0.478
+      ],
+      "after": [
+        0.09,
+        0.031,
+        0.46
+      ],
+      "distance_m": 0.03157530680769386
+    },
+    {
+      "part": "greave_inner_brass_edge",
+      "id": "v001",
+      "before": [
+        0.071,
+        0.006,
+        0.478
+      ],
+      "after": [
+        0.094,
+        0.018,
+        0.46
+      ],
+      "distance_m": 0.03157530680769387
+    },
+    {
+      "part": "greave_inner_brass_edge",
+      "id": "v002",
+      "before": [
+        0.071,
+        0.032,
+        0.425
+      ],
+      "after": [
+        0.091,
+        0.044,
+        0.425
+      ],
+      "distance_m": 0.023323807579381205
+    },
+    {
+      "part": "greave_inner_brass_edge",
+      "id": "v003",
+      "before": [
+        0.076,
+        0.018,
+        0.425
+      ],
+      "after": [
+        0.096,
+        0.03,
+        0.425
+      ],
+      "distance_m": 0.023323807579381205
+    },
+    {
+      "part": "greave_inner_brass_edge",
+      "id": "v004",
+      "before": [
+        0.087,
+        0.048,
+        0.337
+      ],
+      "after": [
+        0.098,
+        0.053,
+        0.337
+      ],
+      "distance_m": 0.01208304597359458
+    },
+    {
+      "part": "greave_inner_brass_edge",
+      "id": "v005",
+      "before": [
+        0.092,
+        0.034,
+        0.337
+      ],
+      "after": [
+        0.103,
+        0.039,
+        0.337
+      ],
+      "distance_m": 0.012083045973594567
+    }
+  ],
+  "maximum_displacement_m": 0.03157530680769387,
+  "all_noncoordinate_fields_unchanged": true,
+  "cuisses_knees_outer_greave_face_unchanged": true,
+  "control_vertex_count": 320,
+  "control_face_count": 183,
+  "master_saved": false,
+  "staged_outputs_written": false,
+  "evidence": [
+    "greave_fit_before/report.json",
+    "greave_fit_after/report.json",
+    "greave_fit_after/run_50.png",
+    "greave_fit_after/rest_50.png"
+  ],
+  "limitation": "This isolated fit check establishes rest/run50 improvement, not all-pose animation acceptance."
+}

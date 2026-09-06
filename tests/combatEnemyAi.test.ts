@@ -8,6 +8,28 @@ import { useGameStore, type CombatStatusEffect } from '../src/state/gameStore';
 import { makeCharacter, makePlayer, resetGameStore } from './testUtils';
 
 describe('enemy archetype AI', () => {
+  test.each([
+    { label: 'hostile enemies', aggroRange: 12, expectedAggro: true },
+    { label: 'passive training targets', aggroRange: 0, expectedAggro: false },
+    { label: 'targets without aggression settings', aggroRange: undefined, expectedAggro: false },
+  ])('ranged damage gives $label the correct aggression state', ({ aggroRange, expectedAggro }) => {
+    resetGameStore();
+    useGameStore.getState().setCharacter(makeCharacter({ className: 'Ember Arcanist' }));
+    const combat = new Combat();
+    const enemy = runtimeEnemy({ id: 'ranged-target', x: 0, z: 22, aggroRange });
+    combat.registerEnemy(enemy);
+    useGameStore.getState().setEnemies([enemyState(enemy)]);
+    useGameStore.getState().setTarget(enemy.spawn.id);
+    const player = makePlayer();
+    expect(combat.tryAbility(0, player, 1000)).toBe(true);
+    combat.tickAbilityImpacts(3000);
+    expect(useGameStore.getState().enemies[0].health).toBeGreaterThan(0);
+    expect(useGameStore.getState().enemies[0].health).toBeLessThan(enemy.spawn.maxHealth);
+    expect(enemy.aggroed).toBe(expectedAggro);
+    combat.tickEnemies(0.1, 3100, player);
+    expect(enemy.aggroed).toBe(expectedAggro);
+  });
+
   test('melee enemies chase and damage the player in range', () => {
     resetGameStore();
     useGameStore.getState().setCharacter(makeCharacter({ health: 100, maxHealth: 100 }));
@@ -55,7 +77,7 @@ describe('enemy archetype AI', () => {
     expect(enemy.position.z).toBeGreaterThan(5);
     expect(enemy.pendingAbility?.abilityId).toBe('caster_rift_bolt');
 
-    combat.tickEnemies(0.8, 1_800, makePlayer());
+    combat.tickEnemies(1.1, 2_100, makePlayer());
     expect(useGameStore.getState().character?.health).toBeLessThan(120);
     expect(useGameStore.getState().playerStatusEffects.some((effect) => effect.kind === 'debuff')).toBe(true);
   });
@@ -98,7 +120,9 @@ describe('enemy archetype AI', () => {
     combat.tickEnemies(0.5, 1_000, makePlayer());
     expect(silenced.pendingAbility).toBeNull();
 
-    silenced.pendingAbility = { abilityId: 'caster_rift_bolt', dueAt: 1_500 };
+    useGameStore.getState().setEnemies([enemyState(silenced)]);
+    combat.tickEnemies(0.1, 1_100, makePlayer());
+    expect(silenced.pendingAbility).not.toBeNull();
     useGameStore.getState().setEnemies([
       enemyState(silenced, [status('stagger', 3_000)]),
     ]);
@@ -120,13 +144,15 @@ describe('enemy archetype AI', () => {
       aggroRange: 50,
       moveSpeed: 4,
     });
+    combat.registerEnemy(enemy);
+    useGameStore.getState().setEnemies([enemyState(enemy)]);
+    combat.tickEnemies(0.1, 900, makePlayer({ position: { x: 0, y: 0, z: 1 } }));
+    expect(enemy.pendingAbility).not.toBeNull();
     enemy.position.set(0, 0, 30);
     enemy.object.position.copy(enemy.position);
     enemy.aggroed = true;
     enemy.attackCooldown = 3;
     enemy.abilityCooldown = 4;
-    enemy.pendingAbility = { abilityId: 'guard_shield_bash', dueAt: 1_000 };
-    combat.registerEnemy(enemy);
     useGameStore.getState().setEnemies([{
       ...enemyState(enemy),
       health: 20,
@@ -143,6 +169,7 @@ describe('enemy archetype AI', () => {
     expect(useGameStore.getState().enemies[0]).toMatchObject({
       health: 160,
       position: { x: 0, y: 0, z: 0 },
+      activeCast: null,
     });
   });
 });

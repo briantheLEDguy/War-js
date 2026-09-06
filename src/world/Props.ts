@@ -7,6 +7,7 @@ import {
 } from './editor/PrefabCatalog';
 import type { Terrain } from './Terrain';
 import type { PropSpawn } from './ZoneLoader';
+import { buildWorldLifeProp, WORLD_LIFE_PROP_KINDS } from './WorldLifeAssets';
 
 export interface WorldCollider {
   id: string;
@@ -435,6 +436,9 @@ async function resolvePropModel(
 }
 
 function pickFallback(kind: string) {
+  if ((WORLD_LIFE_PROP_KINDS as readonly string[]).includes(kind)) {
+    return () => buildWorldLifeProp(kind) ?? AssetLoader.primitives.rock();
+  }
   const primitives = AssetLoader.primitives as unknown as Record<string, () => THREE.Object3D>;
   const catalogFallbackKind = prefabFallbackKindForKind(kind);
   if (catalogFallbackKind && primitives[catalogFallbackKind]) {

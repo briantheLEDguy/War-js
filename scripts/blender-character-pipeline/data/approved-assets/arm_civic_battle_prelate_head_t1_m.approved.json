@@ -20,26 +20,173 @@
     ]
   },
   "hashes": {
-    "modelSha256": "1ad98c450297fd6d624260a1decd66c97ab268fc79f204d61ea0fa7441a59a9e",
-    "qcSha256": "b6be8f094a585470c01a94edc79d8ebd6f87d7ecd7868972474caa7a479f1310",
+    "modelSha256": "ab827024798b86622b437af5505b2df50935ed9abea0ee83569ba664ff331786",
+    "qcSha256": "360a684a12a978e89054da5b153625056e1a73727ddfad7c92f080cb5dfef189",
     "previews": {
-      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+      "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9"
     }
   },
   "previews": {
-    "front": "reviews/roster-direct/battle_prelate/m/head_front.png"
+    "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
   },
   "provenance": {
-    "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "dark-fantasy-character-pass-v3",
-    "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "gorget_steel_wall",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "gorget_brass_rolled_rim",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_lower_brass_band",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_creed_inlay",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gorget_authored_rivet",
+        "file": "source\\gorget.json",
+        "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
   },
   "review": {
-    "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T10:19:31.445Z",
-    "reviewHash": "87cff31ee4f18a237f40034155a021e31f69b0a8bc6e5cb086ad2a93e68f59a2"
+    "reviewedBy": "Codex primary agent, with independent source, export, and motion reviews",
+    "reviewedAt": "2026-09-06T01:10:06.609961+00:00",
+    "reviewHash": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42"
   },
   "approvalState": "approved"
 }

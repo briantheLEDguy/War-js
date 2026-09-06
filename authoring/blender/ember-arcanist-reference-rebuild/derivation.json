@@ -1,0 +1,14 @@
+{
+  "base": "Battle Prelate accepted explicit cage workflow",
+  "inherited_components": "Body anatomy, shoulder/arm/boot topology, robe folds, book and seals; fitted and rematerialed for the mage",
+  "new_components": [
+    "scarf",
+    "robe side panels",
+    "parchment facing",
+    "harness",
+    "hair",
+    "staff"
+  ],
+  "reference": "references/ember-arcanist-reference.jpg",
+  "status": "source authored; pending rendered review"
+}

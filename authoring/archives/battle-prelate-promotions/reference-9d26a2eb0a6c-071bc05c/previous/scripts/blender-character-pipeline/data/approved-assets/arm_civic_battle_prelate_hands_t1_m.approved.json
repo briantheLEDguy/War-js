@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.hands.t1.m",
+  "displayName": "Battle Prelate Handguards Male",
+  "category": "armor",
+  "model": "arm_civic_battle_prelate_hands_t1_m.glb",
+  "qc": "arm_civic_battle_prelate_hands_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_civic_humanoid_battle_prelate_hands_m",
+    "bodyVariant": "m",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_battle_prelate_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "arms",
+      "hands"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "afdf273d352dcde7197b5505e3bf7c38ee49b4cd1189a5d3c614477873cb40e1",
+    "qcSha256": "f145210ee96dbed79b6dcfa36f18cae510b8c6ef2f811f8856306b26ea4bea8e",
+    "previews": {
+      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+    }
+  },
+  "previews": {
+    "front": "reviews/roster-direct/battle_prelate/m/hands_front.png"
+  },
+  "provenance": {
+    "kind": "roster_direct_promotion",
+    "sourceRevision": 1,
+    "sourceRunId": "dark-fantasy-character-pass-v3",
+    "bypassApproval": true,
+    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+  },
+  "review": {
+    "reviewedBy": "codex-user-authorized-bypass",
+    "reviewedAt": "2026-07-15T10:19:31.445Z",
+    "reviewHash": "56320cb9f4ffa031d006b56f391ded36bc9e8ad0f7417a2465712b2252b90660"
+  },
+  "approvalState": "approved"
+}

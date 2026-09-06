@@ -363,6 +363,7 @@ export interface CampaignService {
   getSnapshot(currentZoneId?: string | null): Promise<CampaignSnapshot>;
   subscribeSnapshot(cb: (snapshot: CampaignSnapshot) => void, currentZoneId?: string | null): Unsubscribe;
   claimObjective(zoneId: string, objectiveId: string, realm: CampaignRealm): Promise<CampaignClaimResult>;
+  defendObjective(zoneId: string, objectiveId: string, realm: CampaignRealm): Promise<CampaignClaimResult>;
   resetCampaign(): Promise<CampaignSnapshot>;
 }
 
@@ -379,6 +380,8 @@ export interface QuestObjective {
   id: string;
   description: string;
   killTarget?: string;
+  /** Restricts progress to this zone and supplies a destination for route guidance. */
+  zoneId?: string;
   talkTarget?: string;
   required: number;
 }
@@ -406,10 +409,15 @@ export interface QuestDefinition {
   description: string;
   /** Minimum character level required to pick up this quest. */
   minLevel: number;
+  /** Omitted for quests available to either realm. */
+  realm?: CampaignRealm;
   /** NPC that offers this quest. */
   giverNpcId: string;
+  giverZoneId?: string;
   /** NPC the player returns to for reward. Defaults to giverNpcId. */
   turninNpcId?: string;
+  /** Defaults to giverZoneId when there is no separate turn-in zone. */
+  turninZoneId?: string;
   /** Previous quest id that must be completed before this one unlocks. */
   prereqQuestId?: string;
   objectives: QuestObjective[];

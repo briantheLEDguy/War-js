@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.shoulders.novitiate.m",
+  "model": "arm_civic_battle_prelate_shoulders_novitiate_m_lod1.glb",
+  "modelSha256": "be22d01a64f43421f8ef224c3373845eabe81dd13ac7eb90c09d56c750a05821",
+  "fileSizeBytes": 2148932,
+  "category": "armor",
+  "slot": "shoulders",
+  "lod": 1,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [
+    "shoulders"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 4624,
+  "totalTris": 4624,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+      "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_shoulders_novitiate_m_lod1.glb",
+      "sha256": "be22d01a64f43421f8ef224c3373845eabe81dd13ac7eb90c09d56c750a05821"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_shoulders_novitiate_m_lod2.glb",
+      "sha256": "870337da4281cf0365698b22f4e933db1c2501b57595f361388f930e9f9184a5"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_front.png",
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_side.png",
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_novitiate_armor_variant",
+    "geometrySource": "Explicit authored cages adapted from the accepted reference set; permitted finishing only",
+    "rigReuse": "Existing body, warhammer, canonical armature and actions shared unchanged",
+    "sharedAssets": {
+      "public/assets/models/chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "public/assets/models/chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "public/assets/models/chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+    },
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "3482623101ff4f39b4afdab6a04238bf24cbb64db10d59f9a15792ff773d12dd",
+    "runtimeReportSha256": "07bc882361569f979572a08498f33fc2598a3b765f103bd8230a5c2c5dd35fbf",
+    "visualReviewSha256": "182d9387a7539e1b324b32f8fb7346e031095dfae856722fd559f63b80b278c6",
+    "evidenceArchive": "authoring/archives/battle-prelate-novitiate-set/3482623101ff",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceLedgerSha256": "b7bbe1c2227662029442cac2fef4403750c7573e64520781bc5a1f3cd8007b98",
+    "sourceLedger": "authoring/archives/battle-prelate-novitiate-set/3482623101ff/source_ledger.json",
+    "sourceRecords": [
+      {
+        "part": "left_pauldron_main_shell",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_front_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_outer_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_rear_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_upper_lame",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_upper_lame_brass_hem",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_leather_suspension",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_padded_shoulder_support",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": []
+      },
+      {
+        "part": "novitiate_pauldron_front_hinge_tab",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "novitiate_pauldron_rear_hinge_tab",
+        "file": "source\\pauldron.json",
+        "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.civic.ember_arcanist.t1.m",
+  "displayName": "Ember Arcanist Body",
+  "category": "character",
+  "model": "chr_civic_ember_arcanist_t1_m.glb",
+  "qc": "chr_civic_ember_arcanist_t1_m.qc.json",
+  "runtime": {
+    "profileKey": "civic_ember_arcanist_m"
+  },
+  "compatibility": {
+    "bodyFamily": "civic_ember_arcanist_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  }
+}

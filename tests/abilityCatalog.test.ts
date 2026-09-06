@@ -137,7 +137,7 @@ function expectTargetingValid(ability: AbilityDefinition): void {
 
 function expectEffectsValid(ability: AbilityDefinition): void {
   for (const effect of ability.effects) {
-    expect(['damage', 'heal', 'status']).toContain(effect.kind);
+    expect(['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement']).toContain(effect.kind);
     if (effect.kind === 'damage' || effect.kind === 'heal') {
       expect(effect.school).toBeDefined();
       expect(effect.amount?.min).toBeGreaterThan(0);
@@ -147,6 +147,16 @@ function expectEffectsValid(ability: AbilityDefinition): void {
       expect(effect.status?.id).toMatch(/^[a-z0-9_]+$/);
       expect(effect.status?.label.length).toBeGreaterThan(0);
       expect(effect.status?.durationSec).toBeGreaterThan(0);
+    }
+    if (effect.kind === 'player_status') {
+      expect(effect.playerStatus?.durationSec).toBeGreaterThan(0);
+      expect(effect.playerStatus?.magnitude).toBeGreaterThan(0);
+      expect(effect.playerStatus?.magnitude).toBeLessThanOrEqual(0.75);
+    }
+    if (effect.kind === 'cleanse') expect(effect.cleanse?.kinds.length).toBeGreaterThan(0);
+    if (effect.kind === 'movement') {
+      expect(effect.movement?.distance).toBeGreaterThan(0);
+      expect(effect.movement?.distance).toBeLessThanOrEqual(12);
     }
   }
 }

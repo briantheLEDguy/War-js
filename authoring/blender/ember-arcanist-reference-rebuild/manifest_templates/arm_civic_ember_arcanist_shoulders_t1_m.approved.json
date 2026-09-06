@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.ember_arcanist.shoulders.t1.m",
+  "displayName": "Ember Arcanist Shoulders",
+  "category": "armor",
+  "model": "arm_civic_ember_arcanist_shoulders_t1_m.glb",
+  "qc": "arm_civic_ember_arcanist_shoulders_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_civic_ember_arcanist_shoulders_m",
+    "bodyVariant": "m",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_ember_arcanist_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "slot": "shoulders",
+    "coveredRegions": []
+  }
+}

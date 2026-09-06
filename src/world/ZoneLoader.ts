@@ -1,5 +1,6 @@
 import { applyBiomeKits } from './BiomeKit';
 import { applyZonePaths } from './PathKit';
+import type { WorldLifeDefinition } from './worldLifeTypes';
 import type {
   CampaignLane,
   CampaignNodeRole,
@@ -125,6 +126,13 @@ export interface EnemySpawn {
   model?: string;
   /** Lightweight combat behavior profile used by the enemy AI. */
   archetype?: 'raider' | 'guard' | 'caster' | 'beast' | 'captain';
+  /** Optional staged keep finale; ordinary field captains remain independent quest targets. */
+  encounter?: {
+    type: 'keep_commander';
+    objectiveId: string;
+    realm: 'aegis' | 'riftbound';
+    enrageHealthFraction: number;
+  };
   /** 0 = passive (never aggros). Default: 0 */
   aggroRange?: number;
   /** Melee reach when attacking player. Default: 2.5 */
@@ -259,6 +267,8 @@ export interface ZoneDefinition {
   zoneTriggers?: ZoneTrigger[];
   /** Static NPCs: vendors, trainers, bankers, guards, etc. */
   npcs?: NpcSpawn[];
+  /** Local cosmetic population and atmosphere, authored alongside static props. */
+  ambientLife?: WorldLifeDefinition;
   /** Crafting workbenches and cultivation plots opened with the interact key. */
   craftingStations?: CraftingStationSpawn[];
   /** Data-driven harvest nodes opened with the interact key. */

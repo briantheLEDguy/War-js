@@ -3320,6 +3320,1151 @@
       "z": -59.4,
       "rotY": 5.9341,
       "scale": 2.35
+    },
+    {
+      "id": "aegis_capital_life_gate_rest_west_1",
+      "kind": "life_campfire",
+      "x": -20,
+      "z": -119,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_gate_rest_west_2",
+      "kind": "life_bench",
+      "x": -24,
+      "z": -118,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_rest_west_2_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_rest_west_3",
+      "kind": "life_bench",
+      "x": -16,
+      "z": -118,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_rest_west_3_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_rest_west_4",
+      "kind": "life_barrels",
+      "x": -24,
+      "z": -122,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_rest_west_4_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_rest_west_5",
+      "kind": "life_lantern",
+      "x": -16,
+      "z": -122,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_gate_rest_west_6",
+      "kind": "life_signpost",
+      "x": -13,
+      "z": -117,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_gate_supplies_east_1",
+      "kind": "life_supply_tent",
+      "x": 23,
+      "z": -120,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_supplies_east_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 3.05,
+          "depth": 2.9,
+          "minY": -0.05,
+          "maxY": 2.3
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_supplies_east_2",
+      "kind": "life_crate_stack",
+      "x": 18,
+      "z": -117,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_supplies_east_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_supplies_east_3",
+      "kind": "life_barrels",
+      "x": 28,
+      "z": -120,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_supplies_east_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_supplies_east_4",
+      "kind": "life_handcart",
+      "x": 18,
+      "z": -112,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_supplies_east_4_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "aegis_capital_life_gate_supplies_east_4_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "aegis_capital_life_gate_supplies_east_4_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_gate_supplies_east_5",
+      "kind": "life_lantern",
+      "x": 26,
+      "z": -116,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_gate_supplies_east_6",
+      "kind": "life_crate_stack",
+      "x": 23,
+      "z": -114,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_gate_supplies_east_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_avenue_garden_west_1",
+      "kind": "life_bench",
+      "x": -13,
+      "z": -48,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_avenue_garden_west_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_avenue_garden_west_2",
+      "kind": "life_planter",
+      "x": -17,
+      "z": -48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_avenue_garden_west_3",
+      "kind": "life_planter",
+      "x": -9,
+      "z": -48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_avenue_garden_west_4",
+      "kind": "life_lantern",
+      "x": -17,
+      "z": -44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_avenue_garden_west_5",
+      "kind": "life_planter",
+      "x": -13,
+      "z": -44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_avenue_garden_west_6",
+      "kind": "life_planter",
+      "x": -9,
+      "z": -44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_avenue_deliveries_east_1",
+      "kind": "life_handcart",
+      "x": 13,
+      "z": -50,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_avenue_deliveries_east_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "aegis_capital_life_avenue_deliveries_east_1_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "aegis_capital_life_avenue_deliveries_east_1_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_avenue_deliveries_east_3",
+      "kind": "life_barrels",
+      "x": 17,
+      "z": -47,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_avenue_deliveries_east_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_avenue_deliveries_east_5",
+      "kind": "life_signpost",
+      "x": 17,
+      "z": -43,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_market_west_1",
+      "kind": "life_handcart",
+      "x": -65,
+      "z": -22,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_west_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "aegis_capital_life_market_west_1_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "aegis_capital_life_market_west_1_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_west_2",
+      "kind": "life_crate_stack",
+      "x": -71,
+      "z": -23,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_west_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_west_3",
+      "kind": "life_barrels",
+      "x": -59,
+      "z": -23,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_west_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_west_4",
+      "kind": "life_lantern",
+      "x": -68,
+      "z": -19,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_market_west_5",
+      "kind": "life_signpost",
+      "x": -61,
+      "z": -19,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_market_west_6",
+      "kind": "life_crate_stack",
+      "x": -72,
+      "z": -19,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_west_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_east_1",
+      "kind": "life_handcart",
+      "x": 65,
+      "z": -22,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_east_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "aegis_capital_life_market_east_1_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "aegis_capital_life_market_east_1_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_east_2",
+      "kind": "life_crate_stack",
+      "x": 59,
+      "z": -23,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_east_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_east_3",
+      "kind": "life_barrels",
+      "x": 71,
+      "z": -23,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_east_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_market_east_4",
+      "kind": "life_lantern",
+      "x": 62,
+      "z": -19,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_market_east_5",
+      "kind": "life_signpost",
+      "x": 69,
+      "z": -19,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_market_east_6",
+      "kind": "life_crate_stack",
+      "x": 54,
+      "z": -21,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_market_east_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_washyard_west_1",
+      "kind": "life_bench",
+      "x": -68,
+      "z": -51,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_washyard_west_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_washyard_west_2",
+      "kind": "life_planter",
+      "x": -71.5,
+      "z": -51,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_west_3",
+      "kind": "life_planter",
+      "x": -64.5,
+      "z": -51,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_west_4",
+      "kind": "life_clothesline",
+      "x": -68,
+      "z": -46,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_west_5",
+      "kind": "life_barrels",
+      "x": -63,
+      "z": -47,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_washyard_west_5_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_washyard_west_6",
+      "kind": "life_lantern",
+      "x": -73,
+      "z": -48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_east_1",
+      "kind": "life_bench",
+      "x": 68,
+      "z": -51,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_washyard_east_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_washyard_east_2",
+      "kind": "life_planter",
+      "x": 64.5,
+      "z": -51,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_east_3",
+      "kind": "life_planter",
+      "x": 71.5,
+      "z": -51,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_east_4",
+      "kind": "life_clothesline",
+      "x": 68,
+      "z": -46,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_washyard_east_5",
+      "kind": "life_barrels",
+      "x": 75,
+      "z": -49,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_washyard_east_5_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_washyard_east_6",
+      "kind": "life_lantern",
+      "x": 63,
+      "z": -48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_craft_deliveries_1",
+      "kind": "life_supply_tent",
+      "x": -71,
+      "z": 14,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_craft_deliveries_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 3.05,
+          "depth": 2.9,
+          "minY": -0.05,
+          "maxY": 2.3
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_craft_deliveries_2",
+      "kind": "life_crate_stack",
+      "x": -76,
+      "z": 11,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_craft_deliveries_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_craft_deliveries_3",
+      "kind": "life_barrels",
+      "x": -66,
+      "z": 14,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_craft_deliveries_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_craft_deliveries_4",
+      "kind": "life_handcart",
+      "x": -76,
+      "z": 18,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_craft_deliveries_4_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_4_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_4_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_craft_deliveries_5",
+      "kind": "life_lantern",
+      "x": -66,
+      "z": 18,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_craft_deliveries_6",
+      "kind": "life_crate_stack",
+      "x": -71,
+      "z": 20,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_craft_deliveries_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_training_rest_1",
+      "kind": "life_campfire",
+      "x": 103,
+      "z": 16,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_training_rest_2",
+      "kind": "life_bench",
+      "x": 99,
+      "z": 17,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_training_rest_2_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_training_rest_3",
+      "kind": "life_bench",
+      "x": 107,
+      "z": 17,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_training_rest_3_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_training_rest_4",
+      "kind": "life_barrels",
+      "x": 99,
+      "z": 13,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_training_rest_4_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_training_rest_5",
+      "kind": "life_lantern",
+      "x": 107,
+      "z": 13,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_training_rest_6",
+      "kind": "life_signpost",
+      "x": 110,
+      "z": 18,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_west_1",
+      "kind": "life_bench",
+      "x": -15,
+      "z": 44,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_forecourt_garden_west_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_west_2",
+      "kind": "life_planter",
+      "x": -19,
+      "z": 44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_west_3",
+      "kind": "life_planter",
+      "x": -11,
+      "z": 44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_west_4",
+      "kind": "life_lantern",
+      "x": -19,
+      "z": 48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_west_5",
+      "kind": "life_planter",
+      "x": -15,
+      "z": 48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_west_6",
+      "kind": "life_planter",
+      "x": -11,
+      "z": 48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_east_1",
+      "kind": "life_bench",
+      "x": 15,
+      "z": 44,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_forecourt_garden_east_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 2.05,
+          "depth": 0.65,
+          "minY": -0.05,
+          "maxY": 1.15
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_east_2",
+      "kind": "life_planter",
+      "x": 11,
+      "z": 44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_east_3",
+      "kind": "life_planter",
+      "x": 19,
+      "z": 44,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_east_4",
+      "kind": "life_lantern",
+      "x": 11,
+      "z": 48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_east_5",
+      "kind": "life_planter",
+      "x": 15,
+      "z": 48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_forecourt_garden_east_6",
+      "kind": "life_planter",
+      "x": 19,
+      "z": 48,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_west_1",
+      "kind": "life_supply_tent",
+      "x": -73,
+      "z": 57,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 3.05,
+          "depth": 2.9,
+          "minY": -0.05,
+          "maxY": 2.3
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_west_2",
+      "kind": "life_crate_stack",
+      "x": -78,
+      "z": 54,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_2_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_west_3",
+      "kind": "life_barrels",
+      "x": -68,
+      "z": 57,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_3_solid_1",
+          "x": 0,
+          "z": 0.3,
+          "width": 1.4,
+          "depth": 1.35,
+          "minY": -0.05,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_west_4",
+      "kind": "life_handcart",
+      "x": -78,
+      "z": 61,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_4_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 1.7,
+          "depth": 1.75,
+          "minY": -0.05,
+          "maxY": 1.4
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_4_solid_2",
+          "x": -0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_4_solid_3",
+          "x": 0.43,
+          "z": 1.3,
+          "width": 0.14,
+          "depth": 1.86,
+          "minY": 0.4,
+          "maxY": 0.9
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_west_5",
+      "kind": "life_lantern",
+      "x": -68,
+      "z": 61,
+      "rotY": -0.08,
+      "scale": 1
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_west_6",
+      "kind": "life_crate_stack",
+      "x": -73,
+      "z": 63,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_6_solid_1",
+          "x": 0,
+          "z": 0.1,
+          "width": 1.7,
+          "depth": 0.95,
+          "minY": -0.05,
+          "maxY": 1.5
+        }
+      ]
+    },
+    {
+      "id": "aegis_capital_life_barracks_supplies_east_1",
+      "kind": "life_supply_tent",
+      "x": 73,
+      "z": 57,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "aegis_capital_life_barracks_supplies_east_1_solid_1",
+          "x": 0,
+          "z": 0,
+          "width": 3.05,
+          "depth": 2.9,
+          "minY": -0.05,
+          "maxY": 2.3
+        }
+      ]
     }
   ],
   "npcs": [
@@ -3386,12 +4531,12 @@
     {
       "id": "quest-1",
       "name": "Mara Vell",
-      "title": "Dawnline Dispatch Officer",
+      "title": "Brightfen Dispatch Officer",
       "role": "questgiver",
-      "x": 0,
-      "z": 38,
+      "x": 10,
+      "z": -44,
       "rotY": 3.1416,
-      "characterProfileKey": "npc_aegis_mara_vell_dawnline_dispatch_officer"
+      "characterProfileKey": "npc_aegis_mara_vell_brightfen_dispatch_officer"
     }
   ],
   "craftingStations": [
@@ -3828,6 +4973,198 @@
         "pnw_grass_clump",
         "pnw_wildflower_clump",
         "pnw_low_shrub"
+      ],
+      "excludeCorridors": [
+        {
+          "id": "aegis_capital_life_craft_deliveries_1_clearing",
+          "points": [
+            {
+              "x": -71,
+              "z": 14
+            },
+            {
+              "x": -71,
+              "z": 14
+            }
+          ],
+          "radius": 6.1
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_2_clearing",
+          "points": [
+            {
+              "x": -76,
+              "z": 11
+            },
+            {
+              "x": -76,
+              "z": 11
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_3_clearing",
+          "points": [
+            {
+              "x": -66,
+              "z": 14
+            },
+            {
+              "x": -66,
+              "z": 14
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_4_clearing",
+          "points": [
+            {
+              "x": -76,
+              "z": 18
+            },
+            {
+              "x": -76,
+              "z": 18
+            }
+          ],
+          "radius": 5.5
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_5_clearing",
+          "points": [
+            {
+              "x": -66,
+              "z": 18
+            },
+            {
+              "x": -66,
+              "z": 18
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "aegis_capital_life_craft_deliveries_6_clearing",
+          "points": [
+            {
+              "x": -71,
+              "z": 20
+            },
+            {
+              "x": -71,
+              "z": 20
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_1_clearing",
+          "points": [
+            {
+              "x": -73,
+              "z": 57
+            },
+            {
+              "x": -73,
+              "z": 57
+            }
+          ],
+          "radius": 6.1
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_2_clearing",
+          "points": [
+            {
+              "x": -78,
+              "z": 54
+            },
+            {
+              "x": -78,
+              "z": 54
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_3_clearing",
+          "points": [
+            {
+              "x": -68,
+              "z": 57
+            },
+            {
+              "x": -68,
+              "z": 57
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_4_clearing",
+          "points": [
+            {
+              "x": -78,
+              "z": 61
+            },
+            {
+              "x": -78,
+              "z": 61
+            }
+          ],
+          "radius": 5.5
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_5_clearing",
+          "points": [
+            {
+              "x": -68,
+              "z": 61
+            },
+            {
+              "x": -68,
+              "z": 61
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_west_6_clearing",
+          "points": [
+            {
+              "x": -73,
+              "z": 63
+            },
+            {
+              "x": -73,
+              "z": 63
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "aegis_capital_life_garden_keeper_clearing",
+          "points": [
+            {
+              "x": -72,
+              "z": 101
+            },
+            {
+              "x": -72,
+              "z": 101
+            },
+            {
+              "x": -67,
+              "z": 101
+            },
+            {
+              "x": -72,
+              "z": 101
+            }
+          ],
+          "radius": 3
+        }
       ]
     },
     {
@@ -3887,8 +5224,586 @@
         "pnw_grass_clump",
         "pnw_wildflower_clump",
         "pnw_low_shrub"
+      ],
+      "excludeCorridors": [
+        {
+          "id": "aegis_capital_life_training_rest_1_clearing",
+          "points": [
+            {
+              "x": 103,
+              "z": 16
+            },
+            {
+              "x": 103,
+              "z": 16
+            }
+          ],
+          "radius": 4.6
+        },
+        {
+          "id": "aegis_capital_life_training_rest_2_clearing",
+          "points": [
+            {
+              "x": 99,
+              "z": 17
+            },
+            {
+              "x": 99,
+              "z": 17
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "aegis_capital_life_training_rest_3_clearing",
+          "points": [
+            {
+              "x": 107,
+              "z": 17
+            },
+            {
+              "x": 107,
+              "z": 17
+            }
+          ],
+          "radius": 4.7
+        },
+        {
+          "id": "aegis_capital_life_training_rest_4_clearing",
+          "points": [
+            {
+              "x": 99,
+              "z": 13
+            },
+            {
+              "x": 99,
+              "z": 13
+            }
+          ],
+          "radius": 4.45
+        },
+        {
+          "id": "aegis_capital_life_training_rest_5_clearing",
+          "points": [
+            {
+              "x": 107,
+              "z": 13
+            },
+            {
+              "x": 107,
+              "z": 13
+            }
+          ],
+          "radius": 3.7
+        },
+        {
+          "id": "aegis_capital_life_training_rest_6_clearing",
+          "points": [
+            {
+              "x": 110,
+              "z": 18
+            },
+            {
+              "x": 110,
+              "z": 18
+            }
+          ],
+          "radius": 4.1
+        },
+        {
+          "id": "aegis_capital_life_barracks_supplies_east_1_clearing",
+          "points": [
+            {
+              "x": 73,
+              "z": 57
+            },
+            {
+              "x": 73,
+              "z": 57
+            }
+          ],
+          "radius": 6.1
+        },
+        {
+          "id": "aegis_capital_life_training_sentry_clearing",
+          "points": [
+            {
+              "x": 102,
+              "z": 23
+            },
+            {
+              "x": 102,
+              "z": 23
+            },
+            {
+              "x": 107,
+              "z": 23
+            },
+            {
+              "x": 102,
+              "z": 23
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "aegis_capital_life_barracks_sentry_clearing",
+          "points": [
+            {
+              "x": 70,
+              "z": 64
+            },
+            {
+              "x": 70,
+              "z": 64
+            },
+            {
+              "x": 77,
+              "z": 64
+            },
+            {
+              "x": 70,
+              "z": 64
+            }
+          ],
+          "radius": 3
+        },
+        {
+          "id": "aegis_capital_life_upper_court_neighbor_clearing",
+          "points": [
+            {
+              "x": 72,
+              "z": 101
+            },
+            {
+              "x": 72,
+              "z": 101
+            },
+            {
+              "x": 77,
+              "z": 101
+            },
+            {
+              "x": 72,
+              "z": 101
+            }
+          ],
+          "radius": 3
+        }
       ]
     }
   ],
-  "staticMapHash": "97667d158eefb43f"
+  "ambientLife": {
+    "actors": [
+      {
+        "id": "aegis_capital_life_gate_sentry_west",
+        "kind": "guard",
+        "x": -12,
+        "z": -110,
+        "route": [
+          {
+            "x": -12,
+            "z": -110
+          },
+          {
+            "x": -12,
+            "z": -100
+          }
+        ],
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 0.94,
+        "variant": 0
+      },
+      {
+        "id": "aegis_capital_life_gate_sentry_east",
+        "kind": "guard",
+        "x": 10,
+        "z": -110,
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "aegis_capital_life_arriving_traveler",
+        "kind": "citizen",
+        "x": -10,
+        "z": -131,
+        "route": [
+          {
+            "x": -10,
+            "z": -131
+          },
+          {
+            "x": -10,
+            "z": -123
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 6,
+        "scale": 1.01,
+        "variant": 2
+      },
+      {
+        "id": "aegis_capital_life_supply_worker",
+        "kind": "citizen",
+        "x": 19,
+        "z": -108,
+        "route": [
+          {
+            "x": 19,
+            "z": -108
+          },
+          {
+            "x": 22,
+            "z": -108
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 7,
+        "scale": 1.045,
+        "variant": 3
+      },
+      {
+        "id": "aegis_capital_life_avenue_walker",
+        "kind": "citizen",
+        "x": -6,
+        "z": -48,
+        "route": [
+          {
+            "x": -6,
+            "z": -48
+          },
+          {
+            "x": -6,
+            "z": -38
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 4,
+        "scale": 0.94,
+        "variant": 0
+      },
+      {
+        "id": "aegis_capital_life_avenue_messenger",
+        "kind": "citizen",
+        "x": 8,
+        "z": -50,
+        "speed": 0.85,
+        "pauseSeconds": 5,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "aegis_capital_life_market_porter_west",
+        "kind": "citizen",
+        "x": -74,
+        "z": -21,
+        "speed": 0.85,
+        "pauseSeconds": 6,
+        "scale": 1.01,
+        "variant": 2
+      },
+      {
+        "id": "aegis_capital_life_market_porter_east",
+        "kind": "citizen",
+        "x": 72,
+        "z": -19,
+        "speed": 0.85,
+        "pauseSeconds": 7,
+        "scale": 1.045,
+        "variant": 3
+      },
+      {
+        "id": "aegis_capital_life_neighbor_west",
+        "kind": "citizen",
+        "x": -63,
+        "z": -53,
+        "route": [
+          {
+            "x": -63,
+            "z": -53
+          },
+          {
+            "x": -58,
+            "z": -53
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 4,
+        "scale": 0.94,
+        "variant": 0
+      },
+      {
+        "id": "aegis_capital_life_neighbor_east",
+        "kind": "citizen",
+        "x": 63,
+        "z": -53,
+        "route": [
+          {
+            "x": 63,
+            "z": -53
+          },
+          {
+            "x": 58,
+            "z": -53
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 5,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "aegis_capital_life_craft_worker",
+        "kind": "citizen",
+        "x": -66,
+        "z": 9,
+        "route": [
+          {
+            "x": -66,
+            "z": 9
+          },
+          {
+            "x": -61,
+            "z": 9
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 6,
+        "scale": 1.01,
+        "variant": 2
+      },
+      {
+        "id": "aegis_capital_life_training_sentry",
+        "kind": "guard",
+        "x": 102,
+        "z": 23,
+        "route": [
+          {
+            "x": 102,
+            "z": 23
+          },
+          {
+            "x": 107,
+            "z": 23
+          }
+        ],
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 1.045,
+        "variant": 3
+      },
+      {
+        "id": "aegis_capital_life_courtyard_walker",
+        "kind": "citizen",
+        "x": -12,
+        "z": 33,
+        "route": [
+          {
+            "x": -12,
+            "z": 33
+          },
+          {
+            "x": -12,
+            "z": 41
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 4,
+        "scale": 0.94,
+        "variant": 0
+      },
+      {
+        "id": "aegis_capital_life_barracks_sentry",
+        "kind": "guard",
+        "x": 70,
+        "z": 64,
+        "route": [
+          {
+            "x": 70,
+            "z": 64
+          },
+          {
+            "x": 77,
+            "z": 64
+          }
+        ],
+        "speed": 1.25,
+        "pauseSeconds": 2,
+        "scale": 0.975,
+        "variant": 1
+      },
+      {
+        "id": "aegis_capital_life_garden_keeper",
+        "kind": "citizen",
+        "x": -72,
+        "z": 101,
+        "route": [
+          {
+            "x": -72,
+            "z": 101
+          },
+          {
+            "x": -67,
+            "z": 101
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 6,
+        "scale": 1.01,
+        "variant": 2
+      },
+      {
+        "id": "aegis_capital_life_upper_court_neighbor",
+        "kind": "citizen",
+        "x": 72,
+        "z": 101,
+        "route": [
+          {
+            "x": 72,
+            "z": 101
+          },
+          {
+            "x": 77,
+            "z": 101
+          }
+        ],
+        "speed": 0.85,
+        "pauseSeconds": 7,
+        "scale": 1.045,
+        "variant": 3
+      },
+      {
+        "id": "aegis_capital_life_bird_1",
+        "kind": "bird",
+        "x": -35,
+        "z": -42,
+        "route": [
+          {
+            "x": -35,
+            "z": -42
+          },
+          {
+            "x": -17,
+            "z": -32
+          },
+          {
+            "x": -40,
+            "z": -22
+          }
+        ],
+        "speed": 3.4,
+        "pauseSeconds": 0,
+        "scale": 0.7,
+        "variant": 0
+      },
+      {
+        "id": "aegis_capital_life_bird_2",
+        "kind": "bird",
+        "x": -5,
+        "z": -42,
+        "route": [
+          {
+            "x": -5,
+            "z": -42
+          },
+          {
+            "x": 13,
+            "z": -32
+          },
+          {
+            "x": -10,
+            "z": -22
+          }
+        ],
+        "speed": 3.6999999999999997,
+        "pauseSeconds": 0,
+        "scale": 0.7999999999999999,
+        "variant": 1
+      },
+      {
+        "id": "aegis_capital_life_bird_3",
+        "kind": "bird",
+        "x": 25,
+        "z": -42,
+        "route": [
+          {
+            "x": 25,
+            "z": -42
+          },
+          {
+            "x": 43,
+            "z": -32
+          },
+          {
+            "x": 20,
+            "z": -22
+          }
+        ],
+        "speed": 4,
+        "pauseSeconds": 0,
+        "scale": 0.8999999999999999,
+        "variant": 2
+      }
+    ],
+    "emitters": [
+      {
+        "id": "aegis_capital_life_gate_rest_west_1_smoke",
+        "kind": "smoke",
+        "x": -20,
+        "z": -119,
+        "y": 0.6,
+        "count": 8,
+        "radius": 0.8
+      },
+      {
+        "id": "aegis_capital_life_gate_rest_west_1_embers",
+        "kind": "embers",
+        "x": -20,
+        "z": -119,
+        "y": 0.35,
+        "count": 12,
+        "radius": 0.65
+      },
+      {
+        "id": "aegis_capital_life_training_rest_1_smoke",
+        "kind": "smoke",
+        "x": 103,
+        "z": 16,
+        "y": 0.6,
+        "count": 8,
+        "radius": 0.8
+      },
+      {
+        "id": "aegis_capital_life_training_rest_1_embers",
+        "kind": "embers",
+        "x": 103,
+        "z": 16,
+        "y": 0.35,
+        "count": 12,
+        "radius": 0.65
+      },
+      {
+        "id": "aegis_capital_life_motes_1",
+        "kind": "motes",
+        "x": -73,
+        "z": 55,
+        "y": 1.4,
+        "count": 12,
+        "radius": 5
+      },
+      {
+        "id": "aegis_capital_life_motes_2",
+        "kind": "motes",
+        "x": 73,
+        "z": 55,
+        "y": 1.4,
+        "count": 12,
+        "radius": 5
+      }
+    ]
+  },
+  "staticMapHash": "d151caf07b6f24b5"
 }

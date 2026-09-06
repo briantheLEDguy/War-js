@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.waist.t1.m",
+  "model": "arm_civic_battle_prelate_waist_t1_m_lod2.glb",
+  "modelSha256": "c34e477a640f1438780db90fb869d2f0a715ff3d55d817680e45eaba8b7446ab",
+  "fileSizeBytes": 1249920,
+  "category": "armor",
+  "slot": "waist",
+  "lod": 2,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [
+    "waist"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 7492,
+  "totalTris": 7492,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 512,
+  "maxTextureResolution": 512,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_waist_t1_m.glb",
+      "sha256": "565928ef635dbffdd4102185b16e58810f3ec22b9c54903fe22d0dd1d911e9c5"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_waist_t1_m_lod1.glb",
+      "sha256": "a560c85ca118c493f9e506cf161575999a5019c116606712ef1e9ace788eb2b0"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_waist_t1_m_lod2.glb",
+      "sha256": "c34e477a640f1438780db90fb869d2f0a715ff3d55d817680e45eaba8b7446ab"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_four_belt_parchments",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_suspension_links",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_hollow_fluted_bowl",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_open_window_band",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_censer_pointed_canopy",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "belt_reliquary_recessed_backing",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "belt_reliquary_outer_rim",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "belt_reliquary_skull",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "tome_parchment_page_bundle",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_front_leather_cover",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_back_leather_cover",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_rounded_hinged_spine",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_four_gothic_corner_brackets",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_cover_embossed_border",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "tome_raised_aegis_cross",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_center_reliquary_setting",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": []
+      },
+      {
+        "part": "tome_three_spine_hinge_bands",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_two_foreedge_clasps",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_hanging_leather_tabs",
+        "file": "source\\tome.json",
+        "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "heavy_relic_belt",
+        "file": "source\\waist.json",
+        "sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "front_flared_tasset",
+        "file": "source\\waist.json",
+        "sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tasset_pointed_brass_border",
+        "file": "source\\waist.json",
+        "sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

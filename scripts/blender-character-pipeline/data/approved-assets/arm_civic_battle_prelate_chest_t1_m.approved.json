@@ -20,26 +20,533 @@
     ]
   },
   "hashes": {
-    "modelSha256": "44b87d7824fc282f8f958caab201d4078d57bc7ff1b0d40ea57190eb686f4fb1",
-    "qcSha256": "36fdd40203be94903a37c20bd199b11b0a644f1d8fe00dffb48f04b66f084cf3",
+    "modelSha256": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1",
+    "qcSha256": "c1418a99bd03525617debfa9aff81e2bdd886a3568e9c04494ae1866e1dc57b6",
     "previews": {
-      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+      "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9"
     }
   },
   "previews": {
-    "front": "reviews/roster-direct/battle_prelate/m/chest_front.png"
+    "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
   },
   "provenance": {
-    "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "dark-fantasy-character-pass-v3",
-    "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "breastplate_shell",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "breastplate_neck_brass",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "breastplate_lower_brass",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "breastplate_diagonal_reinforcement",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "breastplate_reinforcement_steel_inset",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_recessed_backing",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_outer_rim",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_inner_beaded_border",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_skull",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_lower_pendant",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_folded_parchments",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_offset_parchment_tails",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_stamp_marks",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_stamp_marks",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_manual_ink_strokes",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
   },
   "review": {
-    "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T10:19:31.445Z",
-    "reviewHash": "d15f96acfe99cec0d9cc5dc18885a08a9915930c39d41ada85ef9e9f827ff389"
+    "reviewedBy": "Codex primary agent, with independent source, export, and motion reviews",
+    "reviewedAt": "2026-09-06T01:10:06.609961+00:00",
+    "reviewHash": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42"
   },
   "approvalState": "approved"
 }

@@ -1,0 +1,345 @@
+{
+  "status": "accepted_for_local_runtime",
+  "reviewed_by": "Codex primary agent, with independent source, export, and motion reviews",
+  "reviewed_at": "2026-09-06T01:10:06.609961+00:00",
+  "decision_scope": "Complete the user-accepted modeling direction and install locally. This decision does not certify photographic likeness or site deployment.",
+  "validation_report_sha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+  "runtime_report_sha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+  "model_hashes": {
+    "chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+    "arm_civic_battle_prelate_head_t1_m.glb": "ab827024798b86622b437af5505b2df50935ed9abea0ee83569ba664ff331786",
+    "arm_civic_battle_prelate_shoulders_t1_m.glb": "6e62322f2ab159b6e2aa212748e81ecd5d8f1736ccc1b1cab579d3d4888d4894",
+    "arm_civic_battle_prelate_chest_t1_m.glb": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1",
+    "arm_civic_battle_prelate_hands_t1_m.glb": "a63f9ff8b7713b9bbed96f3a2ae4ebcf736a3f51313feb619979062601706354",
+    "arm_civic_battle_prelate_waist_t1_m.glb": "565928ef635dbffdd4102185b16e58810f3ec22b9c54903fe22d0dd1d911e9c5",
+    "arm_civic_battle_prelate_legs_t1_m.glb": "0f16bf085a8a4dee7f65d445ea2f047792e546484e815fadc5cb26678fae3280",
+    "arm_civic_battle_prelate_feet_t1_m.glb": "d5dcdbc9d0a43af922436f177a28f0599f81d4f0171fee0e0e6d13cf3bb9907a",
+    "arm_civic_battle_prelate_back_t1_m.glb": "6b1fe23eb44af252013c57ae3d18f706870095943ff10759ed51492298be1cbd",
+    "arm_civic_battle_prelate_tabard_t1_m.glb": "eda007e146f8a122e04ba07609238046bed7bef48808f9ca6eb5b665c0856d29",
+    "wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+    "chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+    "arm_civic_battle_prelate_head_t1_m_lod1.glb": "7a05dd2f506d98525ed5036729c34c4d5423e15fd7b61b04cca33d4948642bc3",
+    "arm_civic_battle_prelate_shoulders_t1_m_lod1.glb": "85f35ce63f50bc25317c7a0ced5667eb8de2ab35493dbd43f1a116c95b0c431f",
+    "arm_civic_battle_prelate_chest_t1_m_lod1.glb": "1d731a85b7dd1e54604023b874a364cad14ae7d8172c6eac070f1c900f9c73f0",
+    "arm_civic_battle_prelate_hands_t1_m_lod1.glb": "224a06d466f002fc4f0f192cf9707375af07d4d936a563a58367483ba6d03874",
+    "arm_civic_battle_prelate_waist_t1_m_lod1.glb": "a560c85ca118c493f9e506cf161575999a5019c116606712ef1e9ace788eb2b0",
+    "arm_civic_battle_prelate_legs_t1_m_lod1.glb": "9a4a6f299e39f16d28dd0d920bdd27bf9cc8837fa113b37c9e531d79e46d5b97",
+    "arm_civic_battle_prelate_feet_t1_m_lod1.glb": "ca4003cd2d4c3ed39278741cc7ada9b10d787cc20c5bb7c1f6bc178b06ecbcbf",
+    "arm_civic_battle_prelate_back_t1_m_lod1.glb": "18ca95fe1cd407998bf8d55e4227c97af295e92a381adf7afa69813416da26a2",
+    "arm_civic_battle_prelate_tabard_t1_m_lod1.glb": "a9995c4b3973ca6c01029cb0c4e94f083336160a4ac5503a4a5a81545c1fc26c",
+    "wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+    "chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+    "arm_civic_battle_prelate_head_t1_m_lod2.glb": "9f01f90baac61e7c660906e7b64002ed712b548bee20d848ddcc42ef724f3e42",
+    "arm_civic_battle_prelate_shoulders_t1_m_lod2.glb": "a0f06ee2013a8f2594ab28e07a73de0dcf31c4ad6854ae48d0c5619abce5bf7d",
+    "arm_civic_battle_prelate_chest_t1_m_lod2.glb": "daf23cc9cbda9436491f49edb8f54a1c09984add3687de38febea9f79aae3124",
+    "arm_civic_battle_prelate_hands_t1_m_lod2.glb": "e9387336adbf38a1985de5c71f416765a388e430228b7896eba64fab3898cbc9",
+    "arm_civic_battle_prelate_waist_t1_m_lod2.glb": "c34e477a640f1438780db90fb869d2f0a715ff3d55d817680e45eaba8b7446ab",
+    "arm_civic_battle_prelate_legs_t1_m_lod2.glb": "ec716ec15d93b1fe0248b3075a4773cf41a769df51ee82b4e91439c4d1d6291c",
+    "arm_civic_battle_prelate_feet_t1_m_lod2.glb": "029a8fd6baca11dc7c692f90f4f7a6ffe6d7700e8ae58832fe2dfa5b48a4b7eb",
+    "arm_civic_battle_prelate_back_t1_m_lod2.glb": "e66724b865f57fb75d30eb56ec36443397083947ba9934258ee84c5974c65c30",
+    "arm_civic_battle_prelate_tabard_t1_m_lod2.glb": "e8e63735aa851044b3ad43d89262ff0105afca6d99cde135d9e6bf3c1ca506bd",
+    "wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+  },
+  "checks": {
+    "reference_design": "passed",
+    "material_response": "passed",
+    "module_fit": "passed",
+    "animation_stress": "passed",
+    "weapon_socket": "passed",
+    "lod_silhouette": "passed"
+  },
+  "findings": [
+    {
+      "blocking": false,
+      "detail": "The complete character carries the accepted broad armor silhouette, bald stern face, raised collar, overlapping pauldrons, crimson tabard, brass reliquaries, tome, seals, censer and sanctified warhammer. Facial skin, ornament density and weathering remain visibly simplified relative to the illustrated reference; this is a stylized game interpretation, not a photo-accurate reconstruction."
+    },
+    {
+      "blocking": false,
+      "detail": "Neutral and material renders were inspected. Fixed landmark comparisons remain diagnostics, with an unresolved low-confidence shoulder-crown correspondence (F05) and documented view/hidden-surface interpretations; no automatic likeness claim is made."
+    },
+    {
+      "blocking": false,
+      "detail": "Actual exported run50/jump50 confirm continuous cross/hem and no former inner-greave protrusion. The cross and gilded hem are modeled in source and baked onto deforming runtime cloth; LOD0/1 retain geometric fringe."
+    },
+    {
+      "blocking": false,
+      "detail": "LOD1/2 preserve silhouette and key colors but have visibly coarser/faceted trim, softer symbols and reduced lettering/teeth/fringe detail. The unchanged runtime selects LOD0; these lower LODs are delivered without automatic distance switching."
+    },
+    {
+      "blocking": false,
+      "detail": "All nine clips were inspected at sampled phases, with additional actual-GLB grip and ground audits. Maximum sampled melee off-hand drift is 1.987 mm. Sampling is not an exhaustive collision proof for arbitrary blended poses."
+    },
+    {
+      "blocking": false,
+      "detail": "The inherited death clip folds forward over supported boots instead of ending fully prone. The frozen contact camera crops the far end at late death; the supplemental wide view shows the full pose and no sampled non-weapon ground penetration."
+    },
+    {
+      "blocking": false,
+      "detail": "Khronos validation has zero errors and 30 skinned-parent warnings; canonical rig identity/rest matrices and independent raw GLB skinning were verified. The dedicated motion audit has zero errors/warnings."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "review/reimport_lod0_full_front_material.png",
+      "sha256": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_front",
+      "scope": "equipped",
+      "view": "front",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_three_quarter_material.png",
+      "sha256": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_three_quarter",
+        "position": [
+          3,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_three_quarter",
+      "scope": "equipped",
+      "view": "isometric",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_side_material.png",
+      "sha256": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_side",
+        "position": [
+          5,
+          0,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_side",
+      "scope": "equipped",
+      "view": "side",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_back_material.png",
+      "sha256": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_back",
+        "position": [
+          0,
+          5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_full_back",
+      "scope": "equipped",
+      "view": "back",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod0_full_front_neutral.png",
+      "sha256": "c5adbd7c3f623d79595d93bfb1df78d399563a609f907e4cc4085b2ad7e479f8",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod0_front_neutral",
+      "scope": "neutral",
+      "view": "front",
+      "lod": 0
+    },
+    {
+      "path": "review/reimport_lod1_full_front_material.png",
+      "sha256": "756b9ac9e25685bce5edbcc4815cd747dcb0a69899186cf103220c4f2786aa59",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod1_full_front",
+      "scope": "lod",
+      "view": "front",
+      "lod": 1
+    },
+    {
+      "path": "review/reimport_lod2_full_front_material.png",
+      "sha256": "d2ca2e5690481469774d886cbf8ce679bcc305371449bca071d2812b3711af98",
+      "engine": "CYCLES",
+      "samples": 16,
+      "resolution_percentage": 100,
+      "camera": {
+        "id": "full_front",
+        "position": [
+          0,
+          -5,
+          0.97
+        ],
+        "target": [
+          0,
+          0,
+          0.97
+        ],
+        "orthographic_scale": 2.45,
+        "resolution": [
+          1500,
+          1600
+        ]
+      },
+      "frame": 1.0,
+      "id": "lod2_full_front",
+      "scope": "lod",
+      "view": "front",
+      "lod": 2
+    },
+    {
+      "id": "animation_stress_contact",
+      "scope": "animation_stress",
+      "path": "review/reimport_motion_contact.png",
+      "sha256": "757faeed2d8520cdfe26119a3d60104acb930561470aaa817c31febf53cbfa0f",
+      "kind": "Contact sheet of actual GLB action renders; no synthesized frames",
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "combat_idle",
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "death",
+        "jump"
+      ]
+    },
+    {
+      "id": "final_run",
+      "scope": "animation_stress",
+      "view": "run",
+      "path": "review/reimport_motion_run_50.png",
+      "sha256": "d60429e931a000f1dd9681d07809c2daa447f7fd1bd7949155063f56d9a8bca6"
+    },
+    {
+      "id": "final_jump",
+      "scope": "animation_stress",
+      "view": "jump",
+      "path": "review/reimport_motion_jump_50.png",
+      "sha256": "1682ea46e90d740b81e8a3f2215b9ddc75a16bdd1f8688207170312cef0d93ae"
+    },
+    {
+      "id": "late_death_wide",
+      "scope": "animation_stress",
+      "view": "death",
+      "path": "review/exported_motion_supplemental_late_death_wide.png",
+      "sha256": "6df8b1e8a8c7b20f8918134fa1ccc843b873e694de5e3dc1de342e4deb6698bb"
+    },
+    {
+      "id": "melee_fit",
+      "scope": "animation_stress",
+      "view": "melee",
+      "path": "review/exported_motion_melee_chest_region.png",
+      "sha256": "6d684f73d9201e615ccdc95b977eeba236cb0ebfeb4dfff8c9961fe93ae00bf6"
+    }
+  ],
+  "additional_reports": {
+    "reimport_report.json": "700006954ceca84d0b700c407a4497950a5953533a730e604bcbef736f27ff03",
+    "exported_motion_audit.json": "affddcd23039f5b89f4910c4843d0e28631cfc525e01cc58562b67fca3b20d67",
+    "comparison_report.json": "c1d13256b03931e02506425fe0b96eb94646d9a1bfa2099670a62b426e6907a6",
+    "archive_byte_write_correction.json": "e2d723940c0436c946c3aa2317402d625ce306c978225812f4ef8c5857768fa9"
+  }
+}

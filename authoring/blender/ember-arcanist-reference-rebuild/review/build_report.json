@@ -1,0 +1,2989 @@
+{
+  "schema_version": 1,
+  "build_status": "complete",
+  "stage": "full_character",
+  "revision": "ember-001",
+  "build_id": "20260906T075525Z",
+  "source_hashes": {
+    "source\\arms.json": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+    "source\\backplate.json": "e6979397baade9a60bcf21e7efd9cbf59fdb99d96b0cf792aedc1db4559a1fd2",
+    "source\\body_underlayers.json": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+    "source\\breastplate.json": "c5bece8ca3752b18607b17eb359e3f7c3ac82ed0012854abd0c9ee5b174ef058",
+    "source\\feet.json": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+    "source\\garments.json": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+    "source\\gorget.json": "d7229bbf431fc68b54dc874fc30c6055f4ef5cf5b324d77e57d8dd36dd2144d1",
+    "source\\hair.json": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+    "source\\harness.json": "84bd4cbdf2d1cfc18ed8273e63e8083d4d44b686f2d82a0b985fd01c06ece892",
+    "source\\head.json": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+    "source\\legs.json": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+    "source\\pauldron.json": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+    "source\\relics.json": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+    "source\\staff.json": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+    "source\\tome.json": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+    "source\\waist.json": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b"
+  },
+  "visual_status": "unreviewed",
+  "runtime_promotion": false,
+  "source_validation": "passed",
+  "reload_validation": "passed",
+  "control_parts": [
+    {
+      "part": "upper_arm_joint_underlayer",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "forearm_leather_underlayer",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "vambrace_front_and_cuff",
+      "control_vertices": 25,
+      "control_faces": 16,
+      "control_triangles": 32,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "vambrace_rear_closure",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "gauntlet_glove_palm_and_web",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "gauntlet_dorsal_plate",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "finger_proximal_articulations",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "finger_middle_articulations",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "finger_distal_capped_articulations",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "rigid_backplate",
+      "control_vertices": 25,
+      "control_faces": 16,
+      "control_triangles": 32,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "fitted_padded_torso_shirt",
+      "control_vertices": 46,
+      "control_faces": 45,
+      "control_triangles": 76,
+      "control_boundary_edges": 14
+    },
+    {
+      "part": "tailored_hip_and_crotch_breeches",
+      "control_vertices": 29,
+      "control_faces": 32,
+      "control_triangles": 48,
+      "control_boundary_edges": 8
+    },
+    {
+      "part": "fitted_padded_breeches_thighs",
+      "control_vertices": 32,
+      "control_faces": 26,
+      "control_triangles": 60,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "breastplate_shell",
+      "control_vertices": 30,
+      "control_faces": 20,
+      "control_triangles": 40,
+      "control_boundary_edges": 18
+    },
+    {
+      "part": "boot_contoured_welt_and_sole",
+      "control_vertices": 24,
+      "control_faces": 14,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "boot_shaped_leather_upper",
+      "control_vertices": 41,
+      "control_faces": 33,
+      "control_triangles": 78,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "sabaton_shaped_toecap",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "boot_heel_steel_counter",
+      "control_vertices": 18,
+      "control_faces": 10,
+      "control_triangles": 20,
+      "control_boundary_edges": 14
+    },
+    {
+      "part": "boot_outer_leather_buckle_strap",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "boot_outer_brass_buckle",
+      "control_vertices": 8,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 8
+    },
+    {
+      "part": "boot_buckle_tongue",
+      "control_vertices": 4,
+      "control_faces": 1,
+      "control_triangles": 2,
+      "control_boundary_edges": 4
+    },
+    {
+      "part": "front_crimson_tabard",
+      "control_vertices": 48,
+      "control_faces": 35,
+      "control_triangles": 70,
+      "control_boundary_edges": 24
+    },
+    {
+      "part": "rear_crimson_surcoat",
+      "control_vertices": 35,
+      "control_faces": 24,
+      "control_triangles": 48,
+      "control_boundary_edges": 20
+    },
+    {
+      "part": "padded_abdominal_doublet",
+      "control_vertices": 28,
+      "control_faces": 18,
+      "control_triangles": 36,
+      "control_boundary_edges": 18
+    },
+    {
+      "part": "left_split_robe",
+      "control_vertices": 20,
+      "control_faces": 12,
+      "control_triangles": 24,
+      "control_boundary_edges": 14
+    },
+    {
+      "part": "front_parchment_facing",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "folded_ash_cowl",
+      "control_vertices": 20,
+      "control_faces": 12,
+      "control_triangles": 24,
+      "control_boundary_edges": 14
+    },
+    {
+      "part": "rear_cowl_fold",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "cowl_fold_lip_0",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "cowl_fold_lip_1",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "cowl_fold_lip_2",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "auburn_scalp",
+      "control_vertices": 20,
+      "control_faces": 12,
+      "control_triangles": 24,
+      "control_boundary_edges": 14
+    },
+    {
+      "part": "swept_forelock",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "swept_lock_0",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "swept_lock_1",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "swept_lock_2",
+      "control_vertices": 15,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "temple_and_nape_lock",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "cross_body_leather_harness",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "ember_reliquary_recessed_backing",
+      "control_vertices": 17,
+      "control_faces": 16,
+      "control_triangles": 16,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "ember_reliquary_outer_rim",
+      "control_vertices": 32,
+      "control_faces": 16,
+      "control_triangles": 32,
+      "control_boundary_edges": 32
+    },
+    {
+      "part": "ember_reliquary_pointed_rays",
+      "control_vertices": 14,
+      "control_faces": 11,
+      "control_triangles": 15,
+      "control_boundary_edges": 11
+    },
+    {
+      "part": "head_skin",
+      "control_vertices": 175,
+      "control_faces": 166,
+      "control_triangles": 301,
+      "control_boundary_edges": 49
+    },
+    {
+      "part": "eyes",
+      "control_vertices": 27,
+      "control_faces": 26,
+      "control_triangles": 42,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "ears",
+      "control_vertices": 45,
+      "control_faces": 49,
+      "control_triangles": 86,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "eyebrows",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "thigh_steel_cuisse",
+      "control_vertices": 25,
+      "control_faces": 16,
+      "control_triangles": 32,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "greave_shaped_front_shell",
+      "control_vertices": 30,
+      "control_faces": 20,
+      "control_triangles": 40,
+      "control_boundary_edges": 18
+    },
+    {
+      "part": "thigh_padded_underlayer",
+      "control_vertices": 12,
+      "control_faces": 8,
+      "control_triangles": 20,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "knee_and_calf_padded_underlayer",
+      "control_vertices": 24,
+      "control_faces": 20,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "greave_leather_closure_bands",
+      "control_vertices": 24,
+      "control_faces": 10,
+      "control_triangles": 20,
+      "control_boundary_edges": 24
+    },
+    {
+      "part": "greave_outer_closure_buckles",
+      "control_vertices": 16,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "left_pauldron_main_shell",
+      "control_vertices": 56,
+      "control_faces": 42,
+      "control_triangles": 84,
+      "control_boundary_edges": 26
+    },
+    {
+      "part": "left_pauldron_front_brass_border",
+      "control_vertices": 16,
+      "control_faces": 7,
+      "control_triangles": 14,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "left_pauldron_outer_brass_border",
+      "control_vertices": 14,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 14
+    },
+    {
+      "part": "left_pauldron_rear_brass_border",
+      "control_vertices": 16,
+      "control_faces": 7,
+      "control_triangles": 14,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "left_pauldron_upper_lame",
+      "control_vertices": 24,
+      "control_faces": 14,
+      "control_triangles": 28,
+      "control_boundary_edges": 18
+    },
+    {
+      "part": "left_pauldron_upper_lame_brass_hem",
+      "control_vertices": 16,
+      "control_faces": 7,
+      "control_triangles": 14,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "left_pauldron_leather_suspension",
+      "control_vertices": 8,
+      "control_faces": 3,
+      "control_triangles": 6,
+      "control_boundary_edges": 8
+    },
+    {
+      "part": "left_pauldron_padded_shoulder_support",
+      "control_vertices": 30,
+      "control_faces": 28,
+      "control_triangles": 56,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "relic_upper_folded_parchments",
+      "control_vertices": 24,
+      "control_faces": 12,
+      "control_triangles": 24,
+      "control_boundary_edges": 20
+    },
+    {
+      "part": "relic_upper_offset_parchment_tails",
+      "control_vertices": 12,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "relic_upper_wax_seals",
+      "control_vertices": 13,
+      "control_faces": 12,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "relic_belt_wax_seals",
+      "control_vertices": 13,
+      "control_faces": 12,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "relic_upper_wax_stamp_marks",
+      "control_vertices": 12,
+      "control_faces": 3,
+      "control_triangles": 10,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "relic_belt_wax_stamp_marks",
+      "control_vertices": 12,
+      "control_faces": 3,
+      "control_triangles": 10,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "relic_four_belt_parchments",
+      "control_vertices": 24,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 24
+    },
+    {
+      "part": "relic_upper_manual_ink_strokes",
+      "control_vertices": 40,
+      "control_faces": 10,
+      "control_triangles": 20,
+      "control_boundary_edges": 40
+    },
+    {
+      "part": "staff_carved_shaft",
+      "control_vertices": 20,
+      "control_faces": 15,
+      "control_triangles": 30,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "brazier_iron_rib",
+      "control_vertices": 10,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "ember_heart",
+      "control_vertices": 20,
+      "control_faces": 15,
+      "control_triangles": 30,
+      "control_boundary_edges": 10
+    },
+    {
+      "part": "brazier_brass_band",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "staff_binding_0",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "staff_binding_1",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "staff_binding_2",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "staff_binding_3",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "staff_binding_4",
+      "control_vertices": 12,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 12
+    },
+    {
+      "part": "tome_parchment_page_bundle",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "tome_front_leather_cover",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "tome_back_leather_cover",
+      "control_vertices": 24,
+      "control_faces": 18,
+      "control_triangles": 44,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "tome_rounded_hinged_spine",
+      "control_vertices": 14,
+      "control_faces": 9,
+      "control_triangles": 24,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "tome_four_gothic_corner_brackets",
+      "control_vertices": 32,
+      "control_faces": 4,
+      "control_triangles": 24,
+      "control_boundary_edges": 32
+    },
+    {
+      "part": "tome_cover_embossed_border",
+      "control_vertices": 16,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "tome_three_spine_hinge_bands",
+      "control_vertices": 42,
+      "control_faces": 18,
+      "control_triangles": 36,
+      "control_boundary_edges": 42
+    },
+    {
+      "part": "tome_two_foreedge_clasps",
+      "control_vertices": 24,
+      "control_faces": 10,
+      "control_triangles": 20,
+      "control_boundary_edges": 24
+    },
+    {
+      "part": "tome_page_foreedge_rules",
+      "control_vertices": 24,
+      "control_faces": 6,
+      "control_triangles": 12,
+      "control_boundary_edges": 24
+    },
+    {
+      "part": "tome_corner_fasteners",
+      "control_vertices": 20,
+      "control_faces": 20,
+      "control_triangles": 24,
+      "control_boundary_edges": 0
+    },
+    {
+      "part": "tome_hanging_leather_tabs",
+      "control_vertices": 20,
+      "control_faces": 8,
+      "control_triangles": 16,
+      "control_boundary_edges": 20
+    },
+    {
+      "part": "heavy_relic_belt",
+      "control_vertices": 16,
+      "control_faces": 7,
+      "control_triangles": 14,
+      "control_boundary_edges": 16
+    },
+    {
+      "part": "left_belt_field_pouch",
+      "control_vertices": 9,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 8
+    },
+    {
+      "part": "pouch_foldover_flap",
+      "control_vertices": 6,
+      "control_faces": 2,
+      "control_triangles": 4,
+      "control_boundary_edges": 6
+    },
+    {
+      "part": "left_belt_field_pouchsmall",
+      "control_vertices": 9,
+      "control_faces": 4,
+      "control_triangles": 8,
+      "control_boundary_edges": 8
+    },
+    {
+      "part": "pouch_foldover_flapsmall",
+      "control_vertices": 6,
+      "control_faces": 2,
+      "control_triangles": 4,
+      "control_boundary_edges": 6
+    }
+  ],
+  "camera_sha256": "9bc515aa96a179327cc0c2594e511d30e6c2bcdf8f0d99acdf9dc716be1cbee0",
+  "calibration_sha256": "a87b9045b9cf29a5108ed4e29243b099d225f8aae522ee42e288dda4121bc437",
+  "evaluated_parts": [
+    {
+      "name": "upper_arm_joint_underlayer.00",
+      "source": "source\\arms.json",
+      "source_part": "upper_arm_joint_underlayer",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.ash_cloth",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "upper_arm_joint_underlayer.01",
+      "source": "source\\arms.json",
+      "source_part": "upper_arm_joint_underlayer",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.ash_cloth",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "forearm_leather_underlayer.00",
+      "source": "source\\arms.json",
+      "source_part": "forearm_leather_underlayer",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "forearm_leather_underlayer.01",
+      "source": "source\\arms.json",
+      "source_part": "forearm_leather_underlayer",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "vambrace_front_and_cuff.00",
+      "source": "source\\arms.json",
+      "source_part": "vambrace_front_and_cuff",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.dark_steel",
+        "proof.leather"
+      ],
+      "triangles": 320,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 162,
+      "faces": 160
+    },
+    {
+      "name": "vambrace_front_and_cuff.01",
+      "source": "source\\arms.json",
+      "source_part": "vambrace_front_and_cuff",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.dark_steel",
+        "proof.leather"
+      ],
+      "triangles": 320,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 162,
+      "faces": 160
+    },
+    {
+      "name": "vambrace_rear_closure.00",
+      "source": "source\\arms.json",
+      "source_part": "vambrace_rear_closure",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 176,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 90,
+      "faces": 88
+    },
+    {
+      "name": "vambrace_rear_closure.01",
+      "source": "source\\arms.json",
+      "source_part": "vambrace_rear_closure",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 176,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 90,
+      "faces": 88
+    },
+    {
+      "name": "gauntlet_glove_palm_and_web.00",
+      "source": "source\\arms.json",
+      "source_part": "gauntlet_glove_palm_and_web",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "gauntlet_glove_palm_and_web.01",
+      "source": "source\\arms.json",
+      "source_part": "gauntlet_glove_palm_and_web",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "gauntlet_dorsal_plate.00",
+      "source": "source\\arms.json",
+      "source_part": "gauntlet_dorsal_plate",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 176,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 90,
+      "faces": 88
+    },
+    {
+      "name": "gauntlet_dorsal_plate.01",
+      "source": "source\\arms.json",
+      "source_part": "gauntlet_dorsal_plate",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 176,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 90,
+      "faces": 88
+    },
+    {
+      "name": "finger_proximal_articulations.00",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.01",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.02",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.03",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.04",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.05",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.06",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.07",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.08",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_proximal_articulations.09",
+      "source": "source\\arms.json",
+      "source_part": "finger_proximal_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.00",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.01",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.02",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.03",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.04",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.05",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.06",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.07",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.08",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_middle_articulations.09",
+      "source": "source\\arms.json",
+      "source_part": "finger_middle_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.00",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.01",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.02",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.03",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.04",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.05",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.06",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.07",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.08",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "finger_distal_capped_articulations.09",
+      "source": "source\\arms.json",
+      "source_part": "finger_distal_capped_articulations",
+      "source_sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+      "materials": [
+        "proof.leather",
+        "proof.dark_steel"
+      ],
+      "triangles": 160,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 82,
+      "faces": 80
+    },
+    {
+      "name": "rigid_backplate",
+      "source": "source\\backplate.json",
+      "source_part": "rigid_backplate",
+      "source_sha256": "e6979397baade9a60bcf21e7efd9cbf59fdb99d96b0cf792aedc1db4559a1fd2",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 1024,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 514,
+      "faces": 512
+    },
+    {
+      "name": "fitted_padded_torso_shirt",
+      "source": "source\\body_underlayers.json",
+      "source_part": "fitted_padded_torso_shirt",
+      "source_sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 664,
+      "boundary_edges": 0,
+      "expected_closed": false,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 334,
+      "faces": 332
+    },
+    {
+      "name": "tailored_hip_and_crotch_breeches",
+      "source": "source\\body_underlayers.json",
+      "source_part": "tailored_hip_and_crotch_breeches",
+      "source_sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+      "materials": [
+        "proof.leather",
+        "proof.ash_cloth"
+      ],
+      "triangles": 448,
+      "boundary_edges": 0,
+      "expected_closed": false,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 226,
+      "faces": 224
+    },
+    {
+      "name": "fitted_padded_breeches_thighs.00",
+      "source": "source\\body_underlayers.json",
+      "source_part": "fitted_padded_breeches_thighs",
+      "source_sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+      "materials": [
+        "proof.ash_cloth",
+        "proof.leather"
+      ],
+      "triangles": 224,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 114,
+      "faces": 112
+    },
+    {
+      "name": "fitted_padded_breeches_thighs.01",
+      "source": "source\\body_underlayers.json",
+      "source_part": "fitted_padded_breeches_thighs",
+      "source_sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+      "materials": [
+        "proof.ash_cloth",
+        "proof.leather"
+      ],
+      "triangles": 224,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 114,
+      "faces": 112
+    },
+    {
+      "name": "breastplate_shell",
+      "source": "source\\breastplate.json",
+      "source_part": "breastplate_shell",
+      "source_sha256": "c5bece8ca3752b18607b17eb359e3f7c3ac82ed0012854abd0c9ee5b174ef058",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 3664,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 1834,
+      "faces": 1832
+    },
+    {
+      "name": "boot_contoured_welt_and_sole",
+      "source": "source\\feet.json",
+      "source_part": "boot_contoured_welt_and_sole",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 632,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 320,
+      "faces": 308
+    },
+    {
+      "name": "boot_shaped_leather_upper",
+      "source": "source\\feet.json",
+      "source_part": "boot_shaped_leather_upper",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 576,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 292,
+      "faces": 288
+    },
+    {
+      "name": "sabaton_shaped_toecap",
+      "source": "source\\feet.json",
+      "source_part": "sabaton_shaped_toecap",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 352,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 180,
+      "faces": 176
+    },
+    {
+      "name": "boot_heel_steel_counter",
+      "source": "source\\feet.json",
+      "source_part": "boot_heel_steel_counter",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 432,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 220,
+      "faces": 216
+    },
+    {
+      "name": "boot_outer_leather_buckle_strap",
+      "source": "source\\feet.json",
+      "source_part": "boot_outer_leather_buckle_strap",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 72,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 40,
+      "faces": 36
+    },
+    {
+      "name": "boot_outer_brass_buckle",
+      "source": "source\\feet.json",
+      "source_part": "boot_outer_brass_buckle",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 448,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 224,
+      "faces": 224
+    },
+    {
+      "name": "boot_buckle_tongue",
+      "source": "source\\feet.json",
+      "source_part": "boot_buckle_tongue",
+      "source_sha256": "fcb4508b0d9760a8afdd919563bebd7dea64d8c1fe0af1a2477c3efa02570ae2",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 24,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 16,
+      "faces": 12
+    },
+    {
+      "name": "front_crimson_tabard",
+      "source": "source\\garments.json",
+      "source_part": "front_crimson_tabard",
+      "source_sha256": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 656,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 330,
+      "faces": 328
+    },
+    {
+      "name": "rear_crimson_surcoat",
+      "source": "source\\garments.json",
+      "source_part": "rear_crimson_surcoat",
+      "source_sha256": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 464,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 234,
+      "faces": 232
+    },
+    {
+      "name": "padded_abdominal_doublet",
+      "source": "source\\garments.json",
+      "source_part": "padded_abdominal_doublet",
+      "source_sha256": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 2496,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 1248,
+      "faces": 1248
+    },
+    {
+      "name": "left_split_robe",
+      "source": "source\\garments.json",
+      "source_part": "left_split_robe",
+      "source_sha256": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 496,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 252,
+      "faces": 248
+    },
+    {
+      "name": "front_parchment_facing",
+      "source": "source\\garments.json",
+      "source_part": "front_parchment_facing",
+      "source_sha256": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+      "materials": [
+        "proof.parchment"
+      ],
+      "triangles": 352,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 180,
+      "faces": 176
+    },
+    {
+      "name": "folded_ash_cowl",
+      "source": "source\\gorget.json",
+      "source_part": "folded_ash_cowl",
+      "source_sha256": "d7229bbf431fc68b54dc874fc30c6055f4ef5cf5b324d77e57d8dd36dd2144d1",
+      "materials": [
+        "proof.ash_cloth"
+      ],
+      "triangles": 880,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 442,
+      "faces": 440
+    },
+    {
+      "name": "rear_cowl_fold",
+      "source": "source\\gorget.json",
+      "source_part": "rear_cowl_fold",
+      "source_sha256": "d7229bbf431fc68b54dc874fc30c6055f4ef5cf5b324d77e57d8dd36dd2144d1",
+      "materials": [
+        "proof.ash_cloth"
+      ],
+      "triangles": 608,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 306,
+      "faces": 304
+    },
+    {
+      "name": "cowl_fold_lip_0",
+      "source": "source\\gorget.json",
+      "source_part": "cowl_fold_lip_0",
+      "source_sha256": "d7229bbf431fc68b54dc874fc30c6055f4ef5cf5b324d77e57d8dd36dd2144d1",
+      "materials": [
+        "proof.ash_cloth"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "cowl_fold_lip_1",
+      "source": "source\\gorget.json",
+      "source_part": "cowl_fold_lip_1",
+      "source_sha256": "d7229bbf431fc68b54dc874fc30c6055f4ef5cf5b324d77e57d8dd36dd2144d1",
+      "materials": [
+        "proof.ash_cloth"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "cowl_fold_lip_2",
+      "source": "source\\gorget.json",
+      "source_part": "cowl_fold_lip_2",
+      "source_sha256": "d7229bbf431fc68b54dc874fc30c6055f4ef5cf5b324d77e57d8dd36dd2144d1",
+      "materials": [
+        "proof.ash_cloth"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "auburn_scalp",
+      "source": "source\\hair.json",
+      "source_part": "auburn_scalp",
+      "source_sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 880,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 442,
+      "faces": 440
+    },
+    {
+      "name": "swept_forelock",
+      "source": "source\\hair.json",
+      "source_part": "swept_forelock",
+      "source_sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 608,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 306,
+      "faces": 304
+    },
+    {
+      "name": "swept_lock_0",
+      "source": "source\\hair.json",
+      "source_part": "swept_lock_0",
+      "source_sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 608,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 306,
+      "faces": 304
+    },
+    {
+      "name": "swept_lock_1",
+      "source": "source\\hair.json",
+      "source_part": "swept_lock_1",
+      "source_sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 608,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 306,
+      "faces": 304
+    },
+    {
+      "name": "swept_lock_2",
+      "source": "source\\hair.json",
+      "source_part": "swept_lock_2",
+      "source_sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 608,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 306,
+      "faces": 304
+    },
+    {
+      "name": "temple_and_nape_lock",
+      "source": "source\\hair.json",
+      "source_part": "temple_and_nape_lock",
+      "source_sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 928,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 468,
+      "faces": 464
+    },
+    {
+      "name": "cross_body_leather_harness",
+      "source": "source\\harness.json",
+      "source_part": "cross_body_leather_harness",
+      "source_sha256": "84bd4cbdf2d1cfc18ed8273e63e8083d4d44b686f2d82a0b985fd01c06ece892",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 208,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 108,
+      "faces": 104
+    },
+    {
+      "name": "ember_reliquary_recessed_backing",
+      "source": "source\\harness.json",
+      "source_part": "ember_reliquary_recessed_backing",
+      "source_sha256": "84bd4cbdf2d1cfc18ed8273e63e8083d4d44b686f2d82a0b985fd01c06ece892",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 192,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 98,
+      "faces": 112
+    },
+    {
+      "name": "ember_reliquary_outer_rim",
+      "source": "source\\harness.json",
+      "source_part": "ember_reliquary_outer_rim",
+      "source_sha256": "84bd4cbdf2d1cfc18ed8273e63e8083d4d44b686f2d82a0b985fd01c06ece892",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 384,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 192,
+      "faces": 192
+    },
+    {
+      "name": "ember_reliquary_pointed_rays",
+      "source": "source\\harness.json",
+      "source_part": "ember_reliquary_pointed_rays",
+      "source_sha256": "84bd4cbdf2d1cfc18ed8273e63e8083d4d44b686f2d82a0b985fd01c06ece892",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 348,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 176,
+      "faces": 181
+    },
+    {
+      "name": "head_skin",
+      "source": "source\\head.json",
+      "source_part": "head_skin",
+      "source_sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+      "materials": [
+        "proof.skin",
+        "proof.hair"
+      ],
+      "triangles": 10128,
+      "boundary_edges": 120,
+      "expected_closed": false,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 5123,
+      "faces": 5064
+    },
+    {
+      "name": "eyes",
+      "source": "source\\head.json",
+      "source_part": "eyes",
+      "source_sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+      "materials": [
+        "proof.eye_white",
+        "proof.iris",
+        "proof.pupil"
+      ],
+      "triangles": 1504,
+      "boundary_edges": 80,
+      "expected_closed": false,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 794,
+      "faces": 752
+    },
+    {
+      "name": "ears",
+      "source": "source\\head.json",
+      "source_part": "ears",
+      "source_sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+      "materials": [
+        "proof.skin_ear"
+      ],
+      "triangles": 2944,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 1476,
+      "faces": 1472
+    },
+    {
+      "name": "eyebrows",
+      "source": "source\\head.json",
+      "source_part": "eyebrows",
+      "source_sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+      "materials": [
+        "proof.hair"
+      ],
+      "triangles": 672,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 340,
+      "faces": 336
+    },
+    {
+      "name": "thigh_steel_cuisse",
+      "source": "source\\legs.json",
+      "source_part": "thigh_steel_cuisse",
+      "source_sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 1392,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 700,
+      "faces": 696
+    },
+    {
+      "name": "greave_shaped_front_shell",
+      "source": "source\\legs.json",
+      "source_part": "greave_shaped_front_shell",
+      "source_sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 1632,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 820,
+      "faces": 816
+    },
+    {
+      "name": "thigh_padded_underlayer",
+      "source": "source\\legs.json",
+      "source_part": "thigh_padded_underlayer",
+      "source_sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+      "materials": [
+        "proof.ash_cloth",
+        "proof.leather"
+      ],
+      "triangles": 576,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 292,
+      "faces": 288
+    },
+    {
+      "name": "knee_and_calf_padded_underlayer",
+      "source": "source\\legs.json",
+      "source_part": "knee_and_calf_padded_underlayer",
+      "source_sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+      "materials": [
+        "proof.ash_cloth",
+        "proof.dark_steel"
+      ],
+      "triangles": 336,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 172,
+      "faces": 168
+    },
+    {
+      "name": "greave_leather_closure_bands",
+      "source": "source\\legs.json",
+      "source_part": "greave_leather_closure_bands",
+      "source_sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 1264,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 640,
+      "faces": 632
+    },
+    {
+      "name": "greave_outer_closure_buckles",
+      "source": "source\\legs.json",
+      "source_part": "greave_outer_closure_buckles",
+      "source_sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 896,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 448,
+      "faces": 448
+    },
+    {
+      "name": "left_pauldron_main_shell",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_main_shell",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 7520,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 3764,
+      "faces": 3760
+    },
+    {
+      "name": "left_pauldron_front_brass_border",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_front_brass_border",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 472,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 240,
+      "faces": 236
+    },
+    {
+      "name": "left_pauldron_outer_brass_border",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_outer_brass_border",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 1952,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 980,
+      "faces": 976
+    },
+    {
+      "name": "left_pauldron_rear_brass_border",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_rear_brass_border",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 536,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 272,
+      "faces": 268
+    },
+    {
+      "name": "left_pauldron_upper_lame",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_upper_lame",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 2080,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 1044,
+      "faces": 1040
+    },
+    {
+      "name": "left_pauldron_upper_lame_brass_hem",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_upper_lame_brass_hem",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 504,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 256,
+      "faces": 252
+    },
+    {
+      "name": "left_pauldron_leather_suspension",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_leather_suspension",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 312,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 160,
+      "faces": 156
+    },
+    {
+      "name": "left_pauldron_padded_shoulder_support",
+      "source": "source\\pauldron.json",
+      "source_part": "left_pauldron_padded_shoulder_support",
+      "source_sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 1792,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 900,
+      "faces": 896
+    },
+    {
+      "name": "relic_upper_folded_parchments",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_folded_parchments",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.parchment"
+      ],
+      "triangles": 88,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 48,
+      "faces": 44
+    },
+    {
+      "name": "relic_upper_offset_parchment_tails",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_offset_parchment_tails",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.parchment"
+      ],
+      "triangles": 40,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 20
+    },
+    {
+      "name": "relic_upper_wax_seals.00",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_wax_seals",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 26,
+      "faces": 36
+    },
+    {
+      "name": "relic_upper_wax_seals.01",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_wax_seals",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 26,
+      "faces": 36
+    },
+    {
+      "name": "relic_belt_wax_seals.00",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_seals",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 26,
+      "faces": 36
+    },
+    {
+      "name": "relic_belt_wax_seals.01",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_seals",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 26,
+      "faces": 36
+    },
+    {
+      "name": "relic_belt_wax_seals.02",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_seals",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 26,
+      "faces": 36
+    },
+    {
+      "name": "relic_belt_wax_seals.03",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_seals",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.crimson"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 26,
+      "faces": 36
+    },
+    {
+      "name": "relic_upper_wax_stamp_marks.00",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_wax_stamp_marks",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 44,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 18
+    },
+    {
+      "name": "relic_upper_wax_stamp_marks.01",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_wax_stamp_marks",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 44,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 18
+    },
+    {
+      "name": "relic_belt_wax_stamp_marks.00",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_stamp_marks",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 44,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 18
+    },
+    {
+      "name": "relic_belt_wax_stamp_marks.01",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_stamp_marks",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 44,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 18
+    },
+    {
+      "name": "relic_belt_wax_stamp_marks.02",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_stamp_marks",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 44,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 18
+    },
+    {
+      "name": "relic_belt_wax_stamp_marks.03",
+      "source": "source\\relics.json",
+      "source_part": "relic_belt_wax_stamp_marks",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 44,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 18
+    },
+    {
+      "name": "relic_four_belt_parchments",
+      "source": "source\\relics.json",
+      "source_part": "relic_four_belt_parchments",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.parchment"
+      ],
+      "triangles": 80,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 48,
+      "faces": 40
+    },
+    {
+      "name": "relic_upper_manual_ink_strokes",
+      "source": "source\\relics.json",
+      "source_part": "relic_upper_manual_ink_strokes",
+      "source_sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 120,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 80,
+      "faces": 60
+    },
+    {
+      "name": "staff_carved_shaft",
+      "source": "source\\staff.json",
+      "source_part": "staff_carved_shaft",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 280,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 140,
+      "faces": 140
+    },
+    {
+      "name": "brazier_iron_rib.00",
+      "source": "source\\staff.json",
+      "source_part": "brazier_iron_rib",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "brazier_iron_rib.01",
+      "source": "source\\staff.json",
+      "source_part": "brazier_iron_rib",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "brazier_iron_rib.02",
+      "source": "source\\staff.json",
+      "source_part": "brazier_iron_rib",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "brazier_iron_rib.03",
+      "source": "source\\staff.json",
+      "source_part": "brazier_iron_rib",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "brazier_iron_rib.04",
+      "source": "source\\staff.json",
+      "source_part": "brazier_iron_rib",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "brazier_iron_rib.05",
+      "source": "source\\staff.json",
+      "source_part": "brazier_iron_rib",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.dark_steel"
+      ],
+      "triangles": 104,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 54,
+      "faces": 52
+    },
+    {
+      "name": "ember_heart",
+      "source": "source\\staff.json",
+      "source_part": "ember_heart",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.ember"
+      ],
+      "triangles": 80,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 40,
+      "faces": 40
+    },
+    {
+      "name": "brazier_brass_band",
+      "source": "source\\staff.json",
+      "source_part": "brazier_brass_band",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 24
+    },
+    {
+      "name": "staff_binding_0",
+      "source": "source\\staff.json",
+      "source_part": "staff_binding_0",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 24
+    },
+    {
+      "name": "staff_binding_1",
+      "source": "source\\staff.json",
+      "source_part": "staff_binding_1",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 24
+    },
+    {
+      "name": "staff_binding_2",
+      "source": "source\\staff.json",
+      "source_part": "staff_binding_2",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 24
+    },
+    {
+      "name": "staff_binding_3",
+      "source": "source\\staff.json",
+      "source_part": "staff_binding_3",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 24
+    },
+    {
+      "name": "staff_binding_4",
+      "source": "source\\staff.json",
+      "source_part": "staff_binding_4",
+      "source_sha256": "553145806390871ea85e6e8f252c0467b605614cca5095954b8d44a4edb6d1b9",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 48,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 24,
+      "faces": 24
+    },
+    {
+      "name": "tome_parchment_page_bundle",
+      "source": "source\\tome.json",
+      "source_part": "tome_parchment_page_bundle",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.parchment"
+      ],
+      "triangles": 262,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 133,
+      "faces": 127
+    },
+    {
+      "name": "tome_front_leather_cover",
+      "source": "source\\tome.json",
+      "source_part": "tome_front_leather_cover",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 268,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 136,
+      "faces": 130
+    },
+    {
+      "name": "tome_back_leather_cover",
+      "source": "source\\tome.json",
+      "source_part": "tome_back_leather_cover",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 236,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 120,
+      "faces": 114
+    },
+    {
+      "name": "tome_rounded_hinged_spine",
+      "source": "source\\tome.json",
+      "source_part": "tome_rounded_hinged_spine",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 128,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 66,
+      "faces": 61
+    },
+    {
+      "name": "tome_four_gothic_corner_brackets",
+      "source": "source\\tome.json",
+      "source_part": "tome_four_gothic_corner_brackets",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 816,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 416,
+      "faces": 392
+    },
+    {
+      "name": "tome_cover_embossed_border",
+      "source": "source\\tome.json",
+      "source_part": "tome_cover_embossed_border",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 64,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 32,
+      "faces": 32
+    },
+    {
+      "name": "tome_three_spine_hinge_bands",
+      "source": "source\\tome.json",
+      "source_part": "tome_three_spine_hinge_bands",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 780,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 396,
+      "faces": 390
+    },
+    {
+      "name": "tome_two_foreedge_clasps",
+      "source": "source\\tome.json",
+      "source_part": "tome_two_foreedge_clasps",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 536,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 272,
+      "faces": 268
+    },
+    {
+      "name": "tome_page_foreedge_rules",
+      "source": "source\\tome.json",
+      "source_part": "tome_page_foreedge_rules",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 72,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 48,
+      "faces": 36
+    },
+    {
+      "name": "tome_corner_fasteners",
+      "source": "source\\tome.json",
+      "source_part": "tome_corner_fasteners",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.brass"
+      ],
+      "triangles": 24,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 20,
+      "faces": 20
+    },
+    {
+      "name": "tome_hanging_leather_tabs",
+      "source": "source\\tome.json",
+      "source_part": "tome_hanging_leather_tabs",
+      "source_sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 488,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 248,
+      "faces": 244
+    },
+    {
+      "name": "heavy_relic_belt",
+      "source": "source\\waist.json",
+      "source_part": "heavy_relic_belt",
+      "source_sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 784,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 392,
+      "faces": 392
+    },
+    {
+      "name": "left_belt_field_pouch",
+      "source": "source\\waist.json",
+      "source_part": "left_belt_field_pouch",
+      "source_sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 96,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 50,
+      "faces": 48
+    },
+    {
+      "name": "pouch_foldover_flap",
+      "source": "source\\waist.json",
+      "source_part": "pouch_foldover_flap",
+      "source_sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 56,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 30,
+      "faces": 28
+    },
+    {
+      "name": "left_belt_field_pouchsmall",
+      "source": "source\\waist.json",
+      "source_part": "left_belt_field_pouchsmall",
+      "source_sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 96,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 50,
+      "faces": 48
+    },
+    {
+      "name": "pouch_foldover_flapsmall",
+      "source": "source\\waist.json",
+      "source_part": "pouch_foldover_flapsmall",
+      "source_sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+      "materials": [
+        "proof.leather"
+      ],
+      "triangles": 56,
+      "boundary_edges": 0,
+      "expected_closed": true,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "vertices": 30,
+      "faces": 28
+    }
+  ],
+  "total_triangles": 70950,
+  "authored_image_materials": [
+    "proof.ash_cloth",
+    "proof.brass",
+    "proof.crimson",
+    "proof.dark_steel",
+    "proof.hair",
+    "proof.leather",
+    "proof.parchment",
+    "proof.skin"
+  ],
+  "limitations": [
+    "Full-character editable authored source; likeness and surface quality require visual review",
+    "This editable source master is unrigged; rigged runtime exports, animations and their validation are separate artifacts",
+    "Source UVs are authored per-corner layouts; packed runtime atlases are produced and validated separately",
+    "Source materials load authored image paint where supplied; image presence does not establish final material accuracy",
+    "This report records source/build evidence only and does not grant visual acceptance or runtime promotion"
+  ],
+  "evidence": {
+    "ember_arcanist_reference_master.blend": {
+      "sha256": "d7ceab137e29d7c5a876c1e626d8b44c804bae629377f662a4284192fa026a8d",
+      "bytes": 316252
+    },
+    "review\\evaluated_mesh.json.gz": {
+      "sha256": "64990b34721526e1f4c4e811c09b55ea3278ee46dd4ecba0b462cf58e87144d7",
+      "bytes": 1740145
+    },
+    "review\\full_front_material.png": {
+      "sha256": "e092a209a2c7538b1308c48e5bf98a84c300b798bf232a42ad8ed069be4a4cac",
+      "bytes": 1227319
+    },
+    "review\\full_three_quarter_material.png": {
+      "sha256": "d0a76b5a496cfe23f953a6819acdeb14e2781aec339a995e593d63100850227e",
+      "bytes": 1225153
+    },
+    "review\\full_side_material.png": {
+      "sha256": "fa3dee2c3afe4822c2f213da4833f6f3654078ed2ee75f86c079ae2021bbe578",
+      "bytes": 1164674
+    },
+    "review\\full_back_material.png": {
+      "sha256": "ff75dcb34442b1df8b6c407b1e0075a738fd624c9d2112ee7ac9e2471445f5d2",
+      "bytes": 1185179
+    }
+  }
+}

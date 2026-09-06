@@ -1,0 +1,6 @@
+
+> war-js@0.1.0 build
+> tsc --noEmit && vite build
+
+src/game/Combat.ts(247,7): error TS2353: Object literal may only specify known properties, and 'movePlayer' does not exist in type 'AbilityActivationContext'.
+src/game/Combat.ts(266,7): error TS2353: Object literal may only specify known properties, and 'movePlayer' does not exist in type 'AbilityActivationContext'.

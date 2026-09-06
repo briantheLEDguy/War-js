@@ -2180,6 +2180,48 @@
       "characterProfileKey": "enemy_aegis_keep_captain_captain"
     },
     {
+      "id": "dawnline_expanse_aegis_keep_commander",
+      "name": "Aegis Castellan Edric Dawnward",
+      "level": 34,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 13,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "dawnline_expanse_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "dawnline_expanse_riftbound_keep_commander",
+      "name": "Riftbound Warlord Xeran Riftbrand",
+      "level": 34,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 13,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "dawnline_expanse_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
       "id": "dawnline_expanse_beast_1",
       "name": "War Boar",
       "level": 32,
@@ -2737,5 +2779,5 @@
       ]
     }
   ],
-  "staticMapHash": "ae419324dbafa803"
+  "staticMapHash": "b88bd8f3d8876a9c"
 }

@@ -1,0 +1,22 @@
+{
+  "retained_shared_body_part": "padded_abdominal_doublet",
+  "front_hem_m": [
+    0.672,
+    0.68
+  ],
+  "rear_hem_m": [
+    0.645,
+    0.662
+  ],
+  "removed_components": [
+    "medallion",
+    "tome",
+    "relics",
+    "repeated_reliquaries"
+  ],
+  "new_patches": [
+    "novitiate_plain_iron_buckle",
+    "novitiate_buckle_tongue",
+    "novitiate_small_faith_badge"
+  ]
+}

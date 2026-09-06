@@ -1,0 +1,3487 @@
+{
+  "before": {
+    "idle": {
+      "frame_range": [
+        0.0,
+        48.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.835143,
+          "right_socket": [
+            -0.52729,
+            -0.352607,
+            1.244628
+          ],
+          "left_socket": [
+            0.336929,
+            -0.298335,
+            0.955263
+          ],
+          "secondary": [
+            -0.421648,
+            -0.626933,
+            1.073792
+          ],
+          "head": [
+            -0.657789,
+            -0.013734,
+            1.455661
+          ],
+          "shaft_bottom_z_m": 0.696947,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.782651,
+              "middle": 0.808345,
+              "ring": 0.837402,
+              "pinky": 0.854795,
+              "thumb": 0.739715
+            }
+          }
+        },
+        {
+          "frame": 6.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.833031,
+          "right_socket": [
+            -0.526614,
+            -0.353014,
+            1.243845
+          ],
+          "left_socket": [
+            0.337331,
+            -0.299396,
+            0.956762
+          ],
+          "secondary": [
+            -0.420312,
+            -0.626131,
+            1.071487
+          ],
+          "head": [
+            -0.657928,
+            -0.015635,
+            1.456758
+          ],
+          "shaft_bottom_z_m": 0.691286,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.780157,
+              "middle": 0.805535,
+              "ring": 0.834544,
+              "pinky": 0.852067,
+              "thumb": 0.737674
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.828443,
+          "right_socket": [
+            -0.525127,
+            -0.353861,
+            1.242124
+          ],
+          "left_socket": [
+            0.33822,
+            -0.301717,
+            0.960045
+          ],
+          "secondary": [
+            -0.417386,
+            -0.624292,
+            1.066457
+          ],
+          "head": [
+            -0.658218,
+            -0.019799,
+            1.459124
+          ],
+          "shaft_bottom_z_m": 0.678957,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.774727,
+              "middle": 0.7994,
+              "ring": 0.828289,
+              "pinky": 0.846086,
+              "thumb": 0.733241
+            }
+          }
+        },
+        {
+          "frame": 18.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.823911,
+          "right_socket": [
+            -0.523632,
+            -0.354646,
+            1.240396
+          ],
+          "left_socket": [
+            0.339116,
+            -0.304033,
+            0.963325
+          ],
+          "secondary": [
+            -0.414461,
+            -0.622345,
+            1.061457
+          ],
+          "head": [
+            -0.658491,
+            -0.02396,
+            1.461438
+          ],
+          "shaft_bottom_z_m": 0.666739,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.769352,
+              "middle": 0.7933,
+              "ring": 0.822048,
+              "pinky": 0.840104,
+              "thumb": 0.728863
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.821862,
+          "right_socket": [
+            -0.522948,
+            -0.354984,
+            1.239605
+          ],
+          "left_socket": [
+            0.339527,
+            -0.305088,
+            0.964821
+          ],
+          "secondary": [
+            -0.413126,
+            -0.62142,
+            1.059185
+          ],
+          "head": [
+            -0.658609,
+            -0.025857,
+            1.462476
+          ],
+          "shaft_bottom_z_m": 0.661201,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.766919,
+              "middle": 0.790529,
+              "ring": 0.819207,
+              "pinky": 0.837375,
+              "thumb": 0.726886
+            }
+          }
+        },
+        {
+          "frame": 30.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.823911,
+          "right_socket": [
+            -0.523632,
+            -0.354646,
+            1.240396
+          ],
+          "left_socket": [
+            0.339116,
+            -0.304033,
+            0.963325
+          ],
+          "secondary": [
+            -0.414461,
+            -0.622345,
+            1.061457
+          ],
+          "head": [
+            -0.658491,
+            -0.02396,
+            1.461438
+          ],
+          "shaft_bottom_z_m": 0.666739,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.769352,
+              "middle": 0.7933,
+              "ring": 0.822048,
+              "pinky": 0.840104,
+              "thumb": 0.728863
+            }
+          }
+        },
+        {
+          "frame": 36.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.828443,
+          "right_socket": [
+            -0.525127,
+            -0.353861,
+            1.242124
+          ],
+          "left_socket": [
+            0.33822,
+            -0.301717,
+            0.960045
+          ],
+          "secondary": [
+            -0.417386,
+            -0.624292,
+            1.066458
+          ],
+          "head": [
+            -0.658218,
+            -0.019799,
+            1.459124
+          ],
+          "shaft_bottom_z_m": 0.678957,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.774727,
+              "middle": 0.7994,
+              "ring": 0.828289,
+              "pinky": 0.846086,
+              "thumb": 0.733241
+            }
+          }
+        },
+        {
+          "frame": 42.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.833031,
+          "right_socket": [
+            -0.526614,
+            -0.353014,
+            1.243845
+          ],
+          "left_socket": [
+            0.337331,
+            -0.299396,
+            0.956762
+          ],
+          "secondary": [
+            -0.420312,
+            -0.626131,
+            1.071487
+          ],
+          "head": [
+            -0.657928,
+            -0.015635,
+            1.456758
+          ],
+          "shaft_bottom_z_m": 0.691286,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.780157,
+              "middle": 0.805535,
+              "ring": 0.834544,
+              "pinky": 0.852068,
+              "thumb": 0.737675
+            }
+          }
+        },
+        {
+          "frame": 48.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.835143,
+          "right_socket": [
+            -0.52729,
+            -0.352607,
+            1.244628
+          ],
+          "left_socket": [
+            0.336929,
+            -0.298335,
+            0.955263
+          ],
+          "secondary": [
+            -0.421648,
+            -0.626933,
+            1.073792
+          ],
+          "head": [
+            -0.657789,
+            -0.013734,
+            1.455661
+          ],
+          "shaft_bottom_z_m": 0.696947,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.782651,
+              "middle": 0.808345,
+              "ring": 0.837402,
+              "pinky": 0.854795,
+              "thumb": 0.739715
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 0.835143
+    },
+    "walk": {
+      "frame_range": [
+        0.0,
+        24.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.872876,
+          "right_socket": [
+            -0.527918,
+            -0.353599,
+            1.240788
+          ],
+          "left_socket": [
+            0.3316,
+            -0.213169,
+            0.917222
+          ],
+          "secondary": [
+            -0.42254,
+            -0.626309,
+            1.067222
+          ],
+          "head": [
+            -0.658091,
+            -0.016723,
+            1.455192
+          ],
+          "shaft_bottom_z_m": 0.684357,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.82538,
+              "middle": 0.860932,
+              "ring": 0.893368,
+              "pinky": 0.910334,
+              "thumb": 0.774223
+            }
+          }
+        },
+        {
+          "frame": 3.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.86101,
+          "right_socket": [
+            -0.527058,
+            -0.355096,
+            1.251852
+          ],
+          "left_socket": [
+            0.338788,
+            -0.246021,
+            0.941635
+          ],
+          "secondary": [
+            -0.420906,
+            -0.627505,
+            1.078286
+          ],
+          "head": [
+            -0.658187,
+            -0.018591,
+            1.466256
+          ],
+          "shaft_bottom_z_m": 0.695421,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.811522,
+              "middle": 0.8441,
+              "ring": 0.87582,
+              "pinky": 0.89332,
+              "thumb": 0.763158
+            }
+          }
+        },
+        {
+          "frame": 6.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.843851,
+          "right_socket": [
+            -0.525493,
+            -0.357718,
+            1.260122
+          ],
+          "left_socket": [
+            0.358384,
+            -0.313781,
+            0.987184
+          ],
+          "secondary": [
+            -0.41789,
+            -0.629443,
+            1.086378
+          ],
+          "head": [
+            -0.658415,
+            -0.022058,
+            1.474747
+          ],
+          "shaft_bottom_z_m": 0.703118,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.790787,
+              "middle": 0.815775,
+              "ring": 0.844535,
+              "pinky": 0.861953,
+              "thumb": 0.748098
+            }
+          }
+        },
+        {
+          "frame": 9.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.833707,
+          "right_socket": [
+            -0.521803,
+            -0.359936,
+            1.24386
+          ],
+          "left_socket": [
+            0.382473,
+            -0.374255,
+            1.023593
+          ],
+          "secondary": [
+            -0.410741,
+            -0.627433,
+            1.065785
+          ],
+          "head": [
+            -0.658998,
+            -0.0295,
+            1.463836
+          ],
+          "shaft_bottom_z_m": 0.672971,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.778968,
+              "middle": 0.794603,
+              "ring": 0.8182,
+              "pinky": 0.833764,
+              "thumb": 0.741948
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.83158,
+          "right_socket": [
+            -0.519087,
+            -0.360844,
+            1.229762
+          ],
+          "left_socket": [
+            0.394741,
+            -0.398935,
+            1.038856
+          ],
+          "secondary": [
+            -0.40553,
+            -0.624785,
+            1.047992
+          ],
+          "head": [
+            -0.659364,
+            -0.0348,
+            1.4543
+          ],
+          "shaft_bottom_z_m": 0.647031,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.777428,
+              "middle": 0.788276,
+              "ring": 0.808618,
+              "pinky": 0.822521,
+              "thumb": 0.742832
+            }
+          }
+        },
+        {
+          "frame": 15.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.834979,
+          "right_socket": [
+            -0.522983,
+            -0.358897,
+            1.246935
+          ],
+          "left_socket": [
+            0.381805,
+            -0.374947,
+            1.025575
+          ],
+          "secondary": [
+            -0.412894,
+            -0.627334,
+            1.069673
+          ],
+          "head": [
+            -0.658974,
+            -0.027298,
+            1.465906
+          ],
+          "shaft_bottom_z_m": 0.678653,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.780467,
+              "middle": 0.79627,
+              "ring": 0.819904,
+              "pinky": 0.835406,
+              "thumb": 0.743199
+            }
+          }
+        },
+        {
+          "frame": 18.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.844154,
+          "right_socket": [
+            -0.526856,
+            -0.355822,
+            1.260358
+          ],
+          "left_socket": [
+            0.357289,
+            -0.315053,
+            0.987184
+          ],
+          "secondary": [
+            -0.420327,
+            -0.628085,
+            1.086793
+          ],
+          "head": [
+            -0.65845,
+            -0.019499,
+            1.474763
+          ],
+          "shaft_bottom_z_m": 0.703928,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.791147,
+              "middle": 0.816164,
+              "ring": 0.844922,
+              "pinky": 0.862317,
+              "thumb": 0.748402
+            }
+          }
+        },
+        {
+          "frame": 21.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.86101,
+          "right_socket": [
+            -0.527689,
+            -0.354141,
+            1.24987
+          ],
+          "left_socket": [
+            0.338353,
+            -0.246634,
+            0.939653
+          ],
+          "secondary": [
+            -0.42203,
+            -0.626742,
+            1.076304
+          ],
+          "head": [
+            -0.658209,
+            -0.017399,
+            1.464274
+          ],
+          "shaft_bottom_z_m": 0.693439,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.811522,
+              "middle": 0.8441,
+              "ring": 0.875821,
+              "pinky": 0.89332,
+              "thumb": 0.763158
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.872876,
+          "right_socket": [
+            -0.527918,
+            -0.353599,
+            1.240788
+          ],
+          "left_socket": [
+            0.3316,
+            -0.213169,
+            0.917222
+          ],
+          "secondary": [
+            -0.42254,
+            -0.626309,
+            1.067222
+          ],
+          "head": [
+            -0.658091,
+            -0.016723,
+            1.455192
+          ],
+          "shaft_bottom_z_m": 0.684357,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.82538,
+              "middle": 0.860932,
+              "ring": 0.893368,
+              "pinky": 0.910334,
+              "thumb": 0.774223
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 0.872876
+    },
+    "run": {
+      "frame_range": [
+        0.0,
+        16.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.991184,
+          "right_socket": [
+            -0.569,
+            -0.34123,
+            1.240294
+          ],
+          "left_socket": [
+            0.339582,
+            -0.076876,
+            0.881354
+          ],
+          "secondary": [
+            -0.495283,
+            -0.592053,
+            1.022914
+          ],
+          "head": [
+            -0.660061,
+            -0.031391,
+            1.508823
+          ],
+          "shaft_bottom_z_m": 0.5434,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.953586,
+              "middle": 0.996171,
+              "ring": 1.026863,
+              "pinky": 1.037347,
+              "thumb": 0.888679
+            }
+          }
+        },
+        {
+          "frame": 2.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.961132,
+          "right_socket": [
+            -0.567469,
+            -0.344256,
+            1.259779
+          ],
+          "left_socket": [
+            0.345509,
+            -0.143827,
+            0.903678
+          ],
+          "secondary": [
+            -0.492433,
+            -0.593956,
+            1.04156
+          ],
+          "head": [
+            -0.660159,
+            -0.035803,
+            1.529344
+          ],
+          "shaft_bottom_z_m": 0.560194,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.92161,
+              "middle": 0.960654,
+              "ring": 0.991662,
+              "pinky": 1.004337,
+              "thumb": 0.861474
+            }
+          }
+        },
+        {
+          "frame": 4.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.921093,
+          "right_socket": [
+            -0.562894,
+            -0.351979,
+            1.280237
+          ],
+          "left_socket": [
+            0.374546,
+            -0.282019,
+            0.963908
+          ],
+          "secondary": [
+            -0.484092,
+            -0.600617,
+            1.062132
+          ],
+          "head": [
+            -0.660237,
+            -0.044839,
+            1.549661
+          ],
+          "shaft_bottom_z_m": 0.581018,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.87562,
+              "middle": 0.90333,
+              "ring": 0.931068,
+              "pinky": 0.945122,
+              "thumb": 0.824945
+            }
+          }
+        },
+        {
+          "frame": 6.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.912495,
+          "right_socket": [
+            -0.552916,
+            -0.361753,
+            1.25544
+          ],
+          "left_socket": [
+            0.422681,
+            -0.396741,
+            1.029526
+          ],
+          "secondary": [
+            -0.465519,
+            -0.605819,
+            1.035453
+          ],
+          "head": [
+            -0.660876,
+            -0.060261,
+            1.527187
+          ],
+          "shaft_bottom_z_m": 0.55019,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.868871,
+              "middle": 0.881767,
+              "ring": 0.899988,
+              "pinky": 0.909284,
+              "thumb": 0.825066
+            }
+          }
+        },
+        {
+          "frame": 8.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.919281,
+          "right_socket": [
+            -0.545827,
+            -0.366699,
+            1.229714
+          ],
+          "left_socket": [
+            0.449733,
+            -0.43771,
+            1.061569
+          ],
+          "secondary": [
+            -0.452365,
+            -0.605993,
+            1.006996
+          ],
+          "head": [
+            -0.66128,
+            -0.0711,
+            1.504836
+          ],
+          "shaft_bottom_z_m": 0.515707,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042545,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.881831,
+              "middle": 0.887833,
+              "ring": 0.899714,
+              "pinky": 0.904401,
+              "thumb": 0.839644
+            }
+          }
+        },
+        {
+          "frame": 10.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.912495,
+          "right_socket": [
+            -0.552916,
+            -0.361753,
+            1.25544
+          ],
+          "left_socket": [
+            0.42268,
+            -0.396741,
+            1.029526
+          ],
+          "secondary": [
+            -0.465519,
+            -0.605819,
+            1.035453
+          ],
+          "head": [
+            -0.660876,
+            -0.060261,
+            1.527187
+          ],
+          "shaft_bottom_z_m": 0.55019,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042545,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.86887,
+              "middle": 0.881767,
+              "ring": 0.899988,
+              "pinky": 0.909284,
+              "thumb": 0.825066
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.921093,
+          "right_socket": [
+            -0.562894,
+            -0.351979,
+            1.280237
+          ],
+          "left_socket": [
+            0.374546,
+            -0.282019,
+            0.963908
+          ],
+          "secondary": [
+            -0.484092,
+            -0.600616,
+            1.062132
+          ],
+          "head": [
+            -0.660237,
+            -0.044839,
+            1.549661
+          ],
+          "shaft_bottom_z_m": 0.581018,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.87562,
+              "middle": 0.90333,
+              "ring": 0.931068,
+              "pinky": 0.945122,
+              "thumb": 0.824945
+            }
+          }
+        },
+        {
+          "frame": 14.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.961132,
+          "right_socket": [
+            -0.567469,
+            -0.344256,
+            1.259779
+          ],
+          "left_socket": [
+            0.345509,
+            -0.143827,
+            0.903678
+          ],
+          "secondary": [
+            -0.492433,
+            -0.593956,
+            1.04156
+          ],
+          "head": [
+            -0.660159,
+            -0.035803,
+            1.529344
+          ],
+          "shaft_bottom_z_m": 0.560194,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.92161,
+              "middle": 0.960654,
+              "ring": 0.991662,
+              "pinky": 1.004337,
+              "thumb": 0.861474
+            }
+          }
+        },
+        {
+          "frame": 16.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.991184,
+          "right_socket": [
+            -0.569,
+            -0.34123,
+            1.240294
+          ],
+          "left_socket": [
+            0.339582,
+            -0.076876,
+            0.881354
+          ],
+          "secondary": [
+            -0.495283,
+            -0.592053,
+            1.022914
+          ],
+          "head": [
+            -0.660061,
+            -0.031391,
+            1.508823
+          ],
+          "shaft_bottom_z_m": 0.5434,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.953586,
+              "middle": 0.996171,
+              "ring": 1.026863,
+              "pinky": 1.037347,
+              "thumb": 0.888679
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 0.991184
+    },
+    "combat_idle": {
+      "frame_range": [
+        0.0,
+        64.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.967444,
+          "right_socket": [
+            -0.524459,
+            -0.375118,
+            1.176115
+          ],
+          "left_socket": [
+            0.518902,
+            -0.390101,
+            1.039429
+          ],
+          "secondary": [
+            -0.4166,
+            -0.628551,
+            0.976771
+          ],
+          "head": [
+            -0.657696,
+            -0.062053,
+            1.422364
+          ],
+          "shaft_bottom_z_m": 0.537042,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.930123,
+              "middle": 0.947732,
+              "ring": 0.966243,
+              "pinky": 0.972703,
+              "thumb": 0.877607
+            }
+          }
+        },
+        {
+          "frame": 8.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.963946,
+          "right_socket": [
+            -0.523593,
+            -0.375109,
+            1.175692
+          ],
+          "left_socket": [
+            0.517113,
+            -0.389615,
+            1.039068
+          ],
+          "secondary": [
+            -0.414887,
+            -0.62729,
+            0.975223
+          ],
+          "head": [
+            -0.657877,
+            -0.063592,
+            1.42333
+          ],
+          "shaft_bottom_z_m": 0.533012,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.925904,
+              "middle": 0.943426,
+              "ring": 0.962091,
+              "pinky": 0.968854,
+              "thumb": 0.873841
+            }
+          }
+        },
+        {
+          "frame": 16.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.956257,
+          "right_socket": [
+            -0.521683,
+            -0.375055,
+            1.174751
+          ],
+          "left_socket": [
+            0.513181,
+            -0.388504,
+            1.03829
+          ],
+          "secondary": [
+            -0.411123,
+            -0.624453,
+            0.97183
+          ],
+          "head": [
+            -0.658257,
+            -0.066974,
+            1.425418
+          ],
+          "shaft_bottom_z_m": 0.524211,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.916633,
+              "middle": 0.933962,
+              "ring": 0.952963,
+              "pinky": 0.960392,
+              "thumb": 0.865573
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.94858,
+          "right_socket": [
+            -0.519764,
+            -0.37495,
+            1.173799
+          ],
+          "left_socket": [
+            0.509253,
+            -0.387335,
+            1.037537
+          ],
+          "secondary": [
+            -0.407363,
+            -0.62153,
+            0.968458
+          ],
+          "head": [
+            -0.658612,
+            -0.070353,
+            1.427454
+          ],
+          "shaft_bottom_z_m": 0.515501,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.907378,
+              "middle": 0.924513,
+              "ring": 0.943845,
+              "pinky": 0.951936,
+              "thumb": 0.857325
+            }
+          }
+        },
+        {
+          "frame": 32.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.945095,
+          "right_socket": [
+            -0.518889,
+            -0.374887,
+            1.173362
+          ],
+          "left_socket": [
+            0.507469,
+            -0.386785,
+            1.037204
+          ],
+          "secondary": [
+            -0.405655,
+            -0.620173,
+            0.966932
+          ],
+          "head": [
+            -0.658765,
+            -0.071886,
+            1.428362
+          ],
+          "shaft_bottom_z_m": 0.511574,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.903177,
+              "middle": 0.920223,
+              "ring": 0.939704,
+              "pinky": 0.948095,
+              "thumb": 0.853584
+            }
+          }
+        },
+        {
+          "frame": 40.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.94858,
+          "right_socket": [
+            -0.519764,
+            -0.37495,
+            1.173799
+          ],
+          "left_socket": [
+            0.509253,
+            -0.387335,
+            1.037537
+          ],
+          "secondary": [
+            -0.407363,
+            -0.62153,
+            0.968458
+          ],
+          "head": [
+            -0.658612,
+            -0.070352,
+            1.427454
+          ],
+          "shaft_bottom_z_m": 0.515502,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.907378,
+              "middle": 0.924513,
+              "ring": 0.943845,
+              "pinky": 0.951936,
+              "thumb": 0.857325
+            }
+          }
+        },
+        {
+          "frame": 48.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.956257,
+          "right_socket": [
+            -0.521683,
+            -0.375055,
+            1.174752
+          ],
+          "left_socket": [
+            0.513181,
+            -0.388504,
+            1.03829
+          ],
+          "secondary": [
+            -0.411123,
+            -0.624453,
+            0.971831
+          ],
+          "head": [
+            -0.658257,
+            -0.066974,
+            1.425418
+          ],
+          "shaft_bottom_z_m": 0.524211,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.916633,
+              "middle": 0.933962,
+              "ring": 0.952963,
+              "pinky": 0.960392,
+              "thumb": 0.865573
+            }
+          }
+        },
+        {
+          "frame": 56.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.963946,
+          "right_socket": [
+            -0.523593,
+            -0.375109,
+            1.175692
+          ],
+          "left_socket": [
+            0.517113,
+            -0.389615,
+            1.039068
+          ],
+          "secondary": [
+            -0.414887,
+            -0.62729,
+            0.975223
+          ],
+          "head": [
+            -0.657877,
+            -0.063591,
+            1.42333
+          ],
+          "shaft_bottom_z_m": 0.533013,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.925905,
+              "middle": 0.943426,
+              "ring": 0.962091,
+              "pinky": 0.968855,
+              "thumb": 0.873841
+            }
+          }
+        },
+        {
+          "frame": 64.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 0.967444,
+          "right_socket": [
+            -0.524459,
+            -0.375118,
+            1.176115
+          ],
+          "left_socket": [
+            0.518902,
+            -0.390101,
+            1.039429
+          ],
+          "secondary": [
+            -0.4166,
+            -0.628551,
+            0.976771
+          ],
+          "head": [
+            -0.657696,
+            -0.062053,
+            1.422364
+          ],
+          "shaft_bottom_z_m": 0.537042,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.930123,
+              "middle": 0.947732,
+              "ring": 0.966243,
+              "pinky": 0.972703,
+              "thumb": 0.877607
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 0.967444
+    },
+    "attack_melee": {
+      "frame_range": [
+        0.0,
+        24.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.24527,
+          "right_socket": [
+            -0.584994,
+            -0.431444,
+            1.252123
+          ],
+          "left_socket": [
+            0.631736,
+            -0.33544,
+            1.189714
+          ],
+          "secondary": [
+            -0.567646,
+            -0.553027,
+            0.93508
+          ],
+          "head": [
+            -0.606423,
+            -0.281252,
+            1.643765
+          ],
+          "shaft_bottom_z_m": 0.23572,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.216875,
+              "middle": 1.249333,
+              "ring": 1.264752,
+              "pinky": 1.258525,
+              "thumb": 1.135206
+            }
+          }
+        },
+        {
+          "frame": 3.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.588268,
+          "right_socket": [
+            -0.707386,
+            0.086294,
+            1.689221
+          ],
+          "left_socket": [
+            0.449507,
+            -0.596889,
+            1.379973
+          ],
+          "secondary": [
+            -0.964734,
+            0.120379,
+            1.469653
+          ],
+          "head": [
+            -0.389486,
+            0.044189,
+            1.960453
+          ],
+          "shaft_bottom_z_m": 0.98531,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.183462,
+              "middle": 1.233533,
+              "ring": 1.252861,
+              "pinky": 1.247496,
+              "thumb": 1.111803
+            }
+          }
+        },
+        {
+          "frame": 6.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.550036,
+          "right_socket": [
+            -0.475054,
+            0.226441,
+            1.941846
+          ],
+          "left_socket": [
+            0.279504,
+            -0.672857,
+            1.526094
+          ],
+          "secondary": [
+            -0.725745,
+            0.449898,
+            1.888733
+          ],
+          "head": [
+            -0.165377,
+            -0.049594,
+            2.007457
+          ],
+          "shaft_bottom_z_m": 1.77157,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.602838,
+              "middle": 0.642121,
+              "ring": 0.669329,
+              "pinky": 0.689203,
+              "thumb": 0.592667
+            }
+          }
+        },
+        {
+          "frame": 9.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.426684,
+          "right_socket": [
+            -0.36062,
+            -0.728091,
+            1.385197
+          ],
+          "left_socket": [
+            0.70363,
+            -0.13026,
+            1.167253
+          ],
+          "secondary": [
+            -0.55661,
+            -0.797044,
+            1.116063
+          ],
+          "head": [
+            -0.118514,
+            -0.642914,
+            1.717657
+          ],
+          "shaft_bottom_z_m": 0.522385,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.119694,
+              "middle": 1.170617,
+              "ring": 1.19259,
+              "pinky": 1.189368,
+              "thumb": 1.043235
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.219363,
+          "right_socket": [
+            0.370186,
+            -0.687277,
+            1.095444
+          ],
+          "left_socket": [
+            0.550294,
+            0.326418,
+            1.089296
+          ],
+          "secondary": [
+            0.264518,
+            -0.823772,
+            0.802521
+          ],
+          "head": [
+            0.500716,
+            -0.518666,
+            1.457289
+          ],
+          "shaft_bottom_z_m": 0.156369,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.935269,
+              "middle": 0.986848,
+              "ring": 1.010121,
+              "pinky": 1.008883,
+              "thumb": 0.864533
+            }
+          }
+        },
+        {
+          "frame": 15.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.230858,
+          "right_socket": [
+            0.130386,
+            -0.76761,
+            1.155721
+          ],
+          "left_socket": [
+            0.619369,
+            0.173801,
+            1.075815
+          ],
+          "secondary": [
+            0.027003,
+            -0.881802,
+            0.852617
+          ],
+          "head": [
+            0.258094,
+            -0.626549,
+            1.530144
+          ],
+          "shaft_bottom_z_m": 0.184005,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.996177,
+              "middle": 1.046926,
+              "ring": 1.070882,
+              "pinky": 1.069589,
+              "thumb": 0.918654
+            }
+          }
+        },
+        {
+          "frame": 18.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.233076,
+          "right_socket": [
+            -0.234809,
+            -0.7228,
+            1.227961
+          ],
+          "left_socket": [
+            0.670944,
+            -0.066436,
+            1.105937
+          ],
+          "secondary": [
+            -0.297122,
+            -0.802863,
+            0.903451
+          ],
+          "head": [
+            -0.157835,
+            -0.623899,
+            1.628827
+          ],
+          "shaft_bottom_z_m": 0.187619,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.105855,
+              "middle": 1.151379,
+              "ring": 1.174376,
+              "pinky": 1.172834,
+              "thumb": 1.023264
+            }
+          }
+        },
+        {
+          "frame": 21.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.239206,
+          "right_socket": [
+            -0.500293,
+            -0.541558,
+            1.253507
+          ],
+          "left_socket": [
+            0.654204,
+            -0.260711,
+            1.16109
+          ],
+          "secondary": [
+            -0.503036,
+            -0.637201,
+            0.927248
+          ],
+          "head": [
+            -0.496904,
+            -0.423411,
+            1.656533
+          ],
+          "shaft_bottom_z_m": 0.20756,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.188606,
+              "middle": 1.225418,
+              "ring": 1.243741,
+              "pinky": 1.23944,
+              "thumb": 1.105933
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.24527,
+          "right_socket": [
+            -0.584994,
+            -0.431444,
+            1.252123
+          ],
+          "left_socket": [
+            0.631736,
+            -0.33544,
+            1.189714
+          ],
+          "secondary": [
+            -0.567646,
+            -0.553027,
+            0.93508
+          ],
+          "head": [
+            -0.606423,
+            -0.281252,
+            1.643765
+          ],
+          "shaft_bottom_z_m": 0.23572,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.216875,
+              "middle": 1.249333,
+              "ring": 1.264752,
+              "pinky": 1.258525,
+              "thumb": 1.135206
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 1.588268
+    },
+    "attack_ranged": {
+      "frame_range": [
+        0.0,
+        32.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.373428,
+          "right_socket": [
+            -0.593939,
+            -0.148523,
+            1.041024
+          ],
+          "left_socket": [
+            0.709228,
+            -0.138958,
+            1.176061
+          ],
+          "secondary": [
+            -0.580921,
+            -0.073568,
+            0.709645
+          ],
+          "head": [
+            -0.61002,
+            -0.241113,
+            1.450376
+          ],
+          "shaft_bottom_z_m": -0.021339,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.329058,
+              "middle": 1.360353,
+              "ring": 1.367312,
+              "pinky": 1.349729,
+              "thumb": 1.240128
+            }
+          }
+        },
+        {
+          "frame": 4.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.401615,
+          "right_socket": [
+            -0.627461,
+            0.096643,
+            1.071498
+          ],
+          "left_socket": [
+            0.722221,
+            0.071758,
+            1.190936
+          ],
+          "secondary": [
+            -0.602813,
+            0.262216,
+            0.775562
+          ],
+          "head": [
+            -0.65791,
+            -0.107889,
+            1.437066
+          ],
+          "shaft_bottom_z_m": 0.122763,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.393654,
+              "middle": 1.412012,
+              "ring": 1.406053,
+              "pinky": 1.377699,
+              "thumb": 1.310558
+            }
+          }
+        },
+        {
+          "frame": 8.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.266126,
+          "right_socket": [
+            -0.585902,
+            0.31818,
+            1.179094
+          ],
+          "left_socket": [
+            0.669641,
+            0.268208,
+            1.250843
+          ],
+          "secondary": [
+            -0.524496,
+            0.55292,
+            0.94092
+          ],
+          "head": [
+            -0.661756,
+            0.028208,
+            1.47331
+          ],
+          "shaft_bottom_z_m": 0.415536,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.295968,
+              "middle": 1.294659,
+              "ring": 1.275693,
+              "pinky": 1.241469,
+              "thumb": 1.233522
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.266126,
+          "right_socket": [
+            -0.585902,
+            0.31818,
+            1.179094
+          ],
+          "left_socket": [
+            0.669641,
+            0.268208,
+            1.250843
+          ],
+          "secondary": [
+            -0.524496,
+            0.55292,
+            0.94092
+          ],
+          "head": [
+            -0.661756,
+            0.028208,
+            1.47331
+          ],
+          "shaft_bottom_z_m": 0.415536,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.295968,
+              "middle": 1.294659,
+              "ring": 1.275693,
+              "pinky": 1.241469,
+              "thumb": 1.233522
+            }
+          }
+        },
+        {
+          "frame": 16.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.266126,
+          "right_socket": [
+            -0.585902,
+            0.31818,
+            1.179094
+          ],
+          "left_socket": [
+            0.669641,
+            0.268208,
+            1.250843
+          ],
+          "secondary": [
+            -0.524496,
+            0.55292,
+            0.94092
+          ],
+          "head": [
+            -0.661756,
+            0.028208,
+            1.47331
+          ],
+          "shaft_bottom_z_m": 0.415536,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.295968,
+              "middle": 1.294659,
+              "ring": 1.275693,
+              "pinky": 1.241469,
+              "thumb": 1.233522
+            }
+          }
+        },
+        {
+          "frame": 20.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.393269,
+          "right_socket": [
+            -0.616092,
+            0.155592,
+            1.082307
+          ],
+          "left_socket": [
+            0.715887,
+            -0.019921,
+            1.163489
+          ],
+          "secondary": [
+            -0.579492,
+            0.343304,
+            0.801194
+          ],
+          "head": [
+            -0.661304,
+            -0.076288,
+            1.429564
+          ],
+          "shaft_bottom_z_m": 0.181091,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.383091,
+              "middle": 1.402182,
+              "ring": 1.396755,
+              "pinky": 1.368859,
+              "thumb": 1.299303
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.392223,
+          "right_socket": [
+            -0.611185,
+            -0.026032,
+            1.038279
+          ],
+          "left_socket": [
+            0.712566,
+            -0.103471,
+            1.170099
+          ],
+          "secondary": [
+            -0.590293,
+            0.094627,
+            0.721097
+          ],
+          "head": [
+            -0.636994,
+            -0.175082,
+            1.430093
+          ],
+          "shaft_bottom_z_m": 0.021429,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.358173,
+              "middle": 1.385365,
+              "ring": 1.38785,
+              "pinky": 1.366279,
+              "thumb": 1.270126
+            }
+          }
+        },
+        {
+          "frame": 28.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.377241,
+          "right_socket": [
+            -0.597942,
+            -0.121221,
+            1.037591
+          ],
+          "left_socket": [
+            0.709452,
+            -0.134563,
+            1.174785
+          ],
+          "secondary": [
+            -0.582813,
+            -0.035558,
+            0.708907
+          ],
+          "head": [
+            -0.61663,
+            -0.22704,
+            1.443612
+          ],
+          "shaft_bottom_z_m": -0.01613,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.334799,
+              "middle": 1.36524,
+              "ring": 1.371289,
+              "pinky": 1.352901,
+              "thumb": 1.246
+            }
+          }
+        },
+        {
+          "frame": 32.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.373428,
+          "right_socket": [
+            -0.593939,
+            -0.148523,
+            1.041024
+          ],
+          "left_socket": [
+            0.709228,
+            -0.138958,
+            1.176061
+          ],
+          "secondary": [
+            -0.580921,
+            -0.073568,
+            0.709645
+          ],
+          "head": [
+            -0.61002,
+            -0.241113,
+            1.450376
+          ],
+          "shaft_bottom_z_m": -0.021339,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.329058,
+              "middle": 1.360353,
+              "ring": 1.367312,
+              "pinky": 1.349729,
+              "thumb": 1.240128
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 1.401615
+    },
+    "cast": {
+      "frame_range": [
+        0.0,
+        48.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.384619,
+          "right_socket": [
+            -0.624218,
+            -0.281645,
+            1.226343
+          ],
+          "left_socket": [
+            0.624218,
+            -0.281645,
+            1.226343
+          ],
+          "secondary": [
+            -0.72153,
+            -0.297828,
+            0.900969
+          ],
+          "head": [
+            -0.504008,
+            -0.261655,
+            1.628276
+          ],
+          "shaft_bottom_z_m": 0.183231,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.210471,
+              "middle": 1.25716,
+              "ring": 1.275998,
+              "pinky": 1.268417,
+              "thumb": 1.123973
+            }
+          }
+        },
+        {
+          "frame": 6.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.445216,
+          "right_socket": [
+            -0.652376,
+            -0.146985,
+            1.227699
+          ],
+          "left_socket": [
+            0.652376,
+            -0.146985,
+            1.227699
+          ],
+          "secondary": [
+            -0.756101,
+            -0.121734,
+            0.904893
+          ],
+          "head": [
+            -0.524246,
+            -0.178178,
+            1.626459
+          ],
+          "shaft_bottom_z_m": 0.192822,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.26963,
+              "middle": 1.313867,
+              "ring": 1.327222,
+              "pinky": 1.313115,
+              "thumb": 1.179996
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.40281,
+          "right_socket": [
+            -0.633615,
+            0.086963,
+            1.261612
+          ],
+          "left_socket": [
+            0.633615,
+            0.086964,
+            1.261612
+          ],
+          "secondary": [
+            -0.730836,
+            0.185643,
+            0.951112
+          ],
+          "head": [
+            -0.513518,
+            -0.034935,
+            1.645172
+          ],
+          "shaft_bottom_z_m": 0.266185,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.261092,
+              "middle": 1.297078,
+              "ring": 1.299432,
+              "pinky": 1.274114,
+              "thumb": 1.170518
+            }
+          }
+        },
+        {
+          "frame": 18.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.355882,
+          "right_socket": [
+            -0.609819,
+            0.191509,
+            1.29701
+          ],
+          "left_socket": [
+            0.609819,
+            0.191509,
+            1.29701
+          ],
+          "secondary": [
+            -0.706281,
+            0.314696,
+            0.995148
+          ],
+          "head": [
+            -0.490661,
+            0.039337,
+            1.669897
+          ],
+          "shaft_bottom_z_m": 0.329279,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.227553,
+              "middle": 1.258183,
+              "ring": 1.254081,
+              "pinky": 1.222954,
+              "thumb": 1.14043
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.355162,
+          "right_socket": [
+            -0.607242,
+            0.227025,
+            1.312989
+          ],
+          "left_socket": [
+            0.607242,
+            0.227025,
+            1.312989
+          ],
+          "secondary": [
+            -0.708476,
+            0.354546,
+            1.014509
+          ],
+          "head": [
+            -0.482188,
+            0.069499,
+            1.6817
+          ],
+          "shaft_bottom_z_m": 0.356098,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.22204,
+              "middle": 1.251209,
+              "ring": 1.244983,
+              "pinky": 1.21202,
+              "thumb": 1.137297
+            }
+          }
+        },
+        {
+          "frame": 30.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.356882,
+          "right_socket": [
+            -0.608317,
+            0.243717,
+            1.317241
+          ],
+          "left_socket": [
+            0.608317,
+            0.243717,
+            1.317241
+          ],
+          "secondary": [
+            -0.70914,
+            0.37545,
+            1.020455
+          ],
+          "head": [
+            -0.483772,
+            0.080989,
+            1.683857
+          ],
+          "shaft_bottom_z_m": 0.365783,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.226285,
+              "middle": 1.254416,
+              "ring": 1.247076,
+              "pinky": 1.213215,
+              "thumb": 1.142565
+            }
+          }
+        },
+        {
+          "frame": 36.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.368533,
+          "right_socket": [
+            -0.616874,
+            0.241011,
+            1.309941
+          ],
+          "left_socket": [
+            0.616874,
+            0.241011,
+            1.309941
+          ],
+          "secondary": [
+            -0.712171,
+            0.377489,
+            1.013474
+          ],
+          "head": [
+            -0.499154,
+            0.072421,
+            1.676164
+          ],
+          "shaft_bottom_z_m": 0.359505,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.247981,
+              "middle": 1.275372,
+              "ring": 1.267712,
+              "pinky": 1.23364,
+              "thumb": 1.163816
+            }
+          }
+        },
+        {
+          "frame": 42.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.458898,
+          "right_socket": [
+            -0.6594,
+            0.095374,
+            1.268209
+          ],
+          "left_socket": [
+            0.6594,
+            0.095374,
+            1.268209
+          ],
+          "secondary": [
+            -0.763111,
+            0.198304,
+            0.961208
+          ],
+          "head": [
+            -0.531287,
+            -0.031776,
+            1.647445
+          ],
+          "shaft_bottom_z_m": 0.284001,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.306236,
+              "middle": 1.341938,
+              "ring": 1.343133,
+              "pinky": 1.316578,
+              "thumb": 1.216667
+            }
+          }
+        },
+        {
+          "frame": 48.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.384619,
+          "right_socket": [
+            -0.624218,
+            -0.281645,
+            1.226343
+          ],
+          "left_socket": [
+            0.624218,
+            -0.281645,
+            1.226343
+          ],
+          "secondary": [
+            -0.72153,
+            -0.297828,
+            0.900969
+          ],
+          "head": [
+            -0.504008,
+            -0.261655,
+            1.628276
+          ],
+          "shaft_bottom_z_m": 0.183231,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.210471,
+              "middle": 1.25716,
+              "ring": 1.275998,
+              "pinky": 1.268417,
+              "thumb": 1.123973
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 1.458898
+    },
+    "death": {
+      "frame_range": [
+        0.0,
+        48.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.273127,
+          "right_socket": [
+            -0.596733,
+            -0.3156,
+            1.132253
+          ],
+          "left_socket": [
+            0.596733,
+            -0.3156,
+            1.132253
+          ],
+          "secondary": [
+            -0.630622,
+            -0.314061,
+            0.793949
+          ],
+          "head": [
+            -0.554869,
+            -0.317502,
+            1.550157
+          ],
+          "shaft_bottom_z_m": 0.047692,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.190668,
+              "middle": 1.226944,
+              "ring": 1.242629,
+              "pinky": 1.234968,
+              "thumb": 1.105342
+            }
+          }
+        },
+        {
+          "frame": 6.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.318441,
+          "right_socket": [
+            -0.608534,
+            -0.347732,
+            1.15697
+          ],
+          "left_socket": [
+            0.608534,
+            -0.347732,
+            1.15697
+          ],
+          "secondary": [
+            -0.666638,
+            -0.342547,
+            0.822011
+          ],
+          "head": [
+            -0.536759,
+            -0.354136,
+            1.570742
+          ],
+          "shaft_bottom_z_m": 0.083132,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.205804,
+              "middle": 1.246969,
+              "ring": 1.264558,
+              "pinky": 1.257236,
+              "thumb": 1.118803
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.407873,
+          "right_socket": [
+            -0.627677,
+            -0.428176,
+            1.217118
+          ],
+          "left_socket": [
+            0.627677,
+            -0.428176,
+            1.217118
+          ],
+          "secondary": [
+            -0.743419,
+            -0.420615,
+            0.897514
+          ],
+          "head": [
+            -0.484702,
+            -0.437517,
+            1.611922
+          ],
+          "shaft_bottom_z_m": 0.192505,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.196707,
+              "middle": 1.245416,
+              "ring": 1.265088,
+              "pinky": 1.258336,
+              "thumb": 1.11286
+            }
+          }
+        },
+        {
+          "frame": 18.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.479176,
+          "right_socket": [
+            -0.634295,
+            -0.405607,
+            1.233
+          ],
+          "left_socket": [
+            0.634295,
+            -0.405607,
+            1.233
+          ],
+          "secondary": [
+            -0.816798,
+            -0.399248,
+            0.946203
+          ],
+          "head": [
+            -0.408851,
+            -0.413461,
+            1.587278
+          ],
+          "shaft_bottom_z_m": 0.313563,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.101244,
+              "middle": 1.149583,
+              "ring": 1.165817,
+              "pinky": 1.158041,
+              "thumb": 1.03348
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.526974,
+          "right_socket": [
+            -0.634497,
+            -0.269407,
+            1.116253
+          ],
+          "left_socket": [
+            0.634497,
+            -0.269407,
+            1.116253
+          ],
+          "secondary": [
+            -0.873152,
+            -0.235621,
+            0.876455
+          ],
+          "head": [
+            -0.33969,
+            -0.311144,
+            1.412473
+          ],
+          "shaft_bottom_z_m": 0.347491,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.950716,
+              "middle": 0.988684,
+              "ring": 0.995221,
+              "pinky": 0.983582,
+              "thumb": 0.906227
+            }
+          }
+        },
+        {
+          "frame": 30.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.567325,
+          "right_socket": [
+            -0.638967,
+            -0.143947,
+            0.893754
+          ],
+          "left_socket": [
+            0.638967,
+            -0.143947,
+            0.893753
+          ],
+          "secondary": [
+            -0.915895,
+            -0.063848,
+            0.713488
+          ],
+          "head": [
+            -0.296881,
+            -0.242891,
+            1.116434
+          ],
+          "shaft_bottom_z_m": 0.315844,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.79929,
+              "middle": 0.82306,
+              "ring": 0.818891,
+              "pinky": 0.803379,
+              "thumb": 0.776992
+            }
+          }
+        },
+        {
+          "frame": 36.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.593193,
+          "right_socket": [
+            -0.642573,
+            -0.021099,
+            0.679843
+          ],
+          "left_socket": [
+            0.642573,
+            -0.021099,
+            0.679842
+          ],
+          "secondary": [
+            -0.942564,
+            0.081823,
+            0.557315
+          ],
+          "head": [
+            -0.271997,
+            -0.148237,
+            0.8312
+          ],
+          "shaft_bottom_z_m": 0.287035,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.666958,
+              "middle": 0.678112,
+              "ring": 0.665956,
+              "pinky": 0.648681,
+              "thumb": 0.662537
+            }
+          }
+        },
+        {
+          "frame": 42.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.610713,
+          "right_socket": [
+            -0.646532,
+            0.079372,
+            0.553937
+          ],
+          "left_socket": [
+            0.646532,
+            0.079372,
+            0.553937
+          ],
+          "secondary": [
+            -0.958497,
+            0.184748,
+            0.469235
+          ],
+          "head": [
+            -0.261165,
+            -0.050797,
+            0.658569
+          ],
+          "shaft_bottom_z_m": 0.282393,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040556,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.57576,
+              "middle": 0.578513,
+              "ring": 0.56213,
+              "pinky": 0.54532,
+              "thumb": 0.583719
+            }
+          }
+        },
+        {
+          "frame": 48.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.618187,
+          "right_socket": [
+            -0.648795,
+            0.118508,
+            0.51677
+          ],
+          "left_socket": [
+            0.648795,
+            0.118508,
+            0.51677
+          ],
+          "secondary": [
+            -0.964453,
+            0.222554,
+            0.445115
+          ],
+          "head": [
+            -0.258864,
+            -0.01002,
+            0.605285
+          ],
+          "shaft_bottom_z_m": 0.287054,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.542489,
+              "middle": 0.542296,
+              "ring": 0.524817,
+              "pinky": 0.508819,
+              "thumb": 0.555258
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 1.618187
+    },
+    "jump": {
+      "frame_range": [
+        0.0,
+        32.0
+      ],
+      "samples": [
+        {
+          "frame": 0.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.370756,
+          "right_socket": [
+            -0.631098,
+            -0.312751,
+            1.172454
+          ],
+          "left_socket": [
+            0.631098,
+            -0.312751,
+            1.172454
+          ],
+          "secondary": [
+            -0.698534,
+            -0.309574,
+            0.839224
+          ],
+          "head": [
+            -0.547795,
+            -0.316676,
+            1.584092
+          ],
+          "shaft_bottom_z_m": 0.104157,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.249497,
+              "middle": 1.291187,
+              "ring": 1.307298,
+              "pinky": 1.297639,
+              "thumb": 1.160831
+            }
+          }
+        },
+        {
+          "frame": 4.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.37794,
+          "right_socket": [
+            -0.606036,
+            -0.365267,
+            1.218338
+          ],
+          "left_socket": [
+            0.606036,
+            -0.365267,
+            1.218338
+          ],
+          "secondary": [
+            -0.735565,
+            -0.385485,
+            0.904629
+          ],
+          "head": [
+            -0.44603,
+            -0.340291,
+            1.605862
+          ],
+          "shaft_bottom_z_m": 0.212624,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.135904,
+              "middle": 1.186179,
+              "ring": 1.207422,
+              "pinky": 1.202857,
+              "thumb": 1.056357
+            }
+          }
+        },
+        {
+          "frame": 8.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.268938,
+          "right_socket": [
+            -0.531299,
+            -0.763507,
+            1.572508
+          ],
+          "left_socket": [
+            0.531299,
+            -0.763507,
+            1.572508
+          ],
+          "secondary": [
+            -0.703278,
+            -0.904304,
+            1.315215
+          ],
+          "head": [
+            -0.318855,
+            -0.589582,
+            1.89034
+          ],
+          "shaft_bottom_z_m": 0.747657,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.935147,
+              "middle": 0.985726,
+              "ring": 1.007106,
+              "pinky": 1.005363,
+              "thumb": 0.87184
+            }
+          }
+        },
+        {
+          "frame": 12.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.281879,
+          "right_socket": [
+            -0.540515,
+            -0.75766,
+            1.558141
+          ],
+          "left_socket": [
+            0.540515,
+            -0.75766,
+            1.558141
+          ],
+          "secondary": [
+            -0.706554,
+            -0.893476,
+            1.294351
+          ],
+          "head": [
+            -0.335408,
+            -0.589887,
+            1.883999
+          ],
+          "shaft_bottom_z_m": 0.712462,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061333,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 0.960624,
+              "middle": 1.011567,
+              "ring": 1.033422,
+              "pinky": 1.031772,
+              "thumb": 0.895049
+            }
+          }
+        },
+        {
+          "frame": 16.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.313666,
+          "right_socket": [
+            -0.563629,
+            -0.742775,
+            1.514027
+          ],
+          "left_socket": [
+            0.563629,
+            -0.742775,
+            1.514027
+          ],
+          "secondary": [
+            -0.714175,
+            -0.861369,
+            1.233186
+          ],
+          "head": [
+            -0.377661,
+            -0.596277,
+            1.860948
+          ],
+          "shaft_bottom_z_m": 0.613684,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.025554,
+              "middle": 1.076905,
+              "ring": 1.099421,
+              "pinky": 1.097488,
+              "thumb": 0.954256
+            }
+          }
+        },
+        {
+          "frame": 20.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.349798,
+          "right_socket": [
+            -0.592161,
+            -0.718578,
+            1.440073
+          ],
+          "left_socket": [
+            0.592161,
+            -0.718578,
+            1.440073
+          ],
+          "secondary": [
+            -0.720393,
+            -0.80338,
+            1.136815
+          ],
+          "head": [
+            -0.433756,
+            -0.613821,
+            1.814685
+          ],
+          "shaft_bottom_z_m": 0.467866,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.109795,
+              "middle": 1.160384,
+              "ring": 1.182554,
+              "pinky": 1.179192,
+              "thumb": 1.031255
+            }
+          }
+        },
+        {
+          "frame": 24.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.374225,
+          "right_socket": [
+            -0.616679,
+            -0.527549,
+            1.267435
+          ],
+          "left_socket": [
+            0.616679,
+            -0.527549,
+            1.267435
+          ],
+          "secondary": [
+            -0.718727,
+            -0.544546,
+            0.943557
+          ],
+          "head": [
+            -0.490618,
+            -0.506553,
+            1.66752
+          ],
+          "shaft_bottom_z_m": 0.229119,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.188892,
+              "middle": 1.236708,
+              "ring": 1.256904,
+              "pinky": 1.250909,
+              "thumb": 1.104041
+            }
+          }
+        },
+        {
+          "frame": 28.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.375738,
+          "right_socket": [
+            -0.62863,
+            -0.317351,
+            1.125871
+          ],
+          "left_socket": [
+            0.62863,
+            -0.317351,
+            1.125871
+          ],
+          "secondary": [
+            -0.706717,
+            -0.276637,
+            0.797473
+          ],
+          "head": [
+            -0.532169,
+            -0.367643,
+            1.531538
+          ],
+          "shaft_bottom_z_m": 0.073068,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.236035,
+              "middle": 1.279866,
+              "ring": 1.297359,
+              "pinky": 1.288794,
+              "thumb": 1.147991
+            }
+          }
+        },
+        {
+          "frame": 32.0,
+          "primary_error_m": 0.0,
+          "secondary_error_m": 1.370756,
+          "right_socket": [
+            -0.631098,
+            -0.312751,
+            1.172454
+          ],
+          "left_socket": [
+            0.631098,
+            -0.312751,
+            1.172454
+          ],
+          "secondary": [
+            -0.698534,
+            -0.309574,
+            0.839224
+          ],
+          "head": [
+            -0.547795,
+            -0.316676,
+            1.584092
+          ],
+          "shaft_bottom_z_m": 0.104157,
+          "fingertip_distance_to_shaft_axis_m": {
+            "R": {
+              "index": 0.076878,
+              "middle": 0.061334,
+              "ring": 0.042546,
+              "pinky": 0.040557,
+              "thumb": 0.098412
+            },
+            "L": {
+              "index": 1.249497,
+              "middle": 1.291187,
+              "ring": 1.307298,
+              "pinky": 1.297639,
+              "thumb": 1.160831
+            }
+          }
+        }
+      ],
+      "max_secondary_error_m": 1.37794
+    }
+  }
+}

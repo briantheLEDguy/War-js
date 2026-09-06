@@ -20,26 +20,424 @@
     ]
   },
   "hashes": {
-    "modelSha256": "b91e698843199dcad5b83c0ca6c94655105dc8fece46eb3beba87fb8e64d8335",
-    "qcSha256": "da00b1114b003f02a4f55a31f23fbb124b9e677e8dcdb61f71b05f33252424b6",
+    "modelSha256": "6e62322f2ab159b6e2aa212748e81ecd5d8f1736ccc1b1cab579d3d4888d4894",
+    "qcSha256": "763d03bcc2163dd2451c685c4b1955c2792e178befc7c2a0c3695267d5419bc3",
     "previews": {
-      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+      "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9"
     }
   },
   "previews": {
-    "front": "reviews/roster-direct/battle_prelate/m/shoulders_front.png"
+    "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
   },
   "provenance": {
-    "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "dark-fantasy-character-pass-v3",
-    "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "left_pauldron_main_shell",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_front_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_outer_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_rear_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_raised_inner_guard",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_guard_brass_lip",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_upper_lame",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_upper_lame_brass_hem",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_lower_lame",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_lower_lame_brass_hem",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_sun_cross_emblem",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_authored_rivet",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_leather_suspension",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_padded_shoulder_support",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      },
+      {
+        "part": "left_pauldron_lame_fasteners",
+        "file": "source\\pauldron.json",
+        "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+        "finishing": []
+      }
+    ]
   },
   "review": {
-    "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T10:19:31.445Z",
-    "reviewHash": "ff4dff6397b53de3a2afd4ade1b597d65d7249b5dd2677688c4958b829d613f1"
+    "reviewedBy": "Codex primary agent, with independent source, export, and motion reviews",
+    "reviewedAt": "2026-09-06T01:10:06.609961+00:00",
+    "reviewHash": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42"
   },
   "approvalState": "approved"
 }

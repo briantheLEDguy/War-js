@@ -1,0 +1,40 @@
+{
+  "source_sha256": "bf9474200deff6c8ee91094785f21fd7164418ebbc77d5e5b3fd8c6f06f6c40e",
+  "control_vertices": 48,
+  "control_faces": 48,
+  "explicit_copies": 49,
+  "source_cage_validation": "closed edges checked",
+  "maps": {
+    "basecolor": {
+      "path": "textures\\source\\chainmail_basecolor.png",
+      "bytes": 48056,
+      "sha256": "f1c41a4a9c5f1531b2c65f2f6b6e1506918c5d7e9f941d86c19944de72883385"
+    },
+    "roughness": {
+      "path": "textures\\source\\chainmail_roughness.png",
+      "bytes": 48223,
+      "sha256": "b64d16fb88da500b9abf95e5788e63c77ccdf5e99690bd06d721cb04be2b7258"
+    },
+    "metallic": {
+      "path": "textures\\source\\chainmail_metallic.png",
+      "bytes": 48053,
+      "sha256": "294ff431e65ab08e92d7b00faf1522a5df81978f90e0d4a3c469e8e808b2a47c"
+    },
+    "normal": {
+      "path": "textures\\source\\chainmail_normal.png",
+      "bytes": 604681,
+      "sha256": "161038c1992f9a705aaf42fb891721cf9fa5a6512ef50b0f6d86fb0ba9fddd81"
+    },
+    "occlusion": {
+      "path": "textures\\source\\chainmail_occlusion.png",
+      "bytes": 1158333,
+      "sha256": "ecae6007e8a9ddd2801cdd16238825c73fa50a24d891193cbf97e3dcc6e4d1df"
+    }
+  },
+  "notes": [
+    "The mesh is a bake source only. Flat receiver/backing surfaces are bake infrastructure, not character substitutes.",
+    "Adjacent row orientations alternate +35/-35 degrees and offset one half pitch; the finite table includes neighboring links outside the receiver for edge continuity.",
+    "The tile contains three horizontal link pitches and six row pitches. Final UV density must be calibrated on each joint panel, typically by repeating the tile before the final atlas bake.",
+    "Basecolor/roughness/metallic are material-color emission bakes, not lit photographs. Normal and occlusion come from the actual authored link geometry."
+  ]
+}

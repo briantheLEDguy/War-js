@@ -1,0 +1,304 @@
+{
+  "design": "Novitiate Field Harness",
+  "status": "source_validated",
+  "method": "Accepted explicit cages, literal coordinate replacements, retained face IDs/UV corners and canonical transforms.",
+  "files": [
+    {
+      "file": "source/arms.json",
+      "sha256": "5bd6a96eefbe02114763eba544d242bfe7c7dbb65a564e099b533c87333ff3dd",
+      "removed_parts": [
+        "rerebrace_shaped_shell"
+      ],
+      "construction_detail_parts": [
+        "novitiate_forearm_binding_straps"
+      ],
+      "parts": [
+        {
+          "part": "upper_arm_joint_underlayer",
+          "control_vertices": 24,
+          "control_faces": 18,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "elbow_couter_and_wing",
+          "control_vertices": 18,
+          "control_faces": 14,
+          "control_triangles": 23,
+          "control_boundary_edges": 11
+        },
+        {
+          "part": "forearm_leather_underlayer",
+          "control_vertices": 24,
+          "control_faces": 18,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "vambrace_front_and_cuff",
+          "control_vertices": 25,
+          "control_faces": 16,
+          "control_triangles": 32,
+          "control_boundary_edges": 16
+        },
+        {
+          "part": "vambrace_rear_closure",
+          "control_vertices": 15,
+          "control_faces": 8,
+          "control_triangles": 16,
+          "control_boundary_edges": 12
+        },
+        {
+          "part": "gauntlet_glove_palm_and_web",
+          "control_vertices": 24,
+          "control_faces": 18,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "gauntlet_dorsal_plate",
+          "control_vertices": 15,
+          "control_faces": 8,
+          "control_triangles": 16,
+          "control_boundary_edges": 12
+        },
+        {
+          "part": "finger_proximal_articulations",
+          "control_vertices": 24,
+          "control_faces": 18,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "finger_middle_articulations",
+          "control_vertices": 24,
+          "control_faces": 18,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "finger_distal_capped_articulations",
+          "control_vertices": 24,
+          "control_faces": 18,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "novitiate_forearm_binding_straps",
+          "control_vertices": 24,
+          "control_faces": 10,
+          "control_triangles": 20,
+          "control_boundary_edges": 24
+        }
+      ]
+    },
+    {
+      "file": "source/legs.json",
+      "sha256": "4fb05e366b183e998ee6c57a6465363b24477f1d140960466a0f63714b140e87",
+      "removed_parts": [
+        "greave_brass_ankle_arch",
+        "greave_inner_brass_edge",
+        "greave_outer_brass_edge",
+        "knee_and_greave_fasteners",
+        "knee_cross_flourish",
+        "knee_poleyn_brass_rim",
+        "knee_skull_dark_sockets",
+        "knee_skull_relief",
+        "knee_skull_teeth",
+        "thigh_cuisse_lower_brass_border",
+        "thigh_cuisse_outer_brass_seam"
+      ],
+      "construction_detail_parts": [
+        "novitiate_shin_inner_rolled_edge",
+        "novitiate_shin_outer_rolled_edge",
+        "novitiate_shin_strap_rivets"
+      ],
+      "parts": [
+        {
+          "part": "thigh_steel_cuisse",
+          "control_vertices": 25,
+          "control_faces": 16,
+          "control_triangles": 32,
+          "control_boundary_edges": 16
+        },
+        {
+          "part": "knee_pointed_poleyn",
+          "control_vertices": 21,
+          "control_faces": 20,
+          "control_triangles": 30,
+          "control_boundary_edges": 10
+        },
+        {
+          "part": "greave_shaped_front_shell",
+          "control_vertices": 30,
+          "control_faces": 20,
+          "control_triangles": 40,
+          "control_boundary_edges": 18
+        },
+        {
+          "part": "thigh_padded_underlayer",
+          "control_vertices": 12,
+          "control_faces": 8,
+          "control_triangles": 20,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "knee_and_calf_padded_underlayer",
+          "control_vertices": 24,
+          "control_faces": 20,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "greave_leather_closure_bands",
+          "control_vertices": 24,
+          "control_faces": 10,
+          "control_triangles": 20,
+          "control_boundary_edges": 24
+        },
+        {
+          "part": "greave_outer_closure_buckles",
+          "control_vertices": 16,
+          "control_faces": 8,
+          "control_triangles": 16,
+          "control_boundary_edges": 16
+        },
+        {
+          "part": "novitiate_shin_inner_rolled_edge",
+          "control_vertices": 12,
+          "control_faces": 5,
+          "control_triangles": 10,
+          "control_boundary_edges": 12
+        },
+        {
+          "part": "novitiate_shin_outer_rolled_edge",
+          "control_vertices": 12,
+          "control_faces": 5,
+          "control_triangles": 10,
+          "control_boundary_edges": 12
+        },
+        {
+          "part": "novitiate_shin_strap_rivets",
+          "control_vertices": 17,
+          "control_faces": 17,
+          "control_triangles": 30,
+          "control_boundary_edges": 0
+        }
+      ]
+    },
+    {
+      "file": "source/feet.json",
+      "sha256": "c9e4ddf1f6ede06905caf54c9ab5054c091e72bcbd95f943bbf3a9442c89f711",
+      "removed_parts": [
+        "boot_heel_brass_upper_lip",
+        "boot_heel_steel_counter",
+        "sabaton_brass_instep_border",
+        "sabaton_brass_toe_rim",
+        "sabaton_first_articulated_lame",
+        "sabaton_instep_articulated_lame",
+        "sabaton_second_articulated_lame"
+      ],
+      "construction_detail_parts": [
+        "novitiate_boot_leather_toe_rand",
+        "novitiate_boot_leather_welt",
+        "novitiate_boot_welt_stitches"
+      ],
+      "parts": [
+        {
+          "part": "boot_contoured_welt_and_sole",
+          "control_vertices": 24,
+          "control_faces": 14,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "boot_shaped_leather_upper",
+          "control_vertices": 41,
+          "control_faces": 33,
+          "control_triangles": 78,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "sabaton_shaped_toecap",
+          "control_vertices": 15,
+          "control_faces": 8,
+          "control_triangles": 16,
+          "control_boundary_edges": 12
+        },
+        {
+          "part": "boot_outer_leather_buckle_strap",
+          "control_vertices": 10,
+          "control_faces": 4,
+          "control_triangles": 8,
+          "control_boundary_edges": 10
+        },
+        {
+          "part": "boot_outer_brass_buckle",
+          "control_vertices": 8,
+          "control_faces": 4,
+          "control_triangles": 8,
+          "control_boundary_edges": 8
+        },
+        {
+          "part": "boot_buckle_tongue",
+          "control_vertices": 4,
+          "control_faces": 1,
+          "control_triangles": 2,
+          "control_boundary_edges": 4
+        },
+        {
+          "part": "novitiate_boot_leather_toe_rand",
+          "control_vertices": 10,
+          "control_faces": 4,
+          "control_triangles": 8,
+          "control_boundary_edges": 10
+        },
+        {
+          "part": "novitiate_boot_leather_welt",
+          "control_vertices": 24,
+          "control_faces": 14,
+          "control_triangles": 44,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "novitiate_boot_welt_stitches",
+          "control_vertices": 8,
+          "control_faces": 7,
+          "control_triangles": 12,
+          "control_boundary_edges": 0
+        }
+      ]
+    }
+  ],
+  "protected_parts": [
+    {
+      "part": "upper_arm_joint_underlayer",
+      "sha256": "295ae4dd5513b7ea5e06921a81748fc7b5491579568614a707864bea607c22d8",
+      "unchanged": true
+    },
+    {
+      "part": "forearm_leather_underlayer",
+      "sha256": "b85fb8ef2e1cb0f4c45f5537f9b7c33bc4b7536dee1adc15c42b935cd10c663d",
+      "unchanged": true
+    },
+    {
+      "part": "gauntlet_glove_palm_and_web",
+      "sha256": "3707ff993a37fa84226407d934f531d6340e476ae774de28c623619c912be46c",
+      "unchanged": true
+    },
+    {
+      "part": "thigh_padded_underlayer",
+      "sha256": "444ac1c38b6100b83e79218af8ffd456fa66b6ffa4e7aa078435105bffbcaf02",
+      "unchanged": true
+    },
+    {
+      "part": "knee_and_calf_padded_underlayer",
+      "sha256": "e59cb0179dfa6d76471abc8df1b360efe44783ceed25917944e89396da071b11",
+      "unchanged": true
+    }
+  ],
+  "limitations": [
+    "Source and evaluated topology checks do not establish dynamic collision clearance; root integration must review all nine clips.",
+    "Part IDs retain accepted heritage names for stable provenance, including names with brass/pointed/sabaton; materials and retained geometry are authoritative."
+  ]
+}

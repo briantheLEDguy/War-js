@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-09-06T01:27:38.898090+00:00",
+  "scope": "Bounded review of nine final runtime/config/test changes. Follow-up authorized fix modified only matching MAIN/isolated Vite config files to scope watch exclusions; no assets or documentation changed.",
+  "blockers": [],
+  "files": [
+    {
+      "file": "src/game/PreviewReflections.ts",
+      "main_sha256": "ce226497e27f12871300ae811fffe4f542bdaf7da64d3c36427744fa48d5953c",
+      "isolated_sha256": "b3848bc4797f83170c2601cf3208b0df0d92501bd62283cca585681cb68a18fa",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "src/ui/screens/CharacterPreviewStage.tsx",
+      "main_sha256": "919b43498939f227326eeab7d273ec91991562710de95157bb4bfb42666a49e5",
+      "isolated_sha256": "4000e9e55b5fdb4c589adb3347c78dceb5b960acc7f2372b4357be898c269787",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "src/world/Skybox.ts",
+      "main_sha256": "14025f11af19e9ee8cb835427f742f64fd08dda165426f6a1c084501bb9e3588",
+      "isolated_sha256": "ea7e35966c197c7835d6a7622bc3f276a2703a0c3106ae4cbd7a041312e912bf",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "src/game/Player.ts",
+      "main_sha256": "c6bb2eea6a64d7039867c89a73ec54ced1e6c76ef8fe4c8435bd520dd0bd1213",
+      "isolated_sha256": "cc0e9bc48c758f3a124902538f24f25fbbe8bc5e9eea0af89b6f4b08a51167b8",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "src/game/WeaponAnimation.ts",
+      "main_sha256": "2a249ea7b5df492bb25746493f2830948f7711917f06737907e307b4cb1a0567",
+      "isolated_sha256": "ad2fc0b7b39e6ee88ac11fd066823cc235a4b3c49f3106b8d64d1f53ef6a38a2",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "tests/reflectionEnvironment.test.ts",
+      "main_sha256": "2b7dab3625d620958c133b5883c00bbb870e83597648e2dc4d53696b732cc26c",
+      "isolated_sha256": "9f51242fec12374415c86216f7edbed6b7aadc08922c3c799b1169a5e5c79ef7",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "tests/playerWeaponAnimationAuthority.test.ts",
+      "main_sha256": "7f4cf02cc3fac2fcc859c7c455edba2ea2d6dc34884c6caf87ec857b6f5f6d86",
+      "isolated_sha256": "baffe4f57614782076bc0502b91e16295773d96231dee55b8a9c40e00e084516",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": "vite.config.ts",
+      "main_sha256": "0d7297e96fdeac2ccddbf23cd555f561d78ad47d3db40a00b0226c8acfbc1af4",
+      "isolated_sha256": "0d7297e96fdeac2ccddbf23cd555f561d78ad47d3db40a00b0226c8acfbc1af4",
+      "equal_after_newline_normalization": true
+    },
+    {
+      "file": ".gitattributes",
+      "main_sha256": "2df9cba5702e2d9f5c62c64284ea994ca80f0669d9aa9508fdeb77210a7dee52",
+      "isolated_sha256": "2df9cba5702e2d9f5c62c64284ea994ca80f0669d9aa9508fdeb77210a7dee52",
+      "equal_after_newline_normalization": true
+    }
+  ],
+  "checks": {
+    "final_diff_review": "No regression found in preview capture target ownership, themed background preservation, outdoor capture range, HDRI priority, or authored socket animation handoff. Existing fallback/non-authored motion remains enabled.",
+    "diff_whitespace": "git diff --check passed; only LF-to-CRLF informational notices. Full reviewed files have no trailing whitespace or conflict markers.",
+    "secrets": "No credential-shaped token or private-key marker found in the reviewed files; manual diff contains no credentials.",
+    "attributes": "git check-attr confirms exact source/QC bytes use -text and representative master/archive GLBs use LFS.",
+    "three_dependency": "npm ls three --all reports only three@0.167.1. Vite optimized three.js and RoomEnvironment both import chunk-IS2ZBFBB.js; no persistent duplicate module in current optimized graph.",
+    "tests": "Parent reports 32 focused JS tests and MAIN build passed. This review did not repeat them.",
+    "watch_scope": "Passed 10 path assertions across actual loaded MAIN and isolated Vite configs; see vite_watch_scope_check.json.",
+    "typecheck_after_watch_fix": "MAIN npm run typecheck passed.",
+    "config_check_environment": "Initial config bundler attempt was blocked by sandbox parent-directory resolution; the authorized local config check succeeded after escalation. No network calls or dependency changes."
+  },
+  "nonblocking_notes": [
+    {
+      "file": "vite.config.ts",
+      "line": 12,
+      "detail": "The ignored glob **/authoring/** correctly excludes MAIN authoring artifacts but also matches all source files when the dev server is run from the temporary isolated worktree located under authoring/work/reference-rebuild. MAIN src/public HMR is unaffected. Confirmed with the installed picomatch matcher.",
+      "recommendation": "If this nested worktree will remain a development environment, scope ignored authoring/blends directories relative to the active Vite root.",
+      "status": "resolved",
+      "resolution": "Both Vite configurations anchor authoring/blends globs to fileURLToPath(new URL('.', import.meta.url)), normalized with Vite normalizePath. Actual configs loaded and tested: own authoring/blends ignored; src/public remain watched in both checkouts."
+    }
+  ],
+  "runtime_observation_boundary": "Parent observed a one-time Multiple instances of Three.js warning while RoomEnvironment was newly optimized; later full reload had only expected missing sky.hdr fallback. Current import graph supports a transient HMR/dependency reoptimization explanation, not a persistent second dependency.",
+  "updated_utc": "2026-09-06T01:29:13.510465+00:00"
+}

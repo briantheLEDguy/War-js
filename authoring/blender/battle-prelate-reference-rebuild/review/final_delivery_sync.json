@@ -1,0 +1,84 @@
+{
+  "status": "verified",
+  "recorded_at": "2026-09-06T01:30:38.174086+00:00",
+  "initial_installation_manifest_sha256": "e2f9fbc4d4c4414b7db0d3d9deacb2b4fb537f3597bf94ef5f23a106a4cbb250",
+  "scope": "Supplement to the initial 801-file installation. Final README and DELIVERY.md were independently mirrored; these twelve review artifacts are the remaining additions or refreshed live screenshots. No source meshes, GLBs, textures, or Blender masters changed.",
+  "document_hashes": {
+    "README.md": "95e45ca4bc67e32af73fbb7b584fca2a4a7944ff41399c0350bd91a6d0b3588d",
+    "DELIVERY.md": "e0d48cd09814f1a6b9e2be1cffc1b760d717afa008476004ae35a7dce5ae2869"
+  },
+  "files": [
+    {
+      "path": "review/final_runtime_code_review.json",
+      "previous_sha256": null,
+      "sha256": "f3197cb8e7c48a42f2aef369a0fb069d049e0830cb0a4cfac8a561fd431956ac",
+      "bytes": 5664
+    },
+    {
+      "path": "review/local_game_ability.png",
+      "previous_sha256": null,
+      "sha256": "db28df4ad2bb72691bbe5868dd06275dabf6f67cb203f5b6923439722b81db1f",
+      "bytes": 90408
+    },
+    {
+      "path": "review/local_game_browser_logs.json",
+      "previous_sha256": null,
+      "sha256": "eb7e660ef43cf97e7efd5a3ebc18a9a21ced2dbc72d0cfc66c310b221ca0bd77",
+      "bytes": 1198
+    },
+    {
+      "path": "review/local_game_jump.png",
+      "previous_sha256": null,
+      "sha256": "fec63dd8afb614eb265b42b3579664896e18fa64a4eb4f154bc6f8f887cf01fb",
+      "bytes": 86136
+    },
+    {
+      "path": "review/local_game_world.png",
+      "previous_sha256": null,
+      "sha256": "5cc6a5a00a9e95d8e873268fc8e22d2ce921dc67143f4e8005439eff258cfa54",
+      "bytes": 81285
+    },
+    {
+      "path": "review/runtime_environment_audit.json",
+      "previous_sha256": null,
+      "sha256": "3433bffb7ef778e8096954d8dd6f3c676e025e5d16bb75cb9354cbe870dbe6ec",
+      "bytes": 1553
+    },
+    {
+      "path": "review/runtime_reflection_fix.patch",
+      "previous_sha256": null,
+      "sha256": "a8ac668ddbcb34132ddb56009783c6351f2b51603f0ab4e9ab65d1ffec541d85",
+      "bytes": 9611
+    },
+    {
+      "path": "review/runtime_reflection_fix_report.json",
+      "previous_sha256": null,
+      "sha256": "3712dccd099dd3f873b679859a1e5957757dcdc248ff4f054d654eeaca4e0538",
+      "bytes": 1459
+    },
+    {
+      "path": "review/test_results_final.txt",
+      "previous_sha256": null,
+      "sha256": "18aa91210b27e1917ffa034e63948f4ce3955ba5196358729d34bf56f428998f",
+      "bytes": 16756
+    },
+    {
+      "path": "review/vite_watch_scope_check.json",
+      "previous_sha256": null,
+      "sha256": "f2c707ce12c205bf9ecbc4eea61d6089de258b9c5bda147d1441bd69e21f7102",
+      "bytes": 2692
+    },
+    {
+      "path": "review/local_game_character_selection.png",
+      "previous_sha256": "7dc3aa7509ce260e8041d64dd2a0f0529bc999c7978f4d7b37116b7c847a349f",
+      "sha256": "23953f393bddda279349eff383a5a2138b65bbcc12299e57853be94ee617bb6b",
+      "bytes": 60098
+    },
+    {
+      "path": "review/local_game_review.json",
+      "previous_sha256": null,
+      "sha256": "0ee0d1082ce192c2e8fb5c369660bd582415ca0cbeb9747b999231ae9a85b27d",
+      "bytes": 8395
+    }
+  ]
+}

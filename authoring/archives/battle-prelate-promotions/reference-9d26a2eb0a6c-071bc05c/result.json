@@ -1,0 +1,784 @@
+{
+  "schema_version": 1,
+  "status": "promoted_local",
+  "transaction": "reference-9d26a2eb0a6c-071bc05c",
+  "target_repo": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js",
+  "authoring_root": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild",
+  "runtime": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime",
+  "validation_path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\validation_report.json",
+  "validation_sha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+  "review_path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\runtime_visual_review.json",
+  "review_sha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+  "created_utc": "2026-09-06T01:10:10.595262+00:00",
+  "registry_inputs": {
+    "public/assets/models/asset-index.json": "00d25295184ae250771419da2f1e17da92c1371ffac2c5154c96d403dde315d0",
+    "scripts/blender-character-pipeline/config.json": "800c340ead70d6da870d8e94b11831e89157e90983b582533665bbd171ceb6d3",
+    "scripts/blender-character-pipeline/data/approved-asset.schema.json": "0f7596bcdd83c9ba49e286c2d3ec9e2e19999460fe1efefb113ae989e472259c",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_back_t1_f.approved.json": "1803a0d586558a054dbc66f506c355ea1b7e4c0b90d27ef101108023a920116c",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_back_t1_m.approved.json": "f3fdd0853dd756056551c13cf61f62446899c6ca2747a6db022ca0d43bd9df53",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_chest_t1_f.approved.json": "51f4bde6923ab4e67850cb799b1947bc812e75c3270420f54c5dca4ea855b9f4",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_chest_t1_m.approved.json": "c45ce866cfa1ade5b24beb909d9a70173fc9b15cd2fea0c61198a77a0d6bdd10",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_feet_t1_f.approved.json": "8b497ce8a4de984040a8d98df4e1c6d39d6377d9537ae09ee88cedf5e6adb2e0",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_feet_t1_m.approved.json": "2ad7786761c7127184964535fcca041bc6573a42f7ae92b8a5b7c511c507f9fb",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_hands_t1_f.approved.json": "b7ab7490526fe8aca89a0ab1777b47f90fe086284ea3bab94bc0844edbd83a12",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_hands_t1_m.approved.json": "4ca4b8902407fcbaaa6b8ea1b9f130291fef82f5d2764569277a3adc6b702080",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_head_t1_f.approved.json": "23b7a2bb74c22c4cf2137c04a728b8b52f4680c72b2753f577b0d561427a2301",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_head_t1_m.approved.json": "b591cef32d1bf3c1d2d26f7a0e6faee82c191bdc490bbac98f35e3909de1dcbf",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_legs_t1_f.approved.json": "16ce8ddc622fc406d3bb315cb57237ec4c0c39664b80bce7e6840ad2f4b69d27",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_legs_t1_m.approved.json": "7f80140a9d394416c7eb8ee83c6dbee29796337e596a0b36df0a5b7d6a6e69ad",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_shoulders_t1_f.approved.json": "05f6e96db882c974194e9630cc8832ae0e11aa5c104d0270861eb6d24a953aae",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_shoulders_t1_m.approved.json": "004025cc63db7bf4ef59cc6058241b3aa2b0959ae1130b86c7a2cf6171153de9",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_tabard_t1_f.approved.json": "07cbdf14965865dbae955b76b0e16e30319a8b3235f6d893d515128d3efc1097",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_tabard_t1_m.approved.json": "914a0463004ead2f99bf91fce3cf64933e7ca945d63e3bc4eb5b995d6ad564a4",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_waist_t1_f.approved.json": "b30cd461d557901322ef73ed0a0dd26dd52056b671faaee3e90c7607210c9cce",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_waist_t1_m.approved.json": "eec6beec606315f9335ba233430ef5919e326e90cd6fc228a1adcabb9bd068b4",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_back_t1_f.approved.json": "e789332fd41456034ad06a41b247c45fd73fccfc453ace02e3cc6ae41e483604",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_back_t1_m.approved.json": "26d85a682d784c541a37b2ff18fa8484cfed43259e4da0da901a777b2939a168",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_chest_t1_f.approved.json": "e85bbd56a7cf9a7ac47f16d7a4418835455b5d12a5fa8ff5848d8a8c485c250d",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_chest_t1_m.approved.json": "4e00205b928bcd64b448cbd241824d3c42c24db61790c67d4bf713f79c20a20e",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_feet_t1_f.approved.json": "0249c89de83e22af9b6e9858c3e0295f5400ddfebac32af7ec206b3c3f46ebce",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_feet_t1_m.approved.json": "896736b756e9cd320dfdadd28d2a066050106a698e274f6aa3e67720fd69a36d",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_hands_t1_f.approved.json": "83400257d84dfd67eeb756f730958f2d7c22e198d45808a89bd99600ddda1407",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_hands_t1_m.approved.json": "969d35978e50ec62f48f0c6665c3d2c92b80f447162c3d965da7a21431a51cee",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_head_t1_f.approved.json": "9bdd2434d61af02e90ed51a60caf8a6914d8bd19169cf96b8192852eb28b3ae6",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_head_t1_m.approved.json": "367328db464158f68e5c2568ddd96ccb681610034002360d9ddae4901b74db89",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_legs_t1_f.approved.json": "bc245dd3122a556504c7a0d53cd50ac26f28a1c3a5ebcbecff0e4c38c0fd5dc4",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_legs_t1_m.approved.json": "2aeba58f3e352588b5bb49e76dbc3ff9a3f90213a367451343e5b9c70cefcb7c",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_shoulders_t1_f.approved.json": "36817201b408893b029eed37e728375632443b23adb5ca34a7282474c76d4f78",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_shoulders_t1_m.approved.json": "4494029661329233821a410f9a63d29a9a84727681fb5ac1a8f309a1940ae30e",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_tabard_t1_f.approved.json": "2658a74d5da32d74f3ca709da6bf711447df9a4edeb613e87a8f8a7aca3a782d",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_tabard_t1_m.approved.json": "1b631c507f13608a1277344a052aea3341b181cf1074527dd45c1f3c95bb7d4a",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_waist_t1_f.approved.json": "43d83b7306a57695f4484125bc05178523686ebc00dfdfd23acfe5b5fa153803",
+    "scripts/blender-character-pipeline/data/approved-assets/arm_mire_warbrute_waist_t1_m.approved.json": "dccc786f73d1f29d937e756b7bfbeb4de6051d583c253cce820535ca2ff21a17",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_civic_battle_prelate_t1_f.approved.json": "78f21b8d5ee985a99bb5b6edf6a92ff105871463465d0f0f98e8b1291c2c7aa4",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_civic_battle_prelate_t1_m.approved.json": "8bfe611bbeaf555183358ea52873c992043ea0a1fb60af0911c35407a7534d21",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_mire_warbrute_t1_f.approved.json": "a7e0f2cf1ef2478d4935efbe50b3075ce7cbdfa283426d0350e92d6a22e1ec3b",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_mire_warbrute_t1_m.approved.json": "f0d7a275ad8050f8db4c566c32620be9c9b796eb412c3137beb624a36081c1b9",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_aegis_keep_guard_guard.approved.json": "e2412dfc729a0f15c6a12d2da7e4c59a975343192a39b12f7288a171929f80d1",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_briarwatch_den_overlord_captain.approved.json": "11c925b34378e14e6f8c1e281d422173a9c02ba6a73e9d5b26ba2c254ef612a0",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_campaign_raider_raider.approved.json": "97f25650802db1cd41d60388fd41faecb577af42f1bbd68fd8a3f3c43bb4ddb1",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_glassriver_depths_overlord_captain.approved.json": "e9718b43570e4b6daa724bc814aa8c6dde6447e2d6f2fb0e8d6d2a0e8168008a",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_mireglass_den_overlord_captain.approved.json": "093c8e524ed9216c20d2a69ae5171515bcad1263020a3f2a82ba678f10161de1",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_stormbarrow_lair_overlord_captain.approved.json": "f6c3096e96d17e024b4bd7a80f7b271200d7310c9bd17d86072cd2e6da35df1d",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_aegis_warden_s_hollow_overlord_captain.approved.json": "2a5dca28fd73dff68e9c046ba796ec88eed37bb6cd6a9f567c82a64412ad1eb5",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_cindermaw_pit_overlord_captain.approved.json": "424fb42f1d49f833c5c11cd3dc660fea530179006f3054da61c02c196a0f1f5a",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_gorepine_warrens_overlord_captain.approved.json": "d3c87162436a787e144d5fe4c9387e0af59376bd76edec6f31c47d0e67cca280",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_greenskin_brute_raider.approved.json": "5c7c84d82743d65fd756b6ad6c45288738e42a1237b105ea395fc3ebe8b4a477",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_greenskin_ruffian_raider.approved.json": "01e25fcb3ea6fd215e97936de179b597dee37e80866f517791ce8fabd493b262",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_keep_captain_captain.approved.json": "02adb64d64e718ee2265770aba6f07a599d5aa4f4586edfd2f1264180694a12c",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_lair_sentinel_guard.approved.json": "85a24c111b4349d89b02601ced2423b642e26911cf5f442bdb62bb3cdb2974e1",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_enemy_riftbound_rotwreath_nest_overlord_captain.approved.json": "a09bc79533dba7bbf7c0f7f81911c89d82ad7bc27ea64b4f8c18cb95e0a86efe",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_brann_hartwell_main_gate_guard.approved.json": "b3cf929732bdfa8609227c0b997f717b6b7f92efddc2f5cc90f90500ce0ff946",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_brigitte_holtz_merchant.approved.json": "f2f44d00462aa9faaebc89d4a4b1cb314b4538722e5a6cab5a678a806ee76a64",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_brother_steffan_battle_prelate_trainer.approved.json": "c691c75a7870d6abcdefba6f1261e711a28d7204b24efb6f753235e4b0910209",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_corren_vale_capital_campaign_marshal.approved.json": "d60607a33bdf93f136df946c352bbe0d10e90725cdb37377a6a6fefc22804f16",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_corren_vale_endgame_campaign_marshal.approved.json": "3ce28a9bb18c2c2bd96b01e865ffd2a938c3327423bf0b0173687dad2ebcd7fa",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_corren_vale_tier_2_boss_campaign_marshal.approved.json": "fb0d7a507bed2991d57303566bd6b8632721f2ca7a1c568cd93986c442b738c6",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_corren_vale_tier_3_campaign_marshal.approved.json": "672a505447e77084bfb7f7569acd4b3d28d61990c4d6814e5e47b06962c0b638",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_diedrick_stein_general_goods.approved.json": "fd58a78365219c33e315d35e9c9ee8f8d52931a639a4d7dad57686297d18dfef",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_elira_dawnmarch_aegis_quartermaster.approved.json": "d9f3caf74b1dc136089cb4f23d3575d5c82419840b78ca2684a6aafdf38fa68d",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_freia_voss_banker.approved.json": "0417ceed680fc0546783ee2e5174d5a025a0ba2bac6b6444fd0321f83b47ecdf",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_gate_sergeant_city_guard.approved.json": "0d403ff1a537dd6fedaac82ff772b6ff1fa35543fc5b1bf68fb8299b4027e8d9",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_gate_warden_city_guard.approved.json": "ff6fe3b2caf42bbd42c8b7587364c99fe4e4fa3e7fe44f8d8016adc13121f1f5",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_inquisitor_hess_hex_inquisitor_trainer.approved.json": "f7011d4194996669a44da5371c15dbd5089d35f78181146292c492e6b8d2329e",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_iven_stonebrook_street_patrol.approved.json": "1fb33e0ac6d7b5185690a71740980a6057945a34d60abb5e0e1cd33ea47d084a",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_konrad_hausman_banker.approved.json": "283c977ed4aa82736df8c4abe1f9ac08676d440c3574324b10c225c34052384b",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_lysa_bright_market_watch.approved.json": "01b85d065abe3adde7745d52f46e13225d2cc7b230b9cd23d01f336939d0dac6",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_magister_roth_ember_arcanist_trainer.approved.json": "5d5ac779c66c909b7c549c22f92d66f2e66044033851e34711bb174feb972123",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_mira_stonewake_forward_scout.approved.json": "ec28b72e82a4dac90d0561e9626ac503cf4417da5d222b681a1479772237b382",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_mira_stonewake_siege_engineer.approved.json": "7b8da0471f23d8f03f1400cc0c2a0ad2368ca6e0025f590200648fa160534710",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_mira_stonewake_vault_keeper.approved.json": "59711ed999a46de7a25720aa45ade91ab2e3499fc24bf6664a2869737afd8441",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_rowan_hale_plaza_watch.approved.json": "d25d65845e1f3f7289312f849240cd4fd2599ea479a36b8d328946bbfaf688d3",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_serra_brightfield_gate_captain.approved.json": "2f9c131ae37cdf02041bfd933d030504b92dbefd6ca87c8f789b65848c610b16",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_sir_emmerich_sunfire_templar_trainer.approved.json": "c3723bcb52ba765afa36286e273d9951a37688515e3332232a6fd4be0e0ab2ab",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_aegis_veyra_sunholt_east_gate_guard.approved.json": "5498d17167f2dbc1af2dd6542693e02407677ed9cc8006a041ecbc0dc0960e80",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_gorvak_mirehand_forward_scout.approved.json": "e35fbcc993926a16d03e89a5c8c542ca703c68d9a348a1dbe61bd3b8d87cf012",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_gorvak_mirehand_siege_engineer.approved.json": "a372b6638e7f0e869f955b9ed3b7b8619e5a348d651043dbc768da67ff32402b",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_kara_ashvein_crafting_mentor.approved.json": "4e681acfb4bb13252ad2d08c624791b0aa730af228e5e3f7bc8238de0d5cdabc",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_kara_ashvein_gate_captain.approved.json": "1a233db2251318a673fe3e9935cf5fc3b793ff137ef5828d7b69f4f117bd7105",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_kara_ashvein_resource_warden.approved.json": "94f4eb37de88cf70dd1a01c262e85c0d8a0062405a172a8ae06037b2ae4a6bd3",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_nyra_vex_endgame_campaign_marshal.approved.json": "5b3d609157c18a023c68bcc60f1e6efc7205f2b1fdf3c956f51f1d60dd7b305f",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal.approved.json": "9150bd20b0fee08ebd584290a2699989cd97baba92efcf58375633607195df63",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_nyra_vex_tier_3_campaign_marshal.approved.json": "2b83289276939cf70b75ecb5d56a443824e6d102d94202c1a6b8beb1e94d5940",
+    "scripts/blender-character-pipeline/data/approved-assets/chr_npc_npc_riftbound_selk_dreadspire_field_medic.approved.json": "1db4eba7952a57dcd17061170c557bf09c4ce8e6842ea54e30586b2f176a626e",
+    "scripts/blender-character-pipeline/data/approved-assets/creature_barrow_wolf_t1.approved.json": "bfd4351e43a6fb6e0e3b122d08270351124a7ccf56555f5d836142991481ad66",
+    "scripts/blender-character-pipeline/data/approved-assets/creature_lair_spider_t1.approved.json": "85e7f9e88043c2c2c0fc9720f4b3af2e5d465c826ce6d59fe3abae530b36bbca",
+    "scripts/blender-character-pipeline/data/approved-assets/wep_civic_battle_prelate_dawn_maul.approved.json": "51c7f0685d61fd7c52cda820a20da544ba56ecb13062457031d42345fd8942a7",
+    "scripts/blender-character-pipeline/data/runtime-compatibility-allowlist.json": "3342c6193a79657e56aea61dbe6d6496ee699cca299fb5296f54c02de36611ba",
+    "scripts/blender-character-pipeline/tools/assemble-runtime-equipped-review.mjs": "52b5f632fee589894a2c2b93d32f8b613f6b63a0eecb8f68526fef965a832937",
+    "scripts/blender-character-pipeline/tools/audit-equipped-clearance.mjs": "77f5f7a3899b82e45c01993b2db61a4fb82fe4c1754062cde1d0ae507d87653c",
+    "scripts/blender-character-pipeline/tools/cleanup-full-roster-history.mjs": "daba3ab0e638a2ba4fedc769a95dda2ce55f4e74544c430fbe6588ace8cb95f2",
+    "scripts/blender-character-pipeline/tools/cleanup-proxy-assets.mjs": "4186866c7b4a53f8911515beb66754d7c510d9bf79c2ca81e2f6199fe1bbbb62",
+    "scripts/blender-character-pipeline/tools/compare-glb-geometry.mjs": "989df105a5a83cb4278d81b8f0c8f2447d9cdeaa567a8096ca61d417c886ca5b",
+    "scripts/blender-character-pipeline/tools/compile-runtime-registry.mjs": "cbdfc63dfbda44601697e223c396b414a78d2f31d39bb0783c9e664d36f5040f",
+    "scripts/blender-character-pipeline/tools/generate-all.mjs": "0c022a0b1685f51f5819a41d028873966120ba08c6137667218a7d35fa96a79a",
+    "scripts/blender-character-pipeline/tools/generate-asset.mjs": "9eb8c92de8213c99e9e586f6417ebef91a910b926eb6a481ba2e4b9bc2ca4e30",
+    "scripts/blender-character-pipeline/tools/generate-roster.mjs": "5fa9c865cc398c9ff40a6c51db2ee51c654a6c29f5c2268a73ddf5378596a942",
+    "scripts/blender-character-pipeline/tools/generate-weapon-attachment-pilot.mjs": "ce02c6b35608fede4850990d8c56fd3e41ab2234b77b8ffcdde5595ea0bc8984",
+    "scripts/blender-character-pipeline/tools/import-external-assets.mjs": "ca086c3da005e49f7699d9c3933bcb5b19da3a83bb6202c15f76c9c2bf832d16",
+    "scripts/blender-character-pipeline/tools/json-schema-validator.mjs": "aba84abe1ceba56d13ad0eec0750a0b6c73a9b358441d6cd030b67d5bf9d82fa",
+    "scripts/blender-character-pipeline/tools/list-blueprints.mjs": "13882da71fca5f6dfcef6f53392255e7a693581e1aca0325462a6e93ab6c3bbf",
+    "scripts/blender-character-pipeline/tools/local-roster-review-plugin.mjs": "74c617b085885714cf5d38100e32b6054117f1a05e7c0a9333b9325fffeeefb4",
+    "scripts/blender-character-pipeline/tools/model-doctor-lib.mjs": "5fc0acca0d53d5ac27205c4e37116c1240264715fe17ceaf7ba8a6e45b7397dc",
+    "scripts/blender-character-pipeline/tools/model-doctor.mjs": "86d1cfb81cfd3b5bad901bc73fb58eebc0659c53ec8576668781222e544bcd6b",
+    "scripts/blender-character-pipeline/tools/model-jobs.mjs": "31f6774ddc568f14ca0fde03158af66c91d790dcfbee737c24231d52c01abc88",
+    "scripts/blender-character-pipeline/tools/model-workflow.mjs": "dff0e80d188aa3d9e2c5e914dcec2b6366965c886f511c1ea2d7d7ad419c6bc0",
+    "scripts/blender-character-pipeline/tools/pipeline-lib.mjs": "bb76bfcac04107d9e584b14da8988e45615cf8cabf41d0196486dac96690cd46",
+    "scripts/blender-character-pipeline/tools/promote-roster-revision.mjs": "1d72c34d86a511db8fd508a482043d5ee9bd8ec9c583954ed67e78911e577dbc",
+    "scripts/blender-character-pipeline/tools/retired-proxy-sync.mjs": "607f003300db5380e211b17ab653502066466d61142e3ddb5f3f411f123424cf",
+    "scripts/blender-character-pipeline/tools/roster-generation.mjs": "b80b5b35f62cdc43ada3a80f10fcfcb08c8d3adc182df7ea85900877a1a7b48d",
+    "scripts/blender-character-pipeline/tools/roster-recipes.mjs": "99f82d7c953f002dfaf5355f487a53874bc8c3ba6c64cfd13f52e633d717763a",
+    "scripts/blender-character-pipeline/tools/roster-runs.mjs": "d5aff710548c55742a74f995d609e42d0616415c2466d4fa458a0d02356ca618",
+    "scripts/blender-character-pipeline/tools/roster-spec.mjs": "1e701798869400b9ded74a3e765870d07f3815a5fe496f28dbadd1ff2be7db5f",
+    "scripts/blender-character-pipeline/tools/runtime-registry.mjs": "c326b563794f3a16dc686b884e2f214f77a9da3d6d8e6e45663ab6e556d1179b",
+    "scripts/blender-character-pipeline/tools/sync-npc-assets.mjs": "93eff5c2067b7f16002df30f13eeb3adcf6bde362f922ecec6b716bc17b119c9",
+    "scripts/blender-character-pipeline/tools/sync-playable-assets.mjs": "3bbea9f10ccc178113ff34bc69c5cc93fc57bdd6a57845eff4c2e06419ed4aa4",
+    "scripts/blender-character-pipeline/tools/validate-blueprints.mjs": "b288b411339f92d322a02048886ecc5a1c3b8e673c916e0e5189ffeb832637bf",
+    "scripts/blender-character-pipeline/tools/workspace-paths.mjs": "a325ace25de4933fda0be3dcbf2c2657fa4141edeb8bafc9e395e1049975061c",
+    "compatibility_exists:public/assets/models/banner_post.glb": true,
+    "compatibility_exists:public/assets/models/castle_door.glb": true,
+    "compatibility_exists:public/assets/models/castle_gate.glb": true,
+    "compatibility_exists:public/assets/models/castle_stairs.glb": true,
+    "compatibility_exists:public/assets/models/gate.glb": true,
+    "compatibility_exists:public/assets/models/vendor_stall.glb": true,
+    "compatibility_exists:public/assets/models/prop_training_dummy_t1.glb": true,
+    "compatibility_exists:public/assets/models/prop_preview_twisted_tree_t1.glb": true,
+    "compatibility_exists:public/assets/models/prop_preview_blight_shrub_t1.glb": true,
+    "compatibility_exists:public/assets/models/prop_preview_jagged_stone_t1.glb": true,
+    "compatibility_exists:public/assets/models/prop_preview_dreary_reeds_t1.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_castle.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_banner.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_barricade.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_brazier.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_corner_tower.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_gatehouse.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_wall.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_fortress_wall_stairs.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_chimney.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_diamond_window.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_door.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_door_2.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_horizontal_beam.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_house_1.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_house_2.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_plank_arc.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_rock_wall_large.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_rock_wall_small.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_roof.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_roof_plank_large.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_roof_plank_medium.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_roof_plank_small.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_spire.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_vertical_beam.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_window.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_wooden_wall_dark.glb": true,
+    "compatibility_exists:public/assets/models/prop_town_wooden_wall_light.glb": true,
+    "compatibility_exists:public/assets/models/wep_hammer_2h_reliquary_steel_t1.glb": true,
+    "compatibility_exists:public/assets/models/jwl_amulet_bloodglass_t1.glb": true
+  },
+  "publication": {
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png": {
+      "sha256": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "previous_sha256": null,
+      "bytes": 2771664
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png": {
+      "sha256": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "previous_sha256": null,
+      "bytes": 2786266
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png": {
+      "sha256": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "previous_sha256": null,
+      "bytes": 2646626
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png": {
+      "sha256": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9",
+      "previous_sha256": null,
+      "bytes": 2668757
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_front_neutral.png": {
+      "sha256": "c5adbd7c3f623d79595d93bfb1df78d399563a609f907e4cc4085b2ad7e479f8",
+      "previous_sha256": null,
+      "bytes": 2623949
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod1_full_front.png": {
+      "sha256": "756b9ac9e25685bce5edbcc4815cd747dcb0a69899186cf103220c4f2786aa59",
+      "previous_sha256": null,
+      "bytes": 2781777
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod2_full_front.png": {
+      "sha256": "d2ca2e5690481469774d886cbf8ce679bcc305371449bca071d2812b3711af98",
+      "previous_sha256": null,
+      "bytes": 2777111
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/animation_stress_contact.png": {
+      "sha256": "757faeed2d8520cdfe26119a3d60104acb930561470aaa817c31febf53cbfa0f",
+      "previous_sha256": null,
+      "bytes": 2103178
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/final_run.png": {
+      "sha256": "d60429e931a000f1dd9681d07809c2daa447f7fd1bd7949155063f56d9a8bca6",
+      "previous_sha256": null,
+      "bytes": 498428
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/final_jump.png": {
+      "sha256": "1682ea46e90d740b81e8a3f2215b9ddc75a16bdd1f8688207170312cef0d93ae",
+      "previous_sha256": null,
+      "bytes": 497383
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/late_death_wide.png": {
+      "sha256": "6df8b1e8a8c7b20f8918134fa1ccc843b873e694de5e3dc1de342e4deb6698bb",
+      "previous_sha256": null,
+      "bytes": 854802
+    },
+    "public/assets/models/reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/melee_fit.png": {
+      "sha256": "6d684f73d9201e615ccdc95b977eeba236cb0ebfeb4dfff8c9961fe93ae00bf6",
+      "previous_sha256": null,
+      "bytes": 844632
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/validation_report.json": {
+      "sha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+      "previous_sha256": null,
+      "bytes": 1714543
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/visual_review.json": {
+      "sha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+      "previous_sha256": null,
+      "bytes": 13752
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/runtime_report.json": {
+      "sha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+      "previous_sha256": null,
+      "bytes": 1056696
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/CONTRACT.md": {
+      "sha256": "81e8a6204ce59552450ff221b8aa023b653d8ec8eb514ad0410ecb9eab5c6981",
+      "previous_sha256": null,
+      "bytes": 2279
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/FULL_CHARACTER_CONTRACT.md": {
+      "sha256": "0855598b2edac6090bdf440fd12feeb54562300b9135650bae72dd5c59143b2a",
+      "previous_sha256": null,
+      "bytes": 3585
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/scene.json": {
+      "sha256": "a2415a1f24e2e0797ca7cff8aa8fd54cfc25710812ed92f35cbf7d4a55c60a52",
+      "previous_sha256": null,
+      "bytes": 4257
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/arms.json": {
+      "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+      "previous_sha256": null,
+      "bytes": 170221
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/backplate.json": {
+      "sha256": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+      "previous_sha256": null,
+      "bytes": 14565
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/body_underlayers.json": {
+      "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+      "previous_sha256": null,
+      "bytes": 73910
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/breastplate.json": {
+      "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+      "previous_sha256": null,
+      "bytes": 35942
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/feet.json": {
+      "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+      "previous_sha256": null,
+      "bytes": 103504
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/garments.json": {
+      "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+      "previous_sha256": null,
+      "bytes": 64890
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/gorget.json": {
+      "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+      "previous_sha256": null,
+      "bytes": 72562
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/head.json": {
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "previous_sha256": null,
+      "bytes": 166389
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/legs.json": {
+      "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+      "previous_sha256": null,
+      "bytes": 167490
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/medallion.json": {
+      "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+      "previous_sha256": null,
+      "bytes": 121763
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/pauldron.json": {
+      "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+      "previous_sha256": null,
+      "bytes": 172522
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/relics.json": {
+      "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+      "previous_sha256": null,
+      "bytes": 170086
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/repeated_reliquaries.json": {
+      "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+      "previous_sha256": null,
+      "bytes": 188568
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/tome.json": {
+      "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+      "previous_sha256": null,
+      "bytes": 132251
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/waist.json": {
+      "sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+      "previous_sha256": null,
+      "bytes": 21707
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/source/warhammer.json": {
+      "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+      "previous_sha256": null,
+      "bytes": 158716
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/bake_atlas.py": {
+      "sha256": "9ee1b6dc0de053c56b702d92b50c00506db9bb518d45713df41d47ec94192fec",
+      "previous_sha256": null,
+      "bytes": 23964
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/build_proof.py": {
+      "sha256": "f81e5af193ea0c5406749bb47ecc6a9aa282c3e445e45aaa4817eb0726e3354c",
+      "previous_sha256": null,
+      "bytes": 22857
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/correct_animation.py": {
+      "sha256": "f56139347d2362e1e71828afb64c372647edc57153bf5ffad9d8cfeec9f76857",
+      "previous_sha256": null,
+      "bytes": 35093
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/promote_runtime.py": {
+      "sha256": "7161d30ef0ad059393f83e9b58e73a682d0862d904c13770cf662530ed5cab1f",
+      "previous_sha256": null,
+      "bytes": 26328
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/rig_character.py": {
+      "sha256": "f7e6604620b1b8783b420d33dc6b80179774b7c2160126ae27fb2eea82534404",
+      "previous_sha256": null,
+      "bytes": 26809
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/tessellate_runtime.py": {
+      "sha256": "5f591d8c9a0ce919826fa08b0f92a35d51d0daaaf045b8e58201cd13a4852654",
+      "previous_sha256": null,
+      "bytes": 1527
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/tools/validate_runtime.py": {
+      "sha256": "0c3f08d609f8a1d262496bf5febad8481989493fb03cf6c3ab381adc09886b78",
+      "previous_sha256": null,
+      "bytes": 30831
+    },
+    "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c/runtime/evaluated_lods.json.gz": {
+      "sha256": "f34435fa5de6dd3c9a85eb61d0ad47f39fad41080123022763b4b78424b828fd",
+      "previous_sha256": null,
+      "bytes": 7537845
+    },
+    "public/assets/models/chr_civic_battle_prelate_t1_m.glb": {
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "previous_sha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+      "bytes": 11661536
+    },
+    "public/assets/models/chr_civic_battle_prelate_t1_m.qc.json": {
+      "sha256": "3710258bd8deefa38c1e21bdb67e68c11d26a0dbe7626e687796d4e83a774f96",
+      "previous_sha256": "222394d1b8526b4cd1f5a80f06b91faf76d0580cbdd4853ef9d1df1adf50c9a9",
+      "bytes": 9485
+    },
+    "public/assets/models/chr_civic_battle_prelate_t1_m_lod1.glb": {
+      "sha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "previous_sha256": null,
+      "bytes": 3919252
+    },
+    "public/assets/models/chr_civic_battle_prelate_t1_m_lod1.qc.json": {
+      "sha256": "e3d438ba56418ddf272ec33323cf2fff61042652d46f2693755d3a1652a5b5cf",
+      "previous_sha256": null,
+      "bytes": 9489
+    },
+    "public/assets/models/chr_civic_battle_prelate_t1_m_lod2.glb": {
+      "sha256": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "previous_sha256": null,
+      "bytes": 1625832
+    },
+    "public/assets/models/chr_civic_battle_prelate_t1_m_lod2.qc.json": {
+      "sha256": "d9caf5b9b6d958f8c569e0ceb6a8ae16b59bd910b1a01518295205f0d9e6c1c9",
+      "previous_sha256": null,
+      "bytes": 9485
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/chr_civic_battle_prelate_t1_m.approved.json": {
+      "sha256": "7df0512948c0e827758b9294e28b4a41dd92d446db45fceffb20848083505439",
+      "previous_sha256": "8bfe611bbeaf555183358ea52873c992043ea0a1fb60af0911c35407a7534d21",
+      "bytes": 8252
+    },
+    "public/assets/models/arm_civic_battle_prelate_head_t1_m.glb": {
+      "sha256": "ab827024798b86622b437af5505b2df50935ed9abea0ee83569ba664ff331786",
+      "previous_sha256": "1ad98c450297fd6d624260a1decd66c97ab268fc79f204d61ea0fa7441a59a9e",
+      "bytes": 1446200
+    },
+    "public/assets/models/arm_civic_battle_prelate_head_t1_m.qc.json": {
+      "sha256": "360a684a12a978e89054da5b153625056e1a73727ddfad7c92f080cb5dfef189",
+      "previous_sha256": "82aacfee0f23dd3727989e626ac95a7d8270ef298e04bcdb2327a60ae5cad470",
+      "bytes": 7119
+    },
+    "public/assets/models/arm_civic_battle_prelate_head_t1_m_lod1.glb": {
+      "sha256": "7a05dd2f506d98525ed5036729c34c4d5423e15fd7b61b04cca33d4948642bc3",
+      "previous_sha256": null,
+      "bytes": 1574116
+    },
+    "public/assets/models/arm_civic_battle_prelate_head_t1_m_lod1.qc.json": {
+      "sha256": "eeca3bea1fed6f25ad74512b0fdfed650fe5d1e275024dbabc9398d18e47ebc4",
+      "previous_sha256": null,
+      "bytes": 7124
+    },
+    "public/assets/models/arm_civic_battle_prelate_head_t1_m_lod2.glb": {
+      "sha256": "9f01f90baac61e7c660906e7b64002ed712b548bee20d848ddcc42ef724f3e42",
+      "previous_sha256": null,
+      "bytes": 538748
+    },
+    "public/assets/models/arm_civic_battle_prelate_head_t1_m_lod2.qc.json": {
+      "sha256": "79b10a746192c9b491e796e67c1d83cab06ba7c0ece7e0a0fb4e93b69ad4cdac",
+      "previous_sha256": null,
+      "bytes": 4954
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_head_t1_m.approved.json": {
+      "sha256": "c9a1133625d48377b46d5993f05f0f658049ac9593c1666a2c3e706dc332872d",
+      "previous_sha256": "b591cef32d1bf3c1d2d26f7a0e6faee82c191bdc490bbac98f35e3909de1dcbf",
+      "bytes": 6092
+    },
+    "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m.glb": {
+      "sha256": "6e62322f2ab159b6e2aa212748e81ecd5d8f1736ccc1b1cab579d3d4888d4894",
+      "previous_sha256": "b91e698843199dcad5b83c0ca6c94655105dc8fece46eb3beba87fb8e64d8335",
+      "bytes": 2404156
+    },
+    "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m.qc.json": {
+      "sha256": "763d03bcc2163dd2451c685c4b1955c2792e178befc7c2a0c3695267d5419bc3",
+      "previous_sha256": "e2d15126fc5a3ca75b4dbfe2e0eeb28e5c4a5b98dda5503b12a65b9b319a7469",
+      "bytes": 14905
+    },
+    "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m_lod1.glb": {
+      "sha256": "85f35ce63f50bc25317c7a0ced5667eb8de2ab35493dbd43f1a116c95b0c431f",
+      "previous_sha256": null,
+      "bytes": 2451308
+    },
+    "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m_lod1.qc.json": {
+      "sha256": "e2a3e598c67c696cd661e34145f90751efa6e965f73b08549cebe03b4d07dd3a",
+      "previous_sha256": null,
+      "bytes": 14908
+    },
+    "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m_lod2.glb": {
+      "sha256": "a0f06ee2013a8f2594ab28e07a73de0dcf31c4ad6854ae48d0c5619abce5bf7d",
+      "previous_sha256": null,
+      "bytes": 933964
+    },
+    "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m_lod2.qc.json": {
+      "sha256": "fd8f8e217a3eac68bf3631a6fe7ab8b1667bb560e6dc056b4f4eb309b9e0e53b",
+      "previous_sha256": null,
+      "bytes": 9289
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_shoulders_t1_m.approved.json": {
+      "sha256": "a8dd74d6f1e9bec54e0b5e03686e4c8dd51f089d0083afa25cacec82dc7de385",
+      "previous_sha256": "004025cc63db7bf4ef59cc6058241b3aa2b0959ae1130b86c7a2cf6171153de9",
+      "bytes": 13867
+    },
+    "public/assets/models/arm_civic_battle_prelate_chest_t1_m.glb": {
+      "sha256": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1",
+      "previous_sha256": "44b87d7824fc282f8f958caab201d4078d57bc7ff1b0d40ea57190eb686f4fb1",
+      "bytes": 2342988
+    },
+    "public/assets/models/arm_civic_battle_prelate_chest_t1_m.qc.json": {
+      "sha256": "c1418a99bd03525617debfa9aff81e2bdd886a3568e9c04494ae1866e1dc57b6",
+      "previous_sha256": "6d70077db0d8b3fcda0f7a3c016795285f32ea0b3ef5e470ce8beb1f9dc10bc9",
+      "bytes": 16569
+    },
+    "public/assets/models/arm_civic_battle_prelate_chest_t1_m_lod1.glb": {
+      "sha256": "1d731a85b7dd1e54604023b874a364cad14ae7d8172c6eac070f1c900f9c73f0",
+      "previous_sha256": null,
+      "bytes": 2395368
+    },
+    "public/assets/models/arm_civic_battle_prelate_chest_t1_m_lod1.qc.json": {
+      "sha256": "18d5394bd72e585f64f3260d66fd1108531d8b24b05069842d3e78aec4284651",
+      "previous_sha256": null,
+      "bytes": 16574
+    },
+    "public/assets/models/arm_civic_battle_prelate_chest_t1_m_lod2.glb": {
+      "sha256": "daf23cc9cbda9436491f49edb8f54a1c09984add3687de38febea9f79aae3124",
+      "previous_sha256": null,
+      "bytes": 898028
+    },
+    "public/assets/models/arm_civic_battle_prelate_chest_t1_m_lod2.qc.json": {
+      "sha256": "3afcffaf1c7f101ce8a084829ddff7c1f13ab1c92701399e377083b4433710d1",
+      "previous_sha256": null,
+      "bytes": 10757
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_chest_t1_m.approved.json": {
+      "sha256": "17ea4a66ed431d2add14e5847f6b47d115cdbcb9879a938d8184ac8eff116de5",
+      "previous_sha256": "c45ce866cfa1ade5b24beb909d9a70173fc9b15cd2fea0c61198a77a0d6bdd10",
+      "bytes": 15542
+    },
+    "public/assets/models/arm_civic_battle_prelate_hands_t1_m.glb": {
+      "sha256": "a63f9ff8b7713b9bbed96f3a2ae4ebcf736a3f51313feb619979062601706354",
+      "previous_sha256": "afdf273d352dcde7197b5505e3bf7c38ee49b4cd1189a5d3c614477873cb40e1",
+      "bytes": 2021488
+    },
+    "public/assets/models/arm_civic_battle_prelate_hands_t1_m.qc.json": {
+      "sha256": "de64f1b610e083afbb871f738c8b5f5934510db465bc1fb97e42c353e8159985",
+      "previous_sha256": "b2b42da26cd34a08b283e7ee44030a497883614c5021726a3e55212f7f5f1340",
+      "bytes": 16197
+    },
+    "public/assets/models/arm_civic_battle_prelate_hands_t1_m_lod1.glb": {
+      "sha256": "224a06d466f002fc4f0f192cf9707375af07d4d936a563a58367483ba6d03874",
+      "previous_sha256": null,
+      "bytes": 2405232
+    },
+    "public/assets/models/arm_civic_battle_prelate_hands_t1_m_lod1.qc.json": {
+      "sha256": "89bef309cf9d486b6766ad3dbe2096fcd4b7263a6f37268b22e26bf3e38d8898",
+      "previous_sha256": null,
+      "bytes": 16202
+    },
+    "public/assets/models/arm_civic_battle_prelate_hands_t1_m_lod2.glb": {
+      "sha256": "e9387336adbf38a1985de5c71f416765a388e430228b7896eba64fab3898cbc9",
+      "previous_sha256": null,
+      "bytes": 979184
+    },
+    "public/assets/models/arm_civic_battle_prelate_hands_t1_m_lod2.qc.json": {
+      "sha256": "4688f8012463bcda834c36ca2615cab203786ad6eda3d054bf4714df30d3a09c",
+      "previous_sha256": null,
+      "bytes": 16199
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_hands_t1_m.approved.json": {
+      "sha256": "e2ba4a18a83a5c92cb524a8d946cf56be49b9bba9bbc525764599fbe3b734154",
+      "previous_sha256": "4ca4b8902407fcbaaa6b8ea1b9f130291fef82f5d2764569277a3adc6b702080",
+      "bytes": 15172
+    },
+    "public/assets/models/arm_civic_battle_prelate_waist_t1_m.glb": {
+      "sha256": "565928ef635dbffdd4102185b16e58810f3ec22b9c54903fe22d0dd1d911e9c5",
+      "previous_sha256": "1fc04c7e9ce2cfc475aa85a8d8eef237dda9f1b9e53ffa02db85296907f006cc",
+      "bytes": 2475992
+    },
+    "public/assets/models/arm_civic_battle_prelate_waist_t1_m.qc.json": {
+      "sha256": "84cabe1ecc7924b78365f0195359c4a49bb36f4146aad44a8e5cb9399def372f",
+      "previous_sha256": "f4ea8733d292c55980d85bc0c5eb6c3646caf8e5dd830f08e157dba67ab7ac89",
+      "bytes": 22317
+    },
+    "public/assets/models/arm_civic_battle_prelate_waist_t1_m_lod1.glb": {
+      "sha256": "a560c85ca118c493f9e506cf161575999a5019c116606712ef1e9ace788eb2b0",
+      "previous_sha256": null,
+      "bytes": 2649936
+    },
+    "public/assets/models/arm_civic_battle_prelate_waist_t1_m_lod1.qc.json": {
+      "sha256": "9c6840d30e47cd489d454367cf77eb2f847abfa5e53aca95acc1a2ad0b1fa849",
+      "previous_sha256": null,
+      "bytes": 22322
+    },
+    "public/assets/models/arm_civic_battle_prelate_waist_t1_m_lod2.glb": {
+      "sha256": "c34e477a640f1438780db90fb869d2f0a715ff3d55d817680e45eaba8b7446ab",
+      "previous_sha256": null,
+      "bytes": 1249920
+    },
+    "public/assets/models/arm_civic_battle_prelate_waist_t1_m_lod2.qc.json": {
+      "sha256": "6a37fea0271b21308a3e9f17eac1d0fd4ae2bc59662670ba7d948d8c9bb645d1",
+      "previous_sha256": null,
+      "bytes": 18843
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_waist_t1_m.approved.json": {
+      "sha256": "faf9eb4f3dd7c90edd4e206e45ec537c720363f14e9cfadf2801655833f5eef4",
+      "previous_sha256": "eec6beec606315f9335ba233430ef5919e326e90cd6fc228a1adcabb9bd068b4",
+      "bytes": 21284
+    },
+    "public/assets/models/arm_civic_battle_prelate_legs_t1_m.glb": {
+      "sha256": "0f16bf085a8a4dee7f65d445ea2f047792e546484e815fadc5cb26678fae3280",
+      "previous_sha256": "c730ac32115ea7c3f5756d837c41cd3db2fec04f3ab2142da237c339caa2e4a5",
+      "bytes": 2446772
+    },
+    "public/assets/models/arm_civic_battle_prelate_legs_t1_m.qc.json": {
+      "sha256": "f9e6fc61ba66fd5e43f8ac0ac5170d2587e123d0ee63a0cad8803ca744252122",
+      "previous_sha256": "418c51a4b7737d237febe213453355cb5e3217110ce6c12cf2dd5acba549bc1f",
+      "bytes": 13988
+    },
+    "public/assets/models/arm_civic_battle_prelate_legs_t1_m_lod1.glb": {
+      "sha256": "9a4a6f299e39f16d28dd0d920bdd27bf9cc8837fa113b37c9e531d79e46d5b97",
+      "previous_sha256": null,
+      "bytes": 2751996
+    },
+    "public/assets/models/arm_civic_battle_prelate_legs_t1_m_lod1.qc.json": {
+      "sha256": "0a51e36a4fd8698c881280f5b1b2df1df59a4abae508638adf07a59036aab69c",
+      "previous_sha256": null,
+      "bytes": 13991
+    },
+    "public/assets/models/arm_civic_battle_prelate_legs_t1_m_lod2.glb": {
+      "sha256": "ec716ec15d93b1fe0248b3075a4773cf41a769df51ee82b4e91439c4d1d6291c",
+      "previous_sha256": null,
+      "bytes": 1024136
+    },
+    "public/assets/models/arm_civic_battle_prelate_legs_t1_m_lod2.qc.json": {
+      "sha256": "3c9675cef2736ed4e022aa7047a3ef1f1b1a2537bd89b3ccccdcc25c2a8e4ef3",
+      "previous_sha256": null,
+      "bytes": 9411
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_legs_t1_m.approved.json": {
+      "sha256": "ad87effb3dc900180686162448dc98400bb3df92b969fe8a488a2d5594eea61b",
+      "previous_sha256": "7f80140a9d394416c7eb8ee83c6dbee29796337e596a0b36df0a5b7d6a6e69ad",
+      "bytes": 12960
+    },
+    "public/assets/models/arm_civic_battle_prelate_feet_t1_m.glb": {
+      "sha256": "d5dcdbc9d0a43af922436f177a28f0599f81d4f0171fee0e0e6d13cf3bb9907a",
+      "previous_sha256": "df663b9e93b271d8b0a9bd8af11b555dbf4a74f0a06ae04eb09c92eb02059f64",
+      "bytes": 1852380
+    },
+    "public/assets/models/arm_civic_battle_prelate_feet_t1_m.qc.json": {
+      "sha256": "4c52d60ed3067dec88ec32a458732d1db1219969bbcccbe5b335277c40b90672",
+      "previous_sha256": "40dc7e436bb0ab4b89b1deb7d7a4c785eeaa6693e315a4c9906795f36b734810",
+      "bytes": 8681
+    },
+    "public/assets/models/arm_civic_battle_prelate_feet_t1_m_lod1.glb": {
+      "sha256": "ca4003cd2d4c3ed39278741cc7ada9b10d787cc20c5bb7c1f6bc178b06ecbcbf",
+      "previous_sha256": null,
+      "bytes": 2321892
+    },
+    "public/assets/models/arm_civic_battle_prelate_feet_t1_m_lod1.qc.json": {
+      "sha256": "c44118ebd002b6bdf336946413d9f7d1fe7f44afc43ad1e2b3a37d4d8dca4879",
+      "previous_sha256": null,
+      "bytes": 8686
+    },
+    "public/assets/models/arm_civic_battle_prelate_feet_t1_m_lod2.glb": {
+      "sha256": "029a8fd6baca11dc7c692f90f4f7a6ffe6d7700e8ae58832fe2dfa5b48a4b7eb",
+      "previous_sha256": null,
+      "bytes": 900216
+    },
+    "public/assets/models/arm_civic_battle_prelate_feet_t1_m_lod2.qc.json": {
+      "sha256": "f4a4a087c03a74e632cc3573eb26c084d56615d825b630842201766d315c2ee0",
+      "previous_sha256": null,
+      "bytes": 8363
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_feet_t1_m.approved.json": {
+      "sha256": "98cbc892419de6d4f0f05e505ab5c877c39a879cd638202fd86fd6ad8f056413",
+      "previous_sha256": "2ad7786761c7127184964535fcca041bc6573a42f7ae92b8a5b7c511c507f9fb",
+      "bytes": 7651
+    },
+    "public/assets/models/arm_civic_battle_prelate_back_t1_m.glb": {
+      "sha256": "6b1fe23eb44af252013c57ae3d18f706870095943ff10759ed51492298be1cbd",
+      "previous_sha256": "392941f21b4b90b57fab1392b3746898d6e78593f16ca153eace58b791ae0822",
+      "bytes": 1581984
+    },
+    "public/assets/models/arm_civic_battle_prelate_back_t1_m.qc.json": {
+      "sha256": "6f6f021c6b3041c0c2dd638fc4ebfd3da4209af89e7d1ab90797a30ef3e6649a",
+      "previous_sha256": "2244ca3987c4b04c856758674e04439720fc34b734aa889ea72620a3e4735786",
+      "bytes": 10413
+    },
+    "public/assets/models/arm_civic_battle_prelate_back_t1_m_lod1.glb": {
+      "sha256": "18ca95fe1cd407998bf8d55e4227c97af295e92a381adf7afa69813416da26a2",
+      "previous_sha256": null,
+      "bytes": 1587544
+    },
+    "public/assets/models/arm_civic_battle_prelate_back_t1_m_lod1.qc.json": {
+      "sha256": "32dace7a73b7c74260628839f3549214802a81dc2835299a0148a36d63fe0249",
+      "previous_sha256": null,
+      "bytes": 10418
+    },
+    "public/assets/models/arm_civic_battle_prelate_back_t1_m_lod2.glb": {
+      "sha256": "e66724b865f57fb75d30eb56ec36443397083947ba9934258ee84c5974c65c30",
+      "previous_sha256": null,
+      "bytes": 538996
+    },
+    "public/assets/models/arm_civic_battle_prelate_back_t1_m_lod2.qc.json": {
+      "sha256": "00e2e98c99f70b6e5793a6d5060d2dbcc94d887ec966a060ff6869b8532b5bae",
+      "previous_sha256": null,
+      "bytes": 5247
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_back_t1_m.approved.json": {
+      "sha256": "683cddcb35e1b11f4bfe7efaa31ed809a687163e823fde70c98966055f8fb82c",
+      "previous_sha256": "f3fdd0853dd756056551c13cf61f62446899c6ca2747a6db022ca0d43bd9df53",
+      "bytes": 9387
+    },
+    "public/assets/models/arm_civic_battle_prelate_tabard_t1_m.glb": {
+      "sha256": "eda007e146f8a122e04ba07609238046bed7bef48808f9ca6eb5b665c0856d29",
+      "previous_sha256": "1aad1cb38278237bdeecc96eb768e66d34a2d08b23238f1bfbec506f28287238",
+      "bytes": 1088628
+    },
+    "public/assets/models/arm_civic_battle_prelate_tabard_t1_m.qc.json": {
+      "sha256": "9d8496087af874f85d0b00eaf0004281965ec9b3ac7d690428eec56f819a2943",
+      "previous_sha256": "8ce3767dd2c3c7b57072e0bf7ec5fa794cdb323d6a2496cdaee182e1f391dfb0",
+      "bytes": 13115
+    },
+    "public/assets/models/arm_civic_battle_prelate_tabard_t1_m_lod1.glb": {
+      "sha256": "a9995c4b3973ca6c01029cb0c4e94f083336160a4ac5503a4a5a81545c1fc26c",
+      "previous_sha256": null,
+      "bytes": 1170084
+    },
+    "public/assets/models/arm_civic_battle_prelate_tabard_t1_m_lod1.qc.json": {
+      "sha256": "989f3bde62f01259ad1c374c993883e15294983e0b04be663fdae77a3b1663f5",
+      "previous_sha256": null,
+      "bytes": 13120
+    },
+    "public/assets/models/arm_civic_battle_prelate_tabard_t1_m_lod2.glb": {
+      "sha256": "e8e63735aa851044b3ad43d89262ff0105afca6d99cde135d9e6bf3c1ca506bd",
+      "previous_sha256": null,
+      "bytes": 423964
+    },
+    "public/assets/models/arm_civic_battle_prelate_tabard_t1_m_lod2.qc.json": {
+      "sha256": "82dc606a9afeb271a44ad461c6f3b3cf0e08d063fe0a89586b7526aca3634385",
+      "previous_sha256": null,
+      "bytes": 5107
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_tabard_t1_m.approved.json": {
+      "sha256": "03a88e569716319f6f52d8aab082045c20c32ec8bd39b5f67a92a17a32a85461",
+      "previous_sha256": "914a0463004ead2f99bf91fce3cf64933e7ca945d63e3bc4eb5b995d6ad564a4",
+      "bytes": 12082
+    },
+    "public/assets/models/wep_civic_battle_prelate_dawn_maul.glb": {
+      "sha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "previous_sha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3",
+      "bytes": 1827452
+    },
+    "public/assets/models/wep_civic_battle_prelate_dawn_maul.qc.json": {
+      "sha256": "f455a5815d626c5926c981b849f4fba5612edfe6d349fdc1f0037ff12215acf2",
+      "previous_sha256": "8fee1ac974f23ec8b420fecec1a23982c3273e66adc93407c489a5adad272300",
+      "bytes": 14612
+    },
+    "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod1.glb": {
+      "sha256": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "previous_sha256": null,
+      "bytes": 1915248
+    },
+    "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod1.qc.json": {
+      "sha256": "3818fd60264fcef108f36857aff8034fc0bdbedfddc6cdd68b4a97072e7c1c11",
+      "previous_sha256": null,
+      "bytes": 14617
+    },
+    "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod2.glb": {
+      "sha256": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b",
+      "previous_sha256": null,
+      "bytes": 787188
+    },
+    "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod2.qc.json": {
+      "sha256": "af32bff219b97f588894cbfed39e5be428fc38c6e5f8ddfa96898d3670680354",
+      "previous_sha256": null,
+      "bytes": 12579
+    },
+    "scripts/blender-character-pipeline/data/approved-assets/wep_civic_battle_prelate_dawn_maul.approved.json": {
+      "sha256": "1179b44885b40b5eafd6f384bb8fd9372da8842ee36b18b75f60672cc794666a",
+      "previous_sha256": "51c7f0685d61fd7c52cda820a20da544ba56ecb13062457031d42345fd8942a7",
+      "bytes": 13567
+    },
+    "public/assets/models/asset-index.json": {
+      "sha256": "7c6502475696112e82a397039954c38d5de00ba742d0c6823a3c995f9136791f",
+      "previous_sha256": "00d25295184ae250771419da2f1e17da92c1371ffac2c5154c96d403dde315d0",
+      "bytes": 107269
+    }
+  },
+  "lod_runtime_status": "Only 11 LOD0 entries are activated by the existing compiler",
+  "archive": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\archives\\battle-prelate-promotions\\reference-9d26a2eb0a6c-071bc05c",
+  "promoted_utc": "2026-09-06T01:10:43.917046+00:00"
+}

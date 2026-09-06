@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "revision": "proof-001",
+  "character_height_m": 1.86,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Z",
+    "forward": "-Y",
+    "character_left": "+X"
+  },
+  "runtime_conversion": {
+    "x": "x",
+    "y": "z",
+    "z": "-y"
+  },
+  "camera_policy": "Frozen before the first mesh render. Changes require a new calibration revision and comparison report; never fitted per render.",
+  "comparison_pose": {
+    "head": {
+      "location": [
+        0.055,
+        0,
+        0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    "gorget": {
+      "location": [
+        0.045,
+        0,
+        0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    "breastplate": {
+      "location": [
+        0,
+        0,
+        0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    "pauldron": {
+      "location": [
+        0,
+        0,
+        0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    "warhammer": {
+      "location": [
+        -0.66,
+        -0.09,
+        0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "bind_pose_status": "Unrigged source; the comparison translation is not a canonical skeleton rest matrix.",
+  "cameras": [
+    {
+      "id": "front",
+      "position": [
+        0,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "three_quarter",
+      "position": [
+        2.8,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "side",
+      "position": [
+        4,
+        0,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "back",
+      "position": [
+        0,
+        4,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "face",
+      "position": [
+        0.055,
+        -4,
+        1.755
+      ],
+      "target": [
+        0.055,
+        0,
+        1.755
+      ],
+      "orthographic_scale": 0.32,
+      "resolution": [
+        900,
+        1000
+      ]
+    },
+    {
+      "id": "full_front",
+      "position": [
+        0,
+        -5,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    },
+    {
+      "id": "full_three_quarter",
+      "position": [
+        3,
+        -5,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    },
+    {
+      "id": "full_side",
+      "position": [
+        5,
+        0,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    },
+    {
+      "id": "full_back",
+      "position": [
+        0,
+        5,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    }
+  ],
+  "acceptance": {
+    "visual_status": "full_character_in_progress",
+    "major_landmark_tolerance_m": 0.0372,
+    "runtime_promotion": false,
+    "upper_body_direction": "User authorized expansion after reviewing progress",
+    "runtime_integration": "User requested integration once complete; no deployment"
+  },
+  "stage": "full_character"
+}

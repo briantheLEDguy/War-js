@@ -1,0 +1,4280 @@
+{
+  "file": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\battle-prelate-manual\\battle_prelate_manual_study.blend",
+  "objects": [
+    {
+      "name": "battle_prelate_hammer_mesh",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_DAWN_MAUL"
+      ],
+      "vertices": 4253,
+      "polygons": 2364,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -1.5137851238250732,
+        -0.8841044902801514,
+        0.5491812229156494
+      ],
+      "bounds_max": [
+        0.20959806442260742,
+        0.7234230637550354,
+        1.7968525886535645
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "battle_prelate_hammer_root",
+      "type": "EMPTY",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_DAWN_MAUL"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5272901058197021,
+        -0.35260719060897827,
+        1.2446279525756836
+      ],
+      "bounds_max": [
+        -0.5272901058197021,
+        -0.35260719060897827,
+        1.2446279525756836
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "body_civic_humanoid_v2_m",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 14517,
+      "polygons": 26756,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5519851446151733,
+        -0.4506252408027649,
+        -0.0045708720572292805
+      ],
+      "bounds_max": [
+        0.3531992435455322,
+        0.10475895553827286,
+        1.866635799407959
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.body"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.high-poly",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 1076,
+      "polygons": 2040,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.05010490119457245,
+        -0.17746099829673767,
+        1.7272131443023682
+      ],
+      "bounds_max": [
+        0.049964625388383865,
+        -0.14898160099983215,
+        1.7608003616333008
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.high-poly"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.teeth_base",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 4494,
+      "polygons": 7120,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.032536137849092484,
+        -0.1800900548696518,
+        1.6348499059677124
+      ],
+      "bounds_max": [
+        0.032661084085702896,
+        -0.09981533885002136,
+        1.6869561672210693
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.teeth_base"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.tongue01",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 253,
+      "polygons": 448,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.02364755980670452,
+        -0.16925352811813354,
+        1.6491988897323608
+      ],
+      "bounds_max": [
+        0.0241133663803339,
+        -0.09399913996458054,
+        1.6774625778198242
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.tongue01"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Back_CoatFrontPanels_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_BACK_HIGH"
+      ],
+      "vertices": 254,
+      "polygons": 401,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.22307568788528442,
+        -0.1673527956008911,
+        0.5425617694854736
+      ],
+      "bounds_max": [
+        0.21548298001289368,
+        -0.14865846931934357,
+        1.025856614112854
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Back_CoatTails_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_BACK_HIGH"
+      ],
+      "vertices": 368,
+      "polygons": 602,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.20015716552734375,
+        0.12010683864355087,
+        0.5404890775680542
+      ],
+      "bounds_max": [
+        0.20691858232021332,
+        0.15861426293849945,
+        1.0414800643920898
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Back_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_BACK_LOD0"
+      ],
+      "vertices": 576,
+      "polygons": 842,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.23793058097362518,
+        -0.1667381227016449,
+        0.5404890775680542
+      ],
+      "bounds_max": [
+        0.2629668712615967,
+        0.1610817015171051,
+        1.478991985321045
+      ],
+      "materials": [
+        "MAT_BP_Back_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Back_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_BACK_LOD1"
+      ],
+      "vertices": 254,
+      "polygons": 141,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.23793058097362518,
+        -0.16658030450344086,
+        0.5404890775680542
+      ],
+      "bounds_max": [
+        0.2629668712615967,
+        0.1610817015171051,
+        1.4783341884613037
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Back_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_BACK_LOD2"
+      ],
+      "vertices": 242,
+      "polygons": 135,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.23793058097362518,
+        -0.1658591479063034,
+        0.5404890775680542
+      ],
+      "bounds_max": [
+        0.2629668712615967,
+        0.1610817015171051,
+        1.4783341884613037
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Back_Mantle_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_BACK_HIGH"
+      ],
+      "vertices": 430,
+      "polygons": 642,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.23793058097362518,
+        0.12002618610858917,
+        1.2322386503219604
+      ],
+      "bounds_max": [
+        0.26295292377471924,
+        0.1610817164182663,
+        1.4808584451675415
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_CuirassBack_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 538,
+      "polygons": 855,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.17699745297431946,
+        0.10111118853092194,
+        1.0756477117538452
+      ],
+      "bounds_max": [
+        0.20054204761981964,
+        0.18095967173576355,
+        1.5320652723312378
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_CuirassFront_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 724,
+      "polygons": 1322,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.22639374434947968,
+        -0.2468813955783844,
+        1.0560829639434814
+      ],
+      "bounds_max": [
+        0.20241795480251312,
+        -0.1540706306695938,
+        1.5250157117843628
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_FullMailUnderlayer_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 6430,
+      "polygons": 11646,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5668635964393616,
+        -0.46482813358306885,
+        0.8380922675132751
+      ],
+      "bounds_max": [
+        0.3677504062652588,
+        0.11974696069955826,
+        1.6082096099853516
+      ],
+      "materials": [
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_CHEST_LOD0"
+      ],
+      "vertices": 5348,
+      "polygons": 8883,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5668603777885437,
+        -0.4648282527923584,
+        0.8381315469741821
+      ],
+      "bounds_max": [
+        0.36778196692466736,
+        0.1809803694486618,
+        1.6081994771957397
+      ],
+      "materials": [
+        "MAT_BP_Chest_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_LOD1"
+      ],
+      "vertices": 3370,
+      "polygons": 2155,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.566010057926178,
+        -0.4647486209869385,
+        0.8381818532943726
+      ],
+      "bounds_max": [
+        0.36689603328704834,
+        0.18103323876857758,
+        1.6077532768249512
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate",
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_LOD2"
+      ],
+      "vertices": 3070,
+      "polygons": 1888,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5660075545310974,
+        -0.46242403984069824,
+        0.8389807939529419
+      ],
+      "bounds_max": [
+        0.36689603328704834,
+        0.1809767186641693,
+        1.607767105102539
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate",
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_MailSleeves_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 4454,
+      "polygons": 7868,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5589114427566528,
+        -0.4572042226791382,
+        0.8462226986885071
+      ],
+      "bounds_max": [
+        0.3599587082862854,
+        0.0390583835542202,
+        1.4382104873657227
+      ],
+      "materials": [
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_ShoulderMail_L_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 439,
+      "polygons": 775,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.41664382815361023,
+        -0.24542856216430664,
+        1.14653742313385
+      ],
+      "bounds_max": [
+        -0.13534753024578094,
+        0.08119992166757584,
+        1.481402039527893
+      ],
+      "materials": [
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_ShoulderMail_R_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 439,
+      "polygons": 775,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        0.15052953362464905,
+        -0.20294180512428284,
+        1.0600471496582031
+      ],
+      "bounds_max": [
+        0.34319475293159485,
+        0.07845864444971085,
+        1.4820681810379028
+      ],
+      "materials": [
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Chest_Underlayer_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_CHEST_HIGH"
+      ],
+      "vertices": 1653,
+      "polygons": 3047,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2726019322872162,
+        -0.17491506040096283,
+        1.0084455013275146
+      ],
+      "bounds_max": [
+        0.273283988237381,
+        0.10424149036407471,
+        1.543836236000061
+      ],
+      "materials": [
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Feet_Boots_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_FEET_HIGH"
+      ],
+      "vertices": 3094,
+      "polygons": 5434,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2256585657596588,
+        -0.2657051980495453,
+        -0.038443803787231445
+      ],
+      "bounds_max": [
+        0.22463111579418182,
+        0.10075078159570694,
+        0.6155041456222534
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Feet_LeatherUnderboots_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_FEET_HIGH"
+      ],
+      "vertices": 3226,
+      "polygons": 5678,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.20471979677677155,
+        -0.24323713779449463,
+        -0.01696993224322796
+      ],
+      "bounds_max": [
+        0.20365656912326813,
+        0.07978668063879013,
+        0.7112851738929749
+      ],
+      "materials": [
+        "MAT_BP_SootLeather"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Feet_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_FEET_LOD0"
+      ],
+      "vertices": 4334,
+      "polygons": 7307,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.22552427649497986,
+        -0.26570531725883484,
+        -0.03742452710866928
+      ],
+      "bounds_max": [
+        0.21936458349227905,
+        0.08987140655517578,
+        0.6155041456222534
+      ],
+      "materials": [
+        "MAT_BP_Feet_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Feet_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_FEET_LOD1"
+      ],
+      "vertices": 3442,
+      "polygons": 3286,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.22379830479621887,
+        -0.2656753659248352,
+        -0.03662300482392311
+      ],
+      "bounds_max": [
+        0.2176610827445984,
+        0.0853259339928627,
+        0.6155040860176086
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Feet_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_FEET_LOD2"
+      ],
+      "vertices": 2904,
+      "polygons": 2336,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2235817015171051,
+        -0.2657049298286438,
+        -0.036391664296388626
+      ],
+      "bounds_max": [
+        0.21597042679786682,
+        0.08399718254804611,
+        0.6155040860176086
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Hands_Bracers_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HANDS_HIGH"
+      ],
+      "vertices": 1690,
+      "polygons": 2802,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5869510769844055,
+        -0.42425501346588135,
+        0.9089133143424988
+      ],
+      "bounds_max": [
+        0.38410723209381104,
+        0.035492971539497375,
+        1.3567783832550049
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Hands_Gloves_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HANDS_HIGH"
+      ],
+      "vertices": 3294,
+      "polygons": 5680,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5604342222213745,
+        -0.4586690068244934,
+        0.8445756435394287
+      ],
+      "bounds_max": [
+        0.36139413714408875,
+        -0.18120387196540833,
+        1.3260455131530762
+      ],
+      "materials": [
+        "MAT_BP_SootLeather"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Hands_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_HANDS_LOD0"
+      ],
+      "vertices": 3748,
+      "polygons": 6186,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5869092345237732,
+        -0.4586683511734009,
+        0.8446017503738403
+      ],
+      "bounds_max": [
+        0.3828786313533783,
+        0.03471130505204201,
+        1.3567566871643066
+      ],
+      "materials": [
+        "MAT_BP_Hands_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Hands_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HANDS_LOD1"
+      ],
+      "vertices": 2688,
+      "polygons": 2098,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5858349800109863,
+        -0.4584524631500244,
+        0.8446332812309265
+      ],
+      "bounds_max": [
+        0.3825669288635254,
+        0.03468000143766403,
+        1.3567389249801636
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate",
+        "MAT_BP_SootLeather"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Hands_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HANDS_LOD2"
+      ],
+      "vertices": 2364,
+      "polygons": 1712,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5832924246788025,
+        -0.45840638875961304,
+        0.8445594310760498
+      ],
+      "bounds_max": [
+        0.3804725110530853,
+        0.03468000143766403,
+        1.35525643825531
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate",
+        "MAT_BP_SootLeather"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Head_Coif_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HEAD_HIGH"
+      ],
+      "vertices": 1676,
+      "polygons": 3044,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.18296168744564056,
+        -0.2010374218225479,
+        1.5512384176254272
+      ],
+      "bounds_max": [
+        0.1855473518371582,
+        0.06780324876308441,
+        1.882310390472412
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Head_Gorget_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HEAD_HIGH"
+      ],
+      "vertices": 622,
+      "polygons": 1050,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.27127715945243835,
+        -0.18625301122665405,
+        1.448952317237854
+      ],
+      "bounds_max": [
+        0.26481562852859497,
+        0.12287180870771408,
+        1.653238296508789
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Head_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_HEAD_LOD0"
+      ],
+      "vertices": 2930,
+      "polygons": 4870,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2717403471469879,
+        -0.19932213425636292,
+        1.4436529874801636
+      ],
+      "bounds_max": [
+        0.2656426429748535,
+        0.12293708324432373,
+        1.8811461925506592
+      ],
+      "materials": [
+        "MAT_BP_Head_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Head_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HEAD_LOD1"
+      ],
+      "vertices": 1818,
+      "polygons": 1616,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2717403471469879,
+        -0.19904237985610962,
+        1.4445768594741821
+      ],
+      "bounds_max": [
+        0.2642877995967865,
+        0.12243790924549103,
+        1.8702527284622192
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth",
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Head_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_HEAD_LOD2"
+      ],
+      "vertices": 1778,
+      "polygons": 1593,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.26910725235939026,
+        -0.19904237985610962,
+        1.4445768594741821
+      ],
+      "bounds_max": [
+        0.26440098881721497,
+        0.12243790924549103,
+        1.8702527284622192
+      ],
+      "materials": [
+        "MAT_BP_IndigoCloth",
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Legs_Chausses_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_LEGS_HIGH"
+      ],
+      "vertices": 786,
+      "polygons": 1400,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.19595341384410858,
+        -0.14240801334381104,
+        0.5299661159515381
+      ],
+      "bounds_max": [
+        0.19344772398471832,
+        0.1057528629899025,
+        0.9539670944213867
+      ],
+      "materials": [
+        "MAT_BP_DarkMail"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Legs_Cuisses_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_LEGS_HIGH"
+      ],
+      "vertices": 509,
+      "polygons": 866,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2201463133096695,
+        -0.1718275398015976,
+        0.6391023993492126
+      ],
+      "bounds_max": [
+        0.21857795119285583,
+        0.10991887748241425,
+        0.926472544670105
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Legs_KneeCops_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_LEGS_HIGH"
+      ],
+      "vertices": 146,
+      "polygons": 200,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.22474601864814758,
+        -0.18218138813972473,
+        0.5345546007156372
+      ],
+      "bounds_max": [
+        0.21641917526721954,
+        -0.07846729457378387,
+        0.6967065334320068
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Legs_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_LEGS_LOD0"
+      ],
+      "vertices": 1284,
+      "polygons": 2090,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2247433066368103,
+        -0.18218037486076355,
+        0.5299174189567566
+      ],
+      "bounds_max": [
+        0.21859270334243774,
+        0.10996247082948685,
+        0.9539670944213867
+      ],
+      "materials": [
+        "MAT_BP_Legs_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Legs_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_LEGS_LOD1"
+      ],
+      "vertices": 566,
+      "polygons": 458,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2241048961877823,
+        -0.18217141926288605,
+        0.5299661159515381
+      ],
+      "bounds_max": [
+        0.2157587856054306,
+        0.11005709320306778,
+        0.9539670944213867
+      ],
+      "materials": [
+        "MAT_BP_DarkMail",
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Legs_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_LEGS_LOD2"
+      ],
+      "vertices": 390,
+      "polygons": 277,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.2228362113237381,
+        -0.18146415054798126,
+        0.5299661159515381
+      ],
+      "bounds_max": [
+        0.2162761092185974,
+        0.11015450209379196,
+        0.9539670944213867
+      ],
+      "materials": [
+        "MAT_BP_DarkMail",
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Shoulders_Lamellae_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_SHOULDERS_HIGH"
+      ],
+      "vertices": 176,
+      "polygons": 266,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.3468429446220398,
+        -0.13612346351146698,
+        1.1908161640167236
+      ],
+      "bounds_max": [
+        0.3267611563205719,
+        0.10289397090673447,
+        1.395564079284668
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Shoulders_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_SHOULDERS_LOD0"
+      ],
+      "vertices": 380,
+      "polygons": 564,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.34689193964004517,
+        -0.13565917313098907,
+        1.1897109746932983
+      ],
+      "bounds_max": [
+        0.32675182819366455,
+        0.10287415236234665,
+        1.4333497285842896
+      ],
+      "materials": [
+        "MAT_BP_Shoulders_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Shoulders_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_SHOULDERS_LOD1"
+      ],
+      "vertices": 250,
+      "polygons": 204,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.3470487594604492,
+        -0.1346973180770874,
+        1.19881272315979
+      ],
+      "bounds_max": [
+        0.3240673542022705,
+        0.10291710495948792,
+        1.4332586526870728
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Shoulders_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_SHOULDERS_LOD2"
+      ],
+      "vertices": 166,
+      "polygons": 112,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.3473154902458191,
+        -0.13451695442199707,
+        1.1984018087387085
+      ],
+      "bounds_max": [
+        0.32386672496795654,
+        0.10145864635705948,
+        1.4323699474334717
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Shoulders_Pauldrons_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_SHOULDERS_HIGH"
+      ],
+      "vertices": 44,
+      "polygons": 52,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.3101366460323334,
+        -0.1109979972243309,
+        1.3309071063995361
+      ],
+      "bounds_max": [
+        0.309932678937912,
+        0.08489396423101425,
+        1.4330499172210693
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Tabard_ClericalPanels_High",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_TABARD_HIGH"
+      ],
+      "vertices": 254,
+      "polygons": 401,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.18698720633983612,
+        -0.2283059060573578,
+        0.5034477710723877
+      ],
+      "bounds_max": [
+        0.17936253547668457,
+        -0.15331360697746277,
+        1.0235122442245483
+      ],
+      "materials": [
+        "MAT_BP_DirtyIvory"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Tabard_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_TABARD_LOD0"
+      ],
+      "vertices": 166,
+      "polygons": 246,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.16737335920333862,
+        -0.2339528501033783,
+        0.5094231367111206
+      ],
+      "bounds_max": [
+        0.17517919838428497,
+        0.1543624997138977,
+        1.0367270708084106
+      ],
+      "materials": [
+        "MAT_BP_Tabard_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Tabard_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_TABARD_LOD1"
+      ],
+      "vertices": 76,
+      "polygons": 54,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.16737335920333862,
+        -0.23403504490852356,
+        0.5094231367111206
+      ],
+      "bounds_max": [
+        0.17517919838428497,
+        0.1543624997138977,
+        1.0324993133544922
+      ],
+      "materials": [
+        "MAT_BP_DirtyIvory"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Tabard_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_TABARD_LOD2"
+      ],
+      "vertices": 72,
+      "polygons": 50,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.16737335920333862,
+        -0.2339528501033783,
+        0.5094231367111206
+      ],
+      "bounds_max": [
+        0.17517919838428497,
+        0.15430675446987152,
+        1.0324993133544922
+      ],
+      "materials": [
+        "MAT_BP_DirtyIvory"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Tabard_PrayerApron_High",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_TABARD_HIGH"
+      ],
+      "vertices": 368,
+      "polygons": 602,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.16737335920333862,
+        -0.2339572161436081,
+        0.5094231367111206
+      ],
+      "bounds_max": [
+        0.17517919838428497,
+        0.15436327457427979,
+        1.0367270708084106
+      ],
+      "materials": [
+        "MAT_BP_DirtyIvory.001"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Tabard_SplitVestment_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_TABARD_HIGH"
+      ],
+      "vertices": 274,
+      "polygons": 401,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.19179271161556244,
+        -0.21213138103485107,
+        0.555664598941803
+      ],
+      "bounds_max": [
+        0.1744147390127182,
+        -0.18031153082847595,
+        0.9963054060935974
+      ],
+      "materials": [
+        "MAT_BP_DirtyIvory"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Waist_BeltFauld_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_WAIST_HIGH"
+      ],
+      "vertices": 186,
+      "polygons": 274,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.19686362147331238,
+        -0.16119618713855743,
+        0.9471980333328247
+      ],
+      "bounds_max": [
+        0.19519688189029694,
+        0.12374219298362732,
+        1.0480859279632568
+      ],
+      "materials": [
+        "MAT_BP_SootLeather"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Waist_FauldPlates_High",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_WAIST_HIGH"
+      ],
+      "vertices": 146,
+      "polygons": 214,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.21894103288650513,
+        -0.17809440195560455,
+        0.8391540050506592
+      ],
+      "bounds_max": [
+        0.21188360452651978,
+        -0.13066326081752777,
+        0.9742835760116577
+      ],
+      "materials": [
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        },
+        {
+          "name": "manual_edit_solidify",
+          "type": "SOLIDIFY",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Waist_LOD0",
+      "type": "MESH",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "ARM_WAIST_LOD0"
+      ],
+      "vertices": 458,
+      "polygons": 654,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.21895264089107513,
+        -0.17809438705444336,
+        0.8391540050506592
+      ],
+      "bounds_max": [
+        0.2118263989686966,
+        0.12373361736536026,
+        1.0481654405593872
+      ],
+      "materials": [
+        "MAT_BP_Waist_Atlas"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Waist_LOD1",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_WAIST_LOD1"
+      ],
+      "vertices": 186,
+      "polygons": 151,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.21895264089107513,
+        -0.17809438705444336,
+        0.8399667143821716
+      ],
+      "bounds_max": [
+        0.2118263989686966,
+        0.12012522667646408,
+        1.0461252927780151
+      ],
+      "materials": [
+        "MAT_BP_SootLeather",
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "BP_Waist_LOD2",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "ARM_WAIST_LOD2"
+      ],
+      "vertices": 152,
+      "polygons": 114,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.21895386278629303,
+        -0.17809391021728516,
+        0.8399667143821716
+      ],
+      "bounds_max": [
+        0.21192772686481476,
+        0.11988096684217453,
+        1.0447252988815308
+      ],
+      "materials": [
+        "MAT_BP_SootLeather",
+        "MAT_BP_BlackenedPlate"
+      ],
+      "modifiers": [
+        {
+          "name": "runtime_armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "CAM_BattlePrelate_Review",
+      "type": "CAMERA",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "Scene Collection"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        -0.10201530158519745,
+        6.997464656829834,
+        0.9218608140945435
+      ],
+      "rotation": [
+        -1.570796251296997,
+        3.141592502593994,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.10201530158519745,
+        6.997464656829834,
+        0.9218608140945435
+      ],
+      "bounds_max": [
+        -0.10201530158519745,
+        6.997464656829834,
+        0.9218608140945435
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "FILL_Cool",
+      "type": "LIGHT",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "Scene Collection"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        -4.0,
+        -2.0,
+        3.799999952316284
+      ],
+      "rotation": [
+        1.0194793939590454,
+        1.8433425452712981e-07,
+        -1.1071486473083496
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -4.0,
+        -2.0,
+        3.799999952316284
+      ],
+      "bounds_max": [
+        -4.0,
+        -2.0,
+        3.799999952316284
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "grooming_eyebrows_eyebrow006",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 124,
+      "polygons": 192,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.06420690566301346,
+        -0.18739226460456848,
+        1.7485824823379517
+      ],
+      "bounds_max": [
+        0.06407203525304794,
+        -0.15559133887290955,
+        1.7609342336654663
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.eyebrow006"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "grooming_eyelashes_eyelashes01",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 250,
+      "polygons": 368,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.05433286726474762,
+        -0.18187928199768066,
+        1.7326029539108276
+      ],
+      "bounds_max": [
+        0.05402787774801254,
+        -0.16553948819637299,
+        1.7484477758407593
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.eyelashes01"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "grooming_hair_short03",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 1034,
+      "polygons": 1922,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.10646867752075195,
+        -0.20834630727767944,
+        1.6405994892120361
+      ],
+      "bounds_max": [
+        0.08938724547624588,
+        0.04567579925060272,
+        1.8739207983016968
+      ],
+      "materials": [
+        "body_civic_humanoid_v2_m.short03"
+      ],
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE",
+          "viewport": true
+        }
+      ]
+    },
+    {
+      "name": "humanoid_game_v2",
+      "type": "ARMATURE",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5738579034805298,
+        -0.447756826877594,
+        -0.09460127353668213
+      ],
+      "bounds_max": [
+        0.38202613592147827,
+        0.09870828688144684,
+        1.8388594388961792
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "Icosphere",
+      "type": "MESH",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": 42,
+      "polygons": 80,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.9510578513145447,
+        -0.9999999403953552,
+        -1.0
+      ],
+      "bounds_max": [
+        0.9510578513145447,
+        0.9999999403953552,
+        1.0
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "KEY_Warm",
+      "type": "LIGHT",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "Scene Collection"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        3.799999952316284,
+        -4.199999809265137,
+        5.800000190734863
+      ],
+      "rotation": [
+        0.8729332089424133,
+        1.993205955841404e-08,
+        0.735439658164978
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        3.799999952316284,
+        -4.199999809265137,
+        5.800000190734863
+      ],
+      "bounds_max": [
+        3.799999952316284,
+        -4.199999809265137,
+        5.800000190734863
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "RIM_Cold",
+      "type": "LIGHT",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "Scene Collection"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        1.2000000476837158,
+        4.5,
+        4.800000190734863
+      ],
+      "rotation": [
+        0.8928952217102051,
+        1.3515943919628626e-09,
+        2.8809902667999268
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        1.2000000476837158,
+        4.5,
+        4.800000190734863
+      ],
+      "bounds_max": [
+        1.2000000476837158,
+        4.5,
+        4.800000190734863
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "socket_back",
+      "type": "EMPTY",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        -0.141457200050354,
+        -0.1300000250339508
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        0.0015873713418841362,
+        0.17490361630916595,
+        1.3630112409591675
+      ],
+      "bounds_max": [
+        0.0015873713418841362,
+        0.17490361630916595,
+        1.3630112409591675
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "socket_hand_L",
+      "type": "EMPTY",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        -1.0432631825096905e-07,
+        0.06584399938583374,
+        -1.1175870895385742e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.000000238418579,
+        1.0,
+        1.000000238418579
+      ],
+      "bounds_min": [
+        0.33692851662635803,
+        -0.29833513498306274,
+        0.9552631378173828
+      ],
+      "bounds_max": [
+        0.33692851662635803,
+        -0.29833513498306274,
+        0.9552631378173828
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "socket_hand_R",
+      "type": "EMPTY",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        1.0432631825096905e-07,
+        0.06584399938583374,
+        -1.1175870895385742e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.000000238418579,
+        1.0,
+        1.000000238418579
+      ],
+      "bounds_min": [
+        -0.5272901058197021,
+        -0.35260719060897827,
+        1.2446279525756836
+      ],
+      "bounds_max": [
+        -0.5272901058197021,
+        -0.35260719060897827,
+        1.2446279525756836
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "socket_root",
+      "type": "EMPTY",
+      "visible": true,
+      "hide_viewport": false,
+      "hide_render": false,
+      "collections": [
+        "REFERENCE_BODY_RUNTIME"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        -0.9661447405815125,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        0.0,
+        0.02929919958114624,
+        0.00010412000119686127
+      ],
+      "bounds_max": [
+        0.0,
+        0.02929919958114624,
+        0.00010412000119686127
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "weapon_grip_socket_hand_L",
+      "type": "EMPTY",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_DAWN_MAUL"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        0.0,
+        0.30000001192092896
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.648871660232544,
+        -0.08736926317214966,
+        1.174865484237671
+      ],
+      "bounds_max": [
+        -0.648871660232544,
+        -0.08736926317214966,
+        1.174865484237671
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "weapon_grip_socket_hand_R",
+      "type": "EMPTY",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_DAWN_MAUL"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.5272901058197021,
+        -0.35260719060897827,
+        1.2446279525756836
+      ],
+      "bounds_max": [
+        -0.5272901058197021,
+        -0.35260719060897827,
+        1.2446279525756836
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    {
+      "name": "weapon_strike_head",
+      "type": "EMPTY",
+      "visible": false,
+      "hide_viewport": false,
+      "hide_render": true,
+      "collections": [
+        "REFERENCE_DAWN_MAUL"
+      ],
+      "vertices": null,
+      "polygons": null,
+      "location": [
+        0.0,
+        0.0,
+        0.9100000262260437
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_min": [
+        -0.8960874676704407,
+        0.45194780826568604,
+        1.0330151319503784
+      ],
+      "bounds_max": [
+        -0.8960874676704407,
+        0.45194780826568604,
+        1.0330151319503784
+      ],
+      "materials": [],
+      "modifiers": []
+    }
+  ],
+  "materials": [
+    {
+      "name": "body_civic_humanoid_v2_m.body",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.eyebrow006",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.eyelashes01",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.high-poly",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.699999988079071,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.short03",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.699999988079071,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.teeth_base",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.20000000298023224,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "body_civic_humanoid_v2_m.tongue01",
+      "users": 1,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8039000034332275,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Back_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_BlackenedPlate",
+      "users": 24,
+      "color": [
+        0.09000000357627869,
+        0.10499999672174454,
+        0.11999999731779099,
+        1.0
+      ],
+      "metallic": 0.7200000286102295,
+      "roughness": 0.3799999952316284,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Chest_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_DarkMail",
+      "users": 10,
+      "color": [
+        0.05999999865889549,
+        0.06499999761581421,
+        0.07199999690055847,
+        1.0
+      ],
+      "metallic": 0.47999998927116394,
+      "roughness": 0.5799999833106995,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_DirtyIvory",
+      "users": 4,
+      "color": [
+        0.2800000011920929,
+        0.23499999940395355,
+        0.1599999964237213,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8600000143051147,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_DirtyIvory.001",
+      "users": 1,
+      "color": [
+        0.2800000011920929,
+        0.23499999940395355,
+        0.1599999964237213,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8600000143051147,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Feet_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Hands_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Head_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_IndigoCloth",
+      "users": 8,
+      "color": [
+        0.03500000014901161,
+        0.052000001072883606,
+        0.0949999988079071,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8399999737739563,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Legs_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Shoulders_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_SootLeather",
+      "users": 7,
+      "color": [
+        0.06499999761581421,
+        0.035999998450279236,
+        0.02199999988079071,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.800000011920929,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Tabard_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    },
+    {
+      "name": "MAT_BP_Waist_Atlas",
+      "users": 2,
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "nodes": [
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL"
+        },
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED"
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP"
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "TEX_IMAGE"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR"
+        },
+        {
+          "name": "glTF Material Output",
+          "type": "GROUP"
+        }
+      ]
+    }
+  ]
+}

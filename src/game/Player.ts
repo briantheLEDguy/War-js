@@ -409,9 +409,9 @@ export class Player {
     targetPosition: { x: number; y: number; z: number } | null = null,
   ): void {
     const authoredClip = glbActionClipName(ability.animation.actionId);
-    const authoredClipOwnsBakedWeapon = authoredClip !== null
+    const authoredClipOwnsWeapon = authoredClip !== null
       && this.glbActions.has(authoredClip);
-    this.playWeaponAction({
+    this.weaponAnimations.play({
       actionId: ability.animation.actionId,
       durationSec: ability.animation.durationSec,
       abilityName: ability.name,
@@ -419,8 +419,8 @@ export class Player {
       school: ability.visual.school,
       motion: ability.visual.vfx.motion,
       targetPosition,
-      ...(authoredClipOwnsBakedWeapon ? { targetSources: ['equipment'] as const } : {}),
-    });
+      ...(authoredClipOwnsWeapon ? { targetSources: ['equipment'] as const } : {}),
+    }, authoredClipOwnsWeapon);
   }
 
   updateVisuals(dt: number): void {

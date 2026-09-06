@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.tabard.novitiate.m",
+  "model": "arm_civic_battle_prelate_tabard_novitiate_m_lod2.glb",
+  "modelSha256": "b377dec4607e6c27ae5f44308a9e59b75f2552dc5f9e5bc97e6c36b298afa49f",
+  "fileSizeBytes": 729972,
+  "category": "armor",
+  "slot": "tabard",
+  "lod": 2,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [
+    "tabard"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 940,
+  "totalTris": 940,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 3,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 512,
+  "maxTextureResolution": 512,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_tabard_novitiate_m.glb",
+      "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_tabard_novitiate_m_lod1.glb",
+      "sha256": "1e168426203d8c5990a9d3bd8a8208c8a54ae4f4fd78ec137b0cd91137de9283"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_tabard_novitiate_m_lod2.glb",
+      "sha256": "b377dec4607e6c27ae5f44308a9e59b75f2552dc5f9e5bc97e6c36b298afa49f"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_front.png",
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_side.png",
+    "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_novitiate_armor_variant",
+    "geometrySource": "Explicit authored cages adapted from the accepted reference set; permitted finishing only",
+    "rigReuse": "Existing body, warhammer, canonical armature and actions shared unchanged",
+    "sharedAssets": {
+      "public/assets/models/chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "public/assets/models/chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "public/assets/models/chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+    },
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "3482623101ff4f39b4afdab6a04238bf24cbb64db10d59f9a15792ff773d12dd",
+    "runtimeReportSha256": "07bc882361569f979572a08498f33fc2598a3b765f103bd8230a5c2c5dd35fbf",
+    "visualReviewSha256": "182d9387a7539e1b324b32f8fb7346e031095dfae856722fd559f63b80b278c6",
+    "evidenceArchive": "authoring/archives/battle-prelate-novitiate-set/3482623101ff",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceLedgerSha256": "b7bbe1c2227662029442cac2fef4403750c7573e64520781bc5a1f3cd8007b98",
+    "sourceLedger": "authoring/archives/battle-prelate-novitiate-set/3482623101ff/source_ledger.json",
+    "sourceRecords": [
+      {
+        "part": "front_crimson_tabard",
+        "file": "source\\garments.json",
+        "sha256": "ae7c412c3722eb98064b3b33668493450eaff70a78d434587835ba912b8bb35c",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "rear_crimson_surcoat",
+        "file": "source\\garments.json",
+        "sha256": "ae7c412c3722eb98064b3b33668493450eaff70a78d434587835ba912b8bb35c",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

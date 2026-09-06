@@ -2,3 +2,43 @@
 public/assets/models/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/approved/**/*.glb filter=lfs diff=lfs merge=lfs -text
 scripts/blender-character-pipeline/data/approved-assets/**/*.glb filter=lfs diff=lfs merge=lfs -text
+# Editable reference-built master, staged exports, and preserved local revisions.
+# Source/QC hashes describe exact bytes, including the authored newline form.
+authoring/blender/battle-prelate-reference-rebuild/** -text
+authoring/blender/battle-prelate-novitiate-set/** -text
+authoring/blender/battle-prelate-novitiate-set/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/battle-prelate-novitiate-set/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/battle-prelate-novitiate-set/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/models/arm_civic_battle_prelate_*_novitiate_m*.qc.json -text
+scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_*_novitiate_m.approved.json -text
+authoring/archives/battle-prelate-*/** -text
+public/assets/models/chr_civic_battle_prelate_t1_m*.qc.json -text
+public/assets/models/arm_civic_battle_prelate_*_t1_m*.qc.json -text
+public/assets/models/wep_civic_battle_prelate_dawn_maul*.qc.json -text
+scripts/blender-character-pipeline/data/approved-assets/chr_civic_battle_prelate_t1_m.approved.json -text
+scripts/blender-character-pipeline/data/approved-assets/arm_civic_battle_prelate_*_t1_m.approved.json -text
+scripts/blender-character-pipeline/data/approved-assets/wep_civic_battle_prelate_dawn_maul.approved.json -text
+authoring/blender/battle-prelate-reference-rebuild/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/battle-prelate-reference-rebuild/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/battle-prelate-reference-rebuild/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/archives/battle-prelate-*/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/ember-arcanist-reference-rebuild/** -text
+authoring/archives/ember-arcanist-*/** -text
+public/assets/models/chr_civic_ember_arcanist_t1_m*.qc.json -text
+public/assets/models/arm_civic_ember_arcanist_*_t1_m*.qc.json -text
+public/assets/models/wep_civic_ember_arcanist_ember_staff*.qc.json -text
+scripts/blender-character-pipeline/data/approved-assets/chr_civic_ember_arcanist_t1_m.approved.json -text
+scripts/blender-character-pipeline/data/approved-assets/arm_civic_ember_arcanist_*_t1_m.approved.json -text
+scripts/blender-character-pipeline/data/approved-assets/wep_civic_ember_arcanist_ember_staff.approved.json -text
+authoring/blender/ember-arcanist-reference-rebuild/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/ember-arcanist-reference-rebuild/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/battle-prelate-manual/**/*.blend filter=lfs diff=lfs merge=lfs -text
+blends/Untitled.blend filter=lfs diff=lfs merge=lfs -text
+# Keep large source and inspection artifacts out of ordinary Git history.
+authoring/blender/**/*.png filter=lfs diff=lfs merge=lfs -text
+authoring/archives/**/*.png filter=lfs diff=lfs merge=lfs -text
+authoring/blender/**/*.gz filter=lfs diff=lfs merge=lfs -text
+authoring/archives/**/*.gz filter=lfs diff=lfs merge=lfs -text
+public/assets/models/reviews/battle-prelate-reference-rebuild/**/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/reviews/battle-prelate-novitiate-set/**/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/reviews/ember-arcanist-reference-rebuild/**/*.png filter=lfs diff=lfs merge=lfs -text

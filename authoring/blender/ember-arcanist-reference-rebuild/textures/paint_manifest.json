@@ -1,0 +1,536 @@
+{
+  "schema_version": 1,
+  "paint_source_sha256": "f92282b6ce4053365f0f86c750f883320d30d93be51a79f84a5118fb4905bf18",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "method": "Literal brush outlines, paths and spots. Rasterization only; no noise, random marks, scatter, procedural weave, reference pixels or illumination painting.",
+  "height_convention": "128 is neutral. Height is paint relief, not lighting. Suggested peak-to-peak amplitude 0.0005 m for metal, 0.0004 m for leather and 0.0002 m for cloth/parchment; adjust during normal baking.",
+  "status": "Authored material source maps; final geometry bake and visual review still required",
+  "materials": {
+    "steel": {
+      "layer_ids": [
+        "cool_uneven_patina",
+        "soft_hand_burnished_regions",
+        "isolated_oxidation",
+        "painted_pinprick_pitting",
+        "broad_faint_scuffs",
+        "fine_etched_scratches",
+        "short_crossed_impact_marks"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/steel_basecolor.png",
+          "sha256": "a2b430dc7b693b81ab4e1965da997b515e27fb26219b4d6375b24166e82bf5f6",
+          "bytes": 79929,
+          "mode": "RGB",
+          "extrema": [
+            [
+              85,
+              154
+            ],
+            [
+              86,
+              160
+            ],
+            [
+              89,
+              162
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/steel_roughness.png",
+          "sha256": "a8d5ed0fea6368d1516cca4ec26dde910f16de022ce5bc1e9dde646a2e3de011",
+          "bytes": 31923,
+          "mode": "L",
+          "extrema": [
+            136,
+            188
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/steel_metallic.png",
+          "sha256": "e02f80014457773fa6e85d2733999a0a6dd3ea4670466f613816a5581aa245dc",
+          "bytes": 14431,
+          "mode": "L",
+          "extrema": [
+            202,
+            244
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/steel_height.png",
+          "sha256": "c021ac0e0c959d715553124f3c1873d5655da4916b0cf248a4a4be5652c99890",
+          "bytes": 10211,
+          "mode": "L",
+          "extrema": [
+            106,
+            128
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "dark_steel": {
+      "layer_ids": [
+        "dark_cool_patina",
+        "dark_burnished_wear",
+        "dark_oxidized_islands",
+        "dark_pinprick_pitting",
+        "dark_scuffs",
+        "dark_etched_scratches",
+        "dark_crossed_impact_marks"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/dark_steel_basecolor.png",
+          "sha256": "4ebb3212c60a4430025c799156c52df5ef31c107f257ce0353439342b2de5875",
+          "bytes": 64042,
+          "mode": "RGB",
+          "extrema": [
+            [
+              29,
+              73
+            ],
+            [
+              28,
+              75
+            ],
+            [
+              27,
+              74
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/dark_steel_roughness.png",
+          "sha256": "2e13b38be9393da290af84e06faa6798aaf1dc59e92118267a107e5f55c75525",
+          "bytes": 28308,
+          "mode": "L",
+          "extrema": [
+            154,
+            198
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/dark_steel_metallic.png",
+          "sha256": "24dc246ab290db0f794fdcdcb25650317c246e174136bc57af3fe64d4e01437b",
+          "bytes": 14604,
+          "mode": "L",
+          "extrema": [
+            193,
+            238
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/dark_steel_height.png",
+          "sha256": "6393d261a2576e39eab21f6bb0202e9dac6d15b26cd69e9514ae3d20d6e88261",
+          "bytes": 9839,
+          "mode": "L",
+          "extrema": [
+            107,
+            128
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "brass": {
+      "layer_ids": [
+        "subdued_warm_toning",
+        "hand_burnished_brass",
+        "small_recess_patina",
+        "brass_surface_scratches"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/brass_basecolor.png",
+          "sha256": "41b508cf5312ad7ea072d66cf50fd0447118047cf393b66db773e4dcf76d4c90",
+          "bytes": 90997,
+          "mode": "RGB",
+          "extrema": [
+            [
+              134,
+              192
+            ],
+            [
+              115,
+              162
+            ],
+            [
+              75,
+              107
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/brass_roughness.png",
+          "sha256": "b7d95d0ef5ccd8da2f29dd7ccc03268f1153c79c554449afc57fe8c140a51f55",
+          "bytes": 36919,
+          "mode": "L",
+          "extrema": [
+            128,
+            163
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/brass_metallic.png",
+          "sha256": "22bbd5ff7bedd587549a85b98b438b738e9046c33cd1343831b911e486e9a2cf",
+          "bytes": 12901,
+          "mode": "L",
+          "extrema": [
+            213,
+            245
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/brass_height.png",
+          "sha256": "187768b2ed00c8d90d24cc5b3f23fbd21a277dc31c42704ca824f13c7539b98d",
+          "bytes": 6681,
+          "mode": "L",
+          "extrema": [
+            108,
+            129
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "leather": {
+      "layer_ids": [
+        "handled_leather_wear",
+        "old_leather_scars",
+        "small_leather_crease_marks",
+        "leather_dents"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/leather_basecolor.png",
+          "sha256": "647a00caa21f4b27ede668da036a7114b9e80998e62bf963308a9ef0248b4db0",
+          "bytes": 72180,
+          "mode": "RGB",
+          "extrema": [
+            [
+              24,
+              67
+            ],
+            [
+              16,
+              49
+            ],
+            [
+              12,
+              33
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/leather_roughness.png",
+          "sha256": "4e9b34c600a7044f1b36048532ddd26834a995474c387e4b71d65b99fe805c25",
+          "bytes": 23653,
+          "mode": "L",
+          "extrema": [
+            180,
+            198
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/leather_metallic.png",
+          "sha256": "68b254b6d2a1abea7b90fd129853bef3c373b1e611b105e51f3dd797d95a2b5b",
+          "bytes": 1309,
+          "mode": "L",
+          "extrema": [
+            0,
+            0
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/leather_height.png",
+          "sha256": "926637816988e8da268763988d2d3128432baf545a41e97e70ab2bc1b48f45c6",
+          "bytes": 12524,
+          "mode": "L",
+          "extrema": [
+            112,
+            129
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "crimson": {
+      "layer_ids": [
+        "uneven_red_dye_fading",
+        "subtle_worn_crease_fading",
+        "literal_fiber_scuff_groups",
+        "worn_thread_fragments",
+        "ember_hem",
+        "ember_foldwear"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/crimson_basecolor.png",
+          "sha256": "fbf940f797713e66ca763f416288bbffe4789a5d187f2caf3a47a0a9617adc80",
+          "bytes": 99804,
+          "mode": "RGB",
+          "extrema": [
+            [
+              25,
+              96
+            ],
+            [
+              15,
+              46
+            ],
+            [
+              12,
+              33
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/crimson_roughness.png",
+          "sha256": "fc2c240a59aecd7db2d9ffb60fc0756412044b4944f5ba2d2ecec1feac4e277d",
+          "bytes": 24466,
+          "mode": "L",
+          "extrema": [
+            216,
+            240
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/crimson_metallic.png",
+          "sha256": "68b254b6d2a1abea7b90fd129853bef3c373b1e611b105e51f3dd797d95a2b5b",
+          "bytes": 1309,
+          "mode": "L",
+          "extrema": [
+            0,
+            0
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/crimson_height.png",
+          "sha256": "0dd11f8496c5cde7dd16920225eb76ff85a513acd9775f6f14e49d64cbd106c5",
+          "bytes": 19120,
+          "mode": "L",
+          "extrema": [
+            108,
+            132
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "parchment": {
+      "layer_ids": [
+        "paper_fiber_toning",
+        "long_pale_paper_fibers",
+        "short_brown_paper_fibers",
+        "isolated_paper_age_specks",
+        "ember_hem",
+        "ember_foldwear"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/parchment_basecolor.png",
+          "sha256": "6030eceae086f4f9509034b2c3e87ea1d3f0ddaf0321fd6c0ba07c59096dab08",
+          "bytes": 100336,
+          "mode": "RGB",
+          "extrema": [
+            [
+              35,
+              164
+            ],
+            [
+              28,
+              142
+            ],
+            [
+              20,
+              103
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/parchment_roughness.png",
+          "sha256": "184f70df1c1aca1a6a9e5658b73755d68f306f0a15f1eca50525629dcd2cded2",
+          "bytes": 26842,
+          "mode": "L",
+          "extrema": [
+            214,
+            240
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/parchment_metallic.png",
+          "sha256": "68b254b6d2a1abea7b90fd129853bef3c373b1e611b105e51f3dd797d95a2b5b",
+          "bytes": 1309,
+          "mode": "L",
+          "extrema": [
+            0,
+            0
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/parchment_height.png",
+          "sha256": "d6ec6a72ab80e6adb13a47ce15aa749ab0660eaa94f594c319eafca95292b0f0",
+          "bytes": 23214,
+          "mode": "L",
+          "extrema": [
+            108,
+            134
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "hair": {
+      "layer_ids": [
+        "handled_leather_wear",
+        "old_leather_scars",
+        "small_leather_crease_marks",
+        "leather_dents"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/hair_basecolor.png",
+          "sha256": "76438b6bcd237675f4c3d250c0d688ba736ce967b176f2091a935320e18a0c8a",
+          "bytes": 55203,
+          "mode": "RGB",
+          "extrema": [
+            [
+              55,
+              92
+            ],
+            [
+              20,
+              51
+            ],
+            [
+              11,
+              32
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/hair_roughness.png",
+          "sha256": "1674ac819e23e40a3a18af01a5d467293f0bf3456720b1fc56ad4884d88cd750",
+          "bytes": 22655,
+          "mode": "L",
+          "extrema": [
+            180,
+            197
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/hair_metallic.png",
+          "sha256": "68b254b6d2a1abea7b90fd129853bef3c373b1e611b105e51f3dd797d95a2b5b",
+          "bytes": 1309,
+          "mode": "L",
+          "extrema": [
+            0,
+            0
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/hair_height.png",
+          "sha256": "926637816988e8da268763988d2d3128432baf545a41e97e70ab2bc1b48f45c6",
+          "bytes": 12524,
+          "mode": "L",
+          "extrema": [
+            112,
+            129
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    },
+    "ash_cloth": {
+      "layer_ids": [
+        "paper_fiber_toning",
+        "long_pale_paper_fibers",
+        "short_brown_paper_fibers",
+        "isolated_paper_age_specks"
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "source/ash_cloth_basecolor.png",
+          "sha256": "0fe7329579481bf0d29c07efe89b39aa0f602cd470394e6c6e1ba83a8aaf892e",
+          "bytes": 42323,
+          "mode": "RGB",
+          "extrema": [
+            [
+              95,
+              132
+            ],
+            [
+              84,
+              118
+            ],
+            [
+              59,
+              90
+            ]
+          ],
+          "color_space": "sRGB"
+        },
+        "roughness": {
+          "path": "source/ash_cloth_roughness.png",
+          "sha256": "bb3cee0ad21c2824c66838ad9206a1fa59559a29697d09883f68bbdaf7feb296",
+          "bytes": 13408,
+          "mode": "L",
+          "extrema": [
+            214,
+            222
+          ],
+          "color_space": "Non-Color"
+        },
+        "metallic": {
+          "path": "source/ash_cloth_metallic.png",
+          "sha256": "68b254b6d2a1abea7b90fd129853bef3c373b1e611b105e51f3dd797d95a2b5b",
+          "bytes": 1309,
+          "mode": "L",
+          "extrema": [
+            0,
+            0
+          ],
+          "color_space": "Non-Color"
+        },
+        "height": {
+          "path": "source/ash_cloth_height.png",
+          "sha256": "26f969b3a4eca68c2613c66f95aad17b9956e859515bd4b19aff2aac68e0b29b",
+          "bytes": 7089,
+          "mode": "L",
+          "extrema": [
+            124,
+            132
+          ],
+          "color_space": "Non-Color"
+        }
+      }
+    }
+  },
+  "total_bytes": 962671
+}

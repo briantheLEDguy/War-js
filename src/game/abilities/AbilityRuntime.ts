@@ -9,7 +9,9 @@ import {
   type AbilityResourceState,
 } from './abilityData';
 import { spawnAbilityVfx } from './AbilityVfx';
-import type { AbilityDefinition, AbilityEffect } from './types';
+import { abilityUnlockLevel, isAbilityUnlocked } from './abilityProgression';
+import type { AbilityDefinition, AbilityEffect, AbilityMovementRequest } from './types';
+import { applyPlayerUtilityEffects, createAbilityMovementRequest } from './playerAbilityEffects';
 
 export interface PendingAbilityImpact {
   id: string;
@@ -31,6 +33,7 @@ export interface AbilityActivationContext {
   now: number;
   vfx: VfxLayer | null;
   getEnemyObject: (id: string) => THREE.Object3D | null;
+  movePlayer?: (request: AbilityMovementRequest) => boolean;
 }
 
 export interface AbilityActivationResult {
@@ -43,6 +46,11 @@ export type AbilityFailureReasonCode =
   | 'blocked_ui'
   | 'no_character'
   | 'unknown_ability'
+  | 'locked_ability'
+  | 'unavailable_ability'
+  | 'movement_blocked'
+  | 'controlled_player'
+  | 'global_cooldown'
   | 'cooldown'
   | 'insufficient_mana'
   | 'insufficient_resource'
@@ -77,6 +85,16 @@ export function tryActivateAbility(
 
   const target = resolveTarget(ability, context.player, store.enemies, store.targetId);
 
+  // Movement is validated by the world before committing any ability costs.
+  const movement = ability.effects.find((effect) => effect.kind === 'movement')?.movement;
+  if (movement) {
+    const request = createAbilityMovementRequest(movement, context.player.position, context.player.rotationY, target?.position);
+    if (request.distance > 0 && !context.movePlayer?.(request)) {
+      store.showAbilityFeedback({ kind: 'blocked', message: 'The movement path is blocked.', abilityName: ability.name });
+      return null;
+    }
+  }
+
   const releaseSec = releaseTimeSec(ability);
   const flightSec = target ? projectileFlightSec(ability, context.player, target) : 0;
   const resourceSpent = ability.resource.spendAllCareer
@@ -94,6 +112,10 @@ export function tryActivateAbility(
     current: clamp(nextResource, 0, resource.max),
   });
   store.setHotbarCooldown(ability.slot, ability.cooldownSec);
+  if (ability.gcdSec > 0) store.setGlobalCooldownUntil(context.now + ability.gcdSec * 1000);
+  useGameStore.setState({ playerStatusEffects: applyPlayerUtilityEffects(ability.effects, store.playerStatusEffects, {
+    now: context.now, maxHealth: character.maxHealth, sourceAbilityId: ability.id, label: ability.name,
+  }) });
 
   playAbilityAnimation(context.player, ability, target);
   try {
@@ -112,7 +134,7 @@ export function tryActivateAbility(
     console.error('Ability VFX spawn failed for', ability.id, err);
   }
 
-  const impacts = ability.effects.length > 0
+  const impacts = ability.effects.some(isImpactEffect)
     ? [makeImpact(context, ability, target, releaseSec + flightSec, resourceSpent)]
     : [];
 
@@ -145,6 +167,32 @@ export function getAbilityActivationFailure(
   const ability = getAbilityForCareer(character.className, context.slot);
   if (!ability) {
     return { code: 'unknown_ability', message: 'No ability is assigned to that slot.' };
+  }
+
+  if (!isAbilityUnlocked(ability, character.level)) {
+    return {
+      code: 'locked_ability',
+      message: `${ability.name} unlocks at level ${abilityUnlockLevel(ability)}.`,
+      ability,
+    };
+  }
+
+  if (ability.unavailableReason) {
+    return { code: 'unavailable_ability', message: ability.unavailableReason, ability };
+  }
+
+  if (ability.gcdSec > 0 && store.globalCooldownUntil > context.now) {
+    return { code: 'global_cooldown', message: `Recovering for ${formatCooldown((store.globalCooldownUntil - context.now) / 1000)}.`, ability };
+  }
+
+  const cleansedKinds = ability.effects.flatMap((effect) => effect.cleanse?.kinds ?? []);
+  const control = store.playerStatusEffects.find((effect) => effect.expiresAt > context.now &&
+    (effect.kind === 'stagger' || (effect.kind === 'root' && ability.effects.some((entry) => entry.kind === 'movement'))) &&
+    !cleansedKinds.includes(effect.kind));
+  if (control) return { code: 'controlled_player', message: control.kind === 'root' ? 'You are rooted.' : 'You are staggered.', ability };
+
+  if (ability.effects.some((effect) => effect.kind === 'movement') && !context.movePlayer) {
+    return { code: 'movement_blocked', message: 'Movement abilities are unavailable here.', ability };
   }
 
   const cooldown = store.hotbarCooldowns[ability.slot] ?? 0;
@@ -247,7 +295,7 @@ function makeImpact(
     id: `${ability.id}-${context.now}-${Math.random().toString(36).slice(2, 7)}`,
     dueAt: context.now + delaySec * 1000,
     ability,
-    effects: ability.effects,
+    effects: ability.effects.filter(isImpactEffect),
     targetId: target?.id ?? null,
     center: { x: center.x, y: center.y, z: center.z },
     sourcePosition: {
@@ -260,6 +308,10 @@ function makeImpact(
     sourceLevel: character?.level ?? 1,
     resourceSpent,
   };
+}
+
+function isImpactEffect(effect: AbilityEffect): boolean {
+  return effect.kind === 'damage' || effect.kind === 'heal' || effect.kind === 'status';
 }
 
 function playAbilityAnimation(

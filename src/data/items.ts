@@ -1,3 +1,4 @@
+import { EMBER_STAFF_KEY, EMBER_STAFF_MODEL } from './emberArcanist';
 import type {
   EquipmentEntry,
   EquipSlot,
@@ -5,6 +6,7 @@ import type {
   ItemKind,
 } from '../services/types';
 import { PLAYABLE_ARMOR_ITEM_CATALOG } from './playableAssets.generated';
+import { NOVITIATE_ARMOR_ITEM_CATALOG } from './novitiateArmor';
 
 export interface ConsumableEffect {
   hp?: number;
@@ -79,6 +81,15 @@ export const EQUIP_SLOT_LABELS: Record<EquipSlot, string> = {
 };
 
 const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
+  [EMBER_STAFF_KEY]: {
+    key: EMBER_STAFF_KEY,
+    name: 'Ashbound Brazier Staff',
+    icon: '\u2726',
+    kind: 'weapon',
+    equipSlot: 'mainHand',
+    visual: { model: EMBER_STAFF_MODEL, fallback: 'mainHand' },
+    weaponKind: 'staff',
+  },
   sword_iron: {
     key: 'sword_iron',
     name: 'Iron Sword',
@@ -373,6 +384,7 @@ const BASE_ITEM_CATALOG: Record<string, ItemDefinition> = {
 export const ITEM_CATALOG: Record<string, ItemDefinition> = {
   ...BASE_ITEM_CATALOG,
   ...PLAYABLE_ARMOR_ITEM_CATALOG,
+  ...NOVITIATE_ARMOR_ITEM_CATALOG,
 };
 
 export function getItemDefinition(key: string): ItemDefinition | undefined {

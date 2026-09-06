@@ -1,0 +1,78 @@
+[
+  {
+    "label": "current_v4",
+    "offset": [
+      0.02,
+      -0.065,
+      0.025
+    ],
+    "hint": [
+      0.46,
+      0.01,
+      1.18
+    ],
+    "metrics": {
+      "requested_wrist_reach_m": 0.5184173330232615,
+      "available_reach_m": 0.5507739186286926,
+      "wrist_error_m": 1.4901161193847656e-07,
+      "wrist_bend_degrees": 11.188257964283794
+    }
+  },
+  {
+    "label": "forward",
+    "offset": [
+      0.04,
+      -0.11,
+      0.055
+    ],
+    "hint": [
+      0.48,
+      -0.08,
+      1.18
+    ],
+    "metrics": {
+      "requested_wrist_reach_m": 0.5244450995071143,
+      "available_reach_m": 0.5507739186286926,
+      "wrist_error_m": 1.519626234052415e-07,
+      "wrist_bend_degrees": 7.650885917661266
+    }
+  },
+  {
+    "label": "outward",
+    "offset": [
+      0.08,
+      -0.085,
+      0.065
+    ],
+    "hint": [
+      0.55,
+      -0.06,
+      1.18
+    ],
+    "metrics": {
+      "requested_wrist_reach_m": 0.5176631785630595,
+      "available_reach_m": 0.5507739186286926,
+      "wrist_error_m": 2.9802322387695312e-08,
+      "wrist_bend_degrees": 8.908142743847607
+    }
+  },
+  {
+    "label": "front_elbow",
+    "offset": [
+      0.04,
+      -0.11,
+      0.055
+    ],
+    "hint": [
+      0.47,
+      -0.18,
+      1.18
+    ],
+    "metrics": {
+      "requested_wrist_reach_m": 0.5244450995071143,
+      "available_reach_m": 0.5507739186286926,
+      "wrist_error_m": 3.0538293021796936e-07,
+      "wrist_bend_degrees": 12.58355632869068
+    }
+  }
+]

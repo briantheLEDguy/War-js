@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "calibration_id": "front-authoring-convention-001",
+  "pairing_revision": "semantic-correspondences-002",
+  "scene_revision": "proof-001",
+  "visual_status": "diagnostic_review_pending",
+  "automatic_visual_acceptance": false,
+  "runtime_promotion": false,
+  "camera_fitted": false,
+  "camera": {
+    "id": "front",
+    "position": [
+      0,
+      -4,
+      1.5
+    ],
+    "target": [
+      0,
+      0,
+      1.5
+    ],
+    "orthographic_scale": 1.01,
+    "resolution": [
+      1100,
+      1000
+    ]
+  },
+  "fixed_mapping": {
+    "x_ref": "254.282 + xWorld / (1.86 / 633)",
+    "y_ref": "729 - zWorld / (1.86 / 633)",
+    "front_orthographic_width_m": 1.01,
+    "image_plane_height_m": 0.9181818181818182,
+    "reference_origin_x": 254.282,
+    "reference_ground_y": 729.0,
+    "reference_meters_per_pixel": 0.0029383886255924174,
+    "display_enlargement": 3,
+    "pixel_center_convention": "width/2, height/2"
+  },
+  "advisory_distance_band_m": 0.0372,
+  "landmarks": [
+    {
+      "reference_id": "F01",
+      "reference_name": "crown",
+      "part": "head_skin",
+      "source_file": "source\\head.json",
+      "source_sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "render_source_binding": "verified",
+      "source_landmark": "crown",
+      "source_vertex_id": "C",
+      "source_point_kind": "named_source_landmark",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "high",
+      "note": "Top of source head cage; subdivision may lower the visible crown.",
+      "world_position_m": [
+        0.054999999701976776,
+        0.008,
+        1.86
+      ],
+      "render_pixel": [
+        609.9009897744302,
+        107.92079207920779
+      ],
+      "reference_pixel": [
+        273,
+        96
+      ],
+      "predicted_reference_pixel": [
+        272.9997418340598,
+        96.0
+      ],
+      "delta_reference_pixels": [
+        -0.00025816594018124306,
+        0.0
+      ],
+      "image_plane_error_px": 0.00025816594018124306,
+      "image_plane_error_m_by_authoring_convention": 7.58591862143937e-07,
+      "reference_uncertainty_radius_px": 3,
+      "above_advisory_band": false,
+      "automatic_visual_acceptance": false
+    },
+    {
+      "reference_id": "F02",
+      "reference_name": "chin",
+      "part": "head_skin",
+      "source_file": "source\\head.json",
+      "source_sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "render_source_binding": "verified",
+      "source_landmark": "chin",
+      "source_vertex_id": "Z0",
+      "source_point_kind": "named_source_landmark",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "medium",
+      "note": "Reference chin is partly hidden by the collar.",
+      "world_position_m": [
+        0.054999999701976776,
+        -0.094,
+        1.65
+      ],
+      "render_pixel": [
+        609.9009897744302,
+        336.6336633663367
+      ],
+      "reference_pixel": [
+        271,
+        166
+      ],
+      "predicted_reference_pixel": [
+        272.9997418340598,
+        167.467741935484
+      ],
+      "delta_reference_pixels": [
+        1.9997418340598188,
+        1.467741935484014
+      ],
+      "image_plane_error_px": 2.480571263251126,
+      "image_plane_error_m_by_authoring_convention": 0.007288882384908523,
+      "reference_uncertainty_radius_px": 7,
+      "above_advisory_band": false,
+      "automatic_visual_acceptance": false
+    },
+    {
+      "reference_id": "F03",
+      "reference_name": "collar_front_rim_center",
+      "part": "gorget_steel_wall",
+      "source_file": "source\\gorget.json",
+      "source_sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+      "render_source_binding": "verified",
+      "source_landmark": "front_rim",
+      "source_vertex_id": "v000",
+      "source_point_kind": "named_source_landmark",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "high",
+      "note": "Front rim center; reference includes trim thickness.",
+      "world_position_m": [
+        0.04500000178813934,
+        -0.149,
+        1.646
+      ],
+      "render_pixel": [
+        599.0099029375775,
+        340.9900990099011
+      ],
+      "reference_pixel": [
+        268,
+        170
+      ],
+      "predicted_reference_pixel": [
+        269.59651673757645,
+        168.82903225806456
+      ],
+      "delta_reference_pixels": [
+        1.5965167375764509,
+        -1.170967741935442
+      ],
+      "image_plane_error_px": 1.9799068528633215,
+      "image_plane_error_m_by_authoring_convention": 0.005817735776186063,
+      "reference_uncertainty_radius_px": 4,
+      "above_advisory_band": false,
+      "automatic_visual_acceptance": false
+    },
+    {
+      "reference_id": "F04",
+      "reference_name": "collar_left_side_rim",
+      "part": "gorget_steel_wall",
+      "source_file": "source\\gorget.json",
+      "source_sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+      "render_source_binding": "verified",
+      "source_landmark": "side_rim",
+      "source_vertex_id": "v004",
+      "source_point_kind": "named_source_landmark",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "medium",
+      "note": "View-dependent visible side rim; pose is not calibrated.",
+      "world_position_m": [
+        0.18200000178813935,
+        -0.004,
+        1.702
+      ],
+      "render_pixel": [
+        748.2178237296567,
+        280.0
+      ],
+      "reference_pixel": [
+        309,
+        151
+      ],
+      "predicted_reference_pixel": [
+        316.22071028596355,
+        149.77096774193558
+      ],
+      "delta_reference_pixels": [
+        7.220710285963548,
+        -1.2290322580644215
+      ],
+      "image_plane_error_px": 7.324559872455322,
+      "image_plane_error_m_by_authoring_convention": 0.021522403416693366,
+      "reference_uncertainty_radius_px": 5,
+      "above_advisory_band": false,
+      "automatic_visual_acceptance": false
+    },
+    {
+      "reference_id": "F05",
+      "reference_name": "left_pauldron_peak",
+      "part": "left_pauldron_main_shell",
+      "source_file": "source\\pauldron.json",
+      "source_sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+      "render_source_binding": "verified",
+      "source_landmark": "inner_crown",
+      "source_vertex_id": "v017",
+      "source_point_kind": "named_source_landmark",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "low",
+      "note": "Candidate main-shell crown pairing; visible guard/shell overlap is ambiguous.",
+      "world_position_m": [
+        0.264,
+        0.038,
+        1.711
+      ],
+      "render_pixel": [
+        837.5247524752476,
+        270.1980198019801
+      ],
+      "reference_pixel": [
+        371,
+        147
+      ],
+      "predicted_reference_pixel": [
+        344.1271612903226,
+        146.70806451612907
+      ],
+      "delta_reference_pixels": [
+        -26.87283870967741,
+        -0.2919354838709296
+      ],
+      "image_plane_error_px": 26.874424396497865,
+      "image_plane_error_m_by_authoring_convention": 0.0789675029660127,
+      "reference_uncertainty_radius_px": 4,
+      "above_advisory_band": true,
+      "automatic_visual_acceptance": false
+    },
+    {
+      "reference_id": "F09",
+      "reference_name": "breastplate_top_center",
+      "part": "breastplate_shell",
+      "source_file": "source\\breastplate.json",
+      "source_sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+      "render_source_binding": "verified",
+      "source_landmark": "upper_neckline",
+      "source_vertex_id": "v000",
+      "source_point_kind": "named_source_landmark",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "medium",
+      "note": "Top center is partly obscured by gorget/trim in the illustration.",
+      "world_position_m": [
+        0.0,
+        -0.111,
+        1.536
+      ],
+      "render_pixel": [
+        550.0,
+        460.7920792079208
+      ],
+      "reference_pixel": [
+        263,
+        208
+      ],
+      "predicted_reference_pixel": [
+        254.282,
+        206.26451612903236
+      ],
+      "delta_reference_pixels": [
+        -8.71799999999999,
+        -1.7354838709676415
+      ],
+      "image_plane_error_px": 8.889062282737626,
+      "image_plane_error_m_by_authoring_convention": 0.02611951950377881,
+      "reference_uncertainty_radius_px": 7,
+      "above_advisory_band": false,
+      "automatic_visual_acceptance": false
+    },
+    {
+      "reference_id": "F11",
+      "reference_name": "waist_belt_upper_center",
+      "part": "heavy_relic_belt",
+      "source_file": "source\\waist.json",
+      "source_sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+      "render_source_binding": "verified",
+      "source_landmark": "upper_front_center",
+      "source_vertex_id": "v000",
+      "source_point_kind": "explicit_diagnostic_vertex",
+      "status": "measured_control_cage_only",
+      "correspondence_confidence": "medium",
+      "note": "Actual belt upper-front center, explicit stable cage vertex v000. Supersedes the earlier breastplate-shell waist-center surrogate.",
+      "world_position_m": [
+        0.0,
+        -0.16,
+        1.203
+      ],
+      "render_pixel": [
+        550.0,
+        823.4653465346535
+      ],
+      "reference_pixel": [
+        252,
+        324
+      ],
+      "predicted_reference_pixel": [
+        254.282,
+        319.591935483871
+      ],
+      "delta_reference_pixels": [
+        2.2820000000000107,
+        -4.408064516129002
+      ],
+      "image_plane_error_px": 4.96372408362468,
+      "image_plane_error_m_by_authoring_convention": 0.014585350387901904,
+      "reference_uncertainty_radius_px": 7,
+      "above_advisory_band": false,
+      "automatic_visual_acceptance": false
+    }
+  ],
+  "measured_control_landmarks": 7,
+  "control_landmarks_above_advisory_band": 1,
+  "current_sources_newer_than_renders": {
+    "material": [],
+    "neutral": []
+  },
+  "render_and_mesh_evidence_binding": {
+    "review\\evaluated_mesh.json.gz": "verified",
+    "review\\front_material.png": "verified",
+    "review\\front_neutral.png": "verified"
+  },
+  "input_sha256": {
+    "source\\scene.json": "a2415a1f24e2e0797ca7cff8aa8fd54cfc25710812ed92f35cbf7d4a55c60a52",
+    "review\\build_report.json": "dcbe64a737b8775fe05c0344bd83e73eb089268850b88a2c413236705edf59b5",
+    "references\\measurements.json": "10438b1f695fa7fde98bcdebdccd7a03a6639fd2b1c3337ba1b245f776f298a8",
+    "references\\crops\\front_upperbody.png": "5739ed6a9d6e6972cb2a23f4765bcea87ddacbc9fafe990f4816b2ba50d3d462",
+    "review\\evaluated_mesh.json.gz": "de54bd7f04307d7e44a8f375524dbf11cc76bf5349a2ffa9063bb071d0b990d7",
+    "review\\front_material.png": "13743435891f6f8c0746587ced1d3a62de02c2e00e057f2d3921ac2ccff97fb2",
+    "review\\front_neutral.png": "6c0a19b08302dc92bc77d8f06cc1dd4cfaf3552ea00e28474f98533069f3a579"
+  },
+  "outputs": [
+    "comparison_front_material.png",
+    "comparison_front_overlay.png",
+    "comparison_front_neutral.png",
+    "comparison_landmarks.png"
+  ],
+  "limitations": [
+    "The reference is a stylized illustration with non-calibrated orientation, perspective and pose.",
+    "The mapping is a declared authoring convention, not camera recovery from pixels.",
+    "Landmark errors use current source-control coordinates and saved evaluated-object matrices; modifiers can move the visible surface.",
+    "Source/render correspondence is unverified wherever render_source_binding says hash_not_recorded_by_build.",
+    "Sparse landmark agreement cannot establish facial likeness, missing detail, silhouette fidelity, materials, or visual acceptance.",
+    "Low-confidence pauldron correspondence should be inspected directly before using its displacement as an editing target.",
+    "No silhouette IoU, image similarity, 3D recovery accuracy or automatic pass is claimed."
+  ]
+}

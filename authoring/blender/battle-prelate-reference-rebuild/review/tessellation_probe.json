@@ -1,0 +1,302 @@
+{
+  "status": "passed",
+  "modules": [
+    {
+      "authored_ngons_tessellated": 0,
+      "triangles": 30952,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "body",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 0,
+      "triangles": 7136,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "hands",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 0,
+      "triangles": 5140,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "back",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 4,
+      "triangles": 9580,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "chest",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 4,
+      "triangles": 4040,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "feet",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 8,
+      "triangles": 1956,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "tabard",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 10,
+      "triangles": 2640,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "head",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 52,
+      "triangles": 11288,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "legs",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 34,
+      "triangles": 10244,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "shoulders",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 32,
+      "triangles": 9886,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "waist",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 46,
+      "triangles": 5688,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 0,
+      "slot": "weapon",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 0,
+      "triangles": 10632,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "body",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 60,
+      "triangles": 2024,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "hands",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 10,
+      "triangles": 3146,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "back",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 30,
+      "triangles": 7294,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "chest",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 6,
+      "triangles": 1924,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "feet",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 8,
+      "triangles": 1044,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "tabard",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 10,
+      "triangles": 1240,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "head",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 60,
+      "triangles": 8256,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "legs",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 62,
+      "triangles": 6804,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "shoulders",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 50,
+      "triangles": 8124,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "waist",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 46,
+      "triangles": 5688,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 1,
+      "slot": "weapon",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 28,
+      "triangles": 2668,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "body",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 60,
+      "triangles": 2024,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "hands",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 12,
+      "triangles": 1178,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "back",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 28,
+      "triangles": 3066,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "chest",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 6,
+      "triangles": 1452,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "feet",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 8,
+      "triangles": 484,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "tabard",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 0,
+      "triangles": 616,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "head",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 40,
+      "triangles": 3672,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "legs",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 36,
+      "triangles": 3608,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "shoulders",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 42,
+      "triangles": 7492,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "waist",
+      "uv_corners_unchanged": true
+    },
+    {
+      "authored_ngons_tessellated": 38,
+      "triangles": 3132,
+      "positions_and_weights_unchanged": true,
+      "explicit_tangents": true,
+      "lod": 2,
+      "slot": "weapon",
+      "uv_corners_unchanged": true
+    }
+  ]
+}
