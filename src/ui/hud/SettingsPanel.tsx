@@ -18,6 +18,8 @@ import {
   formatViewDistance,
 } from '../../config/viewDistance';
 import { DEFAULT_GAMEPLAY_SETTINGS, useGameStore } from '../../state/gameStore';
+import { normalizeRenderResolution } from '../../game/RenderResolution';
+import { normalizeFrameRateLimit } from '../../game/ForegroundFrameLoop';
 import { useDraggableWindow } from './useDraggableWindow';
 
 function formatMultiplier(value: number): string {
@@ -112,6 +114,8 @@ export function SettingsPanel() {
     settings.touchLookSensitivity === DEFAULT_GAMEPLAY_SETTINGS.touchLookSensitivity &&
     settings.zoomSensitivity === DEFAULT_GAMEPLAY_SETTINGS.zoomSensitivity &&
     settings.viewDistance === DEFAULT_GAMEPLAY_SETTINGS.viewDistance &&
+    settings.renderResolution === DEFAULT_GAMEPLAY_SETTINGS.renderResolution &&
+    settings.frameRateLimit === DEFAULT_GAMEPLAY_SETTINGS.frameRateLimit &&
     KEYBIND_CATEGORIES.every((category) => getKeybindsForCategory(category).every(
       (definition) => settings.keybindings[definition.action] === DEFAULT_KEYBINDINGS[definition.action],
     ));
@@ -134,7 +138,7 @@ export function SettingsPanel() {
         <header className="settings-header draggable-window-handle" {...dragHandleProps}>
           <div>
             <h2 id="settings-title">Settings</h2>
-            <span>Controls and key bindings</span>
+            <span>Graphics, controls and key bindings</span>
           </div>
           <button
             className="settings-close"
@@ -177,6 +181,31 @@ export function SettingsPanel() {
             role="tabpanel"
             aria-labelledby="settings-tab-gameplay"
           >
+            <h3>Graphics</h3>
+            <label className="settings-range">
+              <span>Frame rate limit</span>
+              <select value={settings.frameRateLimit}
+                onChange={(e) => updateSettings({ frameRateLimit: normalizeFrameRateLimit(Number(e.currentTarget.value)) })}>
+                <option value={30}>30 FPS — leave room for other apps</option>
+                <option value={60}>60 FPS — smoother motion, higher load</option>
+              </select>
+            </label>
+            <p className="settings-gesture-note">
+              Rendering stops when you switch tabs or focus another window, then resumes when you return.
+            </p>
+            <label className="settings-range">
+              <span>3D resolution</span>
+              <select value={settings.renderResolution}
+                onChange={(e) => updateSettings({ renderResolution: normalizeRenderResolution(e.currentTarget.value) })}>
+                <option value="auto">Auto — adapt for smoother play</option>
+                <option value="quality">75% — upscale for performance</option>
+                <option value="native">100% — native quality</option>
+              </select>
+            </label>
+            <p className="settings-gesture-note">
+              Auto adjusts resolution toward your frame limit. Lower resolutions are scaled to fill the screen;
+              menus and text stay sharp. Textures, geometry and shadows keep their detail.
+            </p>
             <h3>Camera</h3>
 
             <label className="settings-toggle">

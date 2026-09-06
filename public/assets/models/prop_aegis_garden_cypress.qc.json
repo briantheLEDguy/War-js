@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.garden_cypress",
+  "modelSha256": "c990ed362a428b37bfc0cb58d6a377f64bbe7aeb2fa293d7601f780d1cd62281",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_garden_cypress.glb",
+    "triangles": 8508,
+    "bytes": 1219232,
+    "sha256": "c990ed362a428b37bfc0cb58d6a377f64bbe7aeb2fa293d7601f780d1cd62281",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_garden_cypress.glb",
+      "triangles": 8508,
+      "bytes": 1219232,
+      "sha256": "c990ed362a428b37bfc0cb58d6a377f64bbe7aeb2fa293d7601f780d1cd62281",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_garden_cypress_lod1.glb",
+      "triangles": 5180,
+      "bytes": 720016,
+      "sha256": "d46dd45afd721e9b2fbfd94aba211f658e2e7f226f552fdb4fc7e2bb337c45d6",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_garden_cypress_lod2.glb",
+      "triangles": 3064,
+      "bytes": 402608,
+      "sha256": "bf49a09cdd297790645d2628ff8e12b29183d132c78cb028e37a7e4ff181f2bc",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "cea1f314abc3eaeca2ede09be80cbe796deb3078100ecdf328eb6d4955d1f504",
+  "envelope": [
+    2.807,
+    2.777,
+    9.783
+  ]
+}

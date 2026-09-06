@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.people.civilian_male",
+  "displayName": "Aegis Civilian Male",
+  "category": "character",
+  "model": "chr_aegis_people_civilian_male_lod1.glb",
+  "qc": "chr_aegis_people_civilian_male_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_people_civilian_male"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_people",
+    "bodyVariant": "m",
+    "skeletonId": "aegis_people_v1",
+    "bindPoseId": "civic_relaxed_v1"
+  },
+  "hashes": {
+    "modelSha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+    "qcSha256": "174edfcc90af24f81fd3ad4b94ffd369011ea315f4c7c9dfac329aa42fa7c0e8",
+    "previews": {
+      "front": "a3f0f1cafe8296e3140fc6189999bef7965396f2068a4bb593a677753fe29226"
+    }
+  },
+  "previews": {
+    "front": "reviews/aegis-people/civilian_male_export_three_quarter.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex technical and exported-geometry review; user requested game integration",
+    "reviewedAt": "2026-09-06T18:36:40.425314+00:00",
+    "reviewHash": "7cadac71478ec1b4b9ffb364783e0075ac96033862529b7779aecb85b8908f48"
+  },
+  "provenance": {
+    "sourceSha256": "733030430bb0491d821bab00d286d929e5f5240c21c6208fe009006521d6a9be",
+    "referenceSha256": "6d725a8ce540a907ad30da08964634013e6cbd21723dac01c055446f6b2ba4ef",
+    "limitations": "Stationary idle only; custom civic skeleton. Middle LOD used for city NPCs.",
+    "lods": {
+      "0": {
+        "file": "chr_aegis_people_civilian_male.glb",
+        "sha256": "4633cf18ab4870836c7dac554f2165489b59449636a6d4ea228c04a6d598db66",
+        "triangles": 167481,
+        "degenerate_uv_tangents": 125516
+      },
+      "1": {
+        "file": "chr_aegis_people_civilian_male_lod1.glb",
+        "sha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+        "triangles": 100487,
+        "degenerate_uv_tangents": 81860
+      },
+      "2": {
+        "file": "chr_aegis_people_civilian_male_lod2.glb",
+        "sha256": "eb9cf375da1a9b35ca08c56ca0164073f50ea4ad76e69250834b5f8b800ad112",
+        "triangles": 50240,
+        "degenerate_uv_tangents": 42855
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.paving",
+  "modelSha256": "df4426b488b00d9af3236d0bf1a43cf3975c47a838b92aead25d781c6a6ee213",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_paving.glb",
+    "triangles": 188,
+    "bytes": 27180,
+    "sha256": "df4426b488b00d9af3236d0bf1a43cf3975c47a838b92aead25d781c6a6ee213",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_paving.glb",
+      "triangles": 188,
+      "bytes": 27180,
+      "sha256": "df4426b488b00d9af3236d0bf1a43cf3975c47a838b92aead25d781c6a6ee213",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_paving_lod1.glb",
+      "triangles": 94,
+      "bytes": 15756,
+      "sha256": "e1167edcc9fe545e438428d8b9c38717dc79a3c6abb1695e04d6547aabb9d3fc",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_paving_lod2.glb",
+      "triangles": 36,
+      "bytes": 7248,
+      "sha256": "5f4a38467834ace235c01dd8c44dc8b239f51546379cfc24938efb8cc73cffb3",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

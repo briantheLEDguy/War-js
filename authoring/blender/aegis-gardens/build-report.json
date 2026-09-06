@@ -1,0 +1,138 @@
+[
+  {
+    "kind": "garden_linden",
+    "envelope": [
+      6.077,
+      5.987,
+      8.028
+    ],
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_garden_linden.glb",
+        "triangles": 8736,
+        "bytes": 1134284,
+        "sha256": "177ca829df3da63f4285db938a739e1ea22da415ef1f87e5518f4028574e9ca4",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_garden_linden_lod1.glb",
+        "triangles": 5964,
+        "bytes": 718476,
+        "sha256": "7e478300753991f34e2f4c7fa30a4832b163e48c4e4d1fe4a0954dc75082334e",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_garden_linden_lod2.glb",
+        "triangles": 4200,
+        "bytes": 453872,
+        "sha256": "806bcdd0462101b81e97f13b6b7d4586d0ea8bbcb9dbd4c988d0ac9194f3d69b",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "garden_cypress",
+    "envelope": [
+      2.807,
+      2.777,
+      9.783
+    ],
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_garden_cypress.glb",
+        "triangles": 8508,
+        "bytes": 1219232,
+        "sha256": "c990ed362a428b37bfc0cb58d6a377f64bbe7aeb2fa293d7601f780d1cd62281",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_garden_cypress_lod1.glb",
+        "triangles": 5180,
+        "bytes": 720016,
+        "sha256": "d46dd45afd721e9b2fbfd94aba211f658e2e7f226f552fdb4fc7e2bb337c45d6",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_garden_cypress_lod2.glb",
+        "triangles": 3064,
+        "bytes": 402608,
+        "sha256": "bf49a09cdd297790645d2628ff8e12b29183d132c78cb028e37a7e4ff181f2bc",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "flowerbed_roses",
+    "envelope": [
+      4.0,
+      2.0,
+      1.019
+    ],
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_flowerbed_roses.glb",
+        "triangles": 12556,
+        "bytes": 1743856,
+        "sha256": "59b77af4d2f2e1f7a17fe5b63d0b224b4f4e3dd63be6d2b0bac8eb9174ffc0bb",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_flowerbed_roses_lod1.glb",
+        "triangles": 8889,
+        "bytes": 1234112,
+        "sha256": "aee6f86661dfd6c084f0f694a84f804f9babed5cafdff2b82123f5086fc0aaee",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_flowerbed_roses_lod2.glb",
+        "triangles": 6585,
+        "bytes": 888492,
+        "sha256": "c27854c87d497399b44cffd1c440b5166f56b96f3eec983e9416871dad6882bf",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "flowerbed_violets",
+    "envelope": [
+      4.0,
+      2.0,
+      0.777
+    ],
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_flowerbed_violets.glb",
+        "triangles": 8020,
+        "bytes": 1051448,
+        "sha256": "f7e86182b31d5d088c9fd86f997bef12cb6fa88e55a297d8f8e08c57a028864b",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_flowerbed_violets_lod1.glb",
+        "triangles": 6349,
+        "bytes": 845132,
+        "sha256": "943241d09af3989d5be5d68d52f9b11aa9a3681aa67214b2b1eaf5549f5fc9f1",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_flowerbed_violets_lod2.glb",
+        "triangles": 5315,
+        "bytes": 690024,
+        "sha256": "7a6da14d7a1ae52eb92410e206c25149a472e0064fd48acb8d602bdb14544ecf",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  }
+]

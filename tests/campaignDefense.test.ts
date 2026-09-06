@@ -117,7 +117,7 @@ describe('friendly campaign objective defense', () => {
     await expect(campaign.defendObjective(HOME_ZONE, WEST, 'riftbound')).rejects.toThrow(/Only friendly objectives/);
     await expect(campaign.defendObjective(HOME_ZONE, `${HOME_ZONE}_aegis_keep`, 'aegis'))
       .rejects.toThrow(/Only battlefield and fortress standards/);
-    await expect(campaign.defendObjective('aegis_capital', 'aegis_capital_plaza', 'aegis'))
+    await expect(campaign.defendObjective('aegis_capital', 'aegis_capital_courtyard', 'aegis'))
       .rejects.toThrow(/Only battlefield and fortress standards/);
     await expect(campaign.defendObjective(HOME_ZONE, 'missing_objective', 'aegis')).rejects.toThrow(/Unknown campaign objective/);
     await expect(campaign.defendObjective('missing_zone', WEST, 'aegis')).rejects.toThrow(/Unknown campaign objective/);

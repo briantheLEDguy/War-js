@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.mountain_passage",
+  "modelSha256": "4d398c61f203d60daa92910092e9b580eefc4031b8027577c95459a55e8dd3af",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_mountain_passage.glb",
+    "triangles": 11468,
+    "bytes": 1552128,
+    "sha256": "4d398c61f203d60daa92910092e9b580eefc4031b8027577c95459a55e8dd3af",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_mountain_passage.glb",
+      "triangles": 11468,
+      "bytes": 1552128,
+      "sha256": "4d398c61f203d60daa92910092e9b580eefc4031b8027577c95459a55e8dd3af",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_mountain_passage_lod1.glb",
+      "triangles": 5734,
+      "bytes": 869052,
+      "sha256": "f15d31c1e8018ea082afb816a1a81b0968ec667bf439b303793683f0beea5f99",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_mountain_passage_lod2.glb",
+      "triangles": 2292,
+      "bytes": 352804,
+      "sha256": "7e9080f4fe5879c36aaeb16d27bf5556f5c2f0107a3fe4a61ad272b9439bff6e",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

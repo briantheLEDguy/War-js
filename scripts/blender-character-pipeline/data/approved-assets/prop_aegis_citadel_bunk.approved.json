@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_bunk",
+  "displayName": "Aegis citadel bunk",
+  "category": "prop",
+  "model": "prop_aegis_citadel_bunk.glb",
+  "qc": "prop_aegis_citadel_bunk.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_bunk"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "b709e6db0f1c73b7f2d6d041513e025c0526caa99b02fb1f9e2e1e3644724b8d",
+    "qcSha256": "60ca946171868f6f5314acf5cd7071f11228a3ed9f364638567035af71030337",
+    "previews": {
+      "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:49:23.657Z",
+    "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_citadel_furnishing_v1"
+    ],
+    "referencePackId": "original_three_peoples_oath_and_fortress_household",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-citadel-interiors/tools/build_interiors.py"
+  },
+  "approvalState": "approved"
+}

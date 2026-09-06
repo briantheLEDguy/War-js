@@ -4,7 +4,7 @@
 insert into campaign_static_zones
   (zone_id, name, realm, tier, lane, node_role, static_map_version, map_hash)
 values
-  ('aegis_capital', 'Bastion of Aegis', 'aegis', 'City', 'central', 'capital', 'aegis-riftbound-v1', 'd151caf07b6f24b5'),
+  ('aegis_capital', 'Bastion of Aegis', 'aegis', 'City', 'central', 'capital', 'aegis-riftbound-v1', '2baf5372148d5ee2'),
   ('aegis_gate_fortress', 'Starfall Gate', 'aegis', 'Fortress', 'central', 'fortress', 'aegis-riftbound-v1', '523d2871b7ef429f'),
   ('aegis_crownworks', 'Aegis Crownworks', 'aegis', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '518e07f50031b13b'),
   ('dawnline_expanse', 'Dawnline Expanse', 'aegis', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', 'b88bd8f3d8876a9c'),
@@ -122,8 +122,9 @@ on conflict (from_zone_id, to_zone_id) do nothing;
 insert into campaign_objectives
   (zone_id, objective_id, objective_type, label, x, z, capture_radius, default_realm)
 values
-  ('aegis_capital', 'aegis_capital_city_gate', 'city_gate', 'Bastion of Aegis Gate', 0, -86, 16, 'aegis'),
-  ('aegis_capital', 'aegis_capital_plaza', 'battle_objective', 'Central Plaza', 0, 0, 14, 'aegis'),
+  ('aegis_capital', 'aegis_capital_courtyard', 'battle_objective', '1 · Crownwatch Courtyard', 0, 158, 12, 'aegis'),
+  ('aegis_capital', 'aegis_capital_vault', 'battle_objective', '2 · Crownwatch Vault', 114, 332, 10, 'aegis'),
+  ('aegis_capital', 'aegis_capital_throne_room', 'battle_objective', '3 · Crownwatch Throne Room', 0, 350, 10, 'aegis'),
   ('aegis_gate_fortress', 'aegis_gate_fortress_west_objective', 'battle_objective', 'West Siege Standard', -72, -24, 14, 'aegis'),
   ('aegis_gate_fortress', 'aegis_gate_fortress_central_objective', 'battle_objective', 'Central Siege Standard', 0, -6, 14, 'aegis'),
   ('aegis_gate_fortress', 'aegis_gate_fortress_east_objective', 'battle_objective', 'East Siege Standard', 72, -24, 14, 'aegis'),

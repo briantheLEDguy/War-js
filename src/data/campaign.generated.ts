@@ -36,7 +36,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "aegis_city",
     "levelBand": "Capital",
-    "staticMapHash": "d151caf07b6f24b5"
+    "staticMapHash": "2baf5372148d5ee2"
   },
   {
     "id": "aegis_gate_fortress",
@@ -527,22 +527,38 @@ export const CAMPAIGN_EDGES = [
 export const CAMPAIGN_OBJECTIVES = {
   "aegis_capital": [
     {
-      "id": "aegis_capital_city_gate",
-      "type": "city_gate",
-      "label": "Bastion of Aegis Gate",
+      "id": "aegis_capital_courtyard",
+      "type": "battle_objective",
+      "label": "1 · Crownwatch Courtyard",
       "x": 0,
-      "z": -86,
-      "captureRadius": 16,
+      "z": 158,
+      "captureRadius": 12,
       "defaultRealm": "aegis"
     },
     {
-      "id": "aegis_capital_plaza",
+      "id": "aegis_capital_vault",
       "type": "battle_objective",
-      "label": "Central Plaza",
+      "label": "2 · Crownwatch Vault",
+      "x": 114,
+      "z": 332,
+      "captureRadius": 10,
+      "defaultRealm": "aegis",
+      "requiresObjectiveIds": [
+        "aegis_capital_courtyard"
+      ]
+    },
+    {
+      "id": "aegis_capital_throne_room",
+      "type": "battle_objective",
+      "label": "3 · Crownwatch Throne Room",
       "x": 0,
-      "z": 0,
-      "captureRadius": 14,
-      "defaultRealm": "aegis"
+      "z": 350,
+      "captureRadius": 10,
+      "defaultRealm": "aegis",
+      "requiresObjectiveIds": [
+        "aegis_capital_courtyard",
+        "aegis_capital_vault"
+      ]
     }
   ],
   "aegis_gate_fortress": [
@@ -1546,7 +1562,7 @@ export const CAMPAIGN_OBJECTIVES = {
 } as const;
 
 export const CAMPAIGN_MAP_HASHES = {
-  "aegis_capital": "d151caf07b6f24b5",
+  "aegis_capital": "2baf5372148d5ee2",
   "aegis_gate_fortress": "523d2871b7ef429f",
   "aegis_crownworks": "518e07f50031b13b",
   "dawnline_expanse": "b88bd8f3d8876a9c",

@@ -6,7 +6,13 @@
   "model": "chr_civic_battle_prelate_t1_m.glb",
   "qc": "chr_civic_battle_prelate_t1_m.qc.json",
   "runtime": {
-    "profileKey": "civic_battle_prelate_m"
+    "profileKey": "civic_battle_prelate_m",
+    "animationPack": {
+      "model": "anim_battle_prelate_combat.glb",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2",
+      "sha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77"
+    }
   },
   "compatibility": {
     "bodyFamily": "civic_battle_prelate_m",

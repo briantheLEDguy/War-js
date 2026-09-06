@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {
   aegisNpcGuardVariantFor,
+  aegisNpcCivilianVariantFor,
 } from '../data/modelOverrides';
 import { AssetLoader } from '../game/AssetLoader';
 import type { Terrain } from './Terrain';
@@ -23,7 +24,7 @@ export interface SpawnedNpcs {
 
 /**
  * Spawns static NPC meshes from zone JSON. NPCs have no combat AI — they are
- * vendors, trainers, bankers, and ambient characters faithful to WAR's city layouts.
+ * vendors, trainers, bankers, and ambient characters in the original campaign.
  * Their positions are pushed into gameStore.npcs so NameplateLayer can render them.
  */
 export async function spawnNpcs(
@@ -38,15 +39,16 @@ export async function spawnNpcs(
 
   for (const s of spawns) {
     const fallback = pickNpcFallback(s.role);
-    const guardVariant = aegisNpcGuardVariantFor(s.role, s.characterProfileKey, s.id);
-    const guardVariantModel = guardVariant
-      ? await loader.resolveCharacterModel(guardVariant.profileKey)
+    const modelOverride = aegisNpcGuardVariantFor(s.role, s.characterProfileKey, s.id)
+      ?? aegisNpcCivilianVariantFor(s.role, s.characterProfileKey, s.id);
+    const overrideModel = modelOverride
+      ? await loader.resolveCharacterModel(modelOverride.profileKey)
       : null;
-    const profileModel = !guardVariantModel && s.characterProfileKey
+    const profileModel = !modelOverride && s.characterProfileKey
       ? await loader.resolveCharacterModel(s.characterProfileKey)
       : null;
-    const model = guardVariantModel
-      ?? guardVariant?.fallbackModel
+    const model = overrideModel
+      ?? modelOverride?.fallbackModel
       ?? profileModel
       ?? s.model
       ?? pickNpcRoleModel(s.role);
@@ -61,7 +63,7 @@ export async function spawnNpcs(
     obj.rotation.y = s.rotY ?? 0;
     scene.add(obj);
 
-    const mixer = startIdleAnimation(obj, animations);
+    const mixer = startNpcIdleAnimation(obj, animations);
     if (mixer) mixers.push(mixer);
 
     states.push({
@@ -118,7 +120,7 @@ function prepareGuardNpcRuntimeObject(object: THREE.Object3D): void {
   });
 }
 
-function startIdleAnimation(
+export function startNpcIdleAnimation(
   object: THREE.Object3D,
   animations: THREE.AnimationClip[],
 ): THREE.AnimationMixer | null {

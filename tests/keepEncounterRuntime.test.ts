@@ -5,6 +5,7 @@ import { Combat } from '../src/game/Combat';
 import { Enemy } from '../src/game/Enemy';
 import { Game } from '../src/game/Game';
 import { KEEP_ENCOUNTER_RADIUS } from '../src/game/KeepEncounter';
+import { getAbilityForCareer } from '../src/game/abilities/abilityData';
 import type { CampaignActivity } from '../src/game/CampaignObjectiveLogic';
 import type { Player } from '../src/game/Player';
 import { services } from '../src/services';
@@ -122,7 +123,7 @@ describe('staged keep encounter integration', () => {
 
     useGameStore.getState().updateEnemy('commander', { health: 1 });
     expect(game.combat.tryAbility(0, game.player, 7100)).toBe(true);
-    game.combat.tickAbilityImpacts(7500);
+    game.combat.tickAbilityImpacts(7100 + getAbilityForCareer('Battle Prelate', 0)!.animation.contactSec! * 1000);
     expect(commanderState()).toMatchObject({ alive: false, keepEncounter: { phase: 'defeated' } });
     expect(commander.respawnAt).toBeNull();
     game.updateKeepEncounters(30_000);
@@ -183,7 +184,7 @@ describe('staged keep encounter integration', () => {
     game.updateKeepEncounters(1000);
     useGameStore.getState().updateEnemy('commander', { health: 1 });
     expect(game.combat.tryAbility(0, game.player, 1100)).toBe(true);
-    game.combat.tickAbilityImpacts(1500);
+    game.combat.tickAbilityImpacts(1100 + getAbilityForCareer('Battle Prelate', 0)!.animation.contactSec! * 1000);
     expect(commanderState().keepEncounter?.phase).toBe('defeated');
     game.player.position.x = objective.x + KEEP_ENCOUNTER_RADIUS + 1;
     game.updateKeepEncounters(1600);

@@ -1,0 +1,5028 @@
+{
+  "variants": {
+    "standard": {
+      "0": {
+        "triangles": 62964,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_standard.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 6803172,
+        "sha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb"
+      },
+      "1": {
+        "triangles": 45264,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_standard_lod1.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 5828000,
+        "sha256": "86f6dc0a97d2003dd6dcc4939d3164222520497f575d4992f44d1dc6e0069136"
+      },
+      "2": {
+        "triangles": 37940,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_standard_lod2.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 5427452,
+        "sha256": "9f230f53a6d121495374ec8d388919e36a602c192dbe99c29260f379064553bc"
+      }
+    },
+    "halberd": {
+      "0": {
+        "triangles": 62708,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_halberd.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 6784520,
+        "sha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b"
+      },
+      "1": {
+        "triangles": 45008,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_halberd_lod1.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 5810808,
+        "sha256": "9558cf090bfb62fbf8dce8b08a16e4db0ec890d4405017d53d2bc7e470e52a3a"
+      },
+      "2": {
+        "triangles": 37684,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_halberd_lod2.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 5408556,
+        "sha256": "419b5550e617d8b6a05525e90f7c88fa177addbb2972e42d7b7c43aaa9907313"
+      }
+    },
+    "crossbow": {
+      "0": {
+        "triangles": 62632,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_crossbow.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 6776236,
+        "sha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17"
+      },
+      "1": {
+        "triangles": 44932,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_crossbow_lod1.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 5801192,
+        "sha256": "70b874c9fa5b43af9a7106ecb5c9a589a5b14f5d9d95bbc72b979415472115ee"
+      },
+      "2": {
+        "triangles": 37608,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_crossbow_lod2.glb",
+        "grip_audit": {
+          "max_gap_m": 0.0,
+          "samples": [
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_melee",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "attack_ranged",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "cast",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "combat_idle",
+              "frame": 64.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "death",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 36.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "idle",
+              "frame": 48.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "jump",
+              "frame": 32.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 4.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 8.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "run",
+              "frame": 16.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 0.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 6.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 12.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 18.0,
+              "hand": "L",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "R",
+              "gap_m": 0.0
+            },
+            {
+              "clip": "walk",
+              "frame": 24.0,
+              "hand": "L",
+              "gap_m": 0.0
+            }
+          ]
+        },
+        "bytes": 5400980,
+        "sha256": "3787d1154a4d781766f105bc174934c0965af330225cef42b58cc51a170901bc"
+      }
+    },
+    "captain": {
+      "0": {
+        "triangles": 67212,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_captain.glb",
+        "grip_audit": {
+          "max_gap_m": 0,
+          "samples": []
+        },
+        "bytes": 7034512,
+        "sha256": "d4c0910ec7b022fe4e571a182f407e1e49e0bbb38f3141576d951b62f3ce3c5b"
+      },
+      "1": {
+        "triangles": 46588,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_captain_lod1.glb",
+        "grip_audit": {
+          "max_gap_m": 0,
+          "samples": []
+        },
+        "bytes": 5911760,
+        "sha256": "f5c63498cb2df7a7a1ef74cfba3cad7dd5597240a27491c83d70f6f5549abd93"
+      },
+      "2": {
+        "triangles": 39264,
+        "modules": 10,
+        "materials": 9,
+        "file": "chr_aegis_city_guard_captain_lod2.glb",
+        "grip_audit": {
+          "max_gap_m": 0,
+          "samples": []
+        },
+        "bytes": 5511148,
+        "sha256": "ce0c4796ca24ff0eb9c7a9ca6ff6fbed76a76aa6944c6d0e5706e665e673db3f"
+      }
+    }
+  },
+  "reference_sha256": "f31670663828db556241bf17bd5df5f997b6633335e7b4ab7910d1b9162f1147",
+  "rig": "humanoid_game_v2",
+  "review": "Pending visual inspection of exported models"
+}

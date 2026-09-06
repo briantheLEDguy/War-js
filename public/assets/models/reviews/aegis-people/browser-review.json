@@ -1,0 +1,133 @@
+{
+  "method": "Actual Three.js viewer role and LOD selection through browser UI",
+  "loadedModels": [
+    {
+      "role": "civilian_male",
+      "lod": "0",
+      "sha256": "1839359f7fafeef90ddf35386beb56d1da137d82c995d5eb9252f732d11cf9be",
+      "idleObserved": true
+    },
+    {
+      "role": "civilian_male",
+      "lod": "1",
+      "sha256": "f21c24d6e2360710ea70520d0b27476a1ed8758206004f7329c6de7fd5756288",
+      "idleObserved": true
+    },
+    {
+      "role": "civilian_male",
+      "lod": "2",
+      "sha256": "7952c24ff55adba2d063dd0f889223be49f3558176bf93496ffa859e7fecd1ba",
+      "idleObserved": true
+    },
+    {
+      "role": "civilian_female",
+      "lod": "0",
+      "sha256": "5fca161a917f6a58fba7b3e0681beb7e1fe8a4a260aba323a9af720c1790a2d7",
+      "idleObserved": true
+    },
+    {
+      "role": "civilian_female",
+      "lod": "1",
+      "sha256": "955fb1ffe62622e8cc4721043a28ab8af101e5b7b2e81d1db5afa642e7c4f370",
+      "idleObserved": true
+    },
+    {
+      "role": "civilian_female",
+      "lod": "2",
+      "sha256": "10bf4bee32949f63c5a3a6bc979e4422baf86bd0786832990bb6374ad68ebe54",
+      "idleObserved": true
+    },
+    {
+      "role": "child",
+      "lod": "0",
+      "sha256": "94109fc77f35c3a5f3db34ce80d4e7d38bb79641bac5b4e6588875f1095fc7e9",
+      "idleObserved": true
+    },
+    {
+      "role": "child",
+      "lod": "1",
+      "sha256": "5807c0cbd2659f2b8c76ed1aacd39594080094899cea0a95c0554e0fbc8f036f",
+      "idleObserved": true
+    },
+    {
+      "role": "child",
+      "lod": "2",
+      "sha256": "12e05922bc28b50eb607ee106cb49b8f26d04c27c2da0655da698bbbc7dd01e3",
+      "idleObserved": true
+    },
+    {
+      "role": "lord",
+      "lod": "0",
+      "sha256": "9ca5c3e8db68307c9d5737ad1692fef00670169f49bc76a43b6a9607b7655959",
+      "idleObserved": true
+    },
+    {
+      "role": "lord",
+      "lod": "1",
+      "sha256": "ffefaa908c343a0dbcb607da0156100d9be342050f1ce5ea3650d101a72f935c",
+      "idleObserved": true
+    },
+    {
+      "role": "lord",
+      "lod": "2",
+      "sha256": "f3676c608f5e75b39fbfe3c59081e49c6a3edcec08c1bd4ca36e2d78b0d9c00e",
+      "idleObserved": true
+    },
+    {
+      "role": "lady",
+      "lod": "0",
+      "sha256": "b92a3240db00fca79e1a939d2d7f48865ea2c94aea8ea8b89f2162c62f80107a",
+      "idleObserved": true
+    },
+    {
+      "role": "lady",
+      "lod": "1",
+      "sha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+      "idleObserved": true
+    },
+    {
+      "role": "lady",
+      "lod": "2",
+      "sha256": "588ca5d2f3eddb551d18bbf6e06698522b04a529a492b207d219bf3c0d7f074d",
+      "idleObserved": true
+    },
+    {
+      "role": "courtier",
+      "lod": "0",
+      "sha256": "b6d5146435f6073a087bfcfeb30e5298b08eecd13d4cb1e6690b927a071a4889",
+      "idleObserved": true
+    },
+    {
+      "role": "courtier",
+      "lod": "1",
+      "sha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+      "idleObserved": true
+    },
+    {
+      "role": "courtier",
+      "lod": "2",
+      "sha256": "74ee466b187acf039e9b4e007a17417384e32a57f85a145556da5e9b07fceaa5",
+      "idleObserved": true
+    },
+    {
+      "role": "attendant",
+      "lod": "0",
+      "sha256": "1826ef1e9f1610d7b8f456ac60ab3e3733cfb51c5cdf4a06f0d95f8383b65ec0",
+      "idleObserved": true
+    },
+    {
+      "role": "attendant",
+      "lod": "1",
+      "sha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+      "idleObserved": true
+    },
+    {
+      "role": "attendant",
+      "lod": "2",
+      "sha256": "2c85afddd132fab108c9ae1056b4f624e8ccf663d3d89fba27ad6eee3b3d8780",
+      "idleObserved": true
+    }
+  ],
+  "consoleErrors": [],
+  "scope": "21 loads; front and orbit views; idle playback. Not user aesthetic approval."
+}

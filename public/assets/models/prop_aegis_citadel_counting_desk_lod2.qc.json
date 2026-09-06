@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_counting_desk",
+  "modelSha256": "7806e8225c225cb0c0673e82aa7bb4d1a3f261774f427e85759f3a197d83d774",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_citadel_counting_desk_lod2.glb",
+    "triangles": 1416,
+    "bytes": 163144,
+    "sha256": "7806e8225c225cb0c0673e82aa7bb4d1a3f261774f427e85759f3a197d83d774",
+    "repairedDegenerateTangents": 2
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_counting_desk.glb",
+      "triangles": 5924,
+      "bytes": 550492,
+      "sha256": "9d6a26f6c930e4da6497ed17fe64d1c5ee01448fb401a2f43cfb4f0f762cce8e",
+      "repairedDegenerateTangents": 2
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_counting_desk_lod1.glb",
+      "triangles": 3071,
+      "bytes": 337092,
+      "sha256": "fefe661cb0fb717c52daac365e321861658da75544225c05a4e9f6adc4ab40ba",
+      "repairedDegenerateTangents": 2
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_counting_desk_lod2.glb",
+      "triangles": 1416,
+      "bytes": 163144,
+      "sha256": "7806e8225c225cb0c0673e82aa7bb4d1a3f261774f427e85759f3a197d83d774",
+      "repairedDegenerateTangents": 2
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 4,
+    "depth": 2.5,
+    "height": 2
+  }
+}

@@ -91,6 +91,7 @@ export class CampaignLocal implements CampaignService {
       currentObjective,
       realm,
       influence,
+      { zoneId, zoneControl: this.zoneControl },
     );
     if (!eligibility.capturable) {
       throw new Error(eligibility.reason ?? `Objective "${objectiveId}" cannot be captured.`);

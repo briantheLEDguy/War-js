@@ -14,6 +14,8 @@ import type {
 } from '../../services/types';
 import type { Terrain } from '../Terrain';
 import type { InteractiveGate, InteractiveHousePortal, WorldCollider, WorldWalkableSurface } from '../Props';
+import { pickFallback } from '../Props';
+import { architectureLods, shareCityMaterials } from '../CityArchitecture';
 import {
   applyVoxelBrushToDocument,
   type VoxelBrushTool,
@@ -21,6 +23,8 @@ import {
 } from './VoxelTerrainRuntime';
 import {
   prefabDefaultAssetKeyForKind,
+  prefabDefaultInteractionForKind,
+  prefabDefinitionForKind,
   prefabDefaultCollidersForKind,
   prefabDefaultModelForKind,
   prefabDefaultScaleForKind,
@@ -204,6 +208,7 @@ export class WorldEditorRuntime {
     object: THREE.Object3D,
     options: RegisterStaticObjectOptions = {},
   ): void {
+    object.userData.cameraStaticGeometry = definition.type === 'prop' && !definition.interaction && definition.kind !== 'terrain';
     object.userData.worldEditObjectId = definition.id;
     object.traverse((node) => {
       node.userData.worldEditObjectId = definition.id;
@@ -313,6 +318,41 @@ export class WorldEditorRuntime {
 
   getCameraColliders(): WorldCollider[] {
     return this.cameraColliders;
+  }
+
+  get objectList(): Array<{ id: string; label: string; hidden: boolean }> {
+    const definitions = new Map([...this.staticObjects].map(([id, entry]) => [id, entry.definition]));
+    for (const object of this.document?.objects ?? []) definitions.set(object.id, object);
+    return [...definitions.values()].map(object => ({ id: object.id,
+      label: object.label ?? (object.type === 'prop' ? prefabLabelForKind(object.kind) : object.type),
+      hidden: object.hidden === true }));
+  }
+
+  restoreSelectedObject(): boolean {
+    if (!this.document || !this.selectedId) return false;
+    const entry = this.staticObjects.get(this.selectedId);
+    if (!entry?.definition.hidden) return false;
+    this.pushUndoSnapshot();
+    this.upsertDocumentObject({ ...cloneObject(entry.definition), hidden: false, updatedAt: Date.now() });
+    this.applyStaticObjectOverride(this.selectedId);
+    this.rebuildStandaloneCollision();
+    this.emitChanged();
+    return true;
+  }
+
+  getCameraObjects(): THREE.Object3D[] {
+    // Definition visibility survives city instancing, which hides source meshes.
+    const objects: THREE.Object3D[] = [];
+    for (const entry of [...this.staticObjects.values(), ...this.spawned.values()]) {
+      // Heightfield collision is already sampled along the camera sweep. Raycasting
+      // its full triangle mesh again is expensive and adds no overhang information.
+      if (entry.definition.type === 'prop' && entry.definition.kind === 'terrain' && !entry.definition.model) continue;
+      if (!entry.definition.hidden && entry.definition.type !== 'collider' && entry.definition.type !== 'walkableSurface') {
+        objects.push(entry.object);
+      }
+    }
+    if (this.voxelRuntime.object) objects.push(this.voxelRuntime.object);
+    return objects;
   }
 
   getWalkableSurfaces(): WorldWalkableSurface[] {
@@ -640,7 +680,7 @@ export class WorldEditorRuntime {
     this.selectObject(id);
   }
 
-  private selectObject(id: string | null): void {
+  selectObject(id: string | null): void {
     this.selectedId = id;
     for (const entry of [...this.spawned.values(), ...this.staticObjects.values()]) entry.helper?.dispose();
     for (const entry of [...this.spawned.values(), ...this.staticObjects.values()]) {
@@ -720,12 +760,20 @@ export class WorldEditorRuntime {
     const animated = definition.interaction?.type === 'gate' && model
       ? await this.loader.loadModelWithAnimations(model, fallback)
       : null;
-    const object = animated
+    let object = animated
       ? animated.object
       : model
         ? await this.loader.loadModel(model, fallback)
         : fallback();
+    const sourceKind = prefabFallbackKindForKind(definition.kind) ?? definition.kind;
+    if (sourceKind.startsWith('aegis_')) {
+      shareCityMaterials(object, this.loader);
+      const lodModels = prefabDefinitionForKind(definition.kind)?.lodModels;
+      if (lodModels?.length && !definition.interaction) object = await architectureLods(object, lodModels, sourceKind, this.loader);
+      if (sourceKind === 'aegis_portcullis') object.children.forEach(child => { child.userData.gateLift = true; child.userData.gateLiftBaseY = child.position.y; });
+    }
     applyTransform(object, definition.transform);
+    object.userData.cameraStaticGeometry = !definition.interaction;
     object.userData.worldEditObjectId = definition.id;
     object.traverse((node) => {
       node.userData.worldEditObjectId = definition.id;
@@ -857,7 +905,14 @@ export class WorldEditorRuntime {
       }
     }
     this.colliders = colliders;
-    this.cameraColliders = colliders;
+    this.cameraColliders = colliders.map(collider => {
+      if (!collider.sourceObjectId || (collider.minY !== undefined && collider.maxY !== undefined)) return collider;
+      const entry = this.spawned.get(collider.sourceObjectId) ?? this.staticObjects.get(collider.sourceObjectId);
+      if (entry?.definition.type !== 'prop') return collider;
+      const bounds = new THREE.Box3().setFromObject(entry.object);
+      if (bounds.isEmpty()) return collider;
+      return { ...collider, minY: collider.minY ?? bounds.min.y, maxY: collider.maxY ?? bounds.max.y };
+    });
     this.walkableSurfaces = walkables;
   }
 
@@ -1116,6 +1171,7 @@ function buildPropObject(kind: string, position: Vec3, rotation?: Vec3): WorldPr
     label: prefabLabelForKind(kind),
     model: defaultModelForKind(kind),
     assetKey: defaultAssetKeyForKind(kind),
+    colliderSpace: prefabDefinitionForKind(kind)?.colliderSpace,
     transform: {
       ...defaultTransform(position),
       rotation: rotation ?? { x: 0, y: 0, z: 0 },
@@ -1340,14 +1396,13 @@ function walkableFromObject(object: WorldWalkableSurfaceObject): WorldWalkableSu
   };
 }
 
-function propCollidersFromObject(object: WorldPropObject): WorldCollider[] {
+export function propCollidersFromObject(object: WorldPropObject): WorldCollider[] {
   return (object.colliders ?? []).map((collider, index) => ({
     id: collider.id ?? `${object.id}-collider-${index}`,
-    x: object.transform.position.x + (collider.x ?? 0) * object.transform.scale.x,
-    z: object.transform.position.z + (collider.z ?? 0) * object.transform.scale.z,
+    ...propLocalOffset(object, collider),
     width: collider.width * object.transform.scale.x,
     depth: collider.depth * object.transform.scale.z,
-    rotY: object.transform.rotation.y + (collider.rotY ?? 0),
+    rotY: (object.colliderSpace === 'model' ? -1 : 1) * (object.transform.rotation.y + (collider.rotY ?? 0)),
     minY: collider.minY === undefined ? undefined : object.transform.position.y + collider.minY * object.transform.scale.y,
     maxY: collider.maxY === undefined ? undefined : object.transform.position.y + collider.maxY * object.transform.scale.y,
     blocksWhen: collider.blocksWhen ?? 'always',
@@ -1356,19 +1411,28 @@ function propCollidersFromObject(object: WorldPropObject): WorldCollider[] {
   }));
 }
 
-function propWalkablesFromObject(object: WorldPropObject): WorldWalkableSurface[] {
+export function propWalkablesFromObject(object: WorldPropObject): WorldWalkableSurface[] {
   return (object.walkableSurfaces ?? []).map((surface, index) => ({
     id: surface.id ?? `${object.id}-walkable-${index}`,
-    x: object.transform.position.x + (surface.x ?? 0) * object.transform.scale.x,
-    z: object.transform.position.z + (surface.z ?? 0) * object.transform.scale.z,
+    ...propLocalOffset(object, surface),
     width: surface.width * object.transform.scale.x,
     depth: surface.depth * object.transform.scale.z,
-    rotY: object.transform.rotation.y + (surface.rotY ?? 0),
+    rotY: (object.colliderSpace === 'model' ? -1 : 1) * (object.transform.rotation.y + (surface.rotY ?? 0)),
     fromY: object.transform.position.y + (surface.fromY ?? 0) * object.transform.scale.y,
     toY: object.transform.position.y + (surface.toY ?? 0) * object.transform.scale.y,
     axis: surface.axis ?? 'z',
     sourceObjectId: object.id,
   }));
+}
+
+function propLocalOffset(object: WorldPropObject, offset: { x?: number; z?: number }): { x: number; z: number } {
+  // Model space follows Three.js; undefined preserves the legacy authored convention.
+  const x = (offset.x ?? 0) * object.transform.scale.x;
+  const z = (offset.z ?? 0) * object.transform.scale.z;
+  const angle = (object.colliderSpace === 'model' ? -1 : 1) * object.transform.rotation.y;
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return { x: object.transform.position.x + x * c - z * s,
+    z: object.transform.position.z + x * s + z * c };
 }
 
 function defaultModelForKind(kind: string): string | undefined {
@@ -1380,6 +1444,8 @@ function defaultAssetKeyForKind(kind: string): string | undefined {
 }
 
 function defaultInteractionForKind(kind: string, id: string): WorldPropObject['interaction'] {
+  const authored = prefabDefaultInteractionForKind(kind, id);
+  if (authored) return authored;
   const interiorVariant = prefabHouseInteriorVariantForKind(kind);
   if (interiorVariant) {
     return {
@@ -1453,16 +1519,14 @@ function disposeObject(root: THREE.Object3D): void {
 }
 
 function primitiveForKind(kind: string): PrimitiveFactory {
-  const primitives = RuntimeAssetLoader.primitives as unknown as Record<string, PrimitiveFactory>;
-  const fallbackKind = prefabFallbackKindForKind(kind);
-  if (fallbackKind && primitives[fallbackKind]) return primitives[fallbackKind];
-  return primitives[kind] ?? primitives.rock;
+  return pickFallback(kind);
 }
 
 function hasGateFallbackLeaves(object: THREE.Object3D): boolean {
   let found = false;
   object.traverse((node) => {
     if (typeof node.userData.gateLeafSide === 'number') found = true;
+    if (node.userData.gateLift) found = true;
   });
   return found;
 }
@@ -1470,6 +1534,7 @@ function hasGateFallbackLeaves(object: THREE.Object3D): boolean {
 function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void {
   const clamped = Math.max(0, Math.min(1, progress));
   object.traverse((node) => {
+    if (node.userData.gateLift) node.position.y = (node.userData.gateLiftBaseY ?? 0) + 9 * clamped;
     const side = node.userData.gateLeafSide;
     if (typeof side !== 'number') return;
     node.rotation.y = -side * (Math.PI / 2) * clamped;

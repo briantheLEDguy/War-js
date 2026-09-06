@@ -1,0 +1,12 @@
+{
+  "source": "blends/male_base.blend",
+  "source_sha256": "b9a8789453045d1d1f0911fc8b02794f31d7ae19e08e82dc2e6c486e2a24e4b3",
+  "origin": "Existing repository-provided human base; original geometry and packed textures retained as provenance, no new acquisition.",
+  "operation": "Upper head/neck extraction; preserve skin UVs and reproject eye UVs for natural iris size; decimate to 11000 triangles; translate into canonical guard fit.",
+  "input_head_triangles": 44570,
+  "output_head_triangles": 11000,
+  "textures": {
+    "eye_white.png": "b2147edb9940f4d3e1ec34547f8112f37ed1d2252d602e548d10e844f415d3df",
+    "skin.jpg": "a668311cf4624c30d111a49e26964fe7aa46d2c9a5e3e61c93f819ae3ef688f0"
+  }
+}

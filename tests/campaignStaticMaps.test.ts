@@ -231,7 +231,14 @@ describe('static campaign map files', () => {
         expect(zone.rvrObjectives?.map((objective) => objective.type)).toEqual(['boss']);
       } else if (node.nodeRole === 'capital') {
         expect(keeps, node.id).toHaveLength(0);
-        expect(zone.rvrObjectives?.some((objective) => objective.type === 'city_gate')).toBe(true);
+        if (node.id === 'aegis_capital') {
+          expect(battleObjectives, node.id).toHaveLength(3);
+          expect(zone.rvrObjectives?.map((objective) => objective.id)).toEqual([
+            'aegis_capital_courtyard', 'aegis_capital_vault', 'aegis_capital_throne_room',
+          ]);
+        } else {
+          expect(zone.rvrObjectives?.some((objective) => objective.type === 'city_gate')).toBe(true);
+        }
       }
     }
   });
@@ -267,15 +274,13 @@ describe('static campaign map files', () => {
   test('capital city gates use closed-only interactive colliders', () => {
     for (const node of CAMPAIGN_ZONES.filter((entry) => entry.nodeRole === 'capital')) {
       const zone = loadZone(node.id);
-      const cityGateObjective = zone.rvrObjectives?.find((objective) => objective.type === 'city_gate');
-      expect(cityGateObjective).toBeTruthy();
-      const cityGate = zone.props.find((prop) => prop.id === `${cityGateObjective?.id}_gate`);
-      expectInteractiveGate(cityGate, 'castle_gate.glb');
+      const cityGate = zone.props.find((prop) => prop.id === `${node.id}_city_gate_gate`);
+      expectInteractiveGate(cityGate, node.id === 'aegis_capital' ? 'prop_aegis_portcullis.glb' : 'castle_gate.glb');
     }
   });
 
-  test('capital cities use the reusable fortress build pack around dense original town districts', () => {
-    for (const node of CAMPAIGN_ZONES.filter((entry) => entry.nodeRole === 'capital')) {
+  test('Riftspire retains its reusable fortress build pack and original town districts', () => {
+    for (const node of CAMPAIGN_ZONES.filter((entry) => entry.id === 'riftspire_capital')) {
       const zone = loadZone(node.id);
       const wallPrefix = `${node.id}_city_wall`;
       const citadelPrefix = `${node.id}_capital_citadel`;

@@ -15,6 +15,7 @@ export function DebugOverlay({ game }: Props) {
     dragClassName,
   } = useDraggableWindow<HTMLDivElement>();
   const fps = useGameStore((s) => s.fps);
+  const frameLimit = useGameStore((s) => s.settings.frameRateLimit);
   const fallbacks = useGameStore((s) => s.assetFallbacks);
   const gmBuildMode = useGameStore((s) => s.gmBuildMode);
   const px = game?.playerPos.x ?? 0;
@@ -30,6 +31,9 @@ export function DebugOverlay({ game }: Props) {
       {...dragHandleProps}
     >
       {`FPS:        ${fps}
+Limit:      ${frameLimit} FPS
+Frame:      ${(game?.frameMs ?? 0).toFixed(1)} ms
+3D scale:   ${Math.round((game?.renderScale ?? 1) * 100)}%
 Zone:       ${zone}
 Pos:        ${px.toFixed(2)}, ${py.toFixed(2)}, ${pz.toFixed(2)}
 Backend:    ${services.backend}

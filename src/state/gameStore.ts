@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import type { EnemyCastState } from '../game/enemyAttackTelegraph';
 import { DEFAULT_VIEW_DISTANCE, clampViewDistance } from '../config/viewDistance';
+import { normalizeRenderResolution, type RenderResolutionMode } from '../game/RenderResolution';
+import { normalizeFrameRateLimit, type FrameRateLimit } from '../game/ForegroundFrameLoop';
 import {
   createDefaultCraftingState,
   type EnemyGatheringState,
@@ -51,6 +53,8 @@ export interface GameplaySettings {
   touchLookSensitivity: number;
   zoomSensitivity: number;
   viewDistance: number;
+  renderResolution: RenderResolutionMode;
+  frameRateLimit: FrameRateLimit;
   keybindings: Keybindings;
 }
 
@@ -119,6 +123,8 @@ export const DEFAULT_GAMEPLAY_SETTINGS: GameplaySettings = {
   touchLookSensitivity: 1,
   zoomSensitivity: 1,
   viewDistance: DEFAULT_VIEW_DISTANCE,
+  renderResolution: 'auto',
+  frameRateLimit: 30,
   keybindings: DEFAULT_KEYBINDINGS,
 };
 
@@ -192,6 +198,8 @@ function normalizeGameplaySettings(value: unknown): GameplaySettings {
       DEFAULT_GAMEPLAY_SETTINGS.viewDistance,
     ),
     keybindings: normalizeKeybindings(partial.keybindings),
+    renderResolution: normalizeRenderResolution(partial.renderResolution),
+    frameRateLimit: normalizeFrameRateLimit(partial.frameRateLimit),
   };
 }
 
@@ -323,6 +331,7 @@ interface GameStore {
   removeInventoryQty: (slot: number, amt: number) => void;
 
   // ------- combat -------
+  lastCombatAt: number;
   enemies: EnemyState[];
   setEnemies: (e: EnemyState[]) => void;
   updateEnemy: (id: string, patch: Partial<EnemyState>) => void;
@@ -489,6 +498,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       : null;
     return set({
       character: normalizedCharacter,
+      lastCombatAt: get().character?.id === normalizedCharacter?.id ? get().lastCombatAt : 0,
       globalCooldownUntil: get().character?.id === normalizedCharacter?.id ? get().globalCooldownUntil : 0,
       abilityResource: normalizedCharacter ? createAbilityResourceState(normalizedCharacter.className) : null,
       hotbarCooldowns: Array.from({ length: HOTBAR_SLOT_COUNT }, () => 0),
@@ -585,6 +595,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   setAbilityResource: (abilityResource) => set({ abilityResource }),
 
   playerDead: false,
+  lastCombatAt: 0,
   setPlayerDead: (playerDead) => set({ playerDead }),
   respawnPoint: { x: 0, y: 0, z: 0 },
   setRespawnPoint: (respawnPoint) => set({ respawnPoint }),

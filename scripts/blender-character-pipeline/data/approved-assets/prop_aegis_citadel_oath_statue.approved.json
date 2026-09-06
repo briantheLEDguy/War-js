@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_oath_statue",
+  "displayName": "Aegis citadel oath statue",
+  "category": "prop",
+  "model": "prop_aegis_citadel_oath_statue.glb",
+  "qc": "prop_aegis_citadel_oath_statue.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_oath_statue"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "b368f2ef85cde8d65d09f40ebb12c1b28cb2bac9c8381c0717a6196f4991dc92",
+    "qcSha256": "96d65199bcec7574746c6b63233f7fc7018542d27c3d7f28a553a0587c540311",
+    "previews": {
+      "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:49:23.657Z",
+    "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_citadel_furnishing_v1"
+    ],
+    "referencePackId": "original_three_peoples_oath_and_fortress_household",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-citadel-interiors/tools/build_interiors.py"
+  },
+  "approvalState": "approved"
+}

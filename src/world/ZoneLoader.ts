@@ -1,6 +1,7 @@
 import { applyBiomeKits } from './BiomeKit';
 import { applyZonePaths } from './PathKit';
 import type { WorldLifeDefinition } from './worldLifeTypes';
+import type { CanalDefinition } from './CityWater';
 import type {
   CampaignLane,
   CampaignNodeRole,
@@ -32,10 +33,14 @@ export interface PropSpawn {
   scaleZ?: number;
   /** Optional .glb under /public/assets/models/ */
   model?: string;
+  /** Optional reviewed architecture LOD1 and LOD2 filenames. */
+  lodModels?: string[];
   /** Optional asset-index static key. Prefer this over direct model names. */
   assetKey?: string;
   /** If false, registers colliders/metadata without rendering a visible mesh. */
   visible?: boolean;
+  /** Opt into mesh-local Three.js yaw for colliders and walkable surfaces. */
+  colliderSpace?: 'model';
   colliders?: Array<{
     id?: string;
     /** Local offset from prop origin. */
@@ -229,6 +234,8 @@ export interface RvrObjectiveDefinition {
   z: number;
   captureRadius: number;
   defaultRealm: CampaignRealm;
+  /** Same-zone objectives that the capturing realm must still control. */
+  requiresObjectiveIds?: readonly string[];
 }
 
 export interface ZoneCampaignMetadata {
@@ -277,11 +284,74 @@ export interface ZoneDefinition {
   biomeKits?: BiomeKitPlacement[];
   /** Non-blocking visual walking paths generated into props when the zone loads. */
   paths?: PathDefinition[];
+  cityLayoutVersion?: string;
+  cityExpansion?: {
+    version: string;
+    houses: number;
+    trees: number;
+    flowerbeds: number;
+    districtCounts: Record<string, { houses: number; trees: number; flowerbeds: number }>;
+  };
+  cityElevation?: import('./CityElevation').CityElevation;
+  cityCitadel?: {
+    enclosure: { minX: number; maxX: number; minZ: number; maxZ: number };
+    entranceGateIds: string[];
+    keepGateId: string;
+    interior: { name: string; minX: number; maxX: number; minZ: number; maxZ: number; galleryHeight: number };
+    siege?: {
+      objectiveOrder: string[];
+      thronePropId: string;
+      rooms: Array<{id: string; name: string; purpose: string; bounds: {minX: number; maxX: number; minZ: number; maxZ: number}; entry: {x: number; z: number}; floorY: number}>;
+      vaultStaging: {south: Array<{x: number; z: number}>; north: Array<{x: number; z: number}>};
+      decorationKinds: string[];
+      decorationCount: number;
+    };
+    /** Connected world geometry; sealed future branches do not register travel triggers. */
+    mountainExtension?: {
+      name: string;
+      bounds: { minX: number; maxX: number; minZ: number; maxZ: number };
+      internalGateId: string;
+      battleHall: { minX: number; maxX: number; minZ: number; maxZ: number };
+      commandChamber: { minX: number; maxX: number; minZ: number; maxZ: number };
+      vault?: { minX: number; maxX: number; minZ: number; maxZ: number; gateIds: string[] };
+      throneGateIds?: string[];
+      staging: { south: Array<{ x: number; z: number }>; north: Array<{ x: number; z: number }> };
+      routes: Array<{ id: string; name: string; width: number; points: Array<{ x: number; z: number }> }>;
+      futureConnections: Array<{
+        id: 'crypts' | 'vault'; name: string; status: 'sealed'; portalPropId: string;
+        approach: { x: number; y: number; z: number };
+        reservedBounds: { minX: number; maxX: number; minZ: number; maxZ: number };
+      }>;
+    };
+  };
+  cityBattlefield?: {
+    name: string;
+    playersPerTeam: number;
+    bounds: { minX: number; maxX: number; minZ: number; maxZ: number };
+    staging: { south: Array<{ x: number; z: number }>; north: Array<{ x: number; z: number }> };
+    approaches: Array<{ x: number; z: number; width: number }>;
+  };
+  cityDetailCounts?: { infillBuildings: number; streetFurnishings: number; courtFeatures: number };
+  cityCivicDecorations?: {
+    version: number;
+    districtCounts: Record<string, { lights: number; artwork: number; furniture: number }>;
+    mountedLanterns: number;
+    streetlights: number;
+    publicArt: number;
+    tradeSigns: number;
+    furniture: number;
+  };
+  canals?: CanalDefinition[];
+  cityDistricts?: Array<{ id: string; name: string; x: number; z: number }>;
+  explorationPlaces?: Array<{ name: string; x: number; z: number }>;
+  atmosphere?: { fogColor: string; sunColor: string; sunIntensity: number };
 }
 
 export interface PathDefinition {
   id: string;
-  style: 'dirt_trail' | 'cobblestone_avenue';
+  style: 'dirt_trail' | 'cobblestone_avenue' | 'brick_walkway';
+  /** Disable inferred joins for authored streets separated by water or walls. */
+  autoConnect?: boolean;
   width: number;
   points: Array<{ x: number; z: number }>;
   y?: number;

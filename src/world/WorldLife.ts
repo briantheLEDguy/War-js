@@ -2,8 +2,12 @@ import * as THREE from 'three';
 import { buildWorldLifeActor } from './WorldLifeAssets';
 import { sampleWorldLifeRoute } from './worldLifeMotion';
 import type { WorldLifeActorSpawn, WorldLifeDefinition, WorldLifeEmitterSpawn } from './worldLifeTypes';
+import type { AssetLoader } from '../game/AssetLoader';
+import { worldLifeCharacterProfile } from './worldLifeModels';
+import { CIVIC_WALK_SPEED, createCivicWalkClip } from './CivicLocomotion';
 
-export const WORLD_LIFE_LIMITS = { actors: 48, emitters: 24, particles: 384, distance: 100 } as const;
+export const WORLD_LIFE_LIMITS = { actors: 48, emitters: 24, particles: 384, distance: 100,
+  concurrentModelLoads: 3, nearAnimationHz: 30, farAnimationHz: 15, nearAnimationDistance: 40 } as const;
 
 type GroundHeight = (x: number, z: number) => number;
 interface Actor {
@@ -11,6 +15,20 @@ interface Actor {
   object: THREE.Group;
   phase: number;
   limbs: Map<string, THREE.Object3D>;
+  visual: THREE.Object3D | null;
+  ownsVisualResources: boolean;
+  rig: AmbientRig | null;
+}
+interface AmbientRig {
+  mixer: THREE.AnimationMixer;
+  idle: THREE.AnimationAction;
+  walk: THREE.AnimationAction | null;
+  moving: boolean;
+  fromWeight: number;
+  walkWeight: number;
+  changedAt: number;
+  sampledAt: number;
+  walkSpeed: number;
 }
 interface Emitter {
   spawn: WorldLifeEmitterSpawn;
@@ -22,18 +40,22 @@ interface Emitter {
 /** Owns only decorative actors/effects; it cannot change combat, NPC or quest state. */
 export class WorldLife {
   readonly group = new THREE.Group();
+  /** Settles once the bounded initial cast load has completed, including safe fallbacks. */
+  readonly ready: Promise<void>;
   private readonly actors: Actor[] = [];
   private readonly emitters: Emitter[] = [];
   private readonly sceneryAnimations: Array<{ object: THREE.Object3D; kind: string; baseScaleY: number; baseRotationZ: number }> = [];
   private elapsed = 0;
   private disposed = false;
+  private readonly civicWalkClips = new Map<string, THREE.AnimationClip>();
 
   constructor(
     scene: THREE.Scene,
     definition: WorldLifeDefinition | undefined,
-    realm: 'aegis' | 'riftbound',
+    private readonly realm: 'aegis' | 'riftbound',
     private readonly groundHeightAt: GroundHeight,
     private readonly scenery: THREE.Object3D[] = [],
+    private readonly loader?: AssetLoader,
   ) {
     this.group.name = 'world-life';
     for (const prop of scenery) {
@@ -46,12 +68,13 @@ export class WorldLife {
     }
     for (const spawn of (definition?.actors ?? []).slice(0, WORLD_LIFE_LIMITS.actors)) {
       if (!isFinitePoint(spawn) || !['citizen', 'guard', 'deer', 'bird'].includes(spawn.kind)) continue;
-      const object = buildWorldLifeActor(spawn.kind, realm, spawn.variant ?? 0);
+      const object = new THREE.Group();
       object.name = spawn.id;
       object.scale.setScalar(finiteClamp(spawn.scale, 1, 0.25, 3));
-      const limbs = new Map<string, THREE.Object3D>();
-      object.traverse((node) => { if (node.name) limbs.set(node.name, node); });
-      this.actors.push({ spawn, object, limbs, phase: seedFor(spawn.id) * 23 });
+      const actor: Actor = { spawn, object, limbs: new Map(), phase: seedFor(spawn.id) * 23,
+        visual: null, ownsVisualResources: false, rig: null };
+      if (!loader || !worldLifeCharacterProfile(spawn, realm)) this.mountFallback(actor);
+      this.actors.push(actor);
       this.group.add(object);
     }
 
@@ -91,6 +114,101 @@ export class WorldLife {
     }
     scene.add(this.group);
     this.update(0, { x: 0, z: 0 }, WORLD_LIFE_LIMITS.distance);
+    this.ready = this.loadReviewedActors();
+  }
+
+  private mountFallback(actor: Actor): void {
+    const visual = buildWorldLifeActor(actor.spawn.kind, this.realm, actor.spawn.variant ?? 0);
+    actor.visual = visual;
+    actor.ownsVisualResources = true;
+    visual.traverse(node => { if (node.name) actor.limbs.set(node.name, node); });
+    actor.object.add(visual);
+  }
+
+  private async loadReviewedActors(): Promise<void> {
+    if (!this.loader) return;
+    const waiting = this.actors.filter(actor => !actor.visual);
+    let cursor = 0;
+    await Promise.all(Array.from({ length: Math.min(waiting.length, WORLD_LIFE_LIMITS.concurrentModelLoads) }, async () => {
+      while (!this.disposed && cursor < waiting.length) await this.loadReviewedActor(waiting[cursor++]);
+    }));
+  }
+
+  private async loadReviewedActor(actor: Actor): Promise<void> {
+    let visual: THREE.Object3D | null = null;
+    try {
+      const profile = worldLifeCharacterProfile(actor.spawn, this.realm)!;
+      const asset = await this.loader!.resolveCharacterAsset(profile);
+      if (this.disposed) return;
+      if (!asset) { this.mountFallback(actor); return; }
+      // Empty loader fallback avoids caching a particular actor's procedural appearance.
+      const loaded = await this.loader!.loadModelWithAnimations(asset.model, () => new THREE.Group());
+      visual = loaded.object;
+      if (this.disposed) { releaseActorSkeletons(visual); return; }
+      let clips = loaded.animations;
+      if (asset.animationPack) {
+        const packed = await this.loader!.loadCharacterAnimations(asset, visual);
+        if (packed.length) clips = packed;
+      }
+      if (this.disposed) { releaseActorSkeletons(visual); return; }
+      const idle = clips.find(clip => clip.name.toLowerCase() === 'idle');
+      let hasMesh = false;
+      visual.traverse(node => { if ((node as THREE.Mesh).isMesh) hasMesh = true; });
+      if (!hasMesh || !idle || !Number.isFinite(idle.duration) || idle.duration <= 0) {
+        releaseActorSkeletons(visual);
+        this.mountFallback(actor);
+        return;
+      }
+      let walk = clips.find(clip => clip.name.toLowerCase() === 'walk');
+      if (walk && (!Number.isFinite(walk.duration) || walk.duration <= 0)) walk = undefined;
+      const civic = asset.skeletonId === 'aegis_people_v1';
+      if (!walk && civic) {
+        walk = this.civicWalkClips.get(asset.model);
+        if (!walk) {
+          walk = createCivicWalkClip(visual) ?? undefined;
+          if (walk) this.civicWalkClips.set(asset.model, walk);
+        }
+      }
+      const mixer = new THREE.AnimationMixer(visual);
+      const idleAction = mixer.clipAction(idle).setLoop(THREE.LoopRepeat, Infinity).play();
+      const walkAction = walk ? mixer.clipAction(walk).setLoop(THREE.LoopRepeat, Infinity).setEffectiveWeight(0).play() : null;
+      actor.rig = { mixer, idle: idleAction, walk: walkAction, moving: false,
+        fromWeight: 0, walkWeight: 0, changedAt: this.elapsed, sampledAt: -Infinity, walkSpeed: civic ? CIVIC_WALK_SPEED : 2.4 };
+      actor.visual = visual;
+      actor.object.userData.characterProfileKey = profile;
+      actor.object.userData.characterModel = asset.model;
+      actor.object.add(visual);
+      // Establish a relaxed pose before the first frame after the asynchronous mount.
+      this.sampleRig(actor, false, 0, this.elapsed + actor.phase, true);
+    } catch {
+      if (actor.rig) {
+        actor.rig.mixer.stopAllAction();
+        actor.rig.mixer.uncacheRoot(actor.rig.mixer.getRoot());
+        actor.rig = null;
+      }
+      if (visual) { visual.removeFromParent(); releaseActorSkeletons(visual); }
+      actor.visual = null;
+      if (!this.disposed) this.mountFallback(actor);
+    }
+  }
+
+  private sampleRig(actor: Actor, moving: boolean, speed: number, time: number, immediately: boolean): void {
+    const rig = actor.rig!;
+    moving &&= Boolean(rig.walk);
+    if (moving !== rig.moving) {
+      rig.fromWeight = immediately ? Number(moving) : rig.walkWeight;
+      rig.moving = moving;
+      rig.changedAt = this.elapsed;
+    }
+    rig.walkWeight = THREE.MathUtils.lerp(rig.fromWeight, Number(moving), Math.min(1, (this.elapsed - rig.changedAt) / .18));
+    rig.idle.setEffectiveWeight(1 - rig.walkWeight);
+    rig.idle.time = time % rig.idle.getClip().duration;
+    if (rig.walk) {
+      rig.walk.setEffectiveWeight(rig.walkWeight);
+      rig.walk.time = time * speed / (rig.walkSpeed * actor.object.scale.x) % rig.walk.getClip().duration;
+    }
+    rig.mixer.update(0);
+    rig.sampledAt = this.elapsed;
   }
 
   update(dt: number, viewer: { x: number; z: number }, viewDistance: number): void {
@@ -108,18 +226,28 @@ export class WorldLife {
     for (const actor of this.actors) {
       const { spawn, object, phase, limbs } = actor;
       const time = this.elapsed + phase;
-      const movement = sampleWorldLifeRoute(spawn, spawn.route, time,
-        finiteClamp(spawn.speed, spawn.kind === 'bird' ? 3 : 0.9, 0, 6),
+      const speed = actor.rig && !actor.rig.walk ? 0 : finiteClamp(spawn.speed, spawn.kind === 'bird' ? 3 : 0.9, 0, 6);
+      const movement = sampleWorldLifeRoute(spawn, spawn.route, time, speed,
         finiteClamp(spawn.pauseSeconds, spawn.kind === 'bird' ? 0 : 3, 0, 60));
       object.position.x = movement.x;
       object.position.z = movement.z;
-      object.visible = squaredDistance(object.position, viewer) <= distanceSq;
+      const wasVisible = object.visible;
+      const actorDistanceSq = squaredDistance(object.position, viewer);
+      object.visible = actorDistanceSq <= distanceSq;
       // Absolute-time sampling keeps distant actors on schedule without ticking their rigs.
       if (!object.visible) continue;
       const bird = spawn.kind === 'bird';
       object.position.y = this.groundHeightAt(movement.x, movement.z)
         + (bird ? 7 + Math.sin(time * 0.7) * 0.7 + phase % 4 : 0);
       object.rotation.y = movement.heading;
+      if (actor.rig) {
+        const hz = actorDistanceSq <= WORLD_LIFE_LIMITS.nearAnimationDistance ** 2
+          ? WORLD_LIFE_LIMITS.nearAnimationHz : WORLD_LIFE_LIMITS.farAnimationHz;
+        if (!wasVisible || movement.moving !== actor.rig.moving || this.elapsed - actor.rig.sampledAt >= 1 / hz) {
+          this.sampleRig(actor, movement.moving, speed, time, !wasVisible);
+        }
+        continue;
+      }
       const stride = movement.moving ? Math.sin(time * (spawn.kind === 'deer' ? 7 : 5)) * 0.45 : 0;
       setRotation(limbs, 'leg-left', 'x', stride);
       setRotation(limbs, 'leg-right', 'x', -stride);
@@ -155,6 +283,18 @@ export class WorldLife {
     if (this.disposed) return;
     this.disposed = true;
     this.group.removeFromParent();
+    // Geometry/materials/textures belong to AssetLoader's cache; only cloned skeletons
+    // and animation bindings belong to an individual loaded ambient actor.
+    for (const actor of this.actors) {
+      if (actor.rig) {
+        actor.rig.mixer.stopAllAction();
+        actor.rig.mixer.uncacheRoot(actor.rig.mixer.getRoot());
+      }
+      if (actor.visual && !actor.ownsVisualResources) {
+        releaseActorSkeletons(actor.visual);
+        actor.visual.removeFromParent();
+      }
+    }
     const geometries = new Set<THREE.BufferGeometry>();
     const materials = new Set<THREE.Material>();
     const collectResources = (node: THREE.Object3D) => {
@@ -176,7 +316,14 @@ export class WorldLife {
     this.actors.length = 0;
     this.emitters.length = 0;
     this.sceneryAnimations.length = 0;
+    this.civicWalkClips.clear();
   }
+}
+
+function releaseActorSkeletons(root: THREE.Object3D): void {
+  const skeletons = new Set<THREE.Skeleton>();
+  root.traverse(node => { if ((node as THREE.SkinnedMesh).isSkinnedMesh) skeletons.add((node as THREE.SkinnedMesh).skeleton); });
+  for (const skeleton of skeletons) skeleton.dispose();
 }
 
 function setRotation(limbs: Map<string, THREE.Object3D>, name: string, axis: 'x' | 'z', value: number): void {

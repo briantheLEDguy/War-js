@@ -1,0 +1,37 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_wall_lantern",
+  "modelSha256": "5cbe3ff8026f17d739ef4f6ff58baca5d8d06218915e676124c519c11b2858bf",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_civic_wall_lantern_lod2.glb",
+    "triangles": 610,
+    "bytes": 53552,
+    "sha256": "5cbe3ff8026f17d739ef4f6ff58baca5d8d06218915e676124c519c11b2858bf"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_wall_lantern.glb",
+      "triangles": 2544,
+      "bytes": 194252,
+      "sha256": "2ced66be193765ad74b8aeab3c8432e4f2ccff640ca8e59a810faceb1f81fa4c"
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_wall_lantern_lod1.glb",
+      "triangles": 1322,
+      "bytes": 114144,
+      "sha256": "9f1918cdbc4a2e895a8ff58016ff2ea465b0177f9d3a941e9b952646f03dc5c3"
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_wall_lantern_lod2.glb",
+      "triangles": 610,
+      "bytes": 53552,
+      "sha256": "5cbe3ff8026f17d739ef4f6ff58baca5d8d06218915e676124c519c11b2858bf"
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_arms_rack",
+  "displayName": "Aegis citadel arms rack",
+  "category": "prop",
+  "model": "prop_aegis_citadel_arms_rack.glb",
+  "qc": "prop_aegis_citadel_arms_rack.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_arms_rack"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "ed0758846f526d848a47d40ec25ce588a0709058cb83b9644f88e4d717c25f84",
+    "qcSha256": "354f36b52b51b98cc3c312924abefc7b8b5ecb093eae559e0ebe5c870944f488",
+    "previews": {
+      "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:49:23.657Z",
+    "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_citadel_furnishing_v1"
+    ],
+    "referencePackId": "original_three_peoples_oath_and_fortress_household",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-citadel-interiors/tools/build_interiors.py"
+  },
+  "approvalState": "approved"
+}

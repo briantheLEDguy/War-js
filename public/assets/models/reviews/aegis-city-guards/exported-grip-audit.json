@@ -1,0 +1,1901 @@
+{
+  "models": {
+    "standard": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb",
+    "halberd": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b",
+    "crossbow": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17",
+    "captain": "d4c0910ec7b022fe4e571a182f407e1e49e0bbb38f3141576d951b62f3ce3c5b"
+  },
+  "max_gap_m": 1e-06,
+  "samples": [
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "jump",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "cast",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 6.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 6.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 18.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 18.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "walk",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 64.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "combat_idle",
+      "frame": 64.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_ranged",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "death",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 4.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 4.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "run",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 6.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 6.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 18.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 18.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "attack_melee",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "standard",
+      "clip": "idle",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 6.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 6.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 18.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 18.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_melee.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 6.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 6.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 18.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 18.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "walk.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "jump.001",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "cast.001",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 4.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 4.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "run.001",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "idle.001",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "death.001",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 64.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "combat_idle.001",
+      "frame": 64.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "halberd",
+      "clip": "attack_ranged.001",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 6.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 6.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 18.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 18.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_melee.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 6.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 6.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 18.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 18.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "walk.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "jump.002",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "cast.002",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 4.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 4.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "run.002",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "idle.002",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 8.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 8.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "attack_ranged.002",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 12.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 12.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 24.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 24.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 36.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 36.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "death.002",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 0.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 0.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 16.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 16.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 32.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 32.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 48.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 48.0,
+      "hand": "R",
+      "gap_m": 0.0
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 64.0,
+      "hand": "L",
+      "gap_m": 1e-06
+    },
+    {
+      "variant": "crossbow",
+      "clip": "combat_idle.002",
+      "frame": 64.0,
+      "hand": "R",
+      "gap_m": 1e-06
+    }
+  ]
+}

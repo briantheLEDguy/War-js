@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_reliquary",
+  "displayName": "Aegis citadel reliquary",
+  "category": "prop",
+  "model": "prop_aegis_citadel_reliquary.glb",
+  "qc": "prop_aegis_citadel_reliquary.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_reliquary"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "4967285ce0feaacca631ba35bc1bd083fa25369c90470381821b8ea7fff90736",
+    "qcSha256": "b383673f1ee0ed7ee892f2dd2e74970a9bea8736ae0b703f40c1c8f556c8ac95",
+    "previews": {
+      "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:49:23.657Z",
+    "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_citadel_furnishing_v1"
+    ],
+    "referencePackId": "original_three_peoples_oath_and_fortress_household",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-citadel-interiors/tools/build_interiors.py"
+  },
+  "approvalState": "approved"
+}

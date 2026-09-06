@@ -12,6 +12,8 @@ export interface WorldLifeActorSpawn {
   pauseSeconds?: number;
   scale?: number;
   variant?: number;
+  /** Reviewed registry profile for an ambient humanoid; never a direct unreviewed file. */
+  characterProfileKey?: string;
 }
 
 export interface WorldLifeEmitterSpawn {

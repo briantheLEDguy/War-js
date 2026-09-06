@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.battle_cover",
+  "modelSha256": "ffcf0eba2af92f615a3d1e7487276c909f0b896908a9cf1bbb135408cec752ed",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_battle_cover_lod2.glb",
+    "triangles": 150,
+    "bytes": 25816,
+    "sha256": "ffcf0eba2af92f615a3d1e7487276c909f0b896908a9cf1bbb135408cec752ed",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_battle_cover.glb",
+      "triangles": 752,
+      "bytes": 99224,
+      "sha256": "c597b3c4955364243073c5a5de6a346a7e2897fbdb5ea6ba255d9e6c2e3e9e26",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_battle_cover_lod1.glb",
+      "triangles": 376,
+      "bytes": 59720,
+      "sha256": "663855c74223781987461108a2e2c82bb5d354aeaf21f2f3ff1ae3a00815287d",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_battle_cover_lod2.glb",
+      "triangles": 150,
+      "bytes": 25816,
+      "sha256": "ffcf0eba2af92f615a3d1e7487276c909f0b896908a9cf1bbb135408cec752ed",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

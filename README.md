@@ -1,5 +1,261 @@
 # War-js
 
+## Aegis garden wards and reviewed population
+
+`scripts/campaign/aegis-city-infill.mjs` adds varied houses, linden and cypress
+trees, and stone-edged rose/violet beds across all five capital districts. Plot
+selection reserves complete roof/canopy footprints, street widths, canal edges,
+NPC standing spaces and the citadel battle area. Houses and beds use existing
+level ground. Counts by district are recorded in `cityExpansion` in the map.
+The four new planting assets have editable Blender masters, shared 2048px PBR
+textures, three reviewed LODs and GM entries under `authoring/blender/aegis-gardens/`.
+
+The ambient crowd, service NPCs and public-building residents now use the reviewed
+Aegis guard and revision-4 civilian/court models. `WorldLife` loads actor models
+through `AssetLoader` with bounded concurrency and distance-limited animation;
+`HouseInteriorRuntime` animates residents only in the active room. Named NPCs,
+services and routes retain their identities. Missing assets retain safe fallback
+behavior, and actor teardown releases instance skeletons without disposing shared
+model geometry or textures. Active rooms supply their own bounded floor height
+to player movement and the camera, preventing the mountain heightfield from
+lifting occupants above off-map interiors.
+
+Ambient civilians use separate walking derivatives from
+`authoring/blender/aegis-civic-locomotion/`: corrected lower-body skin weights and
+a gentle walk baked against the actual civic rig. Original stationary exports
+remain intact. The derivative build verifies unchanged appearance buffers;
+animation tests check actual boot contact and skirt continuity.
+
+`scripts/campaign/aegis-reviewed-scenery.mjs` fits modeled replacements into the
+existing street-furniture envelopes while preserving IDs, world collision and
+harvest mechanics. Delivery awnings replace supply tents, ore deliveries use
+labeled shipment crates, and the springwater marker uses a small fountain.
+
+Verify with `tests/aegisCityInfill.test.ts`, `tests/worldLifeReviewed.test.ts`,
+`tests/civicLocomotion.test.ts`, `tests/staticNpcModels.test.ts`,
+`tests/houseInteriorRuntime.test.ts`, `tests/aegisReviewedScenery.test.ts` and the
+existing city/citadel/Builder suites.
+Regenerate campaign maps and the GM catalog after changing planting layout or
+model defaults.
+
+## Rendering performance
+
+Settings > Gameplay > **Frame rate limit** defaults to 30 FPS to leave CPU/GPU
+time for other applications, with an optional 60 FPS limit. Game and character
+preview rendering stops when the page is hidden or its window loses focus.
+Returning resumes without a burst of catch-up frames. HUD animation follows the
+same focus rules; map canvases update at up to 15 FPS. This suspends local frame
+updates, not wall-clock cooldowns or backend events.
+
+`src/game/ForegroundFrameLoop.ts` owns capped scheduling, focus/visibility
+listeners and cleanup for game, preview and HUD loops. No animation callbacks
+remain scheduled while inactive. Existing saved settings inherit the 30 FPS cap.
+
+**3D resolution** defaults to Auto. It adjusts the drawing buffer toward the
+selected frame limit. At 30 FPS, Auto also keeps high-DPI rendering at no more
+than 1.5 pixels per CSS pixel instead of spending saved GPU time on supersampling.
+The scale stays between 70% and 100% of capped device resolution. Fixed 75%
+upscaling and 100% native quality are also available. The browser scales the
+canvas to its display size while the React HUD remains at full resolution.
+This is spatial resolution scaling, not generated frames or temporal reconstruction.
+Textures, geometry, lighting and shadow-map resolution are unchanged.
+
+`src/game/RenderResolution.ts` uses sustained timing windows, a startup grace
+period and slow quality recovery to avoid frequent drawing-buffer reallocations.
+Hidden-tab pauses and heavy simulation work do not trigger quality reductions.
+`Game.ts` precompiles material shaders during loading. `CityInstances.ts` updates
+only batches whose membership changed and keeps LODs stable around thresholds.
+The debug overlay reports smoothed frame time and the current 3D scale.
+
+Run `npm test -- tests/foregroundFrameLoop.test.ts tests/renderResolution.test.ts tests/cityInstances.test.ts`
+and `npm run build`. For browser verification, orbit in the capital, compare
+30/60 FPS and Auto/75%/100%, resize the window and check that HUD text stays sharp.
+Switch to another tab or window while a video plays: game render calls and
+simulation updates should stop until focus returns. Frame rates and video
+playback depend on hardware and other applications; the cap is a resource limit,
+not a guarantee that the renderer can reach that frame rate.
+
+## Crownwatch citadel siege enclosure
+
+The hilltop battle court has its own fortress walls and three gated approaches
+(west, processional and east). All three portcullises start closed and use the
+normal nearby-gate interaction (E by default). A fourth working gate opens the
+main keep directly into Crownwatch Great Hall, without a zone transition.
+Players can explore the hall, side chambers and six-metre upper gallery reached
+by twin stairways. The keep now has a 72 by 62 metre hall, extending 36 metres
+toward the courtyard with its rear mountain connection fixed. The remaining
+128 by 34 metre forecourt retains two separated 18-person staging formations;
+the first capture ring and flanking approach paths move forward with the entrance.
+
+The exterior has a 125-metre central spire, staggered corner spires, smaller roof
+pinnacles, pointed leaded windows and projecting stone surrounds. All three GLB
+LODs retain the silhouette within the existing 30,000-triangle budget. The primitive
+fallback preserves the deeper footprint and spires if the asset cannot load.
+See [the exported model](authoring/blender/aegis-city/review/citadel-gothic.png)
+and scoped rebuild steps in the [architecture guide](authoring/blender/aegis-city/README.md).
+
+The siege advances through three capturable objectives: **Crownwatch Courtyard,
+Crownwatch Vault, then Crownwatch Throne Room**. Attackers must retain the earlier
+objectives and the enemy T4 front, inner T4 zone and fortress; these rules apply
+to both HUD eligibility and the local claim service. Partial captures persist.
+Aegis defenders can recapture their city in the same local order without taking
+enemy campaign zones. City ownership changes once all three objectives are held.
+
+The admission hall screens visitors before the guarded mountain passage. Inside,
+separate barracks, cookhouse, quartermaster stores and counting office flank the
+garrison hall. The east vault has a guarded entry and a second royal passage into
+the larger throne room, with three processional and flanking doorways. All gates
+use E; capture prerequisites govern objective progress, not ordinary exploration.
+The west Crypts approach remains sealed for future construction.
+
+Fourteen dedicated decoration assets furnish these rooms: the stepped throne,
+oath statues, relief campaign table, arms and provision racks, bunks, hearth,
+mess table, archives, counting desks, treasury displays, reliquaries, chandeliers
+and heraldic tapestries. Editable masters, shared 2048px PBR textures, three LODs,
+validation and actual-export reviews live in `authoring/blender/aegis-citadel-interiors/`.
+They remain individually available in GM Builder. New model-space collider metadata
+keeps asymmetric room and vault doorways aligned when rotated in the builder.
+
+The extension lives in `scripts/campaign/aegis-mountain-redoubt.mjs`.
+`scripts/campaign/aegis-citadel-interiors.mjs` authors furnishings and objectives.
+`cityCitadel.siege` records objective order, room purpose, staging and decorations;
+`cityCitadel.mountainExtension` records routes, vault gates and the reserved Crypts
+connection. Future crypt work should replace that seal and supply real destination
+geometry before adding travel triggers. The mountain mesh maintains clearance above the
+rooms at every LOD; ground remains at the existing 42-metre citadel level. The
+800-metre zone retains one-metre movement samples, with detailed terrain rendering
+restricted to the city slopes so the expanded flat area needs few extra triangles.
+Passage, redoubt and sealed portal assets use the shared high-resolution materials,
+three LODs and generated GM Builder entries.
+
+Layout and gate IDs are authored in `scripts/campaign/aegis-battle-citadel.mjs`;
+`cityCitadel` map metadata describes the enclosure and interior. The hollow keep
+uses the same high-resolution Blender materials and three LODs. Its source is
+`authoring/blender/aegis-city/tools/citadel_assets.py`, with an exported-interior
+review in `review_citadel_interior.py`. Run `npm run campaign:generate` and
+`npm run builder:generate` after layout changes. Verify traversal, closed/open
+gate coverage, real doorway geometry and mountain clearance with
+`tests/citadelSiege.test.ts`, `tests/citadelMountain.test.ts`,
+`tests/citadelInteriorLayout.test.ts`, `tests/citadelObjectives.test.ts`,
+`tests/citadelBuilderTransforms.test.ts` and `tests/cityTerrainDetail.test.ts`,
+plus the battle-capacity checks in `tests/aegisCity.test.ts`.
+
+## Aegis city guards
+
+Four reference-based civic guard variants share an editable armor set: spear/shield,
+halberd, crossbow and captain. Sources, Blender masters, three GLB detail levels
+and exported-model review are in `authoring/blender/aegis-city-guards/`.
+A fitted natural head/neck replaces the distorted inherited cage; two-handed
+weapon contact is checked on the exported animation clips. Aegis guard selection
+is deterministic and preserves other NPCs and enemy factions.
+Run `npm run test -- tests/aegisCityGuards.test.ts` for selection coverage.
+
+## City frame-time tuning
+
+City batches cull individual building bounds against the main camera and shadow
+views, retaining off-screen shadow casters. Hidden source models leave the render
+scene during normal play, avoiding redundant scene-graph matrix traversal; they
+remain available to collision queries and return for GM editing and disposal.
+Texture resolution, geometry, lighting, shadows and LOD distances are unchanged.
+Empty LOD batches are hidden so they do not submit zero-instance draw calls.
+
+City instance buffers and bounding spheres rebuild only when LOD membership,
+visibility, or GM editing changes. Camera collision caches broad bounds for static
+scenery and performs precise mesh sweeps near the camera. Root transforms invalidate
+the cache; interactive objects remain uncached. Procedural terrain uses the existing
+height sweep instead of a second full mesh raycast. Imported terrain and voxel
+geometry retain mesh collision for overhangs.
+
+Run `npx vitest run tests/cameraPerformance.test.ts --silent=false` for the CPU
+fixture and cache-invalidation checks. Fixture timings are not live-game FPS.
+
+## Runtime memory ownership
+
+`AssetLoader` shares external GLB images within one game/preview lifetime through
+`src/game/SharedTextureLoader.ts`. Texture copies retain independent samplers,
+color spaces and UV transforms while sharing decoded images. Static and animated
+requests share one model parse. Full texture resolution, geometry, LODs, shadows
+and lighting are preserved without a global cache across zones.
+
+Call `AssetLoader.dispose(scene)` only after all consumers stop rendering.
+`src/game/ResourceDisposer.ts` releases shared geometry, materials, textures and
+skeletal resources; the loader clears caches and rejects late loads. Game and
+preview teardown clean up work that finishes after unmount. Sky reflection
+targets have their own disposer. City instance buffers allocate only actual
+mesh occurrences per batch.
+
+Verify with `npm run typecheck`, `npm run build`, and
+`npm test -- tests/assetMemory.test.ts tests/cityInstances.test.ts tests/reflectionEnvironment.test.ts`.
+In the browser, enter Bastion of Aegis, inspect PBR surfaces, switch previews and
+travel between zones repeatedly. Compare settled tab memory after each cycle;
+JavaScript heap alone excludes decoded images and GPU allocations. The current
+city GLBs reference 46 external images 1,575 times: their RGBA pixel footprint is
+approximately 8.05 GiB without sharing versus 256 MiB shared. Three browser asset
+load/dispose cycles verified 46 images, 256 MiB and empty model caches after
+cleanup. These figures describe images, not total tab memory.
+
+## GM Builder asset catalog
+
+GM Build includes searchable Aegis city assets, reviewed registry scenery, map
+props, world-life furniture and procedural nature pieces. Search all assets, pick
+a piece, then use Brush to place it. Find placed object searches the zone by name
+or stable ID, including collision-only objects; select it to Delete. Search
+`removed` and use Restore removed object to recover a hidden map object. Undo,
+draft autosave and Publish use the existing world-edit document workflow.
+
+`scripts/generate-builder-catalog.mjs` builds
+`src/world/editor/prefabs.generated.json` from map props, the runtime static asset
+registry and procedural fallback kinds. It strips instance IDs, retains authored
+collision/walkable and interaction defaults, and derives model footprints from
+GLB bounds. `PrefabCatalog.ts` combines those entries with the existing modular
+town and fortress kits. Run `npm run builder:generate` after changing maps or the
+model registry; `npm run builder:validate` checks for drift. Regression coverage:
+`npx vitest run tests/builderCatalog.test.ts tests/builderEditing.test.ts tests/cityInstances.test.ts`.
+
+This catalog edits scenery objects. NPCs, enemies, gathering nodes, campaign
+objectives, and procedural canal/heightfield definitions remain separate gameplay
+or map systems; placing their visual model does not create a functional entity.
+
+## Bastion of Aegis canal city
+
+The Aegis capital now has five districts of winding brick streets, canals and six
+bridges inside a complete fortress wall. Explore eight courts, six furnished
+public-building entrances and accessible wall stairways. The northern districts
+climb a mountainside on winding streets to a citadel 42 metres above the canals;
+level building pads, a military terrace and deep wall foundations follow the grade.
+The northern fortress now encloses Crownwatch Grand Court: a 128 by 68 metre
+battle space with three wide entrances, two flanking lanes, stone cover, open
+arcades and a monumental keep. Two 18-position staging formations are authored
+and collision-tested; this is spatial capacity, not a live multiplayer load test.
+An original eroded mountain model replaces the former serrated terrain ridge.
+The [52-asset architecture kit](authoring/blender/aegis-city/README.md) includes
+editable high-resolution Blender sources, shared PBR maps, three runtime LODs
+and hash-bound validation/review records. An additional 36 narrow buildings, 135
+street furnishings and eight court features fill out the districts. Ochre, lime
+and sage plaster, limestone, copper and terracotta break up the brick and slate;
+separate paving/flagstone maps and world-space weathering soften repeated tiles.
+
+The rich civic decoration pass adds ten original models across all five districts:
+69 twin street lamps, 104 mounted lanterns, four illustrated trade signs, 17 canal
+reliefs, five Common Sky sculptures, ten benches and five directory posts. Teal
+enamel, brass, iron, oak and carved stone share the existing city lighting and
+weathering. The civic models ship at three distance LODs, use self-contained material
+factors, and retain small missing-model fallbacks. No external artwork or heraldry
+was used. View the [exported decoration collection](authoring/blender/aegis-city/review/civic-exports.png).
+`scripts/campaign/aegis-civic-decorations.mjs` owns their deterministic placement,
+including road/service clearance, existing furnishing footprints and level-ground
+checks on the mountainside. Facade attachments use their building's ground height.
+
+Edit `scripts/campaign/aegis-city-source.mjs` and the elevation baker
+`scripts/campaign/aegis-mountainside.mjs`, then run `npm run campaign:generate`
+and `npm run world:validate`; generated map JSON remains the runtime source.
+Static architecture uses instanced rendering, while collision and GM editing keep
+individual object IDs. The generated `cityElevation` field supplies ground height
+for terrain, roads, buildings and movement through `CityElevation.ts`; canals
+remain on the lower level. Saved characters obstructed by the rebuilt layout return
+to the safe city spawn. See the kit README for asset rebuild and local visual
+review commands.
+
 Browser-based MMO/RPG vertical slice built with **Three.js + React + Vite +
 TypeScript** and Supabase-ready service interfaces. Local mode works without
 backend configuration by using in-memory, localStorage, and IndexedDB services.
@@ -153,12 +409,15 @@ Runtime terrain notes:
 
 - `src/world/PathKit.ts` expands zone `paths` into connected visual road props, including endpoint connectors and junction caps for close path endpoints.
 - Generated path props render through terrain-following ribbons in `src/world/Props.ts`; they do not create separate walkable shelves, so player grounding stays tied to the active terrain or authored walkable surfaces.
-- `src/game/Camera.ts` resolves the third-person camera against prop colliders and terrain height so the viewport moves forward when terrain would occlude it.
+- `src/game/Camera.ts` supports nearly straight-up through straight-down mouse/touch orbit indoors and outdoors, including a level horizon view. `src/game/CameraCollision.ts` shortens the orbit against finite-height colliders, terrain along the full camera path, and world geometry (including props, roofs, interior furniture/ceilings, and GM edits). Geometry checks use nearby mesh bounds before raycasting and retain original high-detail city sources when rendering uses instancing. Collision preserves the requested angle and zoom; the avatar hides when the camera is too close to keep the view clear.
+- Camera regression checks: `npm test -- tests/camera.test.ts tests/cameraIntegration.test.ts tests/houseInteriorRuntime.test.ts tests/zoneTransition.test.ts`. For a visual check, drag to both vertical extremes, look toward the horizon, orbit beside walls and under roofs, and leave an obstruction to confirm the selected zoom returns.
 - The Settings panel persists camera inversion, look sensitivity, zoom speed, and view distance in localStorage; view distance updates scene fog live without changing zone data.
 - HUD windows share `src/ui/hud/useDraggableWindow.ts`, which keeps dragged panels inside the viewport while preserving each window's default CSS placement until moved.
 
 Runtime animation notes:
 
+- Battle Prelate uses an exaggerated version of the embedded opening hammer strike by default, followed by distinct authored return and descending strikes. Its separate, verified combat pack supplies the other ability gestures, combat guard and landing recovery. Moving attacks retain lower-body locomotion, and character/weapon effects/damage share contact markers. Other classes retain their existing profiles.
+- The development-only `/?modelReview=combat` stage provides equipped body/armor comparisons, embedded-motion comparison, slow playback, scrubbing, movement and effects controls. See [combat animation authoring and verification](authoring/blender/battle-prelate-combat/README.md). Missing or incompatible packs retain embedded/procedural fallbacks.
 - `src/game/Player.ts` resolves the manifest-backed playable character profile first so player bodies use authored locomotion and combat clips when available; external player overrides remain fallback assets.
 - Modular armor entries with canonical skeleton metadata are emitted as
   `skinned: true` runtime overlays and carry their `coveredRegions` into the
@@ -1047,3 +1306,9 @@ The workflow builds with `vite --base=/War-js/`; runtime asset paths must use
 Source code: MIT when a license file is added.
 
 Only commit assets that are original or licensed for this project.
+
+### Aegis people city integration
+
+Seven reviewed civic profiles now populate 15 stationary NPC placements: Gateward Market, Cinderbank, Lantern Quays, Bellfound Cloister, Crownwatch Garden and Great Hall. Children remain beside adults. The campaign generator checks clear ground against canal and prop footprints; existing services and patrols are retained. City NPCs use the reviewed middle LOD and custom idle-only civic rig. Rebuild with `npm run campaign:generate` and `npm run models:registry`; verify with `npx vitest run tests/aegisPeople.test.ts` and `npm run world:validate`.
+
+Civilian leather garments now have a contoured waist/chest, belt tension folds, curved hip panels, and laces fitted to the garment edge.

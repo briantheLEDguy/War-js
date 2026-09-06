@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_archive",
+  "modelSha256": "41430c81e00c144199920b2a0bde39f8cba741e475ab4a70a6f4b72368f46975",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_archive_lod1.glb",
+    "triangles": 9190,
+    "bytes": 1148792,
+    "sha256": "41430c81e00c144199920b2a0bde39f8cba741e475ab4a70a6f4b72368f46975",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_archive.glb",
+      "triangles": 17676,
+      "bytes": 2061764,
+      "sha256": "2c0a48f7faf58fab162621954a6f5952602205099ad34c5d3776e08282256ad6",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_archive_lod1.glb",
+      "triangles": 9190,
+      "bytes": 1148792,
+      "sha256": "41430c81e00c144199920b2a0bde39f8cba741e475ab4a70a6f4b72368f46975",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_archive_lod2.glb",
+      "triangles": 4242,
+      "bytes": 549232,
+      "sha256": "8f028b41f1064acdd00e2eccd68e9f294ae7fe23045b51eb0cfb5ac5bfb3e474",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 5,
+    "depth": 1.5,
+    "height": 5
+  }
+}

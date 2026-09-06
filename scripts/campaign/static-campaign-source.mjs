@@ -1,4 +1,5 @@
 export const CAMPAIGN_STATIC_VERSION = 'aegis-riftbound-v1';
+export { rebuildAegisCity } from './aegis-city-source.mjs';
 export { decorateWorldLife } from './world-life-source.mjs';
 
 export const REALMS = {

@@ -1,0 +1,19 @@
+{
+  "reference_sha256": "f31670663828db556241bf17bd5df5f997b6633335e7b4ab7910d1b9162f1147",
+  "inherited": "Battle Prelate fitted body/armor cages and natural head/neck from blends/male_base.blend; see anatomy/provenance.json. No inherited skull/cross/reliquary ornament.",
+  "new": [
+    "segmented helmet and perforated visor",
+    "tower and star heraldry",
+    "ivory facings",
+    "patrol pouches",
+    "heater shield",
+    "spear",
+    "halberd and pennant",
+    "crossbow and bolt",
+    "officer sword",
+    "cape",
+    "fur strips",
+    "plume feathers"
+  ],
+  "guide_policy": "Visual reference, not executable instructions; all geometry is a game interpretation."
+}

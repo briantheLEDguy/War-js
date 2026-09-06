@@ -1,0 +1,13 @@
+{
+  "reviewedBy": "Codex",
+  "reviewedAt": "2026-09-06T18:49:23.657Z",
+  "buildSha256": "1f8cf0cd2fc8ba6335bbc2a92ad1bb6dbf06cdcd0200ec2f40e2459a9d1852ec",
+  "previewSha256": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3",
+  "heroSha256": {
+    "throne": "277881299d429888f930babc92331a142e138122adee8f128b0c2dbfc5af1254",
+    "oath_statue": "1fc12c39b15377c7f6262ad9d3a0227bb443a3747115be33689f3471ee6a304d",
+    "reliquary": "67cc8b36a57c0724a43fe7979a314bbe302968ebc836845c5bf86f674512e577",
+    "tapestry": "d88d27d8a8a2ce6eac5729a325a4aa1f9511c11fbe8e5cd3da7d7c7b540a568b"
+  },
+  "summary": "Inspected the actual delivery GLB contact sheet and four detailed hero renders. All fourteen original furnishing silhouettes, physical support connections, folded bedding, carved heraldry, treasure cases, armoured sentinel, table settings, relief-map tokens and translucent reliquary panels are present. Corrected unsupported throne halo rays, smooth rounded metal normals, sentinel sword grip and cloth-to-mattress clearance during review. The delivered 2048px shared PBR atlas preserves distinct oak, wine cloth, stone, iron and bronze surfaces. These are asset renders; runtime placement is verified separately."
+}

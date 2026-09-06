@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Aegis city runtime review</title>
+<style>body{margin:0;background:#12181b;color:#eee;font:14px system-ui}#view{position:absolute;inset:0}nav{position:absolute;top:10px;left:10px;z-index:2;background:#172126e8;padding:12px;max-width:430px}button,select{font:inherit;margin:3px;padding:6px}output{display:block;margin-top:8px}p{margin:6px 0}</style>
+<div id="view"></div><nav><strong>Bastion of Aegis · runtime review</strong><p>Mouse drag: orbit · Wheel: zoom · WASD: walk · E: enter/leave</p><select id="location" aria-label="Review location"></select><button id="go">Go to location</button><button id="enter">Enter / leave interior</button><button id="overview">City overview</button><button id="battle">Battle court overview</button><button id="formation">36-player spacing</button><output id="status">Loading…</output></nav>
+<script type="module">
+import * as THREE from 'three';
+import {Game} from '/src/game/Game.ts';
+import {useGameStore} from '/src/state/gameStore.ts';
+import {services} from '/src/services/index.ts';
+const source=await services.characters.load('char-sigmund');
+const character={...source,id:'aegis-city-review-only',name:'City Reviewer',position:{x:0,y:0,z:-118},rotationY:Math.PI,zoneId:'aegis_capital'};
+// The isolated reviewer cannot overwrite a saved player or publish movement.
+services.characters.save=async()=>{};services.world.updatePosition=async()=>{};
+useGameStore.getState().setCharacter(character);
+const game=new Game(document.querySelector('#view'),character);
+await game.start();
+const zone=game.cityMapGeometry;
+const locations=[{name:'Gateward Market',x:0,z:-118},{name:'Cinderbank',x:-84,z:-79},{name:'Lantern Quays',x:125,z:-38},{name:'Bellfound Court',x:0,z:48},{name:'Crownwatch',x:59,z:113},{name:'Citadel ascent',x:0,z:122},{name:'Grand battle court',x:0,z:170},{name:'West flanking lane',x:-62,z:176},{name:'East flanking lane',x:62,z:176},{name:'Mountain switchback',x:-48,z:59},
+...zone.props.filter(p=>p.kind.startsWith('aegis_bridge')).map((p,i)=>({name:`Bridge ${i+1}`,x:p.x,z:p.z})),
+...zone.props.filter(p=>p.interaction?.type==='house_portal').map(p=>({name:p.interaction.label,x:p.x,z:p.z+2})),
+...zone.explorationPlaces,...[{name:'South Gate',x:0,z:-134},{name:'West Gate',x:-135,z:0},{name:'East Gate',x:135,z:0}],
+...zone.props.filter(p=>p.id?.includes('stairs_lower')).map(p=>({name:p.x<0?'West wall stairs':'East wall stairs',x:p.x,z:p.z+13}))];
+const select=document.querySelector('#location');locations.forEach((p,i)=>select.add(new Option(p.name,String(i))));
+document.querySelector('#go').onclick=()=>{useGameStore.setState({gmFlyingMode:false});const p=locations[+select.value];if(game.houseInteriors.isActive)game.leaveHouseInterior();game.teleportPlayerTo(p,Math.PI);game.camera.distance=16;game.camera.yaw=Math.PI;game.camera.pitch=.25;};
+document.querySelector('#enter').onclick=()=>game.tryUseNearestHousePortal();
+document.querySelector('#overview').onclick=()=>{game.player.position.set(0,95,95);useGameStore.setState({gmFlyingMode:true});game.camera.distance=350;game.camera.pitch=.65;game.camera.yaw=Math.PI;};
+const formation=new THREE.Group();formation.visible=false;game.scene.add(formation);
+if(zone.cityBattlefield) for(const [team,points] of Object.entries(zone.cityBattlefield.staging)) {
+  const markers=new THREE.InstancedMesh(new THREE.CapsuleGeometry(.4,1,4,8),new THREE.MeshStandardMaterial({color:team==='south'?0x5588ff:0xdd5544}),points.length);
+  points.forEach((p,i)=>markers.setMatrixAt(i,new THREE.Matrix4().makeTranslation(p.x,42.9,p.z)));
+  markers.instanceMatrix.needsUpdate=true;formation.add(markers);
+}
+document.querySelector('#formation').onclick=()=>{formation.visible=!formation.visible;document.querySelector('#formation').textContent=formation.visible?'36 avatar-sized markers (not live players)':'36-player spacing';};
+document.querySelector('#battle').onclick=()=>{if(game.houseInteriors.isActive)game.leaveHouseInterior();game.player.position.set(0,85,175);useGameStore.setState({gmFlyingMode:true});game.camera.distance=170;game.camera.pitch=.5;game.camera.yaw=Math.PI;};
+const status=document.querySelector('#status');
+const timer=setInterval(()=>{const r=game.renderer.info;const p=game.playerPos;status.textContent=`${useGameStore.getState().fps} FPS · ${r.render.calls} draws · ${r.render.triangles} triangles · ${r.memory.textures} textures · Position ${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)} · ${game.houseInteriors.isActive?'Inside':'Outside'}`;},500);
+const cleanup=()=>{clearInterval(timer);game.dispose({persistCharacter:false});};
+window.addEventListener('beforeunload',cleanup);
+if(import.meta.hot)import.meta.hot.dispose(cleanup);
+</script></html>

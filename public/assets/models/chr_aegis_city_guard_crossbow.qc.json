@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.city_guard.crossbow",
+  "category": "character",
+  "model": "chr_aegis_city_guard_crossbow.glb",
+  "modelSha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17",
+  "fileSizeBytes": 6776236,
+  "lod": 0,
+  "bodyFamily": "aegis_city_guard",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "totalTris": 62632,
+  "drawCalls": 9,
+  "meshCount": 1,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "pbrChannels": [
+    "baseColor",
+    "metallic",
+    "roughness"
+  ],
+  "maxTextureDimension": 2048,
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "khronosErrors": 0,
+  "khronosWarnings": 1,
+  "qcPassed": true,
+  "gripAudit": "reviews/aegis-city-guards/exported-grip-audit.json",
+  "previewImages": [
+    "reviews/aegis-city-guards/exported_idle_lineup.png"
+  ],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "chr_aegis_city_guard_crossbow.glb",
+      "sha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17"
+    },
+    {
+      "name": "LOD1",
+      "model": "chr_aegis_city_guard_crossbow_lod1.glb",
+      "sha256": "70b874c9fa5b43af9a7106ecb5c9a589a5b14f5d9d95bbc72b979415472115ee"
+    },
+    {
+      "name": "LOD2",
+      "model": "chr_aegis_city_guard_crossbow_lod2.glb",
+      "sha256": "3787d1154a4d781766f105bc174934c0965af330225cef42b58cc51a170901bc"
+    }
+  ]
+}

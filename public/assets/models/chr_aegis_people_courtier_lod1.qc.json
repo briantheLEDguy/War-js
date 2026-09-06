@@ -1,0 +1,15 @@
+{
+  "assetId": "chr.aegis.people.courtier",
+  "model": "chr_aegis_people_courtier_lod1.glb",
+  "modelSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+  "triangles": 84965,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle"
+  ],
+  "usage": "stationary NPC",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "review": "reviews/aegis-people/runtime-audit.json"
+}

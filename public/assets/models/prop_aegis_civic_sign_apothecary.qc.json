@@ -1,0 +1,37 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_sign_apothecary",
+  "modelSha256": "c17462e64371e483d26d50b6978cd725fae8e5064612e05241eccc341e4ddf9f",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_civic_sign_apothecary.glb",
+    "triangles": 6712,
+    "bytes": 349012,
+    "sha256": "c17462e64371e483d26d50b6978cd725fae8e5064612e05241eccc341e4ddf9f"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_sign_apothecary.glb",
+      "triangles": 6712,
+      "bytes": 349012,
+      "sha256": "c17462e64371e483d26d50b6978cd725fae8e5064612e05241eccc341e4ddf9f"
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_sign_apothecary_lod1.glb",
+      "triangles": 3490,
+      "bytes": 222128,
+      "sha256": "0d211be921dbac3339b3f72d111c3c6e9f6569ce11e5bbecf46ed46d371a7b5e"
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_sign_apothecary_lod2.glb",
+      "triangles": 1609,
+      "bytes": 106556,
+      "sha256": "b874f7c374d75fb3eec81a108526320d915f1053cea21281291ab3d051eb9e01"
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+}

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { AssetLoader } from '../../game/AssetLoader';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
 import { Player } from '../../game/Player';
 import { setupPreviewReflections } from '../../game/PreviewReflections';
 import type { CharacterState } from '../../services/types';
@@ -55,8 +56,6 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
     if (!container || !character) return;
 
     let cancelled = false;
-    let frameId = 0;
-    let lastTime = performance.now();
     const baseYaw = Number.isFinite(character.rotationY) ? character.rotationY : 0;
     const startYaw = baseYaw - 0.48;
     let targetYaw = startYaw;
@@ -153,13 +152,15 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
         if (cancelled) return;
         environmentRoot.traverse(markShadowed);
       })
-      .catch((err) => console.warn('[CharacterPreviewStage] environment fallback:', err));
+      .catch((err) => { if (!cancelled) console.warn('[CharacterPreviewStage] environment fallback:', err); })
+      .finally(() => { if (cancelled) loader.dispose(environmentRoot); });
 
     void (async () => {
       try {
         player = new Player(previewCharacter, previewTerrain, () => 0);
         await player.build(loader, scene);
         if (cancelled || !player.object) {
+          if (player.object) loader.dispose(player.object);
           player?.object?.removeFromParent();
           return;
         }
@@ -168,38 +169,43 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
         centerCharacter(modelRoot);
         await player.applyEquipmentVisuals(previewCharacter.equipment, loader);
         if (cancelled) {
+          loader.dispose(modelRoot);
           modelRoot.clear();
           return;
         }
         centerCharacter(modelRoot);
       } catch (err) {
-        console.warn('[CharacterPreviewStage] character fallback:', err);
+        if (!cancelled) console.warn('[CharacterPreviewStage] character fallback:', err);
+      } finally {
+        if (cancelled) loader.dispose(scene, modelRoot, ...(player?.object ? [player.object] : []));
       }
     })();
 
-    const animate = (time: number) => {
+    const animate = (_time: number, delta: number) => {
       if (cancelled) return;
-      const dt = Math.min(0.05, Math.max(0.001, (time - lastTime) / 1000));
-      lastTime = time;
+      const dt = Math.min(0.05, delta / 1000);
       if (!dragging) targetYaw += dt * 0.018;
       currentYaw = THREE.MathUtils.lerp(currentYaw, targetYaw, Math.min(1, dt * 8));
       previewRoot.rotation.y = currentYaw;
       player?.updateVisuals(dt);
       renderer.render(scene, camera);
-      frameId = requestAnimationFrame(animate);
     };
-    frameId = requestAnimationFrame(animate);
+    const stopAnimation = startForegroundLoop(animate);
 
     return () => {
       cancelled = true;
-      cancelAnimationFrame(frameId);
+      stopAnimation();
       resizeObserver.disconnect();
       container.removeEventListener('pointerdown', onPointerDown);
       container.removeEventListener('pointermove', onPointerMove);
       container.removeEventListener('pointerup', onPointerUp);
       container.removeEventListener('pointercancel', onPointerUp);
       disposeReflections();
+      player?.disposeAnimations();
+      loader.dispose(scene);
+      scene.clear();
       renderer.dispose();
+      renderer.forceContextLoss();
       renderer.domElement.remove();
     };
   }, [previewKey, character, armorMode]);

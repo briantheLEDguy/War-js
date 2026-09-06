@@ -5943,3 +5943,12 @@ input:focus, select:focus {
   .campaign-map-zoom-scene::before { inset: 6px; }
   .campaign-map-zoom-scene::after { inset: 14px; }
 }
+.combat-review { display: flex; width: 100vw; height: 100vh; background: #26313d; color: #eee5d8; }
+.combat-review-controls { width: 285px; flex-shrink: 0; padding: 22px; overflow-y: auto; background: #151c24; font: 14px/1.5 system-ui, sans-serif; }
+.combat-review-controls h1 { font-size: 23px; margin: 0; }
+.combat-review-controls label { display: block; margin: 12px 0; }
+.combat-review-controls select, .combat-review-controls button { background: #2a3744; border: 1px solid #536071; color: #fff; padding: 7px; border-radius: 4px; }
+.combat-review-controls select, .combat-review-controls input[type=range] { width: 100%; }
+.combat-review-controls button { margin: 3px; cursor: pointer; }
+.combat-review-stage { flex: 1; min-width: 0; }
+.combat-review-stage canvas { display: block; }

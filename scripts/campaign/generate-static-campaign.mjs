@@ -1,9 +1,10 @@
 import { createHash } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile as writeRawFile, rename } from 'node:fs/promises';
 import path from 'node:path';
 import {
   CAMPAIGN_STATIC_VERSION,
   decorateWorldLife,
+  rebuildAegisCity,
   EDGES,
   LANE_LABELS,
   NODES,
@@ -96,6 +97,7 @@ await mkdir(supabaseDir, { recursive: true });
 for (const node of NODES) {
   const zone = buildZone(node);
   decorateWorldLife(zone);
+  rebuildAegisCity(zone);
   const hash = hashZone(zone);
   zone.staticMapHash = hash;
   zones.push(zone);
@@ -2078,4 +2080,11 @@ on conflict (zone_id, objective_id) do update set
 function sql(value) {
   if (value === null || value === undefined) return 'null';
   return `'${String(value).replaceAll("'", "''")}'`;
+}
+
+// Replace complete artifacts atomically; readers never observe a partial map.
+async function writeFile(filename, data, encoding) {
+  const temporary = `${filename}.tmp`;
+  await writeRawFile(temporary, data, encoding);
+  await rename(temporary, filename);
 }

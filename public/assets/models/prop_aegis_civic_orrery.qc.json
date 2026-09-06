@@ -1,0 +1,37 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_orrery",
+  "modelSha256": "154b8385413b1fcb56643cdff4cfb82b93d3a5490a6a1be940028d2a0119bffa",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_civic_orrery.glb",
+    "triangles": 4852,
+    "bytes": 323452,
+    "sha256": "154b8385413b1fcb56643cdff4cfb82b93d3a5490a6a1be940028d2a0119bffa"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_orrery.glb",
+      "triangles": 4852,
+      "bytes": 323452,
+      "sha256": "154b8385413b1fcb56643cdff4cfb82b93d3a5490a6a1be940028d2a0119bffa"
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_orrery_lod1.glb",
+      "triangles": 2522,
+      "bytes": 158204,
+      "sha256": "57eca14cddc8c3d4d87c07f3cb4b967607f9e24402177e137279c896cff78f10"
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_orrery_lod2.glb",
+      "triangles": 1164,
+      "bytes": 83604,
+      "sha256": "1d1caf1887333ef461de1d2d77eda80b691591c5a0a80070f86c9dd8107ab9ce"
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+}

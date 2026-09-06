@@ -1,0 +1,30 @@
+{
+  "reviewedAt": "2026-09-06T09:41:54.568779+00:00",
+  "reviewedBy": "Codex",
+  "zoneHash": "187b5d16c7f26d61",
+  "assetVersion": "approved-c55ca2e39dca8f17",
+  "runtime": "Local Vite development server, actual Game runtime in isolated review page",
+  "observations": [
+    "Gateward brick streets and textured architecture rendered.",
+    "Central bridge crosses recessed water with masonry embankments and railings.",
+    "All six public entrances entered successfully; tavern, shop, chapel and civic furnishings inspected.",
+    "Whole-city overview showed continuous fortress perimeter and canal network.",
+    "Corrected east and west stair approaches loaded; automated bounds and collision checks confirm both wall-walk connections."
+  ],
+  "performanceSample": {
+    "location": "Gateward Market",
+    "drawCalls": 249,
+    "fpsObserved": 39,
+    "note": "Single local review sample; not a cross-device benchmark."
+  },
+  "verification": {
+    "focusedCityTests": 15,
+    "glbExports": 102,
+    "glbValidationErrors": 0,
+    "build": "passed",
+    "worldValidation": "33 maps passed",
+    "modelValidation": "319 records passed",
+    "fullSuite": "592 passed; existing rosterDirectPromotion syntax/load failure and an intermittent Windows rename failure in rosterReviewWorkflow. The latter passed separately (5 tests); an earlier infrastructure rename failure also passed separately (15 tests)."
+  },
+  "developmentNote": "Repeated source hot reloads crashed earlier review tabs. Final review used a fresh tab and restarted Vite after editing the ignored authoring HTML; completed without a runtime exception."
+}

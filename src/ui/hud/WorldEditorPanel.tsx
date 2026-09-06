@@ -5,6 +5,7 @@ import {
   prefabGroupForKind,
   prefabsForGroup,
   WORLD_EDITOR_PREFAB_GROUPS,
+  WORLD_EDITOR_PREFABS,
 } from '../../world/editor/PrefabCatalog';
 import type { WorldEditorTool } from '../../world/editor/WorldEditorRuntime';
 import { useDraggableWindow } from './useDraggableWindow';
@@ -52,9 +53,15 @@ export function WorldEditorPanel({ game }: Props) {
   const setGmBuildMode = useGameStore((s) => s.setGmBuildMode);
   const [publishNotes, setPublishNotes] = useState('');
   const [resetting, setResetting] = useState(false);
+  const [assetSearch, setAssetSearch] = useState('');
+  const [objectSearch, setObjectSearch] = useState('');
   const applyLabel = getApplyLabel(tool);
   const selectedPrefabGroup = prefabGroupForKind(settings.prefabKind);
-  const visiblePrefabs = prefabsForGroup(selectedPrefabGroup);
+  const visiblePrefabs = assetSearch.trim()
+    ? WORLD_EDITOR_PREFABS.filter(p => `${p.label} ${p.kind} ${p.model ?? ''}`.toLowerCase().includes(assetSearch.toLowerCase().trim()))
+    : prefabsForGroup(selectedPrefabGroup);
+  const objects = (game?.worldEditorObjects ?? []).filter(object =>
+    `${object.label} ${object.id} ${object.hidden ? 'removed' : ''}`.toLowerCase().includes(objectSearch.toLowerCase().trim()));
 
   useEffect(() => {
     game?.setWorldEditorTool(tool);
@@ -108,12 +115,17 @@ export function WorldEditorPanel({ game }: Props) {
 
       <div className="world-editor-section world-editor-grid">
         <label>
+          Search all assets
+          <input value={assetSearch} onChange={e => setAssetSearch(e.target.value)} placeholder="Citadel, bridge, lantern…" />
+        </label>
+        <label>
           Kit
           <select
             value={selectedPrefabGroup}
             onChange={(e) => {
               const [firstPrefab] = prefabsForGroup(e.target.value);
               if (!firstPrefab) return;
+              setAssetSearch('');
               updateSettings({ prefabKind: firstPrefab.kind });
               setTool('stamp_prefab');
             }}
@@ -132,6 +144,7 @@ export function WorldEditorPanel({ game }: Props) {
               setTool('stamp_prefab');
             }}
           >
+            {!visiblePrefabs.some(p => p.kind === settings.prefabKind) && <option value={settings.prefabKind}>Choose a matching piece</option>}
             {visiblePrefabs.map((prefab) => (
               <option key={prefab.kind} value={prefab.kind}>{prefab.label}</option>
             ))}
@@ -143,6 +156,20 @@ export function WorldEditorPanel({ game }: Props) {
         <button type="button" onClick={() => setTool('stamp_prefab')}>
           Preview
         </button>
+      </div>
+
+      <div className="world-editor-section world-editor-grid">
+        <label>Find placed object
+          <input value={objectSearch} onChange={e => setObjectSearch(e.target.value)} placeholder="Name, ID, or removed" />
+        </label>
+        <label>World objects ({objects.length})
+          <select value={selectedId ?? ''} onChange={e => { setTool('select'); game?.selectWorldEditorObject(e.target.value); }}>
+            <option value="">Select an object</option>
+            {objects.filter((object, i) => i < 150 || object.id === selectedId).map(object =>
+              <option key={object.id} value={object.id}>{object.hidden ? '[Removed] ' : ''}{object.label} — {object.id}</option>)}
+          </select>
+        </label>
+        <button type="button" disabled={!selectedId} onClick={() => game?.restoreSelectedWorldEditorObject()}>Restore removed object</button>
       </div>
 
       <div className="world-editor-tools">

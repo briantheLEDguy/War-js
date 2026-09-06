@@ -1,0 +1,1626 @@
+[
+  {
+    "kind": "house_1",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_house_1.glb",
+        "triangles": 9604,
+        "bytes": 1268788,
+        "sha256": "bdd63c23c7ac19ccc4dfec37a1c338fc5bd05d7e76cd0bd715626f37c36ce179",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_house_1_lod1.glb",
+        "triangles": 4802,
+        "bytes": 708208,
+        "sha256": "c31e295214b628f3f17d4d84009e88634af9771bd00eeec9701ac84e655972a2",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_house_1_lod2.glb",
+        "triangles": 1920,
+        "bytes": 275868,
+        "sha256": "c6baec255514175a61c31cc303640c169ac5e910fb7753e10db26b8222955d12",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_2",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_house_2.glb",
+        "triangles": 9408,
+        "bytes": 1247260,
+        "sha256": "b2a48f373cb6fc19dd0fb037b883a3451b479d977de628ee9b29ba305323c212",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_house_2_lod1.glb",
+        "triangles": 4704,
+        "bytes": 697908,
+        "sha256": "06a5c4c1a1e6a7fe3fa934243fd0a1f559627f753386e6df735c2c8019ba520d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_house_2_lod2.glb",
+        "triangles": 1880,
+        "bytes": 274252,
+        "sha256": "19f53493053b524a5e95920ebda99c1f75e9761ba51c033776af2ab3d29482f8",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_3",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_house_3.glb",
+        "triangles": 10168,
+        "bytes": 1349540,
+        "sha256": "abb67689a797eebad64040d4487717beecc4f17409ac3184c6c94d2017e5ea1a",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_house_3_lod1.glb",
+        "triangles": 5084,
+        "bytes": 753900,
+        "sha256": "883166ca40bb91eae8ba27db5f5094fcb1bd51bb3220b1ba36af0ef2c1cceb31",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_house_3_lod2.glb",
+        "triangles": 2032,
+        "bytes": 296064,
+        "sha256": "fba7344b520e1f21a3b1e3a72a892898588ab6506f3c13734cf50d491bceaa1e",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_4",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_house_4.glb",
+        "triangles": 8656,
+        "bytes": 1142792,
+        "sha256": "fc4cd371fa0bca7869994c34eb190972e7aecb1b3033d4d9dcfa0f8a972839fc",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_house_4_lod1.glb",
+        "triangles": 4328,
+        "bytes": 638896,
+        "sha256": "beb322e5d45648c0b557d24e5513c85b7d255eaeacebc9dbbb2d53e67b23679f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_house_4_lod2.glb",
+        "triangles": 1730,
+        "bytes": 249156,
+        "sha256": "cc2edfcf7ea2278a24bea997956e9fa4013edd4b973449ca0e66ecf0394bae35",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_5",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_house_5.glb",
+        "triangles": 10356,
+        "bytes": 1363988,
+        "sha256": "ccf842bf1ee279a32c0944f428f14d1f5fd9d537c50d00369b6f87d1eb3b6394",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_house_5_lod1.glb",
+        "triangles": 5178,
+        "bytes": 767248,
+        "sha256": "0a87b024c7cce8d45bb4b5b3e7e7f181e23aea561b0ffa6b12f4f47f94ecfa0a",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_house_5_lod2.glb",
+        "triangles": 2070,
+        "bytes": 301004,
+        "sha256": "ddc519a4ae774ba3f2ca3be46e167c869c115af362a9dbf0168bd148ea9945c7",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_6",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_house_6.glb",
+        "triangles": 9220,
+        "bytes": 1225272,
+        "sha256": "8ec03de298aa40da1110140027bcb62b3ff913c71642a54996668fde72514ff7",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_house_6_lod1.glb",
+        "triangles": 4610,
+        "bytes": 683068,
+        "sha256": "42832a93d1b82338f32b9d72e7359f75ad8c5cff1c218b44d2c9a9e6f0b27b70",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_house_6_lod2.glb",
+        "triangles": 1844,
+        "bytes": 268136,
+        "sha256": "e98e7b6b18a448d39c1954eabf7e10d7322f7e0279bbdf31658e7bafde173b20",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "tavern_1",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_tavern_1.glb",
+        "triangles": 10544,
+        "bytes": 1397304,
+        "sha256": "227b6f5c886187bc4f334bd5903534f488e0409359e0a89cc5d4bd398c271392",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_tavern_1_lod1.glb",
+        "triangles": 5272,
+        "bytes": 782100,
+        "sha256": "8e9f06c047d685ad1e33f991f99ba480ada4ebcfa4769b0a3df4c139b741c49b",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_tavern_1_lod2.glb",
+        "triangles": 2108,
+        "bytes": 307468,
+        "sha256": "92ccd0326e72f3d07bb55496266ab6c384fc0cb32ee7db8f1ff823bdbeff838a",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "tavern_2",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_tavern_2.glb",
+        "triangles": 10732,
+        "bytes": 1411748,
+        "sha256": "117f551e7c81cd4a5395730c0e1042848f773f9de9084183013df169e8ef7bda",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_tavern_2_lod1.glb",
+        "triangles": 5366,
+        "bytes": 795448,
+        "sha256": "45e4c4fce528334f77bfc0bb5aa8487dab4c053379aeac075248892865eb0e2c",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_tavern_2_lod2.glb",
+        "triangles": 2146,
+        "bytes": 312412,
+        "sha256": "fb204b5e73ca5de6a845ecc21f86dfd3abadb2b7c215d4f17ffa1f9ccc083603",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "shop",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_shop.glb",
+        "triangles": 9784,
+        "bytes": 1295020,
+        "sha256": "f6ed1b821ccae84e32ba4be2504db9d4380d585771c49522b86af31debd91aaa",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_shop_lod1.glb",
+        "triangles": 4892,
+        "bytes": 726104,
+        "sha256": "194938d6e7993a01126d6544ddd1cffd396522c74b9f42204d4866de24e65a63",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_shop_lod2.glb",
+        "triangles": 1956,
+        "bytes": 285648,
+        "sha256": "23915ca0e16a6e1d366b2b8043fe92f63456e9a67fb83bf6ceacb89ce27882e5",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "apothecary",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_apothecary.glb",
+        "triangles": 9032,
+        "bytes": 1190552,
+        "sha256": "5918f89f21b4956390356cb4dfe581bc3617d9e00c61c5132e4c7b171a74f021",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_apothecary_lod1.glb",
+        "triangles": 4516,
+        "bytes": 667100,
+        "sha256": "d911e87a4af59740618d332b2af555ee7f4fb01f85293f5754f4a92eb84bb38f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_apothecary_lod2.glb",
+        "triangles": 1806,
+        "bytes": 260560,
+        "sha256": "673660c54b9c3970499eae34a21e724fdedcf3370a80c245477fa830c190c095",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "workshop",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_workshop.glb",
+        "triangles": 9596,
+        "bytes": 1273036,
+        "sha256": "bb348e6873177539bcf7d9205cd8451eef19dbb9802ab999e0881e0811c2728a",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_workshop_lod1.glb",
+        "triangles": 4798,
+        "bytes": 711268,
+        "sha256": "26e581d2eab719e5a9833583df510bf570a072b92bc85127b573c27a6d1ce853",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_workshop_lod2.glb",
+        "triangles": 1918,
+        "bytes": 279236,
+        "sha256": "d45e473e761dd41d21505d37e0dfd13938023bab05cd7928aee7f9d4bbdfecc3",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "chapel",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_chapel.glb",
+        "triangles": 11304,
+        "bytes": 1509816,
+        "sha256": "c5f38a4dbab921bf4d8f0b415be9c258c24986620febc8055ca2d6c9eef16ef7",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_chapel_lod1.glb",
+        "triangles": 5652,
+        "bytes": 836200,
+        "sha256": "1ac8a885c4683be6cdb75a1c709506be7beeed7132ad0bb48d4cc487d74d68e2",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_chapel_lod2.glb",
+        "triangles": 2260,
+        "bytes": 328436,
+        "sha256": "b6a505bda22cc03e2b4a7a7b10f537170b38c423ab07e79e71c00ac5054b98fc",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "civic_hall",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_civic_hall.glb",
+        "triangles": 10356,
+        "bytes": 1375700,
+        "sha256": "631a6cd7dbd44a26732f81f568777a590be2cbf070327c7c740f64b9798e89ed",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_civic_hall_lod1.glb",
+        "triangles": 5178,
+        "bytes": 765884,
+        "sha256": "8b4686e1a59fd87145d6a88a876833fc3c64ae283b8608319da900af3da64ded",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_civic_hall_lod2.glb",
+        "triangles": 2070,
+        "bytes": 300236,
+        "sha256": "50991b8147a2ae2147012ab51d2bbc93bad12cd7976cf71a32aa4c2dfbf83bad",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "wall",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_wall.glb",
+        "triangles": 3008,
+        "bytes": 404748,
+        "sha256": "d20dd2139030a646905aeb3482c915f3604502b5488be0bb349a86e1ad2f5f51",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_wall_lod1.glb",
+        "triangles": 1504,
+        "bytes": 227456,
+        "sha256": "6052e91826a65437df4678e9421989d0cfe0a0008c5d7b1df9d52c93b467aa5c",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_wall_lod2.glb",
+        "triangles": 600,
+        "bytes": 91848,
+        "sha256": "c1b53bc1ea9ab0764f314a33caa3081199bad021cf8a4439c7dad994f46d5678",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "tower",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_tower.glb",
+        "triangles": 2256,
+        "bytes": 296172,
+        "sha256": "2e8496adb364123908e9b7c3ee9a780bc78b5e3150c435b71330c8d236c8fe68",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_tower_lod1.glb",
+        "triangles": 1128,
+        "bytes": 167128,
+        "sha256": "4e5ab6f0f3e5695cab9587e1fb8de5671dbf9e4b5f4c53c0421c31325c8fe27f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_tower_lod2.glb",
+        "triangles": 450,
+        "bytes": 65412,
+        "sha256": "89ddc024980b22f4a4aae4caae2563e6d3ba0e0d67555cfc49bff4b363393fa3",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "gatehouse",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_gatehouse.glb",
+        "triangles": 3196,
+        "bytes": 428912,
+        "sha256": "baa60fe9892a8f2bb20a6fab9e7f33add65f5a2b9a4c5329d865b859854a4a16",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_gatehouse_lod1.glb",
+        "triangles": 1598,
+        "bytes": 241560,
+        "sha256": "3460983811bda195064296f36ac6927c5d759ca33552a686db525a6adefb216c",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_gatehouse_lod2.glb",
+        "triangles": 638,
+        "bytes": 97556,
+        "sha256": "f329ce54000c1309703bc7ff7a40ce9171691a2cade7c79b8f20d838914a3b36",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "water_gate",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_water_gate.glb",
+        "triangles": 4888,
+        "bytes": 636084,
+        "sha256": "1c247436ba3c2ae7ad37c12cb85a4b2f2a704cef036fffd7a550342fad9a181f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_water_gate_lod1.glb",
+        "triangles": 2444,
+        "bytes": 369924,
+        "sha256": "e009bb83bed0b549e78444b5c89ca57c20aae188d3668b81845aad246f4c6da6",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_water_gate_lod2.glb",
+        "triangles": 976,
+        "bytes": 149720,
+        "sha256": "1dc972bd52b7021ea1f613fe621b35cff94cadc6eb4d28640f6c2982d57bc467",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "portcullis",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_portcullis.glb",
+        "triangles": 2256,
+        "bytes": 289792,
+        "sha256": "0c77bc0aeeb08a05c4d22e2b546e0acf2af0d1d2fc41870c6bfa538527f83531",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_portcullis_lod1.glb",
+        "triangles": 1128,
+        "bytes": 171060,
+        "sha256": "0cdb26eca33edd5f208c82d830a13468470c1219ed58bc2f6f0cc86c4fd34c5d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_portcullis_lod2.glb",
+        "triangles": 450,
+        "bytes": 69356,
+        "sha256": "3c93ed9d4842ce778e2a205dabc48604986f6f2aca87c6777c112ec2e76252dc",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "bridge_wide",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_bridge_wide.glb",
+        "triangles": 5452,
+        "bytes": 700048,
+        "sha256": "3e570cc5d98a895438e5ea33d9fad0812688a4f38847d3696b087886bd840ed4",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_bridge_wide_lod1.glb",
+        "triangles": 2726,
+        "bytes": 412216,
+        "sha256": "3edf131cfc29778c6aa25b7cf684eedede8cb6d14000853d4e0d02af68c9bd9e",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_bridge_wide_lod2.glb",
+        "triangles": 1090,
+        "bytes": 166808,
+        "sha256": "22c5e60cd5804b1c1656fe82f7fb8c57b8739b18c5994e152996356bdc55a297",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "bridge_narrow",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_bridge_narrow.glb",
+        "triangles": 5452,
+        "bytes": 685172,
+        "sha256": "9fa79b3341f37359e38c57f2ae145a141f62f2e57c6dc95b91775c982e4b577f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_bridge_narrow_lod1.glb",
+        "triangles": 2726,
+        "bytes": 412224,
+        "sha256": "f28937ecb20da554aa443cf9f466a4e47cb11caa35301ad8d3811ba251e5083e",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_bridge_narrow_lod2.glb",
+        "triangles": 1090,
+        "bytes": 166816,
+        "sha256": "600de69b4adee8de441d30a35e40b500a030c00c2155a47207404e461ead05e5",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "embankment",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_embankment.glb",
+        "triangles": 376,
+        "bytes": 50748,
+        "sha256": "8e4bfa0fff7ce829d3dceccd53b5525cecef62528432af229a686122ace8fdd2",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_embankment_lod1.glb",
+        "triangles": 188,
+        "bytes": 31500,
+        "sha256": "a6ba91c2451d0ae214b62428f12e9eb59d3c8265b07c4c3829945d6722e76e1b",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_embankment_lod2.glb",
+        "triangles": 74,
+        "bytes": 14396,
+        "sha256": "cc2e45d440c68e78e29a1f87cfd5df918f11ff2f83496b4421ce95f26b46dba8",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "railing",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_railing.glb",
+        "triangles": 2068,
+        "bytes": 262024,
+        "sha256": "04cd62cbee20069c74202d45d07ee572a7b6308d8bf863e32218cf89ba1340e3",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_railing_lod1.glb",
+        "triangles": 1034,
+        "bytes": 156668,
+        "sha256": "18d15fe28a41bb3bc56889bde3d88197a471ab01db6f609bfee1a73d35a6df07",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_railing_lod2.glb",
+        "triangles": 412,
+        "bytes": 63652,
+        "sha256": "c6adde4c6c59606eb15830465d202972d9909b56fa6193a5749f8ae0c67dbdcb",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "stairs",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_stairs.glb",
+        "triangles": 4512,
+        "bytes": 581228,
+        "sha256": "7788822b722c51f49b91714e8ef406e7bef1f2c57389d2c33611848483c5d89e",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_stairs_lod1.glb",
+        "triangles": 2256,
+        "bytes": 340260,
+        "sha256": "834095548ae76ed2970bd98ee0c8acf4c982f35354315c7026bceaaf73359cda",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_stairs_lod2.glb",
+        "triangles": 902,
+        "bytes": 137156,
+        "sha256": "2f9d17edba8f2da766d77d7224270ba40c6a332eaf682de836a19c8f23eaee6b",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "quay_stairs",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_quay_stairs.glb",
+        "triangles": 1504,
+        "bytes": 186888,
+        "sha256": "aa0529d23547ef99dd900df7488e51c3006a5b3ff60085243bc82c08ade1b8b8",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_quay_stairs_lod1.glb",
+        "triangles": 752,
+        "bytes": 114660,
+        "sha256": "0e2e2eace0527315a8535c52d8126b129f7de0a38a949a43eeefefd1911cae7a",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_quay_stairs_lod2.glb",
+        "triangles": 300,
+        "bytes": 46856,
+        "sha256": "720cb8d9ac11a03b74ae3c2be0eec9e676ed31e4fb7c96f8436427d03d9a4a6d",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "arch",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_arch.glb",
+        "triangles": 3008,
+        "bytes": 384752,
+        "sha256": "8efd4b96e9a2b93cd664ba6fdee3758c95bb13abd38ee9cde5c6d86f653af8e1",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_arch_lod1.glb",
+        "triangles": 1504,
+        "bytes": 227456,
+        "sha256": "b1597e8cfe8d6874f61b833ea753f87cfaccd0bf2df9dedafe16f71b2c27d607",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_arch_lod2.glb",
+        "triangles": 600,
+        "bytes": 91852,
+        "sha256": "14b06d7afe4ad70c47937c8a722435358aa59db2cc227f1b9baf7f7ff1e8cf58",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "paving",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_paving.glb",
+        "triangles": 188,
+        "bytes": 27180,
+        "sha256": "df4426b488b00d9af3236d0bf1a43cf3975c47a838b92aead25d781c6a6ee213",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_paving_lod1.glb",
+        "triangles": 94,
+        "bytes": 15756,
+        "sha256": "e1167edcc9fe545e438428d8b9c38717dc79a3c6abb1695e04d6547aabb9d3fc",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_paving_lod2.glb",
+        "triangles": 36,
+        "bytes": 7248,
+        "sha256": "5f4a38467834ace235c01dd8c44dc8b239f51546379cfc24938efb8cc73cffb3",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "lantern",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_lantern.glb",
+        "triangles": 1324,
+        "bytes": 176452,
+        "sha256": "892b7c62744aae2dd4bb4164902b8d8da3edc54a4f08d59a473871c89d66b3e5",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_lantern_lod1.glb",
+        "triangles": 662,
+        "bytes": 103340,
+        "sha256": "c3b1368b6d03dc414d511a535ae35c1a85986ec3c7a321b124d435f8201b6775",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_lantern_lod2.glb",
+        "triangles": 264,
+        "bytes": 44032,
+        "sha256": "937273529242d6a451f383d2e5a9fa541179ce7f89db5e3ccb91cd51de3ca243",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "sign",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_sign.glb",
+        "triangles": 376,
+        "bytes": 50996,
+        "sha256": "9fc60e47528a3e9829c0e5cf2961d01c8cb34888c035ebb47f30c268d098048a",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_sign_lod1.glb",
+        "triangles": 188,
+        "bytes": 31480,
+        "sha256": "a7fb11f1c723e0c2a9a06a5d6878a33a00b695c525abe6e097d751ef57ddb3eb",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_sign_lod2.glb",
+        "triangles": 74,
+        "bytes": 14372,
+        "sha256": "56bf554fca5289baab3e13dd6f99741da503f8a5535d63bd2a7947ce667a527f",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "stall",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_stall.glb",
+        "triangles": 1324,
+        "bytes": 179932,
+        "sha256": "6e01acf7701fd3a59ec428813420bcacf8b9d49d97131280a7db18f33326b9b4",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_stall_lod1.glb",
+        "triangles": 662,
+        "bytes": 103464,
+        "sha256": "1b6e5e224352693c7c0dd2033af925346f742178be361cdfb72ecb16d9d1b394",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_stall_lod2.glb",
+        "triangles": 264,
+        "bytes": 43968,
+        "sha256": "af6fda70c67537ef3d922f3d98514261de80d1c55e734f43deacf405003292f4",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "altar",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_altar.glb",
+        "triangles": 752,
+        "bytes": 97540,
+        "sha256": "ff411dbfacd28cbb57360eb0ec9cf5f85ea62261108973fa1c7c688d84ad79da",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_altar_lod1.glb",
+        "triangles": 376,
+        "bytes": 59500,
+        "sha256": "7e2fc8cdbcd209ce2232d7f523544f627253b222995f2e549b10951fed9fba3b",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_altar_lod2.glb",
+        "triangles": 150,
+        "bytes": 25600,
+        "sha256": "f3fe02225fc187351d5fc82da2a06c4c8aa2df6759ad905f474e264741d6cb12",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "table",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_table.glb",
+        "triangles": 1316,
+        "bytes": 163708,
+        "sha256": "e1b448ab47062eedf9988a035624ad6471c70dba5fdbc6306eb18eda5077e027",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_table_lod1.glb",
+        "triangles": 658,
+        "bytes": 100548,
+        "sha256": "e6faccee5f0cedbd10c71917430d48abd5d3f5ad43c75af539bf57a89cb8003b",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_table_lod2.glb",
+        "triangles": 262,
+        "bytes": 41136,
+        "sha256": "832e903e3fc87269e39cee8de7a24e99210c5737e98dd4cbc8a81b2201e20721",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "room",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_room.glb",
+        "triangles": 1692,
+        "bytes": 226580,
+        "sha256": "30d0ae2ad7be8c7151d3929ff1da48608d062227f3bbd5b40d39e8a21f2df7d7",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_room_lod1.glb",
+        "triangles": 846,
+        "bytes": 130200,
+        "sha256": "15a15fb8dcc94c236d18e7beab5b40601755add0b9a7adcf8b1948dd456d33fd",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_room_lod2.glb",
+        "triangles": 338,
+        "bytes": 53984,
+        "sha256": "dea1938efcaea60d0ee8198443816a40bf9452167b58cb331144c690535b5220",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel.glb",
+        "triangles": 28999,
+        "bytes": 3790276,
+        "sha256": "3595837c811c258b10af984a2bbf4df3f0bcfcad8f4cc8b78e57e928e166964d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_lod1.glb",
+        "triangles": 14468,
+        "bytes": 1861812,
+        "sha256": "4a0cf826013c897ecb72f666596c7b4d722b1014ebc2ab65feca5648c908c95c",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_lod2.glb",
+        "triangles": 5116,
+        "bytes": 723616,
+        "sha256": "54686183d59a54e240e2097eba07eadf09fd58ed5e3073da9f32d59b3f8f4675",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "wall_entry",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_wall_entry.glb",
+        "triangles": 2820,
+        "bytes": 379628,
+        "sha256": "a562929d4c5924c7f47a36621fe1607492629f2435ceff0552eed00168bdc90e",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_wall_entry_lod1.glb",
+        "triangles": 1410,
+        "bytes": 213360,
+        "sha256": "86bf5823c32fe27601a3021cb203ba0ea347a1f07f663696cc6ddf21ba0f2d99",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_wall_entry_lod2.glb",
+        "triangles": 564,
+        "bytes": 86456,
+        "sha256": "2cbe225ca2d815efcaf83d48a7520d0c4241424a2bdf81654146b2c795fa0c49",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rowhouse_1",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_rowhouse_1.glb",
+        "triangles": 9408,
+        "bytes": 1244928,
+        "sha256": "855104a4167094c1de63e4d18a66c77de68d4983a6e0b93f619acd59578b56dc",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_rowhouse_1_lod1.glb",
+        "triangles": 4704,
+        "bytes": 697976,
+        "sha256": "bc4ad8e9d8d2607a05da9e80cf16515133cc56ec07622508091b133bda08ff22",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_rowhouse_1_lod2.glb",
+        "triangles": 1880,
+        "bytes": 274324,
+        "sha256": "7d2530bc430c019bedea6ad4bcba42731e9009fbea9fd8508db1cb8f00799703",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rowhouse_2",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_rowhouse_2.glb",
+        "triangles": 10356,
+        "bytes": 1365276,
+        "sha256": "4f2ebdfe68956f4c5552772ac44d834ed10539030eb4fda56fb01d536b474d4f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_rowhouse_2_lod1.glb",
+        "triangles": 5178,
+        "bytes": 766672,
+        "sha256": "ab293d577e737eabbb9d3bbaaa7e846801f7ec09887430e9c6a4d74b0ca2391d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_rowhouse_2_lod2.glb",
+        "triangles": 2070,
+        "bytes": 300428,
+        "sha256": "9d041f08c2e7cf6941324dab275aa27b59b853487944e7bf4d58dc081b55399c",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "lean_to",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_lean_to.glb",
+        "triangles": 1888,
+        "bytes": 249192,
+        "sha256": "60e6f6e1dceb3fccb72d2961f62b7f879cd27a23438b2dd50e01c702b75ae491",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_lean_to_lod1.glb",
+        "triangles": 944,
+        "bytes": 147264,
+        "sha256": "abe3cfc0b38d6bf7d3c6e4254613e7c4f6043b0308a96b4bf0bfe0409e425613",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_lean_to_lod2.glb",
+        "triangles": 376,
+        "bytes": 62080,
+        "sha256": "a70b7f3db263cbe81958a0dea7e8be8da41ee2fe98aa9e45debf06c6bbd44cf9",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "courtyard_tree",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_courtyard_tree.glb",
+        "triangles": 2532,
+        "bytes": 224304,
+        "sha256": "3a38d6d99b56626d0acecb7bf08f7fce991813a1ec8360a0386b1d97bb0de1b9",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_courtyard_tree_lod1.glb",
+        "triangles": 1266,
+        "bytes": 66304,
+        "sha256": "e4fad6cc549bc76e42e0df3b2e044afa1f87841118a9b3fb482c866c1b3b1892",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_courtyard_tree_lod2.glb",
+        "triangles": 506,
+        "bytes": 32312,
+        "sha256": "b3bbf63710e4f214ebaf5de70f14c768467952dcbcf0b7b615f4dc2a4fa81e50",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "planter",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_planter.glb",
+        "triangles": 1804,
+        "bytes": 151068,
+        "sha256": "01985bc9ebc156a01e71412eb28f786c50eeb7d47d9baae3735aab43729c4ba8",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_planter_lod1.glb",
+        "triangles": 902,
+        "bytes": 53712,
+        "sha256": "41d74b0d3d435d2f1e0424fd5fdb3069f7c1ea8791146b3bee5f1e5285ce2f36",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_planter_lod2.glb",
+        "triangles": 360,
+        "bytes": 25780,
+        "sha256": "10ac18ba9073b0e7d68c5677fc3f36d1b49b0a5a521acaad7553e9967ba75036",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "crate_stack",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_crate_stack.glb",
+        "triangles": 3008,
+        "bytes": 366136,
+        "sha256": "7fc927a9059fd88867c28bce458c3d7a88281db29c751ec4faa204236753acdd",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_crate_stack_lod1.glb",
+        "triangles": 1504,
+        "bytes": 207796,
+        "sha256": "9eb99ed6316cd942ecd46d1191318b3758006c688538298fc910b547b9ac64e3",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_crate_stack_lod2.glb",
+        "triangles": 600,
+        "bytes": 71572,
+        "sha256": "9db3a2303a9ac597099a73fbc3bc5fe55f74f97e51fd65f01eb2a9921c01e86a",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "barrel_cluster",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_barrel_cluster.glb",
+        "triangles": 2268,
+        "bytes": 256692,
+        "sha256": "cb70456729142cc00d8a9983ed81318e5409e25a61c706fe1d22fa1e5b0eb979",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_barrel_cluster_lod1.glb",
+        "triangles": 1134,
+        "bytes": 173400,
+        "sha256": "c1f86b36f3b6bbfa306b666b131f1897c52698e296a7fb03b1f67a3748a2c9cb",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_barrel_cluster_lod2.glb",
+        "triangles": 452,
+        "bytes": 71104,
+        "sha256": "7b435bf52aca58e00b421b1a68d8b7d6b22de5ccf4578c7b91c00b5088a2a18b",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "handcart",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_handcart.glb",
+        "triangles": 2008,
+        "bytes": 247812,
+        "sha256": "4ca11275fbbce16bffd7bf86934c60e7feb01e4565713706416e5c22d0ce0b5b",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_handcart_lod1.glb",
+        "triangles": 1004,
+        "bytes": 144256,
+        "sha256": "d6ac7eeedb8398f5282c52c79b07fb5bfbcdfe44ad7599ecfefce7e2691809a7",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_handcart_lod2.glb",
+        "triangles": 400,
+        "bytes": 64768,
+        "sha256": "ec67cb4c70787e9c2c04af32497c469722916ac14f2beb6b3d0db2485a42dee0",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "awning_1",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_awning_1.glb",
+        "triangles": 3008,
+        "bytes": 388380,
+        "sha256": "f14d87bbbc4b6067440f4a4a71d3b8fb084e360f4046e7604e5a76bdef6d692c",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_awning_1_lod1.glb",
+        "triangles": 1504,
+        "bytes": 213724,
+        "sha256": "f806febbf08d7f78966f61a12a04a5a67b3be718847009e5dd6e891dbd436ab7",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_awning_1_lod2.glb",
+        "triangles": 600,
+        "bytes": 94804,
+        "sha256": "5a75a1f8ad4babcd951b6934a390378fbc7c8414f377f445a5750e566da4bc47",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "awning_2",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_awning_2.glb",
+        "triangles": 3008,
+        "bytes": 389880,
+        "sha256": "d67dd7015042d83d825d2599d72cb9e7124bcd1ec4f138ebf1a888fbac6051fb",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_awning_2_lod1.glb",
+        "triangles": 1504,
+        "bytes": 215216,
+        "sha256": "2270644dfa1a4e812701b7f6d81eab4e86d65789d3ab77f654a7ca8368c72c84",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_awning_2_lod2.glb",
+        "triangles": 600,
+        "bytes": 96280,
+        "sha256": "12967b9781b65deaac9cb3a884e05fe6f41f34547e5f67601c8e8a7ab27e149a",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "washing_line",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_washing_line.glb",
+        "triangles": 1128,
+        "bytes": 151652,
+        "sha256": "b4ccc68a23115eacbccd0ea592c2b172a604ab790d3a03e1388b2d52ce22231e",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_washing_line_lod1.glb",
+        "triangles": 564,
+        "bytes": 82928,
+        "sha256": "b02443c64f63c61043089dba9bd2e584dcdb763b54798f6e971d118d99a0526c",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_washing_line_lod2.glb",
+        "triangles": 224,
+        "bytes": 36684,
+        "sha256": "bdb8b653fcec35776db96ab98b60f5930af157bf2cd0c6baf3c419995501ee6d",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "noticeboard",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_noticeboard.glb",
+        "triangles": 1888,
+        "bytes": 248508,
+        "sha256": "cbdacf2e5c67f7adb866551157dd8a513712ebf11ff420020e23178489185005",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_noticeboard_lod1.glb",
+        "triangles": 944,
+        "bytes": 136492,
+        "sha256": "122343787345fd413d66ef0df912f86cf613295afd781c632e70dd216c2fcdd4",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_noticeboard_lod2.glb",
+        "triangles": 376,
+        "bytes": 62328,
+        "sha256": "16320713ad3bb1b74b051296e1c19d6925757b61e018f7bcf2e22ee65a0363c7",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "fountain",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_fountain.glb",
+        "triangles": 4272,
+        "bytes": 516040,
+        "sha256": "8c94979e058908787dc9c5bc155ec19d5650c857e75570d26b50cc7b3e87da20",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_fountain_lod1.glb",
+        "triangles": 2136,
+        "bytes": 325212,
+        "sha256": "47f0e1c754e0578a892c97f24b09d6dd1f47bf7d360ef8dcf5f434223e0500fa",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_fountain_lod2.glb",
+        "triangles": 854,
+        "bytes": 132908,
+        "sha256": "2d3e867ca9366ac6507c224ff346e70b35bf659cab4306da426c67401b9488fa",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_bastion",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_bastion.glb",
+        "triangles": 2828,
+        "bytes": 392488,
+        "sha256": "4947872def7649eceb4560328972227be9b83a95a6d773a2795233642def84be",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_bastion_lod1.glb",
+        "triangles": 1414,
+        "bytes": 219268,
+        "sha256": "5fb7d531fe02b9d47b4d772b6d40d4057e00e8f3e9473959a5530afd0ec93f52",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_bastion_lod2.glb",
+        "triangles": 564,
+        "bytes": 91728,
+        "sha256": "f39371543be22684ada037b2a266c03ed5c40227ed8255a51d8ca44f956dfeb7",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_arcade",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_arcade.glb",
+        "triangles": 3580,
+        "bytes": 493572,
+        "sha256": "e1d1307575b03afb104258eac937ba22876572d45d74a4c2e421fee736d2bffd",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_arcade_lod1.glb",
+        "triangles": 1790,
+        "bytes": 274316,
+        "sha256": "4889019c5d788633a460ea0b7673cd1f970a00b432ad33f71de173b7a893e555",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_arcade_lod2.glb",
+        "triangles": 716,
+        "bytes": 113200,
+        "sha256": "6439fcd031dd9648ab0706f71b52bd3a93516cce54998c12754d65dcca612d6c",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_gate",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_gate.glb",
+        "triangles": 7896,
+        "bytes": 1109668,
+        "sha256": "e1a469d07537b5e85b0f07551431888930a804c019dec6dbc4b7b81af73197ed",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_gate_lod1.glb",
+        "triangles": 3948,
+        "bytes": 598356,
+        "sha256": "6682f46c0f3c6c27df1ee14a0805bc6bbb4d787c5d77f92f67db7fa1d009e212",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_gate_lod2.glb",
+        "triangles": 1578,
+        "bytes": 242840,
+        "sha256": "2ea29289725b9599fa77fa60606d9c9d791b47062737c1ad985c04ffceaff24a",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "battle_cover",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_battle_cover.glb",
+        "triangles": 752,
+        "bytes": 99224,
+        "sha256": "c597b3c4955364243073c5a5de6a346a7e2897fbdb5ea6ba255d9e6c2e3e9e26",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_battle_cover_lod1.glb",
+        "triangles": 376,
+        "bytes": 59720,
+        "sha256": "663855c74223781987461108a2e2c82bb5d354aeaf21f2f3ff1ae3a00815287d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_battle_cover_lod2.glb",
+        "triangles": 150,
+        "bytes": 25816,
+        "sha256": "ffcf0eba2af92f615a3d1e7487276c909f0b896908a9cf1bbb135408cec752ed",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "mountain_massif",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_mountain_massif.glb",
+        "triangles": 22044,
+        "bytes": 676632,
+        "sha256": "182373527b6918adf72917d085411aae40cfb054fee54b4639ede8df75597da4",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_mountain_massif_lod1.glb",
+        "triangles": 11021,
+        "bytes": 338252,
+        "sha256": "0aec3a7bad49b141324326b0de53a3477ecf5d250f27b39636498c734e0d2513",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_mountain_massif_lod2.glb",
+        "triangles": 4407,
+        "bytes": 138444,
+        "sha256": "2c6b96c671454af2eb08e66e3b2d1dc1d53124ed03dce99eed7abccccb97cc39",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "mountain_passage",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_mountain_passage.glb",
+        "triangles": 11468,
+        "bytes": 1552128,
+        "sha256": "4d398c61f203d60daa92910092e9b580eefc4031b8027577c95459a55e8dd3af",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_mountain_passage_lod1.glb",
+        "triangles": 5734,
+        "bytes": 869052,
+        "sha256": "f15d31c1e8018ea082afb816a1a81b0968ec667bf439b303793683f0beea5f99",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_mountain_passage_lod2.glb",
+        "triangles": 2292,
+        "bytes": 352804,
+        "sha256": "7e9080f4fe5879c36aaeb16d27bf5556f5c2f0107a3fe4a61ad272b9439bff6e",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "mountain_redoubt",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_mountain_redoubt.glb",
+        "triangles": 22372,
+        "bytes": 3074736,
+        "sha256": "92880a698b11b0df6af0c24c08d002139886e5125fab966721fcd8cea5f98546",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_mountain_redoubt_lod1.glb",
+        "triangles": 11186,
+        "bytes": 1687144,
+        "sha256": "0d31e36120c0ccb202d4ac20ab3f3915bb8d43f8846ff13801719ce84f4ee63f",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_mountain_redoubt_lod2.glb",
+        "triangles": 4474,
+        "bytes": 681536,
+        "sha256": "1500619ee8418747ec9dc4d3215290bd13a89648981b6402ae43cbee73b9a351",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "mountain_seal",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_mountain_seal.glb",
+        "triangles": 7708,
+        "bytes": 1004816,
+        "sha256": "c41bc65ad817332f55af158fab6bc1229e0dfb06ab684f16fc68b2dee48be466",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_mountain_seal_lod1.glb",
+        "triangles": 3854,
+        "bytes": 580456,
+        "sha256": "f77c82d95e09b33fd49d7c7cb610a134dd4ee6b1c35ac3b4d4157be6b2f49cbc",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_mountain_seal_lod2.glb",
+        "triangles": 1540,
+        "bytes": 233332,
+        "sha256": "74c170d6ddfe5c08e00776ccc1a9f01d15aa85052e9ff521577543bb711e12a5",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "mountain_vault",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_mountain_vault.glb",
+        "triangles": 28576,
+        "bytes": 3951736,
+        "sha256": "9be8cf7cf811f5ae4314ef2d288723bad6704d53178f3bb0d3cacd035bb663bc",
+        "repairedDegenerateTangents": 36
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_mountain_vault_lod1.glb",
+        "triangles": 14288,
+        "bytes": 2142252,
+        "sha256": "f98f17461310c97e0a9f14ffb3485fb4fec636472961a394c2d9483bd0dd766b",
+        "repairedDegenerateTangents": 31
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_mountain_vault_lod2.glb",
+        "triangles": 5714,
+        "bytes": 856680,
+        "sha256": "0d4612cd14010148737161f0841d56d454f3de47bcbbb04283526df65f285db9",
+        "repairedDegenerateTangents": 2
+      }
+    ]
+  }
+]

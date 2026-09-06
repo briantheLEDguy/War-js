@@ -1,0 +1,4542 @@
+[
+  {
+    "kind": "aegis_altar",
+    "sourceKind": "aegis_altar",
+    "label": "Aegis Altar",
+    "group": "Aegis City",
+    "model": "prop_aegis_altar.glb",
+    "assetKey": "aegis_altar",
+    "fallbackKind": "aegis_altar",
+    "lodModels": [
+      "prop_aegis_altar_lod1.glb",
+      "prop_aegis_altar_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.3,
+      "depth": 1.8,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 4,
+        "depth": 2,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_apothecary",
+    "sourceKind": "aegis_apothecary",
+    "label": "Aegis Apothecary",
+    "group": "Aegis City",
+    "model": "prop_aegis_apothecary.glb",
+    "assetKey": "aegis_apothecary",
+    "fallbackKind": "aegis_apothecary",
+    "lodModels": [
+      "prop_aegis_apothecary_lod1.glb",
+      "prop_aegis_apothecary_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.131,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_arch",
+    "sourceKind": "aegis_arch",
+    "label": "Aegis Arch",
+    "group": "Aegis City",
+    "model": "prop_aegis_arch.glb",
+    "assetKey": "aegis_arch",
+    "fallbackKind": "aegis_arch",
+    "lodModels": [
+      "prop_aegis_arch_lod1.glb",
+      "prop_aegis_arch_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7,
+      "depth": 1.2,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_awning_1",
+    "sourceKind": "aegis_awning_1",
+    "label": "Aegis Awning 1",
+    "group": "Aegis City",
+    "model": "prop_aegis_awning_1.glb",
+    "assetKey": "aegis_awning_1",
+    "fallbackKind": "aegis_awning_1",
+    "lodModels": [
+      "prop_aegis_awning_1_lod1.glb",
+      "prop_aegis_awning_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.53,
+      "depth": 2.5,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 3.8,
+        "depth": 2.6,
+        "minY": 0,
+        "maxY": 3.4
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_awning_2",
+    "sourceKind": "aegis_awning_2",
+    "label": "Aegis Awning 2",
+    "group": "Aegis City",
+    "model": "prop_aegis_awning_2.glb",
+    "assetKey": "aegis_awning_2",
+    "fallbackKind": "aegis_awning_2",
+    "lodModels": [
+      "prop_aegis_awning_2_lod1.glb",
+      "prop_aegis_awning_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.53,
+      "depth": 2.5,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 3.8,
+        "depth": 2.6,
+        "minY": 0,
+        "maxY": 3.4
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_barrel_cluster",
+    "sourceKind": "aegis_barrel_cluster",
+    "label": "Aegis Barrel Cluster",
+    "group": "Aegis City",
+    "model": "prop_aegis_barrel_cluster.glb",
+    "assetKey": "aegis_barrel_cluster",
+    "fallbackKind": "aegis_barrel_cluster",
+    "lodModels": [
+      "prop_aegis_barrel_cluster_lod1.glb",
+      "prop_aegis_barrel_cluster_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.15,
+      "depth": 2,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 2.3,
+        "depth": 2.2,
+        "minY": 0,
+        "maxY": 1.4
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_battle_cover",
+    "sourceKind": "aegis_battle_cover",
+    "label": "Aegis Battle Cover",
+    "group": "Aegis City",
+    "model": "prop_aegis_battle_cover.glb",
+    "assetKey": "aegis_battle_cover",
+    "fallbackKind": "aegis_battle_cover",
+    "lodModels": [
+      "prop_aegis_battle_cover_lod1.glb",
+      "prop_aegis_battle_cover_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.5,
+      "depth": 2.8,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 5.5,
+        "depth": 2.8,
+        "minY": -0.5,
+        "maxY": 4.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_bridge_narrow",
+    "sourceKind": "aegis_bridge_narrow",
+    "label": "Aegis Bridge Narrow",
+    "group": "Aegis City",
+    "model": "prop_aegis_bridge_narrow.glb",
+    "assetKey": "aegis_bridge_narrow",
+    "fallbackKind": "aegis_bridge_narrow",
+    "lodModels": [
+      "prop_aegis_bridge_narrow_lod1.glb",
+      "prop_aegis_bridge_narrow_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.8,
+      "depth": 12,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "x": -2,
+        "width": 0.5,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 2
+      },
+      {
+        "x": 2,
+        "width": 0.5,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 2
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 3.5,
+        "depth": 12,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_bridge_wide",
+    "sourceKind": "aegis_bridge_wide",
+    "label": "Aegis Bridge Wide",
+    "group": "Aegis City",
+    "model": "prop_aegis_bridge_wide.glb",
+    "assetKey": "aegis_bridge_wide",
+    "fallbackKind": "aegis_bridge_wide",
+    "lodModels": [
+      "prop_aegis_bridge_wide_lod1.glb",
+      "prop_aegis_bridge_wide_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.8,
+      "depth": 12,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "x": -4,
+        "width": 0.5,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 2
+      },
+      {
+        "x": 4,
+        "width": 0.5,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 2
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 7.5,
+        "depth": 12,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_chapel",
+    "sourceKind": "aegis_chapel",
+    "label": "Aegis Chapel",
+    "group": "Aegis City",
+    "model": "prop_aegis_chapel.glb",
+    "assetKey": "aegis_chapel",
+    "fallbackKind": "aegis_chapel",
+    "lodModels": [
+      "prop_aegis_chapel_lod1.glb",
+      "prop_aegis_chapel_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.4,
+      "depth": 11.285,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 12,
+        "depth": 12,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel",
+    "sourceKind": "aegis_citadel",
+    "label": "Aegis Citadel",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel.glb",
+    "assetKey": "aegis_citadel",
+    "fallbackKind": "aegis_citadel",
+    "lodModels": [
+      "prop_aegis_citadel_lod1.glb",
+      "prop_aegis_citadel_lod2.glb"
+    ],
+    "footprint": {
+      "width": 100,
+      "depth": 68.016,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": 20.5,
+        "z": 48.3,
+        "width": 31,
+        "depth": 1.4,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "x": -20.5,
+        "z": 48.3,
+        "width": 31,
+        "depth": 1.4,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "z": 48.3,
+        "width": 10,
+        "depth": 1.4,
+        "minY": 12,
+        "maxY": 36,
+        "x": 0
+      },
+      {
+        "x": 7,
+        "z": 50,
+        "width": 2,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 12
+      },
+      {
+        "x": -7,
+        "z": 50,
+        "width": 2,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 12
+      },
+      {
+        "x": 31,
+        "z": 50,
+        "width": 2.4,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 39
+      },
+      {
+        "x": 21,
+        "z": 50,
+        "width": 2.4,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 39
+      },
+      {
+        "x": 11,
+        "z": 50,
+        "width": 2.4,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 39
+      },
+      {
+        "x": -11,
+        "z": 50,
+        "width": 2.4,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 39
+      },
+      {
+        "x": -21,
+        "z": 50,
+        "width": 2.4,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 39
+      },
+      {
+        "x": -31,
+        "z": 50,
+        "width": 2.4,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 39
+      },
+      {
+        "x": 21.5,
+        "z": -12.3,
+        "width": 29,
+        "depth": 1.4,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "x": -21.5,
+        "z": -12.3,
+        "width": 29,
+        "depth": 1.4,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "z": -12.3,
+        "width": 14,
+        "depth": 1.4,
+        "minY": 5.4,
+        "maxY": 36,
+        "x": 0
+      },
+      {
+        "x": 35.3,
+        "z": 18,
+        "width": 1.4,
+        "depth": 62,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "x": -35.3,
+        "z": 18,
+        "width": 1.4,
+        "depth": 62,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "x": 21,
+        "z": 7.5,
+        "width": 0.8,
+        "depth": 7,
+        "minY": 0,
+        "maxY": 5.5
+      },
+      {
+        "x": 21,
+        "z": -7.5,
+        "width": 0.8,
+        "depth": 7,
+        "minY": 0,
+        "maxY": 5.5
+      },
+      {
+        "x": -21,
+        "z": 7.5,
+        "width": 0.8,
+        "depth": 7,
+        "minY": 0,
+        "maxY": 5.5
+      },
+      {
+        "x": -21,
+        "z": -7.5,
+        "width": 0.8,
+        "depth": 7,
+        "minY": 0,
+        "maxY": 5.5
+      },
+      {
+        "z": 18,
+        "width": 17,
+        "depth": 20,
+        "minY": 36,
+        "maxY": 126,
+        "x": 0
+      },
+      {
+        "x": 44,
+        "z": 46,
+        "width": 11,
+        "depth": 11,
+        "minY": 0,
+        "maxY": 44
+      },
+      {
+        "x": 44,
+        "z": -10,
+        "width": 11,
+        "depth": 11,
+        "minY": 0,
+        "maxY": 44
+      },
+      {
+        "x": -44,
+        "z": 46,
+        "width": 11,
+        "depth": 11,
+        "minY": 0,
+        "maxY": 44
+      },
+      {
+        "x": -44,
+        "z": -10,
+        "width": 11,
+        "depth": 11,
+        "minY": 0,
+        "maxY": 44
+      },
+      {
+        "x": 16,
+        "z": 42,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": 16,
+        "z": 26,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": 16,
+        "z": 6,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": 16,
+        "z": -6,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": -16,
+        "z": 42,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": -16,
+        "z": 26,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": -16,
+        "z": 6,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": -16,
+        "z": -6,
+        "width": 1.8,
+        "depth": 1.8,
+        "minY": 0,
+        "maxY": 34
+      },
+      {
+        "x": 29,
+        "z": 18.5,
+        "width": 0.25,
+        "depth": 59,
+        "minY": 6,
+        "maxY": 7.4
+      },
+      {
+        "x": -29,
+        "z": 18.5,
+        "width": 0.25,
+        "depth": 59,
+        "minY": 6,
+        "maxY": 7.4
+      },
+      {
+        "z": -9.7,
+        "width": 46,
+        "depth": 0.25,
+        "minY": 6,
+        "maxY": 7.4,
+        "x": 0
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "z": 18,
+        "width": 69,
+        "depth": 59,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "z": -10.7,
+        "width": 68,
+        "depth": 2,
+        "fromY": 6,
+        "toY": 6
+      },
+      {
+        "x": -32,
+        "z": 18,
+        "width": 6,
+        "depth": 60,
+        "fromY": 6,
+        "toY": 6
+      },
+      {
+        "x": 32,
+        "z": 18,
+        "width": 6,
+        "depth": 60,
+        "fromY": 6,
+        "toY": 6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_arcade",
+    "sourceKind": "aegis_citadel_arcade",
+    "label": "Aegis Citadel Arcade",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_arcade.glb",
+    "assetKey": "aegis_citadel_arcade",
+    "fallbackKind": "aegis_citadel_arcade",
+    "lodModels": [
+      "prop_aegis_citadel_arcade_lod1.glb",
+      "prop_aegis_citadel_arcade_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7.164,
+      "depth": 65.22,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "z": -30,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      },
+      {
+        "z": -20,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      },
+      {
+        "z": -10,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      },
+      {
+        "z": 0,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      },
+      {
+        "z": 10,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      },
+      {
+        "z": 20,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      },
+      {
+        "z": 30,
+        "width": 4,
+        "depth": 2,
+        "minY": -0.5,
+        "maxY": 18
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_archive",
+    "sourceKind": "aegis_citadel_archive",
+    "label": "Aegis Citadel Archive",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_archive.glb",
+    "assetKey": "aegis_citadel_archive",
+    "fallbackKind": "aegis_citadel_archive",
+    "lodModels": [
+      "prop_aegis_citadel_archive_lod1.glb",
+      "prop_aegis_citadel_archive_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.876,
+      "depth": 0.935,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4.85,
+        "depth": 1.35,
+        "minY": 0,
+        "maxY": 5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_arms_rack",
+    "sourceKind": "aegis_citadel_arms_rack",
+    "label": "Aegis Citadel Arms Rack",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_arms_rack.glb",
+    "assetKey": "aegis_citadel_arms_rack",
+    "fallbackKind": "aegis_citadel_arms_rack",
+    "lodModels": [
+      "prop_aegis_citadel_arms_rack_lod1.glb",
+      "prop_aegis_citadel_arms_rack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.344,
+      "depth": 1.475,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4.85,
+        "depth": 1.85,
+        "minY": 0,
+        "maxY": 3.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_bastion",
+    "sourceKind": "aegis_citadel_bastion",
+    "label": "Aegis Citadel Bastion",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_bastion.glb",
+    "assetKey": "aegis_citadel_bastion",
+    "fallbackKind": "aegis_citadel_bastion",
+    "lodModels": [
+      "prop_aegis_citadel_bastion_lod1.glb",
+      "prop_aegis_citadel_bastion_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.4,
+      "depth": 12.4,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 12,
+        "depth": 12,
+        "minY": -0.5,
+        "maxY": 43
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_bunk",
+    "sourceKind": "aegis_citadel_bunk",
+    "label": "Aegis Citadel Bunk",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_bunk.glb",
+    "assetKey": "aegis_citadel_bunk",
+    "fallbackKind": "aegis_citadel_bunk",
+    "lodModels": [
+      "prop_aegis_citadel_bunk_lod1.glb",
+      "prop_aegis_citadel_bunk_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.282,
+      "depth": 3.838,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 2.85,
+        "depth": 4.85,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_chandelier",
+    "sourceKind": "aegis_citadel_chandelier",
+    "label": "Aegis Citadel Chandelier",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_chandelier.glb",
+    "assetKey": "aegis_citadel_chandelier",
+    "fallbackKind": "aegis_citadel_chandelier",
+    "lodModels": [
+      "prop_aegis_citadel_chandelier_lod1.glb",
+      "prop_aegis_citadel_chandelier_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.011,
+      "depth": 5.011,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_citadel_counting_desk",
+    "sourceKind": "aegis_citadel_counting_desk",
+    "label": "Aegis Citadel Counting Desk",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_counting_desk.glb",
+    "assetKey": "aegis_citadel_counting_desk",
+    "fallbackKind": "aegis_citadel_counting_desk",
+    "lodModels": [
+      "prop_aegis_citadel_counting_desk_lod1.glb",
+      "prop_aegis_citadel_counting_desk_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.086,
+      "depth": 5.033,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 3.85,
+        "depth": 2.35,
+        "minY": 0,
+        "maxY": 2
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_feast_table",
+    "sourceKind": "aegis_citadel_feast_table",
+    "label": "Aegis Citadel Feast Table",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_feast_table.glb",
+    "assetKey": "aegis_citadel_feast_table",
+    "fallbackKind": "aegis_citadel_feast_table",
+    "lodModels": [
+      "prop_aegis_citadel_feast_table_lod1.glb",
+      "prop_aegis_citadel_feast_table_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.187,
+      "depth": 4.952,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 6.85,
+        "depth": 2.85,
+        "minY": 0,
+        "maxY": 1.7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_gate",
+    "sourceKind": "aegis_citadel_gate",
+    "label": "Aegis Citadel Gate",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_gate.glb",
+    "assetKey": "aegis_citadel_gate",
+    "fallbackKind": "aegis_citadel_gate",
+    "lodModels": [
+      "prop_aegis_citadel_gate_lod1.glb",
+      "prop_aegis_citadel_gate_lod2.glb"
+    ],
+    "footprint": {
+      "width": 57.426,
+      "depth": 7.4,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": -12,
+        "width": 6,
+        "depth": 6,
+        "minY": -0.5,
+        "maxY": 26
+      },
+      {
+        "x": 12,
+        "width": 6,
+        "depth": 6,
+        "minY": -0.5,
+        "maxY": 26
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_hearth",
+    "sourceKind": "aegis_citadel_hearth",
+    "label": "Aegis Citadel Hearth",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_hearth.glb",
+    "assetKey": "aegis_citadel_hearth",
+    "fallbackKind": "aegis_citadel_hearth",
+    "lodModels": [
+      "prop_aegis_citadel_hearth_lod1.glb",
+      "prop_aegis_citadel_hearth_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.11,
+      "depth": 2.555,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 5.85,
+        "depth": 2.85,
+        "minY": 0,
+        "maxY": 6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_oath_statue",
+    "sourceKind": "aegis_citadel_oath_statue",
+    "label": "Aegis Citadel Oath Statue",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_oath_statue.glb",
+    "assetKey": "aegis_citadel_oath_statue",
+    "fallbackKind": "aegis_citadel_oath_statue",
+    "lodModels": [
+      "prop_aegis_citadel_oath_statue_lod1.glb",
+      "prop_aegis_citadel_oath_statue_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.724,
+      "depth": 2.688,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 3.85,
+        "depth": 3.85,
+        "minY": 0,
+        "maxY": 8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_provision_rack",
+    "sourceKind": "aegis_citadel_provision_rack",
+    "label": "Aegis Citadel Provision Rack",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_provision_rack.glb",
+    "assetKey": "aegis_citadel_provision_rack",
+    "fallbackKind": "aegis_citadel_provision_rack",
+    "lodModels": [
+      "prop_aegis_citadel_provision_rack_lod1.glb",
+      "prop_aegis_citadel_provision_rack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.205,
+      "depth": 1.201,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4.85,
+        "depth": 1.85,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_reliquary",
+    "sourceKind": "aegis_citadel_reliquary",
+    "label": "Aegis Citadel Reliquary",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_reliquary.glb",
+    "assetKey": "aegis_citadel_reliquary",
+    "fallbackKind": "aegis_citadel_reliquary",
+    "lodModels": [
+      "prop_aegis_citadel_reliquary_lod1.glb",
+      "prop_aegis_citadel_reliquary_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.203,
+      "depth": 2.203,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 2.85,
+        "depth": 2.85,
+        "minY": 0,
+        "maxY": 5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_tapestry",
+    "sourceKind": "aegis_citadel_tapestry",
+    "label": "Aegis Citadel Tapestry",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_tapestry.glb",
+    "assetKey": "aegis_citadel_tapestry",
+    "fallbackKind": "aegis_citadel_tapestry",
+    "lodModels": [
+      "prop_aegis_citadel_tapestry_lod1.glb",
+      "prop_aegis_citadel_tapestry_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.087,
+      "depth": 0.147,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_citadel_throne",
+    "sourceKind": "aegis_citadel_throne",
+    "label": "Aegis Citadel Throne",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_throne.glb",
+    "assetKey": "aegis_citadel_throne",
+    "fallbackKind": "aegis_citadel_throne",
+    "lodModels": [
+      "prop_aegis_citadel_throne_lod1.glb",
+      "prop_aegis_citadel_throne_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.744,
+      "depth": 6.995,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "z": -1.6,
+        "width": 5,
+        "depth": 3.5,
+        "minY": 0.9,
+        "maxY": 10
+      },
+      {
+        "x": -3.3,
+        "z": -2.6,
+        "width": 0.6,
+        "depth": 0.6,
+        "minY": 0.9,
+        "maxY": 10
+      },
+      {
+        "x": 3.3,
+        "z": -2.6,
+        "width": 0.6,
+        "depth": 0.6,
+        "minY": 0.9,
+        "maxY": 10
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "z": 2.5,
+        "width": 10,
+        "depth": 3,
+        "fromY": 0.9,
+        "toY": 0
+      },
+      {
+        "z": -1.5,
+        "width": 10,
+        "depth": 5,
+        "fromY": 0.9,
+        "toY": 0.9
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_treasury",
+    "sourceKind": "aegis_citadel_treasury",
+    "label": "Aegis Citadel Treasury",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_treasury.glb",
+    "assetKey": "aegis_citadel_treasury",
+    "fallbackKind": "aegis_citadel_treasury",
+    "lodModels": [
+      "prop_aegis_citadel_treasury_lod1.glb",
+      "prop_aegis_citadel_treasury_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.828,
+      "depth": 3.062,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4.85,
+        "depth": 3.85,
+        "minY": 0,
+        "maxY": 3.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_citadel_war_table",
+    "sourceKind": "aegis_citadel_war_table",
+    "label": "Aegis Citadel War Table",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_war_table.glb",
+    "assetKey": "aegis_citadel_war_table",
+    "fallbackKind": "aegis_citadel_war_table",
+    "lodModels": [
+      "prop_aegis_citadel_war_table_lod1.glb",
+      "prop_aegis_citadel_war_table_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.296,
+      "depth": 8.251,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 5.85,
+        "depth": 3.85,
+        "minY": 0,
+        "maxY": 2
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_bench",
+    "sourceKind": "aegis_civic_bench",
+    "label": "Aegis Civic Bench",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_bench.glb",
+    "assetKey": "aegis_civic_bench",
+    "fallbackKind": "aegis_civic_bench",
+    "lodModels": [
+      "prop_aegis_civic_bench_lod1.glb",
+      "prop_aegis_civic_bench_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.03,
+      "depth": 1.012,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 2.85,
+        "depth": 1.1,
+        "rotY": 3.8759403212262318,
+        "minY": 0,
+        "maxY": 1.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_hall",
+    "sourceKind": "aegis_civic_hall",
+    "label": "Aegis Civic Hall",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_hall.glb",
+    "assetKey": "aegis_civic_hall",
+    "fallbackKind": "aegis_civic_hall",
+    "lodModels": [
+      "prop_aegis_civic_hall_lod1.glb",
+      "prop_aegis_civic_hall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.4,
+      "depth": 11.285,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 12,
+        "depth": 12,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_orrery",
+    "sourceKind": "aegis_civic_orrery",
+    "label": "Aegis Civic Orrery",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_orrery.glb",
+    "assetKey": "aegis_civic_orrery",
+    "fallbackKind": "aegis_civic_orrery",
+    "lodModels": [
+      "prop_aegis_civic_orrery_lod1.glb",
+      "prop_aegis_civic_orrery_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.812,
+      "depth": 1.812,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 2.1,
+        "depth": 2.1,
+        "rotY": 3.8759403212262318,
+        "minY": 0,
+        "maxY": 3.65
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_relief",
+    "sourceKind": "aegis_civic_relief",
+    "label": "Aegis Civic Relief",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_relief.glb",
+    "assetKey": "aegis_civic_relief",
+    "fallbackKind": "aegis_civic_relief",
+    "lodModels": [
+      "prop_aegis_civic_relief_lod1.glb",
+      "prop_aegis_civic_relief_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.6,
+      "depth": 0.385,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_civic_sign_apothecary",
+    "sourceKind": "aegis_civic_sign_apothecary",
+    "label": "Aegis Civic Sign Apothecary",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_sign_apothecary.glb",
+    "assetKey": "aegis_civic_sign_apothecary",
+    "fallbackKind": "aegis_civic_sign_apothecary",
+    "lodModels": [
+      "prop_aegis_civic_sign_apothecary_lod1.glb",
+      "prop_aegis_civic_sign_apothecary_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.4,
+      "depth": 0.59,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false,
+    "interaction": {
+      "type": "house_portal",
+      "label": "Cinderleaf Apothecary",
+      "interiorVariant": "shop",
+      "maxDistance": 5
+    }
+  },
+  {
+    "kind": "aegis_civic_sign_exchange",
+    "sourceKind": "aegis_civic_sign_exchange",
+    "label": "Aegis Civic Sign Exchange",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_sign_exchange.glb",
+    "assetKey": "aegis_civic_sign_exchange",
+    "fallbackKind": "aegis_civic_sign_exchange",
+    "lodModels": [
+      "prop_aegis_civic_sign_exchange_lod1.glb",
+      "prop_aegis_civic_sign_exchange_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.4,
+      "depth": 0.595,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false,
+    "interaction": {
+      "type": "house_portal",
+      "label": "Three Seals Exchange",
+      "interiorVariant": "shop",
+      "maxDistance": 5
+    }
+  },
+  {
+    "kind": "aegis_civic_sign_lantern",
+    "sourceKind": "aegis_civic_sign_lantern",
+    "label": "Aegis Civic Sign Lantern",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_sign_lantern.glb",
+    "assetKey": "aegis_civic_sign_lantern",
+    "fallbackKind": "aegis_civic_sign_lantern",
+    "lodModels": [
+      "prop_aegis_civic_sign_lantern_lod1.glb",
+      "prop_aegis_civic_sign_lantern_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.4,
+      "depth": 0.598,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false,
+    "interaction": {
+      "type": "house_portal",
+      "label": "The Sable Lantern",
+      "interiorVariant": "tavern",
+      "maxDistance": 5
+    }
+  },
+  {
+    "kind": "aegis_civic_sign_lock",
+    "sourceKind": "aegis_civic_sign_lock",
+    "label": "Aegis Civic Sign Lock",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_sign_lock.glb",
+    "assetKey": "aegis_civic_sign_lock",
+    "fallbackKind": "aegis_civic_sign_lock",
+    "lodModels": [
+      "prop_aegis_civic_sign_lock_lod1.glb",
+      "prop_aegis_civic_sign_lock_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.4,
+      "depth": 0.605,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false,
+    "interaction": {
+      "type": "house_portal",
+      "label": "The Lockkeeper",
+      "interiorVariant": "tavern",
+      "maxDistance": 5
+    }
+  },
+  {
+    "kind": "aegis_civic_streetlight",
+    "sourceKind": "aegis_civic_streetlight",
+    "label": "Aegis Civic Streetlight",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_streetlight.glb",
+    "assetKey": "aegis_civic_streetlight",
+    "fallbackKind": "aegis_civic_streetlight",
+    "lodModels": [
+      "prop_aegis_civic_streetlight_lod1.glb",
+      "prop_aegis_civic_streetlight_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.793,
+      "depth": 0.935,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 0.94,
+        "depth": 0.94,
+        "minY": 0,
+        "maxY": 4.6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_wall_lantern",
+    "sourceKind": "aegis_civic_wall_lantern",
+    "label": "Aegis Civic Wall Lantern",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_wall_lantern.glb",
+    "assetKey": "aegis_civic_wall_lantern",
+    "fallbackKind": "aegis_civic_wall_lantern",
+    "lodModels": [
+      "prop_aegis_civic_wall_lantern_lod1.glb",
+      "prop_aegis_civic_wall_lantern_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.552,
+      "depth": 1.111,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_civic_waymarker",
+    "sourceKind": "aegis_civic_waymarker",
+    "label": "Aegis Civic Waymarker",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_waymarker.glb",
+    "assetKey": "aegis_civic_waymarker",
+    "fallbackKind": "aegis_civic_waymarker",
+    "lodModels": [
+      "prop_aegis_civic_waymarker_lod1.glb",
+      "prop_aegis_civic_waymarker_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.64,
+      "depth": 0.756,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 1.7,
+        "depth": 0.8,
+        "rotY": 3.8759403212262318,
+        "minY": 0,
+        "maxY": 3.7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_courtyard_tree",
+    "sourceKind": "aegis_courtyard_tree",
+    "label": "Aegis Courtyard Tree",
+    "group": "Aegis City",
+    "model": "prop_aegis_courtyard_tree.glb",
+    "assetKey": "aegis_courtyard_tree",
+    "fallbackKind": "aegis_courtyard_tree",
+    "lodModels": [
+      "prop_aegis_courtyard_tree_lod1.glb",
+      "prop_aegis_courtyard_tree_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.028,
+      "depth": 4.417,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 2.3,
+        "depth": 1.2,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_crate_stack",
+    "sourceKind": "aegis_crate_stack",
+    "label": "Aegis Crate Stack",
+    "group": "Aegis City",
+    "model": "prop_aegis_crate_stack.glb",
+    "assetKey": "aegis_crate_stack",
+    "fallbackKind": "aegis_crate_stack",
+    "lodModels": [
+      "prop_aegis_crate_stack_lod1.glb",
+      "prop_aegis_crate_stack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.45,
+      "depth": 2.04,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 2.6,
+        "depth": 2.2,
+        "minY": 0,
+        "maxY": 2.3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_embankment",
+    "sourceKind": "aegis_embankment",
+    "label": "Aegis Embankment",
+    "group": "Aegis City",
+    "model": "prop_aegis_embankment.glb",
+    "assetKey": "aegis_embankment",
+    "fallbackKind": "aegis_embankment",
+    "lodModels": [
+      "prop_aegis_embankment_lod1.glb",
+      "prop_aegis_embankment_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8,
+      "depth": 1.1,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_flowerbed_roses",
+    "sourceKind": "aegis_flowerbed_roses",
+    "label": "Aegis Flowerbed Roses",
+    "group": "Aegis City",
+    "model": "prop_aegis_flowerbed_roses.glb",
+    "assetKey": "aegis_flowerbed_roses",
+    "fallbackKind": "aegis_flowerbed_roses",
+    "lodModels": [
+      "prop_aegis_flowerbed_roses_lod1.glb",
+      "prop_aegis_flowerbed_roses_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4,
+      "depth": 2,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4,
+        "depth": 2,
+        "minY": 0,
+        "maxY": 1.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_flowerbed_violets",
+    "sourceKind": "aegis_flowerbed_violets",
+    "label": "Aegis Flowerbed Violets",
+    "group": "Aegis City",
+    "model": "prop_aegis_flowerbed_violets.glb",
+    "assetKey": "aegis_flowerbed_violets",
+    "fallbackKind": "aegis_flowerbed_violets",
+    "lodModels": [
+      "prop_aegis_flowerbed_violets_lod1.glb",
+      "prop_aegis_flowerbed_violets_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4,
+      "depth": 2,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4,
+        "depth": 2,
+        "minY": 0,
+        "maxY": 1.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_fortress_banner",
+    "sourceKind": "aegis_fortress_banner",
+    "label": "Aegis Fortress Banner",
+    "group": "Aegis City",
+    "model": "prop_town_fortress_banner.glb",
+    "assetKey": "town_fortress_banner",
+    "fallbackKind": "aegis_fortress_banner",
+    "footprint": {
+      "width": 3.95,
+      "depth": 1.5,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 1.1034482100914265,
+        "depth": 1.1034482100914265,
+        "minY": 0,
+        "maxY": 8.827585680731412
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_fortress_brazier",
+    "sourceKind": "aegis_fortress_brazier",
+    "label": "Aegis Fortress Brazier",
+    "group": "Aegis City",
+    "model": "prop_town_fortress_brazier.glb",
+    "assetKey": "town_fortress_brazier",
+    "fallbackKind": "aegis_fortress_brazier",
+    "footprint": {
+      "width": 2.64,
+      "depth": 2.64,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_fountain",
+    "sourceKind": "aegis_fountain",
+    "label": "Aegis Fountain",
+    "group": "Aegis City",
+    "model": "prop_aegis_fountain.glb",
+    "assetKey": "aegis_fountain",
+    "fallbackKind": "aegis_fountain",
+    "lodModels": [
+      "prop_aegis_fountain_lod1.glb",
+      "prop_aegis_fountain_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.2,
+      "depth": 4.2,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 4.2,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 3.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_garden_cypress",
+    "sourceKind": "aegis_garden_cypress",
+    "label": "Aegis Garden Cypress",
+    "group": "Aegis City",
+    "model": "prop_aegis_garden_cypress.glb",
+    "assetKey": "aegis_garden_cypress",
+    "fallbackKind": "aegis_garden_cypress",
+    "lodModels": [
+      "prop_aegis_garden_cypress_lod1.glb",
+      "prop_aegis_garden_cypress_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.807,
+      "depth": 2.777,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 0.7,
+        "depth": 0.7,
+        "minY": -0.03,
+        "maxY": 0.2
+      },
+      {
+        "width": 0.7,
+        "depth": 0.7,
+        "minY": 0.15,
+        "maxY": 2.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_garden_linden",
+    "sourceKind": "aegis_garden_linden",
+    "label": "Aegis Garden Linden",
+    "group": "Aegis City",
+    "model": "prop_aegis_garden_linden.glb",
+    "assetKey": "aegis_garden_linden",
+    "fallbackKind": "aegis_garden_linden",
+    "lodModels": [
+      "prop_aegis_garden_linden_lod1.glb",
+      "prop_aegis_garden_linden_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.077,
+      "depth": 5.987,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 1.44,
+        "depth": 1.44,
+        "minY": -0.03,
+        "maxY": 0.2
+      },
+      {
+        "width": 0.7,
+        "depth": 0.7,
+        "minY": 0.15,
+        "maxY": 2.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_gatehouse",
+    "sourceKind": "aegis_gatehouse",
+    "label": "Aegis Gatehouse",
+    "group": "Aegis City",
+    "model": "prop_aegis_gatehouse.glb",
+    "assetKey": "aegis_gatehouse",
+    "fallbackKind": "aegis_gatehouse",
+    "lodModels": [
+      "prop_aegis_gatehouse_lod1.glb",
+      "prop_aegis_gatehouse_lod2.glb"
+    ],
+    "footprint": {
+      "width": 14,
+      "depth": 5,
+      "chainAxis": "x"
+    },
+    "colliders": [],
+    "walkableSurfaces": [
+      {
+        "width": 14,
+        "depth": 2,
+        "fromY": 12,
+        "toY": 12
+      }
+    ],
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_handcart",
+    "sourceKind": "aegis_handcart",
+    "label": "Aegis Handcart",
+    "group": "Aegis City",
+    "model": "prop_aegis_handcart.glb",
+    "assetKey": "aegis_handcart",
+    "fallbackKind": "aegis_handcart",
+    "lodModels": [
+      "prop_aegis_handcart_lod1.glb",
+      "prop_aegis_handcart_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.04,
+      "depth": 3.366,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 2.2,
+        "depth": 3.4,
+        "minY": 0,
+        "maxY": 1.6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_house_1",
+    "sourceKind": "aegis_house_1",
+    "label": "Aegis House 1",
+    "group": "Aegis City",
+    "model": "prop_aegis_house_1.glb",
+    "assetKey": "aegis_house_1",
+    "fallbackKind": "aegis_house_1",
+    "lodModels": [
+      "prop_aegis_house_1_lod1.glb",
+      "prop_aegis_house_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.129,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_house_2",
+    "sourceKind": "aegis_house_2",
+    "label": "Aegis House 2",
+    "group": "Aegis City",
+    "model": "prop_aegis_house_2.glb",
+    "assetKey": "aegis_house_2",
+    "fallbackKind": "aegis_house_2",
+    "lodModels": [
+      "prop_aegis_house_2_lod1.glb",
+      "prop_aegis_house_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.123,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_house_3",
+    "sourceKind": "aegis_house_3",
+    "label": "Aegis House 3",
+    "group": "Aegis City",
+    "model": "prop_aegis_house_3.glb",
+    "assetKey": "aegis_house_3",
+    "fallbackKind": "aegis_house_3",
+    "lodModels": [
+      "prop_aegis_house_3_lod1.glb",
+      "prop_aegis_house_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10.135,
+      "depth": 9.76,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_house_4",
+    "sourceKind": "aegis_house_4",
+    "label": "Aegis House 4",
+    "group": "Aegis City",
+    "model": "prop_aegis_house_4.glb",
+    "assetKey": "aegis_house_4",
+    "fallbackKind": "aegis_house_4",
+    "lodModels": [
+      "prop_aegis_house_4_lod1.glb",
+      "prop_aegis_house_4_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.131,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_house_5",
+    "sourceKind": "aegis_house_5",
+    "label": "Aegis House 5",
+    "group": "Aegis City",
+    "model": "prop_aegis_house_5.glb",
+    "assetKey": "aegis_house_5",
+    "fallbackKind": "aegis_house_5",
+    "lodModels": [
+      "prop_aegis_house_5_lod1.glb",
+      "prop_aegis_house_5_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7.167,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_house_6",
+    "sourceKind": "aegis_house_6",
+    "label": "Aegis House 6",
+    "group": "Aegis City",
+    "model": "prop_aegis_house_6.glb",
+    "assetKey": "aegis_house_6",
+    "fallbackKind": "aegis_house_6",
+    "lodModels": [
+      "prop_aegis_house_6_lod1.glb",
+      "prop_aegis_house_6_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10.113,
+      "depth": 9.76,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_lantern",
+    "sourceKind": "aegis_lantern",
+    "label": "Aegis Lantern",
+    "group": "Aegis City",
+    "model": "prop_aegis_lantern.glb",
+    "assetKey": "aegis_lantern",
+    "fallbackKind": "aegis_lantern",
+    "lodModels": [
+      "prop_aegis_lantern_lod1.glb",
+      "prop_aegis_lantern_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.938,
+      "depth": 1.02,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_lean_to",
+    "sourceKind": "aegis_lean_to",
+    "label": "Aegis Lean To",
+    "group": "Aegis City",
+    "model": "prop_aegis_lean_to.glb",
+    "assetKey": "aegis_lean_to",
+    "fallbackKind": "aegis_lean_to",
+    "lodModels": [
+      "prop_aegis_lean_to_lod1.glb",
+      "prop_aegis_lean_to_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.202,
+      "depth": 4.22,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 7,
+        "depth": 7,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_mountain_massif",
+    "sourceKind": "aegis_mountain_massif",
+    "label": "Aegis Mountain Massif",
+    "group": "Aegis City",
+    "model": "prop_aegis_mountain_massif.glb",
+    "assetKey": "aegis_mountain_massif",
+    "fallbackKind": "aegis_mountain_massif",
+    "lodModels": [
+      "prop_aegis_mountain_massif_lod1.glb",
+      "prop_aegis_mountain_massif_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1040,
+      "depth": 650,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_mountain_passage",
+    "sourceKind": "aegis_mountain_passage",
+    "label": "Aegis Mountain Passage",
+    "group": "Aegis City",
+    "model": "prop_aegis_mountain_passage.glb",
+    "assetKey": "aegis_mountain_passage",
+    "fallbackKind": "aegis_mountain_passage",
+    "lodModels": [
+      "prop_aegis_mountain_passage_lod1.glb",
+      "prop_aegis_mountain_passage_lod2.glb"
+    ],
+    "footprint": {
+      "width": 20.15,
+      "depth": 24,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "x": -9.5,
+        "width": 1,
+        "depth": 24,
+        "minY": 0,
+        "maxY": 18
+      },
+      {
+        "x": 9.5,
+        "width": 1,
+        "depth": 24,
+        "minY": 0,
+        "maxY": 18
+      },
+      {
+        "width": 20,
+        "depth": 24,
+        "minY": 18,
+        "maxY": 20
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 18,
+        "depth": 24,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_mountain_redoubt",
+    "sourceKind": "aegis_mountain_redoubt",
+    "label": "Aegis Mountain Redoubt",
+    "group": "Aegis City",
+    "model": "prop_aegis_mountain_redoubt.glb",
+    "assetKey": "aegis_mountain_redoubt",
+    "fallbackKind": "aegis_mountain_redoubt",
+    "lodModels": [
+      "prop_aegis_mountain_redoubt_lod1.glb",
+      "prop_aegis_mountain_redoubt_lod2.glb"
+    ],
+    "footprint": {
+      "width": 120.7,
+      "depth": 96,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": 35,
+        "z": 47.5,
+        "width": 50,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -35,
+        "z": 47.5,
+        "width": 50,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "z": 47.5,
+        "width": 20,
+        "depth": 1,
+        "minY": 14,
+        "maxY": 32,
+        "x": 0
+      },
+      {
+        "z": -47.2,
+        "width": 120,
+        "depth": 1.6,
+        "minY": 0,
+        "maxY": 32,
+        "x": 0
+      },
+      {
+        "x": 59.5,
+        "z": 32.5,
+        "width": 1,
+        "depth": 31,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 59.5,
+        "z": -20.5,
+        "width": 1,
+        "depth": 55,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 59.5,
+        "z": 12,
+        "width": 1,
+        "depth": 10,
+        "minY": 10,
+        "maxY": 32
+      },
+      {
+        "x": 59.5,
+        "z": 37,
+        "width": 1.7,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 59.5,
+        "z": -1,
+        "width": 1.7,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 59.5,
+        "z": -36,
+        "width": 1.7,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": 32.5,
+        "width": 1,
+        "depth": 31,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": -9.5,
+        "width": 1,
+        "depth": 33,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": -41,
+        "width": 1,
+        "depth": 14,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": -30,
+        "width": 1,
+        "depth": 8,
+        "minY": 10,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": 12,
+        "width": 1,
+        "depth": 10,
+        "minY": 10,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": 37,
+        "width": 1.7,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": -1,
+        "width": 1.7,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -59.5,
+        "z": -36,
+        "width": 1.7,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 42,
+        "z": 28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 42,
+        "z": -8,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 42,
+        "z": -28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -42,
+        "z": 28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -42,
+        "z": -8,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": -42,
+        "z": -28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 32
+      },
+      {
+        "x": 50,
+        "z": 4,
+        "width": 20,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 28
+      },
+      {
+        "x": 18.5,
+        "z": 4,
+        "width": 19,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 28
+      },
+      {
+        "x": -18.5,
+        "z": 4,
+        "width": 19,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 28
+      },
+      {
+        "x": -50,
+        "z": 4,
+        "width": 20,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 28
+      },
+      {
+        "z": 4,
+        "width": 120,
+        "depth": 1,
+        "minY": 12,
+        "maxY": 28,
+        "x": 0
+      },
+      {
+        "width": 120,
+        "depth": 96,
+        "minY": 32,
+        "maxY": 34,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 118,
+        "depth": 94,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_mountain_seal",
+    "sourceKind": "aegis_mountain_seal",
+    "label": "Aegis Mountain Seal",
+    "group": "Aegis City",
+    "model": "prop_aegis_mountain_seal.glb",
+    "assetKey": "aegis_mountain_seal",
+    "fallbackKind": "aegis_mountain_seal",
+    "lodModels": [
+      "prop_aegis_mountain_seal_lod1.glb",
+      "prop_aegis_mountain_seal_lod2.glb"
+    ],
+    "footprint": {
+      "width": 14,
+      "depth": 3.2,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 14,
+        "depth": 3.2,
+        "minY": 0,
+        "maxY": 14
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_mountain_vault",
+    "sourceKind": "aegis_mountain_vault",
+    "label": "Aegis Mountain Vault",
+    "group": "Aegis City",
+    "model": "prop_aegis_mountain_vault.glb",
+    "assetKey": "aegis_mountain_vault",
+    "fallbackKind": "aegis_mountain_vault",
+    "lodModels": [
+      "prop_aegis_mountain_vault_lod1.glb",
+      "prop_aegis_mountain_vault_lod2.glb"
+    ],
+    "footprint": {
+      "width": 48,
+      "depth": 84,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "z": 41.5,
+        "width": 48,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 20,
+        "x": 0
+      },
+      {
+        "z": -41.5,
+        "width": 48,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 20,
+        "x": 0
+      },
+      {
+        "x": -23.5,
+        "width": 1,
+        "depth": 84,
+        "minY": 0,
+        "maxY": 20,
+        "z": 0
+      },
+      {
+        "x": 23.5,
+        "z": 32.5,
+        "width": 1,
+        "depth": 19,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "x": 23.5,
+        "z": -3.5,
+        "width": 1,
+        "depth": 33,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "x": 23.5,
+        "z": -35,
+        "width": 1,
+        "depth": 14,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "x": 23.5,
+        "z": 18,
+        "width": 1,
+        "depth": 10,
+        "minY": 10,
+        "maxY": 20
+      },
+      {
+        "x": 23.5,
+        "z": -24,
+        "width": 1,
+        "depth": 8,
+        "minY": 10,
+        "maxY": 20
+      },
+      {
+        "x": 16,
+        "z": 28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "x": 16,
+        "z": -28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "x": -16,
+        "z": 28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "x": -16,
+        "z": -28,
+        "width": 3,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 20
+      },
+      {
+        "width": 48,
+        "depth": 84,
+        "minY": 20,
+        "maxY": 22,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 46,
+        "depth": 82,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_noticeboard",
+    "sourceKind": "aegis_noticeboard",
+    "label": "Aegis Noticeboard",
+    "group": "Aegis City",
+    "model": "prop_aegis_noticeboard.glb",
+    "assetKey": "aegis_noticeboard",
+    "fallbackKind": "aegis_noticeboard",
+    "lodModels": [
+      "prop_aegis_noticeboard_lod1.glb",
+      "prop_aegis_noticeboard_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.764,
+      "depth": 1.02,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 2.8,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 3.2
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_paving",
+    "sourceKind": "aegis_paving",
+    "label": "Aegis Paving",
+    "group": "Aegis City",
+    "model": "prop_aegis_paving.glb",
+    "assetKey": "aegis_paving",
+    "fallbackKind": "aegis_paving",
+    "lodModels": [
+      "prop_aegis_paving_lod1.glb",
+      "prop_aegis_paving_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4,
+      "depth": 4,
+      "chainAxis": "z"
+    },
+    "walkableSurfaces": [
+      {
+        "width": 4,
+        "depth": 4,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_planter",
+    "sourceKind": "aegis_planter",
+    "label": "Aegis Planter",
+    "group": "Aegis City",
+    "model": "prop_aegis_planter.glb",
+    "assetKey": "aegis_planter",
+    "fallbackKind": "aegis_planter",
+    "lodModels": [
+      "prop_aegis_planter_lod1.glb",
+      "prop_aegis_planter_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.353,
+      "depth": 1.45,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 2.4,
+        "depth": 1.5,
+        "minY": 0,
+        "maxY": 1.4
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_portcullis",
+    "sourceKind": "aegis_portcullis",
+    "label": "Aegis Portcullis",
+    "group": "Aegis City",
+    "model": "prop_aegis_portcullis.glb",
+    "assetKey": "aegis_portcullis",
+    "fallbackKind": "aegis_portcullis",
+    "lodModels": [
+      "prop_aegis_portcullis_lod1.glb",
+      "prop_aegis_portcullis_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10,
+      "depth": 0.3,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 0.6,
+        "minY": 0,
+        "maxY": 8,
+        "blocksWhen": "closed"
+      }
+    ],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "gate",
+      "label": "Crownwatch Great Hall Gate",
+      "maxDistance": 18,
+      "startsOpen": false
+    }
+  },
+  {
+    "kind": "aegis_quay_stairs",
+    "label": "Aegis Quay Stairs",
+    "group": "Aegis City",
+    "model": "prop_aegis_quay_stairs.glb",
+    "assetKey": "aegis_quay_stairs",
+    "fallbackKind": "aegis_quay_stairs",
+    "lodModels": [
+      "prop_aegis_quay_stairs_lod1.glb",
+      "prop_aegis_quay_stairs_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3,
+      "depth": 8,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "aegis_railing",
+    "sourceKind": "aegis_railing",
+    "label": "Aegis Railing",
+    "group": "Aegis City",
+    "model": "prop_aegis_railing.glb",
+    "assetKey": "aegis_railing",
+    "fallbackKind": "aegis_railing",
+    "lodModels": [
+      "prop_aegis_railing_lod1.glb",
+      "prop_aegis_railing_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.09,
+      "depth": 0.12,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_room",
+    "sourceKind": "aegis_room",
+    "label": "Aegis Room",
+    "group": "Aegis City",
+    "model": "prop_aegis_room.glb",
+    "assetKey": "aegis_room",
+    "fallbackKind": "aegis_room",
+    "lodModels": [
+      "prop_aegis_room_lod1.glb",
+      "prop_aegis_room_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.3,
+      "depth": 12.3,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "z": -6,
+        "width": 12,
+        "depth": 0.3,
+        "minY": 0,
+        "maxY": 5
+      },
+      {
+        "x": -6,
+        "width": 0.3,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 5
+      },
+      {
+        "x": 6,
+        "width": 0.3,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 5
+      },
+      {
+        "x": -3.7,
+        "z": 6,
+        "width": 4.6,
+        "depth": 0.3,
+        "minY": 0,
+        "maxY": 5
+      },
+      {
+        "x": 3.7,
+        "z": 6,
+        "width": 4.6,
+        "depth": 0.3,
+        "minY": 0,
+        "maxY": 5
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 12,
+        "depth": 12,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_rowhouse_1",
+    "sourceKind": "aegis_rowhouse_1",
+    "label": "Aegis Rowhouse 1",
+    "group": "Aegis City",
+    "model": "prop_aegis_rowhouse_1.glb",
+    "assetKey": "aegis_rowhouse_1",
+    "fallbackKind": "aegis_rowhouse_1",
+    "lodModels": [
+      "prop_aegis_rowhouse_1_lod1.glb",
+      "prop_aegis_rowhouse_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7.767,
+      "depth": 6.694,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 7,
+        "depth": 7,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_rowhouse_2",
+    "sourceKind": "aegis_rowhouse_2",
+    "label": "Aegis Rowhouse 2",
+    "group": "Aegis City",
+    "model": "prop_aegis_rowhouse_2.glb",
+    "assetKey": "aegis_rowhouse_2",
+    "fallbackKind": "aegis_rowhouse_2",
+    "lodModels": [
+      "prop_aegis_rowhouse_2_lod1.glb",
+      "prop_aegis_rowhouse_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7.746,
+      "depth": 6.71,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 7,
+        "depth": 7,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_shop",
+    "sourceKind": "aegis_shop",
+    "label": "Aegis Shop",
+    "group": "Aegis City",
+    "model": "prop_aegis_shop.glb",
+    "assetKey": "aegis_shop",
+    "fallbackKind": "aegis_shop",
+    "lodModels": [
+      "prop_aegis_shop_lod1.glb",
+      "prop_aegis_shop_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.123,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_sign",
+    "sourceKind": "aegis_sign",
+    "label": "Aegis Sign",
+    "group": "Aegis City",
+    "model": "prop_aegis_sign.glb",
+    "assetKey": "aegis_sign",
+    "fallbackKind": "aegis_sign",
+    "lodModels": [
+      "prop_aegis_sign_lod1.glb",
+      "prop_aegis_sign_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2,
+      "depth": 0.18,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false,
+    "interaction": {
+      "type": "house_portal",
+      "label": "Chapel of the Vigil",
+      "interiorVariant": "chapel",
+      "maxDistance": 5
+    }
+  },
+  {
+    "kind": "aegis_sign__2",
+    "sourceKind": "aegis_sign",
+    "label": "Aegis Sign (civic)",
+    "group": "Aegis City",
+    "model": "prop_aegis_sign.glb",
+    "assetKey": "aegis_sign",
+    "fallbackKind": "aegis_sign",
+    "lodModels": [
+      "prop_aegis_sign_lod1.glb",
+      "prop_aegis_sign_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2,
+      "depth": 0.18,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false,
+    "interaction": {
+      "type": "house_portal",
+      "label": "Bellfound Hall",
+      "interiorVariant": "civic",
+      "maxDistance": 5
+    }
+  },
+  {
+    "kind": "aegis_stairs",
+    "sourceKind": "aegis_stairs",
+    "label": "Aegis Stairs",
+    "group": "Aegis City",
+    "model": "prop_aegis_stairs.glb",
+    "assetKey": "aegis_stairs",
+    "fallbackKind": "aegis_stairs",
+    "lodModels": [
+      "prop_aegis_stairs_lod1.glb",
+      "prop_aegis_stairs_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3,
+      "depth": 24,
+      "chainAxis": "z"
+    },
+    "walkableSurfaces": [
+      {
+        "width": 3,
+        "depth": 24,
+        "fromY": 6,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_stall",
+    "sourceKind": "aegis_stall",
+    "label": "Aegis Stall",
+    "group": "Aegis City",
+    "model": "prop_aegis_stall.glb",
+    "assetKey": "aegis_stall",
+    "fallbackKind": "aegis_stall",
+    "lodModels": [
+      "prop_aegis_stall_lod1.glb",
+      "prop_aegis_stall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.864,
+      "depth": 2.72,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_table",
+    "sourceKind": "aegis_table",
+    "label": "Aegis Table",
+    "group": "Aegis City",
+    "model": "prop_aegis_table.glb",
+    "assetKey": "aegis_table",
+    "fallbackKind": "aegis_table",
+    "lodModels": [
+      "prop_aegis_table_lod1.glb",
+      "prop_aegis_table_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.8,
+      "depth": 2.6,
+      "chainAxis": "x"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "aegis_tavern_1",
+    "sourceKind": "aegis_tavern_1",
+    "label": "Aegis Tavern 1",
+    "group": "Aegis City",
+    "model": "prop_aegis_tavern_1.glb",
+    "assetKey": "aegis_tavern_1",
+    "fallbackKind": "aegis_tavern_1",
+    "lodModels": [
+      "prop_aegis_tavern_1_lod1.glb",
+      "prop_aegis_tavern_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10.135,
+      "depth": 9.76,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_tavern_2",
+    "sourceKind": "aegis_tavern_2",
+    "label": "Aegis Tavern 2",
+    "group": "Aegis City",
+    "model": "prop_aegis_tavern_2.glb",
+    "assetKey": "aegis_tavern_2",
+    "fallbackKind": "aegis_tavern_2",
+    "lodModels": [
+      "prop_aegis_tavern_2_lod1.glb",
+      "prop_aegis_tavern_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7.167,
+      "depth": 9.285,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 10,
+        "minY": -0.3,
+        "maxY": 30
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_tower",
+    "sourceKind": "aegis_tower",
+    "label": "Aegis Tower",
+    "group": "Aegis City",
+    "model": "prop_aegis_tower.glb",
+    "assetKey": "aegis_tower",
+    "fallbackKind": "aegis_tower",
+    "lodModels": [
+      "prop_aegis_tower_lod1.glb",
+      "prop_aegis_tower_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.7,
+      "depth": 9.6,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 9,
+        "depth": 9,
+        "minY": -18,
+        "maxY": 11.9
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 8,
+        "depth": 8,
+        "fromY": 12,
+        "toY": 12
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_wall",
+    "sourceKind": "aegis_wall",
+    "label": "Aegis Wall",
+    "group": "Aegis City",
+    "model": "prop_aegis_wall.glb",
+    "assetKey": "aegis_wall",
+    "fallbackKind": "aegis_wall",
+    "lodModels": [
+      "prop_aegis_wall_lod1.glb",
+      "prop_aegis_wall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.2,
+      "depth": 3.2,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 12,
+        "depth": 3,
+        "minY": -18,
+        "maxY": 11.9
+      },
+      {
+        "z": -1.25,
+        "width": 12,
+        "depth": 0.5,
+        "minY": 12,
+        "maxY": 15
+      },
+      {
+        "z": 1.25,
+        "width": 12,
+        "depth": 0.5,
+        "minY": 12,
+        "maxY": 15
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 12,
+        "depth": 2,
+        "fromY": 12,
+        "toY": 12
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_wall_entry",
+    "sourceKind": "aegis_wall_entry",
+    "label": "Aegis Wall Entry",
+    "group": "Aegis City",
+    "model": "prop_aegis_wall_entry.glb",
+    "assetKey": "aegis_wall_entry",
+    "fallbackKind": "aegis_wall_entry",
+    "lodModels": [
+      "prop_aegis_wall_entry_lod1.glb",
+      "prop_aegis_wall_entry_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.2,
+      "depth": 3.2,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 12,
+        "depth": 3,
+        "minY": -18,
+        "maxY": 11.9
+      },
+      {
+        "width": 12,
+        "depth": 0.5,
+        "z": 1.25,
+        "minY": 12,
+        "maxY": 15
+      },
+      {
+        "x": -4,
+        "width": 4,
+        "depth": 0.5,
+        "z": -1.25,
+        "minY": 12,
+        "maxY": 15
+      },
+      {
+        "x": 4,
+        "width": 4,
+        "depth": 0.5,
+        "z": -1.25,
+        "minY": 12,
+        "maxY": 15
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 12,
+        "depth": 2,
+        "fromY": 12,
+        "toY": 12
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_washing_line",
+    "sourceKind": "aegis_washing_line",
+    "label": "Aegis Washing Line",
+    "group": "Aegis City",
+    "model": "prop_aegis_washing_line.glb",
+    "assetKey": "aegis_washing_line",
+    "fallbackKind": "aegis_washing_line",
+    "lodModels": [
+      "prop_aegis_washing_line_lod1.glb",
+      "prop_aegis_washing_line_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.92,
+      "depth": 0.12,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 5,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 3.2
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_water_gate",
+    "sourceKind": "aegis_water_gate",
+    "label": "Aegis Water Gate",
+    "group": "Aegis City",
+    "model": "prop_aegis_water_gate.glb",
+    "assetKey": "aegis_water_gate",
+    "fallbackKind": "aegis_water_gate",
+    "lodModels": [
+      "prop_aegis_water_gate_lod1.glb",
+      "prop_aegis_water_gate_lod2.glb"
+    ],
+    "footprint": {
+      "width": 11,
+      "depth": 3,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 8,
+        "depth": 3,
+        "minY": -3,
+        "maxY": 11.9
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 11,
+        "depth": 2,
+        "fromY": 12,
+        "toY": 12
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_workshop",
+    "label": "Aegis Workshop",
+    "group": "Aegis City",
+    "model": "prop_aegis_workshop.glb",
+    "assetKey": "aegis_workshop",
+    "fallbackKind": "aegis_workshop",
+    "lodModels": [
+      "prop_aegis_workshop_lod1.glb",
+      "prop_aegis_workshop_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10.113,
+      "depth": 9.76,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "banner_post",
+    "sourceKind": "banner_post",
+    "label": "Banner Post",
+    "group": "World Scenery",
+    "fallbackKind": "banner_post",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "banner_post__asset",
+    "label": "Banner Post",
+    "group": "Registered Assets",
+    "model": "banner_post.glb",
+    "assetKey": "banner_post",
+    "fallbackKind": "banner_post",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.875,
+      "depth": 0.36,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "bridge",
+    "sourceKind": "bridge",
+    "label": "Bridge",
+    "group": "World Scenery",
+    "fallbackKind": "bridge",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "building",
+    "sourceKind": "building",
+    "label": "Building",
+    "group": "World Scenery",
+    "model": "prop_town_house_2.glb",
+    "assetKey": "town_house_2",
+    "fallbackKind": "building",
+    "footprint": {
+      "width": 17.076,
+      "depth": 11.27,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 12.2,
+        "depth": 9,
+        "minY": -0.25,
+        "maxY": 12
+      }
+    ],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "house_portal",
+      "label": "Enter House",
+      "maxDistance": 11,
+      "interiorVariant": "large"
+    }
+  },
+  {
+    "kind": "building__2",
+    "sourceKind": "building",
+    "label": "Building (small)",
+    "group": "World Scenery",
+    "model": "prop_town_house_1.glb",
+    "assetKey": "town_house_1",
+    "fallbackKind": "building",
+    "footprint": {
+      "width": 11.275,
+      "depth": 8.595,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 9.8,
+        "depth": 7.4,
+        "minY": -0.25,
+        "maxY": 10
+      }
+    ],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "house_portal",
+      "label": "Enter House",
+      "maxDistance": 9,
+      "interiorVariant": "small"
+    }
+  },
+  {
+    "kind": "building__3",
+    "sourceKind": "building",
+    "label": "Building (variant)",
+    "group": "World Scenery",
+    "fallbackKind": "building",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "castle",
+    "sourceKind": "castle",
+    "label": "Castle",
+    "group": "World Scenery",
+    "model": "prop_town_castle.glb",
+    "assetKey": "town_castle",
+    "fallbackKind": "castle",
+    "footprint": {
+      "width": 38.149,
+      "depth": 30.649,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 38,
+        "depth": 34,
+        "minY": -0.4,
+        "maxY": 34
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "castle_door",
+    "sourceKind": "castle_door",
+    "label": "Castle Door",
+    "group": "World Scenery",
+    "model": "castle_door.glb",
+    "fallbackKind": "castle_door",
+    "footprint": {
+      "width": 5.2,
+      "depth": 1.05,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 5.4,
+        "depth": 1.2,
+        "blocksWhen": "closed"
+      }
+    ],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "gate",
+      "label": "Riftbound Keep Postern",
+      "maxDistance": 13,
+      "startsOpen": false,
+      "openClip": "open",
+      "closeClip": "close"
+    }
+  },
+  {
+    "kind": "castle_door__asset",
+    "label": "Castle Door",
+    "group": "Registered Assets",
+    "model": "castle_door.glb",
+    "assetKey": "castle_door",
+    "fallbackKind": "castle_door",
+    "lodModels": [],
+    "footprint": {
+      "width": 5.2,
+      "depth": 1.05,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "castle_floor",
+    "label": "Castle Floor",
+    "group": "World Scenery",
+    "fallbackKind": "castle_floor",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "castle_gate",
+    "sourceKind": "castle_gate",
+    "label": "Castle Gate",
+    "group": "World Scenery",
+    "model": "castle_gate.glb",
+    "fallbackKind": "castle_gate",
+    "footprint": {
+      "width": 16,
+      "depth": 1.27,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 18,
+        "depth": 2.5,
+        "blocksWhen": "closed"
+      }
+    ],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "gate",
+      "label": "Riftspire Citadel Gate",
+      "maxDistance": 28,
+      "startsOpen": true,
+      "openClip": "open",
+      "closeClip": "close"
+    }
+  },
+  {
+    "kind": "castle_gate__asset",
+    "label": "Castle Gate",
+    "group": "Registered Assets",
+    "model": "castle_gate.glb",
+    "assetKey": "castle_gate",
+    "fallbackKind": "castle_gate",
+    "lodModels": [],
+    "footprint": {
+      "width": 16,
+      "depth": 1.27,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "castle_stairs",
+    "label": "Castle Stairs",
+    "group": "Registered Assets",
+    "model": "castle_stairs.glb",
+    "assetKey": "castle_stairs",
+    "fallbackKind": "castle_stairs",
+    "lodModels": [],
+    "footprint": {
+      "width": 9.34,
+      "depth": 15.15,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "cobblestone_path_strip",
+    "label": "Cobblestone Path Strip",
+    "group": "World Scenery",
+    "fallbackKind": "cobblestone_path_strip",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "creature_barrow_wolf",
+    "label": "Creature Barrow Wolf",
+    "group": "Registered Assets",
+    "model": "prop_creature_barrow_wolf.glb",
+    "assetKey": "creature_barrow_wolf",
+    "fallbackKind": "creature_barrow_wolf",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.894,
+      "depth": 2.909,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "creature_lair_spider",
+    "label": "Creature Lair Spider",
+    "group": "Registered Assets",
+    "model": "prop_creature_lair_spider.glb",
+    "assetKey": "creature_lair_spider",
+    "fallbackKind": "creature_lair_spider",
+    "lodModels": [],
+    "footprint": {
+      "width": 2.359,
+      "depth": 1.855,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "dirt_path_strip",
+    "label": "Dirt Path Strip",
+    "group": "World Scenery",
+    "fallbackKind": "dirt_path_strip",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "dock",
+    "label": "Dock",
+    "group": "World Scenery",
+    "fallbackKind": "dock",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "dummy",
+    "label": "Dummy",
+    "group": "Registered Assets",
+    "model": "prop_training_dummy_t1.glb",
+    "assetKey": "dummy",
+    "fallbackKind": "dummy",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.1,
+      "depth": 1.1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "fountain",
+    "label": "Fountain",
+    "group": "World Scenery",
+    "fallbackKind": "fountain",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "gate",
+    "sourceKind": "gate",
+    "label": "Gate",
+    "group": "World Scenery",
+    "fallbackKind": "gate",
+    "footprint": {
+      "width": 9,
+      "depth": 2,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 9,
+        "depth": 2
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "gate__asset",
+    "label": "Gate",
+    "group": "Registered Assets",
+    "model": "gate.glb",
+    "assetKey": "gate",
+    "fallbackKind": "gate",
+    "lodModels": [],
+    "footprint": {
+      "width": 4.279,
+      "depth": 1.1,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "life_barrels",
+    "sourceKind": "life_barrels",
+    "label": "Life Barrels",
+    "group": "World Scenery",
+    "fallbackKind": "life_barrels",
+    "footprint": {
+      "width": 1.4,
+      "depth": 1.9500000000000002,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0.3,
+        "width": 1.4,
+        "depth": 1.35,
+        "minY": -0.05,
+        "maxY": 0.9
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "life_bench",
+    "sourceKind": "life_bench",
+    "label": "Life Bench",
+    "group": "World Scenery",
+    "fallbackKind": "life_bench",
+    "footprint": {
+      "width": 2.05,
+      "depth": 1,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 2.05,
+        "depth": 0.65,
+        "minY": -0.05,
+        "maxY": 1.15
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "life_campfire",
+    "sourceKind": "life_campfire",
+    "label": "Life Campfire",
+    "group": "World Scenery",
+    "fallbackKind": "life_campfire",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "life_clothesline",
+    "sourceKind": "life_clothesline",
+    "label": "Life Clothesline",
+    "group": "World Scenery",
+    "fallbackKind": "life_clothesline",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "life_crate_stack",
+    "sourceKind": "life_crate_stack",
+    "label": "Life Crate Stack",
+    "group": "World Scenery",
+    "fallbackKind": "life_crate_stack",
+    "footprint": {
+      "width": 1.7,
+      "depth": 1.15,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0.1,
+        "width": 1.7,
+        "depth": 0.95,
+        "minY": -0.05,
+        "maxY": 1.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "life_handcart",
+    "sourceKind": "life_handcart",
+    "label": "Life Handcart",
+    "group": "World Scenery",
+    "fallbackKind": "life_handcart",
+    "footprint": {
+      "width": 1.7,
+      "depth": 4.46,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 1.7,
+        "depth": 1.75,
+        "minY": -0.05,
+        "maxY": 1.4
+      },
+      {
+        "x": -0.43,
+        "z": 1.3,
+        "width": 0.14,
+        "depth": 1.86,
+        "minY": 0.4,
+        "maxY": 0.9
+      },
+      {
+        "x": 0.43,
+        "z": 1.3,
+        "width": 0.14,
+        "depth": 1.86,
+        "minY": 0.4,
+        "maxY": 0.9
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "life_lantern",
+    "sourceKind": "life_lantern",
+    "label": "Life Lantern",
+    "group": "World Scenery",
+    "fallbackKind": "life_lantern",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "life_planter",
+    "sourceKind": "life_planter",
+    "label": "Life Planter",
+    "group": "World Scenery",
+    "fallbackKind": "life_planter",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "life_signpost",
+    "sourceKind": "life_signpost",
+    "label": "Life Signpost",
+    "group": "World Scenery",
+    "fallbackKind": "life_signpost",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "life_supply_tent",
+    "sourceKind": "life_supply_tent",
+    "label": "Life Supply Tent",
+    "group": "World Scenery",
+    "fallbackKind": "life_supply_tent",
+    "footprint": {
+      "width": 3.05,
+      "depth": 2.9,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 3.05,
+        "depth": 2.9,
+        "minY": -0.05,
+        "maxY": 2.3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "path_cobblestone",
+    "label": "Path Cobblestone",
+    "group": "World Scenery",
+    "fallbackKind": "path_cobblestone",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "path_dirt",
+    "label": "Path Dirt",
+    "group": "World Scenery",
+    "fallbackKind": "path_dirt",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "pnw_douglas_fir",
+    "label": "Pnw Douglas Fir",
+    "group": "Nature",
+    "fallbackKind": "pnw_douglas_fir",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "pnw_fallen_log",
+    "sourceKind": "pnw_fallen_log",
+    "label": "Pnw Fallen Log",
+    "group": "Nature",
+    "fallbackKind": "pnw_fallen_log",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "pnw_grass_clump",
+    "sourceKind": "pnw_grass_clump",
+    "label": "Pnw Grass Clump",
+    "group": "Nature",
+    "fallbackKind": "pnw_grass_clump",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "pnw_hemlock",
+    "label": "Pnw Hemlock",
+    "group": "Nature",
+    "fallbackKind": "pnw_hemlock",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "pnw_low_shrub",
+    "sourceKind": "pnw_low_shrub",
+    "label": "Pnw Low Shrub",
+    "group": "Nature",
+    "fallbackKind": "pnw_low_shrub",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "pnw_mossy_boulder",
+    "sourceKind": "pnw_mossy_boulder",
+    "label": "Pnw Mossy Boulder",
+    "group": "Nature",
+    "fallbackKind": "pnw_mossy_boulder",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "pnw_path_edge_stone",
+    "label": "Pnw Path Edge Stone",
+    "group": "Nature",
+    "fallbackKind": "pnw_path_edge_stone",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "pnw_sword_fern",
+    "sourceKind": "pnw_sword_fern",
+    "label": "Pnw Sword Fern",
+    "group": "Nature",
+    "fallbackKind": "pnw_sword_fern",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "pnw_western_red_cedar",
+    "label": "Pnw Western Red Cedar",
+    "group": "Nature",
+    "fallbackKind": "pnw_western_red_cedar",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "pnw_wildflower_clump",
+    "sourceKind": "pnw_wildflower_clump",
+    "label": "Pnw Wildflower Clump",
+    "group": "Nature",
+    "fallbackKind": "pnw_wildflower_clump",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "preview_blight_shrub",
+    "label": "Preview Blight Shrub",
+    "group": "Registered Assets",
+    "model": "prop_preview_blight_shrub_t1.glb",
+    "assetKey": "preview_blight_shrub",
+    "fallbackKind": "preview_blight_shrub",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.867,
+      "depth": 0.947,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "preview_dreary_reeds",
+    "label": "Preview Dreary Reeds",
+    "group": "Registered Assets",
+    "model": "prop_preview_dreary_reeds_t1.glb",
+    "assetKey": "preview_dreary_reeds",
+    "fallbackKind": "preview_dreary_reeds",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.906,
+      "depth": 1.054,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "preview_jagged_stone",
+    "label": "Preview Jagged Stone",
+    "group": "Registered Assets",
+    "model": "prop_preview_jagged_stone_t1.glb",
+    "assetKey": "preview_jagged_stone",
+    "fallbackKind": "preview_jagged_stone",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.757,
+      "depth": 1.731,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "preview_twisted_tree",
+    "label": "Preview Twisted Tree",
+    "group": "Registered Assets",
+    "model": "prop_preview_twisted_tree_t1.glb",
+    "assetKey": "preview_twisted_tree",
+    "fallbackKind": "preview_twisted_tree",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.891,
+      "depth": 2.638,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "rift_brazier",
+    "sourceKind": "rift_brazier",
+    "label": "Rift Brazier",
+    "group": "World Scenery",
+    "fallbackKind": "rift_brazier",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "rift_house",
+    "label": "Rift House",
+    "group": "World Scenery",
+    "fallbackKind": "rift_house",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "rift_obelisk",
+    "sourceKind": "rift_obelisk",
+    "label": "Rift Obelisk",
+    "group": "World Scenery",
+    "fallbackKind": "rift_obelisk",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "rift_spike_cluster",
+    "sourceKind": "rift_spike_cluster",
+    "label": "Rift Spike Cluster",
+    "group": "World Scenery",
+    "fallbackKind": "rift_spike_cluster",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "rift_tower",
+    "sourceKind": "rift_tower",
+    "label": "Rift Tower",
+    "group": "World Scenery",
+    "fallbackKind": "rift_tower",
+    "footprint": {
+      "width": 7.5,
+      "depth": 7.5,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 7.5,
+        "depth": 7.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "rift_wall_segment",
+    "label": "Rift Wall Segment",
+    "group": "World Scenery",
+    "fallbackKind": "rift_wall_segment",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "rock",
+    "sourceKind": "rock",
+    "label": "Rock",
+    "group": "World Scenery",
+    "fallbackKind": "rock",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "statue",
+    "sourceKind": "statue",
+    "label": "Statue",
+    "group": "World Scenery",
+    "fallbackKind": "statue",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "steps",
+    "label": "Steps",
+    "group": "World Scenery",
+    "fallbackKind": "steps",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "temple",
+    "label": "Temple",
+    "group": "World Scenery",
+    "fallbackKind": "temple",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "tower",
+    "sourceKind": "tower",
+    "label": "Tower",
+    "group": "World Scenery",
+    "fallbackKind": "tower",
+    "footprint": {
+      "width": 7,
+      "depth": 7,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 7,
+        "depth": 7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_chimney",
+    "label": "Town Chimney",
+    "group": "Registered Assets",
+    "model": "prop_town_chimney.glb",
+    "assetKey": "town_chimney",
+    "fallbackKind": "town_chimney",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.38,
+      "depth": 1.38,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "town_diamond_window",
+    "label": "Town Diamond Window",
+    "group": "Registered Assets",
+    "model": "prop_town_diamond_window.glb",
+    "assetKey": "town_diamond_window",
+    "fallbackKind": "town_diamond_window",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.72,
+      "depth": 0.155,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_door",
+    "label": "Town Door",
+    "group": "Registered Assets",
+    "model": "prop_town_door.glb",
+    "assetKey": "town_door",
+    "fallbackKind": "town_door",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.6,
+      "depth": 0.298,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_door_2",
+    "label": "Town Door 2",
+    "group": "Registered Assets",
+    "model": "prop_town_door_2.glb",
+    "assetKey": "town_door_2",
+    "fallbackKind": "town_door_2",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.6,
+      "depth": 0.298,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_fortress_banner",
+    "sourceKind": "town_fortress_banner",
+    "label": "Town Fortress Banner",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_banner.glb",
+    "assetKey": "town_fortress_banner",
+    "fallbackKind": "town_fortress_banner",
+    "footprint": {
+      "width": 3.95,
+      "depth": 1.5,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 1.5,
+        "depth": 1.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_fortress_barricade",
+    "sourceKind": "town_fortress_barricade",
+    "label": "Town Fortress Barricade",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_barricade.glb",
+    "assetKey": "town_fortress_barricade",
+    "fallbackKind": "town_fortress_barricade",
+    "footprint": {
+      "width": 6.994,
+      "depth": 2.6,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 6.5,
+        "depth": 2.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_fortress_brazier",
+    "sourceKind": "town_fortress_brazier",
+    "label": "Town Fortress Brazier",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_brazier.glb",
+    "assetKey": "town_fortress_brazier",
+    "fallbackKind": "town_fortress_brazier",
+    "footprint": {
+      "width": 2.64,
+      "depth": 2.64,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 2.7,
+        "depth": 2.7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_fortress_corner_tower",
+    "sourceKind": "town_fortress_corner_tower",
+    "label": "Town Fortress Corner Tower",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_corner_tower.glb",
+    "assetKey": "town_fortress_corner_tower",
+    "fallbackKind": "town_fortress_corner_tower",
+    "footprint": {
+      "width": 10.3,
+      "depth": 10.3,
+      "chainAxis": "z"
+    },
+    "colliders": [
+      {
+        "width": 10.4,
+        "depth": 10.4
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_fortress_gatehouse",
+    "sourceKind": "town_fortress_gatehouse",
+    "label": "Town Fortress Gatehouse",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_gatehouse.glb",
+    "assetKey": "town_fortress_gatehouse",
+    "fallbackKind": "town_fortress_gatehouse",
+    "footprint": {
+      "width": 27.13,
+      "depth": 7.24,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "x": -10,
+        "width": 7,
+        "depth": 6
+      },
+      {
+        "x": 10,
+        "width": 7,
+        "depth": 6
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 26,
+        "depth": 5.4,
+        "fromY": 10.2,
+        "toY": 10.2
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_fortress_wall",
+    "sourceKind": "town_fortress_wall",
+    "label": "Town Fortress Wall",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_wall.glb",
+    "assetKey": "town_fortress_wall",
+    "fallbackKind": "town_fortress_wall",
+    "footprint": {
+      "width": 12.35,
+      "depth": 3.88,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 12,
+        "depth": 3
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 11.6,
+        "depth": 2.2,
+        "fromY": 6.7,
+        "toY": 6.7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "town_fortress_wall_stairs",
+    "sourceKind": "town_fortress_wall_stairs",
+    "label": "Town Fortress Wall Stairs",
+    "group": "World Scenery",
+    "model": "prop_town_fortress_wall_stairs.glb",
+    "assetKey": "town_fortress_wall_stairs",
+    "fallbackKind": "town_fortress_wall_stairs",
+    "footprint": {
+      "width": 7.42,
+      "depth": 12.3,
+      "chainAxis": "z"
+    },
+    "walkableSurfaces": [
+      {
+        "width": 6.2,
+        "depth": 10.8,
+        "fromY": 0,
+        "toY": 6.4,
+        "axis": "z"
+      }
+    ],
+    "cameraSolid": false
+  },
+  {
+    "kind": "town_horizontal_beam",
+    "label": "Town Horizontal Beam",
+    "group": "Registered Assets",
+    "model": "prop_town_horizontal_beam.glb",
+    "assetKey": "town_horizontal_beam",
+    "fallbackKind": "town_horizontal_beam",
+    "lodModels": [],
+    "footprint": {
+      "width": 5,
+      "depth": 0.34,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_plank_arc",
+    "label": "Town Plank Arc",
+    "group": "Registered Assets",
+    "model": "prop_town_plank_arc.glb",
+    "assetKey": "town_plank_arc",
+    "fallbackKind": "town_plank_arc",
+    "lodModels": [],
+    "footprint": {
+      "width": 4.58,
+      "depth": 0.42,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_rock_wall_large",
+    "label": "Town Rock Wall Large",
+    "group": "Registered Assets",
+    "model": "prop_town_rock_wall_large.glb",
+    "assetKey": "town_rock_wall_large",
+    "fallbackKind": "town_rock_wall_large",
+    "lodModels": [],
+    "footprint": {
+      "width": 6.3,
+      "depth": 0.947,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_rock_wall_small",
+    "label": "Town Rock Wall Small",
+    "group": "Registered Assets",
+    "model": "prop_town_rock_wall_small.glb",
+    "assetKey": "town_rock_wall_small",
+    "fallbackKind": "town_rock_wall_small",
+    "lodModels": [],
+    "footprint": {
+      "width": 3.596,
+      "depth": 0.897,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_roof",
+    "label": "Town Roof",
+    "group": "Registered Assets",
+    "model": "prop_town_roof.glb",
+    "assetKey": "town_roof",
+    "fallbackKind": "town_roof",
+    "lodModels": [],
+    "footprint": {
+      "width": 7.859,
+      "depth": 6.213,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_roof_plank_large",
+    "label": "Town Roof Plank Large",
+    "group": "Registered Assets",
+    "model": "prop_town_roof_plank_large.glb",
+    "assetKey": "town_roof_plank_large",
+    "fallbackKind": "town_roof_plank_large",
+    "lodModels": [],
+    "footprint": {
+      "width": 4.813,
+      "depth": 1.2,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_roof_plank_medium",
+    "label": "Town Roof Plank Medium",
+    "group": "Registered Assets",
+    "model": "prop_town_roof_plank_medium.glb",
+    "assetKey": "town_roof_plank_medium",
+    "fallbackKind": "town_roof_plank_medium",
+    "lodModels": [],
+    "footprint": {
+      "width": 3.613,
+      "depth": 1.2,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_roof_plank_small",
+    "label": "Town Roof Plank Small",
+    "group": "Registered Assets",
+    "model": "prop_town_roof_plank_small.glb",
+    "assetKey": "town_roof_plank_small",
+    "fallbackKind": "town_roof_plank_small",
+    "lodModels": [],
+    "footprint": {
+      "width": 2.513,
+      "depth": 1.2,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_spire",
+    "label": "Town Spire",
+    "group": "Registered Assets",
+    "model": "prop_town_spire.glb",
+    "assetKey": "town_spire",
+    "fallbackKind": "town_spire",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.42,
+      "depth": 1.42,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "town_vertical_beam",
+    "label": "Town Vertical Beam",
+    "group": "Registered Assets",
+    "model": "prop_town_vertical_beam.glb",
+    "assetKey": "town_vertical_beam",
+    "fallbackKind": "town_vertical_beam",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.34,
+      "depth": 0.34,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "town_window",
+    "label": "Town Window",
+    "group": "Registered Assets",
+    "model": "prop_town_window.glb",
+    "assetKey": "town_window",
+    "fallbackKind": "town_window",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.72,
+      "depth": 0.16,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_wooden_wall_dark",
+    "label": "Town Wooden Wall Dark",
+    "group": "Registered Assets",
+    "model": "prop_town_wooden_wall_dark.glb",
+    "assetKey": "town_wooden_wall_dark",
+    "fallbackKind": "town_wooden_wall_dark",
+    "lodModels": [],
+    "footprint": {
+      "width": 5,
+      "depth": 0.51,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_wooden_wall_light",
+    "label": "Town Wooden Wall Light",
+    "group": "Registered Assets",
+    "model": "prop_town_wooden_wall_light.glb",
+    "assetKey": "town_wooden_wall_light",
+    "fallbackKind": "town_wooden_wall_light",
+    "lodModels": [],
+    "footprint": {
+      "width": 5,
+      "depth": 0.51,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "tree",
+    "sourceKind": "tree",
+    "label": "Tree",
+    "group": "World Scenery",
+    "fallbackKind": "tree",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "vendor_stall",
+    "sourceKind": "vendor_stall",
+    "label": "Vendor Stall",
+    "group": "World Scenery",
+    "fallbackKind": "vendor_stall",
+    "footprint": {
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    },
+    "cameraSolid": false
+  },
+  {
+    "kind": "vendor_stall__asset",
+    "label": "Vendor Stall",
+    "group": "Registered Assets",
+    "model": "vendor_stall.glb",
+    "assetKey": "vendor_stall",
+    "fallbackKind": "vendor_stall",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.72,
+      "depth": 1.22,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "wall_segment",
+    "sourceKind": "wall_segment",
+    "label": "Wall Segment",
+    "group": "World Scenery",
+    "fallbackKind": "wall_segment",
+    "footprint": {
+      "width": 10,
+      "depth": 1.8,
+      "chainAxis": "x"
+    },
+    "colliders": [
+      {
+        "width": 10,
+        "depth": 1.8
+      }
+    ],
+    "cameraSolid": true
+  }
+]

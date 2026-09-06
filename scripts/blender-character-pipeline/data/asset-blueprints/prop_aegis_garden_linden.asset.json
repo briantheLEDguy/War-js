@@ -1,0 +1,92 @@
+{
+  "assetId": "prop.aegis.garden_linden",
+  "displayName": "Aegis garden linden",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "aegis_gardens"
+  ],
+  "runtime": {
+    "staticKey": "aegis_garden_linden"
+  },
+  "output": {
+    "model": "prop_aegis_garden_linden.glb",
+    "artifactDir": "authoring/blender/aegis-gardens/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/aegis-gardens/runtime/prop_aegis_garden_linden.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 8736,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 5964,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 4200,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_AegisGardens",
+    "textureSet": "aegis_gardens",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "collision": {
+    "policy": "editor_prefab_default",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "prefab_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gardens_v1"
+    ],
+    "referencePackId": "original_city_horticulture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-gardens/tools/build_gardens.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 4,
+    "maxMeshObjects": 1,
+    "maxTris": 30000,
+    "requiresSkinnedMeshes": false
+  }
+}

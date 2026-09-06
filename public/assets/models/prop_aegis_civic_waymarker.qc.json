@@ -1,0 +1,37 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_waymarker",
+  "modelSha256": "cac4f1e82b6b1138ae75d5976a1c3e01585d03300eb131e1555746b6eb5f8eed",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_civic_waymarker.glb",
+    "triangles": 3456,
+    "bytes": 223632,
+    "sha256": "cac4f1e82b6b1138ae75d5976a1c3e01585d03300eb131e1555746b6eb5f8eed"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_waymarker.glb",
+      "triangles": 3456,
+      "bytes": 223632,
+      "sha256": "cac4f1e82b6b1138ae75d5976a1c3e01585d03300eb131e1555746b6eb5f8eed"
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_waymarker_lod1.glb",
+      "triangles": 1797,
+      "bytes": 122440,
+      "sha256": "b89dcf4931a268e820ac2361184d982a503b828ac0d65f8387ccf0f7d8ad723e"
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_waymarker_lod2.glb",
+      "triangles": 829,
+      "bytes": 57108,
+      "sha256": "b962339e6aa0737725ed1bfc61fc42d5b458f24c06c4860ea7350c1aa0a1181f"
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+}

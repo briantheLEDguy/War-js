@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.people.lady",
+  "displayName": "Aegis Lady",
+  "category": "character",
+  "model": "chr_aegis_people_lady_lod1.glb",
+  "qc": "chr_aegis_people_lady_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_people_lady"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_people",
+    "bodyVariant": "f",
+    "skeletonId": "aegis_people_v1",
+    "bindPoseId": "civic_relaxed_v1"
+  },
+  "hashes": {
+    "modelSha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+    "qcSha256": "fa6cf4c9c69e12f079018227059c558dbead84465454323feef8fad9afe47aaf",
+    "previews": {
+      "front": "cf94350fb1d1e455d91330310cb1cbc48aa25f6b72232c08a92bbda9a62207b4"
+    }
+  },
+  "previews": {
+    "front": "reviews/aegis-people/lady_export_three_quarter.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex technical and exported-geometry review; user requested game integration",
+    "reviewedAt": "2026-09-06T18:36:40.992521+00:00",
+    "reviewHash": "7cadac71478ec1b4b9ffb364783e0075ac96033862529b7779aecb85b8908f48"
+  },
+  "provenance": {
+    "sourceSha256": "e169d540aa47ae98f19b5c33ce0d68e2d1a7f2e3a0ec3753c39e9d82906c0cb3",
+    "referenceSha256": "6d725a8ce540a907ad30da08964634013e6cbd21723dac01c055446f6b2ba4ef",
+    "limitations": "Stationary idle only; custom civic skeleton. Middle LOD used for city NPCs.",
+    "lods": {
+      "0": {
+        "file": "chr_aegis_people_lady.glb",
+        "sha256": "b92a3240db00fca79e1a939d2d7f48865ea2c94aea8ea8b89f2162c62f80107a",
+        "triangles": 148462,
+        "degenerate_uv_tangents": 142299
+      },
+      "1": {
+        "file": "chr_aegis_people_lady_lod1.glb",
+        "sha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+        "triangles": 89072,
+        "degenerate_uv_tangents": 95662
+      },
+      "2": {
+        "file": "chr_aegis_people_lady_lod2.glb",
+        "sha256": "588ca5d2f3eddb551d18bbf6e06698522b04a529a492b207d219bf3c0d7f074d",
+        "triangles": 44534,
+        "degenerate_uv_tangents": 49741
+      }
+    }
+  }
+}

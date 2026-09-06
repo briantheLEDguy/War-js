@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.civic_sign_exchange",
+  "displayName": "Aegis civic sign exchange",
+  "category": "prop",
+  "model": "prop_aegis_civic_sign_exchange.glb",
+  "qc": "prop_aegis_civic_sign_exchange.qc.json",
+  "runtime": {
+    "staticKey": "aegis_civic_sign_exchange"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "53643e05819471f4efea9a5d648d0248840991f8d9ef196ef97f0138ebab5704",
+    "qcSha256": "79370806689be9dd6484574b0e84c943961905b984c74d84d6b56005067a316c",
+    "previews": {
+      "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T11:52:26.532Z",
+    "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_rich_civic_v1"
+    ],
+    "referencePackId": "original_civic_trade_and_canal_motifs",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_civic.py"
+  },
+  "approvalState": "approved"
+}

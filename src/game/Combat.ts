@@ -575,7 +575,7 @@ export class Combat {
     if (!store.character || store.playerDead) return;
     const resolved = resolvePlayerIncomingDamage(rawDamage, store.playerStatusEffects, now);
     const health = Math.max(0, store.character.health - resolved.damage);
-    useGameStore.setState({ playerStatusEffects: resolved.statusEffects });
+    useGameStore.setState({ playerStatusEffects: resolved.statusEffects, ...(resolved.damage > 0 ? { lastCombatAt: now } : {}) });
     store.updateCharacter({ health });
     store.pushDamage(makeDmg(now, resolved.damage, resolved.damage > 0 ? 'damage' : 'miss', position));
     if (health <= 0) {
@@ -693,6 +693,7 @@ export class Combat {
 
     const amount = Math.round(rawDamage * enemyDamageTakenMultiplier(latest.statusEffects ?? [], now));
     const newHp = Math.max(0, latest.health - amount);
+    if (amount > 0) useGameStore.setState({ lastCombatAt: now });
     store.updateEnemy(latest.id, { health: newHp });
     store.pushDamage(makeDmg(now, amount, 'damage', latest.position));
     const enemy = this.enemiesById.get(latest.id);

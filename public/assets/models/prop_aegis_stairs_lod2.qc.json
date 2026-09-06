@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.stairs",
+  "modelSha256": "2f9d17edba8f2da766d77d7224270ba40c6a332eaf682de836a19c8f23eaee6b",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_stairs_lod2.glb",
+    "triangles": 902,
+    "bytes": 137156,
+    "sha256": "2f9d17edba8f2da766d77d7224270ba40c6a332eaf682de836a19c8f23eaee6b",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_stairs.glb",
+      "triangles": 4512,
+      "bytes": 581228,
+      "sha256": "7788822b722c51f49b91714e8ef406e7bef1f2c57389d2c33611848483c5d89e",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_stairs_lod1.glb",
+      "triangles": 2256,
+      "bytes": 340260,
+      "sha256": "834095548ae76ed2970bd98ee0c8acf4c982f35354315c7026bceaaf73359cda",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_stairs_lod2.glb",
+      "triangles": 902,
+      "bytes": 137156,
+      "sha256": "2f9d17edba8f2da766d77d7224270ba40c6a332eaf682de836a19c8f23eaee6b",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

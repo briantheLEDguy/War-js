@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.awning_2",
+  "modelSha256": "2270644dfa1a4e812701b7f6d81eab4e86d65789d3ab77f654a7ca8368c72c84",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_awning_2_lod1.glb",
+    "triangles": 1504,
+    "bytes": 215216,
+    "sha256": "2270644dfa1a4e812701b7f6d81eab4e86d65789d3ab77f654a7ca8368c72c84",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_awning_2.glb",
+      "triangles": 3008,
+      "bytes": 389880,
+      "sha256": "d67dd7015042d83d825d2599d72cb9e7124bcd1ec4f138ebf1a888fbac6051fb",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_awning_2_lod1.glb",
+      "triangles": 1504,
+      "bytes": 215216,
+      "sha256": "2270644dfa1a4e812701b7f6d81eab4e86d65789d3ab77f654a7ca8368c72c84",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_awning_2_lod2.glb",
+      "triangles": 600,
+      "bytes": 96280,
+      "sha256": "12967b9781b65deaac9cb3a884e05fe6f41f34547e5f67601c8e8a7ab27e149a",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

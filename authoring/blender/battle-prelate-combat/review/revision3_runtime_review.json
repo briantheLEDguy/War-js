@@ -1,0 +1,35 @@
+{
+  "revision": 3,
+  "animationPackSha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77",
+  "changes": [
+    "Expanded embedded-derived opening with continuous source quaternions",
+    "Wider swing paths, larger loads and follow-through, stronger strike-only torso rotation",
+    "Basic attacks use the expanded opening; impact timing unchanged"
+  ],
+  "verification": {
+    "focusedTestsPassed": 87,
+    "typecheck": "passed",
+    "build": "passed",
+    "assetValidationRecords": 417,
+    "visualReview": "Seven hammer attack windup/contact poses inspected using the real Player renderer on male ornate equipment",
+    "automatedPoseCoverage": "Both bodies: supporting grip under 5mm, planted feet under 2mm, broad swing span over 0.7m, contact timing at 30/60FPS"
+  },
+  "evidence": {
+    "revision3_contacts.png": "0c3f3784e73972198e19ed61d6e006ca99167be2940060ed25d833e6a4d24f9c",
+    "revision3_prelate_judgment_contact.png": "96d221e373749fe2a09624bd978cf67b3dc3d21a1817a2b05c3baa3bc7d61e20",
+    "revision3_prelate_judgment_windup.png": "ceca80e5963bd16b86e137533d888a4dd9d28efceb4520c97ff704d2ed841efa",
+    "revision3_prelate_litany_a_contact.png": "1af68022a8f0232fcd45b76bed391cae14c543becb6afaab209a6912e7b3818c",
+    "revision3_prelate_litany_a_windup.png": "a8cc3b4d3f81ccd66c92490eac944c000bbe41326716501ae35b536c0778dd2d",
+    "revision3_prelate_litany_b_contact.png": "d91064f656e50e2f42a08abe45e17818e496f1f6d0caa7a2e943aff82d79cb5b",
+    "revision3_prelate_litany_b_windup.png": "22398aa3a501d53a2d9552cda01795a72aa9d951ffb383629e7f5f01c0598b5a",
+    "revision3_prelate_litany_c_contact.png": "3a79210757cbaf350150fb7c9c0cb4d4cb297e1ab437a982eadf879ef5f9290b",
+    "revision3_prelate_litany_c_windup.png": "c3cc27cd93bd050af87f0b9e3875d94ae99dcb74f6cd4be14592dc64537f83e0",
+    "revision3_prelate_penance_contact.png": "91c483de7250a5c8b3a066e7cf6a472bf0b09728fddc323a9f91506edd2d83af",
+    "revision3_prelate_penance_windup.png": "d87138897a1d549b46357ddeb21d6f7fce77966ff8dfd79e862814e2634898cd",
+    "revision3_prelate_reliquary_contact.png": "011fb39804309935a75058914f85345f3471ee0a4fcf409dcb3e35229f267fe0",
+    "revision3_prelate_reliquary_windup.png": "7dc6314729962608dc1ed7571668b0195309ab94585c8bf1ff26b4c24498ab07",
+    "revision3_prelate_sanctified_contact.png": "29bf56bbeca6b712e94152d29068cd6c15605cdc1d1a1c18786393de239c030d",
+    "revision3_prelate_sanctified_windup.png": "c2cb919eadd23d5165f93cdcde5b0db01819ec806bbec91e556353e12a857a55",
+    "revision3_windups.png": "36b2ba540e819e178c430f519aca878803a19cf3d8d3b4a790c4b3883c3da916"
+  }
+}

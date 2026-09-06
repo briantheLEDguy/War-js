@@ -1,0 +1,92 @@
+{
+  "assetId": "prop.aegis.citadel_provision_rack",
+  "displayName": "Aegis citadel provision rack",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "aegis_citadel_interiors"
+  ],
+  "runtime": {
+    "staticKey": "aegis_citadel_provision_rack"
+  },
+  "output": {
+    "model": "prop_aegis_citadel_provision_rack.glb",
+    "artifactDir": "authoring/blender/aegis-citadel-interiors/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/aegis-citadel-interiors/runtime/prop_aegis_citadel_provision_rack.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 9652,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 5014,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 2309,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_AegisCitadelInteriors",
+    "textureSet": "aegis_citadel_interiors",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "collision": {
+    "policy": "editor_prefab_default",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "prefab_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_citadel_furnishing_v1"
+    ],
+    "referencePackId": "original_three_peoples_oath_and_fortress_household",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-citadel-interiors/tools/build_interiors.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 4,
+    "maxMeshObjects": 1,
+    "maxTris": 30000,
+    "requiresSkinnedMeshes": false
+  }
+}

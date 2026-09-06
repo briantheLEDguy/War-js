@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.people.civilian_female",
+  "displayName": "Aegis Civilian Female",
+  "category": "character",
+  "model": "chr_aegis_people_civilian_female_lod1.glb",
+  "qc": "chr_aegis_people_civilian_female_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_people_civilian_female"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_people",
+    "bodyVariant": "f",
+    "skeletonId": "aegis_people_v1",
+    "bindPoseId": "civic_relaxed_v1"
+  },
+  "hashes": {
+    "modelSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+    "qcSha256": "4e62e28a225ff3d13d1dbd119fc5b1a267da5e1da741d498425713e7139891c6",
+    "previews": {
+      "front": "459fe3ee7863090f0b8590d3ebb7152240611acb44b7f48a1a6617979e3f94c4"
+    }
+  },
+  "previews": {
+    "front": "reviews/aegis-people/civilian_female_export_three_quarter.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex technical and exported-geometry review; user requested game integration",
+    "reviewedAt": "2026-09-06T18:36:40.626544+00:00",
+    "reviewHash": "7cadac71478ec1b4b9ffb364783e0075ac96033862529b7779aecb85b8908f48"
+  },
+  "provenance": {
+    "sourceSha256": "31650250a648765326ab98d031b8fb951231ecf215c7c6a97a2ee07d0e456dd6",
+    "referenceSha256": "6d725a8ce540a907ad30da08964634013e6cbd21723dac01c055446f6b2ba4ef",
+    "limitations": "Stationary idle only; custom civic skeleton. Middle LOD used for city NPCs.",
+    "lods": {
+      "0": {
+        "file": "chr_aegis_people_civilian_female.glb",
+        "sha256": "e7d7aee4e4d46d86a2d93db51112b65f1d6706ac3d5a65f52ac42a9bb63fd833",
+        "triangles": 136292,
+        "degenerate_uv_tangents": 64206
+      },
+      "1": {
+        "file": "chr_aegis_people_civilian_female_lod1.glb",
+        "sha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+        "triangles": 81770,
+        "degenerate_uv_tangents": 41120
+      },
+      "2": {
+        "file": "chr_aegis_people_civilian_female_lod2.glb",
+        "sha256": "11f4ee231fb571f7fd5905bd0fc6afa3a4479c22818b66d298ff30ad8ff41aad",
+        "triangles": 40884,
+        "degenerate_uv_tangents": 22813
+      }
+    }
+  }
+}

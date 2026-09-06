@@ -1,0 +1,34 @@
+{
+  "reviewedAt": "2026-09-06T10:31:54.144373+00:00",
+  "reviewedBy": "Codex",
+  "assetVersion": "approved-77d3ac4f83f2c187",
+  "runtime": "Actual Game runtime in isolated local Vite review page",
+  "cityDetailCounts": {
+    "infillBuildings": 36,
+    "streetFurnishings": 135,
+    "courtFeatures": 8
+  },
+  "observations": [
+    "Gateward Market: awnings, trees and contrasting plaster/roof finishes render.",
+    "Bridge 3: separate brick walkway and flagstone ground surfaces, clear canal crossing.",
+    "Cinderbank: additional buildings and street furnishings; irregular plaster weathering visible.",
+    "No shader or runtime errors in browser log; existing missing sky.hdr uses fallback."
+  ],
+  "performanceSample": {
+    "fpsObserved": [
+      21,
+      27,
+      33
+    ],
+    "note": "Local review samples across three views, not a cross-device benchmark. Dense views remain rendering-heavy."
+  },
+  "verification": {
+    "focusedTests": 44,
+    "fullSuite": "595 tests passed; pre-existing rosterDirectPromotion syntax/load failure",
+    "glbExports": 141,
+    "glbValidationErrors": 0,
+    "build": "passed",
+    "worldValidation": "33 maps passed",
+    "modelValidation": "358 records passed"
+  }
+}

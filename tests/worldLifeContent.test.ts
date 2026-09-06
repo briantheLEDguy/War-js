@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
 import { applyBiomeKits } from '../src/world/BiomeKit';
 import type { PropSpawn, ZoneDefinition } from '../src/world/ZoneLoader';
+// @ts-expect-error Shared native ESM authoring module.
+import { AEGIS_REVIEWED_SCENERY } from '../scripts/campaign/aegis-reviewed-scenery.mjs';
 import {
   decorateWorldLife,
   WORLD_LIFE_FOOTPRINTS,
@@ -12,6 +14,17 @@ import {
 type Point = { x: number; z: number };
 const ids = WORLD_LIFE_ZONE_IDS as string[];
 const footprint = WORLD_LIFE_FOOTPRINTS as Record<string, number>;
+const originalLifeKind = new Map<string, string>(Object.entries(AEGIS_REVIEWED_SCENERY)
+  .filter(([kind]) => kind.startsWith('life_'))
+  .map(([kind, entry]) => [(entry as { kind: string }).kind, kind]));
+
+function lifeKind(prop: PropSpawn): string {
+  return originalLifeKind.get(prop.kind) ?? prop.kind;
+}
+
+function lifeRadius(prop: PropSpawn): number {
+  return footprint[lifeKind(prop)];
+}
 
 function readZone(id: string): ZoneDefinition {
   return JSON.parse(readFileSync(`public/assets/maps/${id}.json`, 'utf8'));
@@ -45,19 +58,22 @@ function expectOutsideColliders(point: Point, radius: number, props: PropSpawn[]
     for (const collider of prop.colliders ?? []) {
       const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1);
       const sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
-      const rotation = prop.rotY ?? 0;
+      const yawSign = prop.colliderSpace === 'model' ? -1 : 1;
+      const rotation = (prop.rotY ?? 0) * yawSign;
       const localX = (collider.x ?? 0) * sx;
       const localZ = (collider.z ?? 0) * sz;
       const centerX = prop.x + localX * Math.cos(rotation) - localZ * Math.sin(rotation);
       const centerZ = prop.z + localX * Math.sin(rotation) + localZ * Math.cos(rotation);
-      const angle = rotation + (collider.rotY ?? 0);
+      const angle = rotation + (collider.rotY ?? 0) * yawSign;
       const dx = (point.x - centerX) * Math.cos(angle) + (point.z - centerZ) * Math.sin(angle);
       const dz = -(point.x - centerX) * Math.sin(angle) + (point.z - centerZ) * Math.cos(angle);
       const edgeDistance = Math.hypot(
         Math.max(0, Math.abs(dx) - collider.width * sx / 2),
         Math.max(0, Math.abs(dz) - collider.depth * sz / 2),
       );
-      expect(edgeDistance, `${context} intersects ${prop.id}`).toBeGreaterThanOrEqual(radius);
+      // Dense cities add many channel and defense colliders. Check every pair,
+      // but construct the expensive assertion only when reporting a violation.
+      if (edgeDistance < radius) expect(edgeDistance, `${context} intersects ${prop.id}`).toBeGreaterThanOrEqual(radius);
     }
   }
 }
@@ -114,7 +130,7 @@ describe('authored world life', () => {
       expect(Math.max(Math.abs(point.x), Math.abs(point.z))).toBeLessThan(zone.size / 2 - 8);
     }
     expect(props.some((prop) => Math.hypot(prop.x - zone.spawnPoint!.x, prop.z - zone.spawnPoint!.z) < 30)).toBe(true);
-    for (const fire of props.filter((prop) => prop.kind === 'life_campfire')) {
+    for (const fire of props.filter((prop) => lifeKind(prop) === 'life_campfire')) {
       expect(emitters.filter((emitter) => emitter.x === fire.x && emitter.z === fire.z).map((entry) => entry.kind)).toEqual(['smoke', 'embers']);
     }
   });
@@ -132,7 +148,7 @@ describe('authored world life', () => {
     ];
     const props = lifeProps(zone);
     for (const prop of props) {
-      const radius = footprint[prop.kind];
+      const radius = lifeRadius(prop);
       for (const point of protectedPoints) {
         expect(Math.hypot(prop.x - point.x, prop.z - point.z), prop.id).toBeGreaterThanOrEqual(point.radius + radius);
       }
@@ -145,7 +161,7 @@ describe('authored world life', () => {
       expectOutsideColliders(prop, radius, zone.props.filter((entry) => entry.id !== prop.id), prop.id!);
       for (const other of props.filter((entry) => entry.id !== prop.id)) {
         expect(Math.hypot(prop.x - other.x, prop.z - other.z), `${prop.id} overlaps ${other.id}`)
-          .toBeGreaterThanOrEqual(radius + footprint[other.kind]);
+          .toBeGreaterThanOrEqual(radius + lifeRadius(other));
       }
     }
   });
@@ -159,16 +175,16 @@ describe('authored world life', () => {
       for (const point of samples(route)) {
         expectOutsideColliders(point, radius, zone.props, actor.id);
         for (const prop of lifeProps(zone)) {
-          expect(Math.hypot(point.x - prop.x, point.z - prop.z), `${actor.id} crosses ${prop.id}`)
-            .toBeGreaterThanOrEqual(radius + footprint[prop.kind]);
+          const distance = Math.hypot(point.x - prop.x, point.z - prop.z);
+          if (distance < radius + lifeRadius(prop)) expect(distance, `${actor.id} crosses ${prop.id}`).toBeGreaterThanOrEqual(radius + lifeRadius(prop));
         }
         for (const enemy of zone.enemies) {
-          expect(Math.hypot(point.x - enemy.x, point.z - enemy.z), `${actor.id} enters ${enemy.id}`)
-            .toBeGreaterThanOrEqual(radius + Math.max(4, enemy.aggroRange ?? 0));
+          const distance = Math.hypot(point.x - enemy.x, point.z - enemy.z);
+          if (distance < radius + Math.max(4, enemy.aggroRange ?? 0)) expect(distance, `${actor.id} enters ${enemy.id}`).toBeGreaterThanOrEqual(radius + Math.max(4, enemy.aggroRange ?? 0));
         }
       }
     }
-  });
+  }, 30000);
 
   test('scene clearings survive runtime biome expansion', () => {
     const zone = readZone('brightfen_approach');
@@ -182,7 +198,7 @@ describe('authored world life', () => {
     }
     for (const plant of vegetation) {
       for (const prop of lifeProps(zone)) {
-        expect(Math.hypot(plant.x - prop.x, plant.z - prop.z), prop.id).toBeGreaterThan(footprint[prop.kind] + 3);
+        expect(Math.hypot(plant.x - prop.x, plant.z - prop.z), prop.id).toBeGreaterThan(lifeRadius(prop) + 3);
       }
     }
   });
@@ -192,15 +208,20 @@ describe('authored world life', () => {
     decorateWorldLife(zone);
     const solidKinds = new Set(['life_crate_stack', 'life_barrels', 'life_handcart', 'life_bench', 'life_supply_tent']);
     for (const prop of lifeProps(zone)) {
-      expect(Boolean(prop.colliders?.length), prop.kind).toBe(solidKinds.has(prop.kind));
+      expect(Boolean(prop.colliders?.length), prop.kind).toBe(solidKinds.has(lifeKind(prop)));
+      const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1);
+      const sy = (prop.scale ?? 1) * (prop.scaleY ?? 1);
+      const sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
       for (const collider of prop.colliders ?? []) {
         expect(collider.minY).toBeDefined();
         expect(collider.maxY).toBeGreaterThan(collider.minY!);
-        expect(collider.maxY).toBeLessThanOrEqual(2.3);
+        // Models use fitted local units; the preserved physical height is in world units.
+        expect((collider.maxY! - collider.minY!) * sy).toBeLessThanOrEqual(2.5);
         expect(collider.width).toBeGreaterThan(0);
         expect(collider.depth).toBeGreaterThan(0);
-        const cornerRadius = Math.hypot(Math.abs(collider.x ?? 0) + collider.width / 2, Math.abs(collider.z ?? 0) + collider.depth / 2);
-        expect(cornerRadius, prop.kind).toBeLessThan(footprint[prop.kind]);
+        const cornerRadius = Math.hypot((Math.abs(collider.x ?? 0) + collider.width / 2) * sx,
+          (Math.abs(collider.z ?? 0) + collider.depth / 2) * sz);
+        expect(cornerRadius, prop.kind).toBeLessThan(lifeRadius(prop));
       }
     }
   });

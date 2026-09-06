@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_chandelier",
+  "modelSha256": "1a40c6320430ac0466b34af7ac9085e0f3089d14b8d0cc3588c704a0652cceff",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_citadel_chandelier_lod2.glb",
+    "triangles": 5717,
+    "bytes": 505756,
+    "sha256": "1a40c6320430ac0466b34af7ac9085e0f3089d14b8d0cc3588c704a0652cceff",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_chandelier.glb",
+      "triangles": 23828,
+      "bytes": 1880692,
+      "sha256": "b3f52a8168e64fd72eb56556ad082b58ceed04b698dd5f9e91de716e4d93aaa1",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_chandelier_lod1.glb",
+      "triangles": 12390,
+      "bytes": 1029352,
+      "sha256": "5b9b6cafdafe0d6ee3b5bb68ac132afbe5ee84923103d3e62b0505760dcfd750",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_chandelier_lod2.glb",
+      "triangles": 5717,
+      "bytes": 505756,
+      "sha256": "1a40c6320430ac0466b34af7ac9085e0f3089d14b8d0cc3588c704a0652cceff",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 8,
+    "depth": 8,
+    "height": 3
+  }
+}

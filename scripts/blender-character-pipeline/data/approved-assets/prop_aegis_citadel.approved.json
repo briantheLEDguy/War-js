@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel",
+  "displayName": "Aegis Citadel",
+  "category": "prop",
+  "model": "prop_aegis_citadel.glb",
+  "qc": "prop_aegis_citadel.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "3595837c811c258b10af984a2bbf4df3f0bcfcad8f4cc8b78e57e928e166964d",
+    "qcSha256": "c07596f807cec0a2bc31bbf1d2a6b5526dbec0edcd15fce6527e26980823d137",
+    "previews": {
+      "assembly": "c530298d4378917866193f2e465812506bf541bc9f3993eb4eaa8fa3dfdb5415"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-city/review/citadel-gothic.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T19:44:17.346903+00:00",
+    "reviewHash": "407c18a289e65fa9ca65456ec47a4489bd01baa4949d0fd4fcea28da80fac8d9"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gothic_city_v1",
+      "citadel_gothic_spires_v2"
+    ],
+    "referencePackId": "original_aegis_architecture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_city.py"
+  },
+  "approvalState": "approved"
+}

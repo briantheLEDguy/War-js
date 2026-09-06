@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.garden_linden",
+  "displayName": "Aegis garden linden",
+  "category": "prop",
+  "model": "prop_aegis_garden_linden.glb",
+  "qc": "prop_aegis_garden_linden.qc.json",
+  "runtime": {
+    "staticKey": "aegis_garden_linden"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "177ca829df3da63f4285db938a739e1ea22da415ef1f87e5518f4028574e9ca4",
+    "qcSha256": "8e20581805a5fc23724a9c38a2cd6c27608dda8b8436c122f17c93822fb79328",
+    "previews": {
+      "assembly": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-gardens/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex actual-export visual inspection",
+    "reviewedAt": "2026-09-06T19:40:00.890Z",
+    "reviewHash": "cea1f314abc3eaeca2ede09be80cbe796deb3078100ecdf328eb6d4955d1f504"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gardens_v1"
+    ],
+    "referencePackId": "original_city_horticulture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-gardens/tools/build_gardens.py"
+  },
+  "approvalState": "approved"
+}

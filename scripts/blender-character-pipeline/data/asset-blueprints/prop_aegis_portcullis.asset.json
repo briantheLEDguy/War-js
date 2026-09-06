@@ -1,0 +1,93 @@
+{
+  "assetId": "prop.aegis.portcullis",
+  "displayName": "Aegis Portcullis",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "aegis_gothic_city"
+  ],
+  "runtime": {
+    "staticKey": "aegis_portcullis"
+  },
+  "output": {
+    "model": "prop_aegis_portcullis.glb",
+    "artifactDir": "authoring/blender/aegis-city/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/aegis-city/runtime/prop_aegis_portcullis.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 2256,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 1128,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 450,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_AegisCityPbr",
+    "textureSet": "aegis_city",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "collision": {
+    "policy": "editor_prefab_default",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "prefab_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gothic_city_v1"
+    ],
+    "referencePackId": "original_aegis_architecture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_city.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 24,
+    "maxMeshObjects": 8,
+    "maxTris": 180000,
+    "requiresSkinnedMeshes": false
+  }
+}

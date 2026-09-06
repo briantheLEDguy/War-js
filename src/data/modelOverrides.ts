@@ -25,12 +25,40 @@ export interface NpcModelOverride {
   fallbackModel: string;
 }
 
-const AEGIS_GUARD_VARIANTS: NpcModelOverride[] = [
-  { profileKey: AEGIS_WARRIOR_GUARD_PROFILE_KEY, fallbackModel: AEGIS_WARRIOR_GUARD_FALLBACK_MODEL },
-  { profileKey: AEGIS_WARRIOR_GUARD_PROFILE_KEY, fallbackModel: AEGIS_WARRIOR_GUARD_FALLBACK_MODEL },
-  { profileKey: AEGIS_SWORDSMAN_NPC_PROFILE_KEY, fallbackModel: AEGIS_SWORDSMAN_NPC_FALLBACK_MODEL },
-  { profileKey: AEGIS_MEDIEVAL_CHARACTER_NPC_PROFILE_KEY, fallbackModel: AEGIS_MEDIEVAL_CHARACTER_NPC_FALLBACK_MODEL },
-];
+const AEGIS_GUARD_VARIANTS: NpcModelOverride[] = ['standard', 'halberd', 'crossbow', 'captain'].map(variant => ({
+  profileKey: `npc_aegis_city_guard_${variant}`,
+  fallbackModel: `chr_aegis_city_guard_${variant}.glb`,
+}));
+
+type AegisCivilianVariant = 'civilian_male' | 'civilian_female' | 'child' | 'lord' | 'lady' | 'courtier' | 'attendant';
+
+function civilianModel(variant: AegisCivilianVariant): NpcModelOverride {
+  return {
+    profileKey: `npc_aegis_people_${variant}`,
+    // Match the reviewed registry delivery; the full-detail source remains available.
+    fallbackModel: `chr_aegis_people_${variant}_lod1.glb`,
+  };
+}
+
+/** Upgrade retired Aegis service proxies without overriding authored civic cast. */
+export function aegisNpcCivilianVariantFor(
+  role: string,
+  characterProfileKey?: string | null,
+  seed = characterProfileKey ?? '',
+): NpcModelOverride | null {
+  if (role === 'guard' || !characterProfileKey?.startsWith('npc_aegis_')) return null;
+  if (characterProfileKey.startsWith('npc_aegis_people_')) return null;
+  if (role === 'banker' || role === 'trainer') return civilianModel('attendant');
+  if (role === 'questgiver') return civilianModel('courtier');
+  return civilianModel(hashString(seed) % 2 ? 'civilian_female' : 'civilian_male');
+}
+
+/** Domestic and public-room residents retain their existing identities and roles. */
+export function aegisHouseResidentVariantFor(variant: string, index: number): NpcModelOverride {
+  if (variant === 'chapel') return civilianModel('attendant');
+  if (variant === 'civic') return civilianModel(index ? 'attendant' : 'courtier');
+  return civilianModel(index % 2 ? 'civilian_male' : 'civilian_female');
+}
 
 export function playerModelOverrideForRace(race: PlayableRace): PlayerModelOverride {
   if (playerRealmForRace(race) === 'riftbound') {
@@ -69,6 +97,9 @@ export function aegisEnemyGuardVariantFor(
 }
 
 function pickAegisGuardVariant(seed: string): NpcModelOverride {
+  if (/captain|commander|officer/i.test(seed)) return AEGIS_GUARD_VARIANTS[3];
+  if (/crossbow|marksman/i.test(seed)) return AEGIS_GUARD_VARIANTS[2];
+  if (/halberd/i.test(seed)) return AEGIS_GUARD_VARIANTS[1];
   const hash = hashString(seed);
   return AEGIS_GUARD_VARIANTS[hash % AEGIS_GUARD_VARIANTS.length];
 }

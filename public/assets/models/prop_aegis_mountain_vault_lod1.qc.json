@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.mountain_vault",
+  "modelSha256": "f98f17461310c97e0a9f14ffb3485fb4fec636472961a394c2d9483bd0dd766b",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_mountain_vault_lod1.glb",
+    "triangles": 14288,
+    "bytes": 2142252,
+    "sha256": "f98f17461310c97e0a9f14ffb3485fb4fec636472961a394c2d9483bd0dd766b",
+    "repairedDegenerateTangents": 31
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_mountain_vault.glb",
+      "triangles": 28576,
+      "bytes": 3951736,
+      "sha256": "9be8cf7cf811f5ae4314ef2d288723bad6704d53178f3bb0d3cacd035bb663bc",
+      "repairedDegenerateTangents": 36
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_mountain_vault_lod1.glb",
+      "triangles": 14288,
+      "bytes": 2142252,
+      "sha256": "f98f17461310c97e0a9f14ffb3485fb4fec636472961a394c2d9483bd0dd766b",
+      "repairedDegenerateTangents": 31
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_mountain_vault_lod2.glb",
+      "triangles": 5714,
+      "bytes": 856680,
+      "sha256": "0d4612cd14010148737161f0841d56d454f3de47bcbbb04283526df65f285db9",
+      "repairedDegenerateTangents": 2
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,19 @@
+{
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "version": 1,
+  "motions": [
+    { "slot": 0, "clip": "prelate_litany_a", "durationSec": 0.9, "contact": 0.43, "style": "diagonal" },
+    { "slot": 0, "clip": "prelate_litany_b", "durationSec": 0.9, "contact": 0.43, "style": "return" },
+    { "slot": 0, "clip": "prelate_litany_c", "durationSec": 1.05, "contact": 0.48, "style": "descending" },
+    { "slot": 1, "clip": "prelate_sanctified", "durationSec": 1.08, "contact": 0.48, "style": "empowered" },
+    { "slot": 2, "clip": "prelate_ward", "durationSec": 0.85, "contact": 0.38, "style": "ward" },
+    { "slot": 3, "clip": "prelate_penance", "durationSec": 0.8, "contact": 0.38, "style": "drive" },
+    { "slot": 4, "clip": "prelate_hymn", "durationSec": 1.1, "contact": 0.48, "style": "chant" },
+    { "slot": 5, "clip": "prelate_reliquary", "durationSec": 1.18, "contact": 0.55, "style": "overhead" },
+    { "slot": 6, "clip": "prelate_judgment", "durationSec": 0.95, "contact": 0.44, "style": "thrust" },
+    { "slot": 7, "clip": "prelate_redemption", "durationSec": 1.05, "contact": 0.48, "style": "heal" },
+    { "slot": 8, "clip": "prelate_icon", "durationSec": 1.1, "contact": 0.52, "style": "place" },
+    { "slot": 9, "clip": "prelate_homily", "durationSec": 1.45, "contact": 0.62, "style": "sermon" }
+  ]
+}

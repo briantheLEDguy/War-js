@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.city_guard.crossbow",
+  "displayName": "Aegis City Guard Crossbow",
+  "category": "character",
+  "model": "chr_aegis_city_guard_crossbow.glb",
+  "qc": "chr_aegis_city_guard_crossbow.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_city_guard_crossbow"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_city_guard",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17",
+    "qcSha256": "680a50214a793f4dbe37d372cb47ee41fad70c411ea4afcf2c73089c6e7ffb17",
+    "previews": {
+      "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
+    }
+  },
+  "previews": {
+    "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T13:57:33.180230+00:00",
+    "reviewHash": "b3c088aa30d181bce54320fc9916fc52f985968f68d7f7027a9a7645919a3c04"
+  },
+  "provenance": {
+    "sourcePackage": "authoring/blender/aegis-city-guards",
+    "referenceSha256": "f31670663828db556241bf17bd5df5f997b6633335e7b4ab7910d1b9162f1147",
+    "sourceSha256": "6a5c36d6749904742c24c5bded8dcc7fb5d23e5c518c823375b8e82ff9012323",
+    "validationSha256": "94479ab260919a17e485dc7b5f48b26b2f772e507abc089fcfe2afc44a0dd038",
+    "geometry": "Adapted fitted armor cages, natural human head/neck and authored civic equipment; see derivation.json and anatomy/provenance.json",
+    "limitations": "Simplified cloth, fur and feathers; patrol holds over canonical motion, no dedicated reload animation"
+  }
+}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { Game } from '../../game/Game';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
 import { useGameStore } from '../../state/gameStore';
 import { ObjectiveTracker } from './ObjectiveTracker';
 import {
@@ -12,6 +13,7 @@ import {
   useZoneExitMarkers,
 } from './mapData';
 import { useDraggableWindow } from './useDraggableWindow';
+import { drawCityMap } from './cityMap';
 
 interface Props {
   game: Game | null;
@@ -29,7 +31,7 @@ export function Minimap({ game }: Props) {
     dragClassName,
   } = useDraggableWindow<HTMLDivElement>();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef = useRef(0);
+  const districtRef = useRef<HTMLDivElement>(null);
   const enemies = useGameStore((state) => state.enemies);
   const character = useGameStore((state) => state.character);
   const npcs = useGameStore((state) => state.npcs);
@@ -56,6 +58,8 @@ export function Minimap({ game }: Props) {
       const px = game.playerPos.x;
       const pz = game.playerPos.z;
       const playerPosition = { x: px, z: pz };
+      if (districtRef.current) districtRef.current.textContent = game.cityDistrictName ?? game.zoneName;
+      if (game.cityMapGeometry) drawCityMap(ctx, game.cityMapGeometry, playerPosition, cx, cy, radius, RANGE);
       const markers = buildMarkers({
         character,
         craftingStations: game.craftingStationMarkers,
@@ -75,11 +79,9 @@ export function Minimap({ game }: Props) {
       }
 
       drawPlayer(ctx, cx, cy);
-      rafRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
-    return () => cancelAnimationFrame(rafRef.current);
+    return startForegroundLoop(draw, () => 15);
   }, [character, enemies, exits, game, npcs, quests, visible]);
 
   function toggleMarker(key: MarkerToggle) {
@@ -91,7 +93,7 @@ export function Minimap({ game }: Props) {
       <div ref={panelRef} className={`minimap-shell${dragClassName}`} style={dragStyle}>
         <div className="minimap draggable-window-handle" {...dragHandleProps}>
           <canvas ref={canvasRef} aria-label="Minimap" />
-          {game && <div className="minimap-label">{game.zoneName}</div>}
+          {game && <div ref={districtRef} className="minimap-label">{game.zoneName}</div>}
         </div>
         <details className="minimap-filters">
           <summary>Map filters</summary>

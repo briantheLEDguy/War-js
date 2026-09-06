@@ -1,0 +1,25 @@
+{
+  "status": "approved",
+  "reviewedBy": "Codex clean-import Blender render and actual weighted-skin locomotion review",
+  "reviewedAt": "2026-09-06T19:51:21.058Z",
+  "models": {
+    "chr_aegis_people_civilian_male_walk.glb": "d0cb3d64870bb385c9aab497b9df3c4772fb7493c52453e8f24ba77cbc7824f9",
+    "chr_aegis_people_civilian_female_walk.glb": "cbe2ed167cde84f1a465e4332bcc25e19492c9acb36e92a0c31e73a61ca19d63"
+  },
+  "images": {
+    "walking_phase_10.png": "f307b83b5afc8a0aff919e504cc9b6b489a269c2d3dddbe2c9e90795a005da34",
+    "walking_phase_40.png": "a4f797690f557f0ae3eb62b3498f8ca410d12c5f9a4ec5ba2eefc699c1e5a053",
+    "walking_phase_80.png": "c9382938f98e290eb0c097cf5f608fa57da079dff6fd1b85a680bac54dcac5be",
+    "walking_side.png": "6945fe15373159bc32b4e202158c9216dbef4808d66b4d6d3e26a80560e5b4b0"
+  },
+  "findings": [
+    "Reviewed contact, swing and side poses after clean GLB import.",
+    "Continuous skirt and trim weights corrected the first candidate panel tearing and boot penetration.",
+    "Actual foot and fully weighted boot vertices remain planted during forward travel; skirt stays above ground.",
+    "Reviewed appearance geometry and embedded material/texture channels are byte-preserved."
+  ],
+  "limitations": [
+    "Two middle-LOD ambient walking derivatives only.",
+    "Gentle baked gait; no cloth simulation or combat animation compatibility."
+  ]
+}

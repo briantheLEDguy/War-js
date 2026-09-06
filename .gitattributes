@@ -42,3 +42,37 @@ authoring/archives/**/*.gz filter=lfs diff=lfs merge=lfs -text
 public/assets/models/reviews/battle-prelate-reference-rebuild/**/*.png filter=lfs diff=lfs merge=lfs -text
 public/assets/models/reviews/battle-prelate-novitiate-set/**/*.png filter=lfs diff=lfs merge=lfs -text
 public/assets/models/reviews/ember-arcanist-reference-rebuild/**/*.png filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-city/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-city/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-city/*.json -text
+authoring/blender/aegis-city/**/*.json -text
+public/assets/textures/aegis_city/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/prop_aegis_*.qc.json -text
+scripts/blender-character-pipeline/data/approved-assets/prop_aegis_*.approved.json -text
+authoring/blender/battle-prelate-combat/**/*.blend filter=lfs diff=lfs merge=lfs -text
+# City guard sources and review hashes preserve exact bytes.
+authoring/blender/aegis-city-guards/** -text
+authoring/blender/aegis-city-guards/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-city-guards/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-city-guards/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/models/chr_aegis_city_guard_*.qc.json -text
+public/assets/models/reviews/aegis-city-guards/** -text
+scripts/blender-character-pipeline/data/approved-assets/chr_aegis_city_guard_*.approved.json -text
+# Consolidated authoring sources and review evidence retain their recorded hashes.
+authoring/blender/aegis-citadel-interiors/** -text
+authoring/blender/aegis-citadel-interiors/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-citadel-interiors/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-gardens/** -text
+authoring/blender/aegis-gardens/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-gardens/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-civic-locomotion/** -text
+authoring/blender/aegis-civic-locomotion/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/aegis-civic-locomotion/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/models/chr_aegis_people_*.qc.json -text
+public/assets/models/reviews/aegis-city-guards/**/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/reviews/aegis-civic-locomotion/** -text
+public/assets/models/reviews/aegis-civic-locomotion/**/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/reviews/aegis-people/** -text
+public/assets/models/reviews/aegis-people/**/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/textures/aegis_citadel_interiors/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/textures/aegis_gardens/*.png filter=lfs diff=lfs merge=lfs -text

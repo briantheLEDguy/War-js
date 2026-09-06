@@ -80,6 +80,7 @@ function runtimeEntry(manifest) {
     bodyVariant: compatibility.bodyVariant,
     skeletonId: compatibility.skeletonId,
     bindPoseId: compatibility.bindPoseId,
+    ...(manifest.runtime?.animationPack ? { animationPack: manifest.runtime.animationPack } : {}),
     ...(manifest.runtime?.bodyModel ? { bodyModel: manifest.runtime.bodyModel } : {}),
     ...(skinned === undefined ? {} : { skinned }),
     ...(coveredRegions ? { coveredRegions } : {}),
