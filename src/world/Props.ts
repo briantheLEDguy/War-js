@@ -1,13 +1,13 @@
 import * as THREE from 'three';
 import { AssetLoader } from '../game/AssetLoader';
 import type { WorldPropObject } from '../services/types';
-import {
-  isPrefabCameraSolidKind,
-  prefabFallbackKindForKind,
-} from './editor/PrefabCatalog';
+import { prefabFallbackKindForKind } from './editor/PrefabCatalog';
 import type { Terrain } from './Terrain';
 import type { PropSpawn } from './ZoneLoader';
 import { buildWorldLifeProp, WORLD_LIFE_PROP_KINDS } from './WorldLifeAssets';
+import { architectureLods, cityFallback, shareCityMaterials } from './CityArchitecture';
+import { applyCityWeathering } from './CityWeathering';
+import { cityRoadGeometry } from './CityRoad';
 
 export interface WorldCollider {
   id: string;
@@ -49,7 +49,7 @@ export interface InteractiveGate {
   closeClip: string;
 }
 
-export type HouseInteriorVariant = 'small' | 'large';
+export type HouseInteriorVariant = 'small' | 'large' | 'tavern' | 'shop' | 'chapel' | 'civic';
 
 export interface InteractiveHousePortal {
   id: string;
@@ -81,26 +81,6 @@ export interface SpawnedStaticWorldObject {
   object: THREE.Object3D;
 }
 
-const CAMERA_SOLID_KINDS = new Set([
-  'building',
-  'castle_floor',
-  'wall_segment',
-  'rift_house',
-  'rift_wall_segment',
-  'rift_tower',
-  'rift_obelisk',
-  'rift_brazier',
-  'rift_spike_cluster',
-  'tower',
-  'gate',
-  'castle',
-  'castle_gate',
-  'castle_door',
-  'temple',
-  'statue',
-  'fountain',
-  'vendor_stall',
-]);
 const PATH_TERRAIN_SAMPLE_SPACING = 3.25;
 const PATH_VISUAL_LIFT = 0.035;
 
@@ -124,6 +104,9 @@ export async function spawnProps(
   for (const [index, s] of spawns.entries()) {
     const sourceObjectId = s.id ?? `static-prop-${index.toString().padStart(4, '0')}`;
     const propRotY = s.rotY ?? Math.random() * Math.PI * 2;
+    // Collision queries use the opposite XZ angle convention from Three.js yaw.
+    // Existing map/edit data keeps its original convention unless explicitly opted in.
+    const collisionYawSign = s.colliderSpace === 'model' ? -1 : 1;
     const propScale = s.scale ?? 1;
     let propScaleX = propScale * (s.scaleX ?? 1);
     let propScaleY = propScale * (s.scaleY ?? 1);
@@ -137,6 +120,17 @@ export async function spawnProps(
       obj.visible = false;
     } else if (isTerrainPathKind(s.kind)) {
       obj = buildTerrainPathObject(s.kind, terrain, s.x, s.z, propRotY, propScaleX, propScaleZ, s.y ?? 0);
+      if (s.kind === 'path_brick') {
+        const texture = await loader.loadTexture('aegis_city/paving_baseColor.png');
+        if (texture) texture.anisotropy = 8;
+        obj.traverse(node => {
+          if (node instanceof THREE.Mesh && node.material instanceof THREE.MeshStandardMaterial) {
+            node.material.map = texture;
+            node.material.color.set(0xffffff);
+            applyCityWeathering(node.material);
+          }
+        });
+      }
       propScaleX = 1;
       propScaleY = 1;
       propScaleZ = 1;
@@ -156,6 +150,13 @@ export async function spawnProps(
         : model
           ? await loader.loadModel(model, fallback)
           : fallback();
+      if (s.kind.startsWith('aegis_')) {
+        shareCityMaterials(obj, loader);
+        if (s.lodModels?.length && !s.interaction) obj = await architectureLods(obj, s.lodModels, s.kind, loader);
+        if (s.kind === 'aegis_portcullis') {
+          obj.children.forEach(child => { child.userData.gateLift = true; child.userData.gateLiftBaseY = child.position.y; });
+        }
+      }
     }
 
     obj.position.set(s.x, y, s.z);
@@ -176,6 +177,7 @@ export async function spawnProps(
         label: s.kind.replaceAll('_', ' '),
         model: s.model,
         assetKey: s.assetKey,
+        colliderSpace: s.colliderSpace,
         transform: {
           position: { x: s.x, y, z: s.z },
           rotation: { x: 0, y: propRotY, z: 0 },
@@ -191,18 +193,19 @@ export async function spawnProps(
     });
 
     if (s.colliders) {
+      const cameraBounds = new THREE.Box3().setFromObject(obj);
       for (const c of s.colliders) {
         const localX = (c.x ?? 0) * propScaleX;
         const localZ = (c.z ?? 0) * propScaleZ;
         const cos = Math.cos(propRotY);
-        const sin = Math.sin(propRotY);
+        const sin = Math.sin(collisionYawSign * propRotY);
         const collider = {
           id: c.id ?? `${s.kind}-collider-${colliders.length}`,
           x: s.x + localX * cos - localZ * sin,
           z: s.z + localX * sin + localZ * cos,
           width: c.width * propScaleX,
           depth: c.depth * propScaleZ,
-          rotY: propRotY + (c.rotY ?? 0),
+          rotY: collisionYawSign * (propRotY + (c.rotY ?? 0)),
           minY: c.minY === undefined ? undefined : y + c.minY * propScaleY,
           maxY: c.maxY === undefined ? undefined : y + c.maxY * propScaleY,
           blocksWhen: c.blocksWhen ?? 'always',
@@ -210,18 +213,12 @@ export async function spawnProps(
           sourceObjectId,
         };
         colliders.push(collider);
-        cameraColliders.push(collider);
+        cameraColliders.push({
+          ...collider,
+          minY: collider.minY ?? (cameraBounds.isEmpty() ? undefined : cameraBounds.min.y),
+          maxY: collider.maxY ?? (cameraBounds.isEmpty() ? undefined : cameraBounds.max.y),
+        });
       }
-    } else if (CAMERA_SOLID_KINDS.has(s.kind) || isPrefabCameraSolidKind(s.kind)) {
-      const cameraCollider = buildCameraColliderFromObject(
-        obj,
-        s.kind,
-        cameraColliders.length,
-        s.interaction?.type === 'gate' ? 'closed' : 'always',
-        s.interaction?.id,
-        sourceObjectId,
-      );
-      if (cameraCollider) cameraColliders.push(cameraCollider);
     }
 
     if (s.walkableSurfaces) {
@@ -229,14 +226,14 @@ export async function spawnProps(
         const localX = (surface.x ?? 0) * propScaleX;
         const localZ = (surface.z ?? 0) * propScaleZ;
         const cos = Math.cos(propRotY);
-        const sin = Math.sin(propRotY);
+        const sin = Math.sin(collisionYawSign * propRotY);
         walkableSurfaces.push({
           id: surface.id ?? `${s.kind}-walkable-${walkableSurfaces.length}`,
           x: s.x + localX * cos - localZ * sin,
           z: s.z + localX * sin + localZ * cos,
           width: surface.width * propScaleX,
           depth: surface.depth * propScaleZ,
-          rotY: propRotY + (surface.rotY ?? 0),
+          rotY: collisionYawSign * (propRotY + (surface.rotY ?? 0)),
           fromY: y + (surface.fromY ?? 0) * propScaleY,
           toY: y + (surface.toY ?? 0) * propScaleY,
           axis: surface.axis ?? 'z',
@@ -297,35 +294,8 @@ export async function spawnProps(
   return { colliders, cameraColliders, walkableSurfaces, gates, housePortals, objects };
 }
 
-function buildCameraColliderFromObject(
-  obj: THREE.Object3D,
-  kind: string,
-  index: number,
-  blocksWhen: WorldCollider['blocksWhen'],
-  interactionId?: string,
-  sourceObjectId?: string,
-): WorldCollider | null {
-  obj.updateMatrixWorld(true);
-  const box = new THREE.Box3().setFromObject(obj);
-  if (box.isEmpty()) return null;
-  const size = box.getSize(new THREE.Vector3());
-  if (size.x < 0.25 || size.z < 0.25) return null;
-  const center = box.getCenter(new THREE.Vector3());
-  return {
-    id: `${kind}-camera-${index}`,
-    x: center.x,
-    z: center.z,
-    width: size.x,
-    depth: size.z,
-    rotY: 0,
-    blocksWhen,
-    interactionId,
-    sourceObjectId,
-  };
-}
-
 function isTerrainPathKind(kind: string): boolean {
-  return kind === 'path_dirt' || kind === 'path_cobblestone';
+  return kind === 'path_dirt' || kind === 'path_cobblestone' || kind === 'path_brick';
 }
 
 function buildTerrainPathObject(
@@ -357,6 +327,7 @@ function buildTerrainPathObject(
       roughness: isCobblestone ? 0.9 : 0.96,
       side: THREE.DoubleSide,
     }),
+    worldUvs: kind === 'path_brick',
   }));
   return group;
 }
@@ -373,9 +344,15 @@ function buildTerrainPathRibbon(opts: {
   z1: number;
   yLift: number;
   material: THREE.Material;
+  worldUvs?: boolean;
 }): THREE.Mesh {
   const width = Math.abs(opts.x1 - opts.x0);
   const depth = Math.abs(opts.z1 - opts.z0);
+  if (opts.worldUvs && opts.terrain.cityHeightField) {
+    const mesh = new THREE.Mesh(cityRoadGeometry(opts.terrain.cityHeightField, opts.terrain.worldSize, opts.centerX, opts.centerZ, opts.rotY, width, depth, opts.baseY, opts.yLift), opts.material);
+    mesh.receiveShadow = true;
+    return mesh;
+  }
   const xSegments = Math.max(1, Math.ceil(width / PATH_TERRAIN_SAMPLE_SPACING));
   const zSegments = Math.max(1, Math.ceil(depth / PATH_TERRAIN_SAMPLE_SPACING));
   const positions: number[] = [];
@@ -397,7 +374,7 @@ function buildTerrainPathRibbon(opts: {
         opts.terrain.heightAt(worldX, worldZ) + opts.yLift - opts.baseY,
         localZ,
       );
-      uvs.push(xT, zT);
+      uvs.push(opts.worldUvs ? worldX / 4 : xT, opts.worldUvs ? worldZ / 4 : zT);
     }
   }
 
@@ -435,7 +412,9 @@ async function resolvePropModel(
   return model;
 }
 
-function pickFallback(kind: string) {
+export function pickFallback(kind: string) {
+  kind = prefabFallbackKindForKind(kind) ?? kind;
+  if (kind.startsWith('aegis_')) return () => cityFallback(kind);
   if ((WORLD_LIFE_PROP_KINDS as readonly string[]).includes(kind)) {
     return () => buildWorldLifeProp(kind) ?? AssetLoader.primitives.rock();
   }
@@ -499,6 +478,7 @@ function hasGateFallbackLeaves(object: THREE.Object3D): boolean {
   let found = false;
   object.traverse((node) => {
     if (typeof node.userData.gateLeafSide === 'number') found = true;
+    if (node.userData.gateLift) found = true;
   });
   return found;
 }
@@ -506,6 +486,7 @@ function hasGateFallbackLeaves(object: THREE.Object3D): boolean {
 function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void {
   const clamped = Math.max(0, Math.min(1, progress));
   object.traverse((node) => {
+    if (node.userData.gateLift) node.position.y = (node.userData.gateLiftBaseY ?? 0) + 9 * clamped;
     const side = node.userData.gateLeafSide;
     if (typeof side !== 'number') return;
     node.rotation.y = -side * (Math.PI / 2) * clamped;

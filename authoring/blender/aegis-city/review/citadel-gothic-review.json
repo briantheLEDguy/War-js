@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex",
+  "reviewedAt": "2026-09-06T19:44:17.346903+00:00",
+  "modelSha256s": [
+    "3595837c811c258b10af984a2bbf4df3f0bcfcad8f4cc8b78e57e928e166964d",
+    "4a0cf826013c897ecb72f666596c7b4d722b1014ebc2ab65feca5648c908c95c",
+    "54686183d59a54e240e2097eba07eadf09fd58ed5e3073da9f32d59b3f8f4675"
+  ],
+  "previewSha256s": {
+    "citadel-gothic.png": "c530298d4378917866193f2e465812506bf541bc9f3993eb4eaa8fa3dfdb5415",
+    "citadel-gothic-facade.png": "925d6a09d70d073aafca5045a51afc4996b7cab1762bfc46d735bcff63700bab",
+    "citadel-gothic-lod2.png": "398326153e3f39cd10ff454d869fd48adbd9c2ea05aa0148e141743ad98d96f5"
+  },
+  "observations": "Inspected actual exported LOD0 overview and facade, and matching LOD2 overview. The deeper 72 by 62 metre hall has a dominant 125-metre needle, staggered corner spires, roof pinnacles, pointed window reveals, slate and masonry UVs, and an open entrance. Central tower remains centered over the extended roof. Lower LOD simplifies mullions but retains the major silhouette. Runtime traversal and courtyard placement are verified separately."
+}

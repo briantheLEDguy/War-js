@@ -11,6 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "builder:generate": "node scripts/generate-builder-catalog.mjs",
+    "builder:validate": "node scripts/generate-builder-catalog.mjs --check",
     "campaign:generate": "node scripts/campaign/generate-static-campaign.mjs",
     "world:validate": "node scripts/validate-world-edits.mjs",
     "models:list": "node scripts/blender-character-pipeline/tools/list-blueprints.mjs",

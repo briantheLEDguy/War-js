@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_provision_rack",
+  "modelSha256": "308b90d9d08302773af2f0840c36c19fa62d67b1404643163caf0465668807b1",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_provision_rack_lod1.glb",
+    "triangles": 5014,
+    "bytes": 374536,
+    "sha256": "308b90d9d08302773af2f0840c36c19fa62d67b1404643163caf0465668807b1",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_provision_rack.glb",
+      "triangles": 9652,
+      "bytes": 732088,
+      "sha256": "9a9e8c1ead84adf5793105fb7737d1369d2a5b8c38e47cc77a82ef1f91300502",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_provision_rack_lod1.glb",
+      "triangles": 5014,
+      "bytes": 374536,
+      "sha256": "308b90d9d08302773af2f0840c36c19fa62d67b1404643163caf0465668807b1",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_provision_rack_lod2.glb",
+      "triangles": 2309,
+      "bytes": 217320,
+      "sha256": "f9bfe915eaf89ce2bbc061d6ac86fa28a48fb583f7f4eb19989e0a20159a098d",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 5,
+    "depth": 2,
+    "height": 3
+  }
+}

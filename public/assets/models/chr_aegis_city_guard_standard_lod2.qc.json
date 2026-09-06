@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.city_guard.standard",
+  "category": "character",
+  "model": "chr_aegis_city_guard_standard_lod2.glb",
+  "modelSha256": "9f230f53a6d121495374ec8d388919e36a602c192dbe99c29260f379064553bc",
+  "fileSizeBytes": 5427452,
+  "lod": 2,
+  "bodyFamily": "aegis_city_guard",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "totalTris": 37940,
+  "drawCalls": 9,
+  "meshCount": 1,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "pbrChannels": [
+    "baseColor",
+    "metallic",
+    "roughness"
+  ],
+  "maxTextureDimension": 2048,
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "khronosErrors": 0,
+  "khronosWarnings": 1,
+  "qcPassed": true,
+  "gripAudit": "reviews/aegis-city-guards/exported-grip-audit.json",
+  "previewImages": [
+    "reviews/aegis-city-guards/exported_idle_lineup.png"
+  ],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "chr_aegis_city_guard_standard.glb",
+      "sha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb"
+    },
+    {
+      "name": "LOD1",
+      "model": "chr_aegis_city_guard_standard_lod1.glb",
+      "sha256": "86f6dc0a97d2003dd6dcc4939d3164222520497f575d4992f44d1dc6e0069136"
+    },
+    {
+      "name": "LOD2",
+      "model": "chr_aegis_city_guard_standard_lod2.glb",
+      "sha256": "9f230f53a6d121495374ec8d388919e36a602c192dbe99c29260f379064553bc"
+    }
+  ]
+}

@@ -32,7 +32,7 @@ describe('outdoor reflection fallback', () => {
       });
     const loader = { loadHDRI: vi.fn(async () => null) } as unknown as AssetLoader;
 
-    await setupSky(scene, loader, renderer, 'missing.hdr');
+    const sky = await setupSky(scene, loader, renderer, 'missing.hdr');
 
     expect(loader.loadHDRI).toHaveBeenCalledWith('missing.hdr');
     expect(capture).toHaveBeenCalledOnce();
@@ -40,7 +40,11 @@ describe('outdoor reflection fallback', () => {
     expect(geometryDisposed).toHaveBeenCalledOnce();
     expect(materialDisposed).toHaveBeenCalledOnce();
     expect(generatorDisposed).toHaveBeenCalledOnce();
-    target.dispose();
+    const targetDisposed = vi.spyOn(target, 'dispose');
+    sky.dispose();
+    sky.dispose();
+    expect(targetDisposed).toHaveBeenCalledOnce();
+    expect(scene.environment).toBeNull();
   });
 
   test('available HDRI remains authoritative and skips fallback capture', async () => {

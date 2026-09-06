@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
 import * as THREE from 'three';
 import type { Game } from '../../game/Game';
 import { useGameStore } from '../../state/gameStore';
@@ -18,7 +19,6 @@ interface Item {
 export function FloatingDamageLayer({ game }: Props) {
   const floating = useGameStore((s) => s.floatingDamage);
   const [items, setItems] = useState<Item[]>([]);
-  const rafRef = useRef(0);
 
   useEffect(() => {
     if (!game) return;
@@ -33,10 +33,8 @@ export function FloatingDamageLayer({ game }: Props) {
         }
       }
       setItems(next);
-      rafRef.current = requestAnimationFrame(loop);
     };
-    loop();
-    return () => cancelAnimationFrame(rafRef.current);
+    return startForegroundLoop(loop, () => useGameStore.getState().settings.frameRateLimit);
   }, [game, floating]);
 
   return (

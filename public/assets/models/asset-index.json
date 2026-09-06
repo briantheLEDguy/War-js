@@ -1,8 +1,14 @@
 {
-  "assetVersion": "approved-9f634df2431c44ea",
+  "assetVersion": "approved-1e9ba429db97a901",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
+      "animationPack": {
+        "bindPoseId": "a_pose_v2",
+        "model": "anim_battle_prelate_combat.glb",
+        "sha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77",
+        "skeletonId": "humanoid_game_v2"
+      },
       "approvalState": "approved",
       "assetId": "chr.civic.battle_prelate.t1.f",
       "bindPoseId": "a_pose_v2",
@@ -24,6 +30,12 @@
       "skeletonId": "humanoid_game_v2"
     },
     "civic_battle_prelate_m": {
+      "animationPack": {
+        "bindPoseId": "a_pose_v2",
+        "model": "anim_battle_prelate_combat.glb",
+        "sha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77",
+        "skeletonId": "humanoid_game_v2"
+      },
       "approvalState": "approved",
       "assetId": "chr.civic.battle_prelate.t1.m",
       "bindPoseId": "a_pose_v2",
@@ -493,6 +505,90 @@
       "skeletonId": "humanoid_game_v2",
       "skinned": true
     },
+    "npc_aegis_city_guard_captain": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.city_guard.captain",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "aegis_city_guard",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_city_guard_captain.glb",
+      "modelSha256": "d4c0910ec7b022fe4e571a182f407e1e49e0bbb38f3141576d951b62f3ce3c5b",
+      "previews": {
+        "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
+      },
+      "previewSha256": {
+        "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
+      },
+      "qc": "chr_aegis_city_guard_captain.qc.json",
+      "qcSha256": "cfe186def9f07910d17c09c199c2cdd3d51a81d84c1c50b39be04b1d01f901ec",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "npc_aegis_city_guard_crossbow": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.city_guard.crossbow",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "aegis_city_guard",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_city_guard_crossbow.glb",
+      "modelSha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17",
+      "previews": {
+        "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
+      },
+      "previewSha256": {
+        "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
+      },
+      "qc": "chr_aegis_city_guard_crossbow.qc.json",
+      "qcSha256": "680a50214a793f4dbe37d372cb47ee41fad70c411ea4afcf2c73089c6e7ffb17",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "npc_aegis_city_guard_halberd": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.city_guard.halberd",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "aegis_city_guard",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_city_guard_halberd.glb",
+      "modelSha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b",
+      "previews": {
+        "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
+      },
+      "previewSha256": {
+        "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
+      },
+      "qc": "chr_aegis_city_guard_halberd.qc.json",
+      "qcSha256": "b6711cb7710dda02926458999e3247310363915bfd31db9dc31d5dde9ba9d47c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "npc_aegis_city_guard_standard": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.city_guard.standard",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "aegis_city_guard",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_city_guard_standard.glb",
+      "modelSha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb",
+      "previews": {
+        "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
+      },
+      "previewSha256": {
+        "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
+      },
+      "qc": "chr_aegis_city_guard_standard.qc.json",
+      "qcSha256": "714a17a57b43444b5d328833d2c5ff4384568562180a8cfbd36cfc106cf2de4d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
     "npc_aegis_corren_vale_capital_campaign_marshal": {
       "approvalState": "approved",
       "assetId": "chr.npc.npc.aegis.corren.vale.capital.campaign.marshal",
@@ -866,6 +962,203 @@
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2",
       "skinned": true
+    },
+    "npc_aegis_people_attendant": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.attendant",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_attendant_lod1.glb",
+      "modelSha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+      "previews": {
+        "front": "reviews/aegis-people/attendant_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "1ace7dba4589a147074d6b8d16b5acf168d17fb8e00fe4e5ca2ae35d56b06d42"
+      },
+      "qc": "chr_aegis_people_attendant_lod1.qc.json",
+      "qcSha256": "66393d16b8eb8654210dcc30a53322d1f74980672ff39ef7051ae97963d0cba9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_child": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.child",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_child_lod1.glb",
+      "modelSha256": "04830d6bc12c7bfe246cb3dea125a856c2fc48a67f395edaed6e543f4d51b8c7",
+      "previews": {
+        "front": "reviews/aegis-people/child_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "02208d1a25d59a4c3f55ed4213d117bcd1f80e093cf31b011156544292487394"
+      },
+      "qc": "chr_aegis_people_child_lod1.qc.json",
+      "qcSha256": "254873fc2b135f65458de7c7bd26f9e19daaabdface3c93fe010a6b81c1b4ac8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_civilian_female": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.civilian_female",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_civilian_female_lod1.glb",
+      "modelSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+      "previews": {
+        "front": "reviews/aegis-people/civilian_female_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "459fe3ee7863090f0b8590d3ebb7152240611acb44b7f48a1a6617979e3f94c4"
+      },
+      "qc": "chr_aegis_people_civilian_female_lod1.qc.json",
+      "qcSha256": "4e62e28a225ff3d13d1dbd119fc5b1a267da5e1da741d498425713e7139891c6",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_civilian_female_walk": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.civilian_female_walk",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_civilian_female_walk.glb",
+      "modelSha256": "cbe2ed167cde84f1a465e4332bcc25e19492c9acb36e92a0c31e73a61ca19d63",
+      "previews": {
+        "front": "reviews/aegis-civic-locomotion/walking_phase_10.png",
+        "side": "reviews/aegis-civic-locomotion/walking_side.png",
+        "walk": "reviews/aegis-civic-locomotion/walking_phase_80.png"
+      },
+      "previewSha256": {
+        "front": "f307b83b5afc8a0aff919e504cc9b6b489a269c2d3dddbe2c9e90795a005da34",
+        "side": "6945fe15373159bc32b4e202158c9216dbef4808d66b4d6d3e26a80560e5b4b0",
+        "walk": "c9382938f98e290eb0c097cf5f608fa57da079dff6fd1b85a680bac54dcac5be"
+      },
+      "qc": "chr_aegis_people_civilian_female_walk.qc.json",
+      "qcSha256": "a0a780679723e51aa172e47ac5de6df41970f1f8e23dcc01674c890099a88083",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_civilian_male": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.civilian_male",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_civilian_male_lod1.glb",
+      "modelSha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+      "previews": {
+        "front": "reviews/aegis-people/civilian_male_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "a3f0f1cafe8296e3140fc6189999bef7965396f2068a4bb593a677753fe29226"
+      },
+      "qc": "chr_aegis_people_civilian_male_lod1.qc.json",
+      "qcSha256": "174edfcc90af24f81fd3ad4b94ffd369011ea315f4c7c9dfac329aa42fa7c0e8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_civilian_male_walk": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.civilian_male_walk",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_civilian_male_walk.glb",
+      "modelSha256": "d0cb3d64870bb385c9aab497b9df3c4772fb7493c52453e8f24ba77cbc7824f9",
+      "previews": {
+        "front": "reviews/aegis-civic-locomotion/walking_phase_10.png",
+        "side": "reviews/aegis-civic-locomotion/walking_side.png",
+        "walk": "reviews/aegis-civic-locomotion/walking_phase_80.png"
+      },
+      "previewSha256": {
+        "front": "f307b83b5afc8a0aff919e504cc9b6b489a269c2d3dddbe2c9e90795a005da34",
+        "side": "6945fe15373159bc32b4e202158c9216dbef4808d66b4d6d3e26a80560e5b4b0",
+        "walk": "c9382938f98e290eb0c097cf5f608fa57da079dff6fd1b85a680bac54dcac5be"
+      },
+      "qc": "chr_aegis_people_civilian_male_walk.qc.json",
+      "qcSha256": "7b0070477b2797ea00835c15728637a270dcf1769803c4f9e4e85e3941cffd77",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_courtier": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.courtier",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_courtier_lod1.glb",
+      "modelSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+      "previews": {
+        "front": "reviews/aegis-people/courtier_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "4b84c8e8df9d854f3f5e74ddf69ee3e6bec60c7d3414dbbc072c98856bf0504e"
+      },
+      "qc": "chr_aegis_people_courtier_lod1.qc.json",
+      "qcSha256": "8f40965cc92ad4951887b3d510ede5ac00d78ef7709ba3761fb4e459c224aa42",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_lady": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.lady",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_lady_lod1.glb",
+      "modelSha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+      "previews": {
+        "front": "reviews/aegis-people/lady_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "cf94350fb1d1e455d91330310cb1cbc48aa25f6b72232c08a92bbda9a62207b4"
+      },
+      "qc": "chr_aegis_people_lady_lod1.qc.json",
+      "qcSha256": "fa6cf4c9c69e12f079018227059c558dbead84465454323feef8fad9afe47aaf",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_aegis_people_lord": {
+      "approvalState": "approved",
+      "assetId": "chr.aegis.people.lord",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_aegis_people_lord_lod1.glb",
+      "modelSha256": "ffefaa908c343a0dbcb607da0156100d9be342050f1ce5ea3650d101a72f935c",
+      "previews": {
+        "front": "reviews/aegis-people/lord_export_three_quarter.png"
+      },
+      "previewSha256": {
+        "front": "0e57dbb6616f2588063be9875a19b7c938cc3a3281282b6b8dab62d246bd46db"
+      },
+      "qc": "chr_aegis_people_lord_lod1.qc.json",
+      "qcSha256": "1be2cffd779c3f340d1e8777d43cb6944e2a6e96a2a838bead345288ba35bf93",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
     },
     "npc_aegis_rowan_hale_plaza_watch": {
       "approvalState": "approved",
@@ -2912,6 +3205,34 @@
     },
     "weapon_hammer_reliquary_2h": {
       "variants": {
+        "f": {
+          "approvalState": "approved",
+          "assetId": "wep.civic.battle_prelate.dawn_maul.t1.f",
+          "bindPoseId": "a_pose_v2",
+          "bodyFamily": "civic_battle_prelate_f",
+          "bodyVariant": "f",
+          "lifecycleStatus": "approved",
+          "model": "wep_civic_battle_prelate_dawn_maul.glb",
+          "modelSha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+          "previews": {
+            "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png",
+            "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+            "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+            "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+          },
+          "previewSha256": {
+            "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9",
+            "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+            "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+            "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722"
+          },
+          "qc": "wep_civic_battle_prelate_dawn_maul.qc.json",
+          "qcSha256": "f455a5815d626c5926c981b849f4fba5612edfe6d349fdc1f0037ff12215acf2",
+          "reviewStatus": "approved",
+          "runtimeReady": true,
+          "skeletonId": "humanoid_game_v2",
+          "skinned": false
+        },
         "m": {
           "approvalState": "approved",
           "assetId": "wep.civic.battle_prelate.dawn_maul.t1",
@@ -2946,6 +3267,1770 @@
   "generatedFrom": "scripts/blender-character-pipeline/data/approved-assets",
   "schemaVersion": 2,
   "staticProps": {
+    "aegis_altar": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.altar",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_altar.glb",
+      "modelSha256": "ff411dbfacd28cbb57360eb0ec9cf5f85ea62261108973fa1c7c688d84ad79da",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_altar.qc.json",
+      "qcSha256": "593ba721e76b83565957bf773137ad7a176110fb29849e9504c9321119cbce7d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_apothecary": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.apothecary",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_apothecary.glb",
+      "modelSha256": "5918f89f21b4956390356cb4dfe581bc3617d9e00c61c5132e4c7b171a74f021",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_apothecary.qc.json",
+      "qcSha256": "ed6c27639a19f0c37cff2b12ec83403bbacc7e46e6d42c60c1ca23f526d2df3d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_arch": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.arch",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_arch.glb",
+      "modelSha256": "8efd4b96e9a2b93cd664ba6fdee3758c95bb13abd38ee9cde5c6d86f653af8e1",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_arch.qc.json",
+      "qcSha256": "aaed9740edfb3c0f515ef5e534b02994008378a73f8e721915ce7a170dc550f8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_awning_1": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.awning_1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_awning_1.glb",
+      "modelSha256": "f14d87bbbc4b6067440f4a4a71d3b8fb084e360f4046e7604e5a76bdef6d692c",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_awning_1.qc.json",
+      "qcSha256": "2fcf60a8ada3d0124ac3294105131e1172fc4d13f488153e0999ffae59cf0256",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_awning_2": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.awning_2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_awning_2.glb",
+      "modelSha256": "d67dd7015042d83d825d2599d72cb9e7124bcd1ec4f138ebf1a888fbac6051fb",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_awning_2.qc.json",
+      "qcSha256": "10017311488805002f875751f8f49d7475d85fcae8dce6936e1a2ae20f96cd02",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_barrel_cluster": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.barrel_cluster",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_barrel_cluster.glb",
+      "modelSha256": "cb70456729142cc00d8a9983ed81318e5409e25a61c706fe1d22fa1e5b0eb979",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_barrel_cluster.qc.json",
+      "qcSha256": "4c2549a3b36903eca1e81c7ec6edfafcab2e04b471ea9b9f6b6d99a9a43badf6",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_battle_cover": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.battle_cover",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_battle_cover.glb",
+      "modelSha256": "c597b3c4955364243073c5a5de6a346a7e2897fbdb5ea6ba255d9e6c2e3e9e26",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_battle_cover.qc.json",
+      "qcSha256": "6500f311b533d8999526e36115b9245931f615aa3416100485e59e86e2314a15",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_bridge_narrow": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.bridge_narrow",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_bridge_narrow.glb",
+      "modelSha256": "9fa79b3341f37359e38c57f2ae145a141f62f2e57c6dc95b91775c982e4b577f",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_bridge_narrow.qc.json",
+      "qcSha256": "44bdee2017e7de69b862866e572fb35ac28a31816fe993ffd89a4da25fe5e5c8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_bridge_wide": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.bridge_wide",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_bridge_wide.glb",
+      "modelSha256": "3e570cc5d98a895438e5ea33d9fad0812688a4f38847d3696b087886bd840ed4",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_bridge_wide.qc.json",
+      "qcSha256": "e65a70427a7b7803fde78d1547f4db8e33c995b2f273ac3e8157da669d3acb39",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_chapel": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.chapel",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_chapel.glb",
+      "modelSha256": "c5f38a4dbab921bf4d8f0b415be9c258c24986620febc8055ca2d6c9eef16ef7",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_chapel.qc.json",
+      "qcSha256": "3edd7df67947cf7e59b15711bdd7c9f72eb28f1610a2203d5ba7d05a22f1c284",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel.glb",
+      "modelSha256": "3595837c811c258b10af984a2bbf4df3f0bcfcad8f4cc8b78e57e928e166964d",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/citadel-gothic.png"
+      },
+      "previewSha256": {
+        "assembly": "c530298d4378917866193f2e465812506bf541bc9f3993eb4eaa8fa3dfdb5415"
+      },
+      "qc": "prop_aegis_citadel.qc.json",
+      "qcSha256": "c07596f807cec0a2bc31bbf1d2a6b5526dbec0edcd15fce6527e26980823d137",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_arcade": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_arcade",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_arcade.glb",
+      "modelSha256": "e1d1307575b03afb104258eac937ba22876572d45d74a4c2e421fee736d2bffd",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_citadel_arcade.qc.json",
+      "qcSha256": "d145512a768d167c4f258f5eb0f8a8c89da8d6910e28933d68ba3e7b1e210e4c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_archive": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_archive",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_archive.glb",
+      "modelSha256": "2c0a48f7faf58fab162621954a6f5952602205099ad34c5d3776e08282256ad6",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_archive.qc.json",
+      "qcSha256": "de043ef164fc8f57b95b8d56c2e531066da4296003eed153f63d7db228de3c77",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_arms_rack": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_arms_rack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_arms_rack.glb",
+      "modelSha256": "ed0758846f526d848a47d40ec25ce588a0709058cb83b9644f88e4d717c25f84",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_arms_rack.qc.json",
+      "qcSha256": "354f36b52b51b98cc3c312924abefc7b8b5ecb093eae559e0ebe5c870944f488",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_bastion": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_bastion",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_bastion.glb",
+      "modelSha256": "4947872def7649eceb4560328972227be9b83a95a6d773a2795233642def84be",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_citadel_bastion.qc.json",
+      "qcSha256": "ce799ce5f5d5c04fe1beba2765ce95230dc144140bd87c810e2600d8823c028e",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_bunk": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_bunk",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_bunk.glb",
+      "modelSha256": "b709e6db0f1c73b7f2d6d041513e025c0526caa99b02fb1f9e2e1e3644724b8d",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_bunk.qc.json",
+      "qcSha256": "60ca946171868f6f5314acf5cd7071f11228a3ed9f364638567035af71030337",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_chandelier": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_chandelier",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_chandelier.glb",
+      "modelSha256": "b3f52a8168e64fd72eb56556ad082b58ceed04b698dd5f9e91de716e4d93aaa1",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_chandelier.qc.json",
+      "qcSha256": "9e8db37621adfccc451836a7195dd2d23cf6663ebbe3c0c55bc2b1e39a2902be",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_counting_desk": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_counting_desk",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_counting_desk.glb",
+      "modelSha256": "9d6a26f6c930e4da6497ed17fe64d1c5ee01448fb401a2f43cfb4f0f762cce8e",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_counting_desk.qc.json",
+      "qcSha256": "7e768fb1f636c0205b7aa144a9c47e7870e8dff3de706d1fb3d6fed5f9264d92",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_feast_table": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_feast_table",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_feast_table.glb",
+      "modelSha256": "17341d136ea6c98b4d2614629d21f614871280fa961ca5da787533409c3f0eee",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_feast_table.qc.json",
+      "qcSha256": "ba3039c45eba6bf822f02fae751df8318a77489c82a8d8a37c09f91ccc727524",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_gate": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_gate",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_gate.glb",
+      "modelSha256": "e1a469d07537b5e85b0f07551431888930a804c019dec6dbc4b7b81af73197ed",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_citadel_gate.qc.json",
+      "qcSha256": "3d150935e936e5913213a5832fcf4ac924d410036e13936bbb172bdaed2fa8e2",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_hearth": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_hearth",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_hearth.glb",
+      "modelSha256": "c0ae862f4e6ff38f27dc0222a0a9e17d6b30f74155239c2ce43c633c5c3ab3b5",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_hearth.qc.json",
+      "qcSha256": "ac9f2384a50c6ff1dc8a775b09f0a332164f22b0983463ae5f5c147c1aaa9b31",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_oath_statue": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_oath_statue",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_oath_statue.glb",
+      "modelSha256": "b368f2ef85cde8d65d09f40ebb12c1b28cb2bac9c8381c0717a6196f4991dc92",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_oath_statue.qc.json",
+      "qcSha256": "96d65199bcec7574746c6b63233f7fc7018542d27c3d7f28a553a0587c540311",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_provision_rack": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_provision_rack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_provision_rack.glb",
+      "modelSha256": "9a9e8c1ead84adf5793105fb7737d1369d2a5b8c38e47cc77a82ef1f91300502",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_provision_rack.qc.json",
+      "qcSha256": "7428e9ea7c518e33189300c2757505ea95199d142fb9721e8f2e6dce72fa4f33",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_reliquary": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_reliquary",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_reliquary.glb",
+      "modelSha256": "4967285ce0feaacca631ba35bc1bd083fa25369c90470381821b8ea7fff90736",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_reliquary.qc.json",
+      "qcSha256": "b383673f1ee0ed7ee892f2dd2e74970a9bea8736ae0b703f40c1c8f556c8ac95",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_tapestry": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_tapestry",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_tapestry.glb",
+      "modelSha256": "c89e64236b2c014f2a5505fed3987e59310072de73d4021699735c8f3ecdce1d",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_tapestry.qc.json",
+      "qcSha256": "a23140920b979f881b98362f3ccd7d4e03755f4b88f4cc3ad2f9d8791c775a55",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_throne": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_throne",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_throne.glb",
+      "modelSha256": "008ea674c1700e8c39de5fcb9fed09c2ea6427394bed38c9cc17c84edee30195",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_throne.qc.json",
+      "qcSha256": "1fcaa6e9a7aeac54c9983515d04ec609b482eb14c1b3cf1ca175b85e6c0f19ce",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_treasury": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_treasury",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_treasury.glb",
+      "modelSha256": "a49dd2421e3cbd5097f0cc94a9e188529d407a49799e3628d0ea349a5dcae778",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_treasury.qc.json",
+      "qcSha256": "ae3ab3c887d57ff361f2f058bf546e1a760c5b8dc3f80960794299e4f35eaad0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_citadel_war_table": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.citadel_war_table",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_citadel_war_table.glb",
+      "modelSha256": "06bc1980923eceb8c8e271162f067522a161de689e39546882a210ccf6509238",
+      "previews": {
+        "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+      },
+      "qc": "prop_aegis_citadel_war_table.qc.json",
+      "qcSha256": "feb8322c738ff7105a6233a44de9015f8d1ac428a655800aaa61bf6549b55b5b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_bench": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_bench",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_bench.glb",
+      "modelSha256": "2b7e7519af755114e332b9aa2115f7beac18fed1f6e3b599811fd858558f4ce0",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_bench.qc.json",
+      "qcSha256": "65cb860f23edbd38026b1c1a462e63b7c8362734a188756fcd211e1375e0a50f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_hall": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_hall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_hall.glb",
+      "modelSha256": "631a6cd7dbd44a26732f81f568777a590be2cbf070327c7c740f64b9798e89ed",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_civic_hall.qc.json",
+      "qcSha256": "387653d4958b647c40e0651a886484c62903100d39502468f04ea861e5d248f2",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_orrery": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_orrery",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_orrery.glb",
+      "modelSha256": "154b8385413b1fcb56643cdff4cfb82b93d3a5490a6a1be940028d2a0119bffa",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_orrery.qc.json",
+      "qcSha256": "e9e4b99cf68704b50cbe993a8a3207b7f48a579a5a0498bf6fe95b3980e80847",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_relief": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_relief",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_relief.glb",
+      "modelSha256": "038679ac5d6ceb8316e99fdcdd3da230a5f1fd59dcbe10896e51c1ea6d623853",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_relief.qc.json",
+      "qcSha256": "53b7d3c4840710457cdff23dd8649fd6c1e759e13324eb7f8318c498b0e5ecce",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_sign_apothecary": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_sign_apothecary",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_sign_apothecary.glb",
+      "modelSha256": "c17462e64371e483d26d50b6978cd725fae8e5064612e05241eccc341e4ddf9f",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_sign_apothecary.qc.json",
+      "qcSha256": "9847b8a34bddc4055a6b3d5660ecb86161bb9b4d636133c3ea6437acbc6398fd",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_sign_exchange": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_sign_exchange",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_sign_exchange.glb",
+      "modelSha256": "53643e05819471f4efea9a5d648d0248840991f8d9ef196ef97f0138ebab5704",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_sign_exchange.qc.json",
+      "qcSha256": "79370806689be9dd6484574b0e84c943961905b984c74d84d6b56005067a316c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_sign_lantern": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_sign_lantern",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_sign_lantern.glb",
+      "modelSha256": "1ee03f281bf7303ef51d9404867fcdb8dab77100a60a4877bc5f31ec7e0a3c5e",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_sign_lantern.qc.json",
+      "qcSha256": "90fd9d16f0d3c29ae65c4c4a2e6e9044a77e930f47061f693eb001c839870bdf",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_sign_lock": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_sign_lock",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_sign_lock.glb",
+      "modelSha256": "ece84ce3f37f5fdd314581255824c7c03950e2386be19fc3a4cd7441968691bf",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_sign_lock.qc.json",
+      "qcSha256": "c13bab50e1caa7381adc7cd773b43dd746c71662d95c4299ba7de74ac136d78a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_streetlight": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_streetlight",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_streetlight.glb",
+      "modelSha256": "9835475bcfeb8d66c1a4dbdf6852e2c3de07ddfb4ec7d2cf211cd7ae9cea2988",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_streetlight.qc.json",
+      "qcSha256": "3c4f67f878c8694995ba3f7db2fc7469aec8237bc931f50efe6943e22bd05df3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_wall_lantern": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_wall_lantern",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_wall_lantern.glb",
+      "modelSha256": "2ced66be193765ad74b8aeab3c8432e4f2ccff640ca8e59a810faceb1f81fa4c",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_wall_lantern.qc.json",
+      "qcSha256": "6ce4d2865817d9537006896c04cf4257c6648a8b5784a705a691b6c8e3c2ab6e",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_civic_waymarker": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.civic_waymarker",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_civic_waymarker.glb",
+      "modelSha256": "cac4f1e82b6b1138ae75d5976a1c3e01585d03300eb131e1555746b6eb5f8eed",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+      },
+      "qc": "prop_aegis_civic_waymarker.qc.json",
+      "qcSha256": "8d05cfd0a62f415677ec2fed1e06a74bcdb006db16a7885564678cf58e7f535d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_courtyard_tree": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.courtyard_tree",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_courtyard_tree.glb",
+      "modelSha256": "3a38d6d99b56626d0acecb7bf08f7fce991813a1ec8360a0386b1d97bb0de1b9",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_courtyard_tree.qc.json",
+      "qcSha256": "9408f9b0db6e8540300e0f90571d1ddc51194f4a13e30cb70f41e3c237b83cf5",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_crate_stack": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.crate_stack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_crate_stack.glb",
+      "modelSha256": "7fc927a9059fd88867c28bce458c3d7a88281db29c751ec4faa204236753acdd",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_crate_stack.qc.json",
+      "qcSha256": "c7816e28196122d35ddaa18de18b0b2668b20ff51fd3ac651f20c1461117795a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_embankment": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.embankment",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_embankment.glb",
+      "modelSha256": "8e4bfa0fff7ce829d3dceccd53b5525cecef62528432af229a686122ace8fdd2",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_embankment.qc.json",
+      "qcSha256": "3af42edf9016975bc9c9e0d1376b658ca961efb2797e8abf602159bb8da2ebcd",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_flowerbed_roses": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.flowerbed_roses",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_flowerbed_roses.glb",
+      "modelSha256": "59b77af4d2f2e1f7a17fe5b63d0b224b4f4e3dd63be6d2b0bac8eb9174ffc0bb",
+      "previews": {
+        "assembly": "authoring/blender/aegis-gardens/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7"
+      },
+      "qc": "prop_aegis_flowerbed_roses.qc.json",
+      "qcSha256": "96a2cfebb2e0cfabedfccb0b6045324362c26902bd0c7a555f172f5b5fd53520",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_flowerbed_violets": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.flowerbed_violets",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_flowerbed_violets.glb",
+      "modelSha256": "f7e86182b31d5d088c9fd86f997bef12cb6fa88e55a297d8f8e08c57a028864b",
+      "previews": {
+        "assembly": "authoring/blender/aegis-gardens/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7"
+      },
+      "qc": "prop_aegis_flowerbed_violets.qc.json",
+      "qcSha256": "4a510838cb725f329d4dc4d579aa62ad246d48f3e5fb6ea794ae264b10cac0ae",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_fountain": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.fountain",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_fountain.glb",
+      "modelSha256": "8c94979e058908787dc9c5bc155ec19d5650c857e75570d26b50cc7b3e87da20",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_fountain.qc.json",
+      "qcSha256": "91c740a3431c89502808d0acad6bd28ba76520bd5d3bc61b33682bc208264db5",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_garden_cypress": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.garden_cypress",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_garden_cypress.glb",
+      "modelSha256": "c990ed362a428b37bfc0cb58d6a377f64bbe7aeb2fa293d7601f780d1cd62281",
+      "previews": {
+        "assembly": "authoring/blender/aegis-gardens/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7"
+      },
+      "qc": "prop_aegis_garden_cypress.qc.json",
+      "qcSha256": "472e4dca825897baa3b41704304d9e72ca9396e3b503f590b9904776863333d6",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_garden_linden": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.garden_linden",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_garden_linden.glb",
+      "modelSha256": "177ca829df3da63f4285db938a739e1ea22da415ef1f87e5518f4028574e9ca4",
+      "previews": {
+        "assembly": "authoring/blender/aegis-gardens/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7"
+      },
+      "qc": "prop_aegis_garden_linden.qc.json",
+      "qcSha256": "8e20581805a5fc23724a9c38a2cd6c27608dda8b8436c122f17c93822fb79328",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_gatehouse": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.gatehouse",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_gatehouse.glb",
+      "modelSha256": "baa60fe9892a8f2bb20a6fab9e7f33add65f5a2b9a4c5329d865b859854a4a16",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_gatehouse.qc.json",
+      "qcSha256": "9879b6aae9e14658eec54d7ad5652fb2b6dee9b9e2ddff0a7e5c572bc8d0261b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_handcart": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.handcart",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_handcart.glb",
+      "modelSha256": "4ca11275fbbce16bffd7bf86934c60e7feb01e4565713706416e5c22d0ce0b5b",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_handcart.qc.json",
+      "qcSha256": "ba059a91fd9b32de013d2688a939f7de2b3e52c75b7a8625d769cd9723cdc62a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_house_1": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.house_1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_house_1.glb",
+      "modelSha256": "bdd63c23c7ac19ccc4dfec37a1c338fc5bd05d7e76cd0bd715626f37c36ce179",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_house_1.qc.json",
+      "qcSha256": "73d3d712f7c361fedbfca66b612556f5a36f77cf15915546fb416b28a596eb9b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_house_2": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.house_2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_house_2.glb",
+      "modelSha256": "b2a48f373cb6fc19dd0fb037b883a3451b479d977de628ee9b29ba305323c212",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_house_2.qc.json",
+      "qcSha256": "28a2f1fc32edca339a09d3d2ca9dd338a1c88a26f2c4dbbda13c94486e840f62",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_house_3": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.house_3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_house_3.glb",
+      "modelSha256": "abb67689a797eebad64040d4487717beecc4f17409ac3184c6c94d2017e5ea1a",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_house_3.qc.json",
+      "qcSha256": "f6e62cb96ac84abb74b84d9ec717ac47f02e25f96bc705fb2dbdfce13ec11e42",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_house_4": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.house_4",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_house_4.glb",
+      "modelSha256": "fc4cd371fa0bca7869994c34eb190972e7aecb1b3033d4d9dcfa0f8a972839fc",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_house_4.qc.json",
+      "qcSha256": "f0a44151c772adf12d7bfd8afb2bb9fe6398b584140fa69eb45a7f3ce64d647c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_house_5": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.house_5",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_house_5.glb",
+      "modelSha256": "ccf842bf1ee279a32c0944f428f14d1f5fd9d537c50d00369b6f87d1eb3b6394",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_house_5.qc.json",
+      "qcSha256": "8bcfba3cc806db736e4a601923298cd385ed063a44499947c9f8700ae25caec4",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_house_6": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.house_6",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_house_6.glb",
+      "modelSha256": "8ec03de298aa40da1110140027bcb62b3ff913c71642a54996668fde72514ff7",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_house_6.qc.json",
+      "qcSha256": "e6851aac177827ad681a9549114246314393f4f90db01c04088b4ed144efb770",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_lantern": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.lantern",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_lantern.glb",
+      "modelSha256": "892b7c62744aae2dd4bb4164902b8d8da3edc54a4f08d59a473871c89d66b3e5",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_lantern.qc.json",
+      "qcSha256": "efc6d57db78afdb546a234cd7d6920055d5b6b264d8ae9237350db6775706672",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_lean_to": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.lean_to",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_lean_to.glb",
+      "modelSha256": "60e6f6e1dceb3fccb72d2961f62b7f879cd27a23438b2dd50e01c702b75ae491",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_lean_to.qc.json",
+      "qcSha256": "d70e205f584ad9ef08405b2b8cf7864d0657e1f10bca4f0159541813da32a4d9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_mountain_massif": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.mountain_massif",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_mountain_massif.glb",
+      "modelSha256": "182373527b6918adf72917d085411aae40cfb054fee54b4639ede8df75597da4",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_mountain_massif.qc.json",
+      "qcSha256": "ae5b5a1598bec01170fc339fbd97e922eee24a4074ab4bce4cf5b81a95f19e58",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_mountain_passage": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.mountain_passage",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_mountain_passage.glb",
+      "modelSha256": "4d398c61f203d60daa92910092e9b580eefc4031b8027577c95459a55e8dd3af",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_mountain_passage.qc.json",
+      "qcSha256": "060055abe876a1780369a9e37eaeee685fa94e916209b98ca292df0a8a64b848",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_mountain_redoubt": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.mountain_redoubt",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_mountain_redoubt.glb",
+      "modelSha256": "92880a698b11b0df6af0c24c08d002139886e5125fab966721fcd8cea5f98546",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_mountain_redoubt.qc.json",
+      "qcSha256": "ec0efec2b1dc143298bfab1fbb5996c97451de65a429e30af8d63be5d8a749ae",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_mountain_seal": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.mountain_seal",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_mountain_seal.glb",
+      "modelSha256": "c41bc65ad817332f55af158fab6bc1229e0dfb06ab684f16fc68b2dee48be466",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_mountain_seal.qc.json",
+      "qcSha256": "44f8b6b757756b2323232a08b5e64145ecff3f209af60a295f84cd1f93f4d2df",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_mountain_vault": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.mountain_vault",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_mountain_vault.glb",
+      "modelSha256": "9be8cf7cf811f5ae4314ef2d288723bad6704d53178f3bb0d3cacd035bb663bc",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_mountain_vault.qc.json",
+      "qcSha256": "9978cc27a97be91b7f23a7e8f6c02f2b29bd02bba38149bb306374e82f110eaa",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_noticeboard": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.noticeboard",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_noticeboard.glb",
+      "modelSha256": "cbdacf2e5c67f7adb866551157dd8a513712ebf11ff420020e23178489185005",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_noticeboard.qc.json",
+      "qcSha256": "79113b447c3b2f335e4070c14600b417cc18e8f19a55107638d6ecb0628c3a07",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_paving": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.paving",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_paving.glb",
+      "modelSha256": "df4426b488b00d9af3236d0bf1a43cf3975c47a838b92aead25d781c6a6ee213",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_paving.qc.json",
+      "qcSha256": "3209983cfb9efe314677c43c618b7c767a3798476ea94ff661990007d9e1bc5f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_planter": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.planter",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_planter.glb",
+      "modelSha256": "01985bc9ebc156a01e71412eb28f786c50eeb7d47d9baae3735aab43729c4ba8",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_planter.qc.json",
+      "qcSha256": "ea66c25cd6cbc40c7b1d026b968ee0f497413d999ca15549e581aa9c81382251",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_portcullis": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.portcullis",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_portcullis.glb",
+      "modelSha256": "0c77bc0aeeb08a05c4d22e2b546e0acf2af0d1d2fc41870c6bfa538527f83531",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_portcullis.qc.json",
+      "qcSha256": "c6d9c2ee7e23cc80157e0558630afe299ffe5f38d993a094fba356343b10e155",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_quay_stairs": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.quay_stairs",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_quay_stairs.glb",
+      "modelSha256": "aa0529d23547ef99dd900df7488e51c3006a5b3ff60085243bc82c08ade1b8b8",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_quay_stairs.qc.json",
+      "qcSha256": "d0a4ec8d56ca034eaa185140d7725f3f62fb433d3b740a07a8b261956dafb853",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_railing": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.railing",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_railing.glb",
+      "modelSha256": "04cd62cbee20069c74202d45d07ee572a7b6308d8bf863e32218cf89ba1340e3",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_railing.qc.json",
+      "qcSha256": "455493748c049494f8f069b7f942b6ac61b7591dcb7f3101e5c8b3921ad4809a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_room": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.room",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_room.glb",
+      "modelSha256": "30d0ae2ad7be8c7151d3929ff1da48608d062227f3bbd5b40d39e8a21f2df7d7",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_room.qc.json",
+      "qcSha256": "4d7a90d7f8b2fabbd39c29955bdced21587500b1abd643431067fddf3e11ba4b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_rowhouse_1": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.rowhouse_1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_rowhouse_1.glb",
+      "modelSha256": "855104a4167094c1de63e4d18a66c77de68d4983a6e0b93f619acd59578b56dc",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_rowhouse_1.qc.json",
+      "qcSha256": "88e612e45e3b6e7d250d5cd3ee15c3e3f75acdeca791084e28346e73e46875e1",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_rowhouse_2": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.rowhouse_2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_rowhouse_2.glb",
+      "modelSha256": "4f2ebdfe68956f4c5552772ac44d834ed10539030eb4fda56fb01d536b474d4f",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_rowhouse_2.qc.json",
+      "qcSha256": "bee09f0d850ea71716fdb789acc1c6700e7da2706fa33003b8f68e9370ae9812",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_shop": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.shop",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_shop.glb",
+      "modelSha256": "f6ed1b821ccae84e32ba4be2504db9d4380d585771c49522b86af31debd91aaa",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_shop.qc.json",
+      "qcSha256": "1e93187c655468d3159f7981c9b4c887bf313f99dfdcab7002c1842a8cbf58ec",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_sign": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.sign",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_sign.glb",
+      "modelSha256": "9fc60e47528a3e9829c0e5cf2961d01c8cb34888c035ebb47f30c268d098048a",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_sign.qc.json",
+      "qcSha256": "fce184cdafbc72d88b79a6cb888eedae2d349e3bad7616506fbd967394486882",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_stairs": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.stairs",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_stairs.glb",
+      "modelSha256": "7788822b722c51f49b91714e8ef406e7bef1f2c57389d2c33611848483c5d89e",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_stairs.qc.json",
+      "qcSha256": "58ba058680d6705d90a497c9aec3e90022527442fbf324c589e949c616bbc8f0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_stall": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.stall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_stall.glb",
+      "modelSha256": "6e01acf7701fd3a59ec428813420bcacf8b9d49d97131280a7db18f33326b9b4",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_stall.qc.json",
+      "qcSha256": "83e40892ac7a6785c764e51e768e73d71435ff10041ec3e73c337175fb41be01",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_table": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.table",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_table.glb",
+      "modelSha256": "e1b448ab47062eedf9988a035624ad6471c70dba5fdbc6306eb18eda5077e027",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_table.qc.json",
+      "qcSha256": "20062b329550d3c36446b02b8948f896d87bd761289abed790db43c7e0ec38d8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_tavern_1": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.tavern_1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_tavern_1.glb",
+      "modelSha256": "227b6f5c886187bc4f334bd5903534f488e0409359e0a89cc5d4bd398c271392",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_tavern_1.qc.json",
+      "qcSha256": "1458af32cb6cf36608276dad163d770288b8242fe1c4c0102b0c9cc091d268f3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_tavern_2": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.tavern_2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_tavern_2.glb",
+      "modelSha256": "117f551e7c81cd4a5395730c0e1042848f773f9de9084183013df169e8ef7bda",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_tavern_2.qc.json",
+      "qcSha256": "972aabda326a9d8c52b81c424b4a93ef98a394cc691657e59c0140f78a48c7ee",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_tower": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.tower",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_tower.glb",
+      "modelSha256": "2e8496adb364123908e9b7c3ee9a780bc78b5e3150c435b71330c8d236c8fe68",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_tower.qc.json",
+      "qcSha256": "01d42384dbd09de3e0bf95cd2ce08938679f5b796ad0940cc9c08f3977127033",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_wall": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.wall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_wall.glb",
+      "modelSha256": "d20dd2139030a646905aeb3482c915f3604502b5488be0bb349a86e1ad2f5f51",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_wall.qc.json",
+      "qcSha256": "7aa893cb51789d25f5bccaf751fffd56bbd4fdbb4e696cb8622c83233937913d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_wall_entry": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.wall_entry",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_wall_entry.glb",
+      "modelSha256": "a562929d4c5924c7f47a36621fe1607492629f2435ceff0552eed00168bdc90e",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_wall_entry.qc.json",
+      "qcSha256": "a1086934c5ddc79e9bc335dd1ef00a126a0d693debf234b0bad8ca05e2a8e835",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_washing_line": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.washing_line",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_washing_line.glb",
+      "modelSha256": "b4ccc68a23115eacbccd0ea592c2b172a604ab790d3a03e1388b2d52ce22231e",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_washing_line.qc.json",
+      "qcSha256": "4205c64653b5c89666dbb5232158825e60880d408470463da480ca44d29482da",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_water_gate": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.water_gate",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_water_gate.glb",
+      "modelSha256": "1c247436ba3c2ae7ad37c12cb85a4b2f2a704cef036fffd7a550342fad9a181f",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_water_gate.qc.json",
+      "qcSha256": "1c6f8827c8d061351717167ea39a6e0f18bc7a2544726a96ef16321fcc49654c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "aegis_workshop": {
+      "approvalState": "approved",
+      "assetId": "prop.aegis.workshop",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_aegis_workshop.glb",
+      "modelSha256": "bb348e6873177539bcf7d9205cd8451eef19dbb9802ab999e0881e0811c2728a",
+      "previews": {
+        "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+      },
+      "previewSha256": {
+        "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+      },
+      "qc": "prop_aegis_workshop.qc.json",
+      "qcSha256": "478f77be6cd3bad913416d23aece2aa184faead8bdf888ceec1146e059fb1e26",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
     "banner_post": {
       "lifecycleStatus": "compatibility_allowed",
       "model": "banner_post.glb",

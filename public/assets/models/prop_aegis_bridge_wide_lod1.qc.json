@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.bridge_wide",
+  "modelSha256": "3edf131cfc29778c6aa25b7cf684eedede8cb6d14000853d4e0d02af68c9bd9e",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_bridge_wide_lod1.glb",
+    "triangles": 2726,
+    "bytes": 412216,
+    "sha256": "3edf131cfc29778c6aa25b7cf684eedede8cb6d14000853d4e0d02af68c9bd9e",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_bridge_wide.glb",
+      "triangles": 5452,
+      "bytes": 700048,
+      "sha256": "3e570cc5d98a895438e5ea33d9fad0812688a4f38847d3696b087886bd840ed4",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_bridge_wide_lod1.glb",
+      "triangles": 2726,
+      "bytes": 412216,
+      "sha256": "3edf131cfc29778c6aa25b7cf684eedede8cb6d14000853d4e0d02af68c9bd9e",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_bridge_wide_lod2.glb",
+      "triangles": 1090,
+      "bytes": 166808,
+      "sha256": "22c5e60cd5804b1c1656fe82f7fb8c57b8739b18c5994e152996356bdc55a297",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

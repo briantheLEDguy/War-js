@@ -1,0 +1,21 @@
+{
+  "assetId": "chr.aegis.people.civilian_male_walk",
+  "model": "chr_aegis_people_civilian_male_walk.glb",
+  "modelSha256": "d0cb3d64870bb385c9aab497b9df3c4772fb7493c52453e8f24ba77cbc7824f9",
+  "triangles": 100487,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle",
+    "walk"
+  ],
+  "usage": "Aegis ambient walking civilians",
+  "authoredWalkSpeed": 0.9,
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "sourceModel": "chr_aegis_people_civilian_male_lod1.glb",
+  "sourceSha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+  "repairedVertices": 14696,
+  "preservedChannels": "Positions, topology, normals, tangents, UVs, embedded images, materials, skeleton and original idle clip unchanged",
+  "review": "reviews/aegis-civic-locomotion/approval.json"
+}

@@ -1,0 +1,202 @@
+{
+  "reviewedAt": "2026-09-06T11:29:46.479985+00:00",
+  "zoneHash": "fba3c1605becc7e3",
+  "assetVersion": "approved-c011c7a16f8031bd",
+  "summary": "Actual Game runtime shows a monumental citadel precinct and broad mountain behind the extended fortress. Grand court inspected with 36 avatar-sized spacing markers.",
+  "battlefield": {
+    "name": "Crownwatch Grand Court",
+    "playersPerTeam": 18,
+    "bounds": {
+      "minX": -64,
+      "maxX": 64,
+      "minZ": 140,
+      "maxZ": 208
+    },
+    "staging": {
+      "south": [
+        {
+          "x": -20,
+          "z": 146
+        },
+        {
+          "x": -12,
+          "z": 146
+        },
+        {
+          "x": -4,
+          "z": 146
+        },
+        {
+          "x": 4,
+          "z": 146
+        },
+        {
+          "x": 12,
+          "z": 146
+        },
+        {
+          "x": 20,
+          "z": 146
+        },
+        {
+          "x": -20,
+          "z": 151
+        },
+        {
+          "x": -12,
+          "z": 151
+        },
+        {
+          "x": -4,
+          "z": 151
+        },
+        {
+          "x": 4,
+          "z": 151
+        },
+        {
+          "x": 12,
+          "z": 151
+        },
+        {
+          "x": 20,
+          "z": 151
+        },
+        {
+          "x": -20,
+          "z": 156
+        },
+        {
+          "x": -12,
+          "z": 156
+        },
+        {
+          "x": -4,
+          "z": 156
+        },
+        {
+          "x": 4,
+          "z": 156
+        },
+        {
+          "x": 12,
+          "z": 156
+        },
+        {
+          "x": 20,
+          "z": 156
+        }
+      ],
+      "north": [
+        {
+          "x": -20,
+          "z": 202
+        },
+        {
+          "x": -12,
+          "z": 202
+        },
+        {
+          "x": -4,
+          "z": 202
+        },
+        {
+          "x": 4,
+          "z": 202
+        },
+        {
+          "x": 12,
+          "z": 202
+        },
+        {
+          "x": 20,
+          "z": 202
+        },
+        {
+          "x": -20,
+          "z": 197
+        },
+        {
+          "x": -12,
+          "z": 197
+        },
+        {
+          "x": -4,
+          "z": 197
+        },
+        {
+          "x": 4,
+          "z": 197
+        },
+        {
+          "x": 12,
+          "z": 197
+        },
+        {
+          "x": 20,
+          "z": 197
+        },
+        {
+          "x": -20,
+          "z": 192
+        },
+        {
+          "x": -12,
+          "z": 192
+        },
+        {
+          "x": -4,
+          "z": 192
+        },
+        {
+          "x": 4,
+          "z": 192
+        },
+        {
+          "x": 12,
+          "z": 192
+        },
+        {
+          "x": 20,
+          "z": 192
+        }
+      ]
+    },
+    "approaches": [
+      {
+        "x": -62,
+        "z": 132,
+        "width": 12
+      },
+      {
+        "x": 0,
+        "z": 132,
+        "width": 18
+      },
+      {
+        "x": 62,
+        "z": 132,
+        "width": 12
+      }
+    ]
+  },
+  "verification": {
+    "focusedTests": 60,
+    "fullSuite": "600 tests passed; existing rosterDirectPromotion syntax/load failure",
+    "glbExports": 156,
+    "glbValidationErrors": 0,
+    "modelValidationRecords": 373,
+    "worldMapsValidated": 33,
+    "productionBuild": "passed"
+  },
+  "performanceSample": {
+    "fps": 26,
+    "drawCalls": 529,
+    "triangles": 1017534,
+    "note": "Single local overview with simple instanced spacing markers. This is not a live 36-player combat/network/ability-effects load test."
+  },
+  "screenshots": [
+    "artifacts/city-screenshots-battle/battle-court.png",
+    "artifacts/city-screenshots-battle/overview.png"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.tavern_1",
+  "modelSha256": "8e9f06c047d685ad1e33f991f99ba480ada4ebcfa4769b0a3df4c139b741c49b",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_tavern_1_lod1.glb",
+    "triangles": 5272,
+    "bytes": 782100,
+    "sha256": "8e9f06c047d685ad1e33f991f99ba480ada4ebcfa4769b0a3df4c139b741c49b",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_tavern_1.glb",
+      "triangles": 10544,
+      "bytes": 1397304,
+      "sha256": "227b6f5c886187bc4f334bd5903534f488e0409359e0a89cc5d4bd398c271392",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_tavern_1_lod1.glb",
+      "triangles": 5272,
+      "bytes": 782100,
+      "sha256": "8e9f06c047d685ad1e33f991f99ba480ada4ebcfa4769b0a3df4c139b741c49b",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_tavern_1_lod2.glb",
+      "triangles": 2108,
+      "bytes": 307468,
+      "sha256": "92ccd0326e72f3d07bb55496266ab6c384fc0cb32ee7db8f1ff823bdbeff838a",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

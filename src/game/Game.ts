@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+import { createCanalWater } from '../world/CityWater';
+import { safeCityEntry } from '../world/CityNavigation';
+import { CityInstances } from '../world/CityInstances';
 import { isResourceNodeAvailable } from '../data/crafting';
 import { formatKeybinding, type KeybindAction } from '../data/keybindings';
 import { isRvrKeepZone, type CampaignObjectiveStatus, type CampaignRealm, type CampaignZoneStatus } from '../data/campaign';
@@ -34,6 +37,8 @@ import {
   makeVersionId,
 } from '../world/WorldEditValidation';
 import { AssetLoader } from './AssetLoader';
+import { RenderResolution } from './RenderResolution';
+import { ForegroundFrameLoop } from './ForegroundFrameLoop';
 import { resolveAbilityMovement } from './AbilityMovement';
 import { playerAbilityMoveMultiplier } from './abilities/playerAbilityEffects';
 import {
@@ -80,6 +85,7 @@ export class Game {
   private input!: Input;
   private loader = new AssetLoader();
   private terrain = new Terrain({ size: 140, segments: 112 });
+  private cityInstances: CityInstances | null = null;
   private player!: Player;
   private enemies: Enemy[] = [];
   private npcMixers: THREE.AnimationMixer[] = [];
@@ -88,10 +94,14 @@ export class Game {
   private resourceRegeneration = new ResourceRegeneration();
   private vfx!: VfxLayer;
 
-  private lastT = 0;
   private fpsT = 0;
   private fpsFrames = 0;
-  private raf = 0;
+  private renderResolution = new RenderResolution();
+  private frameMilliseconds = 0;
+  private frameLoop = new ForegroundFrameLoop(
+    (time, delta) => this.loop(time, delta),
+    () => useGameStore.getState().settings.frameRateLimit,
+  );
   private disposed = false;
   private container: HTMLElement;
   private character: CharacterState;
@@ -141,6 +151,18 @@ export class Game {
 
   get playerPos(): THREE.Vector3 { return this.player?.position ?? new THREE.Vector3(); }
   get zoneName(): string { return this.currentZoneName; }
+  get renderScale(): number { return this.renderResolution.scale; }
+  get frameMs(): number { return this.frameMilliseconds; }
+  get cityDistrictName(): string | null {
+    if (!this.currentZone?.cityDistricts?.length || !this.player || this.houseInteriors?.isActive) return null;
+    const position = this.player.position;
+    return this.currentZone.cityDistricts.reduce((nearest, district) =>
+      Math.hypot(district.x-position.x,district.z-position.z)<Math.hypot(nearest.x-position.x,nearest.z-position.z)?district:nearest
+    ).name;
+  }
+  get cityMapGeometry() {
+    return this.currentZone?.cityLayoutVersion ? this.currentZone : null;
+  }
   get zoneDefinition(): ZoneDefinition | null { return this.currentZone; }
   get campaignActivity(): { zone: CampaignZoneStatus; focus: CampaignActivity | null; progress: number } | null {
     if (!this.campaignZoneStatus) return null;
@@ -246,9 +268,24 @@ export class Game {
   }
 
   async start() {
+    try {
+      await this.initialize();
+    } catch (error) {
+      if (!this.disposed) throw error;
+    } finally {
+      // An await can finish after unmount and attach additional scene objects.
+      if (this.disposed) {
+        this.loader.dispose(this.scene);
+        this.scene.clear();
+      }
+    }
+  }
+
+  private async initialize() {
     const container = this.container;
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderResolution.configure(useGameStore.getState().settings.renderResolution, window.devicePixelRatio);
+    this.renderer.setPixelRatio(this.renderResolution.pixelRatio);
     this.renderer.setSize(container.clientWidth, container.clientHeight);
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -286,7 +323,14 @@ export class Game {
       });
 
     // Sky + lights
-    await setupSky(this.scene, this.loader, this.renderer, zone.skybox, useGameStore.getState().settings.viewDistance);
+    const sky = await setupSky(this.scene, this.loader, this.renderer, zone.skybox, useGameStore.getState().settings.viewDistance);
+    if (this.disposed) { sky.dispose(); return; }
+    this.onDispose.push(sky.dispose);
+    if (zone.atmosphere) {
+      if (this.scene.fog instanceof THREE.Fog) this.scene.fog.color.set(zone.atmosphere.fogColor);
+      this.scene.background = new THREE.Color(zone.atmosphere.fogColor);
+      sky.sun.color.set(zone.atmosphere.sunColor); sky.sun.intensity = zone.atmosphere.sunIntensity;
+    }
     if (this.disposed) return;
 
     // Terrain
@@ -297,9 +341,12 @@ export class Game {
       diffuseTexture: zone.terrainTexture,
       heightTexture: zone.heightmap,
       flatTerrain: zone.flatTerrain,
+      canals: zone.canals,
+      cityElevation: zone.cityElevation,
     });
     if (this.disposed) return;
     this.scene.add(terrainMesh);
+    if (zone.canals?.length) this.scene.add(createCanalWater(zone.size, zone.canals));
 
     this.worldEditor = new WorldEditorRuntime({
       scene: this.scene,
@@ -325,12 +372,15 @@ export class Game {
     this.gates = new Map(spawnedProps.gates.map((gate) => [gate.id, gate]));
     this.housePortals = new Map(spawnedProps.housePortals.map((portal) => [portal.id, portal]));
     this.houseInteriors = new HouseInteriorRuntime(this.scene);
+    if (zone.cityLayoutVersion) await this.houseInteriors.loadCityRooms(this.loader);
+    if (this.disposed) return;
     for (const object of spawnedProps.objects) {
       this.worldEditor.registerStaticObject(object.definition, object.object);
     }
 
     await this.worldEditor.loadDocument(this.publishedWorldEdit, false);
     if (this.disposed) return;
+    if (zone.cityLayoutVersion) this.cityInstances = new CityInstances(this.scene, spawnedProps.objects);
 
     // NPCs
     const spawnedNpcs = await spawnNpcs(
@@ -349,7 +399,8 @@ export class Game {
       zone.campaign?.realm === 'riftbound' ? 'riftbound' : 'aegis',
       (x, z) => this.terrain.heightAt(x, z),
       spawnedProps.objects.filter(({ definition }) => definition.kind.startsWith('life_')
-        && !definition.model && !definition.assetKey).map(({ object }) => object));
+        && !definition.model && !definition.assetKey).map(({ object }) => object),
+      zone.id === 'aegis_capital' ? this.loader : undefined);
 
     // Zone triggers
     this.zoneTriggers = zone.zoneTriggers ?? [];
@@ -369,7 +420,12 @@ export class Game {
     }
 
     // Player
-    const entryPoint = resolveZoneEntryPoint(this.character.position, zone.spawnPoint);
+    const requestedEntry = resolveZoneEntryPoint(this.character.position, zone.spawnPoint);
+    // Old flat-city saves must be tested against obstacles at the new grade.
+    if (zone.cityElevation) requestedEntry.y = this.groundHeightAt(requestedEntry.x, requestedEntry.z);
+    const entryPoint = zone.cityLayoutVersion && zone.spawnPoint
+      ? safeCityEntry(requestedEntry, zone.spawnPoint, this.propColliders)
+      : requestedEntry;
     const entryY = this.groundHeightAt(entryPoint.x, entryPoint.z, entryPoint.y);
     const safeRespawnPoint = resolveZoneEntryPoint(zone.spawnPoint, defaultZoneSpawnPoint(zone.id));
     const respawnY = this.groundHeightAt(safeRespawnPoint.x, safeRespawnPoint.z, safeRespawnPoint.y);
@@ -438,8 +494,10 @@ export class Game {
     window.addEventListener('resize', this.onResize);
 
     // Loop
-    this.lastT = performance.now();
-    this.raf = requestAnimationFrame(this.loop);
+    // Compile all material variants, including the LODs, while the loading UI is up.
+    await this.renderer.compileAsync(this.scene, this.camera.camera);
+    if (this.disposed) return;
+    this.frameLoop.start();
 
     if (useGameStore.getState().gmBuildMode) {
       void this.setWorldEditorActive(true);
@@ -480,24 +538,31 @@ export class Game {
     }
   }
 
-  private loop = (tMs: number) => {
+  private loop = (tMs: number, frameMs: number) => {
     if (this.disposed) return;
-    const dt = Math.min(0.1, (tMs - this.lastT) / 1000);
-    this.lastT = tMs;
+    const dt = Math.min(0.1, frameMs / 1000);
+    this.renderResolution.configure(useGameStore.getState().settings.renderResolution, window.devicePixelRatio);
+    if (Math.abs(this.renderer.getPixelRatio() - this.renderResolution.pixelRatio) > 0.001) {
+      this.renderer.setPixelRatio(this.renderResolution.pixelRatio);
+    }
     // Hard-guard every frame: if update() or render() throws, log it but
     // keep scheduling new frames. Otherwise a single bad frame kills rAF,
     // freezing input and leaving the minimap stuck at the last position.
+    const updateStart = performance.now();
     try {
       this.update(dt, tMs);
     } catch (err) {
       console.error('Game.update threw — recovering', err);
     }
+    const simulationMs = performance.now() - updateStart;
     try {
+      this.cityInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode, id => this.isStaticSourceSuppressed(id));
       this.renderer.render(this.scene, this.camera.camera);
     } catch (err) {
       console.error('Renderer threw — recovering', err);
     }
-    this.raf = requestAnimationFrame(this.loop);
+    this.renderResolution.observe(frameMs, simulationMs, document.hidden, useGameStore.getState().settings.frameRateLimit);
+    this.frameMilliseconds += (frameMs - this.frameMilliseconds) * 0.1;
   };
 
   private update(dt: number, tMs: number) {
@@ -607,7 +672,9 @@ export class Game {
     if (currentEquipmentSignature !== this.equipmentSignature) {
       this.equipmentSignature = currentEquipmentSignature;
       this.character.equipment = store.character?.equipment;
-      void this.player.applyEquipmentVisuals(store.character?.equipment, this.loader);
+      void this.player.applyEquipmentVisuals(store.character?.equipment, this.loader)
+        .catch(error => { if (!this.disposed) console.warn('[Game] equipment fallback:', error); })
+        .finally(() => { if (this.disposed) this.loader.dispose(this.player.object); });
     }
 
     // Interact with nearby corpses, crafting stations, or quest-givers.
@@ -698,8 +765,16 @@ export class Game {
       this.player.position,
       this.input,
       this.getActiveCameraColliders(),
-      this.terrain.heightAt.bind(this.terrain),
+      this.cameraGroundHeightAt,
+      [
+        ...(this.worldEditor?.getCameraObjects() ?? []),
+        ...(this.houseInteriors?.activeInterior ? [this.houseInteriors.activeInterior.group] : []),
+      ],
     );
+    // Tight spaces and upward views may pull the camera into the avatar.
+    this.player.object.visible = this.camera.camera.position.distanceTo(
+      this.player.position.clone().add(new THREE.Vector3(0, 0.9, 0)),
+    ) >= 1.2;
     this.combat.tickAbilityImpacts(tMs);
     this.combat.tickStatusEffects(tMs);
     this.updateKeepEncounters(tMs);
@@ -715,6 +790,7 @@ export class Game {
       updateGateFallbackVisual(gate, dt);
     }
     for (const mixer of this.npcMixers) mixer.update(dt);
+    this.houseInteriors?.update(dt);
     this.worldLife?.update(dt, this.player.position, store.settings.viewDistance);
 
     // Enemy visibility sync
@@ -1308,10 +1384,15 @@ export class Game {
       ...(this.houseInteriors?.getCameraColliders() ?? []),
     ];
     if (colliders.length === 0) return colliders;
-    return colliders.filter((collider) => this.isColliderActive(collider));
+    return colliders.filter((collider) => this.isColliderActive(collider, false));
   }
 
+  private cameraGroundHeightAt = (x: number, z: number): number =>
+    this.houseInteriors?.getFloorHeightAt(x, z) ?? this.terrain.heightAt(x, z);
+
   private groundHeightAt = (x: number, z: number, currentY?: number): number => {
+    const interiorFloor = this.houseInteriors?.getFloorHeightAt(x, z);
+    if (interiorFloor !== null && interiorFloor !== undefined) return interiorFloor;
     let height = this.terrain.heightAt(x, z);
     const reachableY = (currentY ?? height) + WALKABLE_SURFACE_STEP_UP;
     const walkables = [
@@ -1393,6 +1474,19 @@ export class Game {
     const deleted = this.worldEditor?.deleteSelectedObject() ?? false;
     store.setWorldEditorStatus(deleted ? 'Deleted selected object.' : 'No selected object to delete.');
     return deleted;
+  }
+
+  get worldEditorObjects() { return this.worldEditor?.objectList ?? []; }
+
+  selectWorldEditorObject(id: string): void {
+    if (!useGameStore.getState().gmBuildMode) return;
+    this.worldEditor?.selectObject(id || null);
+  }
+
+  restoreSelectedWorldEditorObject(): void {
+    if (!useGameStore.getState().gmBuildMode) return;
+    const restored = this.worldEditor?.restoreSelectedObject();
+    useGameStore.getState().setWorldEditorStatus(restored ? 'Restored selected object.' : 'Select a removed map object to restore.');
   }
 
   async stampWorldEditorPrefabAtPlayer(): Promise<void> {
@@ -1544,9 +1638,9 @@ export class Game {
     };
   }
 
-  private isColliderActive(collider: WorldCollider): boolean {
+  private isColliderActive(collider: WorldCollider, checkPlayerHeight = true): boolean {
     const playerY = this.player?.position.y;
-    if (playerY !== undefined) {
+    if (checkPlayerHeight && playerY !== undefined) {
       if (collider.minY !== undefined && playerY < collider.minY) return false;
       if (collider.maxY !== undefined && playerY > collider.maxY) return false;
     }
@@ -1799,12 +1893,15 @@ export class Game {
   dispose(options: { persistCharacter?: boolean } = {}) {
     if (this.disposed) return;
     this.disposed = true;
-    cancelAnimationFrame(this.raf);
+    this.frameLoop.dispose();
     window.removeEventListener('resize', this.onResize);
     this.input?.dispose();
     this.camera?.dispose();
     for (const mixer of this.npcMixers) mixer.stopAllAction();
+    this.player?.disposeAnimations();
     this.worldLife?.dispose();
+    this.loader.dispose(this.scene);
+    this.cityInstances?.dispose();
     for (const fn of this.onDispose) {
       try { fn(); } catch { /* ignore */ }
     }
@@ -1817,6 +1914,9 @@ export class Game {
       this.editorAutosaveTimer = null;
     }
     this.renderer?.dispose();
+    this.scene.clear();
+    // Dense city textures belong to this renderer; release its context on departure.
+    if (this.currentZone?.cityLayoutVersion) this.renderer?.forceContextLoss();
     if (this.renderer?.domElement.parentElement === this.container) {
       this.container.removeChild(this.renderer.domElement);
     }
@@ -1900,6 +2000,7 @@ function updateGateFallbackVisual(gate: InteractiveGate, dt: number): void {
 function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void {
   const clamped = Math.max(0, Math.min(1, progress));
   object.traverse((node) => {
+    if (node.userData.gateLift) node.position.y = (node.userData.gateLiftBaseY ?? 0) + 9 * clamped;
     const side = node.userData.gateLeafSide;
     if (typeof side !== 'number') return;
     node.rotation.y = -side * (Math.PI / 2) * clamped;

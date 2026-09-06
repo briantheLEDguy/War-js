@@ -1,0 +1,16 @@
+{
+  "summary": "All 56 optimized exports inspected in normalized-scale all-exports; the keep, gate, arcade, bastion and eroded mountain also inspected in dedicated monument views. Includes the grand battle precinct, irregular painted surfaces and street furnishings. Runtime placement and 36-combatant spacing are checked separately. The hollow keep doorway, hall shell and gallery were also inspected from inside the exported model. The open mountain passage, divided forehall and throne hall, two-portal treasury vault, and sealed crypt threshold were inspected in dedicated exported-model views.",
+  "reviewedAt": "2026-09-06T18:39:36.148941+00:00",
+  "reviewedBy": "Codex",
+  "validationSha256": "a6514feb8b5f7c2653c5ac92b159e19695a797347d55de3797829867f82fad32",
+  "buildSha256": "1b7dae8cd5ba3680e6e73964ad944c2bcd9e7209c48ce46cd4fbfc2f6d96650c",
+  "citadelInteriorPreviewSha256": "77014a1df464641f813066226e083ad570ce1def6a32d692f7e7395c99a4b3fb",
+  "mountainPreviewSha256s": {
+    "mountain-passage-interior": "1bb92fde1f9b28ffce7a99dbad2d902906a93c5d59890ac10154b5c08cb217d9",
+    "mountain-redoubt-interior": "f7d7906a9658a030e6cd47d6487c707a7c7702a837b4b2d129d9374d01132258",
+    "mountain-command-chamber": "46ee56739c2d69d1249e6d9ac1db97a3cecde7083b2c0d86b237971cf5d48658",
+    "mountain-seal": "1dce1cc0ceae17d7309313514cc243da989769188b77780a1c3998037476b9b0",
+    "mountain-vault-interior": "56391250a31fe857b824b505abffc63dbdbeb2b8f48cb0fbc4da760c99f32cb3",
+    "mountain-vault-portals": "67158fa07dcdacc7e738510b92fee5fe9b5c4c0b9bbccb5ce70a216c9e314c7a"
+  }
+}

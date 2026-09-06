@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.people.attendant",
+  "displayName": "Aegis Attendant",
+  "category": "character",
+  "model": "chr_aegis_people_attendant_lod1.glb",
+  "qc": "chr_aegis_people_attendant_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_people_attendant"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_people",
+    "bodyVariant": "m",
+    "skeletonId": "aegis_people_v1",
+    "bindPoseId": "civic_relaxed_v1"
+  },
+  "hashes": {
+    "modelSha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+    "qcSha256": "66393d16b8eb8654210dcc30a53322d1f74980672ff39ef7051ae97963d0cba9",
+    "previews": {
+      "front": "1ace7dba4589a147074d6b8d16b5acf168d17fb8e00fe4e5ca2ae35d56b06d42"
+    }
+  },
+  "previews": {
+    "front": "reviews/aegis-people/attendant_export_three_quarter.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex technical and exported-geometry review; user requested game integration",
+    "reviewedAt": "2026-09-06T18:36:41.282190+00:00",
+    "reviewHash": "7cadac71478ec1b4b9ffb364783e0075ac96033862529b7779aecb85b8908f48"
+  },
+  "provenance": {
+    "sourceSha256": "cd8818350906789844e084ccba382e937dd3c41d4104ee6f9eee0f31773ff320",
+    "referenceSha256": "6d725a8ce540a907ad30da08964634013e6cbd21723dac01c055446f6b2ba4ef",
+    "limitations": "Stationary idle only; custom civic skeleton. Middle LOD used for city NPCs.",
+    "lods": {
+      "0": {
+        "file": "chr_aegis_people_attendant.glb",
+        "sha256": "1826ef1e9f1610d7b8f456ac60ab3e3733cfb51c5cdf4a06f0d95f8383b65ec0",
+        "triangles": 137475,
+        "degenerate_uv_tangents": 111636
+      },
+      "1": {
+        "file": "chr_aegis_people_attendant_lod1.glb",
+        "sha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+        "triangles": 82481,
+        "degenerate_uv_tangents": 74028
+      },
+      "2": {
+        "file": "chr_aegis_people_attendant_lod2.glb",
+        "sha256": "2c85afddd132fab108c9ae1056b4f624e8ccf663d3d89fba27ad6eee3b3d8780",
+        "triangles": 41234,
+        "degenerate_uv_tangents": 39070
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_archive",
+  "displayName": "Aegis citadel archive",
+  "category": "prop",
+  "model": "prop_aegis_citadel_archive.glb",
+  "qc": "prop_aegis_citadel_archive.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_archive"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "2c0a48f7faf58fab162621954a6f5952602205099ad34c5d3776e08282256ad6",
+    "qcSha256": "de043ef164fc8f57b95b8d56c2e531066da4296003eed153f63d7db228de3c77",
+    "previews": {
+      "assembly": "e29a2fe633f39f8d9516b362b746f196c3378a5103a22f81e965cabbd9f74ef3"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-citadel-interiors/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:49:23.657Z",
+    "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_citadel_furnishing_v1"
+    ],
+    "referencePackId": "original_three_peoples_oath_and_fortress_household",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-citadel-interiors/tools/build_interiors.py"
+  },
+  "approvalState": "approved"
+}

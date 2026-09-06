@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+import { citySurfaceGeometry, type CanalDefinition } from './CityWater';
+import { applyCityWeathering } from './CityWeathering';
+import { cityHeightAt, type CityElevation } from './CityElevation';
 import type { AssetLoader } from '../game/AssetLoader';
 
 export interface TerrainOpts {
@@ -10,6 +13,8 @@ export interface TerrainOpts {
   diffuseTexture?: string;
   /** If true, skip height variation — all y = 0. Use for city/indoor zones. */
   flatTerrain?: boolean;
+  canals?: CanalDefinition[];
+  cityElevation?: CityElevation;
 }
 
 /**
@@ -23,6 +28,9 @@ export class Terrain {
   private segments: number;
   private heights: Float32Array;
   private flat = false;
+  private cityElevation?: CityElevation;
+  get cityHeightField(): CityElevation | undefined { return this.cityElevation; }
+  get worldSize(): number { return this.size; }
   private modelHeightMeshes: THREE.Mesh[] = [];
   private modelBounds = new THREE.Box3();
   private modelRaycaster = new THREE.Raycaster();
@@ -39,6 +47,7 @@ export class Terrain {
     this.size = opts.size;
     this.segments = opts.segments;
     this.flat = opts.flatTerrain ?? false;
+    this.cityElevation = opts.cityElevation;
     this.heights = new Float32Array((opts.segments + 1) * (opts.segments + 1));
     this.modelHeightMeshes = [];
     this.modelBounds.makeEmpty();
@@ -51,12 +60,13 @@ export class Terrain {
       return terrainModel;
     }
 
-    const geo = new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments);
-    geo.rotateX(-Math.PI / 2);
+    const geo = opts.canals?.length
+      ? citySurfaceGeometry(opts.size, opts.canals, 'ground', opts.cityElevation ? { segments: opts.cityElevation.segments, detailX: opts.cityElevation.detailX, detailZ: opts.cityElevation.detailZ, heightAt: (x, z) => this.heightAt(x, z) } : undefined)
+      : new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments).rotateX(-Math.PI / 2);
     const pos = geo.attributes.position as THREE.BufferAttribute;
     const vertCount = pos.count;
 
-    if (!this.flat) {
+    if (!this.flat && !this.cityElevation) {
       // Procedural height. Later: sample from heightmap if provided.
       const s = opts.segments;
       for (let iy = 0; iy <= s; iy++) {
@@ -90,6 +100,7 @@ export class Terrain {
       for (let i = 0; i < vertCount; i++) {
         const variation = 0.85 + deterministicVertexNoise(i, opts.size, opts.segments) * 0.15;
         color.setRGB(0.45 * variation, 0.42 * variation, 0.38 * variation);
+        if (this.cityElevation && pos.getZ(i) > 250) color.setRGB(.24 * variation, .27 * variation, .29 * variation);
         colors[i * 3] = color.r;
         colors[i * 3 + 1] = color.g;
         colors[i * 3 + 2] = color.b;
@@ -156,7 +167,9 @@ export class Terrain {
       ? await loader.loadTexture(opts.diffuseTexture, fallbackColor)
       : null;
     if (diffuse) {
-      diffuse.repeat.set(this.flat ? 32 : 24, this.flat ? 32 : 24);
+      const repeat = opts.canals?.length ? opts.size / 4 : this.flat ? 32 : 24;
+      diffuse.repeat.set(repeat, repeat);
+      if (opts.canals?.length) diffuse.anisotropy = 8;
     }
     const mat = new THREE.MeshStandardMaterial({
       color: diffuse ? 0xffffff : 0xffffff,
@@ -165,7 +178,23 @@ export class Terrain {
       roughness: 0.92,
       metalness: 0.0,
     });
-    const mesh = new THREE.Mesh(geo, mat);
+    if (opts.canals?.length) applyCityWeathering(mat);
+    const materials = [mat];
+    if (opts.cityElevation) {
+      const rock = new THREE.MeshStandardMaterial({ color: 0x697078, vertexColors: true, roughness: 1, flatShading: true });
+      materials.push(rock);
+      applyCityWeathering(rock);
+      const index = geo.getIndex()!;
+      const paved: number[] = [], mountain: number[] = [];
+      for (let i = 0; i < index.count; i += 3) {
+        const group = [0, 1, 2].every(j => pos.getZ(index.getX(i + j)) >= 250) ? mountain : paved;
+        group.push(index.getX(i), index.getX(i + 1), index.getX(i + 2));
+      }
+      geo.setIndex([...paved, ...mountain]);
+      geo.addGroup(0, paved.length, 0);
+      geo.addGroup(paved.length, mountain.length, 1);
+    }
+    const mesh = new THREE.Mesh(geo, opts.cityElevation ? materials : mat);
     mesh.receiveShadow = true;
     this.mesh = mesh;
     return mesh;
@@ -173,6 +202,7 @@ export class Terrain {
 
   /** World-space height lookup via bilinear sampling. Returns 0 for flat terrain. */
   heightAt(x: number, z: number): number {
+    if (this.cityElevation) return cityHeightAt(this.cityElevation, this.size, x, z);
     const modelHeight = this.heightAtModel(x, z);
     if (modelHeight !== null) return modelHeight;
 
@@ -268,8 +298,9 @@ export class Terrain {
   }
 
   private buildModelFallbackPlane(opts: TerrainOpts): THREE.Mesh {
-    const geo = new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments);
-    geo.rotateX(-Math.PI / 2);
+    const geo = opts.canals?.length
+      ? citySurfaceGeometry(opts.size, opts.canals, 'ground')
+      : new THREE.PlaneGeometry(opts.size, opts.size, opts.segments, opts.segments).rotateX(-Math.PI / 2);
     const mat = new THREE.MeshStandardMaterial({
       color: opts.flatTerrain ? 0x7a7a7a : 0x4a7c3a,
       roughness: 0.92,

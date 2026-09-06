@@ -1,5 +1,158 @@
 # Changelog
 
+## 2026-09-06 - Rendering resource budget and background suspension
+
+- Default to a 30 FPS game limit, with an optional 60 FPS setting, to leave processing time for video playback and other apps.
+- Stop game, character-preview and animated HUD loops when hidden or unfocused; resume without catch-up frames and remove listeners on teardown.
+- Cap map canvas redraws at 15 FPS and idle preview rendering at 30 FPS.
+- Make automatic resolution respect the chosen frame limit and retain a 1.5 pixel-ratio ceiling in balanced mode.
+- Add scheduler tests across 60-165 Hz displays, focus/visibility transitions, disposal and settings migration.
+
+## 2026-09-06 - Gothic citadel skyline and deeper keep
+
+- Replaced the squat roof tower with a dominant 125-metre spire, staggered corner spires, roof pinnacles, leaded lancet windows and projecting stonework.
+- Deepened the hall from 26 to 62 metres toward the courtyard. Extended roofs, galleries and collision while preserving the rear mountain doorway; moved the entrance gate, facade decorations, capture ring and staging positions to fit.
+- Rebuilt and visually reviewed three keep LODs within the existing 30,000-triangle budget, retained shared PBR textures, and updated the missing-asset silhouette.
+- Added scoped export/review/promotion tools and regression checks for deeper geometry, spire height, traversal and formation clearance.
+
+## 2026-09-06 - Aegis garden wards and reviewed city population
+
+- Add 23 varied houses, 52 linden/cypress trees and 80 rose/violet flowerbeds across the five city districts with preserved street, canal, service and siege clearances.
+- Build four original planting assets with shared 2048px PBR textures, three reviewed LODs, editable masters and GM Builder support.
+- Replace primitive ambient guards, service NPCs and public-building residents with reviewed Aegis models; retain named services and use bounded, safely disposed animation instances.
+- Replace remaining visible city map scenery with fitted modeled props while preserving collision, IDs and harvesting; repair civilian walking skin weights in separate reviewed derivatives.
+- Keep off-map interior players and cameras on the room floor instead of lifting them to the mountain heightfield.
+
+## 2026-09-06 - Smoother frame pacing and resolution scaling
+
+- Add automatic 70-100% 3D resolution scaling toward 60 FPS, plus fixed 75% and native-quality settings; keep HUD text at display resolution.
+- Use sustained timing windows and slow recovery to avoid rapid buffer resizing; ignore background pauses and simulation-bound frames.
+- Precompile material shaders during loading and report frame time/current scale in the debug overlay.
+- Rebuild only affected city instance batches and stabilize LOD transitions around distance thresholds.
+- Add tests for scaling limits, timing, recovery, settings compatibility, partial batch updates and LOD stability.
+
+## 2026-09-06 - Crownwatch citadel interiors and three-stage siege
+
+- Built the east mountain vault with a guarded entrance and royal return passage; enlarged the throne room and organized barracks, cookhouse, stores and counting rooms around the garrison hall.
+- Added Courtyard, Vault and Throne Room capture objectives with ordered prerequisites, persisted progress and campaign siege requirements enforced by the local service.
+- Added fourteen custom detailed PBR decoration assets with editable masters, three LODs, reviewed exports and GM Builder support.
+- Added model-space collision for new asymmetric builder pieces so their doorways and walkable surfaces remain aligned when rotated.
+- Kept the original courtyard battle staging and reserved the sealed Crypts connection.
+
+
+## 2026-09-06 - Exaggerated Battle Prelate swings
+
+- Enlarge the embedded-derived opening windup, sweeping attack arcs, shoulder loads, torso rotation and follow-through while retaining existing impact times.
+- Bake the opening from the original embedded motion through the same hand/foot constraints; use it for basic attacks and Litany. Retain unmodified embedded fallback clips.
+- Add exported hammer-travel regression coverage alongside grip, foot, timing and silhouette checks.
+
+## 2026-09-06 - Citadel mountain redoubt
+
+- Extended Crownwatch through a real rear keep doorway and working internal portcullis into a vaulted mountain siege hall, flanking aisles and rear command chamber.
+- Added 36-player staging, cover, supply alcoves and sealed, connected Crypts/Vault approaches with stable future expansion metadata.
+- Built high-resolution passage, redoubt and sealed portal assets with three LODs and GM Builder support; reshaped the mountain to clear the interior volumes.
+- Expanded the capital bounds while limiting detailed terrain rendering to the city slopes, preserving one-metre movement samples.
+
+
+## 2026-09-06 - Gated Crownwatch citadel and explorable keep
+
+- Enclose the hilltop battle court with fortress walls and three functional, independently controlled entrance portcullises.
+- Replace the solid keep with a hollow hall, side chambers, twin stairways and upper gallery; add a separate working main keep gate and interior furnishings.
+- Preserve the large 18-versus-18 court and regenerate campaign data and GM prefab defaults.
+- Rebuild and review the high-resolution keep at all three LODs; test real mesh openings, closed perimeter coverage, open approaches and interior traversal.
+
+## 2026-09-06 - Battle Prelate swing variety revision
+
+- Enable the preferred embedded windup as the gameplay opening/basic strike, retaining the three-strike Litany sequence.
+- Separate return sweep, descending blow, low engagement strike, shoulder-coiled Sanctified Blow, overhead smash and chest-height thrust silhouettes; establish the loaded pose before accelerating.
+- Clarify gameplay versus embedded-comparison controls and add exported windup/pose-distinction regression checks.
+
+
+## 2026-09-06 - Battle Prelate combat animation
+
+- Add original choreography for all ten abilities, including three cycling Litany strikes, a breathing combat guard and landing recovery; preserve Icon of Wrath's existing gameplay restriction.
+- Blend locomotion beneath moving attacks, restart repeated actions, fit playback duration and synchronize hammer trails/contact effects with impact markers.
+- Bake constrained hands/feet into a separate verified GLB without changing character geometry or sockets; register the existing rigid Dawn Maul for the female body.
+- Add editable Blender sources, an equipped development review stage, and regression tests for exported grips, planted feet, shaft clearance, combo playback, fallbacks and 30/60 FPS timing.
+
+## 2026-09-06 - Aegis city guards
+
+- Added four civic guard loadouts with shared steel armor, blue/ivory heraldry, pierced helmets and distinct patrol weapons.
+- Added editable sources, corrected two-handed weapon holds, three exported detail levels and validation/review tooling.
+- Replaced the distorted guard head cage with a fitted natural human head/neck, preserving skin texture detail and improving the jaw transition.
+- Routed Aegis guard variants through reviewed manifests while preserving non-guard and Riftbound behavior.
+
+## 2026-09-06 - City visibility and scene traversal
+
+- Skip zero-instance draw submissions from empty LOD batches.
+
+- Cull individual city instances against camera and shadow frusta while retaining off-screen shadow casters and existing LOD distances.
+- Detach hidden source models from scene traversal during normal play; keep collision references and restore models for GM editing and resource disposal.
+- Preserve texture resolution, mesh detail, lighting and shadow settings; cover culling, nested shadow lights, camera turns and GM restoration with regression tests.
+
+## 2026-09-06 - City frame-time tuning
+
+- Reuse unchanged city instance buffers and bounds instead of rebuilding and uploading them every frame.
+- Cache static scenery camera bounds, skip distant mesh hierarchies, and invalidate bounds on GM root transforms; interactive objects retain live collision.
+- Avoid redundant mesh raycasts against procedural heightfields while retaining imported terrain and voxel mesh collision.
+- Add regression coverage for buffer reuse, LOD/suppression updates, transformed and animated collision, and terrain filtering, plus a reproducible CPU sweep fixture.
+
+## 2026-09-06 - Runtime memory and resource cleanup
+
+- Share decoded external GLB images per game/preview loader while preserving resolution, independent texture settings, geometry and lighting.
+- Deduplicate static and animated requests for the same model.
+- Release scene resources, loader caches and reflection targets on teardown, including late-loading assets after unmount.
+- Size city instance buffers by actual mesh occurrences.
+- Add regression tests for sharing, texture settings, retries, cleanup, skeleton independence and instance capacity.
+
+## 2026-09-06 - GM Builder scenery coverage
+
+- Generate the catalog from map props and runtime-ready static assets, retaining collision, walkable surfaces, interactions and city LODs; derive footprints from GLB bounds.
+- Add cross-kit asset search and a placed-object list covering collision-only and removed map objects, with restore and undo.
+- Fix rotated collision offsets and Aegis portcullis lift behavior on new placements; retain city and world-life fallbacks.
+- Add coverage, placement, deletion/reload, restoration and undo/redo regression tests.
+- Scenery only: functional NPC/enemy/resource spawning and procedural canal/heightfield authoring remain separate systems.
+
+## 2026-09-06 - Camera range and world obstructions
+
+- Expanded mouse and touch pitch to nearly straight up/down indoors and outdoors, with a level horizon view and preserved inversion/sensitivity controls.
+- Replaced infinite-height camera checks with finite-height collision and full-path terrain sampling; camera collision no longer filters out obstacles just because they are above or below the player.
+- Added geometry checks for static props, instanced city sources, GM edits, roofs, ceilings and interior furnishings, with clearance around the camera's near plane. Openings remain usable without a whole-building bounding-box obstruction.
+- Preserve the requested angle and zoom while drawing the camera forward around obstructions, and hide the avatar at close camera distances to prevent it from blocking the viewport.
+
+## 2026-09-06 - Aegis rich civic decorations
+
+- Added ten original Blender decoration models and 30 reviewed GLBs: twin street lights, wall lanterns, four named trade signs, a ceramic canal relief, civic bench, astronomical sculpture and directory post.
+- Distributed 69 street lights, 104 wall lanterns, four trade signs, 22 artworks and 15 benches/directories through all five Aegis districts, preserving storefront portal IDs and gameplay approaches.
+- Reserved existing furniture footprints and level ground, aligned facade attachments with building elevations, and added appropriately sized missing-model fallbacks.
+- Added an isolated civic build/validation/promotion workflow, an actual-export review sheet and regression coverage for district distribution, clearance, slopes, asset hashes, LODs and fallbacks.
+
+## 2026-09-06 - Grand citadel battle precinct
+
+- Replaced the serrated ridge with an original eroded mountain massif with broad shoulders and unequal peaks.
+- Rebuilt the citadel as a monumental keep with bastions, open arcades, three wide entrances and a 128 by 68 metre battle court. Extended the enclosing fortress to the north.
+- Authored and collision-tested two 18-person staging formations, wide approaches and flanking routes; added optional avatar-sized spacing markers to the isolated review page. This does not establish live 36-player networking or performance.
+- Expanded the reviewed Blender kit to 52 assets and 156 three-LOD exports, and reduced unnecessary terrain subdivision on flat city levels.
+
+## 2026-09-06 - Aegis mountainside
+
+- Raised the northern capital in terraces to a citadel 42 metres above the low canal district, with a winding ascent and exposed mountain ridge beyond the north wall.
+- Added deterministic baked elevation, terrain-conforming road beds, level building pads, deeper fortress foundations and a level terrace beneath the wall stairs.
+- Updated movement, saved-position recovery and regression checks to use the elevated ground rather than the former flat plane.
+
+## 2026-09-06 - Aegis density and material variety
+
+- Added 36 infill buildings, 135 street furnishings and eight court features across all five districts.
+- Expanded the high-resolution Blender kit to 47 assets and 141 GLBs with narrow rowhouses, workshops, awnings, carts, storage piles, greenery, washing lines, noticeboards and a fountain.
+- Added contrasting plaster, masonry and roof finishes, irregular PBR surface detail, separate paving and flagstone textures, and world-space weathering on city surfaces.
+
+## 2026-09-06 — Bastion of Aegis canal city
+
+- Rebuilt Aegis with five districts, winding brick walks, canals, six bridges, 98 ordinary houses, a citadel, eight exploration courts and six public interior entrances. Preserved campaign exits and local services.
+- Enclosed the city in fortress walls with towers, operable road gates, barred water gates and two stairways to the wall walk. Added canal collision, actual ground cutouts and safe recovery for obstructed saved positions.
+- Added 34 original Blender architecture assets with editable sources, 2048/1024 PBR maps, 102 validated GLB exports and manifest-backed review records. Shared textures, three runtime LODs and instanced static rendering reduce repeated asset costs.
+- Added city minimap geometry and district labels, four public room variants, an isolated runtime review page, and regression tests for routes, water, perimeter coverage, interiors and GM rendering transitions.
+
 ## 2026-09-06 â€” Keep commanders and functional abilities
 
 - Added Git LFS coverage for the new authoring masters and large review artifacts, and preserved exact Ember Arcanist source/QC bytes for cross-platform evidence verification.
@@ -295,3 +448,9 @@
 - Added a Warrior Priest hero rig profile with lowered arms and rebuilt the GLB at 5.67 MB / 77,644 vertices so pauldrons, forearm plates, gloves, and hammer grip align in idle instead of reading as an outstretched pose.
 - Rebuilt `character_empire_warrior_priest.glb` from the reference sheet with slate-blue worn plate, white tabard, brass skull-sun medallions, scripture/book belt accessories, black gauntlets, fuller beard, and a taller decorated hammer.
 - Corrected the Warrior Priest reference model structure with a solid breastplate barrel, filled lower undercoat, inward shoulder sockets, thicker connected arms/gloves, closer pauldrons, and visible accessory straps to reduce holes and floating parts.
+
+### Aegis people city integration
+
+Seven reviewed civic profiles now populate 15 stationary NPC placements: Gateward Market, Cinderbank, Lantern Quays, Bellfound Cloister, Crownwatch Garden and Great Hall. Children remain beside adults. The campaign generator checks clear ground against canal and prop footprints; existing services and patrols are retained. City NPCs use the reviewed middle LOD and custom idle-only civic rig. Rebuild with `npm run campaign:generate` and `npm run models:registry`; verify with `npx vitest run tests/aegisPeople.test.ts` and `npm run world:validate`.
+
+Civilian leather garments now have a contoured waist/chest, belt tension folds, curved hip panels, and laces fitted to the garment edge.

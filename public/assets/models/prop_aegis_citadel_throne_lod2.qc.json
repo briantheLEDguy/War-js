@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_throne",
+  "modelSha256": "d4fbe8d9a3c80c5cdcabcd2cb1585f2669416c361009febafec0ff47e03d2b19",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_citadel_throne_lod2.glb",
+    "triangles": 3386,
+    "bytes": 347972,
+    "sha256": "d4fbe8d9a3c80c5cdcabcd2cb1585f2669416c361009febafec0ff47e03d2b19",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_throne.glb",
+      "triangles": 14132,
+      "bytes": 1171272,
+      "sha256": "008ea674c1700e8c39de5fcb9fed09c2ea6427394bed38c9cc17c84edee30195",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_throne_lod1.glb",
+      "triangles": 7348,
+      "bytes": 648712,
+      "sha256": "8f929a48c1b9aa0c23504f8d81f65b2e4a1cb6193ba3050cbffcc7ed87876424",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_throne_lod2.glb",
+      "triangles": 3386,
+      "bytes": 347972,
+      "sha256": "d4fbe8d9a3c80c5cdcabcd2cb1585f2669416c361009febafec0ff47e03d2b19",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 10,
+    "depth": 8,
+    "height": 10
+  }
+}

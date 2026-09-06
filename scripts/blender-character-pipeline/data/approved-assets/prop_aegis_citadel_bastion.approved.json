@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_bastion",
+  "displayName": "Aegis Citadel Bastion",
+  "category": "prop",
+  "model": "prop_aegis_citadel_bastion.glb",
+  "qc": "prop_aegis_citadel_bastion.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_bastion"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "4947872def7649eceb4560328972227be9b83a95a6d773a2795233642def84be",
+    "qcSha256": "ce799ce5f5d5c04fe1beba2765ce95230dc144140bd87c810e2600d8823c028e",
+    "previews": {
+      "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:39:36.148941+00:00",
+    "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gothic_city_v1"
+    ],
+    "referencePackId": "original_aegis_architecture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_city.py"
+  },
+  "approvalState": "approved"
+}

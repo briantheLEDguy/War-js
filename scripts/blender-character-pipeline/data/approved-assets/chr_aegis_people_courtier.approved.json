@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.people.courtier",
+  "displayName": "Aegis Courtier",
+  "category": "character",
+  "model": "chr_aegis_people_courtier_lod1.glb",
+  "qc": "chr_aegis_people_courtier_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_people_courtier"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_people",
+    "bodyVariant": "m",
+    "skeletonId": "aegis_people_v1",
+    "bindPoseId": "civic_relaxed_v1"
+  },
+  "hashes": {
+    "modelSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+    "qcSha256": "8f40965cc92ad4951887b3d510ede5ac00d78ef7709ba3761fb4e459c224aa42",
+    "previews": {
+      "front": "4b84c8e8df9d854f3f5e74ddf69ee3e6bec60c7d3414dbbc072c98856bf0504e"
+    }
+  },
+  "previews": {
+    "front": "reviews/aegis-people/courtier_export_three_quarter.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex technical and exported-geometry review; user requested game integration",
+    "reviewedAt": "2026-09-06T18:36:41.103814+00:00",
+    "reviewHash": "7cadac71478ec1b4b9ffb364783e0075ac96033862529b7779aecb85b8908f48"
+  },
+  "provenance": {
+    "sourceSha256": "1bcbd3bfec9859ec51550550685b68501585d01df63f8c81219f2ed6ea213302",
+    "referenceSha256": "6d725a8ce540a907ad30da08964634013e6cbd21723dac01c055446f6b2ba4ef",
+    "limitations": "Stationary idle only; custom civic skeleton. Middle LOD used for city NPCs.",
+    "lods": {
+      "0": {
+        "file": "chr_aegis_people_courtier.glb",
+        "sha256": "b6d5146435f6073a087bfcfeb30e5298b08eecd13d4cb1e6690b927a071a4889",
+        "triangles": 141611,
+        "degenerate_uv_tangents": 112452
+      },
+      "1": {
+        "file": "chr_aegis_people_courtier_lod1.glb",
+        "sha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+        "triangles": 84965,
+        "degenerate_uv_tangents": 74341
+      },
+      "2": {
+        "file": "chr_aegis_people_courtier_lod2.glb",
+        "sha256": "74ee466b187acf039e9b4e007a17417384e32a57f85a145556da5e9b07fceaa5",
+        "triangles": 42476,
+        "degenerate_uv_tangents": 39163
+      }
+    }
+  }
+}

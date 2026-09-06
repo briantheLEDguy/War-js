@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.city_guard.standard",
+  "displayName": "Aegis City Guard Standard",
+  "category": "character",
+  "model": "chr_aegis_city_guard_standard.glb",
+  "qc": "chr_aegis_city_guard_standard.qc.json",
+  "runtime": {
+    "profileKey": "npc_aegis_city_guard_standard"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_city_guard",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "hashes": {
+    "modelSha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb",
+    "qcSha256": "714a17a57b43444b5d328833d2c5ff4384568562180a8cfbd36cfc106cf2de4d",
+    "previews": {
+      "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
+    }
+  },
+  "previews": {
+    "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
+  },
+  "approvalState": "approved",
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T13:57:33.180230+00:00",
+    "reviewHash": "b3c088aa30d181bce54320fc9916fc52f985968f68d7f7027a9a7645919a3c04"
+  },
+  "provenance": {
+    "sourcePackage": "authoring/blender/aegis-city-guards",
+    "referenceSha256": "f31670663828db556241bf17bd5df5f997b6633335e7b4ab7910d1b9162f1147",
+    "sourceSha256": "4bad66a65dfaf26944a093ed52517437387278692aee4cf6fbe19aae5dd85564",
+    "validationSha256": "94479ab260919a17e485dc7b5f48b26b2f772e507abc089fcfe2afc44a0dd038",
+    "geometry": "Adapted fitted armor cages, natural human head/neck and authored civic equipment; see derivation.json and anatomy/provenance.json",
+    "limitations": "Simplified cloth, fur and feathers; patrol holds over canonical motion, no dedicated reload animation"
+  }
+}

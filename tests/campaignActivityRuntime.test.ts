@@ -86,7 +86,7 @@ describe('Game campaign activity runtime', () => {
   let nowMs = 0;
 
   test('friendly capital standards do not replace expedition guidance with an unavailable defense', () => {
-    const game = createGame({ zoneId: 'aegis_capital', objectiveId: 'aegis_capital_plaza' });
+    const game = createGame({ zoneId: 'aegis_capital', objectiveId: 'aegis_capital_courtyard' });
     expect(game.campaignActivities(useGameStore.getState())).toEqual([]);
     expect(game.campaignActivity?.focus).toBeNull();
     game.updateObjectiveCapture(5000, false);

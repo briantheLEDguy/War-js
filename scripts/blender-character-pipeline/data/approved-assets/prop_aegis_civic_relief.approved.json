@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.civic_relief",
+  "displayName": "Aegis civic relief",
+  "category": "prop",
+  "model": "prop_aegis_civic_relief.glb",
+  "qc": "prop_aegis_civic_relief.qc.json",
+  "runtime": {
+    "staticKey": "aegis_civic_relief"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "038679ac5d6ceb8316e99fdcdd3da230a5f1fd59dcbe10896e51c1ea6d623853",
+    "qcSha256": "53b7d3c4840710457cdff23dd8649fd6c1e759e13324eb7f8318c498b0e5ecce",
+    "previews": {
+      "assembly": "b639da18945edb2bec99e8bc86f443dfc4e73066e197805ffc3ed2ac47a9fd02"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-city/review/civic-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T11:52:26.532Z",
+    "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_rich_civic_v1"
+    ],
+    "referencePackId": "original_civic_trade_and_canal_motifs",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_civic.py"
+  },
+  "approvalState": "approved"
+}

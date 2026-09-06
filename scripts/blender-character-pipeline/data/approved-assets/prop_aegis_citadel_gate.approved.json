@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.citadel_gate",
+  "displayName": "Aegis Citadel Gate",
+  "category": "prop",
+  "model": "prop_aegis_citadel_gate.glb",
+  "qc": "prop_aegis_citadel_gate.qc.json",
+  "runtime": {
+    "staticKey": "aegis_citadel_gate"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "e1a469d07537b5e85b0f07551431888930a804c019dec6dbc4b7b81af73197ed",
+    "qcSha256": "3d150935e936e5913213a5832fcf4ac924d410036e13936bbb172bdaed2fa8e2",
+    "previews": {
+      "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:39:36.148941+00:00",
+    "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gothic_city_v1"
+    ],
+    "referencePackId": "original_aegis_architecture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_city.py"
+  },
+  "approvalState": "approved"
+}

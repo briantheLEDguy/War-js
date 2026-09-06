@@ -55,10 +55,9 @@ for (const file of files) {
       }
       if (
         prop.interaction.type === 'house_portal' &&
-        prop.interaction.interiorVariant !== 'small' &&
-        prop.interaction.interiorVariant !== 'large'
+        !['small', 'large', 'tavern', 'shop', 'chapel', 'civic'].includes(prop.interaction.interiorVariant)
       ) {
-        errors.push(`${file}: props[${index}].interaction.interiorVariant must be small or large`);
+        errors.push(`${file}: props[${index}].interaction.interiorVariant is unknown`);
       }
       validatePositive(file, `props[${index}].interaction.maxDistance`, prop.interaction.maxDistance ?? 1);
     }

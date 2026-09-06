@@ -1,0 +1,20 @@
+{
+  "status": "reviewed",
+  "reviewedAt": "2026-09-06T13:57:33.180230+00:00",
+  "reviewedBy": "Codex local exported GLB inspection; not user aesthetic approval",
+  "validation_sha256": "94479ab260919a17e485dc7b5f48b26b2f772e507abc089fcfe2afc44a0dd038",
+  "anatomy_sha256": "f50a32f823c53697fc3a0ee910cd6e251ecabf349d172a1d9777668bd166bdf1",
+  "checks": [
+    "Natural uncovered jaw/chin/neck geometry checked in clay three-quarter view",
+    "Exported lineup and helmet side fit inspected",
+    "Halberd and crossbow two-hand front/side contact and walking views inspected",
+    "All 12 GLBs passed Khronos validation with zero errors",
+    "Complete tagged-mesh audit: 90 contact samples per armed variant, 270 total across nine clips"
+  ],
+  "limitations": [
+    "One NODE_SKINNED_MESH_NON_ROOT warning per export",
+    "Armor forms, cloth, fur and feathers are more stylized and simpler than the illustrated reference",
+    "Patrol grips reuse canonical torso and leg motion; no dedicated reload or weapon-specific attack animation",
+    "No live browser gameplay review performed"
+  ]
+}

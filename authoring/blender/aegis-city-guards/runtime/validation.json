@@ -1,0 +1,1123 @@
+{
+  "files": 12,
+  "errors": 0,
+  "warnings": 12,
+  "results": [
+    {
+      "variant": "standard",
+      "lod": "0",
+      "file": "chr_aegis_city_guard_standard.glb",
+      "sha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "standard",
+      "lod": "1",
+      "file": "chr_aegis_city_guard_standard_lod1.glb",
+      "sha256": "86f6dc0a97d2003dd6dcc4939d3164222520497f575d4992f44d1dc6e0069136",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "standard",
+      "lod": "2",
+      "file": "chr_aegis_city_guard_standard_lod2.glb",
+      "sha256": "9f230f53a6d121495374ec8d388919e36a602c192dbe99c29260f379064553bc",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "halberd",
+      "lod": "0",
+      "file": "chr_aegis_city_guard_halberd.glb",
+      "sha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "halberd",
+      "lod": "1",
+      "file": "chr_aegis_city_guard_halberd_lod1.glb",
+      "sha256": "9558cf090bfb62fbf8dce8b08a16e4db0ec890d4405017d53d2bc7e470e52a3a",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "halberd",
+      "lod": "2",
+      "file": "chr_aegis_city_guard_halberd_lod2.glb",
+      "sha256": "419b5550e617d8b6a05525e90f7c88fa177addbb2972e42d7b7c43aaa9907313",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "crossbow",
+      "lod": "0",
+      "file": "chr_aegis_city_guard_crossbow.glb",
+      "sha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "crossbow",
+      "lod": "1",
+      "file": "chr_aegis_city_guard_crossbow_lod1.glb",
+      "sha256": "70b874c9fa5b43af9a7106ecb5c9a589a5b14f5d9d95bbc72b979415472115ee",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "crossbow",
+      "lod": "2",
+      "file": "chr_aegis_city_guard_crossbow_lod2.glb",
+      "sha256": "3787d1154a4d781766f105bc174934c0965af330225cef42b58cc51a170901bc",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "captain",
+      "lod": "0",
+      "file": "chr_aegis_city_guard_captain.glb",
+      "sha256": "d4c0910ec7b022fe4e571a182f407e1e49e0bbb38f3141576d951b62f3ce3c5b",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "captain",
+      "lod": "1",
+      "file": "chr_aegis_city_guard_captain_lod1.glb",
+      "sha256": "f5c63498cb2df7a7a1ef74cfba3cad7dd5597240a27491c83d70f6f5549abd93",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "variant": "captain",
+      "lod": "2",
+      "file": "chr_aegis_city_guard_captain_lod2.glb",
+      "sha256": "ce0c4796ca24ff0eb9c7a9ca6ff6fbed76a76aa6944c6d0e5706e665e673db3f",
+      "animations": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "primitives": 9,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 10,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/6/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/7/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/8/attributes/TANGENT"
+          },
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/60"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  ]
+}

@@ -4,10 +4,13 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { clone as cloneSkeleton } from 'three/examples/jsm/utils/SkeletonUtils.js';
 import { useGameStore } from '../state/gameStore';
 import { buildCharacterMesh } from './CharacterMeshes';
+import { ResourceDisposer } from './ResourceDisposer';
+import { SharedTextureLoader } from './SharedTextureLoader';
 
 export type PrimitiveFactory = () => THREE.Object3D;
 
 interface IndexedModel {
+  animationPack?: CharacterAnimationPack;
   assetId?: string;
   model?: string;
   bodyModel?: string;
@@ -45,12 +48,20 @@ export interface EquipmentAssetResolution {
 }
 
 export interface CharacterAssetResolution {
+  animationPack?: CharacterAnimationPack;
   assetId?: string;
   model: string;
   bodyFamily?: string;
   bodyVariant?: string;
   skeletonId?: string;
   bindPoseId?: string;
+}
+
+export interface CharacterAnimationPack {
+  model: string;
+  skeletonId: string;
+  bindPoseId: string;
+  sha256: string;
 }
 
 export interface EquipmentCompatibilityContext {
@@ -197,14 +208,46 @@ function prepareLoadedModel(root: THREE.Object3D): void {
  * fallback path instead of mounting the authored file.
  */
 export class AssetLoader {
-  private gltfLoader = new GLTFLoader();
+  private resources = new ResourceDisposer();
+  private manager = new THREE.LoadingManager();
+  private sharedTextures = new SharedTextureLoader(this.manager, this.resources);
+  private gltfLoader = new GLTFLoader(this.manager);
   private texLoader = new THREE.TextureLoader();
   private rgbeLoader = new RGBELoader();
-  private modelCache = new Map<string, Promise<THREE.Object3D>>();
-  private animCache  = new Map<string, Promise<THREE.AnimationClip[]>>();
+  private modelCache = new Map<string, Promise<{ object: THREE.Object3D; animations: THREE.AnimationClip[] }>>();
   private texCache = new Map<string, Promise<THREE.Texture>>();
   private assetProbeCache = new Map<string, Promise<boolean>>();
   private assetIndex: Promise<AssetIndex | null> | null = null;
+  private animationPacks = new Map<string, Promise<THREE.AnimationClip[]>>();
+  private disposed = false;
+
+  constructor() {
+    this.manager.addHandler(/\.(?:png|jpe?g|webp)(?:[?#].*)?$/i, this.sharedTextures);
+  }
+
+  private assertActive(): void {
+    if (this.disposed) throw new Error('Asset loader disposed');
+  }
+
+  /** Call only when every consumer of this loader has stopped rendering. */
+  dispose(...roots: THREE.Object3D[]): void {
+    this.disposed = true;
+    for (const root of roots) {
+      this.resources.object(root);
+    }
+    for (const pending of this.modelCache.values()) {
+      void pending.then(({ object }) => this.resources.object(object), () => {});
+    }
+    for (const pending of this.texCache.values()) {
+      void pending.then(texture => this.resources.texture(texture), () => {});
+    }
+    this.sharedTextures.dispose();
+    this.modelCache.clear();
+    this.animationPacks.clear();
+    this.texCache.clear();
+    this.assetProbeCache.clear();
+    this.assetIndex = null;
+  }
 
   private async loadAssetIndex(): Promise<AssetIndex | null> {
     if (this.assetIndex) return this.assetIndex;
@@ -238,7 +281,43 @@ export class AssetLoader {
       bodyVariant: entry.bodyVariant,
       skeletonId: entry.skeletonId,
       bindPoseId: entry.bindPoseId,
+      animationPack: entry.animationPack,
     };
+  }
+
+  async loadCharacterAnimations(asset: CharacterAssetResolution, root: THREE.Object3D): Promise<THREE.AnimationClip[]> {
+    const pack = asset.animationPack;
+    if (!pack || pack.skeletonId !== asset.skeletonId || pack.bindPoseId !== asset.bindPoseId) return [];
+    const key = `${pack.model}:${pack.sha256}`;
+    let pending = this.animationPacks.get(key);
+    if (!pending) {
+      pending = (async () => {
+        try {
+          const response = await fetch(`${modelUrl(pack.model)}&motion=${encodeURIComponent(pack.sha256)}`);
+          if (!response.ok) throw new Error(`Animation pack HTTP ${response.status}`);
+          const bytes = await response.arrayBuffer();
+          const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map((b) => b.toString(16).padStart(2, '0')).join('');
+          if (digest !== pack.sha256) throw new Error('Animation pack hash mismatch');
+          this.assertActive();
+          const loaded = await this.gltfLoader.parseAsync(bytes, '');
+          this.assertActive();
+          return loaded.animations;
+        } catch (error) {
+          this.assertActive();
+          console.warn('[AssetLoader] animation pack fallback:', error);
+          useGameStore.getState().incAssetFallbacks();
+          return [];
+        }
+      })();
+      this.animationPacks.set(key, pending);
+    }
+    const animations = await pending;
+    const bones = new Set<string>();
+    root.traverse((node) => { if ((node as THREE.Bone).isBone) bones.add(node.name); });
+    // Do not bind incompatible tracks to similarly named meshes or sockets.
+    const valid = animations.length > 0 && animations.every((clip) => clip.tracks.every((track) => bones.has(track.name.split('.')[0])));
+    if (!valid) return [];
+    return animations;
   }
 
   async resolveCharacterModel(
@@ -311,6 +390,7 @@ export class AssetLoader {
   }
 
   private async canLoadAsset(url: string, expectedType?: 'image'): Promise<boolean> {
+    this.assertActive();
     const cached = this.assetProbeCache.get(url);
     if (cached) return cached;
     const probe = fetch(url, {
@@ -332,68 +412,42 @@ export class AssetLoader {
   }
 
   async loadModel(path: string, fallback: PrimitiveFactory): Promise<THREE.Object3D> {
-    const cached = this.modelCache.get(path);
-    if (cached) {
-      const obj = await cached;
-      return cloneSkeleton(obj);
-    }
-    const url = modelUrl(path);
-    const safePromise = this.canLoadAsset(url).then((canLoad) => {
-      if (!canLoad) {
-        console.warn(`[AssetLoader] model fallback for ${path}: asset missing`);
-        useGameStore.getState().incAssetFallbacks();
-        return fallback();
-      }
-      return this.gltfLoader
-        .loadAsync(url)
-        .then((g: GLTF) => {
-          prepareLoadedModel(g.scene);
-          return g.scene as THREE.Object3D;
-        })
-        .catch((err) => {
-          console.warn(`[AssetLoader] model fallback for ${path}:`, err.message);
-          useGameStore.getState().incAssetFallbacks();
-          return fallback();
-        });
-    });
-    this.modelCache.set(path, safePromise);
-    const base = await safePromise;
-    return cloneSkeleton(base);
+    return (await this.loadModelWithAnimations(path, fallback)).object;
   }
 
   async loadModelWithAnimations(
     path: string,
     fallback: PrimitiveFactory,
   ): Promise<{ object: THREE.Object3D; animations: THREE.AnimationClip[] }> {
-    const url = modelUrl(path);
-    const canLoad = await this.canLoadAsset(url);
-    if (!canLoad) {
-      console.warn(`[AssetLoader] model fallback for ${path}: asset missing`);
-      useGameStore.getState().incAssetFallbacks();
-      return { object: fallback(), animations: [] };
-    }
-
-    if (!this.animCache.has(path)) {
-      const p = this.gltfLoader
-        .loadAsync(url)
-        .then((g: GLTF) => {
-          prepareLoadedModel(g.scene);
-          if (!this.modelCache.has(path)) {
-            this.modelCache.set(path, Promise.resolve(g.scene));
-          }
-          return g.animations ?? [];
-        })
-        .catch((err) => {
-          console.warn(`[AssetLoader] loadModelWithAnimations fallback for ${path}:`, err.message);
+    this.assertActive();
+    let pending = this.modelCache.get(path);
+    if (!pending) {
+      pending = (async () => {
+        let result: { object: THREE.Object3D; animations: THREE.AnimationClip[] };
+        try {
+          const canLoad = await this.canLoadAsset(modelUrl(path));
+          this.assertActive();
+          if (!canLoad) throw new Error('asset missing');
+          const gltf: GLTF = await this.gltfLoader.loadAsync(modelUrl(path));
+          prepareLoadedModel(gltf.scene);
+          result = { object: gltf.scene, animations: gltf.animations ?? [] };
+        } catch (err) {
+          this.assertActive();
+          console.warn(`[AssetLoader] model fallback for ${path}:`, (err as Error).message);
           useGameStore.getState().incAssetFallbacks();
-          return [] as THREE.AnimationClip[];
-        });
-      this.animCache.set(path, p);
+          result = { object: fallback(), animations: [] };
+        }
+        if (this.disposed) {
+          this.resources.object(result.object);
+          this.assertActive();
+        }
+        return result;
+      })();
+      this.modelCache.set(path, pending);
     }
-
-    const animations = await this.animCache.get(path)!;
-    const object = await this.loadModel(path, fallback);
-    return { object, animations };
+    const { object, animations } = await pending;
+    this.assertActive();
+    return { object: cloneSkeleton(object), animations };
   }
 
   /**
@@ -416,39 +470,16 @@ export class AssetLoader {
       return { object, animations: [] };
     }
 
-    if (!canLoadPrimary) {
-      useGameStore.getState().incAssetFallbacks();
-      return { object: fallback(), animations: [] };
-    }
-
-    if (!this.animCache.has(primaryPath)) {
-      const p = this.gltfLoader
-        .loadAsync(primaryUrl)
-        .then((g: GLTF) => {
-          prepareLoadedModel(g.scene);
-          if (!this.modelCache.has(primaryPath)) {
-            this.modelCache.set(primaryPath, Promise.resolve(g.scene));
-          }
-          return g.animations ?? [];
-        })
-        .catch((err) => {
-          console.warn(`[AssetLoader] loadModelFull fallback for ${primaryPath}:`, err.message);
-          useGameStore.getState().incAssetFallbacks();
-          return [] as THREE.AnimationClip[];
-        });
-      this.animCache.set(primaryPath, p);
-    }
-
-    const animations = await this.animCache.get(primaryPath)!;
-    const object = await this.loadModel(primaryPath, fallback);
-    return { object, animations };
+    return this.loadModelWithAnimations(primaryPath, fallback);
   }
 
   async loadTexture(path: string, fallbackColor = 0x555555): Promise<THREE.Texture | null> {
+    this.assertActive();
     const cached = this.texCache.get(path);
     if (cached) return cached;
     const url = `${BASE}assets/textures/${path}`;
     const safePromise = this.canLoadAsset(url, 'image').then((canLoad) => {
+      this.assertActive();
       if (!canLoad) {
         console.warn(`[AssetLoader] texture fallback for ${path}: asset missing`);
         useGameStore.getState().incAssetFallbacks();
@@ -487,12 +518,15 @@ export class AssetLoader {
         });
     });
     this.texCache.set(path, safePromise);
-    return safePromise;
+    const texture = await safePromise;
+    this.assertActive();
+    return texture;
   }
 
   async loadHDRI(path: string): Promise<THREE.Texture | null> {
     const url = `${BASE}assets/hdri/${path}`;
     const canLoad = await this.canLoadAsset(url);
+    this.assertActive();
     if (!canLoad) {
       console.warn(`[AssetLoader] HDRI fallback for ${path}: asset missing`);
       useGameStore.getState().incAssetFallbacks();
@@ -500,9 +534,15 @@ export class AssetLoader {
     }
     try {
       const tex = await this.rgbeLoader.loadAsync(url);
+      if (this.disposed) {
+        this.resources.texture(tex);
+        this.assertActive();
+      }
       tex.mapping = THREE.EquirectangularReflectionMapping;
+      this.texCache.set(`hdri:${path}`, Promise.resolve(tex));
       return tex;
     } catch (err) {
+      this.assertActive();
       console.warn(`[AssetLoader] HDRI fallback for ${path}:`, (err as Error).message);
       useGameStore.getState().incAssetFallbacks();
       return null;

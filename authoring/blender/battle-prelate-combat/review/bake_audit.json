@@ -1,0 +1,92 @@
+{
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "fps": 120,
+  "sha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77",
+  "clips": [
+    {
+      "clip": "prelate_litany_a",
+      "frames": 109,
+      "maxFootTargetErrorM": 5.4294587208333294e-05,
+      "maxWristTargetErrorM": 6.851058706031362e-05
+    },
+    {
+      "clip": "prelate_litany_b",
+      "frames": 109,
+      "maxFootTargetErrorM": 3.884934200915887e-05,
+      "maxWristTargetErrorM": 0.00013607004482471647
+    },
+    {
+      "clip": "prelate_litany_c",
+      "frames": 127,
+      "maxFootTargetErrorM": 4.142387734413245e-05,
+      "maxWristTargetErrorM": 3.9470979299836075e-05
+    },
+    {
+      "clip": "prelate_sanctified",
+      "frames": 131,
+      "maxFootTargetErrorM": 3.9420179144871936e-05,
+      "maxWristTargetErrorM": 7.800242518340156e-05
+    },
+    {
+      "clip": "prelate_ward",
+      "frames": 103,
+      "maxFootTargetErrorM": 4.526207783050773e-05,
+      "maxWristTargetErrorM": 2.8188747622334045e-05
+    },
+    {
+      "clip": "prelate_penance",
+      "frames": 97,
+      "maxFootTargetErrorM": 5.2136772239577545e-05,
+      "maxWristTargetErrorM": 1.7324001822090515e-05
+    },
+    {
+      "clip": "prelate_hymn",
+      "frames": 133,
+      "maxFootTargetErrorM": 4.683196955813118e-05,
+      "maxWristTargetErrorM": 4.928140902296235e-06
+    },
+    {
+      "clip": "prelate_reliquary",
+      "frames": 143,
+      "maxFootTargetErrorM": 5.843766035696524e-05,
+      "maxWristTargetErrorM": 5.115830801283455e-05
+    },
+    {
+      "clip": "prelate_judgment",
+      "frames": 115,
+      "maxFootTargetErrorM": 4.8895251886040744e-05,
+      "maxWristTargetErrorM": 6.197681623642092e-05
+    },
+    {
+      "clip": "prelate_redemption",
+      "frames": 127,
+      "maxFootTargetErrorM": 4.487605363353781e-05,
+      "maxWristTargetErrorM": 2.1525860762291375e-06
+    },
+    {
+      "clip": "prelate_icon",
+      "frames": 133,
+      "maxFootTargetErrorM": 6.932447957944776e-05,
+      "maxWristTargetErrorM": 1.4007884114749456e-06
+    },
+    {
+      "clip": "prelate_homily",
+      "frames": 175,
+      "maxFootTargetErrorM": 4.796407884369835e-05,
+      "maxWristTargetErrorM": 1.644291654672295e-05
+    },
+    {
+      "clip": "combat_idle",
+      "frames": 289,
+      "maxFootTargetErrorM": 6.070047044183114e-06,
+      "maxWristTargetErrorM": 7.748603820800781e-07
+    },
+    {
+      "clip": "prelate_land",
+      "frames": 31,
+      "maxFootTargetErrorM": 3.744911140671494e-05,
+      "maxWristTargetErrorM": 6.80413845588617e-07
+    }
+  ]
+}

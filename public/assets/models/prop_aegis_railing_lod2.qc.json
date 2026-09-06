@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.railing",
+  "modelSha256": "c6adde4c6c59606eb15830465d202972d9909b56fa6193a5749f8ae0c67dbdcb",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_railing_lod2.glb",
+    "triangles": 412,
+    "bytes": 63652,
+    "sha256": "c6adde4c6c59606eb15830465d202972d9909b56fa6193a5749f8ae0c67dbdcb",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_railing.glb",
+      "triangles": 2068,
+      "bytes": 262024,
+      "sha256": "04cd62cbee20069c74202d45d07ee572a7b6308d8bf863e32218cf89ba1340e3",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_railing_lod1.glb",
+      "triangles": 1034,
+      "bytes": 156668,
+      "sha256": "18d15fe28a41bb3bc56889bde3d88197a471ab01db6f609bfee1a73d35a6df07",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_railing_lod2.glb",
+      "triangles": 412,
+      "bytes": 63652,
+      "sha256": "c6adde4c6c59606eb15830465d202972d9909b56fa6193a5749f8ae0c67dbdcb",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

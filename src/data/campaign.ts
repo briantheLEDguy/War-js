@@ -43,6 +43,8 @@ export interface CampaignObjectiveDefinition {
   z: number;
   captureRadius: number;
   defaultRealm: CampaignRealm;
+  /** Same-zone objectives that the capturing realm must still control. */
+  requiresObjectiveIds?: readonly string[];
 }
 
 export interface CampaignObjectiveStatus extends CampaignObjectiveDefinition {
@@ -206,7 +208,10 @@ export function buildCampaignSnapshot(
     const objectives = baseObjectives.map((objective) => {
       const captureBlockers: Partial<Record<CampaignRealm, string>> = {};
       const capturableBy = (Object.keys(CAMPAIGN_REALMS) as CampaignRealm[]).filter((realm) => {
-        const eligibility = campaignObjectiveCaptureEligibility(baseObjectives, objective, realm, influence);
+        const eligibility = campaignObjectiveCaptureEligibility(baseObjectives, objective, realm, influence, {
+          zoneId: zone.id,
+          zoneControl,
+        });
         if (!eligibility.capturable && eligibility.reason) captureBlockers[realm] = eligibility.reason;
         return eligibility.capturable;
       });
@@ -264,9 +269,27 @@ export function campaignObjectiveCaptureEligibility(
   objective: CampaignObjectiveDefinition & { control: CampaignControl },
   realm: CampaignRealm,
   influence: CampaignZoneInfluence,
+  context: { zoneId: string; zoneControl: CampaignZoneControlState },
 ): { capturable: boolean; reason?: string } {
   if (objective.control === realm) {
     return { capturable: false, reason: 'Already controlled' };
+  }
+
+  const zone = CAMPAIGN_ZONE_BY_ID[context.zoneId];
+  if (zone?.nodeRole === 'capital' && zone.realm !== realm) {
+    const requiredZones = realm === 'aegis' ? AEGIS_CITY_SIEGE_ZONES : RIFTBOUND_CITY_SIEGE_ZONES;
+    if (requiredZones.some((zoneId) =>
+      (context.zoneControl[zoneId] ?? defaultCampaignZoneControl(zoneId)) !== realm,
+    )) {
+      return { capturable: false, reason: 'Control the enemy T4 front, inner T4 zone, and fortress first' };
+    }
+  }
+
+  for (const prerequisiteId of objective.requiresObjectiveIds ?? []) {
+    const prerequisite = objectives.find((entry) => entry.id === prerequisiteId);
+    if (prerequisite?.control !== realm) {
+      return { capturable: false, reason: `Control ${prerequisite?.label ?? prerequisiteId} first` };
+    }
   }
 
   if (objective.type !== 'keep') return { capturable: true };

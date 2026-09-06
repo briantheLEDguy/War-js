@@ -13,7 +13,8 @@ export async function setupSky(
   renderer: THREE.WebGLRenderer,
   hdriPath?: string,
   viewDistance = DEFAULT_VIEW_DISTANCE,
-): Promise<{ sun: THREE.DirectionalLight }> {
+): Promise<{ sun: THREE.DirectionalLight; dispose: () => void }> {
+  let environmentTarget: THREE.WebGLRenderTarget | undefined;
   // Use a screen-space gradient for the player view, and keep the procedural
   // gradient sphere only for environment lighting below. Rendering a finite
   // sky sphere in the main scene causes circular frustum artifacts at long view
@@ -77,7 +78,8 @@ export async function setupSky(
       envScene.add(new THREE.Mesh(geo, mat));
       try {
         // The default capture far plane is 100, inside this radius-1400 sky.
-        scene.environment = pmrem.fromScene(envScene, 0.04, 0.1, 2000).texture;
+        environmentTarget = pmrem.fromScene(envScene, 0.04, 0.1, 2000);
+        scene.environment = environmentTarget.texture;
       } finally {
         pmrem.dispose();
       }
@@ -119,7 +121,12 @@ export async function setupSky(
   fill.position.set(-30, 20, -25);
   scene.add(fill);
 
-  return { sun };
+  return { sun, dispose: () => {
+    if (!environmentTarget) return;
+    if (scene.environment === environmentTarget.texture) scene.environment = null;
+    environmentTarget.dispose();
+    environmentTarget = undefined;
+  } };
 }
 
 export function applySceneViewDistance(scene: THREE.Scene, viewDistance: number): number {

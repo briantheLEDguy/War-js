@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.fountain",
+  "modelSha256": "47f0e1c754e0578a892c97f24b09d6dd1f47bf7d360ef8dcf5f434223e0500fa",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_fountain_lod1.glb",
+    "triangles": 2136,
+    "bytes": 325212,
+    "sha256": "47f0e1c754e0578a892c97f24b09d6dd1f47bf7d360ef8dcf5f434223e0500fa",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_fountain.glb",
+      "triangles": 4272,
+      "bytes": 516040,
+      "sha256": "8c94979e058908787dc9c5bc155ec19d5650c857e75570d26b50cc7b3e87da20",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_fountain_lod1.glb",
+      "triangles": 2136,
+      "bytes": 325212,
+      "sha256": "47f0e1c754e0578a892c97f24b09d6dd1f47bf7d360ef8dcf5f434223e0500fa",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_fountain_lod2.glb",
+      "triangles": 854,
+      "bytes": 132908,
+      "sha256": "2d3e867ca9366ac6507c224ff346e70b35bf659cab4306da426c67401b9488fa",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

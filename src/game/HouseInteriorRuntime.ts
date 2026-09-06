@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { AssetLoader } from './AssetLoader';
-import type { NpcState } from '../world/NpcSpawner';
+import { cityFallback, shareCityMaterials } from '../world/CityArchitecture';
+import { startNpcIdleAnimation, type NpcState } from '../world/NpcSpawner';
+import { aegisHouseResidentVariantFor } from '../data/modelOverrides';
 import type {
   HouseInteriorVariant,
   InteractiveHousePortal,
@@ -29,10 +31,14 @@ const DOOR_WIDTH = 2.1;
  * generated or GM-placed house can offer a consistent, collision-safe room.
  */
 export class HouseInteriorRuntime {
-  private interiors: Record<HouseInteriorVariant, HouseInteriorDefinition>;
+  private interiors: Record<string, HouseInteriorDefinition>;
   private activeVariant: HouseInteriorVariant | null = null;
+  private cityRoomsLoaded = false;
+  private cityRoomsLoading: Promise<void> | null = null;
+  private residentMixers = new Map<HouseInteriorVariant, THREE.AnimationMixer[]>();
+  private disposed = false;
 
-  constructor(scene: THREE.Scene) {
+  constructor(private scene: THREE.Scene) {
     this.interiors = {
       small: createInterior('small', new THREE.Vector3(960, 0, 960), 8.8, 6.4, 4.0),
       large: createInterior('large', new THREE.Vector3(1010, 0, 960), 11.0, 7.8, 4.6),
@@ -47,15 +53,101 @@ export class HouseInteriorRuntime {
     return this.activeVariant !== null;
   }
 
+  async loadCityRooms(loader: AssetLoader): Promise<void> {
+    if (this.cityRoomsLoaded || this.disposed) return;
+    if (this.cityRoomsLoading) return this.cityRoomsLoading;
+    this.cityRoomsLoading = this.loadCityRoomContents(loader);
+    try { await this.cityRoomsLoading; }
+    finally { this.cityRoomsLoading = null; }
+  }
+
+  private async loadCityRoomContents(loader: AssetLoader): Promise<void> {
+    for (const [index, variant] of (['tavern', 'shop', 'chapel', 'civic'] as const).entries()) {
+      if (this.disposed) return;
+      const room = createInterior(variant, new THREE.Vector3(1060 + index * 50, 0, 960), 12, 12, 5);
+      this.interiors[variant] = room;
+      room.group.visible = false;
+      this.scene.add(room.group);
+      // Retain the exit, lights and occupants; authored meshes replace the old
+      // domestic shell and furniture for these public-building variants.
+      for (const child of [...room.group.children]) {
+        if (child === room.exitPortal.object || child instanceof THREE.Light || child.name.includes('resident')) continue;
+        room.group.remove(child);
+        child.traverse(node => {
+          if (node instanceof THREE.Mesh) { node.geometry.dispose(); }
+        });
+      }
+      const shell = await loader.loadModel('prop_aegis_room.glb', () => cityFallback('aegis_room'));
+      if (this.disposed) return;
+      shareCityMaterials(shell, loader); room.group.add(shell);
+      const furniture: Array<{kind:string;x:number;z:number}> = variant === 'chapel'
+        ? [{kind:'altar',x:0,z:-4},{kind:'table',x:-3,z:0},{kind:'table',x:3,z:0}]
+        : variant === 'shop' ? [{kind:'stall',x:-3,z:-2},{kind:'table',x:3,z:-3}]
+        : variant === 'civic' ? [{kind:'table',x:0,z:-4},{kind:'table',x:-3,z:0},{kind:'table',x:3,z:0}]
+        : [{kind:'table',x:-3,z:-3},{kind:'table',x:3,z:-3},{kind:'table',x:-3,z:1},{kind:'table',x:3,z:1}];
+      for (const [i, item] of furniture.entries()) {
+        const object=await loader.loadModel(`prop_aegis_${item.kind}.glb`,()=>cityFallback(`aegis_${item.kind}`));
+        if (this.disposed) return;
+        shareCityMaterials(object,loader); object.position.set(item.x,0,item.z);room.group.add(object);
+        room.colliders.push({id:`${variant}-furniture-${i}`,x:room.anchor.x+item.x,z:room.anchor.z+item.z,width:3,depth:2.6,rotY:0,minY:0,maxY:1.7,blocksWhen:'always'});
+      }
+      room.occupants.forEach((npc,i)=>{
+        npc.title = variant === 'tavern' ? 'Tavern Guest' : variant === 'chapel' ? 'Vigil Attendant' : variant === 'shop' ? 'Shop Assistant' : 'Civic Clerk';
+        const person=room.group.getObjectByName(`${variant}-resident-${i+1}`);
+        if(person) { person.position.set(i===0?-4.8:4.8,0,-4.8);npc.position.x=room.anchor.x+person.position.x;npc.position.z=room.anchor.z+person.position.z; }
+      });
+      room.exitPortal.label = 'Return to the city';
+    }
+    for (const room of Object.values(this.interiors)) {
+      const mixers: THREE.AnimationMixer[] = [];
+      this.residentMixers.set(room.variant, mixers);
+      for (const [index, npc] of room.occupants.entries()) {
+        const placeholder = room.group.getObjectByName(npc.id);
+        if (!placeholder || this.disposed) return;
+        const selection = aegisHouseResidentVariantFor(room.variant, index);
+        const model = await loader.resolveCharacterModel(selection.profileKey) ?? selection.fallbackModel;
+        if (this.disposed) return;
+        const { object, animations } = await loader.loadModelFull(model, AssetLoader.primitives.humanoid);
+        if (this.disposed) { releaseResidentSkeletons(object); return; }
+        object.name = npc.id;
+        object.position.copy(placeholder.position);
+        object.rotation.copy(placeholder.rotation);
+        // Revision4 bodies already carry their adult/child proportions and scale.
+        object.traverse(node => { if (node instanceof THREE.Mesh) node.castShadow = true; });
+        room.group.remove(placeholder);
+        placeholder.traverse(node => {
+          if (node instanceof THREE.Mesh) node.geometry.dispose();
+        });
+        room.group.add(object);
+        const mixer = startNpcIdleAnimation(object, animations);
+        if (mixer) mixers.push(mixer);
+      }
+    }
+    this.cityRoomsLoaded = true;
+  }
+
+  update(dt: number): void {
+    if (!this.activeVariant || this.disposed) return;
+    for (const mixer of this.residentMixers.get(this.activeVariant) ?? []) mixer.update(dt);
+  }
+
   get activeInterior(): HouseInteriorDefinition | null {
     return this.activeVariant ? this.interiors[this.activeVariant] : null;
   }
 
+  /** Off-map rooms have their own floor; the city heightfield must not lift occupants. */
+  getFloorHeightAt(x: number, z: number): number | null {
+    const room = this.activeInterior;
+    if (!room || Math.abs(x - room.anchor.x) > room.width / 2 + WALL_THICKNESS
+      || Math.abs(z - room.anchor.z) > room.depth / 2 + WALL_THICKNESS) return null;
+    return room.anchor.y;
+  }
+
   enter(variant: HouseInteriorVariant): HouseInteriorDefinition {
     this.deactivate();
-    const interior = this.interiors[variant];
+    const interior = this.interiors[variant] ?? this.interiors.small;
     interior.group.visible = true;
-    this.activeVariant = variant;
+    this.activeVariant = interior.variant;
     return interior;
   }
 
@@ -81,9 +173,28 @@ export class HouseInteriorRuntime {
   }
 
   dispose(scene: THREE.Scene): void {
-    for (const interior of Object.values(this.interiors)) scene.remove(interior.group);
+    this.disposed = true;
+    for (const mixers of this.residentMixers.values()) {
+      for (const mixer of mixers) { mixer.stopAllAction(); mixer.uncacheRoot(mixer.getRoot()); }
+    }
+    this.residentMixers.clear();
+    const releasedSkeletons = new Set<THREE.Skeleton>();
+    for (const interior of Object.values(this.interiors)) {
+      releaseResidentSkeletons(interior.group, releasedSkeletons);
+      scene.remove(interior.group);
+    }
     this.deactivate();
   }
+}
+
+/** Instance skeletons own bone textures; geometry/materials remain loader-owned. */
+function releaseResidentSkeletons(root: THREE.Object3D, released = new Set<THREE.Skeleton>()): void {
+  root.traverse(node => {
+    if (node instanceof THREE.SkinnedMesh && !released.has(node.skeleton)) {
+      released.add(node.skeleton);
+      node.skeleton.dispose();
+    }
+  });
 }
 
 function createInterior(

@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_feast_table",
+  "modelSha256": "c007f3c56d592d95b2d5c1d0e9991e7ff4043656e99cc0c2b37682e9e6065b77",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_feast_table_lod1.glb",
+    "triangles": 6618,
+    "bytes": 547604,
+    "sha256": "c007f3c56d592d95b2d5c1d0e9991e7ff4043656e99cc0c2b37682e9e6065b77",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_feast_table.glb",
+      "triangles": 12728,
+      "bytes": 912064,
+      "sha256": "17341d136ea6c98b4d2614629d21f614871280fa961ca5da787533409c3f0eee",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_feast_table_lod1.glb",
+      "triangles": 6618,
+      "bytes": 547604,
+      "sha256": "c007f3c56d592d95b2d5c1d0e9991e7ff4043656e99cc0c2b37682e9e6065b77",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_feast_table_lod2.glb",
+      "triangles": 3054,
+      "bytes": 292436,
+      "sha256": "d77a4f91c99c0391a828450126f9e63583e6b97f686739b5a17dba93af6e1cda",
+      "repairedDegenerateTangents": 1
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 7,
+    "depth": 3,
+    "height": 1.7
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_hearth",
+  "modelSha256": "1ef7e79483b21b82f0bc8ce489cecdd1bf21d083b911eceae8fa7d001d5c02fc",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_citadel_hearth_lod2.glb",
+    "triangles": 1350,
+    "bytes": 137900,
+    "sha256": "1ef7e79483b21b82f0bc8ce489cecdd1bf21d083b911eceae8fa7d001d5c02fc",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_hearth.glb",
+      "triangles": 5626,
+      "bytes": 504900,
+      "sha256": "c0ae862f4e6ff38f27dc0222a0a9e17d6b30f74155239c2ce43c633c5c3ab3b5",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_hearth_lod1.glb",
+      "triangles": 2925,
+      "bytes": 295816,
+      "sha256": "1c8122a5ee2a0c77e620bf9490fe4c2ec359afe3df45084c5adeff44e500e485",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_hearth_lod2.glb",
+      "triangles": 1350,
+      "bytes": 137900,
+      "sha256": "1ef7e79483b21b82f0bc8ce489cecdd1bf21d083b911eceae8fa7d001d5c02fc",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 6,
+    "depth": 3,
+    "height": 6
+  }
+}

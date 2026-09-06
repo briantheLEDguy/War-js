@@ -1,0 +1,15 @@
+{
+  "assetId": "chr.aegis.people.civilian_male",
+  "model": "chr_aegis_people_civilian_male_lod1.glb",
+  "modelSha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+  "triangles": 100487,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle"
+  ],
+  "usage": "stationary NPC",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "review": "reviews/aegis-people/runtime-audit.json"
+}

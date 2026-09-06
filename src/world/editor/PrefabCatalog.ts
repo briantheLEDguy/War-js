@@ -1,4 +1,5 @@
 import type { Vec3, WorldPropObject } from '../../services/types';
+import generatedPrefabs from './prefabs.generated.json';
 
 export interface PrefabFootprint {
   width: number;
@@ -15,9 +16,12 @@ export interface WorldEditorPrefabDefinition {
   fallbackKind?: string;
   footprint: PrefabFootprint;
   defaultScale?: Vec3;
+  colliderSpace?: WorldPropObject['colliderSpace'];
   colliders?: WorldPropObject['colliders'];
   walkableSurfaces?: WorldPropObject['walkableSurfaces'];
   cameraSolid?: boolean;
+  lodModels?: string[];
+  interaction?: Omit<NonNullable<WorldPropObject['interaction']>, 'id'>;
 }
 
 const DEFAULT_SCALE: Vec3 = { x: 1, y: 1, z: 1 };
@@ -175,6 +179,22 @@ export const WORLD_EDITOR_PREFABS: WorldEditorPrefabDefinition[] = [
   fortressPrefab('town_fortress_banner', 'Torn War Banner', 'prop_town_fortress_banner.glb', 3.5, 1.5, [{ width: 1.5, depth: 1.5 }]),
   fortressPrefab('town_fortress_barricade', 'Siege Barricade', 'prop_town_fortress_barricade.glb', 6.5, 2.8, [{ width: 6.5, depth: 2.8 }], undefined, 'x'),
 ];
+
+for (const generated of generatedPrefabs as WorldEditorPrefabDefinition[]) {
+  const existing = WORLD_EDITOR_PREFABS.find(p => p.kind === generated.kind);
+  if (!existing) WORLD_EDITOR_PREFABS.push(generated);
+  else if (existing.model === generated.model && !generated.interaction) {
+    existing.assetKey ??= generated.assetKey;
+  }
+  else if (existing.model !== generated.model || generated.interaction) {
+    WORLD_EDITOR_PREFABS.push({ ...generated, kind: `${generated.kind}__world`, label: `${generated.label} (World)` });
+  }
+}
+
+export function prefabDefaultInteractionForKind(kind: string, objectId: string): WorldPropObject['interaction'] {
+  const interaction = clone(prefabDefinitionForKind(kind)?.interaction);
+  return interaction ? { ...interaction, id: `${objectId}-interaction` } : undefined;
+}
 
 const PREFABS_BY_KIND = new Map(WORLD_EDITOR_PREFABS.map((prefab) => [prefab.kind, prefab]));
 

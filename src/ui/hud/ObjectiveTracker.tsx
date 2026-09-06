@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Game } from '../../game/Game';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
 import { campaignZoneName } from '../../data/campaign';
 import { useGameStore } from '../../state/gameStore';
 import {
@@ -121,7 +122,6 @@ function usePlayerPosition(
       return;
     }
 
-    let raf = 0;
     let lastUpdate = 0;
     const loop = (now: number) => {
       if (now - lastUpdate > 300) {
@@ -129,11 +129,9 @@ function usePlayerPosition(
         const playerPos = game.playerPos;
         setPosition({ x: playerPos.x, z: playerPos.z });
       }
-      raf = requestAnimationFrame(loop);
     };
 
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
+    return startForegroundLoop(loop, () => 4);
   }, [fallback, game]);
 
   return position;

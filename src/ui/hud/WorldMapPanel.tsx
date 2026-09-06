@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent } from 'react';
 import type { Game } from '../../game/Game';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
 import type { CharacterState, QuestProgress } from '../../services/types';
 import { useGameStore, type EnemyState } from '../../state/gameStore';
 import type {
@@ -72,7 +73,6 @@ function LegacyWorldMapPanel({ game }: Props) {
     dragClassName,
   } = useDraggableWindow<HTMLElement>({ draggedPosition: 'fixed' });
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef = useRef(0);
   const hoverTargetsRef = useRef<MapHoverTarget[]>([]);
   const zone = game?.zoneDefinition ?? null;
   const enemies = useGameStore((state) => state.enemies);
@@ -113,11 +113,9 @@ function LegacyWorldMapPanel({ game }: Props) {
         width: size.width,
         zone,
       });
-      rafRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
-    return () => cancelAnimationFrame(rafRef.current);
+    return startForegroundLoop(draw, () => 15);
   }, [character, enemies, game, layers, markerVisible, npcs, quests, zone]);
 
   const stats = useMemo(() => zone ? zoneStats(zone, enemies) : null, [enemies, zone]);
@@ -276,7 +274,6 @@ export function ZoneMapCanvas({
   showPlayer,
 }: ZoneMapCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef = useRef(0);
   const hoverTargetsRef = useRef<MapHoverTarget[]>([]);
   const [hoveredLocation, setHoveredLocation] = useState<MapHoverTarget | null>(null);
 
@@ -301,11 +298,9 @@ export function ZoneMapCanvas({
         width: size.width,
         zone,
       });
-      rafRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
-    return () => cancelAnimationFrame(rafRef.current);
+    return startForegroundLoop(draw, () => 15);
   }, [character, enemies, game, layers, markerVisible, npcs, quests, renderScale, showPlayer, zone]);
 
   function handlePointerMove(event: PointerEvent<HTMLCanvasElement>) {

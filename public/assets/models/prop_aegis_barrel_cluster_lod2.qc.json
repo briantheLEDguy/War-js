@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.barrel_cluster",
+  "modelSha256": "7b435bf52aca58e00b421b1a68d8b7d6b22de5ccf4578c7b91c00b5088a2a18b",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_barrel_cluster_lod2.glb",
+    "triangles": 452,
+    "bytes": 71104,
+    "sha256": "7b435bf52aca58e00b421b1a68d8b7d6b22de5ccf4578c7b91c00b5088a2a18b",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_barrel_cluster.glb",
+      "triangles": 2268,
+      "bytes": 256692,
+      "sha256": "cb70456729142cc00d8a9983ed81318e5409e25a61c706fe1d22fa1e5b0eb979",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_barrel_cluster_lod1.glb",
+      "triangles": 1134,
+      "bytes": 173400,
+      "sha256": "c1f86b36f3b6bbfa306b666b131f1897c52698e296a7fb03b1f67a3748a2c9cb",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_barrel_cluster_lod2.glb",
+      "triangles": 452,
+      "bytes": 71104,
+      "sha256": "7b435bf52aca58e00b421b1a68d8b7d6b22de5ccf4578c7b91c00b5088a2a18b",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

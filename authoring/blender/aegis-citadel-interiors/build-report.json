@@ -1,0 +1,492 @@
+[
+  {
+    "kind": "citadel_throne",
+    "envelope": {
+      "width": 10,
+      "depth": 8,
+      "height": 10
+    },
+    "sourceTriangles": 14132,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_throne.glb",
+        "triangles": 14132,
+        "bytes": 1171272,
+        "sha256": "008ea674c1700e8c39de5fcb9fed09c2ea6427394bed38c9cc17c84edee30195",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_throne_lod1.glb",
+        "triangles": 7348,
+        "bytes": 648712,
+        "sha256": "8f929a48c1b9aa0c23504f8d81f65b2e4a1cb6193ba3050cbffcc7ed87876424",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_throne_lod2.glb",
+        "triangles": 3386,
+        "bytes": 347972,
+        "sha256": "d4fbe8d9a3c80c5cdcabcd2cb1585f2669416c361009febafec0ff47e03d2b19",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_war_table",
+    "envelope": {
+      "width": 6,
+      "depth": 4,
+      "height": 2
+    },
+    "sourceTriangles": 7896,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_war_table.glb",
+        "triangles": 7896,
+        "bytes": 721364,
+        "sha256": "06bc1980923eceb8c8e271162f067522a161de689e39546882a210ccf6509238",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_war_table_lod1.glb",
+        "triangles": 4098,
+        "bytes": 421496,
+        "sha256": "d95c09e9808a0cc3c12dba299569aae47164cca9174f97c769da60c90de88331",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_war_table_lod2.glb",
+        "triangles": 1873,
+        "bytes": 222644,
+        "sha256": "796474e0c2aa72f0632c28022ef9ed03c07b58f9d8ba1bfab3b018fd72ab5047",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_arms_rack",
+    "envelope": {
+      "width": 5,
+      "depth": 2,
+      "height": 3.5
+    },
+    "sourceTriangles": 3422,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_arms_rack.glb",
+        "triangles": 3422,
+        "bytes": 321792,
+        "sha256": "ed0758846f526d848a47d40ec25ce588a0709058cb83b9644f88e4d717c25f84",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_arms_rack_lod1.glb",
+        "triangles": 1778,
+        "bytes": 186148,
+        "sha256": "0d516dd1b52ae0560e55aba2d551135bcb2422d6c68a1a3023b2f43afc6ff889",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_arms_rack_lod2.glb",
+        "triangles": 821,
+        "bytes": 89420,
+        "sha256": "73cb80e95d7f6c82479f060cb266c6c0c6e9ae21dd7a0e089544b7d58555ffe9",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_provision_rack",
+    "envelope": {
+      "width": 5,
+      "depth": 2,
+      "height": 3
+    },
+    "sourceTriangles": 9652,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_provision_rack.glb",
+        "triangles": 9652,
+        "bytes": 732088,
+        "sha256": "9a9e8c1ead84adf5793105fb7737d1369d2a5b8c38e47cc77a82ef1f91300502",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_provision_rack_lod1.glb",
+        "triangles": 5014,
+        "bytes": 374536,
+        "sha256": "308b90d9d08302773af2f0840c36c19fa62d67b1404643163caf0465668807b1",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_provision_rack_lod2.glb",
+        "triangles": 2309,
+        "bytes": 217320,
+        "sha256": "f9bfe915eaf89ce2bbc061d6ac86fa28a48fb583f7f4eb19989e0a20159a098d",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_hearth",
+    "envelope": {
+      "width": 6,
+      "depth": 3,
+      "height": 6
+    },
+    "sourceTriangles": 5626,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_hearth.glb",
+        "triangles": 5626,
+        "bytes": 504900,
+        "sha256": "c0ae862f4e6ff38f27dc0222a0a9e17d6b30f74155239c2ce43c633c5c3ab3b5",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_hearth_lod1.glb",
+        "triangles": 2925,
+        "bytes": 295816,
+        "sha256": "1c8122a5ee2a0c77e620bf9490fe4c2ec359afe3df45084c5adeff44e500e485",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_hearth_lod2.glb",
+        "triangles": 1350,
+        "bytes": 137900,
+        "sha256": "1ef7e79483b21b82f0bc8ce489cecdd1bf21d083b911eceae8fa7d001d5c02fc",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_archive",
+    "envelope": {
+      "width": 5,
+      "depth": 1.5,
+      "height": 5
+    },
+    "sourceTriangles": 17676,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_archive.glb",
+        "triangles": 17676,
+        "bytes": 2061764,
+        "sha256": "2c0a48f7faf58fab162621954a6f5952602205099ad34c5d3776e08282256ad6",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_archive_lod1.glb",
+        "triangles": 9190,
+        "bytes": 1148792,
+        "sha256": "41430c81e00c144199920b2a0bde39f8cba741e475ab4a70a6f4b72368f46975",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_archive_lod2.glb",
+        "triangles": 4242,
+        "bytes": 549232,
+        "sha256": "8f028b41f1064acdd00e2eccd68e9f294ae7fe23045b51eb0cfb5ac5bfb3e474",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_counting_desk",
+    "envelope": {
+      "width": 4,
+      "depth": 2.5,
+      "height": 2
+    },
+    "sourceTriangles": 5924,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_counting_desk.glb",
+        "triangles": 5924,
+        "bytes": 550492,
+        "sha256": "9d6a26f6c930e4da6497ed17fe64d1c5ee01448fb401a2f43cfb4f0f762cce8e",
+        "repairedDegenerateTangents": 2
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_counting_desk_lod1.glb",
+        "triangles": 3071,
+        "bytes": 337092,
+        "sha256": "fefe661cb0fb717c52daac365e321861658da75544225c05a4e9f6adc4ab40ba",
+        "repairedDegenerateTangents": 2
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_counting_desk_lod2.glb",
+        "triangles": 1416,
+        "bytes": 163144,
+        "sha256": "7806e8225c225cb0c0673e82aa7bb4d1a3f261774f427e85759f3a197d83d774",
+        "repairedDegenerateTangents": 2
+      }
+    ]
+  },
+  {
+    "kind": "citadel_treasury",
+    "envelope": {
+      "width": 5,
+      "depth": 4,
+      "height": 3.5
+    },
+    "sourceTriangles": 12328,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_treasury.glb",
+        "triangles": 12328,
+        "bytes": 1172124,
+        "sha256": "a49dd2421e3cbd5097f0cc94a9e188529d407a49799e3628d0ea349a5dcae778",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_treasury_lod1.glb",
+        "triangles": 6410,
+        "bytes": 633156,
+        "sha256": "52dfe5a9cb9fb32ba236cb4edabfc91a4d220da01fc63ccecb8f4955981f16dd",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_treasury_lod2.glb",
+        "triangles": 2955,
+        "bytes": 343920,
+        "sha256": "d4408333cfae1610736861fc23b7f9bbdd66cc07c4a62691890cfdd1b56288ef",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_reliquary",
+    "envelope": {
+      "width": 3,
+      "depth": 3,
+      "height": 5
+    },
+    "sourceTriangles": 4360,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_reliquary.glb",
+        "triangles": 4360,
+        "bytes": 322996,
+        "sha256": "4967285ce0feaacca631ba35bc1bd083fa25369c90470381821b8ea7fff90736",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_reliquary_lod1.glb",
+        "triangles": 2266,
+        "bytes": 180104,
+        "sha256": "deb1330f5688a1fc6f4a59fa9886a17c23124db2e6cb81d281ab331b0de88264",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_reliquary_lod2.glb",
+        "triangles": 1046,
+        "bytes": 99452,
+        "sha256": "638f5180b514c93011eb702a9195bed21b1bc3e2b70a1b38c62907f72847f484",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_chandelier",
+    "envelope": {
+      "width": 8,
+      "depth": 8,
+      "height": 3
+    },
+    "sourceTriangles": 23828,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_chandelier.glb",
+        "triangles": 23828,
+        "bytes": 1880692,
+        "sha256": "b3f52a8168e64fd72eb56556ad082b58ceed04b698dd5f9e91de716e4d93aaa1",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_chandelier_lod1.glb",
+        "triangles": 12390,
+        "bytes": 1029352,
+        "sha256": "5b9b6cafdafe0d6ee3b5bb68ac132afbe5ee84923103d3e62b0505760dcfd750",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_chandelier_lod2.glb",
+        "triangles": 5717,
+        "bytes": 505756,
+        "sha256": "1a40c6320430ac0466b34af7ac9085e0f3089d14b8d0cc3588c704a0652cceff",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_tapestry",
+    "envelope": {
+      "width": 5,
+      "depth": 0.4,
+      "height": 8
+    },
+    "sourceTriangles": 12116,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_tapestry.glb",
+        "triangles": 12116,
+        "bytes": 875472,
+        "sha256": "c89e64236b2c014f2a5505fed3987e59310072de73d4021699735c8f3ecdce1d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_tapestry_lod1.glb",
+        "triangles": 6300,
+        "bytes": 501388,
+        "sha256": "d13dd07e3352c520b446a7d574e4be9fd712d5c4849506a2649c3c5fc3d81286",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_tapestry_lod2.glb",
+        "triangles": 2906,
+        "bytes": 209536,
+        "sha256": "e2bad50091bd3b6217939efd9000280b9712dede3e63524c5dcd2a423ce44214",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_oath_statue",
+    "envelope": {
+      "width": 4,
+      "depth": 4,
+      "height": 8
+    },
+    "sourceTriangles": 8118,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_oath_statue.glb",
+        "triangles": 8118,
+        "bytes": 588164,
+        "sha256": "b368f2ef85cde8d65d09f40ebb12c1b28cb2bac9c8381c0717a6196f4991dc92",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_oath_statue_lod1.glb",
+        "triangles": 4220,
+        "bytes": 327752,
+        "sha256": "d25b5e39fb6cdba231c4d8170e344cbc50f92ea256cb997c96f43ec2ff48915d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_oath_statue_lod2.glb",
+        "triangles": 1947,
+        "bytes": 176812,
+        "sha256": "0537eb763f4af9be76acbe9b63b64de4a785061b9af1ee31b4c77e5845f9902e",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_bunk",
+    "envelope": {
+      "width": 3,
+      "depth": 5,
+      "height": 3
+    },
+    "sourceTriangles": 9128,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_bunk.glb",
+        "triangles": 9128,
+        "bytes": 664388,
+        "sha256": "b709e6db0f1c73b7f2d6d041513e025c0526caa99b02fb1f9e2e1e3644724b8d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_bunk_lod1.glb",
+        "triangles": 4746,
+        "bytes": 385128,
+        "sha256": "5b1b33aac1127c2d1a5a8528caa19177b96ac83a712d7bb64c8a5a835c1bc47d",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_bunk_lod2.glb",
+        "triangles": 2189,
+        "bytes": 188604,
+        "sha256": "9469dd4aaf45972cd5601d8a02b36439ab2a51f2246c2321c2425e5a845a24c0",
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "citadel_feast_table",
+    "envelope": {
+      "width": 7,
+      "depth": 3,
+      "height": 1.7
+    },
+    "sourceTriangles": 12728,
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_aegis_citadel_feast_table.glb",
+        "triangles": 12728,
+        "bytes": 912064,
+        "sha256": "17341d136ea6c98b4d2614629d21f614871280fa961ca5da787533409c3f0eee",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_aegis_citadel_feast_table_lod1.glb",
+        "triangles": 6618,
+        "bytes": 547604,
+        "sha256": "c007f3c56d592d95b2d5c1d0e9991e7ff4043656e99cc0c2b37682e9e6065b77",
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_aegis_citadel_feast_table_lod2.glb",
+        "triangles": 3054,
+        "bytes": 292436,
+        "sha256": "d77a4f91c99c0391a828450126f9e63583e6b97f686739b5a17dba93af6e1cda",
+        "repairedDegenerateTangents": 1
+      }
+    ]
+  }
+]

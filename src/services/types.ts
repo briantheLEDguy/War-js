@@ -166,6 +166,8 @@ export interface WorldPropObject extends WorldObjectBase {
   kind: string;
   model?: string;
   assetKey?: string;
+  /** Absent on legacy edits; model space follows the rendered mesh's yaw. */
+  colliderSpace?: 'model';
   colliders?: Array<{
     id?: string;
     x?: number;
@@ -198,7 +200,7 @@ export interface WorldPropInteraction {
   label?: string;
   maxDistance?: number;
   /** Reusable furnished interior selected by an exterior house door. */
-  interiorVariant?: 'small' | 'large';
+  interiorVariant?: 'small' | 'large' | 'tavern' | 'shop' | 'chapel' | 'civic';
   openClip?: string;
   closeClip?: string;
   startsOpen?: boolean;

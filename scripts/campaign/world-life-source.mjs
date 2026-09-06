@@ -90,6 +90,8 @@ const SHIFT_OPTIONS = [
 
 /** Decorate a fully built zone before its static hash is calculated. */
 export function decorateWorldLife(zone) {
+  // The capital rebuild authors its population against the canal street network.
+  if (zone.cityLayoutVersion === 'gothic-canals-v1') return zone;
   if (!WORLD_LIFE_ZONE_IDS.includes(zone.id)) return zone;
 
   const prefix = `${zone.id}_life_`;

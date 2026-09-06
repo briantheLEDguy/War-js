@@ -118,11 +118,21 @@ export interface AbilityAnimationWindow {
   end: number;
 }
 
+export interface AbilityMotionVariant {
+  clip: string;
+  durationSec: number;
+  contactSec: number;
+}
+
 export interface AbilityAnimation {
   actionId: string;
   clip: string;
   durationSec: number;
   upperBodyOnly?: boolean;
+  contactSec?: number;
+  variants?: AbilityMotionVariant[];
+  blendInSec?: number;
+  blendOutSec?: number;
   notifyWindows: AbilityAnimationWindow[];
 }
 

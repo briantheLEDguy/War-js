@@ -1,0 +1,15 @@
+{
+  "assetId": "chr.aegis.people.lord",
+  "model": "chr_aegis_people_lord_lod1.glb",
+  "modelSha256": "ffefaa908c343a0dbcb607da0156100d9be342050f1ce5ea3650d101a72f935c",
+  "triangles": 102982,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle"
+  ],
+  "usage": "stationary NPC",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "review": "reviews/aegis-people/runtime-audit.json"
+}

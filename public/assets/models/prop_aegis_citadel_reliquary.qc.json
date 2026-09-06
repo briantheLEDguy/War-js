@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_reliquary",
+  "modelSha256": "4967285ce0feaacca631ba35bc1bd083fa25369c90470381821b8ea7fff90736",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_citadel_reliquary.glb",
+    "triangles": 4360,
+    "bytes": 322996,
+    "sha256": "4967285ce0feaacca631ba35bc1bd083fa25369c90470381821b8ea7fff90736",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_reliquary.glb",
+      "triangles": 4360,
+      "bytes": 322996,
+      "sha256": "4967285ce0feaacca631ba35bc1bd083fa25369c90470381821b8ea7fff90736",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_reliquary_lod1.glb",
+      "triangles": 2266,
+      "bytes": 180104,
+      "sha256": "deb1330f5688a1fc6f4a59fa9886a17c23124db2e6cb81d281ab331b0de88264",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_reliquary_lod2.glb",
+      "triangles": 1046,
+      "bytes": 99452,
+      "sha256": "638f5180b514c93011eb702a9195bed21b1bc3e2b70a1b38c62907f72847f484",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 3,
+    "depth": 3,
+    "height": 5
+  }
+}

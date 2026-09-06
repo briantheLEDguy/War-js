@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_tapestry",
+  "modelSha256": "d13dd07e3352c520b446a7d574e4be9fd712d5c4849506a2649c3c5fc3d81286",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_tapestry_lod1.glb",
+    "triangles": 6300,
+    "bytes": 501388,
+    "sha256": "d13dd07e3352c520b446a7d574e4be9fd712d5c4849506a2649c3c5fc3d81286",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_tapestry.glb",
+      "triangles": 12116,
+      "bytes": 875472,
+      "sha256": "c89e64236b2c014f2a5505fed3987e59310072de73d4021699735c8f3ecdce1d",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_tapestry_lod1.glb",
+      "triangles": 6300,
+      "bytes": 501388,
+      "sha256": "d13dd07e3352c520b446a7d574e4be9fd712d5c4849506a2649c3c5fc3d81286",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_tapestry_lod2.glb",
+      "triangles": 2906,
+      "bytes": 209536,
+      "sha256": "e2bad50091bd3b6217939efd9000280b9712dede3e63524c5dcd2a423ce44214",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 5,
+    "depth": 0.4,
+    "height": 8
+  }
+}

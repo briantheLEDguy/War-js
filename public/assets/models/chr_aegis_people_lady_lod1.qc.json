@@ -1,0 +1,15 @@
+{
+  "assetId": "chr.aegis.people.lady",
+  "model": "chr_aegis_people_lady_lod1.glb",
+  "modelSha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+  "triangles": 89072,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle"
+  ],
+  "usage": "stationary NPC",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "review": "reviews/aegis-people/runtime-audit.json"
+}

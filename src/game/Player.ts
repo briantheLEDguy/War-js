@@ -23,6 +23,9 @@ import type { Input } from './Input';
 import { DEFAULT_KEYBINDINGS, type Keybindings } from '../data/keybindings';
 import type { CharacterAnimator } from './animation/CharacterAnimator';
 import { StaticModelAnimator } from './animation/StaticModelAnimator';
+import { CombatAnimationController, genericActionClip } from './animation/CombatAnimationController';
+import { AbilityMotionSequence } from './animation/battlePrelateProfile';
+import { useGameStore } from '../state/gameStore';
 import type { AbilityDefinition } from './abilities/types';
 import {
   inferWeaponKindFromEquipment,
@@ -62,6 +65,9 @@ export class Player {
   private activeGlbClipName: string | null = null;
   private defaultGlbClipName: string | null = null;
   private glbActionLock = 0;
+  private combatAnimation: CombatAnimationController | null = null;
+  private motionSequence = new AbilityMotionSequence();
+  private lastCombatAt = -Infinity;
   private playerSkeleton: THREE.Skeleton | null = null;
   private playerBodyFamily: string | null = null;
   private playerBodyVariant: string | null = null;
@@ -110,7 +116,17 @@ export class Player {
     this.playerSkeleton = findFirstSkeleton(this.object);
     this.applyCharacterCompatibilityMetadata(characterAsset);
 
-    if (animations.length > 0) {
+    const combatClips = characterAsset && loader.loadCharacterAnimations
+      ? await loader.loadCharacterAnimations(characterAsset, loadedObject) : [];
+    if (combatClips.length) {
+      const clips = new Map(animations.map((clip) => [clip.name, sanitizePlayerAnimationClip(clip)]));
+      for (const clip of combatClips) clips.set(clip.name, sanitizePlayerAnimationClip(clip));
+      this.combatAnimation = new CombatAnimationController(this.object, [...clips.values()]);
+    }
+
+    if (this.combatAnimation) {
+      this.animator = null;
+    } else if (animations.length > 0) {
       this.glbMixer = new THREE.AnimationMixer(this.object);
       for (const clip of animations) {
         const safeClip = sanitizePlayerAnimationClip(clip);
@@ -382,6 +398,7 @@ export class Player {
   }
 
   playGlbAction(actionId: string, duration = 0): void {
+    if (this.combatAnimation?.play({ actionId, clip: actionId === 'autoattack' ? 'prelate_litany_a' : genericActionClip(actionId) ?? actionId, durationSec: duration || .9, notifyWindows: [] })) return;
     if (!this.glbMixer) {
       this.animator?.playAction(actionId, duration);
       return;
@@ -396,8 +413,58 @@ export class Player {
       this.animator?.playAction(actionId, duration);
       return;
     }
-    this.glbActionLock = Math.max(duration, action.getClip().duration);
-    this.playGlbClip(clipName, false);
+    this.glbActionLock = duration > 0 ? duration : action.getClip().duration;
+    this.playGlbClip(clipName, false, true);
+    action.setDuration(this.glbActionLock);
+  }
+
+  resolveAbilityMotion(ability: AbilityDefinition, now: number): AbilityDefinition {
+    return this.motionSequence.resolve(ability, now);
+  }
+
+  playAbilityAnimation(ability: AbilityDefinition): void {
+    if (this.combatAnimation?.play(ability.animation)) return;
+    this.playGlbAction(ability.animation.actionId, ability.animation.durationSec);
+  }
+
+  /** Review uses exactly the same layered update path as live movement. */
+  previewAnimationFrame(dt: number, speed = 0, airborne = false): void {
+    this.lastSpeed = speed;
+    this.grounded = !airborne;
+    this.updateVisuals(dt);
+  }
+
+  resetPreviewAnimation(): void {
+    this.combatAnimation?.reset();
+    this.activeGlbClipName = null;
+    this.glbMixer?.setTime(0);
+    this.glbActionLock = 0;
+  }
+
+  hasCombatAnimationPack(): boolean { return this.combatAnimation !== null; }
+
+  disposeAnimations(): void {
+    this.combatAnimation?.dispose();
+    this.glbMixer?.stopAllAction();
+    if (this.glbMixer) this.glbMixer.uncacheRoot(this.object);
+  }
+
+  getWeaponStrikeAnchor(): THREE.Object3D | null {
+    const overlay = this.equipmentOverlays.get('mainHand');
+    if (!overlay) return null;
+    const existing = overlay.getObjectByName('WeaponStrikeAnchor');
+    if (existing) return existing;
+    let anchor: THREE.Object3D | null = null;
+    overlay.traverse((node) => {
+      const head = node.userData.head_center_local;
+      if (anchor || !Array.isArray(head) || head.length !== 3) return;
+      anchor = new THREE.Object3D();
+      anchor.name = 'WeaponStrikeAnchor';
+      // Metadata uses Blender Z-up; exported geometry uses Y-up.
+      anchor.position.set(head[0], head[2], -head[1]);
+      node.add(anchor);
+    });
+    return anchor;
   }
 
   playWeaponAction(request: WeaponAnimationRequest): void {
@@ -409,8 +476,8 @@ export class Player {
     targetPosition: { x: number; y: number; z: number } | null = null,
   ): void {
     const authoredClip = glbActionClipName(ability.animation.actionId);
-    const authoredClipOwnsWeapon = authoredClip !== null
-      && this.glbActions.has(authoredClip);
+    const authoredClipOwnsWeapon = Boolean(this.combatAnimation?.resolveClip(ability.animation)) || (authoredClip !== null
+      && this.glbActions.has(authoredClip));
     this.weaponAnimations.play({
       actionId: ability.animation.actionId,
       durationSec: ability.animation.durationSec,
@@ -424,6 +491,15 @@ export class Player {
   }
 
   updateVisuals(dt: number): void {
+    if (this.combatAnimation) {
+      const state = useGameStore.getState();
+      if (state.lastCombatAt !== this.lastCombatAt) {
+        this.lastCombatAt = state.lastCombatAt;
+        if (this.lastCombatAt > 0) this.combatAnimation.markCombat();
+      }
+      const dead = state.character?.id === this.character.id ? state.playerDead : this.character.health <= 0;
+      this.combatAnimation.update(dt, this.lastSpeed, !this.grounded, dead);
+    }
     if (this.glbMixer) {
       this.updateGlbLocomotion(dt);
       this.glbMixer.update(dt);
@@ -562,19 +638,20 @@ export class Player {
     return this.glbActions.has('walk') || this.glbActions.has('run');
   }
 
-  private playGlbClip(name: string, loop: boolean): void {
+  private playGlbClip(name: string, loop: boolean, restart = false): void {
     const next = this.glbActions.get(name);
-    if (!next || this.activeGlbClipName === name) return;
+    if (!next || (!restart && this.activeGlbClipName === name)) return;
 
     const previous = this.activeGlbAction;
     next.reset();
+    next.setEffectiveTimeScale(1);
     next.enabled = true;
     next.clampWhenFinished = !loop;
     next.setLoop(loop ? THREE.LoopRepeat : THREE.LoopOnce, loop ? Infinity : 1);
     next.fadeIn(0.15);
     next.play();
 
-    if (previous) previous.fadeOut(0.15);
+    if (previous && previous !== next) previous.fadeOut(0.15);
 
     this.activeGlbAction = next;
     this.activeGlbClipName = name;

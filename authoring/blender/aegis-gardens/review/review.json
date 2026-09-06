@@ -1,0 +1,14 @@
+{
+  "reviewedBy": "Codex actual-export visual inspection",
+  "reviewedAt": "2026-09-06T19:40:00.890Z",
+  "buildSha256": "f95961fb9580b236bf54d3d114fc63e1e627dd8db26268570d7a313e738b5a2b",
+  "previewSha256": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7",
+  "heroSha256": {
+    "flowerbeds": "803b0b28fb4a8a651114ae9c53d71dfd187bf939b7c6630237bf8a0d8f2a6014"
+  },
+  "observations": [
+    "All three LODs reviewed; branching silhouettes and grounded stone beds retained.",
+    "Structural bark and edging excluded from simplification after visual review caught trunk collapse.",
+    "Original opaque modeled leaves and petal clusters use shared 2048px PBR textures."
+  ]
+}

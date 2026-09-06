@@ -15,7 +15,7 @@ function segmentToProp(
   const dx = end.x - start.x;
   const dz = end.z - start.z;
   const length = Math.hypot(dx, dz);
-  const styleKind = path.style === 'cobblestone_avenue' ? 'path_cobblestone' : 'path_dirt';
+  const styleKind = path.style === 'brick_walkway' ? 'path_brick' : path.style === 'cobblestone_avenue' ? 'path_cobblestone' : 'path_dirt';
   const depth = length + PATH_CHUNK_OVERLAP;
   const id = `${path.id}_segment_${index}`;
 
@@ -33,7 +33,7 @@ function segmentToProp(
 }
 
 function pointToCapProp(path: PathDefinition, point: { x: number; z: number }, index: number): PropSpawn {
-  const styleKind = path.style === 'cobblestone_avenue' ? 'path_cobblestone' : 'path_dirt';
+  const styleKind = path.style === 'brick_walkway' ? 'path_brick' : path.style === 'cobblestone_avenue' ? 'path_cobblestone' : 'path_dirt';
   return {
     kind: styleKind,
     x: point.x,
@@ -95,7 +95,7 @@ export function applyZonePaths(zone: ZoneDefinition): ZoneDefinition {
 }
 
 function buildEndpointConnectors(paths: PathDefinition[]): PropSpawn[] {
-  const endpoints = paths.flatMap((path) => [
+  const endpoints = paths.filter(path => path.autoConnect !== false).flatMap((path) => [
     { path, point: path.points[0], edge: 'start' },
     { path, point: path.points[path.points.length - 1], edge: 'end' },
   ]).filter((endpoint) => endpoint.point);

@@ -1,0 +1,91 @@
+{
+  "assetId": "prop.aegis.civic_sign_lantern",
+  "displayName": "Aegis civic sign lantern",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "aegis_civic_decorations"
+  ],
+  "runtime": {
+    "staticKey": "aegis_civic_sign_lantern"
+  },
+  "output": {
+    "model": "prop_aegis_civic_sign_lantern.glb",
+    "artifactDir": "authoring/blender/aegis-city/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/aegis-city/runtime/prop_aegis_civic_sign_lantern.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 7112,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 3697,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 1706,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_AegisCivic",
+    "textureSet": "civic_material_factors",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "collision": {
+    "policy": "editor_prefab_default",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "prefab_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_rich_civic_v1"
+    ],
+    "referencePackId": "original_civic_trade_and_canal_motifs",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_civic.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 8,
+    "maxFileSizeMb": 3,
+    "maxMeshObjects": 8,
+    "maxTris": 30000,
+    "requiresSkinnedMeshes": false
+  }
+}

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { WeaponTrailVfx } from '../animation/WeaponTrailVfx';
 import {
   followObject,
   staticTarget,
@@ -20,6 +21,7 @@ import type {
 } from './types';
 
 export interface AbilityVfxTargets {
+  weaponAnchor?: THREE.Object3D | null;
   source: THREE.Object3D;
   targetObject?: THREE.Object3D | null;
   targetPosition?: { x: number; y: number; z: number } | null;
@@ -39,6 +41,10 @@ export function spawnAbilityVfx(
   const shape = ability.targeting.shape;
   const school = ability.visual?.school ?? ability.effects[0]?.school ?? 'physical';
   const visual = ability.visual?.vfx ?? fallbackVfxProfile(ability.id, school, shape);
+  const authoredContact = ability.animation.contactSec !== undefined;
+  if (authoredContact && targets.weaponAnchor && ['melee', 'dash', 'beam', 'area'].includes(shape)) {
+    layer.spawn(new WeaponTrailVfx(targets.weaponAnchor, .28, Math.max(0, releaseSec - .18)));
+  }
   const windupSec = Math.max(0.22, Math.min(0.72, releaseSec + 0.08));
 
   layer.spawn(new AbilityCastWindupVfx(source, school, visual, windupSec, 0));
@@ -53,8 +59,8 @@ export function spawnAbilityVfx(
 
   if (shape === 'beam') {
     layer.spawn(new AbilityBeamVfx(source, target, school, visual, 0.46, releaseSec));
-    layer.spawn(new AbilityImpactBurstVfx(target, school, visual, 1.4, 0.42, releaseSec + 0.12));
-    layer.spawn(new AbilityContactFlairVfx(target, school, visual, 0.5, releaseSec + 0.12));
+    layer.spawn(new AbilityImpactBurstVfx(target, school, visual, 1.4, 0.42, releaseSec + (authoredContact ? 0 : .12)));
+    layer.spawn(new AbilityContactFlairVfx(target, school, visual, 0.5, releaseSec + (authoredContact ? 0 : .12)));
     return;
   }
 
@@ -65,10 +71,10 @@ export function spawnAbilityVfx(
   }
 
   if (shape === 'cone' || shape === 'melee' || shape === 'dash') {
-    layer.spawn(new AbilityMeleeArcVfx(source, school, visual, shape === 'cone' ? 2.8 : 1.6, 0.42, releaseSec));
+    if (!authoredContact || !targets.weaponAnchor) layer.spawn(new AbilityMeleeArcVfx(source, school, visual, shape === 'cone' ? 2.8 : 1.6, 0.42, releaseSec));
     if (ability.targeting.target === 'enemy') {
-      layer.spawn(new AbilityImpactBurstVfx(target, school, visual, 1.0, 0.34, releaseSec + 0.08));
-      layer.spawn(new AbilityContactFlairVfx(target, school, visual, 0.42, releaseSec + 0.08));
+      layer.spawn(new AbilityImpactBurstVfx(target, school, visual, 1.0, 0.34, releaseSec + (authoredContact ? 0 : .08)));
+      layer.spawn(new AbilityContactFlairVfx(target, school, visual, 0.42, releaseSec + (authoredContact ? 0 : .08)));
     }
     return;
   }

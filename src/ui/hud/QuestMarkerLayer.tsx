@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
 import * as THREE from 'three';
 import {
   questsOfferedBy,
@@ -25,7 +26,6 @@ export function QuestMarkerLayer({ game }: { game: Game | null }) {
   const quests = useGameStore((s) => s.quests);
   const character = useGameStore((s) => s.character);
   const [marks, setMarks] = useState<Marker[]>([]);
-  const rafRef = useRef(0);
 
   useEffect(() => {
     if (!game) return;
@@ -52,10 +52,8 @@ export function QuestMarkerLayer({ game }: { game: Game | null }) {
         }
       }
       setMarks(next);
-      rafRef.current = requestAnimationFrame(loop);
     };
-    loop();
-    return () => cancelAnimationFrame(rafRef.current);
+    return startForegroundLoop(loop, () => useGameStore.getState().settings.frameRateLimit);
   }, [game, npcs, quests, character]);
 
   return (

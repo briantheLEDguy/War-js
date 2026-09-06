@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.garden_cypress",
+  "displayName": "Aegis garden cypress",
+  "category": "prop",
+  "model": "prop_aegis_garden_cypress.glb",
+  "qc": "prop_aegis_garden_cypress.qc.json",
+  "runtime": {
+    "staticKey": "aegis_garden_cypress"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "c990ed362a428b37bfc0cb58d6a377f64bbe7aeb2fa293d7601f780d1cd62281",
+    "qcSha256": "472e4dca825897baa3b41704304d9e72ca9396e3b503f590b9904776863333d6",
+    "previews": {
+      "assembly": "6bdea34ba515708fb64fe7f1b0dd0750043f5e292da6c32218d6dd9edfc5fce7"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-gardens/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex actual-export visual inspection",
+    "reviewedAt": "2026-09-06T19:40:00.890Z",
+    "reviewHash": "cea1f314abc3eaeca2ede09be80cbe796deb3078100ecdf328eb6d4955d1f504"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gardens_v1"
+    ],
+    "referencePackId": "original_city_horticulture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-gardens/tools/build_gardens.py"
+  },
+  "approvalState": "approved"
+}

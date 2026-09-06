@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.aegis.crate_stack",
+  "displayName": "Aegis Crate Stack",
+  "category": "prop",
+  "model": "prop_aegis_crate_stack.glb",
+  "qc": "prop_aegis_crate_stack.qc.json",
+  "runtime": {
+    "staticKey": "aegis_crate_stack"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "7fc927a9059fd88867c28bce458c3d7a88281db29c751ec4faa204236753acdd",
+    "qcSha256": "c7816e28196122d35ddaa18de18b0b2668b20ff51fd3ac651f20c1461117795a",
+    "previews": {
+      "assembly": "6dc5802a31b1555e242552c8e5f09422a7857fc08d0e1ffa733de632b02ea12f"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/aegis-city/review/all-exports.png"
+  },
+  "review": {
+    "reviewedBy": "Codex",
+    "reviewedAt": "2026-09-06T18:39:36.148941+00:00",
+    "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "aegis_gothic_city_v1"
+    ],
+    "referencePackId": "original_aegis_architecture",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/aegis-city/tools/build_city.py"
+  },
+  "approvalState": "approved"
+}

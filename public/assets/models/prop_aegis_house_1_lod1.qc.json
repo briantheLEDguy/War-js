@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.house_1",
+  "modelSha256": "c31e295214b628f3f17d4d84009e88634af9771bd00eeec9701ac84e655972a2",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_house_1_lod1.glb",
+    "triangles": 4802,
+    "bytes": 708208,
+    "sha256": "c31e295214b628f3f17d4d84009e88634af9771bd00eeec9701ac84e655972a2",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_house_1.glb",
+      "triangles": 9604,
+      "bytes": 1268788,
+      "sha256": "bdd63c23c7ac19ccc4dfec37a1c338fc5bd05d7e76cd0bd715626f37c36ce179",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_house_1_lod1.glb",
+      "triangles": 4802,
+      "bytes": 708208,
+      "sha256": "c31e295214b628f3f17d4d84009e88634af9771bd00eeec9701ac84e655972a2",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_house_1_lod2.glb",
+      "triangles": 1920,
+      "bytes": 275868,
+      "sha256": "c6baec255514175a61c31cc303640c169ac5e910fb7753e10db26b8222955d12",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

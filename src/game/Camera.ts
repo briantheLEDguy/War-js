@@ -1,11 +1,11 @@
 import * as THREE from 'three';
 import { useGameStore } from '../state/gameStore';
 import type { Input } from './Input';
+import { resolveCameraCollision } from './CameraCollision';
 
 const MOUSE_YAW_SENSITIVITY = 0.005;
 const MOUSE_PITCH_SENSITIVITY = 0.003;
-const CAMERA_COLLISION_PADDING = 0.35;
-const CAMERA_TERRAIN_PADDING = 0.45;
+const PITCH_LIMIT = Math.PI / 2 - 0.01;
 
 export interface CameraCollider {
   id: string;
@@ -14,6 +14,8 @@ export interface CameraCollider {
   width: number;
   depth: number;
   rotY: number;
+  minY?: number;
+  maxY?: number;
 }
 type TerrainHeightResolver = (x: number, z: number) => number;
 
@@ -29,8 +31,8 @@ export class FollowCamera {
   private distance = 7;
   private minDist = 3;
   private maxDist = 14;
-  private minPitch = 0.1;
-  private maxPitch = 1.3;
+  private minPitch = -PITCH_LIMIT;
+  private maxPitch = PITCH_LIMIT;
   private indoorMode = false;
   private outdoorDistance = 7;
   private outdoorYaw = 0;
@@ -207,7 +209,6 @@ export class FollowCamera {
       this.outdoorPitch = this.pitch;
       this.minDist = 1.65;
       this.maxDist = 3.8;
-      this.maxPitch = 0.82;
       this.distance = 2.2;
       this.yaw = 0;
       this.pitch = 0.42;
@@ -215,7 +216,6 @@ export class FollowCamera {
     }
     this.minDist = 3;
     this.maxDist = 14;
-    this.maxPitch = 1.3;
     this.distance = Math.max(this.minDist, Math.min(this.maxDist, this.outdoorDistance));
     this.yaw = this.outdoorYaw;
     this.pitch = Math.max(this.minPitch, Math.min(this.maxPitch, this.outdoorPitch));
@@ -226,16 +226,19 @@ export class FollowCamera {
     _input: Input,
     colliders: CameraCollider[] = [],
     terrainHeightAt?: TerrainHeightResolver,
+    objects: THREE.Object3D[] = [],
   ) {
     const focus = new THREE.Vector3(target.x, target.y + 0.9, target.z);
     const desired = new THREE.Vector3(
       target.x + Math.sin(this.yaw) * Math.cos(this.pitch) * this.distance,
-      target.y + Math.sin(this.pitch) * this.distance + 1.2,
+      focus.y + Math.sin(this.pitch) * this.distance,
       target.z + Math.cos(this.yaw) * Math.cos(this.pitch) * this.distance,
     );
-    const resolved = resolveCameraCollision(focus, desired, colliders, terrainHeightAt);
+    const nearHeight = this.camera.near * Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2));
+    const padding = Math.max(0.35, Math.hypot(nearHeight, nearHeight * this.camera.aspect, this.camera.near));
+    const resolved = resolveCameraCollision(focus, desired, colliders, terrainHeightAt, objects, padding);
     this.camera.position.copy(resolved);
-    this.camera.lookAt(focus);
+    this.camera.lookAt(resolved.clone().sub(desired.clone().sub(focus)));
   }
 
   resize(aspect: number) {
@@ -254,172 +257,4 @@ export class FollowCamera {
     this.canvas.removeEventListener('touchend', this.onTouchEnd);
     this.canvas.removeEventListener('touchcancel', this.onTouchEnd);
   }
-}
-
-function resolveCameraCollision(
-  focus: THREE.Vector3,
-  desired: THREE.Vector3,
-  colliders: CameraCollider[],
-  terrainHeightAt?: TerrainHeightResolver,
-): THREE.Vector3 {
-  if (colliders.length === 0) {
-    return resolveCameraTerrainCollision(focus, desired, terrainHeightAt);
-  }
-
-  const direction = desired.clone().sub(focus);
-  const distance = direction.length();
-  if (distance <= 0.001) return desired;
-
-  let nearestT = 1;
-  for (const collider of colliders) {
-    const t = intersectSegmentWithColliderXZ(
-      focus,
-      desired,
-      collider,
-      CAMERA_COLLISION_PADDING,
-    );
-    if (t !== null && t < nearestT) nearestT = t;
-  }
-
-  const resolved = nearestT < 1
-    ? focus.clone().add(direction.clone().multiplyScalar(Math.max(0.05, nearestT - CAMERA_COLLISION_PADDING / distance)))
-    : desired.clone();
-
-  for (let pass = 0; pass < 3; pass += 1) {
-    let moved = false;
-    for (const collider of colliders) {
-      moved = pushPointOutsideColliderXZ(resolved, collider, CAMERA_COLLISION_PADDING) || moved;
-    }
-    if (!moved) break;
-  }
-
-  return resolveCameraTerrainCollision(focus, resolved, terrainHeightAt);
-}
-
-function resolveCameraTerrainCollision(
-  focus: THREE.Vector3,
-  desired: THREE.Vector3,
-  terrainHeightAt?: TerrainHeightResolver,
-): THREE.Vector3 {
-  if (!terrainHeightAt || isAboveTerrain(desired, terrainHeightAt)) return desired;
-
-  const direction = desired.clone().sub(focus);
-  const distance = direction.length();
-  if (distance <= 0.001) {
-    return desired.clone().setY(Math.max(desired.y, terrainHeightAt(desired.x, desired.z) + CAMERA_TERRAIN_PADDING));
-  }
-
-  if (!isAboveTerrain(focus, terrainHeightAt)) {
-    return focus.clone().setY(Math.max(focus.y, terrainHeightAt(focus.x, focus.z) + CAMERA_TERRAIN_PADDING));
-  }
-
-  let validT = 0;
-  let blockedT = 1;
-  for (let i = 0; i < 14; i += 1) {
-    const t = (validT + blockedT) * 0.5;
-    const probe = focus.clone().add(direction.clone().multiplyScalar(t));
-    if (isAboveTerrain(probe, terrainHeightAt)) {
-      validT = t;
-    } else {
-      blockedT = t;
-    }
-  }
-
-  const safeT = Math.max(0.05, validT - CAMERA_COLLISION_PADDING / distance);
-  return focus.clone().add(direction.multiplyScalar(safeT));
-}
-
-function isAboveTerrain(point: THREE.Vector3, terrainHeightAt: TerrainHeightResolver): boolean {
-  return point.y >= terrainHeightAt(point.x, point.z) + CAMERA_TERRAIN_PADDING;
-}
-
-function intersectSegmentWithColliderXZ(
-  start: THREE.Vector3,
-  end: THREE.Vector3,
-  collider: CameraCollider,
-  padding: number,
-): number | null {
-  const startLocal = toColliderLocal(start.x, start.z, collider);
-  const endLocal = toColliderLocal(end.x, end.z, collider);
-  const dx = endLocal.x - startLocal.x;
-  const dz = endLocal.z - startLocal.z;
-  const halfW = collider.width / 2 + padding;
-  const halfD = collider.depth / 2 + padding;
-
-  let tMin = 0;
-  let tMax = 1;
-  const clippedX = clipSegmentAxis(startLocal.x, dx, -halfW, halfW, tMin, tMax);
-  if (!clippedX) return null;
-  tMin = clippedX.tMin;
-  tMax = clippedX.tMax;
-
-  const clippedZ = clipSegmentAxis(startLocal.z, dz, -halfD, halfD, tMin, tMax);
-  if (!clippedZ) return null;
-
-  return clippedZ.tMin;
-}
-
-function clipSegmentAxis(
-  start: number,
-  delta: number,
-  min: number,
-  max: number,
-  tMin: number,
-  tMax: number,
-): { tMin: number; tMax: number } | null {
-  if (Math.abs(delta) < 0.00001) {
-    return start < min || start > max ? null : { tMin, tMax };
-  }
-
-  const inv = 1 / delta;
-  let t1 = (min - start) * inv;
-  let t2 = (max - start) * inv;
-  if (t1 > t2) [t1, t2] = [t2, t1];
-  const nextMin = Math.max(tMin, t1);
-  const nextMax = Math.min(tMax, t2);
-  return nextMin > nextMax ? null : { tMin: nextMin, tMax: nextMax };
-}
-
-function pushPointOutsideColliderXZ(
-  point: THREE.Vector3,
-  collider: CameraCollider,
-  padding: number,
-): boolean {
-  const local = toColliderLocal(point.x, point.z, collider);
-  const halfW = collider.width / 2 + padding;
-  const halfD = collider.depth / 2 + padding;
-  if (local.x < -halfW || local.x > halfW || local.z < -halfD || local.z > halfD) {
-    return false;
-  }
-
-  const penX = halfW - Math.abs(local.x);
-  const penZ = halfD - Math.abs(local.z);
-  let pushX = 0;
-  let pushZ = 0;
-  if (penX < penZ) {
-    pushX = (local.x >= 0 ? 1 : -1) * (penX + 0.01);
-  } else {
-    pushZ = (local.z >= 0 ? 1 : -1) * (penZ + 0.01);
-  }
-
-  const cos = Math.cos(collider.rotY);
-  const sin = Math.sin(collider.rotY);
-  point.x += pushX * cos - pushZ * sin;
-  point.z += pushX * sin + pushZ * cos;
-  return true;
-}
-
-function toColliderLocal(
-  x: number,
-  z: number,
-  collider: CameraCollider,
-): { x: number; z: number } {
-  const dx = x - collider.x;
-  const dz = z - collider.z;
-  const cos = Math.cos(collider.rotY);
-  const sin = Math.sin(collider.rotY);
-  return {
-    x: dx * cos + dz * sin,
-    z: -dx * sin + dz * cos,
-  };
 }

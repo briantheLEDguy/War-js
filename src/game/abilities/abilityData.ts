@@ -23,6 +23,7 @@ import type {
 } from './types';
 import { DEFAULT_CLASS_NAME, normalizeClassName } from '../../data/careers';
 import { getAbilityIconOverride } from './abilityIconOverrides';
+import { prelateAnimation } from '../animation/battlePrelateProfile';
 
 export const HOTBAR_SLOT_COUNT = 10;
 export const HOTBAR_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'] as const;
@@ -447,7 +448,8 @@ function defineAbility(
 ): AbilityDefinition {
   const target = seed.target ?? defaultTarget(seed.kind, seed.shape);
   const cooldownSec = seed.cooldownSec ?? defaultCooldown(seed.kind);
-  const animation = animationFor(seed.kind, seed.shape, seed.school);
+  const genericAnimation = animationFor(seed.kind, seed.shape, seed.school);
+  const animation = career === 'Battle Prelate' ? prelateAnimation(slot, genericAnimation) : genericAnimation;
   const visual = visualFor(career, classFamily, seed, slot);
   const resourceDelta = {
     manaCost: seed.manaCost ?? defaultManaCost(seed.kind),

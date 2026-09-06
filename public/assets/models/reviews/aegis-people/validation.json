@@ -1,0 +1,1333 @@
+{
+  "files": 21,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "role": "civilian_male",
+      "lod": "0",
+      "file": "chr_aegis_people_civilian_male.glb",
+      "sha256": "4633cf18ab4870836c7dac554f2165489b59449636a6d4ea228c04a6d598db66",
+      "triangles": 167481,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "civilian_male",
+      "lod": "1",
+      "file": "chr_aegis_people_civilian_male_lod1.glb",
+      "sha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+      "triangles": 100487,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "civilian_male",
+      "lod": "2",
+      "file": "chr_aegis_people_civilian_male_lod2.glb",
+      "sha256": "eb9cf375da1a9b35ca08c56ca0164073f50ea4ad76e69250834b5f8b800ad112",
+      "triangles": 50240,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "civilian_female",
+      "lod": "0",
+      "file": "chr_aegis_people_civilian_female.glb",
+      "sha256": "e7d7aee4e4d46d86a2d93db51112b65f1d6706ac3d5a65f52ac42a9bb63fd833",
+      "triangles": 136292,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 9,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "civilian_female",
+      "lod": "1",
+      "file": "chr_aegis_people_civilian_female_lod1.glb",
+      "sha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+      "triangles": 81770,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 9,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "civilian_female",
+      "lod": "2",
+      "file": "chr_aegis_people_civilian_female_lod2.glb",
+      "sha256": "11f4ee231fb571f7fd5905bd0fc6afa3a4479c22818b66d298ff30ad8ff41aad",
+      "triangles": 40884,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 9,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/5/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "child",
+      "lod": "0",
+      "file": "chr_aegis_people_child.glb",
+      "sha256": "38e379d494cf03adfa071e14e752278f1bd2aa17118d3191632fd8fcb0122011",
+      "triangles": 165799,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "child",
+      "lod": "1",
+      "file": "chr_aegis_people_child_lod1.glb",
+      "sha256": "04830d6bc12c7bfe246cb3dea125a856c2fc48a67f395edaed6e543f4d51b8c7",
+      "triangles": 99476,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "child",
+      "lod": "2",
+      "file": "chr_aegis_people_child_lod2.glb",
+      "sha256": "93cb9ceb701d8d4df00b0d99da41f5fae9096379c32e860fd6d5a283a06eb1b5",
+      "triangles": 49736,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "lord",
+      "lod": "0",
+      "file": "chr_aegis_people_lord.glb",
+      "sha256": "9ca5c3e8db68307c9d5737ad1692fef00670169f49bc76a43b6a9607b7655959",
+      "triangles": 171641,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "lord",
+      "lod": "1",
+      "file": "chr_aegis_people_lord_lod1.glb",
+      "sha256": "ffefaa908c343a0dbcb607da0156100d9be342050f1ce5ea3650d101a72f935c",
+      "triangles": 102982,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "lord",
+      "lod": "2",
+      "file": "chr_aegis_people_lord_lod2.glb",
+      "sha256": "f3676c608f5e75b39fbfe3c59081e49c6a3edcec08c1bd4ca36e2d78b0d9c00e",
+      "triangles": 51483,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "lady",
+      "lod": "0",
+      "file": "chr_aegis_people_lady.glb",
+      "sha256": "b92a3240db00fca79e1a939d2d7f48865ea2c94aea8ea8b89f2162c62f80107a",
+      "triangles": 148462,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "lady",
+      "lod": "1",
+      "file": "chr_aegis_people_lady_lod1.glb",
+      "sha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+      "triangles": 89072,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "lady",
+      "lod": "2",
+      "file": "chr_aegis_people_lady_lod2.glb",
+      "sha256": "588ca5d2f3eddb551d18bbf6e06698522b04a529a492b207d219bf3c0d7f074d",
+      "triangles": 44534,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "courtier",
+      "lod": "0",
+      "file": "chr_aegis_people_courtier.glb",
+      "sha256": "b6d5146435f6073a087bfcfeb30e5298b08eecd13d4cb1e6690b927a071a4889",
+      "triangles": 141611,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 6,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "courtier",
+      "lod": "1",
+      "file": "chr_aegis_people_courtier_lod1.glb",
+      "sha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+      "triangles": 84965,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 6,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "courtier",
+      "lod": "2",
+      "file": "chr_aegis_people_courtier_lod2.glb",
+      "sha256": "74ee466b187acf039e9b4e007a17417384e32a57f85a145556da5e9b07fceaa5",
+      "triangles": 42476,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 6,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "attendant",
+      "lod": "0",
+      "file": "chr_aegis_people_attendant.glb",
+      "sha256": "1826ef1e9f1610d7b8f456ac60ab3e3733cfb51c5cdf4a06f0d95f8383b65ec0",
+      "triangles": 137475,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "attendant",
+      "lod": "1",
+      "file": "chr_aegis_people_attendant_lod1.glb",
+      "sha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+      "triangles": 82481,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "role": "attendant",
+      "lod": "2",
+      "file": "chr_aegis_people_attendant_lod2.glb",
+      "sha256": "2c85afddd132fab108c9ae1056b4f624e8ccf663d3d89fba27ad6eee3b3d8780",
+      "triangles": 41234,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 8,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/1/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/2/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/3/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "UNUSED_MESH_TANGENT",
+            "message": "Tangents are not used because the material has no normal texture.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TANGENT"
+          },
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/meshes/0/primitives/4/attributes/TEXCOORD_0"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  ]
+}

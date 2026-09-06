@@ -1,0 +1,21 @@
+{
+  "reviewedAt": "2026-09-06T11:04:18.009799+00:00",
+  "zoneHash": "9ca192a356d30d13",
+  "summary": "Mountainside city reviewed in the actual Game runtime. Raised skyline visible from the lower market; continuous brick paving inspected at the switchback and corrected citadel junction. Citadel forecourt is at Y=42. Canal network remains at original level.",
+  "verification": {
+    "focusedTests": 58,
+    "build": "passed",
+    "worldValidation": "33 maps passed",
+    "modelValidation": "358 records passed",
+    "fullSuite": "597 tests passed, existing rosterDirectPromotion syntax/load failure and intermittent rosterReviewWorkflow Windows rename failure; the latter passed separately (5 tests). Final mountain changes passed 58 focused tests."
+  },
+  "limitations": [
+    "Local runtime views observed approximately 22-30 FPS; this is not a cross-device performance benchmark.",
+    "Development hot reloads crashed earlier tabs; final review used a clean tab after source changes."
+  ],
+  "screenshots": [
+    "artifacts/city-screenshots-mountain/switchback.png",
+    "artifacts/city-screenshots-mountain/citadel.png",
+    "artifacts/city-screenshots-mountain/overview.png"
+  ]
+}

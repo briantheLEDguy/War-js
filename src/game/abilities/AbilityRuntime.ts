@@ -76,7 +76,8 @@ export function tryActivateAbility(
 
   const store = useGameStore.getState();
   const character = store.character!;
-  const ability = getAbilityForCareer(character.className, context.slot)!;
+  const baseAbility = getAbilityForCareer(character.className, context.slot)!;
+  let ability = baseAbility;
 
   const kit = getCareerAbilityKit(character.className);
   const resource = store.abilityResource?.key === kit.resource.key
@@ -95,6 +96,7 @@ export function tryActivateAbility(
     }
   }
 
+  ability = context.player.resolveAbilityMotion?.(baseAbility, context.now) ?? baseAbility;
   const releaseSec = releaseTimeSec(ability);
   const flightSec = target ? projectileFlightSec(ability, context.player, target) : 0;
   const resourceSpent = ability.resource.spendAllCareer
@@ -124,6 +126,7 @@ export function tryActivateAbility(
       ability,
       {
         source: context.player.object,
+        weaponAnchor: context.player.getWeaponStrikeAnchor?.(),
         targetObject: target ? context.getEnemyObject(target.id) : null,
         targetPosition: target?.position ?? context.player.position,
       },
@@ -319,7 +322,9 @@ function playAbilityAnimation(
   ability: AbilityDefinition,
   target: EnemyState | null,
 ): void {
-  if (player.animator) {
+  if (player.playAbilityAnimation) {
+    player.playAbilityAnimation(ability);
+  } else if (player.animator) {
     player.animator.playAction(ability.animation.actionId, ability.animation.durationSec);
   } else {
     player.playGlbAction(ability.animation.actionId, ability.animation.durationSec);
@@ -328,6 +333,7 @@ function playAbilityAnimation(
 }
 
 function releaseTimeSec(ability: AbilityDefinition): number {
+  if (ability.animation.contactSec !== undefined) return ability.animation.contactSec;
   const release =
     ability.animation.notifyWindows.find((w) => w.name === 'release') ??
     ability.animation.notifyWindows.find((w) => w.name === 'active') ??

@@ -1,0 +1,23 @@
+[
+  {
+    "model": "prop_aegis_citadel.glb",
+    "sha256": "3595837c811c258b10af984a2bbf4df3f0bcfcad8f4cc8b78e57e928e166964d",
+    "triangles": 28999,
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "model": "prop_aegis_citadel_lod1.glb",
+    "sha256": "4a0cf826013c897ecb72f666596c7b4d722b1014ebc2ab65feca5648c908c95c",
+    "triangles": 14468,
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "model": "prop_aegis_citadel_lod2.glb",
+    "sha256": "54686183d59a54e240e2097eba07eadf09fd58ed5e3073da9f32d59b3f8f4675",
+    "triangles": 5116,
+    "errors": [],
+    "warnings": 0
+  }
+]
