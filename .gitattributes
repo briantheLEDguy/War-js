@@ -33,7 +33,7 @@ scripts/blender-character-pipeline/data/approved-assets/wep_civic_ember_arcanist
 authoring/blender/ember-arcanist-reference-rebuild/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/ember-arcanist-reference-rebuild/**/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/blender/battle-prelate-manual/**/*.blend filter=lfs diff=lfs merge=lfs -text
-blends/*.blend filter=lfs diff=lfs merge=lfs -text
+blends/Untitled.blend filter=lfs diff=lfs merge=lfs -text
 # Keep large source and inspection artifacts out of ordinary Git history.
 authoring/blender/**/*.png filter=lfs diff=lfs merge=lfs -text
 authoring/archives/**/*.png filter=lfs diff=lfs merge=lfs -text
