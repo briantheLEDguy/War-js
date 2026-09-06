@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.portcullis",
+  "modelSha256": "3c93ed9d4842ce778e2a205dabc48604986f6f2aca87c6777c112ec2e76252dc",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_portcullis_lod2.glb",
+    "triangles": 450,
+    "bytes": 69356,
+    "sha256": "3c93ed9d4842ce778e2a205dabc48604986f6f2aca87c6777c112ec2e76252dc",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_portcullis.glb",
+      "triangles": 2256,
+      "bytes": 289792,
+      "sha256": "0c77bc0aeeb08a05c4d22e2b546e0acf2af0d1d2fc41870c6bfa538527f83531",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_portcullis_lod1.glb",
+      "triangles": 1128,
+      "bytes": 171060,
+      "sha256": "0cdb26eca33edd5f208c82d830a13468470c1219ed58bc2f6f0cc86c4fd34c5d",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_portcullis_lod2.glb",
+      "triangles": 450,
+      "bytes": 69356,
+      "sha256": "3c93ed9d4842ce778e2a205dabc48604986f6f2aca87c6777c112ec2e76252dc",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_war_table",
+  "modelSha256": "d95c09e9808a0cc3c12dba299569aae47164cca9174f97c769da60c90de88331",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_war_table_lod1.glb",
+    "triangles": 4098,
+    "bytes": 421496,
+    "sha256": "d95c09e9808a0cc3c12dba299569aae47164cca9174f97c769da60c90de88331",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_war_table.glb",
+      "triangles": 7896,
+      "bytes": 721364,
+      "sha256": "06bc1980923eceb8c8e271162f067522a161de689e39546882a210ccf6509238",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_war_table_lod1.glb",
+      "triangles": 4098,
+      "bytes": 421496,
+      "sha256": "d95c09e9808a0cc3c12dba299569aae47164cca9174f97c769da60c90de88331",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_war_table_lod2.glb",
+      "triangles": 1873,
+      "bytes": 222644,
+      "sha256": "796474e0c2aa72f0632c28022ef9ed03c07b58f9d8ba1bfab3b018fd72ab5047",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 6,
+    "depth": 4,
+    "height": 2
+  }
+}

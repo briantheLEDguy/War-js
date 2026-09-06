@@ -1,0 +1,37 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_streetlight",
+  "modelSha256": "f8eed6961060bd656a5a80f74e5f80ad25fc563bb9442519284fdc8fff3140e3",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_civic_streetlight_lod2.glb",
+    "triangles": 1836,
+    "bytes": 145904,
+    "sha256": "f8eed6961060bd656a5a80f74e5f80ad25fc563bb9442519284fdc8fff3140e3"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_streetlight.glb",
+      "triangles": 7652,
+      "bytes": 523372,
+      "sha256": "9835475bcfeb8d66c1a4dbdf6852e2c3de07ddfb4ec7d2cf211cd7ae9cea2988"
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_streetlight_lod1.glb",
+      "triangles": 3978,
+      "bytes": 308992,
+      "sha256": "cc7529d471039dcec03349af6b4a9bfea1c17d4f3e022b8375a64f50718b4dc2"
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_streetlight_lod2.glb",
+      "triangles": 1836,
+      "bytes": 145904,
+      "sha256": "f8eed6961060bd656a5a80f74e5f80ad25fc563bb9442519284fdc8fff3140e3"
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+}

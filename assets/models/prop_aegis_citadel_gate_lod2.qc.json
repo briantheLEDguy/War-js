@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_gate",
+  "modelSha256": "2ea29289725b9599fa77fa60606d9c9d791b47062737c1ad985c04ffceaff24a",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_citadel_gate_lod2.glb",
+    "triangles": 1578,
+    "bytes": 242840,
+    "sha256": "2ea29289725b9599fa77fa60606d9c9d791b47062737c1ad985c04ffceaff24a",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_gate.glb",
+      "triangles": 7896,
+      "bytes": 1109668,
+      "sha256": "e1a469d07537b5e85b0f07551431888930a804c019dec6dbc4b7b81af73197ed",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_gate_lod1.glb",
+      "triangles": 3948,
+      "bytes": 598356,
+      "sha256": "6682f46c0f3c6c27df1ee14a0805bc6bbb4d787c5d77f92f67db7fa1d009e212",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_gate_lod2.glb",
+      "triangles": 1578,
+      "bytes": 242840,
+      "sha256": "2ea29289725b9599fa77fa60606d9c9d791b47062737c1ad985c04ffceaff24a",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

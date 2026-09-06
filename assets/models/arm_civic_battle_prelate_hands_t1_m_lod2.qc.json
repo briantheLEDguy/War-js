@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.hands.t1.m",
+  "model": "arm_civic_battle_prelate_hands_t1_m_lod2.glb",
+  "modelSha256": "e9387336adbf38a1985de5c71f416765a388e430228b7896eba64fab3898cbc9",
+  "fileSizeBytes": 979184,
+  "category": "armor",
+  "slot": "hands",
+  "lod": 2,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [
+    "arms",
+    "hands"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 2024,
+  "totalTris": 2024,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 512,
+  "maxTextureResolution": 512,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_hands_t1_m.glb",
+      "sha256": "a63f9ff8b7713b9bbed96f3a2ae4ebcf736a3f51313feb619979062601706354"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_hands_t1_m_lod1.glb",
+      "sha256": "224a06d466f002fc4f0f192cf9707375af07d4d936a563a58367483ba6d03874"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_hands_t1_m_lod2.glb",
+      "sha256": "e9387336adbf38a1985de5c71f416765a388e430228b7896eba64fab3898cbc9"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "rerebrace_shaped_shell",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "rerebrace_shaped_shell",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "elbow_couter_and_wing",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "elbow_couter_and_wing",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_front_and_cuff",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_front_and_cuff",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_rear_closure",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_rear_closure",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_dorsal_plate",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_dorsal_plate",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

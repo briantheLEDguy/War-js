@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.handcart",
+  "modelSha256": "ec67cb4c70787e9c2c04af32497c469722916ac14f2beb6b3d0db2485a42dee0",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_handcart_lod2.glb",
+    "triangles": 400,
+    "bytes": 64768,
+    "sha256": "ec67cb4c70787e9c2c04af32497c469722916ac14f2beb6b3d0db2485a42dee0",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_handcart.glb",
+      "triangles": 2008,
+      "bytes": 247812,
+      "sha256": "4ca11275fbbce16bffd7bf86934c60e7feb01e4565713706416e5c22d0ce0b5b",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_handcart_lod1.glb",
+      "triangles": 1004,
+      "bytes": 144256,
+      "sha256": "d6ac7eeedb8398f5282c52c79b07fb5bfbcdfe44ad7599ecfefce7e2691809a7",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_handcart_lod2.glb",
+      "triangles": 400,
+      "bytes": 64768,
+      "sha256": "ec67cb4c70787e9c2c04af32497c469722916ac14f2beb6b3d0db2485a42dee0",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.quay_stairs",
+  "modelSha256": "aa0529d23547ef99dd900df7488e51c3006a5b3ff60085243bc82c08ade1b8b8",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_quay_stairs.glb",
+    "triangles": 1504,
+    "bytes": 186888,
+    "sha256": "aa0529d23547ef99dd900df7488e51c3006a5b3ff60085243bc82c08ade1b8b8",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_quay_stairs.glb",
+      "triangles": 1504,
+      "bytes": 186888,
+      "sha256": "aa0529d23547ef99dd900df7488e51c3006a5b3ff60085243bc82c08ade1b8b8",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_quay_stairs_lod1.glb",
+      "triangles": 752,
+      "bytes": 114660,
+      "sha256": "0e2e2eace0527315a8535c52d8126b129f7de0a38a949a43eeefefd1911cae7a",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_quay_stairs_lod2.glb",
+      "triangles": 300,
+      "bytes": 46856,
+      "sha256": "720cb8d9ac11a03b74ae3c2be0eec9e676ed31e4fb7c96f8436427d03d9a4a6d",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

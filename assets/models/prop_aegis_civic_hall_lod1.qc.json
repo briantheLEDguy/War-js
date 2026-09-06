@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_hall",
+  "modelSha256": "8b4686e1a59fd87145d6a88a876833fc3c64ae283b8608319da900af3da64ded",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_civic_hall_lod1.glb",
+    "triangles": 5178,
+    "bytes": 765884,
+    "sha256": "8b4686e1a59fd87145d6a88a876833fc3c64ae283b8608319da900af3da64ded",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_hall.glb",
+      "triangles": 10356,
+      "bytes": 1375700,
+      "sha256": "631a6cd7dbd44a26732f81f568777a590be2cbf070327c7c740f64b9798e89ed",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_hall_lod1.glb",
+      "triangles": 5178,
+      "bytes": 765884,
+      "sha256": "8b4686e1a59fd87145d6a88a876833fc3c64ae283b8608319da900af3da64ded",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_hall_lod2.glb",
+      "triangles": 2070,
+      "bytes": 300236,
+      "sha256": "50991b8147a2ae2147012ab51d2bbc93bad12cd7976cf71a32aa4c2dfbf83bad",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

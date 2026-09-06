@@ -1,0 +1,37 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.civic_relief",
+  "modelSha256": "b99c1f4cff6d5eaa02b1497ad8667e720215702ba796b02c74a46bfedce1eb21",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_civic_relief_lod2.glb",
+    "triangles": 1775,
+    "bytes": 106316,
+    "sha256": "b99c1f4cff6d5eaa02b1497ad8667e720215702ba796b02c74a46bfedce1eb21"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_civic_relief.glb",
+      "triangles": 7396,
+      "bytes": 412812,
+      "sha256": "038679ac5d6ceb8316e99fdcdd3da230a5f1fd59dcbe10896e51c1ea6d623853"
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_civic_relief_lod1.glb",
+      "triangles": 3845,
+      "bytes": 223628,
+      "sha256": "aad181e72e471654c2d340a186a725a54688ae376f540347dbe0fa0da09926f4"
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_civic_relief_lod2.glb",
+      "triangles": 1775,
+      "bytes": 106316,
+      "sha256": "b99c1f4cff6d5eaa02b1497ad8667e720215702ba796b02c74a46bfedce1eb21"
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2e844017ac45fa416c79f5a33e50de6954956143ebefc8426e8e7da7924a5917"
+}

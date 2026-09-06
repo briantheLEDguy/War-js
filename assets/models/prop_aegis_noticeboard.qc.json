@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.noticeboard",
+  "modelSha256": "cbdacf2e5c67f7adb866551157dd8a513712ebf11ff420020e23178489185005",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_noticeboard.glb",
+    "triangles": 1888,
+    "bytes": 248508,
+    "sha256": "cbdacf2e5c67f7adb866551157dd8a513712ebf11ff420020e23178489185005",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_noticeboard.glb",
+      "triangles": 1888,
+      "bytes": 248508,
+      "sha256": "cbdacf2e5c67f7adb866551157dd8a513712ebf11ff420020e23178489185005",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_noticeboard_lod1.glb",
+      "triangles": 944,
+      "bytes": 136492,
+      "sha256": "122343787345fd413d66ef0df912f86cf613295afd781c632e70dd216c2fcdd4",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_noticeboard_lod2.glb",
+      "triangles": 376,
+      "bytes": 62328,
+      "sha256": "16320713ad3bb1b74b051296e1c19d6925757b61e018f7bcf2e22ee65a0363c7",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

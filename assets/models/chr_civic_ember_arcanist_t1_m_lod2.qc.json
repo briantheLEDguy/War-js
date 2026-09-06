@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.civic.ember_arcanist.t1.m",
+  "model": "chr_civic_ember_arcanist_t1_m_lod2.glb",
+  "modelSha256": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655",
+  "fileSizeBytes": 1353652,
+  "category": "character",
+  "slot": "body",
+  "lod": 2,
+  "bodyFamily": "civic_ember_arcanist_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 3056,
+  "totalTris": 3056,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 2,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 512,
+  "maxTextureResolution": 512,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "chr_civic_ember_arcanist_t1_m.glb",
+      "sha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856"
+    },
+    {
+      "name": "LOD1",
+      "model": "chr_civic_ember_arcanist_t1_m_lod1.glb",
+      "sha256": "5e7dd63242b786c13b7a7c43355b2f155c01e3c16a06931391d17b2dc653afba"
+    },
+    {
+      "name": "LOD2",
+      "model": "chr_civic_ember_arcanist_t1_m_lod2.glb",
+      "sha256": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions; explicit body/outfit cages adapted from Battle Prelate sources with new hair, collar, panels and staff",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "98428bc32a584db4e8eb1ca052628926fa0c5044a068411fd04fb47054f94602",
+    "runtimeReportSha256": "5c39385cf27509871c8c5ebf7ade6a4a4d72e539fa363d01a85ff2ea351da020",
+    "visualReviewSha256": "c34ad65db6e7ab42e484e88ba03b7951e31026decc712bf1874c6b5f7a9c156e",
+    "evidenceArchive": "authoring/archives/ember-arcanist-reference-rebuild/98428bc32a58",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "upper_arm_joint_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "upper_arm_joint_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "forearm_leather_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "forearm_leather_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_glove_palm_and_web",
+        "file": "source\\arms.json",
+        "sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_glove_palm_and_web",
+        "file": "source\\arms.json",
+        "sha256": "2a24d618f9894c0f8d4fd1ad95c4d482711011451964465a0974cebf9e8b1c78",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "fitted_padded_torso_shirt",
+        "file": "source\\body_underlayers.json",
+        "sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "tailored_hip_and_crotch_breeches",
+        "file": "source\\body_underlayers.json",
+        "sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "fitted_padded_breeches_thighs",
+        "file": "source\\body_underlayers.json",
+        "sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "fitted_padded_breeches_thighs",
+        "file": "source\\body_underlayers.json",
+        "sha256": "fa4aa4d1eb665ae31fd12a705053382c7a845cc9b125efc4bb93eb9145b9a389",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "padded_abdominal_doublet",
+        "file": "source\\garments.json",
+        "sha256": "8df34093b72a6f2c1c55e630e4524d2cd4fa77f0d9bc75b68c895b57d828f72f",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "auburn_scalp",
+        "file": "source\\hair.json",
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "swept_forelock",
+        "file": "source\\hair.json",
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "swept_lock_0",
+        "file": "source\\hair.json",
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "swept_lock_1",
+        "file": "source\\hair.json",
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "swept_lock_2",
+        "file": "source\\hair.json",
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "temple_and_nape_lock",
+        "file": "source\\hair.json",
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "head_skin",
+        "file": "source\\head.json",
+        "sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "eyes",
+        "file": "source\\head.json",
+        "sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "ears",
+        "file": "source\\head.json",
+        "sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "eyebrows",
+        "file": "source\\head.json",
+        "sha256": "e9c31578c1c3f49addc0676c3a3ea98739e81774c3db11910762678aa5010e88",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "thigh_padded_underlayer",
+        "file": "source\\legs.json",
+        "sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "knee_and_calf_padded_underlayer",
+        "file": "source\\legs.json",
+        "sha256": "408554da248e41f4d2176ebb3ebeedbb6071f81866f82231fe3bde8609b7326e",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

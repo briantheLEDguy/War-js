@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_arcade",
+  "modelSha256": "e1d1307575b03afb104258eac937ba22876572d45d74a4c2e421fee736d2bffd",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_citadel_arcade.glb",
+    "triangles": 3580,
+    "bytes": 493572,
+    "sha256": "e1d1307575b03afb104258eac937ba22876572d45d74a4c2e421fee736d2bffd",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_arcade.glb",
+      "triangles": 3580,
+      "bytes": 493572,
+      "sha256": "e1d1307575b03afb104258eac937ba22876572d45d74a4c2e421fee736d2bffd",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_arcade_lod1.glb",
+      "triangles": 1790,
+      "bytes": 274316,
+      "sha256": "4889019c5d788633a460ea0b7673cd1f970a00b432ad33f71de173b7a893e555",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_arcade_lod2.glb",
+      "triangles": 716,
+      "bytes": 113200,
+      "sha256": "6439fcd031dd9648ab0706f71b52bd3a93516cce54998c12754d65dcca612d6c",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

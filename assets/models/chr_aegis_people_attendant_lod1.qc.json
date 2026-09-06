@@ -1,0 +1,15 @@
+{
+  "assetId": "chr.aegis.people.attendant",
+  "model": "chr_aegis_people_attendant_lod1.glb",
+  "modelSha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+  "triangles": 82481,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle"
+  ],
+  "usage": "stationary NPC",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "review": "reviews/aegis-people/runtime-audit.json"
+}

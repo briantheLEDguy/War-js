@@ -2210,6 +2210,48 @@
       "characterProfileKey": "enemy_aegis_keep_captain_captain"
     },
     {
+      "id": "glassriver_ford_aegis_keep_commander",
+      "name": "Aegis Castellan Elowen Glassward",
+      "level": 11,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 460,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 9,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "glassriver_ford_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "glassriver_ford_riftbound_keep_commander",
+      "name": "Riftbound Warlord Korrak Siltblade",
+      "level": 11,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 460,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 9,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "glassriver_ford_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
       "id": "glassriver_ford_beast_1",
       "name": "Glassriver Snapper",
       "level": 9,
@@ -2780,5 +2822,5 @@
       ]
     }
   ],
-  "staticMapHash": "91f6f8e9789eb1ef"
+  "staticMapHash": "81a96c98c0c64038"
 }

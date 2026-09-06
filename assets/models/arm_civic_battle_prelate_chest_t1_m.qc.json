@@ -1,24 +1,30 @@
 {
   "schemaVersion": 1,
-  "assetId": "arm.civic_humanoid_v2.battle_prelate.chest.m",
-  "model": "arm_civic_humanoid_v2_battle_prelate_chest_m.glb",
-  "modelSha256": "44b87d7824fc282f8f958caab201d4078d57bc7ff1b0d40ea57190eb686f4fb1",
-  "fileSizeBytes": 239436,
+  "assetId": "arm.civic.battle_prelate.chest.t1.m",
+  "model": "arm_civic_battle_prelate_chest_t1_m.glb",
+  "modelSha256": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1",
+  "fileSizeBytes": 2342988,
   "category": "armor",
   "slot": "chest",
-  "bodyFamily": "civic_humanoid_v2",
+  "lod": 0,
+  "bodyFamily": "civic_battle_prelate_m",
   "bodyVariant": "m",
   "skeletonId": "humanoid_game_v2",
   "bindPoseId": "a_pose_v2",
-  "lifecycleStatus": "draft",
-  "reviewStatus": "pending",
-  "promotionEligible": false,
-  "totalTriangles": 5352,
+  "coveredRegions": [
+    "torso"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 9580,
+  "totalTris": 9580,
   "drawCalls": 1,
-  "maxInfluencesBeforeLimit": 6,
-  "maxInfluencesObserved": 4,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
   "unweightedVertices": 0,
   "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
   "degenerateFaces": 0,
   "pbrChannels": [
     "baseColor",
@@ -27,55 +33,568 @@
     "metallic",
     "occlusion"
   ],
-  "maxTextureDimension": 128,
-  "previewImages": [
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\front.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\side.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\back.png",
-    "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\isometric.png"
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_chest_t1_m.glb",
+      "sha256": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_chest_t1_m_lod1.glb",
+      "sha256": "1d731a85b7dd1e54604023b874a364cad14ae7d8172c6eac070f1c900f9c73f0"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_chest_t1_m_lod2.glb",
+      "sha256": "daf23cc9cbda9436491f49edb8f54a1c09984add3687de38febea9f79aae3124"
+    }
   ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
   "previews": [
     {
       "view": "front",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\front.png",
-      "sha256": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
-    },
-    {
-      "view": "side",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\side.png",
-      "sha256": "855477e0c6f1135387b67f55145373ba301f4d1b3955ab661342058b73a02fcd"
-    },
-    {
-      "view": "back",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\back.png",
-      "sha256": "1d8c91b1be6df61b61dbb8a30cf97d78052a2d83f5670df7500ba8fb20addefb"
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
     },
     {
       "view": "isometric",
-      "path": "C:\\Users\\bschm\\.codex\\worktrees\\770f\\War-js\\artifacts\\model-jobs\\roster-runs\\dark-fantasy-character-pass-v3\\playable\\battle_prelate\\revision-0001\\m\\armor-review\\battle_prelate\\isometric.png",
-      "sha256": "fc89e571cc5da95e0c765778d5108b8592a4a799ad0ea377bc0074e88de899f1"
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
     }
   ],
   "provenance": {
-    "provider": "local_mpfb",
-    "generator": "generate_mpfb_modular_armor.py",
-    "license": "CC0-1.0",
-    "assetSource": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\male_casualsuit02\\male_casualsuit02.mhclo",
-    "assetSourceSha256": "f9e6821704a1508a02d5e416b2360785b705cfe5a130c359021a4b4570dcc43a",
-    "sourcePack": "suits02",
-    "sourcePackSha256": "437f4d7ab92b698c1fb1047e7d62b22c11f195b2473e936118661dc8e6b7eb7a",
-    "sourceUrl": "https://static.makehumancommunity.org/assets/assetpacks/suits02.html"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "breastplate_shell",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "breastplate_neck_brass",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "breastplate_lower_brass",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "breastplate_diagonal_reinforcement",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "breastplate_reinforcement_steel_inset",
+        "file": "source\\breastplate.json",
+        "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_recessed_backing",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_outer_rim",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_inner_beaded_border",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_skull",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_dental_crowns",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_pointed_rays",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_lower_pendant",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "reliquary_rim_fasteners",
+        "file": "source\\medallion.json",
+        "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_folded_parchments",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_offset_parchment_tails",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_stamp_marks",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_wax_stamp_marks",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_upper_manual_ink_strokes",
+        "file": "source\\relics.json",
+        "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
   },
   "checks": {
-    "modelExists": true,
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
     "triangleBudget": true,
-    "drawCallBudget": true,
-    "fourInfluenceLimitApplied": true,
-    "allVerticesWeighted": true,
-    "manifold": true,
-    "noDegenerateFaces": true,
-    "reviewViewsPresent": true,
-    "pbrChannelsPresent": true
+    "drawCallBudget": true
   },
   "qcPassed": true
 }

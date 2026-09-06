@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.altar",
+  "modelSha256": "7e2fc8cdbcd209ce2232d7f523544f627253b222995f2e549b10951fed9fba3b",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_altar_lod1.glb",
+    "triangles": 376,
+    "bytes": 59500,
+    "sha256": "7e2fc8cdbcd209ce2232d7f523544f627253b222995f2e549b10951fed9fba3b",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_altar.glb",
+      "triangles": 752,
+      "bytes": 97540,
+      "sha256": "ff411dbfacd28cbb57360eb0ec9cf5f85ea62261108973fa1c7c688d84ad79da",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_altar_lod1.glb",
+      "triangles": 376,
+      "bytes": 59500,
+      "sha256": "7e2fc8cdbcd209ce2232d7f523544f627253b222995f2e549b10951fed9fba3b",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_altar_lod2.glb",
+      "triangles": 150,
+      "bytes": 25600,
+      "sha256": "f3fe02225fc187351d5fc82da2a06c4c8aa2df6759ad905f474e264741d6cb12",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.garden_linden",
+  "modelSha256": "806bcdd0462101b81e97f13b6b7d4586d0ea8bbcb9dbd4c988d0ac9194f3d69b",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_garden_linden_lod2.glb",
+    "triangles": 4200,
+    "bytes": 453872,
+    "sha256": "806bcdd0462101b81e97f13b6b7d4586d0ea8bbcb9dbd4c988d0ac9194f3d69b",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_garden_linden.glb",
+      "triangles": 8736,
+      "bytes": 1134284,
+      "sha256": "177ca829df3da63f4285db938a739e1ea22da415ef1f87e5518f4028574e9ca4",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_garden_linden_lod1.glb",
+      "triangles": 5964,
+      "bytes": 718476,
+      "sha256": "7e478300753991f34e2f4c7fa30a4832b163e48c4e4d1fe4a0954dc75082334e",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_garden_linden_lod2.glb",
+      "triangles": 4200,
+      "bytes": 453872,
+      "sha256": "806bcdd0462101b81e97f13b6b7d4586d0ea8bbcb9dbd4c988d0ac9194f3d69b",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "cea1f314abc3eaeca2ede09be80cbe796deb3078100ecdf328eb6d4955d1f504",
+  "envelope": [
+    6.077,
+    5.987,
+    8.028
+  ]
+}

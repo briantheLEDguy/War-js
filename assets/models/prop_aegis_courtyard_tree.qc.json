@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.courtyard_tree",
+  "modelSha256": "3a38d6d99b56626d0acecb7bf08f7fce991813a1ec8360a0386b1d97bb0de1b9",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_courtyard_tree.glb",
+    "triangles": 2532,
+    "bytes": 224304,
+    "sha256": "3a38d6d99b56626d0acecb7bf08f7fce991813a1ec8360a0386b1d97bb0de1b9",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_courtyard_tree.glb",
+      "triangles": 2532,
+      "bytes": 224304,
+      "sha256": "3a38d6d99b56626d0acecb7bf08f7fce991813a1ec8360a0386b1d97bb0de1b9",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_courtyard_tree_lod1.glb",
+      "triangles": 1266,
+      "bytes": 66304,
+      "sha256": "e4fad6cc549bc76e42e0df3b2e044afa1f87841118a9b3fb482c866c1b3b1892",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_courtyard_tree_lod2.glb",
+      "triangles": 506,
+      "bytes": 32312,
+      "sha256": "b3bbf63710e4f214ebaf5de70f14c768467952dcbcf0b7b615f4dc2a4fa81e50",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

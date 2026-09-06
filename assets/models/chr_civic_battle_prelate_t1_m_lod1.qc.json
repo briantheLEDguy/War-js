@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.civic.battle_prelate.t1.m",
+  "model": "chr_civic_battle_prelate_t1_m_lod1.glb",
+  "modelSha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+  "fileSizeBytes": 3919252,
+  "category": "character",
+  "slot": "body",
+  "lod": 1,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 10632,
+  "totalTris": 10632,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 2,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "chr_civic_battle_prelate_t1_m.glb",
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+    },
+    {
+      "name": "LOD1",
+      "model": "chr_civic_battle_prelate_t1_m_lod1.glb",
+      "sha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980"
+    },
+    {
+      "name": "LOD2",
+      "model": "chr_civic_battle_prelate_t1_m_lod2.glb",
+      "sha256": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "upper_arm_joint_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "upper_arm_joint_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "forearm_leather_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "forearm_leather_underlayer",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_glove_palm_and_web",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_glove_palm_and_web",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "fitted_padded_torso_shirt",
+        "file": "source\\body_underlayers.json",
+        "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "tailored_hip_and_crotch_breeches",
+        "file": "source\\body_underlayers.json",
+        "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "fitted_padded_breeches_thighs",
+        "file": "source\\body_underlayers.json",
+        "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "fitted_padded_breeches_thighs",
+        "file": "source\\body_underlayers.json",
+        "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "padded_abdominal_doublet",
+        "file": "source\\garments.json",
+        "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "head_skin",
+        "file": "source\\head.json",
+        "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "eyes",
+        "file": "source\\head.json",
+        "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "ears",
+        "file": "source\\head.json",
+        "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "eyebrows",
+        "file": "source\\head.json",
+        "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "thigh_padded_underlayer",
+        "file": "source\\legs.json",
+        "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "knee_and_calf_padded_underlayer",
+        "file": "source\\legs.json",
+        "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

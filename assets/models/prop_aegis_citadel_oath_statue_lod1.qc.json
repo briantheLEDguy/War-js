@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_oath_statue",
+  "modelSha256": "d25b5e39fb6cdba231c4d8170e344cbc50f92ea256cb997c96f43ec2ff48915d",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_oath_statue_lod1.glb",
+    "triangles": 4220,
+    "bytes": 327752,
+    "sha256": "d25b5e39fb6cdba231c4d8170e344cbc50f92ea256cb997c96f43ec2ff48915d",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_oath_statue.glb",
+      "triangles": 8118,
+      "bytes": 588164,
+      "sha256": "b368f2ef85cde8d65d09f40ebb12c1b28cb2bac9c8381c0717a6196f4991dc92",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_oath_statue_lod1.glb",
+      "triangles": 4220,
+      "bytes": 327752,
+      "sha256": "d25b5e39fb6cdba231c4d8170e344cbc50f92ea256cb997c96f43ec2ff48915d",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_oath_statue_lod2.glb",
+      "triangles": 1947,
+      "bytes": 176812,
+      "sha256": "0537eb763f4af9be76acbe9b63b64de4a785061b9af1ee31b4c77e5845f9902e",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 4,
+    "depth": 4,
+    "height": 8
+  }
+}

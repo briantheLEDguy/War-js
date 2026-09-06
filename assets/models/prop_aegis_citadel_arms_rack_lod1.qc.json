@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.citadel_arms_rack",
+  "modelSha256": "0d516dd1b52ae0560e55aba2d551135bcb2422d6c68a1a3023b2f43afc6ff889",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_citadel_arms_rack_lod1.glb",
+    "triangles": 1778,
+    "bytes": 186148,
+    "sha256": "0d516dd1b52ae0560e55aba2d551135bcb2422d6c68a1a3023b2f43afc6ff889",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_citadel_arms_rack.glb",
+      "triangles": 3422,
+      "bytes": 321792,
+      "sha256": "ed0758846f526d848a47d40ec25ce588a0709058cb83b9644f88e4d717c25f84",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_citadel_arms_rack_lod1.glb",
+      "triangles": 1778,
+      "bytes": 186148,
+      "sha256": "0d516dd1b52ae0560e55aba2d551135bcb2422d6c68a1a3023b2f43afc6ff889",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_citadel_arms_rack_lod2.glb",
+      "triangles": 821,
+      "bytes": 89420,
+      "sha256": "73cb80e95d7f6c82479f060cb266c6c0c6e9ae21dd7a0e089544b7d58555ffe9",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "0533f82ea60c72ebcd02e6634d1d032c12a41ce54a4f2c880778237dc1b8d420",
+  "envelope": {
+    "width": 5,
+    "depth": 2,
+    "height": 3.5
+  }
+}

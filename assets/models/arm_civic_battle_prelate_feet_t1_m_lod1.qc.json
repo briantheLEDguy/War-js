@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.feet.t1.m",
+  "model": "arm_civic_battle_prelate_feet_t1_m_lod1.glb",
+  "modelSha256": "ca4003cd2d4c3ed39278741cc7ada9b10d787cc20c5bb7c1f6bc178b06ecbcbf",
+  "fileSizeBytes": 2321892,
+  "category": "armor",
+  "slot": "feet",
+  "lod": 1,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [
+    "feet"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 1924,
+  "totalTris": 1924,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_feet_t1_m.glb",
+      "sha256": "d5dcdbc9d0a43af922436f177a28f0599f81d4f0171fee0e0e6d13cf3bb9907a"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_feet_t1_m_lod1.glb",
+      "sha256": "ca4003cd2d4c3ed39278741cc7ada9b10d787cc20c5bb7c1f6bc178b06ecbcbf"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_feet_t1_m_lod2.glb",
+      "sha256": "029a8fd6baca11dc7c692f90f4f7a6ffe6d7700e8ae58832fe2dfa5b48a4b7eb"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "boot_contoured_welt_and_sole",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "boot_shaped_leather_upper",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      },
+      {
+        "part": "sabaton_shaped_toecap",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_first_articulated_lame",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_second_articulated_lame",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_instep_articulated_lame",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_brass_toe_rim",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "sabaton_brass_instep_border",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_heel_steel_counter",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_heel_brass_upper_lip",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_outer_leather_buckle_strap",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "boot_outer_brass_buckle",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "boot_buckle_tongue",
+        "file": "source\\feet.json",
+        "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

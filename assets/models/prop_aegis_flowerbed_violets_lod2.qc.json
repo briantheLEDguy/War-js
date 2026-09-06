@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.flowerbed_violets",
+  "modelSha256": "7a6da14d7a1ae52eb92410e206c25149a472e0064fd48acb8d602bdb14544ecf",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_flowerbed_violets_lod2.glb",
+    "triangles": 5315,
+    "bytes": 690024,
+    "sha256": "7a6da14d7a1ae52eb92410e206c25149a472e0064fd48acb8d602bdb14544ecf",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_flowerbed_violets.glb",
+      "triangles": 8020,
+      "bytes": 1051448,
+      "sha256": "f7e86182b31d5d088c9fd86f997bef12cb6fa88e55a297d8f8e08c57a028864b",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_flowerbed_violets_lod1.glb",
+      "triangles": 6349,
+      "bytes": 845132,
+      "sha256": "943241d09af3989d5be5d68d52f9b11aa9a3681aa67214b2b1eaf5549f5fc9f1",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_flowerbed_violets_lod2.glb",
+      "triangles": 5315,
+      "bytes": 690024,
+      "sha256": "7a6da14d7a1ae52eb92410e206c25149a472e0064fd48acb8d602bdb14544ecf",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "cea1f314abc3eaeca2ede09be80cbe796deb3078100ecdf328eb6d4955d1f504",
+  "envelope": [
+    4,
+    2,
+    0.777
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.aegis.city_guard.halberd",
+  "category": "character",
+  "model": "chr_aegis_city_guard_halberd_lod2.glb",
+  "modelSha256": "419b5550e617d8b6a05525e90f7c88fa177addbb2972e42d7b7c43aaa9907313",
+  "fileSizeBytes": 5408556,
+  "lod": 2,
+  "bodyFamily": "aegis_city_guard",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "totalTris": 37684,
+  "drawCalls": 9,
+  "meshCount": 1,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "pbrChannels": [
+    "baseColor",
+    "metallic",
+    "roughness"
+  ],
+  "maxTextureDimension": 2048,
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "khronosErrors": 0,
+  "khronosWarnings": 1,
+  "qcPassed": true,
+  "gripAudit": "reviews/aegis-city-guards/exported-grip-audit.json",
+  "previewImages": [
+    "reviews/aegis-city-guards/exported_idle_lineup.png"
+  ],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "chr_aegis_city_guard_halberd.glb",
+      "sha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b"
+    },
+    {
+      "name": "LOD1",
+      "model": "chr_aegis_city_guard_halberd_lod1.glb",
+      "sha256": "9558cf090bfb62fbf8dce8b08a16e4db0ec890d4405017d53d2bc7e470e52a3a"
+    },
+    {
+      "name": "LOD2",
+      "model": "chr_aegis_city_guard_halberd_lod2.glb",
+      "sha256": "419b5550e617d8b6a05525e90f7c88fa177addbb2972e42d7b7c43aaa9907313"
+    }
+  ]
+}

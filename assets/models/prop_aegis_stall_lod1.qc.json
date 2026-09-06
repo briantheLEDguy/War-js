@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.stall",
+  "modelSha256": "1b6e5e224352693c7c0dd2033af925346f742178be361cdfb72ecb16d9d1b394",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_stall_lod1.glb",
+    "triangles": 662,
+    "bytes": 103464,
+    "sha256": "1b6e5e224352693c7c0dd2033af925346f742178be361cdfb72ecb16d9d1b394",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_stall.glb",
+      "triangles": 1324,
+      "bytes": 179932,
+      "sha256": "6e01acf7701fd3a59ec428813420bcacf8b9d49d97131280a7db18f33326b9b4",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_stall_lod1.glb",
+      "triangles": 662,
+      "bytes": 103464,
+      "sha256": "1b6e5e224352693c7c0dd2033af925346f742178be361cdfb72ecb16d9d1b394",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_stall_lod2.glb",
+      "triangles": 264,
+      "bytes": 43968,
+      "sha256": "af6fda70c67537ef3d922f3d98514261de80d1c55e734f43deacf405003292f4",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

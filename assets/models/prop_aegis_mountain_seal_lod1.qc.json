@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.mountain_seal",
+  "modelSha256": "f77c82d95e09b33fd49d7c7cb610a134dd4ee6b1c35ac3b4d4157be6b2f49cbc",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_mountain_seal_lod1.glb",
+    "triangles": 3854,
+    "bytes": 580456,
+    "sha256": "f77c82d95e09b33fd49d7c7cb610a134dd4ee6b1c35ac3b4d4157be6b2f49cbc",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_mountain_seal.glb",
+      "triangles": 7708,
+      "bytes": 1004816,
+      "sha256": "c41bc65ad817332f55af158fab6bc1229e0dfb06ab684f16fc68b2dee48be466",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_mountain_seal_lod1.glb",
+      "triangles": 3854,
+      "bytes": 580456,
+      "sha256": "f77c82d95e09b33fd49d7c7cb610a134dd4ee6b1c35ac3b4d4157be6b2f49cbc",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_mountain_seal_lod2.glb",
+      "triangles": 1540,
+      "bytes": 233332,
+      "sha256": "74c170d6ddfe5c08e00776ccc1a9f01d15aa85052e9ff521577543bb711e12a5",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

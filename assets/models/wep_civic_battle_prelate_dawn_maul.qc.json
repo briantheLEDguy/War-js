@@ -1,100 +1,480 @@
 {
   "schemaVersion": 1,
   "assetId": "wep.civic.battle_prelate.dawn_maul.t1",
-  "category": "weapon",
   "model": "wep_civic_battle_prelate_dawn_maul.glb",
-  "modelSha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3",
-  "fileSizeBytes": 154468,
-  "meshCount": 1,
+  "modelSha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+  "fileSizeBytes": 1827452,
+  "category": "weapon",
+  "slot": "weapon",
+  "lod": 0,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 5688,
+  "totalTris": 5688,
   "drawCalls": 1,
-  "totalTris": 2364,
+  "meshCount": 1,
+  "maxInfluencesObserved": 0,
+  "unweightedVertices": 0,
   "nonManifoldEdges": 0,
-  "materialChannels": [
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
     "baseColor",
+    "normal",
     "roughness",
-    "metallic"
+    "metallic",
+    "occlusion"
   ],
-  "attachmentBinding": {
-    "mode": "rigid_socket",
-    "skeletonId": "humanoid_game_v2",
-    "bindPoseId": "a_pose_v2",
-    "targetSocket": "socket_hand_R",
-    "socketParentBone": "hand_R",
-    "gripNode": "weapon_grip_socket_hand_R",
-    "localGripTranslation": [
-      0,
-      0,
-      0
-    ],
-    "verified": true,
-    "handedness": "two_handed",
-    "massClass": "heavy",
-    "secondaryGrip": {
-      "node": "weapon_grip_socket_hand_L",
-      "targetSocket": "socket_hand_L",
-      "socketParentBone": "hand_L",
-      "localTranslation": [
-        0,
-        0,
-        0.3
-      ],
-      "verified": true
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "wep_civic_battle_prelate_dawn_maul.glb",
+      "sha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de"
     },
-    "strikeHead": {
-      "node": "weapon_strike_head",
-      "localTranslation": [
-        0,
-        0,
-        0.91
-      ],
-      "verified": true
+    {
+      "name": "LOD1",
+      "model": "wep_civic_battle_prelate_dawn_maul_lod1.glb",
+      "sha256": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f"
+    },
+    {
+      "name": "LOD2",
+      "model": "wep_civic_battle_prelate_dawn_maul_lod2.glb",
+      "sha256": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
     }
-  },
-  "source": {
-    "preferredSourceAvailable": true,
-    "sourceUsed": "makehuman_equipment01_culturalibre_war_hammer",
-    "license": "CC0-1.0",
-    "author": "culturalibre",
-    "marker": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\culturalibre_war_hammer\\culturalibre_war_hammer.mhclo",
-    "object": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\clothes\\culturalibre_war_hammer\\warhammer.obj",
-    "sourceHashes": {
-      "markerSha256": "d0c279bf0aa2ccf2cada49be2f0045b2049c04d0e7de68eee86d6a9fc5bcf254",
-      "objectSha256": "4bb50626d07015312f5e696373a64ca49f7831e9ce9cc2c50646305ba273cbe6"
-    }
-  },
-  "roundTrip": {
-    "reviewedSerializedGlb": true,
-    "importedNodeCount": 9,
-    "rootNode": "battle_prelate_hammer_root",
-    "gripNode": "weapon_grip_socket_hand_R",
-    "secondaryGripNode": "weapon_grip_socket_hand_L",
-    "strikeHeadNode": "weapon_strike_head",
-    "serializedModelSha256": "476b9e06456f038fce2e07ac4ec7664bc718d7129950b36cba77b1507bca48d3"
-  },
-  "previewImages": [
-    "review/front.png",
-    "review/side.png",
-    "review/back.png",
-    "review/isometric.png",
-    "review/socket_alignment.png"
   ],
-  "checks": {
-    "modelWritten": true,
-    "roundTripImported": true,
-    "canonicalSocket": true,
-    "gripAtLocalOrigin": true,
-    "semanticHandling": true,
-    "secondaryGripContract": true,
-    "strikeHeadContract": true,
-    "triangleBudget": true,
-    "drawCallBudget": true,
-    "fileSizeBudget": true,
-    "manifoldTopology": true,
-    "reviewEvidenceWritten": true,
-    "draftOnly": true
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "warhammer_reliquary_housing",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_double_brass_face_frame",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_double_brass_face_frame",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_striking_caps",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_double_raised_cross",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_double_raised_cross",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_relic_skull",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_skull_eye_recesses",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_skull_nose_and_teeth",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_authored_corner_stud",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_leather_shaft",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_diagonal_leather_binding",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "warhammer_head_socket_collar",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_lower_pommel",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_bottom_spike",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      },
+      {
+        "part": "warhammer_top_finial_base",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "warhammer_top_steel_finial",
+        "file": "source\\warhammer.json",
+        "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+        "finishing": []
+      }
+    ]
   },
-  "qcPassed": true,
-  "lifecycleStatus": "draft",
-  "runtimeReady": false,
-  "promotionEligible": false
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
 }

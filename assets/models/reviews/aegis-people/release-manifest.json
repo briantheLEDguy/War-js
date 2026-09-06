@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "name": "Aegis people and court",
+  "revision": 4,
+  "status": "reviewed_delivery",
+  "characterProfiles": {
+    "npc_aegis_people_civilian_male": {
+      "assetId": "chr.aegis.people.civilian_male",
+      "displayName": "Aegis Civilian Male",
+      "category": "character",
+      "model": "chr_aegis_people_civilian_male.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "civilian_male.blend",
+      "sourceSha256": "733030430bb0491d821bab00d286d929e5f5240c21c6208fe009006521d6a9be",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_civilian_male.glb",
+          "sha256": "4633cf18ab4870836c7dac554f2165489b59449636a6d4ea228c04a6d598db66",
+          "triangles": 167481,
+          "degenerate_uv_tangents": 125516
+        },
+        "1": {
+          "file": "chr_aegis_people_civilian_male_lod1.glb",
+          "sha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+          "triangles": 100487,
+          "degenerate_uv_tangents": 81860
+        },
+        "2": {
+          "file": "chr_aegis_people_civilian_male_lod2.glb",
+          "sha256": "eb9cf375da1a9b35ca08c56ca0164073f50ea4ad76e69250834b5f8b800ad112",
+          "triangles": 50240,
+          "degenerate_uv_tangents": 42855
+        }
+      },
+      "preview": "civilian_male_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    },
+    "npc_aegis_people_civilian_female": {
+      "assetId": "chr.aegis.people.civilian_female",
+      "displayName": "Aegis Civilian Female",
+      "category": "character",
+      "model": "chr_aegis_people_civilian_female.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "f",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "civilian_female.blend",
+      "sourceSha256": "31650250a648765326ab98d031b8fb951231ecf215c7c6a97a2ee07d0e456dd6",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_civilian_female.glb",
+          "sha256": "e7d7aee4e4d46d86a2d93db51112b65f1d6706ac3d5a65f52ac42a9bb63fd833",
+          "triangles": 136292,
+          "degenerate_uv_tangents": 64206
+        },
+        "1": {
+          "file": "chr_aegis_people_civilian_female_lod1.glb",
+          "sha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+          "triangles": 81770,
+          "degenerate_uv_tangents": 41120
+        },
+        "2": {
+          "file": "chr_aegis_people_civilian_female_lod2.glb",
+          "sha256": "11f4ee231fb571f7fd5905bd0fc6afa3a4479c22818b66d298ff30ad8ff41aad",
+          "triangles": 40884,
+          "degenerate_uv_tangents": 22813
+        }
+      },
+      "preview": "civilian_female_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    },
+    "npc_aegis_people_child": {
+      "assetId": "chr.aegis.people.child",
+      "displayName": "Aegis Child",
+      "category": "character",
+      "model": "chr_aegis_people_child.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "child.blend",
+      "sourceSha256": "0ffcc87f77457c984cec8fd88b1fb5d25b9f157a22bed5073846b31cfe6c568c",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_child.glb",
+          "sha256": "38e379d494cf03adfa071e14e752278f1bd2aa17118d3191632fd8fcb0122011",
+          "triangles": 165799,
+          "degenerate_uv_tangents": 126416
+        },
+        "1": {
+          "file": "chr_aegis_people_child_lod1.glb",
+          "sha256": "04830d6bc12c7bfe246cb3dea125a856c2fc48a67f395edaed6e543f4d51b8c7",
+          "triangles": 99476,
+          "degenerate_uv_tangents": 81850
+        },
+        "2": {
+          "file": "chr_aegis_people_child_lod2.glb",
+          "sha256": "93cb9ceb701d8d4df00b0d99da41f5fae9096379c32e860fd6d5a283a06eb1b5",
+          "triangles": 49736,
+          "degenerate_uv_tangents": 42620
+        }
+      },
+      "preview": "child_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    },
+    "npc_aegis_people_lord": {
+      "assetId": "chr.aegis.people.lord",
+      "displayName": "Aegis Lord",
+      "category": "character",
+      "model": "chr_aegis_people_lord.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "lord.blend",
+      "sourceSha256": "35ad0ee9a6d5eef4aa90c845568b0547deb5ad1e4c875d70c1670f506f09914c",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_lord.glb",
+          "sha256": "9ca5c3e8db68307c9d5737ad1692fef00670169f49bc76a43b6a9607b7655959",
+          "triangles": 171641,
+          "degenerate_uv_tangents": 180519
+        },
+        "1": {
+          "file": "chr_aegis_people_lord_lod1.glb",
+          "sha256": "ffefaa908c343a0dbcb607da0156100d9be342050f1ce5ea3650d101a72f935c",
+          "triangles": 102982,
+          "degenerate_uv_tangents": 115493
+        },
+        "2": {
+          "file": "chr_aegis_people_lord_lod2.glb",
+          "sha256": "f3676c608f5e75b39fbfe3c59081e49c6a3edcec08c1bd4ca36e2d78b0d9c00e",
+          "triangles": 51483,
+          "degenerate_uv_tangents": 59412
+        }
+      },
+      "preview": "lord_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    },
+    "npc_aegis_people_lady": {
+      "assetId": "chr.aegis.people.lady",
+      "displayName": "Aegis Lady",
+      "category": "character",
+      "model": "chr_aegis_people_lady.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "f",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "lady.blend",
+      "sourceSha256": "e169d540aa47ae98f19b5c33ce0d68e2d1a7f2e3a0ec3753c39e9d82906c0cb3",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_lady.glb",
+          "sha256": "b92a3240db00fca79e1a939d2d7f48865ea2c94aea8ea8b89f2162c62f80107a",
+          "triangles": 148462,
+          "degenerate_uv_tangents": 142299
+        },
+        "1": {
+          "file": "chr_aegis_people_lady_lod1.glb",
+          "sha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+          "triangles": 89072,
+          "degenerate_uv_tangents": 95662
+        },
+        "2": {
+          "file": "chr_aegis_people_lady_lod2.glb",
+          "sha256": "588ca5d2f3eddb551d18bbf6e06698522b04a529a492b207d219bf3c0d7f074d",
+          "triangles": 44534,
+          "degenerate_uv_tangents": 49741
+        }
+      },
+      "preview": "lady_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    },
+    "npc_aegis_people_courtier": {
+      "assetId": "chr.aegis.people.courtier",
+      "displayName": "Aegis Courtier",
+      "category": "character",
+      "model": "chr_aegis_people_courtier.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "courtier.blend",
+      "sourceSha256": "1bcbd3bfec9859ec51550550685b68501585d01df63f8c81219f2ed6ea213302",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_courtier.glb",
+          "sha256": "b6d5146435f6073a087bfcfeb30e5298b08eecd13d4cb1e6690b927a071a4889",
+          "triangles": 141611,
+          "degenerate_uv_tangents": 112452
+        },
+        "1": {
+          "file": "chr_aegis_people_courtier_lod1.glb",
+          "sha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+          "triangles": 84965,
+          "degenerate_uv_tangents": 74341
+        },
+        "2": {
+          "file": "chr_aegis_people_courtier_lod2.glb",
+          "sha256": "74ee466b187acf039e9b4e007a17417384e32a57f85a145556da5e9b07fceaa5",
+          "triangles": 42476,
+          "degenerate_uv_tangents": 39163
+        }
+      },
+      "preview": "courtier_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    },
+    "npc_aegis_people_attendant": {
+      "assetId": "chr.aegis.people.attendant",
+      "displayName": "Aegis Attendant",
+      "category": "character",
+      "model": "chr_aegis_people_attendant.glb",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "skeletonId": "aegis_people_v1",
+      "bindPoseId": "civic_relaxed_v1",
+      "usage": "stationary NPC",
+      "animationClips": [
+        "idle"
+      ],
+      "source": "attendant.blend",
+      "sourceSha256": "cd8818350906789844e084ccba382e937dd3c41d4104ee6f9eee0f31773ff320",
+      "lods": {
+        "0": {
+          "file": "chr_aegis_people_attendant.glb",
+          "sha256": "1826ef1e9f1610d7b8f456ac60ab3e3733cfb51c5cdf4a06f0d95f8383b65ec0",
+          "triangles": 137475,
+          "degenerate_uv_tangents": 111636
+        },
+        "1": {
+          "file": "chr_aegis_people_attendant_lod1.glb",
+          "sha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+          "triangles": 82481,
+          "degenerate_uv_tangents": 74028
+        },
+        "2": {
+          "file": "chr_aegis_people_attendant_lod2.glb",
+          "sha256": "2c85afddd132fab108c9ae1056b4f624e8ccf663d3d89fba27ad6eee3b3d8780",
+          "triangles": 41234,
+          "degenerate_uv_tangents": 39070
+        }
+      },
+      "preview": "attendant_export_three_quarter.png",
+      "visualReview": "Codex inspected exported geometry; not a claim of user aesthetic approval"
+    }
+  },
+  "referenceSha256": "6d725a8ce540a907ad30da08964634013e6cbd21723dac01c055446f6b2ba4ef",
+  "verification": {
+    "validation.json": "9f7d5de924c2a88d444c28422e1dc55a18c323a7bf65eea837e79973b780d949",
+    "runtime-audit.json": "7cadac71478ec1b4b9ffb364783e0075ac96033862529b7779aecb85b8908f48",
+    "export-review.json": "fcae10eebb2a075f2dd8a8a9b4401f029c6344ab7a488cfd0d7f55472318ebdf"
+  },
+  "limitations": [
+    "Stationary NPC idle only; no walking or combat clips",
+    "Custom civic skeleton; not player equipment socket compatible"
+  ],
+  "runtimeRegistryModified": true
+}

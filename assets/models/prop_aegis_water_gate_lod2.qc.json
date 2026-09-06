@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.water_gate",
+  "modelSha256": "1dc972bd52b7021ea1f613fe621b35cff94cadc6eb4d28640f6c2982d57bc467",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_water_gate_lod2.glb",
+    "triangles": 976,
+    "bytes": 149720,
+    "sha256": "1dc972bd52b7021ea1f613fe621b35cff94cadc6eb4d28640f6c2982d57bc467",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_water_gate.glb",
+      "triangles": 4888,
+      "bytes": 636084,
+      "sha256": "1c247436ba3c2ae7ad37c12cb85a4b2f2a704cef036fffd7a550342fad9a181f",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_water_gate_lod1.glb",
+      "triangles": 2444,
+      "bytes": 369924,
+      "sha256": "e009bb83bed0b549e78444b5c89ca57c20aae188d3668b81845aad246f4c6da6",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_water_gate_lod2.glb",
+      "triangles": 976,
+      "bytes": 149720,
+      "sha256": "1dc972bd52b7021ea1f613fe621b35cff94cadc6eb4d28640f6c2982d57bc467",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

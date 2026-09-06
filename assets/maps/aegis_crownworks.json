@@ -2240,6 +2240,48 @@
       "characterProfileKey": "enemy_aegis_keep_captain_captain"
     },
     {
+      "id": "aegis_crownworks_aegis_keep_commander",
+      "name": "Aegis Castellan Selene Wardcrest",
+      "level": 34,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 13,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "aegis_crownworks_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "aegis_crownworks_riftbound_keep_commander",
+      "name": "Riftbound Warlord Morvek Blackscar",
+      "level": 34,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 13,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "aegis_crownworks_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
       "id": "aegis_crownworks_beast_1",
       "name": "War Boar",
       "level": 32,
@@ -2827,5 +2869,5 @@
       ]
     }
   ],
-  "staticMapHash": "32e085235481c51e"
+  "staticMapHash": "518e07f50031b13b"
 }

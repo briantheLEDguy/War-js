@@ -1,0 +1,21 @@
+{
+  "assetId": "chr.aegis.people.civilian_female_walk",
+  "model": "chr_aegis_people_civilian_female_walk.glb",
+  "modelSha256": "cbe2ed167cde84f1a465e4332bcc25e19492c9acb36e92a0c31e73a61ca19d63",
+  "triangles": 81770,
+  "skeletonId": "aegis_people_v1",
+  "bindPoseId": "civic_relaxed_v1",
+  "clips": [
+    "idle",
+    "walk"
+  ],
+  "usage": "Aegis ambient walking civilians",
+  "authoredWalkSpeed": 0.9,
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "sourceModel": "chr_aegis_people_civilian_female_lod1.glb",
+  "sourceSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+  "repairedVertices": 16146,
+  "preservedChannels": "Positions, topology, normals, tangents, UVs, embedded images, materials, skeleton and original idle clip unchanged",
+  "review": "reviews/aegis-civic-locomotion/approval.json"
+}

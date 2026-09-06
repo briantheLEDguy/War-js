@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.ember_arcanist.shoulders.t1.m",
+  "model": "arm_civic_ember_arcanist_shoulders_t1_m.glb",
+  "modelSha256": "04351b63ea64fb1aae1d281cf2ab1c398962ab4a9526b6c790b37b26d1fdb3e1",
+  "fileSizeBytes": 1902104,
+  "category": "armor",
+  "slot": "shoulders",
+  "lod": 0,
+  "bodyFamily": "civic_ember_arcanist_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 6192,
+  "totalTris": 6192,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_ember_arcanist_shoulders_t1_m.glb",
+      "sha256": "04351b63ea64fb1aae1d281cf2ab1c398962ab4a9526b6c790b37b26d1fdb3e1"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_ember_arcanist_shoulders_t1_m_lod1.glb",
+      "sha256": "eb243b4cb626ea54cbcdc0820ac770ca2172f191165b04b2c59a792986a049ba"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_ember_arcanist_shoulders_t1_m_lod2.glb",
+      "sha256": "b4837ad24ff2bf8bb9cf48a5632f8213ea302df0b177a9bafb012f87c61392e8"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions; explicit body/outfit cages adapted from Battle Prelate sources with new hair, collar, panels and staff",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "98428bc32a584db4e8eb1ca052628926fa0c5044a068411fd04fb47054f94602",
+    "runtimeReportSha256": "5c39385cf27509871c8c5ebf7ade6a4a4d72e539fa363d01a85ff2ea351da020",
+    "visualReviewSha256": "c34ad65db6e7ab42e484e88ba03b7951e31026decc712bf1874c6b5f7a9c156e",
+    "evidenceArchive": "authoring/archives/ember-arcanist-reference-rebuild/98428bc32a58",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "left_pauldron_main_shell",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_front_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_outer_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_rear_brass_border",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_upper_lame",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_upper_lame_brass_hem",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_leather_suspension",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "left_pauldron_padded_shoulder_support",
+        "file": "source\\pauldron.json",
+        "sha256": "630761e03d1262b233d6d404d642f74bdb2aac717f55ee83b7e87672dce534fa",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

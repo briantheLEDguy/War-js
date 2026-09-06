@@ -1,0 +1,46 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.flowerbed_roses",
+  "modelSha256": "aee6f86661dfd6c084f0f694a84f804f9babed5cafdff2b82123f5086fc0aaee",
+  "lod": {
+    "level": 1,
+    "model": "prop_aegis_flowerbed_roses_lod1.glb",
+    "triangles": 8889,
+    "bytes": 1234112,
+    "sha256": "aee6f86661dfd6c084f0f694a84f804f9babed5cafdff2b82123f5086fc0aaee",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_flowerbed_roses.glb",
+      "triangles": 12556,
+      "bytes": 1743856,
+      "sha256": "59b77af4d2f2e1f7a17fe5b63d0b224b4f4e3dd63be6d2b0bac8eb9174ffc0bb",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_flowerbed_roses_lod1.glb",
+      "triangles": 8889,
+      "bytes": 1234112,
+      "sha256": "aee6f86661dfd6c084f0f694a84f804f9babed5cafdff2b82123f5086fc0aaee",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_flowerbed_roses_lod2.glb",
+      "triangles": 6585,
+      "bytes": 888492,
+      "sha256": "c27854c87d497399b44cffd1c440b5166f56b96f3eec983e9416871dad6882bf",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "cea1f314abc3eaeca2ede09be80cbe796deb3078100ecdf328eb6d4955d1f504",
+  "envelope": [
+    4,
+    2,
+    1.019
+  ]
+}

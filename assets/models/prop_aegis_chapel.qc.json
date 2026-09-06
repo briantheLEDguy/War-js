@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.chapel",
+  "modelSha256": "c5f38a4dbab921bf4d8f0b415be9c258c24986620febc8055ca2d6c9eef16ef7",
+  "lod": {
+    "level": 0,
+    "model": "prop_aegis_chapel.glb",
+    "triangles": 11304,
+    "bytes": 1509816,
+    "sha256": "c5f38a4dbab921bf4d8f0b415be9c258c24986620febc8055ca2d6c9eef16ef7",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_chapel.glb",
+      "triangles": 11304,
+      "bytes": 1509816,
+      "sha256": "c5f38a4dbab921bf4d8f0b415be9c258c24986620febc8055ca2d6c9eef16ef7",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_chapel_lod1.glb",
+      "triangles": 5652,
+      "bytes": 836200,
+      "sha256": "1ac8a885c4683be6cdb75a1c709506be7beeed7132ad0bb48d4cc487d74d68e2",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_chapel_lod2.glb",
+      "triangles": 2260,
+      "bytes": 328436,
+      "sha256": "b6a505bda22cc03e2b4a7a7b10f537170b38c423ab07e79e71c00ac5054b98fc",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}

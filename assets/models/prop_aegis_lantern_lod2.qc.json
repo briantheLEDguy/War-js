@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.aegis.lantern",
+  "modelSha256": "937273529242d6a451f383d2e5a9fa541179ce7f89db5e3ccb91cd51de3ca243",
+  "lod": {
+    "level": 2,
+    "model": "prop_aegis_lantern_lod2.glb",
+    "triangles": 264,
+    "bytes": 44032,
+    "sha256": "937273529242d6a451f383d2e5a9fa541179ce7f89db5e3ccb91cd51de3ca243",
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_aegis_lantern.glb",
+      "triangles": 1324,
+      "bytes": 176452,
+      "sha256": "892b7c62744aae2dd4bb4164902b8d8da3edc54a4f08d59a473871c89d66b3e5",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_aegis_lantern_lod1.glb",
+      "triangles": 662,
+      "bytes": 103340,
+      "sha256": "c3b1368b6d03dc414d511a535ae35c1a85986ec3c7a321b124d435f8201b6775",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_aegis_lantern_lod2.glb",
+      "triangles": 264,
+      "bytes": 44032,
+      "sha256": "937273529242d6a451f383d2e5a9fa541179ce7f89db5e3ccb91cd51de3ca243",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "7e4f701a03f0d8b9a76b0c211065f5eb86ce5ea054e9622fed5ec233034482d2",
+  "textureMaxDimension": 2048
+}
