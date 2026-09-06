@@ -2176,6 +2176,48 @@
       "attackDamage": 96,
       "moveSpeed": 3.05,
       "characterProfileKey": "enemy_aegis_keep_captain_captain"
+    },
+    {
+      "id": "aegis_gate_fortress_aegis_keep_commander",
+      "name": "Aegis Castellan Taren Ashford",
+      "level": 42,
+      "x": -58,
+      "z": 62,
+      "maxHealth": 1080,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 15,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "aegis_gate_fortress_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "aegis_gate_fortress_riftbound_keep_commander",
+      "name": "Riftbound Warlord Varek Dreadthorn",
+      "level": 42,
+      "x": 58,
+      "z": 62,
+      "maxHealth": 1080,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 15,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "aegis_gate_fortress_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
     }
   ],
   "resourceNodes": [
@@ -2588,5 +2630,5 @@
       ]
     }
   ],
-  "staticMapHash": "4b98b7c116bedf1f"
+  "staticMapHash": "523d2871b7ef429f"
 }

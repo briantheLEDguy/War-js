@@ -4,6 +4,7 @@ import type { Game } from '../../game/Game';
 import { services } from '../../services';
 import {
   buildCampaignSnapshot,
+  campaignZoneName,
   formatCampaignControl,
   type CampaignControl,
   type CampaignLane,
@@ -39,6 +40,7 @@ import {
   ZoneMapCanvas,
 } from './WorldMapPanel';
 import { useDraggableWindow } from './useDraggableWindow';
+import { resolveQuestDestination } from './questNavigation';
 
 interface Props {
   game: Game | null;
@@ -113,6 +115,7 @@ export function CampaignMapPanel({ game }: Props) {
   const enemies = useGameStore((state) => state.enemies);
   const npcs = useGameStore((state) => state.npcs);
   const quests = useGameStore((state) => state.quests);
+  const questDestination = resolveQuestDestination(character, quests);
   const setWorldMapOpen = useGameStore((state) => state.setWorldMapOpen);
   const setWorldMapLevel = useGameStore((state) => state.setWorldMapLevel);
   const setWorldMapZoneId = useGameStore((state) => state.setWorldMapZoneId);
@@ -460,10 +463,12 @@ export function CampaignMapPanel({ game }: Props) {
                   <ZoneMapCanvas
                     game={selectedIsCurrent ? game : null}
                     zone={zone}
-                    character={selectedIsCurrent ? character : null}
+                    character={selectedIsCurrent ? character : character && zone ? {
+                      ...character, zoneId: zone.id, position: zone.spawnPoint ?? character.position,
+                    } : null}
                     enemies={previewEnemies}
                     npcs={previewNpcs}
-                    quests={selectedIsCurrent ? quests : []}
+                    quests={quests}
                     layers={layers}
                     markerVisible={markerVisible}
                     renderScale={effectiveMapScale}
@@ -474,12 +479,14 @@ export function CampaignMapPanel({ game }: Props) {
                     snapshot={snapshot}
                     lane={selectedRouteLane}
                     selectedZoneId={selectedZoneId}
+                    questZoneId={questDestination?.zoneId}
                     onSelectZone={selectCampaignZone}
                   />
                 ) : (
                   <CampaignFullMap
                     snapshot={snapshot}
                     selectedZoneId={selectedZoneId}
+                    questZoneId={questDestination?.zoneId}
                     onSelectZone={selectCampaignZone}
                     onSelectRoute={selectRoute}
                   />
@@ -489,6 +496,19 @@ export function CampaignMapPanel({ game }: Props) {
           </div>
 
           <aside className="world-map-sidebar campaign-map-sidebar" aria-label="Campaign map details">
+            {questDestination && (
+              <section className="world-map-sidebar-section expedition-map-focus">
+                <h3>Your expedition</h3>
+                <strong>{questDestination.quest.title}</strong>
+                <p>{questDestination.action}</p>
+                <button type="button" onClick={() => {
+                  setWorldMapZoneId(questDestination.zoneId);
+                  setWorldMapLevel('zone');
+                }}>
+                  Show {campaignZoneName(questDestination.zoneId)}
+                </button>
+              </section>
+            )}
             {worldMapLevel === 'zone' && (
               <section className="world-map-sidebar-section">
                 <h3>Layers</h3>
@@ -652,11 +672,13 @@ function WarfrontSummary({ summary }: { summary: CampaignSnapshot['aegis'] }) {
 function CampaignFullMap({
   snapshot,
   selectedZoneId,
+  questZoneId,
   onSelectZone,
   onSelectRoute,
 }: {
   snapshot: CampaignSnapshot;
   selectedZoneId: string;
+  questZoneId?: string;
   onSelectZone: (zoneId: string) => void;
   onSelectRoute: (lane: CampaignLane) => void;
 }) {
@@ -693,6 +715,7 @@ function CampaignFullMap({
           key={zone.id}
           zone={zone}
           selected={zone.id === selectedZoneId}
+          questDestination={zone.id === questZoneId}
           style={fullMapNodeStyle(zone)}
           onClick={() => onSelectZone(zone.id)}
           onContextMenu={(event) => event.preventDefault()}
@@ -711,11 +734,13 @@ function CampaignRouteBoard({
   snapshot,
   lane,
   selectedZoneId,
+  questZoneId,
   onSelectZone,
 }: {
   snapshot: CampaignSnapshot;
   lane: CampaignLane;
   selectedZoneId: string;
+  questZoneId?: string;
   onSelectZone: (zoneId: string) => void;
 }) {
   const route = campaignRouteForLane(lane);
@@ -751,6 +776,7 @@ function CampaignRouteBoard({
               <CampaignMapNodeView
                 zone={zone}
                 selected={zone.id === selectedZoneId}
+                questDestination={zone.id === questZoneId}
                 onClick={() => onSelectZone(zone.id)}
                 onContextMenu={(event) => event.preventDefault()}
               />
@@ -763,6 +789,7 @@ function CampaignRouteBoard({
                         key={branch.id}
                         zone={branch}
                         selected={branch.id === selectedZoneId}
+                        questDestination={branch.id === questZoneId}
                         onClick={() => onSelectZone(branch.id)}
                         onContextMenu={(event) => event.preventDefault()}
                       />
@@ -782,12 +809,14 @@ function CampaignRouteBoard({
 function CampaignMapNodeView({
   zone,
   selected,
+  questDestination,
   style,
   onClick,
   onContextMenu,
 }: {
   zone: CampaignZoneStatus;
   selected: boolean;
+  questDestination?: boolean;
   style?: CSSProperties;
   onClick: () => void;
   onContextMenu: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -804,17 +833,17 @@ function CampaignMapNodeView({
   return (
     <button
       type="button"
-      className={`campaign-map-node ${isBoss ? 'boss' : 'zone'} ${variant} ${zone.control}${zone.current ? ' current' : ''}${selected ? ' selected' : ''}`}
+      className={`campaign-map-node ${isBoss ? 'boss' : 'zone'} ${variant} ${zone.control}${zone.current ? ' current' : ''}${selected ? ' selected' : ''}${questDestination ? ' expedition-zone' : ''}`}
       style={style}
       title={`${zone.name} — ${formatCampaignControl(zone.control)}`}
-      aria-label={`${zone.name}, ${zone.tier}, ${formatCampaignControl(zone.control)}`}
+      aria-label={`${zone.name}, ${zone.tier}, ${formatCampaignControl(zone.control)}${questDestination ? ', expedition destination' : ''}`}
       aria-current={zone.current ? 'location' : undefined}
       onClick={onClick}
       onContextMenu={onContextMenu}
     >
       <strong>{zone.name}</strong>
       <span className="campaign-map-node-stage">{isBoss ? zone.levelBand : zone.tier}</span>
-      <em>{displayControl}</em>
+      <em>{questDestination ? '◆ Expedition' : displayControl}</em>
     </button>
   );
 }

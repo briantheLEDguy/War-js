@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.back.t1.m",
+  "model": "arm_civic_battle_prelate_back_t1_m_lod2.glb",
+  "modelSha256": "e66724b865f57fb75d30eb56ec36443397083947ba9934258ee84c5974c65c30",
+  "fileSizeBytes": 538996,
+  "category": "armor",
+  "slot": "back",
+  "lod": 2,
+  "bodyFamily": "civic_battle_prelate_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [
+    "back"
+  ],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 898,
+  "totalTris": 898,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 512,
+  "maxTextureResolution": 512,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_battle_prelate_back_t1_m.glb",
+      "sha256": "6b1fe23eb44af252013c57ae3d18f706870095943ff10759ed51492298be1cbd"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_battle_prelate_back_t1_m_lod1.glb",
+      "sha256": "18ca95fe1cd407998bf8d55e4227c97af295e92a381adf7afa69813416da26a2"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_battle_prelate_back_t1_m_lod2.glb",
+      "sha256": "e66724b865f57fb75d30eb56ec36443397083947ba9934258ee84c5974c65c30"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "rigid_backplate",
+        "file": "source\\backplate.json",
+        "sha256": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_recessed_backing",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_outer_rim",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_skull",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

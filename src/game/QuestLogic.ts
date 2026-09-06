@@ -1,4 +1,5 @@
-import { QUESTS_BY_ID, questsByGiver, questsByTurnIn } from '../data/quests';
+import { QUESTS_BY_ID, questAvailableToCharacter, questsByGiver, questsByTurnIn } from '../data/quests';
+import { playerRealmForRace } from '../data/careers';
 import { getItemDefinition } from '../data/items';
 import { services } from '../services';
 import type {
@@ -6,9 +7,12 @@ import type {
   InventoryItem,
   QuestDefinition,
   QuestProgress,
+  QuestReward,
   QuestRewardItem,
 } from '../services/types';
 import { useGameStore } from '../state/gameStore';
+import { newlyUnlockedAbilities } from './abilities/abilityProgression';
+import { canFitRewardItems, placeRewardItems } from './RewardInventory';
 
 export { equipFromInventory } from './Equipment';
 
@@ -30,26 +34,23 @@ export function questsOfferedBy(
   character: CharacterState | null,
 ): QuestDefinition[] {
   if (!character) return [];
-  const byId = new Map(progresses.map((p) => [p.questId, p] as const));
-  return questsByGiver(npcId).filter((q) => {
-    if (character.level < q.minLevel) return false;
-    if (q.prereqQuestId) {
-      const pre = byId.get(q.prereqQuestId);
-      if (!pre || pre.status !== 'completed') return false;
-    }
-    const own = byId.get(q.id);
-    return !own || own.status === 'available';
-  });
+  return questsByGiver(npcId).filter((q) =>
+    questAvailableToCharacter(q, progresses, character) &&
+    (!q.giverZoneId || q.giverZoneId === character.zoneId),
+  );
 }
 
 /** Quests this NPC can hand rewards for (player already finished all steps). */
 export function questsReadyToTurnIn(
   npcId: string,
   progresses: QuestProgress[],
+  character?: CharacterState | null,
 ): ResolvedQuest[] {
+  if (character === null) return [];
   const byId = new Map(progresses.map((p) => [p.questId, p] as const));
   const out: ResolvedQuest[] = [];
   for (const q of questsByTurnIn(npcId)) {
+    if (character && q.realm && q.realm !== playerRealmForRace(character.race)) continue;
     const p = byId.get(q.id);
     if (p && p.status === 'ready_to_turn_in') {
       out.push({ progress: p, definition: q });
@@ -83,6 +84,7 @@ export function acceptQuest(questId: string): void {
   // Idempotent: ignore if already active / ready / completed.
   const existing = store.quests.find((q) => q.questId === questId);
   if (existing && existing.status !== 'available') return;
+  if (!questsOfferedBy(def.giverNpcId, store.quests, character).some((quest) => quest.id === questId)) return;
 
   const counters: Record<string, number> = {};
   for (const o of def.objectives) counters[o.id] = 0;
@@ -106,24 +108,26 @@ export function acceptQuest(questId: string): void {
 
 /**
  * Called from Combat.killEnemy when an enemy dies — walks the active quests
- * and increments any objective that matches the enemy's name. Flips a quest
+ * and increments objectives matching the enemy's name and zone. Flips a quest
  * to `ready_to_turn_in` once every objective reaches its required count.
  */
-export function registerEnemyKill(enemyName: string): void {
+export function registerEnemyKill(enemyName: string, zoneId?: string): void {
   const store = useGameStore.getState();
   const { quests, character } = store;
   if (!character) return;
+  const killZoneId = zoneId ?? character.zoneId;
 
   let changed = false;
   for (const p of quests) {
     if (p.status !== 'active') continue;
     const def = QUESTS_BY_ID[p.questId];
     if (!def) continue;
+    if (def.realm && def.realm !== playerRealmForRace(character.race)) continue;
 
     const counters = { ...p.counters };
     let touched = false;
     for (const obj of def.objectives) {
-      if (obj.killTarget && obj.killTarget === enemyName) {
+      if (obj.killTarget === enemyName && (!obj.zoneId || obj.zoneId === killZoneId)) {
         const cur = counters[obj.id] ?? 0;
         if (cur < obj.required) {
           counters[obj.id] = cur + 1;
@@ -186,6 +190,12 @@ export function buildRewardItem(reward: QuestRewardItem): Omit<InventoryItem, 's
   };
 }
 
+export function questRewardInventoryBlocker(reward: QuestReward, inventory: InventoryItem[]): string | null {
+  return canFitRewardItems(reward.items ?? [], inventory)
+    ? null
+    : 'Make room in your inventory for all rewards, then try again. Gear needs an empty slot.';
+}
+
 /**
  * Turn in a quest, apply rewards, and check for level-up. Caller must ensure
  * the quest is in status=ready_to_turn_in before calling.
@@ -198,6 +208,19 @@ export function turnInQuest(questId: string): void {
   const def = QUESTS_BY_ID[questId];
   const p = store.quests.find((q) => q.questId === questId);
   if (!def || !p || p.status !== 'ready_to_turn_in') return;
+  if (def.realm && def.realm !== playerRealmForRace(character.race)) return;
+  const turninZoneId = def.turninZoneId ?? def.giverZoneId;
+  if (turninZoneId && turninZoneId !== character.zoneId) return;
+  const inventoryBlocker = questRewardInventoryBlocker(def.reward, store.inventory);
+  if (inventoryBlocker) {
+    store.appendChat({
+      id: `quest-reward-blocked-${Date.now()}-${questId}`,
+      channel: 'system', from: 'System', timestamp: Date.now(),
+      body: `Cannot complete ${def.title}: ${inventoryBlocker}`,
+    });
+    return;
+  }
+  const placement = placeRewardItems((def.reward.items ?? []).map(buildRewardItem), store.inventory);
 
   // Mark completed
   store.upsertQuest({ ...p, status: 'completed' });
@@ -209,12 +232,8 @@ export function turnInQuest(questId: string): void {
   };
   store.updateCharacter(patch);
 
-  // Grant items
-  if (def.reward.items) {
-    for (const r of def.reward.items) {
-      store.addInventoryItem(buildRewardItem(r));
-    }
-  }
+  // Commit the complete placement checked before changing quest status or rolling gear.
+  store.setInventory(placement.inventory);
 
   // Persist
   void services.inventory
@@ -293,6 +312,15 @@ export function checkLevelUp(): void {
       body: `You have reached level ${newLevel}!`,
       timestamp: Date.now(),
     });
+    for (const ability of newlyUnlockedAbilities(c.className, newLevel - 1, newLevel)) {
+      store.appendChat({
+        id: `ability-learned-${Date.now()}-${ability.id}`,
+        channel: 'system',
+        from: 'System',
+        body: `New ability: ${ability.name}. Your hotbar has been updated.`,
+        timestamp: Date.now(),
+      });
+    }
   }
   if (leveled) {
     store.setCharacter(c);

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.ember_arcanist.waist.t1.m",
+  "displayName": "Ember Arcanist Waist",
+  "category": "armor",
+  "model": "arm_civic_ember_arcanist_waist_t1_m.glb",
+  "qc": "arm_civic_ember_arcanist_waist_t1_m.qc.json",
+  "runtime": {
+    "itemKey": "starter_civic_ember_arcanist_waist_m",
+    "bodyVariant": "m",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_ember_arcanist_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "slot": "waist",
+    "coveredRegions": []
+  }
+}

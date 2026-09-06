@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.battle_prelate.waist.novitiate.m",
+  "displayName": "Novitiate Field Belt",
+  "category": "armor",
+  "model": "arm_civic_battle_prelate_waist_novitiate_m.glb",
+  "qc": "arm_civic_battle_prelate_waist_novitiate_m.qc.json",
+  "runtime": {
+    "itemKey": "novitiate_civic_battle_prelate_waist_m",
+    "bodyVariant": "m",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "civic_battle_prelate_m",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2",
+    "coveredRegions": [
+      "waist"
+    ]
+  },
+  "hashes": {
+    "modelSha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8",
+    "qcSha256": "4f25db41d61e25b7700aa391578b536896f30f398b4922202a3e833fb4a6bd55",
+    "previews": {
+      "front": "d3e2a7a37d5a089efb3b9d1206b0a5644b3e0fd28311f25353c5cc8909316abf",
+      "isometric": "c001f8127d0461492e78c5146e717b86551a2005582d2aaa264330a560f44b6a",
+      "side": "9165ef3e150d2867a0e8b612dd76facf9b70fe9bf66993fb62c8849cfa6e6563",
+      "back": "6ebb2232b3c076e96011cfe0c4490f56f6dca4820cb5a867e0ea46b487abc8d2"
+    }
+  },
+  "previews": {
+    "front": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_side.png",
+    "back": "reviews/battle-prelate-novitiate-set/3482623101ff/lod0_full_back.png"
+  },
+  "provenance": {
+    "kind": "explicit_novitiate_armor_variant",
+    "geometrySource": "Explicit authored cages adapted from the accepted reference set; permitted finishing only",
+    "rigReuse": "Existing body, warhammer, canonical armature and actions shared unchanged",
+    "sharedAssets": {
+      "public/assets/models/chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "public/assets/models/chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "public/assets/models/chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "public/assets/models/wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+    },
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "3482623101ff4f39b4afdab6a04238bf24cbb64db10d59f9a15792ff773d12dd",
+    "runtimeReportSha256": "07bc882361569f979572a08498f33fc2598a3b765f103bd8230a5c2c5dd35fbf",
+    "visualReviewSha256": "182d9387a7539e1b324b32f8fb7346e031095dfae856722fd559f63b80b278c6",
+    "evidenceArchive": "authoring/archives/battle-prelate-novitiate-set/3482623101ff",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceLedgerSha256": "b7bbe1c2227662029442cac2fef4403750c7573e64520781bc5a1f3cd8007b98",
+    "sourceLedger": "authoring/archives/battle-prelate-novitiate-set/3482623101ff/source_ledger.json",
+    "sourceRecords": [
+      {
+        "part": "heavy_relic_belt",
+        "file": "source\\waist.json",
+        "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "front_flared_tasset",
+        "file": "source\\waist.json",
+        "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "novitiate_plain_iron_buckle",
+        "file": "source\\waist.json",
+        "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "novitiate_buckle_tongue",
+        "file": "source\\waist.json",
+        "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      }
+    ]
+  },
+  "review": {
+    "reviewedBy": "Codex primary agent; visual inspection of final clean GLB reimports",
+    "reviewedAt": "2026-09-06T08:32:25.230684+00:00",
+    "reviewHash": "182d9387a7539e1b324b32f8fb7346e031095dfae856722fd559f63b80b278c6"
+  },
+  "approvalState": "approved"
+}

@@ -1,3 +1,4 @@
+import { EMBER_STAFF_KEY, hasEmberArcanistOutfit } from '../../data/emberArcanist';
 import type {
   CharacterService,
   CharacterState,
@@ -190,6 +191,9 @@ function equipmentOrStarter(c: CharacterState): CharacterState['equipment'] {
   if (isBattlePrelate(c.race, className) && shouldResetBattlePrelateEquipment(c.equipment)) {
     return defaultEquipmentFor(c.race, className, bodyVariant);
   }
+  if (hasEmberArcanistOutfit(c.race, className, bodyVariant) && !c.equipment.mainHand) {
+    return { ...c.equipment, mainHand: EMBER_STAFF_KEY };
+  }
   return c.equipment;
 }
 
@@ -216,6 +220,10 @@ function defaultEquipmentFor(
   } else if (race === 'greenskin' && className === 'Warbrute') {
     equipment.mainHand = 'weapon_warbrute_cleaver';
     equipment.offHand = 'shield_steel';
+  }
+  if (hasEmberArcanistOutfit(race, className, bodyVariant)) {
+    equipment.mainHand = EMBER_STAFF_KEY;
+    delete equipment.offHand;
   }
   return equipment;
 }

@@ -1,0 +1,28 @@
+{
+  "files": [
+    "src/world/Skybox.ts",
+    "src/ui/screens/CharacterPreviewStage.tsx",
+    "src/game/PreviewReflections.ts",
+    "tests/reflectionEnvironment.test.ts"
+  ],
+  "patch": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\runtime_reflection_fix.patch",
+  "patch_sha256": "a8ac668ddbcb34132ddb56009783c6351f2b51603f0ab4e9ab65d1ffec541d85",
+  "main_applied": false,
+  "main_apply_check_exit": 0,
+  "tests": {
+    "command": "npm test -- --run tests/reflectionEnvironment.test.ts",
+    "passed": 5,
+    "failed": 0,
+    "coverage": [
+      "fallback sky geometry intersects capture rays in all cube directions",
+      "available HDRI remains authoritative",
+      "preview background preserved and target disposed once at cleanup",
+      "replacement environment not cleared by stale cleanup",
+      "temporary capture resources freed on capture error"
+    ]
+  },
+  "typecheck": "passed",
+  "diff_check": "passed; only repository LF-to-CRLF notices",
+  "resource_order": "Preview render target disposed before renderer.dispose(), while renderer resource bookkeeping is still live. Temporary RoomEnvironment and PMREM generator disposed immediately after capture.",
+  "notes": "No character materials, geometry, source records, registry data, Player/WeaponAnimation, or Vite files changed. Parent owns actual GPU/UI review."
+}

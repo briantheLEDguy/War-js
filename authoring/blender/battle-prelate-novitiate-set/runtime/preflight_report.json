@@ -1,0 +1,5232 @@
+{
+  "status": "staged",
+  "created_at": "2026-09-06T06:03:57.467823+00:00",
+  "rig_source_sha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+  "animations": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "lods": {
+    "0": {
+      "modules": {
+        "body": {
+          "triangles": 30952,
+          "vertices": 15514,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 2,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "upper_arm_joint_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "upper_arm_joint_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "forearm_leather_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "forearm_leather_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_glove_palm_and_web",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_glove_palm_and_web",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_torso_shirt",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "tailored_hip_and_crotch_breeches",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_breeches_thighs",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_breeches_thighs",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "padded_abdominal_doublet",
+              "file": "source\\garments.json",
+              "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "head_skin",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 2
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "eyes",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 2
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "ears",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 2
+                }
+              ]
+            },
+            {
+              "part": "eyebrows",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 2
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "thigh_padded_underlayer",
+              "file": "source\\legs.json",
+              "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "knee_and_calf_padded_underlayer",
+              "file": "source\\legs.json",
+              "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            }
+          ],
+          "textures": {
+            "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod0_baseColor.png",
+            "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod0_normal.png",
+            "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod0_roughness.png",
+            "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod0_metallic.png",
+            "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod0_occlusion.png",
+            "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod0_orm.png"
+          },
+          "surface_channel_transfer": false,
+          "tessellation": {
+            "authored_ngons_tessellated": 0,
+            "triangles": 30952,
+            "positions_and_weights_unchanged": true,
+            "explicit_tangents": true
+          },
+          "model": "chr_civic_battle_prelate_t1_m.glb",
+          "bytes": 11661536,
+          "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+          "shared_asset": {
+            "package": "battle-prelate-reference-rebuild",
+            "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+            "mesh_archive_exact_match": true,
+            "export_policy": "byte_copy_accepted_glb"
+          }
+        },
+        "head": {
+          "triangles": 1792,
+          "vertices": 896,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "gorget_steel_wall",
+              "file": "source\\gorget.json",
+              "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "gorget_brass_rolled_rim",
+              "file": "source\\gorget.json",
+              "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "shoulders": {
+          "triangles": 4040,
+          "vertices": 2052,
+          "materials": 2,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "left_pauldron_main_shell",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_upper_lame",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_leather_suspension",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_padded_shoulder_support",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            }
+          ]
+        },
+        "chest": {
+          "triangles": 1956,
+          "vertices": 986,
+          "materials": 2,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "breastplate_shell",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "breastplate_neck_brass",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "breastplate_lower_brass",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "novitiate_small_faith_badge",
+              "file": "source\\faith_badge.json",
+              "sha256": "01d982e95601d7061969de385e971f82beb0ffbb9f9174b10830d2b9fe73703e",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "hands": {
+          "triangles": 6640,
+          "vertices": 3396,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "elbow_couter_and_wing",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "elbow_couter_and_wing",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_front_and_cuff",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_front_and_cuff",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_rear_closure",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_rear_closure",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_dorsal_plate",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_dorsal_plate",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            }
+          ]
+        },
+        "waist": {
+          "triangles": 1084,
+          "vertices": 548,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "heavy_relic_belt",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "front_flared_tasset",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "novitiate_plain_iron_buckle",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "novitiate_buckle_tongue",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            }
+          ]
+        },
+        "legs": {
+          "triangles": 5800,
+          "vertices": 2920,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "thigh_steel_cuisse",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "knee_pointed_poleyn",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "greave_shaped_front_shell",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "greave_leather_closure_bands",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "greave_outer_closure_buckles",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "feet": {
+          "triangles": 1880,
+          "vertices": 960,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "boot_contoured_welt_and_sole",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "boot_shaped_leather_upper",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "sabaton_shaped_toecap",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "boot_outer_leather_buckle_strap",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "boot_outer_brass_buckle",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "boot_buckle_tongue",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "back": {
+          "triangles": 1024,
+          "vertices": 514,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "rigid_backplate",
+              "file": "source\\backplate.json",
+              "sha256": "e39ad5c8bea922c16e8b1b496576495c7ba98d94097bfb19975dad585598554e",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "tabard": {
+          "triangles": 1120,
+          "vertices": 564,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 3,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "front_crimson_tabard",
+              "file": "source\\garments.json",
+              "sha256": "9b10e44ca510a128db2124ea1df6594b17908b9ebfa2687fd9b388e3481bfa2d",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "rear_crimson_surcoat",
+              "file": "source\\garments.json",
+              "sha256": "9b10e44ca510a128db2124ea1df6594b17908b9ebfa2687fd9b388e3481bfa2d",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "weapon": {
+          "triangles": 5688,
+          "vertices": 2928,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 0,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "warhammer_reliquary_housing",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_brass_face_frame",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_brass_face_frame",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_striking_caps",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_raised_cross",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_raised_cross",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_relic_skull",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_skull_eye_recesses",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_skull_nose_and_teeth",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_leather_shaft",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_head_socket_collar",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_lower_pommel",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_bottom_spike",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_top_finial_base",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_top_steel_finial",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            }
+          ],
+          "textures": {
+            "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod0_baseColor.png",
+            "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod0_normal.png",
+            "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod0_roughness.png",
+            "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod0_metallic.png",
+            "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod0_occlusion.png",
+            "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod0_orm.png"
+          },
+          "surface_channel_transfer": false,
+          "tessellation": {
+            "authored_ngons_tessellated": 46,
+            "triangles": 5688,
+            "positions_and_weights_unchanged": true,
+            "explicit_tangents": true
+          },
+          "model": "wep_civic_battle_prelate_dawn_maul.glb",
+          "bytes": 1827452,
+          "sha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+          "shared_asset": {
+            "package": "battle-prelate-reference-rebuild",
+            "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+            "mesh_archive_exact_match": true,
+            "export_policy": "byte_copy_accepted_glb"
+          }
+        }
+      },
+      "total_triangles": 61976,
+      "draw_calls": 21
+    },
+    "1": {
+      "modules": {
+        "body": {
+          "triangles": 10632,
+          "vertices": 5354,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 2,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "upper_arm_joint_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "upper_arm_joint_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "forearm_leather_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "forearm_leather_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_glove_palm_and_web",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_glove_palm_and_web",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_torso_shirt",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "tailored_hip_and_crotch_breeches",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_breeches_thighs",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_breeches_thighs",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "padded_abdominal_doublet",
+              "file": "source\\garments.json",
+              "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "head_skin",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "eyes",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "ears",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "eyebrows",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "thigh_padded_underlayer",
+              "file": "source\\legs.json",
+              "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            },
+            {
+              "part": "knee_and_calf_padded_underlayer",
+              "file": "source\\legs.json",
+              "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                }
+              ]
+            }
+          ],
+          "textures": {
+            "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod1_baseColor.png",
+            "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod1_normal.png",
+            "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod1_roughness.png",
+            "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod1_metallic.png",
+            "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod1_occlusion.png",
+            "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod1_orm.png"
+          },
+          "surface_channel_transfer": false,
+          "tessellation": {
+            "authored_ngons_tessellated": 0,
+            "triangles": 10632,
+            "positions_and_weights_unchanged": true,
+            "explicit_tangents": true
+          },
+          "model": "chr_civic_battle_prelate_t1_m_lod1.glb",
+          "bytes": 3919252,
+          "sha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+          "shared_asset": {
+            "package": "battle-prelate-reference-rebuild",
+            "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+            "mesh_archive_exact_match": true,
+            "export_policy": "byte_copy_accepted_glb"
+          }
+        },
+        "head": {
+          "triangles": 616,
+          "vertices": 308,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "gorget_steel_wall",
+              "file": "source\\gorget.json",
+              "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "gorget_brass_rolled_rim",
+              "file": "source\\gorget.json",
+              "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "shoulders": {
+          "triangles": 2000,
+          "vertices": 1032,
+          "materials": 2,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "left_pauldron_main_shell",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_upper_lame",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_authored_rivet",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_leather_suspension",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_padded_shoulder_support",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            },
+            {
+              "part": "left_pauldron_lame_fasteners",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": []
+            }
+          ]
+        },
+        "chest": {
+          "triangles": 676,
+          "vertices": 344,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "breastplate_shell",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "breastplate_neck_brass",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "breastplate_lower_brass",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "file": "source\\faith_badge.json",
+              "part": "novitiate_small_faith_badge",
+              "sha256": "01d982e95601d7061969de385e971f82beb0ffbb9f9174b10830d2b9fe73703e",
+              "representation": "baked_surface",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "hands": {
+          "triangles": 1872,
+          "vertices": 1012,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "elbow_couter_and_wing",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "elbow_couter_and_wing",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_front_and_cuff",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_front_and_cuff",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_rear_closure",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_rear_closure",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_dorsal_plate",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_dorsal_plate",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            }
+          ]
+        },
+        "waist": {
+          "triangles": 500,
+          "vertices": 256,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "heavy_relic_belt",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "front_flared_tasset",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "novitiate_plain_iron_buckle",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "novitiate_buckle_tongue",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            }
+          ]
+        },
+        "legs": {
+          "triangles": 4032,
+          "vertices": 2036,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "thigh_steel_cuisse",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "knee_pointed_poleyn",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "greave_shaped_front_shell",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "greave_leather_closure_bands",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "greave_outer_closure_buckles",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "feet": {
+          "triangles": 1220,
+          "vertices": 630,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "boot_contoured_welt_and_sole",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "boot_shaped_leather_upper",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "sabaton_shaped_toecap",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "boot_outer_leather_buckle_strap",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "boot_outer_brass_buckle",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "boot_buckle_tongue",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "back": {
+          "triangles": 400,
+          "vertices": 202,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "rigid_backplate",
+              "file": "source\\backplate.json",
+              "sha256": "e39ad5c8bea922c16e8b1b496576495c7ba98d94097bfb19975dad585598554e",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "tabard": {
+          "triangles": 792,
+          "vertices": 400,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 3,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "front_crimson_tabard",
+              "file": "source\\garments.json",
+              "sha256": "9b10e44ca510a128db2124ea1df6594b17908b9ebfa2687fd9b388e3481bfa2d",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "rear_crimson_surcoat",
+              "file": "source\\garments.json",
+              "sha256": "9b10e44ca510a128db2124ea1df6594b17908b9ebfa2687fd9b388e3481bfa2d",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "weapon": {
+          "triangles": 5688,
+          "vertices": 2928,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 0,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "warhammer_reliquary_housing",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_brass_face_frame",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_brass_face_frame",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_striking_caps",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_raised_cross",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_raised_cross",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_relic_skull",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_skull_eye_recesses",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_skull_nose_and_teeth",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_authored_corner_stud",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_leather_shaft",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_head_socket_collar",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_lower_pommel",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_bottom_spike",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_top_finial_base",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            },
+            {
+              "part": "warhammer_top_steel_finial",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            }
+          ],
+          "textures": {
+            "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod1_baseColor.png",
+            "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod1_normal.png",
+            "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod1_roughness.png",
+            "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod1_metallic.png",
+            "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod1_occlusion.png",
+            "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod1_orm.png"
+          },
+          "surface_channel_transfer": true,
+          "tessellation": {
+            "authored_ngons_tessellated": 46,
+            "triangles": 5688,
+            "positions_and_weights_unchanged": true,
+            "explicit_tangents": true
+          },
+          "model": "wep_civic_battle_prelate_dawn_maul_lod1.glb",
+          "bytes": 1915248,
+          "sha256": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+          "shared_asset": {
+            "package": "battle-prelate-reference-rebuild",
+            "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+            "mesh_archive_exact_match": true,
+            "export_policy": "byte_copy_accepted_glb"
+          }
+        }
+      },
+      "total_triangles": 28428,
+      "draw_calls": 20
+    },
+    "2": {
+      "modules": {
+        "body": {
+          "triangles": 2668,
+          "vertices": 1372,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 2,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "upper_arm_joint_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "upper_arm_joint_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "forearm_leather_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "forearm_leather_underlayer",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_glove_palm_and_web",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_glove_palm_and_web",
+              "file": "source\\arms.json",
+              "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_torso_shirt",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "tailored_hip_and_crotch_breeches",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_breeches_thighs",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "fitted_padded_breeches_thighs",
+              "file": "source\\body_underlayers.json",
+              "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "padded_abdominal_doublet",
+              "file": "source\\garments.json",
+              "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "head_skin",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "eyes",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "ears",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "eyebrows",
+              "file": "source\\head.json",
+              "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "thigh_padded_underlayer",
+              "file": "source\\legs.json",
+              "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "knee_and_calf_padded_underlayer",
+              "file": "source\\legs.json",
+              "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            }
+          ],
+          "textures": {
+            "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod2_baseColor.png",
+            "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod2_normal.png",
+            "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod2_roughness.png",
+            "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod2_metallic.png",
+            "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod2_occlusion.png",
+            "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\body_lod2_orm.png"
+          },
+          "surface_channel_transfer": false,
+          "tessellation": {
+            "authored_ngons_tessellated": 28,
+            "triangles": 2668,
+            "positions_and_weights_unchanged": true,
+            "explicit_tangents": true
+          },
+          "model": "chr_civic_battle_prelate_t1_m_lod2.glb",
+          "bytes": 1625832,
+          "sha256": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+          "shared_asset": {
+            "package": "battle-prelate-reference-rebuild",
+            "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+            "mesh_archive_exact_match": true,
+            "export_policy": "byte_copy_accepted_glb"
+          }
+        },
+        "head": {
+          "triangles": 504,
+          "vertices": 252,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "gorget_steel_wall",
+              "file": "source\\gorget.json",
+              "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "gorget_brass_rolled_rim",
+              "file": "source\\gorget.json",
+              "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "shoulders": {
+          "triangles": 1216,
+          "vertices": 624,
+          "materials": 2,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "left_pauldron_main_shell",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_upper_lame",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_leather_suspension",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "left_pauldron_padded_shoulder_support",
+              "file": "source\\pauldron.json",
+              "sha256": "8973bab3efbc80398d34e33217a0ac2b304fc2fe630a4e7d1e6833bab8b4e85c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            }
+          ]
+        },
+        "chest": {
+          "triangles": 492,
+          "vertices": 252,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "breastplate_shell",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "breastplate_neck_brass",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "breastplate_lower_brass",
+              "file": "source\\breastplate.json",
+              "sha256": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "file": "source\\faith_badge.json",
+              "part": "novitiate_small_faith_badge",
+              "sha256": "01d982e95601d7061969de385e971f82beb0ffbb9f9174b10830d2b9fe73703e",
+              "representation": "baked_surface",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 2
+                }
+              ]
+            }
+          ]
+        },
+        "hands": {
+          "triangles": 1872,
+          "vertices": 1012,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "elbow_couter_and_wing",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "elbow_couter_and_wing",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_front_and_cuff",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_front_and_cuff",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_rear_closure",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "vambrace_rear_closure",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_dorsal_plate",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "gauntlet_dorsal_plate",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_proximal_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_middle_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "finger_distal_capped_articulations",
+              "file": "source\\arms.json",
+              "sha256": "6f9856f694a28e9476583db4b212e9ed8f7a7e5bd422a1f33add1c791d3d531b",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            }
+          ]
+        },
+        "waist": {
+          "triangles": 500,
+          "vertices": 256,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "heavy_relic_belt",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "front_flared_tasset",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "novitiate_plain_iron_buckle",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "novitiate_buckle_tongue",
+              "file": "source\\waist.json",
+              "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            }
+          ]
+        },
+        "legs": {
+          "triangles": 2048,
+          "vertices": 1044,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "thigh_steel_cuisse",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "knee_pointed_poleyn",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "greave_shaped_front_shell",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "greave_leather_closure_bands",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "greave_outer_closure_buckles",
+              "file": "source\\legs.json",
+              "sha256": "ec4903e71032016ea1183a80fdf137c3e91dd702680d97f318cfa514d9dbf481",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            }
+          ]
+        },
+        "feet": {
+          "triangles": 748,
+          "vertices": 390,
+          "materials": 3,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "boot_contoured_welt_and_sole",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "boot_shaped_leather_upper",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "part": "sabaton_shaped_toecap",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "boot_outer_leather_buckle_strap",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "boot_outer_brass_buckle",
+              "file": "source\\feet.json",
+              "sha256": "5f41de131cd95984fade2183867ae7efbbaea645baf1c1fdfbc86f38ded64721",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            }
+          ]
+        },
+        "back": {
+          "triangles": 280,
+          "vertices": 142,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 1,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "rigid_backplate",
+              "file": "source\\backplate.json",
+              "sha256": "e39ad5c8bea922c16e8b1b496576495c7ba98d94097bfb19975dad585598554e",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            }
+          ]
+        },
+        "tabard": {
+          "triangles": 792,
+          "vertices": 400,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 3,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "front_crimson_tabard",
+              "file": "source\\garments.json",
+              "sha256": "9b10e44ca510a128db2124ea1df6594b17908b9ebfa2687fd9b388e3481bfa2d",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 1
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "rear_crimson_surcoat",
+              "file": "source\\garments.json",
+              "sha256": "9b10e44ca510a128db2124ea1df6594b17908b9ebfa2687fd9b388e3481bfa2d",
+              "finishing": [
+                {
+                  "type": "SUBSURF",
+                  "level": 0
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            }
+          ]
+        },
+        "weapon": {
+          "triangles": 3132,
+          "vertices": 1626,
+          "materials": 1,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "degenerate_triangles": 0,
+          "finite_coordinates": true,
+          "max_influences": 0,
+          "unweighted_vertices": 0,
+          "source_records": [
+            {
+              "part": "warhammer_reliquary_housing",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_brass_face_frame",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_brass_face_frame",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_striking_caps",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_raised_cross",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_double_raised_cross",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                },
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_relic_skull",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_skull_eye_recesses",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "MIRROR"
+                },
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_leather_shaft",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_diagonal_leather_binding",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "SOLIDIFY"
+                }
+              ]
+            },
+            {
+              "part": "warhammer_head_socket_collar",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_lower_pommel",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_bottom_spike",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            },
+            {
+              "part": "warhammer_top_finial_base",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": [
+                {
+                  "type": "BEVEL",
+                  "segments": 1
+                }
+              ]
+            },
+            {
+              "part": "warhammer_top_steel_finial",
+              "file": "source\\warhammer.json",
+              "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+              "finishing": []
+            }
+          ],
+          "textures": {
+            "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod2_baseColor.png",
+            "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod2_normal.png",
+            "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod2_roughness.png",
+            "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod2_metallic.png",
+            "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod2_occlusion.png",
+            "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\textures\\weapon_lod2_orm.png"
+          },
+          "surface_channel_transfer": true,
+          "tessellation": {
+            "authored_ngons_tessellated": 38,
+            "triangles": 3132,
+            "positions_and_weights_unchanged": true,
+            "explicit_tangents": true
+          },
+          "model": "wep_civic_battle_prelate_dawn_maul_lod2.glb",
+          "bytes": 787188,
+          "sha256": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b",
+          "shared_asset": {
+            "package": "battle-prelate-reference-rebuild",
+            "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+            "mesh_archive_exact_match": true,
+            "export_policy": "byte_copy_accepted_glb"
+          }
+        }
+      },
+      "total_triangles": 14252,
+      "draw_calls": 20
+    }
+  },
+  "lod2_omitted_details": [
+    "belt_reliquary_dental_crowns",
+    "boot_buckle_tongue",
+    "breastplate_reinforcement_steel_inset",
+    "gorget_authored_rivet",
+    "gorget_creed_inlay",
+    "knee_and_greave_fasteners",
+    "knee_skull_teeth",
+    "left_pauldron_authored_rivet",
+    "left_pauldron_lame_fasteners",
+    "rear_reliquary_dental_crowns",
+    "rear_reliquary_inner_beaded_border",
+    "rear_reliquary_lower_pendant",
+    "rear_reliquary_rim_fasteners",
+    "relic_belt_wax_stamp_marks",
+    "relic_tabard_explicit_fringe_tassels",
+    "relic_upper_manual_ink_strokes",
+    "relic_upper_wax_stamp_marks",
+    "reliquary_dental_crowns",
+    "reliquary_inner_beaded_border",
+    "reliquary_rim_fasteners",
+    "tome_corner_fasteners",
+    "tome_page_foreedge_rules",
+    "warhammer_authored_corner_stud",
+    "warhammer_skull_nose_and_teeth"
+  ],
+  "shared_assets": {
+    "package": "battle-prelate-reference-rebuild",
+    "master": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\battle_prelate_game_master.blend",
+    "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+    "runtime_report_sha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "evaluated_mesh_archive_sha256": "f34435fa5de6dd3c9a85eb61d0ad47f39fad41080123022763b4b78424b828fd",
+    "archive_records_verified": 6,
+    "glbs": {
+      "chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+    }
+  }
+}

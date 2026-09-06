@@ -1,0 +1,4851 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "created_utc": "2026-09-06T01:18:09.080847+00:00",
+  "source_root": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild",
+  "destination_root": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\battle-prelate-reference-rebuild",
+  "initial_destination_files": [
+    "battle_prelate_game_master.blend"
+  ],
+  "authorized_replacement": {
+    "path": "battle_prelate_game_master.blend",
+    "previous_sha256": "0ad72a57b1238fa41c3fbdb9b285ffa4dd366e93875bce190a6bf48a1feb823e",
+    "final_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417"
+  },
+  "copied_file_count": 801,
+  "verified_payload_file_count": 801,
+  "verified_payload_bytes": 596171985,
+  "excluded_directories": [
+    "promotion",
+    "tmp",
+    "runtime/atlas_cache",
+    "tests/__pycache__",
+    "tools/__pycache__"
+  ],
+  "excluded_files": [
+    "battle_prelate_game_master.blend1",
+    "battle_prelate_reference_master.blend1",
+    "battle_prelate_reimport_review.blend1",
+    "battle_prelate_rigged_study.blend",
+    "battle_prelate_rigged_study.blend1",
+    "battle_prelate_upper_body_proof.blend1",
+    "review/master_presentation.log",
+    "runtime/final_build.log",
+    "runtime/final_preflight.log",
+    "runtime/final_surface_build.log",
+    "runtime/full_build.log",
+    "runtime/verified_build.log",
+    "textures/chainmail_bake_source.blend1"
+  ],
+  "collisions_preserved": [],
+  "source_files_changed_during_copy": [],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 80,
+      "sha256": "8c9b7d329d740ecd8bceb7046274cf25302c67760efd1e01f1a5eb05b02c1526",
+      "action": "copied"
+    },
+    {
+      "path": "PROMOTION.md",
+      "bytes": 6319,
+      "sha256": "97b9b31777c3c553a17d8524ddbca03e311c40b8df56b063ff28f67c3c392090",
+      "action": "copied"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6714,
+      "sha256": "8d715331880c9db1c6e200aaf37a15996c8d4de639c5f09921a10b704d01e73e",
+      "action": "copied"
+    },
+    {
+      "path": "REIMPORT_REVIEW.md",
+      "bytes": 2614,
+      "sha256": "ac5f789aa2e5c4172cbdd56f7f1d0d1de960cde1d0f2f0fdc34345c1b4dab39a",
+      "action": "copied"
+    },
+    {
+      "path": "battle_prelate_game_master.blend",
+      "bytes": 59785387,
+      "sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+      "action": "replaced_verified_owned_intermediate"
+    },
+    {
+      "path": "battle_prelate_reference_master.blend",
+      "bytes": 461169,
+      "sha256": "485a3796f9d846d1a53de577c6be5771ee6c2b78cc8e594fda1a829902fdc066",
+      "action": "copied"
+    },
+    {
+      "path": "battle_prelate_reimport_review.blend",
+      "bytes": 29414244,
+      "sha256": "61a244f261c4d2a8d0d907b0fac67f46decc78ce8ec1c74c8232e804ec41bc18",
+      "action": "copied"
+    },
+    {
+      "path": "battle_prelate_upper_body_proof.blend",
+      "bytes": 172523,
+      "sha256": "0fe405d31215df18284210b440938431f418458e2bb6da7419c244fa1980d19c",
+      "action": "copied"
+    },
+    {
+      "path": "references/README.md",
+      "bytes": 3236,
+      "sha256": "8ec085a9e768e3df3edf484016094b8781108631d41f4267b1b65daef4546543",
+      "action": "copied"
+    },
+    {
+      "path": "references/annotated_back.png",
+      "bytes": 1067580,
+      "sha256": "6a20cbb93c77b304153fa0fedd82ccc6ee36860b3994d94a172b2b93f8c5efc7",
+      "action": "copied"
+    },
+    {
+      "path": "references/annotated_front.png",
+      "bytes": 1851357,
+      "sha256": "7634953873acf1e7b3b85b9d8d2b9e4ca5642eaf9ec667c9d4bd346a7da1acf7",
+      "action": "copied"
+    },
+    {
+      "path": "references/annotated_front_upperbody.png",
+      "bytes": 1045505,
+      "sha256": "eed2412111d10061d670039d3b2b4f7ee0d030e186fdba96baf5d29ce1f6a21e",
+      "action": "copied"
+    },
+    {
+      "path": "references/annotated_side.png",
+      "bytes": 627010,
+      "sha256": "143527707d91d836462378cd2eb754df1b6ef0f42255af339f5dbfe62aada748",
+      "action": "copied"
+    },
+    {
+      "path": "references/annotated_threequarter.png",
+      "bytes": 1016948,
+      "sha256": "8dff67141c776706f08f7dd0d725886f7796c9d7500cbdccef016f6220a12c07",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/back_whole.png",
+      "bytes": 315260,
+      "sha256": "db04a10b412befdbd9b2f963d67f9291856b4bd149cd4f90036acd26dfdb870f",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_censer_inset.png",
+      "bytes": 38406,
+      "sha256": "92cffb3c4c2f894c5acf2bd2808b89e0d168ad4b8696319f882e474434db1691",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_front_belt_tabard.png",
+      "bytes": 187157,
+      "sha256": "268db6cc7408b6b506dae1f4b0b837bb776d8b62274b04837164a7ddc043d6d2",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_front_breastplate.png",
+      "bytes": 70525,
+      "sha256": "f554e11c3d3d4af9ac9d3497a0c3c7d6a2a7d53d6f23a204fd2fac71b1f8cf49",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_front_hammer.png",
+      "bytes": 121652,
+      "sha256": "c0eb996b4d53a3693eda2f90cea8ff45c51c600cbcaa1fe3f5f8853a3c81477f",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_front_head_gorget.png",
+      "bytes": 31946,
+      "sha256": "bda492c4429ecb2af104efeab8c9d84296ed1fd3664c420b66ea888fee1fe6de",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_front_left_pauldron.png",
+      "bytes": 41811,
+      "sha256": "793fbb1ebbb22330acfddb744c9953680c593d0d398ef66a465aea2bdcb63585",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_front_tome.png",
+      "bytes": 25829,
+      "sha256": "7bf132a4985d182a9bc4fe60bc546e677ef92f5ebd67095af968355ffbd96714",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_gorget_inset.png",
+      "bytes": 36715,
+      "sha256": "fdda47fc70cae27f5b5da266913594cc3a57620f4560eac6941edb27941df3cd",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_medallion_inset.png",
+      "bytes": 37922,
+      "sha256": "aee13a5dc7bea883d406b1688b0beeb5ad5e49945ebe3ba542f43f59be83b9e6",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_modular_head.png",
+      "bytes": 9503,
+      "sha256": "37ccf85e12101cf3ce585024ece86a7879484229a66e1484ed0af9739868327c",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_palette.png",
+      "bytes": 143379,
+      "sha256": "84fb61e9e5f4e6706d2c5f8780245d745858e527bab2e9f50228c24b9e13ed84",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_prayer_seal_inset.png",
+      "bytes": 22770,
+      "sha256": "293b248dc05f8e2f72c6488f52100afca15dea34eaa9e27ba014a54f0dea3f1e",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_shoulder_icon_inset.png",
+      "bytes": 39513,
+      "sha256": "82386cb0f85395fbdbf5dcce153897db0a26b7896e47f185f2f25ea120f1b732",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/detail_tome_inset.png",
+      "bytes": 34686,
+      "sha256": "9894fe412d42aa4b4934137dc155a30188d07f89d12d74c97b3ed98ad506de4c",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/front_upperbody.png",
+      "bytes": 164987,
+      "sha256": "5739ed6a9d6e6972cb2a23f4765bcea87ddacbc9fafe990f4816b2ba50d3d462",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/front_whole.png",
+      "bytes": 556145,
+      "sha256": "069a1fbadc5b12acaed12eb88b186a11383e28409c018013df85f28d8472dce9",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/side_whole.png",
+      "bytes": 171683,
+      "sha256": "ebc8a5dbcfd23c23e1a617aed09a4784f59772401145e829850540fad18e250e",
+      "action": "copied"
+    },
+    {
+      "path": "references/crops/threequarter_whole.png",
+      "bytes": 300059,
+      "sha256": "0c1428b89863aeff59643451e0e949e8b526d69c42f63a016c84827a2fe2c413",
+      "action": "copied"
+    },
+    {
+      "path": "references/measurements.json",
+      "bytes": 44551,
+      "sha256": "10438b1f695fa7fde98bcdebdccd7a03a6639fd2b1c3337ba1b245f776f298a8",
+      "action": "copied"
+    },
+    {
+      "path": "references/view_disagreements.md",
+      "bytes": 2464,
+      "sha256": "b8f9672c1ee53e18a54b03b8991c9cf92675283361a575b1f2e7c75c156dacc7",
+      "action": "copied"
+    },
+    {
+      "path": "review/archive_byte_write_correction.json",
+      "bytes": 1273,
+      "sha256": "e2d723940c0436c946c3aa2317402d625ce306c978225812f4ef8c5857768fa9",
+      "action": "copied"
+    },
+    {
+      "path": "review/author_head_before_final_refinement.py",
+      "bytes": 18232,
+      "sha256": "15c8940da7251febdb97b1f2ffc14847a0a98bf39c2feaf3a216f087b74ec088",
+      "action": "copied"
+    },
+    {
+      "path": "review/author_legs_before_greave_clearance_fix.py",
+      "bytes": 16971,
+      "sha256": "ac546ee358a902d80ad02ec2aba51c4f09960dc78b2cb560c662dc4a15188317",
+      "action": "copied"
+    },
+    {
+      "path": "review/author_legs_before_thigh_clearance_fix.py",
+      "bytes": 16971,
+      "sha256": "8c565935bc94989bb4e1308df2a902081e1567f8ba97e1170c7d112126d599a8",
+      "action": "copied"
+    },
+    {
+      "path": "review/back_material.png",
+      "bytes": 1198458,
+      "sha256": "24a9dd3d8e4235ff52dbd97a77e95d98a3fff9a59718a40a86614f5f21004102",
+      "action": "copied"
+    },
+    {
+      "path": "review/back_neutral.png",
+      "bytes": 1128119,
+      "sha256": "5dfc66626d2125f65f0a6ab117beaf1b7ba3541855083abe973b364ed6b807ac",
+      "action": "copied"
+    },
+    {
+      "path": "review/back_wire.png",
+      "bytes": 1240583,
+      "sha256": "4b35e3ea984ce56de54f24cf65d0ea8f6572fd1e032c41c597bd839c061a3987",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_alternatives.json",
+      "bytes": 1551,
+      "sha256": "905b4457e5cfd9cd4eda928dbc66d3be9816739bc648026b9c1ed2325a2d4da2",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_current_v4.png",
+      "bytes": 772509,
+      "sha256": "a5cba4a0d3ba693e4e89ccdf669ffaa39277ea97255fecb7cbeb18f3f4f6ece0",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_forward.png",
+      "bytes": 773702,
+      "sha256": "9bb40d8416b9ce83fc7030fb8a2ef336702a31e45fd17e46f701d02ccaf69af5",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_front_elbow.png",
+      "bytes": 773106,
+      "sha256": "fa5d38eb727f9808245f411d75ff8cb304192783408174f2f8b6ef69ed44ac65",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_isolated_hands.png",
+      "bytes": 360521,
+      "sha256": "5c90039a4cb43852683bc537afe4ec9576d8161ceb27acb5e2fe64bbe0d27c82",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_outward.png",
+      "bytes": 732647,
+      "sha256": "8788dec4b893edaa562e63e7413770bb0a516c62778c87229b61bf0d92723883",
+      "action": "copied"
+    },
+    {
+      "path": "review/book_clearance_probe.json",
+      "bytes": 2263,
+      "sha256": "d34f23a0ba0329ef116d057f668839c3b3de9b528eb672a62543657651be83e2",
+      "action": "copied"
+    },
+    {
+      "path": "review/build_report.json",
+      "bytes": 200875,
+      "sha256": "dcbe64a737b8775fe05c0344bd83e73eb089268850b88a2c413236705edf59b5",
+      "action": "copied"
+    },
+    {
+      "path": "review/comparison_README.md",
+      "bytes": 2697,
+      "sha256": "e48e5cd9a1737d1e1c7ccffbf48dbab80786e4e80318ae0ea5e0faac827b60eb",
+      "action": "copied"
+    },
+    {
+      "path": "review/comparison_front_material.png",
+      "bytes": 1711277,
+      "sha256": "504c3025aeff3d266280c82350bbf51013f6f5669cdc10576260267272360d66",
+      "action": "copied"
+    },
+    {
+      "path": "review/comparison_front_neutral.png",
+      "bytes": 1619288,
+      "sha256": "e2f93178ebe2154016216c5d42d84f0a9235525feacc61013388904c8840807f",
+      "action": "copied"
+    },
+    {
+      "path": "review/comparison_front_overlay.png",
+      "bytes": 874869,
+      "sha256": "442e75802fa99284f4654b3cd8a3f70bb213bce7b81f0daa6ccfc66fcc3293e7",
+      "action": "copied"
+    },
+    {
+      "path": "review/comparison_landmarks.png",
+      "bytes": 1069137,
+      "sha256": "aaa2153da0d82c0146e81d96b9a47686309b97e5c4d11c657e4371af64a79b44",
+      "action": "copied"
+    },
+    {
+      "path": "review/comparison_report.json",
+      "bytes": 12343,
+      "sha256": "c1d13256b03931e02506425fe0b96eb94646d9a1bfa2099670a62b426e6907a6",
+      "action": "copied"
+    },
+    {
+      "path": "review/evaluated_mesh.json.gz",
+      "bytes": 2734640,
+      "sha256": "de54bd7f04307d7e44a8f375524dbf11cc76bf5349a2ffa9063bb071d0b990d7",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_audit.json",
+      "bytes": 1622247,
+      "sha256": "affddcd23039f5b89f4910c4843d0e28631cfc525e01cc58562b67fca3b20d67",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_book_hand_region.png",
+      "bytes": 802314,
+      "sha256": "fbd44504b1b532ec9ee9f1897a8935194e40c5f7e0c951624a71525ea90719c0",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_book_hand_side_region.png",
+      "bytes": 858166,
+      "sha256": "21ac2191def0a867eb5f943ddf0670236aa85eb41ac9d1edc3c8fbeec1a84723",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_book_v4_probe.png",
+      "bytes": 788710,
+      "sha256": "6ea5804921e52a3a985830f9503e4d42e0b0b16fa18979dbd036c388a05cf8b9",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_death_shoulder_region.png",
+      "bytes": 728107,
+      "sha256": "6b179952bcf54f2d448734fe9858571706f4a9238523a58d197912eeb4ba9f6a",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_gltf_slerp.json",
+      "bytes": 2477,
+      "sha256": "f96459d0585d0cbb7a453c16cf20981c56027401f0ee35e4e107909ae4045322",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_ground_extent.png",
+      "bytes": 601050,
+      "sha256": "f937efc8f8bd4d03342fbff91cbaa42e186a7da866bca6bad0e89655ad708524",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_guard_contact.png",
+      "bytes": 819926,
+      "sha256": "4485c0919366fa438824e4fd1a94fa1993c90d11b6a473b6f4de14778edcfda8",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_melee_chest_region.png",
+      "bytes": 844632,
+      "sha256": "6d684f73d9201e615ccdc95b977eeba236cb0ebfeb4dfff8c9961fe93ae00bf6",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_overlap_candidate_1.png",
+      "bytes": 434936,
+      "sha256": "5156fcab2738e23071ed50990f2e8556a8ec796b5aaeb4aa5edc050157db5feb",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_overlap_candidate_2.png",
+      "bytes": 606207,
+      "sha256": "ef9bc6d54b0ec7e1a8037bc71c5a381c31580eca070abaddd6096adba7b3bbc6",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_overlap_candidate_3.png",
+      "bytes": 610029,
+      "sha256": "021f1a156685ea79d856db154f27cd418fae822c4d782c18f83542f013313600",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_run_book_hand_region.png",
+      "bytes": 779671,
+      "sha256": "2f426d6f13ada67906563c7ee26377553b46ab7511f37e29c156d200bde00d3e",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_smoke.json",
+      "bytes": 780783,
+      "sha256": "af8ec6aaaedc2f3230ac304bcfbaee0f96b7acac7918b0b5d0a1824fcd9f013c",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_supplemental_late_death_wide.png",
+      "bytes": 854802,
+      "sha256": "6df8b1e8a8c7b20f8918134fa1ccc843b873e694de5e3dc1de342e4deb6698bb",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_walk_book_hand_region.png",
+      "bytes": 792543,
+      "sha256": "c305b1682dbdbec0079197b8232be52ed11bf835dfa55df301b628fcb8b00ebd",
+      "action": "copied"
+    },
+    {
+      "path": "review/exported_motion_worst_grip_contact.png",
+      "bytes": 752465,
+      "sha256": "8f26caf6667a473c146a4257a8e61fe93cda2565f1004e7e6ad0b71e9dbacb92",
+      "action": "copied"
+    },
+    {
+      "path": "review/face_material.png",
+      "bytes": 1025946,
+      "sha256": "98077b08147c9aa488e9c69a9de437f494bb8495b54f755e62c6fe5d6db7a43f",
+      "action": "copied"
+    },
+    {
+      "path": "review/face_neutral.png",
+      "bytes": 910774,
+      "sha256": "d55c09c64423af1e90d46827a97215f1f51cf3ef5a704cc3e1aa7b7459d263a0",
+      "action": "copied"
+    },
+    {
+      "path": "review/face_wire.png",
+      "bytes": 1092278,
+      "sha256": "48f70b28592f80ed82ff3fa9ecb545c66cd2d5ced109a8a17ecddf4e2587a36b",
+      "action": "copied"
+    },
+    {
+      "path": "review/fit_review_clear_source_full_back_material.png",
+      "bytes": 2682518,
+      "sha256": "23d8dfcf226137812e2926a242ab70c62f1678baff26eec79e95b7ffa0891552",
+      "action": "copied"
+    },
+    {
+      "path": "review/fit_review_clear_source_full_front_material.png",
+      "bytes": 2783019,
+      "sha256": "a9dde21ba1196381d1593d99c23aed2b076a015be4ca7a4a654de333fbbba32f",
+      "action": "copied"
+    },
+    {
+      "path": "review/fit_review_hips_crop.png",
+      "bytes": 271542,
+      "sha256": "e786f856db9d5bfad44ac2ed1189183341e8813ea8521a156914ec36d0b3df2b",
+      "action": "copied"
+    },
+    {
+      "path": "review/fit_review_source_after_full_front_material.png",
+      "bytes": 2588368,
+      "sha256": "370af56225bef34306545504bf8d65a446a279fd921547faf5ced021b95a1b32",
+      "action": "copied"
+    },
+    {
+      "path": "review/fit_review_source_full_back_material.png",
+      "bytes": 2558631,
+      "sha256": "8182df1c11194ae7371f3649bed57bd0219690e04b3b8ac09aceb811f64d2799",
+      "action": "copied"
+    },
+    {
+      "path": "review/fit_review_source_snapshot_hashes.json",
+      "bytes": 1412,
+      "sha256": "7420656baffc5a00e5e5919d07227a7c56a276bfac936083725c4c2d382889e5",
+      "action": "copied"
+    },
+    {
+      "path": "review/front_material.png",
+      "bytes": 1453197,
+      "sha256": "13743435891f6f8c0746587ced1d3a62de02c2e00e057f2d3921ac2ccff97fb2",
+      "action": "copied"
+    },
+    {
+      "path": "review/front_neutral.png",
+      "bytes": 1257225,
+      "sha256": "6c0a19b08302dc92bc77d8f06cc1dd4cfaf3552ea00e28474f98533069f3a579",
+      "action": "copied"
+    },
+    {
+      "path": "review/front_wire.png",
+      "bytes": 1485847,
+      "sha256": "bd6bb4b02daaef1d7f9316dc2ca7a055d3ef35e82b922396f501389048bf1f57",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_back_material.png",
+      "bytes": 2681613,
+      "sha256": "c683f1e01dd77445fbfda4999454017d16c30122c0235c324a3b5818cf3f1022",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_back_neutral.png",
+      "bytes": 2546357,
+      "sha256": "c375c4ccda51ba59f9001e6ccc5cc05871d9bccf299a09e19ee9699d9787920b",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_back_wire.png",
+      "bytes": 2719481,
+      "sha256": "f45f80e2b3e3b144ec8214b9c9a59fb9bcdc340b6d7cc9522971ebdbf9f0e4c6",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_front_material.png",
+      "bytes": 2780025,
+      "sha256": "e5b53fd53744d169695c92e71c7cee794c80e351e444b9c4ce5d8807bdf875eb",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_front_neutral.png",
+      "bytes": 2619561,
+      "sha256": "513da3661ce21d80c069709e1402804cc3f2c465f4651a87a1bb5b79f7221e68",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_front_wire.png",
+      "bytes": 2840797,
+      "sha256": "67abbb47b570dfe331ec4f71498cab5419b0ae1a168390d190177782098c6926",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_side_material.png",
+      "bytes": 2605486,
+      "sha256": "7bcc2c4184138cee8d83d7f9a9f62bd7b2137ab73ac47d4fcc91104f25b85603",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_side_neutral.png",
+      "bytes": 2488055,
+      "sha256": "e4ad11912dc80e81f386ded825ebc0240d13e9fd63a43d6bee3555ee7dfe5fdd",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_side_wire.png",
+      "bytes": 2613950,
+      "sha256": "0f8480d3fd0982f91dc49295a792e210cd05db0601ae48e87cb34ece340a17bd",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_three_quarter_material.png",
+      "bytes": 2788843,
+      "sha256": "b6137a98edc8fcff076b63e85063878f45ec04cd81408388c830a49b3263da48",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_three_quarter_neutral.png",
+      "bytes": 2620751,
+      "sha256": "0524945764e2d9c2988875c6d2bbbb896135427c857c611837c357dcee5409c0",
+      "action": "copied"
+    },
+    {
+      "path": "review/full_three_quarter_wire.png",
+      "bytes": 2845426,
+      "sha256": "df5c8a8a7569751955b4745af3ca52bbbdfb912e3e815bb5bc89ca7315bdfbaa",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_clearance_fix_report.json",
+      "bytes": 3272,
+      "sha256": "31f35c783c86df2dc9f5f4e5083ca2f7f4cbc718d06ef1f333c3255bf7927faf",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_fit_after/report.json",
+      "bytes": 3508,
+      "sha256": "cf26ef09f2f78fb0c2988a9c110c19bdf1e46f2c8a74afa249cc00846270c03d",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_fit_after/rest_50.png",
+      "bytes": 751028,
+      "sha256": "b87ba384c671ea3c952e5e1fb052be5ea33ec229c86e4958afa4d60c3c621395",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_fit_after/run_50.png",
+      "bytes": 760340,
+      "sha256": "c7278b39af857a5be5981cb52cd07463c96a0ef42c46ec2f33d706ad81a4a8fc",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_fit_before/report.json",
+      "bytes": 4573,
+      "sha256": "0b54b8d08b93fb013f0715ff3fd1beceeac8836f94b96f89685950db27132867",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_fit_before/rest_50.png",
+      "bytes": 751313,
+      "sha256": "3a99ea2effd1b048fd9d667f2a2eaadf345ccda6a837f86dddbdbaf35541ab6e",
+      "action": "copied"
+    },
+    {
+      "path": "review/greave_fit_before/run_50.png",
+      "bytes": 760376,
+      "sha256": "2a2baf75277e1e23850e2043eb9964a443c126fbcd306b67c8280ddb37eb029f",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_before_final_face_material.png",
+      "bytes": 929713,
+      "sha256": "7fd4d733bc418eeb1b9c8a62326cd5f19d40b58890508f9ec1041b68be8b9e43",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_before_final_face_neutral.png",
+      "bytes": 882565,
+      "sha256": "84ffe0de3ff8e5d2d1ec086acdb0e9f46bedb8bee6925c59bad2cf3da52b4d83",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_before_final_refinement.json",
+      "bytes": 165979,
+      "sha256": "74f32af7ec15974e8f63b8b43e89d37bda77148f1c142c43eef68cb605d110c1",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_before_head_oblique_diagnostic_material.png",
+      "bytes": 928581,
+      "sha256": "df80a7eae032b9ea6b5038bd60adc040ad47596a45b260e370e75920492e9194",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_before_after.png",
+      "bytes": 899328,
+      "sha256": "e72c5470e32c4288c618957e2a88dd4a22567436a713ef53f1973aa945014c23",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_pass1_face_material.png",
+      "bytes": 929555,
+      "sha256": "331d47368d5372f4d655193b9e4d9ff12b54a8b9be0fe51f1d734969048f0230",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_pass1_face_neutral.png",
+      "bytes": 880864,
+      "sha256": "9ecb3d35271a70280f72230ef86bced5207d150568c2ff3e47fad9a4af3df16c",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_pass2_face_material.png",
+      "bytes": 930740,
+      "sha256": "99ddc3ae7d3de2783bcbee3c32d1c0eaea704f6489c62b4e161453187d22bd6c",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_pass2_face_neutral.png",
+      "bytes": 880890,
+      "sha256": "34e9b5fb71641ce83032c8729ba71ca60a73d54ea3857ed80dd264acc9fe0819",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_pass2_head_oblique_diagnostic_material.png",
+      "bytes": 930164,
+      "sha256": "e74c4d386fec8bcae2734951a5df282de340931b11c27948d2709461d7dbbbf5",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_refined_face_material.png",
+      "bytes": 930257,
+      "sha256": "7672cb648da9a86b9d6ea82f3b6f09108b926fb4d76b7db39d1a6d5eb0c07b93",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_refined_face_neutral.png",
+      "bytes": 880069,
+      "sha256": "07f692f792d48143e633d33c9ffe07c0c3ce85dd952ca06cefb1c8aa6e43fb3b",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_refined_head_oblique_diagnostic_material.png",
+      "bytes": 929697,
+      "sha256": "2324ba3a1924c668102d4d63d84af979c4d56ed0340cc6f743e8759d0982dd55",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_refinement_assessment.md",
+      "bytes": 1981,
+      "sha256": "453d4e8c0d41663bdc866b8ba90e90c2bcd2e76db620c90aaf26972e8d47e457",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_refinement_coordinate_changes.json",
+      "bytes": 24850,
+      "sha256": "58c6ca54153954676723dda2b32027b41ebeeea948b213ba6256b0ace59ecf06",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_final_refinement_report.json",
+      "bytes": 1588,
+      "sha256": "4b88312c635211d5b8e14a3e7b9604992400ab7382fa3081aa53896d74b3e238",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_oblique_diagnostic_camera.json",
+      "bytes": 224,
+      "sha256": "21c498a2b7636358fda6e9b804d845617d46dd536f394615d16175c6c01e3521",
+      "action": "copied"
+    },
+    {
+      "path": "review/head_pass1_head_oblique_diagnostic_material.png",
+      "bytes": 929979,
+      "sha256": "98dd5abc6ad82ef337c366c06c322159516f67e0e596cbbe75248809f3204bda",
+      "action": "copied"
+    },
+    {
+      "path": "review/isolated_integration.json",
+      "bytes": 2477,
+      "sha256": "c7724a553a0902817e9cf77171ee177190e99372a64684ef595c0cc4cfd5e3f8",
+      "action": "copied"
+    },
+    {
+      "path": "review/legs_before_greave_clearance_fix.json",
+      "bytes": 167496,
+      "sha256": "c6c529f53f0dc34028eb781b3afe2aeccd0a44466dce3225b7ffcb317678940c",
+      "action": "copied"
+    },
+    {
+      "path": "review/legs_before_thigh_clearance_fix.json",
+      "bytes": 167496,
+      "sha256": "3a427d62e37dbeee70b850b1f547305a159a6b67581bbec9d7b41084fe8aa0da",
+      "action": "copied"
+    },
+    {
+      "path": "review/local_game_before.png",
+      "bytes": 46955,
+      "sha256": "439d9e7bcf9095ce935c0c004c258a1a79fd6d727995481a2fea76e8e3daca32",
+      "action": "copied"
+    },
+    {
+      "path": "review/local_game_character_selection.png",
+      "bytes": 51691,
+      "sha256": "7dc3aa7509ce260e8041d64dd2a0f0529bc999c7978f4d7b37116b7c847a349f",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod0_chest_basecolor.png",
+      "bytes": 1256017,
+      "sha256": "d8dda486446e16ae92eb7737f49e0fc65429c8dad6d5fc522201d6495e7b17f2",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod0_chest_material.png",
+      "bytes": 1487658,
+      "sha256": "0752078d49d729c794473afc7ba13b36e9cc500a8e393d01c4575954c8be0696",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod0_gorget_basecolor.png",
+      "bytes": 727505,
+      "sha256": "ee63397182fe50e56be9a346465ab330fbab5365dc67dc88a5fffe494eee0838",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod0_gorget_material.png",
+      "bytes": 898865,
+      "sha256": "73682b1ccaf682f6767c832600efda4ffe4dbcd25af7ab0505a3525c060bb6bb",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod0_shoulder_basecolor.png",
+      "bytes": 1220874,
+      "sha256": "8beb9aba5cd61999e9e832aac05e85b627e44a9e07c50b1b59be3f9a244cfa26",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod0_shoulder_material.png",
+      "bytes": 1426321,
+      "sha256": "77a341162ed3cdd8ca97bc43c50ff838ea72116df371301edcfab1297dbaf8a5",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_chest_lod1_baseColor.png",
+      "bytes": 450883,
+      "sha256": "add41ca938c99bd2f1dea05ded169754a4784d3a7a00e1b1a3d199e3de903bce",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_chest_lod1_metallic.png",
+      "bytes": 149323,
+      "sha256": "757806e9e97ecad13a3f8d53394e6ce9eaece6de3278aef570826cbf256c96c5",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_chest_lod1_normal.png",
+      "bytes": 759815,
+      "sha256": "cd3c8eca37d7a152f21bb83cd0ffda00a16a0b013ab8729d90b3f3d9a7c445ca",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_chest_lod1_occlusion.png",
+      "bytes": 503437,
+      "sha256": "417f1008690fa811c0c86356a833f490578a62dac41b54da44c8756265183da3",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_chest_lod1_orm.png",
+      "bytes": 656578,
+      "sha256": "8a9e7d882fef857e9147d0271334d5d83f9f011a793d90f82fd2b211389a1ed2",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_chest_lod1_roughness.png",
+      "bytes": 241524,
+      "sha256": "20e164b2e268584694305fe965792ad667d7c4dec0069afedb21e8376d91b13d",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_head_lod1_baseColor.png",
+      "bytes": 343476,
+      "sha256": "56a83fff67f43e5f5c74da29cbae86050567e6458347fc3a3907351acf14902b",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_head_lod1_metallic.png",
+      "bytes": 121467,
+      "sha256": "185b1b061d2f4ec72e27f3361eede2b47c85f45b5ce465a7b8cee64d0da31037",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_head_lod1_normal.png",
+      "bytes": 607476,
+      "sha256": "c4570f785ec7a7f10db1c270822f38e0abe4c43db5937db25f12e95674ef2c28",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_head_lod1_occlusion.png",
+      "bytes": 354625,
+      "sha256": "d6a62a383493e055696c0a8ce6221aa609c9a93a450b63d612e5d44893285e8a",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_head_lod1_orm.png",
+      "bytes": 487788,
+      "sha256": "19f29a231049d3186b05ef86acf7a421e085234c173f71c273934c1314579cd2",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_head_lod1_roughness.png",
+      "bytes": 191149,
+      "sha256": "e911a127abb114527e907f984798d2f2d598aa9486595dc2c5abb1f9644bbbab",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_shoulders_lod1_baseColor.png",
+      "bytes": 455167,
+      "sha256": "0f039df11f1146fba21c3507b33095ca1546eab0a56bc89d1335a72cfa4a739c",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_shoulders_lod1_metallic.png",
+      "bytes": 174546,
+      "sha256": "88ab432681c103665b45521047d3d9ce4766e65af4872ff837290407a438b9a4",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_shoulders_lod1_normal.png",
+      "bytes": 824886,
+      "sha256": "8041781bc7786e0ddfeb49156225d06e28385360a6f2feaa3cc88b5df49e6c03",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_shoulders_lod1_occlusion.png",
+      "bytes": 500717,
+      "sha256": "8a4de98cc571885cdd94d880286fe374df5823885ecca57fe0f6e307a233b6cd",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_shoulders_lod1_orm.png",
+      "bytes": 658060,
+      "sha256": "af34fa52fe244d5b361829e0f19af9f5e97d68f265867f248d2e4f9a9f376f6a",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1/probe_shoulders_lod1_roughness.png",
+      "bytes": 259182,
+      "sha256": "7836863ed31bb0b1b2022e3ca6c93e4a18b742c696e11cfd1503675d3e871093",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1_chest_basecolor.png",
+      "bytes": 1278197,
+      "sha256": "eb972db17d6115b52c0dc581d5b8501907c61954659270368979b3bcce3ce3f6",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1_chest_material.png",
+      "bytes": 1485920,
+      "sha256": "ff90a6deb65311151e7377e8adfda0236b20a04af4da2d943f251148ec1a4fc4",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1_gorget_basecolor.png",
+      "bytes": 749808,
+      "sha256": "b19db7ae318ed96ac7e19d616b8f2ca1ca416aa22d23511abcc4511701c2649b",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1_gorget_material.png",
+      "bytes": 882549,
+      "sha256": "854ec7768b333141bb69db780c17befed2290d61588928104fa683bdfa499ca7",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1_shoulder_basecolor.png",
+      "bytes": 1254955,
+      "sha256": "43a3077633c1b7969e923a85488da4f35a7aa6214d1758eb88db34af4e4ad750",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod1_shoulder_material.png",
+      "bytes": 1428968,
+      "sha256": "f81aabbe5304cdd4c2a0b14cfbc227447b2ef53ca712fda3666b2d21d1297a5b",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_chest_lod2_baseColor.png",
+      "bytes": 158067,
+      "sha256": "a8538fb48ce7070441b4e0f2e030354a3df6f0f7dcba59ee4c749b4cabea15cc",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_chest_lod2_metallic.png",
+      "bytes": 55450,
+      "sha256": "e0a31a79f25ff8e6ba20be14d2c5ece7cd2a026cf9066023a7800baf99935e25",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_chest_lod2_normal.png",
+      "bytes": 256905,
+      "sha256": "a24f4a316f0d736f9cf6fca2b688b6f6f5b46a7d711a3b88c313c532c3a987e6",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_chest_lod2_occlusion.png",
+      "bytes": 160650,
+      "sha256": "bcbaedac604b87f80bb7ba45547cfede7ce7e6f5c7c84d4f4ebf7b539c3f640e",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_chest_lod2_orm.png",
+      "bytes": 215468,
+      "sha256": "a3f684538a914d9357031c339049716434f5d3a3d500aa8984f1f69a057301f7",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_chest_lod2_roughness.png",
+      "bytes": 87307,
+      "sha256": "e2d0b0444fca5ba1eee8bb3728c24b90c6eea73b1b8e63f7b6dbd1704f9ff2de",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_head_lod2_baseColor.png",
+      "bytes": 121731,
+      "sha256": "3916abd23e1e9627c5bae75e34e776e760fc7f51356bfa5cbb4fbd94dca2cd33",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_head_lod2_metallic.png",
+      "bytes": 41964,
+      "sha256": "61f5fd59018caddf52e397e84512045893e2c45929c80a7c07b4f67e4c100f9c",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_head_lod2_normal.png",
+      "bytes": 202802,
+      "sha256": "8d4aaa43779802324fcce2b40881523f36abac58c8c4beec81cf20ce18afcd20",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_head_lod2_occlusion.png",
+      "bytes": 100593,
+      "sha256": "c06f266a1666ec0e915ae65a4f2da96daf1669fc38e07ad57dbb3cb2b878f319",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_head_lod2_orm.png",
+      "bytes": 146423,
+      "sha256": "75766ea11ed3830b7d1ad49262d2933a2e673a038fecf7278febf0e0fd5b7c60",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_head_lod2_roughness.png",
+      "bytes": 66728,
+      "sha256": "9f0e10efbd36394e706413d790a1f7f2d08cbfb0e04e14061836bd5be23336c4",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_shoulders_lod2_baseColor.png",
+      "bytes": 151386,
+      "sha256": "9b6d164f002eccee012975e41696e727618837b22bcce1cdfe6ff03134559e86",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_shoulders_lod2_metallic.png",
+      "bytes": 64734,
+      "sha256": "9079230e3c383799a545b961e4ff69d47ffd91af5678fb218dbc5d5706d7aa90",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_shoulders_lod2_normal.png",
+      "bytes": 274077,
+      "sha256": "69fb1423e5d4ac9c7bd6fce995281800149e8c6821001ee942052024a6793213",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_shoulders_lod2_occlusion.png",
+      "bytes": 151654,
+      "sha256": "ffe8704616741b811d41d4c21ce08d99f04233c683dbb39669fdbe73591e9645",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_shoulders_lod2_orm.png",
+      "bytes": 205776,
+      "sha256": "78814968748012d5b0162080ad579e8df6c3152637725a2aa9080357ba282c1b",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2/probe_shoulders_lod2_roughness.png",
+      "bytes": 93073,
+      "sha256": "9d091496f21d40802bc7bbfadf90695d0174d921de25d773c6aae60f35356fba",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2_chest_basecolor.png",
+      "bytes": 1276563,
+      "sha256": "4be4725b489df69d9ef1d3bdc449a9a6f158e2292b408124e17f772db19aaa9e",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2_chest_material.png",
+      "bytes": 1469511,
+      "sha256": "2fa8068d0ad30d23b0225d4b71a8c78c7cbfffbb95713be81bfc0db9b2f23a65",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2_gorget_basecolor.png",
+      "bytes": 754137,
+      "sha256": "5735e32656e15c760c86ca4741bec28bde76dcd2b74bc760ec6a12ddd967c87f",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2_gorget_material.png",
+      "bytes": 876244,
+      "sha256": "6b5a36f86347448bc8c04ed92f3d4934387e3d8f0261dd884216e856e2514583",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2_shoulder_basecolor.png",
+      "bytes": 1256283,
+      "sha256": "413f6b90c5e502507be5b3fcd236e5997fcbc00e8d1175984a2752abe1a44341",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/lod2_shoulder_material.png",
+      "bytes": 1417653,
+      "sha256": "af7492873405039371b8698ee5df4e545ab6b77e2ae55184194e0886dcac90d4",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/probe.py",
+      "bytes": 7579,
+      "sha256": "96e1998f25f0f6b09ee7ecce87618405acc4c340f4587b310c5ed263890465c4",
+      "action": "copied"
+    },
+    {
+      "path": "review/lod_surface_transfer_probe/probe_report.json",
+      "bytes": 35810,
+      "sha256": "0994fa5b9b797828072331babd80e32ae0ce3bd45e65f08f7f2df5066d4520ec",
+      "action": "copied"
+    },
+    {
+      "path": "review/lowerbody_fit_check.png",
+      "bytes": 1466924,
+      "sha256": "860378a5136e60f9b10e6902c1b7c5c5c847b4c2b1324b56a442e32938f53cbe",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_attack_melee_after.png",
+      "bytes": 395668,
+      "sha256": "eecbb4d5fdd85cf26d033a8697448e9da07be304925e58873f67b729e11b28f3",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_attack_melee_after_grip_closeup.png",
+      "bytes": 568736,
+      "sha256": "610e6b4720864da42a910e6ddc01d24c9d96cb8cb034aa8d4843f424dcd87dad",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_attack_melee_after_windup.png",
+      "bytes": 400318,
+      "sha256": "4a1737be523711fdec6d856491c154e754d03acf107c375158b7d2b45f4fa834",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_attack_melee_before.png",
+      "bytes": 405591,
+      "sha256": "5745571cf0fffbe047de6df7f808c0a2caad8cb136eb677c7788796f78f928be",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_attack_ranged_after.png",
+      "bytes": 420990,
+      "sha256": "0f882e8665725281ea53cc542914bffbebb8397d73237e68ef0cbb425ea072f9",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_attack_ranged_before.png",
+      "bytes": 403827,
+      "sha256": "e3633242bded344c2093e314d4da578176d7b871f5c3f5ce71bce3105a0e1d6f",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_cast_after.png",
+      "bytes": 419330,
+      "sha256": "ef89fb7bf09f14ff00308f7c2ac1da9a5029f1adc57b897234454c7132d1ca91",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_cast_before.png",
+      "bytes": 413064,
+      "sha256": "ae60510ec1ed6d4eb418950078bfcc53fbe6e302d848b731b225dd60d22fee8d",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_combat_idle_after.png",
+      "bytes": 408694,
+      "sha256": "736cb16351f34786ab9c10ebdef3ce929b716f7c7782cb3dabaef7593ee35e13",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_combat_idle_after_grip_closeup.png",
+      "bytes": 600262,
+      "sha256": "7b7322daef66a4c6b25c36a8f8ba786a11759eea990ffafb0c7c11c855dc48d1",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_combat_idle_before.png",
+      "bytes": 414445,
+      "sha256": "6f7770df67d6b42f6deb58bcb33ea195d489430e8c55f592467e6c499b0bf036",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_death_after.png",
+      "bytes": 425738,
+      "sha256": "3ade841e487fc4b53939c0ca37b473b18b41103c0d5f20b8f4c3d21fc2cedc1c",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_death_after_end.png",
+      "bytes": 340033,
+      "sha256": "44b176b3268a4666d7fc39607a5f8564141b6aa870df03fdd0154145e034dc9a",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_death_before.png",
+      "bytes": 425179,
+      "sha256": "e5f5cbcaa98964847803fbb378ad0809919073621ab510f13e7fa326446d0eef",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_idle_after.png",
+      "bytes": 410223,
+      "sha256": "7fe57feadbc7fcc4bdec9ee0d63b7ab820acf13d79c20b54fd4833696a4be948",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_idle_before.png",
+      "bytes": 408861,
+      "sha256": "068a6944b7748b7836e343f8a9bef4ab61751521485cb544cdc1f4a6d853909e",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_jump_after.png",
+      "bytes": 421244,
+      "sha256": "adad29b4dd63bc2852c766338f684032e8e4463e424236c641263fee334cd10a",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_jump_before.png",
+      "bytes": 420418,
+      "sha256": "a8daf4e3024bf14d56e75470dc9828ac3938997e8618c619308215f71630c2ec",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_report_after.json",
+      "bytes": 590320,
+      "sha256": "83955eb9a430a4996b140cd7daf30853577a48177a3d6cdfe7cad312b358bcc6",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_report_before.json",
+      "bytes": 88564,
+      "sha256": "370ecfd09443d64fd6309ae5c1b6dcde71652065cb8aad59461bd8d0dc6bf4da",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_run_after.png",
+      "bytes": 411206,
+      "sha256": "f9baeee82604b607b98bfe0a100a29390fb70502871d2d2e6428fa3c14bb1762",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_run_before.png",
+      "bytes": 412178,
+      "sha256": "4606db1f0202205f8f49ba8174a6131ad9bdd103ca7dd6bd911e86578c851d55",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_walk_after.png",
+      "bytes": 413862,
+      "sha256": "d8800daaba07fca271a2413f9cccadfdcbea2ad324c7b7e83c6f40af269a0cd2",
+      "action": "copied"
+    },
+    {
+      "path": "review/motion_walk_before.png",
+      "bytes": 412652,
+      "sha256": "506c29abd831f18c48cda8c573465a8e2b33501b41b9f88980f5b3949dbd61a3",
+      "action": "copied"
+    },
+    {
+      "path": "review/pauldron_fit_check.png",
+      "bytes": 1229820,
+      "sha256": "eec0a18cbb10689b8765e052900d4fb22bc6d20b723b2ccd7ce8522a6890055a",
+      "action": "copied"
+    },
+    {
+      "path": "review/probe_greave_fit.py",
+      "bytes": 5344,
+      "sha256": "093a0ad4c3edc74cb266e5a685c7573bccf8d7fcd15ea985b7db17b8f21c3661",
+      "action": "copied"
+    },
+    {
+      "path": "review/reference_assessment_20260906.md",
+      "bytes": 5163,
+      "sha256": "cf99a19b62e23e99fbb8744d5b076339cd6606703a9cf9d4dd0c4c532503d971",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod0_full_back_material.png",
+      "bytes": 2668757,
+      "sha256": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod0_full_front_material.png",
+      "bytes": 2771664,
+      "sha256": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod0_full_front_neutral.png",
+      "bytes": 2623949,
+      "sha256": "c5adbd7c3f623d79595d93bfb1df78d399563a609f907e4cc4085b2ad7e479f8",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod0_full_side_material.png",
+      "bytes": 2646626,
+      "sha256": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod0_full_three_quarter_material.png",
+      "bytes": 2786266,
+      "sha256": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod1_full_front_material.png",
+      "bytes": 2781777,
+      "sha256": "756b9ac9e25685bce5edbcc4815cd747dcb0a69899186cf103220c4f2786aa59",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod2_full_front_material.png",
+      "bytes": 2777111,
+      "sha256": "d2ca2e5690481469774d886cbf8ce679bcc305371449bca071d2812b3711af98",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod_material_detail_comparison.png",
+      "bytes": 832563,
+      "sha256": "77dd87460a097104e5c81f4e32ca141ffd9ec75e6f4866e8aece990a14ec578b",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_lod_visual_comparison.png",
+      "bytes": 328221,
+      "sha256": "53a9487a20059a6d8a33e9c97539a49cd292ad886676cab9d5b1c83361cb2306",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_15.png",
+      "bytes": 481524,
+      "sha256": "cf38763cb5aeadb508d2f077181891c43d443f3cf0b3282741679c78024debcb",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_50.png",
+      "bytes": 477943,
+      "sha256": "9996f147c1400386027fe3fac01ef7a8cbbafa630a9a35f3fc19458c5d72b2ae",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_attack_melee_85.png",
+      "bytes": 486630,
+      "sha256": "e7d9df53b69ae1ff26abc73cb58ae4c6ad11f41cd4af561ac11a7cf775cf39ab",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_15.png",
+      "bytes": 496566,
+      "sha256": "4cce55c6f3c01c40f799317822af6af4e6c98f8d0f3dd2c37aed7c1a609186dc",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_50.png",
+      "bytes": 496738,
+      "sha256": "43450ea1fcaee29dfe683a8990e174e1c71a82c03bdb8cf5aa8b2ee1dbfbd7c2",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_attack_ranged_85.png",
+      "bytes": 496776,
+      "sha256": "50c57051027f664634248c74aafe2fa14b4d203e53223b9af4c12156d59e1c0f",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_cast_15.png",
+      "bytes": 495485,
+      "sha256": "2545dcba515883554aadbe9135dc60935a25bc76bb8f8ab8b33d3cc34f7537cb",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_cast_50.png",
+      "bytes": 493945,
+      "sha256": "e7a84116543332866f5fe9598a291823d7cfee9e3b3f0ba271ae3cd2673a0697",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_cast_85.png",
+      "bytes": 495135,
+      "sha256": "e5361edaa0783aff9902d5d36a1982a3fba952f6c0bab5c0281ce450a155471d",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_15.png",
+      "bytes": 490995,
+      "sha256": "cab0c36c0dacc5269dc38b25b4af1a52db878b0d3934d9832b2abab4c58e8d91",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_50.png",
+      "bytes": 491912,
+      "sha256": "8aa1d2a9aa142409e0bd5ab2a33fc109c635daf0d23096a0e794ca05c4eef7b9",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_combat_idle_85.png",
+      "bytes": 491088,
+      "sha256": "a2c72092d81b01ac5b7a5d1f2fe80b68b80992d8f27fc37630ceb3287835c2a9",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_contact.png",
+      "bytes": 2103178,
+      "sha256": "757faeed2d8520cdfe26119a3d60104acb930561470aaa817c31febf53cbfa0f",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_death_15.png",
+      "bytes": 500992,
+      "sha256": "f52bfbf7dadb4099d97348e0b84aab1db0e3a1dfcd2441b3c9150f775b362e86",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_death_50.png",
+      "bytes": 486255,
+      "sha256": "581191f4549b1a9845d824531160b5d48ef50b45026b962243c63234b02403dc",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_death_85.png",
+      "bytes": 445160,
+      "sha256": "0d18df36ea13ae82ac4df8f766b83599b1de77ed64904fc3c9953fc1e20c7bc9",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_idle_15.png",
+      "bytes": 490569,
+      "sha256": "2e09b989892116a51d33ee527efb9e7aee29137b90f824c63add66232aef39e8",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_idle_50.png",
+      "bytes": 490610,
+      "sha256": "f0e68b7a7be4f72c6b518bd2703534d207c7a28f907e60e80d51cd7b635d87a6",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_idle_85.png",
+      "bytes": 490489,
+      "sha256": "413367e9b737c35dfa211796815da1f2eadb9e92a4c0d26b2c9cad9b66a136c5",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_jump_15.png",
+      "bytes": 499663,
+      "sha256": "f554ea5117e038d036a6b475bafd793f00d82e67d57fb35bf022bc01f5afb94e",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_jump_50.png",
+      "bytes": 497383,
+      "sha256": "1682ea46e90d740b81e8a3f2215b9ddc75a16bdd1f8688207170312cef0d93ae",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_jump_85.png",
+      "bytes": 500385,
+      "sha256": "c69ced43d27118f68e99c0741592eb165a1a4d34e29f625a5403b6bf7d2c3878",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_run_15.png",
+      "bytes": 489238,
+      "sha256": "38785d99420e0823364d2573c565d124f90b51be6f9337120416736b914df374",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_run_50.png",
+      "bytes": 498428,
+      "sha256": "d60429e931a000f1dd9681d07809c2daa447f7fd1bd7949155063f56d9a8bca6",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_run_85.png",
+      "bytes": 486694,
+      "sha256": "176d947bb6b6442506f7a1dafe79dd56651ebf1341a78ecf55a1efc12f96120f",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_walk_15.png",
+      "bytes": 489653,
+      "sha256": "d7cee3a7e60091522a2c2d648568168185ea97385f161df05cbe2c11f4109d58",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_walk_50.png",
+      "bytes": 496980,
+      "sha256": "b9355fb63c72d3a1e9ab20aec95df6fa29be122deaff744fd925051b49e4f2b9",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_motion_walk_85.png",
+      "bytes": 486543,
+      "sha256": "88d9cd2c71ca7e03dc467ad4d5035a61d8b20818a9c1da81851b3085832ea3ee",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_report.json",
+      "bytes": 41677,
+      "sha256": "700006954ceca84d0b700c407a4497950a5953533a730e604bcbef736f27ff03",
+      "action": "copied"
+    },
+    {
+      "path": "review/reimport_visual_review_pre_surface_transfer.md",
+      "bytes": 3687,
+      "sha256": "e31dc834d11f0170f12c4d837ddc96d84beb273a98e7667aa48a8a6bb10afde1",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/back_material.png",
+      "bytes": 1198458,
+      "sha256": "24a9dd3d8e4235ff52dbd97a77e95d98a3fff9a59718a40a86614f5f21004102",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/back_neutral.png",
+      "bytes": 1128119,
+      "sha256": "5dfc66626d2125f65f0a6ab117beaf1b7ba3541855083abe973b364ed6b807ac",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/back_wire.png",
+      "bytes": 1240583,
+      "sha256": "4b35e3ea984ce56de54f24cf65d0ea8f6572fd1e032c41c597bd839c061a3987",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/breastplate.json",
+      "bytes": 37894,
+      "sha256": "607691caeb5fdf57d7416266ebf700756a65dd51673a1161a585b6d70ca5b2f0",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/build_report.json",
+      "bytes": 31601,
+      "sha256": "852b2e1312a17f48a3199d012bbe5f4f4e5addd3b19f0907d12517f5773e5da8",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/face_material.png",
+      "bytes": 1027178,
+      "sha256": "45ced743300a869631a81cb7bbe31e9c4d525df684db517e315b511560a94acb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/face_neutral.png",
+      "bytes": 909026,
+      "sha256": "0426508ee15dd6079e4a072f96eecfa6a844238d5316012f454a016416c464d6",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/face_wire.png",
+      "bytes": 1088255,
+      "sha256": "78ed2647f9b28a2d4caf4676358854a43515175253b760d99d75065dc8c6a8ce",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/front_material.png",
+      "bytes": 1231486,
+      "sha256": "9241163a1f98d5d19ebeddcca8d08e7fe58f13a5ee04b26aee86d6c7442034b9",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/front_neutral.png",
+      "bytes": 1136175,
+      "sha256": "608f89ade5ce96a0fac1c720c740540f880dbd7523924edcde17db687f53c8a3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/front_wire.png",
+      "bytes": 1259186,
+      "sha256": "f7ab42519f0a1455cc1569ba7d4524d1313bc991c85bde40a91c822eab32c69f",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/gorget.json",
+      "bytes": 76573,
+      "sha256": "717976fe07e812f15b2dde0ca4db462792c18fffe5126d8d09f50a1944012d69",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/head.json",
+      "bytes": 174092,
+      "sha256": "a70481c29af3ed4224694b716376c285c285e27a557fc93758bf98c10000138e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/left_pauldron.json",
+      "bytes": 163789,
+      "sha256": "7925991b0684fe585b3cba206bf674da787e37080b1fbc749f8b85c5155b53c3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/scene.json",
+      "bytes": 2760,
+      "sha256": "f96a28bd0c29254685ad9988b3fe2f7bdb447ec0f105ef521dc2ac8b4df92683",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/side_material.png",
+      "bytes": 1183704,
+      "sha256": "04ae7ba3fa760cafc69b8afd646fffa2d1196dd58b976b1f5813fa6a50a498a4",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/side_neutral.png",
+      "bytes": 1122375,
+      "sha256": "f08b19a7f8b1e13b33f65aa27b13a2645b7620e9bb45c379702bb5420ab7f78d",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/side_wire.png",
+      "bytes": 1197257,
+      "sha256": "ddd5d5ec1c559973709526b60f103525fb805d1a4473eb2431741c8a0440dda1",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/three_quarter_material.png",
+      "bytes": 1231061,
+      "sha256": "71a3017962da2da301a5eca612c2a27e3206c329be0530a77438208289f5061c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/three_quarter_neutral.png",
+      "bytes": 1130868,
+      "sha256": "deba44756967f376d262222abe8f766a6b0426b6401f591be9613de4bcfd08b0",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T213826Z/three_quarter_wire.png",
+      "bytes": 1252614,
+      "sha256": "cc4d1f94212e8e80bcb118fa33edaf1a9d7f67e2a6082670f82127906ea3fa30",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/breastplate.json",
+      "bytes": 37912,
+      "sha256": "367e4969a5e20133d70e9152f34cf05a9270bc223849af33ca1055e9b0dd520e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/build_report.json",
+      "bytes": 30384,
+      "sha256": "4feeb617cacdba11c6788b3275a72597ebcff23cd0b3b1f8ce1d3d14f7f5c9e3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/face_material.png",
+      "bytes": 1034679,
+      "sha256": "0865682334097cc960cf8bb4133e8e8ebe8c411ef7e9553ea8905cb5b0568d87",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/face_neutral.png",
+      "bytes": 915051,
+      "sha256": "0b61a86570914a90a3165f6bcb9abc7bd5858a97f0a2a69c981beeab3743881b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/front_material.png",
+      "bytes": 1230829,
+      "sha256": "ad787f958dab869cb0c6a10c780d2e0994509ccd19ab9064ed8d621fceb2d39c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/front_neutral.png",
+      "bytes": 1136523,
+      "sha256": "743e543878df7c94d5de43b0e0db8509d0e1d8e07caadf36c42a6cc61f1d6bbd",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/gorget.json",
+      "bytes": 76573,
+      "sha256": "717976fe07e812f15b2dde0ca4db462792c18fffe5126d8d09f50a1944012d69",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/head.json",
+      "bytes": 174854,
+      "sha256": "32be3600c40b517c346091014b7a7da4cdda53f401568dd5a30bfc952b59e45a",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/left_pauldron.json",
+      "bytes": 163079,
+      "sha256": "92d10d2e25dc807f16f677193c9536dcbd66b5c34c548c5b2e756f2e6f7eb372",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/scene.json",
+      "bytes": 2760,
+      "sha256": "f96a28bd0c29254685ad9988b3fe2f7bdb447ec0f105ef521dc2ac8b4df92683",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/three_quarter_material.png",
+      "bytes": 1233908,
+      "sha256": "2f97b2fbbed7d8717f7e9e9219a24886c6adc94fb2d28a25758aa6ffbf49641c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T214352Z/three_quarter_neutral.png",
+      "bytes": 1131516,
+      "sha256": "cbad99f9ee7a6bc84a1c92f4bccfcf10069623b3b9dfc1793e8dc5a984a9a870",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/backplate.json",
+      "bytes": 15359,
+      "sha256": "9a628e5077ef451c4147475b5cb5609b2329fe79180ffacd9c50f594d1802ff3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/breastplate.json",
+      "bytes": 37912,
+      "sha256": "367e4969a5e20133d70e9152f34cf05a9270bc223849af33ca1055e9b0dd520e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/build_report.json",
+      "bytes": 107021,
+      "sha256": "e4eb1fb1d0c9ad7d27d0d9ffcbea2ab239e4f7580f4ff356c86f615d30119d0a",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/feet.json",
+      "bytes": 109192,
+      "sha256": "0a8230f883aa2ff261b6e616b2c95c82cb6c36e800bc15224ffaeb90f5aeedb2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/full_front_material.png",
+      "bytes": 2668728,
+      "sha256": "88cbd71d745eaf5ed03bcc2fe3fc37fef8a12ae14d1e5a7f80647848fc38ddfd",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/full_front_neutral.png",
+      "bytes": 2540362,
+      "sha256": "4a1e868831919c87a147b2371aa89998cea59df8456ac1e58a67d9d56f404a9b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/full_three_quarter_material.png",
+      "bytes": 2671676,
+      "sha256": "1b2b214e742eaa94de00d1bc0ee8aaabb25f998b53b2d0407af2f14a7aa22c04",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/full_three_quarter_neutral.png",
+      "bytes": 2545158,
+      "sha256": "76d4339a9803bdcfe93ab98680d88f57a95c5af7945471c1878614aaa71e5505",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/garments.json",
+      "bytes": 63873,
+      "sha256": "2368908a5c2147a2bcc7a4b9855402c99d6c53308491b3ae7b6b1b1691e4d386",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/gorget.json",
+      "bytes": 76573,
+      "sha256": "717976fe07e812f15b2dde0ca4db462792c18fffe5126d8d09f50a1944012d69",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/head.json",
+      "bytes": 174854,
+      "sha256": "896052e7838c3f2b77702703e575b5574a908a9e8f807f25e68063a6410abeea",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/left_pauldron.json",
+      "bytes": 181969,
+      "sha256": "6efe6310a6af6f85d3c1376d07fea1fe2b197efe24b3ff19a00abd76a67f5e43",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/legs.json",
+      "bytes": 139265,
+      "sha256": "5f172ede45114db0a48a6bc62527fcbcbd9fd3bf2ebfe30a0952347d7c3e7ecf",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/medallion.json",
+      "bytes": 128453,
+      "sha256": "06e46866a8ff15ef5698c3ed62a7c31e48d55fa923e3b25025057cecc5305dfc",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/scene.json",
+      "bytes": 4255,
+      "sha256": "1906d6128b256f8c0f245c77dd5397ffff4c58fb1ae1c1945f065070157dfc24",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/tome.json",
+      "bytes": 139482,
+      "sha256": "fbb9466ee37287004aa305a279a1b5c1caf3152f69488920f6776f94b61246a1",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/waist.json",
+      "bytes": 22902,
+      "sha256": "a953d7f3d3383f75ea81b978eb687fe760fbb643c61bf5fb0b9117855884dd68",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T215209Z/warhammer.json",
+      "bytes": 167418,
+      "sha256": "970c0a3c8a00d4399cd0af55a84ca4bca8fd951442d8cb41e085817601b66e76",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/arms.json",
+      "bytes": 179051,
+      "sha256": "e24f8b62c1f13609bf8183fcd6a896f498bd1ddf9d5f9234d3de15e4c4d35f87",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/backplate.json",
+      "bytes": 15359,
+      "sha256": "9a628e5077ef451c4147475b5cb5609b2329fe79180ffacd9c50f594d1802ff3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/body_underlayers.json",
+      "bytes": 77866,
+      "sha256": "0f04ca4bc98c2e76c6db33794d5d8bec50423044cc0ad00b7e535b2b8d09f81b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/breastplate.json",
+      "bytes": 37912,
+      "sha256": "367e4969a5e20133d70e9152f34cf05a9270bc223849af33ca1055e9b0dd520e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/build_report.json",
+      "bytes": 201590,
+      "sha256": "92f4419a12919b5041dd854393635ed7a31187c2fb003e2e61b64c7ec12d012d",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/face_neutral.png",
+      "bytes": 910775,
+      "sha256": "4a9801101e07ce5a8327ba51011ee67020fcc4ca892b3549360ae3c777d19034",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/face_wire.png",
+      "bytes": 1092349,
+      "sha256": "8c33c39135e14338ee4a78c1af6eef30fa9b604389b3f12670674d5240d24634",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/feet.json",
+      "bytes": 109192,
+      "sha256": "0a8230f883aa2ff261b6e616b2c95c82cb6c36e800bc15224ffaeb90f5aeedb2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/full_front_neutral.png",
+      "bytes": 2622739,
+      "sha256": "ea3589836dbbe8459c50c475d0c383bbbc061cde98eb0d1a975d74964ca498a4",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/full_front_wire.png",
+      "bytes": 2842289,
+      "sha256": "c84a76f24e4601ada0a625bae67e85f565d9f8b4b3afe8f7ab09e7712cf7058c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/garments.json",
+      "bytes": 68444,
+      "sha256": "c2f3d70c5d7e82ef7e20bce07fdee0427837e00cfcbd5586b28d506abfd6db5e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/gorget.json",
+      "bytes": 76573,
+      "sha256": "717976fe07e812f15b2dde0ca4db462792c18fffe5126d8d09f50a1944012d69",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/head.json",
+      "bytes": 175459,
+      "sha256": "714107413cf5a5d3a8c16565265ff3f2222bfc414ac395f7bc3b9a12e3911cfb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/left_pauldron.json",
+      "bytes": 181969,
+      "sha256": "6efe6310a6af6f85d3c1376d07fea1fe2b197efe24b3ff19a00abd76a67f5e43",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/legs.json",
+      "bytes": 176697,
+      "sha256": "81798614a19165eb2733f5af9d0e14a4f76dda0931d5f4b953359401f205938c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/medallion.json",
+      "bytes": 128453,
+      "sha256": "06e46866a8ff15ef5698c3ed62a7c31e48d55fa923e3b25025057cecc5305dfc",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/relics.json",
+      "bytes": 148614,
+      "sha256": "f413256e0737c0be07207a4cb7bf5024a6c8c44c25743e9e8f5ca5971087ceea",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/repeated_reliquaries.json",
+      "bytes": 198915,
+      "sha256": "5aa27d671274e866a65bba586e6c8cacb29b139e2e7e0892bc958a32689d87db",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/scene.json",
+      "bytes": 4255,
+      "sha256": "1906d6128b256f8c0f245c77dd5397ffff4c58fb1ae1c1945f065070157dfc24",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/tome.json",
+      "bytes": 139482,
+      "sha256": "fbb9466ee37287004aa305a279a1b5c1caf3152f69488920f6776f94b61246a1",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/waist.json",
+      "bytes": 22902,
+      "sha256": "a953d7f3d3383f75ea81b978eb687fe760fbb643c61bf5fb0b9117855884dd68",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T223502Z/warhammer.json",
+      "bytes": 167418,
+      "sha256": "2f93e2d6ba098b8039be3f35cfe260d08ee9905bc3a022a5480838cc2434a40c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/arms.json",
+      "bytes": 179051,
+      "sha256": "e24f8b62c1f13609bf8183fcd6a896f498bd1ddf9d5f9234d3de15e4c4d35f87",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/backplate.json",
+      "bytes": 15359,
+      "sha256": "9a628e5077ef451c4147475b5cb5609b2329fe79180ffacd9c50f594d1802ff3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/body_underlayers.json",
+      "bytes": 77866,
+      "sha256": "0f04ca4bc98c2e76c6db33794d5d8bec50423044cc0ad00b7e535b2b8d09f81b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/breastplate.json",
+      "bytes": 37912,
+      "sha256": "367e4969a5e20133d70e9152f34cf05a9270bc223849af33ca1055e9b0dd520e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/build_report.json",
+      "bytes": 201138,
+      "sha256": "eda9c2bb600a8f2c4e05a63632ef827ce20fde698cb8988f4cd30934e132a804",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/feet.json",
+      "bytes": 109192,
+      "sha256": "0a8230f883aa2ff261b6e616b2c95c82cb6c36e800bc15224ffaeb90f5aeedb2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/full_front_neutral.png",
+      "bytes": 2619676,
+      "sha256": "6dc4e5f53d3c0aa2157a618d5af18211e3194061ce9d2f172b56db323f236be2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/garments.json",
+      "bytes": 68444,
+      "sha256": "c2f3d70c5d7e82ef7e20bce07fdee0427837e00cfcbd5586b28d506abfd6db5e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/gorget.json",
+      "bytes": 76573,
+      "sha256": "717976fe07e812f15b2dde0ca4db462792c18fffe5126d8d09f50a1944012d69",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/head.json",
+      "bytes": 175459,
+      "sha256": "714107413cf5a5d3a8c16565265ff3f2222bfc414ac395f7bc3b9a12e3911cfb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/left_pauldron.json",
+      "bytes": 181969,
+      "sha256": "6efe6310a6af6f85d3c1376d07fea1fe2b197efe24b3ff19a00abd76a67f5e43",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/legs.json",
+      "bytes": 176697,
+      "sha256": "04f826f353779be056d8e280d5aaef19f6c21ecf8d45ac7caa43851d314f4314",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/medallion.json",
+      "bytes": 128453,
+      "sha256": "06e46866a8ff15ef5698c3ed62a7c31e48d55fa923e3b25025057cecc5305dfc",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/relics.json",
+      "bytes": 177722,
+      "sha256": "f12205db10c48e6ea6acbef54a896bf93e39630b0f35cb9b8b74b22058ab2d18",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/repeated_reliquaries.json",
+      "bytes": 198915,
+      "sha256": "5aa27d671274e866a65bba586e6c8cacb29b139e2e7e0892bc958a32689d87db",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/scene.json",
+      "bytes": 4255,
+      "sha256": "1906d6128b256f8c0f245c77dd5397ffff4c58fb1ae1c1945f065070157dfc24",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/tome.json",
+      "bytes": 139482,
+      "sha256": "fbb9466ee37287004aa305a279a1b5c1caf3152f69488920f6776f94b61246a1",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/waist.json",
+      "bytes": 22902,
+      "sha256": "a953d7f3d3383f75ea81b978eb687fe760fbb643c61bf5fb0b9117855884dd68",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224313Z/warhammer.json",
+      "bytes": 167418,
+      "sha256": "2f93e2d6ba098b8039be3f35cfe260d08ee9905bc3a022a5480838cc2434a40c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/arms.json",
+      "bytes": 179051,
+      "sha256": "e24f8b62c1f13609bf8183fcd6a896f498bd1ddf9d5f9234d3de15e4c4d35f87",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/backplate.json",
+      "bytes": 15359,
+      "sha256": "9a628e5077ef451c4147475b5cb5609b2329fe79180ffacd9c50f594d1802ff3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/body_underlayers.json",
+      "bytes": 77866,
+      "sha256": "0f04ca4bc98c2e76c6db33794d5d8bec50423044cc0ad00b7e535b2b8d09f81b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/breastplate.json",
+      "bytes": 37912,
+      "sha256": "367e4969a5e20133d70e9152f34cf05a9270bc223849af33ca1055e9b0dd520e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/build_report.json",
+      "bytes": 204391,
+      "sha256": "56022c4df685071daaef4d5f61e1cd9faf9ff547edcdc52ea98870674a3e4d82",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/face_material.png",
+      "bytes": 1025971,
+      "sha256": "7b21562cd44a28d9bda400ead97ccc8abf4de289aedaadda0ece3ee332abd0b7",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/face_neutral.png",
+      "bytes": 910563,
+      "sha256": "b0ca1a77e1873c343257f7f7cd7e08b7a80e91c488ac02b91020dd485dbe6107",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/face_wire.png",
+      "bytes": 1092322,
+      "sha256": "f64359b6c7599b27637b28769617937f21ea34f522caa3a6ade98bb78a7e33c5",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/feet.json",
+      "bytes": 109192,
+      "sha256": "0a8230f883aa2ff261b6e616b2c95c82cb6c36e800bc15224ffaeb90f5aeedb2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/front_material.png",
+      "bytes": 1453354,
+      "sha256": "e5e56ca4327d247e8af4b510e92818c28472fae52b148f6019c34f389f354336",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/front_neutral.png",
+      "bytes": 1257339,
+      "sha256": "922817536aa721bebbbf29db188053eb1f75b38074ff1d313e721a991d325a00",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/front_wire.png",
+      "bytes": 1485765,
+      "sha256": "9c35be2b3790fcd5f3c5ad2f21870c4e6e23aa54b494bedec7a4385def16dec7",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_back_material.png",
+      "bytes": 2681164,
+      "sha256": "6ef1781777b5a5090066c46d0c0e325e0d35aa7c1fb324ad0a01a8f5837b0eb0",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_back_neutral.png",
+      "bytes": 2546009,
+      "sha256": "c927bec1c66b216bf66deb4b561fee8ad06964c6f303db5eb52d57fc4013f11f",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_back_wire.png",
+      "bytes": 2719243,
+      "sha256": "202108d0e3b2297660a4f22b1318808c70ea661978b26139187058de93049aa7",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_front_material.png",
+      "bytes": 2781039,
+      "sha256": "42ace0be11e0fe77c83fdd2754ab47fb04171c6f1bd9ff1d8b91e3e0fc9452f8",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_front_neutral.png",
+      "bytes": 2619557,
+      "sha256": "4e8e22af5fe82c0a75809d598467c422d2fa158b53dee723d23d891060d0cd2d",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_front_wire.png",
+      "bytes": 2840737,
+      "sha256": "e638dd55a6f92cb642665f2d8160eb991144599ede97369f249d7e40e06711be",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_side_material.png",
+      "bytes": 2606099,
+      "sha256": "08523845cfa4c33f4c10cb249618ad895d4b23cd8fb87a3cd746f899e5593b14",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_side_neutral.png",
+      "bytes": 2488028,
+      "sha256": "571ccca48fd4a7a42da8707ffc2e59fb4da3473f6f2a3ff08ce62fe4796a62b7",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_side_wire.png",
+      "bytes": 2614327,
+      "sha256": "673d7bcdc4a3329422537b93cdeb26c2e43c59ecd55aa33c3236e86b4bfbf522",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_three_quarter_material.png",
+      "bytes": 2789526,
+      "sha256": "a217a991d2ef9e5c5c848cfa8f71b0fe3550e1735dab77cfb67be5f646211ab5",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_three_quarter_neutral.png",
+      "bytes": 2621155,
+      "sha256": "6654fa10dc5cb0c92097e04f59f4f6e456a08d6bbbe6f29ceb8774632374a3f3",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/full_three_quarter_wire.png",
+      "bytes": 2845911,
+      "sha256": "fee3837aa3ad50c2bf7b5a904dd717056ba4e75c26aa9704b0a4618418497dd7",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/garments.json",
+      "bytes": 68444,
+      "sha256": "c2f3d70c5d7e82ef7e20bce07fdee0427837e00cfcbd5586b28d506abfd6db5e",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/gorget.json",
+      "bytes": 76573,
+      "sha256": "717976fe07e812f15b2dde0ca4db462792c18fffe5126d8d09f50a1944012d69",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/head.json",
+      "bytes": 175459,
+      "sha256": "714107413cf5a5d3a8c16565265ff3f2222bfc414ac395f7bc3b9a12e3911cfb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/left_pauldron.json",
+      "bytes": 181969,
+      "sha256": "6efe6310a6af6f85d3c1376d07fea1fe2b197efe24b3ff19a00abd76a67f5e43",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/legs.json",
+      "bytes": 176697,
+      "sha256": "07ce79fac4e3784c97fe3d92d5e859fd42d2ebd3475b0648406e36bde4da4805",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/medallion.json",
+      "bytes": 128453,
+      "sha256": "06e46866a8ff15ef5698c3ed62a7c31e48d55fa923e3b25025057cecc5305dfc",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/relics.json",
+      "bytes": 179379,
+      "sha256": "5f864e9f475ca8a4314cf31a1d0b183397b09de9c12c136dddabee72de25f334",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/repeated_reliquaries.json",
+      "bytes": 198915,
+      "sha256": "5aa27d671274e866a65bba586e6c8cacb29b139e2e7e0892bc958a32689d87db",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/scene.json",
+      "bytes": 4255,
+      "sha256": "1906d6128b256f8c0f245c77dd5397ffff4c58fb1ae1c1945f065070157dfc24",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/tome.json",
+      "bytes": 139482,
+      "sha256": "fbb9466ee37287004aa305a279a1b5c1caf3152f69488920f6776f94b61246a1",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/waist.json",
+      "bytes": 22902,
+      "sha256": "a953d7f3d3383f75ea81b978eb687fe760fbb643c61bf5fb0b9117855884dd68",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260905T224844Z/warhammer.json",
+      "bytes": 167418,
+      "sha256": "2f93e2d6ba098b8039be3f35cfe260d08ee9905bc3a022a5480838cc2434a40c",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/arms.json",
+      "bytes": 170221,
+      "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/backplate.json",
+      "bytes": 14565,
+      "sha256": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/body_underlayers.json",
+      "bytes": 73910,
+      "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/breastplate.json",
+      "bytes": 35942,
+      "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/build_report.json",
+      "bytes": 200875,
+      "sha256": "dcbe64a737b8775fe05c0344bd83e73eb089268850b88a2c413236705edf59b5",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/face_material.png",
+      "bytes": 1025946,
+      "sha256": "98077b08147c9aa488e9c69a9de437f494bb8495b54f755e62c6fe5d6db7a43f",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/face_neutral.png",
+      "bytes": 910774,
+      "sha256": "d55c09c64423af1e90d46827a97215f1f51cf3ef5a704cc3e1aa7b7459d263a0",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/face_wire.png",
+      "bytes": 1092278,
+      "sha256": "48f70b28592f80ed82ff3fa9ecb545c66cd2d5ced109a8a17ecddf4e2587a36b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/feet.json",
+      "bytes": 103504,
+      "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/front_material.png",
+      "bytes": 1453197,
+      "sha256": "13743435891f6f8c0746587ced1d3a62de02c2e00e057f2d3921ac2ccff97fb2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/front_neutral.png",
+      "bytes": 1257225,
+      "sha256": "6c0a19b08302dc92bc77d8f06cc1dd4cfaf3552ea00e28474f98533069f3a579",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/front_wire.png",
+      "bytes": 1485847,
+      "sha256": "bd6bb4b02daaef1d7f9316dc2ca7a055d3ef35e82b922396f501389048bf1f57",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_back_material.png",
+      "bytes": 2681613,
+      "sha256": "c683f1e01dd77445fbfda4999454017d16c30122c0235c324a3b5818cf3f1022",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_back_neutral.png",
+      "bytes": 2546357,
+      "sha256": "c375c4ccda51ba59f9001e6ccc5cc05871d9bccf299a09e19ee9699d9787920b",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_back_wire.png",
+      "bytes": 2719481,
+      "sha256": "f45f80e2b3e3b144ec8214b9c9a59fb9bcdc340b6d7cc9522971ebdbf9f0e4c6",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_front_material.png",
+      "bytes": 2780025,
+      "sha256": "e5b53fd53744d169695c92e71c7cee794c80e351e444b9c4ce5d8807bdf875eb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_front_neutral.png",
+      "bytes": 2619561,
+      "sha256": "513da3661ce21d80c069709e1402804cc3f2c465f4651a87a1bb5b79f7221e68",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_front_wire.png",
+      "bytes": 2840797,
+      "sha256": "67abbb47b570dfe331ec4f71498cab5419b0ae1a168390d190177782098c6926",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_side_material.png",
+      "bytes": 2605486,
+      "sha256": "7bcc2c4184138cee8d83d7f9a9f62bd7b2137ab73ac47d4fcc91104f25b85603",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_side_neutral.png",
+      "bytes": 2488055,
+      "sha256": "e4ad11912dc80e81f386ded825ebc0240d13e9fd63a43d6bee3555ee7dfe5fdd",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_side_wire.png",
+      "bytes": 2613950,
+      "sha256": "0f8480d3fd0982f91dc49295a792e210cd05db0601ae48e87cb34ece340a17bd",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_three_quarter_material.png",
+      "bytes": 2788843,
+      "sha256": "b6137a98edc8fcff076b63e85063878f45ec04cd81408388c830a49b3263da48",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_three_quarter_neutral.png",
+      "bytes": 2620751,
+      "sha256": "0524945764e2d9c2988875c6d2bbbb896135427c857c611837c357dcee5409c0",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/full_three_quarter_wire.png",
+      "bytes": 2845426,
+      "sha256": "df5c8a8a7569751955b4745af3ca52bbbdfb912e3e815bb5bc89ca7315bdfbaa",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/garments.json",
+      "bytes": 64890,
+      "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/gorget.json",
+      "bytes": 72562,
+      "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/head.json",
+      "bytes": 166389,
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/left_pauldron.json",
+      "bytes": 172522,
+      "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/legs.json",
+      "bytes": 167490,
+      "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/medallion.json",
+      "bytes": 121763,
+      "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/relics.json",
+      "bytes": 170086,
+      "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/repeated_reliquaries.json",
+      "bytes": 188568,
+      "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/scene.json",
+      "bytes": 4257,
+      "sha256": "a2415a1f24e2e0797ca7cff8aa8fd54cfc25710812ed92f35cbf7d4a55c60a52",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/tome.json",
+      "bytes": 132251,
+      "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/tools/build_proof.py",
+      "bytes": 22876,
+      "sha256": "e18b1a0eb15232fdad992c28e056d92194c005182918befb8ba865a8528bcf42",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/waist.json",
+      "bytes": 21707,
+      "sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+      "action": "copied"
+    },
+    {
+      "path": "review/revisions/20260906T004719Z/warhammer.json",
+      "bytes": 158716,
+      "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+      "action": "copied"
+    },
+    {
+      "path": "review/rig_full_front_material.png",
+      "bytes": 2770153,
+      "sha256": "cf8b5069ed1e0d1dd309b8a3b2dd3c05ac15e931b6d5260d4f326bd59d63512d",
+      "action": "copied"
+    },
+    {
+      "path": "review/rig_full_three_quarter_material.png",
+      "bytes": 2783275,
+      "sha256": "9dabf9a55c14bc94b30e89997f7f7bcb36999319fc5b6d03fa16671bf6ebd634",
+      "action": "copied"
+    },
+    {
+      "path": "review/runtime_socket_motion.patch",
+      "bytes": 10466,
+      "sha256": "69d72e399e79cbf770e0ce137f9bea8d347302c2f5f0328dfdc6bb2b04169a43",
+      "action": "copied"
+    },
+    {
+      "path": "review/runtime_visual_review.json",
+      "bytes": 13752,
+      "sha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+      "action": "copied"
+    },
+    {
+      "path": "review/side_material.png",
+      "bytes": 1183704,
+      "sha256": "04ae7ba3fa760cafc69b8afd646fffa2d1196dd58b976b1f5813fa6a50a498a4",
+      "action": "copied"
+    },
+    {
+      "path": "review/side_neutral.png",
+      "bytes": 1122375,
+      "sha256": "f08b19a7f8b1e13b33f65aa27b13a2645b7620e9bb45c379702bb5420ab7f78d",
+      "action": "copied"
+    },
+    {
+      "path": "review/side_wire.png",
+      "bytes": 1197257,
+      "sha256": "ddd5d5ec1c559973709526b60f103525fb805d1a4473eb2431741c8a0440dda1",
+      "action": "copied"
+    },
+    {
+      "path": "review/strict_baseline_audit.json",
+      "bytes": 95064,
+      "sha256": "c2029a50abdf4282fb7d6148889c00da4bccdca7c9d74954752989120d0aa851",
+      "action": "copied"
+    },
+    {
+      "path": "review/supplemental_late_death_camera_probe.json",
+      "bytes": 3733,
+      "sha256": "4bf0b60c8b5c311e1ad0bc5e46d3368db3f59f1b776529832812f0b0310080a9",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T003923633610Z_trim/jump_50.png",
+      "bytes": 759683,
+      "sha256": "8dc6802f49a5fe5e436f81ee90949b6c78f1e4af951bb6a38bbfb15e7d44e23a",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T003923633610Z_trim/probe_report.json",
+      "bytes": 631110,
+      "sha256": "7f356bb059ad52249efbf181e2fc8d932e61404ef21d2c723a608bc2d8efc2ea",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T003923633610Z_trim/rest_50.png",
+      "bytes": 759201,
+      "sha256": "3a9d61db102a1c3225f58fa8ab967cc920518ad67542725d687c134972aa8ccb",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T003923633610Z_trim/run_50.png",
+      "bytes": 761579,
+      "sha256": "dff0ecf44980df57f5570ba6ca928b20bc414c5d13685feb8de807175c72eb00",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004118883961Z_bake/probe_report.json",
+      "bytes": 629171,
+      "sha256": "f0fdd005009b5b100673c30e4fa04d5b331db15183b60da00c3ccae496dadae2",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004125348544Z_trim/jump_50.png",
+      "bytes": 760382,
+      "sha256": "db8a65e3cbe84ce353d41d00a60479566b524f414166377f4368e0114e271517",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004125348544Z_trim/probe_report.json",
+      "bytes": 631200,
+      "sha256": "f707ada86a771467c4df03a4d3fea2fdf361a17bc37c8d5fbd5c0f13bac18f10",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004125348544Z_trim/rest_50.png",
+      "bytes": 754847,
+      "sha256": "b9cbfca036cf8eeb77ec18d5efe5d79a0eae1f634bdf987f7ac10ffe7112d5ca",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004125348544Z_trim/run_50.png",
+      "bytes": 763031,
+      "sha256": "86d18f5311a02c96cc1644228d0edb4b476e7adf3e7c88f1071c0f3f029fcfd9",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/jump_50.png",
+      "bytes": 758616,
+      "sha256": "a794b82941a4bcb2dcdc924638981d27d28f8069a90794b0ed3d7d74f78684e7",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/probe_report.json",
+      "bytes": 632811,
+      "sha256": "fba84a460041efd5706abc227d6b5cd67445552d7500ca20293c95c79364dc7d",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/rest_50.png",
+      "bytes": 751525,
+      "sha256": "4db872e7e50ab53f17078db452cc5acc3a1fa0221300f56477a3d43dd9b7638c",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/run_50.png",
+      "bytes": 760696,
+      "sha256": "5ed70d8e6e023f887006ec469ec69b64c218fef77d8ebe68629de12758f0adb6",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/textures/tabard_probe_baseColor.png",
+      "bytes": 171439,
+      "sha256": "fd8863938a913444b10d62f219022161ccceb16b9be0275b17347978b487b4a9",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/textures/tabard_probe_metallic.png",
+      "bytes": 53495,
+      "sha256": "f8dcd4a62eefd4a334bf7e38cc8b349904bcd155653f35c8d3b46f966aacb3e1",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/textures/tabard_probe_normal.png",
+      "bytes": 152767,
+      "sha256": "dfddc435daefe44fc447afe4c8b37953a3d102442e9d5f8f584cf14fb5c5c94c",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/textures/tabard_probe_occlusion.png",
+      "bytes": 542844,
+      "sha256": "4fce2dbbbf01c987570b8f1f73b7427d8c6076844fd7d5c1b7f2648359aae9d3",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/textures/tabard_probe_orm.png",
+      "bytes": 605256,
+      "sha256": "76f93fab23dee07819fcb91826d1dc929fd29fd2e8960216a7456c609499d297",
+      "action": "copied"
+    },
+    {
+      "path": "review/tabard_surface_probe/20260906T004204166037Z_bake/textures/tabard_probe_roughness.png",
+      "bytes": 89100,
+      "sha256": "8cb691506f9d380b3a360ef97167db3850d2bb8f4de670f788260974d5ddbee4",
+      "action": "copied"
+    },
+    {
+      "path": "review/tessellation_probe.json",
+      "bytes": 7995,
+      "sha256": "998b8d65d0180d46a9ad0c60fcc896e177e7375d297aede2fdf67ac4f437ef7a",
+      "action": "copied"
+    },
+    {
+      "path": "review/test_results.txt",
+      "bytes": 16100,
+      "sha256": "5743fc519e619e194660ab5756790caefb4f50ef907184f311ceda392bd70d84",
+      "action": "copied"
+    },
+    {
+      "path": "review/thigh_clearance_before.json",
+      "bytes": 2100,
+      "sha256": "2e726378c0afa2dada281161b468327dd7ce88dcb825e9636380aa492001d74e",
+      "action": "copied"
+    },
+    {
+      "path": "review/thigh_clearance_comparison.json",
+      "bytes": 30358,
+      "sha256": "e6d8c17e9001f83c0910fe17063305fa721497f9a63120cc31d243c9d381fa6e",
+      "action": "copied"
+    },
+    {
+      "path": "review/thigh_clearance_dense_after.json",
+      "bytes": 2258,
+      "sha256": "55ef2c5ad1f00aa3915a6132948e69993857e4e2d9f0c070fb763404f29747ab",
+      "action": "copied"
+    },
+    {
+      "path": "review/thigh_clearance_fix_report.json",
+      "bytes": 1674,
+      "sha256": "09ddc0df74accabf7d7998c25c1f32d3521071379a63611cb2093e6de26c4ebb",
+      "action": "copied"
+    },
+    {
+      "path": "review/thigh_fixed_source_full_front_material.png",
+      "bytes": 2783417,
+      "sha256": "41ff26377c5872a4306784a7b4070878f07070bf3cfef86d1517fd967b88c7dc",
+      "action": "copied"
+    },
+    {
+      "path": "review/three_quarter_material.png",
+      "bytes": 1233908,
+      "sha256": "2f97b2fbbed7d8717f7e9e9219a24886c6adc94fb2d28a25758aa6ffbf49641c",
+      "action": "copied"
+    },
+    {
+      "path": "review/three_quarter_neutral.png",
+      "bytes": 1131516,
+      "sha256": "cbad99f9ee7a6bc84a1c92f4bccfcf10069623b3b9dfc1793e8dc5a984a9a870",
+      "action": "copied"
+    },
+    {
+      "path": "review/three_quarter_wire.png",
+      "bytes": 1252614,
+      "sha256": "cc4d1f94212e8e80bcb118fa33edaf1a9d7f67e2a6082670f82127906ea3fa30",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_back_t1_m.glb",
+      "bytes": 1581984,
+      "sha256": "6b1fe23eb44af252013c57ae3d18f706870095943ff10759ed51492298be1cbd",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_back_t1_m_lod1.glb",
+      "bytes": 1587544,
+      "sha256": "18ca95fe1cd407998bf8d55e4227c97af295e92a381adf7afa69813416da26a2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_back_t1_m_lod2.glb",
+      "bytes": 538996,
+      "sha256": "e66724b865f57fb75d30eb56ec36443397083947ba9934258ee84c5974c65c30",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_chest_t1_m.glb",
+      "bytes": 2342988,
+      "sha256": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_chest_t1_m_lod1.glb",
+      "bytes": 2395368,
+      "sha256": "1d731a85b7dd1e54604023b874a364cad14ae7d8172c6eac070f1c900f9c73f0",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_chest_t1_m_lod2.glb",
+      "bytes": 898028,
+      "sha256": "daf23cc9cbda9436491f49edb8f54a1c09984add3687de38febea9f79aae3124",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_feet_t1_m.glb",
+      "bytes": 1852380,
+      "sha256": "d5dcdbc9d0a43af922436f177a28f0599f81d4f0171fee0e0e6d13cf3bb9907a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_feet_t1_m_lod1.glb",
+      "bytes": 2321892,
+      "sha256": "ca4003cd2d4c3ed39278741cc7ada9b10d787cc20c5bb7c1f6bc178b06ecbcbf",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_feet_t1_m_lod2.glb",
+      "bytes": 900216,
+      "sha256": "029a8fd6baca11dc7c692f90f4f7a6ffe6d7700e8ae58832fe2dfa5b48a4b7eb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_hands_t1_m.glb",
+      "bytes": 2021488,
+      "sha256": "a63f9ff8b7713b9bbed96f3a2ae4ebcf736a3f51313feb619979062601706354",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_hands_t1_m_lod1.glb",
+      "bytes": 2405232,
+      "sha256": "224a06d466f002fc4f0f192cf9707375af07d4d936a563a58367483ba6d03874",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_hands_t1_m_lod2.glb",
+      "bytes": 979184,
+      "sha256": "e9387336adbf38a1985de5c71f416765a388e430228b7896eba64fab3898cbc9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_head_t1_m.glb",
+      "bytes": 1446200,
+      "sha256": "ab827024798b86622b437af5505b2df50935ed9abea0ee83569ba664ff331786",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_head_t1_m_lod1.glb",
+      "bytes": 1574116,
+      "sha256": "7a05dd2f506d98525ed5036729c34c4d5423e15fd7b61b04cca33d4948642bc3",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_head_t1_m_lod2.glb",
+      "bytes": 538748,
+      "sha256": "9f01f90baac61e7c660906e7b64002ed712b548bee20d848ddcc42ef724f3e42",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_legs_t1_m.glb",
+      "bytes": 2446772,
+      "sha256": "0f16bf085a8a4dee7f65d445ea2f047792e546484e815fadc5cb26678fae3280",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_legs_t1_m_lod1.glb",
+      "bytes": 2751996,
+      "sha256": "9a4a6f299e39f16d28dd0d920bdd27bf9cc8837fa113b37c9e531d79e46d5b97",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_legs_t1_m_lod2.glb",
+      "bytes": 1024136,
+      "sha256": "ec716ec15d93b1fe0248b3075a4773cf41a769df51ee82b4e91439c4d1d6291c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_shoulders_t1_m.glb",
+      "bytes": 2404156,
+      "sha256": "6e62322f2ab159b6e2aa212748e81ecd5d8f1736ccc1b1cab579d3d4888d4894",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_shoulders_t1_m_lod1.glb",
+      "bytes": 2451308,
+      "sha256": "85f35ce63f50bc25317c7a0ced5667eb8de2ab35493dbd43f1a116c95b0c431f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_shoulders_t1_m_lod2.glb",
+      "bytes": 933964,
+      "sha256": "a0f06ee2013a8f2594ab28e07a73de0dcf31c4ad6854ae48d0c5619abce5bf7d",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_tabard_t1_m.glb",
+      "bytes": 1088628,
+      "sha256": "eda007e146f8a122e04ba07609238046bed7bef48808f9ca6eb5b665c0856d29",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_tabard_t1_m_lod1.glb",
+      "bytes": 1170084,
+      "sha256": "a9995c4b3973ca6c01029cb0c4e94f083336160a4ac5503a4a5a81545c1fc26c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_tabard_t1_m_lod2.glb",
+      "bytes": 423964,
+      "sha256": "e8e63735aa851044b3ad43d89262ff0105afca6d99cde135d9e6bf3c1ca506bd",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_waist_t1_m.glb",
+      "bytes": 2475992,
+      "sha256": "565928ef635dbffdd4102185b16e58810f3ec22b9c54903fe22d0dd1d911e9c5",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_waist_t1_m_lod1.glb",
+      "bytes": 2649936,
+      "sha256": "a560c85ca118c493f9e506cf161575999a5019c116606712ef1e9ace788eb2b0",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/arm_civic_battle_prelate_waist_t1_m_lod2.glb",
+      "bytes": 1249920,
+      "sha256": "c34e477a640f1438780db90fb869d2f0a715ff3d55d817680e45eaba8b7446ab",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/chr_civic_battle_prelate_t1_m.glb",
+      "bytes": 11661536,
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/chr_civic_battle_prelate_t1_m_lod1.glb",
+      "bytes": 3919252,
+      "sha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/chr_civic_battle_prelate_t1_m_lod2.glb",
+      "bytes": 1625832,
+      "sha256": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/evaluated_lods.json.gz",
+      "bytes": 7537845,
+      "sha256": "f34435fa5de6dd3c9a85eb61d0ad47f39fad41080123022763b4b78424b828fd",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/gltf_validation_report.json",
+      "bytes": 77576,
+      "sha256": "b5c0857285162f604b468c0635d8f982c064897b28e35fdbe6d91967fce43f3a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/preflight_report.json",
+      "bytes": 372270,
+      "sha256": "20a872626e88930696b97ca1de3b3337a387b91dbd0f159ce272ff4174366ed9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/runtime_report.json",
+      "bytes": 1056696,
+      "sha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod0_baseColor.png",
+      "bytes": 303394,
+      "sha256": "9363da66964f8e3225a20fb00ba3d790256cb488492d97ebf9d3c618e09e318a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod0_metallic.png",
+      "bytes": 107052,
+      "sha256": "dd6a894f2b615248e27bb5cb23396e4d70438cb6e890fc3f30e8a5dc2060ed31",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod0_normal.png",
+      "bytes": 314985,
+      "sha256": "696e28915b961ac6b624f5f8ada07e1515a24391f66c8d0d3e1f747cee3454c9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod0_occlusion.png",
+      "bytes": 502860,
+      "sha256": "f845a52b0835985832bac1831267e33e0822e4d58133e6c9e4d64b27ebce96a1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod0_orm.png",
+      "bytes": 622289,
+      "sha256": "2d4a95cd12588fe55e43a4a453019924c96fb59122db9280c7a7e1bbef88992b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod0_roughness.png",
+      "bytes": 170181,
+      "sha256": "93c691ffcfa023d1ace15b4e2a937256702ad9ba7707bd4d5e2c68a384f2bac7",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod1_baseColor.png",
+      "bytes": 314292,
+      "sha256": "d41a4415e8d0a3f6cd7f83d6a32d26567e06ce2ad942a0f62751d6bc59c8aa7e",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod1_metallic.png",
+      "bytes": 110363,
+      "sha256": "de22ac6099d84c86b2727227a10dd8c0dbca0003f8711ac2031a3f4f145bafd1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod1_normal.png",
+      "bytes": 480195,
+      "sha256": "25babdf9865e1120fb0e47027b12a451dd599f3bb070cb03110cc04bc7e91585",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod1_occlusion.png",
+      "bytes": 446467,
+      "sha256": "f606db5a746698d7f8099087a4927f7aa2a9b739058ffeff942868f69717b787",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod1_orm.png",
+      "bytes": 567887,
+      "sha256": "4193f311c7377c42cf5546c0f6fc3792d072d7ccce2d209487058d31ecce6e07",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod1_roughness.png",
+      "bytes": 174636,
+      "sha256": "6f264cb8c4c2d7afd941638266ac587c5cd503dd4c7d9b0f3cdd11c6fe7215e8",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod2_baseColor.png",
+      "bytes": 115037,
+      "sha256": "4e90b129467a2d909b58424277a0acab6755f300bd8eb310c83f7a8dda872bff",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod2_metallic.png",
+      "bytes": 38706,
+      "sha256": "09adfc44f16e441e49c0fbee2268e75cec36886cc771d4d9939c4573a8c7cd07",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod2_normal.png",
+      "bytes": 167497,
+      "sha256": "6e9836e96c996f45925db936d57469fe04b680e830d0745e87726651b77c517f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod2_occlusion.png",
+      "bytes": 120519,
+      "sha256": "db4115c38b3b873c1bea9706e79c85554e480330a62d94952f263b69571263a6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod2_orm.png",
+      "bytes": 169929,
+      "sha256": "98722de1888d2676db235ba55b9ccc751c180adf2b5775767aa911d54ddaee80",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/back_lod2_roughness.png",
+      "bytes": 64768,
+      "sha256": "a0bcc7d1548f01563d608c2adfeeceeb411ec41e04747cfd74aa5afafd65a79a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod0_baseColor.png",
+      "bytes": 2482873,
+      "sha256": "df640dc1c6f230454dfcabc66031826dd5431c9fd0778a6a42a571d06787ec15",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod0_metallic.png",
+      "bytes": 1641413,
+      "sha256": "9020e159c057a467b3af2317e5c007f0e488624116241d82e8d74ec3d9faf0d4",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod0_normal.png",
+      "bytes": 3333972,
+      "sha256": "0edc8cdc34b7ca0a50d1d5b9c868b236cc345045d6a38b9f4041015f05520e30",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod0_occlusion.png",
+      "bytes": 2216539,
+      "sha256": "d5c203fbfb2a53f0c65497d7a7c28cd116d5bda713714ddb3d235de242548383",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod0_orm.png",
+      "bytes": 3855250,
+      "sha256": "ccb475accbd2e1c25681f46662f9d9a27fed6332c3f03e23939512b04d009033",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod0_roughness.png",
+      "bytes": 1679512,
+      "sha256": "e7f23920b71ffe10763e2bcee785a7cebe7f3f0612b5746b5707e0d30dd69d72",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod1_baseColor.png",
+      "bytes": 741703,
+      "sha256": "8525c5f3c84536118d39126d75ef926ea818f245f3543f090c3bbeca092592cd",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod1_metallic.png",
+      "bytes": 465052,
+      "sha256": "e5d424b70e8d94e63779942ff9affb396ab307786d93f97e7c3a38348c7bd9d1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod1_normal.png",
+      "bytes": 1000111,
+      "sha256": "ca383a47299850f717067ee7e216af838ae97082897b8f0b554601ecf7420b89",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod1_occlusion.png",
+      "bytes": 619040,
+      "sha256": "245fdfc0640ec317aab614a8d2c822c36817051b6ede7852cd3360e8a63702b2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod1_orm.png",
+      "bytes": 1102647,
+      "sha256": "6f44a9d7412ad58764e19ed576792c9c7b4e874664f09579b43f9cbdd47ef9d4",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod1_roughness.png",
+      "bytes": 506051,
+      "sha256": "8b66c6abc730e62fdf4edb9db0e3a5484ba29035121347f3a33c1369af2e4346",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod2_baseColor.png",
+      "bytes": 230541,
+      "sha256": "83d42f1801ad8f40abbf623d9e8eee2f5296eec9102f0b0d13365ead7e6ad027",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod2_metallic.png",
+      "bytes": 141966,
+      "sha256": "3e9de3238b7d111836cf72a1f6148c2a57babc86a3574de2fad61aac6fa32a67",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod2_normal.png",
+      "bytes": 379346,
+      "sha256": "7e433eb733dd5639ec5485838403aeb8cc82c08b16a302f04a685f2af705058e",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod2_occlusion.png",
+      "bytes": 178147,
+      "sha256": "923ac0e64e267a44d10902cd9e5b18701828b3f27325bfc313fb1842760bec6a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod2_orm.png",
+      "bytes": 329051,
+      "sha256": "d0879bb228d0f8b7270cc126f20ed887dcde10b9cff357597d2019e815bd1546",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/body_lod2_roughness.png",
+      "bytes": 158706,
+      "sha256": "e06238ccded71f3c80d688356200990849d288fd936d16e05b966abef0673ddb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod0_baseColor.png",
+      "bytes": 322563,
+      "sha256": "8fb24b23ae551dc76faa26194895c7ed305e93facfaa3ef36563ca07b96b6eea",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod0_metallic.png",
+      "bytes": 127445,
+      "sha256": "587c4027e419c1c92ec97976d65c3f5f45fd923a874792e0f5f9f5939dc82b08",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod0_normal.png",
+      "bytes": 694142,
+      "sha256": "08152a8382d373dda5c2fb12afab6fadfb8620a31493f59617d58ddf1a8195ac",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod0_occlusion.png",
+      "bytes": 548253,
+      "sha256": "1e773364d1a548d1f7f44dd86dba4c28d4c747e78f3867de87e824d422a6f6ec",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod0_orm.png",
+      "bytes": 665506,
+      "sha256": "4d4ec9a4ea75b1e9c3004da645684c0ecb36c6ba718d1339ce330f438aacdb03",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod0_roughness.png",
+      "bytes": 198245,
+      "sha256": "6da7d84c7e824ce33d912048fdd0336f6398bdd528cc96f9bf27bf02edb01506",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod1_baseColor.png",
+      "bytes": 450883,
+      "sha256": "add41ca938c99bd2f1dea05ded169754a4784d3a7a00e1b1a3d199e3de903bce",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod1_metallic.png",
+      "bytes": 149307,
+      "sha256": "094994817d287e10a391c744b74a1716a1a0fdc93bdade6030503dec0f6dca88",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod1_normal.png",
+      "bytes": 759815,
+      "sha256": "cd3c8eca37d7a152f21bb83cd0ffda00a16a0b013ab8729d90b3f3d9a7c445ca",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod1_occlusion.png",
+      "bytes": 503437,
+      "sha256": "417f1008690fa811c0c86356a833f490578a62dac41b54da44c8756265183da3",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod1_orm.png",
+      "bytes": 656543,
+      "sha256": "1ba7b73d57ba78246e79c2ddbf9225d862e5b7bcf5946bd215bd44ca5a1acfbb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod1_roughness.png",
+      "bytes": 241488,
+      "sha256": "5e02ba0de8b3ecf6210af8e3de2c477135f9a37a0d0bfc9c9bb169879ad01cf2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod2_baseColor.png",
+      "bytes": 158067,
+      "sha256": "a8538fb48ce7070441b4e0f2e030354a3df6f0f7dcba59ee4c749b4cabea15cc",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod2_metallic.png",
+      "bytes": 55440,
+      "sha256": "89cde89381c42aff484ef401fc62472d3e2919422629f79c9bfad353d4bb7933",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod2_normal.png",
+      "bytes": 256905,
+      "sha256": "a24f4a316f0d736f9cf6fca2b688b6f6f5b46a7d711a3b88c313c532c3a987e6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod2_occlusion.png",
+      "bytes": 160650,
+      "sha256": "bcbaedac604b87f80bb7ba45547cfede7ce7e6f5c7c84d4f4ebf7b539c3f640e",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod2_orm.png",
+      "bytes": 215464,
+      "sha256": "eb972b880c5e8e0412ac6e3f2aa343ad9c5b2df6ecf136f0a3cace4fe8e9b1aa",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/chest_lod2_roughness.png",
+      "bytes": 87307,
+      "sha256": "e2d0b0444fca5ba1eee8bb3728c24b90c6eea73b1b8e63f7b6dbd1704f9ff2de",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod0_baseColor.png",
+      "bytes": 304167,
+      "sha256": "6aecda2f69151de7d9f8a67f5c78c0b151c46da220baf84bb7a571128d8d1218",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod0_metallic.png",
+      "bytes": 99851,
+      "sha256": "da8170aa47211c57b560bafd602ec912bd58a903a02f3b40e75bd0c4f9aa3994",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod0_normal.png",
+      "bytes": 604062,
+      "sha256": "a9f456e53def77f90f0083e52f38e870c1e7e9c55ab6f36a9a9827f9306b569b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod0_occlusion.png",
+      "bytes": 527556,
+      "sha256": "4d6278465aae43d28bb7ed4ca38143f9fdb04311cdbc61013e2b8f411bbf207c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod0_orm.png",
+      "bytes": 639606,
+      "sha256": "77bbbaa0d42f72ee38e3c9f181efe924931f711d7a6cabb4c0f4db662ad0b7b9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod0_roughness.png",
+      "bytes": 194961,
+      "sha256": "c409323eb9028bd133bbe8b4fdde8ea54f95b186d5e213c147b902648624cc04",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod1_baseColor.png",
+      "bytes": 484688,
+      "sha256": "fabd4e6bc7fe9505657bbb1891d26324edd267b2e769715bef7296131c823ffe",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod1_metallic.png",
+      "bytes": 191783,
+      "sha256": "98efb5f8de898aded2bcb6e846d11e2f19dbf7d549d63b9317d0ee106ab2b378",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod1_normal.png",
+      "bytes": 941948,
+      "sha256": "bac786addaf9dfb07664f824c89e59d389ee2ae435c2781bf8398e58ad25b40e",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod1_occlusion.png",
+      "bytes": 491565,
+      "sha256": "7108c2b90f02ba9ce32ed497d909ee2f9bfa339f63255cf5477e71d8f46cb775",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod1_orm.png",
+      "bytes": 712479,
+      "sha256": "e32894f349c7032634b0fd0b1a7b96971b55df88ebf45bf1891e26a977b10232",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod1_roughness.png",
+      "bytes": 280015,
+      "sha256": "0ec77c02ae384eb26fe0c3cd3dd3f6115b9bd4c17cc4aa27ca1eb520eae4cc09",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod2_baseColor.png",
+      "bytes": 176451,
+      "sha256": "798d47ce4eb6b1fe7e78b9e45b7352904ee4f5f028ce1d0a84ce8de22e503628",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod2_metallic.png",
+      "bytes": 73298,
+      "sha256": "93a1b4db864d6b3e094228a55cf65b01048d817302faefe9449a5d9012dc4a97",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod2_normal.png",
+      "bytes": 332217,
+      "sha256": "bb24a6de33904e81f9a68c6e111ef865d715177dc74a2c51adbcad46b4b4e6bb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod2_occlusion.png",
+      "bytes": 155081,
+      "sha256": "91ded7f0ed2584d3af3fcb56cde3a6bbb40310e9e05d60f1aaee752d8dc89ef1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod2_orm.png",
+      "bytes": 235423,
+      "sha256": "f8066c6e02eb11dd130f5538c794c289b5702aa167810a7c8796309b5a57eec6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/feet_lod2_roughness.png",
+      "bytes": 105412,
+      "sha256": "9915c2c33f1b69e1c62b370a6783080f326f6601a66349eb9d6843b8f7faf01a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod0_baseColor.png",
+      "bytes": 456650,
+      "sha256": "1b64e97891e94175dd4050d89ad3baa18e6b1cdb9e5428ab6e6ce11075847520",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod0_metallic.png",
+      "bytes": 162295,
+      "sha256": "8ac7489f60d945c55fcf1a3ac672fa740662c299892792c05f6c2ac68f2aafba",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod0_normal.png",
+      "bytes": 319112,
+      "sha256": "26d8b75f3749ee9ce5b36217b4fd11d680a174ff961fc54e2f06e4c152e4912b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod0_occlusion.png",
+      "bytes": 577459,
+      "sha256": "29298c3ef6e9ad4418239742856ecab8f8516c9b41a6068672bea84437f70dcb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod0_orm.png",
+      "bytes": 758565,
+      "sha256": "a2c340baa0e10b0c36929225866a869cb059f38c0384de152ae09d68aa29339f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod0_roughness.png",
+      "bytes": 269767,
+      "sha256": "50b335f65dba1645c2fcfc2f458c22d8a0f908987b313f59e5c71c6ab6e96094",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod1_baseColor.png",
+      "bytes": 528516,
+      "sha256": "6e2585ee20d0bd255f9f0d405fe3a10ff38a2f61d1a874452c068fca7400a508",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod1_metallic.png",
+      "bytes": 195561,
+      "sha256": "93b8a6497142cfeda7e4decba6a08ca06f4472e73b2850c9289c1fbc1b5633b9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod1_normal.png",
+      "bytes": 888392,
+      "sha256": "479642976b1c7634904d054ca2df02d09f8af52793ca05161f32b9c93c07665e",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod1_occlusion.png",
+      "bytes": 555466,
+      "sha256": "a2bf79211cc5b762e771dc49b6c619ee52973967b6a3f92983e3b2b3e8d19793",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod1_orm.png",
+      "bytes": 786634,
+      "sha256": "5b1c9d618147f9efaafefe3b8cf150d99e4abd169bd2d404ea4609ff237c729d",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod1_roughness.png",
+      "bytes": 295492,
+      "sha256": "358aa8aadcd34cef4301c11c987b04640a9b17c9d70af81554f7ee0745724cc7",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod2_baseColor.png",
+      "bytes": 199385,
+      "sha256": "868379c290f77f2c1e8b7ca41a9c2094b6c77848158bf5c0ac625a0d7c3ef24f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod2_metallic.png",
+      "bytes": 77700,
+      "sha256": "b2155b2e803f4e7036e05845b909cb78292483ea15af4d91f6362ff6161e2f0a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod2_normal.png",
+      "bytes": 317068,
+      "sha256": "69dc2cd2309fa27ea356f484ade42099037d1fba51e00ba7b46737b0dea4d1c8",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod2_occlusion.png",
+      "bytes": 175044,
+      "sha256": "0f68939f2e890a25460bb852ae4b93eaf876afc633f9f83cfa8f0cd4a55120d6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod2_orm.png",
+      "bytes": 261042,
+      "sha256": "923044f717b1b1a32ffae15bca4dd185db0fe05cb61adabcd61570b780b893d7",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/hands_lod2_roughness.png",
+      "bytes": 114179,
+      "sha256": "b5764357c8b40abad3721b95b3b5cd3c401a9b4fd57334794966b9e54512fe83",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod0_baseColor.png",
+      "bytes": 241376,
+      "sha256": "666cba9e5a8070f8c71d27218bbec53aca0faa70c69da4731324cd1b319fb7e4",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod0_metallic.png",
+      "bytes": 100657,
+      "sha256": "d2efcc20436dfa01aedd652ff463907a81c171eafdcef6350a4e48d446cd34fb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod0_normal.png",
+      "bytes": 552119,
+      "sha256": "e86c3e940ef3f8a238074c9a17907abbc87f7a28bbfe6b737b02d325575fe827",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod0_occlusion.png",
+      "bytes": 351951,
+      "sha256": "a50f2315984c8b11486c74cffa4993023b54edc198034e890d7857a2a4ff15ad",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod0_orm.png",
+      "bytes": 447731,
+      "sha256": "5993d8816f3eba12983cf7a7530e39f57ce6f2bf99d999df99e199d9ec70e1b3",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod0_roughness.png",
+      "bytes": 148279,
+      "sha256": "b849aa921f7d7c9953bcd74ee68da70bff00d5169da0c6337f25b95a32f7142c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod1_baseColor.png",
+      "bytes": 343476,
+      "sha256": "56a83fff67f43e5f5c74da29cbae86050567e6458347fc3a3907351acf14902b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod1_metallic.png",
+      "bytes": 121467,
+      "sha256": "185b1b061d2f4ec72e27f3361eede2b47c85f45b5ce465a7b8cee64d0da31037",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod1_normal.png",
+      "bytes": 607476,
+      "sha256": "c4570f785ec7a7f10db1c270822f38e0abe4c43db5937db25f12e95674ef2c28",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod1_occlusion.png",
+      "bytes": 354625,
+      "sha256": "d6a62a383493e055696c0a8ce6221aa609c9a93a450b63d612e5d44893285e8a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod1_orm.png",
+      "bytes": 487788,
+      "sha256": "19f29a231049d3186b05ef86acf7a421e085234c173f71c273934c1314579cd2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod1_roughness.png",
+      "bytes": 191149,
+      "sha256": "e911a127abb114527e907f984798d2f2d598aa9486595dc2c5abb1f9644bbbab",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod2_baseColor.png",
+      "bytes": 121731,
+      "sha256": "3916abd23e1e9627c5bae75e34e776e760fc7f51356bfa5cbb4fbd94dca2cd33",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod2_metallic.png",
+      "bytes": 41964,
+      "sha256": "61f5fd59018caddf52e397e84512045893e2c45929c80a7c07b4f67e4c100f9c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod2_normal.png",
+      "bytes": 202802,
+      "sha256": "8d4aaa43779802324fcce2b40881523f36abac58c8c4beec81cf20ce18afcd20",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod2_occlusion.png",
+      "bytes": 100593,
+      "sha256": "c06f266a1666ec0e915ae65a4f2da96daf1669fc38e07ad57dbb3cb2b878f319",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod2_orm.png",
+      "bytes": 146423,
+      "sha256": "75766ea11ed3830b7d1ad49262d2933a2e673a038fecf7278febf0e0fd5b7c60",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/head_lod2_roughness.png",
+      "bytes": 66728,
+      "sha256": "9f0e10efbd36394e706413d790a1f7f2d08cbfb0e04e14061836bd5be23336c4",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod0_baseColor.png",
+      "bytes": 343747,
+      "sha256": "7c78c956e4921e4e21c3161e1794fe0b9563b227e868005fad05f836ebbef5ea",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod0_metallic.png",
+      "bytes": 147906,
+      "sha256": "2919c7e8c1677d0049d3a8ab1c87ddb95f2459772bf515d9a9b672b38c7964a0",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod0_normal.png",
+      "bytes": 610080,
+      "sha256": "041b58f00ffef1cab8d63195d7c99f16e7527b6cfe4d6131d32d42ed7a9462e5",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod0_occlusion.png",
+      "bytes": 604051,
+      "sha256": "f5874c238da2ffed888b59e1db7204a2ece4378e519468c39f5582d9889cc42f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod0_orm.png",
+      "bytes": 727454,
+      "sha256": "69040fbbb3818e1b8510ebd52a361d6c6c1bf5971eee0f47474c030af5952292",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod0_roughness.png",
+      "bytes": 221098,
+      "sha256": "d6a76175d875cf9659d0f894d476e8d596db8b370496855493abdc5010af93c2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod1_baseColor.png",
+      "bytes": 505580,
+      "sha256": "9baa72e1efe11ae40f0243cf3fc52649430ac673182749fc2d880e1c441907fc",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod1_metallic.png",
+      "bytes": 190445,
+      "sha256": "a58f3372b02408a2340d47f3da9b90edcb4f2bcacf56b2964c25ca53ff02b343",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod1_normal.png",
+      "bytes": 870381,
+      "sha256": "de5e2e25707c9576969be70087d720ee522217659420ccd0546064ecfa705fa6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod1_occlusion.png",
+      "bytes": 578448,
+      "sha256": "f06412439fa7c46c02f55e90f5a87d9a39f894977028a8946e3a4e8f5371bfe4",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod1_orm.png",
+      "bytes": 764141,
+      "sha256": "111cf5a228964fb55c2c4edcd2152866a8fd3ff4ed16f31c405728600439e446",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod1_roughness.png",
+      "bytes": 278251,
+      "sha256": "037db29283b8f866d416e452bdb0d3663068cd47e3e53cd6b3d3829a9699160a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod2_baseColor.png",
+      "bytes": 173054,
+      "sha256": "f1865c3bff82f47f2fbe66cb7e802d63b5eb7f0cc92b89e784dc67e6f38ce491",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod2_metallic.png",
+      "bytes": 69266,
+      "sha256": "ca9db0681ef83c2a5d9caab1c5929103b2218a077dbf59cf92335af51c64aded",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod2_normal.png",
+      "bytes": 290417,
+      "sha256": "adcebcc961b2fb70da628ac537717e89f6198f93e15014d80c8428a1508b2fb1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod2_occlusion.png",
+      "bytes": 174716,
+      "sha256": "f797d2411421723b4a82c55ed2d7d2337d7539e10f1a8a0d9d84af1c169095ab",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod2_orm.png",
+      "bytes": 237640,
+      "sha256": "a5dcda1904fdf78690b51e4d7d2265e1afe348fc981401d16e406f76e3c41d21",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/legs_lod2_roughness.png",
+      "bytes": 101488,
+      "sha256": "500567896d2ae7f5b3b15eacd034dff806d66f935c09a5cef894d7fd9ae22b22",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod0_baseColor.png",
+      "bytes": 328477,
+      "sha256": "321b0de36827adfe955cd4fca9df51c87645de8177e03bf4063a085c898e8187",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod0_metallic.png",
+      "bytes": 158775,
+      "sha256": "a4adcf2e185276615874da55cff06932f33975a41ff6f2977652d63144916ac9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod0_normal.png",
+      "bytes": 737691,
+      "sha256": "0ac1135ede866877b28303cf39d0ba07e880858f7bfe5f35de4b10f2ead58883",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod0_occlusion.png",
+      "bytes": 534201,
+      "sha256": "ff4f4b1cd2be9dc5f34d1ecca79342c4caf9a02ce323d835147cd18dae0b2581",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod0_orm.png",
+      "bytes": 654415,
+      "sha256": "c22e2312483f8bc48b5943d49fd53baa986f8e271da12672d8711fbe23260872",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod0_roughness.png",
+      "bytes": 217581,
+      "sha256": "f079fc9d4e3a65185e4759d9f8cebbbcff86ed531afb7a9ea10388617c7f7208",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod1_baseColor.png",
+      "bytes": 455166,
+      "sha256": "22e20042e0a144632a764603a607abeb91efbb9c61f286d8763a03dcdb7b3c98",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod1_metallic.png",
+      "bytes": 174547,
+      "sha256": "307b58ff1018c0551499cfe0611e353ec98860bfe3201b82d8b57a818443a5ae",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod1_normal.png",
+      "bytes": 824886,
+      "sha256": "8041781bc7786e0ddfeb49156225d06e28385360a6f2feaa3cc88b5df49e6c03",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod1_occlusion.png",
+      "bytes": 500717,
+      "sha256": "8a4de98cc571885cdd94d880286fe374df5823885ecca57fe0f6e307a233b6cd",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod1_orm.png",
+      "bytes": 658058,
+      "sha256": "788d17e94818b83fcd86f33fe33dadf09c729c219aafb6b5caaf6953ade1bd9c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod1_roughness.png",
+      "bytes": 259182,
+      "sha256": "ee40d0e8f4421294f4e09fd5b5cadf33879062324933f0934c5d65cc590ec625",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod2_baseColor.png",
+      "bytes": 151386,
+      "sha256": "9b6d164f002eccee012975e41696e727618837b22bcce1cdfe6ff03134559e86",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod2_metallic.png",
+      "bytes": 64734,
+      "sha256": "9079230e3c383799a545b961e4ff69d47ffd91af5678fb218dbc5d5706d7aa90",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod2_normal.png",
+      "bytes": 274077,
+      "sha256": "69fb1423e5d4ac9c7bd6fce995281800149e8c6821001ee942052024a6793213",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod2_occlusion.png",
+      "bytes": 151654,
+      "sha256": "ffe8704616741b811d41d4c21ce08d99f04233c683dbb39669fdbe73591e9645",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod2_orm.png",
+      "bytes": 205779,
+      "sha256": "77fb258b357cbd002eada00ce030adfd896199760636a90ecbf4e5fe5a46b640",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/shoulders_lod2_roughness.png",
+      "bytes": 93079,
+      "sha256": "13d4eabe561557869c0bfb5f639108e41a90d23355996c1eda66dfa31782115b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod0_baseColor.png",
+      "bytes": 171439,
+      "sha256": "fd8863938a913444b10d62f219022161ccceb16b9be0275b17347978b487b4a9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod0_metallic.png",
+      "bytes": 53474,
+      "sha256": "c641b02887210e5abf24fca4ff0580ce7f47aaf0e6300ce5627a276b11bbe480",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod0_normal.png",
+      "bytes": 152767,
+      "sha256": "dfddc435daefe44fc447afe4c8b37953a3d102442e9d5f8f584cf14fb5c5c94c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod0_occlusion.png",
+      "bytes": 542844,
+      "sha256": "4fce2dbbbf01c987570b8f1f73b7427d8c6076844fd7d5c1b7f2648359aae9d3",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod0_orm.png",
+      "bytes": 605254,
+      "sha256": "38365be73dd2c329e986767f97a88cfdec699cc90f3d99a71cacc48c0af429d6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod0_roughness.png",
+      "bytes": 89089,
+      "sha256": "5145e9d7b505e6d55ee49fea943c7aa58ee48817a565166aca30f7cb3d3e50be",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod1_baseColor.png",
+      "bytes": 158304,
+      "sha256": "787e3d999a64875ad50019aca7c44290d1ea33533b83555f5e319bbcd859d223",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod1_metallic.png",
+      "bytes": 45865,
+      "sha256": "3d93e8e7383d2408700dc6debb238d28e989ec3e827721f51e230c9f91453ed1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod1_normal.png",
+      "bytes": 338876,
+      "sha256": "b6fdffe16a26d838c9e855c0680b64d680e67899a304214a2bb75ac511b2c2c2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod1_occlusion.png",
+      "bytes": 483309,
+      "sha256": "cb0b7a40193e8364c5fc2413a8e97a37d5033ed472daaeade3b024a9c1622b3c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod1_orm.png",
+      "bytes": 534816,
+      "sha256": "574a3e7c8f2a16aa3c5d39af8402937d4ae5583fcb047d5c1b30715486d9abf7",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod1_roughness.png",
+      "bytes": 81492,
+      "sha256": "dad94f6e4eff2364f186fbcdf2c85680fc6db12309360260de5dd40bc0f2e7db",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod2_baseColor.png",
+      "bytes": 62806,
+      "sha256": "686eb1b4e6af809906541350fc630e33de5dab74af7b285fd7cfc227f7ada280",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod2_metallic.png",
+      "bytes": 13439,
+      "sha256": "e9c09b483899540c2582e470a5d390a01ebf9cb20e4ba9c3e6f913581f670437",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod2_normal.png",
+      "bytes": 116312,
+      "sha256": "985d8b596af9fbae102b6d82423915ee2831de0f1a4c9bff75f3c888319ded23",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod2_occlusion.png",
+      "bytes": 144474,
+      "sha256": "781f8b8ab72a65d8bf63935e04a5f0de876c7ebe4dbae0d62bc773b9fc6c143a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod2_orm.png",
+      "bytes": 168608,
+      "sha256": "c43c1faa3169d573c80ae0745f74aacaad7ea57c09cde9ef2a75ace9658d9ebb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/tabard_lod2_roughness.png",
+      "bytes": 32319,
+      "sha256": "01e7c453052802acb95d56da708486479d4d862abcf919981a3d3cf656da6888",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod0_baseColor.png",
+      "bytes": 343555,
+      "sha256": "857b5c754dd2f1040e50b3302cefa27ab46563460a19f3d60bbcf71f2d4f47bc",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod0_metallic.png",
+      "bytes": 129644,
+      "sha256": "225e67c133c12c6a695580a5486f9283173a12a5d67c8e3581ee940b349fe847",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod0_normal.png",
+      "bytes": 702576,
+      "sha256": "d5734c633ccd5c854f911679a6e14bf1046d7c395e95cf232a9f801b656bb185",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod0_occlusion.png",
+      "bytes": 565154,
+      "sha256": "389208e1859921fb2c2645df586d237ccca9cac753596ca315dde0bbf6eae854",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod0_orm.png",
+      "bytes": 675126,
+      "sha256": "7e8ce97222a983e5d0a5f4b2ff19f0eb916a802ce9d946942ab82e1f6fbac9d6",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod0_roughness.png",
+      "bytes": 220349,
+      "sha256": "7643b5feb4e7c14bafa520eeb5ac2ce423b5099b36d3067027126afab72cd9f0",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod1_baseColor.png",
+      "bytes": 464987,
+      "sha256": "fb720c5a9e0a80c0c4451819be5a439015b04b975b302cba30744d83c0cc8eb2",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod1_metallic.png",
+      "bytes": 190771,
+      "sha256": "e546005baec6d1c30cea995f4a7d436e300cd49ec983fea052d3c88f6d0d7fe5",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod1_normal.png",
+      "bytes": 788620,
+      "sha256": "c7637f092ab98a8c7e7569d93e7d8fea0f28717fce37a963657702834919f25b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod1_occlusion.png",
+      "bytes": 567871,
+      "sha256": "95e40b4e1817650c7e99c814d404c8f599a53637d28bb43e3427e5997b6deae9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod1_orm.png",
+      "bytes": 739202,
+      "sha256": "887f29447ab7eb483cc230a30ecaf2bab7b12c46e4bc1a20a545f3fbfc0edb34",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod1_roughness.png",
+      "bytes": 274626,
+      "sha256": "4552acdacdcf09aefa3ee11562f61ba6bfa9e53f63aa19a738520e523dc9aa52",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod2_baseColor.png",
+      "bytes": 166056,
+      "sha256": "4faad6c52429a34f6404b20cf4ccf140206c1d79819e2cca88878edb58a4147e",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod2_metallic.png",
+      "bytes": 65768,
+      "sha256": "1e85a64d27fad4d3912f690ea359abec35ac7aab4c3f4801062810e5aa39027d",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod2_normal.png",
+      "bytes": 260761,
+      "sha256": "e2cb607b74ad597ef4a62798ab334b99172ea9a26cef36d4502ee8c3dbd2cb8f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod2_occlusion.png",
+      "bytes": 169683,
+      "sha256": "c6bec30d3aef2fe39501ae7995df94ed32befe1a72fc7d08cb70a76b5c1658a3",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod2_orm.png",
+      "bytes": 229984,
+      "sha256": "77997ab0182c77ad5a476133bd8c92ad4c53dc7c3c1ea117056ade86fb39ec5c",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/waist_lod2_roughness.png",
+      "bytes": 99751,
+      "sha256": "b83e06d4f3de2e0e4398f0a1c72a02f7825a7bdb3f6b5980dbc0a57ff04d5220",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod0_baseColor.png",
+      "bytes": 285254,
+      "sha256": "8b9dc541f5d7a456b0f53b5cb22eebed0e5034b2bf2fa07089e7a7a0087b3be0",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod0_metallic.png",
+      "bytes": 76849,
+      "sha256": "9d480d9e31c9833534e12f473d3f5d8dfe4931d04e3f64f4ccc91695097a3967",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod0_normal.png",
+      "bytes": 611242,
+      "sha256": "6119a8c06e0ee4477d05e099a12035c5ab2b6d41fb6e25b0e4ad508ca89a5354",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod0_occlusion.png",
+      "bytes": 518250,
+      "sha256": "b16df04e6c66e786e7239e755cb570e8ddf31ffc2d25546fee7c71e957c0c7d9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod0_orm.png",
+      "bytes": 620445,
+      "sha256": "83c78eae7afcd11f1dbfa821fee70b17a4675699c4b122c85db28b321d3f87bd",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod0_roughness.png",
+      "bytes": 193377,
+      "sha256": "6daae538b674ede29576dc52a9101b17f0334c4419354465c7e69ee2f933eed1",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod1_baseColor.png",
+      "bytes": 343362,
+      "sha256": "4b004faafc5ddea2092bdf42fd67c70603760020002c2f0a41dd661480f419a3",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod1_metallic.png",
+      "bytes": 102924,
+      "sha256": "0be3482bce3225aad47e514d95db55eb33d45b2b7264ca7b134754c1616d36fb",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod1_normal.png",
+      "bytes": 611242,
+      "sha256": "6119a8c06e0ee4477d05e099a12035c5ab2b6d41fb6e25b0e4ad508ca89a5354",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod1_occlusion.png",
+      "bytes": 518250,
+      "sha256": "b16df04e6c66e786e7239e755cb570e8ddf31ffc2d25546fee7c71e957c0c7d9",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod1_orm.png",
+      "bytes": 650130,
+      "sha256": "9453e9e3124a0df46fe603a16dcb8ac91246f2cd67a2981ee10e40cc10608aec",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod1_roughness.png",
+      "bytes": 224340,
+      "sha256": "d364a00431d5ff16dce06d102388f6ad345da7fe6aacaaf20cd791fd25d4e114",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod2_baseColor.png",
+      "bytes": 132435,
+      "sha256": "ac3289479d0114c7b149e71296dcdd063cfa592efadf41c97ad6491443af807d",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod2_metallic.png",
+      "bytes": 37263,
+      "sha256": "edf5796762928b06d54f4a358a3a9d032ff1745e4d2ea5e98bb1c22733674837",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod2_normal.png",
+      "bytes": 240548,
+      "sha256": "e24c8cc6fea625a7d84cb08fa4bc6f1ed0d94d4d65a238c299802ca500957c6b",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod2_occlusion.png",
+      "bytes": 161579,
+      "sha256": "cd655e09049c0a4dd340e8965310270928dafa824f30029456c0575fc7f96565",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod2_orm.png",
+      "bytes": 214652,
+      "sha256": "89c71b963b59df1ae183f2b496c9375a63b0939f151b41d3f031e334259663c5",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/textures/weapon_lod2_roughness.png",
+      "bytes": 86113,
+      "sha256": "6d230cbc0b79d0c66313f3ce58ed62cfe6faffe8e66c59055ee587eb4cd1113a",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/validation_report.json",
+      "bytes": 1714543,
+      "sha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/wep_civic_battle_prelate_dawn_maul.glb",
+      "bytes": 1827452,
+      "sha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/wep_civic_battle_prelate_dawn_maul_lod1.glb",
+      "bytes": 1915248,
+      "sha256": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "action": "copied"
+    },
+    {
+      "path": "runtime/wep_civic_battle_prelate_dawn_maul_lod2.glb",
+      "bytes": 787188,
+      "sha256": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b",
+      "action": "copied"
+    },
+    {
+      "path": "source/CONTRACT.md",
+      "bytes": 2279,
+      "sha256": "81e8a6204ce59552450ff221b8aa023b653d8ec8eb514ad0410ecb9eab5c6981",
+      "action": "copied"
+    },
+    {
+      "path": "source/FULL_CHARACTER_CONTRACT.md",
+      "bytes": 3585,
+      "sha256": "0855598b2edac6090bdf440fd12feeb54562300b9135650bae72dd5c59143b2a",
+      "action": "copied"
+    },
+    {
+      "path": "source/arms.json",
+      "bytes": 170221,
+      "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+      "action": "copied"
+    },
+    {
+      "path": "source/backplate.json",
+      "bytes": 14565,
+      "sha256": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+      "action": "copied"
+    },
+    {
+      "path": "source/body_underlayers.json",
+      "bytes": 73910,
+      "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+      "action": "copied"
+    },
+    {
+      "path": "source/breastplate.json",
+      "bytes": 35942,
+      "sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+      "action": "copied"
+    },
+    {
+      "path": "source/chainmail_detail.dat",
+      "bytes": 17536,
+      "sha256": "bf9474200deff6c8ee91094785f21fd7164418ebbc77d5e5b3fd8c6f06f6c40e",
+      "action": "copied"
+    },
+    {
+      "path": "source/feet.json",
+      "bytes": 103504,
+      "sha256": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+      "action": "copied"
+    },
+    {
+      "path": "source/garments.json",
+      "bytes": 64890,
+      "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+      "action": "copied"
+    },
+    {
+      "path": "source/gorget.json",
+      "bytes": 72562,
+      "sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+      "action": "copied"
+    },
+    {
+      "path": "source/head.json",
+      "bytes": 166389,
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "action": "copied"
+    },
+    {
+      "path": "source/humanoid_game_v2_animation_contract.blend",
+      "bytes": 424858,
+      "sha256": "083f4afb646502759a2e39274c12e3dd5dfb25a449824ce34d9739ee255daeb0",
+      "action": "copied"
+    },
+    {
+      "path": "source/humanoid_game_v2_animation_contract.dat",
+      "bytes": 300,
+      "sha256": "39fae8ce18e49262af6a336e0b2f21f058c96b152848adeceef1717837a6e864",
+      "action": "copied"
+    },
+    {
+      "path": "source/legs.json",
+      "bytes": 167490,
+      "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+      "action": "copied"
+    },
+    {
+      "path": "source/medallion.json",
+      "bytes": 121763,
+      "sha256": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+      "action": "copied"
+    },
+    {
+      "path": "source/pauldron.json",
+      "bytes": 172522,
+      "sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+      "action": "copied"
+    },
+    {
+      "path": "source/relics.json",
+      "bytes": 170086,
+      "sha256": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+      "action": "copied"
+    },
+    {
+      "path": "source/repeated_reliquaries.json",
+      "bytes": 188568,
+      "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+      "action": "copied"
+    },
+    {
+      "path": "source/rig_reference.dat",
+      "bytes": 45943,
+      "sha256": "ee059ab6f272805e7e3c003a0c98591b13f0b6af51bc74967bbf23284007f812",
+      "action": "copied"
+    },
+    {
+      "path": "source/scene.json",
+      "bytes": 4257,
+      "sha256": "a2415a1f24e2e0797ca7cff8aa8fd54cfc25710812ed92f35cbf7d4a55c60a52",
+      "action": "copied"
+    },
+    {
+      "path": "source/tome.json",
+      "bytes": 132251,
+      "sha256": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+      "action": "copied"
+    },
+    {
+      "path": "source/waist.json",
+      "bytes": 21707,
+      "sha256": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+      "action": "copied"
+    },
+    {
+      "path": "source/warhammer.json",
+      "bytes": 158716,
+      "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+      "action": "copied"
+    },
+    {
+      "path": "tests/blender_bake_occlusion_probe.py",
+      "bytes": 3119,
+      "sha256": "364422107f7a526bd011d565ca41ef60d1a6030a17b8e94013edbcaa1db349dc",
+      "action": "copied"
+    },
+    {
+      "path": "tests/blender_bake_surface_transfer_probe.py",
+      "bytes": 9788,
+      "sha256": "36cf6df508cfd3e5c66a7468a08c23bf92a74686593f288826b774721d3de2cf",
+      "action": "copied"
+    },
+    {
+      "path": "tests/blender_tessellation_probe.py",
+      "bytes": 1326,
+      "sha256": "0ab3da9e370868a37d287f7bf047c85f10f23608712d4ccf234e8d59893bc547",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_compare_reference.py",
+      "bytes": 2390,
+      "sha256": "55ec76556ee1119a36f321353d86be81cca02804be6532326498caa78ddc870d",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_probe_tabard_surface.py",
+      "bytes": 1882,
+      "sha256": "0ad2a2b25db8945830bcd0e6a4bee129e5b0030248a0b9e4608a4bfe6b103aa6",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_promote_runtime.py",
+      "bytes": 18349,
+      "sha256": "b4792cc658fb26145e74122aefd28a0f5f4728ad8cf9937936d8d1b40233057f",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_reimport_review.py",
+      "bytes": 5172,
+      "sha256": "f53937f38629e53a5cd238d24e4f9320ae626e67281f6addc8ec78988496a909",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_source_archive.py",
+      "bytes": 3131,
+      "sha256": "88b330684c0f5f3c9bec3909188321f8e463da87ff9a8a477f1c9d149cca3f7a",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_validate_runtime.py",
+      "bytes": 16330,
+      "sha256": "2e73b3a4430a18d263c9d7769152c372f3f74e32833401d9a9a1e3fb9c8a5d3c",
+      "action": "copied"
+    },
+    {
+      "path": "tests/test_validate_source.py",
+      "bytes": 11757,
+      "sha256": "9acae607fad06a232e0dfafe18dee43f6b475e2c1a3d814b0dc3d3bde414b7e6",
+      "action": "copied"
+    },
+    {
+      "path": "textures/README.md",
+      "bytes": 4058,
+      "sha256": "2669d51b666d795fb780058bd2a24b9bd4ff03bd1770894df6aea876072a7729",
+      "action": "copied"
+    },
+    {
+      "path": "textures/chainmail_bake_report.json",
+      "bytes": 1880,
+      "sha256": "fc8ee69d02533e2b73ae863ee4048cccb9dde86b68a6610d5f224e15ea8ee69c",
+      "action": "copied"
+    },
+    {
+      "path": "textures/chainmail_bake_source.blend",
+      "bytes": 94194,
+      "sha256": "f9b6b32901a7359aeb964931d952403ce04fb182d31d2915f521e70617c372d8",
+      "action": "copied"
+    },
+    {
+      "path": "textures/chainmail_geometry_baseline.json",
+      "bytes": 254,
+      "sha256": "e70636ca8b6d96332e119674120c2104e25fe77e93d6e202848c20a94a21a468",
+      "action": "copied"
+    },
+    {
+      "path": "textures/chainmail_material_preview.png",
+      "bytes": 258810,
+      "sha256": "554f1c7bebf0939e7d3a0d6c0c742fd4628bd332961a5a9a8bd34bc96cd3bc6e",
+      "action": "copied"
+    },
+    {
+      "path": "textures/chainmail_remap_report.json",
+      "bytes": 3386,
+      "sha256": "d55c8732c8afad5103fd294242c3a757620513b96c7f7924e042a4de8a98adf6",
+      "action": "copied"
+    },
+    {
+      "path": "textures/paint_manifest.json",
+      "bytes": 11267,
+      "sha256": "861afcb5727df00d8217f61790ce202dcf32ba68213f2fff5e0633ca5d30e323",
+      "action": "copied"
+    },
+    {
+      "path": "textures/paint_strokes.json",
+      "bytes": 18335,
+      "sha256": "67dd4bbe0e19a2fee9200d6e2b32af864fe16c1cc4fa5e9ae8f4ab5039c2255a",
+      "action": "copied"
+    },
+    {
+      "path": "textures/painted_material_channels.png",
+      "bytes": 175236,
+      "sha256": "212b3f669101799a9810872bcef468bd978a5bd357c7ad2fef6edfaf0953db17",
+      "action": "copied"
+    },
+    {
+      "path": "textures/painted_material_samples.png",
+      "bytes": 116854,
+      "sha256": "39e0e72b2942e46d57a93bee3db81b6be986a22320a3188981276b7124d8468c",
+      "action": "copied"
+    },
+    {
+      "path": "textures/skin_paint_strokes.json",
+      "bytes": 31779,
+      "sha256": "ad95816ba1de7565f4889a208925d40e91ccfe5acdc01d1eeed3c218e8c87709",
+      "action": "copied"
+    },
+    {
+      "path": "textures/skin_render_preview.png",
+      "bytes": 1024427,
+      "sha256": "fb8365d46ff01e826d665c40f3d4086e4d28ef32ea08197882c528976d96825a",
+      "action": "copied"
+    },
+    {
+      "path": "textures/skin_uv_paint_preview.png",
+      "bytes": 214450,
+      "sha256": "476a1ca1157a7eba8838742879935a46d51e8e112640a2e37af4b81f1407892c",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/brass_basecolor.png",
+      "bytes": 90997,
+      "sha256": "98593ff6c5422d5a9639b75af0cacce990044bd4972a51286059328dfd7189af",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/brass_height.png",
+      "bytes": 6681,
+      "sha256": "531e2ad3971af4581fc9cbca1cd95c0f290e20921ebc447f750f85f98fa2970e",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/brass_metallic.png",
+      "bytes": 12901,
+      "sha256": "c3fc37db685d941e2631d610415a8eb5c03c6608131d87cdb57c844b01383ad9",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/brass_roughness.png",
+      "bytes": 32856,
+      "sha256": "6bd6575ca0b530344ac48d41dac10982dd5dec82358658b728e786b69f8f3125",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/chainmail_basecolor.png",
+      "bytes": 48056,
+      "sha256": "f1c41a4a9c5f1531b2c65f2f6b6e1506918c5d7e9f941d86c19944de72883385",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/chainmail_metallic.png",
+      "bytes": 48053,
+      "sha256": "294ff431e65ab08e92d7b00faf1522a5df81978f90e0d4a3c469e8e808b2a47c",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/chainmail_normal.png",
+      "bytes": 604681,
+      "sha256": "161038c1992f9a705aaf42fb891721cf9fa5a6512ef50b0f6d86fb0ba9fddd81",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/chainmail_occlusion.png",
+      "bytes": 1158333,
+      "sha256": "ecae6007e8a9ddd2801cdd16238825c73fa50a24d891193cbf97e3dcc6e4d1df",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/chainmail_roughness.png",
+      "bytes": 48223,
+      "sha256": "b64d16fb88da500b9abf95e5788e63c77ccdf5e99690bd06d721cb04be2b7258",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/crimson_basecolor.png",
+      "bytes": 41029,
+      "sha256": "5c21934749ece09597d15661456e5481a28c6f63c42c4e3784d119c497210a4b",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/crimson_height.png",
+      "bytes": 3276,
+      "sha256": "bf3272c5f404a52ecea01d5931b99b54c83f3146ef08fdfcc23dd18d02dd8d20",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/crimson_metallic.png",
+      "bytes": 1309,
+      "sha256": "0071f9aa9f4dc08646ad2a51a112abfaf6c90554ef0393f3d5f42b8330e8f11d",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/crimson_roughness.png",
+      "bytes": 12021,
+      "sha256": "14f96d90c7481381213f984253720bd4d18d8285d47886a8a8f88de76a7491e0",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/dark_steel_basecolor.png",
+      "bytes": 57983,
+      "sha256": "ee56a94a823ab4242e77658a7627c252ac34e6cb2a03597e65d9ba619f3ae337",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/dark_steel_height.png",
+      "bytes": 9839,
+      "sha256": "4f199474a870c1ccbcefac7869c2a615c7bfb3e506ca6c0ccf33b1497be36365",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/dark_steel_metallic.png",
+      "bytes": 14604,
+      "sha256": "64a63b0caa82413793a00632124ee1b75b426346b8a44867ba768c39cabc1a5e",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/dark_steel_roughness.png",
+      "bytes": 28308,
+      "sha256": "69b0847898b4b8913ce8c225aa648c7d4c56c61ba4103cb8a31c130ee929f0a2",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/leather_basecolor.png",
+      "bytes": 49277,
+      "sha256": "01b30a4201e98c33f5456c947c33b3d06bcbd4f069615c8eac1b090c4796a0c0",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/leather_height.png",
+      "bytes": 12524,
+      "sha256": "9f7ae63b56d5238235586746bba54d31fc4d07b4242bc848616c0f1870d7f61d",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/leather_metallic.png",
+      "bytes": 1309,
+      "sha256": "0071f9aa9f4dc08646ad2a51a112abfaf6c90554ef0393f3d5f42b8330e8f11d",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/leather_roughness.png",
+      "bytes": 23653,
+      "sha256": "3919e6602e38c7f2a0b8aa62e2d81a7c779b4a3053c31fbc2d819c0979c08716",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/parchment_basecolor.png",
+      "bytes": 66457,
+      "sha256": "89ccc209d0836ed1cc440ff8c5b2843b27fae05e4a80c607e0c5da92c8ea552e",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/parchment_height.png",
+      "bytes": 7089,
+      "sha256": "52980a058673aa0795c28b0730a3a82ad746c4588f200a3e6e794c40c8a9cf24",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/parchment_metallic.png",
+      "bytes": 1309,
+      "sha256": "0071f9aa9f4dc08646ad2a51a112abfaf6c90554ef0393f3d5f42b8330e8f11d",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/parchment_roughness.png",
+      "bytes": 13408,
+      "sha256": "e11e0f48b9c88c8ae2ce558865db939eb8b9a1abf58e0cd843e3d56967c60522",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/skin_basecolor.png",
+      "bytes": 44236,
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/skin_height.png",
+      "bytes": 11432,
+      "sha256": "166b59cd99a886064605610529f289486d17488297d730dafa70e57f488aca11",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/skin_metallic.png",
+      "bytes": 4372,
+      "sha256": "e27c5289f9f0a1294447bc00f46816db2f4206e5d2286a546374bf260728620f",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/skin_roughness.png",
+      "bytes": 20073,
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/steel_basecolor.png",
+      "bytes": 79929,
+      "sha256": "e2605eea6321c29df6bf605c27952e4a05afa598ccf93b48857b8f494f351788",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/steel_height.png",
+      "bytes": 10211,
+      "sha256": "86a4efb013ee7b7466fb7266371ac4fa92d7f56bbb0adfe2e609c7417a5643e9",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/steel_metallic.png",
+      "bytes": 14431,
+      "sha256": "b38c35a375114cbcd7d97f2bf36e28c79617d282a0e4afea949b4b020d308517",
+      "action": "copied"
+    },
+    {
+      "path": "textures/source/steel_roughness.png",
+      "bytes": 31923,
+      "sha256": "5904242cae51bd0546be4ea90ece8b68198d76b7fbc843472dd2e5193d53654a",
+      "action": "copied"
+    },
+    {
+      "path": "tools/audit_exported_motion.py",
+      "bytes": 33746,
+      "sha256": "684e9d8819eeab7d47d635b77c45109c67bc2b73ab33c839a0e6a11ed70141d8",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_arms.py",
+      "bytes": 18044,
+      "sha256": "e437173e4e77c38936dfa1d8bf8cfad90068b72249920ad9b812f7e1846f57bc",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_body_underlayers.py",
+      "bytes": 10922,
+      "sha256": "1e3198eef2dd2552bd17a7a0ae3d266ac68c39931fea1a6f9adfbb50c779422a",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_feet.py",
+      "bytes": 10140,
+      "sha256": "0c4bffcb00edd5e7aa03c9a08899605e4a7d6b1f782ff73e0fd12e65ff0d59fa",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_garments.py",
+      "bytes": 9700,
+      "sha256": "ea0b2bc3b834e1650ff197506f3a23f0192d860da70fb0dacca20bf8ae5d4964",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_head.py",
+      "bytes": 18633,
+      "sha256": "7ce48c330b028b0b1849e16c4b4154419bc09b6074a9a2ef3402ab83479f8f81",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_legs.py",
+      "bytes": 16971,
+      "sha256": "82b41b475c852addcf14438a2352ea205d6883f1bdf78944b3e876286dd60aa3",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_medallion.py",
+      "bytes": 16078,
+      "sha256": "e16cb78da1ae8a36558f4b376d4e964b09475cd9c479ba05d7c113b56cd34e71",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_pauldron.py",
+      "bytes": 19403,
+      "sha256": "4fe6d24f322fd499122414dd59b1df3ad6146917136f9b10f3077bc0210cecc1",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_relics.py",
+      "bytes": 18295,
+      "sha256": "d9ab7e7416b7b57e0328cfccfef3da64e519ccfa58d8331438decf0e21bc38cf",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_repeated_reliquaries.py",
+      "bytes": 2486,
+      "sha256": "bb94cd2e1fd969e8e62e18ca6ca24d1a73d6c96e7b5340258fa91459284b97a4",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_tome.py",
+      "bytes": 12766,
+      "sha256": "2758b4c30a4fe04d18f65c4928eff96d7426e931653488900d8cd37f5d1dfabc",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_torso.py",
+      "bytes": 13209,
+      "sha256": "b6fcddfcec5ed7e66da580d668848e5f2e06f5b13760fe701f087af8c94f8f1b",
+      "action": "copied"
+    },
+    {
+      "path": "tools/author_warhammer.py",
+      "bytes": 14861,
+      "sha256": "ceee17c7f9a48050c7bdaec8692619a06b3058f0d87fbb6871692ab40678da77",
+      "action": "copied"
+    },
+    {
+      "path": "tools/bake_atlas.py",
+      "bytes": 23964,
+      "sha256": "9ee1b6dc0de053c56b702d92b50c00506db9bb518d45713df41d47ec94192fec",
+      "action": "copied"
+    },
+    {
+      "path": "tools/bake_chainmail.py",
+      "bytes": 6861,
+      "sha256": "38a91a2a943db79b24a9d7e30430e28626081d35a69339838e5e575c647cc021",
+      "action": "copied"
+    },
+    {
+      "path": "tools/build_proof.py",
+      "bytes": 22857,
+      "sha256": "f81e5af193ea0c5406749bb47ecc6a9aa282c3e445e45aaa4817eb0726e3354c",
+      "action": "copied"
+    },
+    {
+      "path": "tools/check_gltf.mjs",
+      "bytes": 2132,
+      "sha256": "3350366eeae12b4be86eb4f79785ca0188b882cb353408466a18871f8adec7e3",
+      "action": "copied"
+    },
+    {
+      "path": "tools/compare_reference.py",
+      "bytes": 20395,
+      "sha256": "83e7993942511488a3081205ffb3dfb319c5f5839ebb073e0f06c5062280cd57",
+      "action": "copied"
+    },
+    {
+      "path": "tools/correct_animation.py",
+      "bytes": 35093,
+      "sha256": "f56139347d2362e1e71828afb64c372647edc57153bf5ffad9d8cfeec9f76857",
+      "action": "copied"
+    },
+    {
+      "path": "tools/paint_materials.py",
+      "bytes": 8306,
+      "sha256": "0381cd6daf3eb42bbc1a1992bcdb7d4979d9879daa17c61bdbde6b901a5ab4ee",
+      "action": "copied"
+    },
+    {
+      "path": "tools/paint_skin.py",
+      "bytes": 5763,
+      "sha256": "2e8307728df64130f5a0024e180e2764379d8a3b845327ce6c10d8e8e04082b9",
+      "action": "copied"
+    },
+    {
+      "path": "tools/prepare_master_view.py",
+      "bytes": 1541,
+      "sha256": "0ca8ac106581e4c5360d843e11a1b3d81d112acdead0cdff3461fc268ccd523d",
+      "action": "copied"
+    },
+    {
+      "path": "tools/prepare_references.py",
+      "bytes": 25535,
+      "sha256": "1713d076e84651bc24c62296de7e46c5be57135c53de2e8c9c4fb4e6b8438b0f",
+      "action": "copied"
+    },
+    {
+      "path": "tools/probe_tabard_surface.py",
+      "bytes": 11631,
+      "sha256": "49a27c67c817997a2e30f052c5b57b9b79590404eff64c6542e3a152a38933b4",
+      "action": "copied"
+    },
+    {
+      "path": "tools/promote_runtime.py",
+      "bytes": 26328,
+      "sha256": "7161d30ef0ad059393f83e9b58e73a682d0862d904c13770cf662530ed5cab1f",
+      "action": "copied"
+    },
+    {
+      "path": "tools/reimport_review.py",
+      "bytes": 20695,
+      "sha256": "dd33472a651d6afee58efbaf4c7f2ff3aaa81f5b249fc2ec9e874e9140f66111",
+      "action": "copied"
+    },
+    {
+      "path": "tools/rig_character.py",
+      "bytes": 26809,
+      "sha256": "f7e6604620b1b8783b420d33dc6b80179774b7c2160126ae27fb2eea82534404",
+      "action": "copied"
+    },
+    {
+      "path": "tools/smoke_bake_atlas.py",
+      "bytes": 8435,
+      "sha256": "ebebcd9f84a79e70d16afc38a29864b492041e8b875ded8f6e5f0e8552f7eaca",
+      "action": "copied"
+    },
+    {
+      "path": "tools/tessellate_runtime.py",
+      "bytes": 1527,
+      "sha256": "5f591d8c9a0ce919826fa08b0f92a35d51d0daaaf045b8e58201cd13a4852654",
+      "action": "copied"
+    },
+    {
+      "path": "tools/validate_runtime.py",
+      "bytes": 30831,
+      "sha256": "0c3f08d609f8a1d262496bf5febad8481989493fb03cf6c3ab381adc09886b78",
+      "action": "copied"
+    },
+    {
+      "path": "tools/validate_source.py",
+      "bytes": 7139,
+      "sha256": "932c1ac52618d0874a4061f3b6a7acc22fead62b803193881b647d72ab9e418d",
+      "action": "copied"
+    }
+  ],
+  "manifest_policy": "This identical installation record is written in both roots after verification; it is excluded from its own payload count/hash list to avoid a self-referential digest. Later delivery documents/UI evidence are outside this snapshot."
+}

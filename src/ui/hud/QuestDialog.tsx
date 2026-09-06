@@ -4,6 +4,7 @@ import {
   questsInProgressFor,
   questsOfferedBy,
   questsReadyToTurnIn,
+  questRewardInventoryBlocker,
   turnInQuest,
 } from '../../game/QuestLogic';
 import { useGameStore } from '../../state/gameStore';
@@ -26,6 +27,7 @@ export function QuestDialog() {
   const npcs = useGameStore((s) => s.npcs);
   const character = useGameStore((s) => s.character);
   const quests = useGameStore((s) => s.quests);
+  const inventory = useGameStore((s) => s.inventory);
 
   const npc = useMemo(
     () => npcs.find((n) => n.id === activeNpcId) ?? null,
@@ -34,7 +36,7 @@ export function QuestDialog() {
 
   if (!activeNpcId || !npc) return null;
 
-  const turnIns = questsReadyToTurnIn(activeNpcId, quests);
+  const turnIns = questsReadyToTurnIn(activeNpcId, quests, character);
   const offers = questsOfferedBy(activeNpcId, quests, character);
   const active = questsInProgressFor(activeNpcId, quests);
 
@@ -61,22 +63,32 @@ export function QuestDialog() {
         {turnIns.length > 0 && (
           <>
             <h3>Reward Awaits</h3>
-            {turnIns.map(({ definition }) => (
-              <div className="quest-offer" key={definition.id}>
-                <div className="quest-title">{definition.title}</div>
-                <div className="quest-reward">
-                  +{definition.reward.xp} XP, +{definition.reward.gold} gold
-                  {definition.reward.items?.map((r) => `, ${r.name}`).join('')}
+            {turnIns.map(({ definition }) => {
+              const blocker = questRewardInventoryBlocker(definition.reward, inventory);
+              return (
+                <div className="quest-offer" key={definition.id}>
+                  <div className="quest-title">{definition.title}</div>
+                  <div className="quest-reward">
+                    +{definition.reward.xp} XP, +{definition.reward.gold} gold
+                    {definition.reward.items?.map((r) => `, ${r.name}`).join('')}
+                  </div>
+                  <button
+                    disabled={Boolean(blocker)}
+                    aria-describedby={blocker ? `quest-reward-blocker-${definition.id}` : undefined}
+                    onClick={() => {
+                      turnInQuest(definition.id);
+                    }}
+                  >
+                    Complete
+                  </button>
+                  {blocker && (
+                    <p className="quest-desc" id={`quest-reward-blocker-${definition.id}`} role="status">
+                      {blocker}
+                    </p>
+                  )}
                 </div>
-                <button
-                  onClick={() => {
-                    turnInQuest(definition.id);
-                  }}
-                >
-                  Complete
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </>
         )}
 

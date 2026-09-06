@@ -1,0 +1,23 @@
+{
+  "changes": "Packed image maps and opening camera only; runtime GLBs and validation unchanged",
+  "masters": [
+    {
+      "file": "ember_arcanist_reference_master.blend",
+      "before_sha256": "d7ceab137e29d7c5a876c1e626d8b44c804bae629377f662a4284192fa026a8d",
+      "sha256": "5045c2990fcebbeeb713936c82ac63ee477ba44846ea75036898b00d4724e4da",
+      "bytes": 1219136
+    },
+    {
+      "file": "ember_arcanist_game_master.blend",
+      "before_sha256": "85aa08611fceee469424abd0147fdaa58990031e43e28e4ce1ef22d8259749ce",
+      "sha256": "70c5fa5cd1ada4430a218cf925ebc0a9df0292fa349d6ccdac2ee7070b264875",
+      "bytes": 44449570
+    },
+    {
+      "file": "ember_arcanist_reimport_review.blend",
+      "before_sha256": "81323c3468eaa1d37c0c3ce8f0c20045a3a9d33878a6e1601261b08eef6d9fd7",
+      "sha256": "1ce3e5e167fdef05a062149f31eb6347095b5b9e6f3b0c3451a45b043d8d5748",
+      "bytes": 19977741
+    }
+  ]
+}

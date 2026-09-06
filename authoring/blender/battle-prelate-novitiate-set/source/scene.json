@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "revision": "novitiate-001",
+  "character_height_m": 1.86,
+  "coordinate_system": {
+    "units": "meters",
+    "up": "+Z",
+    "forward": "-Y",
+    "character_left": "+X"
+  },
+  "runtime_conversion": {
+    "x": "x",
+    "y": "z",
+    "z": "-y"
+  },
+  "camera_policy": "Frozen before the first mesh render. Changes require a new calibration revision and comparison report; never fitted per render.",
+  "comparison_pose": {
+    "warhammer": {
+      "location": [
+        -0.6,
+        -0.1,
+        0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "bind_pose_status": "Same canonical 1.86m male body and humanoid_game_v2 contract as the accepted ornate set.",
+  "cameras": [
+    {
+      "id": "front",
+      "position": [
+        0,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "three_quarter",
+      "position": [
+        2.8,
+        -4,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "side",
+      "position": [
+        4,
+        0,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "back",
+      "position": [
+        0,
+        4,
+        1.5
+      ],
+      "target": [
+        0,
+        0,
+        1.5
+      ],
+      "orthographic_scale": 1.01,
+      "resolution": [
+        1100,
+        1000
+      ]
+    },
+    {
+      "id": "face",
+      "position": [
+        0.055,
+        -4,
+        1.755
+      ],
+      "target": [
+        0.055,
+        0,
+        1.755
+      ],
+      "orthographic_scale": 0.32,
+      "resolution": [
+        900,
+        1000
+      ]
+    },
+    {
+      "id": "full_front",
+      "position": [
+        0,
+        -5,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    },
+    {
+      "id": "full_three_quarter",
+      "position": [
+        3,
+        -5,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    },
+    {
+      "id": "full_side",
+      "position": [
+        5,
+        0,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    },
+    {
+      "id": "full_back",
+      "position": [
+        0,
+        5,
+        0.97
+      ],
+      "target": [
+        0,
+        0,
+        0.97
+      ],
+      "orthographic_scale": 2.45,
+      "resolution": [
+        1500,
+        1600
+      ]
+    }
+  ],
+  "acceptance": {
+    "visual_status": "in_progress",
+    "runtime_promotion": false,
+    "direction": "Secondary lower-level armor set requested by user; original ornate set preserved."
+  },
+  "stage": "secondary_armor_set"
+}

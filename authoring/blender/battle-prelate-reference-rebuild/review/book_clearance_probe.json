@@ -1,0 +1,77 @@
+{
+  "scope": "V4 arm target applied in memory to actual V3 GLBs; not final V4 export audit",
+  "records": [
+    {
+      "clip": "idle",
+      "fraction": 0.25,
+      "before_candidates": 609,
+      "after_candidates": 444,
+      "arm": {
+        "requested_wrist_reach_m": 0.5184173330232615,
+        "available_reach_m": 0.5507739186286926,
+        "wrist_error_m": 1.4901161193847656e-07,
+        "wrist_bend_degrees": 11.188257964283794
+      }
+    },
+    {
+      "clip": "idle",
+      "fraction": 0.75,
+      "before_candidates": 609,
+      "after_candidates": 444,
+      "arm": {
+        "requested_wrist_reach_m": 0.5184173473950427,
+        "available_reach_m": 0.5507739186286926,
+        "wrist_error_m": 8.429369702178807e-08,
+        "wrist_bend_degrees": 11.188275893530365
+      }
+    },
+    {
+      "clip": "walk",
+      "fraction": 0.25,
+      "before_candidates": 463,
+      "after_candidates": 252,
+      "arm": {
+        "requested_wrist_reach_m": 0.5211690152758431,
+        "available_reach_m": 0.5507742166519165,
+        "wrist_error_m": 2.5636927089222153e-07,
+        "wrist_bend_degrees": 10.545925630394638
+      }
+    },
+    {
+      "clip": "walk",
+      "fraction": 0.75,
+      "before_candidates": 463,
+      "after_candidates": 252,
+      "arm": {
+        "requested_wrist_reach_m": 0.5211690242107812,
+        "available_reach_m": 0.5507742464542389,
+        "wrist_error_m": 3.47551816394645e-07,
+        "wrist_bend_degrees": 10.545925630394638
+      }
+    },
+    {
+      "clip": "run",
+      "fraction": 0.25,
+      "before_candidates": 367,
+      "after_candidates": 217,
+      "arm": {
+        "requested_wrist_reach_m": 0.5205135917700585,
+        "available_reach_m": 0.5507741570472717,
+        "wrist_error_m": 2.6656007498500226e-07,
+        "wrist_bend_degrees": 9.647240075255626
+      }
+    },
+    {
+      "clip": "run",
+      "fraction": 0.75,
+      "before_candidates": 367,
+      "after_candidates": 217,
+      "arm": {
+        "requested_wrist_reach_m": 0.520513570299205,
+        "available_reach_m": 0.5507741272449493,
+        "wrist_error_m": 3.919883500923486e-07,
+        "wrist_bend_degrees": 9.647240075255626
+      }
+    }
+  ]
+}

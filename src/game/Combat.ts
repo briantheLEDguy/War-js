@@ -14,7 +14,11 @@ import {
   type AbilityFailureReason,
   type PendingAbilityImpact,
 } from './abilities/AbilityRuntime';
-import type { AbilityEffect } from './abilities/types';
+import type { AbilityEffect, AbilityMovementRequest } from './abilities/types';
+import { EnemyAttackTelegraphVfx } from './EnemyAttackTelegraphVfx';
+import { enemyAttackContains, enemyCastProgress, type EnemyCastState } from './enemyAttackTelegraph';
+import { resolvePlayerIncomingDamage, playerOutgoingDamageMultiplier } from './abilities/playerAbilityEffects';
+import { dueStatusTicks, enemyDamageTakenMultiplier, enemyDamageDealtMultiplier } from './EnemyStatusEffects';
 
 /** Legacy four-slot animation helper retained for older procedural animators. */
 const SLOT_ACTION_ID = ['autoattack', 'heavy_strike', 'ranged_shot', 'bandage'] as const;
@@ -63,7 +67,6 @@ function playSlotAction(
 
 const ATTACK_COOLDOWN = 1.5;  // seconds — autoattack
 const ATTACK_RANGE    = 3.0;  // melee reach in world units
-const RESPAWN_DELAY   = 5000; // milliseconds
 const LEASH_RANGE     = 25;   // units from home before enemy resets
 
 type EnemyArchetype = NonNullable<Enemy['spawn']['archetype']>;
@@ -75,6 +78,7 @@ interface EnemyAbilityProfile {
   cooldownSec: number;
   windupSec: number;
   kind: 'melee' | 'ranged' | 'cast';
+  selfCircleRadius?: number;
   damage: {
     base: number;
     levelScale: number;
@@ -96,7 +100,7 @@ const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
       label: 'Hamstring',
       range: 3.2,
       cooldownSec: 5,
-      windupSec: 0.25,
+      windupSec: 0.9,
       kind: 'melee',
       damage: { base: 6, levelScale: 1.35, variance: 4 },
       status: { id: 'hamstrung', label: 'Hamstrung', kind: 'slow', durationSec: 2.5, magnitude: 0.35 },
@@ -108,7 +112,7 @@ const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
       label: 'Shield Bash',
       range: 3.3,
       cooldownSec: 6,
-      windupSec: 0.35,
+      windupSec: 1.0,
       kind: 'melee',
       damage: { base: 8, levelScale: 1.45, variance: 3 },
       status: { id: 'shield_bashed', label: 'Shield Bashed', kind: 'stagger', durationSec: 0.8 },
@@ -120,7 +124,7 @@ const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
       label: 'Rift Bolt',
       range: 16,
       cooldownSec: 4.5,
-      windupSec: 0.7,
+      windupSec: 1.1,
       kind: 'cast',
       damage: { base: 10, levelScale: 1.8, variance: 5 },
       status: { id: 'rattled', label: 'Rattled', kind: 'debuff', durationSec: 4, magnitude: 0.15 },
@@ -132,7 +136,7 @@ const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
       label: 'Pounce',
       range: 5,
       cooldownSec: 5,
-      windupSec: 0.2,
+      windupSec: 0.9,
       kind: 'melee',
       damage: { base: 7, levelScale: 1.6, variance: 4 },
       status: { id: 'pinned', label: 'Pinned', kind: 'root', durationSec: 0.75 },
@@ -144,7 +148,7 @@ const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
       label: 'Line Breaker',
       range: 4,
       cooldownSec: 5.5,
-      windupSec: 0.45,
+      windupSec: 1.2,
       kind: 'melee',
       damage: { base: 12, levelScale: 2.0, variance: 5 },
       status: { id: 'pressed', label: 'Pressed', kind: 'debuff', durationSec: 5, magnitude: 0.2 },
@@ -152,11 +156,26 @@ const ENEMY_ABILITY_PROFILES: Record<EnemyArchetype, EnemyAbilityProfile[]> = {
   ],
 };
 
+const KEEP_COMMANDER_ABILITIES: EnemyAbilityProfile[] = [
+  { id: 'commander_cleaving_order', label: 'Cleaving Order', range: 6, cooldownSec: 6.5,
+    windupSec: 1.2, kind: 'melee', damage: { base: 10, levelScale: 1.5, variance: 2 } },
+  { id: 'commander_siege_pulse', label: 'Siege Pulse', range: 8, cooldownSec: 6.5,
+    windupSec: 1.5, kind: 'cast', selfCircleRadius: 6,
+    damage: { base: 12, levelScale: 1.5, variance: 2 } },
+];
+
 export class Combat {
   private enemiesById = new Map<string, Enemy>();
+
+  get playerInCombat(): boolean {
+    return useGameStore.getState().enemies.some((enemy) =>
+      enemy.alive && this.enemiesById.get(enemy.id)?.aggroed);
+  }
   /** VFX layer set by `Game` at start — combat spawns class FX through it. */
   private vfx: VfxLayer | null = null;
   private pendingImpacts: PendingAbilityImpact[] = [];
+  private enemyTelegraphs = new Map<string, EnemyAttackTelegraphVfx>();
+  private movePlayer?: (request: AbilityMovementRequest) => boolean;
 
   registerEnemy(e: Enemy) {
     this.enemiesById.set(e.spawn.id, e);
@@ -201,6 +220,28 @@ export class Combat {
     return this.tryAbility(0, player, now);
   }
 
+  setAbilityMovementHandler(handler: (request: AbilityMovementRequest) => boolean): void {
+    this.movePlayer = handler;
+  }
+
+  cancelPlayerAbilities(): void {
+    this.pendingImpacts = [];
+  }
+
+  /** Reset a staged encounter without leaving delayed attacks or status effects behind. */
+  resetEnemy(id: string, alive: boolean): void {
+    const enemy = this.enemiesById.get(id);
+    if (!enemy) return;
+    this.clearEnemyCast(enemy);
+    this.pendingImpacts = this.pendingImpacts.filter((impact) => impact.targetId !== id);
+    enemy.resetToHome();
+    enemy.respawnAt = null;
+    const store = useGameStore.getState();
+    store.updateEnemy(id, { alive, health: enemy.spawn.maxHealth, position: vecToPlain(enemy.homePosition),
+      activeCast: null, gathering: undefined, statusEffects: [] });
+    if (!alive && store.targetId === id) store.setTarget(null);
+  }
+
   /** Activate a data-driven career ability by hotbar slot. */
   tryAbility(slot: number, player: Player, now: number): boolean {
     const result = tryActivateAbility({
@@ -209,6 +250,7 @@ export class Combat {
       now,
       vfx: this.vfx,
       getEnemyObject: (id) => this.enemiesById.get(id)?.object ?? null,
+      movePlayer: this.movePlayer,
     });
     if (!result) return false;
     this.pendingImpacts.push(...result.impacts);
@@ -227,11 +269,16 @@ export class Combat {
       now,
       vfx: this.vfx,
       getEnemyObject: (id) => this.enemiesById.get(id)?.object ?? null,
+      movePlayer: this.movePlayer,
     }, blockers);
   }
 
   /** Resolve delayed release/projectile impacts from activated abilities. */
   tickAbilityImpacts(now: number): void {
+    if (useGameStore.getState().playerDead) {
+      this.pendingImpacts = [];
+      return;
+    }
     if (this.pendingImpacts.length === 0) return;
     const ready: PendingAbilityImpact[] = [];
     const pending: PendingAbilityImpact[] = [];
@@ -243,15 +290,29 @@ export class Combat {
     for (const impact of ready) this.applyAbilityImpact(impact, now);
   }
 
-  /** Expire enemy status tags produced by ability effects. */
+  /** Tick damage before expiry, then expire control and damage modifiers. */
   tickStatusEffects(now: number): void {
     const store = useGameStore.getState();
     store.clearExpiredPlayerStatusEffects(now);
     for (const enemy of store.enemies) {
       if (!enemy.statusEffects?.length) continue;
-      const active = enemy.statusEffects.filter((effect) => effect.expiresAt > now);
-      if (active.length !== enemy.statusEffects.length) {
+      const active: CombatStatusEffect[] = [];
+      let changed = false;
+      for (const effect of enemy.statusEffects) {
+        const ticks = enemy.alive ? dueStatusTicks(effect, now) : 0;
+        if (ticks > 0) {
+          const amount = Math.round(effect.tickDamage! * ticks * playerOutgoingDamageMultiplier(store.playerStatusEffects, now));
+          this.damageEnemy(enemy.id, amount, now);
+          changed = true;
+        }
+        if (enemy.alive && effect.expiresAt > now) {
+          active.push(ticks ? { ...effect, nextTickAt: effect.nextTickAt! + ticks * 1000 } : effect);
+        } else changed = true;
+      }
+      if (changed) {
+        const alive = useGameStore.getState().enemies.find((entry) => entry.id === enemy.id)?.alive;
         store.updateEnemy(enemy.id, { statusEffects: active });
+        if (!alive) store.updateEnemy(enemy.id, { statusEffects: [] });
       }
     }
   }
@@ -264,26 +325,33 @@ export class Combat {
   tickEnemies(dt: number, now: number, player: Player) {
     const store = useGameStore.getState();
     if (store.playerDead) {
-      for (const enemy of this.enemiesById.values()) enemy.pendingAbility = null;
+      this.clearEnemyCasts();
       return;
     }
 
     for (const e of store.enemies) {
+      if (useGameStore.getState().playerDead) {
+        this.clearEnemyCasts();
+        return;
+      }
       const enemy = this.enemiesById.get(e.id);
       if (!enemy) continue;
       if (!e.alive) {
-        enemy.pendingAbility = null;
+        this.clearEnemyCast(enemy);
         continue;
       }
 
       const aggroRange  = enemy.spawn.aggroRange  ?? 0;
-      if (aggroRange <= 0) continue; // passive — skip AI
+      if (aggroRange <= 0) {
+        this.clearEnemyCast(enemy);
+        continue;
+      }
 
       const attackRange = enemy.spawn.attackRange  ?? 2.5;
       const moveSpeed   = (enemy.spawn.moveSpeed ?? 3.5) * enemyMoveMultiplier(e, now);
       const baseDmg     = enemy.spawn.attackDamage ?? 5;
       const archetype = enemy.spawn.archetype ?? 'raider';
-      const abilityProfile = ENEMY_ABILITY_PROFILES[archetype];
+      const abilityProfile = enemy.spawn.encounter ? KEEP_COMMANDER_ABILITIES : ENEMY_ABILITY_PROFILES[archetype];
       const preferredRange = enemy.spawn.preferredRange
         ?? (archetype === 'caster' ? 12 : attackRange * 0.85);
       const castingBlocked =
@@ -295,10 +363,12 @@ export class Combat {
 
       // Leash: too far from home → reset
       if (distFromHome > LEASH_RANGE) {
+        this.clearEnemyCast(enemy);
         enemy.resetToHome();
         store.updateEnemy(e.id, {
           health: enemy.spawn.maxHealth,
           position: vecToPlain(enemy.homePosition),
+          activeCast: null,
         });
         continue;
       }
@@ -308,11 +378,27 @@ export class Combat {
         enemy.aggroed = true;
       } else if (enemy.aggroed && distToPlayer > LEASH_RANGE) {
         enemy.aggroed = false;
-        enemy.pendingAbility = null;
+        this.clearEnemyCast(enemy);
       }
-      if (!enemy.aggroed) continue;
+      if (!enemy.aggroed) {
+        this.clearEnemyCast(enemy);
+        continue;
+      }
 
-      if (castingBlocked) enemy.pendingAbility = null;
+      enemy.abilityCooldown = Math.max(0, enemy.abilityCooldown - dt);
+      enemy.attackCooldown = Math.max(0, enemy.attackCooldown - dt);
+      if (castingBlocked && enemy.pendingAbility) {
+        this.clearEnemyCast(enemy);
+        enemy.attackCooldown = Math.max(enemy.attackCooldown, 0.45);
+        continue;
+      }
+      if (enemy.pendingAbility) {
+        this.tickEnemyAbilityCast(enemy, e, player, now, store);
+        // Specials commit to their telegraphed position and get a short recovery.
+        // Neither chasing nor ordinary hits may conceal the dodge opportunity.
+        enemy.attackCooldown = Math.max(enemy.attackCooldown, 0.45);
+        continue;
+      }
       enemy.faceToward(player.position);
 
       // Movement: melee enemies close; casters maintain a stand-off band.
@@ -328,14 +414,12 @@ export class Combat {
         store.updateEnemy(e.id, { position: vecToPlain(enemy.position) });
       }
 
-      this.tickEnemyAbilityCast(enemy, e, player, now, store);
-      enemy.abilityCooldown = Math.max(0, enemy.abilityCooldown - dt);
       if (!castingBlocked && !enemy.pendingAbility && enemy.abilityCooldown <= 0) {
-        this.tryStartEnemyAbility(enemy, abilityProfile, dist2D(player.position, enemy.position), now);
+        this.tryStartEnemyAbility(enemy, abilityProfile, player, now);
+        if (enemy.pendingAbility) continue;
       }
 
       // Melee attack
-      enemy.attackCooldown = Math.max(0, enemy.attackCooldown - dt);
       if (
         archetype !== 'caster' &&
         enemy.attackCooldown <= 0 &&
@@ -343,14 +427,10 @@ export class Combat {
         !hasBlockingStatus(e, 'stagger', now)
       ) {
         enemy.attackCooldown = 2.0 + Math.random() * 0.5;
-        const dmg = baseDmg + Math.floor(Math.random() * 4);
-        const { character, updateCharacter, setPlayerDead } = store;
-        if (character) {
+        const dmg = Math.round((baseDmg + Math.floor(Math.random() * 4)) * enemyDamageDealtMultiplier(e.statusEffects ?? [], now));
+        if (useGameStore.getState().character) {
           enemy.playAttackAction('melee');
-          const newHp = Math.max(0, character.health - dmg);
-          updateCharacter({ health: newHp });
-          store.pushDamage(makeDmg(now, dmg, 'damage', player.position));
-          if (newHp <= 0) setPlayerDead(true);
+          this.damagePlayer(dmg, now, player.position);
         }
       }
     }
@@ -359,17 +439,48 @@ export class Combat {
   private tryStartEnemyAbility(
     enemy: Enemy,
     abilities: EnemyAbilityProfile[],
-    distanceToPlayer: number,
+    player: Player,
     now: number,
   ): void {
-    const ability = abilities.find((entry) => distanceToPlayer <= entry.range);
+    const sequence = enemy.spawn.encounter ? enemy.abilitySequence % abilities.length : 0;
+    const ordered = [...abilities.slice(sequence), ...abilities.slice(0, sequence)];
+    const ability = ordered.find((entry) => dist2D(player.position, enemy.position) <= entry.range);
     if (!ability) return;
-    enemy.pendingAbility = {
+    const cast: EnemyCastState = {
       abilityId: ability.id,
+      label: ability.label,
+      startedAt: now,
       dueAt: now + ability.windupSec * 1000,
+      progress: 0,
+      responseCue: ability.selfCircleRadius
+        ? 'Move away from the commander or interrupt Siege Pulse.' : ability.kind === 'cast'
+        ? 'Leave the red circle or interrupt the cast.'
+        : 'Step outside the cone or interrupt the attack.',
+      footprint: ability.selfCircleRadius
+        ? { shape: 'circle', origin: vecToPlain(enemy.position), radius: ability.selfCircleRadius } : ability.kind === 'cast'
+        ? { shape: 'circle', origin: vecToPlain(player.position), radius: 2.4 }
+        : {
+          shape: 'cone', origin: vecToPlain(enemy.position), rotationY: enemy.object.rotation.y,
+          range: ability.range, halfAngleRad: Math.PI / 3,
+        },
     };
-    enemy.abilityCooldown = ability.cooldownSec;
+    enemy.pendingAbility = cast;
+    useGameStore.getState().updateEnemy(enemy.spawn.id, { activeCast: cast });
+    const state = useGameStore.getState().enemies.find((entry) => entry.id === enemy.spawn.id);
+    const enraged = enemy.spawn.encounter && state && state.health / state.maxHealth <= enemy.spawn.encounter.enrageHealthFraction;
+    enemy.abilityCooldown = ability.cooldownSec * (enraged ? 0.65 : 1);
+    if (enemy.spawn.encounter) enemy.abilitySequence = (abilities.indexOf(ability) + 1) % abilities.length;
     enemy.playAttackAction(ability.kind);
+    if (this.vfx) {
+      try {
+        const telegraph = new EnemyAttackTelegraphVfx(cast,
+          (x, z) => enemy.sampleGroundHeight(x, z, cast.footprint.origin.y));
+        this.vfx.spawn(telegraph);
+        this.enemyTelegraphs.set(enemy.spawn.id, telegraph);
+      } catch (err) {
+        console.error('Enemy telegraph VFX failed', err);
+      }
+    }
   }
 
   private tickEnemyAbilityCast(
@@ -380,20 +491,40 @@ export class Combat {
     store: ReturnType<typeof useGameStore.getState>,
   ): void {
     const pending = enemy.pendingAbility;
-    if (!pending || pending.dueAt > now) return;
+    if (!pending) return;
+    if (pending.dueAt > now) {
+      store.updateEnemy(state.id, { activeCast: { ...pending, progress: enemyCastProgress(pending, now) } });
+      return;
+    }
 
-    const ability = enemyAbilityById(enemy.spawn.archetype ?? 'raider', pending.abilityId);
-    enemy.pendingAbility = null;
+    const ability = enemy.spawn.encounter
+      ? KEEP_COMMANDER_ABILITIES.find((entry) => entry.id === pending.abilityId)
+      : enemyAbilityById(enemy.spawn.archetype ?? 'raider', pending.abilityId);
+    this.clearEnemyCast(enemy);
     if (!ability) return;
     if (
       hasBlockingStatus(state, 'silence', now) ||
       hasBlockingStatus(state, 'stagger', now) ||
-      dist2D(player.position, enemy.position) > ability.range + 1.5
+      !enemyAttackContains(pending.footprint, player.position)
     ) {
       return;
     }
 
     this.applyEnemyAbility(enemy, state, ability, player, now, store);
+  }
+
+  private clearEnemyCast(enemy: Enemy): void {
+    enemy.pendingAbility = null;
+    const state = useGameStore.getState();
+    if (state.enemies.find((entry) => entry.id === enemy.spawn.id)?.activeCast) {
+      state.updateEnemy(enemy.spawn.id, { activeCast: null });
+    }
+    this.enemyTelegraphs.get(enemy.spawn.id)?.cancel();
+    this.enemyTelegraphs.delete(enemy.spawn.id);
+  }
+
+  private clearEnemyCasts(): void {
+    for (const enemy of this.enemiesById.values()) this.clearEnemyCast(enemy);
   }
 
   private applyEnemyAbility(
@@ -416,9 +547,7 @@ export class Combat {
         Math.random() * ability.damage.variance,
       ),
     );
-    const newHp = Math.max(0, character.health - dmg);
-    current.updateCharacter({ health: newHp });
-    current.pushDamage(makeDmg(now, dmg, 'damage', player.position));
+    this.damagePlayer(Math.round(dmg * enemyDamageDealtMultiplier(state.statusEffects ?? [], now)), now, player.position);
 
     if (ability.status) {
       current.addPlayerStatusEffect({
@@ -439,8 +568,21 @@ export class Combat {
       timestamp: Date.now(),
     });
 
-    enemy.faceToward(player.position);
-    if (newHp <= 0) current.setPlayerDead(true);
+  }
+
+  private damagePlayer(rawDamage: number, now: number, position: { x: number; y: number; z: number }): void {
+    const store = useGameStore.getState();
+    if (!store.character || store.playerDead) return;
+    const resolved = resolvePlayerIncomingDamage(rawDamage, store.playerStatusEffects, now);
+    const health = Math.max(0, store.character.health - resolved.damage);
+    useGameStore.setState({ playerStatusEffects: resolved.statusEffects });
+    store.updateCharacter({ health });
+    store.pushDamage(makeDmg(now, resolved.damage, resolved.damage > 0 ? 'damage' : 'miss', position));
+    if (health <= 0) {
+      store.setPlayerDead(true);
+      this.cancelPlayerAbilities();
+      this.clearEnemyCasts();
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -461,6 +603,7 @@ export class Combat {
           health: enemy.spawn.maxHealth,
           position: vecToPlain(enemy.homePosition),
           gathering: undefined,
+          activeCast: null,
         });
       }
     }
@@ -539,14 +682,24 @@ export class Combat {
     store: ReturnType<typeof useGameStore.getState>,
   ): void {
     if (!effect.amount) return;
-    const latest = useGameStore.getState().enemies.find((enemy) => enemy.id === target.id);
+    const amount = Math.round(rollAmount(effect.amount, impact) * playerOutgoingDamageMultiplier(useGameStore.getState().playerStatusEffects, now));
+    this.damageEnemy(target.id, amount, now);
+  }
+
+  private damageEnemy(targetId: string, rawDamage: number, now: number): void {
+    const store = useGameStore.getState();
+    const latest = store.enemies.find((enemy) => enemy.id === targetId);
     if (!latest || !latest.alive) return;
 
-    const amount = rollAmount(effect.amount, impact);
+    const amount = Math.round(rawDamage * enemyDamageTakenMultiplier(latest.statusEffects ?? [], now));
     const newHp = Math.max(0, latest.health - amount);
     store.updateEnemy(latest.id, { health: newHp });
     store.pushDamage(makeDmg(now, amount, 'damage', latest.position));
-    this.enemiesById.get(latest.id)?.playHitReact();
+    const enemy = this.enemiesById.get(latest.id);
+    enemy?.playHitReact();
+    if (enemy && amount > 0 && newHp > 0 && (enemy.spawn.aggroRange ?? 0) > 0) {
+      enemy.aggroed = true;
+    }
 
     if (newHp <= 0) {
       this.killEnemy(latest.id, { ...latest, health: newHp }, now, store);
@@ -574,6 +727,9 @@ export class Combat {
     now: number,
     store: ReturnType<typeof useGameStore.getState>,
   ): void {
+    const latest = useGameStore.getState().enemies.find((enemy) => enemy.id === target.id);
+    if (!latest?.alive) return;
+    const periodic = status.kind === 'burn' || status.kind === 'bleed';
     const effect: CombatStatusEffect = {
       id: `${status.id}-${impact.ability.id}`,
       label: status.label,
@@ -581,8 +737,11 @@ export class Combat {
       expiresAt: now + status.durationSec * 1000,
       magnitude: status.magnitude,
       sourceAbilityId: impact.ability.id,
+      damageModifier: status.damageModifier,
+      ...(periodic ? { nextTickAt: now + 1000,
+        tickDamage: Math.max(1, Math.round(impact.sourceStrength * (status.magnitude ?? 0.15) + impact.sourceLevel * 0.5)) } : {}),
     };
-    const active = (target.statusEffects ?? [])
+    const active = (latest.statusEffects ?? [])
       .filter((existing) => existing.id !== effect.id && existing.expiresAt > now);
     store.updateEnemy(target.id, { statusEffects: [...active, effect] });
   }
@@ -607,7 +766,8 @@ export class Combat {
   ) {
     const enemyObj = this.enemiesById.get(targetId);
     if (enemyObj) {
-      enemyObj.respawnAt = now + RESPAWN_DELAY;
+      this.clearEnemyCast(enemyObj);
+      enemyObj.respawnAt = enemyObj.spawn.encounter ? null : now + enemyRespawnDelayMs(enemyObj.spawn, enemyObj.objectiveDefender);
       enemyObj.aggroed = false;
       enemyObj.attackCooldown = 0;
       enemyObj.abilityCooldown = 0;
@@ -616,6 +776,8 @@ export class Combat {
     store.updateEnemy(targetId, {
       alive: false,
       gathering: buildEnemyGatheringState(target.name),
+      activeCast: null,
+      ...(enemyObj?.spawn.encounter ? { keepEncounter: { objectiveId: enemyObj.spawn.encounter.objectiveId, phase: 'defeated' as const } } : {}),
     });
 
     // XP
@@ -672,6 +834,15 @@ export class Combat {
 // ---------------------------------------------------------------------------
 // Utility
 // ---------------------------------------------------------------------------
+
+export function enemyRespawnDelayMs(spawn: Enemy['spawn'], objectiveDefender = false): number {
+  const baseDelay = (spawn.aggroRange ?? 0) <= 0 || /dummy|target/i.test(spawn.name)
+    ? 5000
+    : spawn.archetype === 'guard' || spawn.archetype === 'captain' || spawn.archetype === 'caster'
+      ? 30_000
+      : 15_000;
+  return objectiveDefender ? Math.max(baseDelay, 30_000) : baseDelay;
+}
 
 function dist2D(
   a: { x: number; z: number },

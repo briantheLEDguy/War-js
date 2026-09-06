@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "promoted_local_validated",
+  "checked_at_utc": "2026-09-06T01:17:34.512749+00:00",
+  "target_repo": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild",
+  "branch": "codex/reference-battle-prelate-rebuild",
+  "transaction": "reference-9d26a2eb0a6c-dca8042a",
+  "promotion_plan": "promotion/reference-9d26a2eb0a6c-dca8042a/promotion_plan.json",
+  "promotion_plan_sha256": "2844115339cd285caba7358b395de88ca7178114fef972af3fc436a16787e378",
+  "published_files": 120,
+  "all_publication_hashes_verified": true,
+  "equivalent_to_main_transaction": "reference-9d26a2eb0a6c-071bc05c",
+  "all_publication_hashes_equal_to_main_plan": true,
+  "previous_file_archive": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\archives\\battle-prelate-promotions\\reference-9d26a2eb0a6c-dca8042a",
+  "previous_files_archived_and_verified": 34,
+  "unrelated_tracked_files_preserved": {
+    ".gitattributes": true,
+    "README.md": true,
+    "changelog.md": true,
+    "src/game/Player.ts": true,
+    "src/game/WeaponAnimation.ts": true,
+    "tests/playerWeaponAnimationAuthority.test.ts": true,
+    "vite.config.ts": true
+  },
+  "validation_report_sha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+  "visual_review_sha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+  "registry_check": {
+    "command": "C:/Program Files/nodejs/node.exe scripts/blender-character-pipeline/tools/compile-runtime-registry.mjs --check",
+    "exit_code": 0,
+    "output": "OK: compiled public/assets/models/asset-index.json\nassetVersion=approved-3771fe9fc4f29853\ncharacterProfiles=51\nbaseBodies=0\nequipment=38\nstaticProps=40\n"
+  },
+  "models_validate": {
+    "command": "C:/Program Files/nodejs/node.exe scripts/blender-character-pipeline/tools/validate-blueprints.mjs",
+    "npm_script_equivalent": "npm run models:validate",
+    "exit_code": 0,
+    "records_passed": 197,
+    "output": "OK: 197 manifest, asset-index, and generated-QC validation records passed.\n"
+  },
+  "scope": "Only this isolated working copy was promoted. No main-runtime files, source geometry, validation/reimport/visual review reports, commits, or branch switches were performed by this operation.",
+  "runtime_lod_status": "The existing registry activates 11 LOD0 entries; LOD1/2 files are present without distance switching."
+}

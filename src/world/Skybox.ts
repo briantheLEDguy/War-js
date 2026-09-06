@@ -62,26 +62,29 @@ export async function setupSky(
     side: THREE.BackSide,
     depthWrite: false,
   });
-  if (hdriPath) {
-    const tex = await loader.loadHDRI(hdriPath);
-    if (tex) {
-      scene.environment = tex;
+  try {
+    if (hdriPath) {
+      const tex = await loader.loadHDRI(hdriPath);
+      if (tex) {
+        scene.environment = tex;
+      }
     }
-  }
 
-  // If no HDRI was supplied (or the asset was missing), bake the procedural
-  // gradient sky into a PMREM environment map. Without this, PBR materials
-  // with high metalness (gold 0.95, steel 0.85) have nothing to reflect and
-  // render nearly black everywhere except where direct sunlight hits.
-  if (!scene.environment) {
-    const pmrem = new THREE.PMREMGenerator(renderer);
-    pmrem.compileEquirectangularShader();
-    // Render the sky mesh into a tiny scene and generate the env map from it.
-    const envScene = new THREE.Scene();
-    const envSky = new THREE.Mesh(geo.clone(), mat.clone());
-    envScene.add(envSky);
-    scene.environment = pmrem.fromScene(envScene, 0.04).texture;
-    pmrem.dispose();
+    // Metallic materials need reflected sky light even when the HDRI is missing.
+    if (!scene.environment) {
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      const envScene = new THREE.Scene();
+      envScene.add(new THREE.Mesh(geo, mat));
+      try {
+        // The default capture far plane is 100, inside this radius-1400 sky.
+        scene.environment = pmrem.fromScene(envScene, 0.04, 0.1, 2000).texture;
+      } finally {
+        pmrem.dispose();
+      }
+    }
+  } finally {
+    geo.dispose();
+    mat.dispose();
   }
 
   // Atmospheric fog — slightly warm, hazy

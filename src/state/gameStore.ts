@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import type { EnemyCastState } from '../game/enemyAttackTelegraph';
 import { DEFAULT_VIEW_DISTANCE, clampViewDistance } from '../config/viewDistance';
 import {
   createDefaultCraftingState,
@@ -84,6 +85,19 @@ export interface AbilityFeedbackState {
   message: string;
   abilityName?: string;
   expiresAt: number;
+}
+
+export interface CampaignRewardNotice {
+  characterId: string;
+  title: string;
+  zoneId: string;
+  xp: number;
+  gold: number;
+  influence: number;
+  itemNames: string[];
+  zoneControlChanged: boolean;
+  /** Already rolled gear held until inventory space is available. */
+  pendingItems: Omit<InventoryItem, 'slot'>[];
 }
 
 export type GuidedTaskId =
@@ -246,15 +260,21 @@ export interface CombatStatusEffect {
   expiresAt: number;
   magnitude?: number;
   sourceAbilityId: string;
+  damageModifier?: 'damage_taken' | 'damage_dealt';
+  nextTickAt?: number;
+  tickDamage?: number;
 }
 
 export interface PlayerStatusEffect {
   id: string;
   label: string;
-  kind: 'slow' | 'root' | 'stagger' | 'debuff';
+  kind: 'slow' | 'root' | 'stagger' | 'debuff' | 'guard' | 'shield' | 'empower' | 'haste';
   expiresAt: number;
   magnitude?: number;
-  sourceEnemyId: string;
+  sourceEnemyId?: string;
+  sourceAbilityId?: string;
+  stackGroup?: string;
+  remainingAbsorb?: number;
 }
 
 export interface EnemyState {
@@ -267,6 +287,11 @@ export interface EnemyState {
   alive: boolean;
   statusEffects?: CombatStatusEffect[];
   gathering?: EnemyGatheringState;
+  activeCast?: EnemyCastState | null;
+  keepEncounter?: {
+    objectiveId: string;
+    phase: 'locked' | 'ready' | 'engaged' | 'enraged' | 'defeated';
+  };
 }
 
 interface GameStore {
@@ -323,6 +348,8 @@ interface GameStore {
 
   // ------- hotbar -------
   hotbarCooldowns: number[]; // seconds remaining; 0 = ready
+  globalCooldownUntil: number;
+  setGlobalCooldownUntil: (timestamp: number) => void;
   setHotbarCooldown: (slot: number, seconds: number) => void;
   resetHotbarCooldowns: () => void;
   tickCooldowns: (dt: number) => void;
@@ -352,6 +379,10 @@ interface GameStore {
   /** Set when the player interacts with a quest-giver; the HUD opens a dialog. */
   activeQuestDialogNpcId: string | null;
   setActiveQuestDialogNpcId: (id: string | null) => void;
+
+  // ------- campaign rewards -------
+  campaignRewardNotice: CampaignRewardNotice | null;
+  setCampaignRewardNotice: (notice: CampaignRewardNotice | null) => void;
 
   // ------- crafting -------
   craftingState: CraftingState;
@@ -458,6 +489,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       : null;
     return set({
       character: normalizedCharacter,
+      globalCooldownUntil: get().character?.id === normalizedCharacter?.id ? get().globalCooldownUntil : 0,
       abilityResource: normalizedCharacter ? createAbilityResourceState(normalizedCharacter.className) : null,
       hotbarCooldowns: Array.from({ length: HOTBAR_SLOT_COUNT }, () => 0),
     });
@@ -560,6 +592,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
   setPendingRespawn: (pendingRespawn) => set({ pendingRespawn }),
 
   hotbarCooldowns: Array.from({ length: HOTBAR_SLOT_COUNT }, () => 0),
+  globalCooldownUntil: 0,
+  setGlobalCooldownUntil: (globalCooldownUntil) => set({ globalCooldownUntil }),
   setHotbarCooldown: (slot, seconds) =>
     set((s) => {
       const next = normalizeCooldowns(s.hotbarCooldowns);
@@ -601,6 +635,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
   toggleQuestLog: () => set((s) => ({ questLogOpen: !s.questLogOpen })),
   activeQuestDialogNpcId: null,
   setActiveQuestDialogNpcId: (activeQuestDialogNpcId) => set({ activeQuestDialogNpcId }),
+
+  campaignRewardNotice: null,
+  setCampaignRewardNotice: (campaignRewardNotice) => set({ campaignRewardNotice }),
 
   craftingState: createDefaultCraftingState(),
   setCraftingState: (craftingState) => set({ craftingState }),

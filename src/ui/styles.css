@@ -290,6 +290,26 @@ input:focus, select:focus {
   cursor: grab;
   touch-action: none;
 }
+.character-armor-preview {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  background: rgba(12, 10, 8, 0.9);
+  border: 1px solid rgba(201, 162, 87, 0.4);
+  border-radius: 4px;
+  font-size: 12px;
+}
+.character-armor-preview button[aria-pressed='true'] {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.character-armor-preview small { color: var(--dim); }
+.has-armor-preview .character-preview-canvas { bottom: 112px; }
 .character-preview-canvas:active {
   cursor: grabbing;
 }
@@ -834,6 +854,25 @@ input:focus, select:focus {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(201, 162, 87, 0.08);
 }
 
+.enemy-cast { margin-top: 7px; }
+.commander-phase { margin-bottom: 5px; color: #ffc77a; font-size: 11px; }
+.player-effect-strip { margin-top: 6px; display: flex; gap: 3px; }
+.player-effect-strip span { max-width: 100px; padding: 2px 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #e9d7a4; background: #212820; border: 1px solid #627b56; border-radius: 3px; font-size: 10px; }
+.commander-status { margin: 8px 0; padding: 7px; border-left: 2px solid #cf9657; background: rgba(101, 62, 24, 0.2); color: #eacda6; font-size: 12px; line-height: 1.4; }
+.target-frame.commander { border-top-color: #cf9657; }
+.enemy-cast-bar { position: relative; height: 21px; overflow: hidden; border: 1px solid #df926f; border-radius: 4px; background: #2e1714; }
+.enemy-cast-fill { position: absolute; inset: 0; background: #a44727; transform-origin: left; }
+.enemy-cast-label { position: relative; display: block; text-align: center; font-size: 12px; line-height: 19px; color: #fff5da; }
+.enemy-cast-cue { margin: 5px 0 0; font-size: 11px; line-height: 1.4; color: #ffcdac; }
+.campaign-activity-card h3 { margin: 5px 0; }
+.campaign-readiness { margin: 8px 0; font-size: 11px; color: #dfc38e; }
+.campaign-activity-hint { margin: 8px 0; font-size: 12px; line-height: 1.45; color: #c7c5b5; }
+.campaign-hold-progress { width: 100%; height: 8px; accent-color: #dac171; }
+.campaign-reward-card { padding: 12px; margin: 8px 0; background: #20322b; border: 1px solid #738d63; border-radius: 8px; }
+.campaign-reward-card > strong { color: #e4d69e; }
+.campaign-reward-card p { margin: 6px 0; font-size: 12px; line-height: 1.45; }
+.campaign-reward-card button { margin: 4px 6px 0 0; }
+
 .target-frame {
   position: absolute;
   top: 12px;
@@ -1013,6 +1052,26 @@ input:focus, select:focus {
   font-weight: bold;
   font-family: var(--font-heading);
   color: var(--gold);
+}
+.hotbar-slot.locked {
+  cursor: not-allowed;
+  border-color: var(--border);
+  box-shadow: none;
+}
+.hotbar-slot.locked .ability-icon {
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+.ability-unlock-level {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.92);
+  color: var(--parchment);
+  font-size: 10px;
+  line-height: 1.1;
 }
 .hotbar-slot .ability-icon {
   display: grid;
@@ -1396,6 +1455,29 @@ input:focus, select:focus {
   border-radius: 4px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.58);
   pointer-events: auto;
+}
+.minimap-filters {
+  position: relative;
+  pointer-events: auto;
+}
+.minimap-filters summary {
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: rgba(15, 11, 7, 0.94);
+  color: var(--parchment);
+  font-size: 11px;
+  cursor: pointer;
+}
+.minimap-filters .minimap-legend {
+  position: absolute;
+  right: 0;
+  margin-top: 4px;
+}
+.minimap-filters summary:focus-visible,
+.minimap-toggle:focus-within {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
 }
 
 .minimap-toggle {
@@ -2155,20 +2237,58 @@ input:focus, select:focus {
 
 .objective-tracker {
   position: absolute;
-  top: 228px;
+  top: 206px;
   right: 12px;
   z-index: 7;
   width: 310px;
   max-width: calc(100vw - 24px);
   max-height: min(42vh, 360px);
-  overflow: hidden;
+  overflow: auto;
   padding: 10px 12px;
   color: var(--parchment);
   background: linear-gradient(180deg, rgba(30, 22, 14, 0.9), rgba(8, 6, 4, 0.8));
   border: 1px solid rgba(122, 96, 53, 0.78);
   border-radius: 4px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.66), inset 0 1px 0 rgba(201, 162, 87, 0.1);
-  pointer-events: none;
+  pointer-events: auto;
+}
+.expedition-destination {
+  margin: 5px 0;
+  font-size: 11px;
+  color: var(--dim);
+}
+.expedition-next-action {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--parchment);
+}
+.expedition-next-action strong {
+  flex-shrink: 0;
+  color: var(--gold-bright);
+}
+.expedition-reward {
+  margin: 10px 0;
+  color: var(--gold-bright);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.expedition-reward span { display: block; }
+.expedition-actions { display: flex; gap: 8px; }
+.expedition-actions button,
+.expedition-map-focus button {
+  padding: 7px 9px;
+  font-size: 11px;
+  white-space: normal;
+}
+.expedition-map-focus strong { color: var(--gold-bright); }
+.expedition-map-focus p { font-size: 12px; line-height: 1.4; }
+.campaign-map-node.expedition-zone {
+  outline: 2px solid #ffe695;
+  outline-offset: 3px;
 }
 
 .objective-tracker-header,
@@ -2316,7 +2436,7 @@ input:focus, select:focus {
 .guided-tasks-panel,
 .guided-tasks-toggle {
   position: absolute;
-  top: 124px;
+  top: 160px;
   left: 12px;
   z-index: 9;
 }
@@ -2396,6 +2516,11 @@ input:focus, select:focus {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.guided-checklist-toggle {
+  padding: 5px 7px;
+  margin-bottom: 5px;
+  font-size: 10px;
 }
 
 .guided-task-list li {
@@ -4421,10 +4546,12 @@ input:focus, select:focus {
    Mobile HUD layout — prevents element overlap on touch / small screens
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Portrait touch (and any coarse-pointer device) ── */
 @media (pointer: coarse) {
-  /* Show touch controls; hide keyboard hint */
   .touch-controls { display: block; }
+}
+
+/* Compact layout also applies to narrow desktop windows. */
+@media (pointer: coarse), (max-width: 620px) {
   .controls-hint  { display: none;  }
 
   /* ── Top row: shrink so player-frame + minimap fit side-by-side ── */
@@ -4439,6 +4566,16 @@ input:focus, select:focus {
   .minimap-shell {
     width: 120px;
     gap: 5px;
+  }
+  .minimap-filters {
+    position: absolute;
+    top: 0;
+    right: 94px;
+  }
+  .minimap-filters summary {
+    font-size: 9px;
+    padding: 5px;
+    white-space: nowrap;
   }
   .minimap-legend {
     width: 120px;
@@ -4471,19 +4608,16 @@ input:focus, select:focus {
   .objective-tracker {
     top: 236px;
     right: 12px;
-    width: min(226px, calc(100vw - 24px));
+    width: min(226px, calc(100vw - 168px));
     max-height: 178px;
     padding: 8px;
-  }
-  .objective-card:nth-child(n + 2) {
-    display: none;
   }
   .guided-tasks-panel {
     top: 236px;
     left: 12px;
     width: 132px;
     max-height: 178px;
-    overflow: hidden;
+    overflow: auto;
     padding: 8px;
   }
   .guided-tasks-toggle {
@@ -4509,9 +4643,11 @@ input:focus, select:focus {
     margin-bottom: 0;
     padding: 5px;
   }
-  .guided-next span,
-  .guided-task-list {
-    display: none;
+  .guided-next span {
+    font-size: 9px;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-transform: none;
   }
 
   /* Target frame: drop to its own row below the top pair */

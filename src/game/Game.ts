@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { isResourceNodeAvailable } from '../data/crafting';
 import { formatKeybinding, type KeybindAction } from '../data/keybindings';
-import type { CampaignControl, CampaignObjectiveStatus, CampaignRealm } from '../data/campaign';
+import { isRvrKeepZone, type CampaignObjectiveStatus, type CampaignRealm, type CampaignZoneStatus } from '../data/campaign';
 import {
   defaultZoneSpawnPoint,
   normalizePlayableZoneId,
@@ -14,11 +14,11 @@ import { spawnNpcs, type NpcState } from '../world/NpcSpawner';
 import { spawnProps, type InteractiveGate, type InteractiveHousePortal, type WorldCollider, type WorldWalkableSurface } from '../world/Props';
 import { applySceneViewDistance, setupSky } from '../world/Skybox';
 import { Terrain } from '../world/Terrain';
+import { WorldLife } from '../world/WorldLife';
 import {
   loadZone,
   type CraftingStationSpawn,
   type ResourceNodeSpawn,
-  type RvrObjectiveDefinition,
   type ZoneDefinition,
   type ZoneTrigger,
 } from '../world/ZoneLoader';
@@ -34,9 +34,12 @@ import {
   makeVersionId,
 } from '../world/WorldEditValidation';
 import { AssetLoader } from './AssetLoader';
+import { resolveAbilityMovement } from './AbilityMovement';
+import { playerAbilityMoveMultiplier } from './abilities/playerAbilityEffects';
 import {
-  canCaptureCampaignObjective,
-  captureProgressPct,
+  campaignActivityProgress,
+  describeCampaignActivity,
+  type CampaignActivity,
   campaignRealmForCharacter,
   claimObjectiveForCharacter,
 } from './CampaignObjectiveLogic';
@@ -47,8 +50,9 @@ import { Enemy } from './Enemy';
 import { equipmentVisualSignature } from './Equipment';
 import { Input } from './Input';
 import { HouseInteriorRuntime } from './HouseInteriorRuntime';
+import { decideKeepEncounter, keepApproachDefenders } from './KeepEncounter';
 import { Player } from './Player';
-import { checkLevelUp } from './QuestLogic';
+import { settleCampaignReward } from './CampaignRewards';
 import { ResourceRegeneration } from './ResourceRegeneration';
 import {
   resolveZoneEntryPoint,
@@ -79,6 +83,7 @@ export class Game {
   private player!: Player;
   private enemies: Enemy[] = [];
   private npcMixers: THREE.AnimationMixer[] = [];
+  private worldLife: WorldLife | null = null;
   private combat = new Combat();
   private resourceRegeneration = new ResourceRegeneration();
   private vfx!: VfxLayer;
@@ -103,9 +108,9 @@ export class Game {
   private zoneTransitionGraceUntilMs = 0;
   private craftingStations: CraftingStationSpawn[] = [];
   private resourceNodes: ResourceNodeSpawn[] = [];
-  private objectiveControl = new Map<string, CampaignControl>();
   private objectiveStatus = new Map<string, CampaignObjectiveStatus>();
-  private objectiveCapture: { objectiveId: string; startedAtMs: number; realm: CampaignRealm } | null = null;
+  private campaignZoneStatus: CampaignZoneStatus | null = null;
+  private objectiveCapture: { objectiveId: string; startedAtMs: number; realm: CampaignRealm; activity: 'capture' | 'defend' } | null = null;
   private objectiveClaimsInFlight = new Set<string>();
   private propColliders: WorldCollider[] = [];
   private cameraColliders: WorldCollider[] = [];
@@ -137,6 +142,16 @@ export class Game {
   get playerPos(): THREE.Vector3 { return this.player?.position ?? new THREE.Vector3(); }
   get zoneName(): string { return this.currentZoneName; }
   get zoneDefinition(): ZoneDefinition | null { return this.currentZone; }
+  get campaignActivity(): { zone: CampaignZoneStatus; focus: CampaignActivity | null; progress: number } | null {
+    if (!this.campaignZoneStatus) return null;
+    const candidates = this.campaignActivities(useGameStore.getState());
+    // Keep the nearby point visible, including its blocker; otherwise guide toward the next available activity.
+    const focus = candidates.find((entry) => entry.distance <= entry.objective.captureRadius) ??
+      candidates.find((entry) => !entry.blocker || entry.blocker.startsWith('Defeat')) ?? candidates[0] ?? null;
+    const progress = focus && this.objectiveCapture?.objectiveId === focus.objective.id
+      ? campaignActivityProgress(this.objectiveCapture.startedAtMs, performance.now(), focus.holdMs) : 0;
+    return { zone: this.campaignZoneStatus, focus, progress };
+  }
   teleportPlayerTo(
     point: { x: number; y?: number; z: number },
     rotationY = this.player?.rotationY ?? this.character.rotationY,
@@ -330,6 +345,12 @@ export class Game {
     this.zoneNpcStates = spawnedNpcs.states;
     useGameStore.getState().setNpcs(this.zoneNpcStates);
 
+    this.worldLife = new WorldLife(this.scene, zone.ambientLife,
+      zone.campaign?.realm === 'riftbound' ? 'riftbound' : 'aegis',
+      (x, z) => this.terrain.heightAt(x, z),
+      spawnedProps.objects.filter(({ definition }) => definition.kind.startsWith('life_')
+        && !definition.model && !definition.assetKey).map(({ object }) => object));
+
     // Zone triggers
     this.zoneTriggers = zone.zoneTriggers ?? [];
     this.craftingStations = zone.craftingStations ?? [];
@@ -337,11 +358,9 @@ export class Game {
     try {
       const campaignUnsubscribe = services.campaign.subscribeSnapshot((snapshot) => {
         const active = snapshot.zones.find((entry) => entry.id === zone.id);
+        this.campaignZoneStatus = active ?? null;
         this.objectiveStatus = new Map(
           (active?.objectives ?? []).map((objective) => [objective.id, objective]),
-        );
-        this.objectiveControl = new Map(
-          (active?.objectives ?? []).map((objective) => [objective.id, objective.control]),
         );
       }, zone.id);
       this.onDispose.push(campaignUnsubscribe);
@@ -361,6 +380,17 @@ export class Game {
     this.player = new Player(this.character, this.terrain, this.groundHeightAt);
     await this.player.build(this.loader, this.scene);
     if (this.disposed) return;
+    this.combat.setAbilityMovementHandler((request) => {
+      const store = useGameStore.getState();
+      if (store.playerDead || store.gmFlyingMode || store.gmBuildMode ||
+        Math.hypot(this.player.position.x - request.origin.x, this.player.position.z - request.origin.z) > 0.1) return false;
+      const destination = resolveAbilityMovement(request.origin, request.destination, this.groundHeightAt, this.resolvePlayerCollisions);
+      if (!destination) return false;
+      this.player.teleportTo(destination);
+      this.character.position = destination;
+      store.updateCharacter({ position: destination });
+      return true;
+    });
     this.equipmentSignature = equipmentVisualSignature(this.character.equipment);
     await this.player.applyEquipmentVisuals(this.character.equipment, this.loader);
     if (this.disposed) return;
@@ -372,7 +402,10 @@ export class Game {
     const enemyState: EnemyState[] = [];
     for (const es of zone.enemies) {
       const e = new Enemy(es, this.terrain, this.groundHeightAt);
+      e.objectiveDefender = (es.aggroRange ?? 0) > 0 && (zone.rvrObjectives ?? []).some((objective) =>
+        Math.hypot(es.x - objective.x, es.z - objective.z) <= objective.captureRadius + 8);
       await e.build(this.loader, this.scene);
+      if (es.encounter) e.object.scale.multiplyScalar(1.2);
       this.enemies.push(e);
       this.combat.registerEnemy(e);
       enemyState.push({
@@ -382,7 +415,8 @@ export class Game {
         health: es.maxHealth,
         maxHealth: es.maxHealth,
         position: { x: e.position.x, y: e.position.y, z: e.position.z },
-        alive: true,
+        alive: !es.encounter,
+        ...(es.encounter ? { keepEncounter: { objectiveId: es.encounter.objectiveId, phase: 'locked' as const } } : {}),
       });
     }
     useGameStore.getState().setEnemies(enemyState);
@@ -483,6 +517,9 @@ export class Game {
       const maxHealth = store.character?.maxHealth ?? 100;
       const maxMana = store.character?.maxMana ?? 100;
       this.player.teleportTo(nextPosition);
+      this.combat.cancelPlayerAbilities();
+      store.setGlobalCooldownUntil(0);
+      useGameStore.setState({ playerStatusEffects: [] });
       this.character.position = nextPosition;
       this.character.health = maxHealth;
       this.character.mana = maxMana;
@@ -542,7 +579,6 @@ export class Game {
     const gmMenuOpen = uiState.gmMenuOpen;
     const uiBlockingOpen = settingsOpen || wikiOpen || worldMapOpen || gmMenuOpen;
     this.updateGuidedTaskProgress(store);
-    this.updateObjectiveCapture(tMs, uiBlockingOpen);
     this.updateContextualPrompt(uiState, uiBlockingOpen);
     if (store.gmBuildMode && !store.chatFocused && !uiBlockingOpen && this.input.wasPressed('Tab')) {
       const direction = this.input.isDown('ShiftLeft') || this.input.isDown('ShiftRight') ? -1 : 1;
@@ -640,7 +676,7 @@ export class Game {
         this.resolvePlayerCollisions,
         store.gmFlyingMode
           ? store.gmMoveSpeedMultiplier
-          : playerMoveMultiplier(store.playerStatusEffects, tMs) * store.gmMoveSpeedMultiplier,
+        : playerMoveMultiplier(store.playerStatusEffects, tMs) * playerAbilityMoveMultiplier(store.playerStatusEffects, tMs) * store.gmMoveSpeedMultiplier,
         {
           flying: store.gmFlyingMode,
           autoRun: this.autoRun,
@@ -666,9 +702,12 @@ export class Game {
     );
     this.combat.tickAbilityImpacts(tMs);
     this.combat.tickStatusEffects(tMs);
+    this.updateKeepEncounters(tMs);
     this.combat.tickEnemies(dt, tMs, this.player);
     this.tickResourceRegeneration(dt);
     this.combat.tickRespawns(tMs);
+    // Evaluate after movement, damage and respawns so the finishing frame must still be uncontested.
+    this.updateObjectiveCapture(tMs, uiBlockingOpen);
     this.combat.tickFloatingDamage(tMs);
     this.vfx.update(dt);
     for (const gate of this.getAllGates()) {
@@ -676,6 +715,7 @@ export class Game {
       updateGateFallbackVisual(gate, dt);
     }
     for (const mixer of this.npcMixers) mixer.update(dt);
+    this.worldLife?.update(dt, this.player.position, store.settings.viewDistance);
 
     // Enemy visibility sync
     for (const e of this.enemies) {
@@ -786,7 +826,7 @@ export class Game {
       return;
     }
 
-    const patch = this.resourceRegeneration.tick(store.character, dt);
+    const patch = this.resourceRegeneration.tick(store.character, dt, this.combat.playerInCombat);
     if (!patch) return;
 
     store.updateCharacter(patch);
@@ -1003,17 +1043,16 @@ export class Game {
   }
 
   private findObjectivePrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
-    const best = this.findCapturableObjective(store);
+    const best = this.findNearestObjective(store);
     if (!best) return null;
-    const capture = this.objectiveCapture?.objectiveId === best.objective.id
-      ? Math.round(captureProgressPct(this.objectiveCapture.startedAtMs, performance.now()) * 100)
-      : 0;
+    const progress = this.objectiveCapture?.objectiveId === best.objective.id
+      ? Math.round(campaignActivityProgress(this.objectiveCapture.startedAtMs, performance.now(), best.holdMs) * 100) : 0;
     return {
       kind: 'objective',
-      action: 'Hold',
-      label: `Capture ${best.objective.label}`,
-      detail: capture > 0 ? `${capture}%` : 'Stand in the objective area',
-      distance: best.dist,
+      action: best.blocker ? 'Objective' : 'Hold',
+      label: `${best.activity === 'defend' ? 'Defend' : 'Capture'} ${best.objective.label}`,
+      detail: best.blocker ?? (progress > 0 ? `${progress}% secured` : `Hold the cleared area for ${best.holdMs / 1000} seconds`),
+      distance: best.distance,
     };
   }
 
@@ -1043,76 +1082,96 @@ export class Game {
 
   private updateObjectiveCapture(tMs: number, uiBlockingOpen: boolean): void {
     const store = useGameStore.getState();
-    if (
-      !this.player ||
-      !this.currentZone ||
-      store.chatFocused ||
-      store.playerDead ||
-      uiBlockingOpen ||
-      store.gmBuildMode
-    ) {
+    if (!this.player || !this.currentZone || !store.character || store.chatFocused ||
+      store.playerDead || uiBlockingOpen || store.gmBuildMode || store.gmFlyingMode || store.pendingZoneTransition) {
       this.objectiveCapture = null;
       return;
     }
-
-    const best = this.findCapturableObjective(store);
-    if (!best) {
+    const best = this.findNearestObjective(store);
+    if (!best || best.blocker) {
       this.objectiveCapture = null;
       return;
     }
-
-    const realm = campaignRealmForCharacter(store.character!);
-    if (
-      !this.objectiveCapture ||
-      this.objectiveCapture.objectiveId !== best.objective.id ||
-      this.objectiveCapture.realm !== realm
-    ) {
-      this.objectiveCapture = { objectiveId: best.objective.id, startedAtMs: tMs, realm };
+    const realm = campaignRealmForCharacter(store.character);
+    if (!this.objectiveCapture || this.objectiveCapture.objectiveId !== best.objective.id ||
+      this.objectiveCapture.realm !== realm || this.objectiveCapture.activity !== best.activity) {
+      this.objectiveCapture = { objectiveId: best.objective.id, startedAtMs: tMs, realm, activity: best.activity };
       return;
     }
-
-    if (captureProgressPct(this.objectiveCapture.startedAtMs, tMs) < 1) return;
-    if (this.objectiveClaimsInFlight.has(best.objective.id)) return;
-
+    if (campaignActivityProgress(this.objectiveCapture.startedAtMs, tMs, best.holdMs) < 1) return;
+    const characterId = store.character.id;
     this.objectiveClaimsInFlight.add(best.objective.id);
     this.objectiveCapture = null;
-    void claimObjectiveForCharacter(this.currentZone.id, best.objective.id, store.character!)
+    void claimObjectiveForCharacter(this.currentZone.id, best.objective.id, store.character, best.activity)
       .then((result) => {
-        const snapshot = result.snapshot;
-        const active = snapshot.zones.find((entry) => entry.id === this.currentZone?.id);
-        this.objectiveStatus = new Map(
-          (active?.objectives ?? []).map((objective) => [objective.id, objective]),
-        );
-        this.objectiveControl = new Map(
-          (active?.objectives ?? []).map((objective) => [objective.id, objective.control]),
-        );
-        const updated = active?.objectives.find((objective) => objective.id === best.objective.id);
-        const currentStore = useGameStore.getState();
-        if (result.reward.xp > 0 && currentStore.character) {
-          currentStore.updateCharacter({ xp: currentStore.character.xp + result.reward.xp });
-          checkLevelUp();
+        // Rewards belong to the initiating character, including during a same-character zone transition.
+        settleCampaignReward(result, characterId);
+        if (useGameStore.getState().character?.id === characterId) {
+          useGameStore.getState().completeGuidedTask('interact');
         }
-        useGameStore.getState().completeGuidedTask('interact');
-        const rewardCopy = result.reward.xp > 0
-          ? ` +${result.reward.xp} XP, +${result.reward.influence} influence.`
-          : '';
-        const controlCopy = result.zoneControlChanged && active
-          ? ` ${active.name} is now controlled by ${campaignControlLabel(active.control)}.`
-          : '';
-        useGameStore.getState().appendChat({
-          id: `objective-capture-${Date.now()}-${best.objective.id}`,
-          channel: 'system',
-          from: 'System',
-          body: `Captured ${best.objective.label} for ${campaignControlLabel(updated?.control ?? realm)}.${rewardCopy}${controlCopy}`,
-          timestamp: Date.now(),
-        });
       })
       .catch((err) => {
-        console.warn('[Campaign] objective capture failed:', err);
+        console.warn('[Campaign] objective activity failed:', err);
+        if (!this.disposed && useGameStore.getState().character?.id === characterId) {
+          this.publishContextualPrompt({ kind: 'objective', action: 'Wait', label: best.objective.label,
+            detail: err instanceof Error ? err.message : 'Objective unavailable. Try again.' });
+        }
       })
-      .finally(() => {
-        this.objectiveClaimsInFlight.delete(best.objective.id);
-      });
+      .finally(() => this.objectiveClaimsInFlight.delete(best.objective.id));
+  }
+
+  private updateKeepEncounters(now: number): void {
+    const store = useGameStore.getState();
+    if (!this.currentZone || !store.character || !this.player) return;
+    const realm = campaignRealmForCharacter(store.character);
+    for (const commander of this.enemies) {
+      const encounter = commander.spawn.encounter;
+      if (!encounter) continue;
+      const objective = this.objectiveStatus.get(encounter.objectiveId);
+      const state = useGameStore.getState().enemies.find((entry) => entry.id === commander.spawn.id);
+      if (!objective || !state) continue;
+      const guardSpawns = keepApproachDefenders(objective, this.currentZone.enemies);
+      const guards = useGameStore.getState().enemies.filter((entry) => guardSpawns.some((spawn) => spawn.id === entry.id));
+      let decision = decideKeepEncounter({ objective, realm, commander: state, defenders: guards,
+        player: this.player.position, playerDead: store.playerDead });
+      const wasFighting = state.keepEncounter?.phase === 'engaged' || state.keepEncounter?.phase === 'enraged';
+      if (decision === 'fight' && wasFighting && !commander.aggroed) decision = 'reset';
+      if (decision === 'locked' || decision === 'secured' || decision === 'reset') {
+        if (state.alive || state.keepEncounter?.phase !== 'locked') {
+          this.combat.resetEnemy(state.id, false);
+          useGameStore.getState().updateEnemy(state.id, { keepEncounter: { objectiveId: objective.id, phase: 'locked' } });
+        }
+        if (decision === 'reset') {
+          this.combat.cancelPlayerAbilities();
+          for (const guard of guardSpawns) this.combat.resetEnemy(guard.id, true);
+          store.appendChat({ id: `keep-reset-${now}-${state.id}`, channel: 'system', from: 'System', timestamp: Date.now(),
+            body: `${state.name} has regrouped. Clear the approach to challenge the commander again.` });
+        }
+        continue;
+      }
+      if (decision === 'approach') continue;
+      if (decision === 'summon') {
+        this.combat.resetEnemy(state.id, true);
+        store.updateEnemy(state.id, { keepEncounter: { objectiveId: objective.id, phase: 'ready' } });
+        store.setTarget(state.id);
+        store.appendChat({ id: `keep-challenge-${now}-${state.id}`, channel: 'system', from: 'System', timestamp: Date.now(),
+          body: `${state.name} enters the courtyard. Dodge Cleaving Order and move out of Siege Pulse.` });
+      } else if (decision === 'fight') {
+        const phase = state.health / state.maxHealth <= encounter.enrageHealthFraction
+          ? 'enraged' : commander.aggroed ? 'engaged' : 'ready';
+        if (state.keepEncounter?.phase !== phase) {
+          store.updateEnemy(state.id, { keepEncounter: { objectiveId: objective.id, phase } });
+          if (phase === 'enraged') store.appendChat({ id: `keep-enraged-${now}-${state.id}`, channel: 'system', from: 'System', timestamp: Date.now(),
+            body: `${state.name} is making a last stand. Attacks recover faster; the warning time stays the same.` });
+        }
+      }
+      // Keep the cleared approach clear throughout the finale and its capture window.
+      for (const guard of this.enemies) {
+        if (guardSpawns.some((spawn) => spawn.id === guard.spawn.id) && guard.respawnAt !== null) {
+          guard.respawnAt = Math.max(guard.respawnAt, now + 5000);
+        }
+      }
+    }
   }
 
   private findNearestResourceNode(
@@ -1134,29 +1193,26 @@ export class Game {
     return best;
   }
 
-  private findCapturableObjective(
-    store: ReturnType<typeof useGameStore.getState>,
-  ): { objective: RvrObjectiveDefinition; control: CampaignControl; dist: number } | null {
-    const objectives = this.currentZone?.rvrObjectives ?? [];
-    if (!this.player || !store.character || objectives.length === 0) return null;
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
+  private campaignActivities(store: ReturnType<typeof useGameStore.getState>): CampaignActivity[] {
+    if (!this.player || !this.currentZone || !store.character) return [];
     const realm = campaignRealmForCharacter(store.character);
-    let best: { objective: RvrObjectiveDefinition; control: CampaignControl; dist: number } | null = null;
+    return [...this.objectiveStatus.values()]
+      .filter((objective) => objective.control !== realm ||
+        (objective.type === 'battle_objective' && isRvrKeepZone(this.currentZone!.id)))
+      .map((objective) => {
+        const entry = describeCampaignActivity({ zoneId: this.currentZone!.id, objective, realm,
+          spawns: this.currentZone!.enemies, enemies: store.enemies, player: this.player.position, inventory: store.inventory });
+        if (this.objectiveClaimsInFlight.has(objective.id)) entry.blocker = 'Securing objective...';
+        if (store.campaignRewardNotice && store.campaignRewardNotice.characterId === store.character?.id && store.campaignRewardNotice.pendingItems.length) {
+          entry.blocker = 'Collect your previous campaign gear first';
+        }
+        return entry;
+      })
+      .sort((a, b) => a.distance - b.distance);
+  }
 
-    for (const objective of objectives) {
-      if (this.objectiveClaimsInFlight.has(objective.id)) continue;
-      const status = this.objectiveStatus.get(objective.id);
-      const control = status?.control ?? this.objectiveControl.get(objective.id) ?? objective.defaultRealm;
-      if (!canCaptureCampaignObjective(control, store.character)) continue;
-      if (status && !status.capturableBy.includes(realm)) continue;
-      const dist = Math.hypot(px - objective.x, pz - objective.z);
-      if (dist <= objective.captureRadius && (!best || dist < best.dist)) {
-        best = { objective, control, dist };
-      }
-    }
-
-    return best;
+  private findNearestObjective(store: ReturnType<typeof useGameStore.getState>): CampaignActivity | null {
+    return this.campaignActivities(store).find((entry) => entry.distance <= entry.objective.captureRadius) ?? null;
   }
 
   private tryGatherNearestCorpse(): boolean {
@@ -1748,6 +1804,7 @@ export class Game {
     this.input?.dispose();
     this.camera?.dispose();
     for (const mixer of this.npcMixers) mixer.stopAllAction();
+    this.worldLife?.dispose();
     for (const fn of this.onDispose) {
       try { fn(); } catch { /* ignore */ }
     }
@@ -1884,15 +1941,6 @@ function resourceNodeKindLabel(kind: ResourceNodeSpawn['kind']): string {
     case 'scrap': return 'Scrap';
     case 'relic': return 'Relic';
     default: return 'Resource';
-  }
-}
-
-function campaignControlLabel(control: CampaignControl): string {
-  switch (control) {
-    case 'aegis': return 'Aegis';
-    case 'riftbound': return 'Riftbound';
-    case 'contested':
-    default: return 'Contested';
   }
 }
 

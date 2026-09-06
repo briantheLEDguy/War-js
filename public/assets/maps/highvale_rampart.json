@@ -2210,6 +2210,48 @@
       "characterProfileKey": "enemy_aegis_keep_captain_captain"
     },
     {
+      "id": "highvale_rampart_aegis_keep_commander",
+      "name": "Aegis Castellan Cedran Stormhelm",
+      "level": 20,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 640,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 11,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "highvale_rampart_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "highvale_rampart_riftbound_keep_commander",
+      "name": "Riftbound Warlord Vrann Cliffscar",
+      "level": 20,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 640,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 11,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "highvale_rampart_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
       "id": "highvale_rampart_beast_1",
       "name": "Wild Stag",
       "level": 18,
@@ -2780,5 +2822,5 @@
       ]
     }
   ],
-  "staticMapHash": "e9642d0bee0d869a"
+  "staticMapHash": "4a99acaa02ccc181"
 }

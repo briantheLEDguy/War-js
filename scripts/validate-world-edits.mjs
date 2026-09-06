@@ -40,6 +40,7 @@ for (const file of files) {
   validateArray(file, zone.zoneTriggers ?? [], 'zoneTriggers');
   validateArray(file, zone.resourceNodes ?? [], 'resourceNodes');
   validateArray(file, zone.rvrObjectives ?? [], 'rvrObjectives');
+  validateWorldLife(file, zone);
 
   for (const [index, prop] of (zone.props ?? []).entries()) {
     validateFinite(file, `props[${index}].x`, prop.x);
@@ -260,6 +261,62 @@ function validatePortalPair(zonesById, from, to) {
 
   const reverse = (toEntry.zone.zoneTriggers ?? []).some((entry) => entry.targetZoneId === from);
   if (!reverse) errors.push(`${toEntry.file}: missing reverse portal to ${from}`);
+}
+
+function validateWorldLife(file, zone) {
+  const life = zone.ambientLife;
+  if (life === undefined) return;
+  if (!life || !Array.isArray(life.actors) || !Array.isArray(life.emitters)) {
+    errors.push(`${file}: ambientLife requires actors and emitters arrays`);
+    return;
+  }
+  if (life.actors.length > 48) errors.push(`${file}: ambientLife exceeds the 48 actor budget`);
+  if (life.emitters.length > 24) errors.push(`${file}: ambientLife exceeds the 24 emitter budget`);
+  const ids = new Set();
+  const point = (label, value) => {
+    if (!value || !Number.isFinite(value.x) || !Number.isFinite(value.z)) {
+      errors.push(`${file}: ${label} requires finite x/z`);
+    } else if (Math.abs(value.x) > zone.size / 2 || Math.abs(value.z) > zone.size / 2) {
+      errors.push(`${file}: ${label} is outside zone bounds`);
+    }
+  };
+  const range = (label, value, min, max) => {
+    if (value !== undefined && (!Number.isFinite(value) || value < min || value > max)) {
+      errors.push(`${file}: ${label} must be between ${min} and ${max}`);
+    }
+  };
+  for (const [index, actor] of life.actors.entries()) {
+    const label = `ambientLife.actors[${index}]`;
+    if (!actor || !['citizen', 'guard', 'deer', 'bird'].includes(actor.kind)) {
+      errors.push(`${file}: ${label} has an unsupported actor kind`);
+      continue;
+    }
+    point(label, actor);
+    if (actor.route !== undefined && !Array.isArray(actor.route)) errors.push(`${file}: ${label}.route must be an array`);
+    for (const waypoint of Array.isArray(actor.route) ? actor.route : []) point(`${label}.route`, waypoint);
+    range(`${label}.speed`, actor.speed, 0, 6);
+    range(`${label}.pauseSeconds`, actor.pauseSeconds, 0, 60);
+    range(`${label}.scale`, actor.scale, 0.25, 3);
+  }
+  let particles = 0;
+  for (const [index, emitter] of life.emitters.entries()) {
+    const label = `ambientLife.emitters[${index}]`;
+    if (!emitter || !['smoke', 'embers', 'motes'].includes(emitter.kind)) {
+      errors.push(`${file}: ${label} has an unsupported emitter kind`);
+      continue;
+    }
+    point(label, emitter);
+    range(`${label}.count`, emitter.count, 1, 48);
+    if (emitter.count !== undefined && !Number.isInteger(emitter.count)) errors.push(`${file}: ${label}.count must be an integer`);
+    range(`${label}.radius`, emitter.radius, 0.1, 20);
+    range(`${label}.y`, emitter.y, -10, 50);
+    particles += emitter.count ?? 12;
+  }
+  if (particles > 384) errors.push(`${file}: ambientLife exceeds the 384 particle budget`);
+  for (const item of [...life.actors, ...life.emitters]) {
+    if (!item?.id || ids.has(item.id)) errors.push(`${file}: ambientLife ids must be present and unique`);
+    if (item?.id) ids.add(item.id);
+  }
 }
 
 function hashZone(zone) {

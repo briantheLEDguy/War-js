@@ -1,0 +1,2281 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "C:\\Users\\bschm\\Downloads\\Codex Image Aug 31, 2026, 07_28_04 PM.png",
+    "sha256": "070983f09ee18cc83385a1719df7055f63eaddd26c0708e2c731f5e661f7cec0",
+    "size_px": [
+      1448,
+      1086
+    ],
+    "kind": "stylized_multiview_concept_illustration",
+    "calibrated": false,
+    "orthographic": false
+  },
+  "coordinate_frame": {
+    "origin": "top_left",
+    "x_axis": "right",
+    "y_axis": "down",
+    "units": "source_pixels",
+    "left_right": "anatomical_left_is_image_right_in_front"
+  },
+  "scale_convention": {
+    "view": "front",
+    "crown_landmark": "F01",
+    "ground_landmark": "F18",
+    "character_height_px": 633,
+    "chosen_character_height_m": 1.86,
+    "approximate_m_per_front_vertical_px": 0.0029383886255924174,
+    "hammer_excluded": true,
+    "not_valid_for": [
+      "other_view_pixel_scales",
+      "depth",
+      "camera_calibration",
+      "exact_anatomy"
+    ]
+  },
+  "crop_bounds_convention": "left_top_right_bottom_exclusive",
+  "crops": {
+    "front_whole": {
+      "bounds_px": [
+        17,
+        88,
+        454,
+        731
+      ],
+      "file": "crops/front_whole.png"
+    },
+    "front_upperbody": {
+      "bounds_px": [
+        128,
+        90,
+        452,
+        335
+      ],
+      "file": "crops/front_upperbody.png"
+    },
+    "threequarter_whole": {
+      "bounds_px": [
+        469,
+        97,
+        753,
+        625
+      ],
+      "file": "crops/threequarter_whole.png"
+    },
+    "side_whole": {
+      "bounds_px": [
+        772,
+        99,
+        934,
+        622
+      ],
+      "file": "crops/side_whole.png"
+    },
+    "back_whole": {
+      "bounds_px": [
+        948,
+        98,
+        1250,
+        624
+      ],
+      "file": "crops/back_whole.png"
+    },
+    "detail_front_head_gorget": {
+      "bounds_px": [
+        216,
+        91,
+        329,
+        224
+      ],
+      "file": "crops/detail_front_head_gorget.png"
+    },
+    "detail_front_left_pauldron": {
+      "bounds_px": [
+        327,
+        135,
+        450,
+        288
+      ],
+      "file": "crops/detail_front_left_pauldron.png"
+    },
+    "detail_front_breastplate": {
+      "bounds_px": [
+        175,
+        190,
+        375,
+        333
+      ],
+      "file": "crops/detail_front_breastplate.png"
+    },
+    "detail_front_belt_tabard": {
+      "bounds_px": [
+        126,
+        317,
+        387,
+        631
+      ],
+      "file": "crops/detail_front_belt_tabard.png"
+    },
+    "detail_front_tome": {
+      "bounds_px": [
+        308,
+        326,
+        397,
+        451
+      ],
+      "file": "crops/detail_front_tome.png"
+    },
+    "detail_front_hammer": {
+      "bounds_px": [
+        2,
+        100,
+        128,
+        714
+      ],
+      "file": "crops/detail_front_hammer.png"
+    },
+    "detail_gorget_inset": {
+      "bounds_px": [
+        468,
+        641,
+        592,
+        779
+      ],
+      "file": "crops/detail_gorget_inset.png"
+    },
+    "detail_medallion_inset": {
+      "bounds_px": [
+        651,
+        638,
+        771,
+        788
+      ],
+      "file": "crops/detail_medallion_inset.png"
+    },
+    "detail_prayer_seal_inset": {
+      "bounds_px": [
+        838,
+        645,
+        907,
+        792
+      ],
+      "file": "crops/detail_prayer_seal_inset.png"
+    },
+    "detail_tome_inset": {
+      "bounds_px": [
+        464,
+        799,
+        576,
+        947
+      ],
+      "file": "crops/detail_tome_inset.png"
+    },
+    "detail_censer_inset": {
+      "bounds_px": [
+        661,
+        797,
+        786,
+        947
+      ],
+      "file": "crops/detail_censer_inset.png"
+    },
+    "detail_shoulder_icon_inset": {
+      "bounds_px": [
+        818,
+        797,
+        937,
+        947
+      ],
+      "file": "crops/detail_shoulder_icon_inset.png"
+    },
+    "detail_modular_head": {
+      "bounds_px": [
+        1004,
+        666,
+        1073,
+        745
+      ],
+      "file": "crops/detail_modular_head.png"
+    },
+    "detail_palette": {
+      "bounds_px": [
+        1250,
+        632,
+        1438,
+        1074
+      ],
+      "file": "crops/detail_palette.png"
+    }
+  },
+  "landmarks": {
+    "front": [
+      {
+        "id": "F01",
+        "name": "crown",
+        "raw_pixel": [
+          273,
+          96
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.86
+      },
+      {
+        "id": "F02",
+        "name": "chin",
+        "raw_pixel": [
+          271,
+          166
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "partly_occluded_by_gorget",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.6543
+      },
+      {
+        "id": "F03",
+        "name": "collar_front_rim_center",
+        "raw_pixel": [
+          268,
+          170
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.6426
+      },
+      {
+        "id": "F04",
+        "name": "collar_left_side_rim",
+        "raw_pixel": [
+          309,
+          151
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "partly_occluded",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.6984
+      },
+      {
+        "id": "F05",
+        "name": "left_pauldron_peak",
+        "raw_pixel": [
+          371,
+          147
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.7101
+      },
+      {
+        "id": "F06",
+        "name": "left_pauldron_outer_edge",
+        "raw_pixel": [
+          443,
+          255
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.3928
+      },
+      {
+        "id": "F07",
+        "name": "right_pauldron_peak",
+        "raw_pixel": [
+          208,
+          148
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.7072
+      },
+      {
+        "id": "F08",
+        "name": "right_pauldron_outer_edge",
+        "raw_pixel": [
+          143,
+          246
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.4192
+      },
+      {
+        "id": "F09",
+        "name": "breastplate_top_center",
+        "raw_pixel": [
+          263,
+          208
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "partly_occluded_by_trim",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.5309
+      },
+      {
+        "id": "F10",
+        "name": "chest_medallion_center",
+        "raw_pixel": [
+          248,
+          258
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.384
+      },
+      {
+        "id": "F11",
+        "name": "waist_belt_upper_center",
+        "raw_pixel": [
+          252,
+          324
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "partly_occluded_by_ornament",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.19
+      },
+      {
+        "id": "F12",
+        "name": "belt_buckle_center",
+        "raw_pixel": [
+          240,
+          354
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.1019
+      },
+      {
+        "id": "F13",
+        "name": "tabard_center_hem",
+        "raw_pixel": [
+          246,
+          613
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "frayed_edge",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.3409
+      },
+      {
+        "id": "F14",
+        "name": "left_knee_center",
+        "raw_pixel": [
+          348,
+          551
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.523
+      },
+      {
+        "id": "F15",
+        "name": "right_knee_center",
+        "raw_pixel": [
+          167,
+          541
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.5524
+      },
+      {
+        "id": "F16",
+        "name": "left_ankle_plate_center",
+        "raw_pixel": [
+          374,
+          663
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "joint_under_armor",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.1939
+      },
+      {
+        "id": "F17",
+        "name": "right_ankle_plate_center",
+        "raw_pixel": [
+          137,
+          649
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "joint_under_armor",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.2351
+      },
+      {
+        "id": "F18",
+        "name": "lowest_boot_contact",
+        "raw_pixel": [
+          372,
+          729
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.0
+      },
+      {
+        "id": "F19",
+        "name": "right_boot_contact",
+        "raw_pixel": [
+          140,
+          709
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.0588
+      },
+      {
+        "id": "F20",
+        "name": "hammer_top_finial",
+        "raw_pixel": [
+          48,
+          104
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.8365
+      },
+      {
+        "id": "F21",
+        "name": "hammer_bottom_finial",
+        "raw_pixel": [
+          70,
+          710
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.0558
+      },
+      {
+        "id": "F22",
+        "name": "hammer_head_center",
+        "raw_pixel": [
+          62,
+          213
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.5162
+      },
+      {
+        "id": "F23",
+        "name": "left_glove_center",
+        "raw_pixel": [
+          417,
+          431
+        ],
+        "uncertainty_radius_px": 8,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 0.8756
+      },
+      {
+        "id": "F24",
+        "name": "right_gripping_hand_center",
+        "raw_pixel": [
+          52,
+          324
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate",
+        "approximate_front_vertical_z_m": 1.19
+      }
+    ],
+    "threequarter": [
+      {
+        "id": "Q01",
+        "name": "crown",
+        "raw_pixel": [
+          611,
+          106
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q02",
+        "name": "chin",
+        "raw_pixel": [
+          606,
+          160
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "partly_occluded_by_gorget",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q03",
+        "name": "collar_front_rim",
+        "raw_pixel": [
+          587,
+          164
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q04",
+        "name": "near_pauldron_peak",
+        "raw_pixel": [
+          662,
+          145
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q05",
+        "name": "near_pauldron_outer_edge",
+        "raw_pixel": [
+          736,
+          232
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q06",
+        "name": "chest_medallion_center",
+        "raw_pixel": [
+          567,
+          230
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q07",
+        "name": "waist_belt_upper_center",
+        "raw_pixel": [
+          585,
+          286
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "partly_occluded",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q08",
+        "name": "tabard_center_hem",
+        "raw_pixel": [
+          572,
+          514
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "frayed_edge",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q09",
+        "name": "near_knee_center",
+        "raw_pixel": [
+          653,
+          466
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q10",
+        "name": "far_knee_center",
+        "raw_pixel": [
+          527,
+          473
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "oblique",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q11",
+        "name": "near_ankle_plate_center",
+        "raw_pixel": [
+          670,
+          560
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "joint_under_armor",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q12",
+        "name": "lowest_boot_contact",
+        "raw_pixel": [
+          670,
+          618
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q13",
+        "name": "hammer_top_finial",
+        "raw_pixel": [
+          514,
+          142
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "Q14",
+        "name": "hammer_bottom_finial",
+        "raw_pixel": [
+          481,
+          597
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      }
+    ],
+    "side": [
+      {
+        "id": "S01",
+        "name": "crown",
+        "raw_pixel": [
+          854,
+          107
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S02",
+        "name": "chin",
+        "raw_pixel": [
+          836,
+          160
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "partly_occluded_by_gorget",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S03",
+        "name": "collar_front_rim",
+        "raw_pixel": [
+          812,
+          168
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S04",
+        "name": "collar_back_rim",
+        "raw_pixel": [
+          887,
+          149
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S05",
+        "name": "pauldron_peak",
+        "raw_pixel": [
+          862,
+          153
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S06",
+        "name": "pauldron_back_edge",
+        "raw_pixel": [
+          927,
+          235
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S07",
+        "name": "chest_front_projection",
+        "raw_pixel": [
+          792,
+          225
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "partly_occluded_by_seals",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S08",
+        "name": "waist_belt_front",
+        "raw_pixel": [
+          791,
+          286
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "partly_occluded_by_book",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S09",
+        "name": "tabard_front_hem",
+        "raw_pixel": [
+          785,
+          548
+        ],
+        "uncertainty_radius_px": 8,
+        "visibility": "partly_occluded",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S10",
+        "name": "near_knee_center",
+        "raw_pixel": [
+          814,
+          472
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S11",
+        "name": "near_ankle_plate_center",
+        "raw_pixel": [
+          854,
+          563
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "joint_under_armor",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S12",
+        "name": "lowest_boot_contact",
+        "raw_pixel": [
+          821,
+          618
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S13",
+        "name": "nose_tip",
+        "raw_pixel": [
+          823,
+          139
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "S14",
+        "name": "back_skull",
+        "raw_pixel": [
+          881,
+          124
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      }
+    ],
+    "back": [
+      {
+        "id": "B01",
+        "name": "crown",
+        "raw_pixel": [
+          1100,
+          106
+        ],
+        "uncertainty_radius_px": 3,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B02",
+        "name": "collar_back_rim_center",
+        "raw_pixel": [
+          1096,
+          144
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B03",
+        "name": "left_pauldron_peak_image_left",
+        "raw_pixel": [
+          1017,
+          149
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B04",
+        "name": "right_pauldron_peak_image_right",
+        "raw_pixel": [
+          1170,
+          149
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B05",
+        "name": "left_pauldron_outer_edge",
+        "raw_pixel": [
+          968,
+          235
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B06",
+        "name": "right_pauldron_outer_edge",
+        "raw_pixel": [
+          1234,
+          232
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B07",
+        "name": "backplate_icon_center",
+        "raw_pixel": [
+          1093,
+          203
+        ],
+        "uncertainty_radius_px": 5,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B08",
+        "name": "waist_belt_upper_center",
+        "raw_pixel": [
+          1096,
+          287
+        ],
+        "uncertainty_radius_px": 6,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B09",
+        "name": "rear_tabard_hem_center",
+        "raw_pixel": [
+          1094,
+          568
+        ],
+        "uncertainty_radius_px": 7,
+        "visibility": "frayed_edge",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B10",
+        "name": "left_knee_level_estimate",
+        "raw_pixel": [
+          1026,
+          470
+        ],
+        "uncertainty_radius_px": 13,
+        "visibility": "occluded_by_cloth",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B11",
+        "name": "right_knee_level_estimate",
+        "raw_pixel": [
+          1161,
+          470
+        ],
+        "uncertainty_radius_px": 13,
+        "visibility": "occluded_by_cloth",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B12",
+        "name": "left_ankle_center",
+        "raw_pixel": [
+          1013,
+          565
+        ],
+        "uncertainty_radius_px": 8,
+        "visibility": "joint_under_armor",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B13",
+        "name": "right_ankle_center",
+        "raw_pixel": [
+          1169,
+          569
+        ],
+        "uncertainty_radius_px": 8,
+        "visibility": "joint_under_armor",
+        "method": "literal_manual_visual_estimate"
+      },
+      {
+        "id": "B14",
+        "name": "lowest_boot_contact",
+        "raw_pixel": [
+          1168,
+          616
+        ],
+        "uncertainty_radius_px": 4,
+        "visibility": "visible",
+        "method": "literal_manual_visual_estimate"
+      }
+    ]
+  },
+  "silhouettes": {
+    "front": {
+      "raw_pixels": [
+        [
+          273,
+          96
+        ],
+        [
+          290,
+          100
+        ],
+        [
+          300,
+          114
+        ],
+        [
+          302,
+          136
+        ],
+        [
+          299,
+          150
+        ],
+        [
+          315,
+          148
+        ],
+        [
+          327,
+          162
+        ],
+        [
+          342,
+          165
+        ],
+        [
+          355,
+          155
+        ],
+        [
+          371,
+          147
+        ],
+        [
+          388,
+          158
+        ],
+        [
+          419,
+          176
+        ],
+        [
+          432,
+          202
+        ],
+        [
+          429,
+          223
+        ],
+        [
+          443,
+          255
+        ],
+        [
+          441,
+          268
+        ],
+        [
+          451,
+          301
+        ],
+        [
+          445,
+          326
+        ],
+        [
+          452,
+          354
+        ],
+        [
+          440,
+          402
+        ],
+        [
+          447,
+          426
+        ],
+        [
+          434,
+          452
+        ],
+        [
+          414,
+          465
+        ],
+        [
+          396,
+          454
+        ],
+        [
+          407,
+          491
+        ],
+        [
+          401,
+          523
+        ],
+        [
+          405,
+          567
+        ],
+        [
+          413,
+          611
+        ],
+        [
+          428,
+          651
+        ],
+        [
+          414,
+          654
+        ],
+        [
+          402,
+          679
+        ],
+        [
+          409,
+          706
+        ],
+        [
+          401,
+          723
+        ],
+        [
+          379,
+          729
+        ],
+        [
+          351,
+          724
+        ],
+        [
+          331,
+          711
+        ],
+        [
+          326,
+          691
+        ],
+        [
+          334,
+          669
+        ],
+        [
+          318,
+          648
+        ],
+        [
+          301,
+          600
+        ],
+        [
+          286,
+          627
+        ],
+        [
+          261,
+          631
+        ],
+        [
+          239,
+          650
+        ],
+        [
+          207,
+          638
+        ],
+        [
+          206,
+          608
+        ],
+        [
+          191,
+          638
+        ],
+        [
+          187,
+          667
+        ],
+        [
+          178,
+          694
+        ],
+        [
+          161,
+          706
+        ],
+        [
+          129,
+          711
+        ],
+        [
+          100,
+          706
+        ],
+        [
+          96,
+          692
+        ],
+        [
+          110,
+          672
+        ],
+        [
+          125,
+          652
+        ],
+        [
+          134,
+          601
+        ],
+        [
+          136,
+          562
+        ],
+        [
+          140,
+          535
+        ],
+        [
+          136,
+          485
+        ],
+        [
+          150,
+          451
+        ],
+        [
+          145,
+          420
+        ],
+        [
+          157,
+          370
+        ],
+        [
+          171,
+          343
+        ],
+        [
+          155,
+          329
+        ],
+        [
+          136,
+          347
+        ],
+        [
+          110,
+          357
+        ],
+        [
+          82,
+          349
+        ],
+        [
+          63,
+          356
+        ],
+        [
+          40,
+          352
+        ],
+        [
+          28,
+          339
+        ],
+        [
+          25,
+          321
+        ],
+        [
+          34,
+          303
+        ],
+        [
+          53,
+          296
+        ],
+        [
+          75,
+          309
+        ],
+        [
+          104,
+          296
+        ],
+        [
+          126,
+          287
+        ],
+        [
+          139,
+          266
+        ],
+        [
+          143,
+          246
+        ],
+        [
+          157,
+          224
+        ],
+        [
+          157,
+          189
+        ],
+        [
+          177,
+          180
+        ],
+        [
+          192,
+          164
+        ],
+        [
+          204,
+          149
+        ],
+        [
+          213,
+          149
+        ],
+        [
+          223,
+          165
+        ],
+        [
+          240,
+          168
+        ],
+        [
+          247,
+          150
+        ],
+        [
+          244,
+          130
+        ],
+        [
+          247,
+          110
+        ],
+        [
+          257,
+          100
+        ]
+      ],
+      "closed": true,
+      "uncertainty_px": {
+        "typical": 8,
+        "cloth_or_occluded_edges": 20
+      },
+      "method": "literal_manual_sparse_visible_outline",
+      "excludes": [
+        "hammer",
+        "small_dangling_accessories"
+      ]
+    },
+    "threequarter": {
+      "raw_pixels": [
+        [
+          611,
+          106
+        ],
+        [
+          628,
+          110
+        ],
+        [
+          636,
+          127
+        ],
+        [
+          635,
+          143
+        ],
+        [
+          649,
+          146
+        ],
+        [
+          662,
+          145
+        ],
+        [
+          680,
+          154
+        ],
+        [
+          708,
+          165
+        ],
+        [
+          722,
+          184
+        ],
+        [
+          725,
+          211
+        ],
+        [
+          736,
+          232
+        ],
+        [
+          730,
+          249
+        ],
+        [
+          734,
+          277
+        ],
+        [
+          743,
+          300
+        ],
+        [
+          731,
+          343
+        ],
+        [
+          726,
+          370
+        ],
+        [
+          717,
+          394
+        ],
+        [
+          697,
+          402
+        ],
+        [
+          704,
+          432
+        ],
+        [
+          696,
+          462
+        ],
+        [
+          713,
+          501
+        ],
+        [
+          720,
+          546
+        ],
+        [
+          706,
+          550
+        ],
+        [
+          702,
+          575
+        ],
+        [
+          705,
+          596
+        ],
+        [
+          692,
+          614
+        ],
+        [
+          667,
+          618
+        ],
+        [
+          641,
+          613
+        ],
+        [
+          627,
+          603
+        ],
+        [
+          630,
+          580
+        ],
+        [
+          620,
+          553
+        ],
+        [
+          604,
+          521
+        ],
+        [
+          587,
+          522
+        ],
+        [
+          572,
+          515
+        ],
+        [
+          554,
+          530
+        ],
+        [
+          546,
+          566
+        ],
+        [
+          540,
+          587
+        ],
+        [
+          524,
+          602
+        ],
+        [
+          500,
+          602
+        ],
+        [
+          491,
+          593
+        ],
+        [
+          500,
+          575
+        ],
+        [
+          515,
+          557
+        ],
+        [
+          516,
+          528
+        ],
+        [
+          517,
+          491
+        ],
+        [
+          516,
+          464
+        ],
+        [
+          526,
+          422
+        ],
+        [
+          520,
+          395
+        ],
+        [
+          531,
+          351
+        ],
+        [
+          541,
+          322
+        ],
+        [
+          533,
+          307
+        ],
+        [
+          516,
+          324
+        ],
+        [
+          497,
+          327
+        ],
+        [
+          486,
+          315
+        ],
+        [
+          487,
+          298
+        ],
+        [
+          500,
+          286
+        ],
+        [
+          516,
+          291
+        ],
+        [
+          530,
+          273
+        ],
+        [
+          538,
+          240
+        ],
+        [
+          544,
+          207
+        ],
+        [
+          557,
+          190
+        ],
+        [
+          569,
+          177
+        ],
+        [
+          572,
+          159
+        ],
+        [
+          590,
+          153
+        ],
+        [
+          591,
+          131
+        ],
+        [
+          590,
+          117
+        ]
+      ],
+      "closed": true,
+      "uncertainty_px": {
+        "typical": 8,
+        "cloth_or_occluded_edges": 20
+      },
+      "method": "literal_manual_sparse_visible_outline",
+      "excludes": [
+        "hammer",
+        "small_dangling_accessories"
+      ]
+    },
+    "side": {
+      "raw_pixels": [
+        [
+          854,
+          107
+        ],
+        [
+          868,
+          109
+        ],
+        [
+          879,
+          118
+        ],
+        [
+          881,
+          133
+        ],
+        [
+          873,
+          145
+        ],
+        [
+          897,
+          147
+        ],
+        [
+          914,
+          158
+        ],
+        [
+          923,
+          186
+        ],
+        [
+          925,
+          217
+        ],
+        [
+          928,
+          236
+        ],
+        [
+          913,
+          248
+        ],
+        [
+          913,
+          272
+        ],
+        [
+          919,
+          291
+        ],
+        [
+          914,
+          321
+        ],
+        [
+          916,
+          349
+        ],
+        [
+          904,
+          373
+        ],
+        [
+          887,
+          390
+        ],
+        [
+          887,
+          419
+        ],
+        [
+          906,
+          452
+        ],
+        [
+          911,
+          494
+        ],
+        [
+          925,
+          549
+        ],
+        [
+          910,
+          552
+        ],
+        [
+          904,
+          581
+        ],
+        [
+          898,
+          603
+        ],
+        [
+          879,
+          610
+        ],
+        [
+          851,
+          617
+        ],
+        [
+          818,
+          619
+        ],
+        [
+          789,
+          617
+        ],
+        [
+          782,
+          609
+        ],
+        [
+          790,
+          596
+        ],
+        [
+          810,
+          583
+        ],
+        [
+          823,
+          574
+        ],
+        [
+          822,
+          550
+        ],
+        [
+          810,
+          521
+        ],
+        [
+          807,
+          494
+        ],
+        [
+          798,
+          482
+        ],
+        [
+          798,
+          454
+        ],
+        [
+          803,
+          435
+        ],
+        [
+          793,
+          419
+        ],
+        [
+          784,
+          435
+        ],
+        [
+          780,
+          408
+        ],
+        [
+          783,
+          376
+        ],
+        [
+          778,
+          352
+        ],
+        [
+          781,
+          316
+        ],
+        [
+          785,
+          284
+        ],
+        [
+          788,
+          252
+        ],
+        [
+          791,
+          224
+        ],
+        [
+          805,
+          199
+        ],
+        [
+          804,
+          174
+        ],
+        [
+          815,
+          164
+        ],
+        [
+          831,
+          158
+        ],
+        [
+          830,
+          150
+        ],
+        [
+          823,
+          141
+        ],
+        [
+          828,
+          136
+        ],
+        [
+          830,
+          122
+        ]
+      ],
+      "closed": true,
+      "uncertainty_px": {
+        "typical": 8,
+        "cloth_or_occluded_edges": 20
+      },
+      "method": "literal_manual_sparse_visible_outline",
+      "excludes": [
+        "hammer",
+        "small_dangling_accessories"
+      ]
+    },
+    "back": {
+      "raw_pixels": [
+        [
+          1100,
+          106
+        ],
+        [
+          1113,
+          109
+        ],
+        [
+          1120,
+          123
+        ],
+        [
+          1121,
+          142
+        ],
+        [
+          1141,
+          141
+        ],
+        [
+          1145,
+          158
+        ],
+        [
+          1161,
+          164
+        ],
+        [
+          1170,
+          149
+        ],
+        [
+          1185,
+          160
+        ],
+        [
+          1209,
+          172
+        ],
+        [
+          1223,
+          191
+        ],
+        [
+          1227,
+          215
+        ],
+        [
+          1234,
+          232
+        ],
+        [
+          1223,
+          250
+        ],
+        [
+          1233,
+          274
+        ],
+        [
+          1238,
+          301
+        ],
+        [
+          1223,
+          331
+        ],
+        [
+          1217,
+          346
+        ],
+        [
+          1224,
+          368
+        ],
+        [
+          1211,
+          389
+        ],
+        [
+          1198,
+          398
+        ],
+        [
+          1198,
+          437
+        ],
+        [
+          1203,
+          477
+        ],
+        [
+          1190,
+          521
+        ],
+        [
+          1202,
+          566
+        ],
+        [
+          1187,
+          580
+        ],
+        [
+          1191,
+          601
+        ],
+        [
+          1180,
+          615
+        ],
+        [
+          1156,
+          616
+        ],
+        [
+          1144,
+          607
+        ],
+        [
+          1147,
+          577
+        ],
+        [
+          1126,
+          575
+        ],
+        [
+          1108,
+          580
+        ],
+        [
+          1085,
+          573
+        ],
+        [
+          1062,
+          573
+        ],
+        [
+          1044,
+          569
+        ],
+        [
+          1044,
+          595
+        ],
+        [
+          1035,
+          611
+        ],
+        [
+          1013,
+          616
+        ],
+        [
+          991,
+          611
+        ],
+        [
+          979,
+          600
+        ],
+        [
+          988,
+          579
+        ],
+        [
+          988,
+          552
+        ],
+        [
+          981,
+          514
+        ],
+        [
+          988,
+          477
+        ],
+        [
+          981,
+          445
+        ],
+        [
+          986,
+          416
+        ],
+        [
+          976,
+          391
+        ],
+        [
+          974,
+          367
+        ],
+        [
+          977,
+          347
+        ],
+        [
+          963,
+          331
+        ],
+        [
+          964,
+          306
+        ],
+        [
+          970,
+          279
+        ],
+        [
+          978,
+          252
+        ],
+        [
+          968,
+          235
+        ],
+        [
+          980,
+          219
+        ],
+        [
+          981,
+          191
+        ],
+        [
+          994,
+          175
+        ],
+        [
+          1017,
+          149
+        ],
+        [
+          1024,
+          161
+        ],
+        [
+          1031,
+          169
+        ],
+        [
+          1055,
+          158
+        ],
+        [
+          1057,
+          145
+        ],
+        [
+          1084,
+          144
+        ],
+        [
+          1082,
+          130
+        ],
+        [
+          1085,
+          115
+        ]
+      ],
+      "closed": true,
+      "uncertainty_px": {
+        "typical": 8,
+        "cloth_or_occluded_edges": 20
+      },
+      "method": "literal_manual_sparse_visible_outline",
+      "excludes": [
+        "hammer",
+        "small_dangling_accessories"
+      ]
+    }
+  },
+  "detail_contours": {
+    "front_left_pauldron_main_shell": {
+      "raw_pixels": [
+        [
+          371,
+          147
+        ],
+        [
+          387,
+          157
+        ],
+        [
+          402,
+          165
+        ],
+        [
+          419,
+          176
+        ],
+        [
+          429,
+          193
+        ],
+        [
+          426,
+          210
+        ],
+        [
+          413,
+          221
+        ],
+        [
+          397,
+          232
+        ],
+        [
+          378,
+          240
+        ],
+        [
+          359,
+          235
+        ],
+        [
+          344,
+          220
+        ],
+        [
+          337,
+          201
+        ],
+        [
+          337,
+          180
+        ],
+        [
+          343,
+          164
+        ],
+        [
+          355,
+          155
+        ]
+      ],
+      "closed": true,
+      "uncertainty_px": 4,
+      "method": "literal_manual_visible_plate_boundary"
+    },
+    "front_left_pauldron_lower_shell": {
+      "raw_pixels": [
+        [
+          404,
+          220
+        ],
+        [
+          418,
+          216
+        ],
+        [
+          429,
+          227
+        ],
+        [
+          435,
+          242
+        ],
+        [
+          443,
+          255
+        ],
+        [
+          437,
+          266
+        ],
+        [
+          419,
+          269
+        ],
+        [
+          398,
+          263
+        ],
+        [
+          382,
+          253
+        ],
+        [
+          378,
+          240
+        ]
+      ],
+      "closed": true,
+      "uncertainty_px": 4,
+      "method": "literal_manual_visible_plate_boundary"
+    }
+  },
+  "view_disagreements": [
+    {
+      "id": "scale_and_camera",
+      "observation": "The main front character occupies 633 px; the other figures occupy about 510-512 px. The sheet is not four equal-scale orthographic projections.",
+      "decision": "Use the main front's 1.86 m / 633 px convention for approximate vertical comparisons only. Do not apply its pixel-to-meter factor to other views."
+    },
+    {
+      "id": "feet_and_pose",
+      "observation": "The front boot contacts differ by about 20 px; the front head, torso, and weight-bearing stance are offset. The arm holding the hammer is extended differently in other views.",
+      "decision": "The lowest front boot contact defines the chosen scale. Do not infer limb-length asymmetry, flatten the soles to a pixel row, or bake pose offsets into rest anatomy."
+    },
+    {
+      "id": "head_and_collar",
+      "observation": "The collar obscures the chin, while the side profile exposes a different jaw/nose silhouette. No camera calibration fixes their correspondence.",
+      "decision": "Treat the chin as +/-7 px in the front. Use the side primarily for depth/profile and the front for breadth; keep the source head centered as specified in CONTRACT.md."
+    },
+    {
+      "id": "pauldron_occlusion",
+      "observation": "The far/front-image-left pauldron is foreshortened and overlaps the arm/mail differently. Raised borders and icons obscure exact plate boundaries.",
+      "decision": "Use the anatomical-left/front-image-right pauldron as the proof component. Main and lower shell traces are interpretive visible contours, not exact seam topology."
+    },
+    {
+      "id": "cloth_and_accessories",
+      "observation": "Tabard split, fringe, mail exposure, tome tilt, seals, and hanging censer differ in placement and overlap across views. Rear knees are obscured.",
+      "decision": "Preserve the reference's general placement and density with one coherent model. Do not triangulate hidden knee points or treat individual fringe tips as fixed 3D targets."
+    },
+    {
+      "id": "lighting_and_surface",
+      "observation": "Highlights, cast shadows, painted edge wear, and ambient shading are embedded in the illustrated pixels; inset views also use different framing.",
+      "decision": "Use crops for visual study. They are not clean albedo, roughness, normal, or displacement maps and are not evidence of measured physical dimensions."
+    },
+    {
+      "id": "hammer",
+      "observation": "Main front hammer endpoints are y=104 and y=710, while the character endpoints are y=96 and y=729. The weapon is angled and shown at differing sizes in the insets.",
+      "decision": "Exclude the hammer from character scale; separate endpoints and head-center measurements are for placement review only."
+    }
+  ]
+}

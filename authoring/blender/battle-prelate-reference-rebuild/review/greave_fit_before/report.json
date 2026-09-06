@@ -1,0 +1,199 @@
+{
+  "master_sha256": "0ad72a57b1238fa41c3fbdb9b285ffa4dd366e93875bce190a6bf48a1feb823e",
+  "leg_source_sha256": "c6c529f53f0dc34028eb781b3afe2aeccd0a44466dce3225b7ffcb317678940c",
+  "animation_version": "authored_hammer_grip_v4_book_clearance",
+  "images": [
+    {
+      "path": "review\\greave_fit_before\\rest_50.png",
+      "sha256": "3a99ea2effd1b048fd9d667f2a2eaadf345ccda6a837f86dddbdbaf35541ab6e",
+      "clip": "rest",
+      "frame": 1,
+      "camera": "full_front"
+    },
+    {
+      "path": "review\\greave_fit_before\\run_50.png",
+      "sha256": "2a2baf75277e1e23850e2043eb9964a443c126fbcd306b67c8280ddb37eb029f",
+      "clip": "run",
+      "frame": 8.0,
+      "camera": "full_three_quarter"
+    }
+  ],
+  "run_probe_rays": [
+    {
+      "pixel": [
+        317,
+        518
+      ],
+      "hits": [
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.593482494354248,
+          "world": [
+            -0.030135393142700195,
+            -0.295015811920166,
+            0.6086255311965942
+          ],
+          "rest": [
+            -0.08143217861652374,
+            -0.011341255158185959,
+            0.46566635370254517
+          ],
+          "nearest_authored_ids": [
+            "v000",
+            "v005",
+            "v001",
+            "v006"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        320,
+        524
+      ],
+      "hits": [
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.600293159484863,
+          "world": [
+            -0.025761127471923828,
+            -0.28444910049438477,
+            0.5902504920959473
+          ],
+          "rest": [
+            -0.07846377789974213,
+            0.00480178277939558,
+            0.4515587091445923
+          ],
+          "nearest_authored_ids": [
+            "v000",
+            "v005",
+            "v006",
+            "v001"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        320,
+        530
+      ],
+      "hits": [
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.6001505851745605,
+          "world": [
+            -0.02568793296813965,
+            -0.28457117080688477,
+            0.5718755125999451
+          ],
+          "rest": [
+            -0.07981226593255997,
+            0.010760108008980751,
+            0.4342283606529236
+          ],
+          "nearest_authored_ids": [
+            "v005",
+            "v000",
+            "v010",
+            "v006"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        321,
+        536
+      ],
+      "hits": [
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.602503776550293,
+          "world": [
+            -0.024272680282592773,
+            -0.280977725982666,
+            0.5535005331039429
+          ],
+          "rest": [
+            -0.07981272786855698,
+            0.02025519125163555,
+            0.4180295765399933
+          ],
+          "nearest_authored_ids": [
+            "v005",
+            "v000",
+            "v010",
+            "v006"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        325,
+        535
+      ],
+      "hits": [
+        {
+          "part": "greave_inner_brass_edge",
+          "distance": 5.608006954193115,
+          "world": [
+            -0.016599416732788086,
+            -0.269956111907959,
+            0.5565630197525024
+          ],
+          "rest": [
+            -0.0718960091471672,
+            0.029819851741194725,
+            0.4239943027496338
+          ],
+          "nearest_authored_ids": [
+            "v002",
+            "v003",
+            "v000",
+            "v001"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        310,
+        530
+      ],
+      "hits": [
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.576325416564941,
+          "world": [
+            -0.03969073295593262,
+            -0.3207578659057617,
+            0.5718755125999451
+          ],
+          "rest": [
+            -0.09387028962373734,
+            -0.023707091808319092,
+            0.423276424407959
+          ],
+          "nearest_authored_ids": [
+            "v005",
+            "v000",
+            "v006",
+            "v001"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        332,
+        545
+      ],
+      "hits": []
+    }
+  ],
+  "master_unchanged": true
+}

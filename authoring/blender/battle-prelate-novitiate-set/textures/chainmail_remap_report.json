@@ -1,0 +1,151 @@
+{
+  "arms": {
+    "geometry_rig_unchanged": true,
+    "geometry_sha256": "acc3aa62b721e4042af735b52703cd5ca4641eab2c7f7d00470d9cd367adc903",
+    "material_placements": [
+      {
+        "part": "upper_arm_joint_underlayer",
+        "placement": {
+          "scale": [
+            14.0,
+            10.0
+          ],
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "seam_corner_u": {
+            "sleeve08": {
+              "2": 1.02,
+              "3": 1.02
+            },
+            "sleeve16": {
+              "2": 1.02,
+              "3": 1.02
+            }
+          },
+          "target_link_diameter_m": [
+            0.008,
+            0.01
+          ]
+        },
+        "chainmail_faces": 16
+      }
+    ]
+  },
+  "legs": {
+    "geometry_rig_unchanged": true,
+    "geometry_sha256": "9c85be68cf88cca5a346e249b765ce22c4656efce1a0ac3cfb7a3ee83b77b9a2",
+    "material_placements": [
+      {
+        "part": "thigh_padded_underlayer",
+        "placement": {
+          "scale": [
+            20.0,
+            11.0
+          ],
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "u_revisions": {
+            "0.0": 0.0,
+            "0.3": 0.167,
+            "0.6": 0.333,
+            "0.8": 0.5,
+            "1.0": 0.667,
+            "0.1": 0.833
+          },
+          "seam_faces": [
+            "f005"
+          ],
+          "excluded_faces": [
+            "f006",
+            "f007"
+          ]
+        },
+        "chainmail_faces": 6
+      },
+      {
+        "part": "knee_and_calf_padded_underlayer",
+        "placement": {
+          "scale": [
+            18.0,
+            18.0
+          ],
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "u_revisions": {
+            "0.0": 0.0,
+            "0.25": 0.167,
+            "0.5": 0.333,
+            "0.75": 0.5,
+            "1.0": 0.667,
+            "0.1": 0.833
+          },
+          "seam_faces": [
+            "f005",
+            "f011",
+            "f017"
+          ],
+          "excluded_faces": [
+            "f018",
+            "f019"
+          ]
+        },
+        "chainmail_faces": 18
+      }
+    ]
+  },
+  "body_underlayers": {
+    "geometry_rig_unchanged": true,
+    "geometry_sha256": "675624c184040cee206ee6bd188ea509cbc31a299e693e23ad95cfdc24933038",
+    "material_placements": [
+      {
+        "part": "tailored_hip_and_crotch_breeches",
+        "placement": {
+          "scale": [
+            52.0,
+            9.0
+          ],
+          "offset": [
+            -26.0,
+            0.0
+          ],
+          "seam_corner_u": {}
+        },
+        "chainmail_faces": 17
+      },
+      {
+        "part": "fitted_padded_breeches_thighs",
+        "placement": {
+          "scale": [
+            18.0,
+            16.0
+          ],
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "seam_corner_u": {
+            "breeches08": {
+              "2": 1.02,
+              "3": 1.02
+            },
+            "breeches16": {
+              "2": 1.02,
+              "3": 1.02
+            },
+            "breeches24": {
+              "2": 1.02,
+              "3": 1.02
+            }
+          }
+        },
+        "chainmail_faces": 24
+      }
+    ]
+  }
+}

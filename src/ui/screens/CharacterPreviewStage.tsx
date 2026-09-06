@@ -1,9 +1,12 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { AssetLoader } from '../../game/AssetLoader';
 import { Player } from '../../game/Player';
+import { setupPreviewReflections } from '../../game/PreviewReflections';
 import type { CharacterState } from '../../services/types';
 import type { Terrain } from '../../world/Terrain';
+import { NOVITIATE_ARMOR_ITEM_CATALOG } from '../../data/novitiateArmor';
+import { characterForArmorPreview, supportsNovitiatePreview, type ArmorPreviewMode } from './armorPreview';
 
 interface CharacterPreviewStageProps {
   character: CharacterState | null;
@@ -15,6 +18,26 @@ const PREVIEW_CAMERA_TARGET = new THREE.Vector3(0, 1.18, 0);
 
 export function CharacterPreviewStage({ character }: CharacterPreviewStageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [armorSelection, setArmorSelection] = useState<{ characterId: string; mode: ArmorPreviewMode } | null>(null);
+  const [novitiateReady, setNovitiateReady] = useState(false);
+  const compatible = supportsNovitiatePreview(character);
+  const armorMode = compatible && novitiateReady && armorSelection && armorSelection.characterId === character?.id
+    ? armorSelection.mode : 'current';
+
+  useEffect(() => {
+    let cancelled = false;
+    setNovitiateReady(false);
+    if (compatible) {
+      const loader = new AssetLoader();
+      const context = { bodyFamily: 'civic_battle_prelate_m', bodyVariant: 'm', skeletonId: 'humanoid_game_v2', bindPoseId: 'a_pose_v2' };
+      void Promise.all(Object.values(NOVITIATE_ARMOR_ITEM_CATALOG).map(async (item) => {
+        const resolved = await loader.resolveEquipmentModel(item.key, item.visual!.model, context);
+        return resolved.skinned === true && !resolved.disabled && resolved.model === item.visual!.model;
+      })).then((ready) => { if (!cancelled) setNovitiateReady(ready.every(Boolean)); })
+        .catch(() => { if (!cancelled) setNovitiateReady(false); });
+    }
+    return () => { cancelled = true; };
+  }, [compatible, character?.id]);
   const previewKey = useMemo(() => {
     if (!character) return 'empty';
     return [
@@ -23,8 +46,9 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
       character.className,
       character.bodyVariant,
       equipmentSignature(character),
+      armorMode,
     ].join(':');
-  }, [character]);
+  }, [character, armorMode]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -52,7 +76,7 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
     const fillLight = new THREE.PointLight(0xffd9aa, 0.8, 8);
     const previewTerrain = { heightAt: () => 0 } as unknown as Terrain;
     const previewCharacter: CharacterState = {
-      ...character,
+      ...characterForArmorPreview(character, armorMode),
       position: { x: 0, y: 0, z: 0 },
       rotationY: 0,
     };
@@ -68,6 +92,7 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
     renderer.toneMappingExposure = 1.42;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    const disposeReflections = setupPreviewReflections(scene, renderer);
     container.appendChild(renderer.domElement);
 
     const hemi = new THREE.HemisphereLight(0xd8e4ff, 0x1a0c08, 0.92);
@@ -173,18 +198,29 @@ export function CharacterPreviewStage({ character }: CharacterPreviewStageProps)
       container.removeEventListener('pointermove', onPointerMove);
       container.removeEventListener('pointerup', onPointerUp);
       container.removeEventListener('pointercancel', onPointerUp);
+      disposeReflections();
       renderer.dispose();
       renderer.domElement.remove();
     };
-  }, [previewKey, character]);
+  }, [previewKey, character, armorMode]);
 
   return (
     <section
-      className={`character-preview-stage ${character ? `race-${character.race}` : ''}`}
+      className={`character-preview-stage ${character ? `race-${character.race}` : ''}${compatible ? ' has-armor-preview' : ''}`}
       aria-label="Selected character preview"
     >
       <div ref={containerRef} className="character-preview-canvas" />
       <div className="character-preview-vignette" aria-hidden="true" />
+      {compatible && character && (
+        <div className="character-armor-preview">
+          <span>Armor preview</span>
+          <div className="model-review-segmented" role="group" aria-label="Armor preview">
+            <button type="button" aria-pressed={armorMode === 'current'} onClick={() => setArmorSelection({ characterId: character.id, mode: 'current' })}>Current armor</button>
+            <button type="button" aria-pressed={armorMode === 'novitiate'} disabled={!novitiateReady} onClick={() => setArmorSelection({ characterId: character.id, mode: 'novitiate' })}>Novitiate armor</button>
+          </div>
+          <small>{novitiateReady ? 'Preview only. Enter World uses your equipped armor.' : 'Novitiate armor is not installed.'}</small>
+        </div>
+      )}
     </section>
   );
 }

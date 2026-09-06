@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.ember_arcanist.waist.t1.m",
+  "model": "arm_civic_ember_arcanist_waist_t1_m_lod2.glb",
+  "modelSha256": "feb2bae53acbcd830933e566e7b6f3cdfd55f6f22a7d4becb582e89a73322dae",
+  "fileSizeBytes": 838108,
+  "category": "armor",
+  "slot": "waist",
+  "lod": 2,
+  "bodyFamily": "civic_ember_arcanist_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 2312,
+  "totalTris": 2312,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 512,
+  "maxTextureResolution": 512,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_ember_arcanist_waist_t1_m.glb",
+      "sha256": "d244831281f97d31a4f1136ccf1720bf2a487a9701025a6c9b721cf34e0ca587"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_ember_arcanist_waist_t1_m_lod1.glb",
+      "sha256": "ffb4d1c76fce67c92fc5d28b067b1263d748253c46d08765911f08250d31c05c"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_ember_arcanist_waist_t1_m_lod2.glb",
+      "sha256": "feb2bae53acbcd830933e566e7b6f3cdfd55f6f22a7d4becb582e89a73322dae"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions; explicit body/outfit cages adapted from Battle Prelate sources with new hair, collar, panels and staff",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "98428bc32a584db4e8eb1ca052628926fa0c5044a068411fd04fb47054f94602",
+    "runtimeReportSha256": "5c39385cf27509871c8c5ebf7ade6a4a4d72e539fa363d01a85ff2ea351da020",
+    "visualReviewSha256": "c34ad65db6e7ab42e484e88ba03b7951e31026decc712bf1874c6b5f7a9c156e",
+    "evidenceArchive": "authoring/archives/ember-arcanist-reference-rebuild/98428bc32a58",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_belt_wax_seals",
+        "file": "source\\relics.json",
+        "sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "relic_four_belt_parchments",
+        "file": "source\\relics.json",
+        "sha256": "8bb5d98aca682fc820eb7cc936c8ea6789c3bfb391cb8bcef5a5446aa148524d",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "tome_parchment_page_bundle",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_front_leather_cover",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_back_leather_cover",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_rounded_hinged_spine",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_four_gothic_corner_brackets",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_cover_embossed_border",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "tome_three_spine_hinge_bands",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_two_foreedge_clasps",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "tome_hanging_leather_tabs",
+        "file": "source\\tome.json",
+        "sha256": "9a4137662276297d4da17efa1205f8d2f17aa2b470e63e2664b2947d504915f8",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "heavy_relic_belt",
+        "file": "source\\waist.json",
+        "sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 1
+          }
+        ]
+      },
+      {
+        "part": "left_belt_field_pouch",
+        "file": "source\\waist.json",
+        "sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "pouch_foldover_flap",
+        "file": "source\\waist.json",
+        "sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "left_belt_field_pouchsmall",
+        "file": "source\\waist.json",
+        "sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "pouch_foldover_flapsmall",
+        "file": "source\\waist.json",
+        "sha256": "c2a26e4d5bb684ae43099667587b122bdf7f94163801095fb6869195cd5f591b",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

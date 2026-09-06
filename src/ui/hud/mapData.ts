@@ -5,6 +5,7 @@ import type { EnemyState } from '../../state/gameStore';
 import type { NpcState } from '../../world/NpcSpawner';
 import type { CraftingStationSpawn, ZoneTrigger } from '../../world/ZoneLoader';
 import { distance2d, formatDistance, questNpcStatus } from './objectiveHudData';
+import { resolveQuestNavigation } from './questNavigation';
 
 export type MarkerToggle = 'quests' | 'npcs' | 'crafting' | 'resources' | 'enemies' | 'exits';
 
@@ -18,6 +19,7 @@ export interface MapMarker {
   shape: 'circle' | 'square' | 'diamond' | 'triangle' | 'glyph';
   glyph?: string;
   priority?: boolean;
+  focused?: boolean;
   edgeLabel?: string;
 }
 
@@ -72,7 +74,7 @@ export function buildMarkers(input: {
   resourceNodes: ResourceMarker[];
   visible: Record<MarkerToggle, boolean>;
 }): MapMarker[] {
-  const activeKillTargets = activeQuestKillTargets(input.quests);
+  const activeKillTargets = activeQuestKillTargets(input.quests, input.character?.zoneId);
   const markers: MapMarker[] = [];
 
   if (input.visible.exits) {
@@ -191,7 +193,22 @@ export function buildMarkers(input: {
     }
   }
 
-  return markers.sort((a, b) => Number(a.priority) - Number(b.priority));
+  const navigation = resolveQuestNavigation({ ...input, progresses: input.quests });
+  if (input.visible.quests && navigation?.position) {
+    markers.push({
+      id: `expedition-${navigation.quest.id}`,
+      kind: 'quests',
+      label: navigation.label,
+      detail: navigation.quest.title,
+      position: navigation.position,
+      color: '#ffe695',
+      shape: 'diamond',
+      priority: true,
+      focused: true,
+      edgeLabel: formatDistance(navigation.distance),
+    });
+  }
+  return markers.sort((a, b) => Number(a.priority) - Number(b.priority) || Number(a.focused ?? false) - Number(b.focused ?? false));
 }
 
 export function npcRoleColor(role: string): string {
@@ -251,13 +268,14 @@ export function useZoneExitMarkers(zoneId: string | null): ZoneExitMarker[] {
   return markers;
 }
 
-function activeQuestKillTargets(quests: QuestProgress[]): Set<string> {
+function activeQuestKillTargets(quests: QuestProgress[], zoneId?: string): Set<string> {
   const targets = new Set<string>();
   for (const progress of quests) {
     if (progress.status !== 'active') continue;
     const definition = QUESTS_BY_ID[progress.questId];
     if (!definition) continue;
     for (const objective of definition.objectives) {
+      if (objective.zoneId && zoneId && objective.zoneId !== zoneId) continue;
       const current = progress.counters[objective.id] ?? 0;
       if (objective.killTarget && current < objective.required) {
         targets.add(objective.killTarget);

@@ -18,6 +18,7 @@ describe('local campaign influence and keep capture', () => {
     ).rejects.toThrow(/Control all three battlefield objectives first/);
 
     const west = await campaign.claimObjective(zoneId, `${zoneId}_west_objective`, 'aegis');
+    expect(west.activity).toBe('capture');
     expect(west.reward).toEqual({
       xp: CAMPAIGN_OBJECTIVE_CAPTURE_XP,
       influence: CAMPAIGN_BATTLE_OBJECTIVE_INFLUENCE,
@@ -44,5 +45,9 @@ describe('local campaign influence and keep capture', () => {
     const capturedZone = keep.snapshot.zones.find((zone) => zone.id === zoneId);
     expect(keep.zoneControlChanged).toBe(true);
     expect(capturedZone?.control).toBe('aegis');
+    expect(keep.reward).toMatchObject({ xp: 1200, influence: 0, gold: 120 });
+    expect(keep.reward.items).toHaveLength(1);
+    await expect(campaign.claimObjective(zoneId, `${zoneId}_riftbound_keep`, 'aegis'))
+      .rejects.toThrow(/Already controlled/);
   });
 });

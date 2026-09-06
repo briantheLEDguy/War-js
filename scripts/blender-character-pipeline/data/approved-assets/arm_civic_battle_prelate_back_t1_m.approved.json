@@ -20,26 +20,283 @@
     ]
   },
   "hashes": {
-    "modelSha256": "392941f21b4b90b57fab1392b3746898d6e78593f16ca153eace58b791ae0822",
-    "qcSha256": "94b9a514a7c1b0bab7208a4591bc92d4948240cf73552e1cfb62fd6e7ccf9da3",
+    "modelSha256": "6b1fe23eb44af252013c57ae3d18f706870095943ff10759ed51492298be1cbd",
+    "qcSha256": "6f6f021c6b3041c0c2dd638fc4ebfd3da4209af89e7d1ab90797a30ef3e6649a",
     "previews": {
-      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+      "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9"
     }
   },
   "previews": {
-    "front": "reviews/roster-direct/battle_prelate/m/back_front.png"
+    "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
   },
   "provenance": {
-    "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "dark-fantasy-character-pass-v3",
-    "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "rigid_backplate",
+        "file": "source\\backplate.json",
+        "sha256": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_recessed_backing",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_outer_rim",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_inner_beaded_border",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_skull",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_dental_crowns",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_dental_crowns",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_dental_crowns",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_dental_crowns",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_dental_crowns",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_dental_crowns",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_lower_pendant",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "rear_reliquary_rim_fasteners",
+        "file": "source\\repeated_reliquaries.json",
+        "sha256": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      }
+    ]
   },
   "review": {
-    "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T10:19:31.445Z",
-    "reviewHash": "19bc2cc5213609373073b64c0d207c57590ac93c85d93e9a58146243e3121a4d"
+    "reviewedBy": "Codex primary agent, with independent source, export, and motion reviews",
+    "reviewedAt": "2026-09-06T01:10:06.609961+00:00",
+    "reviewHash": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42"
   },
   "approvalState": "approved"
 }

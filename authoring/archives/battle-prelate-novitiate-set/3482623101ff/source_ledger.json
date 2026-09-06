@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "scope": "Exact authoring inputs captured during promotion preparation; runtime validation and visual evidence are separate records",
+  "files": {
+    "DESIGN.md": {
+      "sha256": "172fce3d16b658b37ef4d2fab064d993bec4aacff74eb0fd8c6ff81aa9cea4dd",
+      "bytes": 1420
+    },
+    "runtime/evaluated_lods.json.gz": {
+      "sha256": "5070f3be629a006203192afd97356d1e58d55a17ebfbde0b8f41e9ce7c1f66d6",
+      "bytes": 5020005
+    },
+    "shared_source/source/arms.json": {
+      "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+      "bytes": 170221
+    },
+    "shared_source/source/body_underlayers.json": {
+      "sha256": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+      "bytes": 73910
+    },
+    "shared_source/source/garments.json": {
+      "sha256": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+      "bytes": 64890
+    },
+    "shared_source/source/head.json": {
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "bytes": 166389
+    },
+    "shared_source/source/legs.json": {
+      "sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+      "bytes": 167490
+    },
+    "shared_source/source/warhammer.json": {
+      "sha256": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+      "bytes": 158716
+    },
+    "source/CONTRACT.md": {
+      "sha256": "81e8a6204ce59552450ff221b8aa023b653d8ec8eb514ad0410ecb9eab5c6981",
+      "bytes": 2279
+    },
+    "source/FULL_CHARACTER_CONTRACT.md": {
+      "sha256": "0855598b2edac6090bdf440fd12feeb54562300b9135650bae72dd5c59143b2a",
+      "bytes": 3585
+    },
+    "source/arms.json": {
+      "sha256": "5bd6a96eefbe02114763eba544d242bfe7c7dbb65a564e099b533c87333ff3dd",
+      "bytes": 171176
+    },
+    "source/backplate.json": {
+      "sha256": "e39ad5c8bea922c16e8b1b496576495c7ba98d94097bfb19975dad585598554e",
+      "bytes": 15022
+    },
+    "source/breastplate.json": {
+      "sha256": "f336355535f14b8d523f1957c9796e086eb3ba89c985f9fd6ef3b4805af4a402",
+      "bytes": 34804
+    },
+    "source/faith_badge.json": {
+      "sha256": "8eb7fc5aeef5b321f0a028075df92ad40568e09dbee14d9d771be30de32e4448",
+      "bytes": 5643
+    },
+    "source/feet.json": {
+      "sha256": "c9e4ddf1f6ede06905caf54c9ab5054c091e72bcbd95f943bbf3a9442c89f711",
+      "bytes": 86474
+    },
+    "source/garments.json": {
+      "sha256": "ae7c412c3722eb98064b3b33668493450eaff70a78d434587835ba912b8bb35c",
+      "bytes": 76500
+    },
+    "source/gorget.json": {
+      "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+      "bytes": 32196
+    },
+    "source/legs.json": {
+      "sha256": "4fb05e366b183e998ee6c57a6465363b24477f1d140960466a0f63714b140e87",
+      "bytes": 113881
+    },
+    "source/pauldron.json": {
+      "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+      "bytes": 129618
+    },
+    "source/scene.json": {
+      "sha256": "128ed04cf7d01d08c5da12be2b4851a1ac8c2fe5eea4a19e3a9eb3ec84f4ec7f",
+      "bytes": 3474
+    },
+    "source/waist.json": {
+      "sha256": "02c352ee18b30804868c58f5acd32d9177f10eb218bc065be360ef779e4527f2",
+      "bytes": 24569
+    },
+    "textures/paint_manifest.json": {
+      "sha256": "3553c93e4bb4270f513e39f3a4531840091ffb6dec1f28052bf8b1b72abf87a0",
+      "bytes": 11551
+    },
+    "textures/paint_strokes.json": {
+      "sha256": "f5cb3f496ce82fff9a5966e6fd36321ae5ea81bb9730ef47ff26d17bda48338c",
+      "bytes": 1407412
+    },
+    "textures/source/brass_basecolor.png": {
+      "sha256": "99fc239024010fd57397eb495747b8af413e7b58979e1b7774e1cdcfdd9385a7",
+      "bytes": 77487
+    },
+    "textures/source/brass_height.png": {
+      "sha256": "5a112b33f9a2fb156cb68f58c1b3cd9121740e31c8d9669683cdf351b6307210",
+      "bytes": 6681
+    },
+    "textures/source/brass_metallic.png": {
+      "sha256": "f65358b619da0d0c68db36ec5b8053e04d816ad3c4e2ddad1cfe867257f1b19b",
+      "bytes": 12901
+    },
+    "textures/source/brass_roughness.png": {
+      "sha256": "6b92463446ccb1fb34eca96e74994d0bc83bf2923e369bdf19bc6ed62ca50288",
+      "bytes": 33528
+    },
+    "textures/source/chainmail_basecolor.png": {
+      "sha256": "f1c41a4a9c5f1531b2c65f2f6b6e1506918c5d7e9f941d86c19944de72883385",
+      "bytes": 48056
+    },
+    "textures/source/chainmail_metallic.png": {
+      "sha256": "294ff431e65ab08e92d7b00faf1522a5df81978f90e0d4a3c469e8e808b2a47c",
+      "bytes": 48053
+    },
+    "textures/source/chainmail_normal.png": {
+      "sha256": "161038c1992f9a705aaf42fb891721cf9fa5a6512ef50b0f6d86fb0ba9fddd81",
+      "bytes": 604681
+    },
+    "textures/source/chainmail_occlusion.png": {
+      "sha256": "ecae6007e8a9ddd2801cdd16238825c73fa50a24d891193cbf97e3dcc6e4d1df",
+      "bytes": 1158333
+    },
+    "textures/source/chainmail_roughness.png": {
+      "sha256": "b64d16fb88da500b9abf95e5788e63c77ccdf5e99690bd06d721cb04be2b7258",
+      "bytes": 48223
+    },
+    "textures/source/crimson_basecolor.png": {
+      "sha256": "e1437a4eadcc99258b1445c0659b00db68defc2ee28b859fa504d85a0c5b2333",
+      "bytes": 165573
+    },
+    "textures/source/crimson_height.png": {
+      "sha256": "1439c72838c359fd833896399f945ef7ad30f1ee6db7885cb1cad3db59333c6c",
+      "bytes": 33194
+    },
+    "textures/source/crimson_metallic.png": {
+      "sha256": "5a52517aef8601941ad746d6b68f817be7c512f19cd418c1ccb92a3336d8609a",
+      "bytes": 1309
+    },
+    "textures/source/crimson_roughness.png": {
+      "sha256": "937f3f4b26acfa800eb8b86ab1c674dae61cb599871059c849d0470b0f27ea01",
+      "bytes": 21941
+    },
+    "textures/source/dark_steel_basecolor.png": {
+      "sha256": "4c4fe4940e196729cdcf070b3be156bdbdd2de2a61434da1eba1b42fa9f6b16a",
+      "bytes": 39111
+    },
+    "textures/source/dark_steel_height.png": {
+      "sha256": "018187cf2e68e1bda8ada0a43ed9a3a980f8a8a78240118420391acca0076b92",
+      "bytes": 9646
+    },
+    "textures/source/dark_steel_metallic.png": {
+      "sha256": "619c4edde177606603486efb3ce5e30229b11c62b256a8739369959afdcb0185",
+      "bytes": 14072
+    },
+    "textures/source/dark_steel_roughness.png": {
+      "sha256": "842a627f46f04f590e2a23ec3cccd71f5738b1d8c46009c38bd5ab0fd1c49208",
+      "bytes": 30558
+    },
+    "textures/source/leather_basecolor.png": {
+      "sha256": "b57f0abd4588349c261d985e504e34fd19de57c440e21b9f74c79e01ba5b01ed",
+      "bytes": 79673
+    },
+    "textures/source/leather_height.png": {
+      "sha256": "7d78f64907b82248b5f24510111d316940ffa421968065f58bb96e26a1bd3f73",
+      "bytes": 29973
+    },
+    "textures/source/leather_metallic.png": {
+      "sha256": "5a52517aef8601941ad746d6b68f817be7c512f19cd418c1ccb92a3336d8609a",
+      "bytes": 1309
+    },
+    "textures/source/leather_roughness.png": {
+      "sha256": "220d07147d6326c318c8c308a60833340c832c58206cb91fcbd752ca21ae4019",
+      "bytes": 56692
+    },
+    "textures/source/parchment_basecolor.png": {
+      "sha256": "9a1b2767912a171a7684d3ffcf9f2a0115a8cc648fa5f0544b91e5355a4b4d40",
+      "bytes": 66457
+    },
+    "textures/source/parchment_height.png": {
+      "sha256": "08248b8ff2e4698d2e887cfe1817d1e62463a77acba862452a1a04b29be50aba",
+      "bytes": 7089
+    },
+    "textures/source/parchment_metallic.png": {
+      "sha256": "5a52517aef8601941ad746d6b68f817be7c512f19cd418c1ccb92a3336d8609a",
+      "bytes": 1309
+    },
+    "textures/source/parchment_roughness.png": {
+      "sha256": "665dfeb22b2f02aa58a5cec828406838f19ed91fba2b164688b67abd138a071d",
+      "bytes": 13408
+    },
+    "textures/source/skin_basecolor.png": {
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "bytes": 44236
+    },
+    "textures/source/skin_height.png": {
+      "sha256": "166b59cd99a886064605610529f289486d17488297d730dafa70e57f488aca11",
+      "bytes": 11432
+    },
+    "textures/source/skin_metallic.png": {
+      "sha256": "e27c5289f9f0a1294447bc00f46816db2f4206e5d2286a546374bf260728620f",
+      "bytes": 4372
+    },
+    "textures/source/skin_roughness.png": {
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "bytes": 20073
+    },
+    "textures/source/steel_basecolor.png": {
+      "sha256": "64e91fe45f67ca4567ab84967b423a8958a123e0bfbe32b9fa786b2410418713",
+      "bytes": 56361
+    },
+    "textures/source/steel_height.png": {
+      "sha256": "480b17c170fd1e07b3634151c3aaa992c82c8f5f12cbf163f275df70c1f9fd46",
+      "bytes": 18699
+    },
+    "textures/source/steel_metallic.png": {
+      "sha256": "5260a7103ae64a0cdf027659834e8078bf92413fc898d0d452c541a3ece5c0d2",
+      "bytes": 14046
+    },
+    "textures/source/steel_roughness.png": {
+      "sha256": "eb89ab435bfaab53a6933f445dc7c72321d520f9c1bce7bfa5c507f83b7e950e",
+      "bytes": 36749
+    },
+    "tools/author_novitiate_core.py": {
+      "sha256": "b7222edb05321e4c92d0bb8a1b0c1c696911f3d05d2be73e6a8b5ebaa834c3c0",
+      "bytes": 6317
+    },
+    "tools/author_novitiate_limbs.py": {
+      "sha256": "fa3d5d3957db366d281c9d775f1258a8d7c97d91d10364f1344fb00175c96ed4",
+      "bytes": 20639
+    },
+    "tools/author_novitiate_upper.py": {
+      "sha256": "427eefc1c79a5a86e11d835eea37509670c25cd315d6617e490839e766a1b1c3",
+      "bytes": 24443
+    },
+    "tools/bake_atlas.py": {
+      "sha256": "9ee1b6dc0de053c56b702d92b50c00506db9bb518d45713df41d47ec94192fec",
+      "bytes": 23964
+    },
+    "tools/build_proof.py": {
+      "sha256": "f023d756a6e88cb2e56257fd711e23fcc0adc2cb63e7c300b4e478d8e192e32c",
+      "bytes": 23346
+    },
+    "tools/correct_animation.py": {
+      "sha256": "f56139347d2362e1e71828afb64c372647edc57153bf5ffad9d8cfeec9f76857",
+      "bytes": 35093
+    },
+    "tools/paint_materials.py": {
+      "sha256": "0381cd6daf3eb42bbc1a1992bcdb7d4979d9879daa17c61bdbde6b901a5ab4ee",
+      "bytes": 8306
+    },
+    "tools/promote_runtime.py": {
+      "sha256": "045dc85ff3b430a403f96134de5a30ce60db4e1322588e6fb7156eced43990c9",
+      "bytes": 32289
+    },
+    "tools/refine_novitiate_cloth.py": {
+      "sha256": "6f6b8afdd69c780fb1b67d3646c6c4c423e3228cc61de891a24337676221b800",
+      "bytes": 3742
+    },
+    "tools/refine_novitiate_paint.py": {
+      "sha256": "31de39c3059cd0209e57e6705dfa9fd8e7da12b0a9cf9e31e6ef32a9218343db",
+      "bytes": 13439
+    },
+    "tools/rig_character.py": {
+      "sha256": "aad41c54ce261a3ad92043d1695e8c39d94decd58450e501c908fd606fc15173",
+      "bytes": 38070
+    },
+    "tools/tessellate_runtime.py": {
+      "sha256": "5f591d8c9a0ce919826fa08b0f92a35d51d0daaaf045b8e58201cd13a4852654",
+      "bytes": 1527
+    },
+    "tools/validate_runtime.py": {
+      "sha256": "c125002f972eef50a57ceacc7172328bc97dde3c5d287007e701f7a94cf0dfd5",
+      "bytes": 31529
+    }
+  }
+}

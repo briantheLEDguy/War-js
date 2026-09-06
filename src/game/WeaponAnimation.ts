@@ -46,6 +46,7 @@ interface ActiveWeaponAction {
   request: WeaponAnimationRequest;
   elapsed: number;
   duration: number;
+  preserveAuthoredSocketEquipment: boolean;
 }
 
 type WeaponIntent =
@@ -187,19 +188,18 @@ export class WeaponAnimationController {
     this.collectTargets();
   }
 
-  play(request: WeaponAnimationRequest): void {
-    if (request.targetSources) {
-      for (const uuid of [...this.controlledTargetIds]) {
-        const target = this.targets.get(uuid);
-        if (!target || request.targetSources.includes(target.source)) continue;
-        restoreTarget(target);
-        this.controlledTargetIds.delete(uuid);
-      }
+  play(request: WeaponAnimationRequest, preserveAuthoredSocketEquipment = false): void {
+    for (const uuid of [...this.controlledTargetIds]) {
+      const target = this.targets.get(uuid);
+      if (!target || acceptsProceduralMotion(target, request, preserveAuthoredSocketEquipment)) continue;
+      restoreTarget(target);
+      this.controlledTargetIds.delete(uuid);
     }
     this.active = {
       request,
       elapsed: 0,
       duration: Math.max(0.16, request.durationSec || 0.45),
+      preserveAuthoredSocketEquipment,
     };
   }
 
@@ -214,9 +214,8 @@ export class WeaponAnimationController {
     if (!active) {
       return;
     }
-    const activeTargets = targets.filter((target) => (
-      !active.request.targetSources
-      || active.request.targetSources.includes(target.source)
+    const activeTargets = targets.filter((target) => acceptsProceduralMotion(
+      target, active.request, active.preserveAuthoredSocketEquipment,
     ));
     for (const target of activeTargets) {
       restoreTarget(target);
@@ -293,6 +292,40 @@ export class WeaponAnimationController {
     if (Math.hypot(dx, dz) < 0.001) return 0;
     return clampAngle(Math.atan2(dx, dz) - this.root.rotation.y, -0.85, 0.85);
   }
+}
+
+function acceptsProceduralMotion(
+  target: WeaponTarget,
+  request: WeaponAnimationRequest,
+  preserveAuthoredSocketEquipment: boolean,
+): boolean {
+  if (request.targetSources && !request.targetSources.includes(target.source)) return false;
+  if (!preserveAuthoredSocketEquipment || target.source !== 'equipment') return true;
+  const object = target.object;
+  const socketName = target.slot === 'offHand' ? 'socket_hand_L' : 'socket_hand_R';
+  if (object.userData.equipmentFallback !== false || object.parent?.name !== socketName) return true;
+
+  // A calibrated imported mesh follows the animated hand directly. Require
+  // its source record and socket-space grip, not merely a weapon kind/name.
+  let calibrated = false;
+  object.traverse((node) => {
+    const metadata = node.userData;
+    const grip = metadata.primary_grip_local;
+    if (metadata.socket !== socketName || !Array.isArray(grip) || grip.length !== 3
+      || !grip.every((value: unknown) => typeof value === 'number' && Number.isFinite(value) && Math.abs(value) < 1e-6)
+      || metadata.geometry_provenance !== 'Explicit authored source records evaluated with permitted finishing') return;
+    try {
+      const records: unknown = typeof metadata.source_records === 'string'
+        ? JSON.parse(metadata.source_records) : metadata.source_records;
+      if (Array.isArray(records) && records.length > 0 && records.every((record) => (
+        record && typeof record.file === 'string' && typeof record.part === 'string'
+        && typeof record.sha256 === 'string' && /^[a-f0-9]{64}$/u.test(record.sha256)
+      ))) calibrated = true;
+    } catch {
+      // Legacy or incomplete metadata keeps the existing procedural behavior.
+    }
+  });
+  return !calibrated;
 }
 
 function isWeaponNode(node: THREE.Object3D): boolean {

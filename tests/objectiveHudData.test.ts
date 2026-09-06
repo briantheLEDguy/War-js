@@ -24,8 +24,8 @@ const character: CharacterState = {
 };
 
 const questNpc: NpcState = {
-  id: 'quest-1',
-  name: 'Wilhelm Krupp',
+  id: 'brightfen_approach_dispatch',
+  name: 'Ari Vell',
   title: 'Dispatch Officer',
   role: 'questgiver',
   position: { x: 0, y: 0, z: 42 },
@@ -63,7 +63,7 @@ describe('objective HUD data', () => {
     });
 
     expect(tracked).toHaveLength(1);
-    expect(tracked[0].title).toBe('Scouts of the Dawnline');
+    expect(tracked[0].title).toBe('Scouts of Brightfen');
     expect(tracked[0].rows[0]).toMatchObject({
       current: 1,
       required: 4,
@@ -73,7 +73,7 @@ describe('objective HUD data', () => {
   });
 
   test('prioritizes ready turn-ins and exposes quest NPC availability', () => {
-    const status = questNpcStatus('quest-1', [questProgress({
+    const status = questNpcStatus('brightfen_approach_dispatch', [questProgress({
       status: 'ready_to_turn_in',
       counters: { 'kill-raiders': 4 },
     })], character);
@@ -90,7 +90,7 @@ describe('objective HUD data', () => {
     expect(status.readyCount).toBe(1);
     expect(status.offerCount).toBe(0);
     expect(tracked[0].ready).toBe(true);
-    expect(tracked[0].turnIn).toMatchObject({ label: 'Wilhelm Krupp', distance: 40 });
+    expect(tracked[0].turnIn).toMatchObject({ label: 'Ari Vell', distance: 40 });
   });
 
   test('formats distances into stable HUD labels', () => {
@@ -98,5 +98,18 @@ describe('objective HUD data', () => {
     expect(formatDistance(4.2)).toBe('4m');
     expect(formatDistance(27)).toBe('25m');
     expect(formatDistance(146)).toBe('150m');
+  });
+
+  test('does not point at same-named enemies in the wrong zone', () => {
+    const [tracked] = resolveTrackedQuests({
+      progresses: [questProgress()], npcs: [], enemies: [enemy()],
+      playerPosition: { x: 0, z: 0 }, zoneId: 'dawnline_expanse',
+    });
+    expect(tracked.rows[0].context).toEqual({ label: 'Brightfen Approach' });
+  });
+
+  test('does not advertise the other realm’s starter quest', () => {
+    expect(questNpcStatus('quest-1', [], { ...character, race: 'chaos' }).offerCount).toBe(0);
+    expect(questNpcStatus('riftspire_dispatch', [], { ...character, race: 'chaos' }).offerCount).toBe(1);
   });
 });

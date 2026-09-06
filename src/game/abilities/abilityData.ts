@@ -17,6 +17,7 @@ import type {
   AbilityTrailVfxKind,
   AbilityTargetKind,
   AbilityVisualProfile,
+  PlayerUtilityStatusKind,
   CareerAbilityKit,
   CareerResourceDefinition,
 } from './types';
@@ -150,7 +151,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
     kit('Glyphbinder', 'rune_mark_support', resource('runic_focus', 'Runic Focus', 100, 30), [
       a('Rune of Mending', 'Direct heal that leaves a mending rune.', 'heal', 'rune', 'self'),
       a('Rune of Warding', 'Shield rune on self.', 'defense', 'rune', 'self'),
-      a('Rune of Cleaving', 'Enemy mark that lowers armor.', 'builder', 'rune', 'projectile', { status: debuff('Cleaving Rune', 5) }),
+      a('Rune of Cleaving', 'Enemy mark that lowers armor.', 'builder', 'rune', 'projectile', { status: debuff('Cleaving Rune', 5, 'damage_taken') }),
       a('Anchor Sigil', 'Rune circle that roots entrants.', 'control', 'rune', 'area', { range: 18, radius: 3, status: root('Anchor Sigil', 1.8) }),
       a('Oath Script', 'Buff rune granting damage or resistance.', 'buff', 'rune', 'self'),
       a('Master Rune of Hearth', 'Persistent healing rune stone.', 'summon', 'rune', 'deployable', { target: 'self', effects: [{ kind: 'heal', school: 'rune', amount: { min: 22, max: 38, statScale: 0.4 } }] }),
@@ -161,7 +162,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
     ]),
     kit('Siegewright', 'deployable_artillery', resource('pressure', 'Pressure', 100, 0), [
       a('Deploy Gunlet', 'Place a turret mode.', 'summon', 'engineer', 'deployable', { target: 'self' }),
-      a('Crank Charge', 'Overclock current deployable.', 'builder', 'engineer', 'self'),
+      a('Crank Charge', 'Pressure-building rivet shot.', 'builder', 'engineer', 'projectile', { range: 24 }),
       a('Buckshot Salvo', 'Close cone blast for self-defense.', 'control', 'engineer', 'cone', { range: 7, status: slow('Buckshot', 2, 0.3) }),
       a('Fragment Bomb', 'Thrown area explosive.', 'area', 'engineer', 'area', { range: 18, radius: 4 }),
       a('Harpoon Line', 'Pull or tether tool.', 'control', 'engineer', 'projectile', { range: 18, status: root('Harpoon Line', 1.4) }),
@@ -239,7 +240,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Ravage Burst', 'Mutation-specific spender attack.', 'spender', 'physical', 'melee', { careerCost: 30 }),
       a('Hideous Regrowth', 'Regenerative self-heal.', 'heal', 'chaos', 'self'),
       a('Warpsprint', 'Burst chase movement.', 'mobility', 'chaos', 'dash', { target: 'self' }),
-      a('Bone Splinter', 'Cone rupture that bleeds and lowers armor.', 'area', 'physical', 'cone', { range: 7, status: bleed('Bone Splinter', 5) }),
+      a('Bone Splinter', 'Cone strike that builds Mutation and inflicts bleeding.', 'builder', 'physical', 'cone', { range: 7, status: bleed('Bone Splinter', 5) }),
       a('Mutation Shift', 'Fast form swap that empowers the next cast.', 'buff', 'chaos', 'self'),
       a('Apotheosis of Change', 'Ultimate fused mutation state.', 'ultimate', 'chaos', 'area', { target: 'self', radius: 5, spendAllCareer: true }),
     ]),
@@ -250,7 +251,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Rift Pull', 'Draw enemies toward the idol.', 'control', 'chaos', 'area', { range: 20, radius: 4, status: root('Rift Pull', 1.2) }),
       a('Daemonfire Orb', 'Projectile that bursts near the idol.', 'strike', 'fire', 'projectile', { range: 24, status: burn('Daemonfire', 4) }),
       a('Hover Disc', 'Strafe mobility and kiting tool.', 'mobility', 'chaos', 'self'),
-      a('Unmake Armor', 'Dark debuff on a key target.', 'control', 'chaos', 'projectile', { status: debuff('Unmade Armor', 6) }),
+      a('Unmake Armor', 'Dark debuff on a key target.', 'control', 'chaos', 'projectile', { status: debuff('Unmade Armor', 6, 'damage_taken') }),
       a('Feed the Idol', 'Overcharge summon with personal cost.', 'buff', 'chaos', 'self', { careerBuild: 18, manaCost: 12 }),
       a('Warp Storm', 'Sustained area channel from idol location.', 'area', 'chaos', 'area', { range: 22, radius: 5, careerCost: 30 }),
       a('Grand Conjunction', 'Ultimate tri-layer zone of pull, burn, and debuff.', 'ultimate', 'chaos', 'area', { range: 24, radius: 7, spendAllCareer: true, status: slow('Grand Conjunction', 3, 0.45) }),
@@ -273,7 +274,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Biggest Finish', 'Finisher from the top Plan tier.', 'spender', 'physical', 'melee', { careerCost: 2 }),
       a('Shut It!', 'Shield bash silence.', 'control', 'physical', 'melee', { status: silence('Shut It!', 2) }),
       a('Get Stuck In', 'Charge into melee.', 'mobility', 'physical', 'dash', { range: 12 }),
-      a("Wot's Yours Is Mine", 'Steal armor and block from target.', 'control', 'physical', 'melee', { status: debuff("Wot's Yours", 5) }),
+      a("Wot's Yours Is Mine", 'Steal armor and block from target.', 'control', 'physical', 'melee', { status: debuff("Wot's Yours", 5, 'damage_taken') }),
       a('Keep Smashin', 'Sustain buff on hit.', 'buff', 'physical', 'self'),
       a('Boss Stomp', 'Area knockdown.', 'area', 'physical', 'area', { target: 'self', radius: 4, status: stagger('Boss Stomp', 1.2) }),
       a('You Watch Me!', 'Bodyguard-style protection shout.', 'defense', 'physical', 'self'),
@@ -304,7 +305,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Big Green Turnabout', 'Ultimate offensive and healing echo window.', 'ultimate', 'nature', 'area', { target: 'self', radius: 7, spendAllCareer: true, effects: mixedDamageHeal('nature', 24, 40, 28, 46) }),
     ]),
     kit('Cleaver', 'frenzy_bruiser', resource('rage', 'Rage', 100, 10, true), [
-      a('Whirly Chop', 'Spinning builder attack.', 'builder', 'physical', 'area', { target: 'self', radius: 3 }),
+      a('Whirly Chop', 'Spinning builder attack.', 'builder', 'physical', 'area', { target: 'self', radius: 3, effects: [{ kind: 'damage', school: 'physical', amount: { min: 7, max: 12, statScale: 0.35, levelScale: 1.1 } }] }),
       a("Get Over 'Ere", 'Hook pull.', 'control', 'physical', 'projectile', { range: 14, status: root("Get Over 'Ere", 1.4) }),
       a('Mad Dash', 'Reckless forward rush.', 'mobility', 'physical', 'dash', { range: 12 }),
       a('Heavy Chop', 'Big Rage-dump strike.', 'spender', 'physical', 'melee', { spendAllCareer: true }),
@@ -333,7 +334,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Void Buckler', 'Spell block and reflect defense.', 'defense', 'shadow', 'self'),
       a('Glaive Hook', 'Pull and disrupt positioning.', 'control', 'physical', 'projectile', { range: 15, status: root('Glaive Hook', 1.3) }),
       a('Cruel Intercept', 'Leap to intercept and strike back.', 'mobility', 'physical', 'dash', { range: 12 }),
-      a('Sunder Grace', 'Lower enemy parry and disrupt.', 'control', 'shadow', 'melee', { status: debuff('Sunder Grace', 5) }),
+      a('Sunder Grace', 'Lower enemy parry and disrupt.', 'control', 'shadow', 'melee', { status: debuff('Sunder Grace', 5, 'damage_taken') }),
       a('Torment Cage', 'Taunt plus anti-escape field.', 'area', 'shadow', 'area', { target: 'self', radius: 4, status: slow('Torment Cage', 3, 0.4) }),
       a('Bitter Harvest', 'Hatred-spending sustain strike.', 'spender', 'shadow', 'melee', { careerCost: 30, effects: mixedDamageHeal('shadow', 18, 32, 12, 24) }),
       a('Harrow Pike', 'Long thrust line attack.', 'strike', 'physical', 'beam', { range: 12 }),
@@ -344,7 +345,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Chill of Dusk', 'Snare and lingering pain spell.', 'control', 'shadow', 'projectile', { status: slow('Chill of Dusk', 4, 0.4) }),
       a('Black Shard', 'Heavy nuke that adds Dark Power quickly.', 'strike', 'shadow', 'projectile', { careerBuild: 18, cooldownSec: 5 }),
       a('Gloom Step', 'Blink that leaves a curse pool.', 'mobility', 'shadow', 'self'),
-      a('Agony Thread', 'Debuff increasing incoming critical harm.', 'control', 'shadow', 'projectile', { status: debuff('Agony Thread', 6) }),
+      a('Agony Thread', 'Debuff increasing incoming critical harm.', 'control', 'shadow', 'projectile', { status: debuff('Agony Thread', 6, 'damage_taken') }),
       a('Soul Freeze', 'Root with shatter follow-up.', 'control', 'shadow', 'projectile', { status: root('Soul Freeze', 2) }),
       a('Void Rain', 'Cursed ground AoE.', 'area', 'shadow', 'area', { range: 22, radius: 5 }),
       a('Cruel Harvest', 'Vent Dark Power for a safer next cast.', 'heal', 'shadow', 'self', { careerCost: 25 }),
@@ -455,6 +456,12 @@ function defineAbility(
     spendAllCareer: seed.spendAllCareer,
     minCareer: seed.minCareer,
   };
+  const effects = [
+    ...(seed.effects ?? defaultEffects(seed, resourceDelta.spendAllCareer === true)),
+    ...playerUtilityEffects(seed, career),
+  ];
+  const unavailableReason = effects.length === 0 && !(resourceDelta.careerBuild > 0)
+    ? `${seed.name} is unavailable: persistent summons are not implemented.` : undefined;
 
   return {
     id: `${slug(career)}.${slug(seed.name)}`,
@@ -464,7 +471,8 @@ function defineAbility(
     key: HOTBAR_KEYS[slot] ?? String(slot + 1),
     icon: visual.icon.symbol,
     name: seed.name,
-    summary: seed.summary,
+    summary: unavailableReason ?? currentEffectSummary(seed, effects, res, resourceDelta.careerBuild),
+    unavailableReason,
     cooldownSec,
     gcdSec: seed.kind === 'stance' ? 0.5 : 1.2,
     tags: tagsFor(seed, target),
@@ -479,10 +487,10 @@ function defineAbility(
       projectileSpeed: defaultProjectileSpeed(seed.shape, seed.school),
       tracePolicy: 'server_auth',
     },
-    effects: seed.effects ?? defaultEffects(seed, resourceDelta.spendAllCareer === true),
+    effects,
     vfxSockets: socketsFor(seed.shape, seed.school),
     cancelRules: {
-      blockedBy: ['State.Stunned', 'State.Silenced'],
+      blockedBy: effects.some((effect) => effect.kind === 'cleanse') ? [] : ['State.Stunned', 'State.Silenced'],
       appliesOwnerTags: animation.clip.startsWith('cast') ? ['State.Casting'] : ['State.Acting'],
     },
   };
@@ -632,7 +640,8 @@ function animationFor(kind: AbilityKind, shape: AbilityShape, school: AbilitySch
 function defaultEffects(seed: AbilitySeed, spendAllCareer: boolean): AbilityEffect[] {
   const effects: AbilityEffect[] = [];
   const target = seed.target ?? defaultTarget(seed.kind, seed.shape);
-  if (target === 'enemy' && seed.kind !== 'buff' && seed.kind !== 'defense' && seed.kind !== 'stance') {
+  if ((target === 'enemy' && seed.kind !== 'buff' && seed.kind !== 'defense' && seed.kind !== 'stance') ||
+    (target === 'self' && seed.shape === 'area' && (seed.kind === 'area' || seed.kind === 'spender'))) {
     effects.push({
       kind: 'damage',
       school: seed.school,
@@ -1123,11 +1132,88 @@ function stagger(label: string, durationSec: number): AbilityStatusPayload {
 }
 
 function mark(label: string, durationSec: number): AbilityStatusPayload {
-  return { id: slug(label), label, kind: 'mark', durationSec };
+  return { id: slug(label), label, kind: 'mark', durationSec, magnitude: 0.1, damageModifier: 'damage_taken' };
 }
 
-function debuff(label: string, durationSec: number): AbilityStatusPayload {
-  return { id: slug(label), label, kind: 'debuff', durationSec, magnitude: 0.2 };
+/** Shared local rules replace unsupported party, pet, and proc behavior in utility kits. */
+function playerUtilityEffects(seed: AbilitySeed, career: string): AbilityEffect[] {
+  const effects: AbilityEffect[] = [];
+  const buff = (kind: PlayerUtilityStatusKind, magnitude: number, durationSec: number, stackGroup?: string): void => {
+    effects.push({ kind: 'player_status', playerStatus: { kind, magnitude, durationSec, stackGroup } });
+  };
+  if (seed.kind === 'stance') {
+    const kind: PlayerUtilityStatusKind = ['Pursuit Edict', 'Mutate Claw', 'Hound Fang'].includes(seed.name)
+      ? 'haste' : ['Bastion Edict', 'Oath Bind', 'Aura of Dread', 'Aura of Dominion', 'Mutate Tendril'].includes(seed.name)
+        ? 'guard' : 'empower';
+    buff(kind, 0.2, 12, `stance:${slug(career)}`);
+  }
+  if (seed.kind === 'defense') {
+    const shield = ["Martyr's Ward", 'Rune of Warding', 'Mindward', 'Merciful Veil', 'Black Bastion', 'Fetish Ward'].includes(seed.name);
+    buff(shield ? 'shield' : 'guard', shield ? 0.25 : 0.3, shield ? 6 : 5);
+    if (['Grim Pursuit', 'Mist Walk', 'Shadow Prowl', 'Mirror Veil'].includes(seed.name)) buff('haste', 0.3, 5);
+  }
+  if (seed.kind === 'buff') {
+    buff(['Stone March', "Flanker's Path"].includes(seed.name) ? 'haste' : 'empower', 0.2, 8);
+    if (seed.name === 'Bloodhowl') buff('haste', 0.2, 8);
+    if (seed.name === 'Stone March') buff('guard', 0.2, 8);
+  }
+  if (['Ash Ward', 'Grim Pursuit', 'Hearthguard Vow', "Ancestor's Favor", 'Merciful Veil', 'Fetish Ward', "Can't Stop Me", 'Aura of Dominion'].includes(seed.name)) {
+    effects.unshift({ kind: 'cleanse', cleanse: { kinds: ['slow', 'root', 'stagger', 'debuff'] } });
+  }
+  if (seed.name === 'Hearthguard Vow' || seed.name === 'Tranquil Drift') buff('shield', 0.2, 5);
+  if (seed.name === 'Wild Bond') buff('haste', 0.2, 5);
+  if (seed.kind === 'mobility' || seed.shape === 'dash') {
+    const backward = ['Black-Powder Step', "Bouncin' Escape", 'Moonstep'].includes(seed.name);
+    const target = seed.target ?? defaultTarget(seed.kind, seed.shape);
+    effects.unshift({ kind: 'movement', movement: {
+      mode: backward ? 'backward' : target === 'enemy' ? 'toward_target' : 'forward',
+      distance: target === 'enemy' && !backward ? Math.min(12, seed.range ?? 12) : 6,
+    } });
+  }
+  return effects;
+}
+
+// Player-facing copy describes the local effect packets, including current instant substitutes.
+function currentEffectSummary(seed: AbilitySeed, effects: AbilityEffect[], resource: CareerResourceDefinition, careerBuild: number): string {
+  const parts: string[] = [];
+  const target = seed.target ?? defaultTarget(seed.kind, seed.shape);
+  for (const effect of effects) {
+    if (effect.kind === 'damage') {
+      const area = seed.shape === 'area' || seed.shape === 'deployable';
+      const footprint = area ? `enemies within ${seed.radius ?? defaultRadius(seed.shape)} m of ${target === 'self' ? 'you' : 'your target'}`
+        : seed.shape === 'cone' ? 'enemies in front of you' : 'your target';
+      parts.push(`Deal ${effect.school} damage to ${footprint} in one hit.`);
+    } else if (effect.kind === 'heal') {
+      parts.push('Restore your health once.');
+    } else if (effect.kind === 'movement' && effect.movement) {
+      const direction = effect.movement.mode === 'toward_target' ? 'toward your target' : effect.movement.mode;
+      parts.push(`Move up to ${effect.movement.distance} m ${direction} along a clear path.`);
+    } else if (effect.kind === 'cleanse') {
+      parts.push('Remove your slows, roots, staggers, and debuffs.');
+    } else if (effect.kind === 'player_status' && effect.playerStatus) {
+      const { kind, magnitude, durationSec, stackGroup } = effect.playerStatus;
+      const percent = Math.round(magnitude * 100);
+      parts.push(kind === 'shield' ? `Shield yourself for ${percent}% of maximum health for ${durationSec}s.`
+        : kind === 'guard' ? `Take ${percent}% less damage for ${durationSec}s.`
+          : kind === 'empower' ? `Deal ${percent}% more damage for ${durationSec}s.`
+            : `Move ${percent}% faster for ${durationSec}s.`);
+      if (stackGroup) parts.push('Replaces your other stance.');
+    } else if (effect.kind === 'status' && effect.status) {
+      const status = effect.status;
+      const percent = Math.round((status.magnitude ?? 0) * 100);
+      if (status.kind === 'burn' || status.kind === 'bleed') parts.push(`Apply ${status.kind} for ${status.durationSec}s, dealing damage each second.`);
+      else if (status.damageModifier === 'damage_taken') parts.push(`Affected enemies take ${percent}% more damage for ${status.durationSec}s.`);
+      else if (status.damageModifier === 'damage_dealt') parts.push(`Affected enemies deal ${percent}% less damage for ${status.durationSec}s.`);
+      else if (status.kind === 'slow') parts.push(`Slow affected enemies by ${percent}% for ${status.durationSec}s.`);
+      else parts.push(`${capitalize(status.kind)} affected enemies for ${status.durationSec}s.`);
+    }
+  }
+  if (careerBuild > 0) parts.push(`Build ${careerBuild} ${resource.label}.`);
+  return parts.join(' ');
+}
+
+function debuff(label: string, durationSec: number, damageModifier: 'damage_taken' | 'damage_dealt' = 'damage_dealt'): AbilityStatusPayload {
+  return { id: slug(label), label, kind: 'debuff', durationSec, magnitude: 0.2, damageModifier };
 }
 
 function slug(value: string): string {

@@ -1,0 +1,156 @@
+{
+  "master_sha256": "0ad72a57b1238fa41c3fbdb9b285ffa4dd366e93875bce190a6bf48a1feb823e",
+  "leg_source_sha256": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+  "animation_version": "authored_hammer_grip_v4_book_clearance",
+  "images": [
+    {
+      "path": "review\\greave_fit_after\\rest_50.png",
+      "sha256": "b87ba384c671ea3c952e5e1fb052be5ea33ec229c86e4958afa4d60c3c621395",
+      "clip": "rest",
+      "frame": 1,
+      "camera": "full_front"
+    },
+    {
+      "path": "review\\greave_fit_after\\run_50.png",
+      "sha256": "c7278b39af857a5be5981cb52cd07463c96a0ef42c46ec2f33d706ad81a4a8fc",
+      "clip": "run",
+      "frame": 8.0,
+      "camera": "full_three_quarter"
+    }
+  ],
+  "run_probe_rays": [
+    {
+      "pixel": [
+        317,
+        518
+      ],
+      "hits": []
+    },
+    {
+      "pixel": [
+        320,
+        524
+      ],
+      "hits": []
+    },
+    {
+      "pixel": [
+        320,
+        530
+      ],
+      "hits": [
+        {
+          "part": "greave_inner_brass_edge",
+          "distance": 5.624033451080322,
+          "world": [
+            -0.03797554969787598,
+            -0.26409196853637695,
+            0.5718755125999451
+          ],
+          "rest": [
+            -0.09200803190469742,
+            0.02979944832623005,
+            0.44191932678222656
+          ],
+          "nearest_authored_ids": [
+            "v003",
+            "v000",
+            "v001",
+            "v002"
+          ]
+        },
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.626773834228516,
+          "world": [
+            -0.039385318756103516,
+            -0.26174211502075195,
+            0.5718755125999451
+          ],
+          "rest": [
+            -0.09340726584196091,
+            0.031984079629182816,
+            0.4428018033504486
+          ],
+          "nearest_authored_ids": [
+            "v000",
+            "v005",
+            "v010",
+            "v006"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        321,
+        536
+      ],
+      "hits": [
+        {
+          "part": "greave_inner_brass_edge",
+          "distance": 5.625175952911377,
+          "world": [
+            -0.03593730926513672,
+            -0.2615365982055664,
+            0.5535005331039429
+          ],
+          "rest": [
+            -0.09139016270637512,
+            0.03832944855093956,
+            0.4253306984901428
+          ],
+          "nearest_authored_ids": [
+            "v002",
+            "v003",
+            "v000",
+            "v001"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        325,
+        535
+      ],
+      "hits": []
+    },
+    {
+      "pixel": [
+        310,
+        530
+      ],
+      "hits": [
+        {
+          "part": "greave_shaped_front_shell",
+          "distance": 5.59313440322876,
+          "world": [
+            -0.048338890075683594,
+            -0.30634403228759766,
+            0.5718755125999451
+          ],
+          "rest": [
+            -0.1024537980556488,
+            -0.01030666008591652,
+            0.42868953943252563
+          ],
+          "nearest_authored_ids": [
+            "v000",
+            "v005",
+            "v006",
+            "v001"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        332,
+        545
+      ],
+      "hits": []
+    }
+  ],
+  "master_unchanged": true
+}

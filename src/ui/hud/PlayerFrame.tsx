@@ -11,6 +11,7 @@ export function PlayerFrame() {
   } = useDraggableWindow<HTMLDivElement>();
   const c = useGameStore((s) => s.character);
   const abilityResource = useGameStore((s) => s.abilityResource);
+  const effects = useGameStore((s) => s.playerStatusEffects);
   if (!c) return null;
   const hpPct = c.health / c.maxHealth;
   const mpPct = c.mana / c.maxMana;
@@ -48,6 +49,10 @@ export function PlayerFrame() {
         <span title="Strength">STR {c.strength}</span>
         <span title="Gold" className="gold-pill">{c.gold}g</span>
       </div>
+      {effects.length > 0 && <div className="player-effect-strip" aria-label="Active effects">
+        {effects.slice(0, 3).map((effect) => <span key={effect.id} title={effect.label}>{effect.label}</span>)}
+        {effects.length > 3 && <span title={effects.slice(3).map((effect) => effect.label).join(', ')}>+{effects.length - 3}</span>}
+      </div>}
     </div>
   );
 }

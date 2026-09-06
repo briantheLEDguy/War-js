@@ -2240,6 +2240,48 @@
       "characterProfileKey": "enemy_riftbound_keep_captain_captain"
     },
     {
+      "id": "rift_crownworks_aegis_keep_commander",
+      "name": "Aegis Castellan Liora Steelmantle",
+      "level": 34,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 13,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "rift_crownworks_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "rift_crownworks_riftbound_keep_commander",
+      "name": "Riftbound Warlord Veshar Voidcrest",
+      "level": 34,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 920,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 13,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "rift_crownworks_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
       "id": "rift_crownworks_beast_1",
       "name": "Rift Hound",
       "level": 32,
@@ -2825,5 +2867,5 @@
       ]
     }
   ],
-  "staticMapHash": "75bf79d632ff15ed"
+  "staticMapHash": "3decb1923d43e337"
 }

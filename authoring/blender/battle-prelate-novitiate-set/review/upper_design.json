@@ -1,0 +1,4609 @@
+{
+  "schema_version": 1,
+  "design": "Novitiate Field Harness upper armor",
+  "status": "authored_source_validated_visual_review_pending",
+  "geometry_policy": "Literal vertex edits only; no profile generation, primitive assembly, random placement or automatic topology changes.",
+  "accepted_package_modified": false,
+  "visual_changes": [
+    "compact two-plate shoulders",
+    "plain rolled shoulder edges and single turned lame hem",
+    "two bent iron hinge tabs per shoulder",
+    "no raised shoulder defense or ornament",
+    "low plain iron collar",
+    "unadorned chest with folded steel side returns",
+    "lower plain rear neckline"
+  ],
+  "components": [
+    {
+      "file": "pauldron.json",
+      "accepted_sha256": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+      "new_sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8",
+      "retained_parts": [
+        "left_pauldron_main_shell",
+        "left_pauldron_upper_lame",
+        "left_pauldron_authored_rivet",
+        "left_pauldron_leather_suspension",
+        "left_pauldron_padded_shoulder_support",
+        "left_pauldron_lame_fasteners",
+        "left_pauldron_front_brass_border",
+        "left_pauldron_outer_brass_border",
+        "left_pauldron_rear_brass_border",
+        "left_pauldron_upper_lame_brass_hem"
+      ],
+      "new_authored_parts": [
+        "novitiate_pauldron_front_hinge_tab",
+        "novitiate_pauldron_rear_hinge_tab"
+      ],
+      "removed_parts": [
+        "left_pauldron_raised_inner_guard",
+        "left_pauldron_guard_brass_lip",
+        "left_pauldron_lower_lame",
+        "left_pauldron_lower_lame_brass_hem",
+        "left_pauldron_sun_cross_emblem"
+      ],
+      "literal_vertex_changes": [
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v000",
+          "before": [
+            0.218,
+            -0.085,
+            1.617
+          ],
+          "after": [
+            0.208,
+            -0.073,
+            1.598
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v001",
+          "before": [
+            0.215,
+            -0.08,
+            1.645
+          ],
+          "after": [
+            0.207,
+            -0.068,
+            1.621
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v002",
+          "before": [
+            0.215,
+            -0.025,
+            1.694
+          ],
+          "after": [
+            0.207,
+            -0.022,
+            1.643
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v003",
+          "before": [
+            0.217,
+            0.035,
+            1.7
+          ],
+          "after": [
+            0.209,
+            0.03,
+            1.645
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v004",
+          "before": [
+            0.221,
+            0.088,
+            1.681
+          ],
+          "after": [
+            0.212,
+            0.074,
+            1.632
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v005",
+          "before": [
+            0.224,
+            0.124,
+            1.646
+          ],
+          "after": [
+            0.215,
+            0.1,
+            1.61
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v006",
+          "before": [
+            0.225,
+            0.133,
+            1.626
+          ],
+          "after": [
+            0.216,
+            0.107,
+            1.6
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v007",
+          "before": [
+            0.229,
+            -0.105,
+            1.603
+          ],
+          "after": [
+            0.221,
+            -0.092,
+            1.589
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v008",
+          "before": [
+            0.227,
+            -0.095,
+            1.638
+          ],
+          "after": [
+            0.219,
+            -0.083,
+            1.618
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v009",
+          "before": [
+            0.225,
+            -0.027,
+            1.708
+          ],
+          "after": [
+            0.218,
+            -0.024,
+            1.653
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v010",
+          "before": [
+            0.228,
+            0.035,
+            1.713
+          ],
+          "after": [
+            0.221,
+            0.031,
+            1.655
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v011",
+          "before": [
+            0.234,
+            0.102,
+            1.69
+          ],
+          "after": [
+            0.226,
+            0.084,
+            1.636
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v012",
+          "before": [
+            0.239,
+            0.143,
+            1.648
+          ],
+          "after": [
+            0.231,
+            0.119,
+            1.607
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v013",
+          "before": [
+            0.24,
+            0.153,
+            1.623
+          ],
+          "after": [
+            0.233,
+            0.127,
+            1.59
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v014",
+          "before": [
+            0.268,
+            -0.139,
+            1.577
+          ],
+          "after": [
+            0.254,
+            -0.12,
+            1.569
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v015",
+          "before": [
+            0.265,
+            -0.13,
+            1.625
+          ],
+          "after": [
+            0.252,
+            -0.109,
+            1.608
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v016",
+          "before": [
+            0.261,
+            -0.032,
+            1.713
+          ],
+          "after": [
+            0.248,
+            -0.028,
+            1.653
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v017",
+          "before": [
+            0.264,
+            0.038,
+            1.711
+          ],
+          "after": [
+            0.251,
+            0.033,
+            1.651
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v018",
+          "before": [
+            0.271,
+            0.121,
+            1.682
+          ],
+          "after": [
+            0.257,
+            0.101,
+            1.626
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v019",
+          "before": [
+            0.279,
+            0.165,
+            1.634
+          ],
+          "after": [
+            0.265,
+            0.136,
+            1.592
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v020",
+          "before": [
+            0.28,
+            0.177,
+            1.606
+          ],
+          "after": [
+            0.267,
+            0.144,
+            1.574
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v021",
+          "before": [
+            0.315,
+            -0.17,
+            1.548
+          ],
+          "after": [
+            0.295,
+            -0.139,
+            1.548
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v022",
+          "before": [
+            0.312,
+            -0.157,
+            1.601
+          ],
+          "after": [
+            0.292,
+            -0.126,
+            1.59
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v023",
+          "before": [
+            0.305,
+            -0.041,
+            1.704
+          ],
+          "after": [
+            0.285,
+            -0.035,
+            1.642
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v024",
+          "before": [
+            0.311,
+            0.039,
+            1.699
+          ],
+          "after": [
+            0.291,
+            0.034,
+            1.638
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v025",
+          "before": [
+            0.321,
+            0.137,
+            1.663
+          ],
+          "after": [
+            0.301,
+            0.114,
+            1.609
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v026",
+          "before": [
+            0.332,
+            0.183,
+            1.61
+          ],
+          "after": [
+            0.311,
+            0.149,
+            1.572
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v027",
+          "before": [
+            0.333,
+            0.193,
+            1.581
+          ],
+          "after": [
+            0.313,
+            0.157,
+            1.553
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v028",
+          "before": [
+            0.365,
+            -0.181,
+            1.518
+          ],
+          "after": [
+            0.337,
+            -0.146,
+            1.532
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v029",
+          "before": [
+            0.363,
+            -0.166,
+            1.574
+          ],
+          "after": [
+            0.334,
+            -0.132,
+            1.568
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v030",
+          "before": [
+            0.352,
+            -0.045,
+            1.681
+          ],
+          "after": [
+            0.326,
+            -0.037,
+            1.616
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v031",
+          "before": [
+            0.362,
+            0.041,
+            1.674
+          ],
+          "after": [
+            0.335,
+            0.035,
+            1.61
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v032",
+          "before": [
+            0.375,
+            0.141,
+            1.631
+          ],
+          "after": [
+            0.347,
+            0.116,
+            1.581
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v033",
+          "before": [
+            0.388,
+            0.186,
+            1.576
+          ],
+          "after": [
+            0.354,
+            0.148,
+            1.548
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v034",
+          "before": [
+            0.39,
+            0.193,
+            1.549
+          ],
+          "after": [
+            0.355,
+            0.154,
+            1.532
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v035",
+          "before": [
+            0.413,
+            -0.171,
+            1.496
+          ],
+          "after": [
+            0.377,
+            -0.136,
+            1.519
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v036",
+          "before": [
+            0.415,
+            -0.151,
+            1.551
+          ],
+          "after": [
+            0.376,
+            -0.117,
+            1.549
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v037",
+          "before": [
+            0.41,
+            -0.039,
+            1.637
+          ],
+          "after": [
+            0.37,
+            -0.032,
+            1.584
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v038",
+          "before": [
+            0.42,
+            0.044,
+            1.625
+          ],
+          "after": [
+            0.379,
+            0.037,
+            1.578
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v039",
+          "before": [
+            0.434,
+            0.132,
+            1.581
+          ],
+          "after": [
+            0.387,
+            0.109,
+            1.549
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v040",
+          "before": [
+            0.446,
+            0.167,
+            1.533
+          ],
+          "after": [
+            0.391,
+            0.135,
+            1.52
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v041",
+          "before": [
+            0.448,
+            0.173,
+            1.513
+          ],
+          "after": [
+            0.391,
+            0.141,
+            1.51
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v042",
+          "before": [
+            0.443,
+            -0.141,
+            1.488
+          ],
+          "after": [
+            0.405,
+            -0.115,
+            1.514
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v043",
+          "before": [
+            0.45,
+            -0.119,
+            1.535
+          ],
+          "after": [
+            0.405,
+            -0.093,
+            1.54
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v044",
+          "before": [
+            0.456,
+            -0.029,
+            1.593
+          ],
+          "after": [
+            0.401,
+            -0.024,
+            1.555
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v045",
+          "before": [
+            0.465,
+            0.043,
+            1.579
+          ],
+          "after": [
+            0.409,
+            0.036,
+            1.55
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v046",
+          "before": [
+            0.47,
+            0.117,
+            1.543
+          ],
+          "after": [
+            0.415,
+            0.093,
+            1.526
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v047",
+          "before": [
+            0.47,
+            0.145,
+            1.503
+          ],
+          "after": [
+            0.415,
+            0.118,
+            1.506
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v048",
+          "before": [
+            0.467,
+            0.151,
+            1.49
+          ],
+          "after": [
+            0.412,
+            0.123,
+            1.499
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v049",
+          "before": [
+            0.447,
+            -0.132,
+            1.482
+          ],
+          "after": [
+            0.411,
+            -0.107,
+            1.508
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v050",
+          "before": [
+            0.456,
+            -0.11,
+            1.523
+          ],
+          "after": [
+            0.413,
+            -0.086,
+            1.532
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v051",
+          "before": [
+            0.468,
+            -0.025,
+            1.578
+          ],
+          "after": [
+            0.409,
+            -0.021,
+            1.543
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v052",
+          "before": [
+            0.477,
+            0.043,
+            1.563
+          ],
+          "after": [
+            0.419,
+            0.036,
+            1.54
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v053",
+          "before": [
+            0.479,
+            0.111,
+            1.53
+          ],
+          "after": [
+            0.423,
+            0.088,
+            1.519
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v054",
+          "before": [
+            0.476,
+            0.134,
+            1.493
+          ],
+          "after": [
+            0.422,
+            0.11,
+            1.5
+          ]
+        },
+        {
+          "part": "left_pauldron_main_shell",
+          "vertex": "v055",
+          "before": [
+            0.472,
+            0.14,
+            1.482
+          ],
+          "after": [
+            0.418,
+            0.115,
+            1.494
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v000",
+          "before": [
+            0.218,
+            -0.087,
+            1.617
+          ],
+          "after": [
+            0.208,
+            -0.075,
+            1.598
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v001",
+          "before": [
+            0.218,
+            -0.082,
+            1.624
+          ],
+          "after": [
+            0.208,
+            -0.072,
+            1.602
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v002",
+          "before": [
+            0.229,
+            -0.107,
+            1.603
+          ],
+          "after": [
+            0.221,
+            -0.094,
+            1.589
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v003",
+          "before": [
+            0.229,
+            -0.104,
+            1.611
+          ],
+          "after": [
+            0.221,
+            -0.091,
+            1.593
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v004",
+          "before": [
+            0.268,
+            -0.141,
+            1.577
+          ],
+          "after": [
+            0.254,
+            -0.122,
+            1.569
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v005",
+          "before": [
+            0.268,
+            -0.139,
+            1.586
+          ],
+          "after": [
+            0.254,
+            -0.119,
+            1.573
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v006",
+          "before": [
+            0.315,
+            -0.172,
+            1.548
+          ],
+          "after": [
+            0.295,
+            -0.141,
+            1.548
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v007",
+          "before": [
+            0.315,
+            -0.17,
+            1.557
+          ],
+          "after": [
+            0.295,
+            -0.138,
+            1.552
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v008",
+          "before": [
+            0.365,
+            -0.183,
+            1.518
+          ],
+          "after": [
+            0.337,
+            -0.148,
+            1.532
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v009",
+          "before": [
+            0.365,
+            -0.181,
+            1.527
+          ],
+          "after": [
+            0.337,
+            -0.145,
+            1.536
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v010",
+          "before": [
+            0.413,
+            -0.173,
+            1.496
+          ],
+          "after": [
+            0.377,
+            -0.138,
+            1.519
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v011",
+          "before": [
+            0.413,
+            -0.17,
+            1.505
+          ],
+          "after": [
+            0.377,
+            -0.134,
+            1.523
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v012",
+          "before": [
+            0.443,
+            -0.143,
+            1.488
+          ],
+          "after": [
+            0.405,
+            -0.117,
+            1.514
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v013",
+          "before": [
+            0.443,
+            -0.14,
+            1.497
+          ],
+          "after": [
+            0.405,
+            -0.113,
+            1.518
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v014",
+          "before": [
+            0.447,
+            -0.134,
+            1.482
+          ],
+          "after": [
+            0.411,
+            -0.109,
+            1.508
+          ]
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "vertex": "v015",
+          "before": [
+            0.446,
+            -0.132,
+            1.491
+          ],
+          "after": [
+            0.41,
+            -0.105,
+            1.512
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v000",
+          "before": [
+            0.447,
+            -0.134,
+            1.482
+          ],
+          "after": [
+            0.412,
+            -0.108,
+            1.508
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v001",
+          "before": [
+            0.44,
+            -0.139,
+            1.492
+          ],
+          "after": [
+            0.408,
+            -0.11,
+            1.512
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v002",
+          "before": [
+            0.456,
+            -0.111,
+            1.523
+          ],
+          "after": [
+            0.414,
+            -0.086,
+            1.532
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v003",
+          "before": [
+            0.449,
+            -0.117,
+            1.534
+          ],
+          "after": [
+            0.409,
+            -0.087,
+            1.536
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v004",
+          "before": [
+            0.469,
+            -0.025,
+            1.579
+          ],
+          "after": [
+            0.41,
+            -0.021,
+            1.544
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v005",
+          "before": [
+            0.459,
+            -0.026,
+            1.591
+          ],
+          "after": [
+            0.406,
+            -0.022,
+            1.548
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v006",
+          "before": [
+            0.478,
+            0.043,
+            1.564
+          ],
+          "after": [
+            0.42,
+            0.036,
+            1.541
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v007",
+          "before": [
+            0.468,
+            0.043,
+            1.576
+          ],
+          "after": [
+            0.416,
+            0.036,
+            1.545
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v008",
+          "before": [
+            0.48,
+            0.111,
+            1.531
+          ],
+          "after": [
+            0.424,
+            0.088,
+            1.52
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v009",
+          "before": [
+            0.472,
+            0.113,
+            1.543
+          ],
+          "after": [
+            0.42,
+            0.089,
+            1.524
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v010",
+          "before": [
+            0.477,
+            0.134,
+            1.494
+          ],
+          "after": [
+            0.423,
+            0.11,
+            1.501
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v011",
+          "before": [
+            0.47,
+            0.141,
+            1.505
+          ],
+          "after": [
+            0.419,
+            0.112,
+            1.505
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v012",
+          "before": [
+            0.473,
+            0.14,
+            1.483
+          ],
+          "after": [
+            0.419,
+            0.115,
+            1.494
+          ]
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "vertex": "v013",
+          "before": [
+            0.466,
+            0.147,
+            1.494
+          ],
+          "after": [
+            0.415,
+            0.118,
+            1.499
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v000",
+          "before": [
+            0.225,
+            0.135,
+            1.626
+          ],
+          "after": [
+            0.216,
+            0.109,
+            1.6
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v001",
+          "before": [
+            0.225,
+            0.13,
+            1.633
+          ],
+          "after": [
+            0.216,
+            0.106,
+            1.604
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v002",
+          "before": [
+            0.24,
+            0.155,
+            1.623
+          ],
+          "after": [
+            0.233,
+            0.129,
+            1.59
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v003",
+          "before": [
+            0.24,
+            0.15,
+            1.631
+          ],
+          "after": [
+            0.233,
+            0.126,
+            1.594
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v004",
+          "before": [
+            0.28,
+            0.179,
+            1.606
+          ],
+          "after": [
+            0.267,
+            0.146,
+            1.574
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v005",
+          "before": [
+            0.28,
+            0.173,
+            1.614
+          ],
+          "after": [
+            0.267,
+            0.143,
+            1.578
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v006",
+          "before": [
+            0.333,
+            0.195,
+            1.581
+          ],
+          "after": [
+            0.313,
+            0.159,
+            1.553
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v007",
+          "before": [
+            0.333,
+            0.189,
+            1.59
+          ],
+          "after": [
+            0.313,
+            0.156,
+            1.557
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v008",
+          "before": [
+            0.39,
+            0.195,
+            1.549
+          ],
+          "after": [
+            0.355,
+            0.156,
+            1.532
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v009",
+          "before": [
+            0.39,
+            0.189,
+            1.557
+          ],
+          "after": [
+            0.355,
+            0.153,
+            1.536
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v010",
+          "before": [
+            0.448,
+            0.175,
+            1.513
+          ],
+          "after": [
+            0.391,
+            0.143,
+            1.51
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v011",
+          "before": [
+            0.445,
+            0.169,
+            1.522
+          ],
+          "after": [
+            0.391,
+            0.14,
+            1.514
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v012",
+          "before": [
+            0.467,
+            0.153,
+            1.49
+          ],
+          "after": [
+            0.412,
+            0.125,
+            1.499
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v013",
+          "before": [
+            0.466,
+            0.146,
+            1.502
+          ],
+          "after": [
+            0.412,
+            0.122,
+            1.503
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v014",
+          "before": [
+            0.473,
+            0.142,
+            1.483
+          ],
+          "after": [
+            0.418,
+            0.117,
+            1.494
+          ]
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "vertex": "v015",
+          "before": [
+            0.466,
+            0.147,
+            1.494
+          ],
+          "after": [
+            0.417,
+            0.114,
+            1.498
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v000",
+          "before": [
+            0.351,
+            -0.13,
+            1.592
+          ],
+          "after": [
+            0.311,
+            -0.112,
+            1.577
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v001",
+          "before": [
+            0.378,
+            -0.137,
+            1.576
+          ],
+          "after": [
+            0.342,
+            -0.12,
+            1.561
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v002",
+          "before": [
+            0.413,
+            -0.12,
+            1.558
+          ],
+          "after": [
+            0.377,
+            -0.106,
+            1.547
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v003",
+          "before": [
+            0.443,
+            -0.076,
+            1.561
+          ],
+          "after": [
+            0.404,
+            -0.065,
+            1.546
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v004",
+          "before": [
+            0.452,
+            -0.014,
+            1.571
+          ],
+          "after": [
+            0.413,
+            -0.011,
+            1.549
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v005",
+          "before": [
+            0.346,
+            -0.135,
+            1.53
+          ],
+          "after": [
+            0.309,
+            -0.126,
+            1.522
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v006",
+          "before": [
+            0.378,
+            -0.142,
+            1.503
+          ],
+          "after": [
+            0.345,
+            -0.133,
+            1.509
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v007",
+          "before": [
+            0.422,
+            -0.122,
+            1.481
+          ],
+          "after": [
+            0.385,
+            -0.112,
+            1.493
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v008",
+          "before": [
+            0.458,
+            -0.075,
+            1.475
+          ],
+          "after": [
+            0.415,
+            -0.064,
+            1.488
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v009",
+          "before": [
+            0.47,
+            -0.01,
+            1.489
+          ],
+          "after": [
+            0.424,
+            -0.008,
+            1.49
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v010",
+          "before": [
+            0.343,
+            -0.135,
+            1.507
+          ],
+          "after": [
+            0.307,
+            -0.126,
+            1.503
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v011",
+          "before": [
+            0.381,
+            -0.142,
+            1.483
+          ],
+          "after": [
+            0.348,
+            -0.133,
+            1.489
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v012",
+          "before": [
+            0.429,
+            -0.12,
+            1.461
+          ],
+          "after": [
+            0.391,
+            -0.11,
+            1.473
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v013",
+          "before": [
+            0.466,
+            -0.07,
+            1.463
+          ],
+          "after": [
+            0.423,
+            -0.06,
+            1.469
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v014",
+          "before": [
+            0.476,
+            -0.008,
+            1.47
+          ],
+          "after": [
+            0.432,
+            -0.006,
+            1.47
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v015",
+          "before": [
+            0.45,
+            0.053,
+            1.561
+          ],
+          "after": [
+            0.41,
+            0.046,
+            1.542
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v016",
+          "before": [
+            0.431,
+            0.108,
+            1.535
+          ],
+          "after": [
+            0.392,
+            0.093,
+            1.525
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v017",
+          "before": [
+            0.398,
+            0.136,
+            1.518
+          ],
+          "after": [
+            0.36,
+            0.117,
+            1.516
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v018",
+          "before": [
+            0.463,
+            0.061,
+            1.489
+          ],
+          "after": [
+            0.42,
+            0.052,
+            1.487
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v019",
+          "before": [
+            0.441,
+            0.124,
+            1.479
+          ],
+          "after": [
+            0.401,
+            0.107,
+            1.482
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v020",
+          "before": [
+            0.4,
+            0.153,
+            1.465
+          ],
+          "after": [
+            0.364,
+            0.133,
+            1.48
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v021",
+          "before": [
+            0.469,
+            0.066,
+            1.468
+          ],
+          "after": [
+            0.426,
+            0.057,
+            1.468
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v022",
+          "before": [
+            0.444,
+            0.133,
+            1.46
+          ],
+          "after": [
+            0.404,
+            0.115,
+            1.464
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "vertex": "v023",
+          "before": [
+            0.399,
+            0.162,
+            1.449
+          ],
+          "after": [
+            0.364,
+            0.14,
+            1.46
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v000",
+          "before": [
+            0.343,
+            -0.137,
+            1.507
+          ],
+          "after": [
+            0.307,
+            -0.128,
+            1.503
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v001",
+          "before": [
+            0.344,
+            -0.137,
+            1.514
+          ],
+          "after": [
+            0.307,
+            -0.127,
+            1.507
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v002",
+          "before": [
+            0.381,
+            -0.144,
+            1.483
+          ],
+          "after": [
+            0.348,
+            -0.135,
+            1.489
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v003",
+          "before": [
+            0.381,
+            -0.144,
+            1.49
+          ],
+          "after": [
+            0.347,
+            -0.134,
+            1.493
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v004",
+          "before": [
+            0.429,
+            -0.122,
+            1.461
+          ],
+          "after": [
+            0.392,
+            -0.112,
+            1.473
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v005",
+          "before": [
+            0.427,
+            -0.123,
+            1.468
+          ],
+          "after": [
+            0.39,
+            -0.111,
+            1.477
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v006",
+          "before": [
+            0.468,
+            -0.071,
+            1.463
+          ],
+          "after": [
+            0.425,
+            -0.061,
+            1.469
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v007",
+          "before": [
+            0.465,
+            -0.071,
+            1.47
+          ],
+          "after": [
+            0.422,
+            -0.061,
+            1.473
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v008",
+          "before": [
+            0.478,
+            -0.008,
+            1.47
+          ],
+          "after": [
+            0.434,
+            -0.006,
+            1.47
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v009",
+          "before": [
+            0.475,
+            -0.008,
+            1.477
+          ],
+          "after": [
+            0.431,
+            -0.006,
+            1.474
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v010",
+          "before": [
+            0.471,
+            0.067,
+            1.468
+          ],
+          "after": [
+            0.428,
+            0.058,
+            1.468
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v011",
+          "before": [
+            0.468,
+            0.065,
+            1.475
+          ],
+          "after": [
+            0.425,
+            0.057,
+            1.472
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v012",
+          "before": [
+            0.446,
+            0.134,
+            1.46
+          ],
+          "after": [
+            0.406,
+            0.116,
+            1.464
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v013",
+          "before": [
+            0.444,
+            0.131,
+            1.467
+          ],
+          "after": [
+            0.404,
+            0.114,
+            1.468
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v014",
+          "before": [
+            0.399,
+            0.164,
+            1.449
+          ],
+          "after": [
+            0.364,
+            0.142,
+            1.46
+          ]
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "vertex": "v015",
+          "before": [
+            0.399,
+            0.161,
+            1.456
+          ],
+          "after": [
+            0.364,
+            0.14,
+            1.464
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v000",
+          "before": [
+            0.218,
+            -0.012,
+            1.631
+          ],
+          "after": [
+            0.208,
+            -0.01,
+            1.612
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v001",
+          "before": [
+            0.237,
+            -0.02,
+            1.635
+          ],
+          "after": [
+            0.226,
+            -0.017,
+            1.615
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v002",
+          "before": [
+            0.242,
+            -0.022,
+            1.615
+          ],
+          "after": [
+            0.235,
+            -0.02,
+            1.598
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v003",
+          "before": [
+            0.222,
+            -0.014,
+            1.612
+          ],
+          "after": [
+            0.217,
+            -0.013,
+            1.595
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v004",
+          "before": [
+            0.231,
+            -0.011,
+            1.597
+          ],
+          "after": [
+            0.226,
+            -0.01,
+            1.578
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v005",
+          "before": [
+            0.251,
+            -0.017,
+            1.6
+          ],
+          "after": [
+            0.246,
+            -0.015,
+            1.582
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v006",
+          "before": [
+            0.259,
+            -0.012,
+            1.583
+          ],
+          "after": [
+            0.252,
+            -0.01,
+            1.566
+          ]
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "vertex": "v007",
+          "before": [
+            0.24,
+            -0.006,
+            1.58
+          ],
+          "after": [
+            0.234,
+            -0.005,
+            1.563
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v000",
+          "before": [
+            0.212,
+            -0.032,
+            1.615
+          ],
+          "after": [
+            0.208,
+            -0.027,
+            1.592
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v001",
+          "before": [
+            0.256,
+            -0.064,
+            1.638
+          ],
+          "after": [
+            0.247,
+            -0.053,
+            1.614
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v002",
+          "before": [
+            0.317,
+            -0.079,
+            1.636
+          ],
+          "after": [
+            0.298,
+            -0.064,
+            1.608
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v003",
+          "before": [
+            0.371,
+            -0.063,
+            1.605
+          ],
+          "after": [
+            0.344,
+            -0.052,
+            1.58
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v004",
+          "before": [
+            0.399,
+            -0.039,
+            1.559
+          ],
+          "after": [
+            0.373,
+            -0.033,
+            1.538
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v005",
+          "before": [
+            0.212,
+            -0.067,
+            1.578
+          ],
+          "after": [
+            0.209,
+            -0.056,
+            1.561
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v006",
+          "before": [
+            0.259,
+            -0.107,
+            1.579
+          ],
+          "after": [
+            0.25,
+            -0.087,
+            1.558
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v007",
+          "before": [
+            0.321,
+            -0.123,
+            1.568
+          ],
+          "after": [
+            0.303,
+            -0.101,
+            1.543
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v008",
+          "before": [
+            0.38,
+            -0.1,
+            1.535
+          ],
+          "after": [
+            0.352,
+            -0.085,
+            1.516
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v009",
+          "before": [
+            0.411,
+            -0.054,
+            1.494
+          ],
+          "after": [
+            0.383,
+            -0.046,
+            1.483
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v010",
+          "before": [
+            0.217,
+            -0.061,
+            1.538
+          ],
+          "after": [
+            0.214,
+            -0.052,
+            1.526
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v011",
+          "before": [
+            0.26,
+            -0.1,
+            1.533
+          ],
+          "after": [
+            0.253,
+            -0.085,
+            1.519
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v012",
+          "before": [
+            0.324,
+            -0.114,
+            1.513
+          ],
+          "after": [
+            0.307,
+            -0.096,
+            1.498
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v013",
+          "before": [
+            0.384,
+            -0.091,
+            1.483
+          ],
+          "after": [
+            0.357,
+            -0.078,
+            1.475
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v014",
+          "before": [
+            0.414,
+            -0.043,
+            1.462
+          ],
+          "after": [
+            0.388,
+            -0.037,
+            1.454
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v015",
+          "before": [
+            0.211,
+            0.035,
+            1.611
+          ],
+          "after": [
+            0.207,
+            0.03,
+            1.589
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v016",
+          "before": [
+            0.255,
+            0.078,
+            1.633
+          ],
+          "after": [
+            0.247,
+            0.065,
+            1.61
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v017",
+          "before": [
+            0.318,
+            0.104,
+            1.624
+          ],
+          "after": [
+            0.299,
+            0.084,
+            1.599
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v018",
+          "before": [
+            0.374,
+            0.098,
+            1.589
+          ],
+          "after": [
+            0.346,
+            0.079,
+            1.568
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v019",
+          "before": [
+            0.402,
+            0.069,
+            1.548
+          ],
+          "after": [
+            0.375,
+            0.056,
+            1.528
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v020",
+          "before": [
+            0.215,
+            0.071,
+            1.573
+          ],
+          "after": [
+            0.212,
+            0.059,
+            1.557
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v021",
+          "before": [
+            0.261,
+            0.118,
+            1.567
+          ],
+          "after": [
+            0.251,
+            0.098,
+            1.549
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v022",
+          "before": [
+            0.325,
+            0.141,
+            1.55
+          ],
+          "after": [
+            0.306,
+            0.116,
+            1.533
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v023",
+          "before": [
+            0.384,
+            0.126,
+            1.52
+          ],
+          "after": [
+            0.356,
+            0.102,
+            1.504
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v024",
+          "before": [
+            0.418,
+            0.081,
+            1.481
+          ],
+          "after": [
+            0.389,
+            0.067,
+            1.474
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v025",
+          "before": [
+            0.22,
+            0.064,
+            1.535
+          ],
+          "after": [
+            0.216,
+            0.054,
+            1.523
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v026",
+          "before": [
+            0.264,
+            0.103,
+            1.524
+          ],
+          "after": [
+            0.255,
+            0.088,
+            1.512
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v027",
+          "before": [
+            0.329,
+            0.128,
+            1.501
+          ],
+          "after": [
+            0.309,
+            0.108,
+            1.489
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v028",
+          "before": [
+            0.39,
+            0.116,
+            1.472
+          ],
+          "after": [
+            0.36,
+            0.097,
+            1.464
+          ]
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "vertex": "v029",
+          "before": [
+            0.422,
+            0.075,
+            1.452
+          ],
+          "after": [
+            0.393,
+            0.063,
+            1.446
+          ]
+        }
+      ],
+      "validation": [
+        {
+          "part": "left_pauldron_main_shell",
+          "control_vertices": 56,
+          "control_faces": 42,
+          "control_triangles": 84,
+          "control_boundary_edges": 26
+        },
+        {
+          "part": "left_pauldron_front_brass_border",
+          "control_vertices": 16,
+          "control_faces": 7,
+          "control_triangles": 14,
+          "control_boundary_edges": 16
+        },
+        {
+          "part": "left_pauldron_outer_brass_border",
+          "control_vertices": 14,
+          "control_faces": 6,
+          "control_triangles": 12,
+          "control_boundary_edges": 14
+        },
+        {
+          "part": "left_pauldron_rear_brass_border",
+          "control_vertices": 16,
+          "control_faces": 7,
+          "control_triangles": 14,
+          "control_boundary_edges": 16
+        },
+        {
+          "part": "left_pauldron_upper_lame",
+          "control_vertices": 24,
+          "control_faces": 14,
+          "control_triangles": 28,
+          "control_boundary_edges": 18
+        },
+        {
+          "part": "left_pauldron_upper_lame_brass_hem",
+          "control_vertices": 16,
+          "control_faces": 7,
+          "control_triangles": 14,
+          "control_boundary_edges": 16
+        },
+        {
+          "part": "left_pauldron_authored_rivet",
+          "control_vertices": 17,
+          "control_faces": 17,
+          "control_triangles": 30,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "left_pauldron_leather_suspension",
+          "control_vertices": 8,
+          "control_faces": 3,
+          "control_triangles": 6,
+          "control_boundary_edges": 8
+        },
+        {
+          "part": "left_pauldron_padded_shoulder_support",
+          "control_vertices": 30,
+          "control_faces": 28,
+          "control_triangles": 56,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "left_pauldron_lame_fasteners",
+          "control_vertices": 17,
+          "control_faces": 17,
+          "control_triangles": 30,
+          "control_boundary_edges": 0
+        },
+        {
+          "part": "novitiate_pauldron_front_hinge_tab",
+          "control_vertices": 6,
+          "control_faces": 2,
+          "control_triangles": 4,
+          "control_boundary_edges": 6
+        },
+        {
+          "part": "novitiate_pauldron_rear_hinge_tab",
+          "control_vertices": 6,
+          "control_faces": 2,
+          "control_triangles": 4,
+          "control_boundary_edges": 6
+        }
+      ],
+      "control_bounds_by_part": {
+        "left_pauldron_main_shell": {
+          "min": [
+            0.207,
+            -0.146,
+            1.494
+          ],
+          "max": [
+            0.423,
+            0.157,
+            1.655
+          ]
+        },
+        "left_pauldron_front_brass_border": {
+          "min": [
+            0.208,
+            -0.148,
+            1.508
+          ],
+          "max": [
+            0.411,
+            -0.072,
+            1.602
+          ]
+        },
+        "left_pauldron_outer_brass_border": {
+          "min": [
+            0.406,
+            -0.11,
+            1.494
+          ],
+          "max": [
+            0.424,
+            0.118,
+            1.548
+          ]
+        },
+        "left_pauldron_rear_brass_border": {
+          "min": [
+            0.216,
+            0.106,
+            1.494
+          ],
+          "max": [
+            0.418,
+            0.159,
+            1.604
+          ]
+        },
+        "left_pauldron_upper_lame": {
+          "min": [
+            0.307,
+            -0.133,
+            1.46
+          ],
+          "max": [
+            0.432,
+            0.14,
+            1.577
+          ]
+        },
+        "left_pauldron_upper_lame_brass_hem": {
+          "min": [
+            0.307,
+            -0.135,
+            1.46
+          ],
+          "max": [
+            0.434,
+            0.142,
+            1.507
+          ]
+        },
+        "left_pauldron_authored_rivet": {
+          "min": [
+            -0.004,
+            -0.0032,
+            -0.004
+          ],
+          "max": [
+            0.004,
+            0.0,
+            0.004
+          ]
+        },
+        "left_pauldron_leather_suspension": {
+          "min": [
+            0.208,
+            -0.02,
+            1.563
+          ],
+          "max": [
+            0.252,
+            -0.005,
+            1.615
+          ]
+        },
+        "left_pauldron_padded_shoulder_support": {
+          "min": [
+            0.207,
+            -0.101,
+            1.446
+          ],
+          "max": [
+            0.393,
+            0.116,
+            1.614
+          ]
+        },
+        "left_pauldron_lame_fasteners": {
+          "min": [
+            -0.004,
+            -0.0032,
+            -0.004
+          ],
+          "max": [
+            0.004,
+            0.0,
+            0.004
+          ]
+        },
+        "novitiate_pauldron_front_hinge_tab": {
+          "min": [
+            0.313,
+            -0.135,
+            1.506
+          ],
+          "max": [
+            0.326,
+            -0.126,
+            1.539
+          ]
+        },
+        "novitiate_pauldron_rear_hinge_tab": {
+          "min": [
+            0.369,
+            0.114,
+            1.48
+          ],
+          "max": [
+            0.382,
+            0.134,
+            1.51
+          ]
+        }
+      }
+    },
+    {
+      "file": "gorget.json",
+      "accepted_sha256": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+      "new_sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2",
+      "retained_parts": [
+        "gorget_steel_wall",
+        "gorget_brass_rolled_rim"
+      ],
+      "new_authored_parts": [],
+      "removed_parts": [
+        "gorget_lower_brass_band",
+        "gorget_creed_inlay",
+        "gorget_authored_rivet"
+      ],
+      "literal_vertex_changes": [
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v000",
+          "before": [
+            0,
+            -0.149,
+            1.646
+          ],
+          "after": [
+            0,
+            -0.129,
+            1.602
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v001",
+          "before": [
+            0.052,
+            -0.143,
+            1.651
+          ],
+          "after": [
+            0.046,
+            -0.126,
+            1.606
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v002",
+          "before": [
+            0.101,
+            -0.116,
+            1.67
+          ],
+          "after": [
+            0.092,
+            -0.103,
+            1.616
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v003",
+          "before": [
+            0.131,
+            -0.067,
+            1.691
+          ],
+          "after": [
+            0.121,
+            -0.06,
+            1.626
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v004",
+          "before": [
+            0.137,
+            -0.004,
+            1.702
+          ],
+          "after": [
+            0.128,
+            -0.003,
+            1.631
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v005",
+          "before": [
+            0.121,
+            0.068,
+            1.7
+          ],
+          "after": [
+            0.113,
+            0.064,
+            1.632
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v006",
+          "before": [
+            0.072,
+            0.112,
+            1.69
+          ],
+          "after": [
+            0.068,
+            0.108,
+            1.627
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v007",
+          "before": [
+            0,
+            0.129,
+            1.685
+          ],
+          "after": [
+            0,
+            0.125,
+            1.624
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v008",
+          "before": [
+            0,
+            -0.158,
+            1.624
+          ],
+          "after": [
+            0,
+            -0.137,
+            1.588
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v009",
+          "before": [
+            0.056,
+            -0.151,
+            1.631
+          ],
+          "after": [
+            0.049,
+            -0.132,
+            1.592
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v010",
+          "before": [
+            0.107,
+            -0.124,
+            1.649
+          ],
+          "after": [
+            0.097,
+            -0.111,
+            1.603
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v011",
+          "before": [
+            0.137,
+            -0.071,
+            1.67
+          ],
+          "after": [
+            0.127,
+            -0.063,
+            1.614
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v012",
+          "before": [
+            0.143,
+            -0.004,
+            1.68
+          ],
+          "after": [
+            0.134,
+            -0.003,
+            1.619
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v013",
+          "before": [
+            0.127,
+            0.073,
+            1.678
+          ],
+          "after": [
+            0.119,
+            0.069,
+            1.62
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v014",
+          "before": [
+            0.077,
+            0.119,
+            1.667
+          ],
+          "after": [
+            0.072,
+            0.114,
+            1.615
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v015",
+          "before": [
+            0,
+            0.136,
+            1.662
+          ],
+          "after": [
+            0,
+            0.132,
+            1.612
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v016",
+          "before": [
+            0,
+            -0.158,
+            1.56
+          ],
+          "after": [
+            0,
+            -0.151,
+            1.551
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v017",
+          "before": [
+            0.055,
+            -0.152,
+            1.565
+          ],
+          "after": [
+            0.053,
+            -0.146,
+            1.556
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v018",
+          "before": [
+            0.106,
+            -0.122,
+            1.58
+          ],
+          "after": [
+            0.103,
+            -0.117,
+            1.571
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v019",
+          "before": [
+            0.138,
+            -0.068,
+            1.6
+          ],
+          "after": [
+            0.135,
+            -0.064,
+            1.59
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v020",
+          "before": [
+            0.145,
+            0.004,
+            1.612
+          ],
+          "after": [
+            0.141,
+            0.005,
+            1.6
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v021",
+          "before": [
+            0.128,
+            0.078,
+            1.615
+          ],
+          "after": [
+            0.125,
+            0.075,
+            1.603
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v022",
+          "before": [
+            0.077,
+            0.125,
+            1.609
+          ],
+          "after": [
+            0.075,
+            0.121,
+            1.596
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v023",
+          "before": [
+            0,
+            0.14,
+            1.605
+          ],
+          "after": [
+            0,
+            0.137,
+            1.591
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v024",
+          "before": [
+            0,
+            -0.146,
+            1.53
+          ],
+          "after": [
+            0,
+            -0.145,
+            1.529
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v025",
+          "before": [
+            0.053,
+            -0.142,
+            1.535
+          ],
+          "after": [
+            0.052,
+            -0.141,
+            1.534
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v026",
+          "before": [
+            0.104,
+            -0.114,
+            1.549
+          ],
+          "after": [
+            0.103,
+            -0.113,
+            1.548
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v027",
+          "before": [
+            0.136,
+            -0.058,
+            1.568
+          ],
+          "after": [
+            0.134,
+            -0.057,
+            1.567
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v028",
+          "before": [
+            0.143,
+            0.011,
+            1.582
+          ],
+          "after": [
+            0.141,
+            0.011,
+            1.581
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v029",
+          "before": [
+            0.124,
+            0.079,
+            1.59
+          ],
+          "after": [
+            0.123,
+            0.079,
+            1.588
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v030",
+          "before": [
+            0.073,
+            0.124,
+            1.589
+          ],
+          "after": [
+            0.073,
+            0.123,
+            1.585
+          ]
+        },
+        {
+          "part": "gorget_steel_wall",
+          "vertex": "v031",
+          "before": [
+            0,
+            0.139,
+            1.585
+          ],
+          "after": [
+            0,
+            0.137,
+            1.581
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v000",
+          "before": [
+            0,
+            -0.151,
+            1.652
+          ],
+          "after": [
+            0,
+            -0.131,
+            1.607
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v001",
+          "before": [
+            0.053,
+            -0.145,
+            1.657
+          ],
+          "after": [
+            0.047,
+            -0.128,
+            1.611
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v002",
+          "before": [
+            0.103,
+            -0.118,
+            1.676
+          ],
+          "after": [
+            0.094,
+            -0.105,
+            1.621
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v003",
+          "before": [
+            0.133,
+            -0.069,
+            1.697
+          ],
+          "after": [
+            0.123,
+            -0.062,
+            1.631
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v004",
+          "before": [
+            0.14,
+            -0.004,
+            1.708
+          ],
+          "after": [
+            0.13,
+            -0.003,
+            1.636
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v005",
+          "before": [
+            0.124,
+            0.069,
+            1.706
+          ],
+          "after": [
+            0.115,
+            0.065,
+            1.637
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v006",
+          "before": [
+            0.074,
+            0.115,
+            1.696
+          ],
+          "after": [
+            0.07,
+            0.11,
+            1.632
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v007",
+          "before": [
+            0,
+            0.132,
+            1.691
+          ],
+          "after": [
+            0,
+            0.128,
+            1.629
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v008",
+          "before": [
+            0,
+            -0.156,
+            1.644
+          ],
+          "after": [
+            0,
+            -0.136,
+            1.601
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v009",
+          "before": [
+            0.055,
+            -0.15,
+            1.649
+          ],
+          "after": [
+            0.049,
+            -0.133,
+            1.605
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v010",
+          "before": [
+            0.107,
+            -0.122,
+            1.668
+          ],
+          "after": [
+            0.097,
+            -0.109,
+            1.615
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v011",
+          "before": [
+            0.138,
+            -0.07,
+            1.689
+          ],
+          "after": [
+            0.128,
+            -0.063,
+            1.625
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v012",
+          "before": [
+            0.144,
+            -0.004,
+            1.7
+          ],
+          "after": [
+            0.134,
+            -0.003,
+            1.63
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v013",
+          "before": [
+            0.129,
+            0.072,
+            1.698
+          ],
+          "after": [
+            0.12,
+            0.068,
+            1.631
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v014",
+          "before": [
+            0.077,
+            0.12,
+            1.688
+          ],
+          "after": [
+            0.073,
+            0.115,
+            1.626
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v015",
+          "before": [
+            0,
+            0.138,
+            1.683
+          ],
+          "after": [
+            0,
+            0.133,
+            1.623
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v016",
+          "before": [
+            0,
+            -0.153,
+            1.637
+          ],
+          "after": [
+            0,
+            -0.132,
+            1.595
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v017",
+          "before": [
+            0.054,
+            -0.146,
+            1.642
+          ],
+          "after": [
+            0.047,
+            -0.128,
+            1.599
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v018",
+          "before": [
+            0.103,
+            -0.118,
+            1.661
+          ],
+          "after": [
+            0.094,
+            -0.105,
+            1.609
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v019",
+          "before": [
+            0.134,
+            -0.069,
+            1.682
+          ],
+          "after": [
+            0.124,
+            -0.062,
+            1.619
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v020",
+          "before": [
+            0.14,
+            -0.004,
+            1.693
+          ],
+          "after": [
+            0.13,
+            -0.003,
+            1.624
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v021",
+          "before": [
+            0.125,
+            0.069,
+            1.691
+          ],
+          "after": [
+            0.116,
+            0.065,
+            1.625
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v022",
+          "before": [
+            0.074,
+            0.116,
+            1.681
+          ],
+          "after": [
+            0.07,
+            0.111,
+            1.62
+          ]
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "vertex": "v023",
+          "before": [
+            0,
+            0.134,
+            1.676
+          ],
+          "after": [
+            0,
+            0.129,
+            1.617
+          ]
+        }
+      ],
+      "validation": [
+        {
+          "part": "gorget_steel_wall",
+          "control_vertices": 32,
+          "control_faces": 21,
+          "control_triangles": 42,
+          "control_boundary_edges": 20
+        },
+        {
+          "part": "gorget_brass_rolled_rim",
+          "control_vertices": 24,
+          "control_faces": 14,
+          "control_triangles": 28,
+          "control_boundary_edges": 18
+        }
+      ],
+      "control_bounds_by_part": {
+        "gorget_steel_wall": {
+          "min": [
+            0,
+            -0.151,
+            1.529
+          ],
+          "max": [
+            0.141,
+            0.137,
+            1.632
+          ]
+        },
+        "gorget_brass_rolled_rim": {
+          "min": [
+            0,
+            -0.136,
+            1.595
+          ],
+          "max": [
+            0.134,
+            0.133,
+            1.637
+          ]
+        }
+      }
+    },
+    {
+      "file": "breastplate.json",
+      "accepted_sha256": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+      "new_sha256": "f336355535f14b8d523f1957c9796e086eb3ba89c985f9fd6ef3b4805af4a402",
+      "retained_parts": [
+        "breastplate_shell",
+        "breastplate_neck_brass",
+        "breastplate_lower_brass"
+      ],
+      "new_authored_parts": [
+        "novitiate_breastplate_rolled_side_return"
+      ],
+      "removed_parts": [
+        "breastplate_diagonal_reinforcement",
+        "breastplate_reinforcement_steel_inset"
+      ],
+      "literal_vertex_changes": [
+        {
+          "part": "breastplate_shell",
+          "vertex": "v000",
+          "before": [
+            0,
+            -0.111,
+            1.536
+          ],
+          "after": [
+            0,
+            -0.111,
+            1.549
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v001",
+          "before": [
+            0.061,
+            -0.107,
+            1.546
+          ],
+          "after": [
+            0.061,
+            -0.107,
+            1.555
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v002",
+          "before": [
+            0.131,
+            -0.073,
+            1.574
+          ],
+          "after": [
+            0.131,
+            -0.073,
+            1.578
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v005",
+          "before": [
+            0,
+            -0.163,
+            1.496
+          ],
+          "after": [
+            0,
+            -0.161,
+            1.5
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v006",
+          "before": [
+            0.068,
+            -0.158,
+            1.504
+          ],
+          "after": [
+            0.068,
+            -0.157,
+            1.507
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v010",
+          "before": [
+            0,
+            -0.207,
+            1.423
+          ],
+          "after": [
+            0,
+            -0.198,
+            1.429
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v011",
+          "before": [
+            0.078,
+            -0.192,
+            1.43
+          ],
+          "after": [
+            0.078,
+            -0.189,
+            1.434
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v015",
+          "before": [
+            0,
+            -0.185,
+            1.348
+          ],
+          "after": [
+            0,
+            -0.182,
+            1.352
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v016",
+          "before": [
+            0.078,
+            -0.179,
+            1.354
+          ],
+          "after": [
+            0.078,
+            -0.177,
+            1.357
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v020",
+          "before": [
+            0,
+            -0.151,
+            1.268
+          ],
+          "after": [
+            0,
+            -0.151,
+            1.274
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v021",
+          "before": [
+            0.069,
+            -0.148,
+            1.282
+          ],
+          "after": [
+            0.069,
+            -0.148,
+            1.285
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v025",
+          "before": [
+            0,
+            -0.144,
+            1.247
+          ],
+          "after": [
+            0,
+            -0.144,
+            1.258
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v026",
+          "before": [
+            0.064,
+            -0.143,
+            1.258
+          ],
+          "after": [
+            0.064,
+            -0.143,
+            1.267
+          ]
+        },
+        {
+          "part": "breastplate_shell",
+          "vertex": "v027",
+          "before": [
+            0.137,
+            -0.107,
+            1.277
+          ],
+          "after": [
+            0.137,
+            -0.107,
+            1.281
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v000",
+          "before": [
+            0,
+            -0.115,
+            1.542
+          ],
+          "after": [
+            0,
+            -0.114,
+            1.553
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v001",
+          "before": [
+            0.061,
+            -0.111,
+            1.552
+          ],
+          "after": [
+            0.061,
+            -0.11,
+            1.559
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v002",
+          "before": [
+            0.132,
+            -0.077,
+            1.58
+          ],
+          "after": [
+            0.132,
+            -0.076,
+            1.582
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v003",
+          "before": [
+            0.19,
+            -0.009,
+            1.613
+          ],
+          "after": [
+            0.19,
+            -0.008,
+            1.611
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v004",
+          "before": [
+            0.219,
+            0.056,
+            1.598
+          ],
+          "after": [
+            0.219,
+            0.057,
+            1.596
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v005",
+          "before": [
+            0,
+            -0.125,
+            1.524
+          ],
+          "after": [
+            0,
+            -0.121,
+            1.542
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v006",
+          "before": [
+            0.064,
+            -0.124,
+            1.534
+          ],
+          "after": [
+            0.063,
+            -0.119,
+            1.548
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v007",
+          "before": [
+            0.139,
+            -0.089,
+            1.562
+          ],
+          "after": [
+            0.136,
+            -0.083,
+            1.571
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v008",
+          "before": [
+            0.203,
+            -0.019,
+            1.593
+          ],
+          "after": [
+            0.198,
+            -0.015,
+            1.599
+          ]
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "vertex": "v009",
+          "before": [
+            0.225,
+            0.055,
+            1.58
+          ],
+          "after": [
+            0.223,
+            0.057,
+            1.585
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v000",
+          "before": [
+            0,
+            -0.149,
+            1.251
+          ],
+          "after": [
+            0,
+            -0.148,
+            1.261
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v001",
+          "before": [
+            0.065,
+            -0.148,
+            1.262
+          ],
+          "after": [
+            0.065,
+            -0.147,
+            1.27
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v002",
+          "before": [
+            0.138,
+            -0.112,
+            1.28
+          ],
+          "after": [
+            0.138,
+            -0.111,
+            1.284
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v005",
+          "before": [
+            0,
+            -0.146,
+            1.239
+          ],
+          "after": [
+            0,
+            -0.146,
+            1.253
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v006",
+          "before": [
+            0.064,
+            -0.146,
+            1.249
+          ],
+          "after": [
+            0.064,
+            -0.145,
+            1.262
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v007",
+          "before": [
+            0.138,
+            -0.11,
+            1.267
+          ],
+          "after": [
+            0.138,
+            -0.109,
+            1.276
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v008",
+          "before": [
+            0.189,
+            -0.032,
+            1.289
+          ],
+          "after": [
+            0.189,
+            -0.032,
+            1.294
+          ]
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "vertex": "v009",
+          "before": [
+            0.205,
+            0.06,
+            1.306
+          ],
+          "after": [
+            0.205,
+            0.06,
+            1.311
+          ]
+        }
+      ],
+      "validation": [
+        {
+          "part": "breastplate_shell",
+          "control_vertices": 30,
+          "control_faces": 20,
+          "control_triangles": 40,
+          "control_boundary_edges": 18
+        },
+        {
+          "part": "breastplate_neck_brass",
+          "control_vertices": 10,
+          "control_faces": 4,
+          "control_triangles": 8,
+          "control_boundary_edges": 10
+        },
+        {
+          "part": "breastplate_lower_brass",
+          "control_vertices": 10,
+          "control_faces": 4,
+          "control_triangles": 8,
+          "control_boundary_edges": 10
+        },
+        {
+          "part": "novitiate_breastplate_rolled_side_return",
+          "control_vertices": 12,
+          "control_faces": 5,
+          "control_triangles": 10,
+          "control_boundary_edges": 12
+        }
+      ],
+      "control_bounds_by_part": {
+        "breastplate_shell": {
+          "min": [
+            0,
+            -0.198,
+            1.258
+          ],
+          "max": [
+            0.243,
+            0.065,
+            1.607
+          ]
+        },
+        "breastplate_neck_brass": {
+          "min": [
+            0,
+            -0.121,
+            1.542
+          ],
+          "max": [
+            0.223,
+            0.057,
+            1.611
+          ]
+        },
+        "breastplate_lower_brass": {
+          "min": [
+            0,
+            -0.148,
+            1.253
+          ],
+          "max": [
+            0.205,
+            0.06,
+            1.319
+          ]
+        },
+        "novitiate_breastplate_rolled_side_return": {
+          "min": [
+            0.2,
+            0.045,
+            1.316
+          ],
+          "max": [
+            0.245,
+            0.065,
+            1.594
+          ]
+        }
+      }
+    },
+    {
+      "file": "backplate.json",
+      "accepted_sha256": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+      "new_sha256": "e39ad5c8bea922c16e8b1b496576495c7ba98d94097bfb19975dad585598554e",
+      "retained_parts": [
+        "rigid_backplate"
+      ],
+      "new_authored_parts": [],
+      "removed_parts": [],
+      "literal_vertex_changes": [
+        {
+          "part": "rigid_backplate",
+          "vertex": "v000",
+          "before": [
+            0.0,
+            0.14,
+            1.644
+          ],
+          "after": [
+            0,
+            0.14,
+            1.602
+          ]
+        },
+        {
+          "part": "rigid_backplate",
+          "vertex": "v001",
+          "before": [
+            0.073,
+            0.134,
+            1.647
+          ],
+          "after": [
+            0.073,
+            0.134,
+            1.608
+          ]
+        },
+        {
+          "part": "rigid_backplate",
+          "vertex": "v002",
+          "before": [
+            0.139,
+            0.096,
+            1.64
+          ],
+          "after": [
+            0.139,
+            0.096,
+            1.613
+          ]
+        },
+        {
+          "part": "rigid_backplate",
+          "vertex": "v003",
+          "before": [
+            0.196,
+            0.054,
+            1.61
+          ],
+          "after": [
+            0.196,
+            0.054,
+            1.602
+          ]
+        }
+      ],
+      "validation": [
+        {
+          "part": "rigid_backplate",
+          "control_vertices": 25,
+          "control_faces": 16,
+          "control_triangles": 32,
+          "control_boundary_edges": 16
+        }
+      ],
+      "control_bounds_by_part": {
+        "rigid_backplate": {
+          "min": [
+            0,
+            0.024,
+            1.249
+          ],
+          "max": [
+            0.234,
+            0.174,
+            1.613
+          ]
+        }
+      }
+    }
+  ],
+  "badge_clearance_review": {
+    "status": "passed_clearance",
+    "scope": "Only 12 badge Y coordinates edited, same literal coordinates in core serializer. No adjacent core serializer execution. Plate/source topology/UVs unchanged.",
+    "source_sha256": {
+      "breastplate.json": "32f332215446dc8131a3e4bddd376f878febbcaf26147375ca012338b53cdc5c",
+      "faith_badge.json": "8eb7fc5aeef5b321f0a028075df92ad40568e09dbee14d9d771be30de32e4448"
+    },
+    "validation": [
+      {
+        "part": "novitiate_small_faith_badge",
+        "control_vertices": 12,
+        "control_faces": 5,
+        "control_triangles": 10,
+        "control_boundary_edges": 12
+      }
+    ],
+    "before_back_gap_range_m": [
+      0.034182,
+      0.038837
+    ],
+    "tolerance_note": "Strict1\u20132mm across both finishes is impossible because corresponding plate surfaces differ up to1.628mm. Initial1mm control gap yielded0.255mm along the curved stem; final stem/top coordinates moved0.8mm outward to clear the finished beveled mesh. Final maximum control gap2.937mm.",
+    "results": [
+      {
+        "plate_subsurf": 2,
+        "all_12_control_vertices_with_1mm_back_wall": [
+          {
+            "id": "v000",
+            "badge_xyz": [
+              -0.005,
+              -0.1901,
+              1.443
+            ],
+            "plate_front_y": -0.187248,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001852
+          },
+          {
+            "id": "v001",
+            "badge_xyz": [
+              0.005,
+              -0.1901,
+              1.443
+            ],
+            "plate_front_y": -0.187248,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001852
+          },
+          {
+            "id": "v002",
+            "badge_xyz": [
+              0.005,
+              -0.1933,
+              1.425
+            ],
+            "plate_front_y": -0.190463,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001837
+          },
+          {
+            "id": "v003",
+            "badge_xyz": [
+              0.021,
+              -0.1918,
+              1.425
+            ],
+            "plate_front_y": -0.189777,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001023
+          },
+          {
+            "id": "v004",
+            "badge_xyz": [
+              0.021,
+              -0.19235,
+              1.416
+            ],
+            "plate_front_y": -0.19032,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.00103
+          },
+          {
+            "id": "v005",
+            "badge_xyz": [
+              0.005,
+              -0.1938,
+              1.416
+            ],
+            "plate_front_y": -0.190991,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001809
+          },
+          {
+            "id": "v006",
+            "badge_xyz": [
+              0.005,
+              -0.19265,
+              1.392
+            ],
+            "plate_front_y": -0.189818,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001832
+          },
+          {
+            "id": "v007",
+            "badge_xyz": [
+              -0.005,
+              -0.19265,
+              1.392
+            ],
+            "plate_front_y": -0.189818,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001832
+          },
+          {
+            "id": "v008",
+            "badge_xyz": [
+              -0.005,
+              -0.1938,
+              1.416
+            ],
+            "plate_front_y": -0.190991,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001809
+          },
+          {
+            "id": "v009",
+            "badge_xyz": [
+              -0.021,
+              -0.19235,
+              1.416
+            ],
+            "plate_front_y": -0.19032,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.00103
+          },
+          {
+            "id": "v010",
+            "badge_xyz": [
+              -0.021,
+              -0.1918,
+              1.425
+            ],
+            "plate_front_y": -0.189777,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001023
+          },
+          {
+            "id": "v011",
+            "badge_xyz": [
+              -0.005,
+              -0.1933,
+              1.425
+            ],
+            "plate_front_y": -0.190463,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.001837
+          }
+        ],
+        "control_back_gap_range_m": [
+          0.001023,
+          0.001852
+        ],
+        "actual_finished_badge_sample_count": 500,
+        "actual_finished_badge_min_gap_m": 0.001006,
+        "negative_gap_samples": 0
+      },
+      {
+        "plate_subsurf": 1,
+        "all_12_control_vertices_with_1mm_back_wall": [
+          {
+            "id": "v000",
+            "badge_xyz": [
+              -0.005,
+              -0.1901,
+              1.443
+            ],
+            "plate_front_y": -0.186163,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002937
+          },
+          {
+            "id": "v001",
+            "badge_xyz": [
+              0.005,
+              -0.1901,
+              1.443
+            ],
+            "plate_front_y": -0.186163,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002937
+          },
+          {
+            "id": "v002",
+            "badge_xyz": [
+              0.005,
+              -0.1933,
+              1.425
+            ],
+            "plate_front_y": -0.189976,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002324
+          },
+          {
+            "id": "v003",
+            "badge_xyz": [
+              0.021,
+              -0.1918,
+              1.425
+            ],
+            "plate_front_y": -0.188795,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002005
+          },
+          {
+            "id": "v004",
+            "badge_xyz": [
+              0.021,
+              -0.19235,
+              1.416
+            ],
+            "plate_front_y": -0.188692,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002658
+          },
+          {
+            "id": "v005",
+            "badge_xyz": [
+              0.005,
+              -0.1938,
+              1.416
+            ],
+            "plate_front_y": -0.189874,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002926
+          },
+          {
+            "id": "v006",
+            "badge_xyz": [
+              0.005,
+              -0.19265,
+              1.392
+            ],
+            "plate_front_y": -0.189621,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002029
+          },
+          {
+            "id": "v007",
+            "badge_xyz": [
+              -0.005,
+              -0.19265,
+              1.392
+            ],
+            "plate_front_y": -0.189621,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002029
+          },
+          {
+            "id": "v008",
+            "badge_xyz": [
+              -0.005,
+              -0.1938,
+              1.416
+            ],
+            "plate_front_y": -0.189874,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002926
+          },
+          {
+            "id": "v009",
+            "badge_xyz": [
+              -0.021,
+              -0.19235,
+              1.416
+            ],
+            "plate_front_y": -0.188692,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002658
+          },
+          {
+            "id": "v010",
+            "badge_xyz": [
+              -0.021,
+              -0.1918,
+              1.425
+            ],
+            "plate_front_y": -0.188795,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002005
+          },
+          {
+            "id": "v011",
+            "badge_xyz": [
+              -0.005,
+              -0.1933,
+              1.425
+            ],
+            "plate_front_y": -0.189976,
+            "back_wall_allowance_m": 0.001,
+            "back_gap_m": 0.002324
+          }
+        ],
+        "control_back_gap_range_m": [
+          0.002005,
+          0.002937
+        ],
+        "actual_finished_badge_sample_count": 500,
+        "actual_finished_badge_min_gap_m": 0.001077,
+        "negative_gap_samples": 0
+      }
+    ],
+    "post_detail_plate_shell_record_unchanged": true,
+    "post_detail_breastplate_file_sha256": "f336355535f14b8d523f1957c9796e086eb3ba89c985f9fd6ef3b4805af4a402",
+    "plate_shell_record_sha256": "59132dde18d528f1d310827fdecf1b0181188b7ad4530e902225b65cc8e3ad11",
+    "core_literal_table_matches_source": true
+  },
+  "visual_review": {
+    "status": "construction_detail_pass_awaits_new_combined_render",
+    "previous_revision_images": [
+      "full_front_material.png",
+      "full_side_neutral.png",
+      "full_three_quarter_neutral.png",
+      "full_back_neutral.png"
+    ],
+    "previous_upper_fit": "No visible steel clipping or detached collar/backplate. Compact two-plate shoulder silhouette and plain chest read as a modest kit.",
+    "resolved_issue": "Small faith badge was floating about35mm forward; literal fit now gives at least1mm in sampled finished master/runtime surfaces.",
+    "new_detail": "Plain rolled shoulder/perimeter/lame edges, 2 bent iron hinge tabs per shoulder, functional iron fasteners, and folded steel cuirass side returns; no gilt border, crest or large emblem added."
+  }
+}

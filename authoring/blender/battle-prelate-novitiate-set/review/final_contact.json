@@ -1,0 +1,37 @@
+{
+  "inputs": [
+    {
+      "path": "review/reimport_lod0_full_front_material.png",
+      "sha256": "d3e2a7a37d5a089efb3b9d1206b0a5644b3e0fd28311f25353c5cc8909316abf"
+    },
+    {
+      "path": "review/reimport_lod0_full_three_quarter_material.png",
+      "sha256": "c001f8127d0461492e78c5146e717b86551a2005582d2aaa264330a560f44b6a"
+    },
+    {
+      "path": "review/reimport_lod0_full_side_material.png",
+      "sha256": "9165ef3e150d2867a0e8b612dd76facf9b70fe9bf66993fb62c8849cfa6e6563"
+    },
+    {
+      "path": "review/reimport_lod0_full_back_material.png",
+      "sha256": "6ebb2232b3c076e96011cfe0c4490f56f6dca4820cb5a867e0ea46b487abc8d2"
+    },
+    {
+      "path": "review/reimport_lod0_full_front_neutral.png",
+      "sha256": "451678b3d292c1e6ff399c312a5c494be22a2bd339482d4cb9f131e87fc14c3e"
+    },
+    {
+      "path": "review/reimport_lod1_full_front_material.png",
+      "sha256": "f9d0a8899e3c6a53960a1b67bb356c9ee0674c3060bb9bc97299b339c8fc5db7"
+    },
+    {
+      "path": "review/reimport_lod2_full_front_material.png",
+      "sha256": "0c15a3546ca2bb635d871d287757db1ad34ab21a18388837d61402dcbba068d3"
+    },
+    {
+      "path": "review/exported_motion_supplemental_late_death_wide.png",
+      "sha256": "7826d8f29099e37829d5ca1033dff9d53189853009f58e568fd01b501a0afda9"
+    }
+  ],
+  "image_sha256": "eac426cbcf32c4491a138f795a8162194e3fdc6c8e97a223d362ee381b8822cd"
+}

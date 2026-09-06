@@ -2,9 +2,14 @@ import {
   CAMPAIGN_BATTLE_OBJECTIVE_INFLUENCE,
   CAMPAIGN_BATTLEFIELD_SWEEP_INFLUENCE,
   CAMPAIGN_OBJECTIVE_CAPTURE_XP,
+  CAMPAIGN_OBJECTIVE_DEFENSE_COOLDOWN_MS,
+  CAMPAIGN_OBJECTIVE_DEFENSE_INFLUENCE,
+  CAMPAIGN_OBJECTIVE_DEFENSE_XP,
   CAMPAIGN_OBJECTIVES_BY_ZONE,
   CAMPAIGN_ZONE_BY_ID,
   campaignObjectiveCaptureEligibility,
+  campaignObjectiveDefenseEligibility,
+  campaignKeepCaptureReward,
   campaignZoneInfluence,
   buildCampaignSnapshot,
   defaultCampaignZoneControl,
@@ -12,7 +17,9 @@ import {
   isRvrKeepZone,
   objectiveKey,
   type CampaignClaimResult,
+  type CampaignClaimReward,
   type CampaignObjectiveControlState,
+  type CampaignObjectiveDefenseState,
   type CampaignRealm,
   type CampaignSnapshot,
   type CampaignZoneControlState,
@@ -25,6 +32,7 @@ interface StoredCampaignState {
   zoneControl: CampaignZoneControlState;
   objectiveControl: CampaignObjectiveControlState;
   influence?: CampaignZoneInfluenceState;
+  defenseReadyAt?: CampaignObjectiveDefenseState;
 }
 
 interface Subscription {
@@ -33,12 +41,13 @@ interface Subscription {
 }
 
 const STORAGE_KEY = 'war-js:campaign-state:aegis-riftbound-v1';
-const STORAGE_VERSION = 2;
+const STORAGE_VERSION = 3;
 
 export class CampaignLocal implements CampaignService {
   private zoneControl: CampaignZoneControlState = {};
   private objectiveControl: CampaignObjectiveControlState = {};
   private influence: CampaignZoneInfluenceState = {};
+  private defenseReadyAt: CampaignObjectiveDefenseState = {};
   private subs = new Set<Subscription>();
 
   constructor() {
@@ -46,7 +55,7 @@ export class CampaignLocal implements CampaignService {
   }
 
   async getSnapshot(currentZoneId?: string | null): Promise<CampaignSnapshot> {
-    return buildCampaignSnapshot(currentZoneId, this.zoneControl, this.objectiveControl, this.influence);
+    return this.snapshot(currentZoneId);
   }
 
   subscribeSnapshot(
@@ -55,7 +64,7 @@ export class CampaignLocal implements CampaignService {
   ): Unsubscribe {
     const sub = { cb, currentZoneId };
     this.subs.add(sub);
-    cb(buildCampaignSnapshot(currentZoneId, this.zoneControl, this.objectiveControl, this.influence));
+    cb(this.snapshot(currentZoneId));
     return () => this.subs.delete(sub);
   }
 
@@ -87,10 +96,12 @@ export class CampaignLocal implements CampaignService {
       throw new Error(eligibility.reason ?? `Objective "${objectiveId}" cannot be captured.`);
     }
 
-    const reward = {
-      xp: objective.type === 'battle_objective' ? CAMPAIGN_OBJECTIVE_CAPTURE_XP : 0,
-      influence: objective.type === 'battle_objective' ? CAMPAIGN_BATTLE_OBJECTIVE_INFLUENCE : 0,
-    };
+    const reward: CampaignClaimReward = objective.type === 'keep' && isRvrKeepZone(zoneId)
+      ? campaignKeepCaptureReward(zoneId)
+      : {
+          xp: objective.type === 'battle_objective' ? CAMPAIGN_OBJECTIVE_CAPTURE_XP : 0,
+          influence: objective.type === 'battle_objective' ? CAMPAIGN_BATTLE_OBJECTIVE_INFLUENCE : 0,
+        };
 
     const battleObjectives = objectives.filter((entry) => entry.type === 'battle_objective');
     const controlledBattleObjectivesBefore = controlledObjectives
@@ -132,11 +143,12 @@ export class CampaignLocal implements CampaignService {
 
     this.persist();
     this.broadcast();
-    const snapshot = buildCampaignSnapshot(null, this.zoneControl, this.objectiveControl, this.influence);
+    const snapshot = this.snapshot();
     const active = snapshot.zones.find((entry) => entry.id === zoneId);
     const updated = active?.objectives.find((entry) => entry.id === objectiveId);
     if (!updated) throw new Error(`Captured objective "${zoneId}:${objectiveId}" disappeared from snapshot.`);
     return {
+      activity: 'capture',
       snapshot,
       zoneId,
       objectiveId,
@@ -147,13 +159,62 @@ export class CampaignLocal implements CampaignService {
     };
   }
 
+  async defendObjective(
+    zoneId: string,
+    objectiveId: string,
+    realm: CampaignRealm,
+  ): Promise<CampaignClaimResult> {
+    const objective = CAMPAIGN_OBJECTIVES_BY_ZONE[zoneId]?.find((entry) => entry.id === objectiveId);
+    if (!objective) throw new Error(`Unknown campaign objective "${zoneId}:${objectiveId}".`);
+    const key = objectiveKey(zoneId, objectiveId);
+    const nowMs = Date.now();
+    const eligibility = campaignObjectiveDefenseEligibility(zoneId, {
+      ...objective,
+      control: this.objectiveControl[key] ?? defaultCampaignObjectiveControl(zoneId, objectiveId),
+      defenseReadyAt: this.defenseReadyAt[key] ?? {},
+    }, realm, nowMs);
+    if (!eligibility.defendable) throw new Error(eligibility.reason ?? 'Objective cannot be defended.');
+
+    const reward: CampaignClaimReward = {
+      xp: CAMPAIGN_OBJECTIVE_DEFENSE_XP,
+      influence: CAMPAIGN_OBJECTIVE_DEFENSE_INFLUENCE,
+    };
+    const influence = this.influence[zoneId] ?? {};
+    this.influence[zoneId] = {
+      ...influence,
+      [realm]: Math.max(0, Math.floor(influence[realm] ?? 0)) + reward.influence,
+    };
+    // Reserve the realm cooldown before broadcasting, including reentrant subscriber calls.
+    this.defenseReadyAt[key] = {
+      ...this.defenseReadyAt[key],
+      [realm]: nowMs + CAMPAIGN_OBJECTIVE_DEFENSE_COOLDOWN_MS,
+    };
+    this.persist();
+    this.broadcast();
+    const snapshot = this.snapshot();
+    const updated = snapshot.zones.find((zone) => zone.id === zoneId)?.objectives
+      .find((entry) => entry.id === objectiveId);
+    if (!updated) throw new Error(`Defended objective "${zoneId}:${objectiveId}" disappeared from snapshot.`);
+    return {
+      activity: 'defend',
+      snapshot,
+      zoneId,
+      objectiveId,
+      realm,
+      objective: updated,
+      reward,
+      zoneControlChanged: false,
+    };
+  }
+
   async resetCampaign(): Promise<CampaignSnapshot> {
     this.zoneControl = {};
     this.objectiveControl = {};
     this.influence = {};
+    this.defenseReadyAt = {};
     this.persist();
     this.broadcast();
-    return buildCampaignSnapshot(null, this.zoneControl, this.objectiveControl, this.influence);
+    return this.snapshot();
   }
 
   private load(): void {
@@ -165,10 +226,12 @@ export class CampaignLocal implements CampaignService {
       this.zoneControl = parsed.zoneControl ?? {};
       this.objectiveControl = parsed.objectiveControl ?? {};
       this.influence = parsed.influence ?? {};
+      this.defenseReadyAt = parsed.defenseReadyAt ?? {};
     } catch {
       this.zoneControl = {};
       this.objectiveControl = {};
       this.influence = {};
+      this.defenseReadyAt = {};
     }
   }
 
@@ -180,6 +243,7 @@ export class CampaignLocal implements CampaignService {
         zoneControl: this.zoneControl,
         objectiveControl: this.objectiveControl,
         influence: this.influence,
+        defenseReadyAt: this.defenseReadyAt,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch {
@@ -189,7 +253,17 @@ export class CampaignLocal implements CampaignService {
 
   private broadcast(): void {
     for (const sub of this.subs) {
-      sub.cb(buildCampaignSnapshot(sub.currentZoneId, this.zoneControl, this.objectiveControl, this.influence));
+      sub.cb(this.snapshot(sub.currentZoneId));
     }
+  }
+
+  private snapshot(currentZoneId?: string | null): CampaignSnapshot {
+    return buildCampaignSnapshot(
+      currentZoneId,
+      this.zoneControl,
+      this.objectiveControl,
+      this.influence,
+      this.defenseReadyAt,
+    );
   }
 }

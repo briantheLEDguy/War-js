@@ -2210,6 +2210,48 @@
       "characterProfileKey": "enemy_riftbound_keep_captain_captain"
     },
     {
+      "id": "bleakroot_causeway_aegis_keep_commander",
+      "name": "Aegis Castellan Garrick Rootward",
+      "level": 11,
+      "x": -52,
+      "z": 66,
+      "maxHealth": 460,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 9,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "bleakroot_causeway_aegis_keep",
+        "realm": "aegis",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
+      "id": "bleakroot_causeway_riftbound_keep_commander",
+      "name": "Riftbound Warlord Zelvak Rotbranch",
+      "level": 11,
+      "x": 52,
+      "z": 66,
+      "maxHealth": 460,
+      "archetype": "captain",
+      "aggroRange": 18,
+      "attackRange": 3.8,
+      "preferredRange": 2.7,
+      "attackDamage": 9,
+      "moveSpeed": 2.8,
+      "characterProfileKey": "enemy_riftbound_keep_captain_captain",
+      "encounter": {
+        "type": "keep_commander",
+        "objectiveId": "bleakroot_causeway_riftbound_keep",
+        "realm": "riftbound",
+        "enrageHealthFraction": 0.35
+      }
+    },
+    {
       "id": "bleakroot_causeway_beast_1",
       "name": "Mire Hound",
       "level": 9,
@@ -2780,5 +2822,5 @@
       ]
     }
   ],
-  "staticMapHash": "358a7ec6ff1f42bf"
+  "staticMapHash": "13de3b41e3d41eeb"
 }

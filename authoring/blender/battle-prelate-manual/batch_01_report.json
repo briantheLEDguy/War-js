@@ -1,0 +1,112 @@
+{
+  "material_assignments": [
+    {
+      "object": "BP_Head_Gorget_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Chest_CuirassFront_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Chest_CuirassBack_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Shoulders_Pauldrons_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Shoulders_Lamellae_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Hands_Bracers_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Legs_Cuisses_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Legs_KneeCops_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Feet_Boots_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Waist_FauldPlates_High",
+      "old_material": "MAT_BP_BlackenedPlate",
+      "material": "MAT_Study_Steel"
+    },
+    {
+      "object": "BP_Tabard_PrayerApron_High",
+      "old_material": "MAT_BP_DirtyIvory.001",
+      "material": "MAT_Study_Crimson"
+    },
+    {
+      "object": "BP_Back_CoatTails_High",
+      "old_material": "MAT_BP_IndigoCloth",
+      "material": "MAT_Study_Crimson"
+    },
+    {
+      "object": "BP_Chest_FullMailUnderlayer_High",
+      "old_material": "MAT_BP_DarkMail",
+      "material": "MAT_Study_Mail"
+    },
+    {
+      "object": "BP_Legs_Chausses_High",
+      "old_material": "MAT_BP_DarkMail",
+      "material": "MAT_Study_Mail"
+    },
+    {
+      "object": "BP_Hands_Gloves_High",
+      "old_material": "MAT_BP_SootLeather",
+      "material": "MAT_Study_Leather"
+    },
+    {
+      "object": "BP_Feet_LeatherUnderboots_High",
+      "old_material": "MAT_BP_SootLeather",
+      "material": "MAT_Study_Leather"
+    },
+    {
+      "object": "BP_Waist_BeltFauld_High",
+      "old_material": "MAT_BP_SootLeather",
+      "material": "MAT_Study_Leather"
+    }
+  ],
+  "visible_authoring_parts": [
+    "BP_Back_CoatTails_High",
+    "BP_Chest_CuirassBack_High",
+    "BP_Chest_CuirassFront_High",
+    "BP_Chest_FullMailUnderlayer_High",
+    "BP_Feet_Boots_High",
+    "BP_Feet_LeatherUnderboots_High",
+    "BP_Hands_Bracers_High",
+    "BP_Hands_Gloves_High",
+    "BP_Head_Gorget_High",
+    "BP_Legs_Chausses_High",
+    "BP_Legs_Cuisses_High",
+    "BP_Legs_KneeCops_High",
+    "BP_Shoulders_Lamellae_High",
+    "BP_Shoulders_Pauldrons_High",
+    "BP_Tabard_PrayerApron_High",
+    "BP_Waist_BeltFauld_High",
+    "BP_Waist_FauldPlates_High"
+  ],
+  "mesh_data_unchanged": true,
+  "object_count_unchanged": true,
+  "execution_seconds_excluding_saves": 0.047428099962417036,
+  "checkpoint": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\battle-prelate-manual\\battle_prelate_before_batch.blend"
+}

@@ -1,0 +1,683 @@
+{
+  "scope": "Isolated fresh low evaluation and source surface-channel transfer; staged files are read only",
+  "input_hashes": {
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\tools\\build_proof.py": "e18b1a0eb15232fdad992c28e056d92194c005182918befb8ba865a8528bcf42",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\breastplate.json": "3edce9935b89a2e29abe1cfe863c52b1480e9734adcce0b973b2c02fb95fc75d",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\humanoid_game_v2_animation_contract.blend": "083f4afb646502759a2e39274c12e3dd5dfb25a449824ce34d9739ee255daeb0",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_head_t1_m_lod1.glb": "f7812ba6b7eab0a57f6f96406566049233e325176f4c3acb481046b4b734a5d0",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\warhammer.json": "4a8cfd9ae31c099f3b6fc7df5d816a8f59781f7c4298f95123466328f89f5796",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\tome.json": "2b2d0c2e7c2fff292d813209468e0990c2b90170209808bbe5dfa2ce4e2c34cb",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_shoulders_t1_m_lod1.glb": "af977e2ed10f68359119d401ca86e9ab7bd8c45dd4911b83b2f38b4ca393d868",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\legs.json": "2ec7d05ed72a328b1e2f6c6b1209d22972c3fd937c865675ce88f7dde0b01c3a",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\body_underlayers.json": "069afed2e91dcad73e15577c3f2e42535b1cbff443148e433ecaacc1f64ef448",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_shoulders_t1_m_lod2.glb": "82c18222a93eab72063b0475e3fa5d6146a1e2276cf307d557f396374cc7de66",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\relics.json": "64120b4d65c8d29847bcf9e4e31f096d8b6598957048b48ba1318ac31507a647",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\repeated_reliquaries.json": "54abdcb0e7c8204435c73ed4e2eb8dd0b13fbe9ca01575427cd179bc1bbf43da",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\runtime_report.json": "8b45af7f7c33c808ac4aade24247b2228f75aa6f15d6240fa3f9eedde00c97a6",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_head_t1_m_lod2.glb": "f637f245e8d9a17babded7dcc197f0633c444835cc24983b73e81c65b354598c",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\gorget.json": "2070b259f431c21c7fef7d46f4a1bfd06b2d0c2349d4ebaa4fc072c7636cd063",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\garments.json": "505431a13347d3018b60ddd62500131b3b4133232c9ae20e46fe59a5e5e56bc2",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\waist.json": "b0a5fd96cbc163d64dbf277b34af39935d08a76c0bde05272cc82f893e883be0",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_chest_t1_m_lod2.glb": "0c4c230217827979276e1745b9835e3b8808bda2fe84301048c95c5f3052b76f",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\arms.json": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_head_t1_m.glb": "351fafe3a81deefaccaf90b83f542e2c3899b3cdb52d63270a45928171a2011b",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_chest_t1_m_lod1.glb": "81c1c15cd736487d90165f7959065bcc1864293f2accbf07b913ae0c3714009e",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\tools\\rig_character.py": "f7e6604620b1b8783b420d33dc6b80179774b7c2160126ae27fb2eea82534404",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\backplate.json": "79c8e6a3be69d206a81ca9a8f985aa570cf30609280bee869812996537c018fe",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\pauldron.json": "9c444703cb9e1e1457bef3f2a53bbb464bf8cb192145947b2254d3345ed757ca",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\tools\\bake_atlas.py": "9ee1b6dc0de053c56b702d92b50c00506db9bb518d45713df41d47ec94192fec",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\scene.json": "a2415a1f24e2e0797ca7cff8aa8fd54cfc25710812ed92f35cbf7d4a55c60a52",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\medallion.json": "345a0df6cf6b393790ed07e69ba574de19847c079890312c2a87a24484c52f43",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_chest_t1_m.glb": "40c6eed55224050a1e79ab245b0edd9052e7ea2bddf216f4a84d7b8bb0373212",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\head.json": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\arm_civic_battle_prelate_shoulders_t1_m.glb": "cb13b5d64a888e552ffe9e4ab34c45534d04d61e0bf2d1907ab18b4ac38ebb49",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\source\\feet.json": "20577b8a84bcf4b5e9bbf18b3caac8245e15781be1362b758b18b79e60218961",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\battle_prelate_game_master.blend": "0ad72a57b1238fa41c3fbdb9b285ffa4dd366e93875bce190a6bf48a1feb823e"
+  },
+  "lods": {
+    "0": {
+      "head": {
+        "reference_glb": {
+          "source": "arm_civic_battle_prelate_head_t1_m.glb",
+          "sha256": "351fafe3a81deefaccaf90b83f542e2c3899b3cdb52d63270a45928171a2011b",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 2.9802322387695312e-06,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 5.960464477539082e-08
+        }
+      },
+      "chest": {
+        "reference_glb": {
+          "source": "arm_civic_battle_prelate_chest_t1_m.glb",
+          "sha256": "40c6eed55224050a1e79ab245b0edd9052e7ea2bddf216f4a84d7b8bb0373212",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 2.9802322387695312e-06,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 7.450580596923828e-08
+        }
+      },
+      "shoulders": {
+        "reference_glb": {
+          "source": "arm_civic_battle_prelate_shoulders_t1_m.glb",
+          "sha256": "cb13b5d64a888e552ffe9e4ab34c45534d04d61e0bf2d1907ab18b4ac38ebb49",
+          "rest_rig": {
+            "bone_count": 56,
+            "maximum_rest_matrix_delta": 2.9802322387695312e-06,
+            "world_matrix_delta": 0.0
+          },
+          "maximum_rest_vertex_delta_m": 2.6987150723151616e-07
+        }
+      }
+    },
+    "1": {
+      "head": {
+        "triangles": 1240,
+        "resolution": 1024,
+        "gold_candidate_texels": 148485,
+        "normal_xy_range": [
+          1.0,
+          1.0
+        ],
+        "textures": {
+          "baseColor": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_head_lod1_baseColor.png",
+            "sha256": "56a83fff67f43e5f5c74da29cbae86050567e6458347fc3a3907351acf14902b"
+          },
+          "normal": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_head_lod1_normal.png",
+            "sha256": "c4570f785ec7a7f10db1c270822f38e0abe4c43db5937db25f12e95674ef2c28"
+          },
+          "roughness": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_head_lod1_roughness.png",
+            "sha256": "e911a127abb114527e907f984798d2f2d598aa9486595dc2c5abb1f9644bbbab"
+          },
+          "metallic": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_head_lod1_metallic.png",
+            "sha256": "185b1b061d2f4ec72e27f3361eede2b47c85f45b5ce465a7b8cee64d0da31037"
+          },
+          "occlusion": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_head_lod1_occlusion.png",
+            "sha256": "d6a62a383493e055696c0a8ce6221aa609c9a93a450b63d612e5d44893285e8a"
+          },
+          "orm": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_head_lod1_orm.png",
+            "sha256": "19f29a231049d3186b05ef86acf7a421e085234c173f71c273934c1314579cd2"
+          }
+        }
+      },
+      "chest": {
+        "triangles": 7294,
+        "resolution": 1024,
+        "gold_candidate_texels": 232245,
+        "normal_xy_range": [
+          1.0,
+          1.0
+        ],
+        "textures": {
+          "baseColor": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_chest_lod1_baseColor.png",
+            "sha256": "add41ca938c99bd2f1dea05ded169754a4784d3a7a00e1b1a3d199e3de903bce"
+          },
+          "normal": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_chest_lod1_normal.png",
+            "sha256": "cd3c8eca37d7a152f21bb83cd0ffda00a16a0b013ab8729d90b3f3d9a7c445ca"
+          },
+          "roughness": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_chest_lod1_roughness.png",
+            "sha256": "20e164b2e268584694305fe965792ad667d7c4dec0069afedb21e8376d91b13d"
+          },
+          "metallic": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_chest_lod1_metallic.png",
+            "sha256": "757806e9e97ecad13a3f8d53394e6ce9eaece6de3278aef570826cbf256c96c5"
+          },
+          "occlusion": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_chest_lod1_occlusion.png",
+            "sha256": "417f1008690fa811c0c86356a833f490578a62dac41b54da44c8756265183da3"
+          },
+          "orm": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_chest_lod1_orm.png",
+            "sha256": "8a9e7d882fef857e9147d0271334d5d83f9f011a793d90f82fd2b211389a1ed2"
+          }
+        }
+      },
+      "shoulders": {
+        "triangles": 6804,
+        "resolution": 1024,
+        "gold_candidate_texels": 138043,
+        "normal_xy_range": [
+          1.0,
+          1.0
+        ],
+        "textures": {
+          "baseColor": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_shoulders_lod1_baseColor.png",
+            "sha256": "0f039df11f1146fba21c3507b33095ca1546eab0a56bc89d1335a72cfa4a739c"
+          },
+          "normal": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_shoulders_lod1_normal.png",
+            "sha256": "8041781bc7786e0ddfeb49156225d06e28385360a6f2feaa3cc88b5df49e6c03"
+          },
+          "roughness": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_shoulders_lod1_roughness.png",
+            "sha256": "7836863ed31bb0b1b2022e3ca6c93e4a18b742c696e11cfd1503675d3e871093"
+          },
+          "metallic": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_shoulders_lod1_metallic.png",
+            "sha256": "88ab432681c103665b45521047d3d9ce4766e65af4872ff837290407a438b9a4"
+          },
+          "occlusion": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_shoulders_lod1_occlusion.png",
+            "sha256": "8a4de98cc571885cdd94d880286fe374df5823885ecca57fe0f6e307a233b6cd"
+          },
+          "orm": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1\\probe_shoulders_lod1_orm.png",
+            "sha256": "af34fa52fe244d5b361829e0f19af9f5e97d68f265867f248d2e4f9a9f376f6a"
+          }
+        }
+      }
+    },
+    "2": {
+      "head": {
+        "triangles": 616,
+        "resolution": 512,
+        "gold_candidate_texels": 37205,
+        "normal_xy_range": [
+          1.0,
+          0.9960784912109375
+        ],
+        "textures": {
+          "baseColor": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_head_lod2_baseColor.png",
+            "sha256": "3916abd23e1e9627c5bae75e34e776e760fc7f51356bfa5cbb4fbd94dca2cd33"
+          },
+          "normal": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_head_lod2_normal.png",
+            "sha256": "8d4aaa43779802324fcce2b40881523f36abac58c8c4beec81cf20ce18afcd20"
+          },
+          "roughness": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_head_lod2_roughness.png",
+            "sha256": "9f0e10efbd36394e706413d790a1f7f2d08cbfb0e04e14061836bd5be23336c4"
+          },
+          "metallic": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_head_lod2_metallic.png",
+            "sha256": "61f5fd59018caddf52e397e84512045893e2c45929c80a7c07b4f67e4c100f9c"
+          },
+          "occlusion": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_head_lod2_occlusion.png",
+            "sha256": "c06f266a1666ec0e915ae65a4f2da96daf1669fc38e07ad57dbb3cb2b878f319"
+          },
+          "orm": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_head_lod2_orm.png",
+            "sha256": "75766ea11ed3830b7d1ad49262d2933a2e673a038fecf7278febf0e0fd5b7c60"
+          }
+        }
+      },
+      "chest": {
+        "triangles": 3066,
+        "resolution": 512,
+        "gold_candidate_texels": 50666,
+        "normal_xy_range": [
+          1.0,
+          1.0
+        ],
+        "textures": {
+          "baseColor": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_chest_lod2_baseColor.png",
+            "sha256": "a8538fb48ce7070441b4e0f2e030354a3df6f0f7dcba59ee4c749b4cabea15cc"
+          },
+          "normal": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_chest_lod2_normal.png",
+            "sha256": "a24f4a316f0d736f9cf6fca2b688b6f6f5b46a7d711a3b88c313c532c3a987e6"
+          },
+          "roughness": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_chest_lod2_roughness.png",
+            "sha256": "e2d0b0444fca5ba1eee8bb3728c24b90c6eea73b1b8e63f7b6dbd1704f9ff2de"
+          },
+          "metallic": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_chest_lod2_metallic.png",
+            "sha256": "e0a31a79f25ff8e6ba20be14d2c5ece7cd2a026cf9066023a7800baf99935e25"
+          },
+          "occlusion": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_chest_lod2_occlusion.png",
+            "sha256": "bcbaedac604b87f80bb7ba45547cfede7ce7e6f5c7c84d4f4ebf7b539c3f640e"
+          },
+          "orm": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_chest_lod2_orm.png",
+            "sha256": "a3f684538a914d9357031c339049716434f5d3a3d500aa8984f1f69a057301f7"
+          }
+        }
+      },
+      "shoulders": {
+        "triangles": 3608,
+        "resolution": 512,
+        "gold_candidate_texels": 28161,
+        "normal_xy_range": [
+          1.0,
+          1.0
+        ],
+        "textures": {
+          "baseColor": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_shoulders_lod2_baseColor.png",
+            "sha256": "9b6d164f002eccee012975e41696e727618837b22bcce1cdfe6ff03134559e86"
+          },
+          "normal": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_shoulders_lod2_normal.png",
+            "sha256": "69fb1423e5d4ac9c7bd6fce995281800149e8c6821001ee942052024a6793213"
+          },
+          "roughness": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_shoulders_lod2_roughness.png",
+            "sha256": "9d091496f21d40802bc7bbfadf90695d0174d921de25d773c6aae60f35356fba"
+          },
+          "metallic": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_shoulders_lod2_metallic.png",
+            "sha256": "9079230e3c383799a545b961e4ff69d47ffd91af5678fb218dbc5d5706d7aa90"
+          },
+          "occlusion": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_shoulders_lod2_occlusion.png",
+            "sha256": "ffe8704616741b811d41d4c21ce08d99f04233c683dbb39669fdbe73591e9645"
+          },
+          "orm": {
+            "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2\\probe_shoulders_lod2_orm.png",
+            "sha256": "78814968748012d5b0162080ad579e8df6c3152637725a2aa9080357ba282c1b"
+          }
+        }
+      }
+    }
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod0_chest_material.png",
+      "sha256": "0752078d49d729c794473afc7ba13b36e9cc500a8e393d01c4575954c8be0696",
+      "camera": {
+        "target": [
+          0,
+          -0.13,
+          1.4
+        ],
+        "offset": [
+          0,
+          -3,
+          0
+        ],
+        "scale": 0.53,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod0_shoulder_material.png",
+      "sha256": "77a341162ed3cdd8ca97bc43c50ff838ea72116df371301edcfab1297dbaf8a5",
+      "camera": {
+        "target": [
+          0.265,
+          -0.015,
+          1.565
+        ],
+        "offset": [
+          2,
+          -3,
+          0.18
+        ],
+        "scale": 0.39,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod0_gorget_material.png",
+      "sha256": "73682b1ccaf682f6767c832600efda4ffe4dbcd25af7ab0505a3525c060bb6bb",
+      "camera": {
+        "target": [
+          0,
+          -0.005,
+          1.608
+        ],
+        "offset": [
+          0,
+          -3,
+          0.12
+        ],
+        "scale": 0.37,
+        "resolution": [
+          1100,
+          650
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1_chest_material.png",
+      "sha256": "ff90a6deb65311151e7377e8adfda0236b20a04af4da2d943f251148ec1a4fc4",
+      "camera": {
+        "target": [
+          0,
+          -0.13,
+          1.4
+        ],
+        "offset": [
+          0,
+          -3,
+          0
+        ],
+        "scale": 0.53,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1_shoulder_material.png",
+      "sha256": "f81aabbe5304cdd4c2a0b14cfbc227447b2ef53ca712fda3666b2d21d1297a5b",
+      "camera": {
+        "target": [
+          0.265,
+          -0.015,
+          1.565
+        ],
+        "offset": [
+          2,
+          -3,
+          0.18
+        ],
+        "scale": 0.39,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1_gorget_material.png",
+      "sha256": "854ec7768b333141bb69db780c17befed2290d61588928104fa683bdfa499ca7",
+      "camera": {
+        "target": [
+          0,
+          -0.005,
+          1.608
+        ],
+        "offset": [
+          0,
+          -3,
+          0.12
+        ],
+        "scale": 0.37,
+        "resolution": [
+          1100,
+          650
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2_chest_material.png",
+      "sha256": "2fa8068d0ad30d23b0225d4b71a8c78c7cbfffbb95713be81bfc0db9b2f23a65",
+      "camera": {
+        "target": [
+          0,
+          -0.13,
+          1.4
+        ],
+        "offset": [
+          0,
+          -3,
+          0
+        ],
+        "scale": 0.53,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2_shoulder_material.png",
+      "sha256": "af7492873405039371b8698ee5df4e545ab6b77e2ae55184194e0886dcac90d4",
+      "camera": {
+        "target": [
+          0.265,
+          -0.015,
+          1.565
+        ],
+        "offset": [
+          2,
+          -3,
+          0.18
+        ],
+        "scale": 0.39,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2_gorget_material.png",
+      "sha256": "6b5a36f86347448bc8c04ed92f3d4934387e3d8f0261dd884216e856e2514583",
+      "camera": {
+        "target": [
+          0,
+          -0.005,
+          1.608
+        ],
+        "offset": [
+          0,
+          -3,
+          0.12
+        ],
+        "scale": 0.37,
+        "resolution": [
+          1100,
+          650
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod0_chest_basecolor.png",
+      "sha256": "d8dda486446e16ae92eb7737f49e0fc65429c8dad6d5fc522201d6495e7b17f2",
+      "camera": {
+        "target": [
+          0,
+          -0.13,
+          1.4
+        ],
+        "offset": [
+          0,
+          -3,
+          0
+        ],
+        "scale": 0.53,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod0_shoulder_basecolor.png",
+      "sha256": "8beb9aba5cd61999e9e832aac05e85b627e44a9e07c50b1b59be3f9a244cfa26",
+      "camera": {
+        "target": [
+          0.265,
+          -0.015,
+          1.565
+        ],
+        "offset": [
+          2,
+          -3,
+          0.18
+        ],
+        "scale": 0.39,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod0_gorget_basecolor.png",
+      "sha256": "ee63397182fe50e56be9a346465ab330fbab5365dc67dc88a5fffe494eee0838",
+      "camera": {
+        "target": [
+          0,
+          -0.005,
+          1.608
+        ],
+        "offset": [
+          0,
+          -3,
+          0.12
+        ],
+        "scale": 0.37,
+        "resolution": [
+          1100,
+          650
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1_chest_basecolor.png",
+      "sha256": "eb972db17d6115b52c0dc581d5b8501907c61954659270368979b3bcce3ce3f6",
+      "camera": {
+        "target": [
+          0,
+          -0.13,
+          1.4
+        ],
+        "offset": [
+          0,
+          -3,
+          0
+        ],
+        "scale": 0.53,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1_shoulder_basecolor.png",
+      "sha256": "43a3077633c1b7969e923a85488da4f35a7aa6214d1758eb88db34af4e4ad750",
+      "camera": {
+        "target": [
+          0.265,
+          -0.015,
+          1.565
+        ],
+        "offset": [
+          2,
+          -3,
+          0.18
+        ],
+        "scale": 0.39,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod1_gorget_basecolor.png",
+      "sha256": "b19db7ae318ed96ac7e19d616b8f2ca1ca416aa22d23511abcc4511701c2649b",
+      "camera": {
+        "target": [
+          0,
+          -0.005,
+          1.608
+        ],
+        "offset": [
+          0,
+          -3,
+          0.12
+        ],
+        "scale": 0.37,
+        "resolution": [
+          1100,
+          650
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2_chest_basecolor.png",
+      "sha256": "4be4725b489df69d9ef1d3bdc449a9a6f158e2292b408124e17f772db19aaa9e",
+      "camera": {
+        "target": [
+          0,
+          -0.13,
+          1.4
+        ],
+        "offset": [
+          0,
+          -3,
+          0
+        ],
+        "scale": 0.53,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2_shoulder_basecolor.png",
+      "sha256": "413f6b90c5e502507be5b3fcd236e5997fcbc00e8d1175984a2752abe1a44341",
+      "camera": {
+        "target": [
+          0.265,
+          -0.015,
+          1.565
+        ],
+        "offset": [
+          2,
+          -3,
+          0.18
+        ],
+        "scale": 0.39,
+        "resolution": [
+          1100,
+          1100
+        ]
+      }
+    },
+    {
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\lod_surface_transfer_probe\\lod2_gorget_basecolor.png",
+      "sha256": "5735e32656e15c760c86ca4741bec28bde76dcd2b74bc760ec6a12ddd967c87f",
+      "camera": {
+        "target": [
+          0,
+          -0.005,
+          1.608
+        ],
+        "offset": [
+          0,
+          -3,
+          0.12
+        ],
+        "scale": 0.37,
+        "resolution": [
+          1100,
+          650
+        ]
+      }
+    }
+  ],
+  "retained_sources_unchanged": true,
+  "frozen_files_unchanged": true,
+  "status": "surface_transfer_verified_with_reduced_lod_limitations",
+  "visual_observations": {
+    "lod1_chest": "Brass V bands retain gold base color and metallic shading; borders are coarser and locally mottled compared with LOD0.",
+    "lod2_chest": "V-band gold remains visible in material and color-only renders; 512px atlas and reduced topology soften thin borders. Omitted medallion teeth do not retain the LOD0 silhouette.",
+    "lod1_shoulders": "Shoulder cross retains gold color, with raised-surface shading. Faceted plate and local transfer-edge artifacts remain visible in this close-up.",
+    "lod2_shoulders": "Cross and trim retain gold color; symbol and rivet details are noticeably softer and edges coarser than LOD0.",
+    "gorget": "VERITAS lettering remains readable in LOD1 and present in LOD2 despite its omitted geometry; LOD2 is visibly pixelated. Brass collar edging survives.",
+    "normal_relief": "Material renders retain transferred surface shading and plate relief relative to color-only views; this verifies retained detail, not equality with LOD0.",
+    "scope": "Technical color/normal transfer and isolated integrity probe only; no photographic likeness or complete asset acceptance is asserted."
+  }
+}

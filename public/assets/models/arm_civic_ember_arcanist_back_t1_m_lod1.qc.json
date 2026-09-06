@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "assetId": "arm.civic.ember_arcanist.back.t1.m",
+  "model": "arm_civic_ember_arcanist_back_t1_m_lod1.glb",
+  "modelSha256": "c1f4830758275092c0764013a54ebbedb8d6bbb5777a79babe2736249c2b916c",
+  "fileSizeBytes": 935520,
+  "category": "armor",
+  "slot": "back",
+  "lod": 1,
+  "bodyFamily": "civic_ember_arcanist_m",
+  "bodyVariant": "m",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "coveredRegions": [],
+  "lifecycleStatus": "approved",
+  "reviewStatus": "approved",
+  "promotionEligible": true,
+  "totalTriangles": 400,
+  "totalTris": 400,
+  "drawCalls": 1,
+  "meshCount": 1,
+  "maxInfluencesObserved": 1,
+  "unweightedVertices": 0,
+  "nonManifoldEdges": 0,
+  "boundaryEdges": 0,
+  "degenerateFaces": 0,
+  "pbrChannels": [
+    "baseColor",
+    "normal",
+    "roughness",
+    "metallic",
+    "occlusion"
+  ],
+  "maxTextureDimension": 1024,
+  "maxTextureResolution": 1024,
+  "animationClips": [],
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "model": "arm_civic_ember_arcanist_back_t1_m.glb",
+      "sha256": "77215d864c43f15ca9dbc748a1835add77defd812dcbb7fadcb45fe9f3c0bd9a"
+    },
+    {
+      "name": "LOD1",
+      "model": "arm_civic_ember_arcanist_back_t1_m_lod1.glb",
+      "sha256": "c1f4830758275092c0764013a54ebbedb8d6bbb5777a79babe2736249c2b916c"
+    },
+    {
+      "name": "LOD2",
+      "model": "arm_civic_ember_arcanist_back_t1_m_lod2.glb",
+      "sha256": "a8f1af4ab934630b76f81e2303045c09e0f87aee7ff738587d2fe028c8143b8e"
+    }
+  ],
+  "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
+  "previewImages": [
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png",
+    "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+  ],
+  "previewScope": "equipped final character; shared context for modular armor",
+  "previews": [
+    {
+      "view": "front",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png"
+    },
+    {
+      "view": "isometric",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_three_quarter.png"
+    },
+    {
+      "view": "side",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_side.png"
+    },
+    {
+      "view": "back",
+      "path": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png"
+    }
+  ],
+  "provenance": {
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions; explicit body/outfit cages adapted from Battle Prelate sources with new hair, collar, panels and staff",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "98428bc32a584db4e8eb1ca052628926fa0c5044a068411fd04fb47054f94602",
+    "runtimeReportSha256": "5c39385cf27509871c8c5ebf7ade6a4a4d72e539fa363d01a85ff2ea351da020",
+    "visualReviewSha256": "c34ad65db6e7ab42e484e88ba03b7951e31026decc712bf1874c6b5f7a9c156e",
+    "evidenceArchive": "authoring/archives/ember-arcanist-reference-rebuild/98428bc32a58",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "rigid_backplate",
+        "file": "source\\backplate.json",
+        "sha256": "e6979397baade9a60bcf21e7efd9cbf59fdb99d96b0cf792aedc1db4559a1fd2",
+        "finishing": [
+          {
+            "type": "MIRROR"
+          },
+          {
+            "type": "SUBSURF",
+            "level": 0
+          },
+          {
+            "type": "SOLIDIFY"
+          },
+          {
+            "type": "BEVEL",
+            "segments": 2
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "freshBinaryValidation": true,
+    "matchingReviewEvidence": true,
+    "matchingSourceHashes": true,
+    "topologyBuildAudit": true,
+    "requiredPbrMaps": true,
+    "triangleBudget": true,
+    "drawCallBudget": true
+  },
+  "qcPassed": true
+}

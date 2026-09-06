@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "shared_archive_records_exact": 6,
+  "byte_copied_glbs_exact": {
+    "chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+    "wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+    "chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+    "wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+    "chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+    "wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+  },
+  "accepted_inputs_unchanged": {
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\battle_prelate_game_master.blend": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\runtime_report.json": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\evaluated_lods.json.gz": "f34435fa5de6dd3c9a85eb61d0ad47f39fad41080123022763b4b78424b828fd",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+    "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\runtime\\wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+  },
+  "duplicate_rigs": 0,
+  "canonical_actions": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "new_armor_filenames": [
+    "arm_civic_battle_prelate_back_novitiate_m.glb",
+    "arm_civic_battle_prelate_back_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_back_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_chest_novitiate_m.glb",
+    "arm_civic_battle_prelate_chest_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_chest_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_feet_novitiate_m.glb",
+    "arm_civic_battle_prelate_feet_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_feet_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_hands_novitiate_m.glb",
+    "arm_civic_battle_prelate_hands_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_hands_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_head_novitiate_m.glb",
+    "arm_civic_battle_prelate_head_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_head_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_legs_novitiate_m.glb",
+    "arm_civic_battle_prelate_legs_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_legs_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+    "arm_civic_battle_prelate_shoulders_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_shoulders_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_tabard_novitiate_m.glb",
+    "arm_civic_battle_prelate_tabard_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_tabard_novitiate_m_lod2.glb",
+    "arm_civic_battle_prelate_waist_novitiate_m.glb",
+    "arm_civic_battle_prelate_waist_novitiate_m_lod1.glb",
+    "arm_civic_battle_prelate_waist_novitiate_m_lod2.glb"
+  ],
+  "guards_verified": [
+    "no_shared_bake",
+    "no_shared_export",
+    "no_hammer_recalibration",
+    "copy_hash_mismatch_rejected",
+    "idempotent_copy"
+  ],
+  "shared_metadata": {
+    "package": "battle-prelate-reference-rebuild",
+    "master": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\battle_prelate_game_master.blend",
+    "master_sha256": "a3160fe0861d11194370d5ba396ef01f72360f42f7e63531f063f15aeda6b417",
+    "runtime_report_sha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "evaluated_mesh_archive_sha256": "f34435fa5de6dd3c9a85eb61d0ad47f39fad41080123022763b4b78424b828fd",
+    "archive_records_verified": 6,
+    "glbs": {
+      "chr_civic_battle_prelate_t1_m.glb": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "wep_civic_battle_prelate_dawn_maul.glb": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "chr_civic_battle_prelate_t1_m_lod1.glb": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+      "wep_civic_battle_prelate_dawn_maul_lod1.glb": "d15820d848bd60198bf9c173998111315a5927410c1c9dacf4b7041dd009c33f",
+      "chr_civic_battle_prelate_t1_m_lod2.glb": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f",
+      "wep_civic_battle_prelate_dawn_maul_lod2.glb": "1432d53977ead574831f0c65353fa9229b1783c384de0d790e6e0e705ec2db0b"
+    }
+  },
+  "badge_lod_policy": {
+    "0": {
+      "modeled_geometry": true,
+      "retained_high_source": true,
+      "baked_provenance": []
+    },
+    "1": {
+      "modeled_geometry": false,
+      "retained_high_source": true,
+      "baked_provenance": [
+        {
+          "file": "source\\faith_badge.json",
+          "part": "novitiate_small_faith_badge",
+          "sha256": "01d982e95601d7061969de385e971f82beb0ffbb9f9174b10830d2b9fe73703e",
+          "representation": "baked_surface",
+          "finishing": [
+            {
+              "type": "SOLIDIFY"
+            },
+            {
+              "type": "BEVEL",
+              "segments": 2
+            }
+          ]
+        }
+      ]
+    },
+    "2": {
+      "modeled_geometry": false,
+      "retained_high_source": true,
+      "baked_provenance": [
+        {
+          "file": "source\\faith_badge.json",
+          "part": "novitiate_small_faith_badge",
+          "sha256": "01d982e95601d7061969de385e971f82beb0ffbb9f9174b10830d2b9fe73703e",
+          "representation": "baked_surface",
+          "finishing": [
+            {
+              "type": "SOLIDIFY"
+            },
+            {
+              "type": "BEVEL",
+              "segments": 2
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

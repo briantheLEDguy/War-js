@@ -1,0 +1,225 @@
+diff --git a/src/game/Player.ts b/src/game/Player.ts
+index 13fd8c1..545015d 100644
+--- a/src/game/Player.ts
++++ b/src/game/Player.ts
+@@ -409,9 +409,9 @@ export class Player {
+     targetPosition: { x: number; y: number; z: number } | null = null,
+   ): void {
+     const authoredClip = glbActionClipName(ability.animation.actionId);
+-    const authoredClipOwnsBakedWeapon = authoredClip !== null
++    const authoredClipOwnsWeapon = authoredClip !== null
+       && this.glbActions.has(authoredClip);
+-    this.playWeaponAction({
++    this.weaponAnimations.play({
+       actionId: ability.animation.actionId,
+       durationSec: ability.animation.durationSec,
+       abilityName: ability.name,
+@@ -419,8 +419,8 @@ export class Player {
+       school: ability.visual.school,
+       motion: ability.visual.vfx.motion,
+       targetPosition,
+-      ...(authoredClipOwnsBakedWeapon ? { targetSources: ['equipment'] as const } : {}),
+-    });
++      ...(authoredClipOwnsWeapon ? { targetSources: ['equipment'] as const } : {}),
++    }, authoredClipOwnsWeapon);
+   }
+ 
+   updateVisuals(dt: number): void {
+diff --git a/src/game/WeaponAnimation.ts b/src/game/WeaponAnimation.ts
+index 7321d5c..72c0e0a 100644
+--- a/src/game/WeaponAnimation.ts
++++ b/src/game/WeaponAnimation.ts
+@@ -46,6 +46,7 @@ interface ActiveWeaponAction {
+   request: WeaponAnimationRequest;
+   elapsed: number;
+   duration: number;
++  preserveAuthoredSocketEquipment: boolean;
+ }
+ 
+ type WeaponIntent =
+@@ -187,19 +188,18 @@ export class WeaponAnimationController {
+     this.collectTargets();
+   }
+ 
+-  play(request: WeaponAnimationRequest): void {
+-    if (request.targetSources) {
+-      for (const uuid of [...this.controlledTargetIds]) {
+-        const target = this.targets.get(uuid);
+-        if (!target || request.targetSources.includes(target.source)) continue;
+-        restoreTarget(target);
+-        this.controlledTargetIds.delete(uuid);
+-      }
++  play(request: WeaponAnimationRequest, preserveAuthoredSocketEquipment = false): void {
++    for (const uuid of [...this.controlledTargetIds]) {
++      const target = this.targets.get(uuid);
++      if (!target || acceptsProceduralMotion(target, request, preserveAuthoredSocketEquipment)) continue;
++      restoreTarget(target);
++      this.controlledTargetIds.delete(uuid);
+     }
+     this.active = {
+       request,
+       elapsed: 0,
+       duration: Math.max(0.16, request.durationSec || 0.45),
++      preserveAuthoredSocketEquipment,
+     };
+   }
+ 
+@@ -214,9 +214,8 @@ export class WeaponAnimationController {
+     if (!active) {
+       return;
+     }
+-    const activeTargets = targets.filter((target) => (
+-      !active.request.targetSources
+-      || active.request.targetSources.includes(target.source)
++    const activeTargets = targets.filter((target) => acceptsProceduralMotion(
++      target, active.request, active.preserveAuthoredSocketEquipment,
+     ));
+     for (const target of activeTargets) {
+       restoreTarget(target);
+@@ -295,6 +294,40 @@ export class WeaponAnimationController {
+   }
+ }
+ 
++function acceptsProceduralMotion(
++  target: WeaponTarget,
++  request: WeaponAnimationRequest,
++  preserveAuthoredSocketEquipment: boolean,
++): boolean {
++  if (request.targetSources && !request.targetSources.includes(target.source)) return false;
++  if (!preserveAuthoredSocketEquipment || target.source !== 'equipment') return true;
++  const object = target.object;
++  const socketName = target.slot === 'offHand' ? 'socket_hand_L' : 'socket_hand_R';
++  if (object.userData.equipmentFallback !== false || object.parent?.name !== socketName) return true;
++
++  // A calibrated imported mesh follows the animated hand directly. Require
++  // its source record and socket-space grip, not merely a weapon kind/name.
++  let calibrated = false;
++  object.traverse((node) => {
++    const metadata = node.userData;
++    const grip = metadata.primary_grip_local;
++    if (metadata.socket !== socketName || !Array.isArray(grip) || grip.length !== 3
++      || !grip.every((value: unknown) => typeof value === 'number' && Number.isFinite(value) && Math.abs(value) < 1e-6)
++      || metadata.geometry_provenance !== 'Explicit authored source records evaluated with permitted finishing') return;
++    try {
++      const records: unknown = typeof metadata.source_records === 'string'
++        ? JSON.parse(metadata.source_records) : metadata.source_records;
++      if (Array.isArray(records) && records.length > 0 && records.every((record) => (
++        record && typeof record.file === 'string' && typeof record.part === 'string'
++        && typeof record.sha256 === 'string' && /^[a-f0-9]{64}$/u.test(record.sha256)
++      ))) calibrated = true;
++    } catch {
++      // Legacy or incomplete metadata keeps the existing procedural behavior.
++    }
++  });
++  return !calibrated;
++}
++
+ function isWeaponNode(node: THREE.Object3D): boolean {
+   if (node.userData.weaponAttachment === true) return true;
+   if (node.userData.equipmentOverlay !== true) return false;
+diff --git a/tests/playerWeaponAnimationAuthority.test.ts b/tests/playerWeaponAnimationAuthority.test.ts
+index 26bd687..3075a25 100644
+--- a/tests/playerWeaponAnimationAuthority.test.ts
++++ b/tests/playerWeaponAnimationAuthority.test.ts
+@@ -66,7 +66,101 @@ async function buildPlayer(
+   return player;
+ }
+ 
++async function buildSocketEquipmentPlayer(options: {
++  authoredClip?: boolean;
++  fallback?: boolean;
++  sourceRecords?: boolean;
++  declaredSocket?: string;
++} = {}): Promise<{ player: Player; socket: THREE.Object3D; hand: THREE.Bone; overlay: THREE.Object3D }> {
++  const visual = new THREE.Group();
++  const hand = new THREE.Bone();
++  hand.name = 'hand_R';
++  const socket = new THREE.Object3D();
++  socket.name = 'socket_hand_R';
++  socket.position.y = .12;
++  hand.add(socket);
++  visual.add(hand);
++  const animations = [new THREE.AnimationClip('idle', 1, []), new THREE.AnimationClip('walk', 1, [])];
++  if (options.authoredClip !== false) {
++    const turn = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), .8);
++    animations.push(new THREE.AnimationClip('attack_melee', 1, [
++      new THREE.QuaternionKeyframeTrack('hand_R.quaternion', [0, 1], [0, 0, 0, 1, ...turn.toArray()]),
++    ]));
++  }
++  const imported = new THREE.Group();
++  const mesh = new THREE.Group();
++  mesh.userData = {
++    socket: options.declaredSocket ?? 'socket_hand_R',
++    primary_grip_local: [0, 0, 0],
++    geometry_provenance: 'Explicit authored source records evaluated with permitted finishing',
++    ...(options.sourceRecords === false ? {} : {
++      source_records: JSON.stringify([{ file: 'source/warhammer.json', part: 'warhammer_head', sha256: 'a'.repeat(64) }]),
++    }),
++  };
++  imported.add(mesh);
++  const loader = {
++    ...loaderFor(visual, animations),
++    resolveEquipmentBaseBodyModel: vi.fn(async () => null),
++    resolveEquipmentModel: vi.fn(async () => ({
++      model: 'authored-socket-hammer.glb', bodyModel: null, skinned: false, disabled: options.fallback === true,
++    })),
++    loadModel: vi.fn(async () => imported),
++  } as unknown as AssetLoader;
++  const player = new Player(makeCharacter(), { heightAt: () => 0 } as unknown as Terrain);
++  await player.build(loader, new THREE.Scene());
++  await player.applyEquipmentVisuals({ mainHand: 'weapon_hammer_reliquary_2h' }, loader);
++  const overlay = player.object.getObjectByName('EquipmentOverlay_mainHand_weapon_hammer_reliquary_2h');
++  expect(overlay).toBeDefined();
++  return { player, socket, hand, overlay: overlay! };
++}
++
+ describe('Player authored weapon animation authority', () => {
++  test('keeps the calibrated imported grip on the moving authored hand without a second weapon offset', async () => {
++    const { player, socket, hand, overlay } = await buildSocketEquipmentPlayer();
++    const ability = getAbilityForCareer('Battle Prelate', 0)!;
++    const slam = { ...ability, visual: { ...ability.visual, vfx: { ...ability.visual.vfx, motion: 'slam' as const } } };
++    player.playGlbAction(slam.animation.actionId, slam.animation.durationSec);
++    player.playAbilityWeaponAction(slam);
++    player.updateVisuals(.24);
++
++    expect(Math.abs(hand.rotation.z)).toBeGreaterThan(.1);
++    expect(overlay.parent).toBe(socket);
++    expect(overlay.position.toArray()).toEqual([0, 0, 0]);
++    expect(overlay.quaternion.angleTo(new THREE.Quaternion())).toBeCloseTo(0);
++    player.object.updateMatrixWorld(true);
++    expect(overlay.getWorldPosition(new THREE.Vector3()).distanceTo(socket.getWorldPosition(new THREE.Vector3()))).toBeLessThan(1e-6);
++    expect(overlay.getWorldQuaternion(new THREE.Quaternion()).angleTo(socket.getWorldQuaternion(new THREE.Quaternion()))).toBeLessThan(1e-6);
++  });
++
++  test.each([
++    ['procedural fallback', { fallback: true }],
++    ['missing authored action', { authoredClip: false }],
++    ['missing source provenance', { sourceRecords: false }],
++    ['different declared socket', { declaredSocket: 'socket_hand_L' }],
++  ] as const)('preserves procedural ability motion for %s', async (_label, options) => {
++    const { player, overlay } = await buildSocketEquipmentPlayer(options);
++    player.playAbilityWeaponAction(getAbilityForCareer('Battle Prelate', 0)!);
++    player.updateVisuals(.24);
++    expect(Math.abs(overlay.rotation.x)).toBeGreaterThan(.1);
++  });
++
++  test('restores a prior procedural action before authored socket motion takes over', async () => {
++    const { player, overlay } = await buildSocketEquipmentPlayer();
++    player.playWeaponAction({ actionId: 'unmapped_action', durationSec: .6, motion: 'slam' });
++    player.updateVisuals(.18);
++    expect(Math.abs(overlay.rotation.x)).toBeGreaterThan(.1);
++    expect(overlay.position.y).toBeGreaterThan(.05);
++
++    const ability = getAbilityForCareer('Battle Prelate', 0)!;
++    player.playGlbAction(ability.animation.actionId, ability.animation.durationSec);
++    player.playAbilityWeaponAction(ability);
++    expect(overlay.position.toArray()).toEqual([0, 0, 0]);
++    expect(overlay.quaternion.angleTo(new THREE.Quaternion())).toBeCloseTo(0);
++    player.updateVisuals(.18);
++    expect(overlay.position.toArray()).toEqual([0, 0, 0]);
++    expect(overlay.quaternion.angleTo(new THREE.Quaternion())).toBeCloseTo(0);
++  });
++
+   test('keeps the embedded weapon authored while an equipment overlay receives procedural motion', async () => {
+     const { visual, hammerRoot } = importedHammerVisual();
+     const player = await buildPlayer(

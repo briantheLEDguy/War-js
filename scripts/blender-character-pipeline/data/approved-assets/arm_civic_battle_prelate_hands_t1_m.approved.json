@@ -21,26 +21,508 @@
     ]
   },
   "hashes": {
-    "modelSha256": "afdf273d352dcde7197b5505e3bf7c38ee49b4cd1189a5d3c614477873cb40e1",
-    "qcSha256": "f145210ee96dbed79b6dcfa36f18cae510b8c6ef2f811f8856306b26ea4bea8e",
+    "modelSha256": "a63f9ff8b7713b9bbed96f3a2ae4ebcf736a3f51313feb619979062601706354",
+    "qcSha256": "de64f1b610e083afbb871f738c8b5f5934510db465bc1fb97e42c353e8159985",
     "previews": {
-      "front": "ce5af6c82d993653370dc975b61b5d49aed7169d1e0392c52abbac95d05d1453"
+      "front": "dcbeb2ecfebc865c74e5f8068dcc332e45f120f05cbd4f9db9573686ec3794f9",
+      "isometric": "01605d6c4eeea56f4774e74fb520a9e49a3a69beea2ae6ad01f68879427d0de2",
+      "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722",
+      "back": "aa8b8a6e8d4e00a934c12528b5f489f1a8d2d85436ac0861438b7c524125c4d9"
     }
   },
   "previews": {
-    "front": "reviews/roster-direct/battle_prelate/m/hands_front.png"
+    "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
+    "isometric": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_three_quarter.png",
+    "side": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_side.png",
+    "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png"
   },
   "provenance": {
-    "kind": "roster_direct_promotion",
-    "sourceRevision": 1,
-    "sourceRunId": "dark-fantasy-character-pass-v3",
-    "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "kind": "explicit_reference_mesh_rebuild",
+    "geometrySource": "Literal authored vertices/faces; permitted finishing only",
+    "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+    "rigSourceSha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+    "validationReportSha256": "9d26a2eb0a6cd045c818499bc9c76de829508d6f162f1a6cb06c0190648b0114",
+    "runtimeReportSha256": "dabe781db09dbf267852ad9b5cb27158caab553c9900e1f587be9093993b6f02",
+    "visualReviewSha256": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42",
+    "evidenceArchive": "authoring/archives/battle-prelate-reference-rebuild/9d26a2eb0a6c",
+    "authorization": "User requested local game integration when complete; no deployment",
+    "sourceRecords": [
+      {
+        "part": "rerebrace_shaped_shell",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "rerebrace_shaped_shell",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "elbow_couter_and_wing",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "elbow_couter_and_wing",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_front_and_cuff",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_front_and_cuff",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_rear_closure",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "vambrace_rear_closure",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_dorsal_plate",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "gauntlet_dorsal_plate",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          },
+          {
+            "type": "SOLIDIFY"
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_proximal_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_middle_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      },
+      {
+        "part": "finger_distal_capped_articulations",
+        "file": "source\\arms.json",
+        "sha256": "6e8270eacd92d1c699b459bfce21c1de51acd75dd50528dd15732e062e1a09bb",
+        "finishing": [
+          {
+            "type": "SUBSURF",
+            "level": 1
+          }
+        ]
+      }
+    ]
   },
   "review": {
-    "reviewedBy": "codex-user-authorized-bypass",
-    "reviewedAt": "2026-07-15T10:19:31.445Z",
-    "reviewHash": "56320cb9f4ffa031d006b56f391ded36bc9e8ad0f7417a2465712b2252b90660"
+    "reviewedBy": "Codex primary agent, with independent source, export, and motion reviews",
+    "reviewedAt": "2026-09-06T01:10:06.609961+00:00",
+    "reviewHash": "3fa48bcfe0119e83cedea9d50ef1eb3a25af5289749694bd7b30ee363be1db42"
   },
   "approvalState": "approved"
 }

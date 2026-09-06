@@ -7,6 +7,7 @@ import {
   CAMPAIGN_REALMS,
   CAMPAIGN_STATIC_VERSION,
 } from './campaign.generated';
+import type { QuestRewardItem } from '../services/types';
 
 export { CAMPAIGN_LANE_LABELS } from './campaign.generated';
 
@@ -48,6 +49,8 @@ export interface CampaignObjectiveStatus extends CampaignObjectiveDefinition {
   control: CampaignControl;
   capturableBy: CampaignRealm[];
   captureBlockers: Partial<Record<CampaignRealm, string>>;
+  /** Absolute wall-clock timestamps; an absent realm entry means defense is ready. */
+  defenseReadyAt: Partial<Record<CampaignRealm, number>>;
 }
 
 export interface CampaignZoneInfluence {
@@ -95,13 +98,17 @@ export interface CampaignSnapshot {
 export type CampaignZoneControlState = Partial<Record<string, CampaignControl>>;
 export type CampaignObjectiveControlState = Partial<Record<string, CampaignControl>>;
 export type CampaignZoneInfluenceState = Partial<Record<string, Partial<Record<CampaignRealm, number>>>>;
+export type CampaignObjectiveDefenseState = Partial<Record<string, Partial<Record<CampaignRealm, number>>>>;
 
 export interface CampaignClaimReward {
   xp: number;
   influence: number;
+  gold?: number;
+  items?: QuestRewardItem[];
 }
 
 export interface CampaignClaimResult {
+  activity: 'capture' | 'defend';
   snapshot: CampaignSnapshot;
   zoneId: string;
   objectiveId: string;
@@ -115,6 +122,9 @@ export const CAMPAIGN_OBJECTIVE_CAPTURE_XP = 75;
 export const CAMPAIGN_BATTLE_OBJECTIVE_INFLUENCE = 25;
 export const CAMPAIGN_BATTLEFIELD_SWEEP_INFLUENCE = 25;
 export const CAMPAIGN_KEEP_SIEGE_INFLUENCE_REQUIRED = 100;
+export const CAMPAIGN_OBJECTIVE_DEFENSE_XP = 50;
+export const CAMPAIGN_OBJECTIVE_DEFENSE_INFLUENCE = 35;
+export const CAMPAIGN_OBJECTIVE_DEFENSE_COOLDOWN_MS = 180_000;
 
 export const CAMPAIGN_SIEGE_RULE =
   'A city siege opens when a realm controls the enemy T4 front, inner T4 zone, and fortress.';
@@ -183,6 +193,7 @@ export function buildCampaignSnapshot(
   zoneControl: CampaignZoneControlState = {},
   objectiveControl: CampaignObjectiveControlState = {},
   influenceState: CampaignZoneInfluenceState = {},
+  defenseState: CampaignObjectiveDefenseState = {},
 ): CampaignSnapshot {
   const zones = CAMPAIGN_ZONES.map((zone): CampaignZoneStatus => {
     const influence = campaignZoneInfluence(zone.id, influenceState);
@@ -190,6 +201,7 @@ export function buildCampaignSnapshot(
       ...objective,
       control: objectiveControl[objectiveKey(zone.id, objective.id)]
         ?? defaultCampaignObjectiveControl(zone.id, objective.id),
+      defenseReadyAt: { ...defenseState[objectiveKey(zone.id, objective.id)] },
     }));
     const objectives = baseObjectives.map((objective) => {
       const captureBlockers: Partial<Record<CampaignRealm, string>> = {};
@@ -272,6 +284,45 @@ export function campaignObjectiveCaptureEligibility(
   }
 
   return { capturable: true };
+}
+
+export function campaignObjectiveDefenseEligibility(
+  zoneId: string,
+  objective: Pick<CampaignObjectiveStatus, 'type' | 'control' | 'defenseReadyAt'>,
+  realm: CampaignRealm,
+  nowMs: number = Date.now(),
+): { defendable: boolean; reason?: string } {
+  if (!isRvrKeepZone(zoneId) || objective.type !== 'battle_objective') {
+    return { defendable: false, reason: 'Only battlefield and fortress standards can be defended' };
+  }
+  if (objective.control !== realm) {
+    return { defendable: false, reason: 'Only friendly objectives can be defended' };
+  }
+  const readyAt = objective.defenseReadyAt[realm] ?? 0;
+  if (readyAt > nowMs) {
+    const seconds = Math.ceil((readyAt - nowMs) / 1000);
+    return { defendable: false, reason: `Defense ready in ${seconds} second${seconds === 1 ? '' : 's'}` };
+  }
+  return { defendable: true };
+}
+
+export function campaignKeepCaptureReward(zoneId: string): CampaignClaimReward {
+  const zone = CAMPAIGN_ZONE_BY_ID[zoneId];
+  const tier = zone?.tier === 'Fortress' ? 5 : Number(zone?.tier.replace('T', '')) || 1;
+  const strength = 5 + tier * 3;
+  return {
+    xp: 300 * tier,
+    influence: 0,
+    gold: 30 * tier,
+    items: [{
+      key: 'jewel_amulet_bloodglass',
+      name: `${campaignZoneName(zoneId)} Victor's Amulet`,
+      qty: 1,
+      kind: 'armor',
+      equipSlot: 'neck',
+      strengthRoll: { min: strength, max: strength + 2 },
+    }],
+  };
 }
 
 export function formatCampaignControl(control: CampaignControl): string {

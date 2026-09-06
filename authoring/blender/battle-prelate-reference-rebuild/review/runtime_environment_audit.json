@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-09-06T01:18:27.599548+00:00",
+  "read_only": true,
+  "findings": [
+    {
+      "surface": "character_selection",
+      "cause": "CharacterPreviewStage creates direct/hemisphere lights but never sets scene.environment. Standard metallic materials lack environment specular illumination.",
+      "source": "src/ui/screens/CharacterPreviewStage.tsx",
+      "proposed_fix": "Capture built-in Three RoomEnvironment with PMREM for preview only, retain the themed scene background and direct lights, dispose the PMREM target on preview cleanup."
+    },
+    {
+      "surface": "gameplay_missing_hdri_fallback",
+      "cause": "Skybox creates a radius-1400 sky sphere, then calls PMREMGenerator.fromScene(envScene, 0.04). Installed Three defaults to near=0.1, far=100. The sky triangles are beyond the cube cameras far plane, leaving the renderer clear color in the environment capture.",
+      "source": "src/world/Skybox.ts:25,83; node_modules/three/src/extras/PMREMGenerator.js:106,313,349",
+      "proposed_fix": "Pass an explicit far clip beyond the sky sphere (2000). Keep existing authored sky colors and lighting. Dispose temporary capture scene geometry/materials."
+    }
+  ],
+  "environment_assets_available": [],
+  "searched_resources": "public .hdr/.exr/.ktx2/.env files; existing public textures are material SVGs and asset review PNGs, not reflection environments.",
+  "limits": "Code-level diagnosis; no GPU readback/render comparison performed by this audit. Parent controls browser verification."
+}

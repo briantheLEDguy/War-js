@@ -1,3 +1,4 @@
+import { EMBER_STAFF_KEY, hasEmberArcanistOutfit } from '../../data/emberArcanist';
 import type { CharacterSummary, InventoryItem, InventoryService } from '../types';
 import { createInventoryItem, INVENTORY_CAPACITY } from '../../data/items';
 import { normalizeClassName } from '../../data/careers';
@@ -76,7 +77,9 @@ export class InventoryLocal implements InventoryService {
 
 function defaultItemsForCharacter(characterId: string): InventoryItem[] {
   const character = characterSeedFor(characterId);
-  const baseItems = isBattlePrelate(character)
+  const baseItems = hasEmberArcanistOutfit(character.race, character.className, character.bodyVariant)
+    ? [createInventoryItem(EMBER_STAFF_KEY, 0), ...BASE_DEFAULT_ITEMS.filter(item => item.kind !== 'weapon' && item.kind !== 'armor')]
+    : isBattlePrelate(character)
     ? BATTLE_PRELATE_DEFAULT_ITEMS
     : BASE_DEFAULT_ITEMS;
   return [

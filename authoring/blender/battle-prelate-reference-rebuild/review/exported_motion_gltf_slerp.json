@@ -1,0 +1,71 @@
+{
+  "body_sha256": "9e7c1e2b4296bd94fb8dbb7ca39726741f3d243afd9f4a2946112862296ae489",
+  "feet_sha256": "2d70fec17b1366d21470a6094df759a2d49aeca4345d19a0c47fc9041b32d375",
+  "policy": "Raw GLB LINEAR rotations use quaternion SLERP; other transforms use linear interpolation. Root and scale channels are dropped as in Player. Heights are glTF world Y. Actual POSITION, JOINTS_0, WEIGHTS_0 and inverse bind matrices are evaluated.",
+  "clips": {
+    "attack_melee": {
+      "samples": 193,
+      "minimum_support_y_m": 0.000929976544288072,
+      "maximum_support_y_m": 0.0010988942573112587,
+      "positive_flight_allowed": false,
+      "worst_frame": 10.375
+    },
+    "attack_ranged": {
+      "samples": 257,
+      "minimum_support_y_m": 0.0009998806404020177,
+      "maximum_support_y_m": 0.0009998806404020177,
+      "positive_flight_allowed": false,
+      "worst_frame": 0.0
+    },
+    "cast": {
+      "samples": 385,
+      "minimum_support_y_m": 0.0009998806404020177,
+      "maximum_support_y_m": 0.0009998806404020177,
+      "positive_flight_allowed": false,
+      "worst_frame": 0.0
+    },
+    "combat_idle": {
+      "samples": 513,
+      "minimum_support_y_m": 0.0009993241871689637,
+      "maximum_support_y_m": 0.0010003614345001181,
+      "positive_flight_allowed": false,
+      "worst_frame": 24.375
+    },
+    "death": {
+      "samples": 385,
+      "minimum_support_y_m": 0.0009709782187327098,
+      "maximum_support_y_m": 0.0011241789617087994,
+      "positive_flight_allowed": false,
+      "worst_frame": 17.625
+    },
+    "idle": {
+      "samples": 385,
+      "minimum_support_y_m": 0.000999566242045176,
+      "maximum_support_y_m": 0.0010000667580230965,
+      "positive_flight_allowed": false,
+      "worst_frame": 10.75
+    },
+    "jump": {
+      "samples": 257,
+      "minimum_support_y_m": 0.0007672642339925373,
+      "maximum_support_y_m": 0.1744850388851778,
+      "positive_flight_allowed": true,
+      "worst_frame": 4.875
+    },
+    "run": {
+      "samples": 129,
+      "minimum_support_y_m": 0.0005535217887745192,
+      "maximum_support_y_m": 0.036692329717180935,
+      "positive_flight_allowed": true,
+      "worst_frame": 7.125
+    },
+    "walk": {
+      "samples": 385,
+      "minimum_support_y_m": 0.000939307278843643,
+      "maximum_support_y_m": 0.0016582644754848663,
+      "positive_flight_allowed": false,
+      "worst_frame": 3.9375
+    }
+  },
+  "errors": []
+}

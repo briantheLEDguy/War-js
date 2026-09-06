@@ -1,5 +1,45 @@
 # Changelog
 
+## 2026-09-06 — Keep commanders and functional abilities
+
+- Added Git LFS coverage for the new authoring masters and large review artifacts, and preserved exact Ember Arcanist source/QC bytes for cross-platform evidence verification.
+- Added 36 named keep commanders across 18 campaign zones. Clearing an unlocked keep's approach summons its commander; cone cleaves, circular pulses and a low-health last stand lead into the capture and gear reward. Approach guards stay down during the encounter, with clean resets on death or retreat.
+- Implemented temporary self guards, finite shields, damage and speed boosts, cleanses, swept movement, periodic burns/bleeds and numeric mark/weakening effects. Added shared ability recovery and active-effect feedback. Summaries now describe current local effects; three unfinished persistent summons are explicitly unavailable without spending resources.
+- Gave every class a working level-one damage/resource builder, including Siegewright's Crank Charge. Passive health recovery now pauses during combat while mana recovery continues. Added deterministic solo commander simulations with responsive and missed-warning policies.
+- Fixed friendly capital standards hiding expedition guidance with an unavailable defense, and reserved space for active effects above the first-steps panel. Added commander, movement, utility, status, regeneration and reset regression coverage.
+- Hostile enemies now engage when damaged from range. Encounter resets cancel pending area attacks so restored guards and commanders cannot be hit by an attack from the previous attempt.
+
+## 2026-09-06 — Ember Arcanist
+
+- Added the male Ember Arcanist reference outfit, red hair and stubble, nine armor modules and an emissive brazier staff, with editable Blender sources and three GLB LODs.
+- Added local starter staff equipment and non-destructive empty-slot backfill; preserved custom weapons and female defaults.
+- Retained hashed binary, material, rig and exported-motion review evidence; documented simplified likeness and current LOD-selection limits.
+
+
+## 2026-09-06
+
+- Added the Novitiate Field Harness: nine additional male Battle Prelate armor modules with compact shoulders, plain plate, leather guards and a short russet tabard. Refined rolled edges, hinge tabs, rivets, leather toe reinforcement, stitched welts, cloth hems and material maps. Preserved the ornate set and shared body, hammer and animations.
+- Added a character-selection armor comparison and nine catalog entries without changing saved equipment, starter inventory or item stats. Included editable masters, explicit mesh records, three runtime LODs and local review evidence; no deployment.
+
+- Added solo defense of friendly battlefield standards, with eight-second cleared-area holds, 50 XP / 35 influence rewards and persisted three-minute cooldowns. Three home defenses now unlock the existing 100-influence keep requirement.
+- Required living objective defenders to be defeated before capture or defense, including guards pulled outside the ring. Added campaign guidance, hold progress, blocker explanations and victory receipts. Keep captures award tier-scaled XP, gold and universal amulets; full-bag gear is preserved per character for later collection.
+- Kept quest rewards ready for turn-in when inventory space is insufficient, with an inline explanation instead of discarding the reward. Quest and campaign rewards now share capacity and stack placement rules.
+- Added fixed enemy attack footprints, visible 0.9–1.2-second windups, target cast bars, movement-based dodges and interrupt cleanup. Extended objective defender recovery to 30 seconds and roaming raider/beast recovery to 15 seconds.
+
+- Fixed metallic-material reflections by extending fallback sky capture beyond the sky sphere and adding neutral room reflections to character previews; delivered asset files and material values are unchanged.
+
+- Replaced the male Battle Prelate with a full reference-authored character, nine modular armor slots and separate sanctified warhammer. Retained explicit mesh records, editable Blender masters, packed materials, canonical rigging and three validated LODs (98,274 / 56,628 / 29,484 triangles; 66.2 MB combined GLBs). Previous assets are archived. The result follows the accepted modeling direction and remains a stylized interpretation rather than photographic reconstruction.
+- Corrected the rigid hammer's equipment metadata and prevented duplicate procedural weapon offsets when a calibrated authored socket animation owns an ability. Existing fallback and uncalibrated weapon behavior remains covered by tests.
+- Added hash-bound source/archive/export validation and local promotion evidence, including per-LOD provenance and exact evaluated vertex data. Excluded Blender authoring files from Vite's watch list to avoid locked-file crashes. No site deployment was performed.
+
+## 2026-09-05
+
+- Added 304 scenery props, 85 ambient citizens/guards/wildlife, and 32 smoke/ember/mote emitters across both capitals and four Tier 1 routes, with markets, wash yards, gardens, supply camps, resting areas, and clear travel paths.
+- Added ten local scenery builders, articulated ambient actors, waypoint walking and pauses, grazing and flight motion, cloth/fire animation, solid furniture collision, and vegetation exclusions. Bounded population/effect budgets, distance culling, deterministic authoring, and owned-resource cleanup keep the world-life layer separate from combat and quest NPCs.
+- Routed both realms through their own Tier 1 starter expeditions, added local field-officer handoffs and named captain targets, scoped quest kill credit to the intended zone, and awarded a universal expedition amulet at the finale. Preserved Aegis quest IDs and migrated legacy Riftbound progress to the equivalent new chain.
+- Added a shared expedition destination across the objective card, minimap and campaign atlas, with actual exit routing and reward previews. Made minimap filters and the full first-session checklist expandable.
+- Introduced three starter abilities per class and gradual unlocks through level 8, with visible unlock requirements, runtime activation gates and learned-ability messages. Fixed Cleaver's Whirly Chop damage and Warped Reaver's missing usable resource builder.
+
 ## 2026-07-15
 
 - Added a reusable dark-fantasy armor pass that applies muted class palettes over fitted MPFB silhouettes, removing bright contemporary source graphics and gold helmet materials from the Battle Prelate and Warbrute runtime sets.

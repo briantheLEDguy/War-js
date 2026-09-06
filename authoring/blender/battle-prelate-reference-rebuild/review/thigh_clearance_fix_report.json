@@ -1,0 +1,76 @@
+{
+  "before_sha256": "3a427d62e37dbeee70b850b1f547305a159a6b67581bbec9d7b41084fe8aa0da",
+  "after_sha256": "c6c529f53f0dc34028eb781b3afe2aeccd0a44466dce3225b7ffcb317678940c",
+  "validation": "passed",
+  "coordinate_changes": [
+    {
+      "vertex": "v003",
+      "before": [
+        0.176,
+        -0.079,
+        0.956
+      ],
+      "after": [
+        0.186,
+        -0.111,
+        0.956
+      ],
+      "displacement_m": 0.03352610922848042
+    },
+    {
+      "vertex": "v008",
+      "before": [
+        0.185,
+        -0.087,
+        0.882
+      ],
+      "after": [
+        0.197,
+        -0.117,
+        0.882
+      ],
+      "displacement_m": 0.03231098884280704
+    },
+    {
+      "vertex": "v013",
+      "before": [
+        0.193,
+        -0.093,
+        0.788
+      ],
+      "after": [
+        0.203,
+        -0.113,
+        0.788
+      ],
+      "displacement_m": 0.022360679774997904
+    },
+    {
+      "vertex": "v018",
+      "before": [
+        0.202,
+        -0.089,
+        0.682
+      ],
+      "after": [
+        0.207,
+        -0.098,
+        0.682
+      ],
+      "displacement_m": 0.010295630140986996
+    }
+  ],
+  "unchanged": [
+    "all source faces and face-corner UVs",
+    "all materials",
+    "control mesh count",
+    "modifiers/creases/seams",
+    "rig and transform metadata",
+    "plate boundary vertices, border components and attachments",
+    "all other component parts"
+  ],
+  "front_clearance_evidence": "thigh_clearance_dense_after.json",
+  "dense_sample_count": 1247,
+  "dense_minimum_front_surface_clearance_m": 0.014906764030456543,
+  "dense_negative_count": 0
+}

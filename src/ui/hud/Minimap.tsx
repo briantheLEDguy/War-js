@@ -68,7 +68,9 @@ export function Minimap({ game }: Props) {
         visible,
       });
 
+      const hasFocus = markers.some((marker) => marker.focused);
       for (const marker of markers) {
+        if (hasFocus && !marker.focused && Math.hypot(marker.position.x - px, marker.position.z - pz) > RANGE) continue;
         drawMapMarker(ctx, marker, playerPosition, cx, cy, radius);
       }
 
@@ -91,7 +93,9 @@ export function Minimap({ game }: Props) {
           <canvas ref={canvasRef} aria-label="Minimap" />
           {game && <div className="minimap-label">{game.zoneName}</div>}
         </div>
-        <div className="minimap-legend" aria-label="Minimap marker filters">
+        <details className="minimap-filters">
+          <summary>Map filters</summary>
+          <div className="minimap-legend" aria-label="Minimap marker filters">
           {MAP_MARKER_LEGEND.map((item) => (
             <label className={`minimap-toggle${visible[item.key] ? ' active' : ''}`} key={item.key}>
               <input
@@ -106,7 +110,8 @@ export function Minimap({ game }: Props) {
               {item.label}
             </label>
           ))}
-        </div>
+          </div>
+        </details>
       </div>
       <ObjectiveTracker game={game} />
     </>
@@ -168,7 +173,7 @@ function drawMapMarker(
   const dx = marker.position.x - playerPosition.x;
   const dz = marker.position.z - playerPosition.z;
   const worldDistance = Math.hypot(dx, dz);
-  if (worldDistance > EDGE_RANGE) return;
+  if (worldDistance > EDGE_RANGE && !marker.focused) return;
 
   if (worldDistance > RANGE) {
     if (!marker.priority && marker.kind !== 'exits') return;

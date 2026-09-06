@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Game } from '../../game/Game';
+import { campaignZoneName } from '../../data/campaign';
 import { useGameStore } from '../../state/gameStore';
 import {
   formatDistance,
-  questNpcStatus,
   resolveTrackedQuests,
-  type DistanceContext,
 } from './objectiveHudData';
+import { useZoneExitMarkers } from './mapData';
+import { resolveQuestNavigation } from './questNavigation';
+import { CampaignActivityCard, CampaignRewardCard } from './CampaignActivityCard';
 import { useDraggableWindow } from './useDraggableWindow';
 
 interface Props {
@@ -30,6 +32,11 @@ export function ObjectiveTracker({ game }: Props) {
   const enemies = useGameStore((state) => state.enemies);
   const character = useGameStore((state) => state.character);
   const playerPosition = usePlayerPosition(game, character?.position ?? null);
+  const exits = useZoneExitMarkers(character?.zoneId ?? null);
+  const navigation = resolveQuestNavigation({
+    character, progresses: quests, npcs, enemies, exits,
+    playerPosition: playerPosition ?? { x: 0, z: 0 },
+  });
 
   const tracked = useMemo(
     () => resolveTrackedQuests({
@@ -37,25 +44,22 @@ export function ObjectiveTracker({ game }: Props) {
       npcs,
       enemies,
       playerPosition,
+      zoneId: character?.zoneId,
+      character,
     }),
-    [quests, npcs, enemies, playerPosition],
+    [quests, npcs, enemies, playerPosition, character],
   );
+  const focused = tracked.find((quest) => quest.questId === navigation?.quest.id);
+  const campaign = game?.campaignActivity;
+  const showCampaign = campaign && (!navigation || (campaign.focus && campaign.focus.distance <= campaign.focus.objective.captureRadius));
 
-  const availableQuestGivers = useMemo(
-    () => npcs
-      .filter((npc) => npc.role === 'questgiver')
-      .map((npc) => ({
-        npc,
-        status: questNpcStatus(npc.id, quests, character),
-        distance: playerPosition
-          ? Math.hypot(npc.position.x - playerPosition.x, npc.position.z - playerPosition.z)
-          : undefined,
-      }))
-      .filter((entry) => entry.status.offerCount > 0 || entry.status.readyCount > 0)
-      .sort((a, b) => (a.distance ?? Number.MAX_SAFE_INTEGER) - (b.distance ?? Number.MAX_SAFE_INTEGER))
-      .slice(0, 2),
-    [character, npcs, playerPosition, quests],
-  );
+  function showRoute() {
+    if (!navigation) return;
+    const store = useGameStore.getState();
+    store.setWorldMapZoneId(navigation.zoneId);
+    store.setWorldMapLevel(navigation.zoneId === character?.zoneId ? 'zone' : 'route');
+    store.setWorldMapOpen(true);
+  }
 
   return (
     <aside
@@ -65,58 +69,44 @@ export function ObjectiveTracker({ game }: Props) {
       aria-label="Tracked objectives"
     >
       <div className="objective-tracker-header draggable-window-handle" {...dragHandleProps}>
-        <span>Objectives</span>
-        <b>{tracked.length}</b>
+        <span>{showCampaign ? 'Your campaign' : 'Your expedition'}</span>
+        <b>{showCampaign ? 'Solo objectives' : navigation?.stage === 'turnin' ? 'Reward ready' : navigation?.stage === 'offer' ? 'Next mission' : 'In progress'}</b>
       </div>
-
-      {tracked.length > 0 ? (
-        <div className="objective-tracker-list">
-          {tracked.slice(0, 3).map((quest) => (
-            <section className={`objective-card${quest.ready ? ' ready' : ''}`} key={quest.questId}>
-              <div className="objective-title-row">
-                <h3>{quest.title}</h3>
-                <span>{quest.ready ? 'Ready' : 'Active'}</span>
-              </div>
-              {quest.ready && quest.turnIn ? (
-                <p className="objective-context">Turn in: {contextText(quest.turnIn)}</p>
-              ) : null}
-              <ul>
-                {quest.rows.map((row) => (
-                  <li className={row.complete ? 'done' : ''} key={row.id}>
-                    <span>{row.description}</span>
-                    <strong>{row.current}/{row.required}</strong>
-                    {!row.complete && row.context ? <em>{contextText(row.context)}</em> : null}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-      ) : (
-        <div className="objective-empty">
-          <span>No tracked quests</span>
-          {availableQuestGivers.length > 0 ? (
+      <CampaignRewardCard />
+      {showCampaign ? <CampaignActivityCard campaign={campaign} /> : navigation ? (
+        <section className={`objective-card${navigation.stage === 'turnin' ? ' ready' : ''}`}>
+          <div className="objective-title-row"><h3>{navigation.quest.title}</h3></div>
+          <p className="expedition-destination">{campaignZoneName(navigation.zoneId)}</p>
+          <p className="expedition-next-action">
+            <span>{navigation.label}</span>
+            {navigation.distance !== undefined && <strong>{formatDistance(navigation.distance)}</strong>}
+          </p>
+          {focused && navigation.stage === 'active' && (
             <ul>
-              {availableQuestGivers.map(({ npc, status, distance }) => (
-                <li key={npc.id}>
-                  <b>{status.readyCount > 0 ? 'Turn-in' : 'Quest'}</b>
-                  <span>{npc.name}</span>
-                  {distance !== undefined ? <em>{formatDistance(distance)}</em> : null}
+              {focused.rows.map((row) => (
+                <li className={row.complete ? 'done' : ''} key={row.id}>
+                  <span>{row.description}</span><strong>{row.current}/{row.required}</strong>
                 </li>
               ))}
             </ul>
-          ) : (
-            <p>Quest givers appear on the minimap when work is available.</p>
           )}
+          <div className="expedition-actions">
+            <button type="button" onClick={showRoute}>Show route</button>
+            <button type="button" onClick={() => useGameStore.getState().toggleQuestLog()}>Quest log{tracked.length > 1 ? ` (${tracked.length})` : ''}</button>
+          </div>
+          <p className="expedition-reward">
+            Reward: {navigation.quest.reward.xp} XP · {navigation.quest.reward.gold} gold
+            {(navigation.quest.reward.items ?? []).map((item) => <span key={item.key}>{item.name}</span>)}
+          </p>
+        </section>
+      ) : (
+        <div className="objective-empty">
+          <span>No active expedition</span>
+          <p>Explore the campaign atlas or visit a field officer for your next assignment.</p>
         </div>
       )}
     </aside>
   );
-}
-
-function contextText(context: DistanceContext): string {
-  const distance = formatDistance(context.distance);
-  return distance ? `${context.label} - ${distance}` : context.label;
 }
 
 function usePlayerPosition(

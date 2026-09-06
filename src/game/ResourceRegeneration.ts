@@ -21,14 +21,16 @@ export class ResourceRegeneration {
     this.manaCarry = 0;
   }
 
-  tick(character: RegeneratingCharacter | null, dtSeconds: number): ResourceRegenerationPatch | null {
+  tick(character: RegeneratingCharacter | null, dtSeconds: number, inCombat = false): ResourceRegenerationPatch | null {
     if (!character) {
       this.reset();
       return null;
     }
+    // Combat must not bank fractional healing for the first recovery frame.
+    if (inCombat) this.healthCarry = 0;
     if (!Number.isFinite(dtSeconds) || dtSeconds <= 0) return null;
 
-    const health = regenerateResource(
+    const health = inCombat ? { value: character.health, carry: 0, changed: false } : regenerateResource(
       character.health,
       character.maxHealth,
       dtSeconds,

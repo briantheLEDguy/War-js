@@ -3,6 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import {
   CAMPAIGN_STATIC_VERSION,
+  decorateWorldLife,
   EDGES,
   LANE_LABELS,
   NODES,
@@ -33,6 +34,34 @@ const nodeById = new Map(NODES.map((node) => [node.id, node]));
 const neighborsById = buildNeighbors();
 const portalPoints = buildPortalPoints();
 const IMPORTED_AEGIS_CAPITAL_ID = 'aegis_capital';
+const EXPEDITION_FIELDS = {
+  brightfen_approach: { name: 'Brightfen', officer: 'Ari Vell' },
+  cinderfen_outskirts: { name: 'Cinderfen', officer: 'Dren Voss' },
+};
+const KEEP_COMMANDER_NAMES = {
+  aegis_gate_fortress: { aegis: 'Taren Ashford', riftbound: 'Varek Dreadthorn' },
+  aegis_crownworks: { aegis: 'Selene Wardcrest', riftbound: 'Morvek Blackscar' },
+  dawnline_expanse: { aegis: 'Edric Dawnward', riftbound: 'Xeran Riftbrand' },
+  shatterline_expanse: { aegis: 'Alera Sunmark', riftbound: 'Drevan Shardmaw' },
+  rift_crownworks: { aegis: 'Liora Steelmantle', riftbound: 'Veshar Voidcrest' },
+  rift_gate_fortress: { aegis: 'Oren Starward', riftbound: 'Nyrak Ashcrown' },
+  sunmeadow_march: { aegis: 'Bram Goldfield', riftbound: 'Grath Cinderjaw' },
+  greybrook_crossing: { aegis: 'Irena Greyward', riftbound: 'Rhogar Mirebane' },
+  ironwood_redoubt: { aegis: 'Doran Ironbough', riftbound: 'Tharek Thornfang' },
+  brightfen_approach: { aegis: 'Maelin Reedshield', riftbound: 'Zorren Fenreaver' },
+  glassriver_ford: { aegis: 'Elowen Glassward', riftbound: 'Korrak Siltblade' },
+  highvale_rampart: { aegis: 'Cedran Stormhelm', riftbound: 'Vrann Cliffscar' },
+  cinderfen_outskirts: { aegis: 'Veyna Emberwatch', riftbound: 'Narek Cinderthorn' },
+  bleakroot_causeway: { aegis: 'Garrick Rootward', riftbound: 'Zelvak Rotbranch' },
+  vilemere_heights: { aegis: 'Seren Merewatch', riftbound: 'Vorren Blightscar' },
+  ashen_steppe: { aegis: 'Arlen Ashward', riftbound: 'Krezha Dustfang' },
+  gorepine_pass: { aegis: 'Brinna Pineward', riftbound: 'Uldrek Gorebranch' },
+  obsidian_scar: { aegis: 'Maren Stonecrest', riftbound: 'Xarven Glassmaw' },
+};
+const KEEP_COMMANDER_PROFILES = {
+  aegis: 'enemy_aegis_warden_s_hollow_overlord_captain',
+  riftbound: 'enemy_riftbound_keep_captain_captain',
+};
 const AEGIS_CAPITAL_GUARD_VARIANT_PROFILES = [
   'npc_external_warrior_guard',
   'npc_external_warrior_guard',
@@ -66,6 +95,7 @@ await mkdir(supabaseDir, { recursive: true });
 
 for (const node of NODES) {
   const zone = buildZone(node);
+  decorateWorldLife(zone);
   const hash = hashZone(zone);
   zone.staticMapHash = hash;
   zones.push(zone);
@@ -1439,6 +1469,7 @@ function buildEnemies(node) {
       enemy(node, 'beast_1', fieldBeastName(node), -102, -52, tierLevel(node), 190, { archetype: 'beast' }),
       enemy(node, 'beast_2', fieldBeastName(node), 102, -52, tierLevel(node), 190, { archetype: 'beast' }),
       enemy(node, 'captain', 'Keep Captain', 0, 72, tierLevel(node) + 2, 340, { archetype: 'captain' }),
+      ...buildKeepCommanders(node),
     ];
   }
   return [
@@ -1452,10 +1483,47 @@ function buildEnemies(node) {
     enemy(node, 'aegis_keep_caster_1', 'Aegis Keep Sage', -38, 44, tierLevel(node) + 1, 190, { archetype: 'caster' }),
     enemy(node, 'riftbound_keep_guard_1', 'Riftbound Keep Guard', 38, 44, tierLevel(node) + 1, 210, { archetype: 'guard' }),
     enemy(node, 'riftbound_keep_caster_1', 'Riftbound Keep Magister', 66, 42, tierLevel(node) + 1, 190, { archetype: 'caster' }),
-    enemy(node, 'field_captain', 'Keep Captain', 0, 78, tierLevel(node) + 2, 300, { archetype: 'captain' }),
+    fieldCaptain(node),
+    ...buildKeepCommanders(node),
     enemy(node, 'beast_1', fieldBeastName(node), -96, -74, tierLevel(node), 160, { archetype: 'beast' }),
     enemy(node, 'beast_2', fieldBeastName(node), 96, -74, tierLevel(node), 160, { archetype: 'beast' }),
   ];
+}
+
+function buildKeepCommanders(node) {
+  const level = tierLevel(node) + 2;
+  const tier = node.nodeRole === 'fortress' ? 5 : Number(node.tier.slice(1));
+  return buildObjectives(node).filter((entry) => entry.type === 'keep').map((objective) => {
+    const realm = objective.defaultRealm;
+    const title = realm === 'aegis' ? 'Aegis Castellan' : 'Riftbound Warlord';
+    const name = KEEP_COMMANDER_NAMES[node.id]?.[realm] ?? `${node.name} Commander`;
+    return enemy(node, `${realm}_keep_commander`, `${title} ${name}`, objective.x, objective.z + 4, level, 240 + level * 20, {
+      archetype: 'captain',
+      aggroRange: 18,
+      attackRange: 3.8,
+      attackDamage: 5 + tier * 2,
+      moveSpeed: 2.8,
+      characterProfileKey: KEEP_COMMANDER_PROFILES[realm],
+      encounter: {
+        type: 'keep_commander',
+        objectiveId: objective.id,
+        realm,
+        enrageHealthFraction: 0.35,
+      },
+    });
+  });
+}
+
+function fieldCaptain(node) {
+  const expedition = EXPEDITION_FIELDS[node.id];
+  if (!expedition) {
+    return enemy(node, 'field_captain', 'Keep Captain', 0, 78, tierLevel(node) + 2, 300, { archetype: 'captain' });
+  }
+  return enemy(node, 'field_captain', `${expedition.name} Field Captain`, 0, 78, 4, 220, {
+    archetype: 'captain',
+    // Retain the existing captain asset approval/fallback path when naming the encounter.
+    characterProfileKey: `enemy_${node.realm}_keep_captain_captain`,
+  });
 }
 
 function trainingDummy(node, suffix, name, x, z, level, maxHealth) {
@@ -1677,10 +1745,20 @@ function buildNpcs(node) {
       npcs.push({
         id: 'quest-1',
         name: 'Mara Vell',
-        title: 'Dawnline Dispatch Officer',
+        title: 'Brightfen Dispatch Officer',
         role: 'questgiver',
-        x: 0,
-        z: 38,
+        x: 10,
+        z: -44,
+        rotY: 3.1416,
+      });
+    } else if (node.id === 'riftspire_capital') {
+      npcs.push({
+        id: 'riftspire_dispatch',
+        name: 'Vessa Marr',
+        title: 'Cinderfen Dispatch Officer',
+        role: 'questgiver',
+        x: -10,
+        z: -44,
         rotY: 3.1416,
       });
     }
@@ -1721,6 +1799,18 @@ function buildNpcs(node) {
   }
 
   if (node.nodeRole === 'battlefield') {
+    const expedition = EXPEDITION_FIELDS[node.id];
+    if (expedition) {
+      npcs.push({
+        id: `${node.id}_dispatch`,
+        name: expedition.officer,
+        title: `${expedition.name} Field Officer`,
+        role: 'questgiver',
+        x: -18,
+        z: -66,
+        rotY: 0,
+      });
+    }
     npcs.push(
       {
         id: `${node.id}_scout`,

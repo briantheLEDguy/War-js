@@ -1,0 +1,29 @@
+{
+  "status": "authored_source_validated_visual_review_pending",
+  "components": [
+    {
+      "file": "pauldron.json",
+      "parts": 12,
+      "changed_vertices": 180,
+      "sha256": "53110e5996bb16096548e7401b9653a299df576c67cd90c6d04c22c97eecd3b8"
+    },
+    {
+      "file": "gorget.json",
+      "parts": 2,
+      "changed_vertices": 56,
+      "sha256": "bdda7f4cf80b736433465fb5798b132286bd317b0ad949428c3443ea49f2e9f2"
+    },
+    {
+      "file": "breastplate.json",
+      "parts": 4,
+      "changed_vertices": 32,
+      "sha256": "f336355535f14b8d523f1957c9796e086eb3ba89c985f9fd6ef3b4805af4a402"
+    },
+    {
+      "file": "backplate.json",
+      "parts": 1,
+      "changed_vertices": 4,
+      "sha256": "e39ad5c8bea922c16e8b1b496576495c7ba98d94097bfb19975dad585598554e"
+    }
+  ]
+}

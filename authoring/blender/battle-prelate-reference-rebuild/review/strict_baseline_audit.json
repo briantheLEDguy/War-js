@@ -1,0 +1,1684 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-06T01:14:06.773015+00:00",
+  "transaction": "reference-9d26a2eb0a6c-071bc05c",
+  "scope": "QC SHA-256 baseline comparison for unchanged registry assets; independent current hash and approval checks for all eleven promoted LOD0 entries. No asset files modified.",
+  "method": "Flatten registry entries using pipeline-lib.mjs indexEntries semantics, excluding the current runtime compatibility allowlist from strict QC mismatch checks. Hash the same current QC bytes against both preserved previous and current registry expectations. Exclude QC files written by this promotion from baseline equality; test their eleven current registry entries separately.",
+  "historical_evidence_limit": "The transaction preserves the previous registry and lists every file it published. Unrelated QC files are absent from that publication list; no independent historical snapshot of their bytes was created by this audit.",
+  "inputs": {
+    "current_registry": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\public\\assets\\models\\asset-index.json",
+    "current_registry_sha256": "7c6502475696112e82a397039954c38d5de00ba742d0c6823a3c995f9136791f",
+    "previous_registry": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\archives\\battle-prelate-promotions\\reference-9d26a2eb0a6c-071bc05c\\previous\\public\\assets\\models\\asset-index.json",
+    "previous_registry_sha256": "00d25295184ae250771419da2f1e17da92c1371ffac2c5154c96d403dde315d0",
+    "previous_registry_matches_transaction_input": true,
+    "promotion_result": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\archives\\battle-prelate-promotions\\reference-9d26a2eb0a6c-071bc05c\\result.json",
+    "promotion_result_sha256": "86f4fead1e29e0b1cb33b7f5b25d4d0b559c4ccf87d45fb18bdc4f6b75ea5794",
+    "compatibility_allowlist": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\scripts\\blender-character-pipeline\\data\\runtime-compatibility-allowlist.json",
+    "compatibility_allowlist_sha256": "3342c6193a79657e56aea61dbe6d6496ee699cca299fb5296f54c02de36611ba"
+  },
+  "summary": {
+    "current_strict_qc_mismatch_count": 79,
+    "current_unchanged_mismatch_count": 79,
+    "previous_unchanged_mismatch_count": 79,
+    "unchanged_mismatch_sets_equal": true,
+    "unchanged_mismatch_records_equal": true,
+    "all_unchanged_registry_entries_equal": true,
+    "all_current_mismatches_outside_publication": true,
+    "promoted_registry_entry_count": 11,
+    "promoted_registry_entries_passed": 11,
+    "new_qc_mismatches": [],
+    "resolved_baseline_qc_mismatches": []
+  },
+  "current_mismatch_set": [
+    "asset-index:characterProfiles:civic_battle_prelate_f",
+    "asset-index:characterProfiles:enemy_aegis_aegis_keep_guard_guard",
+    "asset-index:characterProfiles:enemy_aegis_briarwatch_den_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_campaign_raider_raider",
+    "asset-index:characterProfiles:enemy_aegis_glassriver_depths_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_mireglass_den_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_stormbarrow_lair_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_warden_s_hollow_overlord_captain",
+    "asset-index:characterProfiles:enemy_riftbound_cindermaw_pit_overlord_captain",
+    "asset-index:characterProfiles:enemy_riftbound_gorepine_warrens_overlord_captain",
+    "asset-index:characterProfiles:enemy_riftbound_greenskin_brute_raider",
+    "asset-index:characterProfiles:enemy_riftbound_greenskin_ruffian_raider",
+    "asset-index:characterProfiles:enemy_riftbound_keep_captain_captain",
+    "asset-index:characterProfiles:enemy_riftbound_lair_sentinel_guard",
+    "asset-index:characterProfiles:enemy_riftbound_rotwreath_nest_overlord_captain",
+    "asset-index:characterProfiles:mire_warbrute_f",
+    "asset-index:characterProfiles:mire_warbrute_m",
+    "asset-index:characterProfiles:npc_aegis_brann_hartwell_main_gate_guard",
+    "asset-index:characterProfiles:npc_aegis_brigitte_holtz_merchant",
+    "asset-index:characterProfiles:npc_aegis_brother_steffan_battle_prelate_trainer",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_capital_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_endgame_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_tier_3_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_diedrick_stein_general_goods",
+    "asset-index:characterProfiles:npc_aegis_elira_dawnmarch_aegis_quartermaster",
+    "asset-index:characterProfiles:npc_aegis_freia_voss_banker",
+    "asset-index:characterProfiles:npc_aegis_gate_sergeant_city_guard",
+    "asset-index:characterProfiles:npc_aegis_gate_warden_city_guard",
+    "asset-index:characterProfiles:npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+    "asset-index:characterProfiles:npc_aegis_iven_stonebrook_street_patrol",
+    "asset-index:characterProfiles:npc_aegis_konrad_hausman_banker",
+    "asset-index:characterProfiles:npc_aegis_lysa_bright_market_watch",
+    "asset-index:characterProfiles:npc_aegis_magister_roth_ember_arcanist_trainer",
+    "asset-index:characterProfiles:npc_aegis_mira_stonewake_forward_scout",
+    "asset-index:characterProfiles:npc_aegis_mira_stonewake_siege_engineer",
+    "asset-index:characterProfiles:npc_aegis_mira_stonewake_vault_keeper",
+    "asset-index:characterProfiles:npc_aegis_rowan_hale_plaza_watch",
+    "asset-index:characterProfiles:npc_aegis_serra_brightfield_gate_captain",
+    "asset-index:characterProfiles:npc_aegis_sir_emmerich_sunfire_templar_trainer",
+    "asset-index:characterProfiles:npc_aegis_veyra_sunholt_east_gate_guard",
+    "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_forward_scout",
+    "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_siege_engineer",
+    "asset-index:characterProfiles:npc_riftbound_kara_ashvein_crafting_mentor",
+    "asset-index:characterProfiles:npc_riftbound_kara_ashvein_gate_captain",
+    "asset-index:characterProfiles:npc_riftbound_kara_ashvein_resource_warden",
+    "asset-index:characterProfiles:npc_riftbound_nyra_vex_endgame_campaign_marshal",
+    "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+    "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+    "asset-index:characterProfiles:npc_riftbound_selk_dreadspire_field_medic",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_back_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_back_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_chest_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_chest_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_feet_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_feet_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_hands_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_hands_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_head_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_head_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_legs_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_legs_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_tabard_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_tabard_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_waist_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_waist_m:m",
+    "asset-index:staticProps:creature_barrow_wolf",
+    "asset-index:staticProps:creature_lair_spider"
+  ],
+  "previous_mismatch_set": [
+    "asset-index:characterProfiles:civic_battle_prelate_f",
+    "asset-index:characterProfiles:enemy_aegis_aegis_keep_guard_guard",
+    "asset-index:characterProfiles:enemy_aegis_briarwatch_den_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_campaign_raider_raider",
+    "asset-index:characterProfiles:enemy_aegis_glassriver_depths_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_mireglass_den_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_stormbarrow_lair_overlord_captain",
+    "asset-index:characterProfiles:enemy_aegis_warden_s_hollow_overlord_captain",
+    "asset-index:characterProfiles:enemy_riftbound_cindermaw_pit_overlord_captain",
+    "asset-index:characterProfiles:enemy_riftbound_gorepine_warrens_overlord_captain",
+    "asset-index:characterProfiles:enemy_riftbound_greenskin_brute_raider",
+    "asset-index:characterProfiles:enemy_riftbound_greenskin_ruffian_raider",
+    "asset-index:characterProfiles:enemy_riftbound_keep_captain_captain",
+    "asset-index:characterProfiles:enemy_riftbound_lair_sentinel_guard",
+    "asset-index:characterProfiles:enemy_riftbound_rotwreath_nest_overlord_captain",
+    "asset-index:characterProfiles:mire_warbrute_f",
+    "asset-index:characterProfiles:mire_warbrute_m",
+    "asset-index:characterProfiles:npc_aegis_brann_hartwell_main_gate_guard",
+    "asset-index:characterProfiles:npc_aegis_brigitte_holtz_merchant",
+    "asset-index:characterProfiles:npc_aegis_brother_steffan_battle_prelate_trainer",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_capital_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_endgame_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_corren_vale_tier_3_campaign_marshal",
+    "asset-index:characterProfiles:npc_aegis_diedrick_stein_general_goods",
+    "asset-index:characterProfiles:npc_aegis_elira_dawnmarch_aegis_quartermaster",
+    "asset-index:characterProfiles:npc_aegis_freia_voss_banker",
+    "asset-index:characterProfiles:npc_aegis_gate_sergeant_city_guard",
+    "asset-index:characterProfiles:npc_aegis_gate_warden_city_guard",
+    "asset-index:characterProfiles:npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+    "asset-index:characterProfiles:npc_aegis_iven_stonebrook_street_patrol",
+    "asset-index:characterProfiles:npc_aegis_konrad_hausman_banker",
+    "asset-index:characterProfiles:npc_aegis_lysa_bright_market_watch",
+    "asset-index:characterProfiles:npc_aegis_magister_roth_ember_arcanist_trainer",
+    "asset-index:characterProfiles:npc_aegis_mira_stonewake_forward_scout",
+    "asset-index:characterProfiles:npc_aegis_mira_stonewake_siege_engineer",
+    "asset-index:characterProfiles:npc_aegis_mira_stonewake_vault_keeper",
+    "asset-index:characterProfiles:npc_aegis_rowan_hale_plaza_watch",
+    "asset-index:characterProfiles:npc_aegis_serra_brightfield_gate_captain",
+    "asset-index:characterProfiles:npc_aegis_sir_emmerich_sunfire_templar_trainer",
+    "asset-index:characterProfiles:npc_aegis_veyra_sunholt_east_gate_guard",
+    "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_forward_scout",
+    "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_siege_engineer",
+    "asset-index:characterProfiles:npc_riftbound_kara_ashvein_crafting_mentor",
+    "asset-index:characterProfiles:npc_riftbound_kara_ashvein_gate_captain",
+    "asset-index:characterProfiles:npc_riftbound_kara_ashvein_resource_warden",
+    "asset-index:characterProfiles:npc_riftbound_nyra_vex_endgame_campaign_marshal",
+    "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+    "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+    "asset-index:characterProfiles:npc_riftbound_selk_dreadspire_field_medic",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_f:f",
+    "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_back_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_back_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_chest_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_chest_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_feet_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_feet_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_hands_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_hands_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_head_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_head_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_legs_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_legs_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_tabard_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_tabard_m:m",
+    "asset-index:equipment:starter_mire_brutish_warbrute_waist_f:f",
+    "asset-index:equipment:starter_mire_brutish_warbrute_waist_m:m",
+    "asset-index:staticProps:creature_barrow_wolf",
+    "asset-index:staticProps:creature_lair_spider"
+  ],
+  "current_mismatch_records": [
+    {
+      "entry": "asset-index:characterProfiles:civic_battle_prelate_f",
+      "model": "chr_civic_battle_prelate_t1_f.glb",
+      "qc": "public/assets/models/chr_civic_battle_prelate_t1_f.qc.json",
+      "indexed_sha256": "6975ad922aa14b93fc5489aa1c5f4594f8ace7552ac6b6844c1dd809f3a7e9f7",
+      "actual_sha256": "194b2d0da527b64af75bffbde710df6d41330c9f06d47c73082d2678071e3159",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_aegis_keep_guard_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_briarwatch_den_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_campaign_raider_raider",
+      "model": "chr_npc_empire_m_raider_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_raider_m.qc.json",
+      "indexed_sha256": "626415577522d549a6c0a61273102bcc7f0ae263b266effa4cee38dba8013c29",
+      "actual_sha256": "3b284090a6fa0a404a8ffb7df99e9ba583de4f294d7af6351e3249bc19a34ccc",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_glassriver_depths_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_mireglass_den_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_stormbarrow_lair_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_warden_s_hollow_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_cindermaw_pit_overlord_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_gorepine_warrens_overlord_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_greenskin_brute_raider",
+      "model": "chr_npc_greenskin_m_raider_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_raider_m.qc.json",
+      "indexed_sha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+      "actual_sha256": "7774ce639f09cdd051437ae2370bae185b45f8b86ed16aa15049fb681f834ce2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_greenskin_ruffian_raider",
+      "model": "chr_npc_greenskin_m_raider_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_raider_m.qc.json",
+      "indexed_sha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+      "actual_sha256": "7774ce639f09cdd051437ae2370bae185b45f8b86ed16aa15049fb681f834ce2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_keep_captain_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_lair_sentinel_guard",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_rotwreath_nest_overlord_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:mire_warbrute_f",
+      "model": "chr_mire_warbrute_t1_f.glb",
+      "qc": "public/assets/models/chr_mire_warbrute_t1_f.qc.json",
+      "indexed_sha256": "12dbad657f0e7fcb333a72e016c5b194bff36fb73054763b4b5b31751df554c1",
+      "actual_sha256": "7cc2df031d531d0db3d6dce905972c5798f61d1ebc03238525acde6215aa536e",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:mire_warbrute_m",
+      "model": "chr_mire_warbrute_t1_m.glb",
+      "qc": "public/assets/models/chr_mire_warbrute_t1_m.qc.json",
+      "indexed_sha256": "f97d00c52430f5fad3f13db398eaaa1be902ec686c6acf6102ab52bb8ef57686",
+      "actual_sha256": "214a5c0df126c057642438180a85f0f018a53aa3cae9d875434d2bc444a4a976",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_brann_hartwell_main_gate_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_brigitte_holtz_merchant",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_brother_steffan_battle_prelate_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_capital_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_endgame_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_tier_3_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_diedrick_stein_general_goods",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_elira_dawnmarch_aegis_quartermaster",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_freia_voss_banker",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_banker_m.qc.json",
+      "indexed_sha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "actual_sha256": "f681791659bf8fe33dd77c6efbd66595d0fb568583e79668086eb508cc9a2bc2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_gate_sergeant_city_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_gate_warden_city_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_iven_stonebrook_street_patrol",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_konrad_hausman_banker",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_banker_m.qc.json",
+      "indexed_sha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "actual_sha256": "f681791659bf8fe33dd77c6efbd66595d0fb568583e79668086eb508cc9a2bc2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_lysa_bright_market_watch",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_magister_roth_ember_arcanist_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_mira_stonewake_forward_scout",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_mira_stonewake_siege_engineer",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_mira_stonewake_vault_keeper",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_banker_m.qc.json",
+      "indexed_sha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "actual_sha256": "f681791659bf8fe33dd77c6efbd66595d0fb568583e79668086eb508cc9a2bc2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_rowan_hale_plaza_watch",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_serra_brightfield_gate_captain",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_sir_emmerich_sunfire_templar_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_veyra_sunholt_east_gate_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_forward_scout",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_siege_engineer",
+      "model": "chr_npc_greenskin_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_vendor_m.qc.json",
+      "indexed_sha256": "68231778448c371e32c30ec2ba29500cf8b9847dd2eaf7f0c5f85fa44ebf5153",
+      "actual_sha256": "e6bbf51b76c8558217050e98fb3d4793b9f44cd4034dce9e13615da19d030d16",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_crafting_mentor",
+      "model": "chr_npc_greenskin_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_trainer_m.qc.json",
+      "indexed_sha256": "5169d29d295141727d5e1dc5f424d44a1e626d421cd698d4ef387a27a6240b84",
+      "actual_sha256": "1479a903e69ff75c5909ce3b79ca284641f90874cecf351253f55c5892177973",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_gate_captain",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_resource_warden",
+      "model": "chr_npc_greenskin_m_ambient_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_ambient_m.qc.json",
+      "indexed_sha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+      "actual_sha256": "50f1b954e95ee1eb9a9a743f153233646334836c041ca85b7f0bc2c331cc9755",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_nyra_vex_endgame_campaign_marshal",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_selk_dreadspire_field_medic",
+      "model": "chr_npc_greenskin_m_ambient_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_ambient_m.qc.json",
+      "indexed_sha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+      "actual_sha256": "50f1b954e95ee1eb9a9a743f153233646334836c041ca85b7f0bc2c331cc9755",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_f:f",
+      "model": "arm_civic_battle_prelate_back_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_back_t1_f.qc.json",
+      "indexed_sha256": "25daf290ffb3758d84f7c8971d899fd78b42b6181b1ce720be930c17b12b350b",
+      "actual_sha256": "822ea2869e1ea4e7ed1ff6c0ea20e4a988e9a2313aad533fb33dd20c49b4ace2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_f:f",
+      "model": "arm_civic_battle_prelate_chest_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_chest_t1_f.qc.json",
+      "indexed_sha256": "f3faef10f169d8e3dc042a5ee67662a33d7e49ad92fe549ce3062e5bfb7f803a",
+      "actual_sha256": "7b592d44eaadd8df36d9b03c055457bd91a211ab2d7f8631e4476c3fb462dfd0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_f:f",
+      "model": "arm_civic_battle_prelate_feet_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_feet_t1_f.qc.json",
+      "indexed_sha256": "77e201db892c0ec12f73a8d0fd84ddfbe43e61dfc3e91ba0d28e1f11a82e2382",
+      "actual_sha256": "c1e6c6f4739e38716054c0a8e9ea59cede7ddd8fea7f0fcff6b9e491a8162a6f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_f:f",
+      "model": "arm_civic_battle_prelate_hands_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_hands_t1_f.qc.json",
+      "indexed_sha256": "cf94d6eab8e815f12ec1a6c9a4d861a45332beb43cc55815b276eac4b9107d10",
+      "actual_sha256": "fa0dd08d407ec3313f638c1849dde42c1610bea886dd78fa56b7bf6895c8f27f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_f:f",
+      "model": "arm_civic_battle_prelate_head_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_head_t1_f.qc.json",
+      "indexed_sha256": "4726cdd6a5d581c8d1988ddbf029c1ae2372ede7e3066e6eb6015a94a67c54bf",
+      "actual_sha256": "0995d1d387458ba3e7163d2a16ebe87223cf3b0bd90e28f6039674952f3cf208",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_f:f",
+      "model": "arm_civic_battle_prelate_legs_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_legs_t1_f.qc.json",
+      "indexed_sha256": "415f46b2588c10e3c8f99e4654d33b2d92c76f42688b5cb7aeed37e89c720ac4",
+      "actual_sha256": "001c82aa560c0419352a8fa59c4d64a873a3cd2ae78ca9f826a037a11b17d74a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_f:f",
+      "model": "arm_civic_battle_prelate_shoulders_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_shoulders_t1_f.qc.json",
+      "indexed_sha256": "e04ba4a6651ea3d5f0a7a56a3a3b8b24ae6c7df8c6bbf1022694d5385218f19b",
+      "actual_sha256": "33593cc520b61c1084c6613b575ea940bf9be1292fb0a117b32add0828d55c9d",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_f:f",
+      "model": "arm_civic_battle_prelate_tabard_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_tabard_t1_f.qc.json",
+      "indexed_sha256": "abc95d2c7271b2c11f253d9e1f75fc61588ecca3179e0cf114902061ce87de86",
+      "actual_sha256": "5f739ce3afaf3a72ffce6527d0793474f030801537567b71679b69b6999617a0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_f:f",
+      "model": "arm_civic_battle_prelate_waist_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_waist_t1_f.qc.json",
+      "indexed_sha256": "54f17f9ca3187b7018d768b2a02885be336621729c8c067e4315383706186de1",
+      "actual_sha256": "0937ed3008a009e7c1d0011d60182a48b08164854b5d762f967f6455ae320037",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_back_f:f",
+      "model": "arm_mire_warbrute_back_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_back_t1_f.qc.json",
+      "indexed_sha256": "890c90d6e3817b1fbbeaa90c70d5c26e6f15307fd54d74b5438bb8506fc49ae8",
+      "actual_sha256": "80eb52f5a84b3cc3b21377f48f434757f3a68c004539b0636b88e8d98e6c9868",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_back_m:m",
+      "model": "arm_mire_warbrute_back_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_back_t1_m.qc.json",
+      "indexed_sha256": "f1bf73289d6d598bff874e238e8095248c050310d82a5f01428b8ce6f79c0962",
+      "actual_sha256": "5ba5f2a146da338421ff5b7b1212c8c76b708b6b172742c83fecaf8805c183c4",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_chest_f:f",
+      "model": "arm_mire_warbrute_chest_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_chest_t1_f.qc.json",
+      "indexed_sha256": "c78ff087bf80b690e48cd0df95d58ffce72d331dd4bd3cd37f263a436a6d9c36",
+      "actual_sha256": "71863822bb402a6784f401848ef60238969d11f3232e2e999d79cd383d24c3b0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_chest_m:m",
+      "model": "arm_mire_warbrute_chest_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_chest_t1_m.qc.json",
+      "indexed_sha256": "2d89b189b265aaab861457b10b56e97b7f3ea11a0de5594e0bc090ac67370118",
+      "actual_sha256": "f2861afa4aa763fb7308957f3e4d3e2fb6d44f4d9f7b9690ddcaeed758878a70",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_feet_f:f",
+      "model": "arm_mire_warbrute_feet_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_feet_t1_f.qc.json",
+      "indexed_sha256": "6516aa6900f8526e61d2361daea939e15bb1d46e9917b45315267b7a5d2404ec",
+      "actual_sha256": "87cad8207a80b9762b3caec9cf864613bfa00a9fb65fcd71b69b66db5c35bc03",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_feet_m:m",
+      "model": "arm_mire_warbrute_feet_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_feet_t1_m.qc.json",
+      "indexed_sha256": "57f184cbe13b519b2d743e00a406ca7561fc7ece067f267bcf1be449956807b1",
+      "actual_sha256": "abfb9adb12ffe51eaf9455864beac1d662563597b97a5cd15fdf5804c3a65258",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_hands_f:f",
+      "model": "arm_mire_warbrute_hands_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_hands_t1_f.qc.json",
+      "indexed_sha256": "ff34839ba31d5237b18b882be6c21171e455d358d838d73ea8dd7357a53cd993",
+      "actual_sha256": "9685d49a087341770e03ce25907cb1d511d68e53638eb734f4da81aa26776f3c",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_hands_m:m",
+      "model": "arm_mire_warbrute_hands_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_hands_t1_m.qc.json",
+      "indexed_sha256": "6e41fe682f2a63f5c010f0ea98a6a980e96d8d82ec9a49c73b5ee963536f0d9b",
+      "actual_sha256": "1cde2460cffe12d60b0e8169e7785f70bfdd226dc024f43c0b047fc4c9bf9d89",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_head_f:f",
+      "model": "arm_mire_warbrute_head_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_head_t1_f.qc.json",
+      "indexed_sha256": "5314d4fe58264783bbd33a83eb83743e884ebb5b76e6f728375032daad4ef9f2",
+      "actual_sha256": "1581499d7b2d4dfa1b603e60894fa0cd5facb9b48a64252493ec998f96b31f39",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_head_m:m",
+      "model": "arm_mire_warbrute_head_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_head_t1_m.qc.json",
+      "indexed_sha256": "b15ddc35f46702606e7098bb3ca4f1bf58ad121165e1a7fb5fbc97d15357ca6c",
+      "actual_sha256": "546500549d8fd7d02cd12cf87426231867e48fd06409a8af145416401fd91571",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_legs_f:f",
+      "model": "arm_mire_warbrute_legs_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_legs_t1_f.qc.json",
+      "indexed_sha256": "98bff96abb1dcc3d90878e3009814f7d92a6fc1ead037d4e4ccf8200b791229f",
+      "actual_sha256": "f67a49883991285ca43bbcf4dfedd0dae57212657b1c10544d3c0e8bfaf02c9b",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_legs_m:m",
+      "model": "arm_mire_warbrute_legs_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_legs_t1_m.qc.json",
+      "indexed_sha256": "f87e11c8721a988089507509cf57c39238382333c3c617face3aa593f55de884",
+      "actual_sha256": "f4124e5c57cf8b97c1e38c226e1aafc97efcac8c011388b242a35c0f50a39e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_f:f",
+      "model": "arm_mire_warbrute_shoulders_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_shoulders_t1_f.qc.json",
+      "indexed_sha256": "1832ff77e69fadfac00aecc7d5388f7c96340b673c6dab22e5a015ba08920b78",
+      "actual_sha256": "51d9296b564e1f99122232772e6c0ad2887ec180b2d06d3bebfaaabec3615554",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_m:m",
+      "model": "arm_mire_warbrute_shoulders_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_shoulders_t1_m.qc.json",
+      "indexed_sha256": "12f314466fdfc79dc2bb9e6daeea78ca92a4b1d4bda4285f2b0bdb6fbb7b59ac",
+      "actual_sha256": "78c3163dbf604d211c80a0f9ef8db294048424714c870736f2f4897860469dcb",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_tabard_f:f",
+      "model": "arm_mire_warbrute_tabard_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_tabard_t1_f.qc.json",
+      "indexed_sha256": "cc3e204d02a0d68cb63433ed023d2b19bada2b3bcfc61890049e752b3b7bd02e",
+      "actual_sha256": "4b47f7657f83adf86231ab8396b74c645c7a333efec0f74a38c38186f93ce3f7",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_tabard_m:m",
+      "model": "arm_mire_warbrute_tabard_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_tabard_t1_m.qc.json",
+      "indexed_sha256": "2fc6065b165da5cf113e5ab052b491df8228acdc37481453a66034e7259db5ae",
+      "actual_sha256": "4dcabc2a62ef61959b425c5b5d73a991bd0c0a7850c32167f7af5f280408a57e",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_waist_f:f",
+      "model": "arm_mire_warbrute_waist_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_waist_t1_f.qc.json",
+      "indexed_sha256": "3434f078b22d2c48e668d7fb1af6f0f2de793891db73a543452be3ea73c8f4e8",
+      "actual_sha256": "8772849063076d65a0832acc2facbf75d85754a7772b8148a8a1cc7023b72de0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_waist_m:m",
+      "model": "arm_mire_warbrute_waist_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_waist_t1_m.qc.json",
+      "indexed_sha256": "d46499126ee824a0b744f947a007df171711dd8c284f378a036aa97ffade0977",
+      "actual_sha256": "cc5d747ca1b24860f28066fec202f5b0327c0682c97eedfc0d59cda2e06508ee",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:staticProps:creature_barrow_wolf",
+      "model": "prop_creature_barrow_wolf.glb",
+      "qc": "public/assets/models/prop_creature_barrow_wolf.qc.json",
+      "indexed_sha256": "25eb354e6612c6c814cb52d1342d82ed33075554bb6be6ec672e77f558124c22",
+      "actual_sha256": "19a32bf3d6c43662a2af506269c54d54ff4421824cb9de5a286ee7766b00584d",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:staticProps:creature_lair_spider",
+      "model": "prop_creature_lair_spider.glb",
+      "qc": "public/assets/models/prop_creature_lair_spider.qc.json",
+      "indexed_sha256": "cea602c3b5b50e2ca2e476e488bf7bed8248a422f6df7d734328b1d2a5abed98",
+      "actual_sha256": "06a1d21ead0986d38e71ab1ab26890ada2eba91aa32fbcb220dea1bd4ee66735",
+      "written_by_promotion": false
+    }
+  ],
+  "previous_mismatch_records": [
+    {
+      "entry": "asset-index:characterProfiles:civic_battle_prelate_f",
+      "model": "chr_civic_battle_prelate_t1_f.glb",
+      "qc": "public/assets/models/chr_civic_battle_prelate_t1_f.qc.json",
+      "indexed_sha256": "6975ad922aa14b93fc5489aa1c5f4594f8ace7552ac6b6844c1dd809f3a7e9f7",
+      "actual_sha256": "194b2d0da527b64af75bffbde710df6d41330c9f06d47c73082d2678071e3159",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_aegis_keep_guard_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_briarwatch_den_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_campaign_raider_raider",
+      "model": "chr_npc_empire_m_raider_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_raider_m.qc.json",
+      "indexed_sha256": "626415577522d549a6c0a61273102bcc7f0ae263b266effa4cee38dba8013c29",
+      "actual_sha256": "3b284090a6fa0a404a8ffb7df99e9ba583de4f294d7af6351e3249bc19a34ccc",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_glassriver_depths_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_mireglass_den_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_stormbarrow_lair_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_aegis_warden_s_hollow_overlord_captain",
+      "model": "chr_npc_empire_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_captain_m.qc.json",
+      "indexed_sha256": "a3f34821097fefcb1551aa019309f3cabea18bcef1290f79a599e950a190ccab",
+      "actual_sha256": "d435f6ac0c3cad628662c3b462ebe0439dc5ab2b09c87b9a49599460bbaa3e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_cindermaw_pit_overlord_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_gorepine_warrens_overlord_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_greenskin_brute_raider",
+      "model": "chr_npc_greenskin_m_raider_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_raider_m.qc.json",
+      "indexed_sha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+      "actual_sha256": "7774ce639f09cdd051437ae2370bae185b45f8b86ed16aa15049fb681f834ce2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_greenskin_ruffian_raider",
+      "model": "chr_npc_greenskin_m_raider_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_raider_m.qc.json",
+      "indexed_sha256": "51b86bfdf645bcc256c684c7cd4f79def3c3732edfaf919f7b419f190b5f2b57",
+      "actual_sha256": "7774ce639f09cdd051437ae2370bae185b45f8b86ed16aa15049fb681f834ce2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_keep_captain_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_lair_sentinel_guard",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:enemy_riftbound_rotwreath_nest_overlord_captain",
+      "model": "chr_npc_greenskin_m_captain_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_captain_m.qc.json",
+      "indexed_sha256": "dc01a41eaa4bc50ef77378a8d6c24f918af2e04a40e32667e13bc46341875811",
+      "actual_sha256": "eb2af62f468442e0437319a7c4ec9a55ba1cada20e413d47e6d7b733b2334647",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:mire_warbrute_f",
+      "model": "chr_mire_warbrute_t1_f.glb",
+      "qc": "public/assets/models/chr_mire_warbrute_t1_f.qc.json",
+      "indexed_sha256": "12dbad657f0e7fcb333a72e016c5b194bff36fb73054763b4b5b31751df554c1",
+      "actual_sha256": "7cc2df031d531d0db3d6dce905972c5798f61d1ebc03238525acde6215aa536e",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:mire_warbrute_m",
+      "model": "chr_mire_warbrute_t1_m.glb",
+      "qc": "public/assets/models/chr_mire_warbrute_t1_m.qc.json",
+      "indexed_sha256": "f97d00c52430f5fad3f13db398eaaa1be902ec686c6acf6102ab52bb8ef57686",
+      "actual_sha256": "214a5c0df126c057642438180a85f0f018a53aa3cae9d875434d2bc444a4a976",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_brann_hartwell_main_gate_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_brigitte_holtz_merchant",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_brother_steffan_battle_prelate_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_capital_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_endgame_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_corren_vale_tier_3_campaign_marshal",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_diedrick_stein_general_goods",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_elira_dawnmarch_aegis_quartermaster",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_freia_voss_banker",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_banker_m.qc.json",
+      "indexed_sha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "actual_sha256": "f681791659bf8fe33dd77c6efbd66595d0fb568583e79668086eb508cc9a2bc2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_gate_sergeant_city_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_gate_warden_city_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_iven_stonebrook_street_patrol",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_konrad_hausman_banker",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_banker_m.qc.json",
+      "indexed_sha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "actual_sha256": "f681791659bf8fe33dd77c6efbd66595d0fb568583e79668086eb508cc9a2bc2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_lysa_bright_market_watch",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_magister_roth_ember_arcanist_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_mira_stonewake_forward_scout",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_mira_stonewake_siege_engineer",
+      "model": "chr_npc_empire_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_vendor_m.qc.json",
+      "indexed_sha256": "97ba1824740743f48284a0df89d5430a45bb5c4a0f77a899e580c00c739e842f",
+      "actual_sha256": "3a65e46b1b5241771369dd5143b2d361ab1b57c1da1f587e1251e1a2f21428d0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_mira_stonewake_vault_keeper",
+      "model": "chr_npc_empire_m_banker_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_banker_m.qc.json",
+      "indexed_sha256": "22c669a1b7a1dcf7aaab448da330d7b9203145fbb0f24a4d801bfbf87ee4f43e",
+      "actual_sha256": "f681791659bf8fe33dd77c6efbd66595d0fb568583e79668086eb508cc9a2bc2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_rowan_hale_plaza_watch",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_serra_brightfield_gate_captain",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_sir_emmerich_sunfire_templar_trainer",
+      "model": "chr_npc_empire_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_trainer_m.qc.json",
+      "indexed_sha256": "7421486b15b5303442ed8312dc94cf486df9122989bd8f0676e3cff06c151c77",
+      "actual_sha256": "f2a5e85eb385bc2f0b2ce992ba24e70ee42441d7d5d57dbe16652cbb3de13c8a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_aegis_veyra_sunholt_east_gate_guard",
+      "model": "chr_npc_empire_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_empire_m_guard_m.qc.json",
+      "indexed_sha256": "ae51e00764ac47d58fa753488c94279ec5b3425140ea8258ad2072db04b1ff3a",
+      "actual_sha256": "d310d2c6342a8e393f107af67a45321f8dc8c14e07f8275288f3229cf4c5875f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_forward_scout",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_gorvak_mirehand_siege_engineer",
+      "model": "chr_npc_greenskin_m_vendor_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_vendor_m.qc.json",
+      "indexed_sha256": "68231778448c371e32c30ec2ba29500cf8b9847dd2eaf7f0c5f85fa44ebf5153",
+      "actual_sha256": "e6bbf51b76c8558217050e98fb3d4793b9f44cd4034dce9e13615da19d030d16",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_crafting_mentor",
+      "model": "chr_npc_greenskin_m_trainer_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_trainer_m.qc.json",
+      "indexed_sha256": "5169d29d295141727d5e1dc5f424d44a1e626d421cd698d4ef387a27a6240b84",
+      "actual_sha256": "1479a903e69ff75c5909ce3b79ca284641f90874cecf351253f55c5892177973",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_gate_captain",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_kara_ashvein_resource_warden",
+      "model": "chr_npc_greenskin_m_ambient_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_ambient_m.qc.json",
+      "indexed_sha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+      "actual_sha256": "50f1b954e95ee1eb9a9a743f153233646334836c041ca85b7f0bc2c331cc9755",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_nyra_vex_endgame_campaign_marshal",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+      "model": "chr_npc_greenskin_m_guard_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_guard_m.qc.json",
+      "indexed_sha256": "0e8b5aa161fe112a1f79772be06a2c643633351aad0c266c84f2ae495fb6720c",
+      "actual_sha256": "b8c401bbf2fb7dfaad085f2eeb2614f49b42d4ee67a10d62f059e44b1923871a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:characterProfiles:npc_riftbound_selk_dreadspire_field_medic",
+      "model": "chr_npc_greenskin_m_ambient_m.glb",
+      "qc": "public/assets/models/chr_npc_greenskin_m_ambient_m.qc.json",
+      "indexed_sha256": "7aec7ac4b57e52478e19faf708dbebac12e8075f721c9dae515742f483a0e883",
+      "actual_sha256": "50f1b954e95ee1eb9a9a743f153233646334836c041ca85b7f0bc2c331cc9755",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_f:f",
+      "model": "arm_civic_battle_prelate_back_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_back_t1_f.qc.json",
+      "indexed_sha256": "25daf290ffb3758d84f7c8971d899fd78b42b6181b1ce720be930c17b12b350b",
+      "actual_sha256": "822ea2869e1ea4e7ed1ff6c0ea20e4a988e9a2313aad533fb33dd20c49b4ace2",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_f:f",
+      "model": "arm_civic_battle_prelate_chest_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_chest_t1_f.qc.json",
+      "indexed_sha256": "f3faef10f169d8e3dc042a5ee67662a33d7e49ad92fe549ce3062e5bfb7f803a",
+      "actual_sha256": "7b592d44eaadd8df36d9b03c055457bd91a211ab2d7f8631e4476c3fb462dfd0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_f:f",
+      "model": "arm_civic_battle_prelate_feet_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_feet_t1_f.qc.json",
+      "indexed_sha256": "77e201db892c0ec12f73a8d0fd84ddfbe43e61dfc3e91ba0d28e1f11a82e2382",
+      "actual_sha256": "c1e6c6f4739e38716054c0a8e9ea59cede7ddd8fea7f0fcff6b9e491a8162a6f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_f:f",
+      "model": "arm_civic_battle_prelate_hands_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_hands_t1_f.qc.json",
+      "indexed_sha256": "cf94d6eab8e815f12ec1a6c9a4d861a45332beb43cc55815b276eac4b9107d10",
+      "actual_sha256": "fa0dd08d407ec3313f638c1849dde42c1610bea886dd78fa56b7bf6895c8f27f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_f:f",
+      "model": "arm_civic_battle_prelate_head_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_head_t1_f.qc.json",
+      "indexed_sha256": "4726cdd6a5d581c8d1988ddbf029c1ae2372ede7e3066e6eb6015a94a67c54bf",
+      "actual_sha256": "0995d1d387458ba3e7163d2a16ebe87223cf3b0bd90e28f6039674952f3cf208",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_f:f",
+      "model": "arm_civic_battle_prelate_legs_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_legs_t1_f.qc.json",
+      "indexed_sha256": "415f46b2588c10e3c8f99e4654d33b2d92c76f42688b5cb7aeed37e89c720ac4",
+      "actual_sha256": "001c82aa560c0419352a8fa59c4d64a873a3cd2ae78ca9f826a037a11b17d74a",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_f:f",
+      "model": "arm_civic_battle_prelate_shoulders_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_shoulders_t1_f.qc.json",
+      "indexed_sha256": "e04ba4a6651ea3d5f0a7a56a3a3b8b24ae6c7df8c6bbf1022694d5385218f19b",
+      "actual_sha256": "33593cc520b61c1084c6613b575ea940bf9be1292fb0a117b32add0828d55c9d",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_f:f",
+      "model": "arm_civic_battle_prelate_tabard_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_tabard_t1_f.qc.json",
+      "indexed_sha256": "abc95d2c7271b2c11f253d9e1f75fc61588ecca3179e0cf114902061ce87de86",
+      "actual_sha256": "5f739ce3afaf3a72ffce6527d0793474f030801537567b71679b69b6999617a0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_f:f",
+      "model": "arm_civic_battle_prelate_waist_t1_f.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_waist_t1_f.qc.json",
+      "indexed_sha256": "54f17f9ca3187b7018d768b2a02885be336621729c8c067e4315383706186de1",
+      "actual_sha256": "0937ed3008a009e7c1d0011d60182a48b08164854b5d762f967f6455ae320037",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_back_f:f",
+      "model": "arm_mire_warbrute_back_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_back_t1_f.qc.json",
+      "indexed_sha256": "890c90d6e3817b1fbbeaa90c70d5c26e6f15307fd54d74b5438bb8506fc49ae8",
+      "actual_sha256": "80eb52f5a84b3cc3b21377f48f434757f3a68c004539b0636b88e8d98e6c9868",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_back_m:m",
+      "model": "arm_mire_warbrute_back_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_back_t1_m.qc.json",
+      "indexed_sha256": "f1bf73289d6d598bff874e238e8095248c050310d82a5f01428b8ce6f79c0962",
+      "actual_sha256": "5ba5f2a146da338421ff5b7b1212c8c76b708b6b172742c83fecaf8805c183c4",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_chest_f:f",
+      "model": "arm_mire_warbrute_chest_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_chest_t1_f.qc.json",
+      "indexed_sha256": "c78ff087bf80b690e48cd0df95d58ffce72d331dd4bd3cd37f263a436a6d9c36",
+      "actual_sha256": "71863822bb402a6784f401848ef60238969d11f3232e2e999d79cd383d24c3b0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_chest_m:m",
+      "model": "arm_mire_warbrute_chest_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_chest_t1_m.qc.json",
+      "indexed_sha256": "2d89b189b265aaab861457b10b56e97b7f3ea11a0de5594e0bc090ac67370118",
+      "actual_sha256": "f2861afa4aa763fb7308957f3e4d3e2fb6d44f4d9f7b9690ddcaeed758878a70",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_feet_f:f",
+      "model": "arm_mire_warbrute_feet_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_feet_t1_f.qc.json",
+      "indexed_sha256": "6516aa6900f8526e61d2361daea939e15bb1d46e9917b45315267b7a5d2404ec",
+      "actual_sha256": "87cad8207a80b9762b3caec9cf864613bfa00a9fb65fcd71b69b66db5c35bc03",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_feet_m:m",
+      "model": "arm_mire_warbrute_feet_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_feet_t1_m.qc.json",
+      "indexed_sha256": "57f184cbe13b519b2d743e00a406ca7561fc7ece067f267bcf1be449956807b1",
+      "actual_sha256": "abfb9adb12ffe51eaf9455864beac1d662563597b97a5cd15fdf5804c3a65258",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_hands_f:f",
+      "model": "arm_mire_warbrute_hands_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_hands_t1_f.qc.json",
+      "indexed_sha256": "ff34839ba31d5237b18b882be6c21171e455d358d838d73ea8dd7357a53cd993",
+      "actual_sha256": "9685d49a087341770e03ce25907cb1d511d68e53638eb734f4da81aa26776f3c",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_hands_m:m",
+      "model": "arm_mire_warbrute_hands_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_hands_t1_m.qc.json",
+      "indexed_sha256": "6e41fe682f2a63f5c010f0ea98a6a980e96d8d82ec9a49c73b5ee963536f0d9b",
+      "actual_sha256": "1cde2460cffe12d60b0e8169e7785f70bfdd226dc024f43c0b047fc4c9bf9d89",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_head_f:f",
+      "model": "arm_mire_warbrute_head_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_head_t1_f.qc.json",
+      "indexed_sha256": "5314d4fe58264783bbd33a83eb83743e884ebb5b76e6f728375032daad4ef9f2",
+      "actual_sha256": "1581499d7b2d4dfa1b603e60894fa0cd5facb9b48a64252493ec998f96b31f39",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_head_m:m",
+      "model": "arm_mire_warbrute_head_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_head_t1_m.qc.json",
+      "indexed_sha256": "b15ddc35f46702606e7098bb3ca4f1bf58ad121165e1a7fb5fbc97d15357ca6c",
+      "actual_sha256": "546500549d8fd7d02cd12cf87426231867e48fd06409a8af145416401fd91571",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_legs_f:f",
+      "model": "arm_mire_warbrute_legs_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_legs_t1_f.qc.json",
+      "indexed_sha256": "98bff96abb1dcc3d90878e3009814f7d92a6fc1ead037d4e4ccf8200b791229f",
+      "actual_sha256": "f67a49883991285ca43bbcf4dfedd0dae57212657b1c10544d3c0e8bfaf02c9b",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_legs_m:m",
+      "model": "arm_mire_warbrute_legs_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_legs_t1_m.qc.json",
+      "indexed_sha256": "f87e11c8721a988089507509cf57c39238382333c3c617face3aa593f55de884",
+      "actual_sha256": "f4124e5c57cf8b97c1e38c226e1aafc97efcac8c011388b242a35c0f50a39e9f",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_f:f",
+      "model": "arm_mire_warbrute_shoulders_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_shoulders_t1_f.qc.json",
+      "indexed_sha256": "1832ff77e69fadfac00aecc7d5388f7c96340b673c6dab22e5a015ba08920b78",
+      "actual_sha256": "51d9296b564e1f99122232772e6c0ad2887ec180b2d06d3bebfaaabec3615554",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_shoulders_m:m",
+      "model": "arm_mire_warbrute_shoulders_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_shoulders_t1_m.qc.json",
+      "indexed_sha256": "12f314466fdfc79dc2bb9e6daeea78ca92a4b1d4bda4285f2b0bdb6fbb7b59ac",
+      "actual_sha256": "78c3163dbf604d211c80a0f9ef8db294048424714c870736f2f4897860469dcb",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_tabard_f:f",
+      "model": "arm_mire_warbrute_tabard_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_tabard_t1_f.qc.json",
+      "indexed_sha256": "cc3e204d02a0d68cb63433ed023d2b19bada2b3bcfc61890049e752b3b7bd02e",
+      "actual_sha256": "4b47f7657f83adf86231ab8396b74c645c7a333efec0f74a38c38186f93ce3f7",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_tabard_m:m",
+      "model": "arm_mire_warbrute_tabard_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_tabard_t1_m.qc.json",
+      "indexed_sha256": "2fc6065b165da5cf113e5ab052b491df8228acdc37481453a66034e7259db5ae",
+      "actual_sha256": "4dcabc2a62ef61959b425c5b5d73a991bd0c0a7850c32167f7af5f280408a57e",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_waist_f:f",
+      "model": "arm_mire_warbrute_waist_t1_f.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_waist_t1_f.qc.json",
+      "indexed_sha256": "3434f078b22d2c48e668d7fb1af6f0f2de793891db73a543452be3ea73c8f4e8",
+      "actual_sha256": "8772849063076d65a0832acc2facbf75d85754a7772b8148a8a1cc7023b72de0",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:equipment:starter_mire_brutish_warbrute_waist_m:m",
+      "model": "arm_mire_warbrute_waist_t1_m.glb",
+      "qc": "public/assets/models/arm_mire_warbrute_waist_t1_m.qc.json",
+      "indexed_sha256": "d46499126ee824a0b744f947a007df171711dd8c284f378a036aa97ffade0977",
+      "actual_sha256": "cc5d747ca1b24860f28066fec202f5b0327c0682c97eedfc0d59cda2e06508ee",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:staticProps:creature_barrow_wolf",
+      "model": "prop_creature_barrow_wolf.glb",
+      "qc": "public/assets/models/prop_creature_barrow_wolf.qc.json",
+      "indexed_sha256": "25eb354e6612c6c814cb52d1342d82ed33075554bb6be6ec672e77f558124c22",
+      "actual_sha256": "19a32bf3d6c43662a2af506269c54d54ff4421824cb9de5a286ee7766b00584d",
+      "written_by_promotion": false
+    },
+    {
+      "entry": "asset-index:staticProps:creature_lair_spider",
+      "model": "prop_creature_lair_spider.glb",
+      "qc": "public/assets/models/prop_creature_lair_spider.qc.json",
+      "indexed_sha256": "cea602c3b5b50e2ca2e476e488bf7bed8248a422f6df7d734328b1d2a5abed98",
+      "actual_sha256": "06a1d21ead0986d38e71ab1ab26890ada2eba91aa32fbcb220dea1bd4ee66735",
+      "written_by_promotion": false
+    }
+  ],
+  "promoted_male_entries": [
+    {
+      "entry": "asset-index:characterProfiles:civic_battle_prelate_m",
+      "model": "chr_civic_battle_prelate_t1_m.glb",
+      "qc": "public/assets/models/chr_civic_battle_prelate_t1_m.qc.json",
+      "model_sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "qc_sha256": "3710258bd8deefa38c1e21bdb67e68c11d26a0dbe7626e687796d4e83a774f96",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_back_m:m",
+      "model": "arm_civic_battle_prelate_back_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_back_t1_m.qc.json",
+      "model_sha256": "6b1fe23eb44af252013c57ae3d18f706870095943ff10759ed51492298be1cbd",
+      "qc_sha256": "6f6f021c6b3041c0c2dd638fc4ebfd3da4209af89e7d1ab90797a30ef3e6649a",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_chest_m:m",
+      "model": "arm_civic_battle_prelate_chest_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_chest_t1_m.qc.json",
+      "model_sha256": "8d3b52e66d286534d99090e5d4f26de79e7ba1c8159c2e67e88bbf327f5b63b1",
+      "qc_sha256": "c1418a99bd03525617debfa9aff81e2bdd886a3568e9c04494ae1866e1dc57b6",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_feet_m:m",
+      "model": "arm_civic_battle_prelate_feet_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_feet_t1_m.qc.json",
+      "model_sha256": "d5dcdbc9d0a43af922436f177a28f0599f81d4f0171fee0e0e6d13cf3bb9907a",
+      "qc_sha256": "4c52d60ed3067dec88ec32a458732d1db1219969bbcccbe5b335277c40b90672",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_hands_m:m",
+      "model": "arm_civic_battle_prelate_hands_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_hands_t1_m.qc.json",
+      "model_sha256": "a63f9ff8b7713b9bbed96f3a2ae4ebcf736a3f51313feb619979062601706354",
+      "qc_sha256": "de64f1b610e083afbb871f738c8b5f5934510db465bc1fb97e42c353e8159985",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_head_m:m",
+      "model": "arm_civic_battle_prelate_head_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_head_t1_m.qc.json",
+      "model_sha256": "ab827024798b86622b437af5505b2df50935ed9abea0ee83569ba664ff331786",
+      "qc_sha256": "360a684a12a978e89054da5b153625056e1a73727ddfad7c92f080cb5dfef189",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_legs_m:m",
+      "model": "arm_civic_battle_prelate_legs_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_legs_t1_m.qc.json",
+      "model_sha256": "0f16bf085a8a4dee7f65d445ea2f047792e546484e815fadc5cb26678fae3280",
+      "qc_sha256": "f9e6fc61ba66fd5e43f8ac0ac5170d2587e123d0ee63a0cad8803ca744252122",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_shoulders_m:m",
+      "model": "arm_civic_battle_prelate_shoulders_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_shoulders_t1_m.qc.json",
+      "model_sha256": "6e62322f2ab159b6e2aa212748e81ecd5d8f1736ccc1b1cab579d3d4888d4894",
+      "qc_sha256": "763d03bcc2163dd2451c685c4b1955c2792e178befc7c2a0c3695267d5419bc3",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_tabard_m:m",
+      "model": "arm_civic_battle_prelate_tabard_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_tabard_t1_m.qc.json",
+      "model_sha256": "eda007e146f8a122e04ba07609238046bed7bef48808f9ca6eb5b665c0856d29",
+      "qc_sha256": "9d8496087af874f85d0b00eaf0004281965ec9b3ac7d690428eec56f819a2943",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:starter_civic_humanoid_battle_prelate_waist_m:m",
+      "model": "arm_civic_battle_prelate_waist_t1_m.glb",
+      "qc": "public/assets/models/arm_civic_battle_prelate_waist_t1_m.qc.json",
+      "model_sha256": "565928ef635dbffdd4102185b16e58810f3ec22b9c54903fe22d0dd1d911e9c5",
+      "qc_sha256": "84cabe1ecc7924b78365f0195359c4a49bb36f4146aad44a8e5cb9399def372f",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "armor_explicitly_skinned": true
+      },
+      "passed": true
+    },
+    {
+      "entry": "asset-index:equipment:weapon_hammer_reliquary_2h:m",
+      "model": "wep_civic_battle_prelate_dawn_maul.glb",
+      "qc": "public/assets/models/wep_civic_battle_prelate_dawn_maul.qc.json",
+      "model_sha256": "b9a2e006d5b966619c067a38ec856d03980969b839860f57a232bf889b6ba9de",
+      "qc_sha256": "f455a5815d626c5926c981b849f4fba5612edfe6d349fdc1f0037ff12215acf2",
+      "checks": {
+        "model_sha256_matches": true,
+        "qc_sha256_matches": true,
+        "qc_embedded_model_sha256_matches": true,
+        "qc_passed": true,
+        "runtime_ready": true,
+        "review_approved": true,
+        "lifecycle_approved": true,
+        "model_matches_transaction": true,
+        "qc_matches_transaction": true,
+        "weapon_explicitly_rigid": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

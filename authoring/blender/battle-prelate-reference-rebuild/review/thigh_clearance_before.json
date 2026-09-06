@@ -1,0 +1,103 @@
+[
+  {
+    "x": 0.17,
+    "z": 0.9,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.078825,
+      "thigh_steel_cuisse": -0.084706,
+      "thigh_padded_underlayer": -0.01997
+    }
+  },
+  {
+    "x": 0.19,
+    "z": 0.9,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.060035,
+      "thigh_steel_cuisse": -0.051266
+    }
+  },
+  {
+    "x": 0.21,
+    "z": 0.9,
+    "hits": {
+      "thigh_steel_cuisse": -0.004774
+    }
+  },
+  {
+    "x": 0.17,
+    "z": 0.85,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.082037,
+      "thigh_steel_cuisse": -0.095543,
+      "thigh_padded_underlayer": -0.042503
+    }
+  },
+  {
+    "x": 0.19,
+    "z": 0.85,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.065489,
+      "thigh_steel_cuisse": -0.065328,
+      "thigh_padded_underlayer": -0.019257
+    }
+  },
+  {
+    "x": 0.21,
+    "z": 0.85,
+    "hits": {
+      "thigh_steel_cuisse": -0.020936
+    }
+  },
+  {
+    "x": 0.17,
+    "z": 0.8,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.083765,
+      "thigh_steel_cuisse": -0.104546,
+      "thigh_padded_underlayer": -0.051488
+    }
+  },
+  {
+    "x": 0.19,
+    "z": 0.8,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.068869,
+      "thigh_steel_cuisse": -0.077095,
+      "thigh_padded_underlayer": -0.031528
+    }
+  },
+  {
+    "x": 0.21,
+    "z": 0.8,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.035275,
+      "thigh_steel_cuisse": -0.032864
+    }
+  },
+  {
+    "x": 0.17,
+    "z": 0.75,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.084361,
+      "thigh_steel_cuisse": -0.112286,
+      "thigh_padded_underlayer": -0.049163
+    }
+  },
+  {
+    "x": 0.19,
+    "z": 0.75,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.070796,
+      "thigh_steel_cuisse": -0.084117,
+      "thigh_padded_underlayer": -0.030358
+    }
+  },
+  {
+    "x": 0.21,
+    "z": 0.75,
+    "hits": {
+      "fitted_padded_breeches_thighs.00": -0.03914,
+      "thigh_steel_cuisse": -0.043158
+    }
+  }
+]

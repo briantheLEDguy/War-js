@@ -1,0 +1,109 @@
+{
+  "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\work\\reference-rebuild\\authoring\\blender\\battle-prelate-reference-rebuild\\review\\exported_motion_supplemental_late_death_wide.png",
+  "sha256": "b508bd570968ab445a2eaf8d10ec86d1d27e3f964089bb777542ab0b90bb6c4b",
+  "clip": "death",
+  "fraction": 0.85,
+  "frame": 40.8,
+  "camera_policy": "Supplemental fixed wide camera; original frozen comparison cameras remain unchanged",
+  "fixed_camera": {
+    "id": "supplemental_late_death_wide",
+    "position": [
+      3,
+      -5.05,
+      0.4
+    ],
+    "target": [
+      0,
+      -0.05,
+      0.4
+    ],
+    "orthographic_scale": 3.2,
+    "resolution": [
+      1500,
+      850
+    ]
+  },
+  "framing": {
+    "maximum_absolute_horizontal_fraction": 0.761063609107381,
+    "maximum_absolute_vertical_fraction": 0.4621103475215831,
+    "policy": "All equipped mesh vertices, including the attached warhammer, must remain within 96% of the fixed frame"
+  },
+  "late_death_ground": {
+    "samples": [
+      {
+        "fraction": 0.75,
+        "frame": 36.0,
+        "module_minimum_z_m": {
+          "body": 0.30455952882766724,
+          "head": 0.6247033476829529,
+          "shoulders": 0.5850213766098022,
+          "chest": 0.4244588017463684,
+          "hands": 0.35614997148513794,
+          "waist": 0.23687773942947388,
+          "legs": 0.1960781216621399,
+          "feet": 0.0010017454624176025,
+          "back": 0.6324926614761353,
+          "tabard": 0.19387134909629822
+        },
+        "lowest_body_or_armor_z_m": 0.0010017454624176025,
+        "lowest_module": "feet"
+      },
+      {
+        "fraction": 0.85,
+        "frame": 40.8,
+        "module_minimum_z_m": {
+          "body": 0.28085148334503174,
+          "head": 0.47731852531433105,
+          "shoulders": 0.4402186870574951,
+          "chest": 0.3004499077796936,
+          "hands": 0.20428431034088135,
+          "waist": 0.16652661561965942,
+          "legs": 0.15631389617919922,
+          "feet": 0.0010740458965301514,
+          "back": 0.5274237394332886,
+          "tabard": 0.17254474759101868
+        },
+        "lowest_body_or_armor_z_m": 0.0010740458965301514,
+        "lowest_module": "feet"
+      },
+      {
+        "fraction": 0.95,
+        "frame": 45.599999999999994,
+        "module_minimum_z_m": {
+          "body": 0.2342340350151062,
+          "head": 0.4205646514892578,
+          "shoulders": 0.3848586082458496,
+          "chest": 0.2564762830734253,
+          "hands": 0.14986467361450195,
+          "waist": 0.14496654272079468,
+          "legs": 0.1435677409172058,
+          "feet": 0.001047670841217041,
+          "back": 0.4910210967063904,
+          "tabard": 0.16548824310302734
+        },
+        "lowest_body_or_armor_z_m": 0.001047670841217041,
+        "lowest_module": "feet"
+      },
+      {
+        "fraction": 1.0,
+        "frame": 48.0,
+        "module_minimum_z_m": {
+          "body": 0.22948986291885376,
+          "head": 0.4152836799621582,
+          "shoulders": 0.3797755241394043,
+          "chest": 0.2526792287826538,
+          "hands": 0.14516681432724,
+          "waist": 0.14355379343032837,
+          "legs": 0.14270755648612976,
+          "feet": 0.0010014474391937256,
+          "back": 0.4880892038345337,
+          "tabard": 0.16484379768371582
+        },
+        "lowest_body_or_armor_z_m": 0.0010014474391937256,
+        "lowest_module": "feet"
+      }
+    ],
+    "minimum_body_or_armor_z_m": 0.0010014474391937256,
+    "policy": "Actual evaluated body and every armor module, excluding the weapon; boot support alone does not establish full fallen-body ground fit"
+  }
+}

@@ -49,7 +49,31 @@ export type AbilityShape =
 
 export type AbilityTargetKind = 'enemy' | 'self';
 
-export type AbilityEffectKind = 'damage' | 'heal' | 'status';
+export type AbilityEffectKind = 'damage' | 'heal' | 'status' | 'player_status' | 'cleanse' | 'movement';
+
+export type PlayerUtilityStatusKind = 'guard' | 'shield' | 'empower' | 'haste';
+export type PlayerHarmfulStatusKind = 'slow' | 'root' | 'stagger' | 'debuff';
+
+export interface AbilityPlayerStatus {
+  kind: PlayerUtilityStatusKind;
+  durationSec: number;
+  /** Fractional reduction/bonus, or fraction of maximum health for a shield. */
+  magnitude: number;
+  stackGroup?: string;
+}
+
+export interface AbilityMovement {
+  mode: 'forward' | 'backward' | 'toward_target';
+  distance: number;
+}
+
+export interface AbilityMovementRequest {
+  mode: AbilityMovement['mode'];
+  origin: { x: number; y: number; z: number };
+  destination: { x: number; y: number; z: number };
+  direction: { x: number; z: number };
+  distance: number;
+}
 
 export interface AbilityAmount {
   min: number;
@@ -67,6 +91,7 @@ export interface AbilityStatusPayload {
   kind: CombatStatusKind;
   durationSec: number;
   magnitude?: number;
+  damageModifier?: 'damage_taken' | 'damage_dealt';
 }
 
 export interface AbilityEffect {
@@ -74,6 +99,9 @@ export interface AbilityEffect {
   school?: AbilitySchool;
   amount?: AbilityAmount;
   status?: AbilityStatusPayload;
+  playerStatus?: AbilityPlayerStatus;
+  cleanse?: { kinds: PlayerHarmfulStatusKind[] };
+  movement?: AbilityMovement;
 }
 
 export interface AbilityResourceDelta {
@@ -242,6 +270,7 @@ export interface AbilityDefinition {
   icon: string;
   name: string;
   summary: string;
+  unavailableReason?: string;
   cooldownSec: number;
   gcdSec: number;
   tags: string[];

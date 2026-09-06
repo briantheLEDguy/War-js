@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-09-06T01:28:55.108Z",
+  "verification": "Loaded each actual Vite config with loadConfigFromFile and matched its resolved ignored patterns using the installed picomatch implementation.",
+  "passed": true,
+  "checks": [
+    {
+      "root": "C:/Users/bschm/Desktop/GitPulls/War-js",
+      "ignored": [
+        "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/**",
+        "C:/Users/bschm/Desktop/GitPulls/War-js/blends/**"
+      ],
+      "cases": [
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/file.blend",
+          "expected": true,
+          "actual": true
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/blender/source/head.json",
+          "expected": true,
+          "actual": true
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/blends/working.blend",
+          "expected": true,
+          "actual": true
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/src/game/Player.ts",
+          "expected": false,
+          "actual": false
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "root": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild",
+      "ignored": [
+        "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/authoring/**",
+        "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/blends/**"
+      ],
+      "cases": [
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/authoring/file.blend",
+          "expected": true,
+          "actual": true
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/authoring/blender/source/head.json",
+          "expected": true,
+          "actual": true
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/blends/working.blend",
+          "expected": true,
+          "actual": true
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/src/game/Player.ts",
+          "expected": false,
+          "actual": false
+        },
+        {
+          "path": "C:/Users/bschm/Desktop/GitPulls/War-js/authoring/work/reference-rebuild/public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "passed": true
+    }
+  ]
+}
