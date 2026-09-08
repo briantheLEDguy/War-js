@@ -934,9 +934,9 @@
       "radius": 9,
       "targetZoneId": "vilemere_heights",
       "targetSpawn": {
-        "x": -113.3,
+        "x": -510.55,
         "y": 0,
-        "z": 19.5
+        "z": 87.57
       }
     }
   ],
@@ -978,5 +978,55 @@
       ]
     }
   ],
-  "staticMapHash": "734c644d8c2f8cfc"
+  "artDirection": {
+    "zoneId": "nightglass_hollow",
+    "realm": "riftbound",
+    "races": [
+      "dark_elf",
+      "greenskin",
+      "chaos"
+    ],
+    "biomeId": "wet_moorland",
+    "season": "autumn",
+    "cultures": "Dark Elf ridge outposts; Greenskin peat cutters",
+    "vegetation": [
+      "heather",
+      "gorse",
+      "sedge",
+      "stunted_birch",
+      "peat_grass"
+    ],
+    "fauna": [
+      "moor_deer",
+      "moor_wolf",
+      "moor_bird"
+    ],
+    "palette": [
+      "#687174",
+      "#8d8174",
+      "#555957"
+    ],
+    "landmark": "Water-polished slate cleft with wind-torn heather",
+    "reliefMetres": 28,
+    "vegetationAssetKeys": [
+      "frontier_wet_moorland_heather",
+      "frontier_wet_moorland_gorse",
+      "frontier_wet_moorland_sedge",
+      "frontier_wet_moorland_stunted_birch",
+      "frontier_wet_moorland_peat_grass"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_moor_deer",
+      "frontier_creature_moor_wolf",
+      "frontier_creature_moor_bird"
+    ],
+    "materialSetKey": "frontier_wet_moorland_materials",
+    "architectureAssetKey": "frontier_wet_moorland_settlement",
+    "status": "planned",
+    "parentZoneId": "vilemere_heights",
+    "population": "Moor hunters and slate-hollow guardian",
+    "bossProfileKey": "frontier_boss_nightglass_hollow",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "b06bca1e8e6d8da8"
 }

@@ -932,9 +932,9 @@
       "radius": 9,
       "targetZoneId": "bleakroot_causeway",
       "targetSpawn": {
-        "x": -108.4,
+        "x": -488.37,
         "y": 0,
-        "z": 38.4
+        "z": 172.7
       }
     }
   ],
@@ -976,5 +976,55 @@
       ]
     }
   ],
-  "staticMapHash": "9ec9c9cb50420c11"
+  "artDirection": {
+    "zoneId": "rotwreath_nest",
+    "realm": "riftbound",
+    "races": [
+      "greenskin",
+      "dark_elf",
+      "chaos"
+    ],
+    "biomeId": "drowned_forest",
+    "season": "autumn",
+    "cultures": "Greenskin loggers; Dark Elf watchposts",
+    "vegetation": [
+      "dead_oak",
+      "alder",
+      "reed",
+      "fungus",
+      "root_mass"
+    ],
+    "fauna": [
+      "swamp_boar",
+      "root_hound",
+      "carrion_bird"
+    ],
+    "palette": [
+      "#4a5b50",
+      "#776c58",
+      "#6c7979"
+    ],
+    "landmark": "Interlocked root vault above drowned forest floor",
+    "reliefMetres": 9,
+    "vegetationAssetKeys": [
+      "frontier_drowned_forest_dead_oak",
+      "frontier_drowned_forest_alder",
+      "frontier_drowned_forest_reed",
+      "frontier_drowned_forest_fungus",
+      "frontier_drowned_forest_root_mass"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_swamp_boar",
+      "frontier_creature_root_hound",
+      "frontier_creature_carrion_bird"
+    ],
+    "materialSetKey": "frontier_drowned_forest_materials",
+    "architectureAssetKey": "frontier_drowned_forest_settlement",
+    "status": "planned",
+    "parentZoneId": "bleakroot_causeway",
+    "population": "Root ambushers and nest overlord",
+    "bossProfileKey": "frontier_boss_rotwreath_nest",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "9ce17ec3615d5ff2"
 }

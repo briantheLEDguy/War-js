@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.altar",
+  "modelSha256": "1a0692b01e7f6a7613b3b6944956400f76eb7a63b8d1242caa2da5dd171ce5fc",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_altar_lod2.glb",
+    "triangles": 416,
+    "sha256": "1a0692b01e7f6a7613b3b6944956400f76eb7a63b8d1242caa2da5dd171ce5fc",
+    "bytes": 35112,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_altar.glb",
+      "triangles": 544,
+      "sha256": "bc01bbdaf1ed50f913ae36ba3a5df69df72ae8b9599981298698453b6ca7ec59",
+      "bytes": 63844,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_altar_lod1.glb",
+      "triangles": 464,
+      "sha256": "df052ed246c9bd874fe0cf2be068e7dc7fff6034f94fea9b6a66a1631693d846",
+      "bytes": 38984,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_altar_lod2.glb",
+      "triangles": 416,
+      "sha256": "1a0692b01e7f6a7613b3b6944956400f76eb7a63b8d1242caa2da5dd171ce5fc",
+      "bytes": 35112,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "bb18a575edff9b6ab67c7e4c58ed6cad8379519fd1bf998758a1dcf55c4d8670",
+  "textureMaxDimension": 2048
+}

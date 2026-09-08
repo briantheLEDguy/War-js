@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.lift",
+  "modelSha256": "6ef6ed09ce10fd43342282ef40e597779c1e7c6e3060d77a7a5a020601284518",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_lift.glb",
+    "triangles": 3772,
+    "sha256": "6ef6ed09ce10fd43342282ef40e597779c1e7c6e3060d77a7a5a020601284518",
+    "bytes": 399036,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_lift.glb",
+      "triangles": 3772,
+      "sha256": "6ef6ed09ce10fd43342282ef40e597779c1e7c6e3060d77a7a5a020601284518",
+      "bytes": 399036,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_lift_lod1.glb",
+      "triangles": 3772,
+      "sha256": "4dd2e67e3f81e29140971ee1d7832d14dcc3a2e276b04d3befaebe40dea48b06",
+      "bytes": 399036,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_lift_lod2.glb",
+      "triangles": 3688,
+      "sha256": "a3079f5cfe1ac06e380ef1e73865cdb9234534809ce8270830b89505990c9182",
+      "bytes": 251304,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "bb1fc798344815f8bca93e12c4913e69a082ba2afd241fa30305dabce5936b6d",
+  "textureMaxDimension": 2048
+}

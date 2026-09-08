@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.lantern",
+  "modelSha256": "fd42ffc74c4169d2809867eeb8ac9bfb57cb649ef14f7177e40438b8dacb45bf",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_lantern_lod2.glb",
+    "triangles": 232,
+    "sha256": "fd42ffc74c4169d2809867eeb8ac9bfb57cb649ef14f7177e40438b8dacb45bf",
+    "bytes": 28456,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_lantern.glb",
+      "triangles": 232,
+      "sha256": "8b3f67ace0ce90169016460070ba9c8d0ebc9b2d8411e3e9ec11efc8d3c3637b",
+      "bytes": 28456,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_lantern_lod1.glb",
+      "triangles": 232,
+      "sha256": "bb6f5939a53ecc458a195c5881c216477ccfde61fe1c4f80f2dc63e1384e5513",
+      "bytes": 28456,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_lantern_lod2.glb",
+      "triangles": 232,
+      "sha256": "fd42ffc74c4169d2809867eeb8ac9bfb57cb649ef14f7177e40438b8dacb45bf",
+      "bytes": 28456,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "93dfc47d70b27dc045a4de06edbe9cb079ae52587fa4a57d4eaecdbb1dbf65b7",
+  "textureMaxDimension": 2048
+}

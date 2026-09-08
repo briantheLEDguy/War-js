@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.throne",
+  "modelSha256": "9651e4303828552108c92b1b1f10cf5de22e614b8c998a2c44276a33588b96d7",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_throne_lod2.glb",
+    "triangles": 180,
+    "sha256": "9651e4303828552108c92b1b1f10cf5de22e614b8c998a2c44276a33588b96d7",
+    "bytes": 25420,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_throne.glb",
+      "triangles": 952,
+      "sha256": "b2025d6bc047942b9dfa3e4de0c6363d8e8fd018910569f87c7725754258ee2b",
+      "bytes": 109308,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_throne_lod1.glb",
+      "triangles": 476,
+      "sha256": "bd114a7f7b684a13a813ce2b7e4059723f558ebacc81f6cdf772a91e1dc01b15",
+      "bytes": 60304,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_throne_lod2.glb",
+      "triangles": 180,
+      "sha256": "9651e4303828552108c92b1b1f10cf5de22e614b8c998a2c44276a33588b96d7",
+      "bytes": 25420,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "d412039e47f2d3ac1bd5ff15035073fabff92386876f1e1ea80e95daa863fb68",
+  "textureMaxDimension": 2048
+}

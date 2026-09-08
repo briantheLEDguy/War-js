@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.rock_palace_right",
+  "modelSha256": "fcc4a42a27bae591c6543e8da92ae1d758281f7e477498cf893a20cd1a1939d4",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_rock_palace_right_lod2.glb",
+    "triangles": 1280,
+    "sha256": "fcc4a42a27bae591c6543e8da92ae1d758281f7e477498cf893a20cd1a1939d4",
+    "bytes": 84192,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_rock_palace_right.glb",
+      "triangles": 1624,
+      "sha256": "27ed9ae2bc2f7b3cc51c0327cff86930434757cd477b10f008bbd6cf753b6838",
+      "bytes": 228820,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_rock_palace_right_lod1.glb",
+      "triangles": 1474,
+      "sha256": "b4b0cad0e23bde9b360edfd005af797cf377ec645d9d9897b97ca13d4459242f",
+      "bytes": 116332,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_rock_palace_right_lod2.glb",
+      "triangles": 1280,
+      "sha256": "fcc4a42a27bae591c6543e8da92ae1d758281f7e477498cf893a20cd1a1939d4",
+      "bytes": 84192,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "f2147578542a248167e2e7d38ab902252720dcb61fccab218be1163994119527",
+  "textureMaxDimension": 2048
+}

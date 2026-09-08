@@ -1,0 +1,40 @@
+{
+  "assetId": "prop.frontier.field_catapult",
+  "qcPassed": true,
+  "modelSha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861",
+  "lod": 1,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_field_catapult_lod0.glb",
+      "sha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+      "triangles": 75376,
+      "bytes": 20947756
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_catapult_lod1.glb",
+      "sha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861",
+      "triangles": 30692,
+      "bytes": 19538576
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_catapult_lod2.glb",
+      "sha256": "e95a9524f9bf47dfc332146cf14784d19b75cc826544c2bf62486fa02b891ea1",
+      "triangles": 20780,
+      "bytes": 6729488
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_field_catapult_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_field_catapult_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_field_catapult_lod2_reimport.png"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.ritual_obelisk",
+  "modelSha256": "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_ritual_obelisk.glb",
+    "triangles": 652,
+    "sha256": "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+    "bytes": 75548,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_ritual_obelisk.glb",
+      "triangles": 652,
+      "sha256": "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+      "bytes": 75548,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_ritual_obelisk_lod1.glb",
+      "triangles": 652,
+      "sha256": "22fef09852d8b067cffea36d4c32535bf52a9b7baea316b2740597d6d9fb4603",
+      "bytes": 75548,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_ritual_obelisk_lod2.glb",
+      "triangles": 652,
+      "sha256": "1bfa7a44ec9cc0de29acfc578a7a2c4cf3bb4c5366f869905e645e590d1ab213",
+      "bytes": 75548,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "ef75959b93c614e6ff444a4fa475e3b0f2c8aa3b5e008fee318af3883ab42245",
+  "textureMaxDimension": 2048
+}

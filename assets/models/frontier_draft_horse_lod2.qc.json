@@ -1,0 +1,42 @@
+{
+  "assetId": "prop.frontier.draft_horse",
+  "qcPassed": true,
+  "modelSha256": "fe465b53dd01aa02124d5140878c13b9f24a2f98e7f826dc34123fc96e5f3728",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_draft_horse_lod0.glb",
+      "sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "triangles": 118342,
+      "bytes": 12152196
+    },
+    {
+      "level": 1,
+      "model": "frontier_draft_horse_lod1.glb",
+      "sha256": "7cb634b85460155417b17b33b8885c6ab199eab7bcd3e5196719e3ce1b6a45ab",
+      "triangles": 52512,
+      "bytes": 8014204
+    },
+    {
+      "level": 2,
+      "model": "frontier_draft_horse_lod2.glb",
+      "sha256": "fe465b53dd01aa02124d5140878c13b9f24a2f98e7f826dc34123fc96e5f3728",
+      "triangles": 16534,
+      "bytes": 2978364
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 2,
+  "warningCodes": [
+    "NODE_SKINNED_MESH_NON_ROOT"
+  ],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_draft_horse_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_draft_horse_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_draft_horse_lod2_reimport.png"
+  ]
+}

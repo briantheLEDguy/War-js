@@ -932,9 +932,9 @@
       "radius": 9,
       "targetZoneId": "ironwood_redoubt",
       "targetSpawn": {
-        "x": -113.3,
+        "x": -510.55,
         "y": 0,
-        "z": 19.5
+        "z": 87.57
       }
     }
   ],
@@ -976,5 +976,55 @@
       ]
     }
   ],
-  "staticMapHash": "8b65873768449da0"
+  "artDirection": {
+    "zoneId": "stormbarrow_lair",
+    "realm": "aegis",
+    "races": [
+      "empire",
+      "dwarf",
+      "high_elf"
+    ],
+    "biomeId": "cool_old_growth",
+    "season": "autumn",
+    "cultures": "Empire foresters; Dwarf charcoal crews; High Elf sentries",
+    "vegetation": [
+      "oak",
+      "hornbeam",
+      "fern",
+      "moss",
+      "fallen_log"
+    ],
+    "fauna": [
+      "forest_deer",
+      "grey_wolf",
+      "woodland_bird"
+    ],
+    "palette": [
+      "#455f49",
+      "#857455",
+      "#777771"
+    ],
+    "landmark": "Lightning-split trees around a weathered burial terrace",
+    "reliefMetres": 22,
+    "vegetationAssetKeys": [
+      "frontier_cool_old_growth_oak",
+      "frontier_cool_old_growth_hornbeam",
+      "frontier_cool_old_growth_fern",
+      "frontier_cool_old_growth_moss",
+      "frontier_cool_old_growth_fallen_log"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_forest_deer",
+      "frontier_creature_grey_wolf",
+      "frontier_creature_woodland_bird"
+    ],
+    "materialSetKey": "frontier_cool_old_growth_materials",
+    "architectureAssetKey": "frontier_cool_old_growth_settlement",
+    "status": "planned",
+    "parentZoneId": "ironwood_redoubt",
+    "population": "Forest sentinels and storm-scarred overlord",
+    "bossProfileKey": "frontier_boss_stormbarrow_lair",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "151cc53296644823"
 }

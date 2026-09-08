@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.house_2",
+  "modelSha256": "d71c1de283a37c5abed65fd2070f5b9e77e4c24f4af696699adf40c7e55a6695",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_house_2.glb",
+    "triangles": 5960,
+    "sha256": "d71c1de283a37c5abed65fd2070f5b9e77e4c24f4af696699adf40c7e55a6695",
+    "bytes": 647560,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_house_2.glb",
+      "triangles": 5960,
+      "sha256": "d71c1de283a37c5abed65fd2070f5b9e77e4c24f4af696699adf40c7e55a6695",
+      "bytes": 647560,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_house_2_lod1.glb",
+      "triangles": 2980,
+      "sha256": "925ab614af71e28141563f0f8892006685e5320d18ab01fbc59742dc62ac023e",
+      "bytes": 348044,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_house_2_lod2.glb",
+      "triangles": 1126,
+      "sha256": "3380027e8e4ddf42cafac4e10951bfb24d68308c6183c2af78ab829600554d3a",
+      "bytes": 148424,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "edd59a47aad6029582055aba716e241645f23611109900dc17da77c8755a6b67",
+  "textureMaxDimension": 2048
+}

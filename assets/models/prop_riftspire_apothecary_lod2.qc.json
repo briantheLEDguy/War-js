@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.apothecary",
+  "modelSha256": "303fd06d6c45553a6c0053ccc1367db3a7beab1fe46f9becd3df4f97c6eb2d3a",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_apothecary_lod2.glb",
+    "triangles": 3300,
+    "sha256": "303fd06d6c45553a6c0053ccc1367db3a7beab1fe46f9becd3df4f97c6eb2d3a",
+    "bytes": 231192,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_apothecary.glb",
+      "triangles": 3436,
+      "sha256": "d5cb34b85993ac7f46ae5bf34ea23948189f648154de7e3d12267861fa05fd1a",
+      "bytes": 242568,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_apothecary_lod1.glb",
+      "triangles": 3409,
+      "sha256": "1ba1983b5dfd92bb04874c59c57f38225dc3cd25318f88473813c1ad81ebef26",
+      "bytes": 239112,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_apothecary_lod2.glb",
+      "triangles": 3300,
+      "sha256": "303fd06d6c45553a6c0053ccc1367db3a7beab1fe46f9becd3df4f97c6eb2d3a",
+      "bytes": 231192,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "28dccdfc4a9d35078fc48fbe57c61e518464cd389fd1ac90d25416fa34c00be5",
+  "textureMaxDimension": 2048
+}

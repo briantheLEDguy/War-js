@@ -1,0 +1,46 @@
+{
+  "assetId": "prop.frontier.supply_wagon",
+  "qcPassed": true,
+  "modelSha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+  "lod": 0,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_supply_wagon_lod0.glb",
+      "sha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+      "triangles": 87766,
+      "bytes": 13438408
+    },
+    {
+      "level": 1,
+      "model": "frontier_supply_wagon_lod1.glb",
+      "sha256": "5af903d426e281792b18ff3b34bad29e70c6119bd4a79d985c54d1515ca39d20",
+      "triangles": 42214,
+      "bytes": 12258924
+    },
+    {
+      "level": 2,
+      "model": "frontier_supply_wagon_lod2.glb",
+      "sha256": "e6c72a7c40c10739f5aeba2b1a4fd3b134ff284147dcceb232f9d7c00a4b50be",
+      "triangles": 28628,
+      "bytes": 4486504
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_supply_wagon_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_supply_wagon_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_supply_wagon_lod2_reimport.png"
+  ],
+  "animationPack": {
+    "model": "frontier_teamster_animations.glb",
+    "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  }
+}

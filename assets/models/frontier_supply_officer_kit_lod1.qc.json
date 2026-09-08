@@ -1,0 +1,40 @@
+{
+  "assetId": "prop.frontier.supply_officer_kit",
+  "qcPassed": true,
+  "modelSha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+  "lod": 1,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_supply_officer_kit_lod0.glb",
+      "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+      "triangles": 13048,
+      "bytes": 7448840
+    },
+    {
+      "level": 1,
+      "model": "frontier_supply_officer_kit_lod1.glb",
+      "sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+      "triangles": 7131,
+      "bytes": 2163436
+    },
+    {
+      "level": 2,
+      "model": "frontier_supply_officer_kit_lod2.glb",
+      "sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+      "triangles": 2557,
+      "bytes": 676924
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_supply_officer_kit_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_supply_officer_kit_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_supply_officer_kit_lod2_reimport.png"
+  ]
+}

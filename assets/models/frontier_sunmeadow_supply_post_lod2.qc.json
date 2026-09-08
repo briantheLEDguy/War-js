@@ -1,0 +1,930 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow_supply_post",
+  "modelSha256": "231876432291639b1bd9c73228a2eaeb6f09ff479d7e0c8c15ca3fbd82be6f77",
+  "validationErrors": 0,
+  "reviewHash": "3d1dbdef56970059ff2d5e3e4625ed213d878160c66a3428aed47d5e93751bac",
+  "totalTris": 5038,
+  "meshCount": 7,
+  "nonManifoldEdges": 0,
+  "missingRequiredClips": [],
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 1024,
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "level": 0,
+      "model": "frontier_sunmeadow_supply_post_lod0.glb",
+      "triangles": 24668,
+      "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png",
+          "sha256": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png",
+          "sha256": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png",
+          "sha256": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb.png",
+          "sha256": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266.png",
+          "sha256": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0.png",
+          "sha256": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+        }
+      ]
+    },
+    {
+      "name": "LOD1",
+      "level": 1,
+      "model": "frontier_sunmeadow_supply_post_lod1.glb",
+      "triangles": 10196,
+      "sha256": "35f471451009fea6bf3d6f2e43145cf33212e1df06c26bef0cfdc2f3548a3f45",
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png",
+          "sha256": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png",
+          "sha256": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png",
+          "sha256": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb.png",
+          "sha256": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266.png",
+          "sha256": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0.png",
+          "sha256": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+        }
+      ]
+    },
+    {
+      "name": "LOD2",
+      "level": 2,
+      "model": "frontier_sunmeadow_supply_post_lod2.glb",
+      "triangles": 5038,
+      "sha256": "231876432291639b1bd9c73228a2eaeb6f09ff479d7e0c8c15ca3fbd82be6f77",
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        }
+      ]
+    }
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_supply_post_lod0.glb",
+      "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+      "bytes": 1558760,
+      "triangles": 24668,
+      "vertices": 13086,
+      "materials": 9,
+      "bounds_z_up": {
+        "minimum": [
+          -4.895469665527344,
+          -3.130000114440918,
+          -0.029999999329447746
+        ],
+        "maximum": [
+          4.901160717010498,
+          3.1315817832946777,
+          5.336862564086914
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+        "input_glb_sha256": "d8b9bc4df63f6a380a48135516ca25d2a06f7391d6cc8678885b0cd60e55944e",
+        "output_glb_sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+        "embedded_bytes": 2062332,
+        "externalized_bytes": 1558760
+      },
+      "external_textures": {
+        "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7",
+        "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867",
+        "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128",
+        "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+        "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+        "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+        "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+        "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+        "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+        "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816",
+        "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9",
+        "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed",
+        "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a",
+        "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e",
+        "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac",
+        "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af",
+        "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518",
+        "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996",
+        "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118",
+        "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486",
+        "../textures/sunmeadow_architecture/ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb.png": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb",
+        "../textures/sunmeadow_architecture/b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266.png": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266",
+        "../textures/sunmeadow_architecture/6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0.png": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+      },
+      "meshes": 1,
+      "drawCalls": 9,
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png",
+          "sha256": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png",
+          "sha256": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png",
+          "sha256": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb.png",
+          "sha256": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266.png",
+          "sha256": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0.png",
+          "sha256": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+        }
+      ],
+      "topology": {
+        "model": "frontier_sunmeadow_supply_post_lod0.glb",
+        "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "coincident_join_segments": [],
+        "weld_tolerance_m": 0.000001,
+        "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+        "doorway": {
+          "width": 5.6,
+          "height": 3.1,
+          "front_wall_y_z_up": -2.5,
+          "ray_samples": 441,
+          "wall_depth_tested": 1.6,
+          "floor_tolerance": 0.3,
+          "edge_tolerance": 0.04,
+          "blocked_rays": []
+        }
+      },
+      "reviewImages": {
+        "frontier_sunmeadow_supply_post_lod0_reimport.png": "42a82d2f77f2306094673d790271de8b0b46cb3d836a8411efba2850f8da2d54"
+      },
+      "preview": "frontier_sunmeadow_supply_post_lod0_reimport.png",
+      "preview_sha256": "42a82d2f77f2306094673d790271de8b0b46cb3d836a8411efba2850f8da2d54"
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_supply_post_lod1.glb",
+      "sha256": "35f471451009fea6bf3d6f2e43145cf33212e1df06c26bef0cfdc2f3548a3f45",
+      "bytes": 861996,
+      "triangles": 10196,
+      "vertices": 5850,
+      "materials": 9,
+      "bounds_z_up": {
+        "minimum": [
+          -4.888586521148682,
+          -3.130000114440918,
+          -0.025935271754860878
+        ],
+        "maximum": [
+          4.898525238037109,
+          3.1250803470611572,
+          5.335461616516113
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+        "input_glb_sha256": "4299c0f8c03235a60847031c9ca838de00edd0a0c61b4d25da1e83f88ab16225",
+        "output_glb_sha256": "35f471451009fea6bf3d6f2e43145cf33212e1df06c26bef0cfdc2f3548a3f45",
+        "embedded_bytes": 1365568,
+        "externalized_bytes": 861996
+      },
+      "external_textures": {
+        "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7",
+        "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867",
+        "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128",
+        "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+        "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+        "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+        "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+        "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+        "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+        "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816",
+        "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9",
+        "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed",
+        "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a",
+        "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e",
+        "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac",
+        "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af",
+        "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518",
+        "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996",
+        "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118",
+        "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486",
+        "../textures/sunmeadow_architecture/ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb.png": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb",
+        "../textures/sunmeadow_architecture/b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266.png": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266",
+        "../textures/sunmeadow_architecture/6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0.png": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+      },
+      "meshes": 1,
+      "drawCalls": 9,
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png",
+          "sha256": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png",
+          "sha256": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png",
+          "sha256": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb.png",
+          "sha256": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266.png",
+          "sha256": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0.png",
+          "sha256": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+        }
+      ],
+      "topology": {
+        "model": "frontier_sunmeadow_supply_post_lod1.glb",
+        "sha256": "35f471451009fea6bf3d6f2e43145cf33212e1df06c26bef0cfdc2f3548a3f45",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "coincident_join_segments": [],
+        "weld_tolerance_m": 0.000001,
+        "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+        "doorway": {
+          "width": 5.6,
+          "height": 3.1,
+          "front_wall_y_z_up": -2.5,
+          "ray_samples": 441,
+          "wall_depth_tested": 1.6,
+          "floor_tolerance": 0.3,
+          "edge_tolerance": 0.04,
+          "blocked_rays": []
+        }
+      },
+      "reviewImages": {
+        "frontier_sunmeadow_supply_post_lod1_reimport.png": "a33315c9d9a458b3ff3c786f2e99873e8080f79f99e1acf9c68e5cdde595900e"
+      },
+      "preview": "frontier_sunmeadow_supply_post_lod1_reimport.png",
+      "preview_sha256": "a33315c9d9a458b3ff3c786f2e99873e8080f79f99e1acf9c68e5cdde595900e"
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_supply_post_lod2.glb",
+      "sha256": "231876432291639b1bd9c73228a2eaeb6f09ff479d7e0c8c15ca3fbd82be6f77",
+      "bytes": 481300,
+      "triangles": 5038,
+      "vertices": 3163,
+      "materials": 7,
+      "bounds_z_up": {
+        "minimum": [
+          -4.89697265625,
+          -3.130000114440918,
+          -0.017000000923871994
+        ],
+        "maximum": [
+          4.8930230140686035,
+          3.1315817832946777,
+          5.338000297546387
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+        "input_glb_sha256": "08ed06324077a6858a341a1602ecc6638d94604fa206bbb20dab4a6fac37ef68",
+        "output_glb_sha256": "231876432291639b1bd9c73228a2eaeb6f09ff479d7e0c8c15ca3fbd82be6f77",
+        "embedded_bytes": 910020,
+        "externalized_bytes": 481300
+      },
+      "external_textures": {
+        "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+        "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+        "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+        "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+        "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+        "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+        "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816",
+        "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9",
+        "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed",
+        "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a",
+        "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e",
+        "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac",
+        "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af",
+        "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518",
+        "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996",
+        "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118",
+        "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+      },
+      "meshes": 1,
+      "drawCalls": 7,
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        {
+          "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        }
+      ],
+      "topology": {
+        "model": "frontier_sunmeadow_supply_post_lod2.glb",
+        "sha256": "231876432291639b1bd9c73228a2eaeb6f09ff479d7e0c8c15ca3fbd82be6f77",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "coincident_join_segments": [],
+        "weld_tolerance_m": 0.000001,
+        "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+        "doorway": {
+          "width": 5.6,
+          "height": 3.1,
+          "front_wall_y_z_up": -2.5,
+          "ray_samples": 441,
+          "wall_depth_tested": 1.6,
+          "floor_tolerance": 0.3,
+          "edge_tolerance": 0.04,
+          "blocked_rays": []
+        }
+      },
+      "reviewImages": {
+        "frontier_sunmeadow_supply_post_lod2_reimport.png": "a4a6169bb919ca0b61999ca4bc82beb0e122452470836de6177e9231cd91ac2e"
+      },
+      "preview": "frontier_sunmeadow_supply_post_lod2_reimport.png",
+      "preview_sha256": "a4a6169bb919ca0b61999ca4bc82beb0e122452470836de6177e9231cd91ac2e"
+    }
+  ],
+  "externalTextures": [
+    {
+      "uri": "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png",
+      "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png",
+      "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png",
+      "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png",
+      "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png",
+      "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png",
+      "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816.png",
+      "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9.png",
+      "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed.png",
+      "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a.png",
+      "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e.png",
+      "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac.png",
+      "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af.png",
+      "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518.png",
+      "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996.png",
+      "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118.png",
+      "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+    },
+    {
+      "uri": "../textures/sunmeadow_architecture/b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486.png",
+      "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+    }
+  ],
+  "previewImages": [
+    "public/assets/models/previews/frontier_sunmeadow_supply_post.png"
+  ],
+  "heightM": 5.355000298470259,
+  "bounds": {
+    "minimum": [
+      -4.89697265625,
+      -3.130000114440918,
+      -0.017000000923871994
+    ],
+    "maximum": [
+      4.8930230140686035,
+      3.1315817832946777,
+      5.338000297546387
+    ]
+  },
+  "placementContract": {
+    "footprint": [
+      8,
+      5
+    ],
+    "nominal_roof_envelope": [
+      9.2,
+      6.2
+    ],
+    "front_bay_clearance": [
+      5.6,
+      3.1
+    ],
+    "collision_walls": [
+      [
+        [
+          -4,
+          2.5
+        ],
+        [
+          4,
+          2.5
+        ]
+      ],
+      [
+        [
+          -4,
+          -2.5
+        ],
+        [
+          -4,
+          2.5
+        ]
+      ],
+      [
+        [
+          4,
+          -2.5
+        ],
+        [
+          4,
+          2.5
+        ]
+      ]
+    ],
+    "wall_thickness": 0.5,
+    "anchor": "ground centre",
+    "door_faces": "glTF +Z"
+  },
+  "topologyPolicy": "Original fitted construction cages remain editable in the Blender master. Closed construction components share tiled material UV space deliberately; UV overlap is required for repeated slate, stone, joinery and hardware. A positional audit welds glTF UV/normal/material seams at 1 micrometre and requires zero boundary edges on all three LODs. The distant wall-walk coping slabs meet exactly at their lower end edges: curtain-wall LOD2 has seven and gatehouse LOD2 has six four-face coincident joints at Z-up 6.12m; the validator permits only those measured joint coordinates. All other assets and LODs require zero multi-face edges. This preserves individually closed fitted pieces without requiring a boolean solid union. Exact measurements and placement contracts are retained in authoring/blender/sunmeadow-architecture/build-report.json. Accepted internally against the exact build and all reimport previews; the approval record retains review hashes."
+}

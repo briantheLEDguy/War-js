@@ -942,9 +942,9 @@
       "radius": 9,
       "targetZoneId": "greybrook_crossing",
       "targetSpawn": {
-        "x": -108.4,
+        "x": -488.37,
         "y": 0,
-        "z": 38.4
+        "z": 172.7
       }
     }
   ],
@@ -986,5 +986,55 @@
       ]
     }
   ],
-  "staticMapHash": "29162235982c783b"
+  "artDirection": {
+    "zoneId": "briarwatch_den",
+    "realm": "aegis",
+    "races": [
+      "empire",
+      "dwarf",
+      "high_elf"
+    ],
+    "biomeId": "temperate_floodplain",
+    "season": "autumn",
+    "cultures": "Empire river traders; Dwarf bridgewrights",
+    "vegetation": [
+      "willow",
+      "alder",
+      "reed",
+      "sedge",
+      "river_grass"
+    ],
+    "fauna": [
+      "otter",
+      "marsh_wolf",
+      "water_bird"
+    ],
+    "palette": [
+      "#71847a",
+      "#ad9b76",
+      "#687b82"
+    ],
+    "landmark": "Flood-cut bank with thorn canopy and ruined ferry pier",
+    "reliefMetres": 9,
+    "vegetationAssetKeys": [
+      "frontier_temperate_floodplain_willow",
+      "frontier_temperate_floodplain_alder",
+      "frontier_temperate_floodplain_reed",
+      "frontier_temperate_floodplain_sedge",
+      "frontier_temperate_floodplain_river_grass"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_otter",
+      "frontier_creature_marsh_wolf",
+      "frontier_creature_water_bird"
+    ],
+    "materialSetKey": "frontier_temperate_floodplain_materials",
+    "architectureAssetKey": "frontier_temperate_floodplain_settlement",
+    "status": "planned",
+    "parentZoneId": "greybrook_crossing",
+    "population": "River ambushers and thorn-bound den guardian",
+    "bossProfileKey": "frontier_boss_briarwatch_den",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "70cba516beaffdf7"
 }

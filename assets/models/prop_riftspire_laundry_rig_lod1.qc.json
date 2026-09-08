@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.laundry_rig",
+  "modelSha256": "cbadfcdf4fa9a41e77955f2bd3800c57bb52b8aff5e4e0709866d7bd4279a987",
+  "lod": {
+    "level": 1,
+    "model": "prop_riftspire_laundry_rig_lod1.glb",
+    "triangles": 1998,
+    "sha256": "cbadfcdf4fa9a41e77955f2bd3800c57bb52b8aff5e4e0709866d7bd4279a987",
+    "bytes": 139124,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_laundry_rig.glb",
+      "triangles": 2080,
+      "sha256": "e9c10bcfbf5a70f0020631d8e6a55dfaf4c59d7d09e1b431b4c9474371cd168c",
+      "bytes": 219132,
+      "repairedDegenerateTangents": 12
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_laundry_rig_lod1.glb",
+      "triangles": 1998,
+      "sha256": "cbadfcdf4fa9a41e77955f2bd3800c57bb52b8aff5e4e0709866d7bd4279a987",
+      "bytes": 139124,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_laundry_rig_lod2.glb",
+      "triangles": 1522,
+      "sha256": "b1da9481da26699627ab21f72373886018b90367a4623faefebc658c8cb31e79",
+      "bytes": 105860,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "ab93ce5bd41d805c2b45391ff535f0eabbbf286aa321889209f828123a7913a6",
+  "textureMaxDimension": 2048
+}

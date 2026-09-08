@@ -1,0 +1,40 @@
+{
+  "assetId": "prop.frontier.oil_cauldron",
+  "qcPassed": true,
+  "modelSha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48",
+  "lod": 1,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_oil_cauldron_lod0.glb",
+      "sha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+      "triangles": 23584,
+      "bytes": 2094212
+    },
+    {
+      "level": 1,
+      "model": "frontier_oil_cauldron_lod1.glb",
+      "sha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48",
+      "triangles": 5958,
+      "bytes": 1404416
+    },
+    {
+      "level": 2,
+      "model": "frontier_oil_cauldron_lod2.glb",
+      "sha256": "be2b1e463fa55479fd1dfde25baf2754aed0615051e4ce5b7fa3753b5200022c",
+      "triangles": 2766,
+      "bytes": 546004
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_oil_cauldron_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_oil_cauldron_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_oil_cauldron_lod2_reimport.png"
+  ]
+}

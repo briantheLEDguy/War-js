@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.hanging_cage",
+  "modelSha256": "e35f4c19969c2031b51e5913451242bb68749a9cd17d909e9157c7dcd0735f1e",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_hanging_cage_lod2.glb",
+    "triangles": 3092,
+    "sha256": "e35f4c19969c2031b51e5913451242bb68749a9cd17d909e9157c7dcd0735f1e",
+    "bytes": 213852,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_hanging_cage.glb",
+      "triangles": 3564,
+      "sha256": "e0fd31a33d67386ffcb0d2bfce7c3b52cb34bcfc10cd8b1bec78f99672a1f75f",
+      "bytes": 249132,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_hanging_cage_lod1.glb",
+      "triangles": 3564,
+      "sha256": "2140dbf0d7df7a6333d67e5fb947fc54f8dd383603392604862eadc3f5624a6d",
+      "bytes": 249132,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_hanging_cage_lod2.glb",
+      "triangles": 3092,
+      "sha256": "e35f4c19969c2031b51e5913451242bb68749a9cd17d909e9157c7dcd0735f1e",
+      "bytes": 213852,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "2d58b7b6b9a672faff7d4b8bb3493f33bd40380e0cec11a6b4f5e28e8757eee4",
+  "textureMaxDimension": 2048
+}

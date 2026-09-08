@@ -1,0 +1,81 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.march.terrain.1.3",
+  "modelSha256": "842e2f34e596df680d055676f398fb1e3c8492a31f4171104ac70484117e7644",
+  "lod": 0,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_march_terrain_1_3.glb",
+      "triangles": 73728,
+      "bytes": 2530404,
+      "sha256": "842e2f34e596df680d055676f398fb1e3c8492a31f4171104ac70484117e7644",
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_terrain/b77e82f05403e58f2d83.png",
+          "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+        },
+        {
+          "uri": "../textures/sunmeadow_terrain/e5820d107e9ae59f365f.png",
+          "sha256": "e5820d107e9ae59f365f28adeeb657178553fe3ad8026ed5a5f33a6bd843a01b"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_march_terrain_1_3_lod1.glb",
+      "triangles": 9792,
+      "bytes": 356564,
+      "sha256": "266d83c10b558c7c83559467c1dee91f3a729418a0b70d624267fceb6ff641c8",
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_terrain/b77e82f05403e58f2d83.png",
+          "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+        },
+        {
+          "uri": "../textures/sunmeadow_terrain/e5820d107e9ae59f365f.png",
+          "sha256": "e5820d107e9ae59f365f28adeeb657178553fe3ad8026ed5a5f33a6bd843a01b"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_march_terrain_1_3_lod2.glb",
+      "triangles": 2976,
+      "bytes": 124816,
+      "sha256": "94ba31fb23ed6a51ecb3e2872bd7fada793d073bad2f0acd0c22306abf6211b5",
+      "externalTextures": [
+        {
+          "uri": "../textures/sunmeadow_terrain/b77e82f05403e58f2d83.png",
+          "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+        },
+        {
+          "uri": "../textures/sunmeadow_terrain/e5820d107e9ae59f365f.png",
+          "sha256": "e5820d107e9ae59f365f28adeeb657178553fe3ad8026ed5a5f33a6bd843a01b"
+        }
+      ]
+    }
+  ],
+  "externalTextures": [
+    {
+      "uri": "../textures/sunmeadow_terrain/b77e82f05403e58f2d83.png",
+      "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+    },
+    {
+      "uri": "../textures/sunmeadow_terrain/e5820d107e9ae59f365f.png",
+      "sha256": "e5820d107e9ae59f365f28adeeb657178553fe3ad8026ed5a5f33a6bd843a01b"
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "38db03632371655c249b983595969b25af84c321e954678333a897e69231e805",
+  "sourceSha256": "056291ad25753602777c853acc2eae9a7fbccebc0f12b3955a739a6673786357",
+  "renderReceiptSha256": "46eb3d2a8aa701f5b627f95160d4ca271481667de6ccaf418bfb38188af82e53",
+  "previewImages": [
+    "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png",
+    "authoring/blender/sunmeadow-terrain/review/road_material.png",
+    "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod1.png",
+    "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod2.png",
+    "authoring/blender/sunmeadow-terrain/review/road_junction_lod0.png"
+  ]
+}
