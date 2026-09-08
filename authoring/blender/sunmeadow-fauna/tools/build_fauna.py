@@ -19,6 +19,7 @@ from stitched_skin import build_stitched_skin
 from atlas_checks import assert_single_atlas_island
 from surface_detail import deer_face_position
 from texture_detail import pelt_strokes,tangent_normals
+from texture_lods import reduce_pixels,rgba8_mip_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = json.loads((ROOT/'source/anatomy.json').read_text())
@@ -91,6 +92,23 @@ def paint_material(kind,definition):
     if not group.interface.items_tree:group.interface.new_socket(name='Occlusion',in_out='INPUT',socket_type='NodeSocketFloat')
     node=nodes.new('ShaderNodeGroup');node.node_tree=group;links.new(separate.outputs['Red'],node.inputs['Occlusion'])
     return mat
+
+def delivery_material(material,kind,level):
+    """Retain the full authored atlas in the master and reduce distant resources."""
+    result=material if level==0 else material.copy()
+    if level:
+        result.name=f'{kind}_authored_pelt_LOD{level}'
+        for node in result.node_tree.nodes:
+            if node.type!='TEX_IMAGE' or not node.image:continue
+            source=node.image;channel=Path(source.filepath_raw).stem.removeprefix(kind+'_');width,height=source.size
+            pixels=np.empty(width*height*4,dtype=np.float32);source.pixels.foreach_get(pixels)
+            reduced=reduce_pixels(pixels.reshape(height,width,4),level,normal=channel=='normal');h,w,_=reduced.shape
+            image=bpy.data.images.new(f'{kind}_lod{level}_{channel}',width=w,height=h,alpha=False);image.colorspace_settings.name=source.colorspace_settings.name
+            image.pixels.foreach_set(reduced.ravel());image.file_format='PNG';image.filepath_raw=str(ROOT/'textures'/f'{kind}_lod{level}_{channel}.png');image.save();image.pack();node.image=image
+    images={node.image.name:node.image for node in result.node_tree.nodes if node.type=='TEX_IMAGE' and node.image}
+    textures=[{'source':Path(image.filepath_raw).relative_to(ROOT).as_posix(),'sha256':sha(image.filepath_raw),'width':image.size[0],'height':image.size[1],'rgba8_mip_bytes':rgba8_mip_bytes(*image.size)} for image in images.values()]
+    return result,{'textures':textures,'estimated_rgba8_mipped_bytes':sum(image['rgba8_mip_bytes'] for image in textures)}
+
 
 def tint_anatomy(obj,kind,definition):
     """Paint anatomically located coat markings into the actual surface corners."""
@@ -312,6 +330,9 @@ def animal_rig(definition):
                 head=Vector(definition['front_shoulder_joint'] if scapula and i==0 else path[indices[i]][:3]);head.x*=side
                 tail=Vector(path[indices[i+1]][:3]) if i<4 else Vector(path[-1][:3])+Vector((0,-.055,0));tail.x*=side
                 bones.append({'name':bone+'_'+label,'head':head,'tail':tail,'parent':names_limb[i-1]+'_'+label if i else 'scapula_'+label if scapula else parent})
+            if limb=='hind_leg' and definition.get('haunch_volume'):
+                head=Vector(path[indices[0]][:3]);tail=Vector(path[indices[1]][:3]);head.x*=side;tail.x*=side
+                bones.append({'name':'haunch_'+label,'head':head,'tail':tail,'parent':'pelvis'})
     if 'tail' in definition:
         path=definition['tail']
         for i in range(3):
@@ -348,6 +369,9 @@ def anatomical_weight_fields(vertices,definition):
             if limb=='front_leg' and 'scapula_origin' in definition:
                 stations[-1]=(rows[indices[1]][2]+.025,'shoulder_'+label)
                 stations.append(((definition['scapula_origin'][2]+definition['front_shoulder_joint'][2])*.5,'scapula_'+label))
+            if limb=='hind_leg' and definition.get('haunch_volume'):
+                stations[-1]=(rows[indices[1]][2]-.015,'thigh_'+label)
+                stations.append((definition['haunch_volume']['station_z'],'haunch_'+label))
             ordered=sorted(rows,key=lambda row:row[2]);section=ordered[-1]
             for a,b in zip(ordered,ordered[1:]):
                 if point.z<=b[2]:
@@ -530,12 +554,13 @@ def build(kind,definition,rest_only=False):
     if kind=='skylark':bones=bird_bones(bones)
     rig=create_rig(kind+'_rig',bones);key='frontier_sunmeadow_'+kind;lods=[];models=[]
     for level in range(3):
+        lod_material,texture_evidence=delivery_material(material,kind,level)
         if kind=='skylark':
-            cage=bird_geometry(definition,level,{'Cage':Cage,'skin_loft':skin_loft,'eye_patch':eye_patch,'atlas':atlas});obj=cage.object(key+f'_LOD{level}',material);weights=cage.weights
+            cage=bird_geometry(definition,level,{'Cage':Cage,'skin_loft':skin_loft,'eye_patch':eye_patch,'atlas':atlas});obj=cage.object(key+f'_LOD{level}',lod_material);weights=cage.weights
         else:
             cage=mammal_geometry(kind,definition,level)
-            if definition.get('skin_method')=='stitched_quads':obj,weights,cage=build_stitched_skin(cage,key+f'_LOD{level}',material,level,definition,Cage,atlas,anatomical_weight_fields)
-            else:obj,weights=unify_skin(cage,key+f'_LOD{level}',material,level,definition)
+            if definition.get('skin_method')=='stitched_quads':obj,weights,cage=build_stitched_skin(cage,key+f'_LOD{level}',lod_material,level,definition,Cage,atlas,anatomical_weight_fields)
+            else:obj,weights=unify_skin(cage,key+f'_LOD{level}',lod_material,level,definition)
         tint_anatomy(obj,kind,definition)
         for vertex in obj.data.vertices:vertex.co*=definition.get('scale',1)
         # Scale skeleton and all deformation landmarks together for sex/size variants.
@@ -555,7 +580,7 @@ def build(kind,definition,rest_only=False):
         target=ROOT/'runtime'/f'{key}_lod{level}.glb'
         bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_yup=True,export_normals=True,export_tangents=True,export_texcoords=True,export_skins=True,export_animations=False,export_vertex_color='NAME',export_vertex_color_name='AnatomicalTint',export_all_vertex_colors=False)
         points=[obj.matrix_world@vertex.co for vertex in obj.data.vertices];minimum=[min(p[i] for p in points) for i in range(3)];maximum=[max(p[i] for p in points) for i in range(3)]
-        lods.append({'level':level,'model':target.name,'sha256':sha(target),'bytes':target.stat().st_size,'triangles':triangles,'vertices':len(obj.data.vertices),'bounds_blender':{'min':minimum,'max':maximum},'parts':cage.parts})
+        lods.append({'level':level,'model':target.name,'sha256':sha(target),'bytes':target.stat().st_size,'triangles':triangles,'vertices':len(obj.data.vertices),'bounds_blender':{'min':minimum,'max':maximum},'parts':cage.parts,**texture_evidence})
         if level==0:(ROOT/'source'/f'{key}_cage.json').write_text(json.dumps({'vertices':cage.vertices,'faces':cage.faces,'uv':cage.uv,'weights':cage.weights,'parts':cage.parts},separators=(',',':')))
         if level==0:
             control=cage.object(key+'_editable_anatomical_cage',material);control.hide_set(True);control.hide_render=True
@@ -571,7 +596,7 @@ def build(kind,definition,rest_only=False):
             lods[level].update(sha256=sha(target),bytes=target.stat().st_size)
             obj.hide_set(level!=0);obj.hide_render=level!=0
     master=ROOT/'masters'/f'{key}.blend';bpy.ops.wm.save_as_mainfile(filepath=str(master),compress=True)
-    source_files=['source/anatomy.json',*['tools/'+name for name in ['build_fauna.py','quadruped_rig.py','motion.py','gait_curves.py','bird_geometry.py','stitched_skin.py','atlas_checks.py','surface_detail.py','texture_detail.py']]]
+    source_files=['source/anatomy.json',*['tools/'+name for name in ['build_fauna.py','quadruped_rig.py','motion.py','gait_curves.py','bird_geometry.py','stitched_skin.py','atlas_checks.py','surface_detail.py','texture_detail.py','texture_lods.py']]]
     (ROOT/'review'/f'{key}_build.json').write_text(json.dumps({'asset':key,'status':'anatomy-prototype-motion-pending' if rest_only else 'anatomy-and-motion-review-required','source_sha256':sha(ROOT/'source/anatomy.json'),'builder_sha256':sha(__file__),'rig_helper_sha256':sha(ROOT/'tools/quadruped_rig.py'),'motion_source_sha256':sha(ROOT/'tools/motion.py'),'source_files':{file:sha(ROOT/file) for file in source_files},'texture_sources':{file.relative_to(ROOT).as_posix():sha(file) for file in sorted((ROOT/'textures').glob(kind+'_*.png'))},'cage':(ROOT/'source'/f'{key}_cage.json').relative_to(ROOT).as_posix(),'cage_sha256':sha(ROOT/'source'/f'{key}_cage.json'),'motion':motion,'master':master.relative_to(ROOT).as_posix(),'master_sha256':sha(master),'lods':lods,'bones':bones},indent=2,default=list)+'\n')
 
 if __name__=='__main__':

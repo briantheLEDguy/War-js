@@ -15,7 +15,9 @@ if sheet:
     views=[f'{clip}:{phase}' for clip,phases in [('idle',[0,1,2]),('walk',[0,.25,.5]),('run',[0,1/6,1/3]),
            ('combat_idle',[0,1,2]),('attack_melee',[.2,.5,.8]),('attack_ranged',[.2,.65,1.1]),
            ('cast',[.25,1,1.75]),('death',[.2,1,2]),('jump',[.2,.65,1.1])] for phase in phases]
-model = WORK / 'runtime' / f'{key}_lod{lod}.glb'
+override=next((a.split('=',1)[1] for a in sys.argv if a.startswith('--model=')),None)
+suffix=next((a.split('=',1)[1] for a in sys.argv if a.startswith('--suffix=')),'')
+model = Path(override).resolve() if override else WORK / 'runtime' / f'{key}_lod{lod}.glb'
 digest = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 original_hash = digest(model)
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -82,8 +84,8 @@ for view in views:
     camera.location = target + direction.normalized() * height * 3
     camera.rotation_euler = (target-camera.location).to_track_quat('-Z','Y').to_euler()
     safe_view=view.replace(':','_')
-    output = WORK/'review'/f'{key}_lod{lod}_{safe_view}.png'; scene.render.filepath = str(output)
+    output = WORK/'review'/f'{key}_lod{lod}_{safe_view}{suffix}.png'; scene.render.filepath = str(output)
     bpy.ops.render.render(write_still=True)
     records.append({'view':view,'image':str(output.relative_to(WORK)),'sha256':digest(output),'clip':clip,'seconds':seconds})
 if digest(model) != original_hash: raise RuntimeError('Export changed during review')
-(WORK/'review'/f'{key}_lod{lod}_{"motion_sheet" if sheet else "review"}.json').write_text(json.dumps({'modelSha256':original_hash,'bounds':{'min':list(low),'max':list(high)},'images':records,'status':'pending'},indent=2))
+(WORK/'review'/f'{key}_lod{lod}_{"motion_sheet" if sheet else "review"}{suffix}.json').write_text(json.dumps({'modelSha256':original_hash,'bounds':{'min':list(low),'max':list(high)},'images':records,'status':'pending'},indent=2))

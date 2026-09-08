@@ -1,0 +1,81 @@
+{
+  "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
+  "sha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
+  "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "surveyed_irregular_basalt_cleavage_masses.lod1",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 2356
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -2.6272027492523193,
+        -2.0053648948669434,
+        -0.2380342185497284
+      ],
+      "maximum": [
+        2.245584011077881,
+        2.0547616481781006,
+        2.6364336013793945
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_cinderfen_basalt_outcrop_lod1_neutral.png",
+      "sha256": "86240a481f72f1e8e3cf472d4e186c8070f14a4e23166e904ede32351f7bacdc",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          3.7074198722839355,
+          -7.771759986877441,
+          3.050858497619629
+        ],
+        "target_z_up": [
+          -0.19080936908721924,
+          0.024698376655578613,
+          1.1991996765136719
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_cinderfen_basalt_outcrop_lod1_gameplay.png",
+      "sha256": "fcff489c1966b08aa4f8147d4c784cfb8efdc0f44c77cf051757a57a30db69d8",
+      "camera": {
+        "distance_m": 22,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          0.7837479114532471,
+          -21.97530174255371,
+          2.287278652191162
+        ],
+        "target_z_up": [
+          -0.19080936908721924,
+          0.024698376655578613,
+          1.1991996765136719
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

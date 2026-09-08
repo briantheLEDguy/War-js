@@ -21,6 +21,7 @@ for (const prop of zone.props) {
 }
 await fs.writeFile('authoring/blender/cinderfen-terrain/review/zone-preview.json', JSON.stringify({
   zoneId: zone.id, status: 'staged', assets, props,
+  ground: { size: zone.size, segments: zone.segments, controls: zone.orvrLayout.terrain },
   terrain: await read('authoring/blender/cinderfen-terrain/build-report.json'),
 }, null, 2) + '\n');
 console.log(`Prepared staged composition: ${props.length} props and sixteen terrain sectors.`);

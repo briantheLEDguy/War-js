@@ -1,0 +1,88 @@
+{
+  "model": "frontier_cinderfen_marsh_alder_lod2.glb",
+  "sha256": "7899f2a6aab397419ee192ffb71563899010dea9397abfefd074e67fbfa98701",
+  "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "root_flare_bole_and_authored_forks.joined_lod2",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 3656
+      },
+      {
+        "mesh": "rounded_alternate_bronze_leaves.lod2",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 2016
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -2.913007974624634,
+        -2.332132577896118,
+        -0.4388543963432312
+      ],
+      "maximum": [
+        3.020490884780884,
+        3.0865793228149414,
+        10.351706504821777
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_cinderfen_marsh_alder_lod2_neutral.png",
+      "sha256": "8ad7cb91be6d1a32028124dcba18bbe52808431dbe855db7377d64ff07b3c380",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          8.686189651489258,
+          -16.887672424316406,
+          9.056838989257812
+        ],
+        "target_z_up": [
+          0.053741455078125,
+          0.3772233724594116,
+          4.95642614364624
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_cinderfen_marsh_alder_lod2_gameplay.png",
+      "sha256": "1fc9723359428bb168644d8f05efeb297d63755f168f2e55a01275dd796bbbf9",
+      "camera": {
+        "distance_m": 100,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          2.211853504180908,
+          -99.6227798461914,
+          2.879055976867676
+        ],
+        "target_z_up": [
+          0.053741455078125,
+          0.3772233724594116,
+          4.95642614364624
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

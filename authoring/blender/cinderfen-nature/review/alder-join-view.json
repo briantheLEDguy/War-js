@@ -1,0 +1,22 @@
+{
+  "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+  "modelSha256": "53a409a11d64ebf2ad32a737b887abfc23b26454f4078227a177942510e3832c",
+  "toolSha256": "85fb8f6ccac65dd6a3074a1aa1798652a724536bb635afe01bfd59274e5f2167",
+  "image": "frontier_cinderfen_marsh_alder_lod0_lower_joins.png",
+  "imageSha256": "7366c8c8566e664275ad51b582082a7cb998ab64ff605676e768d7a46f582bce",
+  "camera": {
+    "position_z_up": [
+      3.5,
+      -7.199999809265137,
+      3.4000000953674316
+    ],
+    "target_z_up": [
+      0.0,
+      0.0,
+      2.4200000762939453
+    ],
+    "projection": "ORTHO",
+    "frame_m": 5.5
+  },
+  "lighting": "Neutral white lights with unmodified exported PBR"
+}

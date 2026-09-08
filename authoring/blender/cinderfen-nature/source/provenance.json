@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "source": "source/nature.json",
+  "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
+  "geometry": "Original botanical paths, irregular section coordinates, thick blade outlines and cooling-fracture surveys expanded to inspectable mesh/UV records. No imported models or primitive constructors.",
+  "textures": "Eight new painted PBR fields. Retained utility sources contain no reused geometry or pixels.",
+  "tools": {
+    "tools/audit_alder_joins.py": "4c620d103ccc24a16f3ec3ee733e6a46123620a8ab0c8483e0be9797d3c94b74",
+    "tools/author_nature.py": "f83909f38f2fec339e76119b240072c576808c1c31800dd19a3af5d6df7d662d",
+    "tools/build_nature.py": "39e9b5c22cbd975b49e8e1fb91e288ccc7c87eb390bd92cadb32553180db8ed3",
+    "tools/contact_sheet.py": "47950ec27893c97b12e18d02a09c79f20fc8e63283899aba9528d03d81bed19a",
+    "tools/paint_nature.py": "3624c77097612a96f5489eaa7ab4e5f4cbf1b8bef9d7b283fdb243d616a6cb5c",
+    "tools/review_alder_joins.py": "85fb8f6ccac65dd6a3074a1aa1798652a724536bb635afe01bfd59274e5f2167",
+    "tools/review_nature.py": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
+    "tools/review_stale.py": "4dc262d080f41f904398056634db4acc98f3cb66428c8621f1289bfb9ba015fe",
+    "tools/share_textures.py": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+    "tools/test_blueprints.mjs": "436e6fe3cb167c60fd92451033f6bfe0030946b0a206aeee7b7d8a41ee9018c5",
+    "tools/test_published.mjs": "db5213f5099eb2a84f5ce34d9e0ab357d94ea585449d863e6c7a6ba55aff41a6",
+    "tools/test_source.py": "f24df1d84335d4c723e86300292f2a36efe5a6194c5043a2e6c88fe301427191",
+    "tools/validate_nature.mjs": "e789672d532e62ca1a727d9fc96062edecf14367ca17ca7bda2c15e65ba0afe3",
+    "tools/write_provenance.py": "a18bc5bb0b46b27526ee4e4ed00607bcae9c39cb66aa67c58383ce9fc82cc2a5"
+  },
+  "retainedUtilityReferences": {
+    "source/references/build_architecture.py": "fe07150f7ca7527e749d9d71134cda9ba2a67d61bc53ad6e829a1ca056dddcf1",
+    "source/references/review_exports.py": "fd4d766415c6ee0e69b2d4afb626467cd6af3d4324d8ce627934d37cd4a34220",
+    "source/references/share_textures.py": "2b463f1cc773cf1120ee7c130f85f06dd6ad15916dbc7b72cd36aa0feea6686c",
+    "source/references/validate_architecture.mjs": "550a0dd1afcc41cc2c08d96a3e1c47431a25a113f40969d930aba94cf7dccba0"
+  },
+  "referenceReading": [
+    {
+      "title": "RHS: Alnus glutinosa",
+      "url": "https://www.rhs.org.uk/plants/897/alnus-glutinosa/details",
+      "use": "Rounded alder leaves and damp-ground habit; Cinderfen steam damage and autumn pigment are original art direction."
+    },
+    {
+      "title": "RHS: Phragmites australis",
+      "url": "https://www.rhs.org.uk/plants/54026/phragmites-australis/details",
+      "use": "Erect culms, drooping linear leaves, terminal branched panicles and autumn browning."
+    },
+    {
+      "title": "RHS: Equisetum palustre",
+      "url": "https://www.rhs.org.uk/plants/131504/equisetum-palustre/details",
+      "use": "Small jointed stems with upward slender branches in whorls."
+    },
+    {
+      "title": "USGS: columnar jointing and cooling history",
+      "url": "https://www.usgs.gov/observatories/hvo/news/volcano-watch-columnar-jointing-provides-clues-cooling-history-lava-flows",
+      "use": "Irregular rapid-cooling fractures; no regular column assembly or image copying."
+    }
+  ],
+  "retainedExporterSources": {
+    "review/tool_sources/build_nature_6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb.py": "6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb"
+  }
+}

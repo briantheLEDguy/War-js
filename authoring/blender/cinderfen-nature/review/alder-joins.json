@@ -1,0 +1,574 @@
+{
+  "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
+  "toolSha256": "4c620d103ccc24a16f3ec3ee733e6a46123620a8ab0c8483e0be9797d3c94b74",
+  "method": "Actual GLB reimport; positional weld, single connected closed primary bark shell, odd ray intersections and nearest-surface depth at all primary sockets. Primary terminals must reach the same component. Exact union retains original bark UV fields.",
+  "models": [
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+      "sha256": "53a409a11d64ebf2ad32a737b887abfc23b26454f4078227a177942510e3832c",
+      "sockets": [
+        {
+          "name": "root_0",
+          "position_z_up": [
+            0.0,
+            0.0,
+            0.3799999952316284
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.4937831163406372,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.2377833513710357e-07
+        },
+        {
+          "name": "root_1",
+          "position_z_up": [
+            0.10000000149011612,
+            0.0,
+            0.3199999928474426
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.5280516147613525,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.4901161193847656e-08
+        },
+        {
+          "name": "root_2",
+          "position_z_up": [
+            0.0,
+            0.05000000074505806,
+            0.3799999952316284
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.45579373836517334,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.1920928955078125e-07
+        },
+        {
+          "name": "root_3",
+          "position_z_up": [
+            0.05999999865889549,
+            -0.019999999552965164,
+            0.3199999928474426
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.553443193435669,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 6.143906006172983e-08
+        },
+        {
+          "name": "root_4",
+          "position_z_up": [
+            0.0,
+            0.0,
+            0.2800000011920929
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.5119435787200928,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.2287812012345967e-07
+        },
+        {
+          "name": "limb_0",
+          "position_z_up": [
+            0.15000000596046448,
+            0.10000000149011612,
+            2.9000000953674316
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.2861577868461609,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_1",
+          "position_z_up": [
+            0.23999999463558197,
+            0.09000000357627869,
+            3.7699999809265137
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.22884471714496613,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_2",
+          "position_z_up": [
+            0.1599999964237213,
+            0.11999999731779099,
+            4.420000076293945
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.22918617725372314,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_3",
+          "position_z_up": [
+            0.10000000149011612,
+            0.1599999964237213,
+            5.03000020980835
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.21659302711486816,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 5.960464477539063e-08
+        },
+        {
+          "name": "limb_4",
+          "position_z_up": [
+            0.2199999988079071,
+            0.11999999731779099,
+            5.679999828338623
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.15859951078891754,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.1920928955078125e-07
+        },
+        {
+          "name": "limb_5",
+          "position_z_up": [
+            0.28999999165534973,
+            0.12999999523162842,
+            6.309999942779541
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.16248853504657745,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 2.384185791015625e-07
+        },
+        {
+          "name": "limb_6",
+          "position_z_up": [
+            0.38999998569488525,
+            0.23999999463558197,
+            6.960000038146973
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.11412130296230316,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 5.960464477539063e-08
+        },
+        {
+          "name": "limb_7",
+          "position_z_up": [
+            0.4300000071525574,
+            0.3400000035762787,
+            7.739999771118164
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.09272536635398865,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 2.9802322387695312e-08
+        },
+        {
+          "name": "limb_8",
+          "position_z_up": [
+            0.2199999988079071,
+            0.4699999988079071,
+            8.449999809265137
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.05897523835301399,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.0745380052412656e-07
+        },
+        {
+          "name": "limb_9",
+          "position_z_up": [
+            0.15000000596046448,
+            0.12999999523162842,
+            2.0
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.3707979619503021,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        }
+      ],
+      "failed": [],
+      "bole_components": 1,
+      "closed_bark_components": 717
+    },
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod1.glb",
+      "sha256": "d1c6532f964352012891ffc6742018f52e20522c552d44f45e5070b83b03ad49",
+      "sockets": [
+        {
+          "name": "root_0",
+          "position_z_up": [
+            0.0,
+            0.0,
+            0.3799999952316284
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.499559223651886,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.2377833513710357e-07
+        },
+        {
+          "name": "root_1",
+          "position_z_up": [
+            0.10000000149011612,
+            0.0,
+            0.3199999928474426
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.5324637293815613,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.4901161193847656e-08
+        },
+        {
+          "name": "root_2",
+          "position_z_up": [
+            0.0,
+            0.05000000074505806,
+            0.3799999952316284
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.46321746706962585,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.1920928955078125e-07
+        },
+        {
+          "name": "root_3",
+          "position_z_up": [
+            0.05999999865889549,
+            -0.019999999552965164,
+            0.3199999928474426
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.5599352121353149,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 6.143906006172983e-08
+        },
+        {
+          "name": "root_4",
+          "position_z_up": [
+            0.0,
+            0.0,
+            0.2800000011920929
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.5119433999061584,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.2287812012345967e-07
+        },
+        {
+          "name": "limb_0",
+          "position_z_up": [
+            0.15000000596046448,
+            0.10000000149011612,
+            2.9000000953674316
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.28708648681640625,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_1",
+          "position_z_up": [
+            0.23999999463558197,
+            0.09000000357627869,
+            3.7699999809265137
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.22881440818309784,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_2",
+          "position_z_up": [
+            0.1599999964237213,
+            0.11999999731779099,
+            4.420000076293945
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.22916144132614136,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_3",
+          "position_z_up": [
+            0.10000000149011612,
+            0.1599999964237213,
+            5.03000020980835
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.21662195026874542,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 5.960464477539063e-08
+        },
+        {
+          "name": "limb_4",
+          "position_z_up": [
+            0.2199999988079071,
+            0.11999999731779099,
+            5.679999828338623
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.15465609729290009,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.1920928955078125e-07
+        },
+        {
+          "name": "limb_5",
+          "position_z_up": [
+            0.28999999165534973,
+            0.12999999523162842,
+            6.309999942779541
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.1647547334432602,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 2.384185791015625e-07
+        },
+        {
+          "name": "limb_6",
+          "position_z_up": [
+            0.38999998569488525,
+            0.23999999463558197,
+            6.960000038146973
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.11524863541126251,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 5.960464477539063e-08
+        },
+        {
+          "name": "limb_7",
+          "position_z_up": [
+            0.4300000071525574,
+            0.3400000035762787,
+            7.739999771118164
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.08866003900766373,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 2.9802322387695312e-08
+        },
+        {
+          "name": "limb_8",
+          "position_z_up": [
+            0.2199999988079071,
+            0.4699999988079071,
+            8.449999809265137
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.05676193907856941,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.0745380052412656e-07
+        },
+        {
+          "name": "limb_9",
+          "position_z_up": [
+            0.15000000596046448,
+            0.12999999523162842,
+            2.0
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.37569379806518555,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        }
+      ],
+      "failed": [],
+      "bole_components": 1,
+      "closed_bark_components": 465
+    },
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod2.glb",
+      "sha256": "7899f2a6aab397419ee192ffb71563899010dea9397abfefd074e67fbfa98701",
+      "sockets": [
+        {
+          "name": "root_0",
+          "position_z_up": [
+            0.0,
+            0.0,
+            0.3799999952316284
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.4012640118598938,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 3.0719530030864917e-08
+        },
+        {
+          "name": "root_1",
+          "position_z_up": [
+            0.10000000149011612,
+            0.0,
+            0.3199999928474426
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.4121709167957306,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.4901161193847656e-08
+        },
+        {
+          "name": "root_2",
+          "position_z_up": [
+            0.0,
+            0.05000000074505806,
+            0.3799999952316284
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.36058852076530457,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.2013700256829907e-07
+        },
+        {
+          "name": "root_3",
+          "position_z_up": [
+            0.05999999865889549,
+            -0.019999999552965164,
+            0.3199999928474426
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.42354294657707214,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 6.143906006172983e-08
+        },
+        {
+          "name": "root_4",
+          "position_z_up": [
+            0.0,
+            0.0,
+            0.2800000011920929
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.4139046370983124,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_0",
+          "position_z_up": [
+            0.15000000596046448,
+            0.10000000149011612,
+            2.9000000953674316
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.2221951186656952,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 2.384185791015625e-07
+        },
+        {
+          "name": "limb_1",
+          "position_z_up": [
+            0.23999999463558197,
+            0.09000000357627869,
+            3.7699999809265137
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.17779415845870972,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 4.915124804938387e-07
+        },
+        {
+          "name": "limb_2",
+          "position_z_up": [
+            0.1599999964237213,
+            0.11999999731779099,
+            4.420000076293945
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.17185470461845398,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_3",
+          "position_z_up": [
+            0.10000000149011612,
+            0.1599999964237213,
+            5.03000020980835
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.15258494019508362,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_4",
+          "position_z_up": [
+            0.2199999988079071,
+            0.11999999731779099,
+            5.679999828338623
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.11908730864524841,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_5",
+          "position_z_up": [
+            0.28999999165534973,
+            0.12999999523162842,
+            6.309999942779541
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.13520298898220062,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        },
+        {
+          "name": "limb_6",
+          "position_z_up": [
+            0.38999998569488525,
+            0.23999999463558197,
+            6.960000038146973
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.09487783908843994,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 1.3328003944934608e-07
+        },
+        {
+          "name": "limb_7",
+          "position_z_up": [
+            0.4300000071525574,
+            0.3400000035762787,
+            7.739999771118164
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.060480792075395584,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 2.9802322387695312e-08
+        },
+        {
+          "name": "limb_8",
+          "position_z_up": [
+            0.2199999988079071,
+            0.4699999988079071,
+            8.449999809265137
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.03581329807639122,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 5.066942776466021e-08
+        },
+        {
+          "name": "limb_9",
+          "position_z_up": [
+            0.15000000596046448,
+            0.12999999523162842,
+            2.0
+          ],
+          "inside_actual_bole": true,
+          "distance_to_bole_surface_m": 0.27998754382133484,
+          "forward_intersections": 1,
+          "terminal_distance_to_same_component_m": 0.0
+        }
+      ],
+      "failed": [],
+      "bole_components": 1,
+      "closed_bark_components": 128
+    }
+  ]
+}

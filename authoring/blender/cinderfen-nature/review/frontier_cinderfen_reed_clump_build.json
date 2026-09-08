@@ -1,9 +1,9 @@
 {
   "asset_id": "frontier_cinderfen_reed_clump",
   "displayName": "Cinderfen autumn reed colony",
-  "source_sha256": "403dcba2b92cbb83bab4e444a49794898bdfd070de770c0876829f03e8969595",
-  "builder_sha256": "8f60d3ed094dceb7429b795ed9df2e58c404724c63e7333175078db134ce0e0f",
-  "paint_records_sha256": "839d73f9fac534d902adf231d9ceb420e373a790f5baa1fee6bc95577ef07855",
+  "source_sha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
+  "builder_sha256": "6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb",
+  "paint_records_sha256": "363680b84a777f7d7431f8a0dfd13bc13967765a8243036bdd47f64eedb6e84c",
   "contract": {
     "kind": "foliage",
     "plantedDatum": 0,
@@ -16,7 +16,7 @@
     {
       "level": 0,
       "model": "frontier_cinderfen_reed_clump_lod0.glb",
-      "sha256": "bf1d23b5ab4411a439729b630d73682d372844d7ae6675583ab217341b67e7e5",
+      "sha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
       "bytes": 6307472,
       "triangles": 105672,
       "materials": 3,
@@ -34,9 +34,9 @@
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
-        "input_glb_sha256": "b67aaea2658be9852bc003d0a5a1996bc4595b5623978b657732473714837265",
-        "output_glb_sha256": "bf1d23b5ab4411a439729b630d73682d372844d7ae6675583ab217341b67e7e5",
+        "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+        "input_glb_sha256": "b57b2ec900e6f71bf485fcd8c44eddb36faf04fb72de1f0044600ac126d663fe",
+        "output_glb_sha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
         "embedded_bytes": 9039004,
         "externalized_bytes": 6307472
       },
@@ -55,9 +55,9 @@
     {
       "level": 1,
       "model": "frontier_cinderfen_reed_clump_lod1.glb",
-      "sha256": "ab350aee550f790392755d18dd882968b3e870c237b55f1e3c7a1e1054f514be",
-      "bytes": 1724088,
-      "triangles": 28520,
+      "sha256": "fbebc267facd98d0fb9ec9c7129ebb1d5199e93c57b63e5923c8f4c3a52c4d1e",
+      "bytes": 1380644,
+      "triangles": 20960,
       "materials": 3,
       "bounds_z_up": {
         "minimum": [
@@ -73,11 +73,11 @@
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
-        "input_glb_sha256": "463669ffc38783d99b51e0905653ad529250ec9a6839ac4cd2d3e69fceadf8eb",
-        "output_glb_sha256": "ab350aee550f790392755d18dd882968b3e870c237b55f1e3c7a1e1054f514be",
-        "embedded_bytes": 4455624,
-        "externalized_bytes": 1724088
+        "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+        "input_glb_sha256": "71029f56e27577416250a5d90ed0ca0f65991afc1f071f45dce3332cbc83f58e",
+        "output_glb_sha256": "fbebc267facd98d0fb9ec9c7129ebb1d5199e93c57b63e5923c8f4c3a52c4d1e",
+        "embedded_bytes": 4112180,
+        "externalized_bytes": 1380644
       },
       "external_textures": {
         "../textures/cinderfen_nature/90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72.png": "90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72",
@@ -94,29 +94,29 @@
     {
       "level": 2,
       "model": "frontier_cinderfen_reed_clump_lod2.glb",
-      "sha256": "77c7c45ae5e0e80bf5f2ee804f77d2504088668b104866d3dbb2b5cec391ec3e",
-      "bytes": 668424,
-      "triangles": 10788,
+      "sha256": "3a90e780c5f1ffd442281611a96bc116ea2b131f243e09635fa385724d046764",
+      "bytes": 475820,
+      "triangles": 5944,
       "materials": 3,
       "bounds_z_up": {
         "minimum": [
-          -2.099548578262329,
-          -1.622715950012207,
+          -2.099541187286377,
+          -1.6226885318756104,
           -0.14606580138206482
         ],
         "maximum": [
-          1.613500952720642,
-          1.7375340461730957,
+          1.6134334802627563,
+          1.7370214462280273,
           3.5930213928222656
         ]
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
-        "input_glb_sha256": "77e50b2dd1e20808d8ed559541c7e457d18c52cee91173b8af1600f718731090",
-        "output_glb_sha256": "77c7c45ae5e0e80bf5f2ee804f77d2504088668b104866d3dbb2b5cec391ec3e",
-        "embedded_bytes": 3399960,
-        "externalized_bytes": 668424
+        "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+        "input_glb_sha256": "411487b8b1b8e1db981b7992725dafc27c94246a0d7a1ebbee5d10f179cf3cfc",
+        "output_glb_sha256": "3a90e780c5f1ffd442281611a96bc116ea2b131f243e09635fa385724d046764",
+        "embedded_bytes": 3207356,
+        "externalized_bytes": 475820
       },
       "external_textures": {
         "../textures/cinderfen_nature/90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72.png": "90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72",
@@ -170,5 +170,5 @@
     "textures/source/seed_scales_orm.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
   },
   "master": "masters/frontier_cinderfen_reed_clump.blend",
-  "master_sha256": "9b9e66a4052dfa0f7ebf91f7c09106df2a0fd062b9981bf0468f21e40b630f1a"
+  "master_sha256": "a71165743403c831a322cb39edf838df793444bf2c53ee6f798de7c668ed48c6"
 }

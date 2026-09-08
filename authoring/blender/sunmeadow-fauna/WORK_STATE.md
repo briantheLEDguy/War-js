@@ -2,7 +2,29 @@
 
 All fauna remains draft. No fauna blueprint, approval record, or runtime publication exists. The accepted canopy-v2 package is frozen and is confirmed in the game/GM builder.
 
+## Coordination pause, 2026-09-08
+
+Root requested a repository mutation pause for the user-authorized cleanup merge. Do not start another build until root resumes this agent. Only the source-only `buck_corrective_probe.log` render was running at the pause request; it writes two diagnostic PNGs under `review/probes/`, not runtime GLBs. Keep all draft sources.
+
+The current buck GLBs/master are the `buck_outer_thigh_*` build. All three pass technical validation (run p99 at most1.764, max2.578, foot plant4.48 mm; Khronos zero errors/warnings), but root **explicitly rejected** the latest .125 pose: deep haunch pocket/horizontal ledge and a front elbow notch into the chest. Neither these models nor their technical pass grant visual acceptance. The subsequent front/LOD review batch was interrupted after that rejection; its partial receipts cannot approve the model.
+
+Next work is an authored pose-space corrective, not further numeric gate tuning. Draft `corrective_fields.py` projects only the lateral folded haunch to a smooth torso/muscle envelope in pelvis rest space. `probe_corrective.py` applies it to actual imported .125/.375 geometry for source-only inspection; the proof is not yet exported or integrated. Inspect its PNGs before implementing real Blender shape keys and baked glTF morph weights. The front chest/upper-forelimb correction still needs authoring. Head, ears, antlers, palette and torso source fields remain verified unchanged. No other species has a new accepted build.
+
+Current delivery improvements to retain: actual4K/2K/1K PBR atlases with renormalized normal reductions; actual embedded PNG dimension/hash/mip-memory checks;20 Python and6 Node tests passed. The normal-off diagnostic and actual attribute inspection ruled out an unrelated atlas island/white tint leak for the earlier pale triangle; that mark disappeared after the outer-thigh geometry correction.
+
 Current priority is one roe deer buck through anatomy, actual exported pose, and material review. Other species proofs are not release candidates and must be rebuilt after the buck workflow is sound.
+
+2026-09-08, resumed gait correction:
+
+- **Latest active batch supersedes the entries below:** `buck_outer_thigh_build.log` → `buck_outer_thigh_motion.log` → `buck_outer_thigh_joint_review.log`. The upper-thigh anatomical cage previously sat inside the torso. Its upper station X .115→.158, stifle .139→.165, and shin .154→.160 bring muscle volume to the outer flank; hip, hock and hoof track stay fixed. Original torso, head, eye, ears, antlers and palette fields are verified unchanged against the rejected baseline source. Haunch support now blends in only during forward flexion, following the femur during extension to avoid tethering a lengthened muscle.
+- **Active batch:** `buck_haunch_build.log` → `buck_haunch_motion.log` → `buck_haunch_joint_review.log`. Two authored haunch-support bones rotate55% between the pelvis-carried rest frame and femur, with a smooth thigh-to-haunch field. The resulting GLB must retain at most four influences and pass actual pose review. This follows an independent peer rejection of the remaining pocket; it is not approved.
+- The preceding low-recovery candidate planted within4.48 mm, but LOD1 p99 stretch was1.801 and the haunch still looked inserted into the flank. It therefore remained rejected. A normal-map-off actual import showed the small pale triangle still present; region attributes show no wrong-atlas island or white vertex-color leak. Continue checking that mark in the new deformation before any acceptance.
+- Actual texture resource reductions are4K/2K/1K, about128/32/8 MiB per LOD including RGBA8 mip chains. Twenty Python tests and six Node review/texture-evidence tests passed. Narrow source diff check passed; whole-package Git LFS diff attempted a blocked `.git/lfs/tmp` write, so it was not used.
+- Current delivery candidate uses run crouch35 mm, recovery60 mm (54 mm after scale), and a0.16 lateral stifle-pole ratio. The larger0.45 ratio improved clearance but failed the unchanged1.8 p99 skin gate (1.90), so it was rejected. Source diagnostics at0.18/60 mm measured1.786 p99; actual delivered sampling remains the acceptance gate.
+- `buck_delivery_build.log` → `buck_delivery_motion.log` → `buck_delivery_joint_review.log` is the current active batch. It also builds genuine texture LODs:4K/2K/1K widths. `texture_lods.py` retains source pixels and renormalizes reduced tangent normals; `texture_evidence.mjs` independently reads actual embedded PNG dimensions/memory. No fauna is published.
+- The previous bounded range export still failed actual run foot planting (10.84 mm against the unchanged 6 mm limit) and retained a deep medial thigh/flank crease. It remains rejected; no approval was inferred from the improved fore elbow.
+- Source-pose comparisons under `review/probes/` tested a modest lateral stifle track while leaving the hoof trajectory unchanged. They are explicitly diagnostic and cannot satisfy publication receipts. A 0.45 pole ratio visibly reduces the crease; front and full-cycle exported views still need review.
+- Current candidate restores run crouch to35 mm before scale and uses that lateral knee track only during run/hop. Head, skin cages and material source remain unchanged. A full build is required because the authored gait controls changed; all old review receipts are stale.
 
 2026-09-08, active correction after visual rejection:
 

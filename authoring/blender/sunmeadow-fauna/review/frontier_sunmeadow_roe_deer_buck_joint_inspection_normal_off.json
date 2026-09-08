@@ -1,0 +1,12 @@
+{
+  "renders": [
+    {
+      "state": "run@0.125",
+      "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p125_normal_off.png",
+      "image_sha256": "91c98ede02224adda310b14677e8ccbff88cfb4383eae1915953bac68fe65d63",
+      "model_sha256": "a1a3977fd8b2a84067fd95db90a2ce67a5118149d2a9811c0cb5216e7ae3da57",
+      "build_sha256": "e91f32d37da7582b0587bc3dc6796e9100ac01dad0ab7416b2b6fc26c66e7959",
+      "status": "diagnostic_not_approval"
+    }
+  ]
+}

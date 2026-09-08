@@ -1,0 +1,99 @@
+{
+  "uri": "frontier_cinderfen_basalt_outcrop_lod2.glb",
+  "mimeType": "model/gltf-binary",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "validatedAt": "2026-09-08T20:27:24.751Z",
+  "issues": {
+    "numErrors": 0,
+    "numWarnings": 0,
+    "numInfos": 3,
+    "numHints": 0,
+    "messages": [
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/0/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/1/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/2/uri"
+      }
+    ],
+    "truncated": false
+  },
+  "info": {
+    "version": "2.0",
+    "generator": "Khronos glTF Blender I/O v5.0.21",
+    "resources": [
+      {
+        "pointer": "/buffers/0",
+        "mimeType": "application/gltf-buffer",
+        "storage": "glb",
+        "byteLength": 14448
+      },
+      {
+        "pointer": "/images/0",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/1",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/2",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      }
+    ],
+    "animationCount": 0,
+    "materialCount": 1,
+    "hasMorphTargets": false,
+    "hasSkins": false,
+    "hasTextures": true,
+    "hasDefaultScene": true,
+    "drawCallCount": 1,
+    "totalVertexCount": 275,
+    "totalTriangleCount": 208,
+    "maxUVs": 1,
+    "maxInfluences": 0,
+    "maxAttributes": 4
+  }
+}

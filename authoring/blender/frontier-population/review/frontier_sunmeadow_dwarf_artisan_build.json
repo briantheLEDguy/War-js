@@ -2,34 +2,35 @@
   "key": "frontier_sunmeadow_dwarf_artisan",
   "status": "draft",
   "sourceFoundationSha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
-  "masterSha256": "1591da48350631e28f6d3d0708b90b8c29c65d3e29d32b44c1ae2478c505d258",
-  "generatorSha256": "e21b9b0f56286ccd87ed9b2aa5b6d9385679ccdc98fa7aef16dad77afc2f944b",
+  "masterSha256": "0ddfee0c1613f1448087a058ac2081d2d6052973ac4c5af4ff1fc78036b40609",
+  "generatorSha256": "9d4f0b2b595178d20e46f4456e514bccde016117ca754103d7718fcf416b11b6",
   "sourceTools": {
     "tools\\artisan_equipment.py": "f15bedeadf318a991320f001beefce84b1ace7b632eaac9579ac07c695a87ac7",
     "tools\\authored_artisan_head.py": "9e325d76f0264927decaaf1a6fde0346e5abe3d656a110dad9140a0600eebc52",
-    "tools\\build_inhabitants.py": "e21b9b0f56286ccd87ed9b2aa5b6d9385679ccdc98fa7aef16dad77afc2f944b",
+    "tools\\build_inhabitants.py": "9d4f0b2b595178d20e46f4456e514bccde016117ca754103d7718fcf416b11b6",
     "tools\\export_tangents.py": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
     "tools\\fitted_groom.py": "b55395bccb2dd8f4091ce931900c450868ac1c3931afb796cf8db97c951c4c7f",
     "tools\\inspect_arm_volume.py": "f11c0fe5a53c501f11395794e3c9818602755a7a01e025cdd7eac11cf74331f9",
     "tools\\inspect_deformation.py": "9f7f30cc7b4ac82afeebc396a7cfe7f145cb3eaf86ca87f1309cc682c5d99e71",
-    "tools\\inspect_export_motion.py": "a3193647d10844510dfc00d8f6e58b5f668c57f6ca3752680151f4d95ab8c22a",
+    "tools\\inspect_export_motion.py": "109d462dae72b8545f7860bd6a99c33310c391d6b0492de0a5b7f45d06cddb2c",
     "tools\\inspect_foundation.py": "1cdd45f31b12055d7a897ae1f14ba035b7f74ac4e2b8cda94eab16a75966f84a",
     "tools\\make_motion_sheets.py": "89f9519b273fdf6ca56a5353a5c4a67b75db06d032567e032221ee5d79d9a40e",
     "tools\\retain_quad_surface.py": "8bc601766db41582f6fbd998f0da2464115ddfa009c2fab8a4cd1436cff48023",
     "tools\\review_inhabitants.py": "958cc87024901e1692559cf5a2c519ffbbc96a7bfa4c3b1d688a72ce2cfa14de",
-    "tools\\surface_garments.py": "5449be0928105e0b8736d3acd5f13ecc2f1ea480a32dba5444076afc6a7f3103",
+    "tools\\surface_garments.py": "4e5d35af7fd09e33802e5fbf2e2f1448b1d72039e528a3602f13a75a067e49a6",
     "tools\\tailored_clothing.py": "cc5ff808174cfb31267e6602f186643e1ff83379ebf7be544dec45a704049e14",
-    "tools\\tailored_locomotion.py": "2db74f9eb72eef19b7b9de7aa9658f27b2b9966c9c66d65d12e6246d034f766c"
+    "tools\\tailored_locomotion.py": "609d5fe6f7077f89f4b03a2ce11a35b276714e2b23785098407a0faf8185e0b8",
+    "tools\\test_inhabitant_exports.py": "b0786d136e892bc1ad45b89f097bb4a3192d8edf7d3229db6ea5e4a3c396b455"
   },
   "lods": [
     {
       "level": 0,
       "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
-      "sha256": "b326d793d36adcdcab8415c8c5028d86098e0cb12a191a6ad35bf74e3c90ca80",
-      "bytes": 18023932,
+      "sha256": "a6557148f56400f53e33c76f173e4c5e94551b1623610acc6c737120018efc98",
+      "bytes": 18027788,
       "tangentRepair": {
-        "inputSha256": "b326d793d36adcdcab8415c8c5028d86098e0cb12a191a6ad35bf74e3c90ca80",
-        "outputSha256": "b326d793d36adcdcab8415c8c5028d86098e0cb12a191a6ad35bf74e3c90ca80",
+        "inputSha256": "a6557148f56400f53e33c76f173e4c5e94551b1623610acc6c737120018efc98",
+        "outputSha256": "a6557148f56400f53e33c76f173e4c5e94551b1623610acc6c737120018efc98",
         "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
         "changes": []
       },
@@ -49,11 +50,11 @@
     {
       "level": 1,
       "model": "frontier_sunmeadow_dwarf_artisan_lod1.glb",
-      "sha256": "ba4a156285fab3d63e958da3fcdfc568060d65a33b43f200d8fc862fee2f786e",
-      "bytes": 15803948,
+      "sha256": "7515d40c27c82456c4d2cb1b660b444f32410fa0ab86530738f05327a855c217",
+      "bytes": 15807804,
       "tangentRepair": {
-        "inputSha256": "ba4a156285fab3d63e958da3fcdfc568060d65a33b43f200d8fc862fee2f786e",
-        "outputSha256": "ba4a156285fab3d63e958da3fcdfc568060d65a33b43f200d8fc862fee2f786e",
+        "inputSha256": "7515d40c27c82456c4d2cb1b660b444f32410fa0ab86530738f05327a855c217",
+        "outputSha256": "7515d40c27c82456c4d2cb1b660b444f32410fa0ab86530738f05327a855c217",
         "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
         "changes": []
       },
@@ -73,11 +74,11 @@
     {
       "level": 2,
       "model": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
-      "sha256": "7053398a4dea69d77469bdd450961b5c74870594122ca308a272616874119a91",
-      "bytes": 14041500,
+      "sha256": "4d4d44f7f7acace307a2bc76612c1294a12143ec911f6790edea8592f24bdd8d",
+      "bytes": 14045152,
       "tangentRepair": {
-        "inputSha256": "78bb24cdc72b96851d218972212cb4d00939545b98b9dd7d3e49748decc5b1bb",
-        "outputSha256": "7053398a4dea69d77469bdd450961b5c74870594122ca308a272616874119a91",
+        "inputSha256": "9899df543696dc0544126492694b349986ff0e45d1719d11c3f72ae3a5155608",
+        "outputSha256": "4d4d44f7f7acace307a2bc76612c1294a12143ec911f6790edea8592f24bdd8d",
         "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
         "changes": [
           {

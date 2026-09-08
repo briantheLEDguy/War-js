@@ -18,15 +18,15 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 7430692
+        "byteLength": 3060116
       },
       {
         "pointer": "/images/0",
         "mimeType": "image/png",
         "storage": "buffer-view",
         "image": {
-          "width": 4096,
-          "height": 2048,
+          "width": 2048,
+          "height": 1024,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -38,8 +38,8 @@
         "mimeType": "image/png",
         "storage": "buffer-view",
         "image": {
-          "width": 4096,
-          "height": 2048,
+          "width": 2048,
+          "height": 1024,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -51,8 +51,8 @@
         "mimeType": "image/png",
         "storage": "buffer-view",
         "image": {
-          "width": 4096,
-          "height": 2048,
+          "width": 2048,
+          "height": 1024,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -67,11 +67,11 @@
     "hasTextures": true,
     "hasDefaultScene": true,
     "drawCallCount": 1,
-    "totalVertexCount": 13410,
-    "totalTriangleCount": 21678,
+    "totalVertexCount": 13424,
+    "totalTriangleCount": 21676,
     "maxUVs": 1,
     "maxInfluences": 4,
     "maxAttributes": 7
   },
-  "modelSha256": "056ec241ddb571fbe1d70e1e91f24a915e186cbc03ca9bd8aea27604140f87b2"
+  "modelSha256": "a37db8e5af2536f5bf29c7052c7ed9f1ea4fd02dff4bf517e761956cf928b298"
 }

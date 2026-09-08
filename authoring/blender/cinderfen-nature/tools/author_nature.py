@@ -54,6 +54,10 @@ def catmull(points,steps):
             t=j/steps;out.append(tuple(.5*((2*b[k])+(-a[k]+c[k])*t+(2*a[k]-5*b[k]+4*c[k]-d[k])*t*t+(-a[k]+3*b[k]-3*c[k]+d[k])*t*t*t) for k in range(4)))
     out.append(tuple(points[-1]));return out
 
+def path_at(control,lod,t):
+    points=catmull(control,[3,2,1][lod]);position=t*(len(points)-1);index=min(len(points)-2,int(position))
+    return mix(points[index][:3],points[index+1][:3],position-index)
+
 def sweep(mesh,control,lod,section=SECTION,uv_phase=0,flatten=1):
     """Follow original knots with parallel local frames and retained bark UVs."""
     path=catmull(control,[3,2,1][lod]);section=section if lod<2 else [section[i] for i in (0,2,4,6)] if len(section)==8 else [section[i] for i in (0,2,3,5)]
@@ -137,13 +141,13 @@ def tree(lod):
                 for organ in range(7):
                     if lod==1 and organ not in (0,2,4,6):continue
                     if lod==2 and organ!=4:continue
-                    t=(organ+1)/8;petiole=mix(origin,end,t);flip=1 if organ%2 else -1
+                    t=(organ+1)/8;petiole=path_at(small,min(2,lod+1),t);flip=1 if organ%2 else -1
                     phase=branch*13+j*7+twig*5+organ
                     d=unit(add(mul(side,flip*(.54+.29*math.sin(phase*1.37))),add(mul(radial,.34+.24*math.cos(phase*1.11)),(.12*math.sin(phase),.09*math.cos(phase),.24*math.sin(phase*.81)))))
                     tilt=(math.sin(phase*1.81)*.91,math.cos(phase*1.17)*.83,.42+.46*math.sin(phase*.39))
                     size=.18+((branch*7+j*5+twig*3+organ)%7)*.017
-                    attach=add(petiole,mul(d,.035));blade(leaves,attach,d,tilt,size,size*.83,lod,phase=branch+j+organ,curl=.08+.03*(organ%3))
-                    if lod==0:sweep(bark,[(*petiole,.0019),(*attach,.0012)],2,uv_phase=.7)
+                    attach=add(petiole,mul(d,.035)) if lod<2 else petiole;blade(leaves,attach,d,tilt,size,size*.83,lod,phase=branch+j+organ,curl=.08+.03*(organ%3))
+                    if lod<2:sweep(bark,[(*petiole,.0019),(*attach,.0012)],2,uv_phase=.7)
                 if lod<2 and (branch+j+twig)%3==0:
                     pos=add(end,(0,0,-.065));sweep(cones,[(*add(pos,(0,0,-.026)),.008),(*pos,.025),(*add(pos,(0,0,.035)),.028),(*add(pos,(0,0,.071)),.009)],lod,uv_phase=.2*j)
     # Bark scars sit on the broken low branch and hollowed upper stub; no cone
@@ -306,7 +310,7 @@ ASSETS={
  'frontier_cinderfen_marsh_alder':{'name':'Cinderfen steam-scarred marsh alder','builder':tree,'contract':{'kind':'tree','plantedDatum':0,'crownClearanceM':7.0,'colliders':[{'x':.10,'z':-.10,'width':1.06,'depth':1.06,'minY':0,'maxY':4.1}],'walkableSurfaces':[],'cameraSolid':True}},
  'frontier_cinderfen_reed_clump':{'name':'Cinderfen autumn reed colony','builder':reeds,'contract':{'kind':'foliage','plantedDatum':0,'colliders':[],'walkableSurfaces':[],'cameraSolid':False}},
  'frontier_cinderfen_sedge_horsetail':{'name':'Cinderfen rust sedge and marsh horsetail','builder':groundcover,'contract':{'kind':'foliage','plantedDatum':0,'colliders':[],'walkableSurfaces':[],'cameraSolid':False}},
- 'frontier_cinderfen_basalt_outcrop':{'name':'Cinderfen fractured basalt outcrop','builder':rock,'contract':{'kind':'rock','plantedDatum':0,'colliders':[{'x':-1.42,'z':.13,'width':1.70,'depth':1.85,'minY':0,'maxY':2.42},{'x':.81,'z':-.02,'width':2.14,'depth':2.04,'minY':0,'maxY':1.75},{'x':-.39,'z':-1.34,'width':1.42,'depth':1.0,'minY':0,'maxY':1.18}],'walkableSurfaces':[],'cameraSolid':True}},
+ 'frontier_cinderfen_basalt_outcrop':{'name':'Cinderfen fractured basalt outcrop','builder':rock,'contract':{'kind':'rock','plantedDatum':0,'colliders':[{'x':-1.42,'z':.13,'width':1.70,'depth':1.85,'minY':0,'maxY':2.42},{'x':.81,'z':-.02,'width':2.14,'depth':2.04,'minY':0,'maxY':1.75},{'x':-.39,'z':-1.34,'width':1.42,'depth':1.0,'minY':0,'maxY':1.18},{'x':-.10,'z':1.47,'width':1.30,'depth':.50,'minY':0,'maxY':.48}],'walkableSurfaces':[],'cameraSolid':True}},
 }
 def main():
     source={'schemaVersion':1,'units':'metres','authoringUpAxis':'+Z','runtimeUpAxis':'+Y','frontAxis':'+Z','method':'original explicit botanical paths, section contours, thick blade topology and cooling-fracture surveys','materials':MATERIALS,'design':{'alderTrunk':TRUNK,'alderLimbs':LIMBS,'rootPaths':ROOT_PATHS,'alderSection':SECTION,'culmSection':CULM_SECTION,'bladeOutlines':{'alder':ALDER_BLADE,'reed':REED_BLADE,'sedge':SEDGE_BLADE},'reedBases':REED_BASES,'sedgeTufts':TUFTS,'rockCages':ROCK_CAGES},'assets':{}}

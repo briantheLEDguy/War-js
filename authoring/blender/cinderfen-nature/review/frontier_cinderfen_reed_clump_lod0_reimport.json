@@ -1,7 +1,7 @@
 {
   "model": "frontier_cinderfen_reed_clump_lod0.glb",
-  "sha256": "bf1d23b5ab4411a439729b630d73682d372844d7ae6675583ab217341b67e7e5",
-  "reviewer_sha256": "ee78882ac19021103ae05b823393ec4f648465fe0f04d91d4fba531e5fd0ab55",
+  "sha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
+  "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
   "audit": {
     "meshes": [
       {
@@ -45,7 +45,7 @@
   "views": {
     "neutral": {
       "image": "frontier_cinderfen_reed_clump_lod0_neutral.png",
-      "sha256": "191c1b6a04a0a53d9d90fdcaaa6b0c101aa0bfe9fad09fce340db4abe9600131",
+      "sha256": "c5da02dbbc65637202e4390aec942ae97730e57693b917bb4408867be40a5486",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",
@@ -69,7 +69,7 @@
     },
     "gameplay": {
       "image": "frontier_cinderfen_reed_clump_lod0_gameplay.png",
-      "sha256": "637a638b86fb23dba720106a94ce9088aa934573a811c4a3f8d271e6c003fd14",
+      "sha256": "4885e7598b7c70ec63839607c306f475ca7e1756733f21a0e78402b37ee0b365",
       "camera": {
         "distance_m": 8,
         "projection": "PERSP",
@@ -93,7 +93,7 @@
     },
     "detail": {
       "image": "frontier_cinderfen_reed_clump_lod0_detail.png",
-      "sha256": "80a4b3144bfaf9b4e04c4859e13e42579a9cedd6c4a5615fd1a6923e709ce3a5",
+      "sha256": "312e077d9602d1e5f249910d6afacc629d691ee850f8555aa53581c0a474609e",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",

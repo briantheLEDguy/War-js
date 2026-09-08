@@ -1,5 +1,24 @@
 # World build continuation state
 
+## Paused by user — 2026-09-08 (latest instruction)
+
+The user explicitly paused this world work until they say continue. All three
+asset agents are paused, and the hourly continuation automation is PAUSED. Do not
+resume the world build automatically after the separately authorized cleanup merge.
+The user subsequently authorized committing the saved work and merging it into
+local main. This includes Cinderfen dressing and all saved draft authoring packages;
+committing them does not approve or publish those assets. The cleanup merge
+through `0582a07` and capital optimizations through `cb2da07` must both be retained.
+Dressing passed 66 focused tests and all 33 maps validated before this checkpoint.
+
+Nature: basalt/reeds/sedge have bounded visual acceptance. Alder continuous-bark
+bakes are saved but not packed or visually rechecked; do not publish. Fauna: deer
+remains visually rejected, including the first corrective envelope proof. Population:
+the current Blender build (PID7816) was terminated to honor this pause. Existing
+staged/partial outputs are drafts; rerun a full atomic build and audits before any
+review. Run arm swing and the apron waist fold remain open visual issues. No zone
+is art-complete. Root Vite was stopped; restart it when work is authorized again.
+
 ## Active continuation — 2026-09-08
 
 The user merged checkpoint `5eb9ed1` into main and explicitly resumed work.

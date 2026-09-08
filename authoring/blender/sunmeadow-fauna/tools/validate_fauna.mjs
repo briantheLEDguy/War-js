@@ -4,6 +4,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import validator from 'gltf-validator';
+import { embeddedPngEvidence } from './texture_evidence.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -34,13 +35,14 @@ for (const kind of selected) {
     if (build[key] !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed source/master: ${file}`);
   }
   const sourceFiles = ['source/anatomy.json', ...['build_fauna.py', 'quadruped_rig.py', 'motion.py', 'bird_geometry.py',
-    'stitched_skin.py', 'atlas_checks.py', 'surface_detail.py', 'texture_detail.py', 'gait_curves.py'].map(name => `tools/${name}`)];
+    'stitched_skin.py', 'atlas_checks.py', 'surface_detail.py', 'texture_detail.py', 'texture_lods.py', 'gait_curves.py'].map(name => `tools/${name}`)];
   for (const file of sourceFiles) if (build.source_files?.[file] !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed or unsigned build dependency: ${file}`);
   for (const [file, digest] of Object.entries(build.source_files ?? {})) if (digest !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed recorded source: ${file}`);
   for (const channel of ['basecolor', 'normal', 'orm']) {
     const file = `textures/${kind}_${channel}.png`;
     if (build.texture_sources?.[file] !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed or unsigned texture source: ${file}`);
   }
+  for (const [file, digest] of Object.entries(build.texture_sources ?? {})) if (digest !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed recorded texture: ${file}`);
   if (!build.cage || build.cage_sha256 !== sha(await fs.readFile(path.join(root, build.cage)))) fail('Changed or unsigned editable cage');
   if (build.lods.length !== 3) fail('Exactly three authored LODs required');
   const budgets = kind === 'skylark' ? [22000, 12000, 5000] : kind === 'brown_hare' ? [35000, 18000, 7000] : [65000, 30000, 11000];
@@ -56,6 +58,13 @@ for (const kind of selected) {
     await fs.writeFile(path.join(root, 'review', `${lod.model}.validation.json`), JSON.stringify(result, null, 2) + '\n');
     if (result.issues.numErrors || result.issues.numWarnings) fail(`${lod.model}: Khronos ${result.issues.numErrors} errors/${result.issues.numWarnings} warnings`);
     if (doc.images.some(image => image.uri)) fail(`${lod.model}: unsigned external images`);
+    let textureEvidence = [];
+    try {
+      textureEvidence = embeddedPngEvidence(doc, binary);
+      const width = 4096 >> lod.level, height = 2048 >> lod.level;
+      if (textureEvidence.length !== 3 || textureEvidence.some(image => image.width !== width || image.height !== height)) fail(`${lod.model}: actual atlas sizes do not match the descending LOD contract`);
+      if (textureEvidence.reduce((sum, image) => sum + image.rgba8MipBytes, 0) !== lod.estimated_rgba8_mipped_bytes) fail(`${lod.model}: inaccurate decoded texture memory evidence`);
+    } catch (error) { fail(`${lod.model}: ${error.message}`); }
     if (doc.materials.length > 2) fail(`${lod.model}: excessive material count`);
     for (const material of doc.materials) {
       const pbr = material.pbrMetallicRoughness;
@@ -116,7 +125,7 @@ for (const kind of selected) {
           || clip.locomotion.maximum_plant_error_m > .006)) fail(`${lod.model}: ${clip.name} exported foot plant deviates over 6 mm from authored ground trajectory`);
       }
     } catch { fail(`${lod.model}: actual reimport motion inspection required`); }
-    lods.push({ ...lod, triangles, maximumWeightError, degenerateTriangles: degenerate,
+    lods.push({ ...lod, triangles, maximumWeightError, degenerateTriangles: degenerate, actualEmbeddedTextures: textureEvidence,
       validationErrors: result.issues.numErrors, validationWarnings: result.issues.numWarnings });
   }
   if (lods.length === 3 && !(lods[0].triangles > lods[1].triangles && lods[1].triangles > lods[2].triangles)) fail('LOD triangle counts must decrease');

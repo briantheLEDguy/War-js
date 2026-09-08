@@ -14833,78 +14833,66 @@
     },
     {
       "id": "cinderfen_outskirts_life_camp_deliveries_1",
-      "kind": "life_handcart",
+      "kind": "aegis_handcart",
       "x": 403,
       "z": -233,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 1.0175438936984378,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_camp_deliveries_1_solid_1",
           "x": 0,
-          "z": 0,
-          "width": 1.7,
-          "depth": 1.75,
-          "minY": -0.05,
-          "maxY": 1.4
-        },
-        {
-          "id": "cinderfen_outskirts_life_camp_deliveries_1_solid_2",
-          "x": -0.43,
-          "z": 1.3,
-          "width": 0.14,
-          "depth": 1.86,
-          "minY": 0.4,
-          "maxY": 0.9
-        },
-        {
-          "id": "cinderfen_outskirts_life_camp_deliveries_1_solid_3",
-          "x": 0.43,
-          "z": 1.3,
-          "width": 0.14,
-          "depth": 1.86,
-          "minY": 0.4,
-          "maxY": 0.9
+          "z": 0.5231429934501648,
+          "width": 2.0399999618530273,
+          "depth": 3.3662859201431274,
+          "minY": 0,
+          "maxY": 1.4249999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_handcart",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_camp_deliveries_2",
-      "kind": "life_crate_stack",
+      "kind": "aegis_crate_stack",
       "x": 399,
       "z": -236,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.682819388997245,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_camp_deliveries_2_solid_1",
-          "x": 0,
-          "z": 0.1,
-          "width": 1.7,
-          "depth": 0.95,
-          "minY": -0.05,
-          "maxY": 1.5
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
         }
-      ]
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_camp_deliveries_3",
-      "kind": "life_barrels",
+      "kind": "aegis_barrel_cluster",
       "x": 407,
       "z": -236,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.7795247938754152,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_camp_deliveries_3_solid_1",
-          "x": 0,
-          "z": 0.3,
-          "width": 1.4,
-          "depth": 1.35,
-          "minY": -0.05,
-          "maxY": 0.9
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_camp_deliveries_4",
@@ -14924,22 +14912,24 @@
     },
     {
       "id": "cinderfen_outskirts_life_camp_deliveries_6",
-      "kind": "life_crate_stack",
+      "kind": "aegis_crate_stack",
       "x": 396,
       "z": -232,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.682819388997245,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_camp_deliveries_6_solid_1",
-          "x": 0,
-          "z": 0.1,
-          "width": 1.7,
-          "depth": 0.95,
-          "minY": -0.05,
-          "maxY": 1.5
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
         }
-      ]
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_camp_wayfinding_1",
@@ -14959,11 +14949,14 @@
     },
     {
       "id": "cinderfen_outskirts_life_camp_wayfinding_3",
-      "kind": "life_planter",
+      "kind": "aegis_planter",
       "x": 451,
       "z": -251,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_field_kitchen_1",
@@ -15013,22 +15006,24 @@
     },
     {
       "id": "cinderfen_outskirts_life_field_kitchen_4",
-      "kind": "life_barrels",
+      "kind": "aegis_barrel_cluster",
       "x": 411.464,
       "z": -279.464,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.7795247938754152,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_field_kitchen_4_solid_1",
-          "x": 0,
-          "z": 0.3,
-          "width": 1.4,
-          "depth": 1.35,
-          "minY": -0.05,
-          "maxY": 0.9
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_field_kitchen_5",
@@ -15049,8 +15044,8 @@
     {
       "id": "cinderfen_outskirts_life_field_rest_1",
       "kind": "life_bench",
-      "x": 461.555,
-      "z": -223.348,
+      "x": 462.111,
+      "z": -224.18,
       "rotY": -1.5707963267948966,
       "scale": 1,
       "colliders": [
@@ -15067,52 +15062,63 @@
     },
     {
       "id": "cinderfen_outskirts_life_field_rest_2",
-      "kind": "life_planter",
-      "x": 458.343,
-      "z": -232.778,
+      "kind": "aegis_planter",
+      "x": 464.621,
+      "z": -227.879,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_field_rest_3",
-      "kind": "life_planter",
-      "x": 470.056,
-      "z": -229.169,
+      "kind": "aegis_planter",
+      "x": 470.207,
+      "z": -229.293,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_field_rest_4",
-      "kind": "life_clothesline",
+      "kind": "aegis_washing_line",
       "x": 466,
       "z": -225,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.7187499892897905,
+      "y": 0,
+      "assetKey": "aegis_washing_line",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_field_rest_5",
-      "kind": "life_barrels",
+      "kind": "aegis_barrel_cluster",
       "x": 471,
       "z": -226,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.7795247938754152,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_field_rest_5_solid_1",
-          "x": 0,
-          "z": 0.3,
-          "width": 1.4,
-          "depth": 1.35,
-          "minY": -0.05,
-          "maxY": 0.9
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_field_rest_6",
       "kind": "life_lantern",
-      "x": 458.222,
-      "z": -222.843,
+      "x": 458.778,
+      "z": -223.674,
       "rotY": 0.12,
       "scale": 1
     },
@@ -15194,78 +15200,66 @@
     },
     {
       "id": "cinderfen_outskirts_life_outfitter_2",
-      "kind": "life_crate_stack",
-      "x": 447.228,
-      "z": -283.148,
+      "kind": "aegis_crate_stack",
+      "x": 447,
+      "z": -282,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.682819388997245,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_outfitter_2_solid_1",
-          "x": 0,
-          "z": 0.1,
-          "width": 1.7,
-          "depth": 0.95,
-          "minY": -0.05,
-          "maxY": 1.5
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
         }
-      ]
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_outfitter_3",
-      "kind": "life_barrels",
+      "kind": "aegis_barrel_cluster",
       "x": 464,
       "z": -279,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.7795247938754152,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_outfitter_3_solid_1",
-          "x": 0,
-          "z": 0.3,
-          "width": 1.4,
-          "depth": 1.35,
-          "minY": -0.05,
-          "maxY": 0.9
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_outfitter_4",
-      "kind": "life_handcart",
+      "kind": "aegis_handcart",
       "x": 445.381,
       "z": -276.913,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 1.0175438936984378,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_outfitter_4_solid_1",
           "x": 0,
-          "z": 0,
-          "width": 1.7,
-          "depth": 1.75,
-          "minY": -0.05,
-          "maxY": 1.4
-        },
-        {
-          "id": "cinderfen_outskirts_life_outfitter_4_solid_2",
-          "x": -0.43,
-          "z": 1.3,
-          "width": 0.14,
-          "depth": 1.86,
-          "minY": 0.4,
-          "maxY": 0.9
-        },
-        {
-          "id": "cinderfen_outskirts_life_outfitter_4_solid_3",
-          "x": 0.43,
-          "z": 1.3,
-          "width": 0.14,
-          "depth": 1.86,
-          "minY": 0.4,
-          "maxY": 0.9
+          "z": 0.5231429934501648,
+          "width": 2.0399999618530273,
+          "depth": 3.3662859201431274,
+          "minY": 0,
+          "maxY": 1.4249999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_handcart",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_outfitter_5",
@@ -15277,22 +15271,24 @@
     },
     {
       "id": "cinderfen_outskirts_life_outfitter_6",
-      "kind": "life_crate_stack",
+      "kind": "aegis_crate_stack",
       "x": 448,
       "z": -271,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.682819388997245,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_outfitter_6_solid_1",
-          "x": 0,
-          "z": 0.1,
-          "width": 1.7,
-          "depth": 0.95,
-          "minY": -0.05,
-          "maxY": 1.5
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
         }
-      ]
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_1",
@@ -15372,78 +15368,66 @@
     },
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_2",
-      "kind": "life_crate_stack",
+      "kind": "aegis_crate_stack",
       "x": 524,
       "z": -190,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.682819388997245,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_roadside_caravan_2_solid_1",
-          "x": 0,
-          "z": 0.1,
-          "width": 1.7,
-          "depth": 0.95,
-          "minY": -0.05,
-          "maxY": 1.5
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
         }
-      ]
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_3",
-      "kind": "life_barrels",
+      "kind": "aegis_barrel_cluster",
       "x": 542,
       "z": -189,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.7795247938754152,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_roadside_caravan_3_solid_1",
-          "x": 0,
-          "z": 0.3,
-          "width": 1.4,
-          "depth": 1.35,
-          "minY": -0.05,
-          "maxY": 0.9
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_4",
-      "kind": "life_handcart",
+      "kind": "aegis_handcart",
       "x": 522,
       "z": -185,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 1.0175438936984378,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_roadside_caravan_4_solid_1",
           "x": 0,
-          "z": 0,
-          "width": 1.7,
-          "depth": 1.75,
-          "minY": -0.05,
-          "maxY": 1.4
-        },
-        {
-          "id": "cinderfen_outskirts_life_roadside_caravan_4_solid_2",
-          "x": -0.43,
-          "z": 1.3,
-          "width": 0.14,
-          "depth": 1.86,
-          "minY": 0.4,
-          "maxY": 0.9
-        },
-        {
-          "id": "cinderfen_outskirts_life_roadside_caravan_4_solid_3",
-          "x": 0.43,
-          "z": 1.3,
-          "width": 0.14,
-          "depth": 1.86,
-          "minY": 0.4,
-          "maxY": 0.9
+          "z": 0.5231429934501648,
+          "width": 2.0399999618530273,
+          "depth": 3.3662859201431274,
+          "minY": 0,
+          "maxY": 1.4249999523162842
         }
-      ]
+      ],
+      "y": 0,
+      "assetKey": "aegis_handcart",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_5",
@@ -15455,22 +15439,24 @@
     },
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_6",
-      "kind": "life_crate_stack",
+      "kind": "aegis_crate_stack",
       "x": 529,
       "z": -179,
       "rotY": 0.12,
-      "scale": 1,
+      "scale": 0.682819388997245,
       "colliders": [
         {
-          "id": "cinderfen_outskirts_life_roadside_caravan_6_solid_1",
-          "x": 0,
-          "z": 0.1,
-          "width": 1.7,
-          "depth": 0.95,
-          "minY": -0.05,
-          "maxY": 1.5
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
         }
-      ]
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_trail_garden_1",
@@ -15493,19 +15479,25 @@
     },
     {
       "id": "cinderfen_outskirts_life_trail_garden_2",
-      "kind": "life_planter",
+      "kind": "aegis_planter",
       "x": 337,
       "z": -247,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_trail_garden_3",
-      "kind": "life_planter",
+      "kind": "aegis_planter",
       "x": 345,
       "z": -247,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_life_trail_garden_4",
@@ -15517,11 +15509,14 @@
     },
     {
       "id": "cinderfen_outskirts_life_trail_garden_5",
-      "kind": "life_planter",
+      "kind": "aegis_planter",
       "x": 341,
       "z": -243,
       "rotY": 0.12,
-      "scale": 1
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
     },
     {
       "id": "cinderfen_outskirts_north_dwelling",
@@ -36870,5 +36865,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "d22eea91c8979adc"
+  "staticMapHash": "aff7ab49085838df"
 }

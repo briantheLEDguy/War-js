@@ -8,6 +8,7 @@ import bmesh
 import math
 import json
 import hashlib
+import os
 import sys
 import numpy as np
 from pathlib import Path
@@ -21,9 +22,10 @@ sys.path.insert(0, str(ROOT / 'scripts/blender-character-pipeline/blender'))
 from canonical_animation_pack import attach_canonical_animation_pack
 sys.path.insert(0, str(WORK / 'tools'))
 from tailored_clothing import tailor
-from tailored_locomotion import fit_locomotion
+from tailored_locomotion import fit_locomotion, refine_sole_contacts
 from artisan_equipment import dress_artisan
 from export_tangents import repair_export_tangents
+from apron_clearance import fit_apron_clearance
 
 for folder in ['sources', 'runtime', 'textures', 'review']:
     (WORK / folder).mkdir(parents=True, exist_ok=True)
@@ -291,6 +293,11 @@ def build(kind, recipe):
         sweep('forged_buckle_frame', [a,b], [.006,.006], brass, 'hips', 8)
     if kind=='dwarf_artisan':
         dress_artisan(apron,make,sweep,{'leather':leather,'seam':seam,'wood':wood,'iron':iron},belt_z)
+        bpy.context.view_layer.objects.active=rig;rig.select_set(True)
+        bpy.ops.object.mode_set(mode='EDIT')
+        hinge=rig.data.edit_bones.new('apron_lower');hinge.parent=rig.data.edit_bones['hips']
+        hinge.head=(0,waist_y,belt_z);hinge.tail=(0,waist_y,belt_z-.28)
+        bpy.ops.object.mode_set(mode='OBJECT')
     # A hanging leather apron is suspended from the waist, not skinned to each
     # nearest thigh. Its pockets and bound edges must use the same cloth field.
     for ob in authored:
@@ -298,12 +305,17 @@ def build(kind, recipe):
             ob.vertex_groups.clear()
             hips=ob.vertex_groups.new(name='hips');chest=ob.vertex_groups.new(name='chest')
             left=ob.vertex_groups.new(name='thigh_L');right=ob.vertex_groups.new(name='thigh_R')
+            hinge=ob.vertex_groups.new(name='apron_lower') if kind=='dwarf_artisan' else None
             for vertex in ob.data.vertices:
                 t=max(0,min(1,(vertex.co.z-belt_z)/.22));t=t*t*(3-2*t)
                 leg=max(0,min(1,(belt_z-vertex.co.z-.035)/.22));leg=leg*leg*(3-2*leg)*.32
                 side=max(0,min(1,(vertex.co.x+.04)/.08));side=side*side*(3-2*side)
-                hips.add([vertex.index],1-t-leg,'REPLACE');chest.add([vertex.index],t,'REPLACE')
-                left.add([vertex.index],leg*side,'REPLACE');right.add([vertex.index],leg*(1-side),'REPLACE')
+                if hinge:
+                    fold=max(0,min(1,(belt_z-vertex.co.z)/.18));fold=fold*fold*(3-2*fold)
+                    hips.add([vertex.index],1-t-fold,'REPLACE');chest.add([vertex.index],t,'REPLACE');hinge.add([vertex.index],fold,'REPLACE')
+                else:
+                    hips.add([vertex.index],1-t-leg,'REPLACE');chest.add([vertex.index],t,'REPLACE')
+                    left.add([vertex.index],leg*side,'REPLACE');right.add([vertex.index],leg*(1-side),'REPLACE')
         if ob.name.startswith(('welt_stitch','crossed_boot_lace')):
             ob.vertex_groups.clear()
             side='L' if sum(v.co.x for v in ob.data.vertices)>0 else 'R'
@@ -317,8 +329,28 @@ def build(kind, recipe):
     bm.to_mesh(body.data); bm.free()
     body.name = kind + '_exposed_anatomy'; rig.name = kind + '_rig'
     rig['skeletonId'] = 'humanoid_game_v2'; rig['bindPoseId'] = 'a_pose_v2'
+    # Keep editable pose evaluation identical to export: finish the rest cage,
+    # add cloth thickness, then deform that surface with the rig.
+    for ob in bpy.context.scene.objects:
+        if ob.type!='MESH':continue
+        bpy.context.view_layer.objects.active=ob
+        finish=[modifier for modifier in ob.modifiers if modifier.type in ('SUBSURF','SOLIDIFY')]
+        for index,modifier in enumerate(finish):
+            while list(ob.modifiers).index(modifier)>index:bpy.ops.object.modifier_move_up(modifier=modifier.name)
     attach_canonical_animation_pack(rig, profile='unarmed')
-    if race == 'dwarf': fit_locomotion(rig)
+    if race == 'dwarf':
+        # Contact fitting reads bones and boot soles. Avoid deforming every
+        # embroidered garment for each intermediate IK dependency update.
+        muted=[modifier for ob in bpy.context.scene.objects if ob.type=='MESH' and not ob.name.startswith('fitted_boot_')
+               for modifier in ob.modifiers if modifier.type=='ARMATURE' and modifier.show_viewport]
+        for modifier in muted:modifier.show_viewport=False
+        try:
+            fit_locomotion(rig)
+            refine_sole_contacts(rig)
+            fit_apron_clearance(rig)
+        finally:
+            for modifier in muted:modifier.show_viewport=True
+            bpy.context.view_layer.update()
     for image in bpy.data.images:
         if image.size[0] and not image.packed_file: image.pack()
     bpy.context.scene.frame_set(1)
@@ -340,7 +372,7 @@ def build(kind, recipe):
             ob.data.uv_layers.active_index=0; ob.data.uv_layers[0].active_render=True
     bpy.context.view_layer.objects.active=body; bpy.ops.object.join()
     world_matrix=body.matrix_world.copy();body.parent=None;body.matrix_world=world_matrix
-    base = body.data.copy(); lods=[]
+    base = body.data.copy(); lods=[]; pending_exports=[]
     for lod, ratio in enumerate([1,.58,.27]):
         body.data=base.copy()
         if ratio<1:
@@ -360,13 +392,18 @@ def build(kind, recipe):
             for index,weight in ranked[:4]:body.vertex_groups[index].add([vertex.index],weight/total,'REPLACE')
         bpy.ops.object.select_all(action='DESELECT'); body.select_set(True); rig.select_set(True)
         filename=f'{key}_lod{lod}.glb'; output=WORK/'runtime'/filename
-        bpy.ops.export_scene.gltf(filepath=str(output),export_format='GLB',use_selection=True,export_animations=True,export_tangents=True,
+        staged=output.with_name(output.stem+'.pending.glb')
+        bpy.ops.export_scene.gltf(filepath=str(staged),export_format='GLB',use_selection=True,export_animations=True,export_tangents=True,
                                   export_animation_mode='ACTIONS',export_skins=True,export_morph=False)
-        tangent_repair=repair_export_tangents(output)
-        data=output.read_bytes(); doc=json.loads(data[20:20+int.from_bytes(data[12:16],'little')])
-        lods.append({'level':lod,'model':filename,'sha256':digest(output),'bytes':len(data),'tangentRepair':tangent_repair,
+        tangent_repair=repair_export_tangents(staged)
+        data=staged.read_bytes(); doc=json.loads(data[20:20+int.from_bytes(data[12:16],'little')])
+        pending_exports.append((staged,output))
+        lods.append({'level':lod,'model':filename,'sha256':digest(staged),'bytes':len(data),'tangentRepair':tangent_repair,
                      'triangles':sum(doc['accessors'][p['indices']]['count']//3 for m in doc['meshes'] for p in m['primitives']),
                      'clips':[a['name'] for a in doc.get('animations',[])]})
+    # Complete all exports before replacing reviewable bytes. A failed Blender
+    # write must not truncate a model currently open in the inspection viewer.
+    for staged,output in pending_exports:os.replace(staged,output)
     (WORK/'review'/f'{key}_build.json').write_text(json.dumps({'key':key,'status':'draft', 'sourceFoundationSha256':digest(source),
         'masterSha256':digest(master),'generatorSha256':digest(__file__),
         'sourceTools':{str(path.relative_to(WORK)):digest(path) for path in sorted((WORK/'tools').glob('*.py'))},'lods':lods},indent=2))

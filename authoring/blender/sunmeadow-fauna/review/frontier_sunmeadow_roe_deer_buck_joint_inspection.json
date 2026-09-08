@@ -3,41 +3,41 @@
     {
       "state": "rest",
       "image": "review/frontier_sunmeadow_roe_deer_buck_joint_rest.png",
-      "image_sha256": "74822cc60b7292caf8c2f63c2fbbb5e739fcda65c709bb44f071edc344804869",
-      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "image_sha256": "e36f21627ef68d19ecc1b6416ddc07716f6b4cd3c63a16a99ac9e99e74066126",
+      "model_sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "build_sha256": "be3b80e265190b812758a0d0bfe1350de8618ae49b2a08a3dc5fee9a8e121bee",
       "status": "diagnostic_not_approval"
     },
     {
       "state": "run@0.125",
       "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p125.png",
-      "image_sha256": "18c1888a28b9bb931fdbf15c220f87a21d68cb4015c5e769f7a93306c5e775c6",
-      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "image_sha256": "5e77d46dd55518a304e07b7c7358125da11c200903576fae96b764ec773586f9",
+      "model_sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "build_sha256": "be3b80e265190b812758a0d0bfe1350de8618ae49b2a08a3dc5fee9a8e121bee",
       "status": "diagnostic_not_approval"
     },
     {
       "state": "run@0.375",
       "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p375.png",
-      "image_sha256": "8706481636199dfad1bd0d55219f67d800383fcb1bb5127c1d8ac6a3d42c7082",
-      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "image_sha256": "ae72026692a0682f33543d81362bdc1d62e84e42d0e0ea78e6bf95f536a5ae7f",
+      "model_sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "build_sha256": "be3b80e265190b812758a0d0bfe1350de8618ae49b2a08a3dc5fee9a8e121bee",
       "status": "diagnostic_not_approval"
     },
     {
       "state": "run@0.625",
       "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p625.png",
-      "image_sha256": "9c53c76a12dcf9002853b43238051e2a778ad52ee2928e712737c87cfe8438d2",
-      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "image_sha256": "b3734725b32fc6a8380a879142c7193363ca4e57d3f9edefc2b3a5da6d64c30f",
+      "model_sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "build_sha256": "be3b80e265190b812758a0d0bfe1350de8618ae49b2a08a3dc5fee9a8e121bee",
       "status": "diagnostic_not_approval"
     },
     {
       "state": "run@0.75",
       "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p75.png",
-      "image_sha256": "efb3e28601fa6e48686592147c4567cf55655160e525d240a524e7f8d3c07f3e",
-      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "image_sha256": "3532f00e3318e95085032ebd39b3ebc59eea884f81fa076728427984950e0569",
+      "model_sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "build_sha256": "be3b80e265190b812758a0d0bfe1350de8618ae49b2a08a3dc5fee9a8e121bee",
       "status": "diagnostic_not_approval"
     }
   ]

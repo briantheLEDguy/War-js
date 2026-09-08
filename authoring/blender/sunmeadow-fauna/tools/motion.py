@@ -36,7 +36,7 @@ def solve_joint(start,end,first,second,pole):
     joint=Vector(start)+direction*along+bend*height
     return joint,Vector(start)+direction*reach,abs(reach-distance)
 
-def solve_leg(rig,limb,label,foot):
+def solve_leg(rig,limb,label,foot,knee_splay=0,muscle_rotation=.55):
     names=(['shoulder','forearm','carpal','pastern_front','hoof_front'] if limb=='front' else ['thigh','shin','hock','pastern_hind','hoof_hind'])
     names=[name+'_'+label for name in names];bones=[rig.pose.bones[name] for name in names]
     matrices={bone.name:bone.matrix.copy() for bone in rig.pose.bones}
@@ -65,11 +65,26 @@ def solve_leg(rig,limb,label,foot):
             else:lo=left
         _,start,joint,ankle,error=candidate((lo+hi)/2)
         point_bone(rig,scapula.name,origin,start,matrices)
-    else:joint,ankle,error=solve_joint(start,ankle,bones[0].length,bones[1].length,(0,1 if limb=='front' else -1,0))
+    else:joint,ankle,error=solve_joint(start,ankle,bones[0].length,bones[1].length,((1 if label=='L' else -1)*knee_splay,1 if limb=='front' else -1,0))
     correction=ankle-original_ankle;pastern+=correction;foot+=correction
     points=[start,joint,ankle,pastern,foot]
     for index in range(4):point_bone(rig,names[index],points[index],points[index+1],matrices)
     point_bone(rig,names[4],foot,foot+(bones[4].bone.tail_local-bones[4].bone.head_local),matrices)
+    muscle=rig.pose.bones.get('haunch_'+label) if limb=='hind' else None
+    if muscle:
+        # A portable muscle support rotates between pelvis and femur. This
+        # keeps the broad haunch from collapsing into an LBS pocket while the
+        # stifle follows the fully articulated thigh; no runtime constraint.
+        parent=muscle.parent
+        carried=matrices[parent.name]@parent.bone.matrix_local.inverted()@muscle.bone.matrix_local
+        rest_direction=carried.to_quaternion()@Vector((0,1,0));direction=(joint-start).normalized()
+        sagittal_angle=math.atan2(rest_direction.y*direction.z-rest_direction.z*direction.y,rest_direction.y*direction.y+rest_direction.z*direction.z)
+        tuck=smooth(max(0,min(1,(-sagittal_angle-.10)/.65)))
+        # Apply volume support to a flexed thigh; the lengthened posterior
+        # muscle follows the femur during extension instead of tethering it.
+        fraction=1-(1-muscle_rotation)*tuck
+        rotation=carried.to_quaternion().slerp(matrices[names[0]].to_quaternion(),fraction)
+        point_bone(rig,muscle.name,start,start+rotation@Vector((0,muscle.length,0)),matrices)
     return error
 
 def local_records(rig):
@@ -126,7 +141,10 @@ def mammal_clips(rig,kind,definition):
                         p=(phase+(gallop if running else walking)[limb+'_'+label])%1;stance=.24 if running else .64
                         stride=(.48 if running else .27)*scale
                         offset,height=foot_trajectory(p,stance,stride,(run_lift if running else .065)*scale);foot.y+=offset;foot.z+=height
-                    maximum_error=max(maximum_error,solve_leg(rig,limb,label,foot))
+                    # During recovery the stifle tracks slightly outside the
+                    # flank; the hoof remains on its authored ground trajectory.
+                    splay=controls.get('run_hind_knee_splay',0) if running and limb=='hind' else 0
+                    maximum_error=max(maximum_error,solve_leg(rig,limb,label,foot,splay,definition.get('haunch_volume',{}).get('rotation_fraction',.55)))
             for index in range(1,4):
                 name=f'tail_{index:02}'
                 if name in rig.pose.bones:rig.pose.bones[name].rotation_euler.z=.09*math.sin(time+index*.4)

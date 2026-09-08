@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "completeReimportReview": true,
+  "issues": [],
+  "models": [
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+      "sha256": "53a409a11d64ebf2ad32a737b887abfc23b26454f4078227a177942510e3832c",
+      "triangles": 102450,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod1.glb",
+      "sha256": "d1c6532f964352012891ffc6742018f52e20522c552d44f45e5070b83b03ad49",
+      "triangles": 38616,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod2.glb",
+      "sha256": "7899f2a6aab397419ee192ffb71563899010dea9397abfefd074e67fbfa98701",
+      "triangles": 5672,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_reed_clump_lod0.glb",
+      "sha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
+      "triangles": 105672,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_reed_clump_lod1.glb",
+      "sha256": "fbebc267facd98d0fb9ec9c7129ebb1d5199e93c57b63e5923c8f4c3a52c4d1e",
+      "triangles": 20960,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_reed_clump_lod2.glb",
+      "sha256": "3a90e780c5f1ffd442281611a96bc116ea2b131f243e09635fa385724d046764",
+      "triangles": 5944,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "sha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+      "triangles": 29028,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_sedge_horsetail_lod1.glb",
+      "sha256": "0a7aee07ce89998be628becfc799dcfb82fa946c2865b99d0800e22bd872b27b",
+      "triangles": 14556,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_sedge_horsetail_lod2.glb",
+      "sha256": "bc36dcdbc128bef97f6cb93ea365e60172f5d4752002050c3539032980b51c14",
+      "triangles": 4260,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+      "sha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
+      "triangles": 12474,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
+      "sha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
+      "triangles": 2356,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
+      "sha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
+      "triangles": 208,
+      "errors": 0,
+      "warnings": 0
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
-  "sha256": "b9077268e93f3145b9c701fa996332aa35ecf266bf6c6b9989a3d21ea575f60b",
-  "reviewer_sha256": "ee78882ac19021103ae05b823393ec4f648465fe0f04d91d4fba531e5fd0ab55",
+  "sha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
+  "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
   "audit": {
     "meshes": [
       {
@@ -31,7 +31,7 @@
   "views": {
     "neutral": {
       "image": "frontier_cinderfen_basalt_outcrop_lod0_neutral.png",
-      "sha256": "2fc69a1c66979cfc29fe218888b5eaec010e48de447ca47a49970c76a2e25092",
+      "sha256": "3c26ebd8162c9a92d3919d2af5477a3f5c354a42c7ea2cb3c96cae911731c1ce",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",
@@ -55,7 +55,7 @@
     },
     "gameplay": {
       "image": "frontier_cinderfen_basalt_outcrop_lod0_gameplay.png",
-      "sha256": "54fe70a7cfead39a3eaf3e1f0714ace940def28657b9a772b968b66c3189ccac",
+      "sha256": "3718767aff37200ffb7942ac23a61ae548a4b1a41485b228b3bc0f3cd330ded3",
       "camera": {
         "distance_m": 8,
         "projection": "PERSP",
@@ -79,7 +79,7 @@
     },
     "detail": {
       "image": "frontier_cinderfen_basalt_outcrop_lod0_detail.png",
-      "sha256": "889e9d1604789ffefc9142712cdcb260cf9d4b0c18589d08c01fbb0b70c39b9d",
+      "sha256": "e19f0f30de235c015694366ba8f32ac2e16422e18f6152ec65be350c7076d7af",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",

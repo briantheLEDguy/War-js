@@ -1,29 +1,36 @@
 {
   "asset": "frontier_sunmeadow_roe_deer_buck",
   "status": "anatomy-and-motion-review-required",
-  "source_sha256": "70bde52f1781e07d6a6290e69e143a9552a4b33918caeeb2fd533104cb41ea52",
-  "builder_sha256": "73044e7eafd71cbb73bca8418151519c6e64f1995f9002c226d9cb80c7fb6df4",
+  "source_sha256": "0d0ccb7b2d96aa7a684ec60c5adaa6d5750c3e743f8e40aadfff0258de10ed77",
+  "builder_sha256": "9b2e83a559de94fa44702aa064157b1f8f1f507878bc0998b0bf550ec57e8207",
   "rig_helper_sha256": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
-  "motion_source_sha256": "a9dd8d44480c9e01acec4dd657011fad8a2887b7658a271f367ee9a75a2e3fb6",
+  "motion_source_sha256": "ab88b65c22535b2ba0c06ea3d34ad870bf752b1c87842877c292b024a7506ce5",
   "source_files": {
-    "source/anatomy.json": "70bde52f1781e07d6a6290e69e143a9552a4b33918caeeb2fd533104cb41ea52",
-    "tools/build_fauna.py": "73044e7eafd71cbb73bca8418151519c6e64f1995f9002c226d9cb80c7fb6df4",
+    "source/anatomy.json": "0d0ccb7b2d96aa7a684ec60c5adaa6d5750c3e743f8e40aadfff0258de10ed77",
+    "tools/build_fauna.py": "9b2e83a559de94fa44702aa064157b1f8f1f507878bc0998b0bf550ec57e8207",
     "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
-    "tools/motion.py": "a9dd8d44480c9e01acec4dd657011fad8a2887b7658a271f367ee9a75a2e3fb6",
+    "tools/motion.py": "ab88b65c22535b2ba0c06ea3d34ad870bf752b1c87842877c292b024a7506ce5",
     "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
     "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
     "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
     "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
     "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
-    "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999"
+    "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+    "tools/texture_lods.py": "23382567fa9c925cea63ca0f1e99c6190a335b99c7f0e26e2e6e768f86584d69"
   },
   "texture_sources": {
     "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+    "textures/roe_deer_buck_lod1_basecolor.png": "2632c2efaad46d88d04a65a5067c97d0700889167a5790200ac91c2d82e42535",
+    "textures/roe_deer_buck_lod1_normal.png": "5f6050555b6a9282cd61fc7e84de3c176ebb510d265bcbbda2bf7e8d0a88de75",
+    "textures/roe_deer_buck_lod1_orm.png": "c7f3373206b91d9175c3ee3fd234b46c1b3c7f6fc58991d4bed2fdbca2a20a83",
+    "textures/roe_deer_buck_lod2_basecolor.png": "9b4db351e637a4d1092887334b8f627452be6bd520361c6af43bfb386de8a441",
+    "textures/roe_deer_buck_lod2_normal.png": "123ee34292a97802f707f155f30820be03dd3353d178aa1909d8f2f7a818efc0",
+    "textures/roe_deer_buck_lod2_orm.png": "864dfc2bb8aa15f2563d9b08c8e8c05280dc1002e0961fcd631c3ad24d1bfb5d",
     "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
     "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29"
   },
   "cage": "source/frontier_sunmeadow_roe_deer_buck_cage.json",
-  "cage_sha256": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d",
+  "cage_sha256": "a3f48a9cfdb9c8c1f9196d121992cd788f7360054e5d3887a32d6a8045c3aa94",
   "motion": [
     {
       "clip": "idle",
@@ -61,7 +68,7 @@
       "clip": "run",
       "duration": 0.6,
       "frames": 37,
-      "maximum_ik_reach_error_m": 0.02770430795018286,
+      "maximum_ik_reach_error_m": 0.018781246814406405,
       "loop": true,
       "motion_space": "in_place",
       "locomotion": {
@@ -74,7 +81,7 @@
           "hind_R": 0.66
         },
         "speed_mps": 3.0,
-        "foot_lift_m": 0.081,
+        "foot_lift_m": 0.054,
         "trajectory": "constant_velocity_stance_c1_return"
       },
       "status": "deformation_review_required"
@@ -91,23 +98,23 @@
     }
   ],
   "master": "masters/frontier_sunmeadow_roe_deer_buck.blend",
-  "master_sha256": "a35f55facc9bc41bca59e95a0a3e1594e454b8f334b0207319d463b8cd7da54b",
+  "master_sha256": "7ae4f458d6a61c5bc5fff44c3976510c11b07a0d43eaada28ac6c4492222843e",
   "lods": [
     {
       "level": 0,
       "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
-      "sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "bytes": 8759360,
-      "triangles": 47152,
-      "vertices": 23691,
+      "sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "bytes": 8810500,
+      "triangles": 47826,
+      "vertices": 24028,
       "bounds_blender": {
         "min": [
-          -0.19568003714084625,
+          -0.2082788646221161,
           -0.7600319385528564,
           -2.2664664811600232e-06
         ],
         "max": [
-          0.1956833451986313,
+          0.20827551186084747,
           0.4490847885608673,
           1.2955422401428223
         ]
@@ -287,23 +294,47 @@
           "vertices": 216,
           "faces": 194
         }
-      ]
+      ],
+      "textures": [
+        {
+          "source": "textures/roe_deer_buck_basecolor.png",
+          "sha256": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+          "width": 4096,
+          "height": 2048,
+          "rgba8_mip_bytes": 44739244
+        },
+        {
+          "source": "textures/roe_deer_buck_orm.png",
+          "sha256": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+          "width": 4096,
+          "height": 2048,
+          "rgba8_mip_bytes": 44739244
+        },
+        {
+          "source": "textures/roe_deer_buck_normal.png",
+          "sha256": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+          "width": 4096,
+          "height": 2048,
+          "rgba8_mip_bytes": 44739244
+        }
+      ],
+      "estimated_rgba8_mipped_bytes": 134217732
     },
     {
       "level": 1,
       "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
-      "sha256": "056ec241ddb571fbe1d70e1e91f24a915e186cbc03ca9bd8aea27604140f87b2",
-      "bytes": 7527232,
-      "triangles": 21678,
-      "vertices": 10930,
+      "sha256": "a37db8e5af2536f5bf29c7052c7ed9f1ea4fd02dff4bf517e761956cf928b298",
+      "bytes": 3161264,
+      "triangles": 21676,
+      "vertices": 10929,
       "bounds_blender": {
         "min": [
-          -0.18656976521015167,
+          -0.20183610916137695,
           -0.7600319385528564,
           3.059394657611847e-05
         ],
         "max": [
-          0.18668435513973236,
+          0.20183810591697693,
           0.4491190016269684,
           1.2953706979751587
         ]
@@ -483,23 +514,47 @@
           "vertices": 112,
           "faces": 98
         }
-      ]
+      ],
+      "textures": [
+        {
+          "source": "textures/roe_deer_buck_lod1_basecolor.png",
+          "sha256": "2632c2efaad46d88d04a65a5067c97d0700889167a5790200ac91c2d82e42535",
+          "width": 2048,
+          "height": 1024,
+          "rgba8_mip_bytes": 11184812
+        },
+        {
+          "source": "textures/roe_deer_buck_lod1_orm.png",
+          "sha256": "c7f3373206b91d9175c3ee3fd234b46c1b3c7f6fc58991d4bed2fdbca2a20a83",
+          "width": 2048,
+          "height": 1024,
+          "rgba8_mip_bytes": 11184812
+        },
+        {
+          "source": "textures/roe_deer_buck_lod1_normal.png",
+          "sha256": "5f6050555b6a9282cd61fc7e84de3c176ebb510d265bcbbda2bf7e8d0a88de75",
+          "width": 2048,
+          "height": 1024,
+          "rgba8_mip_bytes": 11184812
+        }
+      ],
+      "estimated_rgba8_mipped_bytes": 33554436
     },
     {
       "level": 2,
       "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
-      "sha256": "8d790543cd9fa6ef49a518efdd11419346cb575fe6b91d0c1488d5d1502a9a18",
-      "bytes": 6883360,
+      "sha256": "e2d136e64bc52e01d3c84188ed3fb014fc1ba48137d820e281030e50fe03a5b6",
+      "bytes": 1331224,
       "triangles": 8748,
       "vertices": 4442,
       "bounds_blender": {
         "min": [
-          -0.1753760725259781,
+          -0.19430011510849,
           -0.7600319385528564,
           0.0009740307577885687
         ],
         "max": [
-          0.17559248208999634,
+          0.1943257749080658,
           0.4488097131252289,
           1.295226812362671
         ]
@@ -679,7 +734,31 @@
           "vertices": 50,
           "faces": 42
         }
-      ]
+      ],
+      "textures": [
+        {
+          "source": "textures/roe_deer_buck_lod2_basecolor.png",
+          "sha256": "9b4db351e637a4d1092887334b8f627452be6bd520361c6af43bfb386de8a441",
+          "width": 1024,
+          "height": 512,
+          "rgba8_mip_bytes": 2796204
+        },
+        {
+          "source": "textures/roe_deer_buck_lod2_orm.png",
+          "sha256": "864dfc2bb8aa15f2563d9b08c8e8c05280dc1002e0961fcd631c3ad24d1bfb5d",
+          "width": 1024,
+          "height": 512,
+          "rgba8_mip_bytes": 2796204
+        },
+        {
+          "source": "textures/roe_deer_buck_lod2_normal.png",
+          "sha256": "123ee34292a97802f707f155f30820be03dd3353d178aa1909d8f2f7a818efc0",
+          "width": 1024,
+          "height": 512,
+          "rgba8_mip_bytes": 2796204
+        }
+      ],
+      "estimated_rgba8_mipped_bytes": 8388612
     }
   ],
   "bones": [
@@ -928,7 +1007,7 @@
         0.6449999809265137
       ],
       "tail": [
-        0.13899999856948853,
+        0.16500000655651093,
         0.17000000178813934,
         0.4230000078678131
       ],
@@ -937,7 +1016,7 @@
     {
       "name": "shin_L",
       "head": [
-        0.13899999856948853,
+        0.16500000655651093,
         0.17000000178813934,
         0.4230000078678131
       ],
@@ -989,6 +1068,20 @@
         0.039000000804662704
       ],
       "parent": "pastern_hind_L"
+    },
+    {
+      "name": "haunch_L",
+      "head": [
+        0.14499999582767487,
+        0.30000001192092896,
+        0.6449999809265137
+      ],
+      "tail": [
+        0.16500000655651093,
+        0.17000000178813934,
+        0.4230000078678131
+      ],
+      "parent": "pelvis"
     },
     {
       "name": "ear_R",
@@ -1096,7 +1189,7 @@
         0.6449999809265137
       ],
       "tail": [
-        -0.13899999856948853,
+        -0.16500000655651093,
         0.17000000178813934,
         0.4230000078678131
       ],
@@ -1105,7 +1198,7 @@
     {
       "name": "shin_R",
       "head": [
-        -0.13899999856948853,
+        -0.16500000655651093,
         0.17000000178813934,
         0.4230000078678131
       ],
@@ -1157,6 +1250,20 @@
         0.039000000804662704
       ],
       "parent": "pastern_hind_R"
+    },
+    {
+      "name": "haunch_R",
+      "head": [
+        -0.14499999582767487,
+        0.30000001192092896,
+        0.6449999809265137
+      ],
+      "tail": [
+        -0.16500000655651093,
+        0.17000000178813934,
+        0.4230000078678131
+      ],
+      "parent": "pelvis"
     },
     {
       "name": "tail_01",

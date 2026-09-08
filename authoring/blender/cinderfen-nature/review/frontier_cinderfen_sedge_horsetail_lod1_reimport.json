@@ -1,0 +1,95 @@
+{
+  "model": "frontier_cinderfen_sedge_horsetail_lod1.glb",
+  "sha256": "0a7aee07ce89998be628becfc799dcfb82fa946c2865b99d0800e22bd872b27b",
+  "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "folded_rust_sedge_blades.lod1",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 5544
+      },
+      {
+        "mesh": "segmented_marsh_horsetail_and_whorls.lod1",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 8400
+      },
+      {
+        "mesh": "small_sedge_terminal_heads.lod1",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 612
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -1.2042133808135986,
+        -1.1328258514404297,
+        -0.035616498440504074
+      ],
+      "maximum": [
+        1.2939281463623047,
+        1.0350004434585571,
+        1.0155893564224243
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_cinderfen_sedge_horsetail_lod1_neutral.png",
+      "sha256": "17e0b6b8cce101d24a682ffd665a929579c4df11fd13f5f9fc86b7713f96ca95",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          2.0433707237243652,
+          -4.045938968658447,
+          1.4392802715301514
+        ],
+        "target_z_up": [
+          0.04485738277435303,
+          -0.04891270399093628,
+          0.4899864196777344
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_cinderfen_sedge_horsetail_lod1_gameplay.png",
+      "sha256": "576be7fa4e4dce90bfa8306c9cf20eb53c51f418b2acd6ba47a2800591e65e1d",
+      "camera": {
+        "distance_m": 22,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          0.5444856882095337,
+          -22.048912048339844,
+          2.049814224243164
+        ],
+        "target_z_up": [
+          0.04485738277435303,
+          -0.04891270399093628,
+          0.4899864196777344
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

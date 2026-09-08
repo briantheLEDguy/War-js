@@ -29,6 +29,12 @@ def vertices():
     return result.reshape(-1,3)
 
 rest=vertices();edge_groups={}
+sole_indices={}
+for side in ('L','R'):
+    indices=[vertex.index for vertex in body.data.vertices if rest[vertex.index,2]<.10 and
+             any(body.vertex_groups[entry.group].name=='foot_'+side and entry.weight>.9 for entry in vertex.groups)]
+    if not indices:raise RuntimeError('Export is missing measurable sole vertices: '+side)
+    sole_indices[side]=np.array(indices,dtype=int)
 for material,entry in enumerate(body.data.materials):
     edges=set()
     for face in body.data.polygons:
@@ -40,7 +46,9 @@ for material,entry in enumerate(body.data.materials):
     selected=lengths>.001
     edge_groups[entry.name]=(edges[selected],lengths[selected])
 records=[]
+selected=next((a.split('=',1)[1].split(',') for a in sys.argv if a.startswith('--clips=')),None)
 for clip in doc['animations']:
+    if selected is not None and clip['name'] not in selected:continue
     action=next(a for name,a in actions.items() if name==clip['name'] or name.endswith('_'+clip['name']))
     times=set()
     for sampler in clip['samplers']:
@@ -59,17 +67,22 @@ for clip in doc['animations']:
         for name,(edges,lengths) in edge_groups.items():
             ratios=np.linalg.norm(posed[edges[:,0]]-posed[edges[:,1]],axis=1)/lengths
             groups[name]={'max':float(np.max(ratios)),'p99':float(np.quantile(ratios,.99)),
-                          'p999':float(np.quantile(ratios,.999)),'min':float(np.min(ratios))}
+                          'p999':float(np.quantile(ratios,.999)),'min':float(np.min(ratios)),
+                          'maximumEdgeExtensionMetres':float(np.max((ratios-1)*lengths))}
             worst=int(np.argmax(ratios));a,b=edges[worst]
             groups[name]['worstEdge']={'restLength':float(lengths[worst]),
                                       'restCenter':((rest[a]+rest[b])*.5).tolist(),
                                       'posedCenter':((posed[a]+posed[b])*.5).tolist()}
         matrix=np.array(body.matrix_world);world=posed@matrix[:3,:3].T+matrix[:3,3]
-        samples.append({'seconds':seconds,'minimumHeight':float(world[:,2].min()),'materials':groups})
+        lowest=int(np.argmin(world[:,2]))
+        influences=[(body.vertex_groups[g.group].name,g.weight) for g in body.data.vertices[lowest].groups]
+        samples.append({'seconds':seconds,'minimumHeight':float(world[lowest,2]),
+                        'soleHeights':{side:float(np.min(world[indices,2])) for side,indices in sole_indices.items()},
+                        'floorPoint':{'rest':rest[lowest].tolist(),'posed':world[lowest].tolist(),'weights':sorted(influences,key=lambda v:-v[1])[:4]},'materials':groups})
     record={'clip':clip['name'],'samples':samples,'maximumStretch':max(s['max'] for row in samples for s in row['materials'].values()),
             'worstP99':max(s['p99'] for row in samples for s in row['materials'].values()),
             'minimumHeight':min(row['minimumHeight'] for row in samples)}
     records.append(record)
     print(json.dumps({k:v for k,v in record.items() if k!='samples'}),flush=True)
 report={'model':source.name,'sha256':hashlib.sha256(raw).hexdigest(),'status':'inspection_only','clips':records}
-(WORK/'review'/f'{key}_lod{lod}_motion.json').write_text(json.dumps(report,indent=2))
+(WORK/'review'/f'{key}_lod{lod}_{"selected_motion" if selected else "motion"}.json').write_text(json.dumps(report,indent=2))

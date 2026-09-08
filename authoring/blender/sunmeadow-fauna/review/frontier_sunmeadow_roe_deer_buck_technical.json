@@ -1,27 +1,23 @@
 {
   "asset": "frontier_sunmeadow_roe_deer_buck",
-  "passed": false,
-  "issues": [
-    "frontier_sunmeadow_roe_deer_buck_lod0.glb: run exported foot plant deviates over 6 mm from authored ground trajectory",
-    "frontier_sunmeadow_roe_deer_buck_lod1.glb: run exported foot plant deviates over 6 mm from authored ground trajectory",
-    "frontier_sunmeadow_roe_deer_buck_lod2.glb: run exported foot plant deviates over 6 mm from authored ground trajectory"
-  ],
+  "passed": true,
+  "issues": [],
   "lods": [
     {
       "level": 0,
       "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
-      "sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
-      "bytes": 8759360,
-      "triangles": 47152,
-      "vertices": 23691,
+      "sha256": "84df5883ff09f055037d9cd75761dc4be2232c6f3ac20bc364bb20dcbc06f7da",
+      "bytes": 8810500,
+      "triangles": 47826,
+      "vertices": 24028,
       "bounds_blender": {
         "min": [
-          -0.19568003714084625,
+          -0.2082788646221161,
           -0.7600319385528564,
           -0.0000022664664811600232
         ],
         "max": [
-          0.1956833451986313,
+          0.20827551186084747,
           0.4490847885608673,
           1.2955422401428223
         ]
@@ -202,26 +198,73 @@
           "faces": 194
         }
       ],
-      "maximumWeightError": 1.341104507446289e-7,
+      "textures": [
+        {
+          "source": "textures/roe_deer_buck_basecolor.png",
+          "sha256": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+          "width": 4096,
+          "height": 2048,
+          "rgba8_mip_bytes": 44739244
+        },
+        {
+          "source": "textures/roe_deer_buck_orm.png",
+          "sha256": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+          "width": 4096,
+          "height": 2048,
+          "rgba8_mip_bytes": 44739244
+        },
+        {
+          "source": "textures/roe_deer_buck_normal.png",
+          "sha256": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+          "width": 4096,
+          "height": 2048,
+          "rgba8_mip_bytes": 44739244
+        }
+      ],
+      "estimated_rgba8_mipped_bytes": 134217732,
+      "maximumWeightError": 1.3597309589385986e-7,
       "degenerateTriangles": 0,
+      "actualEmbeddedTextures": [
+        {
+          "width": 4096,
+          "height": 2048,
+          "bytes": 2175072,
+          "sha256": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+          "rgba8MipBytes": 44739244
+        },
+        {
+          "width": 4096,
+          "height": 2048,
+          "bytes": 1285656,
+          "sha256": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+          "rgba8MipBytes": 44739244
+        },
+        {
+          "width": 4096,
+          "height": 2048,
+          "bytes": 2537320,
+          "sha256": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+          "rgba8MipBytes": 44739244
+        }
+      ],
       "validationErrors": 0,
       "validationWarnings": 0
     },
     {
       "level": 1,
       "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
-      "sha256": "056ec241ddb571fbe1d70e1e91f24a915e186cbc03ca9bd8aea27604140f87b2",
-      "bytes": 7527232,
-      "triangles": 21678,
-      "vertices": 10930,
+      "sha256": "a37db8e5af2536f5bf29c7052c7ed9f1ea4fd02dff4bf517e761956cf928b298",
+      "bytes": 3161264,
+      "triangles": 21676,
+      "vertices": 10929,
       "bounds_blender": {
         "min": [
-          -0.18656976521015167,
+          -0.20183610916137695,
           -0.7600319385528564,
           0.00003059394657611847
         ],
         "max": [
-          0.18668435513973236,
+          0.20183810591697693,
           0.4491190016269684,
           1.2953706979751587
         ]
@@ -402,26 +445,73 @@
           "faces": 98
         }
       ],
-      "maximumWeightError": 1.4621764421463013e-7,
+      "textures": [
+        {
+          "source": "textures/roe_deer_buck_lod1_basecolor.png",
+          "sha256": "2632c2efaad46d88d04a65a5067c97d0700889167a5790200ac91c2d82e42535",
+          "width": 2048,
+          "height": 1024,
+          "rgba8_mip_bytes": 11184812
+        },
+        {
+          "source": "textures/roe_deer_buck_lod1_orm.png",
+          "sha256": "c7f3373206b91d9175c3ee3fd234b46c1b3c7f6fc58991d4bed2fdbca2a20a83",
+          "width": 2048,
+          "height": 1024,
+          "rgba8_mip_bytes": 11184812
+        },
+        {
+          "source": "textures/roe_deer_buck_lod1_normal.png",
+          "sha256": "5f6050555b6a9282cd61fc7e84de3c176ebb510d265bcbbda2bf7e8d0a88de75",
+          "width": 2048,
+          "height": 1024,
+          "rgba8_mip_bytes": 11184812
+        }
+      ],
+      "estimated_rgba8_mipped_bytes": 33554436,
+      "maximumWeightError": 1.3131648302078247e-7,
       "degenerateTriangles": 0,
+      "actualEmbeddedTextures": [
+        {
+          "width": 2048,
+          "height": 1024,
+          "bytes": 543238,
+          "sha256": "5f6050555b6a9282cd61fc7e84de3c176ebb510d265bcbbda2bf7e8d0a88de75",
+          "rgba8MipBytes": 11184812
+        },
+        {
+          "width": 2048,
+          "height": 1024,
+          "bytes": 329060,
+          "sha256": "c7f3373206b91d9175c3ee3fd234b46c1b3c7f6fc58991d4bed2fdbca2a20a83",
+          "rgba8MipBytes": 11184812
+        },
+        {
+          "width": 2048,
+          "height": 1024,
+          "bytes": 731295,
+          "sha256": "2632c2efaad46d88d04a65a5067c97d0700889167a5790200ac91c2d82e42535",
+          "rgba8MipBytes": 11184812
+        }
+      ],
       "validationErrors": 0,
       "validationWarnings": 0
     },
     {
       "level": 2,
       "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
-      "sha256": "8d790543cd9fa6ef49a518efdd11419346cb575fe6b91d0c1488d5d1502a9a18",
-      "bytes": 6883360,
+      "sha256": "e2d136e64bc52e01d3c84188ed3fb014fc1ba48137d820e281030e50fe03a5b6",
+      "bytes": 1331224,
       "triangles": 8748,
       "vertices": 4442,
       "bounds_blender": {
         "min": [
-          -0.1753760725259781,
+          -0.19430011510849,
           -0.7600319385528564,
           0.0009740307577885687
         ],
         "max": [
-          0.17559248208999634,
+          0.1943257749080658,
           0.4488097131252289,
           1.295226812362671
         ]
@@ -602,8 +692,55 @@
           "faces": 42
         }
       ],
-      "maximumWeightError": 1.2293457984924316e-7,
+      "textures": [
+        {
+          "source": "textures/roe_deer_buck_lod2_basecolor.png",
+          "sha256": "9b4db351e637a4d1092887334b8f627452be6bd520361c6af43bfb386de8a441",
+          "width": 1024,
+          "height": 512,
+          "rgba8_mip_bytes": 2796204
+        },
+        {
+          "source": "textures/roe_deer_buck_lod2_orm.png",
+          "sha256": "864dfc2bb8aa15f2563d9b08c8e8c05280dc1002e0961fcd631c3ad24d1bfb5d",
+          "width": 1024,
+          "height": 512,
+          "rgba8_mip_bytes": 2796204
+        },
+        {
+          "source": "textures/roe_deer_buck_lod2_normal.png",
+          "sha256": "123ee34292a97802f707f155f30820be03dd3353d178aa1909d8f2f7a818efc0",
+          "width": 1024,
+          "height": 512,
+          "rgba8_mip_bytes": 2796204
+        }
+      ],
+      "estimated_rgba8_mipped_bytes": 8388612,
+      "maximumWeightError": 1.1920928955078125e-7,
       "degenerateTriangles": 0,
+      "actualEmbeddedTextures": [
+        {
+          "width": 1024,
+          "height": 512,
+          "bytes": 135684,
+          "sha256": "123ee34292a97802f707f155f30820be03dd3353d178aa1909d8f2f7a818efc0",
+          "rgba8MipBytes": 2796204
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "bytes": 79845,
+          "sha256": "864dfc2bb8aa15f2563d9b08c8e8c05280dc1002e0961fcd631c3ad24d1bfb5d",
+          "rgba8MipBytes": 2796204
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "bytes": 203908,
+          "sha256": "9b4db351e637a4d1092887334b8f627452be6bd520361c6af43bfb386de8a441",
+          "rgba8MipBytes": 2796204
+        }
+      ],
       "validationErrors": 0,
       "validationWarnings": 0
     }

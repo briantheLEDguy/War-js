@@ -3,6 +3,8 @@ import hashlib
 import json
 from pathlib import Path
 import struct
+import os
+import time
 ROOT=Path(__file__).resolve().parents[1]
 def sha(data):return hashlib.sha256(data).hexdigest()
 
@@ -29,7 +31,15 @@ def pack(file):
     doc['bufferViews']=views;doc['buffers'][0]['byteLength']=len(result)
     encoded=json.dumps(doc,separators=(',',':')).encode();encoded+=b' '*((-len(encoded))%4);result.extend(b'\0'*((-len(result))%4))
     output=struct.pack('<III',0x46546c67,2,28+len(encoded)+len(result))+struct.pack('<II',len(encoded),0x4e4f534a)+encoded+struct.pack('<II',len(result),0x004e4942)+result
-    file.write_bytes(output)
+    temporary=file.with_suffix('.packing.tmp')
+    temporary.write_bytes(output)
+    for attempt in range(6):
+        try:
+            os.replace(temporary,file)
+            break
+        except OSError:
+            if attempt==5:raise
+            time.sleep(.15*(attempt+1))
     return {'tool':'tools/share_textures.py','tool_sha256':sha(Path(__file__).read_bytes()),'input_glb_sha256':sha(data),'output_glb_sha256':sha(output),'embedded_bytes':len(data),'externalized_bytes':len(output)},textures
 
 
@@ -41,6 +51,6 @@ if __name__=='__main__':
             file=ROOT/'runtime'/lod['model'];packing,textures=pack(file)
             if packing:lod['texture_packing']=packing
             lod['external_textures']=textures;lod['bytes']=file.stat().st_size;lod['sha256']=sha(file.read_bytes())
-        report_path.write_text(json.dumps(report,indent=2)+'\n')
+            report_path.write_text(json.dumps(report,indent=2)+'\n')
     print('Shared textures:',len(list((ROOT/'textures/cinderfen_nature').glob('*.png'))))
 

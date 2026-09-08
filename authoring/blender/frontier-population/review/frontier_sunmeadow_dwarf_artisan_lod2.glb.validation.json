@@ -2,7 +2,7 @@
   "uri": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-08T19:21:53.221Z",
+  "validatedAt": "2026-09-08T20:19:34.824Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
@@ -122,7 +122,7 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 13683028
+        "byteLength": 13718248
       },
       {
         "pointer": "/images/0",
@@ -366,7 +366,7 @@
     "hasTextures": true,
     "hasDefaultScene": true,
     "drawCallCount": 15,
-    "totalVertexCount": 22829,
+    "totalVertexCount": 22830,
     "totalTriangleCount": 34264,
     "maxUVs": 1,
     "maxInfluences": 4,

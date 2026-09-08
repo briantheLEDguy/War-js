@@ -1,3 +1,8 @@
+## 2026-09-08 — Saved Cinderfen dressing and paused authoring work
+
+- Replace 21 Cinderfen furniture placements with reviewed neutral cargo, garden and laundry assets fitted around lanes and patrol routes. Add measured cargo grounding/collision checks and terrain-aware scene review.
+- Preserve the latest editable nature, deer and dwarf drafts, diagnostics and interrupted export state. These drafts remain unapproved and unpublished; builders and automatic continuation remain paused.
+
 ## 2026-09-08 - Draft-compatible road regression fixture
 
 - Restore only missing Cinderfen authoring exclusions from a cloned layout. Preserve existing metadata on repeated composition so the road test remains valid with unfinished furnishing drafts without altering published geometry.

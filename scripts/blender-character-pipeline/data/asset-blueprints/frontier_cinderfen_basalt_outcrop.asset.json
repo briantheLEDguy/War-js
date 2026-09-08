@@ -1,0 +1,102 @@
+{
+  "assetId": "prop.frontier.cinderfen_basalt_outcrop",
+  "displayName": "Cinderfen fractured basalt outcrop",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "cinderfen_authored_nature"
+  ],
+  "runtime": {
+    "staticKey": "frontier_cinderfen_basalt_outcrop"
+  },
+  "output": {
+    "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+    "artifactDir": "authoring/blender/cinderfen-nature/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/cinderfen-nature/runtime/frontier_cinderfen_basalt_outcrop_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 12474,
+        "screenCoverageMin": 0.15
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 2356,
+        "screenCoverageMin": 0.05
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 208,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_CinderfenNature",
+    "textureSet": "cinderfen_authored_nature",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 1024
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authored_mass_segments",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_nature_v1",
+    "similarityReview": "not_required",
+    "author": "Codex ecology authoring",
+    "source": "authoring/blender/cinderfen-nature/source/nature.json",
+    "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxTris": 12474,
+    "maxFileSizeMb": 2,
+    "maxDrawCalls": 1,
+    "maxMeshObjects": 1,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true,
+    "expectedHeightM": 2.875452607870102,
+    "heightToleranceM": 0.03
+  },
+  "lifecycle": {
+    "status": "review_pending",
+    "notes": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Internal actual-export visual acceptance is required before publication."
+  }
+}

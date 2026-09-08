@@ -6,13 +6,14 @@ canvas { display:block; } nav { position:absolute; left:18px; top:18px; width:29
 h1 { font:24px Georgia; margin:0 0 12px; } p { line-height:1.5; } select,button { padding:8px; margin:4px 0; color:#eee; background:#31443e; border:1px solid #7f9186; } output { display:block; font-size:12px; white-space:pre-wrap; margin-top:12px; }
 </style>
 <canvas></canvas><nav><h1>Cinderfen Outskirts</h1><p>Assembled terrain and buildings. Drag to orbit; scroll to inspect.</p>
-<label>Location <select id="location"><option value="overview">Whole zone</option><option value="village">Village</option><option value="aegis">Aegis keep</option><option value="riftbound">Riftbound keep</option><option value="fen">Peat inlets</option></select></label>
+<label>Location <select id="location"><option value="overview">Whole zone</option><option value="village">Village</option><option value="supplies">Supply shelter</option><option value="aegis">Aegis keep</option><option value="riftbound">Riftbound keep</option><option value="fen">Peat inlets</option></select></label>
 <button id="visit">Visit</button><br><label>Detail <select id="lod"><option value="0">Close</option><option value="1" selected>Middle</option><option value="2">Distant</option></select></label>
 <output id="status">Loading exact staged models and reviewed props…</output></nav>
 <script type="module">
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { createOrvrGridHeightSampler } from '/src/shared/orvrTerrain.ts';
 const renderer = new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.toneMapping=THREE.ACESFilmicToneMapping;
 const scene=new THREE.Scene();scene.background=new THREE.Color('#acb8b7');scene.fog=new THREE.Fog('#acb8b7',750,1700);
@@ -35,15 +36,16 @@ async function load(url,expected) {
 }
 function visit(){
   scene.fog=document.querySelector('#location').value==='overview'?null:new THREE.Fog('#acb8b7',750,1700);
-  const places={overview:[[950,820,1080],[0,0,0]],village:[[490,28,-187],[443,3,-249]],aegis:[[-418,47,-95],[-350,3,5]],riftbound:[[420,47,-95],[350,3,5]],fen:[[-270,12,120],[-205,-1,245]]};
+  const places={overview:[[950,820,1080],[0,0,0]],village:[[490,28,-187],[443,3,-249]],supplies:[[438,6,-263],[449,1.4,-278]],aegis:[[-418,47,-95],[-350,3,5]],riftbound:[[420,47,-95],[350,3,5]],fen:[[-270,12,120],[-205,-1,245]]};
   const [position,target]=places[document.querySelector('#location').value];camera.position.set(...position);controls.target.set(...target);controls.update();
 }
 async function build(){
   const token=++generation,lod=Number(document.querySelector('#lod').value),next=new THREE.Group();status.textContent='Verifying actual model hashes…';
+  const heightAt=createOrvrGridHeightSampler(preview.ground.controls,preview.ground.size,preview.ground.segments);
   for(const chunk of preview.terrain){const model=chunk.lods[lod],object=await load('./runtime/'+model.model,model.sha256);object.position.set(chunk.x,0,chunk.z);next.add(object);}
   for(const prop of preview.props){
     const choices=preview.assets[prop.assetKey??prop.kind].lods,model=choices[Math.min(lod,choices.length-1)];
-    const object=await load(model.url,model.sha256);object.position.set(prop.x,prop.y??0,prop.z);object.rotation.y=prop.rotY??0;
+    const object=await load(model.url,model.sha256);object.position.set(prop.x,(prop.heightMode==='absolute'?0:heightAt(prop.x,prop.z))+(prop.y??0),prop.z);object.rotation.y=prop.rotY??0;
     const scale=prop.scale??1;object.scale.set(scale*(prop.scaleX??1),scale*(prop.scaleY??1),scale*(prop.scaleZ??1));next.add(object);
   }
   if(token!==generation)return;scene.remove(group);group=next;scene.add(group);

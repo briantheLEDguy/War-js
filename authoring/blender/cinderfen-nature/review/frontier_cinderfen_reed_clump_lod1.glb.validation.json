@@ -1,0 +1,219 @@
+{
+  "uri": "frontier_cinderfen_reed_clump_lod1.glb",
+  "mimeType": "model/gltf-binary",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "validatedAt": "2026-09-08T20:27:23.883Z",
+  "issues": {
+    "numErrors": 0,
+    "numWarnings": 0,
+    "numInfos": 9,
+    "numHints": 0,
+    "messages": [
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/0/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/1/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/2/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/3/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/4/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/5/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/6/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/7/uri"
+      },
+      {
+        "code": "URI_GLB",
+        "message": "URI is used in GLB container.",
+        "severity": 2,
+        "pointer": "/images/8/uri"
+      }
+    ],
+    "truncated": false
+  },
+  "info": {
+    "version": "2.0",
+    "generator": "Khronos glTF Blender I/O v5.0.21",
+    "resources": [
+      {
+        "pointer": "/buffers/0",
+        "mimeType": "application/gltf-buffer",
+        "storage": "glb",
+        "byteLength": 1375008
+      },
+      {
+        "pointer": "/images/0",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/1",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/7929de07d09bc2ffdd848d22ff1c488290bbe2e999d6ccafc417b74e47f32b3a.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/2",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/2f65ca5ed98bade3b4f6e9c737c3809331e106e0525607d8b3a726f7c7a23309.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/3",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/583ad0094955f970135056071825b8ea1a395b5dc1ffa4adb625c6cafbe9bb10.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/4",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/03c3cdd77bf74ed096c487356d0a372ba5b412d1e4f4ed65cdf8e7afb9f5bbb6.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/5",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/0db70f752472cbbd84fd65c8ef4a8059766cadea94335d9a709f61fbdb367cc7.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/6",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/7",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/8",
+        "mimeType": "image/png",
+        "storage": "external",
+        "uri": "../textures/cinderfen_nature/03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0.png",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      }
+    ],
+    "animationCount": 0,
+    "materialCount": 3,
+    "hasMorphTargets": false,
+    "hasSkins": false,
+    "hasTextures": true,
+    "hasDefaultScene": true,
+    "drawCallCount": 3,
+    "totalVertexCount": 26026,
+    "totalTriangleCount": 20960,
+    "maxUVs": 1,
+    "maxInfluences": 0,
+    "maxAttributes": 4
+  }
+}

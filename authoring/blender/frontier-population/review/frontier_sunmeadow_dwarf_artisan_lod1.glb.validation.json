@@ -2,7 +2,7 @@
   "uri": "frontier_sunmeadow_dwarf_artisan_lod1.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-08T19:21:53.052Z",
+  "validatedAt": "2026-09-08T20:19:34.580Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
@@ -122,7 +122,7 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 15445688
+        "byteLength": 15480840
       },
       {
         "pointer": "/images/0",

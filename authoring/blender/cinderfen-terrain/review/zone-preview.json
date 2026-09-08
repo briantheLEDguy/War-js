@@ -129,6 +129,46 @@
           "sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925"
         }
       ]
+    },
+    "aegis_handcart": {
+      "lods": [
+        {
+          "url": "/assets/models/prop_aegis_handcart.glb",
+          "sha256": "4ca11275fbbce16bffd7bf86934c60e7feb01e4565713706416e5c22d0ce0b5b"
+        }
+      ]
+    },
+    "aegis_crate_stack": {
+      "lods": [
+        {
+          "url": "/assets/models/prop_aegis_crate_stack.glb",
+          "sha256": "7fc927a9059fd88867c28bce458c3d7a88281db29c751ec4faa204236753acdd"
+        }
+      ]
+    },
+    "aegis_barrel_cluster": {
+      "lods": [
+        {
+          "url": "/assets/models/prop_aegis_barrel_cluster.glb",
+          "sha256": "cb70456729142cc00d8a9983ed81318e5409e25a61c706fe1d22fa1e5b0eb979"
+        }
+      ]
+    },
+    "aegis_planter": {
+      "lods": [
+        {
+          "url": "/assets/models/prop_aegis_planter.glb",
+          "sha256": "01985bc9ebc156a01e71412eb28f786c50eeb7d47d9baae3735aab43729c4ba8"
+        }
+      ]
+    },
+    "aegis_washing_line": {
+      "lods": [
+        {
+          "url": "/assets/models/prop_aegis_washing_line.glb",
+          "sha256": "b4ccc68a23115eacbccd0ea592c2b172a604ab790d3a03e1388b2d52ce22231e"
+        }
+      ]
     }
   },
   "props": [
@@ -22863,8 +22903,4368 @@
           "axis": "z"
         }
       ]
+    },
+    {
+      "id": "cinderfen_outskirts_life_camp_deliveries_1",
+      "kind": "aegis_handcart",
+      "x": 403,
+      "z": -233,
+      "rotY": 0.12,
+      "scale": 1.0175438936984378,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0.5231429934501648,
+          "width": 2.0399999618530273,
+          "depth": 3.3662859201431274,
+          "minY": 0,
+          "maxY": 1.4249999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_handcart",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_outfitter_4",
+      "kind": "aegis_handcart",
+      "x": 445.381,
+      "z": -276.913,
+      "rotY": 0.12,
+      "scale": 1.0175438936984378,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0.5231429934501648,
+          "width": 2.0399999618530273,
+          "depth": 3.3662859201431274,
+          "minY": 0,
+          "maxY": 1.4249999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_handcart",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_roadside_caravan_4",
+      "kind": "aegis_handcart",
+      "x": 522,
+      "z": -185,
+      "rotY": 0.12,
+      "scale": 1.0175438936984378,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0.5231429934501648,
+          "width": 2.0399999618530273,
+          "depth": 3.3662859201431274,
+          "minY": 0,
+          "maxY": 1.4249999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_handcart",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_camp_deliveries_2",
+      "kind": "aegis_crate_stack",
+      "x": 399,
+      "z": -236,
+      "rotY": 0.12,
+      "scale": 0.682819388997245,
+      "colliders": [
+        {
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
+        }
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_camp_deliveries_6",
+      "kind": "aegis_crate_stack",
+      "x": 396,
+      "z": -232,
+      "rotY": 0.12,
+      "scale": 0.682819388997245,
+      "colliders": [
+        {
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
+        }
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_outfitter_2",
+      "kind": "aegis_crate_stack",
+      "x": 447,
+      "z": -282,
+      "rotY": 0.12,
+      "scale": 0.682819388997245,
+      "colliders": [
+        {
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
+        }
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_outfitter_6",
+      "kind": "aegis_crate_stack",
+      "x": 448,
+      "z": -271,
+      "rotY": 0.12,
+      "scale": 0.682819388997245,
+      "colliders": [
+        {
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
+        }
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_roadside_caravan_2",
+      "kind": "aegis_crate_stack",
+      "x": 524,
+      "z": -190,
+      "rotY": 0.12,
+      "scale": 0.682819388997245,
+      "colliders": [
+        {
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
+        }
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_roadside_caravan_6",
+      "kind": "aegis_crate_stack",
+      "x": 529,
+      "z": -179,
+      "rotY": 0.12,
+      "scale": 0.682819388997245,
+      "colliders": [
+        {
+          "x": 0.10000002384185791,
+          "z": -0.45499998331069946,
+          "width": 2.450000047683716,
+          "depth": 2.040000081062317,
+          "minY": -0.08500003814697266,
+          "maxY": 2.184999942779541
+        }
+      ],
+      "y": 0.05803967411225839,
+      "assetKey": "aegis_crate_stack",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_camp_deliveries_3",
+      "kind": "aegis_barrel_cluster",
+      "x": 407,
+      "z": -236,
+      "rotY": 0.12,
+      "scale": 0.7795247938754152,
+      "colliders": [
+        {
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_field_kitchen_4",
+      "kind": "aegis_barrel_cluster",
+      "x": 411.464,
+      "z": -279.464,
+      "rotY": 0.12,
+      "scale": 0.7795247938754152,
+      "colliders": [
+        {
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_field_rest_5",
+      "kind": "aegis_barrel_cluster",
+      "x": 471,
+      "z": -226,
+      "rotY": 0.12,
+      "scale": 0.7795247938754152,
+      "colliders": [
+        {
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_outfitter_3",
+      "kind": "aegis_barrel_cluster",
+      "x": 464,
+      "z": -279,
+      "rotY": 0.12,
+      "scale": 0.7795247938754152,
+      "colliders": [
+        {
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_roadside_caravan_3",
+      "kind": "aegis_barrel_cluster",
+      "x": 542,
+      "z": -189,
+      "rotY": 0.12,
+      "scale": 0.7795247938754152,
+      "colliders": [
+        {
+          "x": 0.02500009536743164,
+          "z": -0.5,
+          "width": 2.1500000953674316,
+          "depth": 2,
+          "minY": 0,
+          "maxY": 1.2999999523162842
+        }
+      ],
+      "y": 0,
+      "assetKey": "aegis_barrel_cluster",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_camp_wayfinding_3",
+      "kind": "aegis_planter",
+      "x": 451,
+      "z": -251,
+      "rotY": 0.12,
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_field_rest_2",
+      "kind": "aegis_planter",
+      "x": 464.621,
+      "z": -227.879,
+      "rotY": 0.12,
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_field_rest_3",
+      "kind": "aegis_planter",
+      "x": 470.207,
+      "z": -229.293,
+      "rotY": 0.12,
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_trail_garden_2",
+      "kind": "aegis_planter",
+      "x": 337,
+      "z": -247,
+      "rotY": 0.12,
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_trail_garden_3",
+      "kind": "aegis_planter",
+      "x": 345,
+      "z": -247,
+      "rotY": 0.12,
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_trail_garden_5",
+      "kind": "aegis_planter",
+      "x": 341,
+      "z": -243,
+      "rotY": 0.12,
+      "scale": 0.6081674292547559,
+      "y": 0,
+      "assetKey": "aegis_planter",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "cinderfen_outskirts_life_field_rest_4",
+      "kind": "aegis_washing_line",
+      "x": 466,
+      "z": -225,
+      "rotY": 0.12,
+      "scale": 0.7187499892897905,
+      "y": 0,
+      "assetKey": "aegis_washing_line",
+      "colliderSpace": "model"
     }
   ],
+  "ground": {
+    "size": 1200,
+    "segments": 192,
+    "controls": {
+      "sourceVersion": "cinderfen-peat-basin-v3",
+      "chunkSize": 300,
+      "chunks": [
+        {
+          "id": "cinderfen_outskirts_terrain_0_0",
+          "x": -450,
+          "z": -450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_0_0",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_0_0",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_1_0",
+          "x": -150,
+          "z": -450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_1_0",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_1_0",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_2_0",
+          "x": 150,
+          "z": -450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_2_0",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_2_0",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_3_0",
+          "x": 450,
+          "z": -450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_3_0",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_3_0",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_0_1",
+          "x": -450,
+          "z": -150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_0_1",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_0_1",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_1_1",
+          "x": -150,
+          "z": -150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_1_1",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_1_1",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_2_1",
+          "x": 150,
+          "z": -150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_2_1",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_2_1",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_3_1",
+          "x": 450,
+          "z": -150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_3_1",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_3_1",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_0_2",
+          "x": -450,
+          "z": 150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_0_2",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_0_2",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_1_2",
+          "x": -150,
+          "z": 150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_1_2",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_1_2",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_2_2",
+          "x": 150,
+          "z": 150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_2_2",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_2_2",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_3_2",
+          "x": 450,
+          "z": 150,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_3_2",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_3_2",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_0_3",
+          "x": -450,
+          "z": 450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_0_3",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_0_3",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_1_3",
+          "x": -150,
+          "z": 450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_1_3",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_1_3",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_2_3",
+          "x": 150,
+          "z": 450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_2_3",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_2_3",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        },
+        {
+          "id": "cinderfen_outskirts_terrain_3_3",
+          "x": 450,
+          "z": 450,
+          "width": 300,
+          "depth": 300,
+          "assetKey": "frontier_cinderfen_outskirts_terrain_3_3",
+          "collisionAssetKey": "frontier_cinderfen_outskirts_collision_3_3",
+          "lodDistances": [
+            0,
+            390,
+            630
+          ],
+          "status": "planned"
+        }
+      ],
+      "landforms": [
+        {
+          "id": "north_basalt_watershed",
+          "kind": "ridge",
+          "x": -180,
+          "z": 488,
+          "radiusX": 305,
+          "radiusZ": 98,
+          "height": 23
+        },
+        {
+          "id": "western_cinder_shoulder",
+          "kind": "ridge",
+          "x": -535,
+          "z": -265,
+          "radiusX": 75,
+          "radiusZ": 245,
+          "height": 29
+        },
+        {
+          "id": "eastern_steam_ridge",
+          "kind": "ridge",
+          "x": 525,
+          "z": 285,
+          "radiusX": 83,
+          "radiusZ": 245,
+          "height": 25
+        },
+        {
+          "id": "southern_slag_rise",
+          "kind": "ridge",
+          "x": 150,
+          "z": -510,
+          "radiusX": 270,
+          "radiusZ": 95,
+          "height": 19
+        },
+        {
+          "id": "western_peat_basin",
+          "kind": "basin",
+          "x": -205,
+          "z": 235,
+          "radiusX": 160,
+          "radiusZ": 140,
+          "height": -2.4
+        },
+        {
+          "id": "eastern_peat_basin",
+          "kind": "basin",
+          "x": 195,
+          "z": 205,
+          "radiusX": 150,
+          "radiusZ": 120,
+          "height": -2
+        },
+        {
+          "id": "southern_mineral_basin",
+          "kind": "basin",
+          "x": 45,
+          "z": -365,
+          "radiusX": 260,
+          "radiusZ": 60,
+          "height": -1.8
+        },
+        {
+          "id": "west_fen_northern_inlet",
+          "kind": "basin",
+          "x": -270,
+          "z": 340,
+          "radiusX": 62,
+          "radiusZ": 115,
+          "height": -1.8
+        },
+        {
+          "id": "west_fen_southern_inlet",
+          "kind": "basin",
+          "x": -255,
+          "z": 125,
+          "radiusX": 75,
+          "radiusZ": 84,
+          "height": -1.2
+        },
+        {
+          "id": "west_fen_reed_headland",
+          "kind": "terrace",
+          "x": -302,
+          "z": 250,
+          "radiusX": 66,
+          "radiusZ": 55,
+          "height": 3.5
+        },
+        {
+          "id": "west_fen_peat_islet",
+          "kind": "terrace",
+          "x": -179,
+          "z": 279,
+          "radiusX": 37,
+          "radiusZ": 28,
+          "height": 3.4
+        },
+        {
+          "id": "west_fen_eastern_tongue",
+          "kind": "basin",
+          "x": -89,
+          "z": 206,
+          "radiusX": 66,
+          "radiusZ": 48,
+          "height": -1.2
+        },
+        {
+          "id": "east_fen_north_inlet",
+          "kind": "basin",
+          "x": 169,
+          "z": 295,
+          "radiusX": 76,
+          "radiusZ": 78,
+          "height": -1.5
+        },
+        {
+          "id": "east_fen_south_inlet",
+          "kind": "basin",
+          "x": 241,
+          "z": 109,
+          "radiusX": 78,
+          "radiusZ": 73,
+          "height": -1.4
+        },
+        {
+          "id": "east_fen_basalt_headland",
+          "kind": "terrace",
+          "x": 289,
+          "z": 225,
+          "radiusX": 71,
+          "radiusZ": 57,
+          "height": 2.8
+        },
+        {
+          "id": "east_fen_peat_islet",
+          "kind": "terrace",
+          "x": 170,
+          "z": 196,
+          "radiusX": 32,
+          "radiusZ": 41,
+          "height": 3.2
+        },
+        {
+          "id": "mineral_fen_southern_pocket",
+          "kind": "basin",
+          "x": 104,
+          "z": -406,
+          "radiusX": 95,
+          "radiusZ": 61,
+          "height": -1.7
+        },
+        {
+          "id": "mineral_fen_northern_pocket",
+          "kind": "basin",
+          "x": -67,
+          "z": -332,
+          "radiusX": 91,
+          "radiusZ": 48,
+          "height": -1.1
+        },
+        {
+          "id": "mineral_fen_cinder_spit",
+          "kind": "terrace",
+          "x": 21,
+          "z": -394,
+          "radiusX": 56,
+          "radiusZ": 42,
+          "height": 2.8
+        },
+        {
+          "id": "west_scout_bank",
+          "kind": "terrace",
+          "x": -200,
+          "z": -230,
+          "radiusX": 125,
+          "radiusZ": 120,
+          "height": 5.5
+        },
+        {
+          "id": "north_east_scout_bank",
+          "kind": "terrace",
+          "x": 235,
+          "z": 380,
+          "radiusX": 140,
+          "radiusZ": 85,
+          "height": 8
+        }
+      ],
+      "flattenAreas": [
+        {
+          "id": "cinderfen_outskirts_aegis_keep",
+          "x": -350,
+          "z": 0,
+          "radius": 85,
+          "height": 0,
+          "feather": 20
+        },
+        {
+          "id": "cinderfen_outskirts_riftbound_keep",
+          "x": 350,
+          "z": 0,
+          "radius": 85,
+          "height": 0,
+          "feather": 20
+        },
+        {
+          "id": "cinderfen_outskirts_aegis_staging",
+          "x": -505,
+          "z": 80,
+          "radius": 40,
+          "height": 0,
+          "feather": 16
+        },
+        {
+          "id": "cinderfen_outskirts_riftbound_staging",
+          "x": 505,
+          "z": 80,
+          "radius": 40,
+          "height": 0,
+          "feather": 16
+        },
+        {
+          "id": "cinderfen_outskirts_west_objective",
+          "x": 0,
+          "z": -260,
+          "radius": 34,
+          "height": 0,
+          "feather": 14
+        },
+        {
+          "id": "cinderfen_outskirts_central_objective",
+          "x": 0,
+          "z": 0,
+          "radius": 34,
+          "height": 0,
+          "feather": 14
+        },
+        {
+          "id": "cinderfen_outskirts_east_objective",
+          "x": 0,
+          "z": 260,
+          "radius": 34,
+          "height": 0,
+          "feather": 14
+        },
+        {
+          "id": "cinderfen_outskirts_settlement",
+          "x": 435,
+          "z": -245,
+          "radius": 83,
+          "height": 0,
+          "feather": 20
+        },
+        {
+          "id": "cinderfen_outskirts_supply_pad_0",
+          "x": -184,
+          "z": 48,
+          "radius": 7,
+          "height": 0,
+          "feather": 8
+        },
+        {
+          "id": "cinderfen_outskirts_supply_pad_1",
+          "x": 184,
+          "z": 48,
+          "radius": 7,
+          "height": 0,
+          "feather": 8
+        },
+        {
+          "id": "cinderfen_outskirts_supply_pad_2",
+          "x": 0,
+          "z": 104,
+          "radius": 7,
+          "height": 0,
+          "feather": 8
+        },
+        {
+          "id": "cinderfen_outskirts_supply_pad_3",
+          "x": 533,
+          "z": -189,
+          "radius": 7,
+          "height": 0,
+          "feather": 8
+        }
+      ],
+      "clearCorridors": [
+        {
+          "id": "cinderfen_outskirts_march_road_south",
+          "points": [
+            {
+              "x": 0,
+              "z": -260
+            },
+            {
+              "x": -0.815,
+              "z": -258.179
+            },
+            {
+              "x": -2.033,
+              "z": -255.836
+            },
+            {
+              "x": -3.582,
+              "z": -253.03
+            },
+            {
+              "x": -5.386,
+              "z": -249.821
+            },
+            {
+              "x": -7.373,
+              "z": -246.27
+            },
+            {
+              "x": -9.468,
+              "z": -242.434
+            },
+            {
+              "x": -11.598,
+              "z": -238.375
+            },
+            {
+              "x": -13.688,
+              "z": -234.151
+            },
+            {
+              "x": -15.664,
+              "z": -229.823
+            },
+            {
+              "x": -17.453,
+              "z": -225.45
+            },
+            {
+              "x": -18.981,
+              "z": -221.092
+            },
+            {
+              "x": -20.173,
+              "z": -216.808
+            },
+            {
+              "x": -20.957,
+              "z": -212.659
+            },
+            {
+              "x": -21.257,
+              "z": -208.703
+            },
+            {
+              "x": -21,
+              "z": -205
+            },
+            {
+              "x": -20.404,
+              "z": -202.349
+            },
+            {
+              "x": -19.442,
+              "z": -199.489
+            },
+            {
+              "x": -18.148,
+              "z": -196.442
+            },
+            {
+              "x": -16.561,
+              "z": -193.227
+            },
+            {
+              "x": -14.717,
+              "z": -189.866
+            },
+            {
+              "x": -12.651,
+              "z": -186.379
+            },
+            {
+              "x": -10.401,
+              "z": -182.787
+            },
+            {
+              "x": -8.004,
+              "z": -179.11
+            },
+            {
+              "x": -5.495,
+              "z": -175.369
+            },
+            {
+              "x": -2.911,
+              "z": -171.584
+            },
+            {
+              "x": -0.289,
+              "z": -167.777
+            },
+            {
+              "x": 2.335,
+              "z": -163.968
+            },
+            {
+              "x": 4.924,
+              "z": -160.178
+            },
+            {
+              "x": 7.441,
+              "z": -156.427
+            },
+            {
+              "x": 9.851,
+              "z": -152.735
+            },
+            {
+              "x": 12.117,
+              "z": -149.124
+            },
+            {
+              "x": 14.201,
+              "z": -145.615
+            },
+            {
+              "x": 16.068,
+              "z": -142.227
+            },
+            {
+              "x": 17.682,
+              "z": -138.981
+            },
+            {
+              "x": 19.004,
+              "z": -135.899
+            },
+            {
+              "x": 20,
+              "z": -133
+            },
+            {
+              "x": 20.925,
+              "z": -129.44
+            },
+            {
+              "x": 21.68,
+              "z": -125.694
+            },
+            {
+              "x": 22.276,
+              "z": -121.79
+            },
+            {
+              "x": 22.725,
+              "z": -117.752
+            },
+            {
+              "x": 23.037,
+              "z": -113.607
+            },
+            {
+              "x": 23.222,
+              "z": -109.381
+            },
+            {
+              "x": 23.291,
+              "z": -105.1
+            },
+            {
+              "x": 23.256,
+              "z": -100.79
+            },
+            {
+              "x": 23.127,
+              "z": -96.477
+            },
+            {
+              "x": 22.914,
+              "z": -92.188
+            },
+            {
+              "x": 22.629,
+              "z": -87.948
+            },
+            {
+              "x": 22.283,
+              "z": -83.783
+            },
+            {
+              "x": 21.885,
+              "z": -79.719
+            },
+            {
+              "x": 21.447,
+              "z": -75.783
+            },
+            {
+              "x": 20.98,
+              "z": -72
+            },
+            {
+              "x": 20.494,
+              "z": -68.397
+            },
+            {
+              "x": 20,
+              "z": -65
+            },
+            {
+              "x": 19.43,
+              "z": -61.732
+            },
+            {
+              "x": 18.669,
+              "z": -58.166
+            },
+            {
+              "x": 17.741,
+              "z": -54.352
+            },
+            {
+              "x": 16.669,
+              "z": -50.336
+            },
+            {
+              "x": 15.479,
+              "z": -46.168
+            },
+            {
+              "x": 14.193,
+              "z": -41.895
+            },
+            {
+              "x": 12.835,
+              "z": -37.565
+            },
+            {
+              "x": 11.429,
+              "z": -33.228
+            },
+            {
+              "x": 10,
+              "z": -28.93
+            },
+            {
+              "x": 8.571,
+              "z": -24.72
+            },
+            {
+              "x": 7.165,
+              "z": -20.647
+            },
+            {
+              "x": 5.807,
+              "z": -16.759
+            },
+            {
+              "x": 4.521,
+              "z": -13.103
+            },
+            {
+              "x": 3.331,
+              "z": -9.727
+            },
+            {
+              "x": 2.259,
+              "z": -6.681
+            },
+            {
+              "x": 1.331,
+              "z": -4.013
+            },
+            {
+              "x": 0.57,
+              "z": -1.77
+            },
+            {
+              "x": 0,
+              "z": 0
+            }
+          ],
+          "radius": 9,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_march_road_north",
+          "points": [
+            {
+              "x": 0,
+              "z": 0
+            },
+            {
+              "x": -0.531,
+              "z": 1.872
+            },
+            {
+              "x": -1.222,
+              "z": 4.244
+            },
+            {
+              "x": -2.055,
+              "z": 7.064
+            },
+            {
+              "x": -3.01,
+              "z": 10.28
+            },
+            {
+              "x": -4.068,
+              "z": 13.843
+            },
+            {
+              "x": -5.212,
+              "z": 17.701
+            },
+            {
+              "x": -6.421,
+              "z": 21.802
+            },
+            {
+              "x": -7.677,
+              "z": 26.096
+            },
+            {
+              "x": -8.962,
+              "z": 30.533
+            },
+            {
+              "x": -10.257,
+              "z": 35.059
+            },
+            {
+              "x": -11.541,
+              "z": 39.626
+            },
+            {
+              "x": -12.798,
+              "z": 44.181
+            },
+            {
+              "x": -14.008,
+              "z": 48.674
+            },
+            {
+              "x": -15.152,
+              "z": 53.053
+            },
+            {
+              "x": -16.211,
+              "z": 57.268
+            },
+            {
+              "x": -17.167,
+              "z": 61.267
+            },
+            {
+              "x": -18,
+              "z": 65
+            },
+            {
+              "x": -18.657,
+              "z": 68.024
+            },
+            {
+              "x": -19.381,
+              "z": 71.28
+            },
+            {
+              "x": -20.16,
+              "z": 74.743
+            },
+            {
+              "x": -20.984,
+              "z": 78.39
+            },
+            {
+              "x": -21.841,
+              "z": 82.196
+            },
+            {
+              "x": -22.72,
+              "z": 86.138
+            },
+            {
+              "x": -23.61,
+              "z": 90.19
+            },
+            {
+              "x": -24.501,
+              "z": 94.328
+            },
+            {
+              "x": -25.379,
+              "z": 98.529
+            },
+            {
+              "x": -26.236,
+              "z": 102.769
+            },
+            {
+              "x": -27.059,
+              "z": 107.022
+            },
+            {
+              "x": -27.838,
+              "z": 111.265
+            },
+            {
+              "x": -28.56,
+              "z": 115.474
+            },
+            {
+              "x": -29.216,
+              "z": 119.624
+            },
+            {
+              "x": -29.794,
+              "z": 123.691
+            },
+            {
+              "x": -30.283,
+              "z": 127.651
+            },
+            {
+              "x": -30.671,
+              "z": 131.48
+            },
+            {
+              "x": -30.948,
+              "z": 135.154
+            },
+            {
+              "x": -31.103,
+              "z": 138.648
+            },
+            {
+              "x": -31.124,
+              "z": 141.938
+            },
+            {
+              "x": -31,
+              "z": 145
+            },
+            {
+              "x": -30.625,
+              "z": 148.516
+            },
+            {
+              "x": -29.985,
+              "z": 152.188
+            },
+            {
+              "x": -29.112,
+              "z": 155.991
+            },
+            {
+              "x": -28.033,
+              "z": 159.9
+            },
+            {
+              "x": -26.779,
+              "z": 163.891
+            },
+            {
+              "x": -25.379,
+              "z": 167.939
+            },
+            {
+              "x": -23.864,
+              "z": 172.02
+            },
+            {
+              "x": -22.261,
+              "z": 176.108
+            },
+            {
+              "x": -20.603,
+              "z": 180.18
+            },
+            {
+              "x": -18.916,
+              "z": 184.21
+            },
+            {
+              "x": -17.233,
+              "z": 188.174
+            },
+            {
+              "x": -15.581,
+              "z": 192.047
+            },
+            {
+              "x": -13.991,
+              "z": 195.805
+            },
+            {
+              "x": -12.492,
+              "z": 199.423
+            },
+            {
+              "x": -11.113,
+              "z": 202.876
+            },
+            {
+              "x": -9.886,
+              "z": 206.14
+            },
+            {
+              "x": -8.838,
+              "z": 209.189
+            },
+            {
+              "x": -8,
+              "z": 212
+            },
+            {
+              "x": -7.03,
+              "z": 215.864
+            },
+            {
+              "x": -6.123,
+              "z": 219.975
+            },
+            {
+              "x": -5.278,
+              "z": 224.258
+            },
+            {
+              "x": -4.494,
+              "z": 228.638
+            },
+            {
+              "x": -3.77,
+              "z": 233.04
+            },
+            {
+              "x": -3.104,
+              "z": 237.387
+            },
+            {
+              "x": -2.496,
+              "z": 241.606
+            },
+            {
+              "x": -1.944,
+              "z": 245.621
+            },
+            {
+              "x": -1.448,
+              "z": 249.356
+            },
+            {
+              "x": -1.007,
+              "z": 252.737
+            },
+            {
+              "x": -0.619,
+              "z": 255.688
+            },
+            {
+              "x": -0.284,
+              "z": 258.134
+            },
+            {
+              "x": 0,
+              "z": 260
+            }
+          ],
+          "radius": 9,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_aegis_keep_road",
+          "points": [
+            {
+              "x": 0,
+              "z": 0
+            },
+            {
+              "x": -1.924,
+              "z": -0.174
+            },
+            {
+              "x": -4.348,
+              "z": -0.347
+            },
+            {
+              "x": -7.223,
+              "z": -0.524
+            },
+            {
+              "x": -10.502,
+              "z": -0.709
+            },
+            {
+              "x": -14.134,
+              "z": -0.908
+            },
+            {
+              "x": -18.072,
+              "z": -1.125
+            },
+            {
+              "x": -22.268,
+              "z": -1.367
+            },
+            {
+              "x": -26.672,
+              "z": -1.638
+            },
+            {
+              "x": -31.236,
+              "z": -1.943
+            },
+            {
+              "x": -35.911,
+              "z": -2.287
+            },
+            {
+              "x": -40.65,
+              "z": -2.676
+            },
+            {
+              "x": -45.403,
+              "z": -3.115
+            },
+            {
+              "x": -50.122,
+              "z": -3.608
+            },
+            {
+              "x": -54.758,
+              "z": -4.161
+            },
+            {
+              "x": -59.263,
+              "z": -4.778
+            },
+            {
+              "x": -63.588,
+              "z": -5.466
+            },
+            {
+              "x": -67.685,
+              "z": -6.229
+            },
+            {
+              "x": -71.505,
+              "z": -7.072
+            },
+            {
+              "x": -75,
+              "z": -8
+            },
+            {
+              "x": -78.079,
+              "z": -8.979
+            },
+            {
+              "x": -81.306,
+              "z": -10.144
+            },
+            {
+              "x": -84.665,
+              "z": -11.478
+            },
+            {
+              "x": -88.14,
+              "z": -12.963
+            },
+            {
+              "x": -91.717,
+              "z": -14.58
+            },
+            {
+              "x": -95.379,
+              "z": -16.313
+            },
+            {
+              "x": -99.111,
+              "z": -18.142
+            },
+            {
+              "x": -102.898,
+              "z": -20.051
+            },
+            {
+              "x": -106.723,
+              "z": -22.022
+            },
+            {
+              "x": -110.572,
+              "z": -24.037
+            },
+            {
+              "x": -114.428,
+              "z": -26.077
+            },
+            {
+              "x": -118.277,
+              "z": -28.126
+            },
+            {
+              "x": -122.102,
+              "z": -30.166
+            },
+            {
+              "x": -125.889,
+              "z": -32.178
+            },
+            {
+              "x": -129.621,
+              "z": -34.145
+            },
+            {
+              "x": -133.283,
+              "z": -36.048
+            },
+            {
+              "x": -136.86,
+              "z": -37.872
+            },
+            {
+              "x": -140.335,
+              "z": -39.596
+            },
+            {
+              "x": -143.694,
+              "z": -41.204
+            },
+            {
+              "x": -146.921,
+              "z": -42.678
+            },
+            {
+              "x": -150,
+              "z": -44
+            },
+            {
+              "x": -153.247,
+              "z": -45.326
+            },
+            {
+              "x": -156.674,
+              "z": -46.694
+            },
+            {
+              "x": -160.259,
+              "z": -48.096
+            },
+            {
+              "x": -163.982,
+              "z": -49.526
+            },
+            {
+              "x": -167.822,
+              "z": -50.976
+            },
+            {
+              "x": -171.757,
+              "z": -52.438
+            },
+            {
+              "x": -175.765,
+              "z": -53.905
+            },
+            {
+              "x": -179.827,
+              "z": -55.37
+            },
+            {
+              "x": -183.921,
+              "z": -56.824
+            },
+            {
+              "x": -188.025,
+              "z": -58.26
+            },
+            {
+              "x": -192.119,
+              "z": -59.671
+            },
+            {
+              "x": -196.181,
+              "z": -61.05
+            },
+            {
+              "x": -200.19,
+              "z": -62.388
+            },
+            {
+              "x": -204.125,
+              "z": -63.678
+            },
+            {
+              "x": -207.966,
+              "z": -64.914
+            },
+            {
+              "x": -211.69,
+              "z": -66.086
+            },
+            {
+              "x": -215.276,
+              "z": -67.189
+            },
+            {
+              "x": -218.704,
+              "z": -68.214
+            },
+            {
+              "x": -221.953,
+              "z": -69.153
+            },
+            {
+              "x": -225,
+              "z": -70
+            },
+            {
+              "x": -228.541,
+              "z": -70.94
+            },
+            {
+              "x": -232.232,
+              "z": -71.88
+            },
+            {
+              "x": -236.049,
+              "z": -72.813
+            },
+            {
+              "x": -239.97,
+              "z": -73.734
+            },
+            {
+              "x": -243.972,
+              "z": -74.637
+            },
+            {
+              "x": -248.033,
+              "z": -75.517
+            },
+            {
+              "x": -252.128,
+              "z": -76.367
+            },
+            {
+              "x": -256.236,
+              "z": -77.182
+            },
+            {
+              "x": -260.334,
+              "z": -77.957
+            },
+            {
+              "x": -264.398,
+              "z": -78.685
+            },
+            {
+              "x": -268.406,
+              "z": -79.361
+            },
+            {
+              "x": -272.336,
+              "z": -79.979
+            },
+            {
+              "x": -276.163,
+              "z": -80.533
+            },
+            {
+              "x": -279.866,
+              "z": -81.018
+            },
+            {
+              "x": -283.422,
+              "z": -81.428
+            },
+            {
+              "x": -286.808,
+              "z": -81.757
+            },
+            {
+              "x": -290,
+              "z": -82
+            },
+            {
+              "x": -293.465,
+              "z": -82.146
+            },
+            {
+              "x": -297.258,
+              "z": -82.173
+            },
+            {
+              "x": -301.316,
+              "z": -82.095
+            },
+            {
+              "x": -305.577,
+              "z": -81.926
+            },
+            {
+              "x": -309.979,
+              "z": -81.681
+            },
+            {
+              "x": -314.46,
+              "z": -81.374
+            },
+            {
+              "x": -318.959,
+              "z": -81.019
+            },
+            {
+              "x": -323.412,
+              "z": -80.63
+            },
+            {
+              "x": -327.76,
+              "z": -80.221
+            },
+            {
+              "x": -331.938,
+              "z": -79.807
+            },
+            {
+              "x": -335.887,
+              "z": -79.401
+            },
+            {
+              "x": -339.542,
+              "z": -79.019
+            },
+            {
+              "x": -342.843,
+              "z": -78.673
+            },
+            {
+              "x": -345.728,
+              "z": -78.379
+            },
+            {
+              "x": -348.134,
+              "z": -78.15
+            },
+            {
+              "x": -350,
+              "z": -78
+            }
+          ],
+          "radius": 9,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_aegis_keep_approach",
+          "points": [
+            {
+              "x": -350,
+              "z": -78
+            },
+            {
+              "x": -350,
+              "z": -75.953
+            },
+            {
+              "x": -350,
+              "z": -73.076
+            },
+            {
+              "x": -350,
+              "z": -69.541
+            },
+            {
+              "x": -350,
+              "z": -65.52
+            },
+            {
+              "x": -350,
+              "z": -61.184
+            },
+            {
+              "x": -350,
+              "z": -56.704
+            },
+            {
+              "x": -350,
+              "z": -52.252
+            },
+            {
+              "x": -350,
+              "z": -48
+            },
+            {
+              "x": -350,
+              "z": -44.89
+            },
+            {
+              "x": -350,
+              "z": -41.119
+            },
+            {
+              "x": -350,
+              "z": -36.838
+            },
+            {
+              "x": -350,
+              "z": -32.196
+            },
+            {
+              "x": -350,
+              "z": -27.341
+            },
+            {
+              "x": -350,
+              "z": -22.425
+            },
+            {
+              "x": -350,
+              "z": -17.596
+            },
+            {
+              "x": -350,
+              "z": -13.004
+            },
+            {
+              "x": -350,
+              "z": -8.799
+            },
+            {
+              "x": -350,
+              "z": -5.131
+            },
+            {
+              "x": -350,
+              "z": -2.148
+            },
+            {
+              "x": -350,
+              "z": 0
+            }
+          ],
+          "radius": 5.5,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_aegis_support_link",
+          "points": [
+            {
+              "x": -350,
+              "z": -78
+            },
+            {
+              "x": -352.156,
+              "z": -78.395
+            },
+            {
+              "x": -355.385,
+              "z": -78.955
+            },
+            {
+              "x": -359.325,
+              "z": -79.645
+            },
+            {
+              "x": -363.617,
+              "z": -80.43
+            },
+            {
+              "x": -367.901,
+              "z": -81.274
+            },
+            {
+              "x": -371.815,
+              "z": -82.143
+            },
+            {
+              "x": -375,
+              "z": -83
+            },
+            {
+              "x": -378.475,
+              "z": -84.26
+            },
+            {
+              "x": -382.363,
+              "z": -85.924
+            },
+            {
+              "x": -386.312,
+              "z": -87.762
+            },
+            {
+              "x": -389.97,
+              "z": -89.542
+            },
+            {
+              "x": -392.984,
+              "z": -91.032
+            },
+            {
+              "x": -395,
+              "z": -92
+            }
+          ],
+          "radius": 7,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_aegis_staging_road",
+          "points": [
+            {
+              "x": -395,
+              "z": -92
+            },
+            {
+              "x": -396.669,
+              "z": -90.787
+            },
+            {
+              "x": -399.005,
+              "z": -89.263
+            },
+            {
+              "x": -401.884,
+              "z": -87.45
+            },
+            {
+              "x": -405.184,
+              "z": -85.373
+            },
+            {
+              "x": -408.782,
+              "z": -83.055
+            },
+            {
+              "x": -412.555,
+              "z": -80.517
+            },
+            {
+              "x": -416.381,
+              "z": -77.785
+            },
+            {
+              "x": -420.136,
+              "z": -74.88
+            },
+            {
+              "x": -423.699,
+              "z": -71.826
+            },
+            {
+              "x": -426.945,
+              "z": -68.646
+            },
+            {
+              "x": -429.753,
+              "z": -65.363
+            },
+            {
+              "x": -432,
+              "z": -62
+            },
+            {
+              "x": -433.25,
+              "z": -59.523
+            },
+            {
+              "x": -434.438,
+              "z": -56.651
+            },
+            {
+              "x": -435.569,
+              "z": -53.43
+            },
+            {
+              "x": -436.651,
+              "z": -49.907
+            },
+            {
+              "x": -437.689,
+              "z": -46.128
+            },
+            {
+              "x": -438.689,
+              "z": -42.141
+            },
+            {
+              "x": -439.658,
+              "z": -37.991
+            },
+            {
+              "x": -440.601,
+              "z": -33.726
+            },
+            {
+              "x": -441.525,
+              "z": -29.392
+            },
+            {
+              "x": -442.436,
+              "z": -25.037
+            },
+            {
+              "x": -443.341,
+              "z": -20.706
+            },
+            {
+              "x": -444.244,
+              "z": -16.446
+            },
+            {
+              "x": -445.154,
+              "z": -12.304
+            },
+            {
+              "x": -446.075,
+              "z": -8.327
+            },
+            {
+              "x": -447.014,
+              "z": -4.562
+            },
+            {
+              "x": -447.977,
+              "z": -1.054
+            },
+            {
+              "x": -448.97,
+              "z": 2.149
+            },
+            {
+              "x": -450,
+              "z": 5
+            },
+            {
+              "x": -451.448,
+              "z": 8.485
+            },
+            {
+              "x": -453.075,
+              "z": 12.078
+            },
+            {
+              "x": -454.855,
+              "z": 15.747
+            },
+            {
+              "x": -456.761,
+              "z": 19.461
+            },
+            {
+              "x": -458.767,
+              "z": 23.187
+            },
+            {
+              "x": -460.847,
+              "z": 26.893
+            },
+            {
+              "x": -462.975,
+              "z": 30.548
+            },
+            {
+              "x": -465.124,
+              "z": 34.119
+            },
+            {
+              "x": -467.269,
+              "z": 37.574
+            },
+            {
+              "x": -469.382,
+              "z": 40.882
+            },
+            {
+              "x": -471.438,
+              "z": 44.011
+            },
+            {
+              "x": -473.41,
+              "z": 46.928
+            },
+            {
+              "x": -475.273,
+              "z": 49.602
+            },
+            {
+              "x": -477,
+              "z": 52
+            },
+            {
+              "x": -479.549,
+              "z": 55.23
+            },
+            {
+              "x": -482.492,
+              "z": 58.568
+            },
+            {
+              "x": -485.703,
+              "z": 61.938
+            },
+            {
+              "x": -489.053,
+              "z": 65.263
+            },
+            {
+              "x": -492.417,
+              "z": 68.468
+            },
+            {
+              "x": -495.668,
+              "z": 71.475
+            },
+            {
+              "x": -498.679,
+              "z": 74.208
+            },
+            {
+              "x": -501.322,
+              "z": 76.591
+            },
+            {
+              "x": -503.471,
+              "z": 78.547
+            },
+            {
+              "x": -505,
+              "z": 80
+            }
+          ],
+          "radius": 6.5,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_riftbound_keep_road",
+          "points": [
+            {
+              "x": 0,
+              "z": 0
+            },
+            {
+              "x": 1.924,
+              "z": -0.174
+            },
+            {
+              "x": 4.348,
+              "z": -0.347
+            },
+            {
+              "x": 7.223,
+              "z": -0.524
+            },
+            {
+              "x": 10.502,
+              "z": -0.709
+            },
+            {
+              "x": 14.134,
+              "z": -0.908
+            },
+            {
+              "x": 18.072,
+              "z": -1.125
+            },
+            {
+              "x": 22.268,
+              "z": -1.367
+            },
+            {
+              "x": 26.672,
+              "z": -1.638
+            },
+            {
+              "x": 31.236,
+              "z": -1.943
+            },
+            {
+              "x": 35.911,
+              "z": -2.287
+            },
+            {
+              "x": 40.65,
+              "z": -2.676
+            },
+            {
+              "x": 45.403,
+              "z": -3.115
+            },
+            {
+              "x": 50.122,
+              "z": -3.608
+            },
+            {
+              "x": 54.758,
+              "z": -4.161
+            },
+            {
+              "x": 59.263,
+              "z": -4.778
+            },
+            {
+              "x": 63.588,
+              "z": -5.466
+            },
+            {
+              "x": 67.685,
+              "z": -6.229
+            },
+            {
+              "x": 71.505,
+              "z": -7.072
+            },
+            {
+              "x": 75,
+              "z": -8
+            },
+            {
+              "x": 78.079,
+              "z": -8.979
+            },
+            {
+              "x": 81.306,
+              "z": -10.144
+            },
+            {
+              "x": 84.665,
+              "z": -11.478
+            },
+            {
+              "x": 88.14,
+              "z": -12.963
+            },
+            {
+              "x": 91.717,
+              "z": -14.58
+            },
+            {
+              "x": 95.379,
+              "z": -16.313
+            },
+            {
+              "x": 99.111,
+              "z": -18.142
+            },
+            {
+              "x": 102.898,
+              "z": -20.051
+            },
+            {
+              "x": 106.723,
+              "z": -22.022
+            },
+            {
+              "x": 110.572,
+              "z": -24.037
+            },
+            {
+              "x": 114.428,
+              "z": -26.077
+            },
+            {
+              "x": 118.277,
+              "z": -28.126
+            },
+            {
+              "x": 122.102,
+              "z": -30.166
+            },
+            {
+              "x": 125.889,
+              "z": -32.178
+            },
+            {
+              "x": 129.621,
+              "z": -34.145
+            },
+            {
+              "x": 133.283,
+              "z": -36.048
+            },
+            {
+              "x": 136.86,
+              "z": -37.872
+            },
+            {
+              "x": 140.335,
+              "z": -39.596
+            },
+            {
+              "x": 143.694,
+              "z": -41.204
+            },
+            {
+              "x": 146.921,
+              "z": -42.678
+            },
+            {
+              "x": 150,
+              "z": -44
+            },
+            {
+              "x": 153.247,
+              "z": -45.326
+            },
+            {
+              "x": 156.674,
+              "z": -46.694
+            },
+            {
+              "x": 160.259,
+              "z": -48.096
+            },
+            {
+              "x": 163.982,
+              "z": -49.526
+            },
+            {
+              "x": 167.822,
+              "z": -50.976
+            },
+            {
+              "x": 171.757,
+              "z": -52.438
+            },
+            {
+              "x": 175.765,
+              "z": -53.905
+            },
+            {
+              "x": 179.827,
+              "z": -55.37
+            },
+            {
+              "x": 183.921,
+              "z": -56.824
+            },
+            {
+              "x": 188.025,
+              "z": -58.26
+            },
+            {
+              "x": 192.119,
+              "z": -59.671
+            },
+            {
+              "x": 196.181,
+              "z": -61.05
+            },
+            {
+              "x": 200.19,
+              "z": -62.388
+            },
+            {
+              "x": 204.125,
+              "z": -63.678
+            },
+            {
+              "x": 207.966,
+              "z": -64.914
+            },
+            {
+              "x": 211.69,
+              "z": -66.086
+            },
+            {
+              "x": 215.276,
+              "z": -67.189
+            },
+            {
+              "x": 218.704,
+              "z": -68.214
+            },
+            {
+              "x": 221.953,
+              "z": -69.153
+            },
+            {
+              "x": 225,
+              "z": -70
+            },
+            {
+              "x": 228.541,
+              "z": -70.94
+            },
+            {
+              "x": 232.232,
+              "z": -71.88
+            },
+            {
+              "x": 236.049,
+              "z": -72.813
+            },
+            {
+              "x": 239.97,
+              "z": -73.734
+            },
+            {
+              "x": 243.972,
+              "z": -74.637
+            },
+            {
+              "x": 248.033,
+              "z": -75.517
+            },
+            {
+              "x": 252.128,
+              "z": -76.367
+            },
+            {
+              "x": 256.236,
+              "z": -77.182
+            },
+            {
+              "x": 260.334,
+              "z": -77.957
+            },
+            {
+              "x": 264.398,
+              "z": -78.685
+            },
+            {
+              "x": 268.406,
+              "z": -79.361
+            },
+            {
+              "x": 272.336,
+              "z": -79.979
+            },
+            {
+              "x": 276.163,
+              "z": -80.533
+            },
+            {
+              "x": 279.866,
+              "z": -81.018
+            },
+            {
+              "x": 283.422,
+              "z": -81.428
+            },
+            {
+              "x": 286.808,
+              "z": -81.757
+            },
+            {
+              "x": 290,
+              "z": -82
+            },
+            {
+              "x": 293.465,
+              "z": -82.146
+            },
+            {
+              "x": 297.258,
+              "z": -82.173
+            },
+            {
+              "x": 301.316,
+              "z": -82.095
+            },
+            {
+              "x": 305.577,
+              "z": -81.926
+            },
+            {
+              "x": 309.979,
+              "z": -81.681
+            },
+            {
+              "x": 314.46,
+              "z": -81.374
+            },
+            {
+              "x": 318.959,
+              "z": -81.019
+            },
+            {
+              "x": 323.413,
+              "z": -80.63
+            },
+            {
+              "x": 327.76,
+              "z": -80.221
+            },
+            {
+              "x": 331.938,
+              "z": -79.807
+            },
+            {
+              "x": 335.887,
+              "z": -79.401
+            },
+            {
+              "x": 339.542,
+              "z": -79.019
+            },
+            {
+              "x": 342.843,
+              "z": -78.673
+            },
+            {
+              "x": 345.728,
+              "z": -78.379
+            },
+            {
+              "x": 348.134,
+              "z": -78.15
+            },
+            {
+              "x": 350,
+              "z": -78
+            }
+          ],
+          "radius": 9,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_riftbound_keep_approach",
+          "points": [
+            {
+              "x": 350,
+              "z": -78
+            },
+            {
+              "x": 350,
+              "z": -75.953
+            },
+            {
+              "x": 350,
+              "z": -73.076
+            },
+            {
+              "x": 350,
+              "z": -69.541
+            },
+            {
+              "x": 350,
+              "z": -65.52
+            },
+            {
+              "x": 350,
+              "z": -61.184
+            },
+            {
+              "x": 350,
+              "z": -56.704
+            },
+            {
+              "x": 350,
+              "z": -52.252
+            },
+            {
+              "x": 350,
+              "z": -48
+            },
+            {
+              "x": 350,
+              "z": -44.89
+            },
+            {
+              "x": 350,
+              "z": -41.119
+            },
+            {
+              "x": 350,
+              "z": -36.838
+            },
+            {
+              "x": 350,
+              "z": -32.196
+            },
+            {
+              "x": 350,
+              "z": -27.341
+            },
+            {
+              "x": 350,
+              "z": -22.425
+            },
+            {
+              "x": 350,
+              "z": -17.596
+            },
+            {
+              "x": 350,
+              "z": -13.004
+            },
+            {
+              "x": 350,
+              "z": -8.799
+            },
+            {
+              "x": 350,
+              "z": -5.131
+            },
+            {
+              "x": 350,
+              "z": -2.148
+            },
+            {
+              "x": 350,
+              "z": 0
+            }
+          ],
+          "radius": 5.5,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_riftbound_support_link",
+          "points": [
+            {
+              "x": 350,
+              "z": -78
+            },
+            {
+              "x": 352.156,
+              "z": -78.395
+            },
+            {
+              "x": 355.385,
+              "z": -78.955
+            },
+            {
+              "x": 359.325,
+              "z": -79.645
+            },
+            {
+              "x": 363.617,
+              "z": -80.43
+            },
+            {
+              "x": 367.901,
+              "z": -81.274
+            },
+            {
+              "x": 371.815,
+              "z": -82.143
+            },
+            {
+              "x": 375,
+              "z": -83
+            },
+            {
+              "x": 378.475,
+              "z": -84.26
+            },
+            {
+              "x": 382.363,
+              "z": -85.924
+            },
+            {
+              "x": 386.313,
+              "z": -87.762
+            },
+            {
+              "x": 389.97,
+              "z": -89.542
+            },
+            {
+              "x": 392.984,
+              "z": -91.032
+            },
+            {
+              "x": 395,
+              "z": -92
+            }
+          ],
+          "radius": 7,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_riftbound_staging_road",
+          "points": [
+            {
+              "x": 395,
+              "z": -92
+            },
+            {
+              "x": 396.669,
+              "z": -90.787
+            },
+            {
+              "x": 399.005,
+              "z": -89.263
+            },
+            {
+              "x": 401.884,
+              "z": -87.45
+            },
+            {
+              "x": 405.184,
+              "z": -85.373
+            },
+            {
+              "x": 408.782,
+              "z": -83.055
+            },
+            {
+              "x": 412.555,
+              "z": -80.517
+            },
+            {
+              "x": 416.381,
+              "z": -77.785
+            },
+            {
+              "x": 420.136,
+              "z": -74.88
+            },
+            {
+              "x": 423.699,
+              "z": -71.826
+            },
+            {
+              "x": 426.945,
+              "z": -68.646
+            },
+            {
+              "x": 429.753,
+              "z": -65.363
+            },
+            {
+              "x": 432,
+              "z": -62
+            },
+            {
+              "x": 433.25,
+              "z": -59.523
+            },
+            {
+              "x": 434.438,
+              "z": -56.651
+            },
+            {
+              "x": 435.569,
+              "z": -53.43
+            },
+            {
+              "x": 436.651,
+              "z": -49.907
+            },
+            {
+              "x": 437.689,
+              "z": -46.128
+            },
+            {
+              "x": 438.689,
+              "z": -42.141
+            },
+            {
+              "x": 439.658,
+              "z": -37.991
+            },
+            {
+              "x": 440.601,
+              "z": -33.726
+            },
+            {
+              "x": 441.525,
+              "z": -29.392
+            },
+            {
+              "x": 442.436,
+              "z": -25.037
+            },
+            {
+              "x": 443.341,
+              "z": -20.706
+            },
+            {
+              "x": 444.244,
+              "z": -16.446
+            },
+            {
+              "x": 445.154,
+              "z": -12.304
+            },
+            {
+              "x": 446.075,
+              "z": -8.327
+            },
+            {
+              "x": 447.014,
+              "z": -4.562
+            },
+            {
+              "x": 447.977,
+              "z": -1.054
+            },
+            {
+              "x": 448.97,
+              "z": 2.149
+            },
+            {
+              "x": 450,
+              "z": 5
+            },
+            {
+              "x": 451.448,
+              "z": 8.485
+            },
+            {
+              "x": 453.075,
+              "z": 12.078
+            },
+            {
+              "x": 454.855,
+              "z": 15.747
+            },
+            {
+              "x": 456.761,
+              "z": 19.461
+            },
+            {
+              "x": 458.767,
+              "z": 23.187
+            },
+            {
+              "x": 460.847,
+              "z": 26.893
+            },
+            {
+              "x": 462.975,
+              "z": 30.548
+            },
+            {
+              "x": 465.124,
+              "z": 34.119
+            },
+            {
+              "x": 467.269,
+              "z": 37.574
+            },
+            {
+              "x": 469.382,
+              "z": 40.882
+            },
+            {
+              "x": 471.438,
+              "z": 44.011
+            },
+            {
+              "x": 473.41,
+              "z": 46.928
+            },
+            {
+              "x": 475.273,
+              "z": 49.602
+            },
+            {
+              "x": 477,
+              "z": 52
+            },
+            {
+              "x": 479.549,
+              "z": 55.23
+            },
+            {
+              "x": 482.492,
+              "z": 58.568
+            },
+            {
+              "x": 485.703,
+              "z": 61.938
+            },
+            {
+              "x": 489.053,
+              "z": 65.263
+            },
+            {
+              "x": 492.417,
+              "z": 68.468
+            },
+            {
+              "x": 495.668,
+              "z": 71.475
+            },
+            {
+              "x": 498.679,
+              "z": 74.208
+            },
+            {
+              "x": 501.322,
+              "z": 76.591
+            },
+            {
+              "x": 503.471,
+              "z": 78.547
+            },
+            {
+              "x": 505,
+              "z": 80
+            }
+          ],
+          "radius": 6.5,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_settlement_road",
+          "points": [
+            {
+              "x": 395,
+              "z": -92
+            },
+            {
+              "x": 395.83,
+              "z": -93.827
+            },
+            {
+              "x": 396.968,
+              "z": -96.254
+            },
+            {
+              "x": 398.365,
+              "z": -99.197
+            },
+            {
+              "x": 399.974,
+              "z": -102.574
+            },
+            {
+              "x": 401.745,
+              "z": -106.302
+            },
+            {
+              "x": 403.63,
+              "z": -110.298
+            },
+            {
+              "x": 405.58,
+              "z": -114.48
+            },
+            {
+              "x": 407.548,
+              "z": -118.765
+            },
+            {
+              "x": 409.484,
+              "z": -123.07
+            },
+            {
+              "x": 411.341,
+              "z": -127.312
+            },
+            {
+              "x": 413.069,
+              "z": -131.409
+            },
+            {
+              "x": 414.621,
+              "z": -135.278
+            },
+            {
+              "x": 415.947,
+              "z": -138.836
+            },
+            {
+              "x": 417,
+              "z": -142
+            },
+            {
+              "x": 417.919,
+              "z": -145.27
+            },
+            {
+              "x": 418.746,
+              "z": -148.726
+            },
+            {
+              "x": 419.492,
+              "z": -152.337
+            },
+            {
+              "x": 420.169,
+              "z": -156.071
+            },
+            {
+              "x": 420.787,
+              "z": -159.897
+            },
+            {
+              "x": 421.358,
+              "z": -163.782
+            },
+            {
+              "x": 421.894,
+              "z": -167.696
+            },
+            {
+              "x": 422.406,
+              "z": -171.606
+            },
+            {
+              "x": 422.905,
+              "z": -175.481
+            },
+            {
+              "x": 423.402,
+              "z": -179.29
+            },
+            {
+              "x": 423.91,
+              "z": -183.001
+            },
+            {
+              "x": 424.439,
+              "z": -186.581
+            },
+            {
+              "x": 425,
+              "z": -190
+            },
+            {
+              "x": 425.591,
+              "z": -193.357
+            },
+            {
+              "x": 426.274,
+              "z": -197.183
+            },
+            {
+              "x": 427.029,
+              "z": -201.384
+            },
+            {
+              "x": 427.84,
+              "z": -205.863
+            },
+            {
+              "x": 428.687,
+              "z": -210.526
+            },
+            {
+              "x": 429.553,
+              "z": -215.277
+            },
+            {
+              "x": 430.42,
+              "z": -220.02
+            },
+            {
+              "x": 431.27,
+              "z": -224.661
+            },
+            {
+              "x": 432.085,
+              "z": -229.103
+            },
+            {
+              "x": 432.846,
+              "z": -233.251
+            },
+            {
+              "x": 433.536,
+              "z": -237.011
+            },
+            {
+              "x": 434.137,
+              "z": -240.286
+            },
+            {
+              "x": 434.631,
+              "z": -242.98
+            },
+            {
+              "x": 435,
+              "z": -245
+            }
+          ],
+          "radius": 7,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_portal_road_bleakroot_causeway",
+          "points": [
+            {
+              "x": -434.438,
+              "z": -56.651
+            },
+            {
+              "x": -436.157,
+              "z": -57.72
+            },
+            {
+              "x": -438.555,
+              "z": -59.262
+            },
+            {
+              "x": -441.498,
+              "z": -61.169
+            },
+            {
+              "x": -444.854,
+              "z": -63.332
+            },
+            {
+              "x": -448.491,
+              "z": -65.643
+            },
+            {
+              "x": -452.276,
+              "z": -67.993
+            },
+            {
+              "x": -456.076,
+              "z": -70.274
+            },
+            {
+              "x": -459.759,
+              "z": -72.378
+            },
+            {
+              "x": -463.191,
+              "z": -74.196
+            },
+            {
+              "x": -466.24,
+              "z": -75.62
+            },
+            {
+              "x": -469.256,
+              "z": -76.788
+            },
+            {
+              "x": -472.616,
+              "z": -77.91
+            },
+            {
+              "x": -476.234,
+              "z": -78.983
+            },
+            {
+              "x": -480.021,
+              "z": -80.007
+            },
+            {
+              "x": -483.892,
+              "z": -80.979
+            },
+            {
+              "x": -487.759,
+              "z": -81.897
+            },
+            {
+              "x": -491.534,
+              "z": -82.761
+            },
+            {
+              "x": -495.13,
+              "z": -83.568
+            },
+            {
+              "x": -498.46,
+              "z": -84.317
+            },
+            {
+              "x": -501.438,
+              "z": -85.006
+            },
+            {
+              "x": -505.236,
+              "z": -85.869
+            },
+            {
+              "x": -509.54,
+              "z": -86.789
+            },
+            {
+              "x": -514.104,
+              "z": -87.726
+            },
+            {
+              "x": -518.682,
+              "z": -88.641
+            },
+            {
+              "x": -523.029,
+              "z": -89.493
+            },
+            {
+              "x": -526.899,
+              "z": -90.245
+            },
+            {
+              "x": -530.048,
+              "z": -90.857
+            },
+            {
+              "x": -532.23,
+              "z": -91.29
+            }
+          ],
+          "radius": 7,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_portal_road_cindermaw_pit",
+          "points": [
+            {
+              "x": -505,
+              "z": 80
+            },
+            {
+              "x": -507.71,
+              "z": 80.447
+            },
+            {
+              "x": -511.751,
+              "z": 81.158
+            },
+            {
+              "x": -515.321,
+              "z": 82.045
+            },
+            {
+              "x": -518.399,
+              "z": 83.401
+            },
+            {
+              "x": -521.702,
+              "z": 85.172
+            },
+            {
+              "x": -524.535,
+              "z": 86.759
+            },
+            {
+              "x": -527.343,
+              "z": 88.368
+            },
+            {
+              "x": -530.282,
+              "z": 90.121
+            },
+            {
+              "x": -532.23,
+              "z": 91.29
+            }
+          ],
+          "radius": 5,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_portal_road_riftspire_capital",
+          "points": [
+            {
+              "x": 473.41,
+              "z": 46.928
+            },
+            {
+              "x": 475.342,
+              "z": 46.122
+            },
+            {
+              "x": 478.179,
+              "z": 44.987
+            },
+            {
+              "x": 481.666,
+              "z": 43.592
+            },
+            {
+              "x": 485.551,
+              "z": 42.006
+            },
+            {
+              "x": 489.58,
+              "z": 40.301
+            },
+            {
+              "x": 493.501,
+              "z": 38.546
+            },
+            {
+              "x": 497.059,
+              "z": 36.81
+            },
+            {
+              "x": 500.001,
+              "z": 35.165
+            },
+            {
+              "x": 502.67,
+              "z": 33.373
+            },
+            {
+              "x": 505.52,
+              "z": 31.224
+            },
+            {
+              "x": 508.473,
+              "z": 28.827
+            },
+            {
+              "x": 511.448,
+              "z": 26.288
+            },
+            {
+              "x": 514.368,
+              "z": 23.716
+            },
+            {
+              "x": 517.152,
+              "z": 21.218
+            },
+            {
+              "x": 519.72,
+              "z": 18.902
+            },
+            {
+              "x": 521.994,
+              "z": 16.875
+            },
+            {
+              "x": 524.622,
+              "z": 14.514
+            },
+            {
+              "x": 527.572,
+              "z": 11.79
+            },
+            {
+              "x": 530.638,
+              "z": 8.91
+            },
+            {
+              "x": 533.618,
+              "z": 6.084
+            },
+            {
+              "x": 536.307,
+              "z": 3.518
+            },
+            {
+              "x": 538.503,
+              "z": 1.42
+            },
+            {
+              "x": 540,
+              "z": 0
+            }
+          ],
+          "radius": 7,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_lane",
+          "points": [
+            {
+              "x": 435,
+              "z": -245
+            },
+            {
+              "x": 433.993,
+              "z": -245.169
+            },
+            {
+              "x": 432.55,
+              "z": -245.349
+            },
+            {
+              "x": 430.768,
+              "z": -245.555
+            },
+            {
+              "x": 428.745,
+              "z": -245.803
+            },
+            {
+              "x": 426.578,
+              "z": -246.107
+            },
+            {
+              "x": 424.364,
+              "z": -246.483
+            },
+            {
+              "x": 422.202,
+              "z": -246.945
+            },
+            {
+              "x": 420.189,
+              "z": -247.509
+            },
+            {
+              "x": 418.423,
+              "z": -248.189
+            },
+            {
+              "x": 417,
+              "z": -249
+            },
+            {
+              "x": 415.851,
+              "z": -249.948
+            },
+            {
+              "x": 414.638,
+              "z": -251.158
+            },
+            {
+              "x": 413.394,
+              "z": -252.581
+            },
+            {
+              "x": 412.148,
+              "z": -254.171
+            },
+            {
+              "x": 410.932,
+              "z": -255.88
+            },
+            {
+              "x": 409.777,
+              "z": -257.662
+            },
+            {
+              "x": 408.714,
+              "z": -259.469
+            },
+            {
+              "x": 407.773,
+              "z": -261.253
+            },
+            {
+              "x": 406.987,
+              "z": -262.968
+            },
+            {
+              "x": 406.386,
+              "z": -264.566
+            },
+            {
+              "x": 406,
+              "z": -266
+            },
+            {
+              "x": 405.719,
+              "z": -267.6
+            },
+            {
+              "x": 405.489,
+              "z": -269.418
+            },
+            {
+              "x": 405.347,
+              "z": -271.387
+            },
+            {
+              "x": 405.332,
+              "z": -273.445
+            },
+            {
+              "x": 405.48,
+              "z": -275.525
+            },
+            {
+              "x": 405.83,
+              "z": -277.563
+            },
+            {
+              "x": 406.419,
+              "z": -279.495
+            },
+            {
+              "x": 407.286,
+              "z": -281.254
+            },
+            {
+              "x": 408.467,
+              "z": -282.778
+            },
+            {
+              "x": 410,
+              "z": -284
+            },
+            {
+              "x": 411.045,
+              "z": -284.555
+            },
+            {
+              "x": 412.349,
+              "z": -285.114
+            },
+            {
+              "x": 413.884,
+              "z": -285.671
+            },
+            {
+              "x": 415.622,
+              "z": -286.222
+            },
+            {
+              "x": 417.534,
+              "z": -286.764
+            },
+            {
+              "x": 419.594,
+              "z": -287.292
+            },
+            {
+              "x": 421.772,
+              "z": -287.801
+            },
+            {
+              "x": 424.042,
+              "z": -288.289
+            },
+            {
+              "x": 426.374,
+              "z": -288.75
+            },
+            {
+              "x": 428.741,
+              "z": -289.181
+            },
+            {
+              "x": 431.115,
+              "z": -289.578
+            },
+            {
+              "x": 433.469,
+              "z": -289.935
+            },
+            {
+              "x": 435.773,
+              "z": -290.249
+            },
+            {
+              "x": 438,
+              "z": -290.517
+            },
+            {
+              "x": 440.122,
+              "z": -290.733
+            },
+            {
+              "x": 442.111,
+              "z": -290.893
+            },
+            {
+              "x": 443.939,
+              "z": -290.994
+            },
+            {
+              "x": 445.578,
+              "z": -291.031
+            },
+            {
+              "x": 447,
+              "z": -291
+            },
+            {
+              "x": 448.937,
+              "z": -290.825
+            },
+            {
+              "x": 450.921,
+              "z": -290.502
+            },
+            {
+              "x": 452.928,
+              "z": -290.044
+            },
+            {
+              "x": 454.933,
+              "z": -289.465
+            },
+            {
+              "x": 456.913,
+              "z": -288.778
+            },
+            {
+              "x": 458.845,
+              "z": -287.997
+            },
+            {
+              "x": 460.704,
+              "z": -287.134
+            },
+            {
+              "x": 462.467,
+              "z": -286.204
+            },
+            {
+              "x": 464.109,
+              "z": -285.219
+            },
+            {
+              "x": 465.607,
+              "z": -284.193
+            },
+            {
+              "x": 466.938,
+              "z": -283.139
+            },
+            {
+              "x": 468.077,
+              "z": -282.07
+            },
+            {
+              "x": 469,
+              "z": -281
+            },
+            {
+              "x": 469.8,
+              "z": -279.7
+            },
+            {
+              "x": 470.457,
+              "z": -278.139
+            },
+            {
+              "x": 470.985,
+              "z": -276.363
+            },
+            {
+              "x": 471.396,
+              "z": -274.415
+            },
+            {
+              "x": 471.702,
+              "z": -272.34
+            },
+            {
+              "x": 471.918,
+              "z": -270.183
+            },
+            {
+              "x": 472.054,
+              "z": -267.987
+            },
+            {
+              "x": 472.124,
+              "z": -265.799
+            },
+            {
+              "x": 472.142,
+              "z": -263.661
+            },
+            {
+              "x": 472.118,
+              "z": -261.619
+            },
+            {
+              "x": 472.067,
+              "z": -259.717
+            },
+            {
+              "x": 472,
+              "z": -258
+            },
+            {
+              "x": 471.918,
+              "z": -256.294
+            },
+            {
+              "x": 471.805,
+              "z": -254.42
+            },
+            {
+              "x": 471.652,
+              "z": -252.418
+            },
+            {
+              "x": 471.45,
+              "z": -250.326
+            },
+            {
+              "x": 471.191,
+              "z": -248.183
+            },
+            {
+              "x": 470.865,
+              "z": -246.027
+            },
+            {
+              "x": 470.463,
+              "z": -243.898
+            },
+            {
+              "x": 469.976,
+              "z": -241.834
+            },
+            {
+              "x": 469.396,
+              "z": -239.873
+            },
+            {
+              "x": 468.712,
+              "z": -238.055
+            },
+            {
+              "x": 467.917,
+              "z": -236.418
+            },
+            {
+              "x": 467,
+              "z": -235
+            },
+            {
+              "x": 466.03,
+              "z": -233.861
+            },
+            {
+              "x": 464.822,
+              "z": -232.674
+            },
+            {
+              "x": 463.41,
+              "z": -231.458
+            },
+            {
+              "x": 461.828,
+              "z": -230.229
+            },
+            {
+              "x": 460.108,
+              "z": -229.004
+            },
+            {
+              "x": 458.285,
+              "z": -227.8
+            },
+            {
+              "x": 456.393,
+              "z": -226.635
+            },
+            {
+              "x": 454.463,
+              "z": -225.526
+            },
+            {
+              "x": 452.531,
+              "z": -224.489
+            },
+            {
+              "x": 450.629,
+              "z": -223.543
+            },
+            {
+              "x": 448.792,
+              "z": -222.704
+            },
+            {
+              "x": 447.052,
+              "z": -221.989
+            },
+            {
+              "x": 445.444,
+              "z": -221.415
+            },
+            {
+              "x": 444,
+              "z": -221
+            },
+            {
+              "x": 442.319,
+              "z": -220.698
+            },
+            {
+              "x": 440.455,
+              "z": -220.551
+            },
+            {
+              "x": 438.456,
+              "z": -220.543
+            },
+            {
+              "x": 436.367,
+              "z": -220.658
+            },
+            {
+              "x": 434.236,
+              "z": -220.878
+            },
+            {
+              "x": 432.108,
+              "z": -221.187
+            },
+            {
+              "x": 430.029,
+              "z": -221.57
+            },
+            {
+              "x": 428.046,
+              "z": -222.009
+            },
+            {
+              "x": 426.205,
+              "z": -222.488
+            },
+            {
+              "x": 424.553,
+              "z": -222.99
+            },
+            {
+              "x": 423.136,
+              "z": -223.5
+            },
+            {
+              "x": 422,
+              "z": -224
+            },
+            {
+              "x": 420.338,
+              "z": -225.072
+            },
+            {
+              "x": 418.778,
+              "z": -226.524
+            },
+            {
+              "x": 417.42,
+              "z": -228.227
+            },
+            {
+              "x": 416.363,
+              "z": -230.053
+            },
+            {
+              "x": 415.708,
+              "z": -231.876
+            },
+            {
+              "x": 415.554,
+              "z": -233.568
+            },
+            {
+              "x": 416,
+              "z": -235
+            },
+            {
+              "x": 416.793,
+              "z": -235.864
+            },
+            {
+              "x": 418.105,
+              "z": -236.831
+            },
+            {
+              "x": 419.825,
+              "z": -237.871
+            },
+            {
+              "x": 421.843,
+              "z": -238.951
+            },
+            {
+              "x": 424.047,
+              "z": -240.04
+            },
+            {
+              "x": 426.328,
+              "z": -241.106
+            },
+            {
+              "x": 428.574,
+              "z": -242.118
+            },
+            {
+              "x": 430.675,
+              "z": -243.046
+            },
+            {
+              "x": 432.521,
+              "z": -243.856
+            },
+            {
+              "x": 433.999,
+              "z": -244.518
+            },
+            {
+              "x": 435,
+              "z": -245
+            }
+          ],
+          "radius": 2.8,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_west_home",
+          "points": [
+            {
+              "x": 405.332,
+              "z": -273.445
+            },
+            {
+              "x": 404.726,
+              "z": -273.565
+            },
+            {
+              "x": 403.8,
+              "z": -273.749
+            },
+            {
+              "x": 402.661,
+              "z": -273.975
+            },
+            {
+              "x": 401.416,
+              "z": -274.222
+            },
+            {
+              "x": 400.171,
+              "z": -274.47
+            },
+            {
+              "x": 399.032,
+              "z": -274.696
+            },
+            {
+              "x": 398.106,
+              "z": -274.88
+            },
+            {
+              "x": 397.5,
+              "z": -275
+            }
+          ],
+          "radius": 2.1,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_north_home",
+          "points": [
+            {
+              "x": 422,
+              "z": -224
+            },
+            {
+              "x": 421.724,
+              "z": -223.493
+            },
+            {
+              "x": 421.295,
+              "z": -222.708
+            },
+            {
+              "x": 420.775,
+              "z": -221.754
+            },
+            {
+              "x": 420.225,
+              "z": -220.746
+            },
+            {
+              "x": 419.705,
+              "z": -219.792
+            },
+            {
+              "x": 419.276,
+              "z": -219.007
+            },
+            {
+              "x": 419,
+              "z": -218.5
+            }
+          ],
+          "radius": 2.1,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_east_home",
+          "points": [
+            {
+              "x": 467,
+              "z": -235
+            },
+            {
+              "x": 467.437,
+              "z": -234.709
+            },
+            {
+              "x": 468.082,
+              "z": -234.278
+            },
+            {
+              "x": 468.885,
+              "z": -233.744
+            },
+            {
+              "x": 469.791,
+              "z": -233.139
+            },
+            {
+              "x": 470.75,
+              "z": -232.5
+            },
+            {
+              "x": 471.709,
+              "z": -231.861
+            },
+            {
+              "x": 472.615,
+              "z": -231.256
+            },
+            {
+              "x": 473.418,
+              "z": -230.722
+            },
+            {
+              "x": 474.063,
+              "z": -230.291
+            },
+            {
+              "x": 474.5,
+              "z": -230
+            }
+          ],
+          "radius": 2.1,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_south_home",
+          "points": [
+            {
+              "x": 470.457,
+              "z": -278.139
+            },
+            {
+              "x": 470.976,
+              "z": -278.287
+            },
+            {
+              "x": 471.732,
+              "z": -278.502
+            },
+            {
+              "x": 472.671,
+              "z": -278.77
+            },
+            {
+              "x": 473.741,
+              "z": -279.075
+            },
+            {
+              "x": 474.891,
+              "z": -279.402
+            },
+            {
+              "x": 476.066,
+              "z": -279.737
+            },
+            {
+              "x": 477.216,
+              "z": -280.064
+            },
+            {
+              "x": 478.286,
+              "z": -280.369
+            },
+            {
+              "x": 479.225,
+              "z": -280.637
+            },
+            {
+              "x": 479.981,
+              "z": -280.852
+            },
+            {
+              "x": 480.5,
+              "z": -281
+            }
+          ],
+          "radius": 2.1,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_workshop",
+          "points": [
+            {
+              "x": 471.805,
+              "z": -254.42
+            },
+            {
+              "x": 472.392,
+              "z": -254.486
+            },
+            {
+              "x": 473.313,
+              "z": -254.588
+            },
+            {
+              "x": 474.403,
+              "z": -254.71
+            },
+            {
+              "x": 475.492,
+              "z": -254.832
+            },
+            {
+              "x": 476.413,
+              "z": -254.934
+            },
+            {
+              "x": 477,
+              "z": -255
+            }
+          ],
+          "radius": 2.1,
+          "height": 0,
+          "feather": 24
+        },
+        {
+          "id": "cinderfen_outskirts_village_apothecary",
+          "points": [
+            {
+              "x": 435,
+              "z": -245
+            },
+            {
+              "x": 435.086,
+              "z": -245.479
+            },
+            {
+              "x": 435.212,
+              "z": -246.124
+            },
+            {
+              "x": 435.368,
+              "z": -246.91
+            },
+            {
+              "x": 435.548,
+              "z": -247.812
+            },
+            {
+              "x": 435.744,
+              "z": -248.805
+            },
+            {
+              "x": 435.949,
+              "z": -249.863
+            },
+            {
+              "x": 436.155,
+              "z": -250.962
+            },
+            {
+              "x": 436.355,
+              "z": -252.077
+            },
+            {
+              "x": 436.542,
+              "z": -253.181
+            },
+            {
+              "x": 436.707,
+              "z": -254.251
+            },
+            {
+              "x": 436.843,
+              "z": -255.261
+            },
+            {
+              "x": 436.943,
+              "z": -256.185
+            },
+            {
+              "x": 437,
+              "z": -257
+            },
+            {
+              "x": 437.012,
+              "z": -257.875
+            },
+            {
+              "x": 436.984,
+              "z": -258.854
+            },
+            {
+              "x": 436.922,
+              "z": -259.91
+            },
+            {
+              "x": 436.834,
+              "z": -261.013
+            },
+            {
+              "x": 436.726,
+              "z": -262.138
+            },
+            {
+              "x": 436.605,
+              "z": -263.255
+            },
+            {
+              "x": 436.478,
+              "z": -264.337
+            },
+            {
+              "x": 436.353,
+              "z": -265.357
+            },
+            {
+              "x": 436.235,
+              "z": -266.285
+            },
+            {
+              "x": 436.132,
+              "z": -267.096
+            },
+            {
+              "x": 436.052,
+              "z": -267.76
+            },
+            {
+              "x": 436,
+              "z": -268.25
+            }
+          ],
+          "radius": 2.2,
+          "height": 0,
+          "feather": 24
+        }
+      ]
+    }
+  },
   "terrain": [
     {
       "key": "frontier_cinderfen_outskirts_terrain_0_0",

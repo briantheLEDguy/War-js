@@ -19,6 +19,8 @@ The current deer uses continuous anatomical skin, shaped orbit/cheek planes, fus
 
 `inspect_motion.py` samples every literal GLB animation key and the midpoint of each interval. It measures skin strain, loop seams, root movement, floor clearance and planted-foot trajectories. In-place playback speeds are derived from each scaled rig's stride and stance duration in the build report; movement authority must use those speeds or adjust playback rate. `reanimate_fauna.py` can rebake motion on a hash-verified master while verifying that skin geometry remains unchanged.
 
+The 4096×2048 authored PBR master is retained for LOD0. LOD1 uses 2048×1024 and LOD2 uses 1024×512; tangent normals are renormalized after filtering. The validator reads the actual embedded PNG dimensions and estimates uncompressed RGBA8 texture memory including the complete mip chain. These estimates are resource budgets, not a claim that a populated zone meets its frame-rate target.
+
 `validate_fauna.mjs` checks all three exported LODs, complete clips, PBR, joint weights, delivery budgets and the actual motion reports. Technical success cannot grant visual approval. Reimport images exclude Blender's bone display geometry, use the LOD0 scale for all three LOD views, and carry receipts tied to the displayed GLB, source modules, textures, original cage and editable master. A changed model or authored dependency invalidates its previous review evidence.
 
 Example commands from the repository root:

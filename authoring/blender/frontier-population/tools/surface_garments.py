@@ -47,6 +47,7 @@ def garments(family, race, make, morph, materials):
         used=sorted({i for face in selected for i in face}); remap={v:i for i,v in enumerate(used)}
         faces=[tuple(remap[i] for i in face) for face in selected]
         vertices=[points[i].copy() for i in used]
+        fields=[dict(retained_weights[i]) for i in used]
         neighbors=[set() for _ in vertices]; edges={}
         for face in faces:
             for a,b in zip(face,face[1:]+face[:1]):
@@ -56,11 +57,16 @@ def garments(family, race, make, morph, materials):
         # Use the actual mesh adjacency to relax muscle contours into cloth.
         for _ in range(18):
             relaxed=[]
+            relaxed_fields=[]
             for index,p in enumerate(vertices):
-                if index in boundary:relaxed.append(p);continue
+                if index in boundary:relaxed.append(p);relaxed_fields.append(fields[index]);continue
                 mean=sum((vertices[i] for i in neighbors[index]),Vector())/len(neighbors[index])
                 relaxed.append(p.lerp(mean,.38))
-            vertices=relaxed
+                field={name:weight*.62 for name,weight in fields[index].items()}
+                for adjacent in neighbors[index]:
+                    for name,weight in fields[adjacent].items():field[name]=field.get(name,0)+weight*.38/len(neighbors[index])
+                relaxed_fields.append(field)
+            vertices=relaxed;fields=relaxed_fields
         normals=[Vector() for _ in vertices]
         for face in faces:
             normal=(vertices[face[1]]-vertices[face[0]]).cross(vertices[face[2]]-vertices[face[0]]).normalized()
@@ -89,7 +95,7 @@ def garments(family, race, make, morph, materials):
         # The garment retains the source surface's vertex identity. Transferring
         # its exact weights avoids nearest-point jumps across the axilla/collar.
         obj=make(kind+'_continuous_tailored_surface',[morph(p,race) for p in vertices],faces,
-                 materials['cloth' if kind=='shirt' else 'trousers'],custom_weights=[retained_weights[i] for i in used])
+                 materials['cloth' if kind=='shirt' else 'trousers'],custom_weights=[sorted(field.items(),key=lambda p:-p[1])[:4] for field in fields])
         for polygon,uvs in zip(obj.data.polygons,selected_uvs):
             for loop,uv in zip(polygon.loop_indices,uvs):obj.data.uv_layers.active.data[loop].uv=Vector(uv)*4
         smooth=obj.modifiers.new('Continuous_cloth_finish','SUBSURF');smooth.levels=1;smooth.render_levels=1

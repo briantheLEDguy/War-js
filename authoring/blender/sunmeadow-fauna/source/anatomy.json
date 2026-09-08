@@ -221,21 +221,21 @@
           0.12
         ],
         [
-          0.115,
+          0.158,
           0.24,
           0.525,
           0.065,
           0.092
         ],
         [
-          0.139,
+          0.165,
           0.17,
           0.423,
           0.043,
           0.058
         ],
         [
-          0.154,
+          0.160,
           0.265,
           0.321,
           0.035,
@@ -380,10 +380,15 @@
       ],
       "motion_contract": "In-place movement speeds and foot trajectories are derived per scaled rig in the build report, then checked on actual GLB reimports.",
       "hind_abdominal_fade": 0.8,
+      "haunch_volume": {
+        "station_z": 0.52,
+        "rotation_fraction": 0.55
+      },
       "gait_controls": {
-        "run_foot_lift": 0.09,
-        "run_body_crouch": 0.022,
-        "run_body_bob": 0.01
+        "run_foot_lift": 0.06,
+        "run_body_crouch": 0.035,
+        "run_body_bob": 0.01,
+        "run_hind_knee_splay": 0.16
       }
     },
     "roe_deer_doe": {

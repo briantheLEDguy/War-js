@@ -1,9 +1,9 @@
 {
   "asset_id": "frontier_cinderfen_basalt_outcrop",
   "displayName": "Cinderfen fractured basalt outcrop",
-  "source_sha256": "403dcba2b92cbb83bab4e444a49794898bdfd070de770c0876829f03e8969595",
-  "builder_sha256": "8f60d3ed094dceb7429b795ed9df2e58c404724c63e7333175078db134ce0e0f",
-  "paint_records_sha256": "839d73f9fac534d902adf231d9ceb420e373a790f5baa1fee6bc95577ef07855",
+  "source_sha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
+  "builder_sha256": "6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb",
+  "paint_records_sha256": "363680b84a777f7d7431f8a0dfd13bc13967765a8243036bdd47f64eedb6e84c",
   "contract": {
     "kind": "rock",
     "plantedDatum": 0,
@@ -31,6 +31,14 @@
         "depth": 1.0,
         "minY": 0,
         "maxY": 1.18
+      },
+      {
+        "x": -0.1,
+        "z": 1.47,
+        "width": 1.3,
+        "depth": 0.5,
+        "minY": 0,
+        "maxY": 0.48
       }
     ],
     "walkableSurfaces": [],
@@ -41,8 +49,8 @@
     {
       "level": 0,
       "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
-      "sha256": "b9077268e93f3145b9c701fa996332aa35ecf266bf6c6b9989a3d21ea575f60b",
-      "bytes": 1828364,
+      "sha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
+      "bytes": 497220,
       "triangles": 12474,
       "materials": 1,
       "bounds_z_up": {
@@ -59,11 +67,11 @@
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
-        "input_glb_sha256": "075ca37ac2238a31f1b7acf3b7c7ac7625fcad582196fec9c384845bcf93e5f1",
-        "output_glb_sha256": "b9077268e93f3145b9c701fa996332aa35ecf266bf6c6b9989a3d21ea575f60b",
-        "embedded_bytes": 4520384,
-        "externalized_bytes": 1828364
+        "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+        "input_glb_sha256": "b5d5bcabaaa3d65c9fa675c5b143422c722d1441d8b9bfff0319f80dadc63167",
+        "output_glb_sha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
+        "embedded_bytes": 3189240,
+        "externalized_bytes": 497220
       },
       "external_textures": {
         "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
@@ -74,8 +82,8 @@
     {
       "level": 1,
       "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
-      "sha256": "996bae69a8d6df7215fcd159b3f5bfb271305b27632ea665cd9b13d6cb5c1c28",
-      "bytes": 349392,
+      "sha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
+      "bytes": 109724,
       "triangles": 2356,
       "materials": 1,
       "bounds_z_up": {
@@ -92,11 +100,11 @@
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
-        "input_glb_sha256": "b83edc9aefcaf4394c79d7cdd46831443eb6b964c576c6c6bf73e5daa4063e78",
-        "output_glb_sha256": "996bae69a8d6df7215fcd159b3f5bfb271305b27632ea665cd9b13d6cb5c1c28",
-        "embedded_bytes": 3041412,
-        "externalized_bytes": 349392
+        "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+        "input_glb_sha256": "3f4960d2d1f12bb8a8533f0e6caa8b5a40d9010a0202e99264b71b0d0974e56b",
+        "output_glb_sha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
+        "embedded_bytes": 2801744,
+        "externalized_bytes": 109724
       },
       "external_textures": {
         "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
@@ -107,8 +115,8 @@
     {
       "level": 2,
       "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
-      "sha256": "11d082183c6518119c3db93826e5d047ed946e0b1d69c485b1296336ef6bab6b",
-      "bytes": 33256,
+      "sha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
+      "bytes": 16500,
       "triangles": 208,
       "materials": 1,
       "bounds_z_up": {
@@ -125,11 +133,11 @@
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
-        "input_glb_sha256": "0c801b7b35ae54f751727871b6d32781d42702450730d59fd4435868069a475e",
-        "output_glb_sha256": "11d082183c6518119c3db93826e5d047ed946e0b1d69c485b1296336ef6bab6b",
-        "embedded_bytes": 2725276,
-        "externalized_bytes": 33256
+        "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+        "input_glb_sha256": "dab503e3ae21576f8e3bff4ca8a6838d57bb7449bb9844c00e1f4751c682e675",
+        "output_glb_sha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
+        "embedded_bytes": 2708524,
+        "externalized_bytes": 16500
       },
       "external_textures": {
         "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
@@ -177,5 +185,5 @@
     "textures/source/seed_scales_orm.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
   },
   "master": "masters/frontier_cinderfen_basalt_outcrop.blend",
-  "master_sha256": "1bc043093ccc19745c704052561fd756d37da1e6871337c2a1c24e50b279913f"
+  "master_sha256": "3f19ecfaffd5b0c74cd0baaf9378975c25a96106d0086cf33808297904c8bb8e"
 }

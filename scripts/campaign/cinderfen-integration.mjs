@@ -2,6 +2,7 @@
 import { WORLD_LIFE_FOOTPRINTS } from './world-life-source.mjs';
 import { readFileSync } from 'node:fs';
 import { reviewedSceneryModelBounds } from './aegis-reviewed-scenery.mjs';
+import { fitCinderfenDressing, isCinderfenFurniture } from './cinderfen-dressing.mjs';
 
 const distance = (p, a, b) => {
   const dx = b.x - a.x, dz = b.z - a.z, length = dx * dx + dz * dz;
@@ -22,6 +23,7 @@ export function integrateCinderfen(zone) {
   if (zone.id !== 'cinderfen_outskirts' || !zone.orvrLayout) return zone;
   // The old bridge had no water crossing at this settlement location.
   zone.props = zone.props.filter(prop => prop.id !== `${zone.id}_field_bridge`);
+  fitCinderfenDressing(zone);
   const life = zone.props.filter(prop => prop.id?.startsWith(`${zone.id}_life_`));
   const patrols = (zone.ambientLife?.actors ?? []).filter(actor => actor.kind !== 'bird')
     .map(actor => ({ points: [actor, ...(actor.route ?? []), actor], radius: actor.kind === 'deer' ? 1.15 : .75 }));
@@ -53,7 +55,7 @@ export function integrateCinderfen(zone) {
     }
     return true;
   };
-  for (const prop of life.filter(p => WORLD_LIFE_FOOTPRINTS[p.kind])) {
+  for (const prop of life.filter(isCinderfenFurniture)) {
     const radius=radiusOf(prop), origin={x:prop.x,z:prop.z};
     if (clear(origin,radius,prop)) continue;
     let target;

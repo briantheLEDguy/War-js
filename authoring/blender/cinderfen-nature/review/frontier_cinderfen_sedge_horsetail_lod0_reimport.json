@@ -1,7 +1,7 @@
 {
   "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
-  "sha256": "203af91364a2fc0643f14e0f0453c08ec768e6f785bbb662c4969e05886cc133",
-  "reviewer_sha256": "ee78882ac19021103ae05b823393ec4f648465fe0f04d91d4fba531e5fd0ab55",
+  "sha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+  "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
   "audit": {
     "meshes": [
       {
@@ -23,7 +23,7 @@
         "boundary_edges_after_positional_weld": 0,
         "multi_face_edges_after_positional_weld": 0,
         "loose_edges": 0,
-        "faces": 1368
+        "faces": 612
       }
     ],
     "bounds_z_up": {
@@ -35,7 +35,7 @@
       "maximum": [
         1.2939281463623047,
         1.0350004434585571,
-        1.0156265497207642
+        1.0155893564224243
       ]
     },
     "totalBoundaryEdges": 0,
@@ -45,7 +45,7 @@
   "views": {
     "neutral": {
       "image": "frontier_cinderfen_sedge_horsetail_lod0_neutral.png",
-      "sha256": "7fdf259406ea01482179293246370decafc1b39a86d28d6d631d1c10649936bb",
+      "sha256": "9c473a5c4aa946975792e0d97a06650dedae074aa7d5934f8d401111af3d58f3",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",
@@ -53,12 +53,12 @@
         "camera_position_z_up": [
           2.0746850967407227,
           -4.214596271514893,
-          1.478963851928711
+          1.478945255279541
         ],
         "target_z_up": [
           -0.00733339786529541,
           -0.05055952072143555,
-          0.4900050163269043
+          0.4899864196777344
         ],
         "resolution": [
           1400,
@@ -69,7 +69,7 @@
     },
     "gameplay": {
       "image": "frontier_cinderfen_sedge_horsetail_lod0_gameplay.png",
-      "sha256": "99af397d360beaf7182ca5f77186d00b44e81682b7f3c20c44697436fa079acc",
+      "sha256": "344c690d409696549db2f4f48ee2ac430b4a4081740b515a8e1ae1812b6634b1",
       "camera": {
         "distance_m": 8,
         "projection": "PERSP",
@@ -82,7 +82,7 @@
         "target_z_up": [
           -0.00733339786529541,
           -0.05055952072143555,
-          0.4900050163269043
+          0.4899864196777344
         ],
         "resolution": [
           1280,
@@ -93,7 +93,7 @@
     },
     "detail": {
       "image": "frontier_cinderfen_sedge_horsetail_lod0_detail.png",
-      "sha256": "7e8592400a4a7c6e3136433476477d358a3435a0f4df2b09985e9d3477989b30",
+      "sha256": "a1cc7727a25dfbac354d81b260e01aa79045eb39c44b8cc0decf5f6ff3c5e6be",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",

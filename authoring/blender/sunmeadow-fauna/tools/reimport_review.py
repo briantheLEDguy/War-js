@@ -13,7 +13,8 @@ def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 def build_evidence(key):
     file=ROOT/'review'/f'{key}_build.json';build=json.loads(file.read_text())
-    if not build.get('source_files') or len(build.get('texture_sources',{}))!=3:
+    expected_textures={texture['source'] for lod in build.get('lods',[]) for texture in lod.get('textures',[])}
+    if not build.get('source_files') or len(expected_textures)!=9 or expected_textures!=set(build.get('texture_sources',{})):
         raise RuntimeError('A build with complete source and texture hashes is required')
     files={**build['source_files'],**build['texture_sources'],build['master']:build['master_sha256'],build['cage']:build['cage_sha256']}
     for name,digest in files.items():

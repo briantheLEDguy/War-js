@@ -62,6 +62,7 @@ export async function collectEvidence(root, asset, clips) {
   files['tools/inspect_motion.py'] = await fileSha(localPath(root, 'tools/inspect_motion.py'));
   files['tools/glb_sampling.py'] = await fileSha(localPath(root, 'tools/glb_sampling.py'));
   files['tools/validate_fauna.mjs'] = await fileSha(localPath(root, 'tools/validate_fauna.mjs'));
+  files['tools/texture_evidence.mjs'] = await fileSha(localPath(root, 'tools/texture_evidence.mjs'));
   const compositeName = `review/${asset}_composites.json`, composites = await read(localPath(root, compositeName));
   assert.equal(composites.build_sha256, buildHash, 'Stale contact sheets');
   assert.equal(composites.composer_sha256, await fileSha(localPath(root, 'tools/compose_review.py')), 'Changed contact composer');

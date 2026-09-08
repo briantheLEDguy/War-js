@@ -1,0 +1,36 @@
+[
+  {
+    "crouch": 0.035,
+    "splay": 0.18,
+    "lift": 0.06,
+    "maximum_stretch": 2.652181106829774,
+    "p99_stretch": 1.786063382218962,
+    "plant_error_m": 0.016957286908517367,
+    "motion": [
+      {
+        "clip": "run",
+        "duration": 0.6,
+        "frames": 37,
+        "maximum_ik_reach_error_m": 0.018781246814406405,
+        "loop": true,
+        "motion_space": "in_place",
+        "locomotion": {
+          "stride_m": 0.432,
+          "stance_fraction": 0.24,
+          "phase_offsets": {
+            "front_L": 0.08,
+            "front_R": 0.18,
+            "hind_L": 0.57,
+            "hind_R": 0.66
+          },
+          "speed_mps": 3.0,
+          "foot_lift_m": 0.054,
+          "trajectory": "constant_velocity_stance_c1_return"
+        },
+        "status": "deformation_review_required"
+      }
+    ],
+    "status": "source_diagnostic_only",
+    "master_sha256": "d5dc877e939f31ae5939b4d2c1780b3b39cdda6a69309d0e7dfdea53ed579f9b"
+  }
+]
