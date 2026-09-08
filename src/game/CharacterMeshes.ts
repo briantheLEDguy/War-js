@@ -9,7 +9,6 @@ import { markWeaponAttachment } from './WeaponAnimation';
 
 // Shared materials (created once, reused)
 const skinMat   = () => new THREE.MeshStandardMaterial({ color: 0xd4a875, roughness: 0.7 });
-const darkSkin  = () => new THREE.MeshStandardMaterial({ color: 0x8a6040, roughness: 0.7 });
 const greenSkin = () => new THREE.MeshStandardMaterial({ color: 0x3d6a2a, roughness: 0.8 });
 
 function box(w: number, h: number, d: number, mat: THREE.Material): THREE.Mesh {

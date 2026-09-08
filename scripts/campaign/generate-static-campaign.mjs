@@ -17,6 +17,7 @@ import { composeSunmeadowEnvironment } from './sunmeadow-environment.mjs';
 import { composeCinderfenLandscape } from './cinderfen-landscape.mjs';
 import { composeCinderfenEnvironment } from './cinderfen-environment.mjs';
 import { integrateCinderfen } from './cinderfen-integration.mjs';
+import { compactCityElevation } from './compact-city-elevation.mjs';
 
 const root = process.cwd();
 const mapsDir = path.join(root, 'public', 'assets', 'maps');
@@ -40,7 +41,6 @@ const ROLE_SEGMENTS = {
 const nodeById = new Map(NODES.map((node) => [node.id, node]));
 const neighborsById = buildNeighbors();
 const portalPoints = buildPortalPoints();
-const IMPORTED_AEGIS_CAPITAL_ID = 'aegis_capital';
 const EXPEDITION_FIELDS = {
   brightfen_approach: { name: 'Brightfen', officer: 'Ari Vell' },
   cinderfen_outskirts: { name: 'Cinderfen', officer: 'Dren Voss' },
@@ -68,18 +68,6 @@ const KEEP_COMMANDER_NAMES = {
 const KEEP_COMMANDER_PROFILES = {
   aegis: 'enemy_aegis_warden_s_hollow_overlord_captain',
   riftbound: 'enemy_riftbound_keep_captain_captain',
-};
-const AEGIS_CAPITAL_GUARD_VARIANT_PROFILES = [
-  'npc_external_warrior_guard',
-  'npc_external_warrior_guard',
-  'npc_external_swordsman',
-  'npc_external_medieval_character',
-];
-
-const IMPORTED_AEGIS_CAPITAL_TRIGGERS = {
-  aegis_gate_fortress: { x: 0, z: -164, radius: 12 },
-  sunmeadow_march: { x: -164, z: -18, radius: 12 },
-  brightfen_approach: { x: 164, z: -18, radius: 12 },
 };
 
 const THEME_TEXTURE = {
@@ -116,6 +104,9 @@ for (const node of NODES) {
 // Return spawns depend on final destination layouts, including rebuilt capitals.
 linkOrvrZoneTravel(zones);
 for (const zone of zones) {
+  // Draft vegetation exclusions support authoring; no runtime system reads them.
+  if (zone.orvrLayout) delete zone.orvrLayout.biome.placements;
+  if (zone.cityElevation) zone.cityElevation = compactCityElevation(zone.cityElevation);
   const hash = hashZone(zone);
   zone.staticMapHash = hash;
   mapHashes[zone.id] = hash;
@@ -298,15 +289,7 @@ function zoneContext(node) {
   };
 }
 
-function isImportedAegisCapital(_node) {
-  // The legacy imported capital mesh is intentionally retired. Both capitals
-  // now use the deterministic original town and castle asset family.
-  return false;
-}
-
 function buildPaths(node) {
-  if (isImportedAegisCapital(node)) return [];
-
   const mainRoadPoints = node.nodeRole === 'capital'
     ? [{ x: 0, z: -122 }, { x: 0, z: -70 }, { x: 0, z: 0 }, { x: 0, z: 58 }, { x: 0, z: 136 }]
     : [{ x: 0, z: -70 }, { x: 0, z: 0 }, { x: 0, z: 70 }];
@@ -381,8 +364,6 @@ function capitalStreetPaths(node) {
 }
 
 function buildBiomeKits(node) {
-  if (isImportedAegisCapital(node)) return [];
-
   const size = ROLE_SIZE[node.nodeRole];
   const commonExcludes = [
     { x: 0, z: -40, radius: 24 },
@@ -460,15 +441,6 @@ function themeAllowedKinds(node) {
 }
 
 function buildCraftingStations(node) {
-  if (isImportedAegisCapital(node)) {
-    return [
-      station(node, 'apothecary', 'Apothecary Table', -40, -72),
-      station(node, 'talisman', 'Talisman Workbench', 40, -72, 'talisman_making'),
-      station(node, 'cultivation', 'Cultivation Plots', -42, 72, 'cultivation', 7),
-      station(node, 'salvage', 'Salvage Bench', 42, 72, 'salvage'),
-      station(node, 'general', 'Campaign Supply Table', 0, -104, 'general'),
-    ];
-  }
   if (node.nodeRole === 'capital') {
     return [
       station(node, 'apothecary', 'Apothecary Table', -42, -18),
@@ -522,9 +494,6 @@ function buildCraftingStationProps(stations) {
 }
 
 function buildCampProps(node) {
-  if (isImportedAegisCapital(node)) {
-    return importedAegisCapitalProps(node);
-  }
   if (node.nodeRole === 'capital') {
     return [
       ...capitalCityProps(node),
@@ -578,57 +547,6 @@ function capitalCityProps(node) {
     ...capitalCitadelProps(node),
     ...capitalRealmLandmarks(node),
   ];
-}
-
-function importedAegisCapitalProps(node) {
-  return [
-    prop(`${node.id}_imported_city_collision_proxy`, 'aegis_capital_collision_proxy', 0, 0, 0, 1, {
-      visible: false,
-      colliders: importedAegisCapitalColliders(node.id),
-    }),
-  ];
-}
-
-function importedAegisCapitalColliders(zoneId) {
-  return [
-    // Outer wall ring. Gaps remain at the front, side, and rear gates.
-    importedCollider(zoneId, 'front_wall_west', -103, -164, 118, 12),
-    importedCollider(zoneId, 'front_wall_east', 103, -164, 118, 12),
-    importedCollider(zoneId, 'west_wall_south', -164, -88, 12, 92),
-    importedCollider(zoneId, 'west_wall_north', -164, 76, 12, 144),
-    importedCollider(zoneId, 'east_wall_south', 164, -88, 12, 92),
-    importedCollider(zoneId, 'east_wall_north', 164, 76, 12, 144),
-    importedCollider(zoneId, 'rear_wall_west', -96, 164, 122, 12),
-    importedCollider(zoneId, 'rear_wall_east', 96, 164, 122, 12),
-
-    // Dense house blocks, leaving the central avenue, side streets, and plazas open.
-    importedCollider(zoneId, 'lower_houses_west', -88, -86, 82, 56),
-    importedCollider(zoneId, 'lower_houses_east', 88, -86, 82, 56),
-    importedCollider(zoneId, 'market_block_west', -86, -40, 72, 28),
-    importedCollider(zoneId, 'market_block_east', 86, -40, 72, 28),
-    importedCollider(zoneId, 'middle_houses_west', -104, 22, 60, 64),
-    importedCollider(zoneId, 'middle_houses_east', 104, 22, 60, 64),
-    importedCollider(zoneId, 'upper_houses_west', -94, 84, 76, 58),
-    importedCollider(zoneId, 'upper_houses_east', 94, 84, 76, 58),
-    importedCollider(zoneId, 'rear_houses_west', -68, 132, 58, 38),
-    importedCollider(zoneId, 'rear_houses_east', 68, 132, 58, 38),
-
-    // Landmark clusters inside the imported city mesh.
-    importedCollider(zoneId, 'north_court_cluster', 0, 100, 48, 54),
-    importedCollider(zoneId, 'south_market_cluster_west', -40, -106, 30, 34),
-    importedCollider(zoneId, 'south_market_cluster_east', 40, -106, 30, 34),
-  ];
-}
-
-function importedCollider(zoneId, suffix, x, z, width, depth, rotY = 0) {
-  return {
-    id: `${zoneId}_imported_${suffix}_collider`,
-    x,
-    z,
-    width,
-    depth,
-    rotY,
-  };
 }
 
 function capitalOuterWallProps(node) {
@@ -800,9 +718,7 @@ function buildResourceNodes(node) {
       : node.nodeRole === 'fortress'
         ? 8
         : 5;
-  const anchors = isImportedAegisCapital(node)
-    ? importedAegisCapitalResourceAnchors()
-    : resourceAnchors(node.nodeRole);
+  const anchors = resourceAnchors(node.nodeRole);
   const profile = resourceProfile(node);
   const nodes = [];
   const props = [];
@@ -888,19 +804,6 @@ function resourceAnchors(nodeRole) {
     { x: 18, z: -92 },
     { x: -72, z: -104 },
     { x: 72, z: -104 },
-  ];
-}
-
-function importedAegisCapitalResourceAnchors() {
-  return [
-    { x: -140, z: -128 },
-    { x: 140, z: -128 },
-    { x: -148, z: 34 },
-    { x: 148, z: 34 },
-    { x: -34, z: 148 },
-    { x: 34, z: 148 },
-    { x: -38, z: 68 },
-    { x: 38, z: 68 },
   ];
 }
 
@@ -1019,23 +922,6 @@ function deterministicJitter(zoneId, index) {
 }
 
 function buildTriggers(node) {
-  if (isImportedAegisCapital(node)) {
-    return (neighborsById.get(node.id) ?? []).map((targetId) => {
-      const target = nodeById.get(targetId);
-      const here = IMPORTED_AEGIS_CAPITAL_TRIGGERS[targetId] ?? portalPoints[node.id][targetId].trigger;
-      const there = portalPoints[targetId][node.id];
-      return {
-        id: `${node.id}_to_${targetId}`,
-        label: `Travel to ${target.name}`,
-        x: here.x,
-        z: here.z,
-        radius: here.radius ?? 9,
-        targetZoneId: targetId,
-        targetSpawn: { x: there.spawn.x, y: 0, z: there.spawn.z },
-      };
-    });
-  }
-
   return (neighborsById.get(node.id) ?? []).map((targetId) => {
     const target = nodeById.get(targetId);
     const here = portalPoints[node.id][targetId];
@@ -1053,12 +939,6 @@ function buildTriggers(node) {
 }
 
 function buildObjectives(node) {
-  if (isImportedAegisCapital(node)) {
-    return [
-      objective('city_gate', `${node.id}_city_gate`, `${node.name} Main Gate`, 0, -136, node.realm, 16),
-      objective('battle_objective', `${node.id}_plaza`, 'Market Plaza', 0, -18, node.realm, 14),
-    ];
-  }
   if (node.nodeRole === 'capital') {
     return [
       objective('city_gate', `${node.id}_city_gate`, `${node.name} Gate`, 0, -86, node.realm, 16),
@@ -1101,8 +981,6 @@ function objective(type, id, label, x, z, defaultRealm, radius) {
 }
 
 function buildObjectiveProps(node, objectives) {
-  if (isImportedAegisCapital(node)) return [];
-
   const props = [];
   for (const obj of objectives) {
     if (obj.type === 'battle_objective') {
@@ -1384,8 +1262,6 @@ function interactiveDoorProp(
 }
 
 function buildPortalProps(node) {
-  if (isImportedAegisCapital(node)) return [];
-
   return (neighborsById.get(node.id) ?? []).map((targetId) => {
     const point = portalPoints[node.id][targetId].trigger;
     return prop(`${node.id}_portal_${targetId}`, 'gate', point.x, point.z, point.angle + Math.PI / 2, 0.85, {
@@ -1397,8 +1273,6 @@ function buildPortalProps(node) {
 }
 
 function buildEnvironmentProps(node) {
-  if (isImportedAegisCapital(node)) return [];
-
   const rng = createRng(hashNumber(node.id));
   const props = [];
   const size = ROLE_SIZE[node.nodeRole];
@@ -1698,9 +1572,6 @@ function buildNpcs(node) {
   const names = node.realm === 'aegis'
     ? ['Elira Dawnmarch', 'Corren Vale', 'Mira Stonewake', 'Alden Voss', 'Serra Brightfield', 'Tovin Greyford']
     : ['Vask Rauth', 'Nyra Vex', 'Gorvak Mirehand', 'Selk Dreadspire', 'Kara Ashvein', 'Drog Thornjaw'];
-  if (isImportedAegisCapital(node)) {
-    return importedAegisCapitalNpcs(node, prefix, names);
-  }
   const npcs = [
     {
       id: `${node.id}_quartermaster`,
@@ -1873,107 +1744,6 @@ function buildNpcs(node) {
     rotY: 0,
   });
   return npcs;
-}
-
-function importedAegisCapitalNpcs(node, prefix, names) {
-  return [
-    {
-      id: `${node.id}_quartermaster`,
-      name: names[0],
-      title: `${prefix} Quartermaster`,
-      role: 'vendor',
-      x: -30,
-      z: -76,
-      rotY: 0.65,
-    },
-    {
-      id: `${node.id}_marshal`,
-      name: names[1],
-      title: `${node.levelBand} Campaign Marshal`,
-      role: 'guard',
-      x: 0,
-      z: -24,
-      rotY: -0.45,
-    },
-    {
-      id: `${node.id}_banker`,
-      name: names[2],
-      title: 'Vault Keeper',
-      role: 'banker',
-      x: -42,
-      z: 18,
-      rotY: 1.5708,
-    },
-    {
-      id: `${node.id}_class_trainer`,
-      name: names[3],
-      title: `${prefix} Class Trainer`,
-      role: 'trainer',
-      x: 42,
-      z: 18,
-      rotY: -1.5708,
-    },
-    {
-      id: `${node.id}_craft_trainer`,
-      name: names[4],
-      title: 'Crafting Mentor',
-      role: 'trainer',
-      x: -42,
-      z: 58,
-      rotY: 1.1,
-    },
-    {
-      id: `${node.id}_portal_guard`,
-      name: names[5],
-      title: 'Portal Guard',
-      role: 'guard',
-      x: 0,
-      z: -128,
-      rotY: 0,
-    },
-    {
-      id: 'quest-1',
-      name: 'Mara Vell',
-      title: 'Dawnline Dispatch Officer',
-      role: 'questgiver',
-      x: 10,
-      z: -94,
-      rotY: 2.85,
-    },
-    guardNpc(node, 'front_gate_west', 'Brann Hartwell', 'Main Gate Guard', -15, -148, 0.2),
-    guardNpc(node, 'front_gate_east', 'Orrin Valecross', 'Main Gate Guard', 15, -148, -0.2),
-    guardNpc(node, 'west_gate_south', 'Cedric Wold', 'West Gate Guard', -148, -28, 1.5708),
-    guardNpc(node, 'west_gate_north', 'Hale Durn', 'West Gate Guard', -148, -4, 1.5708),
-    guardNpc(node, 'east_gate_south', 'Tamsin Reed', 'East Gate Guard', 148, -28, -1.5708),
-    guardNpc(node, 'east_gate_north', 'Veyra Sunholt', 'East Gate Guard', 148, -4, -1.5708),
-    guardNpc(node, 'market_west', 'Garron Pike', 'Market Watch', -48, -42, 0.8),
-    guardNpc(node, 'market_east', 'Lysa Bright', 'Market Watch', 48, -42, -0.8),
-    guardNpc(node, 'plaza_west', 'Merek Flint', 'Plaza Watch', -22, -4, 1.2),
-    guardNpc(node, 'plaza_east', 'Rowan Hale', 'Plaza Watch', 22, -4, -1.2),
-    guardNpc(node, 'side_street_west', 'Iven Stonebrook', 'Street Patrol', -52, 62, 0.45),
-    guardNpc(node, 'side_street_east', 'Kara Voss', 'Street Patrol', 52, 62, -0.45),
-    guardNpc(node, 'rear_district_west', 'Brenna Vale', 'Rear District Guard', -32, 118, 2.7),
-    guardNpc(node, 'rear_district_east', 'Tor Caldus', 'Rear District Guard', 32, 118, -2.7),
-  ];
-}
-
-function guardNpc(node, suffix, name, title, x, z, rotY) {
-  const id = `${node.id}_${suffix}`;
-  return {
-    id,
-    name,
-    title,
-    role: 'guard',
-    x,
-    z,
-    rotY,
-    characterProfileKey: aegisCapitalGuardVariantProfile(id),
-  };
-}
-
-function aegisCapitalGuardVariantProfile(seed) {
-  const hash = hashNumber(seed);
-  return AEGIS_CAPITAL_GUARD_VARIANT_PROFILES[hash % AEGIS_CAPITAL_GUARD_VARIANT_PROFILES.length];
 }
 
 function prop(id, kind, x, z, rotY, scale, extra = {}) {

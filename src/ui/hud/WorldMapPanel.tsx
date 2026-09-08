@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent } from 'react';
 import type { Game } from '../../game/Game';
 import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
@@ -13,33 +13,14 @@ import type {
 import type { NpcState } from '../../world/NpcSpawner';
 import {
   buildMarkers,
-  DEFAULT_VISIBLE,
-  MAP_MARKER_LEGEND,
   type MapMarker,
   type MarkerToggle,
   type ZoneExitMarker,
 } from './mapData';
 import { layoutMapSymbols, mapResolutionScale } from './worldMapPresentation';
-import { drawMapFeatures, drawMapWater, mapFeatureRole, mapFeatureVisible, zoneMapFeatures } from './zoneMapGeometry';
-import { useDraggableWindow } from './useDraggableWindow';
-
-interface Props {
-  game: Game | null;
-}
+import { drawMapFeatures, drawMapWater, mapFeatureVisible, zoneMapFeatures } from './zoneMapGeometry';
 
 export type WorldMapLayer = MarkerToggle | 'terrain' | 'landmarks';
-
-const DEFAULT_WORLD_MAP_LAYERS: Record<WorldMapLayer, boolean> = {
-  terrain: true,
-  landmarks: true,
-  ...DEFAULT_VISIBLE,
-};
-
-const WORLD_MAP_LAYERS: Array<{ key: WorldMapLayer; label: string; color: string }> = [
-  { key: 'terrain', label: 'Terrain', color: '#9ea770' },
-  { key: 'landmarks', label: 'Buildings', color: '#d4b060' },
-  ...MAP_MARKER_LEGEND,
-];
 
 interface Point {
   x: number;
@@ -66,189 +47,6 @@ interface MapHoverTarget {
   priority?: boolean;
   position: Point;
   radius: number;
-}
-
-function LegacyWorldMapPanel({ game }: Props) {
-  const {
-    panelRef,
-    dragHandleProps,
-    dragStyle,
-    dragClassName,
-  } = useDraggableWindow<HTMLElement>({ draggedPosition: 'fixed' });
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const hoverTargetsRef = useRef<MapHoverTarget[]>([]);
-  const zone = game?.zoneDefinition ?? null;
-  const enemies = useGameStore((state) => state.enemies);
-  const character = useGameStore((state) => state.character);
-  const npcs = useGameStore((state) => state.npcs);
-  const quests = useGameStore((state) => state.quests);
-  const setWorldMapOpen = useGameStore((state) => state.setWorldMapOpen);
-  const [layers, setLayers] = useState<Record<WorldMapLayer, boolean>>(DEFAULT_WORLD_MAP_LAYERS);
-  const [hoveredLocation, setHoveredLocation] = useState<MapHoverTarget | null>(null);
-
-  const markerVisible = useMemo<Record<MarkerToggle, boolean>>(() => ({
-    quests: layers.quests,
-    npcs: layers.npcs,
-    crafting: layers.crafting,
-    resources: layers.resources,
-    enemies: layers.enemies,
-    exits: layers.exits,
-  }), [layers]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || !zone) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const draw = () => {
-      const size = prepareCanvas(canvas, ctx);
-      hoverTargetsRef.current = drawWorldMap(ctx, {
-        character,
-        enemies: enemies.length > 0 ? enemies : zoneEnemyFallbacks(zone),
-        game,
-        height: size.height,
-        layers,
-        markerVisible,
-        npcs,
-        quests,
-        showPlayer: true,
-        width: size.width,
-        zone,
-      });
-    };
-
-    return startForegroundLoop(draw, () => 15);
-  }, [character, enemies, game, layers, markerVisible, npcs, quests, zone]);
-
-  const stats = useMemo(() => zone ? zoneStats(zone, enemies) : null, [enemies, zone]);
-  const landmarks = useMemo(() => zone ? landmarkRows(zone) : [], [zone]);
-
-  function toggleLayer(key: WorldMapLayer) {
-    setLayers((current) => ({ ...current, [key]: !current[key] }));
-  }
-
-  function close() {
-    setWorldMapOpen(false);
-  }
-
-  function handleMapPointerMove(event: PointerEvent<HTMLCanvasElement>) {
-    const target = findMapHoverTarget(hoverTargetsRef.current, ...canvasPointerPosition(event));
-    setHoveredLocation((current) => current?.id === target?.id ? current : target);
-  }
-
-  function clearMapHover() {
-    setHoveredLocation(null);
-  }
-
-  return (
-    <div
-      className="world-map-backdrop"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) close();
-      }}
-    >
-      <section
-        ref={panelRef}
-        className={`world-map-panel panel${dragClassName}`}
-        style={dragStyle}
-        aria-labelledby="world-map-title"
-      >
-        <header className="world-map-header draggable-window-handle" {...dragHandleProps}>
-          <div>
-            <h2 id="world-map-title">{zone?.name ?? 'World Map'}</h2>
-            <span>{zone?.campaign ? `${zone.campaign.levelBand} - ${zone.campaign.laneLabel}` : character?.zoneId ?? 'Unknown zone'}</span>
-          </div>
-          <button type="button" onClick={close}>Close</button>
-        </header>
-
-        <div className="world-map-body">
-          <div className="world-map-canvas-frame">
-            {zone ? (
-              <>
-                <canvas
-                  ref={canvasRef}
-                  aria-label={`${zone.name} detailed map`}
-                  onPointerMove={handleMapPointerMove}
-                  onPointerLeave={clearMapHover}
-                />
-                {hoveredLocation && (
-                  <div
-                    className={`world-map-hover-card${hoveredLocation.position.y < 120 ? ' below' : ''}`}
-                    role="status"
-                    style={{
-                      left: `clamp(84px, ${hoveredLocation.position.x}px, calc(100% - 84px))`,
-                      top: hoveredLocation.position.y,
-                    }}
-                  >
-                    <span style={{ '--marker-color': hoveredLocation.color } as CSSProperties}>
-                      {hoveredLocation.kind}
-                    </span>
-                    <strong>{hoveredLocation.label}</strong>
-                    {hoveredLocation.detail && <small>{hoveredLocation.detail}</small>}
-                  </div>
-                )}
-              </>
-            ) : (
-              <div className="world-map-empty">Map data unavailable.</div>
-            )}
-          </div>
-
-          <aside className="world-map-sidebar" aria-label="World map data">
-            <section className="world-map-sidebar-section">
-              <h3>Layers</h3>
-              <div className="world-map-layer-list">
-                {WORLD_MAP_LAYERS.map((item) => (
-                  <label
-                    className={`world-map-layer${layers[item.key] ? ' active' : ''}`}
-                    key={item.key}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={layers[item.key]}
-                      onChange={() => toggleLayer(item.key)}
-                    />
-                    <span
-                      className="world-map-swatch"
-                      style={{ '--marker-color': item.color } as CSSProperties}
-                    />
-                    {item.label}
-                  </label>
-                ))}
-              </div>
-            </section>
-
-            {stats && (
-              <section className="world-map-sidebar-section">
-                <h3>Zone</h3>
-                <dl className="world-map-stats">
-                  <div><dt>Size</dt><dd>{stats.size}</dd></div>
-                  <div><dt>Roads</dt><dd>{stats.roads}</dd></div>
-                  <div><dt>Landmarks</dt><dd>{stats.landmarks}</dd></div>
-                  <div><dt>Hostiles</dt><dd>{stats.enemies}</dd></div>
-                  <div><dt>Exits</dt><dd>{stats.exits}</dd></div>
-                </dl>
-              </section>
-            )}
-
-            {landmarks.length > 0 && (
-              <section className="world-map-sidebar-section">
-                <h3>Landmarks</h3>
-                <ul className="world-map-landmark-list">
-                  {landmarks.slice(0, 8).map((row) => (
-                    <li key={row.id}>
-                      <span>{row.kind}</span>
-                      <strong>{row.label}</strong>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-          </aside>
-        </div>
-      </section>
-    </div>
-  );
 }
 
 export interface ZoneMapCanvasProps {
@@ -1089,60 +887,6 @@ function zoneResourceMarkers(zone: ZoneDefinition) {
     available: true,
     position: { x: node.x, y: node.y ?? 0, z: node.z },
   }));
-}
-
-function zoneEnemyFallbacks(zone: ZoneDefinition): EnemyState[] {
-  return (zone.enemies ?? []).map((enemy) => ({
-    id: enemy.id,
-    name: enemy.name,
-    level: enemy.level,
-    health: enemy.maxHealth,
-    maxHealth: enemy.maxHealth,
-    position: { x: enemy.x, y: enemy.y ?? 0, z: enemy.z },
-    alive: true,
-  }));
-}
-
-function zoneStats(zone: ZoneDefinition, enemies: EnemyState[]) {
-  const structural = (zone.props ?? []).filter((prop) => !isTerrainProp(prop)).length;
-  return {
-    size: `${zone.size}m`,
-    roads: zone.paths?.length ?? 0,
-    landmarks: structural + (zone.rvrObjectives?.length ?? 0),
-    enemies: enemies.filter((enemy) => enemy.alive).length || (zone.enemies?.length ?? 0),
-    exits: zone.zoneTriggers?.length ?? 0,
-  };
-}
-
-function landmarkRows(zone: ZoneDefinition): Array<{ id: string; kind: string; label: string }> {
-  const objectiveRows = (zone.rvrObjectives ?? []).map((objective) => ({
-    id: objective.id,
-    kind: objectiveKind(objective),
-    label: objective.label,
-  }));
-  const propRows = (zone.props ?? [])
-    .filter((prop) => shouldLabelProp(prop))
-    .slice(0, 6)
-    .map((prop) => ({
-      id: prop.id ?? `${prop.kind}-${prop.x}-${prop.z}`,
-      kind: propKind(prop.kind),
-      label: propLabel(prop, zone.id),
-    }));
-  const seen = new Set<string>();
-  return [...objectiveRows, ...propRows].filter((row) => {
-    const key = `${row.kind}:${row.label}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-function isTerrainProp(prop: PropSpawn): boolean {
-  return !['building', 'landmark'].includes(mapFeatureRole(prop));
-}
-
-function shouldLabelProp(prop: PropSpawn): boolean {
-  return ['building', 'landmark'].includes(mapFeatureRole(prop));
 }
 
 function propLabel(prop: PropSpawn, zoneId: string): string {

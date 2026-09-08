@@ -13,7 +13,7 @@
     "tools/test_published.mjs": "a910e3f00b002a06da1baef984589545f70cc4ed5dd8792eb579691cca7d2d3b",
     "tools/test_source.py": "878e155f6d2eb168dc483706987cb0c1c35551013e8b9a095b2437a8f5ffeea0",
     "tools/validate_architecture.mjs": "47e94856d1fd5ab9538dfc41e55dd4ff5a2e03d1a04d4a8d401b8f6fdda7cbc1",
-    "tools/write_provenance.py": "faecd8e0127df8b74be7fd79b12011fe146339633cd801739863aadb70e929f2"
+    "tools/write_provenance.py": "de79f03da2be0fde413ce927219bfd68ecdba7c9d3d1840441fc9af299cc4499"
   },
   "pipeline_references": [
     {
@@ -76,7 +76,7 @@
       "utility": "reviewed Cinderfen cage library",
       "origin": "../source/architecture.json",
       "sha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f",
-      "retained_copy": "source/pipeline-references/91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f_reviewed_kit.json",
+      "retained_copy": "../source/architecture.json",
       "reuse_scope": "Original Cinderfen authored stone, alder and hardware, fitted around a new pentagonal deck and real diagonal stair opening."
     }
   ],

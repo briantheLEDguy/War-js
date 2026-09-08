@@ -17,7 +17,6 @@ import { useGameStore, type EnemyState } from '../../state/gameStore';
 import {
   CAMPAIGN_ROUTE_ORDER,
   campaignRouteForLane,
-  campaignRouteForZone,
   campaignMapNodeTarget,
   type CampaignMapLevel,
 } from './campaignMapModel';

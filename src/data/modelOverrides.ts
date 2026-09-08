@@ -3,15 +3,6 @@ import { playerRealmForRace, type PlayableRace } from './careers';
 export const PLAYER_MODEL_OVERRIDE_PROFILE_KEY = 'player_strong_knight';
 export const PLAYER_MODEL_OVERRIDE_FALLBACK_MODEL = 'chr_player_strong_knight.glb';
 
-export const AEGIS_WARRIOR_GUARD_PROFILE_KEY = 'aegis_warrior_guard';
-export const AEGIS_WARRIOR_GUARD_FALLBACK_MODEL = 'chr_external_warrior_guard.glb';
-
-export const AEGIS_SWORDSMAN_NPC_PROFILE_KEY = 'npc_external_swordsman';
-export const AEGIS_SWORDSMAN_NPC_FALLBACK_MODEL = 'chr_external_swordsman_npc.glb';
-
-export const AEGIS_MEDIEVAL_CHARACTER_NPC_PROFILE_KEY = 'npc_external_medieval_character';
-export const AEGIS_MEDIEVAL_CHARACTER_NPC_FALLBACK_MODEL = 'chr_external_medieval_character_npc.glb';
-
 export const RIFTBOUND_EVIL_GUY_PROFILE_KEY = 'riftbound_evil_guy';
 export const RIFTBOUND_EVIL_GUY_FALLBACK_MODEL = 'chr_external_evil_guy.glb';
 

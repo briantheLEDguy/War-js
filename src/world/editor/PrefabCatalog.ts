@@ -259,10 +259,6 @@ export function prefabFootprintForKind(kind: string): PrefabFootprint {
   return prefabDefinitionForKind(kind)?.footprint ?? { width: 7, depth: 7, chainAxis: 'z' };
 }
 
-export function isPrefabCameraSolidKind(kind: string): boolean {
-  return prefabDefinitionForKind(kind)?.cameraSolid === true;
-}
-
 export function prefabHouseInteriorVariantForKind(kind: string): 'small' | 'large' | undefined {
   if (kind === 'building' || kind === 'town_house_1') return 'small';
   if (kind === 'rift_house' || kind === 'town_house_2') return 'large';

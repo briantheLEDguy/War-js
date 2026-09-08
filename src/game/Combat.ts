@@ -5,7 +5,7 @@ import { services } from '../services';
 import { useGameStore, type CombatStatusEffect, type EnemyState } from '../state/gameStore';
 import type { Player } from './Player';
 import type { Enemy } from './Enemy';
-import { followObject, staticTarget, type VfxLayer } from './animation/VfxLayer';
+import type { VfxLayer } from './animation/VfxLayer';
 import { checkLevelUp, registerEnemyKill } from './QuestLogic';
 import {
   getAbilityActivationFailure,
@@ -20,53 +20,6 @@ import { enemyAttackContains, enemyCastProgress, type EnemyCastState } from './e
 import { resolvePlayerIncomingDamage, playerOutgoingDamageMultiplier } from './abilities/playerAbilityEffects';
 import { dueStatusTicks, enemyDamageTakenMultiplier, enemyDamageDealtMultiplier } from './EnemyStatusEffects';
 
-/** Legacy four-slot animation helper retained for older procedural animators. */
-const SLOT_ACTION_ID = ['autoattack', 'heavy_strike', 'ranged_shot', 'bandage'] as const;
-const SLOT_ACTION_DURATION = [0.45, 0.85, 0.55, 1.20];
-
-/** Play a legacy slot action and optional class-specific VFX. */
-function playSlotAction(
-  player: Player,
-  slot: number,
-  vfx: VfxLayer | null,
-  targetEnemy: { position: { x: number; y: number; z: number } } | null = null,
-): void {
-  const anim = player.animator;
-  const id = SLOT_ACTION_ID[slot];
-  const dur = SLOT_ACTION_DURATION[slot];
-  if (!id) return;
-  if (!anim) {
-    player.playGlbAction(id, dur);
-    return;
-  }
-  anim.playAction(id, dur);
-
-  if (!vfx) return;
-  // VFX should never take down combat — if a build step throws (bad shader,
-  // missing target, etc.) we log and continue so the ability still "fires"
-  // even if its visuals are missing.
-  try {
-    const ctx = {
-      self: followObject(player.object),
-      target: targetEnemy
-        ? staticTarget(
-            new THREE.Vector3(
-              targetEnemy.position.x,
-              targetEnemy.position.y,
-              targetEnemy.position.z,
-            ),
-          )
-        : null,
-    };
-    const effect = anim.getActionVfx(id, ctx);
-    if (effect) vfx.spawn(effect);
-  } catch (err) {
-    console.error('VFX spawn failed for action', id, err);
-  }
-}
-
-const ATTACK_COOLDOWN = 1.5;  // seconds — autoattack
-const ATTACK_RANGE    = 3.0;  // melee reach in world units
 const LEASH_RANGE     = 25;   // units from home before enemy resets
 
 type EnemyArchetype = NonNullable<Enemy['spawn']['archetype']>;
@@ -745,18 +698,6 @@ export class Combat {
     const active = (latest.statusEffects ?? [])
       .filter((existing) => existing.id !== effect.id && existing.expiresAt > now);
     store.updateEnemy(target.id, { statusEffects: [...active, effect] });
-  }
-
-  private resolveTarget(
-    store: ReturnType<typeof useGameStore.getState>,
-    maxRange: number,
-    player: Player,
-  ): EnemyState | null {
-    if (!store.targetId) return null;
-    const target = store.enemies.find((e) => e.id === store.targetId);
-    if (!target || !target.alive) return null;
-    if (dist2D(target.position, player.position) > maxRange) return null;
-    return target;
   }
 
   private killEnemy(

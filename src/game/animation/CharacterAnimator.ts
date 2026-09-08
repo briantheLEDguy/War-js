@@ -13,23 +13,10 @@
  *     overlapping joints.
  *
  * The base class handles:
- *   - Action queue / timing / easing helpers.
+ *   - Action queue / timing.
  *   - Phase advancement for locomotion.
  *   - Idle blend-in so transitions back to rest are smooth.
  */
-import * as THREE from 'three';
-import type { TargetProvider, Vfx } from './VfxLayer';
-
-/**
- * Describes where class-specific VFX should anchor. The `self` target always
- * follows the caster; `target` follows the current enemy (if any). Subclasses
- * pick whichever is appropriate per action — a heal pins to `self`, a fireball
- * burst pins to `target`.
- */
-export interface ActionVfxContext {
-  self: TargetProvider;
-  target: TargetProvider | null;
-}
 
 /** Per-frame input to `update()`. */
 export interface AnimatorInput {
@@ -106,26 +93,6 @@ export abstract class CharacterAnimator {
     this.action = { id, elapsed: 0, duration };
   }
 
-  /** True when an action is currently animating — useful for gating VFX. */
-  isBusy(): boolean {
-    return this.action !== null;
-  }
-
-  /**
-   * Build the class-specific VFX (if any) that should accompany the given
-   * action id. The default implementation returns null — override in
-   * subclasses to emit heal glows, weapon trails, bolts, etc.
-   *
-   * Contract: the returned Vfx has NOT been added to the scene yet; the
-   * caller is responsible for handing it to a `VfxLayer.spawn()`.
-   */
-  getActionVfx(
-    _actionId: string,
-    _ctx: ActionVfxContext,
-  ): Vfx | null {
-    return null;
-  }
-
   /** Subclass hook: snap the rig back to rest pose (zero rotations). */
   protected abstract resetPose(): void;
 
@@ -148,40 +115,7 @@ export function approach(current: number, target: number, rate: number): number 
   return current + (target - current) * k;
 }
 
-/** Ease-in-out cubic. Useful for windup → release arcs. */
-export function easeInOut(t: number): number {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
 /** Ease-out cubic — fast start, slow finish (good for impact follow-through). */
 export function easeOut(t: number): number {
   return 1 - Math.pow(1 - t, 3);
-}
-
-/**
- * Piecewise key-frame sampler: given sorted keyframes [{t, v}, ...] and
- * query t in 0..1, returns linearly-interpolated v. Clamps outside range.
- * Small helper so action poses can be authored as data.
- */
-export function sampleKeys(
-  keys: ReadonlyArray<{ t: number; v: number }>,
-  t: number,
-): number {
-  if (keys.length === 0) return 0;
-  if (t <= keys[0].t) return keys[0].v;
-  if (t >= keys[keys.length - 1].t) return keys[keys.length - 1].v;
-  for (let i = 0; i < keys.length - 1; i++) {
-    const a = keys[i];
-    const b = keys[i + 1];
-    if (t >= a.t && t <= b.t) {
-      const u = (t - a.t) / Math.max(1e-6, b.t - a.t);
-      return a.v + (b.v - a.v) * u;
-    }
-  }
-  return keys[keys.length - 1].v;
-}
-
-/** Reusable zero-rotation helper to avoid allocating on every frame. */
-export function zeroRotation(obj: THREE.Object3D): void {
-  obj.rotation.set(0, 0, 0);
 }

@@ -90,7 +90,7 @@ export class Player {
 
   constructor(
     public character: CharacterState,
-    private terrain: Terrain,
+    terrain: Terrain,
     private groundHeightAt: GroundResolver = (x, z) => terrain.heightAt(x, z),
   ) {}
 

@@ -68,13 +68,6 @@ interface AbilitySeed {
   effects?: AbilityEffect[];
 }
 
-interface KitSeed {
-  career: string;
-  classFamily: AbilityFamily;
-  resource: CareerResourceDefinition;
-  abilities: AbilitySeed[];
-}
-
 export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.fromEntries(
   [
     kit('Ember Arcanist', 'risk_caster', resource('heat', 'Heat', 100, 0, true), [

@@ -56,7 +56,6 @@ export function CraftingPanel() {
     dragClassName,
   } = useDraggableWindow<HTMLDivElement>();
   const inventory = useGameStore((s) => s.inventory);
-  const craftingState = useGameStore((s) => s.craftingState);
   const craftingOpen = useGameStore((s) => s.craftingOpen);
   const station = useGameStore((s) => s.activeCraftingStation);
   const closeCrafting = useGameStore((s) => s.closeCrafting);

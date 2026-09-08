@@ -11,6 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "audit:size": "node scripts/audit-repository-size.mjs",
     "builder:generate": "node scripts/generate-builder-catalog.mjs",
     "builder:validate": "node scripts/generate-builder-catalog.mjs --check",
     "campaign:generate": "node scripts/campaign/generate-static-campaign.mjs",

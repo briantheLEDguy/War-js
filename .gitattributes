@@ -92,3 +92,8 @@ authoring/blender/frontier-population/** -text
 authoring/blender/frontier-population/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/frontier-population/**/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/blender/frontier-population/**/*.png filter=lfs diff=lfs merge=lfs -text
+# These provenance bytes are hashed; preserve LF across Windows checkouts.
+authoring/blender/cinderfen-architecture/junction/tools/write_provenance.py text eol=lf
+authoring/blender/cinderfen-architecture/junction/source/source-provenance.json text eol=lf
+# Vite 5 SSR requires an LF shebang when this CLI is imported by tests.
+scripts/blender-character-pipeline/tools/promote-roster-revision.mjs text eol=lf

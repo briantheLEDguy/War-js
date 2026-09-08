@@ -201,10 +201,6 @@ export function applyVoxelBrushToDocument(
   return next;
 }
 
-export function getVoxelRaycastTargets(runtime: VoxelTerrainRuntime | null): THREE.Object3D[] {
-  return runtime ? [runtime.object] : [];
-}
-
 function buildSmoothVoxelMesh(
   chunks: VoxelTerrainChunk[],
   document: WorldEditDocument,

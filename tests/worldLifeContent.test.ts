@@ -4,6 +4,8 @@ import { applyBiomeKits } from '../src/world/BiomeKit';
 import type { PropSpawn, ZoneDefinition } from '../src/world/ZoneLoader';
 // @ts-expect-error Shared native ESM authoring module.
 import { AEGIS_REVIEWED_SCENERY, reviewedSceneryModelBounds } from '../scripts/campaign/aegis-reviewed-scenery.mjs';
+// @ts-expect-error Shared native ESM authoring module.
+import { applyOrvrZoneLayout } from '../scripts/campaign/orvr-zone-layouts.mjs';
 import {
   decorateWorldLife,
   WORLD_LIFE_FOOTPRINTS,
@@ -221,6 +223,8 @@ describe('authored world life', () => {
 
   test('expanded climates reserve scene clearings without instantiating draft vegetation', () => {
     const zone = readZone('brightfen_approach');
+    expect(zone.orvrLayout!.biome.placements).toBeUndefined();
+    applyOrvrZoneLayout(zone, { id: zone.id, realm: zone.campaign!.realm, nodeRole: zone.campaign!.nodeRole });
     decorateWorldLife(zone);
     const expanded = applyBiomeKits(zone);
     const originalIds = new Set(zone.props.map((prop) => prop.id));

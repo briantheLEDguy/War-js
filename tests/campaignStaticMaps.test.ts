@@ -128,6 +128,12 @@ function hashZone(zone: ZoneFile): string {
 }
 
 describe('static campaign map files', () => {
+  test('omits draft vegetation placements from published maps', () => {
+    for (const node of CAMPAIGN_ZONES) {
+      expect(loadZone(node.id).orvrLayout?.biome.placements, node.id).toBeUndefined();
+    }
+  });
+
   test('uses the campaign guide as the exact portal graph', () => {
     expect(undirectedEdges(CAMPAIGN_GRAPH_EDGES)).toEqual(undirectedEdges(
       GUIDE_EDGES.map(([fromZoneId, toZoneId]) => ({ fromZoneId, toZoneId })),

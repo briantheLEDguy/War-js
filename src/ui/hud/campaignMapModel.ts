@@ -77,10 +77,6 @@ export function campaignMapNodeTarget(
   };
 }
 
-export function campaignRouteMainZoneIds(lane: CampaignLane): string[] {
-  return campaignRouteForLane(lane).mainZoneIds;
-}
-
 function buildRoute(lane: CampaignLane): CampaignRouteModel {
   const label = getLaneLabel(lane);
   if (lane === 'central') {

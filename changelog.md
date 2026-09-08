@@ -1,3 +1,11 @@
+## 2026-09-08 - Repository size and unused-content cleanup
+
+- Remove 149 obsolete or duplicate authoring artifacts while preserving active sources, final review evidence and exact companion-source hashes.
+- Remove unused draft biome plans from published maps and losslessly encode repeated elevation values; shrink campaign maps by 25.76 MB and 1.42 million lines without changing live content.
+- Derive 432 starter armor catalog entries from existing profiles, remove obsolete map/combat/editor/animation code, and delete unreachable imported-capital generator branches.
+- Share city elevation sampling across authoring and runtime; remove an unused crafting subscription.
+- Add repeatable size auditing, scratch-output ignores, focused equivalence tests and an audit record covering approximately 2.54 million net removed text lines.
+
 ## 2026-09-07 - Campaign reconnect continuity
 
 - Preserve a returning character's position and last command sequence when its connection resumes; retain staging behavior for transfers and queue admission.

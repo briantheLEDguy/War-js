@@ -1094,8 +1094,6 @@ export class Game {
   }
 
   private findHarvestPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { enemy: EnemyState; dist: number } | null = null;
 
     for (const enemy of store.enemies) {
@@ -1128,8 +1126,6 @@ export class Game {
   }
 
   private findCraftingPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { station: CraftingStationSpawn; dist: number } | null = null;
 
     for (const station of this.craftingStations) {
@@ -1149,8 +1145,6 @@ export class Game {
   }
 
   private findQuestgiverPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { npc: (typeof store.npcs)[number]; dist: number } | null = null;
 
     for (const npc of store.npcs) {
@@ -1207,8 +1201,6 @@ export class Game {
   }
 
   private findEnemyPrompt(store: ReturnType<typeof useGameStore.getState>): ContextPromptState | null {
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { enemy: EnemyState; dist: number } | null = null;
 
     for (const enemy of store.enemies) {
@@ -1329,8 +1321,6 @@ export class Game {
   ): { node: ResourceNodeSpawn; dist: number } | null {
     const zoneId = this.currentZone?.id;
     if (!zoneId || !this.player) return null;
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { node: ResourceNodeSpawn; dist: number } | null = null;
 
     for (const node of this.resourceNodes) {
@@ -1367,8 +1357,6 @@ export class Game {
 
   private tryGatherNearestCorpse(): boolean {
     const store = useGameStore.getState();
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { id: string; dist: number } | null = null;
 
     for (const enemy of store.enemies) {
@@ -1388,8 +1376,6 @@ export class Game {
   }
 
   private tryOpenNearestCraftingStation(): boolean {
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { station: CraftingStationSpawn; dist: number } | null = null;
 
     for (const station of this.craftingStations) {
@@ -1405,8 +1391,6 @@ export class Game {
 
   private tryOpenNearestQuestgiver(): boolean {
     const store = useGameStore.getState();
-    const px = this.player.position.x;
-    const pz = this.player.position.z;
     let best: { id: string; dist: number } | null = null;
 
     for (const npc of store.npcs) {

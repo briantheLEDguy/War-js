@@ -1,3 +1,5 @@
+import { cityHeightAt } from './compact-city-elevation.mjs';
+
 // Stationary civic cast. Moving ambient actors retain their own locomotion rigs.
 export const AEGIS_PEOPLE = [
   ['market_buyer', 'civilian_male', 'Orren Vale', 'Market shopper', -34, -118, 0],
@@ -18,12 +20,7 @@ export const AEGIS_PEOPLE = [
 ];
 
 function ground(zone, x, z) {
-  const f = zone.cityElevation;
-  if (!f) return 0;
-  const s = f.segments, fx = Math.max(0, Math.min(s, (x / zone.size + .5) * s)), fz = Math.max(0, Math.min(s, (z / zone.size + .5) * s));
-  const ix = Math.min(s - 1, Math.floor(fx)), iz = Math.min(s - 1, Math.floor(fz)), tx = fx - ix, tz = fz - iz;
-  const h = (dx, dz) => f.heights[(iz + dz) * (s + 1) + ix + dx];
-  return tz >= tx ? h(0,0) + tz*(h(0,1)-h(0,0)) + tx*(h(1,1)-h(0,1)) : h(0,0) + tx*(h(1,0)-h(0,0)) + tz*(h(1,1)-h(1,0));
+  return zone.cityElevation ? cityHeightAt(zone.cityElevation, zone.size, x, z) : 0;
 }
 
 export function civicPlacementClear(zone, x, z) {

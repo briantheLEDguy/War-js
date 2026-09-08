@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import { colliderHasWalkableTop } from '../../shared/worldNavigation';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import type { AssetLoader, PrimitiveFactory } from '../../game/AssetLoader';
-import { AssetLoader as RuntimeAssetLoader } from '../../game/AssetLoader';
 import type {
   Vec3,
   VoxelMaterialId,
@@ -607,13 +606,6 @@ export class WorldEditorRuntime {
     this.rebuildStandaloneCollision();
     if (options.select !== false) this.selectObject(object.id);
     this.emitChanged();
-  }
-
-  private async stampAtPointer(event: PointerEvent): Promise<void> {
-    const point = this.pickWorldPoint(event);
-    if (!point) return;
-    const snapped = this.snapPosition(point);
-    await this.addStampAt(snapped);
   }
 
   private startStampChain(event: PointerEvent): void {

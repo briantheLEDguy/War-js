@@ -1,4 +1,5 @@
 import { WORLD_LIFE_FOOTPRINTS } from './world-life-source.mjs';
+import { cityHeightAt } from './compact-city-elevation.mjs';
 
 // Original civic kit. Positions remain map data; gameplay entrances keep their IDs.
 export const CIVIC_KINDS = ['streetlight', 'wall_lantern', 'sign_lantern', 'sign_lock',
@@ -16,18 +17,8 @@ export function distanceToCivicSegment(p, a, b) {
   return Math.hypot(p.x-a.x-t*dx, p.z-a.z-t*dz);
 }
 
-// Match CityElevation.ts's triangle interpolation on the baked map grid.
 export function civicGroundHeight(zone, x, z) {
-  const field = zone.cityElevation;
-  if (!field) return 0;
-  const s = field.segments;
-  const fx = Math.max(0, Math.min(s, (x/zone.size+.5)*s));
-  const fz = Math.max(0, Math.min(s, (z/zone.size+.5)*s));
-  const ix = Math.min(s-1, Math.floor(fx)), iz = Math.min(s-1, Math.floor(fz));
-  const tx = fx-ix, tz = fz-iz;
-  const h = (dx,dz) => field.heights[(iz+dz)*(s+1)+ix+dx];
-  return tz >= tx ? h(0,0)+tz*(h(0,1)-h(0,0))+tx*(h(1,1)-h(0,1))
-    : h(0,0)+tx*(h(1,0)-h(0,0))+tz*(h(1,1)-h(1,0));
+  return zone.cityElevation ? cityHeightAt(zone.cityElevation, zone.size, x, z) : 0;
 }
 
 /** Clearance includes transformed collider offsets, closed gates and invisible

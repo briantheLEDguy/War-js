@@ -143,8 +143,6 @@ export const CAMPAIGN_GRAPH_EDGES: CampaignEdge[] = CAMPAIGN_EDGES.flatMap(([fro
   { fromZoneId: toZoneId, toZoneId: fromZoneId },
 ]));
 
-export const CAMPAIGN_BIDIRECTIONAL_EDGES = CAMPAIGN_GRAPH_EDGES;
-
 export const CAMPAIGN_OBJECTIVES_BY_ZONE: Record<string, CampaignObjectiveDefinition[]> =
   Object.fromEntries(
     Object.entries(CAMPAIGN_OBJECTIVES).map(([zoneId, objectives]) => [

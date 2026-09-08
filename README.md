@@ -1,5 +1,20 @@
 # War-js
 
+## Repository size and generated data
+
+Run `npm run audit:size` for tracked/unignored text counts and large files, or
+add `-- --json` for duplicate candidates. The [size audit](docs/code-size-audit.md)
+documents approximately 2.54 million removed lines, dependency evidence and
+verification limits. Keep generated review snapshots and probes local; retain
+accepted sources and evidence referenced by asset approvals.
+
+Campaign publication omits authoring-only biome placement plans and losslessly
+packs repeated city elevation samples. `scripts/campaign/compact-city-elevation.mjs`
+shares height sampling between authoring and the browser through `CityElevation.ts`.
+Run `npm run campaign:generate` after campaign changes, then `npm run world:validate`.
+The starter armor catalog is derived from character profiles in
+`playableAssets.generated.ts`; update its generator when changing that structure.
+
 ## Zone atlas controls and rendering
 
 Open the Campaign Atlas's Zone tier and use the wheel or **+ / -** to zoom up to
