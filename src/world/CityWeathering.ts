@@ -10,6 +10,9 @@ export function applyCityWeathering(material: THREE.MeshStandardMaterial): void 
       .replace('#include <common>', '#include <common>\nvarying vec3 vCityPosition;')
       .replace('#include <project_vertex>', `#include <project_vertex>
         vec4 cityPosition = vec4(transformed, 1.0);
+        #ifdef USE_BATCHING
+          cityPosition = batchingMatrix * cityPosition;
+        #endif
         #ifdef USE_INSTANCING
           cityPosition = instanceMatrix * cityPosition;
         #endif
@@ -37,6 +40,6 @@ export function applyCityWeathering(material: THREE.MeshStandardMaterial): void 
         diffuseColor.rgb *= weather;
       `);
   };
-  material.customProgramCacheKey = () => 'aegis-world-weathering-v1';
+  material.customProgramCacheKey = () => 'aegis-world-weathering-v2';
   material.needsUpdate = true;
 }

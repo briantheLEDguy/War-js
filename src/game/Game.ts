@@ -3,6 +3,10 @@ import { colliderBlocksBody, WALKABLE_STEP_UP as WALKABLE_SURFACE_STEP_UP, walka
 import { createCanalWater } from '../world/CityWater';
 import { safeCityEntry } from '../world/CityNavigation';
 import { CityInstances } from '../world/CityInstances';
+import { FrameDiagnostics } from './FrameDiagnostics';
+import { CameraCollisionIndex, type IndexedCameraObjects } from './CameraCollisionIndex';
+import { warmScene } from './RenderWarmup';
+import { CharacterVisibility } from './CharacterVisibility';
 import { FrontierInstances } from '../world/FrontierProps';
 import { CityLifts } from '../world/CityLifts';
 import { craterGround, craterLevel, recoverCraterEntry, fixedCraterRecovery, CraterFloorIndex } from '../world/CraterCity';
@@ -87,6 +91,9 @@ export class Game {
   private renderer!: THREE.WebGLRenderer;
   private scene = new THREE.Scene();
   private camera!: FollowCamera;
+  private cameraIndex = new CameraCollisionIndex();
+  private cameraIndexRevision = -1;
+  private cameraQuery: IndexedCameraObjects = { index: this.cameraIndex, dynamic: [] };
   private input!: Input;
   private loader = new AssetLoader();
   private terrain = new Terrain({ size: 140, segments: 112 });
@@ -99,6 +106,7 @@ export class Game {
   private player!: Player;
   private enemies: Enemy[] = [];
   private npcMixers: THREE.AnimationMixer[] = [];
+  private npcVisibility: CharacterVisibility | null = null;
   private worldLife: WorldLife | null = null;
   private combat = new Combat();
   private resourceRegeneration = new ResourceRegeneration();
@@ -108,6 +116,9 @@ export class Game {
   private fpsFrames = 0;
   private renderResolution = new RenderResolution();
   private frameMilliseconds = 0;
+  private diagnostics = new FrameDiagnostics();
+  private cameraMilliseconds = 0;
+  private diagnosticFrameTime = 0;
   private frameLoop = new ForegroundFrameLoop(
     (time, delta) => this.loop(time, delta),
     () => useGameStore.getState().settings.frameRateLimit,
@@ -164,6 +175,7 @@ export class Game {
   get zoneName(): string { return this.currentZoneName; }
   get renderScale(): number { return this.renderResolution.scale; }
   get frameMs(): number { return this.frameMilliseconds; }
+  get performanceSample() { return this.diagnostics.latest; }
   get cityDistrictName(): string | null {
     if (!this.currentZone?.cityDistricts?.length || !this.player || this.houseInteriors?.isActive) return null;
     const position = this.player.position;
@@ -422,7 +434,8 @@ export class Game {
 
     await this.worldEditor.loadDocument(this.publishedWorldEdit, false);
     if (this.disposed) return;
-    if (zone.cityLayoutVersion) this.cityInstances = new CityInstances(this.scene, spawnedProps.objects);
+    if (zone.cityLayoutVersion) this.cityInstances = new CityInstances(this.scene, spawnedProps.objects,
+      this.renderer.extensions.has('WEBGL_multi_draw'));
     this.frontierInstances = new FrontierInstances(this.scene, spawnedProps.objects);
 
     // NPCs
@@ -435,6 +448,7 @@ export class Game {
     );
     if (this.disposed) return;
     this.npcMixers = spawnedNpcs.mixers;
+    this.npcVisibility = new CharacterVisibility(this.scene, spawnedNpcs.objects);
     this.zoneNpcStates = spawnedNpcs.states;
     useGameStore.getState().setNpcs(this.zoneNpcStates);
 
@@ -548,8 +562,16 @@ export class Game {
     window.addEventListener('resize', this.onResize);
 
     // Loop
-    // Compile all material variants, including the LODs, while the loading UI is up.
-    await this.renderer.compileAsync(this.scene, this.camera.camera);
+    await this.worldLife?.ready;
+    if (this.disposed) return;
+    this.refreshCameraIndex();
+    this.cityInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode,
+      id => this.worldEditor?.isStaticObjectHidden(id) ?? false, this.worldEditor?.mapRevision);
+    try {
+      await warmScene(this.renderer, this.scene, this.camera.camera, () => this.disposed, this.houseInteriors?.warmupRooms);
+    } catch (error) {
+      if (!this.disposed) console.warn('[Game] render warmup failed; continuing with lazy initialization', error);
+    }
     if (this.disposed) return;
     this.frameLoop.start();
 
@@ -613,14 +635,22 @@ export class Game {
       console.error('Game.update threw — recovering', err);
     }
     const simulationMs = performance.now() - updateStart;
+    const submissionStart = performance.now();
     try {
-      this.cityInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode, id => this.isStaticSourceSuppressed(id));
+      this.npcVisibility?.update(this.camera.camera);
+      this.cityInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode,
+        id => this.worldEditor?.isStaticObjectHidden(id) ?? false, this.worldEditor?.mapRevision);
       this.frontierInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode, id => this.isStaticSourceSuppressed(id), dt);
       this.renderer.render(this.scene, this.camera.camera);
     } catch (err) {
       console.error('Renderer threw — recovering', err);
     }
     this.renderResolution.observe(frameMs, simulationMs, document.hidden, useGameStore.getState().settings.frameRateLimit);
+    if (this.diagnostics.enabled) this.diagnostics.record({ intervalMs: this.diagnosticFrameTime ? tMs - this.diagnosticFrameTime : frameMs, simulationMs,
+      cameraMs: this.cameraMilliseconds, submissionMs: performance.now() - submissionStart,
+      calls: this.renderer.info.render.calls, triangles: this.renderer.info.render.triangles,
+      programs: this.renderer.info.programs?.length ?? 0 });
+    this.diagnosticFrameTime = tMs;
     this.frameMilliseconds += (frameMs - this.frameMilliseconds) * 0.1;
   };
 
@@ -828,16 +858,17 @@ export class Game {
         this.player.rotationY,
       );
     }
+    const cameraStart = this.diagnostics.enabled ? performance.now() : 0;
+    this.refreshCameraIndex();
+    this.cameraQuery.dynamic = this.houseInteriors?.activeInterior ? [this.houseInteriors.activeInterior.group] : [];
     this.camera.update(
       this.player.position,
       this.input,
       this.getActiveCameraColliders(),
       this.cameraGroundHeightAt,
-      [
-        ...(this.worldEditor?.getCameraObjects() ?? []),
-        ...(this.houseInteriors?.activeInterior ? [this.houseInteriors.activeInterior.group] : []),
-      ],
+      this.cameraQuery,
     );
+    this.cameraMilliseconds = this.diagnostics.enabled ? performance.now() - cameraStart : 0;
     // Tight spaces and upward views may pull the camera into the avatar.
     this.player.object.visible = this.camera.camera.position.distanceTo(
       this.player.position.clone().add(new THREE.Vector3(0, 0.9, 0)),
@@ -1498,6 +1529,13 @@ export class Game {
     return this.worldEditor?.isStaticObjectSuppressed(sourceObjectId) ?? false;
   }
 
+  private refreshCameraIndex(): void {
+    const revision = this.worldEditor?.mapRevision ?? 0;
+    if (revision === this.cameraIndexRevision) return;
+    this.cameraIndex.rebuild(this.worldEditor?.getCameraObjects() ?? []);
+    this.cameraIndexRevision = revision;
+  }
+
   async setWorldEditorActive(active: boolean): Promise<void> {
     if (!this.worldEditor) return;
     const store = useGameStore.getState();
@@ -1981,15 +2019,18 @@ export class Game {
     if (this.disposed) return;
     this.disposed = true;
     this.frameLoop.dispose();
+    this.diagnostics.dispose();
     window.removeEventListener('resize', this.onResize);
     this.input?.dispose();
     this.camera?.dispose();
+    this.cameraIndex.dispose();
     for (const mixer of this.npcMixers) mixer.stopAllAction();
     this.player?.disposeAnimations();
     this.worldLife?.dispose();
+    this.npcVisibility?.dispose();
     this.frontierInstances?.dispose();
-    this.loader.dispose(this.scene);
     this.cityInstances?.dispose();
+    this.loader.dispose(this.scene);
     for (const fn of this.onDispose) {
       try { fn(); } catch { /* ignore */ }
     }

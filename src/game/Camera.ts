@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { useGameStore } from '../state/gameStore';
 import type { Input } from './Input';
 import { resolveCameraCollision } from './CameraCollision';
+import type { IndexedCameraObjects } from './CameraCollisionIndex';
 
 const MOUSE_YAW_SENSITIVITY = 0.005;
 const MOUSE_PITCH_SENSITIVITY = 0.003;
@@ -226,7 +227,7 @@ export class FollowCamera {
     _input: Input,
     colliders: CameraCollider[] = [],
     terrainHeightAt?: TerrainHeightResolver,
-    objects: THREE.Object3D[] = [],
+    objects: THREE.Object3D[] | IndexedCameraObjects = [],
   ) {
     const focus = new THREE.Vector3(target.x, target.y + 0.9, target.z);
     const desired = new THREE.Vector3(

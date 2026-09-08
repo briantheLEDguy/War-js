@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { CameraCollider } from './Camera';
+import type { IndexedCameraObjects } from './CameraCollisionIndex';
 
 const TERRAIN_PADDING = 0.45;
 const TERRAIN_STEP = 0.1;
@@ -16,7 +17,7 @@ export function resolveCameraCollision(
   desired: THREE.Vector3,
   colliders: CameraCollider[] = [],
   terrainHeightAt?: (x: number, z: number) => number,
-  objects: THREE.Object3D[] = [],
+  objects: THREE.Object3D[] | IndexedCameraObjects = [],
   padding = 0.35,
 ): THREE.Vector3 {
   const direction = desired.clone().sub(focus);
@@ -53,7 +54,7 @@ export function resolveCameraCollision(
       previous = d;
     }
   }
-  if (objects.length) {
+  if (!Array.isArray(objects) || objects.length) {
     safeDistance = Math.min(safeDistance, meshCollisionDistance(focus, direction, safeDistance, objects, padding));
   }
   return focus.clone().addScaledVector(direction, safeDistance);
@@ -90,7 +91,7 @@ function intersectCollider(
 
 function meshCollisionDistance(
   focus: THREE.Vector3, direction: THREE.Vector3, distance: number,
-  objects: THREE.Object3D[], padding: number,
+  objects: THREE.Object3D[] | IndexedCameraObjects, padding: number,
 ): number {
   if (distance <= 0) return 0;
   const end = focus.clone().addScaledVector(direction, distance);
@@ -111,7 +112,8 @@ function meshCollisionDistance(
     }
     for (const child of object.children) visit(child);
   };
-  for (const object of objects) {
+  if (!Array.isArray(objects)) objects.index.query(sweepBox, candidates, objects.dynamic);
+  else for (const object of objects) {
     if (object.userData.cameraStaticGeometry === true) {
       object.updateWorldMatrix(true, false);
       let cached = staticBounds.get(object);

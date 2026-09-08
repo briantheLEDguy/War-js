@@ -20,6 +20,7 @@ export interface NpcState {
 export interface SpawnedNpcs {
   states: NpcState[];
   mixers: THREE.AnimationMixer[];
+  objects: THREE.Object3D[];
 }
 
 /**
@@ -36,6 +37,7 @@ export async function spawnNpcs(
 ): Promise<SpawnedNpcs> {
   const states: NpcState[] = [];
   const mixers: THREE.AnimationMixer[] = [];
+  const objects: THREE.Object3D[] = [];
 
   for (const s of spawns) {
     const fallback = s.approvedOnly ? () => { const g = new THREE.Group(); g.userData.assetMissing = true; return g; } : pickNpcFallback(s.role);
@@ -64,6 +66,7 @@ export async function spawnNpcs(
     obj.position.set(s.x, y, s.z);
     obj.rotation.y = s.rotY ?? 0;
     scene.add(obj);
+    objects.push(obj);
 
     const mixer = startNpcIdleAnimation(obj, animations);
     if (mixer) mixers.push(mixer);
@@ -77,7 +80,7 @@ export async function spawnNpcs(
     });
   }
 
-  return { states, mixers };
+  return { states, mixers, objects };
 }
 
 function pickNpcFallback(role: NpcSpawn['role']) {

@@ -92,3 +92,5 @@ authoring/blender/frontier-population/** -text
 authoring/blender/frontier-population/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/frontier-population/**/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/blender/frontier-population/**/*.png filter=lfs diff=lfs merge=lfs -text
+# Vite's test transform requires an LF-terminated shebang for this imported CLI.
+scripts/blender-character-pipeline/tools/promote-roster-revision.mjs text eol=lf
