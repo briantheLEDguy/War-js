@@ -1,3 +1,10 @@
+## 2026-09-08 - Duplicate sources and diagnostic cleanup
+
+- Remove another 122 unreferenced diagnostic outputs and duplicate inherited/revision copies, preserving consumed sources, probe generators and approval evidence.
+- Derive all 48 playable profiles from shared class, body-variant and equipment-slot definitions. Preserve all profile/catalog/loadout values and independent mutable armor records while reducing the generated module from 5,505 to 373 lines.
+- Add regression checks for approval report hashes, archived source records and source-ledger inputs; keep exact ignore rules for reproducible scratch outputs.
+- Reduce another approximately 268,000 text lines and 75 MB, bringing the two-pass cleanup to approximately 2.81 million lines. The main JavaScript bundle is about 106 KB smaller before gzip.
+
 ## 2026-09-08 - Repository size and unused-content cleanup
 
 - Remove 149 obsolete or duplicate authoring artifacts while preserving active sources, final review evidence and exact companion-source hashes.

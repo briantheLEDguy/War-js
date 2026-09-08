@@ -4,7 +4,7 @@
 
 Run `npm run audit:size` for tracked/unignored text counts and large files, or
 add `-- --json` for duplicate candidates. The [size audit](docs/code-size-audit.md)
-documents approximately 2.54 million removed lines, dependency evidence and
+documents approximately 2.81 million removed lines, dependency evidence and
 verification limits. Keep generated review snapshots and probes local; retain
 accepted sources and evidence referenced by asset approvals.
 
@@ -12,8 +12,10 @@ Campaign publication omits authoring-only biome placement plans and losslessly
 packs repeated city elevation samples. `scripts/campaign/compact-city-elevation.mjs`
 shares height sampling between authoring and the browser through `CityElevation.ts`.
 Run `npm run campaign:generate` after campaign changes, then `npm run world:validate`.
-The starter armor catalog is derived from character profiles in
+Playable profiles and starter armor use shared class/variant/slot definitions in
 `playableAssets.generated.ts`; update its generator when changing that structure.
+Approval-retention tests protect the archived reports and source inputs from
+cleanup, while exact ignore rules keep unreferenced diagnostics local.
 
 ## Zone atlas controls and rendering
 

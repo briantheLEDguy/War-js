@@ -10,6 +10,26 @@ import {
 } from '../src/data/playableAssets.generated';
 
 describe('playable starter armor catalog', () => {
+  test('preserves every expanded profile and its ordering when constructing from shared seeds', () => {
+    // Captured before replacing the 48 expanded profile literals with shared seeds.
+    expect(createHash('sha256').update(JSON.stringify(PLAYABLE_CHARACTER_PROFILES)).digest('hex'))
+      .toBe('bc58b6f091651a156c5e9cdb67455c1681f52d5b13d06225bc178cc49e79827d');
+    const loadouts = PLAYABLE_CHARACTER_PROFILES.map((profile) => ({
+      profileKey: profile.profileKey,
+      equipment: starterArmorEquipmentFor(profile.race, profile.className, profile.bodyVariant),
+      inventory: starterArmorInventoryFor(profile.race, profile.className, profile.bodyVariant),
+    }));
+    expect(createHash('sha256').update(JSON.stringify(loadouts)).digest('hex'))
+      .toBe('d52ccea5b25d361b3662a38e368a22ce3037f77491e54a144686376c93a810a1');
+  });
+
+  test('keeps mutable armor records and coverage arrays independent across all profiles', () => {
+    expect(new Set(PLAYABLE_CHARACTER_PROFILES.map((profile) => profile.armor)).size).toBe(48);
+    const armor = PLAYABLE_CHARACTER_PROFILES.flatMap((profile) => Object.values(profile.armor));
+    expect(new Set(armor).size).toBe(432);
+    expect(new Set(armor.map((part) => part.coveredRegions)).size).toBe(432);
+  });
+
   test('preserves the complete catalog when deriving entries from profiles', () => {
     // Captured from the literal catalog before removing its duplicate records.
     expect(Object.keys(PLAYABLE_ARMOR_ITEM_CATALOG)).toHaveLength(432);

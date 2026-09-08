@@ -14,7 +14,7 @@ tears and close-up surface detail remain less elaborate than the concept sheet.
 - `ember_arcanist_game_master.blend`: rigged modules, packed baked images and three LODs.
 - `ember_arcanist_reimport_review.blend`: assembly of the actual exported GLBs.
 - `source/`: explicit vertices, corner UVs, permitted modifiers and canonical rig.
-- `inherited/`: retained Battle Prelate cage records and archived reference tooling.
+- `inherited/`: the fourteen Battle Prelate cage records consumed by the Ember authoring recipes.
 - `tools/author_ember.py`, `tools/refine_ember.py`: repeatable fitting and literal new patches.
 - `textures/`: paint records, source PNGs and paint inspection reports.
 - `runtime/`: staged GLBs, evaluated geometry archive and binary/Khronos audits.

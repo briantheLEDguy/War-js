@@ -24,3 +24,21 @@ public/assets/new_models/
 authoring/blender/**/review/revisions/
 authoring/blender/**/review/tabard_surface_probe/
 authoring/blender/**/source/pipeline-references/*_reviewed_kit.json
+
+# Reproducible inspection outputs; their generators and approval evidence remain tracked.
+authoring/blender/orvr-frontier/review/frontier_draft_horse_gait_diagnostics.json
+authoring/blender/orvr-frontier/review/frontier_draft_horse_fields_trial.json
+authoring/blender/orvr-frontier/review/frontier_draft_horse_bone_heat_trial.json
+authoring/blender/battle-prelate-reference-rebuild/review/exported_motion_smoke.json
+authoring/blender/battle-prelate-reference-rebuild/review/motion_report_after.json
+authoring/blender/battle-prelate-reference-rebuild/review/motion_report_before.json
+authoring/blender/battle-prelate-novitiate-set/review/shared_animation_probe.json
+authoring/blender/battle-prelate-novitiate-set/review/shared_assets_probe.json
+authoring/blender/battle-prelate-reference-rebuild/review/lod_surface_transfer_probe/*
+!authoring/blender/battle-prelate-reference-rebuild/review/lod_surface_transfer_probe/probe.py
+
+# Unused copies from the Ember source bootstrap; required inherited cages stay tracked.
+authoring/blender/ember-arcanist-reference-rebuild/inherited/tools/
+authoring/blender/ember-arcanist-reference-rebuild/inherited/gorget.json
+authoring/blender/ember-arcanist-reference-rebuild/inherited/repeated_reliquaries.json
+authoring/blender/ember-arcanist-reference-rebuild/inherited/warhammer.json
