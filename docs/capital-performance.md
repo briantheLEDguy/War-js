@@ -10,7 +10,8 @@ were restored. No push or deployment was performed.
 Performance work is on `codex/capital-performance`, based on that checkpoint.
 It was isolated in `tmp/capital-performance` because another task continued
 world authoring in the primary checkout. The user subsequently authorized committing
-and merging these optimizations into local main; pushing/deployment remain excluded.
+and merging these optimizations. Commit `bc102cf` was fast-forwarded into local
+`main`; pushing/deployment remain excluded.
 
 ## Implementation
 
@@ -45,10 +46,12 @@ Each run warms four camera orbits, then measures 60 seconds: a stationary view,
 two orbits, and short forward/backward steps. The route stays near each capital's
 entry area. It is not a complete traversal of every district.
 
-Both versions reported `ANGLE (AMD, AMD Radeon(TM) Graphics (0x0000164E)
+The shell-launched measurements of both versions reported
+`ANGLE (AMD, AMD Radeon(TM) Graphics (0x0000164E)
 Direct3D11 vs_5_0 ps_5_0, D3D11)` with multi-draw available. This is the integrated
-GPU selected by headless Chrome, even with high-performance flags; it is not a
-verified measurement on the computer's discrete GPU.
+GPU selected by that Chrome launch environment, even with high-performance flags.
+Separate direct-runtime measurements below verified the discrete GPU. These two
+adapter groups must be compared separately.
 
 Samples count actual rendered frames, excluding skipped scheduling callbacks.
 Frame intervals use raw animation timestamps rather than the simulation's 100 ms
@@ -68,15 +71,31 @@ world-authoring task was active on this computer. Treat wall-time differences
 as local observations, not a controlled hardware certification. CPU camera
 timings and render counts additionally identify the changed work directly.
 
-## RX 7700 XT control measurements
+## RX 7700 XT results
 
 Running the same benchmark through the direct browser runtime selected the
 computer's RX 7700 XT (`0x747E`). One matching Aegis control pair measured
 53.5 → 60.0 FPS, p95 22.3 → 18.6 ms, and zero frames over 100 ms on both builds.
 The Riftspire baseline on this adapter measured 44.0 FPS and p95 29.9 ms.
-Three optimized runs per capital are being collected separately in
-`artifacts/performance/discrete-production`; one passing control run alone
-does not certify repeatability.
+Three final optimized runs per capital completed in
+`artifacts/performance/discrete-production`:
+
+| Capital | FPS, runs 1 / 2 / 3 | p95, runs 1 / 2 / 3 | Frames over 100 ms |
+|---|---|---|---:|
+| Aegis | 59.98 / 59.99 / 59.70 | 17.7 / 17.8 / 18.7 ms | 0 |
+| Riftspire | 60.00 / 59.95 / 60.00 | 18.7 / 18.7 / 18.7 ms | 0 |
+
+**Every final run met the ≥58 FPS and ≤20 ms p95 targets on this adapter.**
+There were no uncaught JavaScript errors or frames over 100 ms in the six
+measured minutes. This establishes repeatability for the documented entry-area
+route, not for every district or higher resolutions. The discrete baseline
+has one run per capital, so its before/after comparison has less evidence than
+the three-run integrated baseline.
+
+Camera p95 was 0.6–0.7 ms in Aegis and 0.9–1.0 ms in Riftspire; CPU submission
+p95 was 13.1–14.3 ms and 9.4–10.7 ms respectively. Median main-pass draws were
+125 and 174. The browser runtime's GPU selection is an environment difference;
+the application does not force the discrete adapter.
 
 The direct browser environment blocked Google Fonts. Both versions used the
 same fallback fonts. Network receipts distinguish this from game/shader errors;
@@ -140,14 +159,19 @@ The final cancellation safeguard uses Three.js r167's program readiness query
 with cancellation checked before each poll. It avoids `compileAsync` continuing
 to inspect disposed materials. Missing readiness support falls back to the
 offscreen warmup draw. This loading-only safeguard and the unsupported-shadow
-callback guard were added after the timed runs; they do not change their warmed
-rendering workload and are covered by the final build/tests and browser checks.
+callback guard were added after the integrated-GPU timed runs; they do not change
+their warmed rendering workload. The final build/tests, browser checks and
+discrete-GPU runs include both safeguards.
 
 ## Visual and interaction checks
 
 Matching baseline/optimized screenshots were inspected at an Aegis street,
 Lantern Quays beside the canal, and the citadel entrance, plus Riftspire's rim
-and market. Architecture, weathering, lighting and visible detail matched.
+and market. Architecture, weathering, lighting and visible detail were reviewed.
+The screenshots are not pixel-identical: pavement pattern differences at the
+Riftspire rim and foreground occlusion near the lift remain unclassified.
+Visual acceptance is therefore partial; further investigation stopped at the
+user's instruction to perform no more tests and complete the merge.
 The existing fallback avatar in Riftspire is present in both versions.
 The Ashgate lift moved and carried the player in both builds; its geometry
 remained attached. Sunmeadow loaded and rendered its frontier road/terrain.
