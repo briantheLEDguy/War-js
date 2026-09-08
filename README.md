@@ -577,6 +577,7 @@ src/
 
 Runtime terrain notes:
 
+- Cinderfen uses sixteen reviewed peat/basalt terrain sectors, pierced keep modules and a connected village lane. `scripts/campaign/cinderfen-integration.mjs` fits settlement furniture against measured model envelopes and complete patrol routes, then refreshes vegetation exclusions. Run `campaign:generate` after regional changes; navigation and scenery clearance are covered by `orvrRoadNetwork` and `worldLifeContent` tests.
 - `src/world/PathKit.ts` expands city and legacy zone `paths` into connected visual road props. Outdoor ORvR maps use continuous terrain-following ribbons from `RoadSurface.ts`, or roads baked into approved terrain sectors, without tiled road props.
 - Generated path props render through terrain-following ribbons in `src/world/Props.ts`; they do not create separate walkable shelves, so player grounding stays tied to the active terrain or authored walkable surfaces.
 - `src/game/Camera.ts` supports nearly straight-up through straight-down mouse/touch orbit indoors and outdoors, including a level horizon view. `src/game/CameraCollision.ts` shortens the orbit against finite-height colliders, terrain along the full camera path, and world geometry (including props, roofs, interior furniture/ceilings, and GM edits). Geometry checks use nearby mesh bounds before raycasting and retain original high-detail city sources when rendering uses instancing. Collision preserves the requested angle and zoom; the avatar hides when the camera is too close to keep the view clear.
@@ -586,6 +587,7 @@ Runtime terrain notes:
 
 Runtime animation notes:
 
+- Shared campaign caravans assemble the reviewed wagon, draft horse, reins and equipped seated driver through `CampaignCaravanPresentation.ts`. Independent rigs preserve the authored hitch and seat offsets; wheel and horse motion follow travelled distance and waiting wagons face their next route segment. The production-loader review page is `/authoring/blender/orvr-frontier/runtime-campaign-review.html`; focused regression coverage is `campaignCaravanPresentation.test.ts`.
 - Battle Prelate uses an exaggerated version of the embedded opening hammer strike by default, followed by distinct authored return and descending strikes. Its separate, verified combat pack supplies the other ability gestures, combat guard and landing recovery. Moving attacks retain lower-body locomotion, and character/weapon effects/damage share contact markers. Other classes retain their existing profiles.
 - The development-only `/?modelReview=combat` stage provides equipped body/armor comparisons, embedded-motion comparison, slow playback, scrubbing, movement and effects controls. See [combat animation authoring and verification](authoring/blender/battle-prelate-combat/README.md). Missing or incompatible packs retain embedded/procedural fallbacks.
 - `src/game/Player.ts` resolves the manifest-backed playable character profile first so player bodies use authored locomotion and combat clips when available; external player overrides remain fallback assets.

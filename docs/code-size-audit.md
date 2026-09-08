@@ -147,3 +147,20 @@ validation, 843 model records and the 374-entry builder catalog passed. The full
 suite loaded all 138 files: **1,151 tests passed, with the same four baseline
 Cinderfen failures** listed above. The new profile-equivalence, mutable ownership
 and approval-evidence retention checks all passed.
+
+## Integration with ongoing world work
+
+The cleanup is merged with `e1f5490`, retaining the reviewed caravans and newer
+Cinderfen clearance changes. All 32 regenerated maps match that commit's live
+fields after decoding elevation and excluding only draft placement metadata and
+publication hashes. The merged Cinderfen hash is `d22eea91c8979adc`.
+
+The regional road test rebuilds authoring exclusions before composing Cinderfen,
+so it still checks deterministic roads and every vegetation exclusion without
+requiring draft data in published maps. Its 37 tests pass. Production build,
+frontend/server typechecks, 33-map validation, 843 model records and the 374-entry
+builder catalog pass on the merged committed content. Unfinished world and art
+drafts in the original checkout remain separate from this merge.
+
+The final full run passes **all 1,160 tests in 139 files**. The newer world
+clearance changes resolve the four failures recorded in the earlier baseline.

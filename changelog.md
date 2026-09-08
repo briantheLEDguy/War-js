@@ -1,3 +1,9 @@
+## 2026-09-08 - Cleanup and world integration
+
+- Merge the two audited cleanup passes with reviewed caravan rendering and Cinderfen clearance from e1f5490; preserve every live map field while regenerating compact publication data.
+- Rebuild authoring vegetation exclusions in the regional road regression fixture so deterministic layout coverage remains intact after removing draft metadata from published maps.
+- Retain both changelog histories and the exact-byte/LF attribute rules needed by source provenance and test imports.
+
 ## 2026-09-08 - Duplicate sources and diagnostic cleanup
 
 - Remove another 122 unreferenced diagnostic outputs and duplicate inherited/revision copies, preserving consumed sources, probe generators and approval evidence.
@@ -12,6 +18,17 @@
 - Derive 432 starter armor catalog entries from existing profiles, remove obsolete map/combat/editor/animation code, and delete unreachable imported-capital generator branches.
 - Share city elevation sampling across authoring and runtime; remove an unused crafting subscription.
 - Add repeatable size auditing, scratch-output ignores, focused equivalence tests and an audit record covering approximately 2.54 million net removed text lines.
+
+## 2026-09-08 — Campaign caravan runtime
+
+- Assemble approved supply wagons with the draft horse, reins and seated equipped driver at every detail level. Wheels and moving horse clips follow travelled distance; waiting caravans face along their supply route. Missing optional components retain the wagon.
+- Verified all three detail levels and waiting/walk/trot controls through the production asset resolver in the browser, with 17 focused presentation tests passing.
+
+## 2026-09-08 — Cinderfen integration follow-up
+
+- Correct shelter clearance using delivered model bounds and reserve complete ambient patrol loops while placing village furniture.
+- Verify Cinderfen roads through the full regional composition; retain services, connectivity and deterministic vegetation exclusions.
+- Validation: 1,141 tests pass; client/server typechecks, 33-map validation, 374-entry GM catalog check and production build pass. Art packages remain under review.
 
 ## 2026-09-07 - Campaign reconnect continuity
 

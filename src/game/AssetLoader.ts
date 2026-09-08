@@ -434,6 +434,15 @@ export class AssetLoader {
     return index?.staticProps?.[staticKey]?.model ?? fallbackModel;
   }
 
+  /** Static assemblies can carry a separately reviewed operator animation pack. */
+  async resolveStaticAnimationPack(staticKey: string): Promise<CharacterAnimationPack | null> {
+    const index = await this.loadAssetIndex();
+    const entry = index?.staticProps?.[staticKey];
+    if (!entry || !isRuntimeApproved(entry) || !entry.animationPack
+      || !(await this.resolveApprovedAssetModels(staticKey, 'staticProps')).length) return null;
+    return { ...entry.animationPack };
+  }
+
   private approvedCityModels = new Map<string, Promise<string[]>>();
   private approvedCityHashes = new Map<string, string>();
   private approvedAssetModels = new Map<string, Promise<string[]>>();

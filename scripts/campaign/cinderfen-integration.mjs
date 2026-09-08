@@ -1,18 +1,30 @@
 /** Regional dressing and exclusions live outside frozen architecture review inputs. */
 import { WORLD_LIFE_FOOTPRINTS } from './world-life-source.mjs';
+import { readFileSync } from 'node:fs';
+import { reviewedSceneryModelBounds } from './aegis-reviewed-scenery.mjs';
 
 const distance = (p, a, b) => {
   const dx = b.x - a.x, dz = b.z - a.z, length = dx * dx + dz * dz;
   const t = length ? Math.max(0, Math.min(1, ((p.x-a.x)*dx+(p.z-a.z)*dz)/length)) : 0;
   return Math.hypot(p.x-a.x-dx*t, p.z-a.z-dz*t);
 };
-const radiusOf = prop => WORLD_LIFE_FOOTPRINTS[prop.kind] ?? 6;
+const registry = JSON.parse(readFileSync(new URL('../../public/assets/models/asset-index.json', import.meta.url), 'utf8'));
+const radiusOf = prop => {
+  if (WORLD_LIFE_FOOTPRINTS[prop.kind]) return WORLD_LIFE_FOOTPRINTS[prop.kind];
+  const asset = registry.staticProps[prop.assetKey ?? prop.kind];
+  const box = asset?.runtimeReady ? reviewedSceneryModelBounds(asset.model) : null;
+  if (!box) throw new Error(`Missing measured Cinderfen scene asset: ${prop.id}`);
+  return Math.hypot(Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) * (prop.scale ?? 1) * (prop.scaleX ?? 1),
+    Math.max(Math.abs(box.min.z), Math.abs(box.max.z)) * (prop.scale ?? 1) * (prop.scaleZ ?? 1));
+};
 
 export function integrateCinderfen(zone) {
   if (zone.id !== 'cinderfen_outskirts' || !zone.orvrLayout) return zone;
   // The old bridge had no water crossing at this settlement location.
   zone.props = zone.props.filter(prop => prop.id !== `${zone.id}_field_bridge`);
   const life = zone.props.filter(prop => prop.id?.startsWith(`${zone.id}_life_`));
+  const patrols = (zone.ambientLife?.actors ?? []).filter(actor => actor.kind !== 'bird')
+    .map(actor => ({ points: [actor, ...(actor.route ?? []), actor], radius: actor.kind === 'deer' ? 1.15 : .75 }));
   const protectedPoints = [
     { ...zone.spawnPoint, radius: 8 },
     ...(zone.npcs ?? []).map(p => ({ ...p, radius: 4 })),
@@ -24,6 +36,7 @@ export function integrateCinderfen(zone) {
   const clear = (candidate, radius, prop) => {
     if (protectedPoints.some(p => Math.hypot(candidate.x-p.x,candidate.z-p.z) < radius+p.radius+.1)) return false;
     if (life.some(p => p !== prop && Math.hypot(candidate.x-p.x,candidate.z-p.z) < radius+radiusOf(p)+.4)) return false;
+    if (patrols.some(route => route.points.slice(1).some((p,i) => distance(candidate,route.points[i],p) < radius+route.radius+.15))) return false;
     if (zone.paths.some(path => path.points.slice(1).some((p,i) => distance(candidate,path.points[i],p) < path.width/2+radius+.85))) return false;
     for (const other of zone.props) {
       if (other === prop) continue;

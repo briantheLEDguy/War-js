@@ -15195,8 +15195,8 @@
     {
       "id": "cinderfen_outskirts_life_outfitter_2",
       "kind": "life_crate_stack",
-      "x": 447.058,
-      "z": -281.415,
+      "x": 447.228,
+      "z": -283.148,
       "rotY": 0.12,
       "scale": 1,
       "colliders": [
@@ -15214,7 +15214,7 @@
     {
       "id": "cinderfen_outskirts_life_outfitter_3",
       "kind": "life_barrels",
-      "x": 463,
+      "x": 464,
       "z": -279,
       "rotY": 0.12,
       "scale": 1,
@@ -15233,8 +15233,8 @@
     {
       "id": "cinderfen_outskirts_life_outfitter_4",
       "kind": "life_handcart",
-      "x": 446.077,
-      "z": -275.78,
+      "x": 445.381,
+      "z": -276.913,
       "rotY": 0.12,
       "scale": 1,
       "colliders": [
@@ -15270,8 +15270,8 @@
     {
       "id": "cinderfen_outskirts_life_outfitter_5",
       "kind": "life_lantern",
-      "x": 461,
-      "z": -275,
+      "x": 460.39,
+      "z": -273.038,
       "rotY": 0.12,
       "scale": 1
     },
@@ -15392,7 +15392,7 @@
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_3",
       "kind": "life_barrels",
-      "x": 541,
+      "x": 542,
       "z": -189,
       "rotY": 0.12,
       "scale": 1,
@@ -15448,8 +15448,8 @@
     {
       "id": "cinderfen_outskirts_life_roadside_caravan_5",
       "kind": "life_lantern",
-      "x": 535.848,
-      "z": -182.235,
+      "x": 535.414,
+      "z": -181.586,
       "rotY": 0.12,
       "scale": 1
     },
@@ -36870,5 +36870,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "14fb64f2045f527b"
+  "staticMapHash": "d22eea91c8979adc"
 }

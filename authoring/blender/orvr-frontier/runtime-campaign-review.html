@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Campaign caravan runtime review</title>
+<style>body{margin:0;background:#aab3bb;color:#ece8dd;font:14px system-ui}canvas{display:block}nav{position:absolute;left:20px;top:20px;background:#18232bed;padding:20px;width:275px;border-radius:6px}h1{font:24px Georgia;margin:0 0 14px}select,button{background:#33434d;color:white;padding:8px;margin:6px;border:1px solid #77878e}output{display:block;white-space:pre-wrap;line-height:1.5;margin-top:12px}</style>
+<canvas></canvas><nav><h1>Supply caravan</h1><label>Detail <select id="lod"><option value="0">Close</option><option value="1">Middle</option><option value="2">Distant</option></select></label><br>
+<label>Motion <select id="motion"><option value="0">Waiting</option><option value="1.5">Walk</option><option value="3.5">Draft trot</option></select></label><button id="frame">Frame</button><output id="status">Loading approved runtime assembly…</output></nav>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { AssetLoader } from '/src/game/AssetLoader.ts';
+import { assembleCampaignCaravan } from '/src/game/network/CampaignCaravanPresentation.ts';
+import { releaseCampaignActor } from '/src/game/network/SharedCampaignRenderer.ts';
+const renderer=new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#aab3bb');scene.add(new THREE.HemisphereLight('#dbe5eb','#454337',2));
+const sun=new THREE.DirectionalLight('#fff1d5',3);sun.position.set(-6,10,5);scene.add(sun);
+const sky=new THREE.Scene();sky.background=new THREE.Color('#c8d3dc');const generator=new THREE.PMREMGenerator(renderer),environment=generator.fromScene(sky);scene.environment=environment.texture;generator.dispose();
+const camera=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.05,200);const controls=new OrbitControls(camera,renderer.domElement);camera.position.set(10,5,10);controls.target.set(0,1.5,2);
+const loader=new AssetLoader(),status=document.querySelector('#status');let current,generation=0,alive=true,seconds=0,distance=0,prior=0;
+const frame=()=>{if(!current)return;const box=new THREE.Box3().setFromObject(current.object),center=box.getCenter(new THREE.Vector3()),extent=box.getSize(new THREE.Vector3()).length();controls.target.copy(center);camera.position.copy(center).add(new THREE.Vector3(extent*.8,extent*.35,extent*.7));controls.update();};
+async function build(){
+ const token=++generation;status.textContent='Loading verified registry models…';
+ const models=await loader.resolveApprovedAssetModels('frontier_supply_wagon','staticProps');if(!models.length)throw new Error('Approved wagon unavailable');
+ const level=Number(document.querySelector('#lod').value),wagon=await loader.loadModelFull(models[Math.min(level,models.length-1)],()=>new THREE.Group());
+ const next=await assembleCampaignCaravan(wagon.object,wagon.animations,level,loader,task=>task(),()=>alive&&token===generation);
+ if(!next){releaseCampaignActor(wagon.object);throw new Error('Runtime caravan component unavailable; inspect loader diagnostics');}
+ if(!alive||token!==generation){releaseCampaignActor(next.object,next.mixers);return;}
+ if(current)releaseCampaignActor(current.object,current.mixers);current=next;scene.add(next.object);next.update(seconds,distance,Number(document.querySelector('#motion').value));frame();
+ status.textContent='Approved wagon, horse, reins and equipped seated driver.\nProduction asset resolver and caravan assembly loaded.\nThree independent animation mixers; distance-driven wheel rotation.';
+}
+document.querySelector('#lod').onchange=()=>build().catch(error=>status.textContent=error.message);document.querySelector('#frame').onclick=frame;
+const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();};addEventListener('resize',resize);resize();
+renderer.setAnimationLoop(now=>{const dt=prior?Math.min((now-prior)/1000,.08):0;prior=now;const speed=Number(document.querySelector('#motion').value);seconds+=dt;distance+=speed*dt;current?.update(seconds,distance,speed);controls.update();renderer.render(scene,camera);});
+build().catch(error=>status.textContent=error.message);
+addEventListener('pagehide',()=>{alive=false;generation++;renderer.setAnimationLoop(null);if(current)releaseCampaignActor(current.object,current.mixers);loader.dispose();controls.dispose();environment.dispose();renderer.dispose();},{once:true});
+</script></html>

@@ -15,6 +15,8 @@ import { composeSunmeadowEnvironment } from '../scripts/campaign/sunmeadow-envir
 import { composeCinderfenEnvironment } from '../scripts/campaign/cinderfen-environment.mjs';
 // @ts-expect-error Executable authoring source is intentionally an mjs module.
 import { composeCinderfenLandscape } from '../scripts/campaign/cinderfen-landscape.mjs';
+// @ts-expect-error Executable authoring source is intentionally an mjs module.
+import { integrateCinderfen } from '../scripts/campaign/cinderfen-integration.mjs';
 
 type Point = { x: number; z: number };
 const outdoorIds = defaultZoneConfigs().filter(zone => zone.kind !== 'city').map(zone => zone.id);
@@ -23,6 +25,11 @@ const composed = new Map<string, ZoneDefinition>();
 let configs: Map<string, ZoneConfig>, directory = '';
 const key = (point: Point) => `${point.x},${point.z}`;
 const edge = (a: Point, b: Point) => [key(a), key(b)].sort().join('|');
+const cinderfen = (zone: ZoneDefinition) => {
+  // Published maps omit draft vegetation; restore its authoring exclusions before regional composition.
+  applyOrvrZoneLayout(zone, { id: zone.id, realm: zone.campaign!.realm, nodeRole: zone.campaign!.nodeRole });
+  return integrateCinderfen(composeCinderfenEnvironment(composeCinderfenLandscape(zone, true), { architecture: true }));
+};
 
 beforeAll(async () => {
   directory = mkdtempSync(join(tmpdir(), 'warjs-roads-'));
@@ -30,7 +37,7 @@ beforeAll(async () => {
   for (const [id, source] of originals) {
     const zone = id === 'sunmeadow_march'
       ? composeSunmeadowEnvironment(structuredClone(source), { terrain: true, architecture: true, nature: true })
-      : id === 'cinderfen_outskirts' ? composeCinderfenEnvironment(composeCinderfenLandscape(structuredClone(source), true), { architecture: true })
+      : id === 'cinderfen_outskirts' ? cinderfen(structuredClone(source))
       : applyOrvrZoneLayout(structuredClone(source), { id, realm: source.campaign!.realm, nodeRole: source.campaign!.nodeRole });
     composed.set(id, zone);
     writeFileSync(join(directory, `${id}.json`), JSON.stringify(zone));
@@ -112,12 +119,13 @@ test.each(outdoorIds.filter(id => id !== 'sunmeadow_march'))('%s connects its ro
   }
 });
 
-test('reapplying the 17-zone road composition is deterministic, idempotent and refreshes vegetation exclusions', () => {
+test('reapplying regional road composition is deterministic, idempotent and refreshes vegetation exclusions', () => {
   for (const [id, zone] of composed) {
     if (id === 'sunmeadow_march') continue;
     const node = { id, realm: zone.campaign!.realm, nodeRole: zone.campaign!.nodeRole };
-    expect(applyOrvrZoneLayout(structuredClone(originals.get(id)), node)).toEqual(zone);
-    expect(applyOrvrZoneLayout(structuredClone(zone), node)).toEqual(zone);
+    const compose = id === 'cinderfen_outskirts' ? cinderfen : (source: ZoneDefinition) => applyOrvrZoneLayout(source, node);
+    expect(compose(structuredClone(originals.get(id)!))).toEqual(zone);
+    expect(compose(structuredClone(zone))).toEqual(zone);
     for (const patch of zone.orvrLayout!.biome.placements!) for (const road of zone.paths!) {
       const exclusion = patch.excludeCorridors!.find(corridor => corridor.id === road.id)!;
       expect(exclusion.points).toEqual(road.points); expect(exclusion.radius).toBeGreaterThanOrEqual(road.width / 2 + 3);
