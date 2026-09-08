@@ -92,3 +92,16 @@ authoring/blender/frontier-population/** -text
 authoring/blender/frontier-population/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/frontier-population/**/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/blender/frontier-population/**/*.png filter=lfs diff=lfs merge=lfs -text
+# Climate ecology masters and hash-bound source receipts preserve exact bytes.
+authoring/blender/cinderfen-nature/** -text
+authoring/blender/cinderfen-nature/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-nature/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/textures/cinderfen_nature/*.png filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-architecture/** -text
+authoring/blender/cinderfen-architecture/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-architecture/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-terrain/** -text
+authoring/blender/cinderfen-terrain/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-terrain/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/textures/cinderfen_terrain/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/textures/cinderfen_architecture/*.png filter=lfs diff=lfs merge=lfs -text

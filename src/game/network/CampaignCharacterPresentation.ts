@@ -25,14 +25,14 @@ export function campaignEquipmentKeys(profileKey: string): Array<{ key: string; 
   return [...armor, { key: 'weapon_hammer_reliquary_2h', slot: 'mainHand' }];
 }
 
-export function resolveCampaignEquipment(loader: PresentationLoader, profileKey: string, asset: CharacterAssetResolution): Promise<CampaignEquipmentModule[]> {
+export function resolveCampaignEquipment(loader: PresentationLoader, profileKey: string, asset: CharacterAssetResolution, includeWeapon = true): Promise<CampaignEquipmentModule[]> {
   let cache = plans.get(loader);
   if (!cache) { cache = new Map(); plans.set(loader, cache); }
   const context = { bodyFamily: asset.bodyFamily, bodyVariant: asset.bodyVariant, skeletonId: asset.skeletonId, bindPoseId: asset.bindPoseId };
-  const key = `${profileKey}:${JSON.stringify(context)}`;
+  const key = `${profileKey}:${JSON.stringify(context)}:${includeWeapon}`;
   let pending = cache.get(key);
   if (!pending) {
-    pending = Promise.all(campaignEquipmentKeys(profileKey).map(async module => {
+    pending = Promise.all(campaignEquipmentKeys(profileKey).filter(module => includeWeapon || module.slot !== 'mainHand').map(async module => {
       const fallback = getEquipmentVisualForKey(module.key)?.model ?? '';
       const metadata = await loader.resolveEquipmentModel(module.key, fallback, context);
       const models = await loader.resolveApprovedAssetModels(module.key, 'equipment', context);

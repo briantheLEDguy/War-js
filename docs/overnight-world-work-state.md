@@ -1,5 +1,40 @@
 # World build continuation state
 
+## Active continuation — 2026-09-08
+
+The user merged checkpoint `5eb9ed1` into main and explicitly resumed work.
+Current branch is `codex/world-continuation`, based on that main checkpoint.
+The hourly continuation is ACTIVE again. All three asset agents resumed their
+previous packages; architecture and siege publications remain frozen.
+
+Root corrected the four outstanding Cinderfen checks: measure shelter clearance
+from actual GLB bounds, reserve complete ground-actor patrol loops while fitting
+furniture, and exercise the full Cinderfen composition in road idempotence tests.
+Full suite: **1,141/1,141 passing**, recorded in
+`artifacts/orvr/world-continuation-tests.json`. Client/server typechecks, 33-map
+validation and the 374-entry builder check pass. Terrain remains published;
+fauna, ecology and population are still draft revisions under visual review.
+
+The independent capital performance task moved into `tmp/capital-performance`
+on its own branch. Leave that directory and branch alone; it uses ports 4010–4012.
+The independent code cleanup is saved separately in `tmp/code-size-cleanup` on
+`codex/code-size-cleanup`, commit `67cbc72`. Neither independent branch has been
+merged into this continuation. Do not overwrite their work or generated data.
+
+The complete shared-campaign caravan now assembles through the production asset
+resolver: wagon, horse, reins and equipped seated driver, three independent rigs,
+distance-driven wheel/gait timing and initial route facing. Actual browser review
+confirmed all three LODs and waiting/walk/trot selections with no console warnings
+or errors. Focused caravan/character/renderer tests pass (17 tests). Next: actual
+authority escort check, siege action presentation, Cinderfen dressing/ecology and
+gameplay checks. The Cinderfen terrain review composition now includes the current
+furniture integration; its original accepted terrain exports are unchanged.
+Production build passed (272 modules; existing bundle-size warning). The full
+post-caravan run reported 1,144 passing and two failures during parallel asset
+builds; rerunning both affected files passed all 13 tests, including the catalog
+and terrain-border checks. The original full report is retained in
+`artifacts/orvr/world-continuation-caravan-tests.json`.
+
 ## Paused by user — 2026-09-08
 
 The user requested an immediate pause and a checkpoint commit with a clean tree.

@@ -1,3 +1,14 @@
+## 2026-09-08 — Campaign caravan runtime
+
+- Assemble approved supply wagons with the draft horse, reins and seated equipped driver at every detail level. Wheels and moving horse clips follow travelled distance; waiting caravans face along their supply route. Missing optional components retain the wagon.
+- Verified all three detail levels and waiting/walk/trot controls through the production asset resolver in the browser, with 17 focused presentation tests passing.
+
+## 2026-09-08 — Cinderfen integration follow-up
+
+- Correct shelter clearance using delivered model bounds and reserve complete ambient patrol loops while placing village furniture.
+- Verify Cinderfen roads through the full regional composition; retain services, connectivity and deterministic vegetation exclusions.
+- Validation: 1,141 tests pass; client/server typechecks, 33-map validation, 374-entry GM catalog check and production build pass. Art packages remain under review.
+
 ## 2026-09-07 - Campaign reconnect continuity
 
 - Preserve a returning character's position and last command sequence when its connection resumes; retain staging behavior for transfers and queue admission.

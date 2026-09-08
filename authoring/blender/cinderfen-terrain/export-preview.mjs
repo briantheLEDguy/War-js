@@ -1,10 +1,11 @@
 import fs from 'node:fs/promises';
 import { composeCinderfenEnvironment, loadCinderfenContracts } from '../../../scripts/campaign/cinderfen-environment.mjs';
 import { composeCinderfenLandscape } from '../../../scripts/campaign/cinderfen-landscape.mjs';
+import { integrateCinderfen } from '../../../scripts/campaign/cinderfen-integration.mjs';
 const read = async file => JSON.parse(await fs.readFile(file, 'utf8'));
 const contracts = loadCinderfenContracts({ staged: true });
-const zone = composeCinderfenEnvironment(composeCinderfenLandscape(await read('public/assets/maps/cinderfen_outskirts.json')),
-  { architecture: true }, { contracts });
+const zone = integrateCinderfen(composeCinderfenEnvironment(composeCinderfenLandscape(await read('public/assets/maps/cinderfen_outskirts.json')),
+  { architecture: true }, { contracts }));
 const registry = (await read('public/assets/models/asset-index.json')).staticProps;
 const assets = {};
 for (const [key, contract] of Object.entries(contracts)) {
