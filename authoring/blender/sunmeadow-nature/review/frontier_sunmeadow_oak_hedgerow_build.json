@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_oak_hedgerow",
+  "name": "Sunmeadow leaning hedgerow oak",
+  "source_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "builder_sha256": "29f5975924a0d8ebf8e3a71aa3945b15862610a7cfa9a76e34752945ec1d525e",
+  "paint_record_sha256": "b8804ffc4341b271b6f393956dd6cae83556bfd4c69b16ff36ce779f4ec7603c",
+  "master": "masters\\frontier_sunmeadow_oak_hedgerow.blend",
+  "master_sha256": "69653dce32bab66f95c0bee666641cef5725adfb83df9dca6d3b4b2f8a4cb229",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "sha256": "a3f8853b8287ec7e55c4da7b8990451c1e6a2048ea53ff3bac4f0523f492270c",
+      "bytes": 6569040,
+      "triangles": 63468,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -3.179550886154175,
+          -3.066884756088257,
+          -0.04792404547333717
+        ],
+        "max": [
+          3.7428646087646484,
+          3.376945734024048,
+          12.707422256469727
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -3.179550886154175,
+          -0.04792404547333717,
+          -3.376945734024048
+        ],
+        "max": [
+          3.7428646087646484,
+          12.707422256469727,
+          3.066884756088257
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "sha256": "f044c11fa7603c09c72092e58b768d454c400993dc325a3225fec57becbf6e86",
+      "bytes": 4974432,
+      "triangles": 34100,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -3.218878746032715,
+          -3.1351258754730225,
+          -0.0475141666829586
+        ],
+        "max": [
+          3.7986795902252197,
+          3.4305195808410645,
+          12.612201690673828
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -3.218878746032715,
+          -0.0475141666829586,
+          -3.4305195808410645
+        ],
+        "max": [
+          3.7986795902252197,
+          12.612201690673828,
+          3.1351258754730225
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "sha256": "8ea273ac19359b83efb4bfd9d34232df5772ef9d01c52a96b55603fd022e9b4c",
+      "bytes": 3518280,
+      "triangles": 8756,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -3.322003126144409,
+          -3.235281229019165,
+          -0.04682445898652077
+        ],
+        "max": [
+          3.774679183959961,
+          3.412212610244751,
+          12.820642471313477
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -3.322003126144409,
+          -0.04682445898652077,
+          -3.412212610244751
+        ],
+        "max": [
+          3.774679183959961,
+          12.820642471313477,
+          3.235281229019165
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

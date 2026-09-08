@@ -47,6 +47,7 @@ export function createEmptyWorldEditDocument(
     authorUserId: seed?.authorUserId,
     authorEmail: seed?.authorEmail,
     notes: seed?.notes,
+    ...(seed?.cityLayoutVersion ? {cityLayoutVersion:seed.cityLayoutVersion} : {}),
     createdAt: seed?.createdAt ?? now,
     updatedAt: now,
     publishedAt: status === 'published' ? (seed?.publishedAt ?? now) : seed?.publishedAt,

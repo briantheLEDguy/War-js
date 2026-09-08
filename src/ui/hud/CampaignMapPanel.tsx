@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import type { CSSProperties, MouseEvent, PointerEvent, WheelEvent } from 'react';
+import type { CSSProperties, MouseEvent, PointerEvent } from 'react';
 import type { Game } from '../../game/Game';
 import { services } from '../../services';
 import {
@@ -22,6 +22,7 @@ import {
   type CampaignMapLevel,
 } from './campaignMapModel';
 import {
+  bindMapWheel,
   calculateEffectiveMapScale,
   calculateMapFitScale,
   calculateMapViewportLayout,
@@ -39,8 +40,12 @@ import {
   type WorldMapLayer,
   ZoneMapCanvas,
 } from './WorldMapPanel';
+import { ZONE_MAP_MAX_ZOOM } from './worldMapPresentation';
 import { useDraggableWindow } from './useDraggableWindow';
 import { resolveQuestDestination } from './questNavigation';
+import { resolveMapZone } from '../../world/mapZoneSource';
+import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
+import { mapFeatureRole } from './zoneMapGeometry';
 
 interface Props {
   game: Game | null;
@@ -54,11 +59,10 @@ const DEFAULT_WORLD_MAP_LAYERS: Record<WorldMapLayer, boolean> = {
 
 const WORLD_MAP_LAYERS: Array<{ key: WorldMapLayer; label: string; color: string }> = [
   { key: 'terrain', label: 'Terrain', color: '#9ea770' },
-  { key: 'landmarks', label: 'Camps', color: '#d4b060' },
+  { key: 'landmarks', label: 'Buildings', color: '#d4b060' },
   ...MAP_MARKER_LEGEND,
 ];
 
-const ZONE_CACHE = new Map<string, Promise<ZoneDefinition>>();
 const FULL_CENTRAL_ROWS = [1, 3, 7, 9, 11, 13, 17, 19];
 const ZOOM_MIN = 0.72;
 const ZOOM_MAX = 2.15;
@@ -133,6 +137,8 @@ export function CampaignMapPanel({ game }: Props) {
   const zoomSurfaceRef = useRef<HTMLDivElement>(null);
   const zoomSceneRef = useRef<HTMLDivElement>(null);
   const mapZoomRef = useRef(1);
+  const wheelHandlerRef = useRef(handleWheel);
+  wheelHandlerRef.current = handleWheel;
   const mapFitScaleRef = useRef(1);
   const zoomAnchorRef = useRef<{
     contentX: number;
@@ -150,6 +156,12 @@ export function CampaignMapPanel({ game }: Props) {
   } | null>(null);
   const panMovedRef = useRef(false);
 
+  useLayoutEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport || !worldMapOpen) return;
+    return bindMapWheel(viewport, event => wheelHandlerRef.current(event));
+  }, [worldMapOpen]);
+
   useEffect(() => {
     try {
       return services.campaign.subscribeSnapshot(setSnapshot, currentZoneId);
@@ -161,28 +173,26 @@ export function CampaignMapPanel({ game }: Props) {
   }, [currentZoneId]);
 
   useEffect(() => {
-    if (worldMapLevel !== 'zone') return undefined;
+    if (!worldMapOpen || worldMapLevel !== 'zone') return undefined;
     let cancelled = false;
-    const runtimeZone = game?.zoneDefinition?.id === selectedZoneId
-      ? game.zoneDefinition
+    const runtimeZone = game?.mapZoneDefinition?.id === selectedZoneId
+      ? game.mapZoneDefinition
       : null;
     if (runtimeZone) {
       setZone(runtimeZone);
-      return undefined;
+      return startForegroundLoop(() => {
+        const latest = game?.mapZoneDefinition;
+        if (latest?.id === selectedZoneId) setZone(current => current === latest ? current : latest);
+      }, () => 4);
     }
 
-    let pending = ZONE_CACHE.get(selectedZoneId);
-    if (!pending) {
-      pending = loadZone(selectedZoneId);
-      ZONE_CACHE.set(selectedZoneId, pending);
-    }
-    void pending.then((loaded) => {
-      if (!cancelled) setZone(loaded);
+    void Promise.all([loadZone(selectedZoneId), services.worldEdits.getPublished(selectedZoneId).catch(() => null)]).then(([loaded, published]) => {
+      if (!cancelled) setZone(resolveMapZone(loaded, published));
     });
     return () => {
       cancelled = true;
     };
-  }, [game, selectedZoneId, worldMapLevel]);
+  }, [game, selectedZoneId, worldMapLevel, worldMapOpen]);
 
   useLayoutEffect(() => {
     mapZoomRef.current = 1;
@@ -224,11 +234,8 @@ export function CampaignMapPanel({ game }: Props) {
       resetViewportPosition();
     });
     const resizeObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(() => {
-      mapZoomRef.current = 1;
-      zoomAnchorRef.current = null;
-      setMapZoom(1);
+      // Scrollbars can resize the viewport during zoom; preserve the user's zoom.
       measureScene();
-      requestAnimationFrame(resetViewportPosition);
     });
     resizeObserver?.observe(viewport);
     if (zoomSceneRef.current?.firstElementChild) {
@@ -238,21 +245,20 @@ export function CampaignMapPanel({ game }: Props) {
       cancelAnimationFrame(frame);
       resizeObserver?.disconnect();
     };
-  }, [worldMapOpen, selectedRouteLane, selectedZoneId, worldMapLevel, zone]);
+  }, [worldMapOpen, selectedRouteLane, selectedZoneId, worldMapLevel]);
 
   useLayoutEffect(() => {
     const anchor = zoomAnchorRef.current;
     const viewport = viewportRef.current;
     if (!anchor || !viewport) return undefined;
     zoomAnchorRef.current = null;
-    const frame = requestAnimationFrame(() => {
-      const scale = calculateEffectiveMapScale(mapFitScaleRef.current, mapZoomRef.current);
-      const nextScroll = calculateZoomedScroll(anchor, scale);
-      viewport.scrollLeft = nextScroll.left;
-      viewport.scrollTop = nextScroll.top;
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [mapZoom]);
+    // Apply the anchor in the same commit as the scale, before a frame can paint.
+    const scale = calculateEffectiveMapScale(mapFitScale, mapZoom);
+    const layout = mapSceneSize ? calculateMapViewportLayout({ width: viewport.clientWidth, height: viewport.clientHeight }, mapSceneSize, scale) : undefined;
+    const nextScroll = calculateZoomedScroll(anchor, scale, layout);
+    viewport.scrollLeft = nextScroll.left;
+    viewport.scrollTop = nextScroll.top;
+  }, [mapZoom, mapFitScale, mapSceneSize, mapViewportSize]);
 
   const selectedZone = snapshot.zones.find((entry) => entry.id === selectedZoneId) ?? null;
   const selectedRoute = campaignRouteForLane(selectedRouteLane);
@@ -283,26 +289,33 @@ export function CampaignMapPanel({ game }: Props) {
     setWorldMapOpen(false);
   }
 
-  function handleWheel(event: WheelEvent<HTMLDivElement>) {
-    event.preventDefault();
+  function handleWheel(event: WheelEvent) {
     const viewport = viewportRef.current;
     if (!viewport) return;
 
     const rect = viewport.getBoundingClientRect();
-    const pointerX = event.clientX - rect.left;
-    const pointerY = event.clientY - rect.top;
-    const currentZoom = mapZoomRef.current;
-    const currentScale = calculateEffectiveMapScale(mapFitScaleRef.current, currentZoom);
-    const nextZoom = Math.max(
-      ZOOM_MIN,
-      Math.min(ZOOM_MAX, currentZoom * Math.pow(1.0015, -event.deltaY)),
-    );
-    if (nextZoom === currentZoom) return;
+    const pointerX = event.clientX - rect.left - viewport.clientLeft;
+    const pointerY = event.clientY - rect.top - viewport.clientTop;
+    changeZoom(mapZoomRef.current * Math.pow(1.0015, -event.deltaY), { x: pointerX, y: pointerY });
+  }
 
+  function changeZoom(requested: number, pointer?: { x: number; y: number }) {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const scene = zoomSceneRef.current;
+    // Several wheel events can arrive before React commits their requested zoom.
+    // Anchor against the scale actually on screen, not the pending zoom ref.
+    const currentScale = scene && scene.clientWidth > 0
+      ? scene.getBoundingClientRect().width / scene.clientWidth
+      : calculateEffectiveMapScale(mapFitScaleRef.current, mapZoomRef.current);
+    const nextZoom = Math.max(ZOOM_MIN, Math.min(worldMapLevel === 'zone' ? ZONE_MAP_MAX_ZOOM : ZOOM_MAX, requested));
+    if (nextZoom === mapZoomRef.current) return;
+    const layout = mapSceneSize ? calculateMapViewportLayout({ width: viewport.clientWidth, height: viewport.clientHeight }, mapSceneSize, currentScale) : undefined;
     zoomAnchorRef.current = calculateZoomAnchor(
       { left: viewport.scrollLeft, top: viewport.scrollTop },
-      { x: pointerX, y: pointerY },
+      pointer ?? { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 },
       currentScale,
+      layout,
     );
     mapZoomRef.current = nextZoom;
     setMapZoom(nextZoom);
@@ -322,8 +335,6 @@ export function CampaignMapPanel({ game }: Props) {
       moved: false,
     };
     panMovedRef.current = false;
-    viewport.setPointerCapture(event.pointerId);
-    setIsPanning(true);
   }
 
   function handleMapPointerMove(event: PointerEvent<HTMLDivElement>) {
@@ -334,6 +345,10 @@ export function CampaignMapPanel({ game }: Props) {
     const dx = event.clientX - pan.startX;
     const dy = event.clientY - pan.startY;
     if (!pan.moved && Math.hypot(dx, dy) < 5) return;
+    if (!pan.moved) {
+      viewport.setPointerCapture(event.pointerId);
+      setIsPanning(true);
+    }
     pan.moved = true;
     panMovedRef.current = true;
     event.preventDefault();
@@ -420,6 +435,12 @@ export function CampaignMapPanel({ game }: Props) {
           <TierButton label="Route" active={worldMapLevel === 'route'} onClick={() => setWorldMapLevel('route')} />
           <span aria-hidden="true">›</span>
           <TierButton label="Campaign" active={worldMapLevel === 'campaign'} onClick={() => setWorldMapLevel('campaign')} />
+          <div className="campaign-map-zoom-controls" aria-label="Map zoom">
+            <button type="button" aria-label="Zoom out" disabled={mapZoom <= ZOOM_MIN} onClick={() => changeZoom(mapZoom / 1.4)}>-</button>
+            <output aria-label="Zoom level">{Math.round(mapZoom * 100)}%</output>
+            <button type="button" aria-label="Zoom in" disabled={mapZoom >= (worldMapLevel === 'zone' ? ZONE_MAP_MAX_ZOOM : ZOOM_MAX)} onClick={() => changeZoom(mapZoom * 1.4)}>+</button>
+            <button type="button" onClick={() => changeZoom(1)}>Fit</button>
+          </div>
         </nav>
 
         <div className="warfront-score">
@@ -432,11 +453,11 @@ export function CampaignMapPanel({ game }: Props) {
           <div
             ref={viewportRef}
             className={`world-map-canvas-frame campaign-map-viewport campaign-map-viewport-${worldMapLevel}${isPanning ? ' is-panning' : ''}`}
-            onWheel={handleWheel}
             onPointerDown={handleMapPointerDown}
             onPointerMove={handleMapPointerMove}
             onPointerUp={handleMapPointerUp}
             onPointerCancel={handleMapPointerCancel}
+            onPointerLeave={() => { if (!panRef.current?.moved) panRef.current = null; }}
             onClickCapture={handleMapClickCapture}
             onContextMenu={handleMapContextMenu}
           >
@@ -891,12 +912,12 @@ function getLandmarks(zone: ZoneDefinition): Array<{ id: string; kind: string; l
   const props = (zone.props ?? [])
     .filter((prop) => !isTerrainProp(prop) && prop.id)
     .slice(0, 6)
-    .map((prop) => ({ id: prop.id!, kind: 'Landmark', label: prop.id!.replace(`${zone.id}_`, '').replace(/_/g, ' ') }));
+    .map((prop) => ({ id: prop.id!, kind: 'Landmark', label: prop.label ?? prop.id!.replace(`${zone.id}_`, '').replace(/_/g, ' ') }));
   return [...objectives, ...props];
 }
 
 function isTerrainProp(prop: ZoneDefinition['props'][number]): boolean {
-  return prop.kind === 'tree' || prop.kind === 'rock' || prop.kind.startsWith('pnw_');
+  return !['building', 'landmark'].includes(mapFeatureRole(prop));
 }
 
 function zoneNpcFallbacks(zone: ZoneDefinition): NpcState[] {

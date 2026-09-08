@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.ritual_obelisk",
+  "displayName": "Riftspire ritual obelisk",
+  "category": "prop",
+  "model": "prop_riftspire_ritual_obelisk.glb",
+  "qc": "prop_riftspire_ritual_obelisk.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_ritual_obelisk"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+    "qcSha256": "0519de9ef6a7fd64c9ece93166d91ca33e8427baf207dd8404f4d6bd5e51b9e7",
+    "previews": {
+      "assembly": "887827589c06b1b7bb03e61d7f774ba264cbf318dc44ea8e4b354ec457139ed7"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/ritual_obelisk-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.140792+00:00",
+    "reviewHash": "ef75959b93c614e6ff444a4fa475e3b0f2c8aa3b5e008fee318af3883ab42245"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

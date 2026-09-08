@@ -1,0 +1,44 @@
+{
+  "renders": [
+    {
+      "state": "rest",
+      "image": "review/frontier_sunmeadow_roe_deer_buck_joint_rest.png",
+      "image_sha256": "74822cc60b7292caf8c2f63c2fbbb5e739fcda65c709bb44f071edc344804869",
+      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
+      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "status": "diagnostic_not_approval"
+    },
+    {
+      "state": "run@0.125",
+      "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p125.png",
+      "image_sha256": "18c1888a28b9bb931fdbf15c220f87a21d68cb4015c5e769f7a93306c5e775c6",
+      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
+      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "status": "diagnostic_not_approval"
+    },
+    {
+      "state": "run@0.375",
+      "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p375.png",
+      "image_sha256": "8706481636199dfad1bd0d55219f67d800383fcb1bb5127c1d8ac6a3d42c7082",
+      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
+      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "status": "diagnostic_not_approval"
+    },
+    {
+      "state": "run@0.625",
+      "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p625.png",
+      "image_sha256": "9c53c76a12dcf9002853b43238051e2a778ad52ee2928e712737c87cfe8438d2",
+      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
+      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "status": "diagnostic_not_approval"
+    },
+    {
+      "state": "run@0.75",
+      "image": "review/frontier_sunmeadow_roe_deer_buck_joint_run_0p75.png",
+      "image_sha256": "efb3e28601fa6e48686592147c4567cf55655160e525d240a524e7f8d3c07f3e",
+      "model_sha256": "ce4630f73e4bde23948803fb0ab808b93087f67f174cd1afbedc7f6350fb3ec9",
+      "build_sha256": "ba7fd6f5161f46abc33db315cb9332415fb5c7fd8109a0068207b179e7a6afb0",
+      "status": "diagnostic_not_approval"
+    }
+  ]
+}

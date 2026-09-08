@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_workshop",
+  "displayName": "Cinderfen raised causeway workshop",
+  "category": "prop",
+  "model": "frontier_cinderfen_workshop_lod0.glb",
+  "qc": "frontier_cinderfen_workshop_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_workshop"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "81067dcb441ce106583c46160649b46646500e473567bda809c47ff994d79ab9",
+    "qcSha256": "78f0c027ecabdbe0b3ce88610f8c2fabcc222e34fe059cb036b760843856e362",
+    "previews": {
+      "assembly": "9545ced50cfeca264440926a40de4335f16473f304f1918aa427b969c364df4d"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_workshop.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+    "reviewedAt": "2026-09-07T19:56:19.116125+00:00",
+    "reviewHash": "0f44f8d29dda3c5a8590f3e164a0c28aceef90ba68adc4803483ca1c82421e32"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/cinderfen-architecture/source/architecture.json",
+    "sourceSha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f"
+  },
+  "approvalState": "approved"
+}

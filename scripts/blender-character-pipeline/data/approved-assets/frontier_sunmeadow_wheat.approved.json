@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.wheat",
+  "displayName": "Sunmeadow ripe wheat clump",
+  "category": "prop",
+  "model": "frontier_sunmeadow_wheat_lod0.glb",
+  "qc": "frontier_sunmeadow_wheat_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_wheat"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "b94f67f25f621ff0c5cc7d4cefcc2fc2bb4c4a225a0e287959d0ed7e414b0bf9",
+    "qcSha256": "da300234dddce184de525fc335910ad733903118e0c592de0c9b93d38c1e5271",
+    "previews": {
+      "assembly": "9736d9dbdf01c6d30fd013ab0fe8313e9eb972583970c9b00ad38f69c363efcc"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_wheat_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal asset review",
+    "reviewedAt": "2026-09-07T17:00:33.663Z",
+    "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_late_summer_01",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/source/design.json",
+    "sourceSha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3"
+  },
+  "approvalState": "approved"
+}

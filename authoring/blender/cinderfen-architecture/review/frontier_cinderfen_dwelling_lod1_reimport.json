@@ -1,0 +1,51 @@
+{
+  "model": "frontier_cinderfen_dwelling_lod1.glb",
+  "sha256": "c91664ad59a0b04b271db33239c567d8cf63538c8f0fb2febae8eb9e43f01bbf",
+  "preview": "frontier_cinderfen_dwelling_lod1_reimport.png",
+  "preview_sha256": "fcd536bfa71b4d46a5fa223c548878ab0e095b212fadddfa6c9fab3a97311640",
+  "reviewer_sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+  "neutral_camera": {
+    "camera_position_z_up": [
+      11.934326171875,
+      -20.087871551513672,
+      14.137439727783203
+    ],
+    "target_z_up": [
+      1.1205673217773438e-05,
+      -1.244217872619629,
+      3.4593684673309326
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "gameplay_preview": "frontier_cinderfen_dwelling_lod1_gameplay.png",
+  "gameplay_preview_sha256": "f7bec83521db7839d101f543a35faf0f4de0bfb76dde7a2a81ebfa09d596cbb7",
+  "gameplay_camera": {
+    "camera_position_z_up": [
+      4.39686393737793,
+      -91.24421691894531,
+      5.400000095367432
+    ],
+    "target_z_up": [
+      1.1205673217773438e-05,
+      -1.244217872619629,
+      3.4593684673309326
+    ],
+    "projection": "PERSP",
+    "lens_mm": 38.0,
+    "distance_m": 90,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1280,
+      720
+    ]
+  }
+}

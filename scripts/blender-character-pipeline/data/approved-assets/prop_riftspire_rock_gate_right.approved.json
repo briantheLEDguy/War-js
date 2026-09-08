@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.rock_gate_right",
+  "displayName": "Riftspire rock gate right",
+  "category": "prop",
+  "model": "prop_riftspire_rock_gate_right.glb",
+  "qc": "prop_riftspire_rock_gate_right.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_rock_gate_right"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "c21130c70787f5c792cc053ebceeddac38b251a428271a01296c14312f9a64ec",
+    "qcSha256": "bb039a8603e6ab9792ff480c1e6ac5b4bbfb7440d4704c16f016f9889d5c74a7",
+    "previews": {
+      "assembly": "bfd3cfafb755a6eaa99d6241b8f1d8154a767198a9bfd603620971137ec039f2"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/rock_gate_right-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:45:20.528Z",
+    "reviewHash": "b34fccc8812f705ce5966f7737e906b851083f6762b3ca456b77196eea280839"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,119 @@
+{
+  "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+  "sha256": "c421abf7cef5eb892f4ff0109f8487df4c9745d3403c9657c0dab4b2bbe1fa16",
+  "reviewer_sha256": "ee78882ac19021103ae05b823393ec4f648465fe0f04d91d4fba531e5fd0ab55",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "root_flare_bole_and_authored_forks.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 22464
+      },
+      {
+        "mesh": "rounded_alternate_bronze_leaves.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 75264
+      },
+      {
+        "mesh": "retained_woody_alder_cones.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 4368
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -2.9134013652801514,
+        -2.3321664333343506,
+        -0.5334789156913757
+      ],
+      "maximum": [
+        3.20149564743042,
+        3.162454128265381,
+        10.352274894714355
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_cinderfen_marsh_alder_lod0_neutral.png",
+      "sha256": "e1715ee5af7dfe06609b06e87a95782a535c6a0e51e03631afcb8d6887f968ad",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          8.852649688720703,
+          -17.00206184387207,
+          9.045984268188477
+        ],
+        "target_z_up": [
+          0.14404714107513428,
+          0.41514384746551514,
+          4.909398078918457
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_cinderfen_marsh_alder_lod0_gameplay.png",
+      "sha256": "db0a7ce0e9bbca762830f9888e50d7eb13a6ac9eb3c3b709ce039dcc7efa0a31",
+      "camera": {
+        "distance_m": 18,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          2.321197986602783,
+          -17.584856033325195,
+          2.888575315475464
+        ],
+        "target_z_up": [
+          0.14404714107513428,
+          0.41514384746551514,
+          4.909398078918457
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "detail": {
+      "image": "frontier_cinderfen_marsh_alder_lod0_detail.png",
+      "sha256": "1bcee9d9093874a777cbf0c46f4eb11b1287ac9ab0dc2ddf2dce390c7d76c16b",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          8.5086030960083,
+          -17.81720542907715,
+          8.436586380004883
+        ],
+        "target_z_up": [
+          -0.20000000298023224,
+          -0.4000000059604645,
+          4.300000190734863
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

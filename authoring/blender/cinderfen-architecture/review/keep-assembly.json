@@ -1,0 +1,2050 @@
+{
+  "source_sha256": "082aefb8d7aeee4d5df3ea19ca6ba9c024f5c4b9ffcccf1f56d8d9be48cd1595",
+  "placement_source_sha256": "2e1cce986ac7302f3516219c4efc8917798641c8f5a9238384c1977fe62f6f2b",
+  "tool_sha256": "ae28a9080d6ad3b517fe23065cdae75cf394a25e0b795ffec3dd4b3985e050a8",
+  "models": [
+    {
+      "model": "runtime/frontier_cinderfen_gatehouse_lod1.glb",
+      "sha256": "5520033197bdcc1f69bb72b0ed9d4a0af5d31e9d2208b776f6a8509019ce8e61"
+    },
+    {
+      "model": "runtime/frontier_cinderfen_curtain_walk_lod1.glb",
+      "sha256": "288c6d8a418737e968162687fb2a61636a322945302bb7fba082a9c81785ed0c"
+    },
+    {
+      "model": "junction/runtime/frontier_cinderfen_corner_access_lod1.glb",
+      "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f"
+    },
+    {
+      "model": "runtime/frontier_cinderfen_wall_stair_lod1.glb",
+      "sha256": "05e199dfa9b25ef5d56ae9bee32c8d062e9418fcfeaeb8ef6fc652e07565e5c8"
+    },
+    {
+      "model": "runtime/frontier_cinderfen_gate_leaves_lod1.glb",
+      "sha256": "e78551db351e8d9d55853a5994d4474fcbc03ec701586f98d19330d630e30699"
+    },
+    {
+      "model": "runtime/frontier_cinderfen_supply_shelter_lod1.glb",
+      "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c"
+    }
+  ],
+  "lod": 1,
+  "instances": 65,
+  "triangles": 1297074,
+  "routes": [
+    {
+      "id": "outer_perimeter",
+      "samples": 1578,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "inner_perimeter",
+      "samples": 868,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "oil_platform",
+      "samples": 11,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "delivery_to_outer_passage",
+      "samples": 251,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "outer_to_inner_passage",
+      "samples": 60,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "inner_passage_to_commander",
+      "samples": 82,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "delivery_to_quartermaster",
+      "samples": 175,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_landing/gangway",
+      "samples": 29,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/turn_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/upper_landing",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_0_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_00",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_01",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_02",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_03",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_04",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_05",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_06",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_07",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_08",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_09",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_10",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_11",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_12",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_13",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_14",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_15",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_16",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/tread_1_17",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair/ground_entry",
+      "samples": 2,
+      "head_hits": [],
+      "missing_support": []
+    }
+  ],
+  "head_hits": 0,
+  "missing_support": 0,
+  "previews": {
+    "keep_full_assembly.png": "dd1b78e8b597d4efe9b3bb1661de59e55345e04684807b7cb4749c38d894cdee",
+    "keep_full_front.png": "47dde431317f0686911f06ca8397eb9d9bbbdfebb2466e77f8d7c22d2d18c5a0"
+  },
+  "cameras": [
+    {
+      "camera_position_z_up": [
+        117.77276611328125,
+        -179.40567016601562,
+        111.20353698730469
+      ],
+      "target_z_up": [
+        0.0,
+        6.551334381103516,
+        5.827906608581543
+      ],
+      "projection": "ORTHO",
+      "lens_mm": null,
+      "distance_m": null,
+      "detail_frame_m": 155,
+      "lighting": "neutral white area lights; unmodified exported PBR channels",
+      "resolution": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "camera_position_z_up": [
+        -1.9073486328125e-06,
+        -192.5083465576172,
+        12.026473999023438
+      ],
+      "target_z_up": [
+        -1.9073486328125e-06,
+        -6.551332473754883,
+        5.827906608581543
+      ],
+      "projection": "ORTHO",
+      "lens_mm": null,
+      "distance_m": null,
+      "detail_frame_m": 92,
+      "lighting": "neutral white area lights; unmodified exported PBR channels",
+      "resolution": [
+        1400,
+        1050
+      ],
+      "presentation_rotation_y_runtime": 3.141592653589793
+    }
+  ],
+  "method": "Actual complete LOD1 GLBs, physical perimeter and gangway support rays, 80cm body corridor with 1.8m head clearance, every stair tread sampled laterally across its own level and preserved ground approach. Finite-footprint stepping and closed owner portals are separately tested with the shared movement implementation."
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.training_dummy",
+  "displayName": "Riftspire training dummy",
+  "category": "prop",
+  "model": "prop_riftspire_training_dummy.glb",
+  "qc": "prop_riftspire_training_dummy.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_training_dummy"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "468041db3977fa27ee8de169b59a666e04f0d83f98e102b80841a2355f12f454",
+    "qcSha256": "0a879ea702e56c3eff922c2acbc4f85adffc9355e3c55714904126b4665c284c",
+    "previews": {
+      "assembly": "8a7e69aaf470efd55f7cbf08959dac0cc8ec6e9889694ec37d3db0b808a551a0"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/training_dummy-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.240Z",
+    "reviewHash": "dc2dad11069c67df9e201ac2241ddc666b5ad0929c686a22f201119165f4ffb0"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

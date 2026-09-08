@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.battering_ram",
+  "displayName": "Bull-brow Mantlet Ram",
+  "category": "prop",
+  "model": "frontier_battering_ram_lod0.glb",
+  "qc": "frontier_battering_ram_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_battering_ram"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+    "qcSha256": "dc4278fe030ce6ea110896cc90114276109ba4b9e37b33796d9c815c2552db73",
+    "previews": {
+      "assembly": "39d8773b195794d4b42a21f193e2667ba896659eb323420f260e4437b7311202"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "approvalState": "approved"
+}

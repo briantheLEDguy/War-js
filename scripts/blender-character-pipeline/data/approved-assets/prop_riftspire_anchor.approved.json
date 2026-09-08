@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.anchor",
+  "displayName": "Riftspire anchor",
+  "category": "prop",
+  "model": "prop_riftspire_anchor.glb",
+  "qc": "prop_riftspire_anchor.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_anchor"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "8023efd083c74bae743c086a54126e35726ae977c194267e7a891f254e629eaa",
+    "qcSha256": "2b6bc1e2ab31ec5388e673ba5e4cfc587869f8b48d1ff397ac2e423454d25819",
+    "previews": {
+      "assembly": "fc81e17524f5b93cb6c29208edad32de9eac967b8bcc0a1ebc466a51938a99cb"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/anchor-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.195Z",
+    "reviewHash": "799239340030de0c03e011c267c577f3f2eed42d7fdc664f409ef02ea8100a9c"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.hut",
+  "displayName": "Riftspire hut",
+  "category": "prop",
+  "model": "prop_riftspire_hut.glb",
+  "qc": "prop_riftspire_hut.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_hut"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "a7fb9ed22196219ab7f07aafd8385813fadd87e851d8f7758e2b242d3883d0ea",
+    "qcSha256": "367f50922e613ee49f4054780c275a1e24bb1488d48f83c70fe1ca1ccee81e3c",
+    "previews": {
+      "assembly": "1744bc74c75cfe92d0ba889dc605678796c8df36b819a48c688726aa7298de9e"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/hut-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.143Z",
+    "reviewHash": "860c1d79b515d21a5e5f7c2dad8cb1d590470d98f15c0acb9c35f6f50516f64b"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

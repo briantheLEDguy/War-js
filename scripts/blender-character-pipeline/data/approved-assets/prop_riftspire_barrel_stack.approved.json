@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.barrel_stack",
+  "displayName": "Riftspire barrel stack",
+  "category": "prop",
+  "model": "prop_riftspire_barrel_stack.glb",
+  "qc": "prop_riftspire_barrel_stack.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_barrel_stack"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "1313590949fe3d0e667e4de7782e17f58e0ae47fde38ee8bbd4eb64537784aec",
+    "qcSha256": "1361a97ec73fea37e406effab120de03d519b04c4c378fb6c4b540682600a1a5",
+    "previews": {
+      "assembly": "7858004f2e5ffde4c6d218151afaa01f6b9260f157a5b7876122c1c3f2e31ec5"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/barrel_stack-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.117431+00:00",
+    "reviewHash": "8122f42d57864e26282fdb062352a4ae29ff8b8473a213edf158183574062878"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

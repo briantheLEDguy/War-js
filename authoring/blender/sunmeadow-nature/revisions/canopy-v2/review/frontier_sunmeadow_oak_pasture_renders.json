@@ -1,0 +1,209 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 0,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_pasture_lod0.glb",
+      "model_sha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "image": "review\\frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png",
+      "image_sha256": "f4b7f961412b836f5cd2f90c6cbf417eff9167f8b32f212d40b33dd62f610f17",
+      "bounds_blender": {
+        "min": [
+          -5.043699264526367,
+          -4.8272705078125,
+          -0.2559080123901367
+        ],
+        "max": [
+          5.040684223175049,
+          4.400496006011963,
+          11.056777000427246
+        ],
+        "span": [
+          10.084383010864258,
+          9.227766036987305,
+          11.312685012817383
+        ]
+      },
+      "camera_location": [
+        15.899582862854004,
+        -27.07333755493164,
+        18.72296905517578
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 0,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_pasture_lod0.glb",
+      "model_sha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "image": "review\\frontier_sunmeadow_oak_pasture_lod0_ground_reimport.png",
+      "image_sha256": "b441c4f3a9412ca52c530551f06a7b9e96668f0098502a650ca6345c67027cfe",
+      "bounds_blender": {
+        "min": [
+          -5.043699264526367,
+          -4.8272705078125,
+          -0.2559080123901367
+        ],
+        "max": [
+          5.040684223175049,
+          4.400496006011963,
+          11.056777000427246
+        ],
+        "span": [
+          10.084383010864258,
+          9.227766036987305,
+          11.312685012817383
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 1,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_pasture_lod1.glb",
+      "model_sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+      "image": "review\\frontier_sunmeadow_oak_pasture_lod1_studio_reimport.png",
+      "image_sha256": "6f8e7d68852f9ce8fcf2f3f5fff2d99f3c9ac383557fef50942db85f03297d5b",
+      "bounds_blender": {
+        "min": [
+          -5.1092634201049805,
+          -4.891932010650635,
+          -0.25760388374328613
+        ],
+        "max": [
+          5.039191722869873,
+          4.418279647827148,
+          11.149611473083496
+        ],
+        "span": [
+          10.148454666137695,
+          9.310211181640625,
+          11.407215118408203
+        ]
+      },
+      "camera_location": [
+        15.998926162719727,
+        -27.32122039794922,
+        18.879863739013672
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 1,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_pasture_lod1.glb",
+      "model_sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+      "image": "review\\frontier_sunmeadow_oak_pasture_lod1_ground_reimport.png",
+      "image_sha256": "4d83f5abb6498dd68284e1132df83f6dc5fef5f1036c85947ff0e9da51382934",
+      "bounds_blender": {
+        "min": [
+          -5.1092634201049805,
+          -4.891932010650635,
+          -0.25760388374328613
+        ],
+        "max": [
+          5.039191722869873,
+          4.418279647827148,
+          11.149611473083496
+        ],
+        "span": [
+          10.148454666137695,
+          9.310211181640625,
+          11.407215118408203
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 2,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_pasture_lod2.glb",
+      "model_sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+      "image": "review\\frontier_sunmeadow_oak_pasture_lod2_studio_reimport.png",
+      "image_sha256": "bf2c5ca1909968d5159650edcc0fd136018a1c1019b79dcc3a8de11cf596c31d",
+      "bounds_blender": {
+        "min": [
+          -5.354161739349365,
+          -5.038943290710449,
+          -0.16817106306552887
+        ],
+        "max": [
+          5.1987504959106445,
+          4.6693549156188965,
+          11.017167091369629
+        ],
+        "span": [
+          10.552911758422852,
+          9.708297729492188,
+          11.185338020324707
+        ]
+      },
+      "camera_location": [
+        15.644386291503906,
+        -26.742382049560547,
+        18.597061157226562
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 2,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_pasture_lod2.glb",
+      "model_sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+      "image": "review\\frontier_sunmeadow_oak_pasture_lod2_ground_reimport.png",
+      "image_sha256": "4566f6bb7f5c39880e0737341522d6184a5161f708805859c90671429dfee27b",
+      "bounds_blender": {
+        "min": [
+          -5.354161739349365,
+          -5.038943290710449,
+          -0.16817106306552887
+        ],
+        "max": [
+          5.1987504959106445,
+          4.6693549156188965,
+          11.017167091369629
+        ],
+        "span": [
+          10.552911758422852,
+          9.708297729492188,
+          11.185338020324707
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

@@ -3,6 +3,8 @@ authoring/blender/aegis-city/.deps/
 dist
 .env
 .env.local
+.env.orvr
+supabase/.temp/
 *.log
 .DS_Store
 .vite

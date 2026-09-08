@@ -1,0 +1,52 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.wheat",
+  "modelSha256": "b94f67f25f621ff0c5cc7d4cefcc2fc2bb4c4a225a0e287959d0ed7e414b0bf9",
+  "lod": 0,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_wheat_lod0.glb",
+      "sha256": "b94f67f25f621ff0c5cc7d4cefcc2fc2bb4c4a225a0e287959d0ed7e414b0bf9",
+      "triangles": 18144
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_wheat_lod1.glb",
+      "sha256": "dea7517d5d603e7a750d8cb5bc89f605359dd933b4f3ce7ef39ba29bab130bf7",
+      "triangles": 8208
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_wheat_lod2.glb",
+      "sha256": "b0b681a380c8dbea4a2df781f54eee863338a7b971b0e1da992851d9f73133aa",
+      "triangles": 3600
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8",
+  "bounds": {
+    "min": [
+      -1.0051482915878296,
+      -0.0003330128383822739,
+      -0.9605903625488281
+    ],
+    "max": [
+      1.007079839706421,
+      1.237959384918213,
+      0.9957338571548462
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_wheat_lod0_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_wheat_lod1_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_wheat_lod2_reimport.png"
+  ]
+}

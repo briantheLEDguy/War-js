@@ -1,0 +1,84 @@
+{
+  "source_sha256": "d8d02e508e166899ae16c660b621ac7264756464d39a1b529d531e38cc0c12fe",
+  "authoring_method": "Original closed pentagonal deck contours and finite fitted construction placements; shared authored Cinderfen construction cages and material fields, with retained exact references.",
+  "tools": {
+    "tools/audit_geometry.py": "fbefe3a12043b7ffe19a4a2fadc9f93b4c40fa7c2a7ec2f1e74e23d2eed83f7f",
+    "tools/author_junction.py": "9cc96a07ac8098e789fa95382a006ea8156feb8a5c73937c8cb53b8c51e562eb",
+    "tools/build_architecture.py": "87977c32866e8cb330bdf2b87ac95b51b38085f67e2e1d7cbbf07b699f7bb343",
+    "tools/contact_sheet.py": "8c26ce41c2fa87e5e308e1f984e2ba2ff4f2e1b80f359ba1e1fdc946e5545789",
+    "tools/review_assembly.py": "d63e28759a57e1095ddc4ecefb0956a78566fa4dc6b3df2d76e3923c3affbe2f",
+    "tools/review_exports.py": "b12b95024a350754db9489b91942d7df0b7d38f81756397b1c1cd8b31e7b7bf4",
+    "tools/share_textures.py": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
+    "tools/test_blueprints.mjs": "f971e5804258ca542e3fa03f62d8ffda54f73f80109f6ccbf690449ae1fd7825",
+    "tools/test_published.mjs": "a910e3f00b002a06da1baef984589545f70cc4ed5dd8792eb579691cca7d2d3b",
+    "tools/test_source.py": "878e155f6d2eb168dc483706987cb0c1c35551013e8b9a095b2437a8f5ffeea0",
+    "tools/validate_architecture.mjs": "47e94856d1fd5ab9538dfc41e55dd4ff5a2e03d1a04d4a8d401b8f6fdda7cbc1",
+    "tools/write_provenance.py": "faecd8e0127df8b74be7fd79b12011fe146339633cd801739863aadb70e929f2"
+  },
+  "pipeline_references": [
+    {
+      "utility": "build_architecture.py",
+      "origin": "../tools/build_architecture.py",
+      "sha256": "87977c32866e8cb330bdf2b87ac95b51b38085f67e2e1d7cbbf07b699f7bb343",
+      "retained_copy": "source/pipeline-references/87977c32866e8cb330bdf2b87ac95b51b38085f67e2e1d7cbbf07b699f7bb343_build_architecture.py",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "share_textures.py",
+      "origin": "../tools/share_textures.py",
+      "sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
+      "retained_copy": "source/pipeline-references/ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149_share_textures.py",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "review_exports.py",
+      "origin": "../tools/review_exports.py",
+      "sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+      "retained_copy": "source/pipeline-references/74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a_review_exports.py",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "audit_geometry.py",
+      "origin": "../tools/audit_geometry.py",
+      "sha256": "2eca366ec80dd83cdced0968b23652446248b1f30a7a02201468b076fc6e014a",
+      "retained_copy": "source/pipeline-references/2eca366ec80dd83cdced0968b23652446248b1f30a7a02201468b076fc6e014a_audit_geometry.py",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "validate_architecture.mjs",
+      "origin": "../tools/validate_architecture.mjs",
+      "sha256": "5c177c8a5fa32c7e578af611e3f96da202412ec1b17349295a68ccdd8b756bec",
+      "retained_copy": "source/pipeline-references/5c177c8a5fa32c7e578af611e3f96da202412ec1b17349295a68ccdd8b756bec_validate_architecture.mjs",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "contact_sheet.py",
+      "origin": "../tools/contact_sheet.py",
+      "sha256": "8c26ce41c2fa87e5e308e1f984e2ba2ff4f2e1b80f359ba1e1fdc946e5545789",
+      "retained_copy": "source/pipeline-references/8c26ce41c2fa87e5e308e1f984e2ba2ff4f2e1b80f359ba1e1fdc946e5545789_contact_sheet.py",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "test_blueprints.mjs",
+      "origin": "../tools/test_blueprints.mjs",
+      "sha256": "11905e245b05ec7484e3e9a2c3027d059e1bb6cf67c35090d9165d4d6a0ec2eb",
+      "retained_copy": "source/pipeline-references/11905e245b05ec7484e3e9a2c3027d059e1bb6cf67c35090d9165d4d6a0ec2eb_test_blueprints.mjs",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "test_published.mjs",
+      "origin": "../tools/test_published.mjs",
+      "sha256": "a6ac46aa61d1a341e64b5cd6740092003bf74f483f327d2c44223cd82748e0db",
+      "retained_copy": "source/pipeline-references/a6ac46aa61d1a341e64b5cd6740092003bf74f483f327d2c44223cd82748e0db_test_published.mjs",
+      "reuse_scope": "Export and review mechanics reused from the seven-piece Cinderfen kit."
+    },
+    {
+      "utility": "reviewed Cinderfen cage library",
+      "origin": "../source/architecture.json",
+      "sha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f",
+      "retained_copy": "source/pipeline-references/91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f_reviewed_kit.json",
+      "reuse_scope": "Original Cinderfen authored stone, alder and hardware, fitted around a new pentagonal deck and real diagonal stair opening."
+    }
+  ],
+  "approval": "Provenance only. Actual GLB review is independently required."
+}

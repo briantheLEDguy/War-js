@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.rock_infill",
+  "displayName": "Riftspire rock infill",
+  "category": "prop",
+  "model": "prop_riftspire_rock_infill.glb",
+  "qc": "prop_riftspire_rock_infill.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_rock_infill"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "42084d0183493a5bb3f48770cee8344285b1c7450ef35e4cd8ec6ca4acde85c9",
+    "qcSha256": "2a837a2aaf40c7123e382d3805c9ab61e16377bde6e3b46655998357b101efa3",
+    "previews": {
+      "assembly": "7d4270dbe32617333621cc17487997987f930f46b68239f4901db6911f26e18f"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/rock_infill-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T08:26:02.777632+00:00",
+    "reviewHash": "d884ae97d3d3ef0469e86716b17a3bf952dcbc0ef7cb05909332b93ee20de53a"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

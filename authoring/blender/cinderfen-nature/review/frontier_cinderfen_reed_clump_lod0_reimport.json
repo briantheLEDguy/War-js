@@ -1,0 +1,119 @@
+{
+  "model": "frontier_cinderfen_reed_clump_lod0.glb",
+  "sha256": "bf1d23b5ab4411a439729b630d73682d372844d7ae6675583ab217341b67e7e5",
+  "reviewer_sha256": "ee78882ac19021103ae05b823393ec4f648465fe0f04d91d4fba531e5fd0ab55",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "jointed_reed_culms_and_panicle_branches.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 6256
+      },
+      {
+        "mesh": "drooping_lanceolate_reed_leaves.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 13616
+      },
+      {
+        "mesh": "open_branched_rust_panicles.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 85800
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -2.099548578262329,
+        -1.688900351524353,
+        -0.14606580138206482
+      ],
+      "maximum": [
+        1.6174321174621582,
+        1.7375340461730957,
+        3.6173324584960938
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_cinderfen_reed_clump_lod0_neutral.png",
+      "sha256": "191c1b6a04a0a53d9d90fdcaaa6b0c101aa0bfe9fad09fce340db4abe9600131",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          2.769660472869873,
+          -5.997120380401611,
+          3.165724754333496
+        ],
+        "target_z_up": [
+          -0.24105823040008545,
+          0.024316847324371338,
+          1.735633373260498
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_cinderfen_reed_clump_lod0_gameplay.png",
+      "sha256": "637a638b86fb23dba720106a94ce9088aa934573a811c4a3f8d271e6c003fd14",
+      "camera": {
+        "distance_m": 8,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          0.5116214156150818,
+          -7.975683212280273,
+          2.176339864730835
+        ],
+        "target_z_up": [
+          -0.24105823040008545,
+          0.024316847324371338,
+          1.735633373260498
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "detail": {
+      "image": "frontier_cinderfen_reed_clump_lod0_detail.png",
+      "sha256": "80a4b3144bfaf9b4e04c4859e13e42579a9cedd6c4a5615fd1a6923e709ce3a5",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          3.190718650817871,
+          -6.521437168121338,
+          3.8800911903381348
+        ],
+        "target_z_up": [
+          0.18000000715255737,
+          -0.5,
+          2.450000047683716
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

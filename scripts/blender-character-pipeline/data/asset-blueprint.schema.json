@@ -151,7 +151,7 @@
       "properties": {
         "master": { "type": "string" },
         "textureSet": { "type": "string" },
-        "maxTextureResolution": { "type": "integer", "minimum": 64, "maximum": 2048 },
+        "maxTextureResolution": { "type": "integer", "minimum": 64, "maximum": 4096 },
         "channels": {
           "type": "array",
           "items": {

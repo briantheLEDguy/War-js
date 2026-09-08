@@ -1,5 +1,6 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import {
+  bindMapWheel,
   calculateEffectiveMapScale,
   calculateMapFitScale,
   calculateMapViewportLayout,
@@ -10,6 +11,21 @@ import {
 import { campaignMapNodeTarget } from '../src/ui/hud/campaignMapModel';
 
 describe('campaign map viewport geometry', () => {
+  test('cancels native wheel scrolling before zoom, including at the zoom limit, and cleans up', () => {
+    const viewport = new EventTarget();
+    const subscribe = vi.spyOn(viewport, 'addEventListener');
+    const zoom = vi.fn((event: WheelEvent) => expect(event.defaultPrevented).toBe(true));
+    const unbind = bindMapWheel(viewport as HTMLElement, zoom);
+    expect(subscribe).toHaveBeenCalledWith('wheel', expect.any(Function), { passive: false });
+    for (let i = 0; i < 20; i++) {
+      expect(viewport.dispatchEvent(new Event('wheel', { cancelable: true }))).toBe(false);
+    }
+    expect(zoom).toHaveBeenCalledTimes(20);
+    unbind();
+    expect(viewport.dispatchEvent(new Event('wheel', { cancelable: true }))).toBe(true);
+    expect(zoom).toHaveBeenCalledTimes(20);
+  });
+
   test('fits wide, tall, and already-fitting scenes without exceeding unity scale', () => {
     expect(calculateMapFitScale({ width: 900, height: 500 }, { width: 1200, height: 600 })).toBeCloseTo(0.74, 2);
     expect(calculateMapFitScale({ width: 500, height: 900 }, { width: 600, height: 1200 })).toBeCloseTo(0.74, 2);
@@ -52,6 +68,18 @@ describe('campaign map viewport geometry', () => {
     const scroll = calculateZoomedScroll(anchor, 1.2);
     expect(scroll.left + 240).toBeCloseTo(anchor.contentX * 1.2);
     expect(scroll.top + 160).toBeCloseTo(anchor.contentY * 1.2);
+  });
+
+  test('preserves the anchor when moving from a centered scene into close-up zoom', () => {
+    const viewport = { width: 800, height: 600 };
+    const scene = { width: 800, height: 600 };
+    const before = calculateMapViewportLayout(viewport, scene, 0.72);
+    const after = calculateMapViewportLayout(viewport, scene, 8);
+    const anchor = calculateZoomAnchor({ left: 0, top: 0 }, { x: 400, y: 300 }, 0.72, before);
+    const scroll = calculateZoomedScroll(anchor, 8, after);
+    expect(anchor.contentX).toBeCloseTo(400);
+    expect(anchor.contentY).toBeCloseTo(300);
+    expect(scroll).toEqual({ left: 2800, top: 2100 });
   });
 
   test('navigates node clicks one tier deeper and leaves interactive buttons free to click', () => {

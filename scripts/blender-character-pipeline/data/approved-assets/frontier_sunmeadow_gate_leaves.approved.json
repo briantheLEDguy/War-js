@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow_gate_leaves",
+  "displayName": "Sunmeadow paired fortified gate leaves",
+  "category": "prop",
+  "model": "frontier_sunmeadow_gate_leaves_lod0.glb",
+  "qc": "frontier_sunmeadow_gate_leaves_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_gate_leaves"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "06774879019a68787a55a9cda114bade45a3661ef5b8c54a9d3c485f28b7c1ea",
+    "qcSha256": "1ce0fb0b06e490321f35e338243ebcffa3ac62295baae41ae666847d531ab6c4",
+    "previews": {
+      "assembly": "9cb967cc8c523cd5f72c803bb2d1aaf2aae9a56c1c9847b1ad52efe2b0da0f87"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_sunmeadow_gate_leaves.png"
+  },
+  "review": {
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:22:55.0905427Z",
+    "reviewHash": "3d1dbdef56970059ff2d5e3e4625ed213d878160c66a3428aed47d5e93751bac"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_sunmeadow_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/sunmeadow-architecture/source/architecture.json",
+    "sourceSha256": "1ec935cb6ad05321db5dd2b87fddb7db2c10c4f41298ed95a3efa5736cb1ec85"
+  },
+  "approvalState": "approved"
+}

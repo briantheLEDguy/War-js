@@ -1,0 +1,347 @@
+{
+  "passed": true,
+  "issues": [],
+  "assets": [
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+          "sha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+          "bytes": 8793848,
+          "triangles": 94774,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -5.043699264526367,
+              -4.8272705078125,
+              -0.2559080123901367
+            ],
+            "max": [
+              5.040684223175049,
+              4.400496006011963,
+              11.056777000427246
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -5.043699264526367,
+              -0.2559080123901367,
+              -4.400496006011963
+            ],
+            "max": [
+              5.040684223175049,
+              11.056777000427246,
+              4.8272705078125
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        },
+        {
+          "level": 1,
+          "model": "frontier_sunmeadow_oak_pasture_lod1.glb",
+          "sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+          "bytes": 5950724,
+          "triangles": 50784,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -5.1092634201049805,
+              -4.891932010650635,
+              -0.25760388374328613
+            ],
+            "max": [
+              5.039191722869873,
+              4.418279647827148,
+              11.149611473083496
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -5.1092634201049805,
+              -0.25760388374328613,
+              -4.418279647827148
+            ],
+            "max": [
+              5.039191722869873,
+              11.149611473083496,
+              4.891932010650635
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        },
+        {
+          "level": 2,
+          "model": "frontier_sunmeadow_oak_pasture_lod2.glb",
+          "sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+          "bytes": 3779864,
+          "triangles": 13008,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -5.354161739349365,
+              -5.038943290710449,
+              -0.16817106306552887
+            ],
+            "max": [
+              5.1987504959106445,
+              4.6693549156188965,
+              11.017167091369629
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -5.354161739349365,
+              -0.16817106306552887,
+              -4.6693549156188965
+            ],
+            "max": [
+              5.1987504959106445,
+              11.017167091369629,
+              5.038943290710449
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        }
+      ],
+      "limitations": [
+        "Static vegetation; no wind rig or seasonal growth simulation.",
+        "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+        "Leaf sizes are stylized for readable game silhouettes.",
+        "Visual acceptance and runtime publication are separate from successful export."
+      ]
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+          "sha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+          "bytes": 6931132,
+          "triangles": 70008,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -3.171562671661377,
+              -3.061281442642212,
+              -0.04792404547333717
+            ],
+            "max": [
+              3.7439463138580322,
+              3.3808679580688477,
+              12.806864738464355
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -3.171562671661377,
+              -0.04792404547333717,
+              -3.3808679580688477
+            ],
+            "max": [
+              3.7439463138580322,
+              12.806864738464355,
+              3.061281442642212
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        },
+        {
+          "level": 1,
+          "model": "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+          "sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+          "bytes": 5170200,
+          "triangles": 37496,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -3.2503154277801514,
+              -3.1655890941619873,
+              -0.0475141666829586
+            ],
+            "max": [
+              3.8179354667663574,
+              3.4522769451141357,
+              12.70226764678955
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -3.2503154277801514,
+              -0.0475141666829586,
+              -3.4522769451141357
+            ],
+            "max": [
+              3.8179354667663574,
+              12.70226764678955,
+              3.1655890941619873
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        },
+        {
+          "level": 2,
+          "model": "frontier_sunmeadow_oak_hedgerow_lod2.glb",
+          "sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+          "bytes": 3571920,
+          "triangles": 9632,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -3.321608543395996,
+              -3.24247145652771,
+              -0.04682445898652077
+            ],
+            "max": [
+              3.884918689727783,
+              3.557417154312134,
+              13.054259300231934
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -3.321608543395996,
+              -0.04682445898652077,
+              -3.557417154312134
+            ],
+            "max": [
+              3.884918689727783,
+              13.054259300231934,
+              3.24247145652771
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        }
+      ],
+      "limitations": [
+        "Static vegetation; no wind rig or seasonal growth simulation.",
+        "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+        "Leaf sizes are stylized for readable game silhouettes.",
+        "Visual acceptance and runtime publication are separate from successful export."
+      ]
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_sunmeadow_ash_lod0.glb",
+          "sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+          "bytes": 9380724,
+          "triangles": 95516,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -4.249358654022217,
+              -3.925556182861328,
+              -0.05408892780542374
+            ],
+            "max": [
+              3.991551637649536,
+              3.956895351409912,
+              13.675841331481934
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -4.249358654022217,
+              -0.05408892780542374,
+              -3.956895351409912
+            ],
+            "max": [
+              3.991551637649536,
+              13.675841331481934,
+              3.925556182861328
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        },
+        {
+          "level": 1,
+          "model": "frontier_sunmeadow_ash_lod1.glb",
+          "sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+          "bytes": 6306972,
+          "triangles": 51682,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -4.387194633483887,
+              -4.020108222961426,
+              -0.05496381223201752
+            ],
+            "max": [
+              4.1261725425720215,
+              4.0610198974609375,
+              13.826451301574707
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -4.387194633483887,
+              -0.05496381223201752,
+              -4.0610198974609375
+            ],
+            "max": [
+              4.1261725425720215,
+              13.826451301574707,
+              4.020108222961426
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        },
+        {
+          "level": 2,
+          "model": "frontier_sunmeadow_ash_lod2.glb",
+          "sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+          "bytes": 4204140,
+          "triangles": 19820,
+          "materials": 2,
+          "bounds_blender": {
+            "min": [
+              -4.537087440490723,
+              -4.35780668258667,
+              -0.03777502104640007
+            ],
+            "max": [
+              4.255638122558594,
+              4.41567850112915,
+              13.955071449279785
+            ]
+          },
+          "bounds_runtime": {
+            "min": [
+              -4.537087440490723,
+              -0.03777502104640007,
+              -4.41567850112915
+            ],
+            "max": [
+              4.255638122558594,
+              13.955071449279785,
+              4.35780668258667
+            ]
+          },
+          "validationErrors": 0,
+          "validationWarnings": 0
+        }
+      ],
+      "limitations": [
+        "Static vegetation; no wind rig or seasonal growth simulation.",
+        "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+        "Leaf sizes are stylized for readable game silhouettes.",
+        "Visual acceptance and runtime publication are separate from successful export."
+      ]
+    }
+  ],
+  "visualApproval": false,
+  "note": "Technical validation alone does not approve model quality or publish runtime assets."
+}

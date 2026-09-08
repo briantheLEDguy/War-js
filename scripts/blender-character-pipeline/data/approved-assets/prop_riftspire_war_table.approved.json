@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.war_table",
+  "displayName": "Riftspire war table",
+  "category": "prop",
+  "model": "prop_riftspire_war_table.glb",
+  "qc": "prop_riftspire_war_table.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_war_table"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "9d9b533b5a95b2567f4aa2d0b47cc7af73d21650f5967cc0ef6a1f4ff94e164c",
+    "qcSha256": "cf0f05e2a8950add3b249608a12064cc580ac4c7b8d97c42cd61bd63d0946137",
+    "previews": {
+      "assembly": "b60b9cb0a2568ea920b76baf25ad27cabb18ac086ebbd79999b7b38b88841c77"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/war_table-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.176263+00:00",
+    "reviewHash": "fa87201575271aae8fc6b9039504bcb2d470cd1bd3ee957ea76c8f2cd0ba98e9"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

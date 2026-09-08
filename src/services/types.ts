@@ -166,6 +166,11 @@ export interface WorldPropObject extends WorldObjectBase {
   kind: string;
   model?: string;
   assetKey?: string;
+  /** Registry category for reviewed GM actor or scenery placements. */
+  assetCategory?: 'staticProps' | 'characterProfiles';
+  defaultAnimation?: string;
+  modelOffset?: Vec3;
+  groundSurface?: 'mesh';
   /** Absent on legacy edits; model space follows the rendered mesh's yaw. */
   colliderSpace?: 'model';
   colliders?: Array<{
@@ -228,6 +233,7 @@ export interface WorldWalkableSurfaceObject extends WorldObjectBase {
 export type WorldObject = WorldPropObject | WorldColliderObject | WorldWalkableSurfaceObject;
 
 export interface WorldEditDocument {
+  cityLayoutVersion?: string;
   schemaVersion: number;
   versionId: string;
   zoneId: string;

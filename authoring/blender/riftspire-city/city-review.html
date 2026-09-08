@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Riftspire city runtime review</title><link rel="stylesheet" href="/src/ui/styles.css">
+<style>body{margin:0;background:#16151b}#view{position:absolute;inset:0}nav{position:absolute;z-index:40;top:12px;left:12px;max-width:460px;background:#181421ed;color:#eee;padding:14px}button,select{padding:7px;margin:4px}output{display:block;font:13px monospace;white-space:pre-wrap}p{margin:6px 0}</style>
+<div id="view"></div><nav><strong id="title">Riftspire · city runtime review</strong><p>WASD walk · drag orbit · wheel zoom · lift controls appear at landings</p><select id="location" aria-label="Review location"></select><button id="go">Go</button><button id="overview">Overview</button><button id="benchmark">Benchmark 10 seconds</button><output id="status">Loading…</output><output id="results"></output></nav>
+<script type="module">
+import {Game} from '/src/game/Game.ts';import {services} from '/src/services/index.ts';import {useGameStore} from '/src/state/gameStore.ts';
+const zoneId=new URLSearchParams(location.search).get('zone')==='aegis'?'aegis_capital':'riftspire_capital';
+const source=await services.characters.load('char-sigmund');services.characters.save=async()=>{};services.world.updatePosition=async()=>{};
+const character={...source,id:'riftspire-review-only',zoneId,position:zoneId==='riftspire_capital'?{x:0,y:0,z:421}:{x:0,y:0,z:-118}};
+useGameStore.getState().setCharacter(character);useGameStore.setState({gmFlyingMode:false,settings:{...useGameStore.getState().settings,renderResolution:'native',frameRateLimit:60,viewDistance:1000}});
+const game=new Game(document.querySelector('#view'),character);await game.start();
+const zone=game.zoneDefinition;document.querySelector('#title').textContent=`${zone.name} · runtime review`;
+const places=zoneId==='riftspire_capital'?[{name:'Rim arrival',x:0,y:0,z:421},{name:'Transit bridge',x:0,y:-105,z:160},{name:'Central platform',x:0,y:-105,z:10},{name:'Suspended Commons',x:0,y:-130,z:25},{name:'Drowned Works',x:0,y:-245,z:214},{name:'Wall lift',x:0,y:-105,z:208},...zone.explorationPlaces]:[{name:'Market',x:0,y:0,z:-118},...zone.explorationPlaces];
+if(zone.craterCity) {
+ for(const [name,predicate] of [['Paired cottages',p=>p.id?.endsWith('_annex')],['Workshop cluster',p=>p.kind==='riftspire_house_2' && p.y===-50],['Tall tenement',p=>p.kind==='riftspire_house_3']]) {
+  const house=zone.props.find(predicate),yaw=house.rotY??0;
+  const offset=house.walkableSurfaces[0].depth/2*(house.scaleZ??1)+7;
+  places.push({name,x:house.x+Math.sin(yaw)*offset,y:house.y,z:house.z+Math.cos(yaw)*offset,yaw});
+ }
+ for(const place of places) {
+  const room=zone.craterCity.interiors.find(r=>r.name===place.name);
+  if(room)place.yaw=zone.props.find(p=>p.id===room.propId)?.rotY??0;
+ }
+ places.push({name:'Settlement lift',x:32,y:-105,z:8});
+ const stairs=zone.craterCity.routes.find(r=>r.id==='stairs_0_1').points;
+ places.push({...stairs[0],name:'Stair descent',yaw:Math.atan2(-(stairs[1].x-stairs[0].x),-(stairs[1].z-stairs[0].z))});
+ const fall=document.createElement('button');fall.textContent='Test fall recovery';fall.onclick=()=>{useGameStore.setState({gmFlyingMode:false});game.player.teleportTo({x:80,y:game.player.position.y,z:80});};document.querySelector('nav').append(fall);
+}
+let reviewView='arrival';
+const select=document.querySelector('#location');places.forEach((p,i)=>select.add(new Option(p.name,String(i))));
+document.querySelector('#go').onclick=()=>{const p=places[+select.value];reviewView=p.name;useGameStore.setState({gmFlyingMode:false});game.player.teleportTo(p);game.camera.distance=18;game.camera.pitch=.24;game.camera.yaw=p.yaw??0;};
+document.querySelector('#overview').onclick=()=>{reviewView='Overview';useGameStore.setState({gmFlyingMode:true});game.player.position.set(0,zoneId==='riftspire_capital'?-20:40,0);game.camera.distance=zoneId==='riftspire_capital'?480:300;game.camera.pitch=.68;game.camera.yaw=0;};
+const status=document.querySelector('#status');setInterval(()=>{const p=game.player.position,r=game.renderer.info;status.textContent=`${game.frameMs.toFixed(1)} ms · ${r.render.calls} draws · ${r.render.triangles.toLocaleString()} triangles\n${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)} · ${useGameStore.getState().assetFallbacks} asset fallbacks\n${game.cityDistrictName??''}`;},500);
+document.querySelector('#benchmark').onclick=()=>{const result=document.querySelector('#results');result.textContent='Measuring foreground frames…';const frames=[],costs=[],start=performance.now();let last=start;const sample=now=>{frames.push(now-last);costs.push(game.frameMs);last=now;if(now-start<10000)requestAnimationFrame(sample);else{frames.sort((a,b)=>a-b);costs.sort((a,b)=>a-b);result.textContent=JSON.stringify({zone:zoneId,width:game.renderer.domElement.width,height:game.renderer.domElement.height,view:reviewView,frames:frames.length,medianMs:frames[Math.floor(frames.length*.5)],p95Ms:frames[Math.floor(frames.length*.95)],medianGameCostMs:costs[Math.floor(costs.length*.5)],p95GameCostMs:costs[Math.floor(costs.length*.95)],draws:game.renderer.info.render.calls,triangles:game.renderer.info.render.triangles,fallbacks:useGameStore.getState().assetFallbacks});}};requestAnimationFrame(sample);};
+addEventListener('beforeunload',()=>game.dispose({persistCharacter:false}));
+</script></html>

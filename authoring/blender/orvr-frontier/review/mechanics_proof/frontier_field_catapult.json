@@ -1,0 +1,101 @@
+{
+  "glb_sha256": "f11e56b147fad85d8efcaccf7d48ad6ad092cb5f1bcd70bbd91f871ff01cd669",
+  "clips": [
+    {
+      "name": "siege_roll",
+      "duration_seconds": 1.6,
+      "loop": true,
+      "event_seconds": null,
+      "root_motion": false,
+      "distance_per_cycle_metres": 4.268796097697811
+    },
+    {
+      "name": "catapult_fire",
+      "duration_seconds": 0.8,
+      "loop": false,
+      "event_seconds": 0.3,
+      "root_motion": false
+    },
+    {
+      "name": "catapult_reload",
+      "duration_seconds": 3.6,
+      "loop": false,
+      "event_seconds": null,
+      "root_motion": false
+    }
+  ],
+  "components": [
+    {
+      "node": "body",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "wheel_0",
+      "world_pivot_z_up": [
+        -1.4700000286102295,
+        -1.2999999523162842,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "wheel_1",
+      "world_pivot_z_up": [
+        1.4700000286102295,
+        -1.2999999523162842,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "wheel_2",
+      "world_pivot_z_up": [
+        -1.4700000286102295,
+        1.2999999523162842,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "wheel_3",
+      "world_pivot_z_up": [
+        1.4700000286102295,
+        1.2999999523162842,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "throwing_assembly",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.8799999952316284
+      ]
+    },
+    {
+      "node": "winding_drum",
+      "world_pivot_z_up": [
+        0.0,
+        1.0499999523162842,
+        0.9800000190734863
+      ]
+    },
+    {
+      "node": "haul_rope",
+      "world_pivot_z_up": [
+        0.0,
+        1.0499999523162842,
+        0.9800000190734863
+      ]
+    },
+    {
+      "node": "realm_standard",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

@@ -3,8 +3,13 @@ import { citySurfaceGeometry, type CanalDefinition } from './CityWater';
 import { applyCityWeathering } from './CityWeathering';
 import { cityHeightAt, type CityElevation } from './CityElevation';
 import type { AssetLoader } from '../game/AssetLoader';
+import { orvrHeightAt, type OrvrTerrainControls } from '../shared/orvrTerrain';
+import type { OrvrZoneLayout } from './orvrTypes';
+import type { PathDefinition } from './ZoneLoader';
+import { buildRoadSurface, prepareRoadSurfaceMaterial } from './RoadSurface';
 
 export interface TerrainOpts {
+  authoredCrater?: boolean;
   size: number;
   segments: number;
   /** Optional .glb terrain mesh under /public/assets/models/. */
@@ -15,6 +20,11 @@ export interface TerrainOpts {
   flatTerrain?: boolean;
   canals?: CanalDefinition[];
   cityElevation?: CityElevation;
+  /** Transitional surface shaped by the authored outdoor layout's shared controls. */
+  orvrTerrain?: OrvrTerrainControls;
+  authoredChunks?: OrvrZoneLayout['terrain']['chunks'];
+  roads?: PathDefinition[];
+  biomePalette?: string[];
 }
 
 /**
@@ -23,6 +33,7 @@ export interface TerrainOpts {
  * any external files.
  */
 export class Terrain {
+  private authoredCrater = false;
   mesh!: THREE.Object3D;
   private size: number;
   private segments: number;
@@ -44,6 +55,13 @@ export class Terrain {
   }
 
   async build(loader: AssetLoader, opts: TerrainOpts): Promise<THREE.Object3D> {
+    this.authoredCrater = opts.authoredCrater ?? false;
+    if (this.authoredCrater) {
+      this.size = opts.size;
+      this.mesh = new THREE.Group();
+      this.mesh.name = 'authored-crater-sectors';
+      return this.mesh;
+    }
     this.size = opts.size;
     this.segments = opts.segments;
     this.flat = opts.flatTerrain ?? false;
@@ -52,6 +70,14 @@ export class Terrain {
     this.modelHeightMeshes = [];
     this.modelBounds.makeEmpty();
     this.modelHeightCache.clear();
+
+    if (opts.orvrTerrain && opts.authoredChunks?.length && opts.authoredChunks.every(chunk => chunk.status === 'approved')) {
+      for (let z = 0; z <= opts.segments; z += 1) for (let x = 0; x <= opts.segments; x += 1) {
+        this.heights[z * (opts.segments + 1) + x] = orvrHeightAt(opts.orvrTerrain, x / opts.segments * opts.size - opts.size / 2, z / opts.segments * opts.size - opts.size / 2);
+      }
+      const authored = await this.buildAuthoredChunks(loader, opts.authoredChunks);
+      if (authored) { this.mesh = authored; return authored; }
+    }
 
     if (opts.model) {
       const terrainModel = await loader.loadModel(opts.model, () => this.buildModelFallbackPlane(opts));
@@ -66,7 +92,13 @@ export class Terrain {
     const pos = geo.attributes.position as THREE.BufferAttribute;
     const vertCount = pos.count;
 
-    if (!this.flat && !this.cityElevation) {
+    if (opts.orvrTerrain && !this.cityElevation && !this.flat) {
+      for (let index = 0; index < vertCount; index += 1) {
+        const height = orvrHeightAt(opts.orvrTerrain, pos.getX(index), pos.getZ(index));
+        this.heights[index] = height;
+        pos.setY(index, height);
+      }
+    } else if (!this.flat && !this.cityElevation) {
       // Procedural height. Later: sample from heightmap if provided.
       const s = opts.segments;
       for (let iy = 0; iy <= s; iy++) {
@@ -94,6 +126,7 @@ export class Terrain {
     // Add vertex colors for natural terrain appearance
     const colors = new Float32Array(vertCount * 3);
     const color = new THREE.Color();
+    const biomeColors = opts.biomePalette?.length === 3 ? opts.biomePalette.map((entry) => new THREE.Color(entry)) : undefined;
 
     if (this.flat) {
       // City zones: cobblestone-like color variation
@@ -116,7 +149,11 @@ export class Terrain {
 
         // Height-based gradient with some noise
         const noise = (deterministicVertexNoise(i, opts.size, opts.segments) - 0.5) * 0.06;
-        if (y < -0.5) {
+        if (biomeColors) {
+          color.copy(biomeColors[0]).lerp(biomeColors[1], Math.max(0, Math.min(1, (y + 3) / 28)));
+          color.lerp(biomeColors[2], Math.max(0, Math.min(1, slope * 2)));
+          color.multiplyScalar(0.92 + noise);
+        } else if (y < -0.5) {
           // Low ground: darker grass / mud
           color.setRGB(0.18 + noise, 0.28 + noise, 0.12 + noise);
         } else if (y < 0.5) {
@@ -138,7 +175,7 @@ export class Terrain {
         }
 
         // Steep slopes get rocky gray
-        if (slope > 0.3) {
+        if (!biomeColors && slope > 0.3) {
           const t = Math.min((slope - 0.3) / 0.4, 1);
           color.lerp(new THREE.Color(0.4, 0.38, 0.35), t);
         }
@@ -149,7 +186,7 @@ export class Terrain {
         const u = ix / s - 0.5;
         const v = iy / s - 0.5;
         const distFromCenter = Math.sqrt(u * u + v * v);
-        if (distFromCenter < 0.08) {
+        if (!biomeColors && distFromCenter < 0.08) {
           color.lerp(new THREE.Color(0.3, 0.25, 0.18), 0.4);
         }
 
@@ -167,7 +204,7 @@ export class Terrain {
       ? await loader.loadTexture(opts.diffuseTexture, fallbackColor)
       : null;
     if (diffuse) {
-      const repeat = opts.canals?.length ? opts.size / 4 : this.flat ? 32 : 24;
+      const repeat = opts.canals?.length ? opts.size / 4 : this.flat ? 32 : opts.orvrTerrain ? opts.size / 12.5 : 24;
       diffuse.repeat.set(repeat, repeat);
       if (opts.canals?.length) diffuse.anisotropy = 8;
     }
@@ -197,11 +234,13 @@ export class Terrain {
     const mesh = new THREE.Mesh(geo, opts.cityElevation ? materials : mat);
     mesh.receiveShadow = true;
     this.mesh = mesh;
+    if (opts.orvrTerrain && opts.roads?.length) mesh.add(await buildRoadSurface(opts.roads, (x,z) => this.heightAt(x,z), loader));
     return mesh;
   }
 
   /** World-space height lookup via bilinear sampling. Returns 0 for flat terrain. */
   heightAt(x: number, z: number): number {
+    if (this.authoredCrater) return -330;
     if (this.cityElevation) return cityHeightAt(this.cityElevation, this.size, x, z);
     const modelHeight = this.heightAtModel(x, z);
     if (modelHeight !== null) return modelHeight;
@@ -235,6 +274,36 @@ export class Terrain {
     this.mesh.updateMatrixWorld(true);
     this.modelBounds.setFromObject(this.mesh);
     this.modelHeightCache.clear();
+  }
+
+  private async buildAuthoredChunks(loader: AssetLoader, chunks: NonNullable<TerrainOpts['authoredChunks']>): Promise<THREE.Group | null> {
+    const group = new THREE.Group(); group.name = 'reviewed-frontier-terrain';
+    // Install a complete surface atomically. An unavailable chunk must not leave a hole.
+    for (let offset = 0; offset < chunks.length; offset += 4) {
+      const batch = await Promise.all(chunks.slice(offset, offset + 4).map(async chunk => {
+        const models = await loader.resolveApprovedAssetModels(chunk.assetKey, 'staticProps');
+        if (!models.length) return null;
+        const lod = new THREE.LOD(); lod.name = chunk.id; lod.position.set(chunk.x, 0, chunk.z);
+        for (let index = 0; index < models.length; index += 1) {
+          const object = await loader.loadModel(models[index], () => new THREE.Group());
+          let meshes = 0;
+          object.traverse(node => {
+            if (!(node instanceof THREE.Mesh)) return;
+            meshes += 1; node.castShadow = false; node.receiveShadow = true;
+            for (const material of Array.isArray(node.material) ? node.material : [node.material]) {
+              if (material.name === 'Sunmeadow_limestone_road') prepareRoadSurfaceMaterial(material);
+            }
+          });
+          if (!meshes) return null;
+          lod.addLevel(object, chunk.lodDistances[index] ?? index * 300, .1);
+        }
+        return lod;
+      }));
+      if (batch.some(chunk => !chunk)) return null;
+      group.add(...batch as THREE.LOD[]);
+    }
+    group.userData.authoredTerrain = true;
+    return group;
   }
 
   private prepareModelTerrain(root: THREE.Object3D): void {

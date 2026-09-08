@@ -33,20 +33,31 @@
     "models:import-external": "node scripts/blender-character-pipeline/tools/import-external-assets.mjs",
     "models:generate": "node scripts/blender-character-pipeline/tools/generate-asset.mjs",
     "models:roster": "node scripts/blender-character-pipeline/tools/generate-roster.mjs",
-    "models:all": "node scripts/blender-character-pipeline/tools/generate-all.mjs"
+    "models:all": "node scripts/blender-character-pipeline/tools/generate-all.mjs",
+    "server:dev": "tsx --env-file-if-exists=.env.orvr server/start.ts --dev-auth",
+    "server:start": "tsx --env-file-if-exists=.env.orvr server/start.ts",
+    "typecheck:server": "tsc --project tsconfig.server.json --noEmit",
+    "test:orvr": "vitest run orvr expandedOrvrZones"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.115.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "three": "^0.167.0",
+    "ws": "8.21.3",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@types/node": "26.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/three": "^0.167.0",
+    "@types/ws": "8.18.1",
     "@vitejs/plugin-react": "^4.3.1",
     "gltf-validator": "^2.0.0-dev.3.10",
+    "supabase": "2.116.0",
+    "tsx": "4.23.13",
     "typescript": "^5.5.4",
     "vite": "^5.4.2",
     "vitest": "^4.1.8"

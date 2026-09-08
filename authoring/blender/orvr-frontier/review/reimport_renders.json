@@ -1,0 +1,629 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_draft_horse",
+      "lod": 0,
+      "glb_sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "image": "review\\frontier_draft_horse_lod0_reimport.png",
+      "image_sha256": "a05aa6b36f0c9dee0d20b282de5f092e59f4f4281c8d1b131092d05524c9ba84",
+      "bounds": {
+        "minimum": [
+          -0.7192220091819763,
+          -1.902021884918213,
+          -9.030298997458885e-08
+        ],
+        "maximum": [
+          0.7192220091819763,
+          1.4522643089294434,
+          2.417743682861328
+        ],
+        "dimensions": [
+          1.4384440183639526,
+          3.3542861938476562,
+          2.417743682861328
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_draft_horse",
+      "lod": 1,
+      "glb_sha256": "7cb634b85460155417b17b33b8885c6ab199eab7bcd3e5196719e3ce1b6a45ab",
+      "image": "review\\frontier_draft_horse_lod1_reimport.png",
+      "image_sha256": "bb860206448b257f7571ca1549f619e11853a1bd21d52cdfe6ef209d0f7bd1df",
+      "bounds": {
+        "minimum": [
+          -0.7191932201385498,
+          -1.9019654989242554,
+          -9.030298997458885e-08
+        ],
+        "maximum": [
+          0.7191932201385498,
+          1.4522606134414673,
+          2.417743682861328
+        ],
+        "dimensions": [
+          1.4383864402770996,
+          3.3542261123657227,
+          2.417743682861328
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_draft_horse",
+      "lod": 2,
+      "glb_sha256": "fe465b53dd01aa02124d5140878c13b9f24a2f98e7f826dc34123fc96e5f3728",
+      "image": "review\\frontier_draft_horse_lod2_reimport.png",
+      "image_sha256": "9a9c0e607182beeb6630093ebf767e66b4681a974ccdb3c622d3891efc5fb1aa",
+      "bounds": {
+        "minimum": [
+          -0.7200821042060852,
+          -1.9024423360824585,
+          -8.025965314573114e-08
+        ],
+        "maximum": [
+          0.7200821042060852,
+          1.4523367881774902,
+          2.4178895950317383
+        ],
+        "dimensions": [
+          1.4401642084121704,
+          3.3547792434692383,
+          2.4178895950317383
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_supply_wagon",
+      "lod": 0,
+      "glb_sha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+      "image": "review\\frontier_supply_wagon_lod0_reimport.png",
+      "image_sha256": "f7d1c7c8c3e9052792b3d04ae430b8222e42b0e3b4422936635894e82e3ff4ba",
+      "bounds": {
+        "minimum": [
+          -1.7808759212493896,
+          -3.5899999141693115,
+          -0.1089063435792923
+        ],
+        "maximum": [
+          1.7808759212493896,
+          2.0489020347595215,
+          2.9141669273376465
+        ],
+        "dimensions": [
+          3.5617518424987793,
+          5.638901710510254,
+          3.023073196411133
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_supply_wagon",
+      "lod": 1,
+      "glb_sha256": "5af903d426e281792b18ff3b34bad29e70c6119bd4a79d985c54d1515ca39d20",
+      "image": "review\\frontier_supply_wagon_lod1_reimport.png",
+      "image_sha256": "ae36d206cd909ed31908fe79ccc331d95e4e255a0b23a4b719c69ad4729553f5",
+      "bounds": {
+        "minimum": [
+          -1.7811832427978516,
+          -3.5899999141693115,
+          -0.1089063435792923
+        ],
+        "maximum": [
+          1.7811832427978516,
+          2.0489020347595215,
+          2.9141669273376465
+        ],
+        "dimensions": [
+          3.562366485595703,
+          5.638901710510254,
+          3.023073196411133
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_supply_wagon",
+      "lod": 2,
+      "glb_sha256": "e6c72a7c40c10739f5aeba2b1a4fd3b134ff284147dcceb232f9d7c00a4b50be",
+      "image": "review\\frontier_supply_wagon_lod2_reimport.png",
+      "image_sha256": "9f044cf9623b89fbefe0dc70b63fab9b9d21171ba86f5dd334fcf66b542d4ac7",
+      "bounds": {
+        "minimum": [
+          -1.7811832427978516,
+          -3.5899999141693115,
+          -0.1089063435792923
+        ],
+        "maximum": [
+          1.7811832427978516,
+          2.0489020347595215,
+          2.9141669273376465
+        ],
+        "dimensions": [
+          3.562366485595703,
+          5.638901710510254,
+          3.023073196411133
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_battering_ram",
+      "lod": 0,
+      "glb_sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+      "image": "review\\frontier_battering_ram_lod0_reimport.png",
+      "image_sha256": "39d8773b195794d4b42a21f193e2667ba896659eb323420f260e4437b7311202",
+      "bounds": {
+        "minimum": [
+          -1.7373533248901367,
+          -2.9800000190734863,
+          -0.09365950524806976
+        ],
+        "maximum": [
+          1.7373533248901367,
+          2.0899999141693115,
+          3.1454715728759766
+        ],
+        "dimensions": [
+          3.4747066497802734,
+          5.069999694824219,
+          3.239130973815918
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_battering_ram",
+      "lod": 1,
+      "glb_sha256": "d40803b8a0b4d09351bafd7c74ff0fa22f9f8d42e86f9839322ce4c462af1986",
+      "image": "review\\frontier_battering_ram_lod1_reimport.png",
+      "image_sha256": "56da841a5c2a32ae33040a3ff489ec87eed3f3a5bfb62767f0cd5a08dc37c078",
+      "bounds": {
+        "minimum": [
+          -1.7376176118850708,
+          -2.9800000190734863,
+          -0.09365950524806976
+        ],
+        "maximum": [
+          1.7376176118850708,
+          2.0899999141693115,
+          3.1454715728759766
+        ],
+        "dimensions": [
+          3.4752352237701416,
+          5.069999694824219,
+          3.239130973815918
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_battering_ram",
+      "lod": 2,
+      "glb_sha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4",
+      "image": "review\\frontier_battering_ram_lod2_reimport.png",
+      "image_sha256": "f3be7a932a518dda59730432fb295a1cae004d0e6a8b540be4565f40a09d4d1d",
+      "bounds": {
+        "minimum": [
+          -1.7376176118850708,
+          -2.9800000190734863,
+          -0.09365950524806976
+        ],
+        "maximum": [
+          1.7376176118850708,
+          2.0899999141693115,
+          3.1454715728759766
+        ],
+        "dimensions": [
+          3.4752352237701416,
+          5.069999694824219,
+          3.239130973815918
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_oil_cauldron",
+      "lod": 0,
+      "glb_sha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+      "image": "review\\frontier_oil_cauldron_lod0_reimport.png",
+      "image_sha256": "4a904135c072dcc04d6bf68e46a8f58f2206559f6fdcc3e7402e577965faa154",
+      "bounds": {
+        "minimum": [
+          -0.8231250643730164,
+          -0.8651036024093628,
+          0.15000000596046448
+        ],
+        "maximum": [
+          0.9070318341255188,
+          1.1121103763580322,
+          1.2990949153900146
+        ],
+        "dimensions": [
+          1.7301568984985352,
+          1.977213978767395,
+          1.1490949392318726
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_oil_cauldron",
+      "lod": 1,
+      "glb_sha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48",
+      "image": "review\\frontier_oil_cauldron_lod1_reimport.png",
+      "image_sha256": "ff7d0d851659432d6b471704ebb1d0fcfaa1722b361fc24e495099d5d4b798e6",
+      "bounds": {
+        "minimum": [
+          -0.8231250643730164,
+          -0.8650676012039185,
+          0.15000000596046448
+        ],
+        "maximum": [
+          0.9070318341255188,
+          1.1121103763580322,
+          1.2991632223129272
+        ],
+        "dimensions": [
+          1.7301568984985352,
+          1.9771779775619507,
+          1.1491632461547852
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_oil_cauldron",
+      "lod": 2,
+      "glb_sha256": "be2b1e463fa55479fd1dfde25baf2754aed0615051e4ce5b7fa3753b5200022c",
+      "image": "review\\frontier_oil_cauldron_lod2_reimport.png",
+      "image_sha256": "18a5acd17315c1201dc2331a27e8ce966b627b15309bd525f98df248af2ea5d0",
+      "bounds": {
+        "minimum": [
+          -0.8231250643730164,
+          -0.8650785088539124,
+          0.15000000596046448
+        ],
+        "maximum": [
+          0.9077421426773071,
+          1.1121104955673218,
+          1.2993375062942505
+        ],
+        "dimensions": [
+          1.7308671474456787,
+          1.977189064025879,
+          1.1493375301361084
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_field_catapult",
+      "lod": 0,
+      "glb_sha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+      "image": "review\\frontier_field_catapult_lod0_reimport.png",
+      "image_sha256": "61fe0ffd48e69e183bfa42d57b5c3aa2d40728bceae5177ae4a508045fc09afb",
+      "bounds": {
+        "minimum": [
+          -1.7373533248901367,
+          -2.07308292388916,
+          -0.09365952014923096
+        ],
+        "maximum": [
+          1.7373533248901367,
+          2.0730557441711426,
+          3.8039369583129883
+        ],
+        "dimensions": [
+          3.4747066497802734,
+          4.146138668060303,
+          3.8975963592529297
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_field_catapult",
+      "lod": 1,
+      "glb_sha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861",
+      "image": "review\\frontier_field_catapult_lod1_reimport.png",
+      "image_sha256": "3ae382a840be3ac25eebc40e06b2dd35e52575a1e83d29d539ceaba9e3e4a77a",
+      "bounds": {
+        "minimum": [
+          -1.7376176118850708,
+          -2.07308292388916,
+          -0.09365952014923096
+        ],
+        "maximum": [
+          1.7376176118850708,
+          2.0730557441711426,
+          3.803679943084717
+        ],
+        "dimensions": [
+          3.4752352237701416,
+          4.146138668060303,
+          3.897339344024658
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_field_catapult",
+      "lod": 2,
+      "glb_sha256": "e95a9524f9bf47dfc332146cf14784d19b75cc826544c2bf62486fa02b891ea1",
+      "image": "review\\frontier_field_catapult_lod2_reimport.png",
+      "image_sha256": "aa71dc79cf08e5a442a5e6df65a611f40db842940e1e85f9b6c05c837ab904d7",
+      "bounds": {
+        "minimum": [
+          -1.7376176118850708,
+          -2.07308292388916,
+          -0.09365952014923096
+        ],
+        "maximum": [
+          1.7376176118850708,
+          2.0730557441711426,
+          3.803679943084717
+        ],
+        "dimensions": [
+          3.4752352237701416,
+          4.146138668060303,
+          3.897339344024658
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_keep_gate",
+      "lod": 0,
+      "glb_sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+      "image": "review\\frontier_keep_gate_lod0_reimport.png",
+      "image_sha256": "105f9906fe9e7bdfc2e96d18f4bf735023b12050003354d4dcb6a96ca0a13ebf",
+      "bounds": {
+        "minimum": [
+          -2.8525967597961426,
+          -0.7209159135818481,
+          0.051282431930303574
+        ],
+        "maximum": [
+          2.8525967597961426,
+          0.2142484039068222,
+          4.786146640777588
+        ],
+        "dimensions": [
+          5.705193519592285,
+          0.9351643323898315,
+          4.734864234924316
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_keep_gate",
+      "lod": 1,
+      "glb_sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+      "image": "review\\frontier_keep_gate_lod1_reimport.png",
+      "image_sha256": "4517dbe956eceb6ea6eabba8828b5275ce86244a09ae317ebae86d3ea5bbc727",
+      "bounds": {
+        "minimum": [
+          -2.8525967597961426,
+          -0.7209159135818481,
+          0.051282431930303574
+        ],
+        "maximum": [
+          2.8525967597961426,
+          0.2142484039068222,
+          4.78646183013916
+        ],
+        "dimensions": [
+          5.705193519592285,
+          0.9351643323898315,
+          4.735179424285889
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_keep_gate",
+      "lod": 2,
+      "glb_sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+      "image": "review\\frontier_keep_gate_lod2_reimport.png",
+      "image_sha256": "60d56cafba2ba7981b7a9cc63b1eb3c460ab75908d157a4c23c4c22e7b41e560",
+      "bounds": {
+        "minimum": [
+          -2.8504157066345215,
+          -0.7208825945854187,
+          0.051282431930303574
+        ],
+        "maximum": [
+          2.8504157066345215,
+          0.2142149955034256,
+          4.78746223449707
+        ],
+        "dimensions": [
+          5.700831413269043,
+          0.9350975751876831,
+          4.736179828643799
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_supply_officer_kit",
+      "lod": 0,
+      "glb_sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+      "image": "review\\frontier_supply_officer_kit_lod0_reimport.png",
+      "image_sha256": "41e1a07d27f36c370c0a63eb6b1fed2ca2bbb25826d5dc16d5a3741165e2a537",
+      "bounds": {
+        "minimum": [
+          -0.20600000023841858,
+          -0.09982664883136749,
+          0.01894444227218628
+        ],
+        "maximum": [
+          0.19873015582561493,
+          0.08349337428808212,
+          0.42900002002716064
+        ],
+        "dimensions": [
+          0.4047301411628723,
+          0.18332001566886902,
+          0.41005557775497437
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_supply_officer_kit",
+      "lod": 1,
+      "glb_sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+      "image": "review\\frontier_supply_officer_kit_lod1_reimport.png",
+      "image_sha256": "0193327901afd66598c2fbf30b17acc990318df6beb86eaaf8b969f7aa97ea29",
+      "bounds": {
+        "minimum": [
+          -0.20600000023841858,
+          -0.09982664883136749,
+          0.01894444227218628
+        ],
+        "maximum": [
+          0.19873015582561493,
+          0.08349337428808212,
+          0.42900002002716064
+        ],
+        "dimensions": [
+          0.4047301411628723,
+          0.18332001566886902,
+          0.41005557775497437
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_supply_officer_kit",
+      "lod": 2,
+      "glb_sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+      "image": "review\\frontier_supply_officer_kit_lod2_reimport.png",
+      "image_sha256": "591cc437376737555241a750b6d57c451cf1ccbf414395b44bb5b7f45596b532",
+      "bounds": {
+        "minimum": [
+          -0.20600000023841858,
+          -0.09958026558160782,
+          0.01894444227218628
+        ],
+        "maximum": [
+          0.19871409237384796,
+          0.08380936086177826,
+          0.42917561531066895
+        ],
+        "dimensions": [
+          0.40471410751342773,
+          0.18338963389396667,
+          0.41023117303848267
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_caravan_reins",
+      "lod": 0,
+      "glb_sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+      "image": "review\\frontier_caravan_reins_lod0_reimport.png",
+      "image_sha256": "0457978032be99ca62d7d776f6d05e28dc4c874d728d46846786bc9b40a40b15",
+      "bounds": {
+        "minimum": [
+          -0.5001225471496582,
+          -5.548499584197998,
+          1.5394595861434937
+        ],
+        "maximum": [
+          0.5001225471496582,
+          -1.6337839365005493,
+          1.8929566144943237
+        ],
+        "dimensions": [
+          1.0002450942993164,
+          3.9147157669067383,
+          0.3534970283508301
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_caravan_reins",
+      "lod": 1,
+      "glb_sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+      "image": "review\\frontier_caravan_reins_lod1_reimport.png",
+      "image_sha256": "bc58115fe138aad2bacfbfd58c30ff4a79595600bd81cc6e7df640e2a31dfc3d",
+      "bounds": {
+        "minimum": [
+          -0.5001063942909241,
+          -5.548491954803467,
+          1.5394595861434937
+        ],
+        "maximum": [
+          0.5001215934753418,
+          -1.6337839365005493,
+          1.8929566144943237
+        ],
+        "dimensions": [
+          1.000227928161621,
+          3.914708137512207,
+          0.3534970283508301
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    },
+    {
+      "asset": "frontier_caravan_reins",
+      "lod": 2,
+      "glb_sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+      "image": "review\\frontier_caravan_reins_lod2_reimport.png",
+      "image_sha256": "7934156547f9b29187febc6c48198ad859b148bcb366a3dd869a6402fc76786f",
+      "bounds": {
+        "minimum": [
+          -0.5001063942909241,
+          -5.548276424407959,
+          1.5394595861434937
+        ],
+        "maximum": [
+          0.5001215934753418,
+          -1.6337839365005493,
+          1.893170952796936
+        ],
+        "dimensions": [
+          1.000227928161621,
+          3.914492607116699,
+          0.3537113666534424
+        ]
+      },
+      "review_decision": "pending",
+      "renderer": "Cycles 32 samples, AgX, orthographic review camera"
+    }
+  ],
+  "visual_approval": false
+}

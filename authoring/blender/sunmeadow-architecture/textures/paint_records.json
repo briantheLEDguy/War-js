@@ -1,0 +1,984 @@
+{
+  "strokes": {
+    "fissures": [
+      [
+        [
+          0,
+          151
+        ],
+        [
+          131,
+          143
+        ],
+        [
+          217,
+          170
+        ],
+        [
+          306,
+          160
+        ],
+        [
+          417,
+          179
+        ],
+        [
+          510,
+          172
+        ],
+        [
+          646,
+          192
+        ],
+        [
+          731,
+          179
+        ],
+        [
+          861,
+          208
+        ],
+        [
+          1024,
+          192
+        ]
+      ],
+      [
+        [
+          0,
+          603
+        ],
+        [
+          149,
+          590
+        ],
+        [
+          201,
+          606
+        ],
+        [
+          309,
+          592
+        ],
+        [
+          388,
+          616
+        ],
+        [
+          460,
+          608
+        ],
+        [
+          596,
+          634
+        ],
+        [
+          681,
+          622
+        ],
+        [
+          773,
+          641
+        ],
+        [
+          889,
+          629
+        ],
+        [
+          1024,
+          650
+        ]
+      ],
+      [
+        [
+          76,
+          0
+        ],
+        [
+          90,
+          104
+        ],
+        [
+          82,
+          179
+        ],
+        [
+          104,
+          269
+        ],
+        [
+          96,
+          350
+        ]
+      ],
+      [
+        [
+          863,
+          1024
+        ],
+        [
+          845,
+          929
+        ],
+        [
+          850,
+          868
+        ],
+        [
+          824,
+          782
+        ]
+      ]
+    ],
+    "grain": [
+      [
+        [
+          31,
+          0
+        ],
+        [
+          42,
+          179
+        ],
+        [
+          25,
+          361
+        ],
+        [
+          43,
+          563
+        ],
+        [
+          30,
+          745
+        ],
+        [
+          37,
+          1024
+        ]
+      ],
+      [
+        [
+          106,
+          0
+        ],
+        [
+          96,
+          134
+        ],
+        [
+          123,
+          328
+        ],
+        [
+          110,
+          544
+        ],
+        [
+          133,
+          812
+        ],
+        [
+          113,
+          1024
+        ]
+      ],
+      [
+        [
+          208,
+          0
+        ],
+        [
+          191,
+          210
+        ],
+        [
+          218,
+          434
+        ],
+        [
+          198,
+          701
+        ],
+        [
+          225,
+          1024
+        ]
+      ],
+      [
+        [
+          305,
+          0
+        ],
+        [
+          319,
+          187
+        ],
+        [
+          291,
+          468
+        ],
+        [
+          316,
+          705
+        ],
+        [
+          301,
+          1024
+        ]
+      ],
+      [
+        [
+          413,
+          0
+        ],
+        [
+          401,
+          218
+        ],
+        [
+          429,
+          399
+        ],
+        [
+          405,
+          650
+        ],
+        [
+          437,
+          1024
+        ]
+      ],
+      [
+        [
+          521,
+          0
+        ],
+        [
+          530,
+          258
+        ],
+        [
+          512,
+          489
+        ],
+        [
+          535,
+          724
+        ],
+        [
+          514,
+          1024
+        ]
+      ],
+      [
+        [
+          624,
+          0
+        ],
+        [
+          604,
+          214
+        ],
+        [
+          633,
+          458
+        ],
+        [
+          615,
+          684
+        ],
+        [
+          646,
+          1024
+        ]
+      ],
+      [
+        [
+          739,
+          0
+        ],
+        [
+          752,
+          194
+        ],
+        [
+          733,
+          395
+        ],
+        [
+          764,
+          731
+        ],
+        [
+          740,
+          1024
+        ]
+      ],
+      [
+        [
+          857,
+          0
+        ],
+        [
+          839,
+          235
+        ],
+        [
+          866,
+          436
+        ],
+        [
+          849,
+          699
+        ],
+        [
+          874,
+          1024
+        ]
+      ],
+      [
+        [
+          962,
+          0
+        ],
+        [
+          978,
+          229
+        ],
+        [
+          947,
+          484
+        ],
+        [
+          971,
+          799
+        ],
+        [
+          952,
+          1024
+        ]
+      ]
+    ],
+    "pits": [
+      [
+        62,
+        87
+      ],
+      [
+        184,
+        57
+      ],
+      [
+        295,
+        139
+      ],
+      [
+        428,
+        95
+      ],
+      [
+        617,
+        142
+      ],
+      [
+        757,
+        68
+      ],
+      [
+        896,
+        156
+      ],
+      [
+        987,
+        91
+      ],
+      [
+        115,
+        313
+      ],
+      [
+        259,
+        271
+      ],
+      [
+        368,
+        345
+      ],
+      [
+        505,
+        274
+      ],
+      [
+        675,
+        341
+      ],
+      [
+        810,
+        294
+      ],
+      [
+        945,
+        386
+      ],
+      [
+        49,
+        502
+      ],
+      [
+        203,
+        467
+      ],
+      [
+        334,
+        553
+      ],
+      [
+        494,
+        490
+      ],
+      [
+        573,
+        588
+      ],
+      [
+        738,
+        476
+      ],
+      [
+        886,
+        551
+      ],
+      [
+        983,
+        466
+      ],
+      [
+        120,
+        700
+      ],
+      [
+        277,
+        759
+      ],
+      [
+        414,
+        679
+      ],
+      [
+        597,
+        741
+      ],
+      [
+        753,
+        657
+      ],
+      [
+        929,
+        740
+      ],
+      [
+        55,
+        914
+      ],
+      [
+        208,
+        863
+      ],
+      [
+        359,
+        959
+      ],
+      [
+        495,
+        888
+      ],
+      [
+        644,
+        969
+      ],
+      [
+        785,
+        889
+      ],
+      [
+        956,
+        947
+      ]
+    ]
+  },
+  "materials": [
+    {
+      "material": "limestone",
+      "definition": {
+        "color": [
+          172,
+          167,
+          144
+        ],
+        "kind": "stone",
+        "roughness": 0.84
+      },
+      "height_scale_m": 0.005,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/limestone_baseColor.png",
+          "sha256": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f"
+        },
+        "normal": {
+          "path": "textures/source/limestone_normal.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        "orm": {
+          "path": "textures/source/limestone_orm.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        "height": {
+          "path": "textures/source/limestone_height.png",
+          "sha256": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce"
+        },
+        "roughness": {
+          "path": "textures/source/limestone_roughness.png",
+          "sha256": "a24ca0783ce0b5628bc6c7238a6689c9eb16ab309bd50251d24c9aa73b56b5cb"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "limestone_warm",
+      "definition": {
+        "color": [
+          180,
+          163,
+          130
+        ],
+        "kind": "stone",
+        "roughness": 0.84
+      },
+      "height_scale_m": 0.005,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/limestone_warm_baseColor.png",
+          "sha256": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761"
+        },
+        "normal": {
+          "path": "textures/source/limestone_warm_normal.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        "orm": {
+          "path": "textures/source/limestone_warm_orm.png",
+          "sha256": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344"
+        },
+        "height": {
+          "path": "textures/source/limestone_warm_height.png",
+          "sha256": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce"
+        },
+        "roughness": {
+          "path": "textures/source/limestone_warm_roughness.png",
+          "sha256": "a24ca0783ce0b5628bc6c7238a6689c9eb16ab309bd50251d24c9aa73b56b5cb"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "limestone_foot",
+      "definition": {
+        "color": [
+          132,
+          134,
+          106
+        ],
+        "kind": "stone",
+        "roughness": 0.94,
+        "weather": "ground_splash"
+      },
+      "height_scale_m": 0.005,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/limestone_foot_baseColor.png",
+          "sha256": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f"
+        },
+        "normal": {
+          "path": "textures/source/limestone_foot_normal.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        "orm": {
+          "path": "textures/source/limestone_foot_orm.png",
+          "sha256": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123"
+        },
+        "height": {
+          "path": "textures/source/limestone_foot_height.png",
+          "sha256": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce"
+        },
+        "roughness": {
+          "path": "textures/source/limestone_foot_roughness.png",
+          "sha256": "bc4f136d6e51a8c7f574b3aa75c090006682b3c87499a74536d7c20b723aa7dd"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "sooted_stone",
+      "definition": {
+        "color": [
+          135,
+          128,
+          113
+        ],
+        "kind": "stone",
+        "roughness": 0.9,
+        "weather": "soot"
+      },
+      "height_scale_m": 0.005,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/sooted_stone_baseColor.png",
+          "sha256": "aa793b8a72af339e27edc8a6ed3a812a1138ab596aeda864db432a9215f1c71b"
+        },
+        "normal": {
+          "path": "textures/source/sooted_stone_normal.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        "orm": {
+          "path": "textures/source/sooted_stone_orm.png",
+          "sha256": "b132a6e837908e0a8fbc62c2cf2f8089a261bbbc78e30d690eb0dec8a75ada26"
+        },
+        "height": {
+          "path": "textures/source/sooted_stone_height.png",
+          "sha256": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce"
+        },
+        "roughness": {
+          "path": "textures/source/sooted_stone_roughness.png",
+          "sha256": "111811049ed760e5f47e6a6c9ae079c13dc70132ef46cc33cd395b54c3c9f2f7"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "cut_stone",
+      "definition": {
+        "color": [
+          196,
+          185,
+          154
+        ],
+        "kind": "stone",
+        "roughness": 0.76
+      },
+      "height_scale_m": 0.005,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/cut_stone_baseColor.png",
+          "sha256": "235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb"
+        },
+        "normal": {
+          "path": "textures/source/cut_stone_normal.png",
+          "sha256": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f"
+        },
+        "orm": {
+          "path": "textures/source/cut_stone_orm.png",
+          "sha256": "048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52"
+        },
+        "height": {
+          "path": "textures/source/cut_stone_height.png",
+          "sha256": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce"
+        },
+        "roughness": {
+          "path": "textures/source/cut_stone_roughness.png",
+          "sha256": "fc174bf8321b9aa6a44239429ae3f0393d5ab8220014152f61c451d662c80bd9"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "mortar",
+      "definition": {
+        "color": [
+          118,
+          117,
+          100
+        ],
+        "kind": "lime",
+        "roughness": 0.94
+      },
+      "height_scale_m": 0.001,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/mortar_baseColor.png",
+          "sha256": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128"
+        },
+        "normal": {
+          "path": "textures/source/mortar_normal.png",
+          "sha256": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7"
+        },
+        "orm": {
+          "path": "textures/source/mortar_orm.png",
+          "sha256": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867"
+        },
+        "height": {
+          "path": "textures/source/mortar_height.png",
+          "sha256": "25756863ad3e3c2aae1f09cb6622a81e052474562db78687719a68a5744907a5"
+        },
+        "roughness": {
+          "path": "textures/source/mortar_roughness.png",
+          "sha256": "13a8c74632aa2b9b4bd762b83394c185ad8a9f2e75d87efb08237a61d559a146"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "slate",
+      "definition": {
+        "color": [
+          55,
+          67,
+          70
+        ],
+        "kind": "slate",
+        "roughness": 0.75
+      },
+      "height_scale_m": 0.002,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/slate_baseColor.png",
+          "sha256": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518"
+        },
+        "normal": {
+          "path": "textures/source/slate_normal.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        "orm": {
+          "path": "textures/source/slate_orm.png",
+          "sha256": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af"
+        },
+        "height": {
+          "path": "textures/source/slate_height.png",
+          "sha256": "18465c6a428a213776aa117b610a51b548401bda4bf0e549c6ec2f56da514889"
+        },
+        "roughness": {
+          "path": "textures/source/slate_roughness.png",
+          "sha256": "522f35d23b0c256e0b2c276d3b75561b92a12167dbcb1d67f8dd54cb78249635"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "slate_light",
+      "definition": {
+        "color": [
+          68,
+          77,
+          77
+        ],
+        "kind": "slate",
+        "roughness": 0.79
+      },
+      "height_scale_m": 0.002,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/slate_light_baseColor.png",
+          "sha256": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac"
+        },
+        "normal": {
+          "path": "textures/source/slate_light_normal.png",
+          "sha256": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a"
+        },
+        "orm": {
+          "path": "textures/source/slate_light_orm.png",
+          "sha256": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e"
+        },
+        "height": {
+          "path": "textures/source/slate_light_height.png",
+          "sha256": "18465c6a428a213776aa117b610a51b548401bda4bf0e549c6ec2f56da514889"
+        },
+        "roughness": {
+          "path": "textures/source/slate_light_roughness.png",
+          "sha256": "fa4f24accc5f63b27f9b22dd24afc4914e37e102b65301b822c72d15fbd01882"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "oak",
+      "definition": {
+        "color": [
+          95,
+          64,
+          36
+        ],
+        "kind": "wood",
+        "roughness": 0.79
+      },
+      "height_scale_m": 0.002,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/oak_baseColor.png",
+          "sha256": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed"
+        },
+        "normal": {
+          "path": "textures/source/oak_normal.png",
+          "sha256": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816"
+        },
+        "orm": {
+          "path": "textures/source/oak_orm.png",
+          "sha256": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9"
+        },
+        "height": {
+          "path": "textures/source/oak_height.png",
+          "sha256": "c8d33a9153869be78659df8646275926c94a9e39d790aec2cdb5fb147a76a1aa"
+        },
+        "roughness": {
+          "path": "textures/source/oak_roughness.png",
+          "sha256": "9266edc632cd3a292b8cf15bff985448ed140aca0eb9d1e16f2d8956e4a4d318"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "plaster",
+      "definition": {
+        "color": [
+          195,
+          189,
+          155
+        ],
+        "kind": "lime",
+        "roughness": 0.9
+      },
+      "height_scale_m": 0.001,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/plaster_baseColor.png",
+          "sha256": "c4747251946a4f56437824323cf676e54510e3562db8544e064a53e3a3313379"
+        },
+        "normal": {
+          "path": "textures/source/plaster_normal.png",
+          "sha256": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7"
+        },
+        "orm": {
+          "path": "textures/source/plaster_orm.png",
+          "sha256": "8e137469bcbd363ba2e5100426917cab89843ddf3dc570f93581bd8b003355a3"
+        },
+        "height": {
+          "path": "textures/source/plaster_height.png",
+          "sha256": "25756863ad3e3c2aae1f09cb6622a81e052474562db78687719a68a5744907a5"
+        },
+        "roughness": {
+          "path": "textures/source/plaster_roughness.png",
+          "sha256": "111811049ed760e5f47e6a6c9ae079c13dc70132ef46cc33cd395b54c3c9f2f7"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "iron",
+      "definition": {
+        "color": [
+          50,
+          55,
+          54
+        ],
+        "kind": "metal",
+        "roughness": 0.52,
+        "metallic": 0.82
+      },
+      "height_scale_m": 0.0009,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/iron_baseColor.png",
+          "sha256": "2c09aa34382210cf519057c620f9cb3a0836a3fce2ed8588b86496cf88232e7d"
+        },
+        "normal": {
+          "path": "textures/source/iron_normal.png",
+          "sha256": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb"
+        },
+        "orm": {
+          "path": "textures/source/iron_orm.png",
+          "sha256": "cf564a36f9b756f3599b41d8686435110c447f881fbfc39daa59fc014383c07f"
+        },
+        "height": {
+          "path": "textures/source/iron_height.png",
+          "sha256": "00b442f97f4747837262895eec2efa03552746abd5cdcd1e7b70109cbcfd93b1"
+        },
+        "roughness": {
+          "path": "textures/source/iron_roughness.png",
+          "sha256": "fe41001c529fd4f18c430b3c4f67a179c634091ed441952b8fad2a3060c92feb"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "brass",
+      "definition": {
+        "color": [
+          146,
+          104,
+          46
+        ],
+        "kind": "metal",
+        "roughness": 0.44,
+        "metallic": 0.78
+      },
+      "height_scale_m": 0.0009,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/brass_baseColor.png",
+          "sha256": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0"
+        },
+        "normal": {
+          "path": "textures/source/brass_normal.png",
+          "sha256": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb"
+        },
+        "orm": {
+          "path": "textures/source/brass_orm.png",
+          "sha256": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266"
+        },
+        "height": {
+          "path": "textures/source/brass_height.png",
+          "sha256": "00b442f97f4747837262895eec2efa03552746abd5cdcd1e7b70109cbcfd93b1"
+        },
+        "roughness": {
+          "path": "textures/source/brass_roughness.png",
+          "sha256": "b2d50f7682aff613affcc5eeb793a33e25c040bab0d23de2435ee195e8c1e2f7"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    },
+    {
+      "material": "green_cloth",
+      "definition": {
+        "color": [
+          42,
+          75,
+          48
+        ],
+        "kind": "cloth",
+        "roughness": 0.94
+      },
+      "height_scale_m": 0.0007,
+      "channels": {
+        "baseColor": {
+          "path": "textures/source/green_cloth_baseColor.png",
+          "sha256": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486"
+        },
+        "normal": {
+          "path": "textures/source/green_cloth_normal.png",
+          "sha256": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996"
+        },
+        "orm": {
+          "path": "textures/source/green_cloth_orm.png",
+          "sha256": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118"
+        },
+        "height": {
+          "path": "textures/source/green_cloth_height.png",
+          "sha256": "0105a12dd9b4fb72633e9cdd8e639223ac0a03b15f72b6f6f2f5f804e0f88096"
+        },
+        "roughness": {
+          "path": "textures/source/green_cloth_roughness.png",
+          "sha256": "3c1aa1fd32da47608842213edde7fea75147cae552b96c2cecce02f5956d816d"
+        }
+      },
+      "occlusion_scope": "authored material cavity; no baked scene lighting"
+    }
+  ]
+}

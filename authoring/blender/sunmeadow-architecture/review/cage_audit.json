@@ -1,0 +1,401 @@
+[
+  {
+    "part": "coursed_ashlar",
+    "lod": 0,
+    "triangles": 44,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "quoin_stone",
+    "lod": 0,
+    "triangles": 220,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "mortar_bed",
+    "lod": 0,
+    "triangles": 28,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "slate_course",
+    "lod": 0,
+    "triangles": 36,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "roof_ridge",
+    "lod": 0,
+    "triangles": 300,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "oak_joined_post",
+    "lod": 0,
+    "triangles": 328,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "curved_brace",
+    "lod": 0,
+    "triangles": 192,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "ledged_plank",
+    "lod": 0,
+    "triangles": 204,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "forged_hinge",
+    "lod": 0,
+    "triangles": 272,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "square_nail",
+    "lod": 0,
+    "triangles": 108,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "threshold",
+    "lod": 0,
+    "triangles": 220,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "plaster_infill",
+    "lod": 0,
+    "triangles": 220,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "arch_spandrel",
+    "lod": 0,
+    "triangles": 320,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "arch_voussoir",
+    "lod": 0,
+    "triangles": 164,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "splayed_arrow_slit",
+    "lod": 0,
+    "triangles": 220,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "sunburst_relief",
+    "lod": 0,
+    "triangles": 444,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "cloth_pennant",
+    "lod": 0,
+    "triangles": 216,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "gate_leaf_plank",
+    "lod": 0,
+    "triangles": 220,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "forged_pintle",
+    "lod": 0,
+    "triangles": 276,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "coursed_ashlar",
+    "lod": 1,
+    "triangles": 18,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "quoin_stone",
+    "lod": 1,
+    "triangles": 40,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "mortar_bed",
+    "lod": 1,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "slate_course",
+    "lod": 1,
+    "triangles": 16,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "roof_ridge",
+    "lod": 1,
+    "triangles": 58,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "oak_joined_post",
+    "lod": 1,
+    "triangles": 164,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "curved_brace",
+    "lod": 1,
+    "triangles": 44,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "ledged_plank",
+    "lod": 1,
+    "triangles": 88,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "forged_hinge",
+    "lod": 1,
+    "triangles": 54,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "square_nail",
+    "lod": 1,
+    "triangles": 44,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "threshold",
+    "lod": 1,
+    "triangles": 40,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "plaster_infill",
+    "lod": 1,
+    "triangles": 40,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "arch_spandrel",
+    "lod": 1,
+    "triangles": 172,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "arch_voussoir",
+    "lod": 1,
+    "triangles": 68,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "splayed_arrow_slit",
+    "lod": 1,
+    "triangles": 92,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "sunburst_relief",
+    "lod": 1,
+    "triangles": 84,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "cloth_pennant",
+    "lod": 1,
+    "triangles": 42,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "gate_leaf_plank",
+    "lod": 1,
+    "triangles": 112,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "forged_pintle",
+    "lod": 1,
+    "triangles": 52,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "coursed_ashlar",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "quoin_stone",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "mortar_bed",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "slate_course",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "roof_ridge",
+    "lod": 2,
+    "triangles": 18,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "oak_joined_post",
+    "lod": 2,
+    "triangles": 64,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "curved_brace",
+    "lod": 2,
+    "triangles": 18,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "ledged_plank",
+    "lod": 2,
+    "triangles": 28,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "forged_hinge",
+    "lod": 2,
+    "triangles": 18,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "square_nail",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "threshold",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "plaster_infill",
+    "lod": 2,
+    "triangles": 12,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "arch_spandrel",
+    "lod": 2,
+    "triangles": 72,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "arch_voussoir",
+    "lod": 2,
+    "triangles": 20,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "splayed_arrow_slit",
+    "lod": 2,
+    "triangles": 28,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "sunburst_relief",
+    "lod": 2,
+    "triangles": 26,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "cloth_pennant",
+    "lod": 2,
+    "triangles": 14,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "gate_leaf_plank",
+    "lod": 2,
+    "triangles": 44,
+    "boundary": 0,
+    "multiple": 0
+  },
+  {
+    "part": "forged_pintle",
+    "lod": 2,
+    "triangles": 16,
+    "boundary": 0,
+    "multiple": 0
+  }
+]

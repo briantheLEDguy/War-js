@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.stairs",
+  "displayName": "Riftspire stairs",
+  "category": "prop",
+  "model": "prop_riftspire_stairs.glb",
+  "qc": "prop_riftspire_stairs.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_stairs"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "50926d67e5b3502f9049c361a9eea2feea7206db7e70dac3a7239ac5bf39a61e",
+    "qcSha256": "595b0fe14450433b8e4bbc4ba4fed9c5cc3a373dcff342f4c94d309e3b47b130",
+    "previews": {
+      "assembly": "8c8e21a2c469cdf33a68151bcc46883de66897b06e090e39a53e7592f81c2347"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/stairs-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.206Z",
+    "reviewHash": "4bd3649984849b0edfac9fe5d701f5c80d9221d3341afa485dc906c6310181d9"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,20 @@
+{
+  "war_brazier": {"width":2.4,"depth":2.4,"height":4.8},
+  "war_standard": {"width":2.8,"depth":1.5,"height":8},
+  "arms_rack": {"width":4.4,"depth":2.4,"height":4.5},
+  "checkpoint": {"width":4.8,"depth":3.6,"height":3},
+  "market_stall": {"width":6,"depth":4,"height":4.8},
+  "apothecary": {"width":4.8,"depth":3.6,"height":4.5},
+  "provision_stall": {"width":5,"depth":3.6,"height":4.6},
+  "supply_cart": {"width":3.8,"depth":6,"height":3.5},
+  "barrel_stack": {"width":3.4,"depth":2.8,"height":3},
+  "laundry_rig": {"width":6,"depth":2.2,"height":4.7},
+  "communal_hearth": {"width":5.2,"depth":4,"height":3.8},
+  "chain_winch": {"width":4.6,"depth":3.6,"height":3.5},
+  "ore_cart": {"width":3.6,"depth":4.2,"height":3},
+  "water_pump": {"width":4.4,"depth":3.6,"height":6.5},
+  "ritual_obelisk": {"width":4,"depth":4,"height":11},
+  "oath_monument": {"width":7,"depth":5,"height":14},
+  "war_table": {"width":7,"depth":5.5,"height":2.8},
+  "hanging_cage": {"width":3.2,"depth":3,"height":6.4}
+}

@@ -1,0 +1,34 @@
+{
+  "method": "Original deterministic UV-associated pigment, vein, fissure and bedding fields; no photographs, copied textures or baked illumination",
+  "source_sha256": "2e459914eaf6f296b32b5bbddd55e03ab6e0efce3e1c00d0360219a18937f3cf",
+  "resolution": 1024,
+  "tiles": {
+    "0": "oak_sun",
+    "1": "oak_shade",
+    "2": "oak_late",
+    "3": "oak_dry",
+    "4": "ash_sun",
+    "5": "ash_shade",
+    "6": "hawthorn_green",
+    "7": "hawthorn_late",
+    "8": "grass_green",
+    "9": "grass_dry",
+    "10": "wheat_husk",
+    "11": "wheat_sun",
+    "12": "petal_ivory",
+    "13": "knapweed",
+    "14": "haw_red",
+    "15": "seed_brown"
+  },
+  "images": {
+    "textures\\bark_basecolor.png": "9b50a0856594505016ac836726221b942eaa058b4e537594932047fe44fee692",
+    "textures\\bark_normal.png": "2815aac5cc7fc46b7538c2729d84daccbf3a385244dbf54c3a63e59c42c814e0",
+    "textures\\bark_orm.png": "292cd86dc89a8c4e47371698f704c18e091849eae8d6357e3625b7596d3dff45",
+    "textures\\foliage_basecolor.png": "7535c4c6295219ffc274be91ba201d44a1c84de3c1edfad98af94f3c57afa5e0",
+    "textures\\foliage_normal.png": "31d228e2233b1e9c877bdea749ae03b4bd04496f520f7f59ed399e06518095e8",
+    "textures\\foliage_orm.png": "c30251ee1528f33212c06bb50c295e8a3d7cd14e4b744ea3fee346654eade531",
+    "textures\\limestone_basecolor.png": "11f9febfc1f3197d66c29b08cd2f5400015800097fe973aa741988b40b126ab2",
+    "textures\\limestone_normal.png": "0308a58f2c64f3ef97989a7a66546aab93a4beb7a8dcef92053e6a7dfb154ce1",
+    "textures\\limestone_orm.png": "cb2cdbf95c097e188814af0c2d0ee46f18bcd3ebc9990962656240488e0c5924"
+  }
+}

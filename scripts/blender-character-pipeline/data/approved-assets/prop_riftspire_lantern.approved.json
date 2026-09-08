@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.lantern",
+  "displayName": "Riftspire lantern",
+  "category": "prop",
+  "model": "prop_riftspire_lantern.glb",
+  "qc": "prop_riftspire_lantern.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_lantern"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "8b3f67ace0ce90169016460070ba9c8d0ebc9b2d8411e3e9ec11efc8d3c3637b",
+    "qcSha256": "15538db20c23d5800797af3a9017bb4c7b0ff09db55e691bac1879b2586cebb9",
+    "previews": {
+      "assembly": "5db0bb54fb329b2218558874e6841c886d5afcf64882708ecab75b7e880009ae"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/lantern-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.210Z",
+    "reviewHash": "93dfc47d70b27dc045a4de06edbe9cb079ae52587fa4a57d4eaecdbb1dbf65b7"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

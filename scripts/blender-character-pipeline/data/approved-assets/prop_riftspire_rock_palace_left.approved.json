@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.rock_palace_left",
+  "displayName": "Riftspire rock palace left",
+  "category": "prop",
+  "model": "prop_riftspire_rock_palace_left.glb",
+  "qc": "prop_riftspire_rock_palace_left.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_rock_palace_left"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "3920255afec1488830b4a2eb0b95faa3b981a3c710f32961d7170079a934f2ff",
+    "qcSha256": "f7bf8de6af0fe40f5aa85f208ec1abfd5b01f99f00feb34685538a850a4207d1",
+    "previews": {
+      "assembly": "49249bba94f49b39b27745e33048d6aeb938744963fa7ac37177331a0653449a"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/rock_palace_left-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:45:20.512Z",
+    "reviewHash": "bb7667b1c1b0f15e89e0676ca186276354681cc673246736ec235b8859070968"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.laundry_rig",
+  "displayName": "Riftspire laundry rig",
+  "category": "prop",
+  "model": "prop_riftspire_laundry_rig.glb",
+  "qc": "prop_riftspire_laundry_rig.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_laundry_rig"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "e9c10bcfbf5a70f0020631d8e6a55dfaf4c59d7d09e1b431b4c9474371cd168c",
+    "qcSha256": "c604e443d70119260fec7a39286efdcae695e10e733b6c37b280685124026c1f",
+    "previews": {
+      "assembly": "b6d237de49354cbc03f71bc1c082a692b2eb1dc9f569601d9e6ce69a7bb78449"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/laundry_rig-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.172212+00:00",
+    "reviewHash": "ab93ce5bd41d805c2b45391ff535f0eabbbf286aa321889209f828123a7913a6"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

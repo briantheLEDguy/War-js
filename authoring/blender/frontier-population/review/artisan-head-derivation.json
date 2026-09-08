@@ -1,0 +1,15 @@
+{
+  "state": "draft",
+  "inputs": [
+    {
+      "source": "authoring\\blender\\battle-prelate-reference-rebuild\\source\\head.json",
+      "retained": "foundations\\prelate-\\head.json",
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51"
+    },
+    {
+      "source": "authoring\\blender\\ember-arcanist-reference-rebuild\\source\\hair.json",
+      "retained": "foundations\\arcanist-\\hair.json",
+      "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0"
+    }
+  ]
+}

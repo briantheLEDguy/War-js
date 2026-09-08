@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 1,
+  "assetId": "body_civic_humanoid_v2_f",
+  "model": "body_civic_humanoid_v2_f.glb",
+  "modelSha256": "3edd6e13efed1d07ef51a8794852a3dc0af7e281e406265d2b58a77046a8ffb6",
+  "fileSizeBytes": 10059524,
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "boneCount": 56,
+  "totalTriangles": 36364,
+  "drawCalls": 4,
+  "maxInfluencesBeforeLimit": 6,
+  "unweightedVertices": 0,
+  "pbr": {
+    "baseColor": "texture-or-material",
+    "normal": "texture-or-flat-normal",
+    "roughness": "texture-or-scalar",
+    "metallic": "scalar",
+    "occlusion": "material-constant",
+    "maxTextureDimension": 2048
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "boneBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "reviewViewsPresent": true,
+    "skinSourcePresent": true,
+    "requiredAnimationClipsEmbedded": true,
+    "runtimeMaterialsOpaque": true,
+    "roundTripBindPose": true,
+    "authoringTopologyStable": true
+  },
+  "qcPassed": true,
+  "meshes": [
+    {
+      "name": "body_civic_humanoid_v2_f",
+      "vertices": 13380,
+      "triangles": 26756,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.high-poly",
+      "vertices": 1064,
+      "triangles": 2040,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.teeth_base",
+      "vertices": 3868,
+      "triangles": 7120,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.tongue01",
+      "vertices": 226,
+      "triangles": 448,
+      "drawCalls": 1
+    }
+  ],
+  "targets": [
+    {
+      "id": "hands/mindfront_hand_fingers_correction.target",
+      "weight": 0.7,
+      "sha256": "3c882b1d915f91ff5b5b46a047bf9f3ddddaa8cdeccfc9c2444f5a3c3ef451f3"
+    },
+    {
+      "id": "hands/mindfront_hand_thenar_eminence.target",
+      "weight": 0.38,
+      "sha256": "b0cfc43e4ed8c0ea702c27037484624c77fbcb03a12ec71a19a2465462fbb4a2"
+    },
+    {
+      "id": "hands/mindfront_hand_hypothenar.target",
+      "weight": 0.32,
+      "sha256": "6dc7eec8064f66e53a4c4097ffb5a702cec884ce5e01bbdacdd2612c58167fb3"
+    },
+    {
+      "id": "ears/mindfront_ear_details.target",
+      "weight": 0.34,
+      "sha256": "4358c2f5008e17021e9416fb1434bc11160f385cdba7083f0d1a9458328a8b9e"
+    },
+    {
+      "id": "nose/mindfront_nose_alar_crease.target",
+      "weight": 0.2,
+      "sha256": "34fd77abdc65112903e62cde58b1de12758c5348f1eae592dfcb083b669b3bc0"
+    },
+    {
+      "id": "cheek/elvs_high_chubby_cheekbones_1.target",
+      "weight": 0.08,
+      "sha256": "937774f73dce9415ebdc7992cc2381172996788a303a9c92edea034d29aa5d0d"
+    }
+  ],
+  "skin": {
+    "path": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\skins\\young_caucasian_female\\young_caucasian_female.mhmat",
+    "sha256": "0bdea7786201f0b1132a24088336a97496ccdc54e9984db65d253a6a6d66f24f"
+  },
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\civic_humanoid_v2_f\\review\\front.png",
+      "sha256": "7a15e0899b278856f2698c40e6d3f5db20ab7a470d4257950b416be22491c14d"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\civic_humanoid_v2_f\\review\\side.png",
+      "sha256": "dca3350cb6f15b756c2f9859757f8c0b687b321cd1a78a5879618b3754490749"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\civic_humanoid_v2_f\\review\\back.png",
+      "sha256": "6a5d3fbb8cced9c82fcf850f937ea6739ed0076aa4ab513fd6510fd335e6693b"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\civic_humanoid_v2_f\\review\\isometric.png",
+      "sha256": "8ecb24503e662e610e2f9db8c3ecdb72dbc54895ba67e17275607790a0eb4b22"
+    }
+  ],
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "requiredAnimationClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "missingRequiredClips": [],
+  "animationAudit": {
+    "animationPackId": "humanoid_game_v2_local_keyframes_v2",
+    "version": "2.0.0",
+    "framesPerSecond": 30,
+    "cost": "free_local_only",
+    "source": {
+      "kind": "project_authored_keyframes",
+      "module": "blender/anim_library.py",
+      "externalAsset": false,
+      "description": "Original deterministic keyframes authored in this repository, including MPFB rest-axis locomotion and equipment-aware carry/melee profiles; no third-party motion data or paid service is used."
+    },
+    "sourceHashes": [
+      {
+        "path": "blender/anim_library.py",
+        "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303"
+      },
+      {
+        "path": "blender/canonical_mpfb_animation_library.py",
+        "sha256": "6264d1bc3ad8cb2ec6fca12f0a9e20610b6a9a283a34ca667adbbfafa19f5911"
+      },
+      {
+        "path": "data/body-families/canonical-animation-pack.json",
+        "sha256": "dc467b6c08075d0ffe9ef0109877fa4e14f9224c4e65c44bd39af1a4103170f7"
+      }
+    ],
+    "coordinateConversion": {
+      "source": "legacy_y_up_forward_positive_z",
+      "target": "blender_z_up_forward_negative_y",
+      "translation": "(x, y, z) -> (x, -z, y)",
+      "rootMotion": "in_place_runtime",
+      "rotation": "armature-axis deltas are converted into each MPFB bone rest basis"
+    },
+    "profile": "unarmed",
+    "clips": [
+      {
+        "name": "idle",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "head",
+          "shin_L",
+          "shin_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 30
+      },
+      {
+        "name": "walk",
+        "durationFrames": 30,
+        "durationSeconds": 1.0,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 42
+      },
+      {
+        "name": "run",
+        "durationFrames": 20,
+        "durationSeconds": 0.6666666666666666,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "chest",
+          "foot_L",
+          "foot_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 45
+      },
+      {
+        "name": "combat_idle",
+        "durationFrames": 80,
+        "durationSeconds": 2.6666666666666665,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "hips",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 18
+      },
+      {
+        "name": "attack_melee",
+        "durationFrames": 30,
+        "durationSeconds": 1.0,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "forearm_R",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 16
+      },
+      {
+        "name": "attack_ranged",
+        "durationFrames": 40,
+        "durationSeconds": 1.3333333333333333,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 15
+      },
+      {
+        "name": "cast",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "forearm_L",
+          "forearm_R",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 23
+      },
+      {
+        "name": "death",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "head",
+          "hips",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 18
+      },
+      {
+        "name": "jump",
+        "durationFrames": 40,
+        "durationSeconds": 1.3333333333333333,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "hips",
+          "shin_L",
+          "shin_R",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 30
+      }
+    ],
+    "lifecycle": {
+      "status": "draft",
+      "reviewRequired": true,
+      "limitations": [
+        "This is a bounded procedural baseline, not captured human motion.",
+        "Equipped stress-pose and animation review remains mandatory before promotion."
+      ]
+    }
+  },
+  "materialPreparation": [
+    {
+      "material": "body_civic_humanoid_v2_f.body",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "material": "body_civic_humanoid_v2_f.high-poly",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "material": "body_civic_humanoid_v2_f.teeth_base",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "material": "body_civic_humanoid_v2_f.tongue01",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    }
+  ],
+  "runtimeMaterials": [
+    {
+      "name": "body_civic_humanoid_v2_f.body",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.high-poly",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.teeth_base",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    },
+    {
+      "name": "body_civic_humanoid_v2_f.tongue01",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    }
+  ],
+  "helperStripping": {
+    "verticesBefore": 19158,
+    "bodyVerticesAfter": 13380,
+    "helperVerticesRemoved": 5778,
+    "shapeKeysBaked": 17,
+    "maskModifiersRemoved": true
+  },
+  "roundTrip": {
+    "passed": true,
+    "checks": {
+      "meshCountMatches": true,
+      "allMeshesRemainSkinned": true,
+      "triangleCountMatches": true,
+      "boneCountMatches": true,
+      "bindBoundsMatch": true
+    },
+    "expected": {
+      "meshNames": [
+        "body_civic_humanoid_v2_f",
+        "body_civic_humanoid_v2_f.high-poly",
+        "body_civic_humanoid_v2_f.teeth_base",
+        "body_civic_humanoid_v2_f.tongue01"
+      ],
+      "meshCount": 4,
+      "skinnedMeshCount": 4,
+      "vertices": 18538,
+      "triangles": 36364,
+      "boundsMin": [
+        -0.5366861820220947,
+        -0.32764488458633423,
+        -4.6027430755657406e-08
+      ],
+      "boundsMax": [
+        0.5366861820220947,
+        0.09912239760160446,
+        1.75999915599823
+      ],
+      "boundsCenter": [
+        0.0,
+        -0.11426123976707458,
+        0.879999577999115
+      ],
+      "boundsExtent": [
+        1.0733723640441895,
+        0.4267672896385193,
+        1.75999915599823
+      ]
+    },
+    "observed": {
+      "meshNames": [
+        "body_civic_humanoid_v2_f.001",
+        "body_civic_humanoid_v2_f.high-poly.001",
+        "body_civic_humanoid_v2_f.teeth_base.001",
+        "body_civic_humanoid_v2_f.tongue01.001"
+      ],
+      "meshCount": 4,
+      "skinnedMeshCount": 4,
+      "vertices": 20340,
+      "triangles": 36364,
+      "boundsMin": [
+        -0.5366863012313843,
+        -0.32764509320259094,
+        -2.0514288934236902e-08
+      ],
+      "boundsMax": [
+        0.5366864204406738,
+        0.09912236779928207,
+        1.75999915599823
+      ],
+      "boundsCenter": [
+        5.960464477539063e-08,
+        -0.11426135897636414,
+        0.879999577999115
+      ],
+      "boundsExtent": [
+        1.073372721672058,
+        0.4267674684524536,
+        1.75999915599823
+      ]
+    },
+    "boneCountExpected": 56,
+    "boneCountObserved": 56,
+    "maximumExtentDelta": 3.5762786865234375e-07,
+    "maximumCenterDelta": 1.1920928955078125e-07,
+    "tolerance": 0.00879999577999115
+  },
+  "authoringSource": {
+    "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\civic_humanoid_v2_f\\source.blend",
+    "sha256": "863c9315f0fe8dd137df0725dcb31be9e4426b85a1c4f3f84394f6b426019440",
+    "bodyVertices": 19158,
+    "shapeKeys": 17,
+    "maskModifiers": [
+      "Hide helpers"
+    ],
+    "savedBeforeRuntimeOptimization": true
+  }
+}

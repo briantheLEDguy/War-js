@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.apothecary",
+  "displayName": "Riftspire apothecary",
+  "category": "prop",
+  "model": "prop_riftspire_apothecary.glb",
+  "qc": "prop_riftspire_apothecary.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_apothecary"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "d5cb34b85993ac7f46ae5bf34ea23948189f648154de7e3d12267861fa05fd1a",
+    "qcSha256": "9089574e7407917a48818dd4ebe1f6fbdacc1fb385190460427abf510baf3d37",
+    "previews": {
+      "assembly": "52d93f4350bcb634614e63e8293637a88ab875a329526a7131ae9a98fd6c7422"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/apothecary-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.159702+00:00",
+    "reviewHash": "28dccdfc4a9d35078fc48fbe57c61e518464cd389fd1ac90d25416fa34c00be5"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

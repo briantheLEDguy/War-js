@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.oak_hedgerow",
+  "displayName": "Sunmeadow leaning hedgerow oak",
+  "category": "prop",
+  "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+  "qc": "frontier_sunmeadow_oak_hedgerow_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_oak_hedgerow"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+    "qcSha256": "d366ff31edb29da979cf5232603e4a54af2e4d7411d4bed257d9aeb258a3f2c7",
+    "previews": {
+      "assembly": "995e5b29e314f4aac178308542e04f25759dd59a3d8adf7b26ca7ba93b5f73d3"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root internal visual review",
+    "reviewedAt": "2026-09-07T18:27:22.545Z",
+    "reviewHash": "55ebe62506be7b31cef28b990ee513fe76eaaf2f4019173dc8f112026d934c49"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_canopy_v2_ground_view",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/source/design.json",
+    "sourceSha256": "239762a5e304ac145b1b7e6c5e3b01d8873e91d534b08b826f2102b8783c812b"
+  },
+  "approvalState": "approved"
+}

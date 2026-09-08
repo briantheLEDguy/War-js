@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.communal_hearth",
+  "modelSha256": "b9712482c51437c3a98fff7ce5095116375493686edad5b8947db142282081fb",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_communal_hearth.glb",
+    "triangles": 1990,
+    "sha256": "b9712482c51437c3a98fff7ce5095116375493686edad5b8947db142282081fb",
+    "bytes": 143724,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_communal_hearth.glb",
+      "triangles": 1990,
+      "sha256": "b9712482c51437c3a98fff7ce5095116375493686edad5b8947db142282081fb",
+      "bytes": 143724,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_communal_hearth_lod1.glb",
+      "triangles": 1990,
+      "sha256": "5923433719b1e26ead283c365e3b3696c34be6cb1c308d07e33ca2f6e460d8ca",
+      "bytes": 143724,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_communal_hearth_lod2.glb",
+      "triangles": 1898,
+      "sha256": "13ca3681887784717e8604a589e0ed5fde03e0a4de2e64911b710142791d15e5",
+      "bytes": 131520,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "39f348dd300ed040b2f0209e0c3ef6c4f817cb0cfd7e8533fd82bd3df3e55165",
+  "textureMaxDimension": 2048
+}

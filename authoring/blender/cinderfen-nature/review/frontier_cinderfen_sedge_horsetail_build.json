@@ -1,0 +1,171 @@
+{
+  "asset_id": "frontier_cinderfen_sedge_horsetail",
+  "displayName": "Cinderfen rust sedge and marsh horsetail",
+  "source_sha256": "403dcba2b92cbb83bab4e444a49794898bdfd070de770c0876829f03e8969595",
+  "builder_sha256": "8f60d3ed094dceb7429b795ed9df2e58c404724c63e7333175078db134ce0e0f",
+  "paint_records_sha256": "839d73f9fac534d902adf231d9ceb420e373a790f5baa1fee6bc95577ef07855",
+  "contract": {
+    "kind": "foliage",
+    "plantedDatum": 0,
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false
+  },
+  "approval": "pending_visual_review",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "sha256": "203af91364a2fc0643f14e0f0453c08ec768e6f785bbb662c4969e05886cc133",
+      "bytes": 1951312,
+      "triangles": 29784,
+      "materials": 3,
+      "bounds_z_up": {
+        "minimum": [
+          -1.3085949420928955,
+          -1.1361194849014282,
+          -0.035616498440504074
+        ],
+        "maximum": [
+          1.2939281463623047,
+          1.0350004434585571,
+          1.0156265497207642
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
+        "input_glb_sha256": "1d3e16299bcbb6ce6184ffe453c786eac3a35b3f9cd93c8ce771ff7694c0f780",
+        "output_glb_sha256": "203af91364a2fc0643f14e0f0453c08ec768e6f785bbb662c4969e05886cc133",
+        "embedded_bytes": 4686092,
+        "externalized_bytes": 1951312
+      },
+      "external_textures": {
+        "../textures/cinderfen_nature/ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403.png": "ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403",
+        "../textures/cinderfen_nature/2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5.png": "2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5",
+        "../textures/cinderfen_nature/5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d.png": "5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d",
+        "../textures/cinderfen_nature/af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00.png": "af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00",
+        "../textures/cinderfen_nature/d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a.png": "d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a",
+        "../textures/cinderfen_nature/72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27.png": "72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27",
+        "../textures/cinderfen_nature/afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f.png": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f",
+        "../textures/cinderfen_nature/4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630",
+        "../textures/cinderfen_nature/03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0.png": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0"
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_sedge_horsetail_lod1.glb",
+      "sha256": "2ed836551e73da97f654d3c9105634a6ad5213d6ea35ddfe8ddeb6b1e4db68de",
+      "bytes": 1056972,
+      "triangles": 15312,
+      "materials": 3,
+      "bounds_z_up": {
+        "minimum": [
+          -1.2042133808135986,
+          -1.1328258514404297,
+          -0.035616498440504074
+        ],
+        "maximum": [
+          1.2939281463623047,
+          1.0350004434585571,
+          1.0156265497207642
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
+        "input_glb_sha256": "7656d138f03cff563e60391f8d7b4acc31ac926e0652ca0a704a0a73d1650882",
+        "output_glb_sha256": "2ed836551e73da97f654d3c9105634a6ad5213d6ea35ddfe8ddeb6b1e4db68de",
+        "embedded_bytes": 3791756,
+        "externalized_bytes": 1056972
+      },
+      "external_textures": {
+        "../textures/cinderfen_nature/ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403.png": "ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403",
+        "../textures/cinderfen_nature/2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5.png": "2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5",
+        "../textures/cinderfen_nature/5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d.png": "5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d",
+        "../textures/cinderfen_nature/af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00.png": "af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00",
+        "../textures/cinderfen_nature/d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a.png": "d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a",
+        "../textures/cinderfen_nature/72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27.png": "72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27",
+        "../textures/cinderfen_nature/afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f.png": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f",
+        "../textures/cinderfen_nature/4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630",
+        "../textures/cinderfen_nature/03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0.png": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0"
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_sedge_horsetail_lod2.glb",
+      "sha256": "10bef866c759bd97183d24fd5d1a6ee4c2abe864f3938ca0c304a8a3a967a057",
+      "bytes": 379876,
+      "triangles": 5160,
+      "materials": 2,
+      "bounds_z_up": {
+        "minimum": [
+          -1.1721504926681519,
+          -1.1328258514404297,
+          -0.03573109954595566
+        ],
+        "maximum": [
+          1.2067657709121704,
+          1.0350004434585571,
+          0.8392199277877808
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "e6562d0694da1f018b518e0277edb268845d849ceea6709dcd4aa8d8c0bdd077",
+        "input_glb_sha256": "5c179639c6cdd7bd73c8e50b9033cee9655c94cabf7dd2da8ca0ada4dd962dd5",
+        "output_glb_sha256": "10bef866c759bd97183d24fd5d1a6ee4c2abe864f3938ca0c304a8a3a967a057",
+        "embedded_bytes": 2231872,
+        "externalized_bytes": 379876
+      },
+      "external_textures": {
+        "../textures/cinderfen_nature/ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403.png": "ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403",
+        "../textures/cinderfen_nature/2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5.png": "2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5",
+        "../textures/cinderfen_nature/5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d.png": "5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d",
+        "../textures/cinderfen_nature/af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00.png": "af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00",
+        "../textures/cinderfen_nature/d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a.png": "d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a",
+        "../textures/cinderfen_nature/72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27.png": "72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27"
+      }
+    }
+  ],
+  "texture_sha256": {
+    "textures/source/alder_bark_baseColor.png": "967a544c91285e6ede7ea76abf794713e53271fc5eae3c6a64015fd2a1f745cf",
+    "textures/source/alder_bark_height.png": "915adfcba8009e642b81248bc00a3a4edd9fe680f1af6887a056a43e52e5e051",
+    "textures/source/alder_bark_normal.png": "5d4ab53cc359f44aef1d3ac76097ee62b7ab28cffe61abdb335ad2acc16d21e4",
+    "textures/source/alder_bark_orm.png": "9cde4d9d23a90ae8b2f9935f3a7e16214bfbbbf277d6087538656e7ddf78593f",
+    "textures/source/alder_leaf_baseColor.png": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2",
+    "textures/source/alder_leaf_height.png": "9123d43873c9cda07506f1beabdf250b48ac7012aa78f345bfdc308703d8a477",
+    "textures/source/alder_leaf_normal.png": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28",
+    "textures/source/alder_leaf_orm.png": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4",
+    "textures/source/basalt_baseColor.png": "dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24",
+    "textures/source/basalt_height.png": "0b75e094d47640504a698a04db3f502a6902a5bf9e801ed14c5a87c69dca9a33",
+    "textures/source/basalt_normal.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
+    "textures/source/basalt_ochre_baseColor.png": "24ac0c5a474aef0e42de7a3a74ee65b3437ed3aad0ece802d06d747f8aaccd06",
+    "textures/source/basalt_ochre_height.png": "3e0d23470046e1e05ea94d47cfd25517c704fa40b4521d899de0a6f52549da65",
+    "textures/source/basalt_ochre_normal.png": "5e65a0e4d588e1c82a8404f0cd9fb5d1f9a2ec034e7f5c220074cf2b5be49bc1",
+    "textures/source/basalt_ochre_orm.png": "3f129cf1195b12f65db006d75059a14fd6eeb32e58e977b8029166964f737d68",
+    "textures/source/basalt_orm.png": "8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d",
+    "textures/source/horsetail_baseColor.png": "72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27",
+    "textures/source/horsetail_height.png": "2d27d026db38f73a6d83fcbaee68dab35f1a2cd9bda67c9fd4359daab022feed",
+    "textures/source/horsetail_normal.png": "af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00",
+    "textures/source/horsetail_orm.png": "d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a",
+    "textures/source/reed_leaf_baseColor.png": "0db70f752472cbbd84fd65c8ef4a8059766cadea94335d9a709f61fbdb367cc7",
+    "textures/source/reed_leaf_height.png": "362f84e1cba42bcd377eee558e0afc2cc08b454d9d8b2f9b5171a6ab0335b50b",
+    "textures/source/reed_leaf_normal.png": "583ad0094955f970135056071825b8ea1a395b5dc1ffa4adb625c6cafbe9bb10",
+    "textures/source/reed_leaf_orm.png": "03c3cdd77bf74ed096c487356d0a372ba5b412d1e4f4ed65cdf8e7afb9f5bbb6",
+    "textures/source/reed_stem_baseColor.png": "2f65ca5ed98bade3b4f6e9c737c3809331e106e0525607d8b3a726f7c7a23309",
+    "textures/source/reed_stem_height.png": "092782ce79ac63158a03b8298fac3b6a035356c293d2033c2f3e60263a056a97",
+    "textures/source/reed_stem_normal.png": "90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72",
+    "textures/source/reed_stem_orm.png": "7929de07d09bc2ffdd848d22ff1c488290bbe2e999d6ccafc417b74e47f32b3a",
+    "textures/source/sedge_leaf_baseColor.png": "5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d",
+    "textures/source/sedge_leaf_height.png": "45b14e41c12684f34a73b6b2c69d45793403bf9cd720cc788c9eaf125ffa252d",
+    "textures/source/sedge_leaf_normal.png": "ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403",
+    "textures/source/sedge_leaf_orm.png": "2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5",
+    "textures/source/seed_scales_baseColor.png": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0",
+    "textures/source/seed_scales_height.png": "21a57db88b3237633570890e07e6ba194ca19b228ed77a3ef6574fb6a65b4262",
+    "textures/source/seed_scales_normal.png": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f",
+    "textures/source/seed_scales_orm.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
+  },
+  "master": "masters/frontier_cinderfen_sedge_horsetail.blend",
+  "master_sha256": "a9a00c0d7fddaf33b565a8b6446c5b5929b2a3efc80c4981b374fba2f0cd85a5"
+}

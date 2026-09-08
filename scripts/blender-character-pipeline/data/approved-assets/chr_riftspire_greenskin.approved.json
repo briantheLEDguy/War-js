@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.riftspire.greenskin",
+  "displayName": "Riftspire greenskin inhabitant",
+  "category": "character",
+  "model": "chr_riftspire_greenskin_lod1.glb",
+  "qc": "chr_riftspire_greenskin_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftspire_greenskin"
+  },
+  "compatibility": {
+    "bodyFamily": "mire_brutish_v1",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "approvalState": "approved",
+  "hashes": {
+    "modelSha256": "071f6bc8c7a7bda2e329852698db3bfbe061d4dc2c3a0aebb2e614cee85dde11",
+    "qcSha256": "c67da3550de8485d5eb49683f6896ca3f5357cb58eb4cbb9ab48f8eed7cb1318",
+    "previews": {
+      "front": "90eff9b1ac6c050ef48bb874d46c65489116cbd176375ddba78cfa522405e65c"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/riftspire-city/review/population_greenskin-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:26:05.956Z",
+    "reviewHash": "2491a973c112774cbd54c9a35c50c5a3ed3bdd3846340fedfa8c5aca3f9a3651"
+  },
+  "provenance": {
+    "sourcePackage": "authoring/blender/riftspire-city",
+    "sourceModel": "chr_npc_greenskin_m_ambient_m.glb",
+    "sourceSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+    "geometry": "Adapted reviewed anatomy and rig with fitted Riftbound apparel, headgear and faction features. Original upstream anatomy licenses and provenance remain applicable.",
+    "limitations": "Middle LOD used for residents. Dark Elf uses the existing civic idle and generated walking cycle."
+  }
+}

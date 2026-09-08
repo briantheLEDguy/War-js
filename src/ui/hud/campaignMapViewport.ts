@@ -16,6 +16,17 @@ export interface MapZoomAnchor {
   pointerY: number;
 }
 
+/** React's delegated wheel listener is passive; this viewport must cancel native scrolling. */
+export function bindMapWheel(viewport: HTMLElement, zoom: (event: WheelEvent) => void): () => void {
+  const handleWheel = (event: WheelEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    zoom(event);
+  };
+  viewport.addEventListener('wheel', handleWheel, { passive: false });
+  return () => viewport.removeEventListener('wheel', handleWheel);
+}
+
 export function shouldStartMapPan(button: number, targetIsInteractive: boolean): boolean {
   return button === 0 && !targetIsInteractive;
 }
@@ -59,10 +70,11 @@ export function calculateZoomAnchor(
   scroll: { left: number; top: number },
   pointer: { x: number; y: number },
   currentScale: number,
+  offset = { offsetX: 0, offsetY: 0 },
 ): MapZoomAnchor {
   return {
-    contentX: (scroll.left + pointer.x) / Math.max(0.01, currentScale),
-    contentY: (scroll.top + pointer.y) / Math.max(0.01, currentScale),
+    contentX: (scroll.left + pointer.x - offset.offsetX) / Math.max(0.01, currentScale),
+    contentY: (scroll.top + pointer.y - offset.offsetY) / Math.max(0.01, currentScale),
     pointerX: pointer.x,
     pointerY: pointer.y,
   };
@@ -71,9 +83,10 @@ export function calculateZoomAnchor(
 export function calculateZoomedScroll(
   anchor: MapZoomAnchor,
   nextScale: number,
+  offset = { offsetX: 0, offsetY: 0 },
 ): { left: number; top: number } {
   return {
-    left: anchor.contentX * nextScale - anchor.pointerX,
-    top: anchor.contentY * nextScale - anchor.pointerY,
+    left: anchor.contentX * nextScale + offset.offsetX - anchor.pointerX,
+    top: anchor.contentY * nextScale + offset.offsetY - anchor.pointerY,
   };
 }

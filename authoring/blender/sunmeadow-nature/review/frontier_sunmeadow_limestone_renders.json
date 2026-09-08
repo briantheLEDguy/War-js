@@ -1,0 +1,86 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_limestone",
+      "level": 0,
+      "model": "frontier_sunmeadow_limestone_lod0.glb",
+      "model_sha256": "fba74c19a4d665d7c1133ff57867bc4794d67cc3538b2542fd8a32efd0165b70",
+      "image": "review\\frontier_sunmeadow_limestone_lod0_reimport.png",
+      "image_sha256": "3c27119d2237bcec19f53f6e9fc6d31603f4a02e23c9086ae727e6809680042f",
+      "bounds_blender": {
+        "min": [
+          -2.9100000858306885,
+          -2.0490000247955322,
+          -0.042493075132369995
+        ],
+        "max": [
+          2.990000009536743,
+          1.902999997138977,
+          2.4018852710723877
+        ],
+        "span": [
+          5.900000095367432,
+          3.952000141143799,
+          2.44437837600708
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_limestone",
+      "level": 1,
+      "model": "frontier_sunmeadow_limestone_lod1.glb",
+      "model_sha256": "9000fb30b6c52a40f65c3419f64a4ab954987c142ecb36c26bc207e90ca65fd0",
+      "image": "review\\frontier_sunmeadow_limestone_lod1_reimport.png",
+      "image_sha256": "44283f24519770a64ff9300df847aa7286c583cad297b141d4736d53c2cafb86",
+      "bounds_blender": {
+        "min": [
+          -2.9100000858306885,
+          -2.0490000247955322,
+          -0.03719997778534889
+        ],
+        "max": [
+          2.990000009536743,
+          1.902999997138977,
+          2.4017081260681152
+        ],
+        "span": [
+          5.900000095367432,
+          3.952000141143799,
+          2.438908100128174
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_limestone",
+      "level": 2,
+      "model": "frontier_sunmeadow_limestone_lod2.glb",
+      "model_sha256": "d9223bc807947c8d3ca0e5fff8da12d8bae6819dd2bcc5173863f71f8989d7bc",
+      "image": "review\\frontier_sunmeadow_limestone_lod2_reimport.png",
+      "image_sha256": "69135bdfa4d38cc5adb864af85c572e0c4608f3f5091b0317968d8fc2f43be36",
+      "bounds_blender": {
+        "min": [
+          -2.9100000858306885,
+          -2.0490000247955322,
+          -0.02849718928337097
+        ],
+        "max": [
+          2.990000009536743,
+          1.902999997138977,
+          2.4017081260681152
+        ],
+        "span": [
+          5.900000095367432,
+          3.952000141143799,
+          2.4302053451538086
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

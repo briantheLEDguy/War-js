@@ -1,0 +1,45 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_red_fox",
+      "level": 0,
+      "state": "rest",
+      "model": "frontier_sunmeadow_red_fox_lod0.glb",
+      "model_sha256": "25c11e195d047e482ad918e6577e418b4007af0a51e4c2701b0ea87f007597e4",
+      "image": "review\\frontier_sunmeadow_red_fox_lod0_reimport.png",
+      "image_sha256": "45492163f3066dd06bb378966a4053205df0702594bb62591f1ff5096bf9b1ea",
+      "bounds_blender": {
+        "min": [
+          -0.9510578513145447,
+          -0.9999999403953552,
+          -1.0
+        ],
+        "max": [
+          0.9510578513145447,
+          0.9999999403953552,
+          1.0
+        ],
+        "span": [
+          1.9021157026290894,
+          1.9999998807907104,
+          2.0
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.9510578513145447,
+          -0.9999999403953552,
+          -1.0
+        ],
+        "max": [
+          0.9510578513145447,
+          0.9999999403953552,
+          1.0
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

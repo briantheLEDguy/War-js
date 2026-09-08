@@ -1,0 +1,1815 @@
+{
+  "asset_id": "frontier_supply_officer_kit",
+  "approval": "pending_visual_review",
+  "source_sha256": "b5108bc8c37aa7f7037755d43bae9c2c04c8bff872ea4280ae3a2d79a193559e",
+  "master": "masters\\frontier_supply_officer_kit.blend",
+  "master_sha256": "ac5c45918688de5fa571ad3be8efa9e0b49d680090a416e3409d76b268ff77b9",
+  "lods": [
+    {
+      "level": 0,
+      "path": "runtime\\frontier_supply_officer_kit_lod0.glb",
+      "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+      "bytes": 7448840,
+      "triangles": 13048,
+      "materials": 1,
+      "textures": {
+        "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod0_baseColor.png",
+        "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod0_normal.png",
+        "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod0_roughness.png",
+        "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod0_metallic.png",
+        "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod0_occlusion.png",
+        "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod0_orm.png"
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_supply_officer_kit",
+        "level": 0,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "b985c532ce1d0549e781c74f62dec27b23a70265956d069662bc40a4400d13cb",
+        "output_glb_sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+        "vertices": [
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1974,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.5924943266879118,
+              -0.7666469428497122,
+              -0.2473922752670912,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2028,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9417247005189924,
+              -0.32995480255586307,
+              0.06545545586683721,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2057,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9040970110123748,
+              -0.4232889183880764,
+              -0.058609608839696445,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2112,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.7271571162256742,
+              -0.6836158647062456,
+              0.06254500654963134,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2168,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.3020280319197513,
+              -0.5113716785398481,
+              0.8045359372470692,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2248,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9578635310035913,
+              -0.28697378694578346,
+              0.01197921447041562,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2378,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.7389680853190529,
+              0.3054812357483179,
+              0.6005059395922522,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2402,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.17069587575904618,
+              -0.12138037870216124,
+              0.9778188593318152,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2411,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.6288052443612364,
+              -0.6277996543475055,
+              -0.458771793667569,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2418,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.022512093548992296,
+              0.022691089609489335,
+              -0.9994890295027633,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2439,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.02732212553553309,
+              -0.9187937449004778,
+              0.39379125915639157,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2472,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.8191968294804238,
+              -0.2932304619478907,
+              -0.4928817817236176,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2483,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.46109717260092165,
+              0.8872636519981005,
+              -0.012353512149558515,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2490,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.9936254849719451,
+              0.11178614980412885,
+              0.014568882120323014,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2505,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.5237111051713124,
+              -0.8354409174333025,
+              0.16662878442347293,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2510,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9162566799462865,
+              -0.4005913529215243,
+              0.0005142162105574522,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2614,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.44361781309012266,
+              -0.8403237611712181,
+              -0.3115432751965523,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2657,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9843228916336834,
+              -0.14311247824941536,
+              -0.10308862000829484,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2665,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9852826349325648,
+              0.008708189851487896,
+              0.17071114998690753,
+              -1.0
+            ],
+            "method": "adjacent_geometric_edge"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2716,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9843142416368522,
+              -0.14333321168705365,
+              -0.10286429962986461,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2813,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.9871891993789744,
+              -0.14334874373671114,
+              0.07006156077769132,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2817,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.9777998124234754,
+              -0.1338746759280372,
+              -0.16119893910872798,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2889,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9940544991260749,
+              0.10623383437709726,
+              -0.023875200538380575,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2901,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.6968974798732065,
+              0.19449703316255518,
+              0.6902932758164009,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3158,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.2714294601990478,
+              -0.9612778236880035,
+              0.04765494540663343,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3280,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9921901547551054,
+              0.0048191576300754555,
+              -0.12464137566144197,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3373,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.3396786994824159,
+              -0.4166614457375988,
+              0.8432150501229141,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3383,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.7372983579912855,
+              0.5058998200425462,
+              -0.44772369089012204,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3390,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.17079766133094076,
+              -0.5925905158629204,
+              0.7871878043981622,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3402,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.04174098475299127,
+              -0.5711536143286525,
+              0.8197812141243341,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3528,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.8263055086140995,
+              0.4609103196836479,
+              -0.32369875446642044,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3537,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.7525066958554226,
+              -0.5528827599918054,
+              0.35784679179307766,
+              -1.0
+            ],
+            "method": "adjacent_geometric_edge"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3575,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9902431887920692,
+              -0.01768106433725796,
+              -0.1382237570565066,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3585,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9171805946311958,
+              0.3922610089573554,
+              0.07007893894547419,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3595,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9648876541584046,
+              -0.2590062391965066,
+              0.04367588476462512,
+              -1.0
+            ],
+            "method": "adjacent_geometric_edge"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3748,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.6916686363404789,
+              0.7158643290471896,
+              0.09556547441790614,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3750,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.686301985292792,
+              -0.7246064625402,
+              -0.06273005203369529,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3770,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.941808980415657,
+              -0.21318338242409868,
+              0.25990130793561045,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3776,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.6847516748123962,
+              -0.675900860416295,
+              0.2725310454427722,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3793,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9377040466929709,
+              -0.3429478846818557,
+              0.055658505260807026,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3837,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.6744565297020962,
+              0.7127333599585718,
+              -0.19266433801918373,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 3843,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.8426353909319404,
+              0.5239336888722631,
+              -0.12433457931596721,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 4799,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.6561522857527498,
+              0.3859492712482612,
+              -0.6484653714149877,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 4807,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9363749415287728,
+              0.3438090604711925,
+              -0.07069157527529968,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 4836,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.8823246674638838,
+              0.4683740320025608,
+              -0.04614051723172311,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 4943,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.31540317626967523,
+              0.5099324846835779,
+              -0.8003060023912308,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5033,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.91040887661824,
+              0.40610762245153254,
+              -0.07894476779038626,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5165,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.08778579124904404,
+              -0.6627893290106529,
+              0.7436423604155346,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5185,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.3260327534331966,
+              0.36210814439736067,
+              0.8732584585618788,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5191,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.1214501120746325,
+              0.1364968274144273,
+              -0.9831675779758277,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5194,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.6470258017321205,
+              0.2971689866000696,
+              0.7021739138532522,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5202,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.6586817239054168,
+              0.2521906208219212,
+              0.7088993421935461,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5206,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.1343349775906514,
+              0.12451298470177262,
+              -0.9830822093987741,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5210,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.000298817319154504,
+              0.27251380582426243,
+              -0.9621518260354682,
+              -1.0
+            ],
+            "method": "adjacent_geometric_edge"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5221,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.0894316978554326,
+              -0.17984490361890815,
+              0.9796212441862417,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5225,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.09024012866763927,
+              -0.18082532138924107,
+              0.9793665924068093,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5230,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.0344656998699584,
+              -0.21444956504452495,
+              0.9761267845852238,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5238,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.15346418414653926,
+              -0.05773784069850708,
+              0.9864659578189765,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5316,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.6926111067676698,
+              0.5877137253482226,
+              0.4181894688049633,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5381,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9984029088850035,
+              -0.05605751669113089,
+              -0.007013298253095394,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5511,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9996390181046645,
+              -0.02632300543631896,
+              0.005378928103418681,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5575,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9671977368270195,
+              0.16632512875515273,
+              0.19200127453033627,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5576,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9089978626863089,
+              -0.4160951588958402,
+              -0.024242614858298747,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5578,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.6656141209679498,
+              0.7110618515496312,
+              -0.22660292416223055,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5652,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.13582121815832426,
+              0.27226176505986405,
+              0.9525891706210377,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5657,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.6075918651434633,
+              -0.14930325240546755,
+              -0.7800901641686278,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5664,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9209038366973887,
+              -0.03384198070832569,
+              -0.3883179675185872,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5669,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.8945564716874461,
+              -0.27482575442882556,
+              0.35247627390327185,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5915,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9839491616131322,
+              -0.10099543218633038,
+              0.14711889762471217,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5939,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9979620243789386,
+              0.0637565448392768,
+              0.0026269540627749735,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 5957,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9195702906129016,
+              -0.025342700240358305,
+              0.3921074191680527,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6139,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.13542171036135517,
+              0.5932407362393762,
+              -0.7935530160165534,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6146,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.5832251292539055,
+              -0.5246003572646307,
+              0.6201958672585517,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6275,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.5689505247014024,
+              -0.50820821829793,
+              -0.6465444356704668,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6316,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.807267168226706,
+              -0.35097592311622827,
+              0.47448458404456784,
+              -1.0
+            ],
+            "method": "adjacent_geometric_edge"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6347,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.37292559672822545,
+              -0.8612355663786342,
+              0.3452532382315482,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6517,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.9931010725009984,
+              -0.05500073265561359,
+              -0.10356244109093095,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6519,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9951011261131346,
+              0.051210943156873086,
+              0.08456469777250317,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6533,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9983947008826896,
+              0.0011814997305432976,
+              0.056627072215958786,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6560,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.9620099743561965,
+              0.265262560527147,
+              0.06459553561796336,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6561,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9741095228568635,
+              0.21014688739036383,
+              0.08336020153355786,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6572,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.8469414976249672,
+              0.5283964071079023,
+              0.05905367521363546,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 6586,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.8146091979497886,
+              0.42952885332024804,
+              0.38976508153116396,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          }
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "path": "runtime\\frontier_supply_officer_kit_lod1.glb",
+      "sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+      "bytes": 2163436,
+      "triangles": 7131,
+      "materials": 1,
+      "textures": {
+        "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod1_baseColor.png",
+        "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod1_normal.png",
+        "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod1_roughness.png",
+        "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod1_metallic.png",
+        "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod1_occlusion.png",
+        "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod1_orm.png"
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_supply_officer_kit",
+        "level": 1,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "76a8fb6cdd50ff691634795a7c6395e44c347b674e1ae2475b112280421eff32",
+        "output_glb_sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+        "vertices": [
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2229,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.9436725320198911,
+              -0.32230318823283977,
+              0.07485190155309504,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2231,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.6226855702382854,
+              0.762607193405625,
+              0.17519403295494115,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2268,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.9838865589993635,
+              0.1169005032373047,
+              0.1352830786286915,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2270,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.9904885819016143,
+              0.120845055650445,
+              0.06579393321097403,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2271,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.9921343207800234,
+              0.12456131257864454,
+              -0.012408422101416596,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2683,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.73531720329269,
+              -0.324899383747881,
+              0.5947680228308041,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2702,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.27220766955563874,
+              0.9026716405175352,
+              -0.3332970057478312,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 2923,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.1454949210004813,
+              0.0561932031171555,
+              -0.9877618902784708,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          }
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "path": "runtime\\frontier_supply_officer_kit_lod2.glb",
+      "sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+      "bytes": 676924,
+      "triangles": 2557,
+      "materials": 1,
+      "textures": {
+        "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod2_baseColor.png",
+        "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod2_normal.png",
+        "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod2_roughness.png",
+        "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod2_metallic.png",
+        "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod2_occlusion.png",
+        "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_supply_officer_kit_lod2_orm.png"
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_supply_officer_kit",
+        "level": 2,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "82921fe01a606082e09c9581597556c09b7e8fb4130e397e6f22fe3b3945d68a",
+        "output_glb_sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+        "vertices": [
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1015,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.8520816742093684,
+              -0.42193771815484316,
+              -0.30971823077572236,
+              1.0
+            ],
+            "method": "adjacent_geometric_edge"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1042,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.9997200188882509,
+              -0.014658607527079903,
+              0.018574419491398347,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1062,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.9919525658739223,
+              0.12255461278948303,
+              0.031787952751972916,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1064,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.9918788725396243,
+              -0.12502127827076953,
+              0.023366261769198666,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1441,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.1454844574469883,
+              0.05617924022396585,
+              -0.9877642257184723,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Supply officer body and pose must use an approved existing race profile; belt fit is profile-specific."
+  ]
+}

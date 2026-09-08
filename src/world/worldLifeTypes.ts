@@ -2,12 +2,14 @@ export type WorldLifeActorKind = 'citizen' | 'guard' | 'deer' | 'bird';
 export type WorldLifeEmitterKind = 'smoke' | 'embers' | 'motes';
 
 export interface WorldLifeActorSpawn {
+  y?: number;
+  approvedOnly?: boolean;
   id: string;
   kind: WorldLifeActorKind;
   x: number;
   z: number;
   /** Authored, unobstructed loop from the spawn through these points and back. */
-  route?: Array<{ x: number; z: number }>;
+  route?: Array<{ x: number; y?: number; z: number }>;
   speed?: number;
   pauseSeconds?: number;
   scale?: number;

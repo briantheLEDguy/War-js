@@ -1,0 +1,23 @@
+{
+  "revision": "riftspire-crater-v3",
+  "durationSeconds": 10,
+  "browser": "Codex in-app browser, local host",
+  "concurrentAuthoringJobs": false,
+  "method": "Foreground runtime review button. Game cost values are smoothed scheduled game-frame intervals, not isolated GPU timings. This is not a matched Aegis comparison.",
+  "results": [
+    {
+      "zone": "riftspire_capital",
+      "view": "Chainwake Cookfire",
+      "width": 741,
+      "height": 1270,
+      "frames": 298,
+      "browserMedianMs": 33.3,
+      "browserP95Ms": 38.9,
+      "medianSmoothedGameFrameMs": 33.50111419712964,
+      "p95SmoothedGameFrameMs": 35.11956467950462,
+      "draws": 277,
+      "triangles": 722123,
+      "fallbacks": 0
+    }
+  ]
+}

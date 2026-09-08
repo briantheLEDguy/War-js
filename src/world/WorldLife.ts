@@ -6,10 +6,10 @@ import type { AssetLoader } from '../game/AssetLoader';
 import { worldLifeCharacterProfile } from './worldLifeModels';
 import { CIVIC_WALK_SPEED, createCivicWalkClip } from './CivicLocomotion';
 
-export const WORLD_LIFE_LIMITS = { actors: 48, emitters: 24, particles: 384, distance: 100,
+export const WORLD_LIFE_LIMITS = { actors: 48, districtActors: 160, emitters: 24, particles: 384, distance: 100,
   concurrentModelLoads: 3, nearAnimationHz: 30, farAnimationHz: 15, nearAnimationDistance: 40 } as const;
 
-type GroundHeight = (x: number, z: number) => number;
+type GroundHeight = (x: number, z: number, y?: number) => number;
 interface Actor {
   spawn: WorldLifeActorSpawn;
   object: THREE.Group;
@@ -56,6 +56,7 @@ export class WorldLife {
     private readonly groundHeightAt: GroundHeight,
     private readonly scenery: THREE.Object3D[] = [],
     private readonly loader?: AssetLoader,
+    private readonly districtPopulation = false,
   ) {
     this.group.name = 'world-life';
     for (const prop of scenery) {
@@ -66,7 +67,9 @@ export class WorldLife {
         }
       });
     }
-    for (const spawn of (definition?.actors ?? []).slice(0, WORLD_LIFE_LIMITS.actors)) {
+    const population = (definition?.actors ?? []).filter(spawn => !districtPopulation
+      || (spawn.approvedOnly && spawn.characterProfileKey && Number.isFinite(spawn.y)));
+    for (const spawn of population.slice(0, districtPopulation ? WORLD_LIFE_LIMITS.districtActors : WORLD_LIFE_LIMITS.actors)) {
       if (!isFinitePoint(spawn) || !['citizen', 'guard', 'deer', 'bird'].includes(spawn.kind)) continue;
       const object = new THREE.Group();
       object.name = spawn.id;
@@ -118,6 +121,7 @@ export class WorldLife {
   }
 
   private mountFallback(actor: Actor): void {
+    if (actor.spawn.approvedOnly) return;
     const visual = buildWorldLifeActor(actor.spawn.kind, this.realm, actor.spawn.variant ?? 0);
     actor.visual = visual;
     actor.ownsVisualResources = true;
@@ -211,7 +215,7 @@ export class WorldLife {
     rig.sampledAt = this.elapsed;
   }
 
-  update(dt: number, viewer: { x: number; z: number }, viewDistance: number): void {
+  update(dt: number, viewer: { x: number; y?: number; z: number }, viewDistance: number): void {
     if (this.disposed) return;
     this.elapsed += Number.isFinite(dt) ? Math.max(0, dt) : 0;
     const distance = finiteClamp(viewDistance, WORLD_LIFE_LIMITS.distance, 15, WORLD_LIFE_LIMITS.distance);
@@ -223,7 +227,7 @@ export class WorldLife {
         animation.object.rotation.z = animation.baseRotationZ + Math.sin(this.elapsed * 1.5 + animation.object.position.x) * 0.045;
       }
     }
-    for (const actor of this.actors) {
+    const samples = this.actors.map(actor => {
       const { spawn, object, phase, limbs } = actor;
       const time = this.elapsed + phase;
       const speed = actor.rig && !actor.rig.walk ? 0 : finiteClamp(spawn.speed, spawn.kind === 'bird' ? 3 : 0.9, 0, 6);
@@ -231,13 +235,21 @@ export class WorldLife {
         finiteClamp(spawn.pauseSeconds, spawn.kind === 'bird' ? 0 : 3, 0, 60));
       object.position.x = movement.x;
       object.position.z = movement.z;
+      const authoredY = movement.y ?? spawn.y;
+      if (authoredY !== undefined) object.position.y = authoredY;
       const wasVisible = object.visible;
       const actorDistanceSq = squaredDistance(object.position, viewer);
-      object.visible = actorDistanceSq <= distanceSq;
+      return { actor, spawn, object, limbs, phase, time, speed, movement, wasVisible, actorDistanceSq };
+    });
+    // Larger district populations share the original visible/animated budget.
+    const nearest = this.districtPopulation ? new Set(samples.filter(s => s.actorDistanceSq <= distanceSq)
+      .sort((a, b) => a.actorDistanceSq - b.actorDistanceSq).slice(0, WORLD_LIFE_LIMITS.actors).map(s => s.actor)) : null;
+    for (const { actor, spawn, object, limbs, phase, time, speed, movement, wasVisible, actorDistanceSq } of samples) {
+      object.visible = actorDistanceSq <= distanceSq && (!nearest || nearest.has(actor));
       // Absolute-time sampling keeps distant actors on schedule without ticking their rigs.
       if (!object.visible) continue;
       const bird = spawn.kind === 'bird';
-      object.position.y = this.groundHeightAt(movement.x, movement.z)
+      object.position.y = this.groundHeightAt(movement.x, movement.z, movement.y ?? spawn.y)
         + (bird ? 7 + Math.sin(time * 0.7) * 0.7 + phase % 4 : 0);
       object.rotation.y = movement.heading;
       if (actor.rig) {
@@ -330,8 +342,8 @@ function setRotation(limbs: Map<string, THREE.Object3D>, name: string, axis: 'x'
   const limb = limbs.get(name);
   if (limb) limb.rotation[axis] = value;
 }
-function squaredDistance(a: { x: number; z: number }, b: { x: number; z: number }): number {
-  return (a.x - b.x) ** 2 + (a.z - b.z) ** 2;
+function squaredDistance(a: { x: number; y?: number; z: number }, b: { x: number; y?: number; z: number }): number {
+  return (a.x - b.x) ** 2 + (a.z - b.z) ** 2 + (b.y === undefined ? 0 : ((a.y ?? b.y) - b.y) ** 2);
 }
 function isFinitePoint(point: { x: number; z: number }): boolean {
   return Number.isFinite(point.x) && Number.isFinite(point.z);

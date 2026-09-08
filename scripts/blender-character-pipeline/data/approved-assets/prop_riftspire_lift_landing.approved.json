@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.lift_landing",
+  "displayName": "Riftspire lift landing",
+  "category": "prop",
+  "model": "prop_riftspire_lift_landing.glb",
+  "qc": "prop_riftspire_lift_landing.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_lift_landing"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "66f7e57a2c89f37ac8f3b2159aac4abf18c7d6eee13525abcecd4082f1d25cbb",
+    "qcSha256": "ee0cff51dd5cd1f86ae1eac68923093c5e16b9ff9b0542a153ec6809cd8ee369",
+    "previews": {
+      "assembly": "e27bbf30c2056304710c8f7f43c9ed04934cdbe5ebe7ab8a2e42024d0a482ef6"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/lift_landing-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.203Z",
+    "reviewHash": "a76e53091f7b6142a069ce73b44ce05a56b1315ff97ca3851b2c7a0cd1acb7d6"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

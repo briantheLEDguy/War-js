@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.deck",
+  "displayName": "Riftspire deck",
+  "category": "prop",
+  "model": "prop_riftspire_deck.glb",
+  "qc": "prop_riftspire_deck.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_deck"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "4c8e4f3285533a06a38434fac31b24a0d11fe6370607853f756c0f17a0d7ce7a",
+    "qcSha256": "05ef834d4107cb7a7f267746806f687d873fcf758f412c0b45d48e521ed48f2f",
+    "previews": {
+      "assembly": "dc9f956d927dab3b1741caf8cf5dc974044195475978deb89f4b1155598ec8d0"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/deck-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.169Z",
+    "reviewHash": "b951ff9dad83469f8223a1c42f396b3950be323845b036c06c4074d452124a8c"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

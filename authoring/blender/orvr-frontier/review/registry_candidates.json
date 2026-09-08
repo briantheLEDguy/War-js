@@ -1,0 +1,144 @@
+{
+  "assets": [
+    {
+      "assetId": "frontier_supply_wagon",
+      "approved": false,
+      "qcPassed": true,
+      "validationErrors": 0,
+      "stagedDirectory": "authoring/blender/orvr-frontier/runtime",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_supply_wagon_lod0.glb",
+          "sha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506"
+        },
+        {
+          "level": 1,
+          "model": "frontier_supply_wagon_lod1.glb",
+          "sha256": "5af903d426e281792b18ff3b34bad29e70c6119bd4a79d985c54d1515ca39d20"
+        },
+        {
+          "level": 2,
+          "model": "frontier_supply_wagon_lod2.glb",
+          "sha256": "e6c72a7c40c10739f5aeba2b1a4fd3b134ff284147dcceb232f9d7c00a4b50be"
+        }
+      ],
+      "limitations": [
+        "Separate draft horse and actor seat pose are required for the complete caravan assembly."
+      ],
+      "note": "Internal visual acceptance is still required; this file does not publish or approve the asset."
+    },
+    {
+      "assetId": "frontier_battering_ram",
+      "approved": false,
+      "qcPassed": true,
+      "validationErrors": 0,
+      "stagedDirectory": "authoring/blender/orvr-frontier/runtime",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_battering_ram_lod0.glb",
+          "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef"
+        },
+        {
+          "level": 1,
+          "model": "frontier_battering_ram_lod1.glb",
+          "sha256": "d40803b8a0b4d09351bafd7c74ff0fa22f9f8d42e86f9839322ce4c462af1986"
+        },
+        {
+          "level": 2,
+          "model": "frontier_battering_ram_lod2.glb",
+          "sha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4"
+        }
+      ],
+      "limitations": [
+        "Impact outcomes and operator interaction remain authoritative runtime systems."
+      ],
+      "note": "Internal visual acceptance is still required; this file does not publish or approve the asset."
+    },
+    {
+      "assetId": "frontier_oil_cauldron",
+      "approved": false,
+      "qcPassed": true,
+      "validationErrors": 0,
+      "stagedDirectory": "authoring/blender/orvr-frontier/runtime",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_oil_cauldron_lod0.glb",
+          "sha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333"
+        },
+        {
+          "level": 1,
+          "model": "frontier_oil_cauldron_lod1.glb",
+          "sha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48"
+        },
+        {
+          "level": 2,
+          "model": "frontier_oil_cauldron_lod2.glb",
+          "sha256": "be2b1e463fa55479fd1dfde25baf2754aed0615051e4ce5b7fa3753b5200022c"
+        }
+      ],
+      "limitations": [
+        "Oil liquid and fire effects are runtime systems; no liquid surface is exported."
+      ],
+      "note": "Internal visual acceptance is still required; this file does not publish or approve the asset."
+    },
+    {
+      "assetId": "frontier_field_catapult",
+      "approved": false,
+      "qcPassed": true,
+      "validationErrors": 0,
+      "stagedDirectory": "authoring/blender/orvr-frontier/runtime",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_field_catapult_lod0.glb",
+          "sha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8"
+        },
+        {
+          "level": 1,
+          "model": "frontier_field_catapult_lod1.glb",
+          "sha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861"
+        },
+        {
+          "level": 2,
+          "model": "frontier_field_catapult_lod2.glb",
+          "sha256": "e95a9524f9bf47dfc332146cf14784d19b75cc826544c2bf62486fa02b891ea1"
+        }
+      ],
+      "limitations": [
+        "Projectile launch and impact remain authoritative; use the parented projectile socket at the release event."
+      ],
+      "note": "Internal visual acceptance is still required; this file does not publish or approve the asset."
+    },
+    {
+      "assetId": "frontier_keep_gate",
+      "approved": false,
+      "qcPassed": true,
+      "validationErrors": 0,
+      "stagedDirectory": "authoring/blender/orvr-frontier/runtime",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_keep_gate_lod0.glb",
+          "sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261"
+        },
+        {
+          "level": 1,
+          "model": "frontier_keep_gate_lod1.glb",
+          "sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2"
+        },
+        {
+          "level": 2,
+          "model": "frontier_keep_gate_lod2.glb",
+          "sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5"
+        }
+      ],
+      "limitations": [
+        "Includes two hinged leaves only; keep masonry and broken gate state are separate future assets."
+      ],
+      "note": "Internal visual acceptance is still required; this file does not publish or approve the asset."
+    }
+  ]
+}

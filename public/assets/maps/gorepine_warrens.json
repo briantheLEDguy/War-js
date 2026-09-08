@@ -942,9 +942,9 @@
       "radius": 9,
       "targetZoneId": "gorepine_pass",
       "targetSpawn": {
-        "x": 108.4,
+        "x": 488.37,
         "y": 0,
-        "z": -38.4
+        "z": -172.7
       }
     }
   ],
@@ -986,5 +986,55 @@
       ]
     }
   ],
-  "staticMapHash": "4e5159d73ab14854"
+  "artDirection": {
+    "zoneId": "gorepine_warrens",
+    "realm": "riftbound",
+    "races": [
+      "chaos",
+      "dark_elf",
+      "greenskin"
+    ],
+    "biomeId": "cold_conifer_pass",
+    "season": "winter",
+    "cultures": "Chaos mountain garrisons; Dark Elf scouts",
+    "vegetation": [
+      "pine",
+      "spruce",
+      "juniper",
+      "snow_grass",
+      "lichen"
+    ],
+    "fauna": [
+      "mountain_goat",
+      "pine_wolf",
+      "raven"
+    ],
+    "palette": [
+      "#496157",
+      "#9aa4a1",
+      "#666d73"
+    ],
+    "landmark": "Pine-root burrows between frost-shattered rock faces",
+    "reliefMetres": 33,
+    "vegetationAssetKeys": [
+      "frontier_cold_conifer_pass_pine",
+      "frontier_cold_conifer_pass_spruce",
+      "frontier_cold_conifer_pass_juniper",
+      "frontier_cold_conifer_pass_snow_grass",
+      "frontier_cold_conifer_pass_lichen"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_mountain_goat",
+      "frontier_creature_pine_wolf",
+      "frontier_creature_raven"
+    ],
+    "materialSetKey": "frontier_cold_conifer_pass_materials",
+    "architectureAssetKey": "frontier_cold_conifer_pass_settlement",
+    "status": "planned",
+    "parentZoneId": "gorepine_pass",
+    "population": "Mountain packs and cold-den guardian",
+    "bossProfileKey": "frontier_boss_gorepine_warrens",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "debd377673540433"
 }

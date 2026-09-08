@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow_workshop",
+  "displayName": "Sunmeadow granary and workshop",
+  "category": "prop",
+  "model": "frontier_sunmeadow_workshop_lod0.glb",
+  "qc": "frontier_sunmeadow_workshop_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_workshop"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "980a3d7069096f49bd6707c1af2904384e6fd349ff359996ec5ae8150702afc9",
+    "qcSha256": "504bec342183dca729976becf816740e2a05e5c1bd317ddfdec883ca336d12b3",
+    "previews": {
+      "assembly": "ccf726113c9ab5f1c266591926a09d5f47da0b42e4ab23ddfde55d77998e2278"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_sunmeadow_workshop.png"
+  },
+  "review": {
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:22:55.0905427Z",
+    "reviewHash": "3d1dbdef56970059ff2d5e3e4625ed213d878160c66a3428aed47d5e93751bac"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_sunmeadow_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/sunmeadow-architecture/source/architecture.json",
+    "sourceSha256": "1ec935cb6ad05321db5dd2b87fddb7db2c10c4f41298ed95a3efa5736cb1ec85"
+  },
+  "approvalState": "approved"
+}

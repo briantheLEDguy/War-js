@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_dwelling",
+  "displayName": "Cinderfen raised reed dwelling",
+  "category": "prop",
+  "model": "frontier_cinderfen_dwelling_lod0.glb",
+  "qc": "frontier_cinderfen_dwelling_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_dwelling"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "e623c3fd7b6f5388d4cca781957e284a270bd82333c9e69633ac2aedffc4b1fd",
+    "qcSha256": "fab4a7b63e223b5def021e62c1a02819d2861c7a3d2f5b3a16240bd01d6d57ec",
+    "previews": {
+      "assembly": "fea6f16371dffe97b718061f73490acd87a7ae0bd7262b3640a0582db8c8dd3f"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_dwelling.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+    "reviewedAt": "2026-09-07T19:56:19.116125+00:00",
+    "reviewHash": "0f44f8d29dda3c5a8590f3e164a0c28aceef90ba68adc4803483ca1c82421e32"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/cinderfen-architecture/source/architecture.json",
+    "sourceSha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f"
+  },
+  "approvalState": "approved"
+}

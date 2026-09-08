@@ -939,9 +939,9 @@
       "radius": 9,
       "targetZoneId": "brightfen_approach",
       "targetSpawn": {
-        "x": 113.3,
+        "x": 510.55,
         "y": 0,
-        "z": -19.5
+        "z": -87.57
       }
     }
   ],
@@ -983,5 +983,55 @@
       ]
     }
   ],
-  "staticMapHash": "21473790e6d20ea8"
+  "artDirection": {
+    "zoneId": "mireglass_den",
+    "realm": "aegis",
+    "races": [
+      "high_elf",
+      "empire",
+      "dwarf"
+    ],
+    "biomeId": "freshwater_fen",
+    "season": "summer",
+    "cultures": "High Elf reed workers; Empire marsh farmers",
+    "vegetation": [
+      "alder",
+      "willow",
+      "reed",
+      "iris",
+      "sedge"
+    ],
+    "fauna": [
+      "water_deer",
+      "mire_hound",
+      "wading_bird"
+    ],
+    "palette": [
+      "#7b9562",
+      "#a0b39d",
+      "#c3ac7a"
+    ],
+    "landmark": "Reflective fen pool with reed-island nesting grounds",
+    "reliefMetres": 7,
+    "vegetationAssetKeys": [
+      "frontier_freshwater_fen_alder",
+      "frontier_freshwater_fen_willow",
+      "frontier_freshwater_fen_reed",
+      "frontier_freshwater_fen_iris",
+      "frontier_freshwater_fen_sedge"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_water_deer",
+      "frontier_creature_mire_hound",
+      "frontier_creature_wading_bird"
+    ],
+    "materialSetKey": "frontier_freshwater_fen_materials",
+    "architectureAssetKey": "frontier_freshwater_fen_settlement",
+    "status": "planned",
+    "parentZoneId": "brightfen_approach",
+    "population": "Fen stalkers and mire guardian",
+    "bossProfileKey": "frontier_boss_mireglass_den",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "eecba7b9165cbe77"
 }

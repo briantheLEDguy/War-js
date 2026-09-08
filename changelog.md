@@ -1,4 +1,83 @@
+## 2026-09-07 - Campaign reconnect continuity
+
+- Preserve a returning character's position and last command sequence when its connection resumes; retain staging behavior for transfers and queue admission.
+- Verify movement and reconnection against the running local authority, and reject command replay from a previous transport. Save the repeatable live-check receipt under artifacts/orvr.
+- Continue the regional character rebuild with continuous garment UVs, fitted collars, leather pockets, carried workshop tools and reviewed animation corrections. New character exports remain drafts pending visual acceptance.
+## 2026-09-07 - GM asset coverage and shared support geometry
+
+- Include every approved character and enemy profile plus frontier terrain, buildings, nature, wildlife and siege models in the generated GM catalog. Refresh the catalog automatically after registry compilation, using authored display names, actual bounds and measured package defaults.
+- Preserve approved model categories, idle animations and LODs when placing, saving, reloading and deleting GM stamps. Release clone animation/skeleton resources without disposing shared model resources.
+- Add high-detail mesh footing for GM terrain sectors, respecting placement transforms and reachable height independently of visual LOD. Preserve model origins and placement metadata in saved world edits.
+- Restore 15 legacy character QC files to their original hash-proven newline bytes and prevent future Git newline conversion. Support existing final NPC approvals alongside their retained technical reports.
+- Ground shared campaign movement on authored floors and ramps, apply collision height and rotated footprints, and allow wallwalk travel above closed gates. Cache terrain samples without storing derived state in campaign saves.
+- Publish the Sunmeadow canopy revision. The rejected dwarf and remaining regional wildlife, architecture and siege revisions continue in authoring review; this batch does not complete the world art plan.
+
+## 2026-09-07 - Natural outdoor roads and Sunmeadow regional assets
+
+- Rebuild roads across all 18 outdoor fronts as connected curves serving objectives, keeps, staging camps, settlements and exits. Supply itineraries reuse the physical network; clear full road widths and preserve gameplay identities.
+- Replace overlapping road strips with terrain-fitted textured surfaces, soft verges and rounded junction transitions. Author Sunmeadow roads directly into 16 reviewed terrain sectors with matching three-level borders and authoritative ground heights.
+- Round open runtime road ends and correct depth precision so roads remain continuous in distant views.
+- Integrate six original Sunmeadow architecture assets and seven vegetation/rock assets with editable Blender sources, three inspected GLB levels, shared PBR materials and signed approval records. The full regional ecosystem and wider world art rebuild remain unfinished.
+- Fit both keep enclosures to measured exported geometry, retain real gate passages, provide realm-checked defender posterns and ground-level oil controls, and move converted shelter furniture clear of traffic and NPC routes.
+- Equip the shared Battle Prelate with the reviewed armor and maul, preserve animated rigs and LODs, batch approved static props, and supply nearby shadows and reflected sky lighting. Verify external texture bytes before glTF parsing and clean up owned GPU resources.
+- Refresh the GM catalog and add regressions for physical road graphs, geometry, actual asset bounds, review receipts, terrain seams, safe loading, keep access and service clearance. See docs/orvr-verification.md for final validation and remaining acceptance work.
+
+## 2026-09-07 - Automatic maps for every zone
+
+- Share source-derived footprint rendering between atlas and minimap across capitals, battlefields and lairs; show real canal/street/building/wall geometry instead of repeated generic prop icons.
+- Suppress hidden/collision-only objects and defer small street dressing until close zoom; preserve separate selectable gameplay markers.
+- Project live GM edits into map geometry with revision caching, including transforms, additions, hides/restores, undo/redo, labels and voxel surfaces, without resetting atlas zoom.
+- Replace edited road centerlines with their actual edited strips; refresh preview data on atlas reopen and respect capital layout-version compatibility.
+- Add regressions for every zone's geometry and live editor-to-map synchronization.
+- Guard nullable road textures so missing images keep the road surface renderable.
+
+## 2026-09-07 - Atlas zoom and pan fixes
+
+- Prevent wheel zoom from also scrolling the viewport; apply cursor anchors before paint and keep zone dimensions stable across zoom levels.
+- Repaint the cropped canvas immediately on pan/resize with a 96px edge buffer; clear the entire backing surface to remove stale top/bottom edge pixels.
+- Add regressions for wheel cancellation, bounded buffered crops, border/scrollbar geometry and repeated canvas clears.
+
+## 2026-09-07 - Zone atlas readability
+
+- Replace blocky terrain cells with smoothly shaded relief and render roads as continuous, layered strokes across junctions.
+- Exclude generated road tiles from map prop icons and landmark lists/counts; scale scenery with its world footprint.
+- Separate overlapping objective/resource/NPC/enemy markers with position leaders and matching hover targets; keep symbols and tooltips readable while zooming.
+- Raise zone zoom from 215% to 800%, add zoom buttons and Fit, preserve centered zoom anchors, and prevent scrollbar resize from resetting zoom.
+- Rasterize only the visible portion of the map for sharp close-ups with bounded canvas memory.
+
+## 2026-09-07 - Expanded ORvR layouts and shared campaign playtest
+
+- Expand 18 battlefield/fortress maps to 1,200m square with three battlefield objectives, two opposing keeps, safe staging and six clear supply routes per zone.
+- Add climate, culture and replacement-asset briefs for all 30 noncapital zones; preserve boss travel branches and existing capital content.
+- Add authoritative combat, supply escorts, keep upgrades, siege equipment, repair, advancing fronts, counterpushes and city outcome rules.
+- Add WebSocket sessions, 18-versus-18 queues, reconnect ownership, replay rejection, compact private-field-filtered snapshots and a separate browser playtest.
+- Add atomic checkpoints and a Supabase migration for server-owned campaign state and transactional economic history, with restricted database permissions.
+- Stage five mesh-authored siege assets with editable sources, PBR bakes, three LODs and reimport reviews. Full zone art replacement, multilevel server city navigation and performance acceptance remain unfinished.
+
+
+## 2026-09-07 - Riftspire district life and capital dressing
+
+- Added 18 authored prop assemblies and 692 placements: stocked markets, military checkpoints, cages, household wash lines, cooking circles, machinery, monuments and war tables.
+- Added reviewed workers and patrols for 142 ambient inhabitants. Riftspire supports up to 160 registered district actors while displaying the nearest 48; ordinary zones keep their existing cap.
+- Added footprint support and circulation checks, nearby detail culling, seven district review stops, refreshed model reviews and LAN district screenshots.
+
+## 2026-09-07 - Riftspire residential variety
+
+- Rebuilt eight residential silhouettes with cottages, wide workshops, tall tenements, split gables and roof courts. Shared dimensions keep authored meshes and collision aligned.
+- Replaced equal ring occupancy with seeded neighborhood clusters, paired cottages, variable scale and setbacks, and solid rock at vacant recesses. Preserved public interiors and circulation.
+
 # Changelog
+
+## 2026-09-06 - Riftspire suspended crater capital
+
+- Replace the flat capital with five crater terraces, two suspended commons levels, 318 inward-facing homes, 24 hanging huts and six districts.
+- Author 39 modular scenery/furnishing assets and three Riftbound population models with editable Blender masters, shared 2K PBR maps, three reviewed LODs and model-space Builder collision.
+- Add four wall lifts and a settlement lift with landing calls, destination controls, moving collision and passenger support; connect permanent bridges and redundant stairs.
+- Furnish eight public rooms and connected palace admission, vault and throne halls, with bounded room lighting.
+- Add height-aware floors, routes, interactions, maps, portals and capture checks; recover falls and obsolete city placements without resetting progression.
+- Preserve services, quests, three campaign connections and siege prerequisites; order capture through Bridgehead, Vault and Throne.
+- Require reviewed Riftspire models, try approved alternate LODs, omit unavailable decoration and recover through the fortress when no city floor loads.
+- Share capital instancing/material infrastructure, regenerate campaign/registry/Builder artifacts and add traversal and asset regression coverage.
 
 ## 2026-09-06 - Rendering resource budget and background suspension
 

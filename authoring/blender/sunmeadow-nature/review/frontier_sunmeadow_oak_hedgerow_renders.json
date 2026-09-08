@@ -1,0 +1,86 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "model_sha256": "a3f8853b8287ec7e55c4da7b8990451c1e6a2048ea53ff3bac4f0523f492270c",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod0_reimport.png",
+      "image_sha256": "176089b7444ac0f780b43241a0c3913df3f894a345116d5379adfd9340ffef42",
+      "bounds_blender": {
+        "min": [
+          -3.179550886154175,
+          -3.066884756088257,
+          -0.04792404547333717
+        ],
+        "max": [
+          3.7428646087646484,
+          3.376945734024048,
+          12.707422256469727
+        ],
+        "span": [
+          6.922415733337402,
+          6.443830490112305,
+          12.755346298217773
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "model_sha256": "f044c11fa7603c09c72092e58b768d454c400993dc325a3225fec57becbf6e86",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod1_reimport.png",
+      "image_sha256": "0781dc48a693052ea4a8babdf0aee6e72023e10a8af0ca1ae133f948557a61e0",
+      "bounds_blender": {
+        "min": [
+          -3.218878746032715,
+          -3.1351258754730225,
+          -0.0475141666829586
+        ],
+        "max": [
+          3.7986795902252197,
+          3.4305195808410645,
+          12.612201690673828
+        ],
+        "span": [
+          7.0175580978393555,
+          6.565645217895508,
+          12.65971565246582
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "model_sha256": "8ea273ac19359b83efb4bfd9d34232df5772ef9d01c52a96b55603fd022e9b4c",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod2_reimport.png",
+      "image_sha256": "9559f0d7770c46f6df47b387f6cf35d355d43324f16b61a86931ca41c11a83eb",
+      "bounds_blender": {
+        "min": [
+          -3.322003126144409,
+          -3.235281229019165,
+          -0.04682445898652077
+        ],
+        "max": [
+          3.774679183959961,
+          3.412212610244751,
+          12.820642471313477
+        ],
+        "span": [
+          7.096682548522949,
+          6.647493839263916,
+          12.867466926574707
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

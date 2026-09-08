@@ -36,7 +36,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "aegis_city",
     "levelBand": "Capital",
-    "staticMapHash": "2baf5372148d5ee2"
+    "staticMapHash": "0ab55c32f19c2fd6"
   },
   {
     "id": "aegis_gate_fortress",
@@ -47,7 +47,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "fortress",
     "theme": "aegis_fortress",
     "levelBand": "Endgame",
-    "staticMapHash": "523d2871b7ef429f"
+    "staticMapHash": "3ddd4b1e6d8f441c"
   },
   {
     "id": "aegis_crownworks",
@@ -58,7 +58,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "aegis_highlands",
     "levelBand": "Tier 4",
-    "staticMapHash": "518e07f50031b13b"
+    "staticMapHash": "3c021269cfac7fe2"
   },
   {
     "id": "dawnline_expanse",
@@ -69,7 +69,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "frontier_grassland",
     "levelBand": "Tier 4",
-    "staticMapHash": "b88bd8f3d8876a9c"
+    "staticMapHash": "37d71946aab157da"
   },
   {
     "id": "shatterline_expanse",
@@ -80,7 +80,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "rift_frontier",
     "levelBand": "Tier 4",
-    "staticMapHash": "ba555a5b206aed4b"
+    "staticMapHash": "295213297dc16b65"
   },
   {
     "id": "rift_crownworks",
@@ -91,7 +91,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "rift_highlands",
     "levelBand": "Tier 4",
-    "staticMapHash": "3decb1923d43e337"
+    "staticMapHash": "8ebdd954790a1ab9"
   },
   {
     "id": "rift_gate_fortress",
@@ -102,7 +102,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "fortress",
     "theme": "rift_fortress",
     "levelBand": "Endgame",
-    "staticMapHash": "51a0ba7bfd79b8ea"
+    "staticMapHash": "8e2609c17899d3fe"
   },
   {
     "id": "riftspire_capital",
@@ -113,7 +113,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "capital",
     "theme": "rift_city",
     "levelBand": "Capital",
-    "staticMapHash": "c77a1bd53908858f"
+    "staticMapHash": "7534a54b6d02d4b3"
   },
   {
     "id": "sunmeadow_march",
@@ -124,7 +124,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "sunlit_fields",
     "levelBand": "Tier 1",
-    "staticMapHash": "00f0e7f3349abe15"
+    "staticMapHash": "59eba6a1d324c94e"
   },
   {
     "id": "greybrook_crossing",
@@ -135,7 +135,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "river_crossing",
     "levelBand": "Tier 2",
-    "staticMapHash": "18385cce9bf1daaa"
+    "staticMapHash": "88867ea3a00a41bb"
   },
   {
     "id": "ironwood_redoubt",
@@ -146,7 +146,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "ironwood_forest",
     "levelBand": "Tier 3",
-    "staticMapHash": "90705b1a48e1091c"
+    "staticMapHash": "5ec07b60fdb56c7a"
   },
   {
     "id": "brightfen_approach",
@@ -157,7 +157,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "brightfen",
     "levelBand": "Tier 1",
-    "staticMapHash": "0d929b8be5975742"
+    "staticMapHash": "f6ad65f48025a295"
   },
   {
     "id": "glassriver_ford",
@@ -168,7 +168,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "glassriver",
     "levelBand": "Tier 2",
-    "staticMapHash": "81a96c98c0c64038"
+    "staticMapHash": "5a217392f89c670a"
   },
   {
     "id": "highvale_rampart",
@@ -179,7 +179,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "highvale",
     "levelBand": "Tier 3",
-    "staticMapHash": "4a99acaa02ccc181"
+    "staticMapHash": "dcf11e46429a8c7d"
   },
   {
     "id": "cinderfen_outskirts",
@@ -190,7 +190,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "cinderfen",
     "levelBand": "Tier 1",
-    "staticMapHash": "c5aae14b1642dd9e"
+    "staticMapHash": "68ebdbd08295d08d"
   },
   {
     "id": "bleakroot_causeway",
@@ -201,7 +201,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "bleakroot",
     "levelBand": "Tier 2",
-    "staticMapHash": "13de3b41e3d41eeb"
+    "staticMapHash": "1fbf77bab2f25f7f"
   },
   {
     "id": "vilemere_heights",
@@ -212,7 +212,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "vilemere",
     "levelBand": "Tier 3",
-    "staticMapHash": "9f47dc0309030867"
+    "staticMapHash": "7b1794d070ba384c"
   },
   {
     "id": "ashen_steppe",
@@ -223,7 +223,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "ashen_steppe",
     "levelBand": "Tier 1",
-    "staticMapHash": "ebaa9223984600d6"
+    "staticMapHash": "2a0ae33aa97ac199"
   },
   {
     "id": "gorepine_pass",
@@ -234,7 +234,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "gorepine",
     "levelBand": "Tier 2",
-    "staticMapHash": "09c086748e2b404e"
+    "staticMapHash": "88891c97bc786b8f"
   },
   {
     "id": "obsidian_scar",
@@ -245,7 +245,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "obsidian_scar",
     "levelBand": "Tier 3",
-    "staticMapHash": "74f07bd0421ab704"
+    "staticMapHash": "5722bc00e5f0b20b"
   },
   {
     "id": "wardens_hollow",
@@ -256,7 +256,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "sunlit_lair",
     "levelBand": "Tier 1 Boss",
-    "staticMapHash": "ad27c1a0a2a8c128"
+    "staticMapHash": "4585f5a6200091f4"
   },
   {
     "id": "briarwatch_den",
@@ -267,7 +267,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "briar_lair",
     "levelBand": "Tier 2 Boss",
-    "staticMapHash": "29162235982c783b"
+    "staticMapHash": "70cba516beaffdf7"
   },
   {
     "id": "stormbarrow_lair",
@@ -278,7 +278,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "storm_lair",
     "levelBand": "Tier 3 Boss",
-    "staticMapHash": "8b65873768449da0"
+    "staticMapHash": "151cc53296644823"
   },
   {
     "id": "mireglass_den",
@@ -289,7 +289,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "mire_lair",
     "levelBand": "Tier 1 Boss",
-    "staticMapHash": "21473790e6d20ea8"
+    "staticMapHash": "eecba7b9165cbe77"
   },
   {
     "id": "glassriver_depths",
@@ -300,7 +300,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "river_lair",
     "levelBand": "Tier 2 Boss",
-    "staticMapHash": "30bfbb9cb5c07183"
+    "staticMapHash": "b23a82527e4d7dbb"
   },
   {
     "id": "highvale_sanctum",
@@ -311,7 +311,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "sanctum_lair",
     "levelBand": "Tier 3 Boss",
-    "staticMapHash": "d95b18999d3d05f4"
+    "staticMapHash": "5847a5296c50b785"
   },
   {
     "id": "cindermaw_pit",
@@ -322,7 +322,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "cinder_lair",
     "levelBand": "Tier 1 Boss",
-    "staticMapHash": "1570174ab644289b"
+    "staticMapHash": "82a0e5b5d58647c8"
   },
   {
     "id": "rotwreath_nest",
@@ -333,7 +333,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "rot_lair",
     "levelBand": "Tier 2 Boss",
-    "staticMapHash": "9ec9c9cb50420c11"
+    "staticMapHash": "9ce17ec3615d5ff2"
   },
   {
     "id": "nightglass_hollow",
@@ -344,7 +344,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "night_lair",
     "levelBand": "Tier 3 Boss",
-    "staticMapHash": "734c644d8c2f8cfc"
+    "staticMapHash": "b06bca1e8e6d8da8"
   },
   {
     "id": "ashfang_pit",
@@ -355,7 +355,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "ash_lair",
     "levelBand": "Tier 1 Boss",
-    "staticMapHash": "a6afaf49b2722060"
+    "staticMapHash": "b1f4c36b6135bb92"
   },
   {
     "id": "gorepine_warrens",
@@ -366,7 +366,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "gorepine_lair",
     "levelBand": "Tier 2 Boss",
-    "staticMapHash": "4e5159d73ab14854"
+    "staticMapHash": "debd377673540433"
   },
   {
     "id": "obsidian_maw",
@@ -377,7 +377,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "boss_lair",
     "theme": "obsidian_lair",
     "levelBand": "Tier 3 Boss",
-    "staticMapHash": "81d934ec066029da"
+    "staticMapHash": "07c3a7f0567d9ef1"
   }
 ] as const;
 
@@ -566,9 +566,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "aegis_gate_fortress_west_objective",
       "type": "battle_objective",
       "label": "West Siege Standard",
-      "x": -72,
-      "z": -24,
-      "captureRadius": 14,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -576,25 +576,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Siege Standard",
       "x": 0,
-      "z": -6,
-      "captureRadius": 14,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "aegis_gate_fortress_east_objective",
       "type": "battle_objective",
       "label": "East Siege Standard",
-      "x": 72,
-      "z": -24,
-      "captureRadius": 14,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "aegis_gate_fortress_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -58,
-      "z": 58,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -602,8 +602,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "aegis_gate_fortress_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 58,
-      "z": 58,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -613,9 +613,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "aegis_crownworks_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -623,25 +623,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "aegis_crownworks_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "aegis_crownworks_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -649,8 +649,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "aegis_crownworks_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -660,9 +660,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "dawnline_expanse_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -670,25 +670,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "dawnline_expanse_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "dawnline_expanse_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -696,8 +696,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "dawnline_expanse_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -707,9 +707,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "shatterline_expanse_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -717,25 +717,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "shatterline_expanse_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "shatterline_expanse_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -743,8 +743,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "shatterline_expanse_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -754,9 +754,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "rift_crownworks_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -764,25 +764,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "rift_crownworks_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "rift_crownworks_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -790,8 +790,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "rift_crownworks_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -801,9 +801,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "rift_gate_fortress_west_objective",
       "type": "battle_objective",
       "label": "West Siege Standard",
-      "x": -72,
-      "z": -24,
-      "captureRadius": 14,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -811,25 +811,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Siege Standard",
       "x": 0,
-      "z": -6,
-      "captureRadius": 14,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "rift_gate_fortress_east_objective",
       "type": "battle_objective",
       "label": "East Siege Standard",
-      "x": 72,
-      "z": -24,
-      "captureRadius": 14,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "rift_gate_fortress_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -58,
-      "z": 58,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -837,8 +837,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "rift_gate_fortress_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 58,
-      "z": 58,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -846,21 +846,40 @@ export const CAMPAIGN_OBJECTIVES = {
   "riftspire_capital": [
     {
       "id": "riftspire_capital_city_gate",
-      "type": "city_gate",
-      "label": "Riftspire Citadel Gate",
+      "label": "Chainwake Bridgehead",
       "x": 0,
-      "z": -86,
-      "captureRadius": 16,
+      "y": -105,
+      "z": 12,
+      "type": "city_gate",
+      "captureRadius": 12,
       "defaultRealm": "riftbound"
     },
     {
-      "id": "riftspire_capital_plaza",
-      "type": "battle_objective",
-      "label": "Central Plaza",
+      "id": "riftspire_capital_vault",
+      "label": "Blackvein Vault",
       "x": 0,
-      "z": 0,
-      "captureRadius": 14,
-      "defaultRealm": "riftbound"
+      "y": -105,
+      "z": -420,
+      "type": "battle_objective",
+      "captureRadius": 12,
+      "defaultRealm": "riftbound",
+      "requiresObjectiveIds": [
+        "riftspire_capital_city_gate"
+      ]
+    },
+    {
+      "id": "riftspire_capital_plaza",
+      "label": "Riftspire Throne",
+      "x": 0,
+      "y": -105,
+      "z": -480,
+      "type": "battle_objective",
+      "captureRadius": 12,
+      "defaultRealm": "riftbound",
+      "requiresObjectiveIds": [
+        "riftspire_capital_city_gate",
+        "riftspire_capital_vault"
+      ]
     }
   ],
   "sunmeadow_march": [
@@ -868,9 +887,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "sunmeadow_march_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -878,25 +897,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "sunmeadow_march_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "sunmeadow_march_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -904,8 +923,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "sunmeadow_march_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -915,9 +934,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "greybrook_crossing_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -925,25 +944,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "greybrook_crossing_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "greybrook_crossing_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -951,8 +970,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "greybrook_crossing_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -962,9 +981,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "ironwood_redoubt_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -972,25 +991,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "ironwood_redoubt_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "ironwood_redoubt_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -998,8 +1017,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "ironwood_redoubt_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1009,9 +1028,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "brightfen_approach_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -1019,25 +1038,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "brightfen_approach_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "brightfen_approach_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1045,8 +1064,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "brightfen_approach_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1056,9 +1075,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "glassriver_ford_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -1066,25 +1085,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "glassriver_ford_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "glassriver_ford_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1092,8 +1111,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "glassriver_ford_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1103,9 +1122,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "highvale_rampart_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
@@ -1113,25 +1132,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "highvale_rampart_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "aegis"
     },
     {
       "id": "highvale_rampart_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1139,8 +1158,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "highvale_rampart_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1150,9 +1169,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "cinderfen_outskirts_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -1160,25 +1179,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "cinderfen_outskirts_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "cinderfen_outskirts_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1186,8 +1205,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "cinderfen_outskirts_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1197,9 +1216,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "bleakroot_causeway_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -1207,25 +1226,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "bleakroot_causeway_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "bleakroot_causeway_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1233,8 +1252,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "bleakroot_causeway_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1244,9 +1263,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "vilemere_heights_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -1254,25 +1273,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "vilemere_heights_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "vilemere_heights_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1280,8 +1299,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "vilemere_heights_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1291,9 +1310,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "ashen_steppe_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -1301,25 +1320,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "ashen_steppe_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "ashen_steppe_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1327,8 +1346,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "ashen_steppe_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1338,9 +1357,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "gorepine_pass_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -1348,25 +1367,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "gorepine_pass_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "gorepine_pass_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1374,8 +1393,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "gorepine_pass_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1385,9 +1404,9 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "obsidian_scar_west_objective",
       "type": "battle_objective",
       "label": "West Field Standard",
-      "x": -64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": -260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
@@ -1395,25 +1414,25 @@ export const CAMPAIGN_OBJECTIVES = {
       "type": "battle_objective",
       "label": "Central Field Standard",
       "x": 0,
-      "z": 6,
-      "captureRadius": 13,
+      "z": 0,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "obsidian_scar_east_objective",
       "type": "battle_objective",
       "label": "East Field Standard",
-      "x": 64,
-      "z": -18,
-      "captureRadius": 13,
+      "x": 0,
+      "z": 260,
+      "captureRadius": 18,
       "defaultRealm": "riftbound"
     },
     {
       "id": "obsidian_scar_aegis_keep",
       "type": "keep",
       "label": "Aegis War Keep",
-      "x": -52,
-      "z": 62,
+      "x": -350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "aegis"
     },
@@ -1421,8 +1440,8 @@ export const CAMPAIGN_OBJECTIVES = {
       "id": "obsidian_scar_riftbound_keep",
       "type": "keep",
       "label": "Riftbound War Keep",
-      "x": 52,
-      "z": 62,
+      "x": 350,
+      "z": 0,
       "captureRadius": 18,
       "defaultRealm": "riftbound"
     }
@@ -1562,36 +1581,36 @@ export const CAMPAIGN_OBJECTIVES = {
 } as const;
 
 export const CAMPAIGN_MAP_HASHES = {
-  "aegis_capital": "2baf5372148d5ee2",
-  "aegis_gate_fortress": "523d2871b7ef429f",
-  "aegis_crownworks": "518e07f50031b13b",
-  "dawnline_expanse": "b88bd8f3d8876a9c",
-  "shatterline_expanse": "ba555a5b206aed4b",
-  "rift_crownworks": "3decb1923d43e337",
-  "rift_gate_fortress": "51a0ba7bfd79b8ea",
-  "riftspire_capital": "c77a1bd53908858f",
-  "sunmeadow_march": "00f0e7f3349abe15",
-  "greybrook_crossing": "18385cce9bf1daaa",
-  "ironwood_redoubt": "90705b1a48e1091c",
-  "brightfen_approach": "0d929b8be5975742",
-  "glassriver_ford": "81a96c98c0c64038",
-  "highvale_rampart": "4a99acaa02ccc181",
-  "cinderfen_outskirts": "c5aae14b1642dd9e",
-  "bleakroot_causeway": "13de3b41e3d41eeb",
-  "vilemere_heights": "9f47dc0309030867",
-  "ashen_steppe": "ebaa9223984600d6",
-  "gorepine_pass": "09c086748e2b404e",
-  "obsidian_scar": "74f07bd0421ab704",
-  "wardens_hollow": "ad27c1a0a2a8c128",
-  "briarwatch_den": "29162235982c783b",
-  "stormbarrow_lair": "8b65873768449da0",
-  "mireglass_den": "21473790e6d20ea8",
-  "glassriver_depths": "30bfbb9cb5c07183",
-  "highvale_sanctum": "d95b18999d3d05f4",
-  "cindermaw_pit": "1570174ab644289b",
-  "rotwreath_nest": "9ec9c9cb50420c11",
-  "nightglass_hollow": "734c644d8c2f8cfc",
-  "ashfang_pit": "a6afaf49b2722060",
-  "gorepine_warrens": "4e5159d73ab14854",
-  "obsidian_maw": "81d934ec066029da"
+  "aegis_capital": "0ab55c32f19c2fd6",
+  "aegis_gate_fortress": "3ddd4b1e6d8f441c",
+  "aegis_crownworks": "3c021269cfac7fe2",
+  "dawnline_expanse": "37d71946aab157da",
+  "shatterline_expanse": "295213297dc16b65",
+  "rift_crownworks": "8ebdd954790a1ab9",
+  "rift_gate_fortress": "8e2609c17899d3fe",
+  "riftspire_capital": "7534a54b6d02d4b3",
+  "sunmeadow_march": "59eba6a1d324c94e",
+  "greybrook_crossing": "88867ea3a00a41bb",
+  "ironwood_redoubt": "5ec07b60fdb56c7a",
+  "brightfen_approach": "f6ad65f48025a295",
+  "glassriver_ford": "5a217392f89c670a",
+  "highvale_rampart": "dcf11e46429a8c7d",
+  "cinderfen_outskirts": "68ebdbd08295d08d",
+  "bleakroot_causeway": "1fbf77bab2f25f7f",
+  "vilemere_heights": "7b1794d070ba384c",
+  "ashen_steppe": "2a0ae33aa97ac199",
+  "gorepine_pass": "88891c97bc786b8f",
+  "obsidian_scar": "5722bc00e5f0b20b",
+  "wardens_hollow": "4585f5a6200091f4",
+  "briarwatch_den": "70cba516beaffdf7",
+  "stormbarrow_lair": "151cc53296644823",
+  "mireglass_den": "eecba7b9165cbe77",
+  "glassriver_depths": "b23a82527e4d7dbb",
+  "highvale_sanctum": "5847a5296c50b785",
+  "cindermaw_pit": "82a0e5b5d58647c8",
+  "rotwreath_nest": "9ce17ec3615d5ff2",
+  "nightglass_hollow": "b06bca1e8e6d8da8",
+  "ashfang_pit": "b1f4c36b6135bb92",
+  "gorepine_warrens": "debd377673540433",
+  "obsidian_maw": "07c3a7f0567d9ef1"
 } as const;

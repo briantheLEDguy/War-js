@@ -17,6 +17,10 @@ describe('GM scenery catalog coverage', () => {
     for (const [key, asset] of Object.entries(registry.staticProps) as Array<[string, { runtimeReady: boolean }]>) {
       if (asset.runtimeReady) expect(WORLD_EDITOR_PREFABS.some(p => p.assetKey === key), key).toBe(true);
     }
+    for (const [key, asset] of Object.entries(registry.characterProfiles) as Array<[string, { runtimeReady: boolean }]>) {
+      if (asset.runtimeReady) expect(WORLD_EDITOR_PREFABS.some(p =>
+        p.assetKey === key && p.assetCategory === 'characterProfiles' && p.defaultAnimation === 'idle'), key).toBe(true);
+    }
     for (const file of fs.readdirSync('public/assets/maps').filter(f => f.endsWith('.json'))) {
       const map = JSON.parse(fs.readFileSync(`public/assets/maps/${file}`, 'utf8'));
       for (const prop of map.props ?? []) {
@@ -41,6 +45,31 @@ describe('GM scenery catalog coverage', () => {
     expect(colliders.some(c => c.blocksWhen === 'closed' && c.interactionId === a.id)).toBe(true);
     colliders[0].width = 999;
     expect(prefabDefaultCollidersForKind('aegis_portcullis', b.id)![0].width).not.toBe(999);
+  });
+  test('frontier LOD0 filenames retain their reviewed LOD1 and LOD2 models', () => {
+    const oak = WORLD_EDITOR_PREFABS.find(p => p.assetKey === 'frontier_sunmeadow_oak_pasture')!;
+    expect(oak.label).toBe('Sunmeadow spreading pasture oak');
+    expect(oak.assetCategory).toBe('staticProps');
+    expect(oak.lodModels).toEqual(['frontier_sunmeadow_oak_pasture_lod1.glb','frontier_sunmeadow_oak_pasture_lod2.glb']);
+  });
+  test('all authored terrain sectors have centered placement and mesh support defaults', () => {
+    const sectors = WORLD_EDITOR_PREFABS.filter(p => p.assetKey?.startsWith('frontier_sunmeadow_march_terrain_'));
+    expect(sectors).toHaveLength(16);
+    for (const sector of sectors) {
+      expect(sector.modelOffset).toBeDefined();
+      expect(sector.groundSurface).toBe('mesh');
+      expect(sector.footprint.width).toBeGreaterThanOrEqual(300);
+      expect(sector.lodModels).toHaveLength(2);
+    }
+    expect(sectors.find(p => p.assetKey?.endsWith('_0_0'))!.modelOffset).toEqual({ x: 0, y: 0, z: 0 });
+  });
+  test('Riftspire room copies retain their authored doorway and support floor', () => {
+    const room = prefabDefinitionForKind('riftspire_room')!;
+    const residence = prefabDefinitionForKind('riftspire_house_4')!;
+    expect(room.colliderSpace).toBe('model');
+    expect(room.colliders).toEqual(residence.colliders);
+    expect(room.walkableSurfaces).toEqual(residence.walkableSurfaces);
+    expect(room.lodModels).toHaveLength(2);
   });
   test('world life furniture uses its proper procedural asset when a model is absent', () => {
     for (const kind of WORLD_LIFE_PROP_KINDS) {

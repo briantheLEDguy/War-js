@@ -1,0 +1,1439 @@
+{
+  "asset": "frontier_sunmeadow_skylark",
+  "passed": false,
+  "issues": [
+    "frontier_sunmeadow_skylark_lod0.glb: Khronos 0 errors/1 warnings",
+    "frontier_sunmeadow_skylark_lod0.glb: fly penetrates ground",
+    "frontier_sunmeadow_skylark_lod0.glb: hop skin distortion exceeds review gate",
+    "frontier_sunmeadow_skylark_lod0.glb: idle skin distortion exceeds review gate",
+    "frontier_sunmeadow_skylark_lod1.glb: Khronos 0 errors/1 warnings",
+    "frontier_sunmeadow_skylark_lod1.glb: actual reimport motion inspection required",
+    "frontier_sunmeadow_skylark_lod2.glb: Khronos 0 errors/1 warnings",
+    "frontier_sunmeadow_skylark_lod2.glb: actual reimport motion inspection required"
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "sha256": "732791f3b26e4ae7ac66408552456c980f7f7313df9743760f3ffd80c1f24ac0",
+      "bytes": 2976304,
+      "triangles": 19356,
+      "vertices": 9902,
+      "bounds_blender": {
+        "min": [
+          -0.19294603168964386,
+          -0.10418526083230972,
+          0.0048182932659983635
+        ],
+        "max": [
+          0.19295763969421387,
+          0.15044541656970978,
+          0.1829375922679901
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 696,
+          "faces": 674
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 696,
+          "vertices": 144,
+          "faces": 120
+        },
+        {
+          "name": "feathered_wing_skin_L",
+          "first_vertex": 840,
+          "vertices": 408,
+          "faces": 386
+        },
+        {
+          "name": "primary_L_0",
+          "first_vertex": 1248,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_1",
+          "first_vertex": 1318,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_2",
+          "first_vertex": 1388,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_3",
+          "first_vertex": 1458,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_4",
+          "first_vertex": 1528,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_5",
+          "first_vertex": 1598,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_6",
+          "first_vertex": 1668,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_7",
+          "first_vertex": 1738,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_8",
+          "first_vertex": 1808,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_L_9",
+          "first_vertex": 1878,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_0",
+          "first_vertex": 1948,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_1",
+          "first_vertex": 2018,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_2",
+          "first_vertex": 2088,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_3",
+          "first_vertex": 2158,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_4",
+          "first_vertex": 2228,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_5",
+          "first_vertex": 2298,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_6",
+          "first_vertex": 2368,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_L_7",
+          "first_vertex": 2438,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_L_0",
+          "first_vertex": 2508,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_L_1",
+          "first_vertex": 2578,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_L_2",
+          "first_vertex": 2648,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_L_3",
+          "first_vertex": 2718,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_L_4",
+          "first_vertex": 2788,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_L_5",
+          "first_vertex": 2858,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scaly_tarsus_L",
+          "first_vertex": 2928,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "grasping_toe_L_-1",
+          "first_vertex": 3144,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_L_-1",
+          "first_vertex": 3360,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_L_0",
+          "first_vertex": 3480,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_L_0",
+          "first_vertex": 3696,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_L_1",
+          "first_vertex": 3816,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_L_1",
+          "first_vertex": 4032,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_L_2",
+          "first_vertex": 4152,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_L_2",
+          "first_vertex": 4368,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 4488,
+          "vertices": 144,
+          "faces": 120
+        },
+        {
+          "name": "feathered_wing_skin_R",
+          "first_vertex": 4632,
+          "vertices": 408,
+          "faces": 386
+        },
+        {
+          "name": "primary_R_0",
+          "first_vertex": 5040,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_1",
+          "first_vertex": 5110,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_2",
+          "first_vertex": 5180,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_3",
+          "first_vertex": 5250,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_4",
+          "first_vertex": 5320,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_5",
+          "first_vertex": 5390,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_6",
+          "first_vertex": 5460,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_7",
+          "first_vertex": 5530,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_8",
+          "first_vertex": 5600,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "primary_R_9",
+          "first_vertex": 5670,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_0",
+          "first_vertex": 5740,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_1",
+          "first_vertex": 5810,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_2",
+          "first_vertex": 5880,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_3",
+          "first_vertex": 5950,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_4",
+          "first_vertex": 6020,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_5",
+          "first_vertex": 6090,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_6",
+          "first_vertex": 6160,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "secondary_R_7",
+          "first_vertex": 6230,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_R_0",
+          "first_vertex": 6300,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_R_1",
+          "first_vertex": 6370,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_R_2",
+          "first_vertex": 6440,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_R_3",
+          "first_vertex": 6510,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_R_4",
+          "first_vertex": 6580,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scapular_covert_R_5",
+          "first_vertex": 6650,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "scaly_tarsus_R",
+          "first_vertex": 6720,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "grasping_toe_R_-1",
+          "first_vertex": 6936,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_R_-1",
+          "first_vertex": 7152,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_R_0",
+          "first_vertex": 7272,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_R_0",
+          "first_vertex": 7488,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_R_1",
+          "first_vertex": 7608,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_R_1",
+          "first_vertex": 7824,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_R_2",
+          "first_vertex": 7944,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "horn_claw_R_2",
+          "first_vertex": 8160,
+          "vertices": 120,
+          "faces": 98
+        },
+        {
+          "name": "rectrix_0",
+          "first_vertex": 8280,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_1",
+          "first_vertex": 8350,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_2",
+          "first_vertex": 8420,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_3",
+          "first_vertex": 8490,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_4",
+          "first_vertex": 8560,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_5",
+          "first_vertex": 8630,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_6",
+          "first_vertex": 8700,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_7",
+          "first_vertex": 8770,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_8",
+          "first_vertex": 8840,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "rectrix_9",
+          "first_vertex": 8910,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_0",
+          "first_vertex": 8980,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_1",
+          "first_vertex": 9050,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_2",
+          "first_vertex": 9120,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_3",
+          "first_vertex": 9190,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_4",
+          "first_vertex": 9260,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_5",
+          "first_vertex": 9330,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "crest_6",
+          "first_vertex": 9400,
+          "vertices": 70,
+          "faces": 68
+        },
+        {
+          "name": "slender_upper_beak",
+          "first_vertex": 9470,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "slender_lower_beak",
+          "first_vertex": 9686,
+          "vertices": 216,
+          "faces": 194
+        }
+      ],
+      "maximumWeightError": 0,
+      "degenerateTriangles": 0,
+      "validationErrors": 0,
+      "validationWarnings": 1
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_skylark_lod1.glb",
+      "sha256": "45b0780930f011c8674ef9bee07cd9631f916321728aeb3949ef73dabf102ab7",
+      "bytes": 2456868,
+      "triangles": 10180,
+      "vertices": 5266,
+      "bounds_blender": {
+        "min": [
+          -0.1930174082517624,
+          -0.10418589413166046,
+          0.004958050325512886
+        ],
+        "max": [
+          0.19302941858768463,
+          0.1502869576215744,
+          0.18294137716293335
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 352,
+          "faces": 338
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 352,
+          "vertices": 96,
+          "faces": 80
+        },
+        {
+          "name": "feathered_wing_skin_L",
+          "first_vertex": 448,
+          "vertices": 208,
+          "faces": 194
+        },
+        {
+          "name": "primary_L_0",
+          "first_vertex": 656,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_1",
+          "first_vertex": 706,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_2",
+          "first_vertex": 756,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_3",
+          "first_vertex": 806,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_4",
+          "first_vertex": 856,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_5",
+          "first_vertex": 906,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_6",
+          "first_vertex": 956,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_L_7",
+          "first_vertex": 1006,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_L_0",
+          "first_vertex": 1056,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_L_1",
+          "first_vertex": 1106,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_L_2",
+          "first_vertex": 1156,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_L_3",
+          "first_vertex": 1206,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_L_4",
+          "first_vertex": 1256,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_L_5",
+          "first_vertex": 1306,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_L_0",
+          "first_vertex": 1356,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_L_1",
+          "first_vertex": 1406,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_L_2",
+          "first_vertex": 1456,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_L_3",
+          "first_vertex": 1506,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scaly_tarsus_L",
+          "first_vertex": 1556,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_L_-1",
+          "first_vertex": 1668,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_L_-1",
+          "first_vertex": 1780,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "grasping_toe_L_0",
+          "first_vertex": 1844,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_L_0",
+          "first_vertex": 1956,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "grasping_toe_L_1",
+          "first_vertex": 2020,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_L_1",
+          "first_vertex": 2132,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "grasping_toe_L_2",
+          "first_vertex": 2196,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_L_2",
+          "first_vertex": 2308,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 2372,
+          "vertices": 96,
+          "faces": 80
+        },
+        {
+          "name": "feathered_wing_skin_R",
+          "first_vertex": 2468,
+          "vertices": 208,
+          "faces": 194
+        },
+        {
+          "name": "primary_R_0",
+          "first_vertex": 2676,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_1",
+          "first_vertex": 2726,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_2",
+          "first_vertex": 2776,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_3",
+          "first_vertex": 2826,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_4",
+          "first_vertex": 2876,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_5",
+          "first_vertex": 2926,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_6",
+          "first_vertex": 2976,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "primary_R_7",
+          "first_vertex": 3026,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_R_0",
+          "first_vertex": 3076,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_R_1",
+          "first_vertex": 3126,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_R_2",
+          "first_vertex": 3176,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_R_3",
+          "first_vertex": 3226,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_R_4",
+          "first_vertex": 3276,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "secondary_R_5",
+          "first_vertex": 3326,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_R_0",
+          "first_vertex": 3376,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_R_1",
+          "first_vertex": 3426,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_R_2",
+          "first_vertex": 3476,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scapular_covert_R_3",
+          "first_vertex": 3526,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "scaly_tarsus_R",
+          "first_vertex": 3576,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "grasping_toe_R_-1",
+          "first_vertex": 3688,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_R_-1",
+          "first_vertex": 3800,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "grasping_toe_R_0",
+          "first_vertex": 3864,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_R_0",
+          "first_vertex": 3976,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "grasping_toe_R_1",
+          "first_vertex": 4040,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_R_1",
+          "first_vertex": 4152,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "grasping_toe_R_2",
+          "first_vertex": 4216,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "horn_claw_R_2",
+          "first_vertex": 4328,
+          "vertices": 64,
+          "faces": 50
+        },
+        {
+          "name": "rectrix_0",
+          "first_vertex": 4392,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_1",
+          "first_vertex": 4442,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_2",
+          "first_vertex": 4492,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_3",
+          "first_vertex": 4542,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_4",
+          "first_vertex": 4592,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_5",
+          "first_vertex": 4642,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_6",
+          "first_vertex": 4692,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "rectrix_7",
+          "first_vertex": 4742,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "crest_0",
+          "first_vertex": 4792,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "crest_1",
+          "first_vertex": 4842,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "crest_2",
+          "first_vertex": 4892,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "crest_3",
+          "first_vertex": 4942,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "crest_4",
+          "first_vertex": 4992,
+          "vertices": 50,
+          "faces": 48
+        },
+        {
+          "name": "slender_upper_beak",
+          "first_vertex": 5042,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "slender_lower_beak",
+          "first_vertex": 5154,
+          "vertices": 112,
+          "faces": 98
+        }
+      ],
+      "maximumWeightError": 2.9802322387695312e-8,
+      "degenerateTriangles": 0,
+      "validationErrors": 0,
+      "validationWarnings": 1
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_skylark_lod2.glb",
+      "sha256": "7015d59b6896e1fb0730a7d00fb2c4734a9d555a8dc6b18e7900e5a8fc90f646",
+      "bytes": 2118612,
+      "triangles": 4408,
+      "vertices": 2340,
+      "bounds_blender": {
+        "min": [
+          -0.19304290413856506,
+          -0.10417679697275162,
+          0.005124753341078758
+        ],
+        "max": [
+          0.19305849075317383,
+          0.1500024050474167,
+          0.18294137716293335
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 150,
+          "faces": 142
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 150,
+          "vertices": 60,
+          "faces": 50
+        },
+        {
+          "name": "feathered_wing_skin_L",
+          "first_vertex": 210,
+          "vertices": 90,
+          "faces": 82
+        },
+        {
+          "name": "primary_L_0",
+          "first_vertex": 300,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_L_1",
+          "first_vertex": 330,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_L_2",
+          "first_vertex": 360,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_L_3",
+          "first_vertex": 390,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_L_4",
+          "first_vertex": 420,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_L_5",
+          "first_vertex": 450,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_L_0",
+          "first_vertex": 480,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_L_1",
+          "first_vertex": 510,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_L_2",
+          "first_vertex": 540,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_L_3",
+          "first_vertex": 570,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scapular_covert_L_0",
+          "first_vertex": 600,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scapular_covert_L_1",
+          "first_vertex": 630,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scapular_covert_L_2",
+          "first_vertex": 660,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scaly_tarsus_L",
+          "first_vertex": 690,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "grasping_toe_L_-1",
+          "first_vertex": 740,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_L_-1",
+          "first_vertex": 790,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "grasping_toe_L_0",
+          "first_vertex": 820,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_L_0",
+          "first_vertex": 870,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "grasping_toe_L_1",
+          "first_vertex": 900,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_L_1",
+          "first_vertex": 950,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "grasping_toe_L_2",
+          "first_vertex": 980,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_L_2",
+          "first_vertex": 1030,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 1060,
+          "vertices": 60,
+          "faces": 50
+        },
+        {
+          "name": "feathered_wing_skin_R",
+          "first_vertex": 1120,
+          "vertices": 90,
+          "faces": 82
+        },
+        {
+          "name": "primary_R_0",
+          "first_vertex": 1210,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_R_1",
+          "first_vertex": 1240,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_R_2",
+          "first_vertex": 1270,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_R_3",
+          "first_vertex": 1300,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_R_4",
+          "first_vertex": 1330,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "primary_R_5",
+          "first_vertex": 1360,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_R_0",
+          "first_vertex": 1390,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_R_1",
+          "first_vertex": 1420,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_R_2",
+          "first_vertex": 1450,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "secondary_R_3",
+          "first_vertex": 1480,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scapular_covert_R_0",
+          "first_vertex": 1510,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scapular_covert_R_1",
+          "first_vertex": 1540,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scapular_covert_R_2",
+          "first_vertex": 1570,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "scaly_tarsus_R",
+          "first_vertex": 1600,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "grasping_toe_R_-1",
+          "first_vertex": 1650,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_R_-1",
+          "first_vertex": 1700,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "grasping_toe_R_0",
+          "first_vertex": 1730,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_R_0",
+          "first_vertex": 1780,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "grasping_toe_R_1",
+          "first_vertex": 1810,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_R_1",
+          "first_vertex": 1860,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "grasping_toe_R_2",
+          "first_vertex": 1890,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "horn_claw_R_2",
+          "first_vertex": 1940,
+          "vertices": 30,
+          "faces": 22
+        },
+        {
+          "name": "rectrix_0",
+          "first_vertex": 1970,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "rectrix_1",
+          "first_vertex": 2000,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "rectrix_2",
+          "first_vertex": 2030,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "rectrix_3",
+          "first_vertex": 2060,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "rectrix_4",
+          "first_vertex": 2090,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "rectrix_5",
+          "first_vertex": 2120,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "crest_0",
+          "first_vertex": 2150,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "crest_1",
+          "first_vertex": 2180,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "crest_2",
+          "first_vertex": 2210,
+          "vertices": 30,
+          "faces": 28
+        },
+        {
+          "name": "slender_upper_beak",
+          "first_vertex": 2240,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "slender_lower_beak",
+          "first_vertex": 2290,
+          "vertices": 50,
+          "faces": 42
+        }
+      ],
+      "maximumWeightError": 0,
+      "degenerateTriangles": 0,
+      "validationErrors": 0,
+      "validationWarnings": 1
+    }
+  ],
+  "visualApproval": false
+}

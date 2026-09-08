@@ -1,0 +1,18 @@
+{
+  "model": "frontier_sunmeadow_gatehouse_lod0.glb",
+  "sha256": "d1b8999851d23107f6b3d96501ecec5cd003c85b49e6cef8784c1c94442d3685",
+  "preview": "frontier_sunmeadow_gatehouse_lod0_reimport.png",
+  "preview_sha256": "d54dc59c6060dec203b64adc9f6c2b6ad6c20d74020cd0599caa18d2f6e7665f",
+  "reviewer_sha256": "eaae123b442b512665af26b6420d9c8a91d90aa81f99223d62056e1ad070bd95",
+  "passage": {
+    "width_m": 6,
+    "minimum_height_m": 4.8,
+    "full_depth_m": 12,
+    "ray_samples": 775,
+    "surface_tolerance_m": 0.02,
+    "floor_clearance_m": 0.25,
+    "blocked_rays": []
+  },
+  "front_preview": "frontier_sunmeadow_gatehouse_lod0_front.png",
+  "front_preview_sha256": "f467ae4ee9315792eabc614496ca5a969fc7938c519f83e4a254f4920fa78317"
+}

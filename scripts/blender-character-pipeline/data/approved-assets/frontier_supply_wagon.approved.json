@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.supply_wagon",
+  "displayName": "Sunmeadow Covered Supply Wagon",
+  "category": "prop",
+  "model": "frontier_supply_wagon_lod0.glb",
+  "qc": "frontier_supply_wagon_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_supply_wagon",
+    "animationPack": {
+      "model": "frontier_teamster_animations.glb",
+      "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2"
+    }
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+    "qcSha256": "966d0a082c98719097a164015680e4c3619e14bac13c81fb8d503b0fe9d9da95",
+    "previews": {
+      "assembly": "f7d1c7c8c3e9052792b3d04ae430b8222e42b0e3b4422936635894e82e3ff4ba"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/orvr-frontier/review/frontier_supply_wagon_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "approvalState": "approved"
+}

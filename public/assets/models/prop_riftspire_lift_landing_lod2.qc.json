@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.lift_landing",
+  "modelSha256": "33b7cb0b7a52da6a23f6b925645023babf73af9806b8e0c9dce640d1d67b0eef",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_lift_landing_lod2.glb",
+    "triangles": 968,
+    "sha256": "33b7cb0b7a52da6a23f6b925645023babf73af9806b8e0c9dce640d1d67b0eef",
+    "bytes": 110408,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_lift_landing.glb",
+      "triangles": 968,
+      "sha256": "66f7e57a2c89f37ac8f3b2159aac4abf18c7d6eee13525abcecd4082f1d25cbb",
+      "bytes": 110408,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_lift_landing_lod1.glb",
+      "triangles": 968,
+      "sha256": "6a8eae97c5cb8fc168c9233cd259025a432d5078ad9a08983808514c1dde77e4",
+      "bytes": 110408,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_lift_landing_lod2.glb",
+      "triangles": 968,
+      "sha256": "33b7cb0b7a52da6a23f6b925645023babf73af9806b8e0c9dce640d1d67b0eef",
+      "bytes": 110408,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "a76e53091f7b6142a069ce73b44ce05a56b1315ff97ca3851b2c7a0cd1acb7d6",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,54 @@
+{
+  "method": "LOD0 actual GLB reimport triangles placed in world. BVH pairs are confirmed with bounded edge/triangle segment intersections, excluding endpoints within 10 micrometres.",
+  "tool_sha256": "f5f95aba5556d54ed1c3028c7e166748e6f8094859fddc89a23a7b26a575dcf8",
+  "original": {
+    "models": [
+      {
+        "model": "frontier_sunmeadow_supply_post_lod0.glb",
+        "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+        "placement": {
+          "x": -401,
+          "z": -253,
+          "rotY": 0.35
+        }
+      },
+      {
+        "model": "frontier_sunmeadow_workshop_lod0.glb",
+        "sha256": "980a3d7069096f49bd6707c1af2904384e6fd349ff359996ec5ae8150702afc9",
+        "placement": {
+          "x": -397,
+          "z": -244,
+          "rotY": -1.5707963267948966
+        }
+      }
+    ],
+    "candidate_triangle_pairs": 0,
+    "confirmed_intersecting_triangle_pairs": 0,
+    "sample_intersection_points_runtime_xyz": []
+  },
+  "proposed": {
+    "models": [
+      {
+        "model": "frontier_sunmeadow_supply_post_lod0.glb",
+        "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+        "placement": {
+          "x": -401,
+          "z": -256,
+          "rotY": 0.35
+        }
+      },
+      {
+        "model": "frontier_sunmeadow_workshop_lod0.glb",
+        "sha256": "980a3d7069096f49bd6707c1af2904384e6fd349ff359996ec5ae8150702afc9",
+        "placement": {
+          "x": -397,
+          "z": -244,
+          "rotY": -1.5707963267948966
+        }
+      }
+    ],
+    "candidate_triangle_pairs": 0,
+    "confirmed_intersecting_triangle_pairs": 0,
+    "sample_intersection_points_runtime_xyz": []
+  }
+}

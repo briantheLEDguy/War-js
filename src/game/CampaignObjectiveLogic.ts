@@ -26,7 +26,7 @@ export interface CampaignActivity {
 
 /** Spawn-bound defenders still contest an objective when pulled outside its ring. */
 export function objectiveDefenders(
-  objective: Pick<CampaignObjectiveStatus, 'x' | 'z' | 'captureRadius'> & Partial<Pick<CampaignObjectiveStatus, 'id'>>,
+  objective: Pick<CampaignObjectiveStatus, 'x' | 'z' | 'captureRadius'> & Partial<Pick<CampaignObjectiveStatus, 'id' | 'y'>>,
   spawns: readonly EnemySpawn[],
   enemies: readonly EnemyState[],
 ): EnemyState[] {
@@ -36,8 +36,9 @@ export function objectiveDefenders(
     const spawn = spawns.find((entry) => entry.id === enemy.id);
     if (!spawn || !(spawn.aggroRange && spawn.aggroRange > 0)) return false;
     return Boolean(spawn.encounter && spawn.encounter.objectiveId === objective.id) ||
-      Math.hypot(spawn.x - objective.x, spawn.z - objective.z) <= radius ||
-      Math.hypot(enemy.position.x - objective.x, enemy.position.z - objective.z) <= objective.captureRadius;
+      Math.hypot(spawn.x - objective.x, spawn.z - objective.z, objective.y === undefined ? 0 : (spawn.y ?? 0) - objective.y) <= radius ||
+      Math.hypot(enemy.position.x - objective.x, enemy.position.z - objective.z,
+        objective.y === undefined ? 0 : enemy.position.y - objective.y) <= objective.captureRadius;
   });
 }
 
@@ -47,7 +48,7 @@ export function describeCampaignActivity({ zoneId, objective, realm, spawns, ene
   realm: CampaignRealm;
   spawns: readonly EnemySpawn[];
   enemies: readonly EnemyState[];
-  player: { x: number; z: number };
+  player: { x: number; y?: number; z: number };
   inventory: InventoryItem[];
   nowMs?: number;
 }): CampaignActivity {
@@ -73,7 +74,8 @@ export function describeCampaignActivity({ zoneId, objective, realm, spawns, ene
   }
   return {
     objective, activity, defenders, blocker, commander,
-    distance: Math.hypot(player.x - objective.x, player.z - objective.z),
+    distance: Math.hypot(player.x - objective.x, player.z - objective.z,
+      objective.y === undefined ? 0 : (player.y ?? 0) - objective.y),
     holdMs: activity === 'defend' ? OBJECTIVE_DEFENSE_HOLD_MS : OBJECTIVE_CAPTURE_HOLD_MS,
   };
 }

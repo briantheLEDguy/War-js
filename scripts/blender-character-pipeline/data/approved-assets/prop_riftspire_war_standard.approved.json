@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.war_standard",
+  "displayName": "Riftspire war standard",
+  "category": "prop",
+  "model": "prop_riftspire_war_standard.glb",
+  "qc": "prop_riftspire_war_standard.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_war_standard"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "87a095d11121f4decf44663291ed83cb057416ac27074361c28789852528262c",
+    "qcSha256": "797d67fafe96c459b09649b70c64509bcaad9f21713587ee5fede384edb0f1e7",
+    "previews": {
+      "assembly": "f1b3081785de11f1b79520642b95df654e6ba1d7faf0159bb87a142080fa1895"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/war_standard-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.104922+00:00",
+    "reviewHash": "e2072a2d94d0bd4c54e032fe1f9e63c3faeb63fcd4291e8f5efe2f33bd71e169"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

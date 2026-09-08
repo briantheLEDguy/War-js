@@ -1,0 +1,420 @@
+{
+  "passed": true,
+  "visualApproval": false,
+  "status": "review_pending",
+  "issues": [],
+  "records": [
+    {
+      "assetId": "frontier_supply_wagon",
+      "level": 0,
+      "path": "runtime/frontier_supply_wagon_lod0.glb",
+      "sha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+      "bytes": 13438408,
+      "triangles": 87766,
+      "uniqueMeshTriangles": 53782,
+      "materials": 3,
+      "clips": [
+        "caravan_roll"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_supply_wagon",
+      "level": 1,
+      "path": "runtime/frontier_supply_wagon_lod1.glb",
+      "sha256": "5af903d426e281792b18ff3b34bad29e70c6119bd4a79d985c54d1515ca39d20",
+      "bytes": 12258924,
+      "triangles": 42214,
+      "uniqueMeshTriangles": 26404,
+      "materials": 3,
+      "clips": [
+        "caravan_roll"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_supply_wagon",
+      "level": 2,
+      "path": "runtime/frontier_supply_wagon_lod2.glb",
+      "sha256": "e6c72a7c40c10739f5aeba2b1a4fd3b134ff284147dcceb232f9d7c00a4b50be",
+      "bytes": 4486504,
+      "triangles": 28628,
+      "uniqueMeshTriangles": 17846,
+      "materials": 3,
+      "clips": [
+        "caravan_roll"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_battering_ram",
+      "level": 0,
+      "path": "runtime/frontier_battering_ram_lod0.glb",
+      "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+      "bytes": 17679080,
+      "triangles": 70560,
+      "uniqueMeshTriangles": 36576,
+      "materials": 6,
+      "clips": [
+        "siege_roll",
+        "ram_strike"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_battering_ram",
+      "level": 1,
+      "path": "runtime/frontier_battering_ram_lod1.glb",
+      "sha256": "d40803b8a0b4d09351bafd7c74ff0fa22f9f8d42e86f9839322ce4c462af1986",
+      "bytes": 16788360,
+      "triangles": 33740,
+      "uniqueMeshTriangles": 17930,
+      "materials": 6,
+      "clips": [
+        "siege_roll",
+        "ram_strike"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_battering_ram",
+      "level": 2,
+      "path": "runtime/frontier_battering_ram_lod2.glb",
+      "sha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4",
+      "bytes": 6678704,
+      "triangles": 22442,
+      "uniqueMeshTriangles": 11660,
+      "materials": 6,
+      "clips": [
+        "siege_roll",
+        "ram_strike"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_oil_cauldron",
+      "level": 0,
+      "path": "runtime/frontier_oil_cauldron_lod0.glb",
+      "sha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+      "bytes": 2094212,
+      "triangles": 23584,
+      "uniqueMeshTriangles": 23584,
+      "materials": 2,
+      "clips": [
+        "oil_pour"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_oil_cauldron",
+      "level": 1,
+      "path": "runtime/frontier_oil_cauldron_lod1.glb",
+      "sha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48",
+      "bytes": 1404416,
+      "triangles": 5958,
+      "uniqueMeshTriangles": 5958,
+      "materials": 2,
+      "clips": [
+        "oil_pour"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_oil_cauldron",
+      "level": 2,
+      "path": "runtime/frontier_oil_cauldron_lod2.glb",
+      "sha256": "be2b1e463fa55479fd1dfde25baf2754aed0615051e4ce5b7fa3753b5200022c",
+      "bytes": 546004,
+      "triangles": 2766,
+      "uniqueMeshTriangles": 2766,
+      "materials": 2,
+      "clips": [
+        "oil_pour"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_field_catapult",
+      "level": 0,
+      "path": "runtime/frontier_field_catapult_lod0.glb",
+      "sha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+      "bytes": 20947756,
+      "triangles": 75376,
+      "uniqueMeshTriangles": 41392,
+      "materials": 6,
+      "clips": [
+        "siege_roll",
+        "catapult_fire",
+        "catapult_reload"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_field_catapult",
+      "level": 1,
+      "path": "runtime/frontier_field_catapult_lod1.glb",
+      "sha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861",
+      "bytes": 19538576,
+      "triangles": 30692,
+      "uniqueMeshTriangles": 14882,
+      "materials": 6,
+      "clips": [
+        "siege_roll",
+        "catapult_fire",
+        "catapult_reload"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_field_catapult",
+      "level": 2,
+      "path": "runtime/frontier_field_catapult_lod2.glb",
+      "sha256": "e95a9524f9bf47dfc332146cf14784d19b75cc826544c2bf62486fa02b891ea1",
+      "bytes": 6729488,
+      "triangles": 20780,
+      "uniqueMeshTriangles": 9998,
+      "materials": 6,
+      "clips": [
+        "siege_roll",
+        "catapult_fire",
+        "catapult_reload"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_keep_gate",
+      "level": 0,
+      "path": "runtime/frontier_keep_gate_lod0.glb",
+      "sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+      "bytes": 10693876,
+      "triangles": 25080,
+      "uniqueMeshTriangles": 25080,
+      "materials": 2,
+      "clips": [
+        "gate_open",
+        "gate_close"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_keep_gate",
+      "level": 1,
+      "path": "runtime/frontier_keep_gate_lod1.glb",
+      "sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+      "bytes": 10008880,
+      "triangles": 11848,
+      "uniqueMeshTriangles": 11848,
+      "materials": 2,
+      "clips": [
+        "gate_open",
+        "gate_close"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_keep_gate",
+      "level": 2,
+      "path": "runtime/frontier_keep_gate_lod2.glb",
+      "sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+      "bytes": 3442880,
+      "triangles": 6964,
+      "uniqueMeshTriangles": 6964,
+      "materials": 2,
+      "clips": [
+        "gate_open",
+        "gate_close"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_draft_horse",
+      "level": 0,
+      "path": "runtime/frontier_draft_horse_lod0.glb",
+      "sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "bytes": 12152196,
+      "triangles": 118342,
+      "uniqueMeshTriangles": 118342,
+      "materials": 2,
+      "clips": [
+        "idle",
+        "walk",
+        "draft_trot"
+      ],
+      "errors": 0,
+      "warnings": 2,
+      "warningCodes": [
+        "NODE_SKINNED_MESH_NON_ROOT"
+      ]
+    },
+    {
+      "assetId": "frontier_draft_horse",
+      "level": 1,
+      "path": "runtime/frontier_draft_horse_lod1.glb",
+      "sha256": "7cb634b85460155417b17b33b8885c6ab199eab7bcd3e5196719e3ce1b6a45ab",
+      "bytes": 8014204,
+      "triangles": 52512,
+      "uniqueMeshTriangles": 52512,
+      "materials": 2,
+      "clips": [
+        "idle",
+        "walk",
+        "draft_trot"
+      ],
+      "errors": 0,
+      "warnings": 2,
+      "warningCodes": [
+        "NODE_SKINNED_MESH_NON_ROOT"
+      ]
+    },
+    {
+      "assetId": "frontier_draft_horse",
+      "level": 2,
+      "path": "runtime/frontier_draft_horse_lod2.glb",
+      "sha256": "fe465b53dd01aa02124d5140878c13b9f24a2f98e7f826dc34123fc96e5f3728",
+      "bytes": 2978364,
+      "triangles": 16534,
+      "uniqueMeshTriangles": 16534,
+      "materials": 2,
+      "clips": [
+        "idle",
+        "walk",
+        "draft_trot"
+      ],
+      "errors": 0,
+      "warnings": 2,
+      "warningCodes": [
+        "NODE_SKINNED_MESH_NON_ROOT"
+      ]
+    },
+    {
+      "assetId": "frontier_caravan_reins",
+      "level": 0,
+      "path": "runtime/frontier_caravan_reins_lod0.glb",
+      "sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+      "bytes": 392064,
+      "triangles": 2176,
+      "uniqueMeshTriangles": 2176,
+      "materials": 1,
+      "clips": [],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_caravan_reins",
+      "level": 1,
+      "path": "runtime/frontier_caravan_reins_lod1.glb",
+      "sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+      "bytes": 323604,
+      "triangles": 1414,
+      "uniqueMeshTriangles": 1414,
+      "materials": 1,
+      "clips": [],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_caravan_reins",
+      "level": 2,
+      "path": "runtime/frontier_caravan_reins_lod2.glb",
+      "sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+      "bytes": 154820,
+      "triangles": 826,
+      "uniqueMeshTriangles": 826,
+      "materials": 1,
+      "clips": [],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_supply_officer_kit",
+      "level": 0,
+      "path": "runtime/frontier_supply_officer_kit_lod0.glb",
+      "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+      "bytes": 7448840,
+      "triangles": 13048,
+      "uniqueMeshTriangles": 13048,
+      "materials": 1,
+      "clips": [],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_supply_officer_kit",
+      "level": 1,
+      "path": "runtime/frontier_supply_officer_kit_lod1.glb",
+      "sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+      "bytes": 2163436,
+      "triangles": 7131,
+      "uniqueMeshTriangles": 7131,
+      "materials": 1,
+      "clips": [],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_supply_officer_kit",
+      "level": 2,
+      "path": "runtime/frontier_supply_officer_kit_lod2.glb",
+      "sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+      "bytes": 676924,
+      "triangles": 2557,
+      "uniqueMeshTriangles": 2557,
+      "materials": 1,
+      "clips": [],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "assetId": "frontier_teamster_animations",
+      "level": null,
+      "path": "runtime/frontier_teamster_animations.glb",
+      "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+      "bytes": 56868,
+      "triangles": 0,
+      "uniqueMeshTriangles": 0,
+      "materials": 0,
+      "clips": [
+        "driver_seated"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    }
+  ]
+}

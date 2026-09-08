@@ -1,0 +1,45 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_barrow_wolf",
+      "level": 0,
+      "state": "rest",
+      "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+      "model_sha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+      "image": "review\\frontier_sunmeadow_barrow_wolf_lod0_reimport.png",
+      "image_sha256": "beb1c0acda95b310d1fe61985c156048bbe31dcdb61761fc3a7dcd2ed70e74dc",
+      "bounds_blender": {
+        "min": [
+          -0.9510578513145447,
+          -0.9999999403953552,
+          -1.0
+        ],
+        "max": [
+          0.9510578513145447,
+          1.1761646270751953,
+          1.1399999856948853
+        ],
+        "span": [
+          1.9021157026290894,
+          2.1761646270751953,
+          2.1399998664855957
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.9510578513145447,
+          -0.9999999403953552,
+          -1.0
+        ],
+        "max": [
+          0.9510578513145447,
+          1.1761646270751953,
+          1.1399999856948853
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

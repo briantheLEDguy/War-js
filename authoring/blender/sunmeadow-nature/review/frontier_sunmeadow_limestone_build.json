@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_limestone",
+  "name": "Sunmeadow weathered limestone outcrop",
+  "source_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "builder_sha256": "29f5975924a0d8ebf8e3a71aa3945b15862610a7cfa9a76e34752945ec1d525e",
+  "paint_record_sha256": "b8804ffc4341b271b6f393956dd6cae83556bfd4c69b16ff36ce779f4ec7603c",
+  "master": "masters\\frontier_sunmeadow_limestone.blend",
+  "master_sha256": "a44b90ec784ec8fffbd14fe7c7f09c7fd26bfa288b48b6c75bac7ed98e6cb7ed",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_limestone_lod0.glb",
+      "sha256": "fba74c19a4d665d7c1133ff57867bc4794d67cc3538b2542fd8a32efd0165b70",
+      "bytes": 3023288,
+      "triangles": 6402,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -2.9100000858306885,
+          -2.0490000247955322,
+          -0.042493075132369995
+        ],
+        "max": [
+          2.990000009536743,
+          1.902999997138977,
+          2.4018852710723877
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -2.9100000858306885,
+          -0.042493075132369995,
+          -1.902999997138977
+        ],
+        "max": [
+          2.990000009536743,
+          2.4018852710723877,
+          2.0490000247955322
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_limestone_lod1.glb",
+      "sha256": "9000fb30b6c52a40f65c3419f64a4ab954987c142ecb36c26bc207e90ca65fd0",
+      "bytes": 2550004,
+      "triangles": 3202,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -2.9100000858306885,
+          -2.0490000247955322,
+          -0.03719997778534889
+        ],
+        "max": [
+          2.990000009536743,
+          1.902999997138977,
+          2.4017081260681152
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -2.9100000858306885,
+          -0.03719997778534889,
+          -1.902999997138977
+        ],
+        "max": [
+          2.990000009536743,
+          2.4017081260681152,
+          2.0490000247955322
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_limestone_lod2.glb",
+      "sha256": "d9223bc807947c8d3ca0e5fff8da12d8bae6819dd2bcc5173863f71f8989d7bc",
+      "bytes": 2313164,
+      "triangles": 1602,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -2.9100000858306885,
+          -2.0490000247955322,
+          -0.02849718928337097
+        ],
+        "max": [
+          2.990000009536743,
+          1.902999997138977,
+          2.4017081260681152
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -2.9100000858306885,
+          -0.02849718928337097,
+          -1.902999997138977
+        ],
+        "max": [
+          2.990000009536743,
+          2.4017081260681152,
+          2.0490000247955322
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

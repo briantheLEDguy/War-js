@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.riftspire.dark_elf",
+  "displayName": "Riftspire dark elf inhabitant",
+  "category": "character",
+  "model": "chr_riftspire_dark_elf_lod1.glb",
+  "qc": "chr_riftspire_dark_elf_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftspire_dark_elf"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_people",
+    "bodyVariant": "m",
+    "skeletonId": "aegis_people_v1",
+    "bindPoseId": "civic_relaxed_v1"
+  },
+  "approvalState": "approved",
+  "hashes": {
+    "modelSha256": "2b92b884e23dd7e33ea6fac161185b5e70d7e4ef5fabbb5e081073311c320b15",
+    "qcSha256": "701f7548206c3c9c735c911f993d2853d786a11ec2c7d7ce1325d6bc227d6226",
+    "previews": {
+      "front": "897998e16687b15b7d5958df6d7f7653c4fc3248de2e05c90fd03c178ce072e9"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/riftspire-city/review/population_dark_elf-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:26:05.952Z",
+    "reviewHash": "47eb70dd50bba19330c17ebfa3a955dc39b8e4ee349a945bf2f847995f6732cf"
+  },
+  "provenance": {
+    "sourcePackage": "authoring/blender/riftspire-city",
+    "sourceModel": "chr_aegis_people_courtier_lod1.glb",
+    "sourceSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+    "geometry": "Adapted reviewed anatomy and rig with fitted Riftbound apparel, headgear and faction features. Original upstream anatomy licenses and provenance remain applicable.",
+    "limitations": "Middle LOD used for residents. Dark Elf uses the existing civic idle and generated walking cycle."
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.cinderfen.outskirts.terrain.0.1",
+  "modelSha256": "f85bc74d29d43cb9d42f2681f20fa040d5af66bc82bb6875ecd4f8b01b1030f2",
+  "lod": 0,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_outskirts_terrain_0_1.glb",
+      "triangles": 75444,
+      "bytes": 2740332,
+      "sha256": "f85bc74d29d43cb9d42f2681f20fa040d5af66bc82bb6875ecd4f8b01b1030f2",
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_terrain/5e6265c0673773fb5896.png",
+          "sha256": "5e6265c0673773fb5896e00463826e78cbec652774571ccafddb1cbf1b74dd15"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/656a6e81ead84ce53858.png",
+          "sha256": "656a6e81ead84ce5385849ef6778071866ff74a18907e6fd7e239aff945fc7f5"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/8db1dbe8154305c7df4c.png",
+          "sha256": "8db1dbe8154305c7df4c97bf108d6a98a3a4df825af9355d25f3c33db9832a6e"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/b77e82f05403e58f2d83.png",
+          "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_outskirts_terrain_0_1_lod1.glb",
+      "triangles": 11508,
+      "bytes": 566488,
+      "sha256": "0384900cd68ad56b93736035ef4c13ad5ad5bfedcb6c0a0f045da0eb283ebeec",
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_terrain/5e6265c0673773fb5896.png",
+          "sha256": "5e6265c0673773fb5896e00463826e78cbec652774571ccafddb1cbf1b74dd15"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/656a6e81ead84ce53858.png",
+          "sha256": "656a6e81ead84ce5385849ef6778071866ff74a18907e6fd7e239aff945fc7f5"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/8db1dbe8154305c7df4c.png",
+          "sha256": "8db1dbe8154305c7df4c97bf108d6a98a3a4df825af9355d25f3c33db9832a6e"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/b77e82f05403e58f2d83.png",
+          "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_outskirts_terrain_0_1_lod2.glb",
+      "triangles": 4692,
+      "bytes": 334740,
+      "sha256": "d8862e6a3476fe6473159a17433cc6cf695a6e8dcf7697106be4b66087ea03be",
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_terrain/5e6265c0673773fb5896.png",
+          "sha256": "5e6265c0673773fb5896e00463826e78cbec652774571ccafddb1cbf1b74dd15"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/656a6e81ead84ce53858.png",
+          "sha256": "656a6e81ead84ce5385849ef6778071866ff74a18907e6fd7e239aff945fc7f5"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/8db1dbe8154305c7df4c.png",
+          "sha256": "8db1dbe8154305c7df4c97bf108d6a98a3a4df825af9355d25f3c33db9832a6e"
+        },
+        {
+          "uri": "../textures/cinderfen_terrain/b77e82f05403e58f2d83.png",
+          "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+        }
+      ]
+    }
+  ],
+  "externalTextures": [
+    {
+      "uri": "../textures/cinderfen_terrain/5e6265c0673773fb5896.png",
+      "sha256": "5e6265c0673773fb5896e00463826e78cbec652774571ccafddb1cbf1b74dd15"
+    },
+    {
+      "uri": "../textures/cinderfen_terrain/656a6e81ead84ce53858.png",
+      "sha256": "656a6e81ead84ce5385849ef6778071866ff74a18907e6fd7e239aff945fc7f5"
+    },
+    {
+      "uri": "../textures/cinderfen_terrain/8db1dbe8154305c7df4c.png",
+      "sha256": "8db1dbe8154305c7df4c97bf108d6a98a3a4df825af9355d25f3c33db9832a6e"
+    },
+    {
+      "uri": "../textures/cinderfen_terrain/b77e82f05403e58f2d83.png",
+      "sha256": "b77e82f05403e58f2d83b2bb5897f7d039499b3ad9aebfef27e0bba840d24505"
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "c71a2fb98239c43332f7488e5dddb17993091952df33ff64b61a510fed270e88",
+  "sourceSha256": "181d59a24580d9bc4f31aa99e4d3055ff941347aa5080cb61df37e2b7206bfa1",
+  "renderReceiptSha256": "24d5a6ef4f5d8c6be7d2b10b4ab7daf7757f5de9559c7b38caf9044be441e4b7",
+  "previewImages": [
+    "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png",
+    "authoring/blender/cinderfen-terrain/review/road_material.png",
+    "authoring/blender/cinderfen-terrain/review/terrain_overview_lod1.png",
+    "authoring/blender/cinderfen-terrain/review/terrain_overview_lod2.png",
+    "authoring/blender/cinderfen-terrain/review/road_junction_lod0.png"
+  ]
+}

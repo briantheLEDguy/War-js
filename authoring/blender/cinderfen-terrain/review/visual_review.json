@@ -1,0 +1,16 @@
+{
+  "buildSha256": "9d4716de99421dbae53e81177cd4aeccfc32e8bd7a7f0d9e7afae67a332dcf71",
+  "sourceSha256": "181d59a24580d9bc4f31aa99e4d3055ff941347aa5080cb61df37e2b7206bfa1",
+  "renderReceiptSha256": "24d5a6ef4f5d8c6be7d2b10b4ab7daf7757f5de9559c7b38caf9044be441e4b7",
+  "previewSha256s": {
+    "terrain_overview_lod0.png": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b",
+    "road_material.png": "48d47dac5a112e52efaaf373655891475f63287c19a952c2e4cddb113d5a31d1",
+    "terrain_overview_lod1.png": "d7e6e8f6a33a5663da3bde448ee5b7732bb2b2e0f1b0fd1942fac1fee1625c8f",
+    "terrain_overview_lod2.png": "864c86456bb7a7dc8ac4ba68c8be865d6b0bcd2eba9cd29f5835d2b0d417c998",
+    "road_junction_lod0.png": "16e95577a573c37261d95b461ecc239d9ebc9016f1302b52f7809b9b411a59e4"
+  },
+  "status": "approved",
+  "reviewedBy": "Codex root integration review",
+  "reviewedAt": "2026-09-08T19:22:07.052Z",
+  "notes": "Inspected all three actual-export terrain LOD overviews, road material and junction views, plus hash-verified assembled village in browser. Accepted terrain substrate: continuous causeways, blended intersections and stable shorelines/LOD silhouettes. Full-width village collision test passes. Ecology, population and regional dressing remain incomplete; this is not zone art completion."
+}

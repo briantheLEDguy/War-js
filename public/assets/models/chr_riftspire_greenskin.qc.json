@@ -1,0 +1,33 @@
+{
+  "qcPassed": true,
+  "modelSha256": "21afe92cf8f0f6e3d055546d06bbe8783ebec7301964df432774e669cf3e0b4e",
+  "lods": [
+    {
+      "level": 0,
+      "model": "chr_riftspire_greenskin.glb",
+      "triangles": 28499,
+      "bytes": 1817260,
+      "sha256": "21afe92cf8f0f6e3d055546d06bbe8783ebec7301964df432774e669cf3e0b4e",
+      "repairedDegenerateTangents": 1
+    },
+    {
+      "level": 1,
+      "model": "chr_riftspire_greenskin_lod1.glb",
+      "triangles": 15674,
+      "bytes": 1263020,
+      "sha256": "071f6bc8c7a7bda2e329852698db3bfbe061d4dc2c3a0aebb2e614cee85dde11",
+      "repairedDegenerateTangents": 3
+    },
+    {
+      "level": 2,
+      "model": "chr_riftspire_greenskin_lod2.glb",
+      "triangles": 7122,
+      "bytes": 779544,
+      "sha256": "c1becd3a669efb3f1e697fa006f60a278d07846a2d96f904107120e24016b5b4",
+      "repairedDegenerateTangents": 1
+    }
+  ],
+  "validationErrors": 0,
+  "textureMaxDimension": 2048,
+  "reviewHash": "2491a973c112774cbd54c9a35c50c5a3ed3bdd3846340fedfa8c5aca3f9a3651"
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_pasture_lod0.glb",
+    "archived": "2c0c2371fe08c8652bf0a7a6aaa594b00bc6ba889659edf8308917ee499239d6-frontier_sunmeadow_oak_pasture_lod0.glb",
+    "sha256": "2c0c2371fe08c8652bf0a7a6aaa594b00bc6ba889659edf8308917ee499239d6"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_pasture_lod1.glb",
+    "archived": "df39efb7afbd03d6c7a978487ea70d0761bd871a5fa3f113d385f135a14ba30c-frontier_sunmeadow_oak_pasture_lod1.glb",
+    "sha256": "df39efb7afbd03d6c7a978487ea70d0761bd871a5fa3f113d385f135a14ba30c"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_pasture_lod2.glb",
+    "archived": "afab7237542bd12ce9d1244ab448227b631994c34619dca15259854685b016c0-frontier_sunmeadow_oak_pasture_lod2.glb",
+    "sha256": "afab7237542bd12ce9d1244ab448227b631994c34619dca15259854685b016c0"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_pasture_lod0.qc.json",
+    "archived": "9361f8d475c9a5e2c298c18669cdfc7d6811572ee0568786aaa6e95432c158c8-frontier_sunmeadow_oak_pasture_lod0.qc.json",
+    "sha256": "9361f8d475c9a5e2c298c18669cdfc7d6811572ee0568786aaa6e95432c158c8"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_pasture_lod1.qc.json",
+    "archived": "fca0b232de4b1b15ae6eedbfbe23053c30206fa5e4e145d85dc457eb841e8371-frontier_sunmeadow_oak_pasture_lod1.qc.json",
+    "sha256": "fca0b232de4b1b15ae6eedbfbe23053c30206fa5e4e145d85dc457eb841e8371"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_pasture_lod2.qc.json",
+    "archived": "90d36467501de1ec69e9a3fe29241fce97c30f6b395b0d69bb7ffd5486c346ef-frontier_sunmeadow_oak_pasture_lod2.qc.json",
+    "sha256": "90d36467501de1ec69e9a3fe29241fce97c30f6b395b0d69bb7ffd5486c346ef"
+  },
+  {
+    "path": "scripts/blender-character-pipeline/data/asset-blueprints/frontier_sunmeadow_oak_pasture.asset.json",
+    "archived": "67820a3120cb7929a3dde212612b092fad9b35aeddef1e13150359ee643fe1bd-frontier_sunmeadow_oak_pasture.asset.json",
+    "sha256": "67820a3120cb7929a3dde212612b092fad9b35aeddef1e13150359ee643fe1bd"
+  },
+  {
+    "path": "scripts/blender-character-pipeline/data/approved-assets/frontier_sunmeadow_oak_pasture.approved.json",
+    "archived": "d0654d4a755b10a4c7084735cfaccbcf765896131a6b7b5c94821c7cfe01baeb-frontier_sunmeadow_oak_pasture.approved.json",
+    "sha256": "d0654d4a755b10a4c7084735cfaccbcf765896131a6b7b5c94821c7cfe01baeb"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_hedgerow_lod0.glb",
+    "archived": "a3f8853b8287ec7e55c4da7b8990451c1e6a2048ea53ff3bac4f0523f492270c-frontier_sunmeadow_oak_hedgerow_lod0.glb",
+    "sha256": "a3f8853b8287ec7e55c4da7b8990451c1e6a2048ea53ff3bac4f0523f492270c"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_hedgerow_lod1.glb",
+    "archived": "f044c11fa7603c09c72092e58b768d454c400993dc325a3225fec57becbf6e86-frontier_sunmeadow_oak_hedgerow_lod1.glb",
+    "sha256": "f044c11fa7603c09c72092e58b768d454c400993dc325a3225fec57becbf6e86"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_hedgerow_lod2.glb",
+    "archived": "8ea273ac19359b83efb4bfd9d34232df5772ef9d01c52a96b55603fd022e9b4c-frontier_sunmeadow_oak_hedgerow_lod2.glb",
+    "sha256": "8ea273ac19359b83efb4bfd9d34232df5772ef9d01c52a96b55603fd022e9b4c"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_hedgerow_lod0.qc.json",
+    "archived": "fdab0f6363186b576beda3971a101c39ab0a2652976a0e9d4400557c98ec8cc6-frontier_sunmeadow_oak_hedgerow_lod0.qc.json",
+    "sha256": "fdab0f6363186b576beda3971a101c39ab0a2652976a0e9d4400557c98ec8cc6"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_hedgerow_lod1.qc.json",
+    "archived": "53974fa5d56aa540fb111ce915f9339c79ae02d1eaef74cb28b10f2f0693fa0c-frontier_sunmeadow_oak_hedgerow_lod1.qc.json",
+    "sha256": "53974fa5d56aa540fb111ce915f9339c79ae02d1eaef74cb28b10f2f0693fa0c"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_oak_hedgerow_lod2.qc.json",
+    "archived": "455fc3c2b158ce80a6201c3acbdb272ddfa766f0d974546a756fecaaa2c2a401-frontier_sunmeadow_oak_hedgerow_lod2.qc.json",
+    "sha256": "455fc3c2b158ce80a6201c3acbdb272ddfa766f0d974546a756fecaaa2c2a401"
+  },
+  {
+    "path": "scripts/blender-character-pipeline/data/asset-blueprints/frontier_sunmeadow_oak_hedgerow.asset.json",
+    "archived": "d122dce9006ac1af0101d2e57fb9d751a1e0bd286363897d2ff90c55397eedf7-frontier_sunmeadow_oak_hedgerow.asset.json",
+    "sha256": "d122dce9006ac1af0101d2e57fb9d751a1e0bd286363897d2ff90c55397eedf7"
+  },
+  {
+    "path": "scripts/blender-character-pipeline/data/approved-assets/frontier_sunmeadow_oak_hedgerow.approved.json",
+    "archived": "881b4011b78460ad8bcb3909614163033dd7059a6d96c87d33f3ed46ef259a67-frontier_sunmeadow_oak_hedgerow.approved.json",
+    "sha256": "881b4011b78460ad8bcb3909614163033dd7059a6d96c87d33f3ed46ef259a67"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_ash_lod0.glb",
+    "archived": "372df1c291c7fc8865d7ff268def3c5698ee145e1dec40251cb6a22fb1f26efa-frontier_sunmeadow_ash_lod0.glb",
+    "sha256": "372df1c291c7fc8865d7ff268def3c5698ee145e1dec40251cb6a22fb1f26efa"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_ash_lod1.glb",
+    "archived": "7d16bbbfe5842f4b455c5b39edd96eb7359c3d46fec014d66867aac30f33927a-frontier_sunmeadow_ash_lod1.glb",
+    "sha256": "7d16bbbfe5842f4b455c5b39edd96eb7359c3d46fec014d66867aac30f33927a"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_ash_lod2.glb",
+    "archived": "b4d02609fc5905ee0c9272d83075f0078b1fa463ab5bd667c5b1f19bab1170f9-frontier_sunmeadow_ash_lod2.glb",
+    "sha256": "b4d02609fc5905ee0c9272d83075f0078b1fa463ab5bd667c5b1f19bab1170f9"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_ash_lod0.qc.json",
+    "archived": "00471d2d48346da136dccc0de47ef9dcab280b7ecb603a58d007a08d670a4ad3-frontier_sunmeadow_ash_lod0.qc.json",
+    "sha256": "00471d2d48346da136dccc0de47ef9dcab280b7ecb603a58d007a08d670a4ad3"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_ash_lod1.qc.json",
+    "archived": "e676fb5bd579b8c6121e6d87ac39c8138d794aa992295aedb774c6ce706e4327-frontier_sunmeadow_ash_lod1.qc.json",
+    "sha256": "e676fb5bd579b8c6121e6d87ac39c8138d794aa992295aedb774c6ce706e4327"
+  },
+  {
+    "path": "public/assets/models/frontier_sunmeadow_ash_lod2.qc.json",
+    "archived": "58e40699bb6b835d6a29341b894545979246426fe63eaf581846f39b3ed332a3-frontier_sunmeadow_ash_lod2.qc.json",
+    "sha256": "58e40699bb6b835d6a29341b894545979246426fe63eaf581846f39b3ed332a3"
+  },
+  {
+    "path": "scripts/blender-character-pipeline/data/asset-blueprints/frontier_sunmeadow_ash.asset.json",
+    "archived": "9ae7149c318e8a62dcd66710ea05e312b3948cc7dc3ab1f579f4a495cd836de7-frontier_sunmeadow_ash.asset.json",
+    "sha256": "9ae7149c318e8a62dcd66710ea05e312b3948cc7dc3ab1f579f4a495cd836de7"
+  },
+  {
+    "path": "scripts/blender-character-pipeline/data/approved-assets/frontier_sunmeadow_ash.approved.json",
+    "archived": "e2ff65bd97217be3bad9749cde127dccced8f5cde84bbfd56832c7ac917274c4-frontier_sunmeadow_ash.approved.json",
+    "sha256": "e2ff65bd97217be3bad9749cde127dccced8f5cde84bbfd56832c7ac917274c4"
+  }
+]

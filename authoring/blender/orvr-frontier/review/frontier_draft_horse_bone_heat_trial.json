@@ -1,0 +1,657 @@
+[
+  {
+    "clip": "idle",
+    "worst": {
+      "frame": 30,
+      "mesh": "draft_continuous_skin.weighted",
+      "maximum_edge_stretch": 1.0973376592250368,
+      "p99_edge_stretch": 1.0059248896222286,
+      "minimum_z": 0.10203962028026581
+    },
+    "maximum_p99_edge_stretch": 1.007044330055264,
+    "samples": [
+      {
+        "frame": 0,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0367785429227372,
+        "p99_edge_stretch": 1.001797269863841,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 2,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.035521520608888,
+        "p99_edge_stretch": 1.0019085338702083,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 4,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0371446660258066,
+        "p99_edge_stretch": 1.002238051119035,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 6,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0416135328433391,
+        "p99_edge_stretch": 1.002825877783344,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 8,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0445208672075539,
+        "p99_edge_stretch": 1.0033043598851579,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 10,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.04862121650426,
+        "p99_edge_stretch": 1.003682560966983,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 12,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0568567603610883,
+        "p99_edge_stretch": 1.0040858639892916,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 14,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0649686672210277,
+        "p99_edge_stretch": 1.004482124458341,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 16,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.072366569358208,
+        "p99_edge_stretch": 1.004875395016528,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 18,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0787840338898402,
+        "p99_edge_stretch": 1.00519529767877,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 20,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.084275356291284,
+        "p99_edge_stretch": 1.0054481514160143,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 22,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0888851695503765,
+        "p99_edge_stretch": 1.0056872479131316,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 24,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0925562467798102,
+        "p99_edge_stretch": 1.0058112012597387,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 26,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.095211092980397,
+        "p99_edge_stretch": 1.0059265302625318,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 28,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0968051216480825,
+        "p99_edge_stretch": 1.0059641622349957,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 30,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0973376592250368,
+        "p99_edge_stretch": 1.0059248896222286,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 32,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0968017954056786,
+        "p99_edge_stretch": 1.0058294457867663,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 34,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0952069353092495,
+        "p99_edge_stretch": 1.0056529922605912,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 36,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.092564561698536,
+        "p99_edge_stretch": 1.005442264566692,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 38,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0889067867847688,
+        "p99_edge_stretch": 1.0051668606839617,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 40,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.084275356291284,
+        "p99_edge_stretch": 1.0048454885446776,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 42,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0787183641403624,
+        "p99_edge_stretch": 1.004485192924206,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 44,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.072300077166694,
+        "p99_edge_stretch": 1.0040792169305597,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 46,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0650898522813412,
+        "p99_edge_stretch": 1.003675370341108,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 48,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.057166810489144,
+        "p99_edge_stretch": 1.0032544694673182,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 50,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.04862121650426,
+        "p99_edge_stretch": 1.002781456557604,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 52,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0395430420808742,
+        "p99_edge_stretch": 1.002362182420951,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 54,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.030969672776186,
+        "p99_edge_stretch": 1.0020495447999824,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 56,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0310491584048993,
+        "p99_edge_stretch": 1.001856154911949,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 58,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0306601011532772,
+        "p99_edge_stretch": 1.001893222121393,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 60,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0298807338699312,
+        "p99_edge_stretch": 1.0022146997803731,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 62,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0304752553373362,
+        "p99_edge_stretch": 1.0025875740238763,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 64,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0353606972593257,
+        "p99_edge_stretch": 1.0029829511690052,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 66,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0398576681649623,
+        "p99_edge_stretch": 1.0035151690380593,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 68,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0439223405711369,
+        "p99_edge_stretch": 1.0040916170844907,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 70,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.047563154664268,
+        "p99_edge_stretch": 1.004595125690925,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 72,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0559429414570565,
+        "p99_edge_stretch": 1.005098741100725,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 74,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0637157273416356,
+        "p99_edge_stretch": 1.0055440577336965,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 76,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0707940491522765,
+        "p99_edge_stretch": 1.0059650320076587,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 78,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0770974328695135,
+        "p99_edge_stretch": 1.0063267085689491,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 80,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.082557452443202,
+        "p99_edge_stretch": 1.0066031445279167,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 82,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0871097771995952,
+        "p99_edge_stretch": 1.0067906867440326,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 84,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0907057718651418,
+        "p99_edge_stretch": 1.0069626473390108,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 86,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0933035328012133,
+        "p99_edge_stretch": 1.007044330055264,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 88,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0948733319183392,
+        "p99_edge_stretch": 1.007025477479492,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 90,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0953999637805567,
+        "p99_edge_stretch": 1.006937321652493,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 92,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0948762483725039,
+        "p99_edge_stretch": 1.0067433616148285,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 94,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.093307698938394,
+        "p99_edge_stretch": 1.006494593009164,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 96,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0906974403431848,
+        "p99_edge_stretch": 1.0061963047938798,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 98,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0870885273612807,
+        "p99_edge_stretch": 1.0058469802056356,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 100,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.082557452443202,
+        "p99_edge_stretch": 1.0054573005786542,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 102,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0771623786767015,
+        "p99_edge_stretch": 1.0050186480932077,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 104,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0708598021516873,
+        "p99_edge_stretch": 1.004540158845982,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 106,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.063596765614966,
+        "p99_edge_stretch": 1.0040051349387282,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 108,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0556384040418774,
+        "p99_edge_stretch": 1.0034458848861165,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 110,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.047563154664268,
+        "p99_edge_stretch": 1.0029066158370488,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 112,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.040541398375093,
+        "p99_edge_stretch": 1.0024502842648408,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 114,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0402950653670227,
+        "p99_edge_stretch": 1.0020894692330846,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 116,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0395506451831493,
+        "p99_edge_stretch": 1.0017532772843958,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 118,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.037794022803103,
+        "p99_edge_stretch": 1.0017109994006743,
+        "minimum_z": 0.10203962028026581
+      },
+      {
+        "frame": 120,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 1.0367785429227372,
+        "p99_edge_stretch": 1.001797269863841,
+        "minimum_z": 0.10203962028026581
+      }
+    ]
+  },
+  {
+    "clip": "walk",
+    "worst": {
+      "frame": 26,
+      "mesh": "draft_continuous_skin.weighted",
+      "maximum_edge_stretch": 13.318470730756678,
+      "p99_edge_stretch": 1.4011848714094395,
+      "minimum_z": 0.10203921794891357
+    },
+    "maximum_p99_edge_stretch": 1.4099509780262884,
+    "samples": [
+      {
+        "frame": 0,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 5.841204947137696,
+        "p99_edge_stretch": 1.2141659142943064,
+        "minimum_z": 0.10203958302736282
+      },
+      {
+        "frame": 2,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 4.4612418088416455,
+        "p99_edge_stretch": 1.2150917459072708,
+        "minimum_z": 0.10203901678323746
+      },
+      {
+        "frame": 4,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 7.080046986135989,
+        "p99_edge_stretch": 1.3292441980783751,
+        "minimum_z": 0.10203933715820312
+      },
+      {
+        "frame": 6,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 10.770784512070692,
+        "p99_edge_stretch": 1.2603919159600452,
+        "minimum_z": 0.10203950107097626
+      },
+      {
+        "frame": 8,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 12.367471604855169,
+        "p99_edge_stretch": 1.277988368346633,
+        "minimum_z": 0.10203947871923447
+      },
+      {
+        "frame": 10,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 13.004572569660521,
+        "p99_edge_stretch": 1.3599100540853157,
+        "minimum_z": 0.10203950107097626
+      },
+      {
+        "frame": 12,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 13.216552488936719,
+        "p99_edge_stretch": 1.4099509780262884,
+        "minimum_z": 0.1020394116640091
+      },
+      {
+        "frame": 14,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 8.872045433177608,
+        "p99_edge_stretch": 1.231996076546044,
+        "minimum_z": 0.10203982889652252
+      },
+      {
+        "frame": 16,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 4.257718417496979,
+        "p99_edge_stretch": 1.1962102610244607,
+        "minimum_z": 0.102039635181427
+      },
+      {
+        "frame": 18,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 4.729714683370358,
+        "p99_edge_stretch": 1.2700639475795177,
+        "minimum_z": 0.1020394116640091
+      },
+      {
+        "frame": 20,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 9.19990318989202,
+        "p99_edge_stretch": 1.3043686021389291,
+        "minimum_z": 0.102039635181427
+      },
+      {
+        "frame": 22,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 11.80689393724316,
+        "p99_edge_stretch": 1.256346184452243,
+        "minimum_z": 0.10203972458839417
+      },
+      {
+        "frame": 24,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 12.68745872889454,
+        "p99_edge_stretch": 1.3104878134808504,
+        "minimum_z": 0.10203960537910461
+      },
+      {
+        "frame": 26,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 13.318470730756678,
+        "p99_edge_stretch": 1.4011848714094395,
+        "minimum_z": 0.10203921794891357
+      },
+      {
+        "frame": 28,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 11.42491161174458,
+        "p99_edge_stretch": 1.3202747463880657,
+        "minimum_z": 0.10203936696052551
+      },
+      {
+        "frame": 30,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 5.841204947137696,
+        "p99_edge_stretch": 1.2141659142943064,
+        "minimum_z": 0.10203958302736282
+      }
+    ]
+  },
+  {
+    "clip": "draft_trot",
+    "worst": {
+      "frame": 10,
+      "mesh": "draft_continuous_skin.weighted",
+      "maximum_edge_stretch": 15.881704884024584,
+      "p99_edge_stretch": 1.4314487146410853,
+      "minimum_z": 0.10203997790813446
+    },
+    "maximum_p99_edge_stretch": 1.4316175206202006,
+    "samples": [
+      {
+        "frame": 0,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 15.87814956849233,
+        "p99_edge_stretch": 1.4316175206202006,
+        "minimum_z": 0.10203957557678223
+      },
+      {
+        "frame": 2,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 8.679718940824557,
+        "p99_edge_stretch": 1.1726910834228703,
+        "minimum_z": 0.1020396500825882
+      },
+      {
+        "frame": 4,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 3.3577828856946508,
+        "p99_edge_stretch": 1.173348662021509,
+        "minimum_z": 0.10203946381807327
+      },
+      {
+        "frame": 6,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 8.599880244606794,
+        "p99_edge_stretch": 1.284966043842058,
+        "minimum_z": 0.10203944891691208
+      },
+      {
+        "frame": 8,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 15.437512505945845,
+        "p99_edge_stretch": 1.425118606262388,
+        "minimum_z": 0.10203936696052551
+      },
+      {
+        "frame": 10,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 15.881704884024584,
+        "p99_edge_stretch": 1.4314487146410853,
+        "minimum_z": 0.10203997790813446
+      },
+      {
+        "frame": 12,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 8.678454396240957,
+        "p99_edge_stretch": 1.172746298063461,
+        "minimum_z": 0.10203966498374939
+      },
+      {
+        "frame": 14,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 3.3466880072164145,
+        "p99_edge_stretch": 1.1733195484922325,
+        "minimum_z": 0.10203946381807327
+      },
+      {
+        "frame": 16,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 8.60378075868638,
+        "p99_edge_stretch": 1.2843865861083537,
+        "minimum_z": 0.10203950852155685
+      },
+      {
+        "frame": 18,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 15.437171222690639,
+        "p99_edge_stretch": 1.4248682203966927,
+        "minimum_z": 0.10203993320465088
+      },
+      {
+        "frame": 20,
+        "mesh": "draft_continuous_skin.weighted",
+        "maximum_edge_stretch": 15.87814956849233,
+        "p99_edge_stretch": 1.4316175206202006,
+        "minimum_z": 0.10203957557678223
+      }
+    ]
+  }
+]

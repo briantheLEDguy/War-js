@@ -1,0 +1,263 @@
+{
+  "method": "Actual LOD0 GLB surfaces, 13 vertical rays over a 0.5m radius at each NPC/service/keep-use position and building entrance. Samples cover 0.3m to 2.2m above ground; authored floor thickness is excluded. This is sampled headroom, supplemented by collision/BFS tests, not a continuous swept-volume proof.",
+  "tool_sha256": "b1cb3b1d446e1c99261a30bbd487e3f139c6f4f1c4a25860d47f4083b84275be",
+  "composition_sha256": "71a58a0b86b9f957006cd84e5d3aad607c5d19902c3643aebe70524bafe07d7c",
+  "source_sha256": "887d23994e6b694532d4d0be84f09e50e085a6c47e778f30cb4ec293e8302257",
+  "models": [
+    {
+      "model": "frontier_sunmeadow_supply_post_lod0.glb",
+      "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357"
+    },
+    {
+      "model": "frontier_sunmeadow_curtain_wall_lod0.glb",
+      "sha256": "ca96a296e08197f00a6802fde8d4e9176b227e39db6dea5861a7ea399282fc50"
+    },
+    {
+      "model": "frontier_sunmeadow_gatehouse_lod0.glb",
+      "sha256": "d1b8999851d23107f6b3d96501ecec5cd003c85b49e6cef8784c1c94442d3685"
+    },
+    {
+      "model": "frontier_sunmeadow_gate_leaves_lod0.glb",
+      "sha256": "06774879019a68787a55a9cda114bade45a3661ef5b8c54a9d3c485f28b7c1ea"
+    },
+    {
+      "model": "frontier_sunmeadow_farmhouse_lod0.glb",
+      "sha256": "9609f2825cd119046412bc62ded7eef7cb8caf51953772ee3f96937d7d769b26"
+    },
+    {
+      "model": "frontier_sunmeadow_workshop_lod0.glb",
+      "sha256": "980a3d7069096f49bd6707c1af2904384e6fd349ff359996ec5ae8150702afc9"
+    }
+  ],
+  "points": [
+    {
+      "id": "sunmeadow_march_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -451,
+      "z": -239,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "sunmeadow_march_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 1 Campaign Marshal",
+      "role": "guard",
+      "x": -419,
+      "z": -239,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_1_campaign_marshal"
+    },
+    {
+      "id": "sunmeadow_march_scout",
+      "name": "Mira Stonewake",
+      "title": "Forward Scout",
+      "role": "guard",
+      "x": -457,
+      "z": -257,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_forward_scout"
+    },
+    {
+      "id": "sunmeadow_march_craft_mentor",
+      "name": "Alden Voss",
+      "title": "Field Crafting Mentor",
+      "role": "trainer",
+      "x": -413,
+      "z": -257,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_alden_voss_field_crafting_mentor"
+    },
+    {
+      "id": "sunmeadow_march_forager",
+      "name": "Serra Brightfield",
+      "title": "Resource Warden",
+      "role": "ambient",
+      "x": -446,
+      "z": -267,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+    },
+    {
+      "id": "sunmeadow_march_cultivation_station",
+      "label": "Field Cultivation Patch",
+      "kind": "cultivation",
+      "x": -469,
+      "z": -253,
+      "radius": 7
+    },
+    {
+      "id": "sunmeadow_march_salvage_station",
+      "label": "War Salvage Bench",
+      "kind": "salvage",
+      "x": -401,
+      "z": -253,
+      "radius": 6
+    },
+    {
+      "id": "sunmeadow_march_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": -448,
+      "z": -266,
+      "radius": 6
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_commander",
+      "x": -350,
+      "z": 4
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_quartermaster",
+      "x": -363,
+      "z": -60
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_postern_inside",
+      "x": -326,
+      "y": 0,
+      "z": 28
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_postern_outside",
+      "x": -326,
+      "y": 0,
+      "z": 35
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_oil_1_operator",
+      "x": -342,
+      "y": 0,
+      "z": -11.9
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_catapult_1",
+      "kind": "catapult",
+      "x": -375,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_catapult_2",
+      "kind": "catapult",
+      "x": -325,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_commander",
+      "x": 350,
+      "z": 4
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_quartermaster",
+      "x": 337,
+      "z": -60
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_postern_inside",
+      "x": 374,
+      "y": 0,
+      "z": 28
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_postern_outside",
+      "x": 374,
+      "y": 0,
+      "z": 35
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_oil_1_operator",
+      "x": 358,
+      "y": 0,
+      "z": -11.9
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_catapult_1",
+      "kind": "catapult",
+      "x": 325,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_catapult_2",
+      "kind": "catapult",
+      "x": 375,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_salvage_station_visual_entrance",
+      "x": -400.14275548136135,
+      "z": -250.65156821788156
+    },
+    {
+      "id": "sunmeadow_march_apothecary_station_visual_entrance",
+      "x": -448,
+      "z": -263.5
+    },
+    {
+      "id": "sunmeadow_march_west_camp_tent_entrance",
+      "x": -182.69328192767335,
+      "z": 50.13131130514876
+    },
+    {
+      "id": "sunmeadow_march_east_camp_tent_entrance",
+      "x": 182.69328192767335,
+      "z": 50.13131130514876
+    },
+    {
+      "id": "sunmeadow_march_keep_supply_cart_entrance",
+      "x": 0,
+      "z": 106.5
+    },
+    {
+      "id": "sunmeadow_march_life_outfitter_1_entrance",
+      "x": -415.19978673492295,
+      "z": -276.5079957342435
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_entrance",
+      "x": -363,
+      "z": -61.5
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_entrance",
+      "x": 337,
+      "z": -61.5
+    },
+    {
+      "id": "sunmeadow_march_west_farmhouse_entrance",
+      "x": -468,
+      "z": -266
+    },
+    {
+      "id": "sunmeadow_march_north_farmhouse_entrance",
+      "x": -459,
+      "z": -216
+    },
+    {
+      "id": "sunmeadow_march_east_farmhouse_entrance",
+      "x": -396,
+      "z": -273
+    },
+    {
+      "id": "sunmeadow_march_croft_farmhouse_entrance",
+      "x": -485,
+      "z": -290
+    },
+    {
+      "id": "sunmeadow_march_craft_workshop_entrance",
+      "x": -401,
+      "z": -244
+    }
+  ],
+  "rays": 1781,
+  "blocked_rays": []
+}

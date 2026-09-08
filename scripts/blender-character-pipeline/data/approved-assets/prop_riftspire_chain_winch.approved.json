@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.chain_winch",
+  "displayName": "Riftspire chain winch",
+  "category": "prop",
+  "model": "prop_riftspire_chain_winch.glb",
+  "qc": "prop_riftspire_chain_winch.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_chain_winch"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "da63ed80426ea990822a8468ec49a2d673461c2eb0bbd3d3ec50708e61bf37b4",
+    "qcSha256": "4b1127c8034df31d5cb3c00ec5b25510d79cbb2ab3c5d493e514f5b011723ccd",
+    "previews": {
+      "assembly": "033afa56e1744884e3b3779593a9c2f48461adee8c97a0ad41743c1a20ba9d7e"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/chain_winch-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.126014+00:00",
+    "reviewHash": "c999227d45640572e093a8ad1f4f4b30d80eb3763014bc2d6480015f4cb0065b"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

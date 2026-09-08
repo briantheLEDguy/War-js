@@ -1,0 +1,120 @@
+{
+  "asset_id": "frontier_teamster_animations",
+  "status": "pending_actual_equipped_visual_review",
+  "source_master": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\battle-prelate-novitiate-set\\battle_prelate_novitiate_game_master.blend",
+  "source_master_sha256": "c3a95fe52b99021e80752f2ab10b7fc84668f670bc99efeb26289049917aeaef",
+  "author_source_sha256": "fa6b4179605d4e3cd2211b3293b22dcb692f3232d67b9768fa9bdf5de772236d",
+  "master": "masters\\frontier_teamster_animations.blend",
+  "master_sha256": "15bc32968d365c19f3a3adbdd7f8049176655422fd054de0f6d97b5f1ae35a00",
+  "path": "runtime\\frontier_teamster_animations.glb",
+  "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+  "rig_profile": "humanoid_game_v2",
+  "clips": [
+    {
+      "name": "driver_seated",
+      "seconds": 4,
+      "root_motion": false
+    }
+  ],
+  "avatar_origin_wagon_local_gltf": [
+    0,
+    0.6541226744651794,
+    1.38
+  ],
+  "bench_contact_wagon_local_gltf": [
+    0,
+    1.54,
+    1.38
+  ],
+  "fitted_bone_heads_avatar_local_blender": {
+    "hips": [
+      -3.552713678800501e-15,
+      -0.006131290458142757,
+      0.9958773255348206
+    ],
+    "hand_L": [
+      0.2000000774860382,
+      -0.17000021040439606,
+      1.2758771181106567
+    ],
+    "hand_R": [
+      -0.19999997317790985,
+      -0.1699998825788498,
+      1.2758769989013672
+    ],
+    "foot_L": [
+      0.19999970495700836,
+      -0.39500004053115845,
+      0.5738773345947266
+    ],
+    "foot_R": [
+      -0.1999995857477188,
+      -0.3950001299381256,
+      0.5738773345947266
+    ]
+  },
+  "finger_fit": {
+    "L": {
+      "index": {
+        "target_error_m": 0.0009274086937635285,
+        "axis_distance_m": 0.014243843417051516
+      },
+      "middle": {
+        "target_error_m": 0.0004837884254617001,
+        "axis_distance_m": 0.014928096147564853
+      },
+      "ring": {
+        "target_error_m": 0.0008670044874537009,
+        "axis_distance_m": 0.014583630677762657
+      },
+      "pinky": {
+        "target_error_m": 0.0009176949267342911,
+        "axis_distance_m": 0.015062374481087595
+      },
+      "thumb": {
+        "target_error_m": 0.0009310025409143277,
+        "axis_distance_m": 0.014504425888488206
+      }
+    },
+    "R": {
+      "index": {
+        "target_error_m": 0.0009273972013037894,
+        "axis_distance_m": 0.014243740565436336
+      },
+      "middle": {
+        "target_error_m": 0.0004837487559348158,
+        "axis_distance_m": 0.014927920968037418
+      },
+      "ring": {
+        "target_error_m": 0.0008672150338675564,
+        "axis_distance_m": 0.014583648607424468
+      },
+      "pinky": {
+        "target_error_m": 0.0009172779224902942,
+        "axis_distance_m": 0.015062342139000812
+      },
+      "thumb": {
+        "target_error_m": 0.0009309583733834169,
+        "axis_distance_m": 0.01450431442665579
+      }
+    }
+  },
+  "grip_helper_sha256": "f56139347d2362e1e71828afb64c372647edc57153bf5ffad9d8cfeec9f76857",
+  "rein_grip_wagon_local_gltf": [
+    [
+      0.2,
+      1.895,
+      1.61
+    ],
+    [
+      -0.2,
+      1.895,
+      1.61
+    ]
+  ],
+  "notes": [
+    "Pose retains every canonical rest-bone matrix.",
+    "The pack fits only humanoid_game_v2 actors at scale 1.",
+    "This first proof uses existing equipped source modules. Literal published GLB equipment must still be checked."
+  ]
+}

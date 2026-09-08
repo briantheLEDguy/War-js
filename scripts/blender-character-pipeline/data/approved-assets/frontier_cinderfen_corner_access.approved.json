@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_corner_access",
+  "displayName": "Cinderfen corner landing and courtyard stair access",
+  "category": "prop",
+  "model": "frontier_cinderfen_corner_access_lod0.glb",
+  "qc": "frontier_cinderfen_corner_access_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_corner_access"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+    "qcSha256": "463e472a54636aeb16896b468714ea0ef5fa0431db0970a5104e3780d15104e0",
+    "previews": {
+      "assembly": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_corner_access.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+    "reviewedAt": "2026-09-07T19:58:45.720132+00:00",
+    "reviewHash": "99550caf167ada6c55d88d57139f9e6b611efd54eb700bad8af8efaf4eb2a469"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/cinderfen-architecture/junction/source/architecture.json",
+    "sourceSha256": "d8d02e508e166899ae16c660b621ac7264756464d39a1b529d531e38cc0c12fe"
+  },
+  "approvalState": "approved"
+}

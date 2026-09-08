@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.basin",
+  "displayName": "Riftspire basin",
+  "category": "prop",
+  "model": "prop_riftspire_basin.glb",
+  "qc": "prop_riftspire_basin.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_basin"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "ccc48a1d0c55e256709bc136fa702a83ae122d8419515d5892dfdce69011ac8b",
+    "qcSha256": "2e9db079acc07b626263e03a9b7b21d782bcd3e3850aa0e24275136f1913a388",
+    "previews": {
+      "assembly": "4cb9daa9cabcfb3b51d2cdff20b2a242a0bfcd22d20d533d28868007d4d8cb48"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/basin-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.175Z",
+    "reviewHash": "0a0a6b3c649c844fcd9fd22671c84fcb73b12f9a67708bedc5f6d97533099c99"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

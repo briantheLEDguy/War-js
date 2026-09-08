@@ -1,0 +1,10 @@
+{
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "contactSheetSha256": "cbfc451cec83e5732277775b7ceac31c3337d198ac9a0f757c19026a8c7c89ba",
+  "animationSha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+  "status": "approved",
+  "reviewedBy": "Codex root integration review",
+  "reviewedAt": "2026-09-07T20:01:19.153Z",
+  "notes": "Inspected exact 24-model LOD contact sheet, actual caravan assembly and browser idle/walk with verified hashes. Authored construction, PBR surfaces, working pivots, stable LOD profiles, fitted horse/harness/driver/reins and officer pouch accepted. Horse is stylized short-coat; key contact drift below1mm and sampled interpolation6.12mm within1cm budget. Six identity-parent skin warnings retained, zeroerrors. Runtime gameplay animation/VFX and per-zone frame-rate acceptance remain separate integration work."
+}

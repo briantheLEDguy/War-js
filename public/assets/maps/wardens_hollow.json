@@ -932,9 +932,9 @@
       "radius": 9,
       "targetZoneId": "sunmeadow_march",
       "targetSpawn": {
-        "x": -113.3,
+        "x": -549.48,
         "y": 0,
-        "z": 19.5
+        "z": 212.08
       }
     }
   ],
@@ -976,5 +976,55 @@
       ]
     }
   ],
-  "staticMapHash": "ad27c1a0a2a8c128"
+  "artDirection": {
+    "zoneId": "wardens_hollow",
+    "realm": "aegis",
+    "races": [
+      "empire",
+      "dwarf",
+      "high_elf"
+    ],
+    "biomeId": "temperate_farmland",
+    "season": "summer",
+    "cultures": "Empire farmsteads; Dwarf workshops; High Elf scouts",
+    "vegetation": [
+      "oak",
+      "ash",
+      "hawthorn",
+      "wheat",
+      "meadow_grass"
+    ],
+    "fauna": [
+      "deer",
+      "barrow_wolf",
+      "field_bird"
+    ],
+    "palette": [
+      "#88935b",
+      "#bea471",
+      "#65695c"
+    ],
+    "landmark": "Root-covered limestone barrow beneath an old oak",
+    "reliefMetres": 12,
+    "vegetationAssetKeys": [
+      "frontier_temperate_farmland_oak",
+      "frontier_temperate_farmland_ash",
+      "frontier_temperate_farmland_hawthorn",
+      "frontier_temperate_farmland_wheat",
+      "frontier_temperate_farmland_meadow_grass"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_deer",
+      "frontier_creature_barrow_wolf",
+      "frontier_creature_field_bird"
+    ],
+    "materialSetKey": "frontier_temperate_farmland_materials",
+    "architectureAssetKey": "frontier_temperate_farmland_settlement",
+    "status": "planned",
+    "parentZoneId": "sunmeadow_march",
+    "population": "Veteran barrow sentinel and woodland pack",
+    "bossProfileKey": "frontier_boss_wardens_hollow",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "4585f5a6200091f4"
 }

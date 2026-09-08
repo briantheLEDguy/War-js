@@ -154,6 +154,32 @@
     "cameraSolid": true
   },
   {
+    "kind": "aegis_barrel_cluster__2",
+    "sourceKind": "aegis_barrel_cluster",
+    "label": "Aegis Barrel Cluster",
+    "group": "Aegis City",
+    "model": "prop_aegis_barrel_cluster.glb",
+    "assetKey": "aegis_barrel_cluster",
+    "fallbackKind": "aegis_barrel_cluster",
+    "footprint": {
+      "width": 2.15,
+      "depth": 2,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0.3,
+        "width": 1.4,
+        "depth": 1.35,
+        "minY": -0.05,
+        "maxY": 0.9
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
     "kind": "aegis_battle_cover",
     "sourceKind": "aegis_battle_cover",
     "label": "Aegis Battle Cover",
@@ -222,6 +248,22 @@
       }
     ],
     "cameraSolid": true
+  },
+  {
+    "kind": "aegis_bridge_narrow__2",
+    "sourceKind": "aegis_bridge_narrow",
+    "label": "Aegis Bridge Narrow",
+    "group": "Aegis City",
+    "model": "prop_aegis_bridge_narrow.glb",
+    "assetKey": "aegis_bridge_narrow",
+    "fallbackKind": "aegis_bridge_narrow",
+    "footprint": {
+      "width": 4.8,
+      "depth": 12,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
   },
   {
     "kind": "aegis_bridge_wide",
@@ -707,7 +749,7 @@
   {
     "kind": "aegis_citadel_archive",
     "sourceKind": "aegis_citadel_archive",
-    "label": "Aegis Citadel Archive",
+    "label": "Aegis citadel archive",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_archive.glb",
     "assetKey": "aegis_citadel_archive",
@@ -735,7 +777,7 @@
   {
     "kind": "aegis_citadel_arms_rack",
     "sourceKind": "aegis_citadel_arms_rack",
-    "label": "Aegis Citadel Arms Rack",
+    "label": "Aegis citadel arms rack",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_arms_rack.glb",
     "assetKey": "aegis_citadel_arms_rack",
@@ -790,7 +832,7 @@
   {
     "kind": "aegis_citadel_bunk",
     "sourceKind": "aegis_citadel_bunk",
-    "label": "Aegis Citadel Bunk",
+    "label": "Aegis citadel bunk",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_bunk.glb",
     "assetKey": "aegis_citadel_bunk",
@@ -818,7 +860,7 @@
   {
     "kind": "aegis_citadel_chandelier",
     "sourceKind": "aegis_citadel_chandelier",
-    "label": "Aegis Citadel Chandelier",
+    "label": "Aegis citadel chandelier",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_chandelier.glb",
     "assetKey": "aegis_citadel_chandelier",
@@ -838,7 +880,7 @@
   {
     "kind": "aegis_citadel_counting_desk",
     "sourceKind": "aegis_citadel_counting_desk",
-    "label": "Aegis Citadel Counting Desk",
+    "label": "Aegis citadel counting desk",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_counting_desk.glb",
     "assetKey": "aegis_citadel_counting_desk",
@@ -866,7 +908,7 @@
   {
     "kind": "aegis_citadel_feast_table",
     "sourceKind": "aegis_citadel_feast_table",
-    "label": "Aegis Citadel Feast Table",
+    "label": "Aegis citadel feast table",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_feast_table.glb",
     "assetKey": "aegis_citadel_feast_table",
@@ -929,7 +971,7 @@
   {
     "kind": "aegis_citadel_hearth",
     "sourceKind": "aegis_citadel_hearth",
-    "label": "Aegis Citadel Hearth",
+    "label": "Aegis citadel hearth",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_hearth.glb",
     "assetKey": "aegis_citadel_hearth",
@@ -955,9 +997,25 @@
     "cameraSolid": true
   },
   {
+    "kind": "aegis_citadel_hearth__2",
+    "sourceKind": "aegis_citadel_hearth",
+    "label": "Aegis citadel hearth",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_hearth.glb",
+    "assetKey": "aegis_citadel_hearth",
+    "fallbackKind": "aegis_citadel_hearth",
+    "footprint": {
+      "width": 5.11,
+      "depth": 2.555,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
     "kind": "aegis_citadel_oath_statue",
     "sourceKind": "aegis_citadel_oath_statue",
-    "label": "Aegis Citadel Oath Statue",
+    "label": "Aegis citadel oath statue",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_oath_statue.glb",
     "assetKey": "aegis_citadel_oath_statue",
@@ -985,7 +1043,7 @@
   {
     "kind": "aegis_citadel_provision_rack",
     "sourceKind": "aegis_citadel_provision_rack",
-    "label": "Aegis Citadel Provision Rack",
+    "label": "Aegis citadel provision rack",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_provision_rack.glb",
     "assetKey": "aegis_citadel_provision_rack",
@@ -1013,7 +1071,7 @@
   {
     "kind": "aegis_citadel_reliquary",
     "sourceKind": "aegis_citadel_reliquary",
-    "label": "Aegis Citadel Reliquary",
+    "label": "Aegis citadel reliquary",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_reliquary.glb",
     "assetKey": "aegis_citadel_reliquary",
@@ -1041,7 +1099,7 @@
   {
     "kind": "aegis_citadel_tapestry",
     "sourceKind": "aegis_citadel_tapestry",
-    "label": "Aegis Citadel Tapestry",
+    "label": "Aegis citadel tapestry",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_tapestry.glb",
     "assetKey": "aegis_citadel_tapestry",
@@ -1059,9 +1117,25 @@
     "cameraSolid": false
   },
   {
+    "kind": "aegis_citadel_tapestry__2",
+    "sourceKind": "aegis_citadel_tapestry",
+    "label": "Aegis citadel tapestry",
+    "group": "Aegis City",
+    "model": "prop_aegis_citadel_tapestry.glb",
+    "assetKey": "aegis_citadel_tapestry",
+    "fallbackKind": "aegis_citadel_tapestry",
+    "footprint": {
+      "width": 4.087,
+      "depth": 0.147,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
     "kind": "aegis_citadel_throne",
     "sourceKind": "aegis_citadel_throne",
-    "label": "Aegis Citadel Throne",
+    "label": "Aegis citadel throne",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_throne.glb",
     "assetKey": "aegis_citadel_throne",
@@ -1122,7 +1196,7 @@
   {
     "kind": "aegis_citadel_treasury",
     "sourceKind": "aegis_citadel_treasury",
-    "label": "Aegis Citadel Treasury",
+    "label": "Aegis citadel treasury",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_treasury.glb",
     "assetKey": "aegis_citadel_treasury",
@@ -1150,7 +1224,7 @@
   {
     "kind": "aegis_citadel_war_table",
     "sourceKind": "aegis_citadel_war_table",
-    "label": "Aegis Citadel War Table",
+    "label": "Aegis citadel war table",
     "group": "Aegis City",
     "model": "prop_aegis_citadel_war_table.glb",
     "assetKey": "aegis_citadel_war_table",
@@ -1178,7 +1252,7 @@
   {
     "kind": "aegis_civic_bench",
     "sourceKind": "aegis_civic_bench",
-    "label": "Aegis Civic Bench",
+    "label": "Aegis civic bench",
     "group": "Aegis City",
     "model": "prop_aegis_civic_bench.glb",
     "assetKey": "aegis_civic_bench",
@@ -1199,6 +1273,32 @@
         "rotY": 3.8759403212262318,
         "minY": 0,
         "maxY": 1.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_bench__2",
+    "sourceKind": "aegis_civic_bench",
+    "label": "Aegis civic bench",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_bench.glb",
+    "assetKey": "aegis_civic_bench",
+    "fallbackKind": "aegis_civic_bench",
+    "footprint": {
+      "width": 3.03,
+      "depth": 1.012,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 2.05,
+        "depth": 0.65,
+        "minY": -0.05,
+        "maxY": 1.15
       }
     ],
     "cameraSolid": true
@@ -1233,7 +1333,7 @@
   {
     "kind": "aegis_civic_orrery",
     "sourceKind": "aegis_civic_orrery",
-    "label": "Aegis Civic Orrery",
+    "label": "Aegis civic orrery",
     "group": "Aegis City",
     "model": "prop_aegis_civic_orrery.glb",
     "assetKey": "aegis_civic_orrery",
@@ -1261,7 +1361,7 @@
   {
     "kind": "aegis_civic_relief",
     "sourceKind": "aegis_civic_relief",
-    "label": "Aegis Civic Relief",
+    "label": "Aegis civic relief",
     "group": "Aegis City",
     "model": "prop_aegis_civic_relief.glb",
     "assetKey": "aegis_civic_relief",
@@ -1280,7 +1380,7 @@
   {
     "kind": "aegis_civic_sign_apothecary",
     "sourceKind": "aegis_civic_sign_apothecary",
-    "label": "Aegis Civic Sign Apothecary",
+    "label": "Aegis civic sign apothecary",
     "group": "Aegis City",
     "model": "prop_aegis_civic_sign_apothecary.glb",
     "assetKey": "aegis_civic_sign_apothecary",
@@ -1305,7 +1405,7 @@
   {
     "kind": "aegis_civic_sign_exchange",
     "sourceKind": "aegis_civic_sign_exchange",
-    "label": "Aegis Civic Sign Exchange",
+    "label": "Aegis civic sign exchange",
     "group": "Aegis City",
     "model": "prop_aegis_civic_sign_exchange.glb",
     "assetKey": "aegis_civic_sign_exchange",
@@ -1330,7 +1430,7 @@
   {
     "kind": "aegis_civic_sign_lantern",
     "sourceKind": "aegis_civic_sign_lantern",
-    "label": "Aegis Civic Sign Lantern",
+    "label": "Aegis civic sign lantern",
     "group": "Aegis City",
     "model": "prop_aegis_civic_sign_lantern.glb",
     "assetKey": "aegis_civic_sign_lantern",
@@ -1355,7 +1455,7 @@
   {
     "kind": "aegis_civic_sign_lock",
     "sourceKind": "aegis_civic_sign_lock",
-    "label": "Aegis Civic Sign Lock",
+    "label": "Aegis civic sign lock",
     "group": "Aegis City",
     "model": "prop_aegis_civic_sign_lock.glb",
     "assetKey": "aegis_civic_sign_lock",
@@ -1380,7 +1480,7 @@
   {
     "kind": "aegis_civic_streetlight",
     "sourceKind": "aegis_civic_streetlight",
-    "label": "Aegis Civic Streetlight",
+    "label": "Aegis civic streetlight",
     "group": "Aegis City",
     "model": "prop_aegis_civic_streetlight.glb",
     "assetKey": "aegis_civic_streetlight",
@@ -1405,9 +1505,25 @@
     "cameraSolid": true
   },
   {
+    "kind": "aegis_civic_streetlight__2",
+    "sourceKind": "aegis_civic_streetlight",
+    "label": "Aegis civic streetlight",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_streetlight.glb",
+    "assetKey": "aegis_civic_streetlight",
+    "fallbackKind": "aegis_civic_streetlight",
+    "footprint": {
+      "width": 2.793,
+      "depth": 0.935,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
     "kind": "aegis_civic_wall_lantern",
     "sourceKind": "aegis_civic_wall_lantern",
-    "label": "Aegis Civic Wall Lantern",
+    "label": "Aegis civic wall lantern",
     "group": "Aegis City",
     "model": "prop_aegis_civic_wall_lantern.glb",
     "assetKey": "aegis_civic_wall_lantern",
@@ -1426,7 +1542,7 @@
   {
     "kind": "aegis_civic_waymarker",
     "sourceKind": "aegis_civic_waymarker",
-    "label": "Aegis Civic Waymarker",
+    "label": "Aegis civic waymarker",
     "group": "Aegis City",
     "model": "prop_aegis_civic_waymarker.glb",
     "assetKey": "aegis_civic_waymarker",
@@ -1447,6 +1563,32 @@
         "rotY": 3.8759403212262318,
         "minY": 0,
         "maxY": 3.7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_civic_waymarker__2",
+    "sourceKind": "aegis_civic_waymarker",
+    "label": "Aegis civic waymarker",
+    "group": "Aegis City",
+    "model": "prop_aegis_civic_waymarker.glb",
+    "assetKey": "aegis_civic_waymarker",
+    "fallbackKind": "aegis_civic_waymarker",
+    "footprint": {
+      "width": 1.64,
+      "depth": 0.756,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 0.76,
+        "depth": 0.76,
+        "maxY": 3.625,
+        "minY": 0,
+        "x": 0,
+        "z": 0
       }
     ],
     "cameraSolid": true
@@ -1506,6 +1648,32 @@
     "cameraSolid": true
   },
   {
+    "kind": "aegis_crate_stack__2",
+    "sourceKind": "aegis_crate_stack",
+    "label": "Aegis Crate Stack",
+    "group": "Aegis City",
+    "model": "prop_aegis_crate_stack.glb",
+    "assetKey": "aegis_crate_stack",
+    "fallbackKind": "aegis_crate_stack",
+    "footprint": {
+      "width": 2.45,
+      "depth": 2.04,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0.1,
+        "width": 1.7,
+        "depth": 0.95,
+        "minY": -0.05,
+        "maxY": 1.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
     "kind": "aegis_embankment",
     "sourceKind": "aegis_embankment",
     "label": "Aegis Embankment",
@@ -1527,7 +1695,7 @@
   {
     "kind": "aegis_flowerbed_roses",
     "sourceKind": "aegis_flowerbed_roses",
-    "label": "Aegis Flowerbed Roses",
+    "label": "Aegis flowerbed roses",
     "group": "Aegis City",
     "model": "prop_aegis_flowerbed_roses.glb",
     "assetKey": "aegis_flowerbed_roses",
@@ -1555,7 +1723,7 @@
   {
     "kind": "aegis_flowerbed_violets",
     "sourceKind": "aegis_flowerbed_violets",
-    "label": "Aegis Flowerbed Violets",
+    "label": "Aegis flowerbed violets",
     "group": "Aegis City",
     "model": "prop_aegis_flowerbed_violets.glb",
     "assetKey": "aegis_flowerbed_violets",
@@ -1648,7 +1816,7 @@
   {
     "kind": "aegis_garden_cypress",
     "sourceKind": "aegis_garden_cypress",
-    "label": "Aegis Garden Cypress",
+    "label": "Aegis garden cypress",
     "group": "Aegis City",
     "model": "prop_aegis_garden_cypress.glb",
     "assetKey": "aegis_garden_cypress",
@@ -1682,7 +1850,7 @@
   {
     "kind": "aegis_garden_linden",
     "sourceKind": "aegis_garden_linden",
-    "label": "Aegis Garden Linden",
+    "label": "Aegis garden linden",
     "group": "Aegis City",
     "model": "prop_aegis_garden_linden.glb",
     "assetKey": "aegis_garden_linden",
@@ -1764,6 +1932,48 @@
         "depth": 3.4,
         "minY": 0,
         "maxY": 1.6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "aegis_handcart__2",
+    "sourceKind": "aegis_handcart",
+    "label": "Aegis Handcart",
+    "group": "Aegis City",
+    "model": "prop_aegis_handcart.glb",
+    "assetKey": "aegis_handcart",
+    "fallbackKind": "aegis_handcart",
+    "footprint": {
+      "width": 2.04,
+      "depth": 3.366,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 1.7,
+        "depth": 1.75,
+        "minY": -0.05,
+        "maxY": 1.4
+      },
+      {
+        "x": -0.43,
+        "z": 1.3,
+        "width": 0.14,
+        "depth": 1.86,
+        "minY": 0.4,
+        "maxY": 0.9
+      },
+      {
+        "x": 0.43,
+        "z": 1.3,
+        "width": 0.14,
+        "depth": 1.86,
+        "minY": 0.4,
+        "maxY": 0.9
       }
     ],
     "cameraSolid": true
@@ -2556,6 +2766,22 @@
     "cameraSolid": true
   },
   {
+    "kind": "aegis_planter__2",
+    "sourceKind": "aegis_planter",
+    "label": "Aegis Planter",
+    "group": "Aegis City",
+    "model": "prop_aegis_planter.glb",
+    "assetKey": "aegis_planter",
+    "fallbackKind": "aegis_planter",
+    "footprint": {
+      "width": 2.353,
+      "depth": 1.45,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
     "kind": "aegis_portcullis",
     "sourceKind": "aegis_portcullis",
     "label": "Aegis Portcullis",
@@ -2801,7 +3027,7 @@
   {
     "kind": "aegis_sign__2",
     "sourceKind": "aegis_sign",
-    "label": "Aegis Sign (civic)",
+    "label": "Aegis Sign",
     "group": "Aegis City",
     "model": "prop_aegis_sign.glb",
     "assetKey": "aegis_sign",
@@ -3112,6 +3338,22 @@
     "cameraSolid": true
   },
   {
+    "kind": "aegis_washing_line__2",
+    "sourceKind": "aegis_washing_line",
+    "label": "Aegis Washing Line",
+    "group": "Aegis City",
+    "model": "prop_aegis_washing_line.glb",
+    "assetKey": "aegis_washing_line",
+    "fallbackKind": "aegis_washing_line",
+    "footprint": {
+      "width": 4.92,
+      "depth": 0.12,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
     "kind": "aegis_water_gate",
     "sourceKind": "aegis_water_gate",
     "label": "Aegis Water Gate",
@@ -3208,64 +3450,6 @@
     "sourceKind": "building",
     "label": "Building",
     "group": "World Scenery",
-    "model": "prop_town_house_2.glb",
-    "assetKey": "town_house_2",
-    "fallbackKind": "building",
-    "footprint": {
-      "width": 17.076,
-      "depth": 11.27,
-      "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "width": 12.2,
-        "depth": 9,
-        "minY": -0.25,
-        "maxY": 12
-      }
-    ],
-    "cameraSolid": true,
-    "interaction": {
-      "type": "house_portal",
-      "label": "Enter House",
-      "maxDistance": 11,
-      "interiorVariant": "large"
-    }
-  },
-  {
-    "kind": "building__2",
-    "sourceKind": "building",
-    "label": "Building (small)",
-    "group": "World Scenery",
-    "model": "prop_town_house_1.glb",
-    "assetKey": "town_house_1",
-    "fallbackKind": "building",
-    "footprint": {
-      "width": 11.275,
-      "depth": 8.595,
-      "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "width": 9.8,
-        "depth": 7.4,
-        "minY": -0.25,
-        "maxY": 10
-      }
-    ],
-    "cameraSolid": true,
-    "interaction": {
-      "type": "house_portal",
-      "label": "Enter House",
-      "maxDistance": 9,
-      "interiorVariant": "small"
-    }
-  },
-  {
-    "kind": "building__3",
-    "sourceKind": "building",
-    "label": "Building (variant)",
-    "group": "World Scenery",
     "fallbackKind": "building",
     "footprint": {
       "width": 1,
@@ -3276,26 +3460,14 @@
   },
   {
     "kind": "castle",
-    "sourceKind": "castle",
     "label": "Castle",
     "group": "World Scenery",
-    "model": "prop_town_castle.glb",
-    "assetKey": "town_castle",
     "fallbackKind": "castle",
     "footprint": {
-      "width": 38.149,
-      "depth": 30.649,
-      "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "width": 38,
-        "depth": 34,
-        "minY": -0.4,
-        "maxY": 34
-      }
-    ],
-    "cameraSolid": true
+      "width": 1,
+      "depth": 1,
+      "chainAxis": "z"
+    }
   },
   {
     "kind": "castle_door",
@@ -3373,9 +3545,9 @@
     "cameraSolid": true,
     "interaction": {
       "type": "gate",
-      "label": "Riftspire Citadel Gate",
-      "maxDistance": 28,
-      "startsOpen": true,
+      "label": "Riftbound Keep Gate",
+      "maxDistance": 20,
+      "startsOpen": false,
       "openClip": "open",
       "closeClip": "close"
     }
@@ -3409,6 +3581,1050 @@
     }
   },
   {
+    "kind": "character__civic_battle_prelate_f",
+    "label": "Battle Prelate Female",
+    "group": "Characters and NPCs",
+    "model": "chr_civic_battle_prelate_t1_f.glb",
+    "assetKey": "civic_battle_prelate_f",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.08,
+      "depth": 0.445,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__civic_battle_prelate_m",
+    "label": "Battle Prelate Male",
+    "group": "Characters and NPCs",
+    "model": "chr_civic_battle_prelate_t1_m.glb",
+    "assetKey": "civic_battle_prelate_m",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_civic_battle_prelate_t1_m_lod1.glb",
+      "chr_civic_battle_prelate_t1_m_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.164,
+      "depth": 0.457,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__civic_ember_arcanist_m",
+    "label": "Ember Arcanist Body",
+    "group": "Characters and NPCs",
+    "model": "chr_civic_ember_arcanist_t1_m.glb",
+    "assetKey": "civic_ember_arcanist_m",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_civic_ember_arcanist_t1_m_lod1.glb",
+      "chr_civic_ember_arcanist_t1_m_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.164,
+      "depth": 0.457,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_aegis_keep_guard_guard",
+    "label": "Aegis Keep Guard",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "enemy_aegis_aegis_keep_guard_guard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_briarwatch_den_overlord_captain",
+    "label": "Briarwatch Den Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_captain_m.glb",
+    "assetKey": "enemy_aegis_briarwatch_den_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_campaign_raider_raider",
+    "label": "Campaign Raider",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_raider_m.glb",
+    "assetKey": "enemy_aegis_campaign_raider_raider",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.228,
+      "depth": 0.65,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_glassriver_depths_overlord_captain",
+    "label": "Glassriver Depths Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_captain_m.glb",
+    "assetKey": "enemy_aegis_glassriver_depths_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_mireglass_den_overlord_captain",
+    "label": "Mireglass Den Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_captain_m.glb",
+    "assetKey": "enemy_aegis_mireglass_den_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_stormbarrow_lair_overlord_captain",
+    "label": "Stormbarrow Lair Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_captain_m.glb",
+    "assetKey": "enemy_aegis_stormbarrow_lair_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_aegis_warden_s_hollow_overlord_captain",
+    "label": "Warden's Hollow Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_empire_m_captain_m.glb",
+    "assetKey": "enemy_aegis_warden_s_hollow_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_cindermaw_pit_overlord_captain",
+    "label": "Cindermaw Pit Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_captain_m.glb",
+    "assetKey": "enemy_riftbound_cindermaw_pit_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_gorepine_warrens_overlord_captain",
+    "label": "Gorepine Warrens Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_captain_m.glb",
+    "assetKey": "enemy_riftbound_gorepine_warrens_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_greenskin_brute_raider",
+    "label": "Greenskin Brute",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_raider_m.glb",
+    "assetKey": "enemy_riftbound_greenskin_brute_raider",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.346,
+      "depth": 0.693,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_greenskin_ruffian_raider",
+    "label": "Greenskin Ruffian",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_raider_m.glb",
+    "assetKey": "enemy_riftbound_greenskin_ruffian_raider",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.346,
+      "depth": 0.693,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_keep_captain_captain",
+    "label": "Keep Captain",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_captain_m.glb",
+    "assetKey": "enemy_riftbound_keep_captain_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_lair_sentinel_guard",
+    "label": "Lair Sentinel",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_guard_m.glb",
+    "assetKey": "enemy_riftbound_lair_sentinel_guard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__enemy_riftbound_rotwreath_nest_overlord_captain",
+    "label": "Rotwreath Nest Overlord",
+    "group": "Enemies",
+    "model": "chr_npc_greenskin_m_captain_m.glb",
+    "assetKey": "enemy_riftbound_rotwreath_nest_overlord_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__mire_warbrute_f",
+    "label": "Warbrute Female",
+    "group": "Characters and NPCs",
+    "model": "chr_mire_warbrute_t1_f.glb",
+    "assetKey": "mire_warbrute_f",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.182,
+      "depth": 0.51,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__mire_warbrute_m",
+    "label": "Warbrute Male",
+    "group": "Characters and NPCs",
+    "model": "chr_mire_warbrute_t1_m.glb",
+    "assetKey": "mire_warbrute_m",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.313,
+      "depth": 0.559,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_brann_hartwell_main_gate_guard",
+    "label": "Brann Hartwell - Main Gate Guard",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_brann_hartwell_main_gate_guard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_brigitte_holtz_merchant",
+    "label": "Brigitte Holtz - Merchant",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_vendor_m.glb",
+    "assetKey": "npc_aegis_brigitte_holtz_merchant",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_brother_steffan_battle_prelate_trainer",
+    "label": "Brother Steffan - Battle Prelate Trainer",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_trainer_m.glb",
+    "assetKey": "npc_aegis_brother_steffan_battle_prelate_trainer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_city_guard_captain",
+    "label": "Aegis City Guard Captain",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_city_guard_captain.glb",
+    "assetKey": "npc_aegis_city_guard_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_aegis_city_guard_captain_lod1.glb",
+      "chr_aegis_city_guard_captain_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.21,
+      "depth": 0.746,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_city_guard_crossbow",
+    "label": "Aegis City Guard Crossbow",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_city_guard_crossbow.glb",
+    "assetKey": "npc_aegis_city_guard_crossbow",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_aegis_city_guard_crossbow_lod1.glb",
+      "chr_aegis_city_guard_crossbow_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.302,
+      "depth": 0.903,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_city_guard_halberd",
+    "label": "Aegis City Guard Halberd",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_city_guard_halberd.glb",
+    "assetKey": "npc_aegis_city_guard_halberd",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_aegis_city_guard_halberd_lod1.glb",
+      "chr_aegis_city_guard_halberd_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.106,
+      "depth": 0.599,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_city_guard_standard",
+    "label": "Aegis City Guard Standard",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_city_guard_standard.glb",
+    "assetKey": "npc_aegis_city_guard_standard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_aegis_city_guard_standard_lod1.glb",
+      "chr_aegis_city_guard_standard_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.693,
+      "depth": 0.752,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_corren_vale_capital_campaign_marshal",
+    "label": "Corren Vale - Capital Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_corren_vale_capital_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_corren_vale_endgame_campaign_marshal",
+    "label": "Corren Vale - Endgame Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_corren_vale_endgame_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+    "label": "Corren Vale - Tier 2 Boss Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_corren_vale_tier_2_boss_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_corren_vale_tier_3_campaign_marshal",
+    "label": "Corren Vale - Tier 3 Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_corren_vale_tier_3_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_diedrick_stein_general_goods",
+    "label": "Diedrick Stein - General Goods",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_vendor_m.glb",
+    "assetKey": "npc_aegis_diedrick_stein_general_goods",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_elira_dawnmarch_aegis_quartermaster",
+    "label": "Elira Dawnmarch - Aegis Quartermaster",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_vendor_m.glb",
+    "assetKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_freia_voss_banker",
+    "label": "Freia Voss - Banker",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_banker_m.glb",
+    "assetKey": "npc_aegis_freia_voss_banker",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_gate_sergeant_city_guard",
+    "label": "Gate Sergeant - City Guard",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_gate_sergeant_city_guard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_gate_warden_city_guard",
+    "label": "Gate Warden - City Guard",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_gate_warden_city_guard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+    "label": "Inquisitor Hess - Hex Inquisitor Trainer",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_trainer_m.glb",
+    "assetKey": "npc_aegis_inquisitor_hess_hex_inquisitor_trainer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_iven_stonebrook_street_patrol",
+    "label": "Iven Stonebrook - Street Patrol",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_iven_stonebrook_street_patrol",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_konrad_hausman_banker",
+    "label": "Konrad Hausman - Banker",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_banker_m.glb",
+    "assetKey": "npc_aegis_konrad_hausman_banker",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_lysa_bright_market_watch",
+    "label": "Lysa Bright - Market Watch",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_lysa_bright_market_watch",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_magister_roth_ember_arcanist_trainer",
+    "label": "Magister Roth - Ember Arcanist Trainer",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_trainer_m.glb",
+    "assetKey": "npc_aegis_magister_roth_ember_arcanist_trainer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_mira_stonewake_forward_scout",
+    "label": "Mira Stonewake - Forward Scout",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_mira_stonewake_forward_scout",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_mira_stonewake_siege_engineer",
+    "label": "Mira Stonewake - Siege Engineer",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_vendor_m.glb",
+    "assetKey": "npc_aegis_mira_stonewake_siege_engineer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_mira_stonewake_vault_keeper",
+    "label": "Mira Stonewake - Vault Keeper",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_banker_m.glb",
+    "assetKey": "npc_aegis_mira_stonewake_vault_keeper",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_attendant",
+    "label": "Aegis Attendant",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_attendant_lod1.glb",
+    "assetKey": "npc_aegis_people_attendant",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.7,
+      "depth": 0.616,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_child",
+    "label": "Aegis Child",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_child_lod1.glb",
+    "assetKey": "npc_aegis_people_child",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.411,
+      "depth": 0.429,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_civilian_female",
+    "label": "Aegis Civilian Female",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_civilian_female_lod1.glb",
+    "assetKey": "npc_aegis_people_civilian_female",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.626,
+      "depth": 0.656,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_civilian_female_walk",
+    "label": "Aegis Walking Civilian Female",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_civilian_female_walk.glb",
+    "assetKey": "npc_aegis_people_civilian_female_walk",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.626,
+      "depth": 0.656,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_civilian_male",
+    "label": "Aegis Civilian Male",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_civilian_male_lod1.glb",
+    "assetKey": "npc_aegis_people_civilian_male",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.57,
+      "depth": 0.557,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_civilian_male_walk",
+    "label": "Aegis Walking Civilian Male",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_civilian_male_walk.glb",
+    "assetKey": "npc_aegis_people_civilian_male_walk",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.57,
+      "depth": 0.557,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_courtier",
+    "label": "Aegis Courtier",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_courtier_lod1.glb",
+    "assetKey": "npc_aegis_people_courtier",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.7,
+      "depth": 0.616,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_lady",
+    "label": "Aegis Lady",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_lady_lod1.glb",
+    "assetKey": "npc_aegis_people_lady",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.626,
+      "depth": 0.656,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_people_lord",
+    "label": "Aegis Lord",
+    "group": "Characters and NPCs",
+    "model": "chr_aegis_people_lord_lod1.glb",
+    "assetKey": "npc_aegis_people_lord",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.7,
+      "depth": 0.616,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_rowan_hale_plaza_watch",
+    "label": "Rowan Hale - Plaza Watch",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_rowan_hale_plaza_watch",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_serra_brightfield_gate_captain",
+    "label": "Serra Brightfield - Gate Captain",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_serra_brightfield_gate_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_sir_emmerich_sunfire_templar_trainer",
+    "label": "Sir Emmerich - Sunfire Templar Trainer",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_trainer_m.glb",
+    "assetKey": "npc_aegis_sir_emmerich_sunfire_templar_trainer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.655,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_aegis_veyra_sunholt_east_gate_guard",
+    "label": "Veyra Sunholt - East Gate Guard",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_empire_m_guard_m.glb",
+    "assetKey": "npc_aegis_veyra_sunholt_east_gate_guard",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.235,
+      "depth": 0.649,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_gorvak_mirehand_forward_scout",
+    "label": "Gorvak Mirehand - Forward Scout",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_guard_m.glb",
+    "assetKey": "npc_riftbound_gorvak_mirehand_forward_scout",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_gorvak_mirehand_siege_engineer",
+    "label": "Gorvak Mirehand - Siege Engineer",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_vendor_m.glb",
+    "assetKey": "npc_riftbound_gorvak_mirehand_siege_engineer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.346,
+      "depth": 0.693,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_kara_ashvein_crafting_mentor",
+    "label": "Kara Ashvein - Crafting Mentor",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_trainer_m.glb",
+    "assetKey": "npc_riftbound_kara_ashvein_crafting_mentor",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.353,
+      "depth": 0.693,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_kara_ashvein_gate_captain",
+    "label": "Kara Ashvein - Gate Captain",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_guard_m.glb",
+    "assetKey": "npc_riftbound_kara_ashvein_gate_captain",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_kara_ashvein_resource_warden",
+    "label": "Kara Ashvein - Resource Warden",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_ambient_m.glb",
+    "assetKey": "npc_riftbound_kara_ashvein_resource_warden",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.345,
+      "depth": 0.725,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_nyra_vex_endgame_campaign_marshal",
+    "label": "Nyra Vex - Endgame Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_guard_m.glb",
+    "assetKey": "npc_riftbound_nyra_vex_endgame_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+    "label": "Nyra Vex - Tier 3 Boss Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_guard_m.glb",
+    "assetKey": "npc_riftbound_nyra_vex_tier_3_boss_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+    "label": "Nyra Vex - Tier 3 Campaign Marshal",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_guard_m.glb",
+    "assetKey": "npc_riftbound_nyra_vex_tier_3_campaign_marshal",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.352,
+      "depth": 0.692,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftbound_selk_dreadspire_field_medic",
+    "label": "Selk Dreadspire - Field Medic",
+    "group": "Characters and NPCs",
+    "model": "chr_npc_greenskin_m_ambient_m.glb",
+    "assetKey": "npc_riftbound_selk_dreadspire_field_medic",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [],
+    "footprint": {
+      "width": 1.345,
+      "depth": 0.725,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftspire_chaos",
+    "label": "Riftspire chaos inhabitant",
+    "group": "Characters and NPCs",
+    "model": "chr_riftspire_chaos_lod1.glb",
+    "assetKey": "npc_riftspire_chaos",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_riftspire_chaos_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.684,
+      "depth": 0.75,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftspire_dark_elf",
+    "label": "Riftspire dark elf inhabitant",
+    "group": "Characters and NPCs",
+    "model": "chr_riftspire_dark_elf_lod1.glb",
+    "assetKey": "npc_riftspire_dark_elf",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_riftspire_dark_elf_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.701,
+      "depth": 0.617,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "character__npc_riftspire_greenskin",
+    "label": "Riftspire greenskin inhabitant",
+    "group": "Characters and NPCs",
+    "model": "chr_riftspire_greenskin_lod1.glb",
+    "assetKey": "npc_riftspire_greenskin",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "chr_riftspire_greenskin_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.345,
+      "depth": 0.725,
+      "chainAxis": "x"
+    }
+  },
+  {
     "kind": "cobblestone_path_strip",
     "label": "Cobblestone Path Strip",
     "group": "World Scenery",
@@ -3421,7 +4637,7 @@
   },
   {
     "kind": "creature_barrow_wolf",
-    "label": "Creature Barrow Wolf",
+    "label": "Barrow Wolf",
     "group": "Registered Assets",
     "model": "prop_creature_barrow_wolf.glb",
     "assetKey": "creature_barrow_wolf",
@@ -3435,7 +4651,7 @@
   },
   {
     "kind": "creature_lair_spider",
-    "label": "Creature Lair Spider",
+    "label": "Lair Spider",
     "group": "Registered Assets",
     "model": "prop_creature_lair_spider.glb",
     "assetKey": "creature_lair_spider",
@@ -3493,6 +4709,3231 @@
       "depth": 1,
       "chainAxis": "z"
     }
+  },
+  {
+    "kind": "frontier_battering_ram",
+    "label": "Bull-brow Mantlet Ram",
+    "group": "Frontier Siege and Supplies",
+    "model": "frontier_battering_ram_lod0.glb",
+    "assetKey": "frontier_battering_ram",
+    "fallbackKind": "frontier_battering_ram",
+    "lodModels": [
+      "frontier_battering_ram_lod1.glb",
+      "frontier_battering_ram_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.475,
+      "depth": 5.07,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_caravan_reins",
+    "label": "Fitted Wagon Reins and Bit",
+    "group": "Frontier Siege and Supplies",
+    "model": "frontier_caravan_reins_lod0.glb",
+    "assetKey": "frontier_caravan_reins",
+    "fallbackKind": "frontier_caravan_reins",
+    "lodModels": [
+      "frontier_caravan_reins_lod1.glb",
+      "frontier_caravan_reins_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1,
+      "depth": 3.915,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_cinderfen_corner_access",
+    "sourceKind": "frontier_cinderfen_corner_access",
+    "label": "Cinderfen corner landing and courtyard stair access",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_corner_access_lod0.glb",
+    "assetKey": "frontier_cinderfen_corner_access",
+    "fallbackKind": "frontier_cinderfen_corner_access",
+    "lodModels": [
+      "frontier_cinderfen_corner_access_lod1.glb",
+      "frontier_cinderfen_corner_access_lod2.glb"
+    ],
+    "footprint": {
+      "width": 7.0375165939331055,
+      "depth": 7.0375165939331055,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 2.26,
+        "z": 0.040000000000000036,
+        "width": 4.5,
+        "depth": 0.3,
+        "rotY": -1.5707963267948966,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": 0,
+        "z": 2.26,
+        "width": 4.5,
+        "depth": 0.3,
+        "rotY": -3.141592653589793,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": -2.26,
+        "z": 1.6400000000000001,
+        "width": 0.9800000000000001,
+        "depth": 0.3,
+        "rotY": 1.5707963267948966,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": 1.6400000000000001,
+        "z": -2.26,
+        "width": 0.9800000000000001,
+        "depth": 0.3,
+        "rotY": 0,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": 0.82,
+        "z": 0.82,
+        "width": 3.08,
+        "depth": 3.08,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": -1.56,
+        "z": 0.82,
+        "width": 1.68,
+        "depth": 3.08,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": 0.82,
+        "z": -1.56,
+        "width": 3.08,
+        "depth": 1.68,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": -1.3,
+        "z": -1.3,
+        "width": 2.35,
+        "depth": 0.7,
+        "rotY": 0.7853981633974483,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": -4.211959594928933,
+        "z": -2.628040405071067,
+        "width": 0.25,
+        "depth": 0.25,
+        "minY": 0,
+        "maxY": 7.35
+      },
+      {
+        "x": -2.4219595949289334,
+        "z": -0.8380404050710669,
+        "width": 0.25,
+        "depth": 0.25,
+        "minY": 0,
+        "maxY": 7.35
+      },
+      {
+        "x": -3.316959594928933,
+        "z": -1.7330404050710668,
+        "width": 2.7577164466275357,
+        "depth": 0.2,
+        "rotY": -0.7853981633974483,
+        "minY": 6.3,
+        "maxY": 7.42
+      },
+      {
+        "x": -2.628040405071067,
+        "z": -4.211959594928933,
+        "width": 0.25,
+        "depth": 0.25,
+        "minY": 0,
+        "maxY": 7.35
+      },
+      {
+        "x": -0.8380404050710669,
+        "z": -2.4219595949289334,
+        "width": 0.25,
+        "depth": 0.25,
+        "minY": 0,
+        "maxY": 7.35
+      },
+      {
+        "x": -1.7330404050710668,
+        "z": -3.316959594928933,
+        "width": 2.7577164466275357,
+        "depth": 0.2,
+        "rotY": -0.7853981633974483,
+        "minY": 6.3,
+        "maxY": 7.42
+      },
+      {
+        "x": -2.525,
+        "z": -2.525,
+        "width": 2.2,
+        "depth": 2.7877164466275355,
+        "rotY": 0.7853981633974483,
+        "minY": 6.15,
+        "maxY": 6.29
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "corner_main",
+        "x": 0.82,
+        "z": 0.82,
+        "width": 3.08,
+        "depth": 3.08,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "west_socket",
+        "x": -1.56,
+        "z": 0.82,
+        "width": 1.68,
+        "depth": 3.08,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "south_socket",
+        "x": 0.82,
+        "z": -1.56,
+        "width": 3.08,
+        "depth": 1.68,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "diagonal_stair_mouth",
+        "x": -1.3,
+        "z": -1.3,
+        "width": 2.35,
+        "depth": 0.7,
+        "rotY": 0.7853981633974483,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "courtyard_stair_landing",
+        "x": -2.525,
+        "z": -2.525,
+        "width": 2.2,
+        "depth": 2.7877164466275355,
+        "rotY": 0.7853981633974483,
+        "fromY": 6.3,
+        "toY": 6.3
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_curtain_walk",
+    "sourceKind": "frontier_cinderfen_curtain_walk",
+    "label": "Cinderfen basalt and alder curtain walk",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+    "assetKey": "frontier_cinderfen_curtain_walk",
+    "fallbackKind": "frontier_cinderfen_curtain_walk",
+    "lodModels": [
+      "frontier_cinderfen_curtain_walk_lod1.glb",
+      "frontier_cinderfen_curtain_walk_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8,
+      "depth": 2.521923065185547,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 8,
+        "depth": 2.4,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": 0,
+        "z": 0.96,
+        "width": 8,
+        "depth": 0.3,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": 0,
+        "z": -1.01,
+        "width": 8,
+        "depth": 0.22,
+        "minY": 6.3,
+        "maxY": 7.5
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "wall_walk",
+        "x": 0,
+        "z": 0,
+        "width": 8,
+        "depth": 1.7,
+        "fromY": 6.3,
+        "toY": 6.3
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_dwelling",
+    "sourceKind": "frontier_cinderfen_dwelling",
+    "label": "Cinderfen raised reed dwelling",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_dwelling_lod0.glb",
+    "assetKey": "frontier_cinderfen_dwelling",
+    "fallbackKind": "frontier_cinderfen_dwelling",
+    "lodModels": [
+      "frontier_cinderfen_dwelling_lod1.glb",
+      "frontier_cinderfen_dwelling_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.240978717803955,
+      "depth": 12.562524318695068,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -4,
+        "z": 0,
+        "width": 0.4,
+        "depth": 9,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "width": 0.4,
+        "depth": 9,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": 0,
+        "z": -4.5,
+        "width": 8,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": -2.45,
+        "z": 4.5,
+        "width": 3.1,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": 2.45,
+        "z": 4.5,
+        "width": 3.1,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 4.4
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "interior_deck",
+        "x": 0,
+        "z": 0,
+        "width": 7.8,
+        "depth": 8.8,
+        "fromY": 0.6,
+        "toY": 0.6
+      },
+      {
+        "id": "front_ramp",
+        "x": 0,
+        "z": 6,
+        "width": 2.2,
+        "depth": 3.12,
+        "fromY": 0.6,
+        "toY": 0,
+        "axis": "z"
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_gate_leaves",
+    "sourceKind": "frontier_cinderfen_gate_leaves",
+    "label": "Cinderfen paired reinforced gate leaves",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_gate_leaves_lod0.glb",
+    "assetKey": "frontier_cinderfen_gate_leaves",
+    "fallbackKind": "frontier_cinderfen_gate_leaves",
+    "lodModels": [
+      "frontier_cinderfen_gate_leaves_lod1.glb",
+      "frontier_cinderfen_gate_leaves_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6,
+      "depth": 0.5550000257790089,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": -0.3,
+        "width": 6,
+        "depth": 0.72,
+        "minY": 0,
+        "maxY": 4.8,
+        "blocksWhen": "closed"
+      }
+    ],
+    "walkableSurfaces": [],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "gate",
+      "label": "Cinderfen gate",
+      "maxDistance": 5,
+      "openClip": "gate_open",
+      "closeClip": "gate_close",
+      "startsOpen": false
+    },
+    "assetCategory": "staticProps",
+    "defaultAnimation": "gate_close",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_gatehouse",
+    "sourceKind": "frontier_cinderfen_gatehouse",
+    "label": "Cinderfen six-metre causeway gatehouse",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_gatehouse_lod0.glb",
+    "assetKey": "frontier_cinderfen_gatehouse",
+    "fallbackKind": "frontier_cinderfen_gatehouse",
+    "lodModels": [
+      "frontier_cinderfen_gatehouse_lod1.glb",
+      "frontier_cinderfen_gatehouse_lod2.glb"
+    ],
+    "footprint": {
+      "width": 28,
+      "depth": 12.79699993133545,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -6.85,
+        "z": 0,
+        "width": 7.7,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 6.15
+      },
+      {
+        "x": 6.85,
+        "z": 0,
+        "width": 7.7,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 6.15
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "width": 6,
+        "depth": 12,
+        "minY": 4.8,
+        "maxY": 6.15
+      },
+      {
+        "x": -6.85,
+        "z": -5.45,
+        "width": 6.9,
+        "depth": 0.6,
+        "minY": 6.3,
+        "maxY": 7.55
+      },
+      {
+        "x": -6.85,
+        "z": 5.45,
+        "width": 6.9,
+        "depth": 0.6,
+        "minY": 6.3,
+        "maxY": 7.55
+      },
+      {
+        "x": -10.3,
+        "z": -3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": -10.3,
+        "z": 3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": -3.3999999999999995,
+        "z": -3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": -3.3999999999999995,
+        "z": 3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": -10.100000000000001,
+        "z": -5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -10.100000000000001,
+        "z": -1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -10.100000000000001,
+        "z": 1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -10.100000000000001,
+        "z": 5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -3.5999999999999996,
+        "z": -5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -3.5999999999999996,
+        "z": -1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -3.5999999999999996,
+        "z": 1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -3.5999999999999996,
+        "z": 5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": -12.15,
+        "z": 0,
+        "width": 3.7,
+        "depth": 2.4,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": -12.15,
+        "z": 0.96,
+        "width": 3.7,
+        "depth": 0.3,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": -12.15,
+        "z": -1.01,
+        "width": 3.7,
+        "depth": 0.22,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": 6.85,
+        "z": -5.45,
+        "width": 6.9,
+        "depth": 0.6,
+        "minY": 6.3,
+        "maxY": 7.55
+      },
+      {
+        "x": 6.85,
+        "z": 5.45,
+        "width": 6.9,
+        "depth": 0.6,
+        "minY": 6.3,
+        "maxY": 7.55
+      },
+      {
+        "x": 3.3999999999999995,
+        "z": -3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": 3.3999999999999995,
+        "z": 3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": 10.3,
+        "z": -3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": 10.3,
+        "z": 3.325,
+        "width": 0.55,
+        "depth": 4.15,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": 3.5999999999999996,
+        "z": -5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 3.5999999999999996,
+        "z": -1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 3.5999999999999996,
+        "z": 1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 3.5999999999999996,
+        "z": 5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 10.100000000000001,
+        "z": -5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 10.100000000000001,
+        "z": -1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 10.100000000000001,
+        "z": 1.6,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 10.100000000000001,
+        "z": 5.4,
+        "width": 0.5,
+        "depth": 0.5,
+        "minY": 6.3,
+        "maxY": 8.92
+      },
+      {
+        "x": 12.15,
+        "z": 0,
+        "width": 3.7,
+        "depth": 2.4,
+        "minY": 0,
+        "maxY": 6.29
+      },
+      {
+        "x": 12.15,
+        "z": 0.96,
+        "width": 3.7,
+        "depth": 0.3,
+        "minY": 6.3,
+        "maxY": 8.3
+      },
+      {
+        "x": 12.15,
+        "z": -1.01,
+        "width": 3.7,
+        "depth": 0.22,
+        "minY": 6.3,
+        "maxY": 7.5
+      },
+      {
+        "x": 0,
+        "z": 5.86,
+        "width": 6.25,
+        "depth": 0.3,
+        "minY": 6.3,
+        "maxY": 8
+      },
+      {
+        "x": 0,
+        "z": -5.86,
+        "width": 6.25,
+        "depth": 0.3,
+        "minY": 6.3,
+        "maxY": 8
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "defense_crosswalk",
+        "x": 0,
+        "z": 0,
+        "width": 28,
+        "depth": 1.8,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "central_oil_platform",
+        "x": 0,
+        "z": 0,
+        "width": 6.2,
+        "depth": 11.4,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "left_sentry_platform",
+        "x": -6.75,
+        "z": 0,
+        "width": 6.8,
+        "depth": 10.8,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "right_sentry_platform",
+        "x": 6.75,
+        "z": 0,
+        "width": 6.8,
+        "depth": 10.8,
+        "fromY": 6.3,
+        "toY": 6.3
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_0_0",
+    "label": "frontier cinderfen outskirts terrain 0 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_0_0.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_0_0",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_0_0",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_0_0_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_0_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_0_1",
+    "label": "frontier cinderfen outskirts terrain 0 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_0_1.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_0_1",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_0_1",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_0_1_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_0_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_0_2",
+    "label": "frontier cinderfen outskirts terrain 0 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_0_2.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_0_2",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_0_2",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_0_2_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_0_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_0_3",
+    "label": "frontier cinderfen outskirts terrain 0 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_0_3.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_0_3",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_0_3",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_0_3_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_0_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_1_0",
+    "label": "frontier cinderfen outskirts terrain 1 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_1_0.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_1_0",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_1_0",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_1_0_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_1_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_1_1",
+    "label": "frontier cinderfen outskirts terrain 1 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_1_1.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_1_1",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_1_1",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_1_1_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_1_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_1_2",
+    "label": "frontier cinderfen outskirts terrain 1 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_1_2.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_1_2",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_1_2",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_1_2_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_1_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_1_3",
+    "label": "frontier cinderfen outskirts terrain 1 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_1_3.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_1_3",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_1_3",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_1_3_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_1_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_2_0",
+    "label": "frontier cinderfen outskirts terrain 2 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_2_0.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_2_0",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_2_0",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_2_0_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_2_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_2_1",
+    "label": "frontier cinderfen outskirts terrain 2 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_2_1.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_2_1",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_2_1",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_2_1_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_2_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_2_2",
+    "label": "frontier cinderfen outskirts terrain 2 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_2_2.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_2_2",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_2_2",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_2_2_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_2_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_2_3",
+    "label": "frontier cinderfen outskirts terrain 2 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_2_3.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_2_3",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_2_3",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_2_3_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_2_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_3_0",
+    "label": "frontier cinderfen outskirts terrain 3 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_3_0.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_3_0",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_3_0",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_3_0_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_3_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_3_1",
+    "label": "frontier cinderfen outskirts terrain 3 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_3_1.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_3_1",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_3_1",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_3_1_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_3_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_3_2",
+    "label": "frontier cinderfen outskirts terrain 3 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_3_2.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_3_2",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_3_2",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_3_2_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_3_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_outskirts_terrain_3_3",
+    "label": "frontier cinderfen outskirts terrain 3 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_cinderfen_outskirts_terrain_3_3.glb",
+    "assetKey": "frontier_cinderfen_outskirts_terrain_3_3",
+    "fallbackKind": "frontier_cinderfen_outskirts_terrain_3_3",
+    "lodModels": [
+      "frontier_cinderfen_outskirts_terrain_3_3_lod1.glb",
+      "frontier_cinderfen_outskirts_terrain_3_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_cinderfen_supply_shelter",
+    "sourceKind": "frontier_cinderfen_supply_shelter",
+    "label": "Cinderfen open supply shelter",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+    "assetKey": "frontier_cinderfen_supply_shelter",
+    "fallbackKind": "frontier_cinderfen_supply_shelter",
+    "lodModels": [
+      "frontier_cinderfen_supply_shelter_lod1.glb",
+      "frontier_cinderfen_supply_shelter_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.190978527069092,
+      "depth": 8.308195352554321,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -4,
+        "z": 0,
+        "width": 0.4,
+        "depth": 6,
+        "minY": 0,
+        "maxY": 1.55
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "width": 0.4,
+        "depth": 6,
+        "minY": 0,
+        "maxY": 1.55
+      },
+      {
+        "x": 0,
+        "z": -3,
+        "width": 8,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 1.55
+      },
+      {
+        "x": -3.35,
+        "z": -0.6,
+        "width": 0.7,
+        "depth": 3.4,
+        "minY": 0.35,
+        "maxY": 1.17
+      },
+      {
+        "x": 3.35,
+        "z": -0.6,
+        "width": 0.7,
+        "depth": 3.4,
+        "minY": 0.35,
+        "maxY": 1.17
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "interior_deck",
+        "x": 0,
+        "z": 0,
+        "width": 7.8,
+        "depth": 5.8,
+        "fromY": 0.35,
+        "toY": 0.35
+      },
+      {
+        "id": "front_ramp",
+        "x": 0,
+        "z": 3.875,
+        "width": 3,
+        "depth": 1.87,
+        "fromY": 0.35,
+        "toY": 0,
+        "axis": "z"
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_wall_stair",
+    "sourceKind": "frontier_cinderfen_wall_stair",
+    "label": "Cinderfen switchback wall stair",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_wall_stair_lod0.glb",
+    "assetKey": "frontier_cinderfen_wall_stair",
+    "fallbackKind": "frontier_cinderfen_wall_stair",
+    "lodModels": [
+      "frontier_cinderfen_wall_stair_lod1.glb",
+      "frontier_cinderfen_wall_stair_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.497211694717407,
+      "depth": 8.560594081878662,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -1.3,
+        "z": 4.04,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 0.051,
+        "maxY": 0.175
+      },
+      {
+        "x": -1.3,
+        "z": 3.72,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 0.226,
+        "maxY": 0.35
+      },
+      {
+        "x": -1.3,
+        "z": 3.4000000000000004,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 0.401,
+        "maxY": 0.525
+      },
+      {
+        "x": -1.3,
+        "z": 3.08,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 0.576,
+        "maxY": 0.7
+      },
+      {
+        "x": -1.3,
+        "z": 2.7600000000000002,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 0.751,
+        "maxY": 0.875
+      },
+      {
+        "x": -1.3,
+        "z": 2.4400000000000004,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 0.926,
+        "maxY": 1.05
+      },
+      {
+        "x": -1.3,
+        "z": 2.12,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 1.101,
+        "maxY": 1.225
+      },
+      {
+        "x": -1.3,
+        "z": 1.8000000000000003,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 1.276,
+        "maxY": 1.4
+      },
+      {
+        "x": -1.3,
+        "z": 1.48,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 1.451,
+        "maxY": 1.575
+      },
+      {
+        "x": -1.3,
+        "z": 1.1600000000000001,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 1.626,
+        "maxY": 1.75
+      },
+      {
+        "x": -1.3,
+        "z": 0.8400000000000003,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 1.801,
+        "maxY": 1.925
+      },
+      {
+        "x": -1.3,
+        "z": 0.52,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 1.976,
+        "maxY": 2.1
+      },
+      {
+        "x": -1.3,
+        "z": 0.20000000000000018,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 2.151,
+        "maxY": 2.275
+      },
+      {
+        "x": -1.3,
+        "z": -0.1200000000000001,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 2.326,
+        "maxY": 2.45
+      },
+      {
+        "x": -1.3,
+        "z": -0.4399999999999995,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 2.501,
+        "maxY": 2.625
+      },
+      {
+        "x": -1.3,
+        "z": -0.7599999999999998,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 2.676,
+        "maxY": 2.8
+      },
+      {
+        "x": -1.3,
+        "z": -1.08,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 2.851,
+        "maxY": 2.975
+      },
+      {
+        "x": -1.3,
+        "z": -1.4000000000000004,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 3.026,
+        "maxY": 3.15
+      },
+      {
+        "x": -2.4299999999999997,
+        "z": 4.2,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 0,
+        "maxY": 1.05
+      },
+      {
+        "x": -2.4299999999999997,
+        "z": 2.2800000000000002,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 1.0499999999999998,
+        "maxY": 2.0999999999999996
+      },
+      {
+        "x": -2.4299999999999997,
+        "z": 0.3600000000000003,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 2.0999999999999996,
+        "maxY": 3.1499999999999995
+      },
+      {
+        "x": -2.4299999999999997,
+        "z": -1.5599999999999996,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 3.15,
+        "maxY": 4.2
+      },
+      {
+        "x": -0.17000000000000015,
+        "z": 4.2,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 0,
+        "maxY": 1.05
+      },
+      {
+        "x": -0.17000000000000015,
+        "z": 2.2800000000000002,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 1.0499999999999998,
+        "maxY": 2.0999999999999996
+      },
+      {
+        "x": -0.17000000000000015,
+        "z": 0.3600000000000003,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 2.0999999999999996,
+        "maxY": 3.1499999999999995
+      },
+      {
+        "x": -0.17000000000000015,
+        "z": -1.5599999999999996,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 3.15,
+        "maxY": 4.2
+      },
+      {
+        "x": 1.3,
+        "z": -1.4000000000000001,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 3.201,
+        "maxY": 3.325
+      },
+      {
+        "x": 1.3,
+        "z": -1.08,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 3.376,
+        "maxY": 3.5
+      },
+      {
+        "x": 1.3,
+        "z": -0.76,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 3.551,
+        "maxY": 3.675
+      },
+      {
+        "x": 1.3,
+        "z": -0.43999999999999995,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 3.726,
+        "maxY": 3.85
+      },
+      {
+        "x": 1.3,
+        "z": -0.1200000000000001,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 3.901,
+        "maxY": 4.025
+      },
+      {
+        "x": 1.3,
+        "z": 0.19999999999999996,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 4.076,
+        "maxY": 4.2
+      },
+      {
+        "x": 1.3,
+        "z": 0.52,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 4.251,
+        "maxY": 4.375
+      },
+      {
+        "x": 1.3,
+        "z": 0.8399999999999999,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 4.426,
+        "maxY": 4.55
+      },
+      {
+        "x": 1.3,
+        "z": 1.1600000000000001,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 4.601,
+        "maxY": 4.725
+      },
+      {
+        "x": 1.3,
+        "z": 1.48,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 4.776,
+        "maxY": 4.9
+      },
+      {
+        "x": 1.3,
+        "z": 1.7999999999999998,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 4.951,
+        "maxY": 5.075
+      },
+      {
+        "x": 1.3,
+        "z": 2.12,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 5.126,
+        "maxY": 5.25
+      },
+      {
+        "x": 1.3,
+        "z": 2.44,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 5.301,
+        "maxY": 5.425
+      },
+      {
+        "x": 1.3,
+        "z": 2.7600000000000002,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 5.476,
+        "maxY": 5.6
+      },
+      {
+        "x": 1.3,
+        "z": 3.0799999999999996,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 5.651,
+        "maxY": 5.775
+      },
+      {
+        "x": 1.3,
+        "z": 3.4,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 5.826,
+        "maxY": 5.95
+      },
+      {
+        "x": 1.3,
+        "z": 3.72,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 6.001,
+        "maxY": 6.125
+      },
+      {
+        "x": 1.3,
+        "z": 4.040000000000001,
+        "width": 2.25,
+        "depth": 0.32,
+        "minY": 6.176,
+        "maxY": 6.3
+      },
+      {
+        "x": 0.17000000000000015,
+        "z": -1.56,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 3.15,
+        "maxY": 4.2
+      },
+      {
+        "x": 0.17000000000000015,
+        "z": 0.3599999999999999,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 4.199999999999999,
+        "maxY": 5.249999999999999
+      },
+      {
+        "x": 0.17000000000000015,
+        "z": 2.28,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 5.25,
+        "maxY": 6.3
+      },
+      {
+        "x": 0.17000000000000015,
+        "z": 4.199999999999999,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 6.3,
+        "maxY": 7.35
+      },
+      {
+        "x": 2.4299999999999997,
+        "z": -1.56,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 3.15,
+        "maxY": 4.2
+      },
+      {
+        "x": 2.4299999999999997,
+        "z": 0.3599999999999999,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 4.199999999999999,
+        "maxY": 5.249999999999999
+      },
+      {
+        "x": 2.4299999999999997,
+        "z": 2.28,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 5.25,
+        "maxY": 6.3
+      },
+      {
+        "x": 2.4299999999999997,
+        "z": 4.199999999999999,
+        "width": 0.23,
+        "depth": 0.23,
+        "minY": 6.3,
+        "maxY": 7.35
+      },
+      {
+        "x": 0,
+        "z": -2.68,
+        "width": 4.8,
+        "depth": 2.24,
+        "minY": 3,
+        "maxY": 3.15
+      },
+      {
+        "x": 1.3,
+        "z": 4.34,
+        "width": 2.3,
+        "depth": 0.32,
+        "minY": 6.15,
+        "maxY": 6.3
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "turn_landing",
+        "x": 0,
+        "z": -2.68,
+        "width": 4.8,
+        "depth": 2.24,
+        "fromY": 3.15,
+        "toY": 3.15
+      },
+      {
+        "id": "upper_landing",
+        "x": 1.3,
+        "z": 4.34,
+        "width": 2.2,
+        "depth": 0.32,
+        "fromY": 6.3,
+        "toY": 6.3
+      },
+      {
+        "id": "tread_0_00",
+        "x": -1.3,
+        "z": 4.04,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 0.175,
+        "toY": 0.175
+      },
+      {
+        "id": "tread_0_01",
+        "x": -1.3,
+        "z": 3.72,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 0.35,
+        "toY": 0.35
+      },
+      {
+        "id": "tread_0_02",
+        "x": -1.3,
+        "z": 3.4000000000000004,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 0.525,
+        "toY": 0.525
+      },
+      {
+        "id": "tread_0_03",
+        "x": -1.3,
+        "z": 3.08,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 0.7,
+        "toY": 0.7
+      },
+      {
+        "id": "tread_0_04",
+        "x": -1.3,
+        "z": 2.7600000000000002,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 0.875,
+        "toY": 0.875
+      },
+      {
+        "id": "tread_0_05",
+        "x": -1.3,
+        "z": 2.4400000000000004,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 1.05,
+        "toY": 1.05
+      },
+      {
+        "id": "tread_0_06",
+        "x": -1.3,
+        "z": 2.12,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 1.225,
+        "toY": 1.225
+      },
+      {
+        "id": "tread_0_07",
+        "x": -1.3,
+        "z": 1.8000000000000003,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 1.4,
+        "toY": 1.4
+      },
+      {
+        "id": "tread_0_08",
+        "x": -1.3,
+        "z": 1.48,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 1.575,
+        "toY": 1.575
+      },
+      {
+        "id": "tread_0_09",
+        "x": -1.3,
+        "z": 1.1600000000000001,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 1.75,
+        "toY": 1.75
+      },
+      {
+        "id": "tread_0_10",
+        "x": -1.3,
+        "z": 0.8400000000000003,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 1.925,
+        "toY": 1.925
+      },
+      {
+        "id": "tread_0_11",
+        "x": -1.3,
+        "z": 0.52,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 2.1,
+        "toY": 2.1
+      },
+      {
+        "id": "tread_0_12",
+        "x": -1.3,
+        "z": 0.20000000000000018,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 2.275,
+        "toY": 2.275
+      },
+      {
+        "id": "tread_0_13",
+        "x": -1.3,
+        "z": -0.1200000000000001,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 2.45,
+        "toY": 2.45
+      },
+      {
+        "id": "tread_0_14",
+        "x": -1.3,
+        "z": -0.4399999999999995,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 2.625,
+        "toY": 2.625
+      },
+      {
+        "id": "tread_0_15",
+        "x": -1.3,
+        "z": -0.7599999999999998,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 2.8,
+        "toY": 2.8
+      },
+      {
+        "id": "tread_0_16",
+        "x": -1.3,
+        "z": -1.08,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 2.975,
+        "toY": 2.975
+      },
+      {
+        "id": "tread_0_17",
+        "x": -1.3,
+        "z": -1.4000000000000004,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 3.15,
+        "toY": 3.15
+      },
+      {
+        "id": "tread_1_00",
+        "x": 1.3,
+        "z": -1.4000000000000001,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 3.325,
+        "toY": 3.325
+      },
+      {
+        "id": "tread_1_01",
+        "x": 1.3,
+        "z": -1.08,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 3.5,
+        "toY": 3.5
+      },
+      {
+        "id": "tread_1_02",
+        "x": 1.3,
+        "z": -0.76,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 3.675,
+        "toY": 3.675
+      },
+      {
+        "id": "tread_1_03",
+        "x": 1.3,
+        "z": -0.43999999999999995,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 3.85,
+        "toY": 3.85
+      },
+      {
+        "id": "tread_1_04",
+        "x": 1.3,
+        "z": -0.1200000000000001,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 4.025,
+        "toY": 4.025
+      },
+      {
+        "id": "tread_1_05",
+        "x": 1.3,
+        "z": 0.19999999999999996,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 4.2,
+        "toY": 4.2
+      },
+      {
+        "id": "tread_1_06",
+        "x": 1.3,
+        "z": 0.52,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 4.375,
+        "toY": 4.375
+      },
+      {
+        "id": "tread_1_07",
+        "x": 1.3,
+        "z": 0.8399999999999999,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 4.55,
+        "toY": 4.55
+      },
+      {
+        "id": "tread_1_08",
+        "x": 1.3,
+        "z": 1.1600000000000001,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 4.725,
+        "toY": 4.725
+      },
+      {
+        "id": "tread_1_09",
+        "x": 1.3,
+        "z": 1.48,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 4.9,
+        "toY": 4.9
+      },
+      {
+        "id": "tread_1_10",
+        "x": 1.3,
+        "z": 1.7999999999999998,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 5.075,
+        "toY": 5.075
+      },
+      {
+        "id": "tread_1_11",
+        "x": 1.3,
+        "z": 2.12,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 5.25,
+        "toY": 5.25
+      },
+      {
+        "id": "tread_1_12",
+        "x": 1.3,
+        "z": 2.44,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 5.425,
+        "toY": 5.425
+      },
+      {
+        "id": "tread_1_13",
+        "x": 1.3,
+        "z": 2.7600000000000002,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 5.6,
+        "toY": 5.6
+      },
+      {
+        "id": "tread_1_14",
+        "x": 1.3,
+        "z": 3.0799999999999996,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 5.775,
+        "toY": 5.775
+      },
+      {
+        "id": "tread_1_15",
+        "x": 1.3,
+        "z": 3.4,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 5.95,
+        "toY": 5.95
+      },
+      {
+        "id": "tread_1_16",
+        "x": 1.3,
+        "z": 3.72,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 6.125,
+        "toY": 6.125
+      },
+      {
+        "id": "tread_1_17",
+        "x": 1.3,
+        "z": 4.040000000000001,
+        "width": 2.15,
+        "depth": 0.32,
+        "fromY": 6.3,
+        "toY": 6.3
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_workshop",
+    "sourceKind": "frontier_cinderfen_workshop",
+    "label": "Cinderfen raised causeway workshop",
+    "group": "Cinderfen Buildings",
+    "model": "frontier_cinderfen_workshop_lod0.glb",
+    "assetKey": "frontier_cinderfen_workshop",
+    "fallbackKind": "frontier_cinderfen_workshop",
+    "lodModels": [
+      "frontier_cinderfen_workshop_lod1.glb",
+      "frontier_cinderfen_workshop_lod2.glb"
+    ],
+    "footprint": {
+      "width": 11.240978717803955,
+      "depth": 11.612524032592773,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -5,
+        "z": 0,
+        "width": 0.4,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": 5,
+        "z": 0,
+        "width": 0.4,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": 0,
+        "z": -4,
+        "width": 10,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": -3.15,
+        "z": 4,
+        "width": 3.7,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": 3.15,
+        "z": 4,
+        "width": 3.7,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 4.4
+      },
+      {
+        "x": -3.25,
+        "z": -1.75,
+        "width": 2.7,
+        "depth": 1.15,
+        "minY": 0.6,
+        "maxY": 1.55
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "id": "interior_deck",
+        "x": 0,
+        "z": 0,
+        "width": 9.8,
+        "depth": 7.8,
+        "fromY": 0.6,
+        "toY": 0.6
+      },
+      {
+        "id": "front_ramp",
+        "x": 0,
+        "z": 5.5,
+        "width": 3,
+        "depth": 3.12,
+        "fromY": 0.6,
+        "toY": 0,
+        "axis": "z"
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_draft_horse",
+    "label": "Frontier Bay Draft Horse",
+    "group": "Frontier Wildlife",
+    "model": "frontier_draft_horse_lod0.glb",
+    "assetKey": "frontier_draft_horse",
+    "fallbackKind": "frontier_draft_horse",
+    "lodModels": [
+      "frontier_draft_horse_lod1.glb",
+      "frontier_draft_horse_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.438,
+      "depth": 3.356,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "defaultAnimation": "idle",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_field_catapult",
+    "label": "Frontier Torsion Field Catapult",
+    "group": "Frontier Siege and Supplies",
+    "model": "frontier_field_catapult_lod0.glb",
+    "assetKey": "frontier_field_catapult",
+    "fallbackKind": "frontier_field_catapult",
+    "lodModels": [
+      "frontier_field_catapult_lod1.glb",
+      "frontier_field_catapult_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.475,
+      "depth": 3.945,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "defaultAnimation": "catapult_fire",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_keep_gate",
+    "label": "Oak and Scroll-iron Double Keep Gate",
+    "group": "Frontier Siege and Supplies",
+    "model": "frontier_keep_gate_lod0.glb",
+    "assetKey": "frontier_keep_gate",
+    "fallbackKind": "frontier_keep_gate",
+    "lodModels": [
+      "frontier_keep_gate_lod1.glb",
+      "frontier_keep_gate_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.7,
+      "depth": 0.891,
+      "chainAxis": "x"
+    },
+    "assetCategory": "staticProps",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_oil_cauldron",
+    "label": "Parapet Tipping Oil Cauldron",
+    "group": "Frontier Siege and Supplies",
+    "model": "frontier_oil_cauldron_lod0.glb",
+    "assetKey": "frontier_oil_cauldron",
+    "fallbackKind": "frontier_oil_cauldron",
+    "lodModels": [
+      "frontier_oil_cauldron_lod1.glb",
+      "frontier_oil_cauldron_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.73,
+      "depth": 1.968,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_sunmeadow_ash",
+    "sourceKind": "frontier_sunmeadow_ash",
+    "label": "Sunmeadow airy common ash",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_ash_lod0.glb",
+    "assetKey": "frontier_sunmeadow_ash",
+    "fallbackKind": "frontier_sunmeadow_ash",
+    "lodModels": [
+      "frontier_sunmeadow_ash_lod1.glb",
+      "frontier_sunmeadow_ash_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.241,
+      "depth": 7.882,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 1.25,
+        "depth": 1.25,
+        "maxY": 4,
+        "minY": 0,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_curtain_wall",
+    "sourceKind": "frontier_sunmeadow_curtain_wall",
+    "label": "Sunmeadow eight-metre curtain wall",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_curtain_wall_lod0.glb",
+    "assetKey": "frontier_sunmeadow_curtain_wall",
+    "fallbackKind": "frontier_sunmeadow_curtain_wall",
+    "lodModels": [
+      "frontier_sunmeadow_curtain_wall_lod1.glb",
+      "frontier_sunmeadow_curtain_wall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8.023,
+      "depth": 2.398,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 8,
+        "depth": 2.2,
+        "maxY": 8.3,
+        "minY": 0,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_farmhouse",
+    "sourceKind": "frontier_sunmeadow_farmhouse",
+    "label": "Sunmeadow limestone farmhouse",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_farmhouse_lod0.glb",
+    "assetKey": "frontier_sunmeadow_farmhouse",
+    "fallbackKind": "frontier_sunmeadow_farmhouse",
+    "lodModels": [
+      "frontier_sunmeadow_farmhouse_lod1.glb",
+      "frontier_sunmeadow_farmhouse_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.927,
+      "depth": 11.46,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 0.5,
+        "depth": 10,
+        "maxY": 7,
+        "minY": 0,
+        "x": -4,
+        "z": 0
+      },
+      {
+        "width": 0.5,
+        "depth": 10,
+        "maxY": 7,
+        "minY": 0,
+        "x": 4,
+        "z": 0
+      },
+      {
+        "width": 8,
+        "depth": 0.5,
+        "maxY": 7,
+        "minY": 0,
+        "x": 0,
+        "z": -5
+      },
+      {
+        "width": 3.2,
+        "depth": 0.5,
+        "maxY": 7,
+        "minY": 0,
+        "x": -2.4,
+        "z": 5
+      },
+      {
+        "width": 3.2,
+        "depth": 0.5,
+        "maxY": 7,
+        "minY": 0,
+        "x": 2.4,
+        "z": 5
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_gate_leaves",
+    "sourceKind": "frontier_sunmeadow_gate_leaves",
+    "label": "Sunmeadow paired fortified gate leaves",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_gate_leaves_lod0.glb",
+    "assetKey": "frontier_sunmeadow_gate_leaves",
+    "fallbackKind": "frontier_sunmeadow_gate_leaves",
+    "lodModels": [
+      "frontier_sunmeadow_gate_leaves_lod1.glb",
+      "frontier_sunmeadow_gate_leaves_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.155,
+      "depth": 0.67,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 6,
+        "depth": 0.45,
+        "maxY": 4.8,
+        "minY": 0,
+        "x": 0,
+        "z": 0,
+        "blocksWhen": "closed"
+      }
+    ],
+    "cameraSolid": true,
+    "interaction": {
+      "type": "gate",
+      "label": "Aegis outer gate",
+      "maxDistance": 12,
+      "startsOpen": false,
+      "openClip": "gate_open",
+      "closeClip": "gate_close"
+    },
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_gate_leaves__2",
+    "sourceKind": "frontier_sunmeadow_gate_leaves",
+    "label": "Sunmeadow paired fortified gate leaves",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_gate_leaves_lod0.glb",
+    "assetKey": "frontier_sunmeadow_gate_leaves",
+    "fallbackKind": "frontier_sunmeadow_gate_leaves",
+    "lodModels": [
+      "frontier_sunmeadow_gate_leaves_lod1.glb",
+      "frontier_sunmeadow_gate_leaves_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.155,
+      "depth": 0.67,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_gatehouse",
+    "sourceKind": "frontier_sunmeadow_gatehouse",
+    "label": "Sunmeadow six-metre passage gatehouse",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_gatehouse_lod0.glb",
+    "assetKey": "frontier_sunmeadow_gatehouse",
+    "fallbackKind": "frontier_sunmeadow_gatehouse",
+    "lodModels": [
+      "frontier_sunmeadow_gatehouse_lod1.glb",
+      "frontier_sunmeadow_gatehouse_lod2.glb"
+    ],
+    "footprint": {
+      "width": 28.02,
+      "depth": 12.32,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 11,
+        "depth": 12,
+        "maxY": 12,
+        "minY": 0,
+        "x": -8.5,
+        "z": 0
+      },
+      {
+        "width": 11,
+        "depth": 12,
+        "maxY": 12,
+        "minY": 0,
+        "x": 8.5,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_hawthorn",
+    "sourceKind": "frontier_sunmeadow_hawthorn",
+    "label": "Sunmeadow fruiting hawthorn hedge",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_hawthorn_lod0.glb",
+    "assetKey": "frontier_sunmeadow_hawthorn",
+    "fallbackKind": "frontier_sunmeadow_hawthorn",
+    "lodModels": [
+      "frontier_sunmeadow_hawthorn_lod1.glb",
+      "frontier_sunmeadow_hawthorn_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.771,
+      "depth": 1.529,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_limestone",
+    "sourceKind": "frontier_sunmeadow_limestone",
+    "label": "Sunmeadow weathered limestone outcrop",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_limestone_lod0.glb",
+    "assetKey": "frontier_sunmeadow_limestone",
+    "fallbackKind": "frontier_sunmeadow_limestone",
+    "lodModels": [
+      "frontier_sunmeadow_limestone_lod1.glb",
+      "frontier_sunmeadow_limestone_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.9,
+      "depth": 3.952,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4.9,
+        "depth": 3.3,
+        "maxY": 2.1,
+        "minY": 0,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_0_0",
+    "label": "frontier sunmeadow march terrain 0 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_0_0.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_0_0",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_0_0",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_0_0_lod1.glb",
+      "frontier_sunmeadow_march_terrain_0_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_0_1",
+    "label": "frontier sunmeadow march terrain 0 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_0_1.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_0_1",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_0_1",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_0_1_lod1.glb",
+      "frontier_sunmeadow_march_terrain_0_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_0_2",
+    "label": "frontier sunmeadow march terrain 0 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_0_2.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_0_2",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_0_2",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_0_2_lod1.glb",
+      "frontier_sunmeadow_march_terrain_0_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_0_3",
+    "label": "frontier sunmeadow march terrain 0 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_0_3.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_0_3",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_0_3",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_0_3_lod1.glb",
+      "frontier_sunmeadow_march_terrain_0_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_1_0",
+    "label": "frontier sunmeadow march terrain 1 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_1_0.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_1_0",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_1_0",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_1_0_lod1.glb",
+      "frontier_sunmeadow_march_terrain_1_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_1_1",
+    "label": "frontier sunmeadow march terrain 1 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_1_1.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_1_1",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_1_1",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_1_1_lod1.glb",
+      "frontier_sunmeadow_march_terrain_1_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_1_2",
+    "label": "frontier sunmeadow march terrain 1 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_1_2.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_1_2",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_1_2",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_1_2_lod1.glb",
+      "frontier_sunmeadow_march_terrain_1_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_1_3",
+    "label": "frontier sunmeadow march terrain 1 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_1_3.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_1_3",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_1_3",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_1_3_lod1.glb",
+      "frontier_sunmeadow_march_terrain_1_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_2_0",
+    "label": "frontier sunmeadow march terrain 2 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_2_0.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_2_0",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_2_0",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_2_0_lod1.glb",
+      "frontier_sunmeadow_march_terrain_2_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_2_1",
+    "label": "frontier sunmeadow march terrain 2 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_2_1.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_2_1",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_2_1",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_2_1_lod1.glb",
+      "frontier_sunmeadow_march_terrain_2_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_2_2",
+    "label": "frontier sunmeadow march terrain 2 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_2_2.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_2_2",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_2_2",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_2_2_lod1.glb",
+      "frontier_sunmeadow_march_terrain_2_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_2_3",
+    "label": "frontier sunmeadow march terrain 2 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_2_3.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_2_3",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_2_3",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_2_3_lod1.glb",
+      "frontier_sunmeadow_march_terrain_2_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_3_0",
+    "label": "frontier sunmeadow march terrain 3 0",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_3_0.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_3_0",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_3_0",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_3_0_lod1.glb",
+      "frontier_sunmeadow_march_terrain_3_0_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_3_1",
+    "label": "frontier sunmeadow march terrain 3 1",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_3_1.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_3_1",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_3_1",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_3_1_lod1.glb",
+      "frontier_sunmeadow_march_terrain_3_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_3_2",
+    "label": "frontier sunmeadow march terrain 3 2",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_3_2.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_3_2",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_3_2",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_3_2_lod1.glb",
+      "frontier_sunmeadow_march_terrain_3_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_march_terrain_3_3",
+    "label": "frontier sunmeadow march terrain 3 3",
+    "group": "Frontier Terrain",
+    "model": "frontier_sunmeadow_march_terrain_3_3.glb",
+    "assetKey": "frontier_sunmeadow_march_terrain_3_3",
+    "fallbackKind": "frontier_sunmeadow_march_terrain_3_3",
+    "lodModels": [
+      "frontier_sunmeadow_march_terrain_3_3_lod1.glb",
+      "frontier_sunmeadow_march_terrain_3_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 300,
+      "depth": 300,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "modelOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "groundSurface": "mesh",
+    "cameraSolid": true
+  },
+  {
+    "kind": "frontier_sunmeadow_meadow",
+    "sourceKind": "frontier_sunmeadow_meadow",
+    "label": "Sunmeadow meadow grasses and wildflowers",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_meadow_lod0.glb",
+    "assetKey": "frontier_sunmeadow_meadow",
+    "fallbackKind": "frontier_sunmeadow_meadow",
+    "lodModels": [
+      "frontier_sunmeadow_meadow_lod1.glb",
+      "frontier_sunmeadow_meadow_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.168,
+      "depth": 2.129,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_oak_hedgerow",
+    "sourceKind": "frontier_sunmeadow_oak_hedgerow",
+    "label": "Sunmeadow leaning hedgerow oak",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+    "assetKey": "frontier_sunmeadow_oak_hedgerow",
+    "fallbackKind": "frontier_sunmeadow_oak_hedgerow",
+    "lodModels": [
+      "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "frontier_sunmeadow_oak_hedgerow_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.916,
+      "depth": 6.442,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 1.25,
+        "depth": 1.25,
+        "maxY": 4,
+        "minY": 0,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_oak_pasture",
+    "sourceKind": "frontier_sunmeadow_oak_pasture",
+    "label": "Sunmeadow spreading pasture oak",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+    "assetKey": "frontier_sunmeadow_oak_pasture",
+    "fallbackKind": "frontier_sunmeadow_oak_pasture",
+    "lodModels": [
+      "frontier_sunmeadow_oak_pasture_lod1.glb",
+      "frontier_sunmeadow_oak_pasture_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10.084,
+      "depth": 9.228,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 1.25,
+        "depth": 1.25,
+        "maxY": 4,
+        "minY": 0,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_supply_post",
+    "sourceKind": "frontier_sunmeadow_supply_post",
+    "label": "Sunmeadow wayside supply post",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_supply_post_lod0.glb",
+    "assetKey": "frontier_sunmeadow_supply_post",
+    "fallbackKind": "frontier_sunmeadow_supply_post",
+    "lodModels": [
+      "frontier_sunmeadow_supply_post_lod1.glb",
+      "frontier_sunmeadow_supply_post_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.797,
+      "depth": 6.262,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 0.5,
+        "depth": 5,
+        "maxY": 1.5,
+        "minY": 0,
+        "x": -4,
+        "z": 0
+      },
+      {
+        "width": 0.5,
+        "depth": 5,
+        "maxY": 1.5,
+        "minY": 0,
+        "x": 4,
+        "z": 0
+      },
+      {
+        "width": 8,
+        "depth": 0.5,
+        "maxY": 1.5,
+        "minY": 0,
+        "x": 0,
+        "z": -2.5
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_wheat",
+    "sourceKind": "frontier_sunmeadow_wheat",
+    "label": "Sunmeadow ripe wheat clump",
+    "group": "Frontier Nature",
+    "model": "frontier_sunmeadow_wheat_lod0.glb",
+    "assetKey": "frontier_sunmeadow_wheat",
+    "fallbackKind": "frontier_sunmeadow_wheat",
+    "lodModels": [
+      "frontier_sunmeadow_wheat_lod1.glb",
+      "frontier_sunmeadow_wheat_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.012,
+      "depth": 1.956,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_workshop",
+    "sourceKind": "frontier_sunmeadow_workshop",
+    "label": "Sunmeadow granary and workshop",
+    "group": "Frontier Buildings",
+    "model": "frontier_sunmeadow_workshop_lod0.glb",
+    "assetKey": "frontier_sunmeadow_workshop",
+    "fallbackKind": "frontier_sunmeadow_workshop",
+    "lodModels": [
+      "frontier_sunmeadow_workshop_lod1.glb",
+      "frontier_sunmeadow_workshop_lod2.glb"
+    ],
+    "footprint": {
+      "width": 11.972,
+      "depth": 9.467,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 0.5,
+        "depth": 8,
+        "maxY": 7,
+        "minY": 0,
+        "x": -5,
+        "z": 0
+      },
+      {
+        "width": 0.5,
+        "depth": 8,
+        "maxY": 7,
+        "minY": 0,
+        "x": 5,
+        "z": 0
+      },
+      {
+        "width": 10,
+        "depth": 0.5,
+        "maxY": 7,
+        "minY": 0,
+        "x": 0,
+        "z": -4
+      },
+      {
+        "width": 3.7,
+        "depth": 0.5,
+        "maxY": 7,
+        "minY": 0,
+        "x": -3.15,
+        "z": 4
+      },
+      {
+        "width": 3.7,
+        "depth": 0.5,
+        "maxY": 7,
+        "minY": 0,
+        "x": 3.15,
+        "z": 4
+      }
+    ],
+    "cameraSolid": true,
+    "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_supply_officer_kit",
+    "label": "Supply Officer Ledger Pouch",
+    "group": "Frontier Equipment",
+    "model": "frontier_supply_officer_kit_lod0.glb",
+    "assetKey": "frontier_supply_officer_kit",
+    "fallbackKind": "frontier_supply_officer_kit",
+    "lodModels": [
+      "frontier_supply_officer_kit_lod1.glb",
+      "frontier_supply_officer_kit_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.405,
+      "depth": 0.183,
+      "chainAxis": "x"
+    },
+    "assetCategory": "staticProps",
+    "defaultScale": 1,
+    "colliderSpace": "model"
+  },
+  {
+    "kind": "frontier_supply_wagon",
+    "label": "Sunmeadow Covered Supply Wagon",
+    "group": "Frontier Siege and Supplies",
+    "model": "frontier_supply_wagon_lod0.glb",
+    "assetKey": "frontier_supply_wagon",
+    "fallbackKind": "frontier_supply_wagon",
+    "lodModels": [
+      "frontier_supply_wagon_lod1.glb",
+      "frontier_supply_wagon_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.562,
+      "depth": 5.522,
+      "chainAxis": "z"
+    },
+    "assetCategory": "staticProps",
+    "defaultScale": 1,
+    "colliderSpace": "model"
   },
   {
     "kind": "gate",
@@ -3925,7 +8366,6 @@
   },
   {
     "kind": "rift_brazier",
-    "sourceKind": "rift_brazier",
     "label": "Rift Brazier",
     "group": "World Scenery",
     "fallbackKind": "rift_brazier",
@@ -3933,8 +8373,7 @@
       "width": 1,
       "depth": 1,
       "chainAxis": "z"
-    },
-    "cameraSolid": false
+    }
   },
   {
     "kind": "rift_house",
@@ -3949,7 +8388,6 @@
   },
   {
     "kind": "rift_obelisk",
-    "sourceKind": "rift_obelisk",
     "label": "Rift Obelisk",
     "group": "World Scenery",
     "fallbackKind": "rift_obelisk",
@@ -3957,12 +8395,10 @@
       "width": 1,
       "depth": 1,
       "chainAxis": "z"
-    },
-    "cameraSolid": false
+    }
   },
   {
     "kind": "rift_spike_cluster",
-    "sourceKind": "rift_spike_cluster",
     "label": "Rift Spike Cluster",
     "group": "World Scenery",
     "fallbackKind": "rift_spike_cluster",
@@ -3970,27 +8406,18 @@
       "width": 1,
       "depth": 1,
       "chainAxis": "z"
-    },
-    "cameraSolid": false
+    }
   },
   {
     "kind": "rift_tower",
-    "sourceKind": "rift_tower",
     "label": "Rift Tower",
     "group": "World Scenery",
     "fallbackKind": "rift_tower",
     "footprint": {
-      "width": 7.5,
-      "depth": 7.5,
+      "width": 1,
+      "depth": 1,
       "chainAxis": "z"
-    },
-    "colliders": [
-      {
-        "width": 7.5,
-        "depth": 7.5
-      }
-    ],
-    "cameraSolid": true
+    }
   },
   {
     "kind": "rift_wall_segment",
@@ -4002,6 +8429,2299 @@
       "depth": 1,
       "chainAxis": "z"
     }
+  },
+  {
+    "kind": "riftspire_altar",
+    "sourceKind": "riftspire_altar",
+    "label": "Riftspire altar",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_altar.glb",
+    "assetKey": "riftspire_altar",
+    "fallbackKind": "riftspire_altar",
+    "lodModels": [
+      "prop_riftspire_altar_lod1.glb",
+      "prop_riftspire_altar_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4,
+      "depth": 2.275,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_anchor",
+    "sourceKind": "riftspire_anchor",
+    "label": "Riftspire anchor",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_anchor.glb",
+    "assetKey": "riftspire_anchor",
+    "fallbackKind": "riftspire_anchor",
+    "lodModels": [
+      "prop_riftspire_anchor_lod1.glb",
+      "prop_riftspire_anchor_lod2.glb"
+    ],
+    "footprint": {
+      "width": 8,
+      "depth": 6.29,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_apothecary",
+    "sourceKind": "riftspire_apothecary",
+    "label": "Riftspire apothecary",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_apothecary.glb",
+    "assetKey": "riftspire_apothecary",
+    "fallbackKind": "riftspire_apothecary",
+    "lodModels": [
+      "prop_riftspire_apothecary_lod1.glb",
+      "prop_riftspire_apothecary_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.56,
+      "depth": 3.474,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 4.8,
+        "depth": 3.6,
+        "minY": 0,
+        "maxY": 4.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_archive",
+    "sourceKind": "riftspire_archive",
+    "label": "Riftspire archive",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_archive.glb",
+    "assetKey": "riftspire_archive",
+    "fallbackKind": "riftspire_archive",
+    "lodModels": [
+      "prop_riftspire_archive_lod1.glb",
+      "prop_riftspire_archive_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4,
+      "depth": 1,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_arms_rack",
+    "sourceKind": "riftspire_arms_rack",
+    "label": "Riftspire arms rack",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_arms_rack.glb",
+    "assetKey": "riftspire_arms_rack",
+    "fallbackKind": "riftspire_arms_rack",
+    "lodModels": [
+      "prop_riftspire_arms_rack_lod1.glb",
+      "prop_riftspire_arms_rack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.274,
+      "depth": 2.013,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 4.4,
+        "depth": 2.4,
+        "minY": 0,
+        "maxY": 4.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_banner",
+    "sourceKind": "riftspire_banner",
+    "label": "Riftspire banner",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_banner.glb",
+    "assetKey": "riftspire_banner",
+    "fallbackKind": "riftspire_banner",
+    "lodModels": [
+      "prop_riftspire_banner_lod1.glb",
+      "prop_riftspire_banner_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.08,
+      "depth": 0.205,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_barrel_stack",
+    "sourceKind": "riftspire_barrel_stack",
+    "label": "Riftspire barrel stack",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_barrel_stack.glb",
+    "assetKey": "riftspire_barrel_stack",
+    "fallbackKind": "riftspire_barrel_stack",
+    "lodModels": [
+      "prop_riftspire_barrel_stack_lod1.glb",
+      "prop_riftspire_barrel_stack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.83,
+      "depth": 2.248,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 3.4,
+        "depth": 2.8,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_basin",
+    "sourceKind": "riftspire_basin",
+    "label": "Riftspire basin",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_basin.glb",
+    "assetKey": "riftspire_basin",
+    "fallbackKind": "riftspire_basin",
+    "lodModels": [
+      "prop_riftspire_basin_lod1.glb",
+      "prop_riftspire_basin_lod2.glb"
+    ],
+    "footprint": {
+      "width": 320,
+      "depth": 320,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_bed",
+    "sourceKind": "riftspire_bed",
+    "label": "Riftspire bed",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_bed.glb",
+    "assetKey": "riftspire_bed",
+    "fallbackKind": "riftspire_bed",
+    "lodModels": [
+      "prop_riftspire_bed_lod1.glb",
+      "prop_riftspire_bed_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.2,
+      "depth": 4.075,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_bridge",
+    "sourceKind": "riftspire_bridge",
+    "label": "Riftspire bridge",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_bridge.glb",
+    "assetKey": "riftspire_bridge",
+    "fallbackKind": "riftspire_bridge",
+    "lodModels": [
+      "prop_riftspire_bridge_lod1.glb",
+      "prop_riftspire_bridge_lod2.glb"
+    ],
+    "footprint": {
+      "width": 18.3,
+      "depth": 27.565,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -8.75,
+        "z": 0,
+        "width": 0.35,
+        "depth": 24,
+        "minY": 0,
+        "maxY": 1.5
+      },
+      {
+        "x": 8.75,
+        "z": 0,
+        "width": 0.35,
+        "depth": 24,
+        "minY": 0,
+        "maxY": 1.5
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 18,
+        "depth": 24,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_chain",
+    "sourceKind": "riftspire_chain",
+    "label": "Riftspire chain",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_chain.glb",
+    "assetKey": "riftspire_chain",
+    "fallbackKind": "riftspire_chain",
+    "lodModels": [
+      "prop_riftspire_chain_lod1.glb",
+      "prop_riftspire_chain_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.026,
+      "depth": 1.026,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_chain_winch",
+    "sourceKind": "riftspire_chain_winch",
+    "label": "Riftspire chain winch",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_chain_winch.glb",
+    "assetKey": "riftspire_chain_winch",
+    "fallbackKind": "riftspire_chain_winch",
+    "lodModels": [
+      "prop_riftspire_chain_winch_lod1.glb",
+      "prop_riftspire_chain_winch_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.4,
+      "depth": 3.3,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 4.6,
+        "depth": 3.6,
+        "minY": 0,
+        "maxY": 3.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_chain_winch__2",
+    "sourceKind": "riftspire_chain_winch",
+    "label": "Riftspire chain winch",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_chain_winch.glb",
+    "assetKey": "riftspire_chain_winch",
+    "fallbackKind": "riftspire_chain_winch",
+    "footprint": {
+      "width": 4.4,
+      "depth": 3.3,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "width": 4.4,
+        "depth": 3.3,
+        "maxY": 3.04,
+        "minY": 0,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_checkpoint",
+    "sourceKind": "riftspire_checkpoint",
+    "label": "Riftspire checkpoint",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_checkpoint.glb",
+    "assetKey": "riftspire_checkpoint",
+    "fallbackKind": "riftspire_checkpoint",
+    "lodModels": [
+      "prop_riftspire_checkpoint_lod1.glb",
+      "prop_riftspire_checkpoint_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.165,
+      "depth": 2.387,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 4.8,
+        "depth": 3.6,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_communal_hearth",
+    "sourceKind": "riftspire_communal_hearth",
+    "label": "Riftspire communal hearth",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_communal_hearth.glb",
+    "assetKey": "riftspire_communal_hearth",
+    "fallbackKind": "riftspire_communal_hearth",
+    "lodModels": [
+      "prop_riftspire_communal_hearth_lod1.glb",
+      "prop_riftspire_communal_hearth_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.15,
+      "depth": 3.3,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 5.2,
+        "depth": 4,
+        "minY": 0,
+        "maxY": 3.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_crate",
+    "sourceKind": "riftspire_crate",
+    "label": "Riftspire crate",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_crate.glb",
+    "assetKey": "riftspire_crate",
+    "fallbackKind": "riftspire_crate",
+    "lodModels": [
+      "prop_riftspire_crate_lod1.glb",
+      "prop_riftspire_crate_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.071,
+      "depth": 2.15,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_deck",
+    "sourceKind": "riftspire_deck",
+    "label": "Riftspire deck",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_deck.glb",
+    "assetKey": "riftspire_deck",
+    "fallbackKind": "riftspire_deck",
+    "lodModels": [
+      "prop_riftspire_deck_lod1.glb",
+      "prop_riftspire_deck_lod2.glb"
+    ],
+    "footprint": {
+      "width": 24.446,
+      "depth": 18,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 8.7,
+        "width": 24,
+        "depth": 0.3,
+        "minY": 0,
+        "maxY": 1.35
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 24,
+        "depth": 18,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_deck_open",
+    "sourceKind": "riftspire_deck_open",
+    "label": "Riftspire deck open",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_deck_open.glb",
+    "assetKey": "riftspire_deck_open",
+    "fallbackKind": "riftspire_deck_open",
+    "lodModels": [
+      "prop_riftspire_deck_open_lod1.glb",
+      "prop_riftspire_deck_open_lod2.glb"
+    ],
+    "footprint": {
+      "width": 24,
+      "depth": 18,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "walkableSurfaces": [
+      {
+        "width": 24,
+        "depth": 18,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_forge",
+    "sourceKind": "riftspire_forge",
+    "label": "Riftspire forge",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_forge.glb",
+    "assetKey": "riftspire_forge",
+    "fallbackKind": "riftspire_forge",
+    "lodModels": [
+      "prop_riftspire_forge_lod1.glb",
+      "prop_riftspire_forge_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.4,
+      "depth": 3.475,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_hall",
+    "sourceKind": "riftspire_hall",
+    "label": "Riftspire hall",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_hall.glb",
+    "assetKey": "riftspire_hall",
+    "fallbackKind": "riftspire_hall",
+    "lodModels": [
+      "prop_riftspire_hall_lod1.glb",
+      "prop_riftspire_hall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 70,
+      "depth": 60.375,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -34.5,
+        "z": 0,
+        "width": 1,
+        "depth": 60,
+        "minY": 0,
+        "maxY": 24
+      },
+      {
+        "x": 34.5,
+        "z": 0,
+        "width": 1,
+        "depth": 60,
+        "minY": 0,
+        "maxY": 24
+      },
+      {
+        "x": -20,
+        "z": -29.5,
+        "width": 30,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 24
+      },
+      {
+        "x": 20,
+        "z": -29.5,
+        "width": 30,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 24
+      },
+      {
+        "x": -20,
+        "z": 29.5,
+        "width": 30,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 24
+      },
+      {
+        "x": 20,
+        "z": 29.5,
+        "width": 30,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 24
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 70,
+        "depth": 60,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_hanging_cage",
+    "sourceKind": "riftspire_hanging_cage",
+    "label": "Riftspire hanging cage",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_hanging_cage.glb",
+    "assetKey": "riftspire_hanging_cage",
+    "fallbackKind": "riftspire_hanging_cage",
+    "lodModels": [
+      "prop_riftspire_hanging_cage_lod1.glb",
+      "prop_riftspire_hanging_cage_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.965,
+      "depth": 2.265,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 3.2,
+        "depth": 3,
+        "minY": 0,
+        "maxY": 6.4
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_1",
+    "sourceKind": "riftspire_house_1",
+    "label": "Riftspire house 1",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_1.glb",
+    "assetKey": "riftspire_house_1",
+    "fallbackKind": "riftspire_house_1",
+    "lodModels": [
+      "prop_riftspire_house_1_lod1.glb",
+      "prop_riftspire_house_1_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.468,
+      "depth": 10.87,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -4,
+        "z": 0,
+        "width": 0.65,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "width": 0.65,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": 0,
+        "z": -4,
+        "width": 8,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": -2.7,
+        "z": 4,
+        "width": 2.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": 2.7,
+        "z": 4,
+        "width": 2.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 7
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 8,
+        "depth": 8,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 9,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 5.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_2",
+    "sourceKind": "riftspire_house_2",
+    "label": "Riftspire house 2",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_2.glb",
+    "assetKey": "riftspire_house_2",
+    "fallbackKind": "riftspire_house_2",
+    "lodModels": [
+      "prop_riftspire_house_2_lod1.glb",
+      "prop_riftspire_house_2_lod2.glb"
+    ],
+    "footprint": {
+      "width": 16.489,
+      "depth": 12.906,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -7.5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 8
+      },
+      {
+        "x": 7.5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 8
+      },
+      {
+        "x": 0,
+        "z": -5,
+        "width": 15,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 8
+      },
+      {
+        "x": -4.45,
+        "z": 5,
+        "width": 6.1,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 8
+      },
+      {
+        "x": 4.45,
+        "z": 5,
+        "width": 6.1,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 8
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 15,
+        "depth": 10,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 16,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 6.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_3",
+    "sourceKind": "riftspire_house_3",
+    "label": "Riftspire house 3",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_3.glb",
+    "assetKey": "riftspire_house_3",
+    "fallbackKind": "riftspire_house_3",
+    "lodModels": [
+      "prop_riftspire_house_3_lod1.glb",
+      "prop_riftspire_house_3_lod2.glb"
+    ],
+    "footprint": {
+      "width": 11.485,
+      "depth": 10.87,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 16
+      },
+      {
+        "x": 5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 16
+      },
+      {
+        "x": 0,
+        "z": -4,
+        "width": 10,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 16
+      },
+      {
+        "x": -3.2,
+        "z": 4,
+        "width": 3.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 16
+      },
+      {
+        "x": 3.2,
+        "z": 4,
+        "width": 3.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 16
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 10,
+        "depth": 8,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 11,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 5.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_4",
+    "sourceKind": "riftspire_house_4",
+    "label": "Riftspire house 4",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_4.glb",
+    "assetKey": "riftspire_house_4",
+    "fallbackKind": "riftspire_house_4",
+    "lodModels": [
+      "prop_riftspire_house_4_lod1.glb",
+      "prop_riftspire_house_4_lod2.glb"
+    ],
+    "footprint": {
+      "width": 17.494,
+      "depth": 13.02,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -8,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": 8,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": 0,
+        "z": -5,
+        "width": 16,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": -4.7,
+        "z": 5,
+        "width": 6.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": 4.7,
+        "z": 5,
+        "width": 6.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 11
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 16,
+        "depth": 10,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 17,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 6.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_5",
+    "sourceKind": "riftspire_house_5",
+    "label": "Riftspire house 5",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_5.glb",
+    "assetKey": "riftspire_house_5",
+    "fallbackKind": "riftspire_house_5",
+    "lodModels": [
+      "prop_riftspire_house_5_lod1.glb",
+      "prop_riftspire_house_5_lod2.glb"
+    ],
+    "footprint": {
+      "width": 13.429,
+      "depth": 11.75,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -6,
+        "z": 0,
+        "width": 0.65,
+        "depth": 9,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": 6,
+        "z": 0,
+        "width": 0.65,
+        "depth": 9,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": 0,
+        "z": -4.5,
+        "width": 12,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": -3.7,
+        "z": 4.5,
+        "width": 4.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": 3.7,
+        "z": 4.5,
+        "width": 4.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 9
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 12,
+        "depth": 9,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 13,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 5.6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_6",
+    "sourceKind": "riftspire_house_6",
+    "label": "Riftspire house 6",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_6.glb",
+    "assetKey": "riftspire_house_6",
+    "fallbackKind": "riftspire_house_6",
+    "lodModels": [
+      "prop_riftspire_house_6_lod1.glb",
+      "prop_riftspire_house_6_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10.475,
+      "depth": 11.02,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -4.5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 15
+      },
+      {
+        "x": 4.5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 8,
+        "minY": 0,
+        "maxY": 15
+      },
+      {
+        "x": 0,
+        "z": -4,
+        "width": 9,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 15
+      },
+      {
+        "x": -2.95,
+        "z": 4,
+        "width": 3.1,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 15
+      },
+      {
+        "x": 2.95,
+        "z": 4,
+        "width": 3.1,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 15
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 9,
+        "depth": 8,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 10,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 5.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_7",
+    "sourceKind": "riftspire_house_7",
+    "label": "Riftspire house 7",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_7.glb",
+    "assetKey": "riftspire_house_7",
+    "fallbackKind": "riftspire_house_7",
+    "lodModels": [
+      "prop_riftspire_house_7_lod1.glb",
+      "prop_riftspire_house_7_lod2.glb"
+    ],
+    "footprint": {
+      "width": 15.489,
+      "depth": 12.759,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -7,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": 7,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": 0,
+        "z": -5,
+        "width": 14,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": -4.2,
+        "z": 5,
+        "width": 5.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 7
+      },
+      {
+        "x": 4.2,
+        "z": 5,
+        "width": 5.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 7
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 14,
+        "depth": 10,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 15,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 6.1
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_house_8",
+    "sourceKind": "riftspire_house_8",
+    "label": "Riftspire house 8",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_house_8.glb",
+    "assetKey": "riftspire_house_8",
+    "fallbackKind": "riftspire_house_8",
+    "lodModels": [
+      "prop_riftspire_house_8_lod1.glb",
+      "prop_riftspire_house_8_lod2.glb"
+    ],
+    "footprint": {
+      "width": 12.482,
+      "depth": 12.02,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -5.5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 9,
+        "minY": 0,
+        "maxY": 12
+      },
+      {
+        "x": 5.5,
+        "z": 0,
+        "width": 0.65,
+        "depth": 9,
+        "minY": 0,
+        "maxY": 12
+      },
+      {
+        "x": 0,
+        "z": -4.5,
+        "width": 11,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 12
+      },
+      {
+        "x": -3.45,
+        "z": 4.5,
+        "width": 4.1,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 12
+      },
+      {
+        "x": 3.45,
+        "z": 4.5,
+        "width": 4.1,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 12
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 11,
+        "depth": 9,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 12,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 5.6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_hub",
+    "sourceKind": "riftspire_hub",
+    "label": "Riftspire hub",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_hub.glb",
+    "assetKey": "riftspire_hub",
+    "fallbackKind": "riftspire_hub",
+    "lodModels": [
+      "prop_riftspire_hub_lod1.glb",
+      "prop_riftspire_hub_lod2.glb"
+    ],
+    "footprint": {
+      "width": 100,
+      "depth": 100,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -30,
+        "z": 49,
+        "width": 38,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": 30,
+        "z": 49,
+        "width": 38,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": -30,
+        "z": -49,
+        "width": 38,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": 30,
+        "z": -49,
+        "width": 38,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": -49,
+        "z": -30,
+        "width": 0.4,
+        "depth": 38,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": -49,
+        "z": 30,
+        "width": 0.4,
+        "depth": 38,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": 49,
+        "z": -30,
+        "width": 0.4,
+        "depth": 38,
+        "minY": 0,
+        "maxY": 1.35
+      },
+      {
+        "x": 49,
+        "z": 30,
+        "width": 0.4,
+        "depth": 38,
+        "minY": 0,
+        "maxY": 1.35
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 76.75,
+        "depth": 100,
+        "fromY": 0,
+        "toY": 0,
+        "x": -11.625
+      },
+      {
+        "width": 12.75,
+        "depth": 100,
+        "fromY": 0,
+        "toY": 0,
+        "x": 43.625
+      },
+      {
+        "width": 10.5,
+        "depth": 44.75,
+        "fromY": 0,
+        "toY": 0,
+        "x": 32,
+        "z": -27.625
+      },
+      {
+        "width": 10.5,
+        "depth": 44.75,
+        "fromY": 0,
+        "toY": 0,
+        "x": 32,
+        "z": 27.625
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_hut",
+    "sourceKind": "riftspire_hut",
+    "label": "Riftspire hut",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_hut.glb",
+    "assetKey": "riftspire_hut",
+    "fallbackKind": "riftspire_hut",
+    "lodModels": [
+      "prop_riftspire_hut_lod1.glb",
+      "prop_riftspire_hut_lod2.glb"
+    ],
+    "footprint": {
+      "width": 9.492,
+      "depth": 10.02,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -4,
+        "z": 0,
+        "width": 0.65,
+        "depth": 7,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "width": 0.65,
+        "depth": 7,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": 0,
+        "z": -3.5,
+        "width": 8,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": -2.7,
+        "z": 3.5,
+        "width": 2.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 9
+      },
+      {
+        "x": 2.7,
+        "z": 3.5,
+        "width": 2.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 9
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 8,
+        "depth": 7,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_lantern",
+    "sourceKind": "riftspire_lantern",
+    "label": "Riftspire lantern",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_lantern.glb",
+    "assetKey": "riftspire_lantern",
+    "fallbackKind": "riftspire_lantern",
+    "lodModels": [
+      "prop_riftspire_lantern_lod1.glb",
+      "prop_riftspire_lantern_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.75,
+      "depth": 0.85,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_laundry_rig",
+    "sourceKind": "riftspire_laundry_rig",
+    "label": "Riftspire laundry rig",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_laundry_rig.glb",
+    "assetKey": "riftspire_laundry_rig",
+    "fallbackKind": "riftspire_laundry_rig",
+    "lodModels": [
+      "prop_riftspire_laundry_rig_lod1.glb",
+      "prop_riftspire_laundry_rig_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.75,
+      "depth": 1.666,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 6,
+        "depth": 2.2,
+        "minY": 0,
+        "maxY": 4.7
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_lift",
+    "sourceKind": "riftspire_lift",
+    "label": "Riftspire lift",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_lift.glb",
+    "assetKey": "riftspire_lift",
+    "fallbackKind": "riftspire_lift",
+    "lodModels": [
+      "prop_riftspire_lift_lod1.glb",
+      "prop_riftspire_lift_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10,
+      "depth": 10,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -4.7,
+        "z": 0,
+        "width": 0.3,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 4
+      },
+      {
+        "x": 4.7,
+        "z": 0,
+        "width": 0.3,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 4
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 10.5,
+        "depth": 10.5,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_lift_landing",
+    "sourceKind": "riftspire_lift_landing",
+    "label": "Riftspire lift landing",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_lift_landing.glb",
+    "assetKey": "riftspire_lift_landing",
+    "fallbackKind": "riftspire_lift_landing",
+    "lodModels": [
+      "prop_riftspire_lift_landing_lod1.glb",
+      "prop_riftspire_lift_landing_lod2.glb"
+    ],
+    "footprint": {
+      "width": 24,
+      "depth": 24.081,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -5.5,
+        "z": 0,
+        "width": 0.25,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 1.4
+      },
+      {
+        "x": 5.5,
+        "z": 0,
+        "width": 0.25,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 1.4
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 6.75,
+        "depth": 24,
+        "fromY": 0,
+        "toY": 0,
+        "x": -8.625
+      },
+      {
+        "width": 6.75,
+        "depth": 24,
+        "fromY": 0,
+        "toY": 0,
+        "x": 8.625
+      },
+      {
+        "width": 10.5,
+        "depth": 6.75,
+        "fromY": 0,
+        "toY": 0,
+        "z": -8.625
+      },
+      {
+        "width": 10.5,
+        "depth": 6.75,
+        "fromY": 0,
+        "toY": 0,
+        "z": 8.625
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_market_stall",
+    "sourceKind": "riftspire_market_stall",
+    "label": "Riftspire market stall",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_market_stall.glb",
+    "assetKey": "riftspire_market_stall",
+    "fallbackKind": "riftspire_market_stall",
+    "lodModels": [
+      "prop_riftspire_market_stall_lod1.glb",
+      "prop_riftspire_market_stall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5.76,
+      "depth": 3.873,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 6,
+        "depth": 4,
+        "minY": 0,
+        "maxY": 4.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_oath_monument",
+    "sourceKind": "riftspire_oath_monument",
+    "label": "Riftspire oath monument",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_oath_monument.glb",
+    "assetKey": "riftspire_oath_monument",
+    "fallbackKind": "riftspire_oath_monument",
+    "lodModels": [
+      "prop_riftspire_oath_monument_lod1.glb",
+      "prop_riftspire_oath_monument_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.8,
+      "depth": 4.8,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 7,
+        "depth": 5,
+        "minY": 0,
+        "maxY": 14
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_ore_cart",
+    "sourceKind": "riftspire_ore_cart",
+    "label": "Riftspire ore cart",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_ore_cart.glb",
+    "assetKey": "riftspire_ore_cart",
+    "fallbackKind": "riftspire_ore_cart",
+    "lodModels": [
+      "prop_riftspire_ore_cart_lod1.glb",
+      "prop_riftspire_ore_cart_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.3,
+      "depth": 4,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 3.6,
+        "depth": 4.2,
+        "minY": 0,
+        "maxY": 3
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_palace",
+    "sourceKind": "riftspire_palace",
+    "label": "Riftspire palace",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_palace.glb",
+    "assetKey": "riftspire_palace",
+    "fallbackKind": "riftspire_palace",
+    "lodModels": [
+      "prop_riftspire_palace_lod1.glb",
+      "prop_riftspire_palace_lod2.glb"
+    ],
+    "footprint": {
+      "width": 68.535,
+      "depth": 15.4,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -20,
+        "z": 0,
+        "width": 26,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 36
+      },
+      {
+        "x": 20,
+        "z": 0,
+        "width": 26,
+        "depth": 12,
+        "minY": 0,
+        "maxY": 36
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_provision_stall",
+    "sourceKind": "riftspire_provision_stall",
+    "label": "Riftspire provision stall",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_provision_stall.glb",
+    "assetKey": "riftspire_provision_stall",
+    "fallbackKind": "riftspire_provision_stall",
+    "lodModels": [
+      "prop_riftspire_provision_stall_lod1.glb",
+      "prop_riftspire_provision_stall_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.76,
+      "depth": 3.474,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 5,
+        "depth": 3.6,
+        "minY": 0,
+        "maxY": 4.6
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_rack",
+    "sourceKind": "riftspire_rack",
+    "label": "Riftspire rack",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rack.glb",
+    "assetKey": "riftspire_rack",
+    "fallbackKind": "riftspire_rack",
+    "lodModels": [
+      "prop_riftspire_rack_lod1.glb",
+      "prop_riftspire_rack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4,
+      "depth": 1.5,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_ritual_obelisk",
+    "sourceKind": "riftspire_ritual_obelisk",
+    "label": "Riftspire ritual obelisk",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_ritual_obelisk.glb",
+    "assetKey": "riftspire_ritual_obelisk",
+    "fallbackKind": "riftspire_ritual_obelisk",
+    "lodModels": [
+      "prop_riftspire_ritual_obelisk_lod1.glb",
+      "prop_riftspire_ritual_obelisk_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.8,
+      "depth": 3.8,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 4,
+        "depth": 4,
+        "minY": 0,
+        "maxY": 11
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_rock_gate_left",
+    "sourceKind": "riftspire_rock_gate_left",
+    "label": "Riftspire rock gate left",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rock_gate_left.glb",
+    "assetKey": "riftspire_rock_gate_left",
+    "fallbackKind": "riftspire_rock_gate_left",
+    "lodModels": [
+      "prop_riftspire_rock_gate_left_lod1.glb",
+      "prop_riftspire_rock_gate_left_lod2.glb"
+    ],
+    "footprint": {
+      "width": 50.245,
+      "depth": 363.287,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_rock_gate_right",
+    "sourceKind": "riftspire_rock_gate_right",
+    "label": "Riftspire rock gate right",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rock_gate_right.glb",
+    "assetKey": "riftspire_rock_gate_right",
+    "fallbackKind": "riftspire_rock_gate_right",
+    "lodModels": [
+      "prop_riftspire_rock_gate_right_lod1.glb",
+      "prop_riftspire_rock_gate_right_lod2.glb"
+    ],
+    "footprint": {
+      "width": 50.245,
+      "depth": 363.287,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_rock_infill",
+    "sourceKind": "riftspire_rock_infill",
+    "label": "Riftspire rock infill",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rock_infill.glb",
+    "assetKey": "riftspire_rock_infill",
+    "fallbackKind": "riftspire_rock_infill",
+    "lodModels": [
+      "prop_riftspire_rock_infill_lod1.glb",
+      "prop_riftspire_rock_infill_lod2.glb"
+    ],
+    "footprint": {
+      "width": 20,
+      "depth": 15.631,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_rock_palace_left",
+    "sourceKind": "riftspire_rock_palace_left",
+    "label": "Riftspire rock palace left",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rock_palace_left.glb",
+    "assetKey": "riftspire_rock_palace_left",
+    "fallbackKind": "riftspire_rock_palace_left",
+    "lodModels": [
+      "prop_riftspire_rock_palace_left_lod1.glb",
+      "prop_riftspire_rock_palace_left_lod2.glb"
+    ],
+    "footprint": {
+      "width": 50.245,
+      "depth": 363.287,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_rock_palace_right",
+    "sourceKind": "riftspire_rock_palace_right",
+    "label": "Riftspire rock palace right",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rock_palace_right.glb",
+    "assetKey": "riftspire_rock_palace_right",
+    "fallbackKind": "riftspire_rock_palace_right",
+    "lodModels": [
+      "prop_riftspire_rock_palace_right_lod1.glb",
+      "prop_riftspire_rock_palace_right_lod2.glb"
+    ],
+    "footprint": {
+      "width": 50.245,
+      "depth": 363.287,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_rock_sector",
+    "sourceKind": "riftspire_rock_sector",
+    "label": "Riftspire rock sector",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rock_sector.glb",
+    "assetKey": "riftspire_rock_sector",
+    "fallbackKind": "riftspire_rock_sector",
+    "lodModels": [
+      "prop_riftspire_rock_sector_lod1.glb",
+      "prop_riftspire_rock_sector_lod2.glb"
+    ],
+    "footprint": {
+      "width": 50.245,
+      "depth": 363.287,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_room",
+    "label": "Riftspire room",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_room.glb",
+    "assetKey": "riftspire_room",
+    "fallbackKind": "riftspire_room",
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -8,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": 8,
+        "z": 0,
+        "width": 0.65,
+        "depth": 10,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": 0,
+        "z": -5,
+        "width": 16,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": -4.7,
+        "z": 5,
+        "width": 6.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 11
+      },
+      {
+        "x": 4.7,
+        "z": 5,
+        "width": 6.6,
+        "depth": 0.65,
+        "minY": 0,
+        "maxY": 11
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 16,
+        "depth": 10,
+        "fromY": 0,
+        "toY": 0
+      },
+      {
+        "width": 17,
+        "depth": 2.3,
+        "fromY": 0,
+        "toY": 0,
+        "z": 6.1
+      }
+    ],
+    "lodModels": [
+      "prop_riftspire_room_lod1.glb",
+      "prop_riftspire_room_lod2.glb"
+    ],
+    "footprint": {
+      "width": 17.494,
+      "depth": 13.02,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "riftspire_rope_bridge",
+    "sourceKind": "riftspire_rope_bridge",
+    "label": "Riftspire rope bridge",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_rope_bridge.glb",
+    "assetKey": "riftspire_rope_bridge",
+    "fallbackKind": "riftspire_rope_bridge",
+    "lodModels": [
+      "prop_riftspire_rope_bridge_lod1.glb",
+      "prop_riftspire_rope_bridge_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5,
+      "depth": 24.18,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -2.25,
+        "z": 0,
+        "width": 0.35,
+        "depth": 24,
+        "minY": 0,
+        "maxY": 1.5
+      },
+      {
+        "x": 2.25,
+        "z": 0,
+        "width": 0.35,
+        "depth": 24,
+        "minY": 0,
+        "maxY": 1.5
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 5,
+        "depth": 24,
+        "fromY": 0,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_stairs",
+    "sourceKind": "riftspire_stairs",
+    "label": "Riftspire stairs",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_stairs.glb",
+    "assetKey": "riftspire_stairs",
+    "fallbackKind": "riftspire_stairs",
+    "lodModels": [
+      "prop_riftspire_stairs_lod1.glb",
+      "prop_riftspire_stairs_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6,
+      "depth": 20.049,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -2.9,
+        "z": 0,
+        "width": 0.15,
+        "depth": 20,
+        "minY": 0,
+        "maxY": 11.5
+      },
+      {
+        "x": 2.9,
+        "z": 0,
+        "width": 0.15,
+        "depth": 20,
+        "minY": 0,
+        "maxY": 11.5
+      }
+    ],
+    "walkableSurfaces": [
+      {
+        "width": 6,
+        "depth": 20,
+        "fromY": 9.75,
+        "toY": 0
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_supply_cart",
+    "sourceKind": "riftspire_supply_cart",
+    "label": "Riftspire supply cart",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_supply_cart.glb",
+    "assetKey": "riftspire_supply_cart",
+    "fallbackKind": "riftspire_supply_cart",
+    "lodModels": [
+      "prop_riftspire_supply_cart_lod1.glb",
+      "prop_riftspire_supply_cart_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.3,
+      "depth": 4.657,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 3.8,
+        "depth": 6,
+        "minY": 0,
+        "maxY": 3.5
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_table",
+    "sourceKind": "riftspire_table",
+    "label": "Riftspire table",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_table.glb",
+    "assetKey": "riftspire_table",
+    "fallbackKind": "riftspire_table",
+    "lodModels": [
+      "prop_riftspire_table_lod1.glb",
+      "prop_riftspire_table_lod2.glb"
+    ],
+    "footprint": {
+      "width": 5,
+      "depth": 4.25,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_throne",
+    "sourceKind": "riftspire_throne",
+    "label": "Riftspire throne",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_throne.glb",
+    "assetKey": "riftspire_throne",
+    "fallbackKind": "riftspire_throne",
+    "lodModels": [
+      "prop_riftspire_throne_lod1.glb",
+      "prop_riftspire_throne_lod2.glb"
+    ],
+    "footprint": {
+      "width": 10,
+      "depth": 8.45,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_training_dummy",
+    "label": "Riftspire training dummy",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_training_dummy.glb",
+    "assetKey": "riftspire_training_dummy",
+    "fallbackKind": "riftspire_training_dummy",
+    "lodModels": [
+      "prop_riftspire_training_dummy_lod1.glb",
+      "prop_riftspire_training_dummy_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.7,
+      "depth": 1.2,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "riftspire_war_brazier",
+    "sourceKind": "riftspire_war_brazier",
+    "label": "Riftspire war brazier",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_war_brazier.glb",
+    "assetKey": "riftspire_war_brazier",
+    "fallbackKind": "riftspire_war_brazier",
+    "lodModels": [
+      "prop_riftspire_war_brazier_lod1.glb",
+      "prop_riftspire_war_brazier_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.219,
+      "depth": 2.219,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 2.4,
+        "depth": 2.4,
+        "minY": 0,
+        "maxY": 4.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_war_standard",
+    "sourceKind": "riftspire_war_standard",
+    "label": "Riftspire war standard",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_war_standard.glb",
+    "assetKey": "riftspire_war_standard",
+    "fallbackKind": "riftspire_war_standard",
+    "lodModels": [
+      "prop_riftspire_war_standard_lod1.glb",
+      "prop_riftspire_war_standard_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.5,
+      "depth": 1.2,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 2.8,
+        "depth": 1.5,
+        "minY": 0,
+        "maxY": 8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_war_standard__2",
+    "sourceKind": "riftspire_war_standard",
+    "label": "Riftspire war standard",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_war_standard.glb",
+    "assetKey": "riftspire_war_standard",
+    "fallbackKind": "riftspire_war_standard",
+    "footprint": {
+      "width": 2.5,
+      "depth": 1.2,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false
+  },
+  {
+    "kind": "riftspire_war_table",
+    "sourceKind": "riftspire_war_table",
+    "label": "Riftspire war table",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_war_table.glb",
+    "assetKey": "riftspire_war_table",
+    "fallbackKind": "riftspire_war_table",
+    "lodModels": [
+      "prop_riftspire_war_table_lod1.glb",
+      "prop_riftspire_war_table_lod2.glb"
+    ],
+    "footprint": {
+      "width": 6.6,
+      "depth": 5.4,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 7,
+        "depth": 5.5,
+        "minY": 0,
+        "maxY": 2.8
+      }
+    ],
+    "cameraSolid": true
+  },
+  {
+    "kind": "riftspire_water_pump",
+    "sourceKind": "riftspire_water_pump",
+    "label": "Riftspire water pump",
+    "group": "Riftspire City",
+    "model": "prop_riftspire_water_pump.glb",
+    "assetKey": "riftspire_water_pump",
+    "fallbackKind": "riftspire_water_pump",
+    "lodModels": [
+      "prop_riftspire_water_pump_lod1.glb",
+      "prop_riftspire_water_pump_lod2.glb"
+    ],
+    "footprint": {
+      "width": 4.2,
+      "depth": 3.4,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 4.4,
+        "depth": 3.6,
+        "minY": 0,
+        "maxY": 6.5
+      }
+    ],
+    "cameraSolid": true
   },
   {
     "kind": "rock",
@@ -4071,6 +10791,20 @@
     "cameraSolid": true
   },
   {
+    "kind": "town_castle",
+    "label": "Town Castle",
+    "group": "Registered Assets",
+    "model": "prop_town_castle.glb",
+    "assetKey": "town_castle",
+    "fallbackKind": "town_castle",
+    "lodModels": [],
+    "footprint": {
+      "width": 38.149,
+      "depth": 30.649,
+      "chainAxis": "x"
+    }
+  },
+  {
     "kind": "town_chimney",
     "label": "Town Chimney",
     "group": "Registered Assets",
@@ -4127,176 +10861,74 @@
     }
   },
   {
-    "kind": "town_fortress_banner",
-    "sourceKind": "town_fortress_banner",
-    "label": "Town Fortress Banner",
-    "group": "World Scenery",
-    "model": "prop_town_fortress_banner.glb",
-    "assetKey": "town_fortress_banner",
-    "fallbackKind": "town_fortress_banner",
-    "footprint": {
-      "width": 3.95,
-      "depth": 1.5,
-      "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "width": 1.5,
-        "depth": 1.5
-      }
-    ],
-    "cameraSolid": true
-  },
-  {
     "kind": "town_fortress_barricade",
-    "sourceKind": "town_fortress_barricade",
     "label": "Town Fortress Barricade",
-    "group": "World Scenery",
+    "group": "Registered Assets",
     "model": "prop_town_fortress_barricade.glb",
     "assetKey": "town_fortress_barricade",
     "fallbackKind": "town_fortress_barricade",
+    "lodModels": [],
     "footprint": {
       "width": 6.994,
       "depth": 2.6,
       "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "width": 6.5,
-        "depth": 2.8
-      }
-    ],
-    "cameraSolid": true
-  },
-  {
-    "kind": "town_fortress_brazier",
-    "sourceKind": "town_fortress_brazier",
-    "label": "Town Fortress Brazier",
-    "group": "World Scenery",
-    "model": "prop_town_fortress_brazier.glb",
-    "assetKey": "town_fortress_brazier",
-    "fallbackKind": "town_fortress_brazier",
-    "footprint": {
-      "width": 2.64,
-      "depth": 2.64,
-      "chainAxis": "z"
-    },
-    "colliders": [
-      {
-        "width": 2.7,
-        "depth": 2.7
-      }
-    ],
-    "cameraSolid": true
+    }
   },
   {
     "kind": "town_fortress_corner_tower",
-    "sourceKind": "town_fortress_corner_tower",
     "label": "Town Fortress Corner Tower",
-    "group": "World Scenery",
+    "group": "Registered Assets",
     "model": "prop_town_fortress_corner_tower.glb",
     "assetKey": "town_fortress_corner_tower",
     "fallbackKind": "town_fortress_corner_tower",
+    "lodModels": [],
     "footprint": {
       "width": 10.3,
       "depth": 10.3,
       "chainAxis": "z"
-    },
-    "colliders": [
-      {
-        "width": 10.4,
-        "depth": 10.4
-      }
-    ],
-    "cameraSolid": true
+    }
   },
   {
     "kind": "town_fortress_gatehouse",
-    "sourceKind": "town_fortress_gatehouse",
     "label": "Town Fortress Gatehouse",
-    "group": "World Scenery",
+    "group": "Registered Assets",
     "model": "prop_town_fortress_gatehouse.glb",
     "assetKey": "town_fortress_gatehouse",
     "fallbackKind": "town_fortress_gatehouse",
+    "lodModels": [],
     "footprint": {
       "width": 27.13,
       "depth": 7.24,
       "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "x": -10,
-        "width": 7,
-        "depth": 6
-      },
-      {
-        "x": 10,
-        "width": 7,
-        "depth": 6
-      }
-    ],
-    "walkableSurfaces": [
-      {
-        "width": 26,
-        "depth": 5.4,
-        "fromY": 10.2,
-        "toY": 10.2
-      }
-    ],
-    "cameraSolid": true
+    }
   },
   {
     "kind": "town_fortress_wall",
-    "sourceKind": "town_fortress_wall",
     "label": "Town Fortress Wall",
-    "group": "World Scenery",
+    "group": "Registered Assets",
     "model": "prop_town_fortress_wall.glb",
     "assetKey": "town_fortress_wall",
     "fallbackKind": "town_fortress_wall",
+    "lodModels": [],
     "footprint": {
       "width": 12.35,
       "depth": 3.88,
       "chainAxis": "x"
-    },
-    "colliders": [
-      {
-        "width": 12,
-        "depth": 3
-      }
-    ],
-    "walkableSurfaces": [
-      {
-        "width": 11.6,
-        "depth": 2.2,
-        "fromY": 6.7,
-        "toY": 6.7
-      }
-    ],
-    "cameraSolid": true
+    }
   },
   {
     "kind": "town_fortress_wall_stairs",
-    "sourceKind": "town_fortress_wall_stairs",
     "label": "Town Fortress Wall Stairs",
-    "group": "World Scenery",
+    "group": "Registered Assets",
     "model": "prop_town_fortress_wall_stairs.glb",
     "assetKey": "town_fortress_wall_stairs",
     "fallbackKind": "town_fortress_wall_stairs",
+    "lodModels": [],
     "footprint": {
       "width": 7.42,
       "depth": 12.3,
       "chainAxis": "z"
-    },
-    "walkableSurfaces": [
-      {
-        "width": 6.2,
-        "depth": 10.8,
-        "fromY": 0,
-        "toY": 6.4,
-        "axis": "z"
-      }
-    ],
-    "cameraSolid": false
+    }
   },
   {
     "kind": "town_horizontal_beam",
@@ -4309,6 +10941,34 @@
     "footprint": {
       "width": 5,
       "depth": 0.34,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_house_1",
+    "label": "Town House 1",
+    "group": "Registered Assets",
+    "model": "prop_town_house_1.glb",
+    "assetKey": "town_house_1",
+    "fallbackKind": "town_house_1",
+    "lodModels": [],
+    "footprint": {
+      "width": 11.275,
+      "depth": 8.595,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "town_house_2",
+    "label": "Town House 2",
+    "group": "Registered Assets",
+    "model": "prop_town_house_2.glb",
+    "assetKey": "town_house_2",
+    "fallbackKind": "town_house_2",
+    "lodModels": [],
+    "footprint": {
+      "width": 17.076,
+      "depth": 11.27,
       "chainAxis": "x"
     }
   },

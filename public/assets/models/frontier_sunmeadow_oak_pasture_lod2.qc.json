@@ -1,0 +1,97 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.oak_pasture",
+  "modelSha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+      "sha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "triangles": 94774
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_pasture_lod1.glb",
+      "sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+      "triangles": 50784
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_pasture_lod2.glb",
+      "sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+      "triangles": 13008
+    }
+  ],
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+      "sha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "triangles": 94774
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_pasture_lod1.glb",
+      "sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+      "triangles": 50784
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_pasture_lod2.glb",
+      "sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+      "triangles": 13008
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "55ebe62506be7b31cef28b990ee513fe76eaaf2f4019173dc8f112026d934c49",
+  "bounds": {
+    "min": [
+      -5.354161739349365,
+      -0.16817106306552887,
+      -4.6693549156188965
+    ],
+    "max": [
+      5.1987504959106445,
+      11.017167091369629,
+      5.038943290710449
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod0_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod1_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod1_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod2_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod2_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/gameplay_group_30m_lod1.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/gameplay_group_90m_lod2.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/exports_contact_sheet.png"
+  ],
+  "reviewEvidence": {
+    "buildSha256": "1355326bdaf4ff65ece7dcd6e455180f631b348cc4ed030be7fb9c3f17041295",
+    "modelSha256s": [
+      "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+      "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850"
+    ],
+    "previewSha256s": {
+      "review\\frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png": "f4b7f961412b836f5cd2f90c6cbf417eff9167f8b32f212d40b33dd62f610f17",
+      "review\\frontier_sunmeadow_oak_pasture_lod0_ground_reimport.png": "b441c4f3a9412ca52c530551f06a7b9e96668f0098502a650ca6345c67027cfe",
+      "review\\frontier_sunmeadow_oak_pasture_lod1_studio_reimport.png": "6f8e7d68852f9ce8fcf2f3f5fff2d99f3c9ac383557fef50942db85f03297d5b",
+      "review\\frontier_sunmeadow_oak_pasture_lod1_ground_reimport.png": "4d83f5abb6498dd68284e1132df83f6dc5fef5f1036c85947ff0e9da51382934",
+      "review\\frontier_sunmeadow_oak_pasture_lod2_studio_reimport.png": "bf2c5ca1909968d5159650edcc0fd136018a1c1019b79dcc3a8de11cf596c31d",
+      "review\\frontier_sunmeadow_oak_pasture_lod2_ground_reimport.png": "4566f6bb7f5c39880e0737341522d6184a5161f708805859c90671429dfee27b"
+    },
+    "gameplayReceiptSha256": "99b3fd118c856ec3de4aa10ded55f0085b4cce5791513d75a5b4ceefd93fd22f",
+    "contactSheetReceiptSha256": "ea5b44c935cf2e21c0af57ffc2ceb5ec0910d10ec782fa1726d6fa1f132e08af",
+    "contactSheetSha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294"
+  }
+}

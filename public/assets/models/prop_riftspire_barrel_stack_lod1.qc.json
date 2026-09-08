@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.barrel_stack",
+  "modelSha256": "072dc9c317119efd90405939032938371085192addecceb65b3b19bffe7c731c",
+  "lod": {
+    "level": 1,
+    "model": "prop_riftspire_barrel_stack_lod1.glb",
+    "triangles": 5376,
+    "sha256": "072dc9c317119efd90405939032938371085192addecceb65b3b19bffe7c731c",
+    "bytes": 344252,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_barrel_stack.glb",
+      "triangles": 5376,
+      "sha256": "1313590949fe3d0e667e4de7782e17f58e0ae47fde38ee8bbd4eb64537784aec",
+      "bytes": 344252,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_barrel_stack_lod1.glb",
+      "triangles": 5376,
+      "sha256": "072dc9c317119efd90405939032938371085192addecceb65b3b19bffe7c731c",
+      "bytes": 344252,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_barrel_stack_lod2.glb",
+      "triangles": 3818,
+      "sha256": "71b7a1ea8e0fe5c2591236631d7ef3a3ca33cf0d4e12e3a4b960f2467bfbbf55",
+      "bytes": 244468,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "8122f42d57864e26282fdb062352a4ae29ff8b8473a213edf158183574062878",
+  "textureMaxDimension": 2048
+}

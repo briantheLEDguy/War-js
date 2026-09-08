@@ -1,0 +1,1798 @@
+{
+  "schemaVersion": 1,
+  "units": "metres",
+  "upAxis": "+Y",
+  "frontAxis": "+Z",
+  "sourceSha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f",
+  "buildSha256": "6e99545d3617af13fc094138e1c512ceb401652ed9e61c8a8dfbd16bc2b23ea7",
+  "runtimeReady": true,
+  "completeReimportReview": true,
+  "assets": [
+    {
+      "assetId": "frontier_cinderfen_dwelling",
+      "model": "frontier_cinderfen_dwelling_lod0.glb",
+      "modelSha256": "e623c3fd7b6f5388d4cca781957e284a270bd82333c9e69633ac2aedffc4b1fd",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_dwelling_lod0.glb",
+          "sha256": "e623c3fd7b6f5388d4cca781957e284a270bd82333c9e69633ac2aedffc4b1fd"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_dwelling_lod1.glb",
+          "sha256": "c91664ad59a0b04b271db33239c567d8cf63538c8f0fb2febae8eb9e43f01bbf"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_dwelling_lod2.glb",
+          "sha256": "24d5a55b75af479959db1588553fa3bf627b19981fe8cb49c95ebd137aa5b291"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -4.62047815322876,
+          -0.316081702709198,
+          -5.0370001792907715
+        ],
+        "maximum": [
+          4.620500564575195,
+          7.234800338745117,
+          7.525524139404297
+        ]
+      },
+      "footprint": [
+        8,
+        9
+      ],
+      "floor_height": 0.6,
+      "front_door_clearance": [
+        1.8,
+        2.6
+      ],
+      "front_door_runtime": {
+        "x": 0,
+        "y": 0.6,
+        "z": 4.5
+      },
+      "anchor": "ground centre",
+      "door_faces": "glTF +Z",
+      "ramp": {
+        "width": 2.2,
+        "depth": 3,
+        "front_z": 7.5,
+        "back_z": 4.5
+      },
+      "walkableSurfaces": [
+        {
+          "id": "interior_deck",
+          "x": 0,
+          "z": 0,
+          "width": 7.8,
+          "depth": 8.8,
+          "fromY": 0.6,
+          "toY": 0.6
+        },
+        {
+          "id": "front_ramp",
+          "x": 0,
+          "z": 6,
+          "width": 2.2,
+          "depth": 3.12,
+          "fromY": 0.6,
+          "toY": 0,
+          "axis": "z"
+        }
+      ],
+      "colliders": [
+        {
+          "x": -4,
+          "z": 0,
+          "width": 0.4,
+          "depth": 9,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": 4,
+          "z": 0,
+          "width": 0.4,
+          "depth": 9,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": 0,
+          "z": -4.5,
+          "width": 8,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": -2.45,
+          "z": 4.5,
+          "width": 3.1,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": 2.45,
+          "z": 4.5,
+          "width": 3.1,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 4.4
+        }
+      ]
+    },
+    {
+      "assetId": "frontier_cinderfen_workshop",
+      "model": "frontier_cinderfen_workshop_lod0.glb",
+      "modelSha256": "81067dcb441ce106583c46160649b46646500e473567bda809c47ff994d79ab9",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_workshop_lod0.glb",
+          "sha256": "81067dcb441ce106583c46160649b46646500e473567bda809c47ff994d79ab9"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_workshop_lod1.glb",
+          "sha256": "90d165713fcccd8eabf63a5130995bc2d6ea092bd08bc4564eaddbe1fb072d39"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_workshop_lod2.glb",
+          "sha256": "06de5cd0325ba088dfecd6929371568fc217825e336003d29964b364b7762167"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -5.62047815322876,
+          -0.316081702709198,
+          -4.586999893188477
+        ],
+        "maximum": [
+          5.620500564575195,
+          7.817858695983887,
+          7.025524139404297
+        ]
+      },
+      "footprint": [
+        10,
+        8
+      ],
+      "floor_height": 0.6,
+      "front_door_clearance": [
+        2.6,
+        3
+      ],
+      "front_door_runtime": {
+        "x": 0,
+        "y": 0.6,
+        "z": 4
+      },
+      "anchor": "ground centre",
+      "door_faces": "glTF +Z",
+      "ramp": {
+        "width": 3,
+        "depth": 3,
+        "front_z": 7,
+        "back_z": 4
+      },
+      "walkableSurfaces": [
+        {
+          "id": "interior_deck",
+          "x": 0,
+          "z": 0,
+          "width": 9.8,
+          "depth": 7.8,
+          "fromY": 0.6,
+          "toY": 0.6
+        },
+        {
+          "id": "front_ramp",
+          "x": 0,
+          "z": 5.5,
+          "width": 3,
+          "depth": 3.12,
+          "fromY": 0.6,
+          "toY": 0,
+          "axis": "z"
+        }
+      ],
+      "colliders": [
+        {
+          "x": -5,
+          "z": 0,
+          "width": 0.4,
+          "depth": 8,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": 5,
+          "z": 0,
+          "width": 0.4,
+          "depth": 8,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": 0,
+          "z": -4,
+          "width": 10,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": -3.15,
+          "z": 4,
+          "width": 3.7,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": 3.15,
+          "z": 4,
+          "width": 3.7,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 4.4
+        },
+        {
+          "x": -3.25,
+          "z": -1.75,
+          "width": 2.7,
+          "depth": 1.15,
+          "minY": 0.6,
+          "maxY": 1.55
+        }
+      ]
+    },
+    {
+      "assetId": "frontier_cinderfen_supply_shelter",
+      "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+      "modelSha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+          "sha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_supply_shelter_lod1.glb",
+          "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_supply_shelter_lod2.glb",
+          "sha256": "e9ea7f00c65617faa41accafa7eb6548c51f4dc7004ad9ad49b8dad2a75f7586"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -4.595478057861328,
+          -0.3251791000366211,
+          -3.5369999408721924
+        ],
+        "maximum": [
+          4.595500469207764,
+          6.302000045776367,
+          4.771195411682129
+        ]
+      },
+      "footprint": [
+        8,
+        6
+      ],
+      "floor_height": 0.35,
+      "front_door_clearance": [
+        5.8,
+        3.1
+      ],
+      "front_door_runtime": {
+        "x": 0,
+        "y": 0.35,
+        "z": 3
+      },
+      "anchor": "ground centre",
+      "door_faces": "glTF +Z",
+      "ramp": {
+        "width": 3,
+        "depth": 1.75,
+        "front_z": 4.75,
+        "back_z": 3
+      },
+      "walkableSurfaces": [
+        {
+          "id": "interior_deck",
+          "x": 0,
+          "z": 0,
+          "width": 7.8,
+          "depth": 5.8,
+          "fromY": 0.35,
+          "toY": 0.35
+        },
+        {
+          "id": "front_ramp",
+          "x": 0,
+          "z": 3.875,
+          "width": 3,
+          "depth": 1.87,
+          "fromY": 0.35,
+          "toY": 0,
+          "axis": "z"
+        }
+      ],
+      "colliders": [
+        {
+          "x": -4,
+          "z": 0,
+          "width": 0.4,
+          "depth": 6,
+          "minY": 0,
+          "maxY": 1.55
+        },
+        {
+          "x": 4,
+          "z": 0,
+          "width": 0.4,
+          "depth": 6,
+          "minY": 0,
+          "maxY": 1.55
+        },
+        {
+          "x": 0,
+          "z": -3,
+          "width": 8,
+          "depth": 0.4,
+          "minY": 0,
+          "maxY": 1.55
+        },
+        {
+          "x": -3.35,
+          "z": -0.6,
+          "width": 0.7,
+          "depth": 3.4,
+          "minY": 0.35,
+          "maxY": 1.17
+        },
+        {
+          "x": 3.35,
+          "z": -0.6,
+          "width": 0.7,
+          "depth": 3.4,
+          "minY": 0.35,
+          "maxY": 1.17
+        }
+      ]
+    },
+    {
+      "assetId": "frontier_cinderfen_curtain_walk",
+      "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+      "modelSha256": "d1afc68d62c053ee987dabeef8909a0c219d5a299a499e12d8989ca792c56008",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+          "sha256": "d1afc68d62c053ee987dabeef8909a0c219d5a299a499e12d8989ca792c56008"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_curtain_walk_lod1.glb",
+          "sha256": "288c6d8a418737e968162687fb2a61636a322945302bb7fba082a9c81785ed0c"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_curtain_walk_lod2.glb",
+          "sha256": "a7989e77b2116771e0989bd3ca6a71d64e8595833bb43a484530fee8ce8a8dfb"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -4.061507225036621,
+          -0.003463203553110361,
+          -1.1990385055541992
+        ],
+        "maximum": [
+          4.0539445877075195,
+          8.217168807983398,
+          1.3228845596313477
+        ]
+      },
+      "footprint": [
+        8,
+        2.4
+      ],
+      "wall_walk_height": 6.3,
+      "fitted_end_planes": [
+        -4,
+        4
+      ],
+      "walkway_sockets_runtime": [
+        [
+          -4,
+          6.3,
+          0
+        ],
+        [
+          4,
+          6.3,
+          0
+        ]
+      ],
+      "anchor": "ground centre",
+      "walkableSurfaces": [
+        {
+          "id": "wall_walk",
+          "x": 0,
+          "z": 0,
+          "width": 8,
+          "depth": 1.7,
+          "fromY": 6.3,
+          "toY": 6.3
+        }
+      ],
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0,
+          "width": 8,
+          "depth": 2.4,
+          "minY": 0,
+          "maxY": 6.29
+        },
+        {
+          "x": 0,
+          "z": 0.96,
+          "width": 8,
+          "depth": 0.3,
+          "minY": 6.3,
+          "maxY": 8.3
+        },
+        {
+          "x": 0,
+          "z": -1.01,
+          "width": 8,
+          "depth": 0.22,
+          "minY": 6.3,
+          "maxY": 7.5
+        }
+      ]
+    },
+    {
+      "assetId": "frontier_cinderfen_gatehouse",
+      "model": "frontier_cinderfen_gatehouse_lod0.glb",
+      "modelSha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_gatehouse_lod0.glb",
+          "sha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_gatehouse_lod1.glb",
+          "sha256": "5520033197bdcc1f69bb72b0ed9d4a0af5d31e9d2208b776f6a8509019ce8e61"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_gatehouse_lod2.glb",
+          "sha256": "c7e5e59b4f674b68677b436884ff9969ef6858fa3cc4cfb97e55aa2268c4fdd4"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -14.061507225036621,
+          -0.003804196137934923,
+          -6.359999656677246
+        ],
+        "maximum": [
+          14.05394458770752,
+          12.0068998336792,
+          6.437000274658203
+        ]
+      },
+      "footprint": [
+        28,
+        12
+      ],
+      "passage_clearance": [
+        6,
+        4.8
+      ],
+      "passage_rectangle": [
+        [
+          -3,
+          -6
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "passage_floor_height": 0,
+      "defense_deck_height": 6.3,
+      "wing_sockets_runtime": [
+        [
+          -14,
+          6.3,
+          0
+        ],
+        [
+          14,
+          6.3,
+          0
+        ]
+      ],
+      "gate_socket_runtime": [
+        0,
+        0,
+        6
+      ],
+      "anchor": "ground centre",
+      "passage_faces": "glTF ±Z",
+      "walkableSurfaces": [
+        {
+          "id": "defense_crosswalk",
+          "x": 0,
+          "z": 0,
+          "width": 28,
+          "depth": 1.8,
+          "fromY": 6.3,
+          "toY": 6.3
+        },
+        {
+          "id": "central_oil_platform",
+          "x": 0,
+          "z": 0,
+          "width": 6.2,
+          "depth": 11.4,
+          "fromY": 6.3,
+          "toY": 6.3
+        },
+        {
+          "id": "left_sentry_platform",
+          "x": -6.75,
+          "z": 0,
+          "width": 6.8,
+          "depth": 10.8,
+          "fromY": 6.3,
+          "toY": 6.3
+        },
+        {
+          "id": "right_sentry_platform",
+          "x": 6.75,
+          "z": 0,
+          "width": 6.8,
+          "depth": 10.8,
+          "fromY": 6.3,
+          "toY": 6.3
+        }
+      ],
+      "colliders": [
+        {
+          "x": -6.85,
+          "z": 0,
+          "width": 7.7,
+          "depth": 12,
+          "minY": 0,
+          "maxY": 6.15
+        },
+        {
+          "x": 6.85,
+          "z": 0,
+          "width": 7.7,
+          "depth": 12,
+          "minY": 0,
+          "maxY": 6.15
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 6,
+          "depth": 12,
+          "minY": 4.8,
+          "maxY": 6.15
+        },
+        {
+          "x": -6.85,
+          "z": -5.45,
+          "width": 6.9,
+          "depth": 0.6,
+          "minY": 6.3,
+          "maxY": 7.55
+        },
+        {
+          "x": -6.85,
+          "z": 5.45,
+          "width": 6.9,
+          "depth": 0.6,
+          "minY": 6.3,
+          "maxY": 7.55
+        },
+        {
+          "x": -10.3,
+          "z": -3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": -10.3,
+          "z": 3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": -3.3999999999999995,
+          "z": -3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": -3.3999999999999995,
+          "z": 3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": -10.100000000000001,
+          "z": -5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -10.100000000000001,
+          "z": -1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -10.100000000000001,
+          "z": 1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -10.100000000000001,
+          "z": 5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -3.5999999999999996,
+          "z": -5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -3.5999999999999996,
+          "z": -1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -3.5999999999999996,
+          "z": 1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -3.5999999999999996,
+          "z": 5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": -12.15,
+          "z": 0,
+          "width": 3.7,
+          "depth": 2.4,
+          "minY": 0,
+          "maxY": 6.29
+        },
+        {
+          "x": -12.15,
+          "z": 0.96,
+          "width": 3.7,
+          "depth": 0.3,
+          "minY": 6.3,
+          "maxY": 8.3
+        },
+        {
+          "x": -12.15,
+          "z": -1.01,
+          "width": 3.7,
+          "depth": 0.22,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": 6.85,
+          "z": -5.45,
+          "width": 6.9,
+          "depth": 0.6,
+          "minY": 6.3,
+          "maxY": 7.55
+        },
+        {
+          "x": 6.85,
+          "z": 5.45,
+          "width": 6.9,
+          "depth": 0.6,
+          "minY": 6.3,
+          "maxY": 7.55
+        },
+        {
+          "x": 3.3999999999999995,
+          "z": -3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": 3.3999999999999995,
+          "z": 3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": 10.3,
+          "z": -3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": 10.3,
+          "z": 3.325,
+          "width": 0.55,
+          "depth": 4.15,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": 3.5999999999999996,
+          "z": -5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 3.5999999999999996,
+          "z": -1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 3.5999999999999996,
+          "z": 1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 3.5999999999999996,
+          "z": 5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 10.100000000000001,
+          "z": -5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 10.100000000000001,
+          "z": -1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 10.100000000000001,
+          "z": 1.6,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 10.100000000000001,
+          "z": 5.4,
+          "width": 0.5,
+          "depth": 0.5,
+          "minY": 6.3,
+          "maxY": 8.92
+        },
+        {
+          "x": 12.15,
+          "z": 0,
+          "width": 3.7,
+          "depth": 2.4,
+          "minY": 0,
+          "maxY": 6.29
+        },
+        {
+          "x": 12.15,
+          "z": 0.96,
+          "width": 3.7,
+          "depth": 0.3,
+          "minY": 6.3,
+          "maxY": 8.3
+        },
+        {
+          "x": 12.15,
+          "z": -1.01,
+          "width": 3.7,
+          "depth": 0.22,
+          "minY": 6.3,
+          "maxY": 7.5
+        },
+        {
+          "x": 0,
+          "z": 5.86,
+          "width": 6.25,
+          "depth": 0.3,
+          "minY": 6.3,
+          "maxY": 8
+        },
+        {
+          "x": 0,
+          "z": -5.86,
+          "width": 6.25,
+          "depth": 0.3,
+          "minY": 6.3,
+          "maxY": 8
+        }
+      ]
+    },
+    {
+      "assetId": "frontier_cinderfen_gate_leaves",
+      "model": "frontier_cinderfen_gate_leaves_lod0.glb",
+      "modelSha256": "1bb62c5f20416e1f8903e891d84a30710fbc6b1aa28fbb95e408386383e899b1",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_gate_leaves_lod0.glb",
+          "sha256": "1bb62c5f20416e1f8903e891d84a30710fbc6b1aa28fbb95e408386383e899b1"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_gate_leaves_lod1.glb",
+          "sha256": "e78551db351e8d9d55853a5994d4474fcbc03ec701586f98d19330d630e30699"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_gate_leaves_lod2.glb",
+          "sha256": "5d5ac853e371a8301a631bf45fd304606c788b733fc1b5124d82a21911839db2"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -3.0891075134277344,
+          0.00034280619001947343,
+          -0.5720000267028809
+        ],
+        "maximum": [
+          3.084920883178711,
+          4.800000190734863,
+          -0.017000000923871994
+        ]
+      },
+      "footprint": [
+        6,
+        0.72
+      ],
+      "closed_width": 6,
+      "nominal_height": 4.8,
+      "hinges_z_up": [
+        [
+          -3,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0
+        ]
+      ],
+      "leaf_nodes": [
+        "gate_leaf_left",
+        "gate_leaf_right"
+      ],
+      "clips": [
+        "gate_open",
+        "gate_close"
+      ],
+      "swing_degrees": 90,
+      "anchor": "ground centre",
+      "door_faces": "glTF +Z",
+      "collision_policy": "dynamic closed rectangle",
+      "closed_collision_runtime": {
+        "x": 0,
+        "z": -0.3,
+        "width": 6,
+        "depth": 0.72,
+        "minY": 0,
+        "maxY": 4.8
+      }
+    },
+    {
+      "assetId": "frontier_cinderfen_wall_stair",
+      "model": "frontier_cinderfen_wall_stair_lod0.glb",
+      "modelSha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65",
+      "lods": [
+        {
+          "level": 0,
+          "model": "frontier_cinderfen_wall_stair_lod0.glb",
+          "sha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65"
+        },
+        {
+          "level": 1,
+          "model": "frontier_cinderfen_wall_stair_lod1.glb",
+          "sha256": "05e199dfa9b25ef5d56ae9bee32c8d062e9418fcfeaeb8ef6fc652e07565e5c8"
+        },
+        {
+          "level": 2,
+          "model": "frontier_cinderfen_wall_stair_lod2.glb",
+          "sha256": "78439d853e168a9a11a92f9df824588eba5f1aa8655167e32ab89f31744843ec"
+        }
+      ],
+      "boundsYUp": {
+        "minimum": [
+          -2.7485287189483643,
+          -0.3537467122077942,
+          -4.06459379196167
+        ],
+        "maximum": [
+          2.748682975769043,
+          7.350000381469727,
+          4.496000289916992
+        ]
+      },
+      "footprint": [
+        5.6,
+        8.8
+      ],
+      "landing_heights": [
+        3.15,
+        6.3
+      ],
+      "ground_socket_runtime": [
+        -1.3,
+        0,
+        4.2
+      ],
+      "top_socket_runtime": [
+        1.3,
+        6.3,
+        4.5
+      ],
+      "anchor": "ground centre",
+      "walkableSurfaces": [
+        {
+          "id": "turn_landing",
+          "x": 0,
+          "z": -2.68,
+          "width": 4.8,
+          "depth": 2.24,
+          "fromY": 3.15,
+          "toY": 3.15
+        },
+        {
+          "id": "upper_landing",
+          "x": 1.3,
+          "z": 4.34,
+          "width": 2.2,
+          "depth": 0.32,
+          "fromY": 6.3,
+          "toY": 6.3
+        },
+        {
+          "id": "tread_0_00",
+          "x": -1.3,
+          "z": 4.04,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 0.175,
+          "toY": 0.175
+        },
+        {
+          "id": "tread_0_01",
+          "x": -1.3,
+          "z": 3.72,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 0.35,
+          "toY": 0.35
+        },
+        {
+          "id": "tread_0_02",
+          "x": -1.3,
+          "z": 3.4000000000000004,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 0.525,
+          "toY": 0.525
+        },
+        {
+          "id": "tread_0_03",
+          "x": -1.3,
+          "z": 3.08,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 0.7,
+          "toY": 0.7
+        },
+        {
+          "id": "tread_0_04",
+          "x": -1.3,
+          "z": 2.7600000000000002,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 0.875,
+          "toY": 0.875
+        },
+        {
+          "id": "tread_0_05",
+          "x": -1.3,
+          "z": 2.4400000000000004,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 1.05,
+          "toY": 1.05
+        },
+        {
+          "id": "tread_0_06",
+          "x": -1.3,
+          "z": 2.12,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 1.225,
+          "toY": 1.225
+        },
+        {
+          "id": "tread_0_07",
+          "x": -1.3,
+          "z": 1.8000000000000003,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 1.4,
+          "toY": 1.4
+        },
+        {
+          "id": "tread_0_08",
+          "x": -1.3,
+          "z": 1.48,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 1.575,
+          "toY": 1.575
+        },
+        {
+          "id": "tread_0_09",
+          "x": -1.3,
+          "z": 1.1600000000000001,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 1.75,
+          "toY": 1.75
+        },
+        {
+          "id": "tread_0_10",
+          "x": -1.3,
+          "z": 0.8400000000000003,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 1.925,
+          "toY": 1.925
+        },
+        {
+          "id": "tread_0_11",
+          "x": -1.3,
+          "z": 0.52,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 2.1,
+          "toY": 2.1
+        },
+        {
+          "id": "tread_0_12",
+          "x": -1.3,
+          "z": 0.20000000000000018,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 2.275,
+          "toY": 2.275
+        },
+        {
+          "id": "tread_0_13",
+          "x": -1.3,
+          "z": -0.1200000000000001,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 2.45,
+          "toY": 2.45
+        },
+        {
+          "id": "tread_0_14",
+          "x": -1.3,
+          "z": -0.4399999999999995,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 2.625,
+          "toY": 2.625
+        },
+        {
+          "id": "tread_0_15",
+          "x": -1.3,
+          "z": -0.7599999999999998,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 2.8,
+          "toY": 2.8
+        },
+        {
+          "id": "tread_0_16",
+          "x": -1.3,
+          "z": -1.08,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 2.975,
+          "toY": 2.975
+        },
+        {
+          "id": "tread_0_17",
+          "x": -1.3,
+          "z": -1.4000000000000004,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 3.15,
+          "toY": 3.15
+        },
+        {
+          "id": "tread_1_00",
+          "x": 1.3,
+          "z": -1.4000000000000001,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 3.325,
+          "toY": 3.325
+        },
+        {
+          "id": "tread_1_01",
+          "x": 1.3,
+          "z": -1.08,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 3.5,
+          "toY": 3.5
+        },
+        {
+          "id": "tread_1_02",
+          "x": 1.3,
+          "z": -0.76,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 3.675,
+          "toY": 3.675
+        },
+        {
+          "id": "tread_1_03",
+          "x": 1.3,
+          "z": -0.43999999999999995,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 3.85,
+          "toY": 3.85
+        },
+        {
+          "id": "tread_1_04",
+          "x": 1.3,
+          "z": -0.1200000000000001,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 4.025,
+          "toY": 4.025
+        },
+        {
+          "id": "tread_1_05",
+          "x": 1.3,
+          "z": 0.19999999999999996,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 4.2,
+          "toY": 4.2
+        },
+        {
+          "id": "tread_1_06",
+          "x": 1.3,
+          "z": 0.52,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 4.375,
+          "toY": 4.375
+        },
+        {
+          "id": "tread_1_07",
+          "x": 1.3,
+          "z": 0.8399999999999999,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 4.55,
+          "toY": 4.55
+        },
+        {
+          "id": "tread_1_08",
+          "x": 1.3,
+          "z": 1.1600000000000001,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 4.725,
+          "toY": 4.725
+        },
+        {
+          "id": "tread_1_09",
+          "x": 1.3,
+          "z": 1.48,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 4.9,
+          "toY": 4.9
+        },
+        {
+          "id": "tread_1_10",
+          "x": 1.3,
+          "z": 1.7999999999999998,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 5.075,
+          "toY": 5.075
+        },
+        {
+          "id": "tread_1_11",
+          "x": 1.3,
+          "z": 2.12,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 5.25,
+          "toY": 5.25
+        },
+        {
+          "id": "tread_1_12",
+          "x": 1.3,
+          "z": 2.44,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 5.425,
+          "toY": 5.425
+        },
+        {
+          "id": "tread_1_13",
+          "x": 1.3,
+          "z": 2.7600000000000002,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 5.6,
+          "toY": 5.6
+        },
+        {
+          "id": "tread_1_14",
+          "x": 1.3,
+          "z": 3.0799999999999996,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 5.775,
+          "toY": 5.775
+        },
+        {
+          "id": "tread_1_15",
+          "x": 1.3,
+          "z": 3.4,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 5.95,
+          "toY": 5.95
+        },
+        {
+          "id": "tread_1_16",
+          "x": 1.3,
+          "z": 3.72,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 6.125,
+          "toY": 6.125
+        },
+        {
+          "id": "tread_1_17",
+          "x": 1.3,
+          "z": 4.040000000000001,
+          "width": 2.15,
+          "depth": 0.32,
+          "fromY": 6.3,
+          "toY": 6.3
+        }
+      ],
+      "colliders": [
+        {
+          "x": -1.3,
+          "z": 4.04,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 0.051,
+          "maxY": 0.175
+        },
+        {
+          "x": -1.3,
+          "z": 3.72,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 0.226,
+          "maxY": 0.35
+        },
+        {
+          "x": -1.3,
+          "z": 3.4000000000000004,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 0.401,
+          "maxY": 0.525
+        },
+        {
+          "x": -1.3,
+          "z": 3.08,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 0.576,
+          "maxY": 0.7
+        },
+        {
+          "x": -1.3,
+          "z": 2.7600000000000002,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 0.751,
+          "maxY": 0.875
+        },
+        {
+          "x": -1.3,
+          "z": 2.4400000000000004,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 0.926,
+          "maxY": 1.05
+        },
+        {
+          "x": -1.3,
+          "z": 2.12,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 1.101,
+          "maxY": 1.225
+        },
+        {
+          "x": -1.3,
+          "z": 1.8000000000000003,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 1.276,
+          "maxY": 1.4
+        },
+        {
+          "x": -1.3,
+          "z": 1.48,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 1.451,
+          "maxY": 1.575
+        },
+        {
+          "x": -1.3,
+          "z": 1.1600000000000001,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 1.626,
+          "maxY": 1.75
+        },
+        {
+          "x": -1.3,
+          "z": 0.8400000000000003,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 1.801,
+          "maxY": 1.925
+        },
+        {
+          "x": -1.3,
+          "z": 0.52,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 1.976,
+          "maxY": 2.1
+        },
+        {
+          "x": -1.3,
+          "z": 0.20000000000000018,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 2.151,
+          "maxY": 2.275
+        },
+        {
+          "x": -1.3,
+          "z": -0.1200000000000001,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 2.326,
+          "maxY": 2.45
+        },
+        {
+          "x": -1.3,
+          "z": -0.4399999999999995,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 2.501,
+          "maxY": 2.625
+        },
+        {
+          "x": -1.3,
+          "z": -0.7599999999999998,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 2.676,
+          "maxY": 2.8
+        },
+        {
+          "x": -1.3,
+          "z": -1.08,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 2.851,
+          "maxY": 2.975
+        },
+        {
+          "x": -1.3,
+          "z": -1.4000000000000004,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 3.026,
+          "maxY": 3.15
+        },
+        {
+          "x": -2.4299999999999997,
+          "z": 4.2,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 0,
+          "maxY": 1.05
+        },
+        {
+          "x": -2.4299999999999997,
+          "z": 2.2800000000000002,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 1.0499999999999998,
+          "maxY": 2.0999999999999996
+        },
+        {
+          "x": -2.4299999999999997,
+          "z": 0.3600000000000003,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 2.0999999999999996,
+          "maxY": 3.1499999999999995
+        },
+        {
+          "x": -2.4299999999999997,
+          "z": -1.5599999999999996,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 3.15,
+          "maxY": 4.2
+        },
+        {
+          "x": -0.17000000000000015,
+          "z": 4.2,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 0,
+          "maxY": 1.05
+        },
+        {
+          "x": -0.17000000000000015,
+          "z": 2.2800000000000002,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 1.0499999999999998,
+          "maxY": 2.0999999999999996
+        },
+        {
+          "x": -0.17000000000000015,
+          "z": 0.3600000000000003,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 2.0999999999999996,
+          "maxY": 3.1499999999999995
+        },
+        {
+          "x": -0.17000000000000015,
+          "z": -1.5599999999999996,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 3.15,
+          "maxY": 4.2
+        },
+        {
+          "x": 1.3,
+          "z": -1.4000000000000001,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 3.201,
+          "maxY": 3.325
+        },
+        {
+          "x": 1.3,
+          "z": -1.08,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 3.376,
+          "maxY": 3.5
+        },
+        {
+          "x": 1.3,
+          "z": -0.76,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 3.551,
+          "maxY": 3.675
+        },
+        {
+          "x": 1.3,
+          "z": -0.43999999999999995,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 3.726,
+          "maxY": 3.85
+        },
+        {
+          "x": 1.3,
+          "z": -0.1200000000000001,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 3.901,
+          "maxY": 4.025
+        },
+        {
+          "x": 1.3,
+          "z": 0.19999999999999996,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 4.076,
+          "maxY": 4.2
+        },
+        {
+          "x": 1.3,
+          "z": 0.52,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 4.251,
+          "maxY": 4.375
+        },
+        {
+          "x": 1.3,
+          "z": 0.8399999999999999,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 4.426,
+          "maxY": 4.55
+        },
+        {
+          "x": 1.3,
+          "z": 1.1600000000000001,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 4.601,
+          "maxY": 4.725
+        },
+        {
+          "x": 1.3,
+          "z": 1.48,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 4.776,
+          "maxY": 4.9
+        },
+        {
+          "x": 1.3,
+          "z": 1.7999999999999998,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 4.951,
+          "maxY": 5.075
+        },
+        {
+          "x": 1.3,
+          "z": 2.12,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 5.126,
+          "maxY": 5.25
+        },
+        {
+          "x": 1.3,
+          "z": 2.44,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 5.301,
+          "maxY": 5.425
+        },
+        {
+          "x": 1.3,
+          "z": 2.7600000000000002,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 5.476,
+          "maxY": 5.6
+        },
+        {
+          "x": 1.3,
+          "z": 3.0799999999999996,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 5.651,
+          "maxY": 5.775
+        },
+        {
+          "x": 1.3,
+          "z": 3.4,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 5.826,
+          "maxY": 5.95
+        },
+        {
+          "x": 1.3,
+          "z": 3.72,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 6.001,
+          "maxY": 6.125
+        },
+        {
+          "x": 1.3,
+          "z": 4.040000000000001,
+          "width": 2.25,
+          "depth": 0.32,
+          "minY": 6.176,
+          "maxY": 6.3
+        },
+        {
+          "x": 0.17000000000000015,
+          "z": -1.56,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 3.15,
+          "maxY": 4.2
+        },
+        {
+          "x": 0.17000000000000015,
+          "z": 0.3599999999999999,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 4.199999999999999,
+          "maxY": 5.249999999999999
+        },
+        {
+          "x": 0.17000000000000015,
+          "z": 2.28,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 5.25,
+          "maxY": 6.3
+        },
+        {
+          "x": 0.17000000000000015,
+          "z": 4.199999999999999,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 6.3,
+          "maxY": 7.35
+        },
+        {
+          "x": 2.4299999999999997,
+          "z": -1.56,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 3.15,
+          "maxY": 4.2
+        },
+        {
+          "x": 2.4299999999999997,
+          "z": 0.3599999999999999,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 4.199999999999999,
+          "maxY": 5.249999999999999
+        },
+        {
+          "x": 2.4299999999999997,
+          "z": 2.28,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 5.25,
+          "maxY": 6.3
+        },
+        {
+          "x": 2.4299999999999997,
+          "z": 4.199999999999999,
+          "width": 0.23,
+          "depth": 0.23,
+          "minY": 6.3,
+          "maxY": 7.35
+        },
+        {
+          "x": 0,
+          "z": -2.68,
+          "width": 4.8,
+          "depth": 2.24,
+          "minY": 3,
+          "maxY": 3.15
+        },
+        {
+          "x": 1.3,
+          "z": 4.34,
+          "width": 2.3,
+          "depth": 0.32,
+          "minY": 6.15,
+          "maxY": 6.3
+        }
+      ]
+    }
+  ]
+}

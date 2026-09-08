@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest';
 import { applyBiomeKits } from '../src/world/BiomeKit';
 import type { PropSpawn, ZoneDefinition } from '../src/world/ZoneLoader';
 // @ts-expect-error Shared native ESM authoring module.
-import { AEGIS_REVIEWED_SCENERY } from '../scripts/campaign/aegis-reviewed-scenery.mjs';
+import { AEGIS_REVIEWED_SCENERY, reviewedSceneryModelBounds } from '../scripts/campaign/aegis-reviewed-scenery.mjs';
 import {
   decorateWorldLife,
   WORLD_LIFE_FOOTPRINTS,
@@ -11,19 +11,42 @@ import {
   WORLD_LIFE_ZONE_IDS,
 } from '../scripts/campaign/world-life-source.mjs';
 
-type Point = { x: number; z: number };
+type Point = { x: number; y?: number; z: number };
 const ids = WORLD_LIFE_ZONE_IDS as string[];
 const footprint = WORLD_LIFE_FOOTPRINTS as Record<string, number>;
+const registry = JSON.parse(readFileSync('public/assets/models/asset-index.json', 'utf8'));
+const authoredRadii = new WeakMap<PropSpawn, number>();
 const originalLifeKind = new Map<string, string>(Object.entries(AEGIS_REVIEWED_SCENERY)
   .filter(([kind]) => kind.startsWith('life_'))
   .map(([kind, entry]) => [(entry as { kind: string }).kind, kind]));
+originalLifeKind.set('aegis_citadel_hearth', 'life_campfire');
+originalLifeKind.set('frontier_sunmeadow_supply_post', 'life_supply_tent');
 
 function lifeKind(prop: PropSpawn): string {
   return originalLifeKind.get(prop.kind) ?? prop.kind;
 }
 
 function lifeRadius(prop: PropSpawn): number {
-  return footprint[lifeKind(prop)];
+  // Fitted legacy replacements retain their reserved scene envelope. New
+  // manifest-only placements use the delivered mesh at its actual world scale.
+  if (prop.assetKey && !prop.model) {
+    const cached = authoredRadii.get(prop);
+    if (cached !== undefined) return cached;
+    const asset = registry.staticProps[prop.assetKey];
+    if (!asset?.model) throw new Error(`Missing authored model for ${prop.id}`);
+    const bounds = reviewedSceneryModelBounds(asset.model);
+    if (!bounds) throw new Error(`Missing authored bounds for ${prop.id}`);
+    const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1);
+    const sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
+    const radius = Math.hypot(Math.max(Math.abs(bounds.min.x), Math.abs(bounds.max.x)) * sx,
+      Math.max(Math.abs(bounds.min.z), Math.abs(bounds.max.z)) * sz);
+    if (!Number.isFinite(radius) || radius <= 0) throw new Error(`Invalid authored bounds for ${prop.id}`);
+    authoredRadii.set(prop, radius);
+    return radius;
+  }
+  const radius = footprint[lifeKind(prop)];
+  if (!Number.isFinite(radius) || radius <= 0) throw new Error(`Missing scene footprint for ${prop.id}`);
+  return radius;
 }
 
 function readZone(id: string): ZoneDefinition {
@@ -47,7 +70,7 @@ function samples(points: Point[]): Point[] {
     const b = points[i];
     const count = Math.max(1, Math.ceil(Math.hypot(b.x - a.x, b.z - a.z) * 2));
     for (let step = 1; step <= count; step += 1) {
-      result.push({ x: a.x + (b.x - a.x) * step / count, z: a.z + (b.z - a.z) * step / count });
+      result.push({ x: a.x + (b.x - a.x) * step / count, z: a.z + (b.z - a.z) * step / count, ...(a.y===undefined?{}:{y:a.y+((b.y??a.y)-a.y)*step/count}) });
     }
   }
   return result;
@@ -56,6 +79,10 @@ function samples(points: Point[]): Point[] {
 function expectOutsideColliders(point: Point, radius: number, props: PropSpawn[], context: string): void {
   for (const prop of props) {
     for (const collider of prop.colliders ?? []) {
+      if (point.y!==undefined && prop.heightMode==='absolute') {
+        const sy=(prop.scale??1)*(prop.scaleY??1),base=prop.y??0;
+        if(point.y+1.8<base+(collider.minY??0)*sy || point.y>base+(collider.maxY??20)*sy)continue;
+      }
       const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1);
       const sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
       const yawSign = prop.colliderSpace === 'model' ? -1 : 1;
@@ -115,6 +142,12 @@ describe('authored world life', () => {
     const capital = zone.campaign?.nodeRole === 'capital';
     const actors = zone.ambientLife!.actors!;
     const emitters = zone.ambientLife!.emitters!;
+    if(zone.craterCity) {
+      expect(actors.length).toBeGreaterThanOrEqual(120);expect(actors.length).toBeLessThanOrEqual(160);expect(emitters).toHaveLength(0);
+      expect(actors.every(a=>a.approvedOnly && a.y!==undefined && a.route?.every(p=>p.y!==undefined))).toBe(true);
+      expect(props).toHaveLength(0);
+      return;
+    }
     expect(props.length).toBeGreaterThanOrEqual(capital ? 50 : 25);
     expect(props.length).toBeLessThanOrEqual(capital ? 80 : 40);
     expect(actors.length).toBeGreaterThanOrEqual(capital ? 12 : 8);
@@ -186,19 +219,21 @@ describe('authored world life', () => {
     }
   }, 30000);
 
-  test('scene clearings survive runtime biome expansion', () => {
+  test('expanded climates reserve scene clearings without instantiating draft vegetation', () => {
     const zone = readZone('brightfen_approach');
     decorateWorldLife(zone);
     const expanded = applyBiomeKits(zone);
     const originalIds = new Set(zone.props.map((prop) => prop.id));
     const vegetation = expanded.props.filter((prop) => !originalIds.has(prop.id));
-    expect(vegetation.length).toBeGreaterThan(0);
-    for (const kit of zone.biomeKits!) {
-      expect(kit.excludeCorridors!.some((entry) => entry.id.includes('_life_'))).toBe(true);
-    }
-    for (const plant of vegetation) {
+    expect(vegetation).toHaveLength(0);
+    expect(zone.orvrLayout!.biome.id).toBe('freshwater_fen');
+    expect(zone.orvrLayout!.biome.placements).toHaveLength(16);
+    for (const kit of zone.orvrLayout!.biome.placements!) {
+      expect(kit.approvedAssetKeys).toHaveLength(0);
+      expect(kit.desiredAssetKeys.length).toBeGreaterThan(0);
+      expect(kit.excludeCorridors.some((entry) => entry.id.includes('_life_'))).toBe(true);
       for (const prop of lifeProps(zone)) {
-        expect(Math.hypot(plant.x - prop.x, plant.z - prop.z), prop.id).toBeGreaterThan(lifeRadius(prop) + 3);
+        expect(kit.exclude.some((entry) => Math.hypot(entry.x - prop.x, entry.z - prop.z) + lifeRadius(prop) + 3 <= entry.radius), prop.id).toBe(true);
       }
     }
   });

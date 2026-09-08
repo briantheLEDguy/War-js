@@ -932,9 +932,9 @@
       "radius": 9,
       "targetZoneId": "highvale_rampart",
       "targetSpawn": {
-        "x": 113.3,
+        "x": 510.55,
         "y": 0,
-        "z": -19.5
+        "z": -87.57
       }
     }
   ],
@@ -976,5 +976,55 @@
       ]
     }
   ],
-  "staticMapHash": "d95b18999d3d05f4"
+  "artDirection": {
+    "zoneId": "highvale_sanctum",
+    "realm": "aegis",
+    "races": [
+      "dwarf",
+      "high_elf",
+      "empire"
+    ],
+    "biomeId": "alpine_foothills",
+    "season": "winter",
+    "cultures": "Dwarf upland crews; High Elf cold-weather scouts",
+    "vegetation": [
+      "mountain_pine",
+      "juniper",
+      "heather",
+      "snow_grass",
+      "lichen"
+    ],
+    "fauna": [
+      "ibex",
+      "snow_wolf",
+      "alpine_bird"
+    ],
+    "palette": [
+      "#83928c",
+      "#c7d0cf",
+      "#747b81"
+    ],
+    "landmark": "Snow-sheltered ritual terraces beneath an ice cornice",
+    "reliefMetres": 36,
+    "vegetationAssetKeys": [
+      "frontier_alpine_foothills_mountain_pine",
+      "frontier_alpine_foothills_juniper",
+      "frontier_alpine_foothills_heather",
+      "frontier_alpine_foothills_snow_grass",
+      "frontier_alpine_foothills_lichen"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_ibex",
+      "frontier_creature_snow_wolf",
+      "frontier_creature_alpine_bird"
+    ],
+    "materialSetKey": "frontier_alpine_foothills_materials",
+    "architectureAssetKey": "frontier_alpine_foothills_settlement",
+    "status": "planned",
+    "parentZoneId": "highvale_rampart",
+    "population": "Cold-weather sentinels and mountain guardian",
+    "bossProfileKey": "frontier_boss_highvale_sanctum",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "5847a5296c50b785"
 }

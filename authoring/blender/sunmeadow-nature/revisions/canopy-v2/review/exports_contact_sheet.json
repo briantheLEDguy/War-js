@@ -1,0 +1,79 @@
+{
+  "image": "exports_contact_sheet.png",
+  "image_sha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294",
+  "method": "Unretouched actual reimport PNGs; equal per-row metric scale",
+  "sources": [
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 0,
+      "model_sha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "source_image": "review\\frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png",
+      "source_image_sha256": "f4b7f961412b836f5cd2f90c6cbf417eff9167f8b32f212d40b33dd62f610f17",
+      "pixels_per_metre": 39.11154839482889
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 1,
+      "model_sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+      "source_image": "review\\frontier_sunmeadow_oak_pasture_lod1_studio_reimport.png",
+      "source_image_sha256": "6f8e7d68852f9ce8fcf2f3f5fff2d99f3c9ac383557fef50942db85f03297d5b",
+      "pixels_per_metre": 39.11154839482889
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_pasture",
+      "level": 2,
+      "model_sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850",
+      "source_image": "review\\frontier_sunmeadow_oak_pasture_lod2_studio_reimport.png",
+      "source_image_sha256": "bf2c5ca1909968d5159650edcc0fd136018a1c1019b79dcc3a8de11cf596c31d",
+      "pixels_per_metre": 39.11154839482889
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 0,
+      "model_sha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "source_image": "review\\frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png",
+      "source_image_sha256": "995e5b29e314f4aac178308542e04f25759dd59a3d8adf7b26ca7ba93b5f73d3",
+      "pixels_per_metre": 34.05472817977962
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 1,
+      "model_sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+      "source_image": "review\\frontier_sunmeadow_oak_hedgerow_lod1_studio_reimport.png",
+      "source_image_sha256": "fe4fe7244d76a6972724fa0d004225a7ef8a98cf611ba036c18f55bae2470082",
+      "pixels_per_metre": 34.05472817977962
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 2,
+      "model_sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+      "source_image": "review\\frontier_sunmeadow_oak_hedgerow_lod2_studio_reimport.png",
+      "source_image_sha256": "0290661e97dad52082a6d4adab8157cadb3e2e212e287f81db9665e51ddd496e",
+      "pixels_per_metre": 34.05472817977962
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 0,
+      "model_sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "source_image": "review\\frontier_sunmeadow_ash_lod0_studio_reimport.png",
+      "source_image_sha256": "7aa1583986eb2fc7b920ade8a8ac43d58a3d08b9fa022c41ec01e71a767c6e1e",
+      "pixels_per_metre": 31.88442369507054
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 1,
+      "model_sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "source_image": "review\\frontier_sunmeadow_ash_lod1_studio_reimport.png",
+      "source_image_sha256": "6fcfb171d0239095929fbd4aedeec36501f6cbb2d4a1ff315568abcc5dd462b8",
+      "pixels_per_metre": 31.88442369507054
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 2,
+      "model_sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+      "source_image": "review\\frontier_sunmeadow_ash_lod2_studio_reimport.png",
+      "source_image_sha256": "99637655479c3dc536c0db0229cce6207c0fbf0b8746dcb0b6dd37c02098ed20",
+      "pixels_per_metre": 31.88442369507054
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.keep_gate",
+  "displayName": "Oak and Scroll-iron Double Keep Gate",
+  "category": "prop",
+  "model": "frontier_keep_gate_lod0.glb",
+  "qc": "frontier_keep_gate_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_keep_gate"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+    "qcSha256": "361c3aba6373cca6a730b2fbeb1b36c22a9cb67633ac862a595a57aeae0392c0",
+    "previews": {
+      "assembly": "105f9906fe9e7bdfc2e96d18f4bf735023b12050003354d4dcb6a96ca0a13ebf"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/orvr-frontier/review/frontier_keep_gate_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "approvalState": "approved"
+}

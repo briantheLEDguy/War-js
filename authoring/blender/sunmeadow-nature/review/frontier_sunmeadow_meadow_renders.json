@@ -1,0 +1,86 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_meadow",
+      "level": 0,
+      "model": "frontier_sunmeadow_meadow_lod0.glb",
+      "model_sha256": "3c0f772f1a0b237933102c02a15678c294df64e30d8dba3b9ca515de53913446",
+      "image": "review\\frontier_sunmeadow_meadow_lod0_reimport.png",
+      "image_sha256": "b52f455e4700771c128c451f836870d58e18edf0f20f4370f68a4c9d46c8eebd",
+      "bounds_blender": {
+        "min": [
+          -1.134331464767456,
+          -0.9481866359710693,
+          -0.0006850549834780395
+        ],
+        "max": [
+          1.0333220958709717,
+          1.1809935569763184,
+          0.7187359929084778
+        ],
+        "span": [
+          2.1676535606384277,
+          2.1291801929473877,
+          0.7194210290908813
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_meadow",
+      "level": 1,
+      "model": "frontier_sunmeadow_meadow_lod1.glb",
+      "model_sha256": "0dfa8064ea829175f48bdb9516e87715f9b8e0d9f6894a8e486b16294563589d",
+      "image": "review\\frontier_sunmeadow_meadow_lod1_reimport.png",
+      "image_sha256": "e0742a63245a5eeb0becdccccb11cacf13506e1763e33fafffb8690941fa5868",
+      "bounds_blender": {
+        "min": [
+          -1.134331464767456,
+          -0.9373444318771362,
+          -0.0006850549834780395
+        ],
+        "max": [
+          1.0266050100326538,
+          1.1809935569763184,
+          0.7187359929084778
+        ],
+        "span": [
+          2.1609363555908203,
+          2.118338108062744,
+          0.7194210290908813
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_meadow",
+      "level": 2,
+      "model": "frontier_sunmeadow_meadow_lod2.glb",
+      "model_sha256": "2c7c03406288f8844ea8772964d686b5d746ab02aac6ab476a6bacb0fccadbbf",
+      "image": "review\\frontier_sunmeadow_meadow_lod2_reimport.png",
+      "image_sha256": "5f212562456b8a020caf58732aa828bd93ca03a6e4c7b72dbb24b7a1125aefcd",
+      "bounds_blender": {
+        "min": [
+          -1.0114880800247192,
+          -0.9481866359710693,
+          -0.0006538642337545753
+        ],
+        "max": [
+          1.0333220958709717,
+          1.0399285554885864,
+          0.7187359929084778
+        ],
+        "span": [
+          2.0448102951049805,
+          1.9881151914596558,
+          0.7193898558616638
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

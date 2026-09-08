@@ -5,6 +5,7 @@ import {
 import type { EnemySpawn } from '../world/ZoneLoader';
 import type { Terrain } from '../world/Terrain';
 import { AssetLoader } from './AssetLoader';
+import { loadReviewedCityObject } from '../world/CityArchitecture';
 import { StaticModelAnimator } from './animation/StaticModelAnimator';
 import type { EnemyCastState } from './enemyAttackTelegraph';
 
@@ -49,6 +50,13 @@ export class Enemy {
   }
 
   async build(loader: AssetLoader, scene: THREE.Scene): Promise<void> {
+    if (this.spawn.approvedOnly && this.spawn.assetKey?.startsWith('riftspire_')) {
+      const object = await loadReviewedCityObject(this.spawn.assetKey,loader);
+      this.object = object ?? new THREE.Group();
+      this.object.userData.assetMissing = !object;
+      if (object) this.place(scene);
+      return;
+    }
     const fallback = pickEnemyFallback(this.spawn);
     const guardVariant = aegisEnemyGuardVariantFor(
       this.spawn.archetype,
@@ -122,7 +130,7 @@ export class Enemy {
   }
 
   private place(scene: THREE.Scene): void {
-    const heightHint = this.terrain.heightAt(this.spawn.x, this.spawn.z) + (this.spawn.y ?? 0);
+    const heightHint = (this.spawn.heightMode === 'absolute' ? 0 : this.terrain.heightAt(this.spawn.x, this.spawn.z)) + (this.spawn.y ?? 0);
     const y = this.groundHeightAt(this.spawn.x, this.spawn.z, heightHint);
     this.position.set(this.spawn.x, y, this.spawn.z);
     this.homePosition.copy(this.position);

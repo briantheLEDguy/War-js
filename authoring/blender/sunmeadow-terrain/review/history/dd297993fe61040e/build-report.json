@@ -1,0 +1,466 @@
+[
+  {
+    "key": "frontier_sunmeadow_march_terrain_0_0",
+    "collisionKey": "frontier_sunmeadow_march_collision_0_0",
+    "x": -450,
+    "z": -450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_0_0.glb",
+        "triangles": 74218,
+        "bytes": 2590040,
+        "sha256": "15689b51c6ef964c3ff8e792d4d704b0b94f7815db527d035c2ff216763900ce"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_0_0_lod1.glb",
+        "triangles": 10282,
+        "bytes": 416196,
+        "sha256": "144932b9f8b4f5590ae118109c824957b2c07d45629f388947a4e904ffe8774b"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_0_0_lod2.glb",
+        "triangles": 3466,
+        "bytes": 184448,
+        "sha256": "fcaacca67174e809955c9d4d4ab852f7be195c21bfe27bdf50e4609a124551dc"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_1_0",
+    "collisionKey": "frontier_sunmeadow_march_collision_1_0",
+    "x": -150,
+    "z": -450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_1_0.glb",
+        "triangles": 73994,
+        "bytes": 2563640,
+        "sha256": "a5b693f2a0f05e8f771b742e08457ab5ff4036f023a7410f16d6c79aca6d3ae6"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_1_0_lod1.glb",
+        "triangles": 10058,
+        "bytes": 389796,
+        "sha256": "d9e0f6555e5974d23b2ebed740054148ee29aa954c17ecf36aac598aff6eb4c5"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_1_0_lod2.glb",
+        "triangles": 3242,
+        "bytes": 158048,
+        "sha256": "e8a208ea9b8c4f7dfad5604d41f111779bfd32bb03257b2651dddae1a91ee5e4"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_2_0",
+    "collisionKey": "frontier_sunmeadow_march_collision_2_0",
+    "x": 150,
+    "z": -450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_2_0.glb",
+        "triangles": 73728,
+        "bytes": 2530424,
+        "sha256": "a1b5a6d4ce434fec18e6c02f0d112ac3fa2a11fee198dd39fa906dcfddb3cefd"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_2_0_lod1.glb",
+        "triangles": 9792,
+        "bytes": 356584,
+        "sha256": "d4997fbf791bd03b4cbf763b914360a5c6ee9aa83a04fbcd3e9d105d8a527663"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_2_0_lod2.glb",
+        "triangles": 2976,
+        "bytes": 124832,
+        "sha256": "892233afc62f2b7e5c1950612de1f8ba5f054fed4a1a95879863014916bc7dba"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_3_0",
+    "collisionKey": "frontier_sunmeadow_march_collision_3_0",
+    "x": 450,
+    "z": -450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_3_0.glb",
+        "triangles": 73728,
+        "bytes": 2530424,
+        "sha256": "c011bf55712ba286cf21aa137d7a08f692a846d38075484ff9234c820606a28d"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_3_0_lod1.glb",
+        "triangles": 9792,
+        "bytes": 356584,
+        "sha256": "6339727742b1fdb2df385df8d688872f0ac4c8b8a2dd20f3a3975f445987b56f"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_3_0_lod2.glb",
+        "triangles": 2976,
+        "bytes": 124836,
+        "sha256": "f6bf23e8d983b544ec7356ee5d094cbc25f1c41b4a4ecf195e7862072db50e33"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_0_1",
+    "collisionKey": "frontier_sunmeadow_march_collision_0_1",
+    "x": -450,
+    "z": -150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_0_1.glb",
+        "triangles": 75666,
+        "bytes": 2760884,
+        "sha256": "5e9ec35fd25740131b589423ed0bcef4a995a77471dedc8226f860259197dca9"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_0_1_lod1.glb",
+        "triangles": 11730,
+        "bytes": 587044,
+        "sha256": "fb233ad5a8d713ebf6f948dc6558de79681207e2de523ae49c7d2f828811772b"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_0_1_lod2.glb",
+        "triangles": 4914,
+        "bytes": 355296,
+        "sha256": "beaf38870c10e06b358a1972b0b4bbb22d1083bdfd382b4ce1e3a1a0a9792cad"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_1_1",
+    "collisionKey": "frontier_sunmeadow_march_collision_1_1",
+    "x": -150,
+    "z": -150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_1_1.glb",
+        "triangles": 75684,
+        "bytes": 2762884,
+        "sha256": "eb369a87db4b88f20a501a8c112aa3f682f0b4d62e6f81b6bbdc91b9a494c2cd"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_1_1_lod1.glb",
+        "triangles": 11748,
+        "bytes": 589040,
+        "sha256": "92c372649a21911e6c187cef2f6ed9fe9c24e67c7ee3d4f7557499b324ba3fdc"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_1_1_lod2.glb",
+        "triangles": 4932,
+        "bytes": 357292,
+        "sha256": "c97225739c8b810fbbfcd119b444bd9aab366d6a75b6129164581af2e2436a77"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_2_1",
+    "collisionKey": "frontier_sunmeadow_march_collision_2_1",
+    "x": 150,
+    "z": -150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_2_1.glb",
+        "triangles": 75064,
+        "bytes": 2689976,
+        "sha256": "2dca233ff7ec2ef310d36345c67174400b8a58783c742252172fae40b067a4e4"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_2_1_lod1.glb",
+        "triangles": 11128,
+        "bytes": 516132,
+        "sha256": "bf380f4c8b3fd695d45823cf79b6171e001aacf3df60037547c35fd63a5ed5b1"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_2_1_lod2.glb",
+        "triangles": 4312,
+        "bytes": 284384,
+        "sha256": "ec56820e2160a3d5aee5bcfc9609b3c8f1e53b56c2f36fe60a4280872f0873bf"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_3_1",
+    "collisionKey": "frontier_sunmeadow_march_collision_3_1",
+    "x": 450,
+    "z": -150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_3_1.glb",
+        "triangles": 74554,
+        "bytes": 2629696,
+        "sha256": "27028f23c8b566f35007fb100ade53b11f20277558b5a34e1441b4a6e537f428"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_3_1_lod1.glb",
+        "triangles": 10618,
+        "bytes": 455852,
+        "sha256": "78ab8bebeaf273ec23aa1f4ff8603cead83857d78179e3ef6698222d4791a290"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_3_1_lod2.glb",
+        "triangles": 3802,
+        "bytes": 224104,
+        "sha256": "5c4ac17b57191ecdabcb2f14dbef525cea2fec57456a3792698d10b1d63baa10"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_0_2",
+    "collisionKey": "frontier_sunmeadow_march_collision_0_2",
+    "x": -450,
+    "z": 150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_0_2.glb",
+        "triangles": 74460,
+        "bytes": 2618620,
+        "sha256": "720f4939ebd749021a60dd22c799ad6f75957410b64375b885604d39fc874d0f"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_0_2_lod1.glb",
+        "triangles": 10524,
+        "bytes": 444776,
+        "sha256": "d8d4450103733682be209e8218274fff5f0787746733918533d887e9d7873961"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_0_2_lod2.glb",
+        "triangles": 3708,
+        "bytes": 213028,
+        "sha256": "7f54d0eae76e5eb3f52169ecdb3b4735df9b4b65585ea53faa136e74747a0614"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_1_2",
+    "collisionKey": "frontier_sunmeadow_march_collision_1_2",
+    "x": -150,
+    "z": 150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_1_2.glb",
+        "triangles": 74632,
+        "bytes": 2638900,
+        "sha256": "791a45dadadca9cf89074511492ee4260b0cdf918f2cef46fa436e842ca01f4c"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_1_2_lod1.glb",
+        "triangles": 10696,
+        "bytes": 465060,
+        "sha256": "96c557611aa42a91e943e8a2b539c68d5c3172e7bcf0cff731300abc5f794792"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_1_2_lod2.glb",
+        "triangles": 3880,
+        "bytes": 233312,
+        "sha256": "110b9f12c8aed90650ef1123adfab40e9155ec069fdfb513aa3a469878da63b1"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_2_2",
+    "collisionKey": "frontier_sunmeadow_march_collision_2_2",
+    "x": 150,
+    "z": 150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_2_2.glb",
+        "triangles": 74256,
+        "bytes": 2594516,
+        "sha256": "4fe8df7144d702f12a83b81e713c17db1bc7778988c2dea982efbe7acc7c39a5"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_2_2_lod1.glb",
+        "triangles": 10320,
+        "bytes": 420676,
+        "sha256": "43ec3a6cf61a51d0de2b2c474c767b00c7f9c5795a16b3380ca6445df7f87e11"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_2_2_lod2.glb",
+        "triangles": 3504,
+        "bytes": 188928,
+        "sha256": "9260fc462428c508d2d3a7df25f95fda1494f16111958e538ba15fea335a01b9"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_3_2",
+    "collisionKey": "frontier_sunmeadow_march_collision_3_2",
+    "x": 450,
+    "z": 150,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_3_2.glb",
+        "triangles": 74032,
+        "bytes": 2568088,
+        "sha256": "90d845e2cd1ee0793a5b644fe6aa21836a9384089dafce5589c6518a2c01a18e"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_3_2_lod1.glb",
+        "triangles": 10096,
+        "bytes": 394248,
+        "sha256": "c52bf4d4f609d688326e847903b4fa3c3afeac73d5c50b1d38cfdee94878de83"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_3_2_lod2.glb",
+        "triangles": 3280,
+        "bytes": 162500,
+        "sha256": "dcfd23702c7231723246c4b9d7ee493abea64b7bace86b9c8f0eed50c33ad7d5"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_0_3",
+    "collisionKey": "frontier_sunmeadow_march_collision_0_3",
+    "x": -450,
+    "z": 450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_0_3.glb",
+        "triangles": 73728,
+        "bytes": 2530404,
+        "sha256": "13615e8ecf61be9fd34f04e68efc422173cab607017014f26576c7ae3ee0a27e"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_0_3_lod1.glb",
+        "triangles": 9792,
+        "bytes": 356564,
+        "sha256": "31993b2ddc7e9fc8621d1fa13cf5cdcd1b82c0f351a854b2ce1288df4ba7a99b"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_0_3_lod2.glb",
+        "triangles": 2976,
+        "bytes": 124816,
+        "sha256": "675b1b63cf40441b34f113f7a1e3a0dc8d24d93db8a4840f3cb49cfc79a8991a"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_1_3",
+    "collisionKey": "frontier_sunmeadow_march_collision_1_3",
+    "x": -150,
+    "z": 450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_1_3.glb",
+        "triangles": 73728,
+        "bytes": 2530404,
+        "sha256": "564129e04536883a2faea33f1d1d7ee88e3e205733a65ca9efee9d80701434b4"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_1_3_lod1.glb",
+        "triangles": 9792,
+        "bytes": 356564,
+        "sha256": "266d83c10b558c7c83559467c1dee91f3a729418a0b70d624267fceb6ff641c8"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_1_3_lod2.glb",
+        "triangles": 2976,
+        "bytes": 124816,
+        "sha256": "94ba31fb23ed6a51ecb3e2872bd7fada793d073bad2f0acd0c22306abf6211b5"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_2_3",
+    "collisionKey": "frontier_sunmeadow_march_collision_2_3",
+    "x": 150,
+    "z": 450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_2_3.glb",
+        "triangles": 74720,
+        "bytes": 2649304,
+        "sha256": "729acdb3ecb9e4d8f80c2afeecae90d39156172105a9653e6be60a5d85161357"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_2_3_lod1.glb",
+        "triangles": 10784,
+        "bytes": 475460,
+        "sha256": "b4282a89bc020d4f213eaf79dfb3d1f7d7520698bc6c47d22a06bbb62125e0e1"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_2_3_lod2.glb",
+        "triangles": 3968,
+        "bytes": 243712,
+        "sha256": "4a458df84eb81f0b1221963df5856b82a027a18045cf15332c8162e6157224e8"
+      }
+    ]
+  },
+  {
+    "key": "frontier_sunmeadow_march_terrain_3_3",
+    "collisionKey": "frontier_sunmeadow_march_collision_3_3",
+    "x": 450,
+    "z": 450,
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_march_terrain_3_3.glb",
+        "triangles": 73728,
+        "bytes": 2530388,
+        "sha256": "b934c46ec94949345670362bfd0f0e42d6e896b839023ed1127e40d5e190657e"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_march_terrain_3_3_lod1.glb",
+        "triangles": 9792,
+        "bytes": 356548,
+        "sha256": "533f118accba961bfdc11bea0b26771c73dc685d57f4e6db41e0de5b0c277548"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_march_terrain_3_3_lod2.glb",
+        "triangles": 2976,
+        "bytes": 124800,
+        "sha256": "59c12fe2de9c4c2713a92d918c71daa8f3ad72e55fbb52281d512eecc0373349"
+      }
+    ]
+  }
+]

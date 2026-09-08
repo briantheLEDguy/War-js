@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.rope_bridge",
+  "modelSha256": "1d457edee6174ebc864e3d156b61743482c1a75f345b67382dafe548c511117e",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_rope_bridge.glb",
+    "triangles": 2420,
+    "sha256": "1d457edee6174ebc864e3d156b61743482c1a75f345b67382dafe548c511117e",
+    "bytes": 271172,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_rope_bridge.glb",
+      "triangles": 2420,
+      "sha256": "1d457edee6174ebc864e3d156b61743482c1a75f345b67382dafe548c511117e",
+      "bytes": 271172,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_rope_bridge_lod1.glb",
+      "triangles": 1210,
+      "sha256": "6fcf05c57b8241b325c47a6013bb89f08a2719d507deb299824547851cd96af0",
+      "bytes": 147808,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_rope_bridge_lod2.glb",
+      "triangles": 448,
+      "sha256": "d2ee0dff70095afca70b8b016e31d1c045b0a7c9e6075221861771d536917dea",
+      "bytes": 49372,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "a5d5738e2a66cc3128e4c6add122a4052b20bff452ef6382dd02bd62e0d274c2",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,52 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.oak_pasture",
+  "modelSha256": "afab7237542bd12ce9d1244ab448227b631994c34619dca15259854685b016c0",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+      "sha256": "2c0c2371fe08c8652bf0a7a6aaa594b00bc6ba889659edf8308917ee499239d6",
+      "triangles": 83874
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_pasture_lod1.glb",
+      "sha256": "df39efb7afbd03d6c7a978487ea70d0761bd871a5fa3f113d385f135a14ba30c",
+      "triangles": 45124
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_pasture_lod2.glb",
+      "sha256": "afab7237542bd12ce9d1244ab448227b631994c34619dca15259854685b016c0",
+      "triangles": 11548
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8",
+  "bounds": {
+    "min": [
+      -5.204946994781494,
+      -0.16817106306552887,
+      -4.656087875366211
+    ],
+    "max": [
+      5.07515811920166,
+      10.805279731750488,
+      5.00669002532959
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_pasture_lod0_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_pasture_lod1_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_pasture_lod2_reimport.png"
+  ]
+}

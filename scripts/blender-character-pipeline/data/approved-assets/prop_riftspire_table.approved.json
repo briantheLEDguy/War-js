@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.table",
+  "displayName": "Riftspire table",
+  "category": "prop",
+  "model": "prop_riftspire_table.glb",
+  "qc": "prop_riftspire_table.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_table"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "c8282ee1f5010ca123a7a25abf13386417baf4a8c627f60b86efc50c67c1aeb3",
+    "qcSha256": "5bf25f3306f647edd050631f12d82a2794003872bc2c13f1166b5c4bedb3c754",
+    "previews": {
+      "assembly": "f9a21266712cd4c6b772120003b60831d92a4deb487ea8c3b5dbd8562881339d"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/table-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.217Z",
+    "reviewHash": "3640595dda5f420b9d7d2e53dae363e8eb2514274c7f938dd1a4a6242763c968"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

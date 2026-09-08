@@ -1,0 +1,100 @@
+{
+  "assetId": "prop.frontier.supply_officer_kit",
+  "displayName": "Supply Officer Ledger Pouch",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "orvr_frontier_authored_siege"
+  ],
+  "runtime": {
+    "staticKey": "frontier_supply_officer_kit"
+  },
+  "output": {
+    "model": "frontier_supply_officer_kit_lod0.glb",
+    "artifactDir": "authoring/blender/orvr-frontier/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/orvr-frontier/runtime/frontier_supply_officer_kit_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "authored_assembly_anchor",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 13048,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 7131,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 2557,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierAuthoredPbr",
+    "textureSet": "frontier_supply_officer_kit",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authoritative_orvr_hull",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 40,
+    "maxMeshObjects": 40,
+    "maxTris": 13048,
+    "maxFileSizeMb": 8,
+    "requiresPreview": true,
+    "requiresSkinnedMeshes": false
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "notes": "Exact inventory accepted. Supply officer body and pose must use an approved existing race profile; belt fit is profile-specific."
+  }
+}

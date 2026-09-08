@@ -1,0 +1,227 @@
+{
+  "asset_id": "frontier_sunmeadow_curtain_wall",
+  "source_sha256": "1ec935cb6ad05321db5dd2b87fddb7db2c10c4f41298ed95a3efa5736cb1ec85",
+  "builder_sha256": "a088bad239cc4e26421b4721df2dfaa9665ba1b19bb3251f4655b315d90acaf3",
+  "paint_records_sha256": "9691f032eada31bd77ad4ab994213d52660e0509c85738b18df516fc4a668dc7",
+  "texture_sha256": {
+    "textures/source/brass_baseColor.png": "6f63fb6a730a2e76bc4a6b47a555e66f10ada17df5f066d89f892a6b2f9bc1d0",
+    "textures/source/brass_height.png": "00b442f97f4747837262895eec2efa03552746abd5cdcd1e7b70109cbcfd93b1",
+    "textures/source/brass_normal.png": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb",
+    "textures/source/brass_orm.png": "b276458ed5f419f5f77bfc3e5b3f40af28a497b874314b8adf18d1ffc1697266",
+    "textures/source/brass_roughness.png": "b2d50f7682aff613affcc5eeb793a33e25c040bab0d23de2435ee195e8c1e2f7",
+    "textures/source/cut_stone_baseColor.png": "235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb",
+    "textures/source/cut_stone_height.png": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce",
+    "textures/source/cut_stone_normal.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+    "textures/source/cut_stone_orm.png": "048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52",
+    "textures/source/cut_stone_roughness.png": "fc174bf8321b9aa6a44239429ae3f0393d5ab8220014152f61c451d662c80bd9",
+    "textures/source/green_cloth_baseColor.png": "b19615036c170fba71fd69aee16d9b478f3a7c437405171bac111cd9b24c1486",
+    "textures/source/green_cloth_height.png": "0105a12dd9b4fb72633e9cdd8e639223ac0a03b15f72b6f6f2f5f804e0f88096",
+    "textures/source/green_cloth_normal.png": "150241e0faf8485c891dd877e8df55326b4749d0e83435b10b192139c7546996",
+    "textures/source/green_cloth_orm.png": "d5c0cc33f44eedfb5fb9c6952238b5154f4fea4ef5f5d2101c8fb908d3aaf118",
+    "textures/source/green_cloth_roughness.png": "3c1aa1fd32da47608842213edde7fea75147cae552b96c2cecce02f5956d816d",
+    "textures/source/iron_baseColor.png": "2c09aa34382210cf519057c620f9cb3a0836a3fce2ed8588b86496cf88232e7d",
+    "textures/source/iron_height.png": "00b442f97f4747837262895eec2efa03552746abd5cdcd1e7b70109cbcfd93b1",
+    "textures/source/iron_normal.png": "ca09ed7454a8f45648f63389103a13c611c3b883d10c511d347078e4c4f415bb",
+    "textures/source/iron_orm.png": "cf564a36f9b756f3599b41d8686435110c447f881fbfc39daa59fc014383c07f",
+    "textures/source/iron_roughness.png": "fe41001c529fd4f18c430b3c4f67a179c634091ed441952b8fad2a3060c92feb",
+    "textures/source/limestone_baseColor.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+    "textures/source/limestone_foot_baseColor.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+    "textures/source/limestone_foot_height.png": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce",
+    "textures/source/limestone_foot_normal.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+    "textures/source/limestone_foot_orm.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+    "textures/source/limestone_foot_roughness.png": "bc4f136d6e51a8c7f574b3aa75c090006682b3c87499a74536d7c20b723aa7dd",
+    "textures/source/limestone_height.png": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce",
+    "textures/source/limestone_normal.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+    "textures/source/limestone_orm.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+    "textures/source/limestone_roughness.png": "a24ca0783ce0b5628bc6c7238a6689c9eb16ab309bd50251d24c9aa73b56b5cb",
+    "textures/source/limestone_warm_baseColor.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+    "textures/source/limestone_warm_height.png": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce",
+    "textures/source/limestone_warm_normal.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+    "textures/source/limestone_warm_orm.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+    "textures/source/limestone_warm_roughness.png": "a24ca0783ce0b5628bc6c7238a6689c9eb16ab309bd50251d24c9aa73b56b5cb",
+    "textures/source/mortar_baseColor.png": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128",
+    "textures/source/mortar_height.png": "25756863ad3e3c2aae1f09cb6622a81e052474562db78687719a68a5744907a5",
+    "textures/source/mortar_normal.png": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7",
+    "textures/source/mortar_orm.png": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867",
+    "textures/source/mortar_roughness.png": "13a8c74632aa2b9b4bd762b83394c185ad8a9f2e75d87efb08237a61d559a146",
+    "textures/source/oak_baseColor.png": "ece3ea119e04c5546727f89dcc84226195fda4547049a835a38949932b12bbed",
+    "textures/source/oak_height.png": "c8d33a9153869be78659df8646275926c94a9e39d790aec2cdb5fb147a76a1aa",
+    "textures/source/oak_normal.png": "eb6e04d940849627dbe1f61030a70a2d4fca4a6303795ed657f04a1acb049816",
+    "textures/source/oak_orm.png": "a52936d497d9cdb561449fb1e7032f93ece5d05828aa8a0824426ea49d0013a9",
+    "textures/source/oak_roughness.png": "9266edc632cd3a292b8cf15bff985448ed140aca0eb9d1e16f2d8956e4a4d318",
+    "textures/source/plaster_baseColor.png": "c4747251946a4f56437824323cf676e54510e3562db8544e064a53e3a3313379",
+    "textures/source/plaster_height.png": "25756863ad3e3c2aae1f09cb6622a81e052474562db78687719a68a5744907a5",
+    "textures/source/plaster_normal.png": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7",
+    "textures/source/plaster_orm.png": "8e137469bcbd363ba2e5100426917cab89843ddf3dc570f93581bd8b003355a3",
+    "textures/source/plaster_roughness.png": "111811049ed760e5f47e6a6c9ae079c13dc70132ef46cc33cd395b54c3c9f2f7",
+    "textures/source/slate_baseColor.png": "e34c7fc062119389f33665e180cc0924f0baa077f262d00e88b994e89bc5f518",
+    "textures/source/slate_height.png": "18465c6a428a213776aa117b610a51b548401bda4bf0e549c6ec2f56da514889",
+    "textures/source/slate_light_baseColor.png": "d6002ad7288d0fcd8f034e7a4e76556fe52dff9699f401e46a9f1570d0e69aac",
+    "textures/source/slate_light_height.png": "18465c6a428a213776aa117b610a51b548401bda4bf0e549c6ec2f56da514889",
+    "textures/source/slate_light_normal.png": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a",
+    "textures/source/slate_light_orm.png": "12d65af64c4ec250d89193f9a37514a88f74d7eca6a4365a3a4870443234b89e",
+    "textures/source/slate_light_roughness.png": "fa4f24accc5f63b27f9b22dd24afc4914e37e102b65301b822c72d15fbd01882",
+    "textures/source/slate_normal.png": "23d596242013e7f0790cb18d73cbc72755d1c0ca990362fd3162561eec1a767a",
+    "textures/source/slate_orm.png": "2abe8e3412724daeb231c9a8f7c315211f03054ee43817abf49815103fb6c9af",
+    "textures/source/slate_roughness.png": "522f35d23b0c256e0b2c276d3b75561b92a12167dbcb1d67f8dd54cb78249635",
+    "textures/source/sooted_stone_baseColor.png": "aa793b8a72af339e27edc8a6ed3a812a1138ab596aeda864db432a9215f1c71b",
+    "textures/source/sooted_stone_height.png": "39b367a371666b565c4130a64821bed2b6ef6d95f6d552f50eff2c197fed4bce",
+    "textures/source/sooted_stone_normal.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+    "textures/source/sooted_stone_orm.png": "b132a6e837908e0a8fbc62c2cf2f8089a261bbbc78e30d690eb0dec8a75ada26",
+    "textures/source/sooted_stone_roughness.png": "111811049ed760e5f47e6a6c9ae079c13dc70132ef46cc33cd395b54c3c9f2f7"
+  },
+  "contract": {
+    "footprint": [
+      8,
+      2.2
+    ],
+    "nominal_height": 8.3,
+    "wall_walk_height": 6.3,
+    "fitted_end_planes": [
+      -4,
+      4
+    ],
+    "collision_walls": [
+      [
+        [
+          -4,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    ],
+    "wall_thickness": 2.2,
+    "anchor": "ground centre"
+  },
+  "approval": "pending_visual_review",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_curtain_wall_lod0.glb",
+      "sha256": "ca96a296e08197f00a6802fde8d4e9176b227e39db6dea5861a7ea399282fc50",
+      "bytes": 1524920,
+      "triangles": 20944,
+      "vertices": 11472,
+      "materials": 5,
+      "bounds_z_up": {
+        "minimum": [
+          -4.0114288330078125,
+          -1.199090600013733,
+          -0.030288461595773697
+        ],
+        "maximum": [
+          4.0114288330078125,
+          1.1990904808044434,
+          8.346402168273926
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+        "input_glb_sha256": "d541fb6d96b8fc612c03967f218b2726680e2a4cdacd9112c4d36846753e659c",
+        "output_glb_sha256": "ca96a296e08197f00a6802fde8d4e9176b227e39db6dea5861a7ea399282fc50",
+        "embedded_bytes": 1803044,
+        "externalized_bytes": 1524920
+      },
+      "external_textures": {
+        "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7",
+        "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867",
+        "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128",
+        "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+        "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+        "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+        "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+        "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+        "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+        "../textures/sunmeadow_architecture/048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52.png": "048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52",
+        "../textures/sunmeadow_architecture/235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb.png": "235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb"
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_curtain_wall_lod1.glb",
+      "sha256": "35fa0066e295d477305bac8e226a81f1c1cfc06b8dd157d79e8d61a96a1a7904",
+      "bytes": 779048,
+      "triangles": 7900,
+      "vertices": 4950,
+      "materials": 5,
+      "bounds_z_up": {
+        "minimum": [
+          -4.005453586578369,
+          -1.193993330001831,
+          -0.026184650138020515
+        ],
+        "maximum": [
+          4.004427909851074,
+          1.193568468093872,
+          8.34397029876709
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+        "input_glb_sha256": "037ce3c2b54c0b379966e7844289c13a27fd2f74e7f4cbfd00fa4918b2fbbc35",
+        "output_glb_sha256": "35fa0066e295d477305bac8e226a81f1c1cfc06b8dd157d79e8d61a96a1a7904",
+        "embedded_bytes": 1057164,
+        "externalized_bytes": 779048
+      },
+      "external_textures": {
+        "../textures/sunmeadow_architecture/88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7.png": "88636000828ad867740237d357a1d3b12f97f37882510f91437054fd79a92cb7",
+        "../textures/sunmeadow_architecture/425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867.png": "425346d47599bafc0916fe6bd74a3804e16245452df88ff8cf090b6a8647b867",
+        "../textures/sunmeadow_architecture/66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128.png": "66bd1aba7dcb525384d23c45ffa2033a118c1f84abcfc6be79b23782e51c8128",
+        "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+        "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+        "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+        "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+        "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+        "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+        "../textures/sunmeadow_architecture/048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52.png": "048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52",
+        "../textures/sunmeadow_architecture/235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb.png": "235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb"
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_curtain_wall_lod2.glb",
+      "sha256": "bf0a06e69a0efae2fe70553b061825d4ac831136d65710fe8b480f4a5f5eb63b",
+      "bytes": 322848,
+      "triangles": 3096,
+      "vertices": 2064,
+      "materials": 4,
+      "bounds_z_up": {
+        "minimum": [
+          -4.0,
+          -1.1841599941253662,
+          -0.00807692389935255
+        ],
+        "maximum": [
+          4.0,
+          1.1841599941253662,
+          8.346500396728516
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+        "input_glb_sha256": "ae78aca6ea686e8e0aa1d4275ffb2c158cb350441efde8e93d840891613308ee",
+        "output_glb_sha256": "bf0a06e69a0efae2fe70553b061825d4ac831136d65710fe8b480f4a5f5eb63b",
+        "embedded_bytes": 553276,
+        "externalized_bytes": 322848
+      },
+      "external_textures": {
+        "../textures/sunmeadow_architecture/08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f.png": "08cfa818e19b6e5cc8478700304f6cccf4a4bc8d596fd74fdc611886bd2d521f",
+        "../textures/sunmeadow_architecture/b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123.png": "b9d8f3f20dfb79b11be0708527527208eaa78442e2baf072d3c8a401cbd97123",
+        "../textures/sunmeadow_architecture/a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f.png": "a569c4ccd99991e30482e0a280e9132ab3a9b9b58c137eca71da5396819f953f",
+        "../textures/sunmeadow_architecture/73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344.png": "73df5a5057452444dd5c1c2c62630546bfc03e2bc1ad936f23dd9d5c4da3a344",
+        "../textures/sunmeadow_architecture/6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f.png": "6c992d83d3474ff83753d7bbccb9e350ad02bf0d06ed96a9f8ec1bf6b174fd4f",
+        "../textures/sunmeadow_architecture/7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761.png": "7c3ebfca3a5e04f4cb11e28faa55312a614d27fad8510be5224e42e063607761",
+        "../textures/sunmeadow_architecture/048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52.png": "048af6d42706aea364856ffb93f4fb0dd3ca7a70de1078ed6559054812185c52",
+        "../textures/sunmeadow_architecture/235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb.png": "235c6f77d98f0effb9b637fce6652507b7cf594942ce76f490bff261cf73cefb"
+      }
+    }
+  ],
+  "master": "masters/frontier_sunmeadow_curtain_wall.blend",
+  "master_sha256": "035c9493938469d27208803bfe3ceeed182054fcd39facd395f357464fe01f5c"
+}

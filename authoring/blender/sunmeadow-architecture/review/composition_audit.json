@@ -1,0 +1,3425 @@
+{
+  "sourceSha256": "887d23994e6b694532d4d0be84f09e50e085a6c47e778f30cb4ec293e8302257",
+  "architectureInstances": 101,
+  "architecture": [
+    {
+      "id": "sunmeadow_march_salvage_station_visual",
+      "kind": "frontier_sunmeadow_supply_post",
+      "x": -401,
+      "z": -253,
+      "rotY": 0.35,
+      "scale": 1,
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_salvage_station_visual_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_salvage_station_visual_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_salvage_station_visual_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_apothecary_station_visual",
+      "kind": "frontier_sunmeadow_supply_post",
+      "x": -448,
+      "z": -266,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_west_camp_tent",
+      "kind": "frontier_sunmeadow_supply_post",
+      "x": -184,
+      "z": 48,
+      "rotY": 0.55,
+      "scale": 1,
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_west_camp_tent_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_west_camp_tent_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_west_camp_tent_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_east_camp_tent",
+      "kind": "frontier_sunmeadow_supply_post",
+      "x": 184,
+      "z": 48,
+      "rotY": -0.55,
+      "scale": 1,
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_east_camp_tent_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_east_camp_tent_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_east_camp_tent_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_keep_supply_cart",
+      "kind": "frontier_sunmeadow_supply_post",
+      "x": 0,
+      "z": 104,
+      "rotY": 0,
+      "scale": 1,
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_keep_supply_cart_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_keep_supply_cart_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_keep_supply_cart_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_life_outfitter_1",
+      "kind": "frontier_sunmeadow_supply_post",
+      "x": -415,
+      "z": -279,
+      "rotY": -0.08,
+      "scale": 1,
+      "colliders": [
+        {
+          "id": "sunmeadow_march_life_outfitter_1_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_life_outfitter_1_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_life_outfitter_1_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_front_wall_-26",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -376,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_front_wall_-18",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -368,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_front_wall_18",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -332,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_front_wall_26",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -324,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": -20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": -20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": -12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": -12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": -4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": -4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": 4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": 4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_4",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": 12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_4",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": 12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_5",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": 20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_5",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": 20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_-31_6",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -381,
+      "z": 28,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_side_wall_31_6",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -319,
+      "z": 28,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -378,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -370,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -362,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -354,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_4",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -346,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_5",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -338,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_6",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -330,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_rear_wall_7",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -322,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_-15_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -365,
+      "z": -3.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_15_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -335,
+      "z": -3.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_-15_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -365,
+      "z": 4.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_15_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -335,
+      "z": 4.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_-15_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -365,
+      "z": 12.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_15_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -335,
+      "z": 12.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_-15_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -365,
+      "z": 20.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_side_15_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -335,
+      "z": 20.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_rear_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -362,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_rear_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -354,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_rear_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -346,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_rear_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": -338,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_outer_gatehouse",
+      "kind": "frontier_sunmeadow_gatehouse",
+      "assetKey": "frontier_sunmeadow_gatehouse",
+      "x": -350,
+      "z": -19.4,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": -8.5,
+          "z": 0
+        },
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": 8.5,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_keep_front_gate",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": -350,
+      "z": -25.4,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "interaction": {
+        "id": "sunmeadow_march_aegis_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Aegis outer gate",
+        "maxDistance": 12,
+        "startsOpen": false,
+        "openClip": "gate_open",
+        "closeClip": "gate_close"
+      },
+      "colliders": [
+        {
+          "width": 6,
+          "depth": 0.45,
+          "maxY": 4.8,
+          "minY": 0,
+          "x": 0,
+          "z": 0,
+          "blocksWhen": "closed",
+          "interactionId": "sunmeadow_march_aegis_keep_keep_front_gate_interaction"
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_gatehouse",
+      "kind": "frontier_sunmeadow_gatehouse",
+      "assetKey": "frontier_sunmeadow_gatehouse",
+      "x": -350,
+      "z": -2.9,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": -8.5,
+          "z": 0
+        },
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": 8.5,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_keep_inner_front_door",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": -350,
+      "z": -8.9,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "interaction": {
+        "id": "sunmeadow_march_aegis_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Aegis inner gate",
+        "maxDistance": 12,
+        "startsOpen": false,
+        "openClip": "gate_open",
+        "closeClip": "gate_close"
+      },
+      "colliders": [
+        {
+          "width": 6,
+          "depth": 0.45,
+          "maxY": 4.8,
+          "minY": 0,
+          "x": 0,
+          "z": 0,
+          "blocksWhen": "closed",
+          "interactionId": "sunmeadow_march_aegis_keep_keep_inner_front_door_interaction"
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_quartermaster_shelter",
+      "kind": "frontier_sunmeadow_supply_post",
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "x": -363,
+      "z": -64,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_postern_outside",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": -326,
+      "z": 33.15,
+      "rotY": 0,
+      "scale": 0.5,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_postern_inside",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": -326,
+      "z": 30.85,
+      "rotY": 3.141592653589793,
+      "scale": 0.5,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_front_wall_-26",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 324,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_front_wall_-18",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 332,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_front_wall_18",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 368,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_front_wall_26",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 376,
+      "z": -24,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": -20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": -20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": -12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": -12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": -4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": -4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": 4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": 4,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_4",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": 12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_4",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": 12,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_5",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": 20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_5",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": 20,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_-31_6",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 319,
+      "z": 28,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_side_wall_31_6",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 381,
+      "z": 28,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 322,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 330,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 338,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 346,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_4",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 354,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_5",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 362,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_6",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 370,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_rear_wall_7",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 378,
+      "z": 32,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_-15_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 335,
+      "z": -3.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_15_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 365,
+      "z": -3.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_-15_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 335,
+      "z": 4.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_15_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 365,
+      "z": 4.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_-15_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 335,
+      "z": 12.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_15_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 365,
+      "z": 12.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_-15_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 335,
+      "z": 20.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_side_15_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 365,
+      "z": 20.5,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_rear_0",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 338,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_rear_1",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 346,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_rear_2",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 354,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_rear_3",
+      "kind": "frontier_sunmeadow_curtain_wall",
+      "assetKey": "frontier_sunmeadow_curtain_wall",
+      "x": 362,
+      "z": 24.5,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 8,
+          "depth": 2.2,
+          "maxY": 8.3,
+          "minY": 0,
+          "x": 0,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_outer_gatehouse",
+      "kind": "frontier_sunmeadow_gatehouse",
+      "assetKey": "frontier_sunmeadow_gatehouse",
+      "x": 350,
+      "z": -19.4,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": -8.5,
+          "z": 0
+        },
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": 8.5,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_keep_front_gate",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": 350,
+      "z": -25.4,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "interaction": {
+        "id": "sunmeadow_march_riftbound_keep_keep_front_gate_interaction",
+        "type": "gate",
+        "label": "Riftbound outer gate",
+        "maxDistance": 12,
+        "startsOpen": false,
+        "openClip": "gate_open",
+        "closeClip": "gate_close"
+      },
+      "colliders": [
+        {
+          "width": 6,
+          "depth": 0.45,
+          "maxY": 4.8,
+          "minY": 0,
+          "x": 0,
+          "z": 0,
+          "blocksWhen": "closed",
+          "interactionId": "sunmeadow_march_riftbound_keep_keep_front_gate_interaction"
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_gatehouse",
+      "kind": "frontier_sunmeadow_gatehouse",
+      "assetKey": "frontier_sunmeadow_gatehouse",
+      "x": 350,
+      "z": -2.9,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": -8.5,
+          "z": 0
+        },
+        {
+          "width": 11,
+          "depth": 12,
+          "maxY": 12,
+          "minY": 0,
+          "x": 8.5,
+          "z": 0
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_keep_inner_front_door",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": 350,
+      "z": -8.9,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "interaction": {
+        "id": "sunmeadow_march_riftbound_keep_keep_inner_front_door_interaction",
+        "type": "gate",
+        "label": "Riftbound inner gate",
+        "maxDistance": 12,
+        "startsOpen": false,
+        "openClip": "gate_open",
+        "closeClip": "gate_close"
+      },
+      "colliders": [
+        {
+          "width": 6,
+          "depth": 0.45,
+          "maxY": 4.8,
+          "minY": 0,
+          "x": 0,
+          "z": 0,
+          "blocksWhen": "closed",
+          "interactionId": "sunmeadow_march_riftbound_keep_keep_inner_front_door_interaction"
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter",
+      "kind": "frontier_sunmeadow_supply_post",
+      "assetKey": "frontier_sunmeadow_supply_post",
+      "x": 337,
+      "z": -64,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_postern_outside",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": 374,
+      "z": 33.15,
+      "rotY": 0,
+      "scale": 0.5,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_postern_inside",
+      "kind": "frontier_sunmeadow_gate_leaves",
+      "assetKey": "frontier_sunmeadow_gate_leaves",
+      "x": 374,
+      "z": 30.85,
+      "rotY": 3.141592653589793,
+      "scale": 0.5,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_west_farmhouse",
+      "kind": "frontier_sunmeadow_farmhouse",
+      "assetKey": "frontier_sunmeadow_farmhouse",
+      "x": -473,
+      "z": -266,
+      "rotY": 1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_north_farmhouse",
+      "kind": "frontier_sunmeadow_farmhouse",
+      "assetKey": "frontier_sunmeadow_farmhouse",
+      "x": -459,
+      "z": -211,
+      "rotY": 3.141592653589793,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_east_farmhouse",
+      "kind": "frontier_sunmeadow_farmhouse",
+      "assetKey": "frontier_sunmeadow_farmhouse",
+      "x": -391,
+      "z": -273,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_croft_farmhouse",
+      "kind": "frontier_sunmeadow_farmhouse",
+      "assetKey": "frontier_sunmeadow_farmhouse",
+      "x": -485,
+      "z": -295,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_craft_workshop",
+      "kind": "frontier_sunmeadow_workshop",
+      "assetKey": "frontier_sunmeadow_workshop",
+      "x": -397,
+      "z": -244,
+      "rotY": -1.5707963267948966,
+      "scale": 1,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 8,
+          "maxY": 7,
+          "minY": 0,
+          "x": -5,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 8,
+          "maxY": 7,
+          "minY": 0,
+          "x": 5,
+          "z": 0
+        },
+        {
+          "width": 10,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -4
+        },
+        {
+          "width": 3.7,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -3.15,
+          "z": 4
+        },
+        {
+          "width": 3.7,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 3.15,
+          "z": 4
+        }
+      ]
+    }
+  ],
+  "servicePoints": [
+    {
+      "id": "sunmeadow_march_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -451,
+      "z": -239,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "sunmeadow_march_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 1 Campaign Marshal",
+      "role": "guard",
+      "x": -419,
+      "z": -239,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_1_campaign_marshal"
+    },
+    {
+      "id": "sunmeadow_march_scout",
+      "name": "Mira Stonewake",
+      "title": "Forward Scout",
+      "role": "guard",
+      "x": -457,
+      "z": -257,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_forward_scout"
+    },
+    {
+      "id": "sunmeadow_march_craft_mentor",
+      "name": "Alden Voss",
+      "title": "Field Crafting Mentor",
+      "role": "trainer",
+      "x": -413,
+      "z": -257,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_alden_voss_field_crafting_mentor"
+    },
+    {
+      "id": "sunmeadow_march_forager",
+      "name": "Serra Brightfield",
+      "title": "Resource Warden",
+      "role": "ambient",
+      "x": -446,
+      "z": -267,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+    },
+    {
+      "id": "sunmeadow_march_cultivation_station",
+      "label": "Field Cultivation Patch",
+      "kind": "cultivation",
+      "x": -469,
+      "z": -253,
+      "radius": 7
+    },
+    {
+      "id": "sunmeadow_march_salvage_station",
+      "label": "War Salvage Bench",
+      "kind": "salvage",
+      "x": -401,
+      "z": -253,
+      "radius": 6
+    },
+    {
+      "id": "sunmeadow_march_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": -448,
+      "z": -266,
+      "radius": 6
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_commander",
+      "x": -350,
+      "z": 4
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_quartermaster",
+      "x": -363,
+      "z": -60
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_postern_inside",
+      "x": -326,
+      "y": 0,
+      "z": 28
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_postern_outside",
+      "x": -326,
+      "y": 0,
+      "z": 35
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_oil_1_operator",
+      "x": -342,
+      "y": 0,
+      "z": -11.9
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_catapult_1",
+      "kind": "catapult",
+      "x": -375,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_catapult_2",
+      "kind": "catapult",
+      "x": -325,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_commander",
+      "x": 350,
+      "z": 4
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_quartermaster",
+      "x": 337,
+      "z": -60
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_postern_inside",
+      "x": 374,
+      "y": 0,
+      "z": 28
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_postern_outside",
+      "x": 374,
+      "y": 0,
+      "z": 35
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_oil_1_operator",
+      "x": 358,
+      "y": 0,
+      "z": -11.9
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_catapult_1",
+      "kind": "catapult",
+      "x": 325,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_catapult_2",
+      "kind": "catapult",
+      "x": 375,
+      "z": 25,
+      "y": 0,
+      "assetKey": "frontier_field_catapult"
+    }
+  ],
+  "gatehouses": [
+    {
+      "id": "sunmeadow_march_aegis_keep_outer_gatehouse",
+      "centre": {
+        "x": -350,
+        "z": -19.4
+      },
+      "wingLineEnds": [
+        {
+          "x": -336,
+          "z": -24
+        },
+        {
+          "x": -364,
+          "z": -24
+        }
+      ],
+      "entrance": {
+        "x": -350,
+        "z": -25.4
+      },
+      "exit": {
+        "x": -350,
+        "z": -13.399999999999999
+      }
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_inner_gatehouse",
+      "centre": {
+        "x": -350,
+        "z": -2.9
+      },
+      "wingLineEnds": [
+        {
+          "x": -336,
+          "z": -7.499999999999998
+        },
+        {
+          "x": -364,
+          "z": -7.500000000000002
+        }
+      ],
+      "entrance": {
+        "x": -350,
+        "z": -8.9
+      },
+      "exit": {
+        "x": -350,
+        "z": 3.1
+      }
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_outer_gatehouse",
+      "centre": {
+        "x": 350,
+        "z": -19.4
+      },
+      "wingLineEnds": [
+        {
+          "x": 364,
+          "z": -24
+        },
+        {
+          "x": 336,
+          "z": -24
+        }
+      ],
+      "entrance": {
+        "x": 350,
+        "z": -25.4
+      },
+      "exit": {
+        "x": 350,
+        "z": -13.399999999999999
+      }
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_inner_gatehouse",
+      "centre": {
+        "x": 350,
+        "z": -2.9
+      },
+      "wingLineEnds": [
+        {
+          "x": 364,
+          "z": -7.499999999999998
+        },
+        {
+          "x": 336,
+          "z": -7.500000000000002
+        }
+      ],
+      "entrance": {
+        "x": 350,
+        "z": -8.9
+      },
+      "exit": {
+        "x": 350,
+        "z": 3.1
+      }
+    }
+  ],
+  "serviceBuildingOverlap": [
+    {
+      "prop": "sunmeadow_march_salvage_station_visual",
+      "service": "sunmeadow_march_salvage_station",
+      "position": {
+        "id": "sunmeadow_march_salvage_station",
+        "label": "War Salvage Bench",
+        "kind": "salvage",
+        "x": -401,
+        "z": -253,
+        "radius": 6
+      },
+      "local": {
+        "x": 0,
+        "z": 0
+      }
+    },
+    {
+      "prop": "sunmeadow_march_apothecary_station_visual",
+      "service": "sunmeadow_march_forager",
+      "position": {
+        "id": "sunmeadow_march_forager",
+        "name": "Serra Brightfield",
+        "title": "Resource Warden",
+        "role": "ambient",
+        "x": -446,
+        "z": -267,
+        "rotY": 0,
+        "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+      },
+      "local": {
+        "x": 2,
+        "z": -1
+      }
+    },
+    {
+      "prop": "sunmeadow_march_apothecary_station_visual",
+      "service": "sunmeadow_march_apothecary_station",
+      "position": {
+        "id": "sunmeadow_march_apothecary_station",
+        "label": "Field Apothecary Table",
+        "kind": "apothecary",
+        "x": -448,
+        "z": -266,
+        "radius": 6
+      },
+      "local": {
+        "x": 0,
+        "z": 0
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "id": "sunmeadow_march_salvage_station_visual",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": -401,
+      "z": -253,
+      "rotation": 0.35,
+      "entrance": {
+        "x": -400.14275548136135,
+        "z": -250.65156821788156
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_salvage_station_visual_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_salvage_station_visual_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_salvage_station_visual_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": [
+        {
+          "id": "sunmeadow_march_salvage_station",
+          "x": -401,
+          "z": -253
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_apothecary_station_visual",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": -448,
+      "z": -266,
+      "rotation": 0,
+      "entrance": {
+        "x": -448,
+        "z": -263.5
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": [
+        {
+          "id": "sunmeadow_march_forager",
+          "x": -446,
+          "z": -267
+        },
+        {
+          "id": "sunmeadow_march_apothecary_station",
+          "x": -448,
+          "z": -266
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_west_camp_tent",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": -184,
+      "z": 48,
+      "rotation": 0.55,
+      "entrance": {
+        "x": -182.69328192767335,
+        "z": 50.13131130514876
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_west_camp_tent_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_west_camp_tent_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_west_camp_tent_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_east_camp_tent",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": 184,
+      "z": 48,
+      "rotation": -0.55,
+      "entrance": {
+        "x": 182.69328192767335,
+        "z": 50.13131130514876
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_east_camp_tent_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_east_camp_tent_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_east_camp_tent_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_keep_supply_cart",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": 0,
+      "z": 104,
+      "rotation": 0,
+      "entrance": {
+        "x": 0,
+        "z": 106.5
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_keep_supply_cart_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_keep_supply_cart_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_keep_supply_cart_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_life_outfitter_1",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": -415,
+      "z": -279,
+      "rotation": -0.08,
+      "entrance": {
+        "x": -415.19978673492295,
+        "z": -276.5079957342435
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_life_outfitter_1_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_life_outfitter_1_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_life_outfitter_1_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_aegis_keep_quartermaster_shelter",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": -363,
+      "z": -64,
+      "rotation": 0,
+      "entrance": {
+        "x": -363,
+        "z": -61.5
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter",
+      "key": "frontier_sunmeadow_supply_post",
+      "x": 337,
+      "z": -64,
+      "rotation": 0,
+      "entrance": {
+        "x": 337,
+        "z": -61.5
+      },
+      "colliders": [
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_left_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_right_wall",
+          "width": 0.5,
+          "depth": 5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_rear_wall",
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 1.5,
+          "minY": 0,
+          "x": 0,
+          "z": -2.5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_west_farmhouse",
+      "key": "frontier_sunmeadow_farmhouse",
+      "x": -473,
+      "z": -266,
+      "rotation": 1.5707963267948966,
+      "entrance": {
+        "x": -468,
+        "z": -266
+      },
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_north_farmhouse",
+      "key": "frontier_sunmeadow_farmhouse",
+      "x": -459,
+      "z": -211,
+      "rotation": 3.141592653589793,
+      "entrance": {
+        "x": -459,
+        "z": -216
+      },
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_east_farmhouse",
+      "key": "frontier_sunmeadow_farmhouse",
+      "x": -391,
+      "z": -273,
+      "rotation": -1.5707963267948966,
+      "entrance": {
+        "x": -396,
+        "z": -273
+      },
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_croft_farmhouse",
+      "key": "frontier_sunmeadow_farmhouse",
+      "x": -485,
+      "z": -295,
+      "rotation": 0,
+      "entrance": {
+        "x": -485,
+        "z": -290
+      },
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": -4,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 10,
+          "maxY": 7,
+          "minY": 0,
+          "x": 4,
+          "z": 0
+        },
+        {
+          "width": 8,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -2.4,
+          "z": 5
+        },
+        {
+          "width": 3.2,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 2.4,
+          "z": 5
+        }
+      ],
+      "nearServices": []
+    },
+    {
+      "id": "sunmeadow_march_craft_workshop",
+      "key": "frontier_sunmeadow_workshop",
+      "x": -397,
+      "z": -244,
+      "rotation": -1.5707963267948966,
+      "entrance": {
+        "x": -401,
+        "z": -244
+      },
+      "colliders": [
+        {
+          "width": 0.5,
+          "depth": 8,
+          "maxY": 7,
+          "minY": 0,
+          "x": -5,
+          "z": 0
+        },
+        {
+          "width": 0.5,
+          "depth": 8,
+          "maxY": 7,
+          "minY": 0,
+          "x": 5,
+          "z": 0
+        },
+        {
+          "width": 10,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 0,
+          "z": -4
+        },
+        {
+          "width": 3.7,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": -3.15,
+          "z": 4
+        },
+        {
+          "width": 3.7,
+          "depth": 0.5,
+          "maxY": 7,
+          "minY": 0,
+          "x": 3.15,
+          "z": 4
+        }
+      ],
+      "nearServices": [
+        {
+          "id": "sunmeadow_march_salvage_station",
+          "x": -401,
+          "z": -253
+        }
+      ]
+    }
+  ],
+  "keeps": [
+    {
+      "id": "sunmeadow_march_aegis_keep",
+      "x": -350,
+      "z": 0,
+      "quartermaster": {
+        "x": -363,
+        "z": -60
+      },
+      "postern": {
+        "propId": "sunmeadow_march_aegis_keep_postern_outside",
+        "outside": {
+          "x": -326,
+          "y": 0,
+          "z": 35
+        },
+        "inside": {
+          "x": -326,
+          "y": 0,
+          "z": 28
+        },
+        "interactionRadius": 3
+      },
+      "siegeSlots": [
+        {
+          "id": "sunmeadow_march_aegis_keep_oil_1",
+          "kind": "oil",
+          "x": -350,
+          "z": -22,
+          "y": 7.5,
+          "assetKey": "frontier_oil_cauldron",
+          "operatorPosition": {
+            "x": -342,
+            "y": 0,
+            "z": -11.9
+          }
+        },
+        {
+          "id": "sunmeadow_march_aegis_keep_catapult_1",
+          "kind": "catapult",
+          "x": -375,
+          "z": 25,
+          "y": 0,
+          "assetKey": "frontier_field_catapult"
+        },
+        {
+          "id": "sunmeadow_march_aegis_keep_catapult_2",
+          "kind": "catapult",
+          "x": -325,
+          "z": 25,
+          "y": 0,
+          "assetKey": "frontier_field_catapult"
+        }
+      ]
+    },
+    {
+      "id": "sunmeadow_march_riftbound_keep",
+      "x": 350,
+      "z": 0,
+      "quartermaster": {
+        "x": 337,
+        "z": -60
+      },
+      "postern": {
+        "propId": "sunmeadow_march_riftbound_keep_postern_outside",
+        "outside": {
+          "x": 374,
+          "y": 0,
+          "z": 35
+        },
+        "inside": {
+          "x": 374,
+          "y": 0,
+          "z": 28
+        },
+        "interactionRadius": 3
+      },
+      "siegeSlots": [
+        {
+          "id": "sunmeadow_march_riftbound_keep_oil_1",
+          "kind": "oil",
+          "x": 350,
+          "z": -22,
+          "y": 7.5,
+          "assetKey": "frontier_oil_cauldron",
+          "operatorPosition": {
+            "x": 358,
+            "y": 0,
+            "z": -11.9
+          }
+        },
+        {
+          "id": "sunmeadow_march_riftbound_keep_catapult_1",
+          "kind": "catapult",
+          "x": 325,
+          "z": 25,
+          "y": 0,
+          "assetKey": "frontier_field_catapult"
+        },
+        {
+          "id": "sunmeadow_march_riftbound_keep_catapult_2",
+          "kind": "catapult",
+          "x": 375,
+          "z": 25,
+          "y": 0,
+          "assetKey": "frontier_field_catapult"
+        }
+      ]
+    }
+  ]
+}

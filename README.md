@@ -1,5 +1,140 @@
 # War-js
 
+## Zone atlas controls and rendering
+
+Open the Campaign Atlas's Zone tier and use the wheel or **+ / -** to zoom up to
+**800%**. Drag to pan; **Fit** returns to the whole zone. Hover individual symbols
+for details. Objectives, resources, NPCs and foes use separated, fixed-size symbols
+with leader lines back to their actual locations; layer toggles can further reduce clutter.
+
+Atlas and minimap share `src/ui/hud/zoneMapGeometry.ts`: footprints come from the
+zone's collider/walkable dimensions, local offsets, rotation and scale. Streets,
+canals, buildings and walls remain visible at overview scale; lamps, railings,
+crates and other small dressing appear only when there is room at close zoom.
+Collision-only and hidden props are omitted. New zones use this automatically;
+there are no per-zone map images or additional map-generation steps.
+
+`src/world/mapZoneSource.ts` overlays the GM editor document on the source zone.
+`Game.mapZoneDefinition` caches that projection by editor revision, including
+moves, scale/rotation changes, additions, hides/restores, undo/redo and top-surface
+voxel painting. The open atlas refreshes these revisions without resetting zoom;
+the minimap reads the same projection. Editing an individual generated road strip
+switches that street to its actual edited footprints instead of leaving a stale
+centerline. Optional prop `label` values are shared with the editor and map.
+
+For manual JSON edits, keep using `public/assets/maps/<zoneId>.json` (or the
+campaign source generator for generated content). Reload the active zone to apply
+file changes to the world; reopening an atlas preview fetches fresh zone data and
+published edits instead of retaining an indefinite cache. No separate map edits
+are required. Edits from an incompatible capital layout version are ignored, as
+in the world runtime.
+
+`WorldMapPanel.tsx` paints the visible window with a small edge buffer and repaints
+on scroll before the next frame. `worldMapPresentation.ts` spaces symbols;
+`campaignMapViewport.ts` keeps wheel zoom anchored and suppresses native scrolling.
+
+Verify with `npm test -- tests/zoneMapGeometry.test.ts tests/mapZoneSource.test.ts tests/worldMapPresentation.test.ts tests/campaignMapViewport.test.ts tests/campaignMapModel.test.ts tests/craterMap.test.ts tests/pathKit.test.ts tests/builderEditing.test.ts`
+and `npm run build`. Check both capitals and a field zone in the browser; move,
+hide and restore a building in the GM editor while checking atlas/minimap updates.
+
+## Expanded world and shared campaign playtest
+
+The 16 battlefields and two fortress maps now span **1,200 × 1,200 metres**, each
+with three battlefield objectives, one initial keep per realm, safe staging and
+six clear supply routes. Climate and population briefs cover all 30 noncapital
+zones. Existing travel links and optional boss branches remain intact.
+
+Outdoor roads use connected, curved alignments: a main road through the three
+objectives, branches to each keep, and narrower routes to settlements, staging
+and travel exits. Caravan itineraries reuse these physical roads. Roadside
+scenery clears the full lane, with services and harvest identities preserved.
+`scripts/campaign/orvr-road-network.mjs` authors the general network;
+`sunmeadow-road-network.mjs` composes Sunmeadow's farmland routes. `RoadSurface.ts`
+builds continuous terrain-fitted surfaces with rounded junctions and road ends in local and shared play;
+reviewed Sunmeadow terrain includes its roads in the exported sectors.
+Road materials use a small depth bias to retain their ground clearance in distant views.
+
+Sunmeadow's authored terrain, buildings and vegetation live in
+`authoring/blender/sunmeadow-{terrain,architecture,nature}/`. Their publishers
+require exact export, texture and visual-review evidence before registry use.
+Rebuild with each package's README, then run `npm run models:registry` and
+`npm run campaign:generate`. The terrain package's `runtime-review.html`, served
+by Vite, opens the actual local game at roads, farms and both keep approaches
+without saving inspection positions. Shared play remains available below.
+
+Run `npm run server:dev` alongside `npm run dev`, then open
+`http://127.0.0.1:5173/?campaign=shared` for the shared campaign playtest. It has
+server-owned combat, supplies, keep upgrades, siege equipment, captures, advancing
+fronts, counterpushes and 18-versus-18 admission. See [server setup and verification](server/README.md).
+Reconnects preserve authoritative position and command sequence; zone transfers
+and queue admission use staging. With the loopback server running,
+`npx tsx authoring/blender/sunmeadow-terrain/review_shared_navigation.ts` verifies
+live movement, grounding and reconnect persistence and saves a local receipt.
+
+The [implementation plan](docs/world-orvr-implementation-plan.md) tracks rollout
+and remaining acceptance work; the [verification record](docs/orvr-verification.md)
+distinguishes tested behavior from unfinished work. [Regional art briefs](docs/orvr-zone-art-briefs.md)
+define cultures, climates, flora and fauna. The first five original siege models
+have [editable sources and staged reviews](authoring/blender/orvr-frontier/README.md).
+
+**The full visual replacement is unfinished.** Layouts explicitly remain
+`layout-ready-art-pending`; enlargement is not Battle Prelate-quality completion.
+Draft models are not promoted automatically. Server city navigation, full network
+character progression and GPU/performance acceptance also remain in progress.
+
+
+## Riftspire suspended crater capital
+
+`scripts/campaign/riftspire-city-source.mjs` replaces Riftspire's flat layout with
+an approximately 800 m wide, 300 m deep crater in a 1,024 m zone. Five wall terraces,
+two suspended settlement levels, four broad transit arms, five working lifts and
+four redundant stair routes connect six districts. The map contains 248 recessed
+homes/workshops across eight distinct silhouettes, clustered at different densities
+with paired cottages, varied footprints and unoccupied cliff stretches. There are
+24 hanging huts, eight furnished public
+rooms and the connected admission hall, vault and throne room. Named services,
+quest identities and the three campaign edges are preserved; the northern rim
+gate serves a local supply approach.
+
+District dressing adds 692 placed assemblies: military stores and cages at
+Ashgate, stocked Blackvein stalls, household washing and cooking spaces, Chainwake
+haulage equipment, Drowned Works pumps and ore carts, and Crown monuments and war
+tables. There are 142 reviewed ambient inhabitants. Riftspire registers up to 160
+district actors, displaying only the nearest 48 within 100 m; other zones retain
+their existing 48-actor cap. Small street props cull beyond 220 m.
+The placement source is `scripts/campaign/riftspire-district-dressing.mjs`, with
+shared model footprints in `riftspire-district-props.json`.
+
+`authoring/blender/riftspire-city/` contains editable Blender masters, three LODs
+for 58 static modules and three population models, shared 2048px PBR textures,
+hash-bound visual review records and exported-model renders. These use new
+Riftspire architecture with reviewed existing anatomy as the population starting
+point. Surface normals are generated from material height fields; they are not
+high-poly sculpt transfer bakes. See that directory's README for rebuild and
+review commands.
+
+`CraterCity.ts` resolves floors from the player's current elevation, so lower
+streets do not snap onto bridges. `CityLifts.ts` moves cages, collision and
+passengers in the existing foreground loop. `CityLighting.ts` reuses two local
+room lights. Absolute prop/NPC placement is opt-in; other zones retain their
+terrain-relative defaults. Capital instancing, material sharing and reviewed
+population loading serve both cities. Moving cages stay outside static batches.
+
+Riftspire loads only approved, hash-checked models, tries another approved LOD
+on failure and omits unavailable decoration. If no safe floor loads, it returns
+the player through the existing fortress connection. Obsolete flat positions and
+layout edits recover safely without resetting progression. Falls return to the
+last fixed landing. Maps, interactions, portals and siege objectives respect
+elevation. Capture order is **Chainwake Bridgehead → Blackvein Vault → Riftspire
+Throne**, with the existing campaign siege prerequisites.
+
+Run `npm run campaign:generate`, `npm run models:registry` and
+`npm run builder:generate` after authoring changes. Verify with the crater,
+city-lift, city-lighting, reviewed-asset, world-life and citadel-objective suites,
+then `npm run build`, `npm run world:validate`, `npm run models:validate` and
+`npm run builder:validate`. The authoring review page runs the actual game with
+position persistence disabled; append `?zone=aegis` for the matched comparison.
+
 ## Aegis garden wards and reviewed population
 
 `scripts/campaign/aegis-city-infill.mjs` adds varied houses, linden and cypress
@@ -196,8 +331,9 @@ cleanup. These figures describe images, not total tab memory.
 
 ## GM Builder asset catalog
 
-GM Build includes searchable Aegis city assets, reviewed registry scenery, map
-props, world-life furniture and procedural nature pieces. Search all assets, pick
+GM Build includes searchable Aegis city assets, reviewed registry scenery and NPC
+models, frontier terrain, buildings, vegetation, wildlife and siege assets as they
+are approved, map props, world-life furniture and procedural nature pieces. Search all assets, pick
 a piece, then use Brush to place it. Find placed object searches the zone by name
 or stable ID, including collision-only objects; select it to Delete. Search
 `removed` and use Restore removed object to recover a hidden map object. Undo,
@@ -205,14 +341,31 @@ draft autosave and Publish use the existing world-edit document workflow.
 
 `scripts/generate-builder-catalog.mjs` builds
 `src/world/editor/prefabs.generated.json` from map props, the runtime static asset
-registry and procedural fallback kinds. It strips instance IDs, retains authored
+and character registries and procedural fallback kinds. It strips instance IDs, retains authored
 collision/walkable and interaction defaults, and derives model footprints from
 GLB bounds. `PrefabCatalog.ts` combines those entries with the existing modular
-town and fortress kits. Run `npm run builder:generate` after changing maps or the
-model registry; `npm run builder:validate` checks for drift. Regression coverage:
-`npx vitest run tests/builderCatalog.test.ts tests/builderEditing.test.ts tests/cityInstances.test.ts`.
+town and fortress kits. Compiling the approved asset registry refreshes this catalog
+automatically; run `npm run builder:generate` after changing maps.
+`npm run builder:validate` checks for drift. Measured package placement defaults
+come from `authoring/blender/<package>/builder-metadata.json`, accepted only when
+each entry is runtime-ready and matches the registry model hash.
+Published legacy NPCs retain their original technical round-trip report, with final
+approval in the registry. On older Windows checkouts,
+`node scripts/restore-reviewed-qc-newlines.mjs --write` restores newline conversions
+only when the resulting bytes exactly match the existing approval hash; QC files
+now disable Git text conversion.
 
-This catalog edits scenery objects. NPCs, enemies, gathering nodes, campaign
+`BuilderAssetPresentation.ts` loads approved NPC and frontier models with their
+actual LODs and idle animation. Deleting a stamp releases its animation and skeleton
+without disposing cached model resources. Terrain sectors place around the brush
+origin and use high-detail mesh support independent of visual LOD. They add ground
+above the existing terrain; they do not cut holes into the underlying heightfield.
+The Sunmeadow `runtime-review.html?review=gm` provides placement, save/reload and
+clear controls using an isolated in-memory document. Regression coverage:
+`npx vitest run tests/builderCatalog.test.ts tests/builderApprovedRegistry.test.ts tests/builderEditing.test.ts tests/builderAssetPresentation.test.ts tests/builderGroundSurface.test.ts tests/cityInstances.test.ts`.
+
+This catalog places visual models, including animated inhabitants. NPC behavior,
+enemies, gathering nodes, campaign
 objectives, and procedural canal/heightfield definitions remain separate gameplay
 or map systems; placing their visual model does not create a functional entity.
 
@@ -407,7 +560,7 @@ src/
 
 Runtime terrain notes:
 
-- `src/world/PathKit.ts` expands zone `paths` into connected visual road props, including endpoint connectors and junction caps for close path endpoints.
+- `src/world/PathKit.ts` expands city and legacy zone `paths` into connected visual road props. Outdoor ORvR maps use continuous terrain-following ribbons from `RoadSurface.ts`, or roads baked into approved terrain sectors, without tiled road props.
 - Generated path props render through terrain-following ribbons in `src/world/Props.ts`; they do not create separate walkable shelves, so player grounding stays tied to the active terrain or authored walkable surfaces.
 - `src/game/Camera.ts` supports nearly straight-up through straight-down mouse/touch orbit indoors and outdoors, including a level horizon view. `src/game/CameraCollision.ts` shortens the orbit against finite-height colliders, terrain along the full camera path, and world geometry (including props, roofs, interior furniture/ceilings, and GM edits). Geometry checks use nearby mesh bounds before raycasting and retain original high-detail city sources when rendering uses instancing. Collision preserves the requested angle and zoom; the avatar hides when the camera is too close to keep the view clear.
 - Camera regression checks: `npm test -- tests/camera.test.ts tests/cameraIntegration.test.ts tests/houseInteriorRuntime.test.ts tests/zoneTransition.test.ts`. For a visual check, drag to both vertical extremes, look toward the horizon, orbit beside walls and under roofs, and leave an obstruction to confirm the selected zoom returns.

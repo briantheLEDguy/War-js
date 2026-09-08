@@ -1,0 +1,1214 @@
+{
+  "asset": "frontier_sunmeadow_roe_deer_buck",
+  "status": "anatomy-and-motion-review-required",
+  "source_sha256": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+  "builder_sha256": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+  "rig_helper_sha256": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+  "motion_source_sha256": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+  "source_files": {
+    "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+    "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+    "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+    "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+    "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+    "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+    "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+    "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+    "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+    "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+    "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256"
+  },
+  "texture_sources": {
+    "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+    "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+    "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29"
+  },
+  "cage": "source/frontier_sunmeadow_roe_deer_buck_cage.json",
+  "cage_sha256": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d",
+  "motion": [
+    {
+      "clip": "idle",
+      "duration": 4.0,
+      "frames": 241,
+      "maximum_ik_reach_error_m": 0,
+      "loop": true,
+      "motion_space": "in_place",
+      "locomotion": null,
+      "status": "deformation_review_required"
+    },
+    {
+      "clip": "walk",
+      "duration": 1.1,
+      "frames": 67,
+      "maximum_ik_reach_error_m": 0,
+      "loop": true,
+      "motion_space": "in_place",
+      "locomotion": {
+        "stride_m": 0.24300000000000002,
+        "stance_fraction": 0.64,
+        "phase_offsets": {
+          "front_L": 0,
+          "front_R": 0.5,
+          "hind_L": 0.75,
+          "hind_R": 0.25
+        },
+        "speed_mps": 0.34517045454545453,
+        "foot_lift_m": 0.0585,
+        "trajectory": "constant_velocity_stance_c1_return"
+      },
+      "status": "deformation_review_required"
+    },
+    {
+      "clip": "run",
+      "duration": 0.6,
+      "frames": 37,
+      "maximum_ik_reach_error_m": 0.013874404857447564,
+      "loop": true,
+      "motion_space": "in_place",
+      "locomotion": {
+        "stride_m": 0.432,
+        "stance_fraction": 0.24,
+        "phase_offsets": {
+          "front_L": 0.08,
+          "front_R": 0.18,
+          "hind_L": 0.57,
+          "hind_R": 0.66
+        },
+        "speed_mps": 3.0,
+        "foot_lift_m": 0.135,
+        "trajectory": "constant_velocity_stance_c1_return"
+      },
+      "status": "deformation_review_required"
+    },
+    {
+      "clip": "graze",
+      "duration": 6.0,
+      "frames": 361,
+      "maximum_ik_reach_error_m": 0,
+      "loop": true,
+      "motion_space": "in_place",
+      "locomotion": null,
+      "status": "deformation_review_required"
+    }
+  ],
+  "master": "masters/frontier_sunmeadow_roe_deer_buck.blend",
+  "master_sha256": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "bytes": 8773228,
+      "triangles": 47152,
+      "vertices": 23691,
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 1368,
+          "faces": 1346
+        },
+        {
+          "name": "concave_ear_ear_L",
+          "first_vertex": 1368,
+          "vertices": 238,
+          "faces": 236
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 1606,
+          "vertices": 144,
+          "faces": 120
+        },
+        {
+          "name": "front_leg_L",
+          "first_vertex": 1750,
+          "vertices": 696,
+          "faces": 674
+        },
+        {
+          "name": "cloven_hoof_front_leg_L_-1",
+          "first_vertex": 2446,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "cloven_hoof_front_leg_L_1",
+          "first_vertex": 2758,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "hind_leg_L",
+          "first_vertex": 3070,
+          "vertices": 696,
+          "faces": 674
+        },
+        {
+          "name": "cloven_hoof_hind_leg_L_-1",
+          "first_vertex": 3766,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "cloven_hoof_hind_leg_L_1",
+          "first_vertex": 4078,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "concave_ear_ear_R",
+          "first_vertex": 4390,
+          "vertices": 238,
+          "faces": 236
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 4628,
+          "vertices": 144,
+          "faces": 120
+        },
+        {
+          "name": "front_leg_R",
+          "first_vertex": 4772,
+          "vertices": 696,
+          "faces": 674
+        },
+        {
+          "name": "cloven_hoof_front_leg_R_-1",
+          "first_vertex": 5468,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "cloven_hoof_front_leg_R_1",
+          "first_vertex": 5780,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "hind_leg_R",
+          "first_vertex": 6092,
+          "vertices": 696,
+          "faces": 674
+        },
+        {
+          "name": "cloven_hoof_hind_leg_R_-1",
+          "first_vertex": 6788,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "cloven_hoof_hind_leg_R_1",
+          "first_vertex": 7100,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "tapered_tail",
+          "first_vertex": 7412,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "sculpted_rhinarium_alar_folds",
+          "first_vertex": 7628,
+          "vertices": 48,
+          "faces": 37
+        },
+        {
+          "name": "nostril_recess_-1",
+          "first_vertex": 7676,
+          "vertices": 48,
+          "faces": 32
+        },
+        {
+          "name": "nostril_recess_1",
+          "first_vertex": 7724,
+          "vertices": 48,
+          "faces": 32
+        },
+        {
+          "name": "antler_beam_-1",
+          "first_vertex": 7772,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "antler_burr_-1",
+          "first_vertex": 8084,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "antler_tine_-1",
+          "first_vertex": 8396,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "antler_tine_-1",
+          "first_vertex": 8612,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "antler_beam_1",
+          "first_vertex": 8828,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "antler_burr_1",
+          "first_vertex": 9140,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "antler_tine_1",
+          "first_vertex": 9452,
+          "vertices": 216,
+          "faces": 194
+        },
+        {
+          "name": "antler_tine_1",
+          "first_vertex": 9668,
+          "vertices": 216,
+          "faces": 194
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
+      "sha256": "a9848bea6b0400246d10c56f664bd7e00e9cbf5bf9f615d2c54679e02dfaf15c",
+      "bytes": 7541104,
+      "triangles": 21678,
+      "vertices": 10930,
+      "bounds_blender": {
+        "min": [
+          -0.18656976521015167,
+          -0.7600319385528564,
+          3.059394657611847e-05
+        ],
+        "max": [
+          0.18668435513973236,
+          0.4491190016269684,
+          1.2953706979751587
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 688,
+          "faces": 674
+        },
+        {
+          "name": "concave_ear_ear_L",
+          "first_vertex": 688,
+          "vertices": 110,
+          "faces": 108
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 798,
+          "vertices": 96,
+          "faces": 80
+        },
+        {
+          "name": "front_leg_L",
+          "first_vertex": 894,
+          "vertices": 352,
+          "faces": 338
+        },
+        {
+          "name": "cloven_hoof_front_leg_L_-1",
+          "first_vertex": 1246,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "cloven_hoof_front_leg_L_1",
+          "first_vertex": 1406,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "hind_leg_L",
+          "first_vertex": 1566,
+          "vertices": 352,
+          "faces": 338
+        },
+        {
+          "name": "cloven_hoof_hind_leg_L_-1",
+          "first_vertex": 1918,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "cloven_hoof_hind_leg_L_1",
+          "first_vertex": 2078,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "concave_ear_ear_R",
+          "first_vertex": 2238,
+          "vertices": 110,
+          "faces": 108
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 2348,
+          "vertices": 96,
+          "faces": 80
+        },
+        {
+          "name": "front_leg_R",
+          "first_vertex": 2444,
+          "vertices": 352,
+          "faces": 338
+        },
+        {
+          "name": "cloven_hoof_front_leg_R_-1",
+          "first_vertex": 2796,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "cloven_hoof_front_leg_R_1",
+          "first_vertex": 2956,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "hind_leg_R",
+          "first_vertex": 3116,
+          "vertices": 352,
+          "faces": 338
+        },
+        {
+          "name": "cloven_hoof_hind_leg_R_-1",
+          "first_vertex": 3468,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "cloven_hoof_hind_leg_R_1",
+          "first_vertex": 3628,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "tapered_tail",
+          "first_vertex": 3788,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "sculpted_rhinarium_alar_folds",
+          "first_vertex": 3900,
+          "vertices": 48,
+          "faces": 37
+        },
+        {
+          "name": "nostril_recess_-1",
+          "first_vertex": 3948,
+          "vertices": 36,
+          "faces": 24
+        },
+        {
+          "name": "nostril_recess_1",
+          "first_vertex": 3984,
+          "vertices": 36,
+          "faces": 24
+        },
+        {
+          "name": "antler_beam_-1",
+          "first_vertex": 4020,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "antler_burr_-1",
+          "first_vertex": 4180,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "antler_tine_-1",
+          "first_vertex": 4340,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "antler_tine_-1",
+          "first_vertex": 4452,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "antler_beam_1",
+          "first_vertex": 4564,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "antler_burr_1",
+          "first_vertex": 4724,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "antler_tine_1",
+          "first_vertex": 4884,
+          "vertices": 112,
+          "faces": 98
+        },
+        {
+          "name": "antler_tine_1",
+          "first_vertex": 4996,
+          "vertices": 112,
+          "faces": 98
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
+      "sha256": "014098a5516eee587253d9a1218dceafb418a8ee66bcdabf5e977382cf2453a8",
+      "bytes": 6897228,
+      "triangles": 8748,
+      "vertices": 4442,
+      "bounds_blender": {
+        "min": [
+          -0.1753760725259781,
+          -0.7600319385528564,
+          0.0009740307577885687
+        ],
+        "max": [
+          0.17559248208999634,
+          0.4488097131252289,
+          1.295226812362671
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 290,
+          "faces": 282
+        },
+        {
+          "name": "concave_ear_ear_L",
+          "first_vertex": 290,
+          "vertices": 42,
+          "faces": 40
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 332,
+          "vertices": 60,
+          "faces": 50
+        },
+        {
+          "name": "front_leg_L",
+          "first_vertex": 392,
+          "vertices": 150,
+          "faces": 142
+        },
+        {
+          "name": "cloven_hoof_front_leg_L_-1",
+          "first_vertex": 542,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "cloven_hoof_front_leg_L_1",
+          "first_vertex": 612,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "hind_leg_L",
+          "first_vertex": 682,
+          "vertices": 150,
+          "faces": 142
+        },
+        {
+          "name": "cloven_hoof_hind_leg_L_-1",
+          "first_vertex": 832,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "cloven_hoof_hind_leg_L_1",
+          "first_vertex": 902,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "concave_ear_ear_R",
+          "first_vertex": 972,
+          "vertices": 42,
+          "faces": 40
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 1014,
+          "vertices": 60,
+          "faces": 50
+        },
+        {
+          "name": "front_leg_R",
+          "first_vertex": 1074,
+          "vertices": 150,
+          "faces": 142
+        },
+        {
+          "name": "cloven_hoof_front_leg_R_-1",
+          "first_vertex": 1224,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "cloven_hoof_front_leg_R_1",
+          "first_vertex": 1294,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "hind_leg_R",
+          "first_vertex": 1364,
+          "vertices": 150,
+          "faces": 142
+        },
+        {
+          "name": "cloven_hoof_hind_leg_R_-1",
+          "first_vertex": 1514,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "cloven_hoof_hind_leg_R_1",
+          "first_vertex": 1584,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "tapered_tail",
+          "first_vertex": 1654,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "sculpted_rhinarium_alar_folds",
+          "first_vertex": 1704,
+          "vertices": 24,
+          "faces": 19
+        },
+        {
+          "name": "nostril_recess_-1",
+          "first_vertex": 1728,
+          "vertices": 24,
+          "faces": 16
+        },
+        {
+          "name": "nostril_recess_1",
+          "first_vertex": 1752,
+          "vertices": 24,
+          "faces": 16
+        },
+        {
+          "name": "antler_beam_-1",
+          "first_vertex": 1776,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "antler_burr_-1",
+          "first_vertex": 1846,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "antler_tine_-1",
+          "first_vertex": 1916,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "antler_tine_-1",
+          "first_vertex": 1966,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "antler_beam_1",
+          "first_vertex": 2016,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "antler_burr_1",
+          "first_vertex": 2086,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "antler_tine_1",
+          "first_vertex": 2156,
+          "vertices": 50,
+          "faces": 42
+        },
+        {
+          "name": "antler_tine_1",
+          "first_vertex": 2206,
+          "vertices": 50,
+          "faces": 42
+        }
+      ]
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "tail": [
+        0,
+        0,
+        0.15
+      ]
+    },
+    {
+      "name": "pelvis",
+      "head": [
+        0,
+        0.48,
+        0.59
+      ],
+      "tail": [
+        0,
+        0.08,
+        0.62
+      ],
+      "parent": "root"
+    },
+    {
+      "name": "spine",
+      "head": [
+        0,
+        0.08,
+        0.62
+      ],
+      "tail": [
+        0,
+        -0.12,
+        0.625
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "chest",
+      "head": [
+        0,
+        -0.12,
+        0.625
+      ],
+      "tail": [
+        0,
+        -0.29,
+        0.63
+      ],
+      "parent": "spine"
+    },
+    {
+      "name": "neck_root",
+      "head": [
+        0,
+        -0.29,
+        0.63
+      ],
+      "tail": [
+        0,
+        -0.365,
+        0.7
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "neck_base",
+      "head": [
+        0,
+        -0.365,
+        0.7
+      ],
+      "tail": [
+        0,
+        -0.455,
+        0.815
+      ],
+      "parent": "neck_root"
+    },
+    {
+      "name": "neck_01",
+      "head": [
+        0,
+        -0.455,
+        0.815
+      ],
+      "tail": [
+        0,
+        -0.5,
+        0.945
+      ],
+      "parent": "neck_base"
+    },
+    {
+      "name": "neck_02",
+      "head": [
+        0,
+        -0.5,
+        0.945
+      ],
+      "tail": [
+        0,
+        -0.57,
+        1.045
+      ],
+      "parent": "neck_01"
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        -0.57,
+        1.045
+      ],
+      "tail": [
+        0,
+        -0.83448,
+        0.979
+      ],
+      "parent": "neck_02"
+    },
+    {
+      "name": "jaw",
+      "head": [
+        0,
+        -0.57,
+        1.045
+      ],
+      "tail": [
+        0.0,
+        -0.8194800019264221,
+        0.9539999961853027
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "ear_L",
+      "head": [
+        0.053,
+        -0.574,
+        1.096
+      ],
+      "tail": [
+        0.169,
+        -0.534,
+        1.298
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "scapula_L",
+      "head": [
+        0.10000000149011612,
+        -0.20000000298023224,
+        0.7200000286102295
+      ],
+      "tail": [
+        0.09000000357627869,
+        -0.3149999976158142,
+        0.5350000262260437
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "shoulder_L",
+      "head": [
+        0.09000000357627869,
+        -0.3149999976158142,
+        0.5350000262260437
+      ],
+      "tail": [
+        0.1120000034570694,
+        -0.23499999940395355,
+        0.4189999997615814
+      ],
+      "parent": "scapula_L"
+    },
+    {
+      "name": "forearm_L",
+      "head": [
+        0.1120000034570694,
+        -0.23499999940395355,
+        0.4189999997615814
+      ],
+      "tail": [
+        0.12700000405311584,
+        -0.3149999976158142,
+        0.20000000298023224
+      ],
+      "parent": "shoulder_L"
+    },
+    {
+      "name": "carpal_L",
+      "head": [
+        0.12700000405311584,
+        -0.3149999976158142,
+        0.20000000298023224
+      ],
+      "tail": [
+        0.12800000607967377,
+        -0.3199999928474426,
+        0.1080000028014183
+      ],
+      "parent": "forearm_L"
+    },
+    {
+      "name": "pastern_front_L",
+      "head": [
+        0.12800000607967377,
+        -0.3199999928474426,
+        0.1080000028014183
+      ],
+      "tail": [
+        0.12999999523162842,
+        -0.3449999988079071,
+        0.03700000047683716
+      ],
+      "parent": "carpal_L"
+    },
+    {
+      "name": "hoof_front_L",
+      "head": [
+        0.12999999523162842,
+        -0.3449999988079071,
+        0.03700000047683716
+      ],
+      "tail": [
+        0.12999999523162842,
+        -0.4000000059604645,
+        0.03700000047683716
+      ],
+      "parent": "pastern_front_L"
+    },
+    {
+      "name": "thigh_L",
+      "head": [
+        0.14499999582767487,
+        0.30000001192092896,
+        0.6449999809265137
+      ],
+      "tail": [
+        0.13899999856948853,
+        0.17000000178813934,
+        0.4230000078678131
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "shin_L",
+      "head": [
+        0.13899999856948853,
+        0.17000000178813934,
+        0.4230000078678131
+      ],
+      "tail": [
+        0.14499999582767487,
+        0.375,
+        0.23499999940395355
+      ],
+      "parent": "thigh_L"
+    },
+    {
+      "name": "hock_L",
+      "head": [
+        0.14499999582767487,
+        0.375,
+        0.23499999940395355
+      ],
+      "tail": [
+        0.14399999380111694,
+        0.3499999940395355,
+        0.12200000137090683
+      ],
+      "parent": "shin_L"
+    },
+    {
+      "name": "pastern_hind_L",
+      "head": [
+        0.14399999380111694,
+        0.3499999940395355,
+        0.12200000137090683
+      ],
+      "tail": [
+        0.14499999582767487,
+        0.3149999976158142,
+        0.039000000804662704
+      ],
+      "parent": "hock_L"
+    },
+    {
+      "name": "hoof_hind_L",
+      "head": [
+        0.14499999582767487,
+        0.3149999976158142,
+        0.039000000804662704
+      ],
+      "tail": [
+        0.14499999582767487,
+        0.25999999046325684,
+        0.039000000804662704
+      ],
+      "parent": "pastern_hind_L"
+    },
+    {
+      "name": "ear_R",
+      "head": [
+        -0.053,
+        -0.574,
+        1.096
+      ],
+      "tail": [
+        -0.169,
+        -0.534,
+        1.298
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "scapula_R",
+      "head": [
+        -0.10000000149011612,
+        -0.20000000298023224,
+        0.7200000286102295
+      ],
+      "tail": [
+        -0.09000000357627869,
+        -0.3149999976158142,
+        0.5350000262260437
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "shoulder_R",
+      "head": [
+        -0.09000000357627869,
+        -0.3149999976158142,
+        0.5350000262260437
+      ],
+      "tail": [
+        -0.1120000034570694,
+        -0.23499999940395355,
+        0.4189999997615814
+      ],
+      "parent": "scapula_R"
+    },
+    {
+      "name": "forearm_R",
+      "head": [
+        -0.1120000034570694,
+        -0.23499999940395355,
+        0.4189999997615814
+      ],
+      "tail": [
+        -0.12700000405311584,
+        -0.3149999976158142,
+        0.20000000298023224
+      ],
+      "parent": "shoulder_R"
+    },
+    {
+      "name": "carpal_R",
+      "head": [
+        -0.12700000405311584,
+        -0.3149999976158142,
+        0.20000000298023224
+      ],
+      "tail": [
+        -0.12800000607967377,
+        -0.3199999928474426,
+        0.1080000028014183
+      ],
+      "parent": "forearm_R"
+    },
+    {
+      "name": "pastern_front_R",
+      "head": [
+        -0.12800000607967377,
+        -0.3199999928474426,
+        0.1080000028014183
+      ],
+      "tail": [
+        -0.12999999523162842,
+        -0.3449999988079071,
+        0.03700000047683716
+      ],
+      "parent": "carpal_R"
+    },
+    {
+      "name": "hoof_front_R",
+      "head": [
+        -0.12999999523162842,
+        -0.3449999988079071,
+        0.03700000047683716
+      ],
+      "tail": [
+        -0.12999999523162842,
+        -0.4000000059604645,
+        0.03700000047683716
+      ],
+      "parent": "pastern_front_R"
+    },
+    {
+      "name": "thigh_R",
+      "head": [
+        -0.14499999582767487,
+        0.30000001192092896,
+        0.6449999809265137
+      ],
+      "tail": [
+        -0.13899999856948853,
+        0.17000000178813934,
+        0.4230000078678131
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "shin_R",
+      "head": [
+        -0.13899999856948853,
+        0.17000000178813934,
+        0.4230000078678131
+      ],
+      "tail": [
+        -0.14499999582767487,
+        0.375,
+        0.23499999940395355
+      ],
+      "parent": "thigh_R"
+    },
+    {
+      "name": "hock_R",
+      "head": [
+        -0.14499999582767487,
+        0.375,
+        0.23499999940395355
+      ],
+      "tail": [
+        -0.14399999380111694,
+        0.3499999940395355,
+        0.12200000137090683
+      ],
+      "parent": "shin_R"
+    },
+    {
+      "name": "pastern_hind_R",
+      "head": [
+        -0.14399999380111694,
+        0.3499999940395355,
+        0.12200000137090683
+      ],
+      "tail": [
+        -0.14499999582767487,
+        0.3149999976158142,
+        0.039000000804662704
+      ],
+      "parent": "hock_R"
+    },
+    {
+      "name": "hoof_hind_R",
+      "head": [
+        -0.14499999582767487,
+        0.3149999976158142,
+        0.039000000804662704
+      ],
+      "tail": [
+        -0.14499999582767487,
+        0.25999999046325684,
+        0.039000000804662704
+      ],
+      "parent": "pastern_hind_R"
+    },
+    {
+      "name": "tail_01",
+      "head": [
+        0.0,
+        0.45500001311302185,
+        0.6690000295639038
+      ],
+      "tail": [
+        0.0,
+        0.47999998927116394,
+        0.6629999876022339
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "tail_02",
+      "head": [
+        0.0,
+        0.47999998927116394,
+        0.6629999876022339
+      ],
+      "tail": [
+        0.0,
+        0.47999998927116394,
+        0.6629999876022339
+      ],
+      "parent": "tail_01"
+    },
+    {
+      "name": "tail_03",
+      "head": [
+        0.0,
+        0.47999998927116394,
+        0.6629999876022339
+      ],
+      "tail": [
+        0.0,
+        0.492000013589859,
+        0.6460000276565552
+      ],
+      "parent": "tail_02"
+    }
+  ],
+  "animation_update": {
+    "source_sha256": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+    "unchanged_geometry_sha256": [
+      "414e7fd0cc2e37ec0fb6fc163b314d2c6e37375de2916dc9e966f26f9fbb6b7d",
+      "566ce4704f8d1236a0539b3f0165725472db06fb7ac99d50624b9f6092523054",
+      "4e3591ff57df3d960bcf8020c252f9925f61e35bafb300edf709f6229915824d"
+    ],
+    "status": "actual_export_review_required"
+  }
+}

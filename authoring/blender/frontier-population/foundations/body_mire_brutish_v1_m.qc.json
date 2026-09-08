@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "assetId": "body_mire_brutish_v1_m",
+  "model": "body_mire_brutish_v1_m.glb",
+  "modelSha256": "d38a8005db49a4a592237bac44059c24f9dd4155f3dade4c1b9c54a6bfdd74f5",
+  "fileSizeBytes": 12137484,
+  "lifecycleStatus": "draft",
+  "reviewStatus": "pending",
+  "promotionEligible": false,
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "boneCount": 56,
+  "totalTriangles": 36836,
+  "drawCalls": 4,
+  "maxInfluencesBeforeLimit": 6,
+  "unweightedVertices": 0,
+  "pbr": {
+    "baseColor": "texture-or-material",
+    "normal": "texture-or-flat-normal",
+    "roughness": "texture-or-scalar",
+    "metallic": "scalar",
+    "occlusion": "material-constant",
+    "maxTextureDimension": 2048
+  },
+  "checks": {
+    "modelExists": true,
+    "triangleBudget": true,
+    "drawCallBudget": true,
+    "boneBudget": true,
+    "fourInfluenceLimitApplied": true,
+    "allVerticesWeighted": true,
+    "reviewViewsPresent": true,
+    "skinSourcePresent": true,
+    "requiredAnimationClipsEmbedded": true,
+    "runtimeMaterialsOpaque": false,
+    "roundTripBindPose": true,
+    "authoringTopologyStable": true
+  },
+  "qcPassed": false,
+  "meshes": [
+    {
+      "name": "body_mire_brutish_v1_m",
+      "vertices": 13380,
+      "triangles": 26756,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_mire_brutish_v1_m.high-poly",
+      "vertices": 1064,
+      "triangles": 2040,
+      "drawCalls": 1
+    },
+    {
+      "name": "teeth_and_mire_tusks",
+      "vertices": 4108,
+      "triangles": 7592,
+      "drawCalls": 1
+    },
+    {
+      "name": "body_mire_brutish_v1_m.tongue01",
+      "vertices": 226,
+      "triangles": 448,
+      "drawCalls": 1
+    }
+  ],
+  "targets": [
+    {
+      "id": "mire_cranium_brow_v1",
+      "weight": 0.78,
+      "sha256": "6e679d24d19e0c4bebad0df20492c065f8ce7828481e2f45f95c02f3d91ad736"
+    },
+    {
+      "id": "mire_ears_v1",
+      "weight": 0.72,
+      "sha256": "de3dd97ef4771be9e2efcbeb56024498d795d25fd527e3c0362e6ee8e6fc98ad"
+    },
+    {
+      "id": "mire_jaw_v1",
+      "weight": 0.82,
+      "sha256": "738b9ae4db2b48e71d2f3aade58f3061b2e0f1e9414db6144446ac904c479aa9"
+    },
+    {
+      "id": "mire_tusks_v1",
+      "weight": 0.7,
+      "sha256": "8740b7388aeb31bafbc045d69ad717f31bc90fac78a09b6c9c53c50e97bb7fe1"
+    },
+    {
+      "id": "hands/mindfront_hand_fingers_correction.target",
+      "weight": 0.7,
+      "sha256": "3c882b1d915f91ff5b5b46a047bf9f3ddddaa8cdeccfc9c2444f5a3c3ef451f3"
+    },
+    {
+      "id": "hands/mindfront_hand_thenar_eminence.target",
+      "weight": 0.38,
+      "sha256": "b0cfc43e4ed8c0ea702c27037484624c77fbcb03a12ec71a19a2465462fbb4a2"
+    },
+    {
+      "id": "hands/mindfront_hand_hypothenar.target",
+      "weight": 0.32,
+      "sha256": "6dc7eec8064f66e53a4c4097ffb5a702cec884ce5e01bbdacdd2612c58167fb3"
+    },
+    {
+      "id": "ears/mindfront_ear_details.target",
+      "weight": 0.18,
+      "sha256": "4358c2f5008e17021e9416fb1434bc11160f385cdba7083f0d1a9458328a8b9e"
+    },
+    {
+      "id": "nose/mindfront_nose_alar_crease.target",
+      "weight": 0.2,
+      "sha256": "34fd77abdc65112903e62cde58b1de12758c5348f1eae592dfcb083b669b3bc0"
+    },
+    {
+      "id": "cheek/elvs_high_chubby_cheekbones_1.target",
+      "weight": 0.08,
+      "sha256": "937774f73dce9415ebdc7992cc2381172996788a303a9c92edea034d29aa5d0d"
+    }
+  ],
+  "skin": {
+    "path": "C:\\Users\\bschm\\AppData\\Roaming\\Blender Foundation\\Blender\\5.0\\extensions\\.user\\blender_org\\mpfb\\data\\skins\\sonntag78_orkifyheadtarget_custom_skin\\sonntag78_orkifyheadtarget_custom_skin.mhmat",
+    "sha256": "ea91f7258dac22dd683047bc59fd82d0de4cdc0e62efaf548df2eaae383cdc02"
+  },
+  "previews": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\mire_brutish_v1_m\\review\\front.png",
+      "sha256": "194891cef5415083108a1667f1427a6813e2d992e12f8ce4fb36462038f1456d"
+    },
+    {
+      "view": "side",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\mire_brutish_v1_m\\review\\side.png",
+      "sha256": "1e2ec3872e7e77e9878ac583769aa23531901d23b5424452be461e26f143d24a"
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\mire_brutish_v1_m\\review\\back.png",
+      "sha256": "c1c6f507b2b0590ba978dd74045dc1f2c73ce4aded06f7ebc9a23a2cc553e684"
+    },
+    {
+      "view": "isometric",
+      "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\mire_brutish_v1_m\\review\\isometric.png",
+      "sha256": "1a075e0059d1c7999660ded47f5d6faeb58b7f7657f50cff48338797fbf68b44"
+    }
+  ],
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "requiredAnimationClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "missingRequiredClips": [],
+  "animationAudit": {
+    "animationPackId": "humanoid_game_v2_local_keyframes_v2",
+    "version": "2.0.0",
+    "framesPerSecond": 30,
+    "cost": "free_local_only",
+    "source": {
+      "kind": "project_authored_keyframes",
+      "module": "blender/anim_library.py",
+      "externalAsset": false,
+      "description": "Original deterministic keyframes authored in this repository, including MPFB rest-axis locomotion and equipment-aware carry/melee profiles; no third-party motion data or paid service is used."
+    },
+    "sourceHashes": [
+      {
+        "path": "blender/anim_library.py",
+        "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303"
+      },
+      {
+        "path": "blender/canonical_mpfb_animation_library.py",
+        "sha256": "6264d1bc3ad8cb2ec6fca12f0a9e20610b6a9a283a34ca667adbbfafa19f5911"
+      },
+      {
+        "path": "data/body-families/canonical-animation-pack.json",
+        "sha256": "dc467b6c08075d0ffe9ef0109877fa4e14f9224c4e65c44bd39af1a4103170f7"
+      }
+    ],
+    "coordinateConversion": {
+      "source": "legacy_y_up_forward_positive_z",
+      "target": "blender_z_up_forward_negative_y",
+      "translation": "(x, y, z) -> (x, -z, y)",
+      "rootMotion": "in_place_runtime",
+      "rotation": "armature-axis deltas are converted into each MPFB bone rest basis"
+    },
+    "profile": "unarmed",
+    "clips": [
+      {
+        "name": "idle",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "head",
+          "shin_L",
+          "shin_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 30
+      },
+      {
+        "name": "walk",
+        "durationFrames": 30,
+        "durationSeconds": 1.0,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "foot_L",
+          "foot_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 42
+      },
+      {
+        "name": "run",
+        "durationFrames": 20,
+        "durationSeconds": 0.6666666666666666,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "ARMATURE",
+        "keyedBones": [
+          "chest",
+          "foot_L",
+          "foot_R",
+          "hips",
+          "shin_L",
+          "shin_R",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 45
+      },
+      {
+        "name": "combat_idle",
+        "durationFrames": 80,
+        "durationSeconds": 2.6666666666666665,
+        "loop": true,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "hips",
+          "spine",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 18
+      },
+      {
+        "name": "attack_melee",
+        "durationFrames": 30,
+        "durationSeconds": 1.0,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "forearm_R",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 16
+      },
+      {
+        "name": "attack_ranged",
+        "durationFrames": 40,
+        "durationSeconds": 1.3333333333333333,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 15
+      },
+      {
+        "name": "cast",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "forearm_L",
+          "forearm_R",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 23
+      },
+      {
+        "name": "death",
+        "durationFrames": 60,
+        "durationSeconds": 2.0,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "head",
+          "hips",
+          "spine",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 18
+      },
+      {
+        "name": "jump",
+        "durationFrames": 40,
+        "durationSeconds": 1.3333333333333333,
+        "loop": false,
+        "profile": "unarmed",
+        "rotationSpace": "LOCAL_BONE",
+        "keyedBones": [
+          "hips",
+          "shin_L",
+          "shin_R",
+          "thigh_L",
+          "thigh_R",
+          "upper_arm_L",
+          "upper_arm_R"
+        ],
+        "keyframePoses": 30
+      }
+    ],
+    "lifecycle": {
+      "status": "draft",
+      "reviewRequired": true,
+      "limitations": [
+        "This is a bounded procedural baseline, not captured human motion.",
+        "Equipped stress-pose and animation review remains mandatory before promotion."
+      ]
+    }
+  },
+  "materialPreparation": [
+    {
+      "material": "body_mire_brutish_v1_m.body",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "material": "body_mire_brutish_v1_m.high-poly",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "material": "body_mire_brutish_v1_m.teeth_base",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 0,
+      "removedDuplicateAlphaNodes": 1
+    },
+    {
+      "material": "body_mire_brutish_v1_m.tongue01",
+      "alphaMode": "OPAQUE",
+      "removedAlphaLinks": 1,
+      "removedDuplicateAlphaNodes": 1
+    }
+  ],
+  "runtimeMaterials": [
+    {
+      "name": "body_mire_brutish_v1_m.body",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    },
+    {
+      "name": "body_mire_brutish_v1_m.high-poly",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    },
+    {
+      "name": "body_mire_brutish_v1_m.tongue01",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": true
+    },
+    {
+      "name": "body_mire_brutish_v1_m.teeth_base",
+      "alphaMode": "OPAQUE",
+      "hasBaseColorTexture": false
+    }
+  ],
+  "helperStripping": {
+    "verticesBefore": 19158,
+    "bodyVerticesAfter": 13380,
+    "helperVerticesRemoved": 5778,
+    "shapeKeysBaked": 32,
+    "maskModifiersRemoved": true
+  },
+  "roundTrip": {
+    "passed": true,
+    "checks": {
+      "meshCountMatches": true,
+      "allMeshesRemainSkinned": true,
+      "triangleCountMatches": true,
+      "boneCountMatches": true,
+      "bindBoundsMatch": true
+    },
+    "expected": {
+      "meshNames": [
+        "body_mire_brutish_v1_m",
+        "body_mire_brutish_v1_m.high-poly",
+        "body_mire_brutish_v1_m.tongue01",
+        "teeth_and_mire_tusks"
+      ],
+      "meshCount": 4,
+      "skinnedMeshCount": 4,
+      "vertices": 18778,
+      "triangles": 36836,
+      "boundsMin": [
+        -0.6590578556060791,
+        -0.4414825737476349,
+        6.5108647362421834e-09
+      ],
+      "boundsMax": [
+        0.6590578556060791,
+        0.10907437652349472,
+        2.0464935302734375
+      ],
+      "boundsCenter": [
+        0.0,
+        -0.16620409488677979,
+        1.0232467651367188
+      ],
+      "boundsExtent": [
+        1.3181157112121582,
+        0.5505569577217102,
+        2.0464935302734375
+      ]
+    },
+    "observed": {
+      "meshNames": [
+        "body_mire_brutish_v1_m.001",
+        "body_mire_brutish_v1_m.high-poly.001",
+        "body_mire_brutish_v1_m.tongue01.001",
+        "teeth_and_mire_tusks.001"
+      ],
+      "meshCount": 4,
+      "skinnedMeshCount": 4,
+      "vertices": 20580,
+      "triangles": 36836,
+      "boundsMin": [
+        -0.659058153629303,
+        -0.44148245453834534,
+        -2.4688952748874726e-07
+      ],
+      "boundsMax": [
+        0.6590579748153687,
+        0.10907424986362457,
+        2.0464928150177
+      ],
+      "boundsCenter": [
+        -8.940696716308594e-08,
+        -0.16620409488677979,
+        1.0232462882995605
+      ],
+      "boundsExtent": [
+        1.3181161880493164,
+        0.5505567193031311,
+        2.0464930534362793
+      ]
+    },
+    "boneCountExpected": 56,
+    "boneCountObserved": 56,
+    "maximumExtentDelta": 4.76837158203125e-07,
+    "maximumCenterDelta": 4.76837158203125e-07,
+    "tolerance": 0.010232467651367188
+  },
+  "authoringSource": {
+    "path": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\artifacts\\model-jobs\\local-character-batch-20260713-152623\\mire_brutish_v1_m\\source.blend",
+    "sha256": "b9e60a82067848f33d0cdcdb3b5b513ab4646af991c989ca8405dc302bf4dfc3",
+    "bodyVertices": 19158,
+    "shapeKeys": 32,
+    "maskModifiers": [
+      "Hide helpers"
+    ],
+    "savedBeforeRuntimeOptimization": true
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "model": "frontier_cinderfen_gatehouse_lod0.glb",
+  "sha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90",
+  "preview": "frontier_cinderfen_gatehouse_lod0_reimport.png",
+  "preview_sha256": "1c8504fa838a4a357b61245da855878b635e40517107126ef98caf34fb0a7033",
+  "reviewer_sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+  "neutral_camera": {
+    "camera_position_z_up": [
+      26.70589828491211,
+      -42.2116813659668,
+      29.899681091308594
+    ],
+    "target_z_up": [
+      -0.0037813186645507812,
+      -0.038500308990478516,
+      6.001547813415527
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "gameplay_preview": "frontier_cinderfen_gatehouse_lod0_gameplay.png",
+  "gameplay_preview_sha256": "b77a86d25ac0d86a2371ee35078e90c12d585f4daa9a2d8737d901114b17a4a2",
+  "gameplay_camera": {
+    "camera_position_z_up": [
+      9.836627006530762,
+      -40.03850173950195,
+      5.400000095367432
+    ],
+    "target_z_up": [
+      -0.0037813186645507812,
+      -0.038500308990478516,
+      4.400000095367432
+    ],
+    "projection": "PERSP",
+    "lens_mm": 38.0,
+    "distance_m": 40,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1280,
+      720
+    ]
+  },
+  "passage": {
+    "width_m": 6,
+    "minimum_height_m": 4.8,
+    "full_depth_m": 12,
+    "ray_samples": 775,
+    "surface_tolerance_m": 0.02,
+    "floor_clearance_m": 0.25,
+    "blocked_rays": []
+  },
+  "front_preview": "frontier_cinderfen_gatehouse_lod0_front.png",
+  "front_preview_sha256": "1dc14faec508802bcdccef1054598883f75fb597bb0e01b8462ca078705a2ae5",
+  "material_camera": {
+    "camera_position_z_up": [
+      -3.809999942779541,
+      -11.0,
+      4.920000076293945
+    ],
+    "target_z_up": [
+      -6.849999904632568,
+      -6.199999809265137,
+      2.200000047683716
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": 3.2,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "material_preview": "frontier_cinderfen_gatehouse_lod0_material.png",
+  "material_preview_sha256": "619dd3d0b228e99bab89f370766051a70161b9ed9c3a46e2da4b416aa5a10b44"
+}

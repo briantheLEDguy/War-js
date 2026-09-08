@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_wheat",
+  "name": "Sunmeadow ripe wheat clump",
+  "source_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "builder_sha256": "29f5975924a0d8ebf8e3a71aa3945b15862610a7cfa9a76e34752945ec1d525e",
+  "paint_record_sha256": "b8804ffc4341b271b6f393956dd6cae83556bfd4c69b16ff36ce779f4ec7603c",
+  "master": "masters\\frontier_sunmeadow_wheat.blend",
+  "master_sha256": "222c1879fd15adc2963d4a258519591be09efd67933ee08e98d01e5bd86b00d9",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_wheat_lod0.glb",
+      "sha256": "b94f67f25f621ff0c5cc7d4cefcc2fc2bb4c4a225a0e287959d0ed7e414b0bf9",
+      "bytes": 2195120,
+      "triangles": 18144,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -1.0051482915878296,
+          -0.9957338571548462,
+          -0.0003330128383822739
+        ],
+        "max": [
+          1.007079839706421,
+          0.9605903625488281,
+          1.237959384918213
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -1.0051482915878296,
+          -0.0003330128383822739,
+          -0.9605903625488281
+        ],
+        "max": [
+          1.007079839706421,
+          1.237959384918213,
+          0.9957338571548462
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_wheat_lod1.glb",
+      "sha256": "dea7517d5d603e7a750d8cb5bc89f605359dd933b4f3ce7ef39ba29bab130bf7",
+      "bytes": 1605000,
+      "triangles": 8208,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -1.0051482915878296,
+          -0.9957338571548462,
+          -0.0003330128383822739
+        ],
+        "max": [
+          1.007079839706421,
+          0.9037599563598633,
+          1.1981219053268433
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -1.0051482915878296,
+          -0.0003330128383822739,
+          -0.9037599563598633
+        ],
+        "max": [
+          1.007079839706421,
+          1.1981219053268433,
+          0.9957338571548462
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_wheat_lod2.glb",
+      "sha256": "b0b681a380c8dbea4a2df781f54eee863338a7b971b0e1da992851d9f73133aa",
+      "bytes": 1333704,
+      "triangles": 3600,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -0.9699376821517944,
+          -0.9034512639045715,
+          -0.00030352859175764024
+        ],
+        "max": [
+          0.9209437370300293,
+          0.9605903625488281,
+          1.1901241540908813
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -0.9699376821517944,
+          -0.00030352859175764024,
+          -0.9605903625488281
+        ],
+        "max": [
+          0.9209437370300293,
+          1.1901241540908813,
+          0.9034512639045715
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

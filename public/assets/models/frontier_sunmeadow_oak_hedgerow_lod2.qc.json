@@ -1,0 +1,97 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.oak_hedgerow",
+  "modelSha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "sha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "triangles": 70008
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+      "triangles": 37496
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+      "triangles": 9632
+    }
+  ],
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "sha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "triangles": 70008
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+      "triangles": 37496
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+      "triangles": 9632
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "55ebe62506be7b31cef28b990ee513fe76eaaf2f4019173dc8f112026d934c49",
+  "bounds": {
+    "min": [
+      -3.321608543395996,
+      -0.04682445898652077,
+      -3.557417154312134
+    ],
+    "max": [
+      3.884918689727783,
+      13.054259300231934,
+      3.24247145652771
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod0_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod1_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod1_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod2_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod2_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/gameplay_group_30m_lod1.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/gameplay_group_90m_lod2.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/exports_contact_sheet.png"
+  ],
+  "reviewEvidence": {
+    "buildSha256": "e27fedc1275fcc7ef3009b9d093555679a44deba445dbe8d11f82118262a4800",
+    "modelSha256s": [
+      "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+      "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c"
+    ],
+    "previewSha256s": {
+      "review\\frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png": "995e5b29e314f4aac178308542e04f25759dd59a3d8adf7b26ca7ba93b5f73d3",
+      "review\\frontier_sunmeadow_oak_hedgerow_lod0_ground_reimport.png": "7a8384016c2ba4ad61d9ed492e76a5e97b54804ceb3bfdbbda8690764ed81c7b",
+      "review\\frontier_sunmeadow_oak_hedgerow_lod1_studio_reimport.png": "fe4fe7244d76a6972724fa0d004225a7ef8a98cf611ba036c18f55bae2470082",
+      "review\\frontier_sunmeadow_oak_hedgerow_lod1_ground_reimport.png": "f7b48c5dfcd70cf7f817cbfbef5f54f8fabea1ddb4642cffc1067f2cf98c98e4",
+      "review\\frontier_sunmeadow_oak_hedgerow_lod2_studio_reimport.png": "0290661e97dad52082a6d4adab8157cadb3e2e212e287f81db9665e51ddd496e",
+      "review\\frontier_sunmeadow_oak_hedgerow_lod2_ground_reimport.png": "bb39396ba9316b9b428252935a5b049777c3e23048257f791e3fd0f2f56d7d7e"
+    },
+    "gameplayReceiptSha256": "99b3fd118c856ec3de4aa10ded55f0085b4cce5791513d75a5b4ceefd93fd22f",
+    "contactSheetReceiptSha256": "ea5b44c935cf2e21c0af57ffc2ceb5ec0910d10ec782fa1726d6fa1f132e08af",
+    "contactSheetSha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294"
+  }
+}

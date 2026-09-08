@@ -1,0 +1,58 @@
+{
+  "model": "frontier_cinderfen_gatehouse_lod0.glb",
+  "sha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90",
+  "tool_sha256": "977c75faab70cbc32636faced8eae54b255b3694295e8796a3c7f3d07bd12291",
+  "sockets": [
+    {
+      "id": "left_facade",
+      "surface_runtime": [
+        -6.699999809265137,
+        3.799999952316284,
+        6.017161846160889
+      ],
+      "attachment_runtime": [
+        -6.699999809265137,
+        3.799999952316284,
+        6.057161846160889
+      ],
+      "outward_runtime": [
+        0,
+        0,
+        1
+      ],
+      "usage": "Hanging realm cloth attachment, not a grounded pole origin. Keep root yawPI places this on the southern facade; keep the cloth clear of the central six-metre passage."
+    },
+    {
+      "id": "right_facade",
+      "surface_runtime": [
+        6.699999809265137,
+        3.799999952316284,
+        6.002259254455566
+      ],
+      "attachment_runtime": [
+        6.699999809265137,
+        3.799999952316284,
+        6.042259254455566
+      ],
+      "outward_runtime": [
+        0,
+        0,
+        1
+      ],
+      "usage": "Hanging realm cloth attachment, not a grounded pole origin. Keep root yawPI places this on the southern facade; keep the cloth clear of the central six-metre passage."
+    }
+  ],
+  "keep_centres_runtime": {
+    "outer": [
+      0,
+      0,
+      -24
+    ],
+    "inner": [
+      0,
+      0,
+      -7.5
+    ]
+  },
+  "keep_rotation_y": 3.141592653589793
+}

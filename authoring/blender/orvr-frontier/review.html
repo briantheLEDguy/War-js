@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frontier siege collection — exported asset review</title>
+  <style>
+    :root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;background:#171b20;color:#e4e0d4}*{box-sizing:border-box}body{margin:0;display:grid;grid-template-columns:320px 1fr;height:100vh}aside{padding:28px 24px;border-right:1px solid #414449;background:#1d2228;overflow:auto}h1{font-family:Georgia,serif;font-weight:400;font-size:29px;line-height:1.1;margin:0 0 16px}p{font-size:13px;color:#b2b7bb;line-height:1.65}label{display:block;font-size:12px;letter-spacing:.05em;margin:21px 0 7px;color:#d3c4a4}select,button{font:inherit;width:100%;padding:11px;border:1px solid #565652;background:#292f36;color:#f0e8d7;border-radius:5px}button{cursor:pointer;margin-top:10px}button:hover{background:#41464a}.check{display:flex;align-items:center;gap:10px;letter-spacing:0;color:#d8d6cf}.check input{margin:0}main{position:relative;min-width:0;overflow:hidden}canvas{display:block;width:100%;height:100%}.tag{font-size:10px;letter-spacing:.12em;color:#d4b576;text-transform:uppercase;margin-bottom:14px}.status{position:absolute;bottom:20px;left:24px;right:24px;pointer-events:none;background:#14191dd9;padding:14px 18px;border:1px solid #494d50;border-radius:5px;font-size:12px;line-height:1.5;white-space:pre-wrap}.bad{color:#ffa78a}a{color:#d4b576}#limitations{border-top:1px solid #414449;padding-top:15px;margin-top:25px}#metrics{font-variant-numeric:tabular-nums;font-size:12px;line-height:1.8;color:#a9b3b9}@media(max-width:760px){body{grid-template-columns:230px 1fr}aside{padding:20px 15px}h1{font-size:23px}}
+  </style>
+</head>
+<body>
+<aside>
+  <div class="tag">Actual GLB exports · local review</div>
+  <h1>Frontier siege collection</h1>
+  <p>Original fitted joinery, forged hardware and painted PBR materials. Drag to orbit, scroll to inspect, and compare all three runtime levels.</p>
+  <label for="asset">Asset</label>
+  <select id="asset">
+    <option value="frontier_supply_wagon">Covered supply wagon</option>
+    <option value="frontier_battering_ram">Bull-brow mantlet ram</option>
+    <option value="frontier_oil_cauldron">Parapet oil cauldron</option>
+    <option value="frontier_field_catapult">Torsion field catapult</option>
+    <option value="frontier_keep_gate">Double oak keep gate</option>
+    <option value="frontier_draft_horse">Bay draft horse and harness</option>
+    <option value="frontier_supply_officer_kit">Supply officer ledger pouch</option>
+    <option value="frontier_caravan_reins">Fitted caravan reins and bit</option>
+  </select>
+  <label for="lod">Runtime detail</label>
+  <select id="lod"><option value="0">LOD0 — close inspection</option><option value="1">LOD1 — middle distance</option><option value="2">LOD2 — far silhouette</option></select>
+  <label class="check"><input id="wire" type="checkbox" />Wireframe</label>
+  <label class="check"><input id="neutral" type="checkbox" />Neutral material inspection</label>
+  <label for="clip">Exported animation</label>
+  <select id="clip"><option value="">Rest pose</option></select>
+  <label class="check"><input id="motion" type="checkbox" checked />Play exported action</label>
+  <button id="reset">Reset viewpoint</button>
+  <p id="metrics"></p>
+  <p id="limitations">Loading authored asset notes…</p>
+  <p>Technical checks and these exported animation previews do not establish visual acceptance, gameplay animation completeness, or full zone readiness.</p>
+  <p><a href="./README.md">Source and rebuild documentation</a></p>
+</aside>
+<main><canvas id="viewport"></canvas><div id="status" class="status" role="status">Loading exported asset…</div></main>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+  const $=(id)=>document.getElementById(id);
+  const canvas=$('viewport'),renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  const scene=new THREE.Scene();scene.background=new THREE.Color('#20262c');
+  // Broad sky and ground reflections make metallic PBR surfaces reviewable.
+  const environmentCanvas=document.createElement('canvas');environmentCanvas.width=512;environmentCanvas.height=256;
+  const environmentContext=environmentCanvas.getContext('2d');const sky=environmentContext.createLinearGradient(0,0,0,256);
+  sky.addColorStop(0,'#b9cbdc');sky.addColorStop(.46,'#e5e4db');sky.addColorStop(.53,'#777268');sky.addColorStop(1,'#39382f');
+  environmentContext.fillStyle=sky;environmentContext.fillRect(0,0,512,256);
+  const skyTexture=new THREE.CanvasTexture(environmentCanvas);skyTexture.colorSpace=THREE.SRGBColorSpace;skyTexture.mapping=THREE.EquirectangularReflectionMapping;
+  const pmrem=new THREE.PMREMGenerator(renderer),environment=pmrem.fromEquirectangular(skyTexture);scene.environment=environment.texture;skyTexture.dispose();pmrem.dispose();
+  const camera=new THREE.PerspectiveCamera(38,1,.03,500);
+  const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.07;
+  scene.add(new THREE.HemisphereLight(0xc9d7e5,0x453a2a,2.2));
+  const key=new THREE.DirectionalLight(0xffe0b6,3.5);key.position.set(-4,7,5);scene.add(key);
+  const fill=new THREE.DirectionalLight(0x9dc5ff,2.0);fill.position.set(6,3,-3);scene.add(fill);
+  const rim=new THREE.DirectionalLight(0xfff1d6,2.5);rim.position.set(-2,5,-6);scene.add(rim);
+  const loader=new GLTFLoader(),neutral=new THREE.MeshStandardMaterial({color:0xaaaaaa,metalness:0,roughness:.73});
+  let model=null,request=0,frameReset=()=>{},mixer=null,clips=[],previousTime=0;
+  const dispose=(object)=>object?.traverse((child)=>{if(!child.isMesh)return;child.geometry.dispose();for(const material of [child.userData.material??child.material].flat().filter(Boolean)){for(const key of ['map','normalMap','aoMap','roughnessMap','metalnessMap'])material[key]?.dispose();material.dispose();}});
+  function appearance(){if(!model)return;model.traverse((child)=>{if(!child.isMesh)return;child.material=$('neutral').checked?neutral:child.userData.material;for(const material of [child.material].flat())material.wireframe=$('wire').checked;});}
+  async function load(){
+    const id=++request,asset=$('asset').value,lod=$('lod').value;$('status').classList.remove('bad');$('status').textContent='Loading exported asset…';
+    try{
+      const [gltf,report]=await Promise.all([loader.loadAsync(`./runtime/${asset}_lod${lod}.glb`),fetch(`./review/${asset}_build.json`).then((response)=>{if(!response.ok)throw new Error('Build report unavailable');return response.json();})]);
+      if(id!==request){dispose(gltf.scene);return;}
+      if(model){mixer?.stopAllAction();mixer?.uncacheRoot(model);scene.remove(model);dispose(model);}model=gltf.scene;scene.add(model);mixer=new THREE.AnimationMixer(model);clips=gltf.animations;
+      model.traverse((child)=>{if(child.isMesh)child.userData.material=child.material;});
+      $('clip').replaceChildren(new Option('Rest pose',''),...clips.map(clip=>new Option(clip.name,clip.name)));$('clip').value=clips.find(clip=>clip.name==='idle')?.name??clips[0]?.name??'';playClip();
+      const box=new THREE.Box3().setFromObject(model),size=box.getSize(new THREE.Vector3()),centre=box.getCenter(new THREE.Vector3()),distance=Math.max(size.x,size.y,size.z)*2.1;
+      frameReset=()=>{camera.position.copy(centre).add(new THREE.Vector3(distance*.72,distance*.46,distance*.90));controls.target.copy(centre);camera.near=.03;camera.far=distance*25;camera.updateProjectionMatrix();controls.update();};frameReset();appearance();
+      const measured=report.lods.find((entry)=>entry.level===Number(lod));
+      $('metrics').textContent=`${measured.triangles.toLocaleString()} triangles · ${measured.materials??2} shared materials\n${(measured.bytes/1048576).toFixed(2)} MiB · ${size.x.toFixed(2)} × ${size.z.toFixed(2)} × ${size.y.toFixed(2)} m`;
+      $('limitations').textContent=(report.limitations??['Skin, harness fit and literal exported movement remain under visual review.']).join(' ');
+      $('status').textContent=`${asset} · LOD${lod}\nStaged authoring asset. No primitive substitutes. Source and gameplay limitations remain explicit.`;
+    }catch(error){if(id===request){$('status').classList.add('bad');$('status').textContent=`Unable to load this export: ${error.message}`;}}
+  }
+  $('asset').addEventListener('change',load);$('lod').addEventListener('change',load);$('wire').addEventListener('change',appearance);$('neutral').addEventListener('change',appearance);$('reset').addEventListener('click',()=>frameReset());
+  const resize=()=>{const width=canvas.parentElement.clientWidth,height=canvas.parentElement.clientHeight;renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();};new ResizeObserver(resize).observe(canvas.parentElement);resize();
+  function playClip(){if(!mixer)return;mixer.stopAllAction();const clip=clips.find(clip=>clip.name===$('clip').value);if(clip)mixer.clipAction(clip).reset().play();}
+  $('clip').addEventListener('change',playClip);
+  renderer.setAnimationLoop((milliseconds)=>{const delta=previousTime?Math.min(.05,(milliseconds-previousTime)/1000):0;previousTime=milliseconds;if($('motion').checked)mixer?.update(delta);controls.update();renderer.render(scene,camera);});
+  addEventListener('pagehide',()=>{request++;renderer.setAnimationLoop(null);mixer?.stopAllAction();mixer?.uncacheRoot(model);dispose(model);neutral.dispose();environment.dispose();controls.dispose();renderer.dispose();},{once:true});
+  load();
+</script>
+</body>
+</html>

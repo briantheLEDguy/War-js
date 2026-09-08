@@ -121,6 +121,13 @@ describe("MPFB animation profile workflow", () => {
 });
 
 describe("strict blueprint validation", () => {
+  it("records a reviewed 4K scenery atlas without admitting larger texture declarations", () => {
+    const blueprint = JSON.parse(readFileSync("scripts/blender-character-pipeline/data/asset-blueprints/prop_aegis_lantern.asset.json", "utf8"));
+    blueprint.materials.maxTextureResolution = 4096;
+    expect(validateBlueprintRecord("scenery.asset.json", blueprint).ok).toBe(true);
+    blueprint.materials.maxTextureResolution = 8192;
+    expect(validateBlueprintRecord("scenery.asset.json", blueprint).errors.join("\n")).toMatch(/maxTextureResolution/);
+  });
   it("rejects retired generators, incomplete PBR, excess weights, and unlicensed imports", () => {
     const blueprint = {
       assetId: "chr.test.pilot",

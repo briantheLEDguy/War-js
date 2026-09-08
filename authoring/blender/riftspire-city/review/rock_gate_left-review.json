@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+  "reviewedAt": "2026-09-06T21:45:20.523Z",
+  "observations": "Inspected exported LOD0/1/2 contact views. Recesses now have sloped side reveals, ceilings, floors and solid backs; rim gates and northern palace cuts stay open. Planar simplification preserves these silhouettes.",
+  "modelSha256s": [
+    "226728bec58f428e4891512a6685a786a5ec828f9e85ec887ad5cba49cdb3f6d",
+    "542de24b1904fa29d561b9e96005d6461ec2d5e34fae33b608c3218ef307b2a1",
+    "11c3da15d2dcfd821bd06a45f7ac18ce41c5a6eeb2e3f0ba3adf1e373b3e2af7"
+  ],
+  "previewSha256s": {
+    "rock_gate_left-lod0.png": "eaec9c8979f4c57d71fde82f34d14e8ec431169baec08c8f63e3da685d363219",
+    "rock_gate_left-lod1.png": "3e6192c473720e485a0d3b5643da4e2c79a846ecacd2a2d2b02f7f7055f787fb",
+    "rock_gate_left-lod2.png": "0bd08e5771fe5b750d972dd1df54f6180ad229bd9507da0c380e25764ede2244"
+  }
+}

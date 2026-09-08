@@ -1,0 +1,97 @@
+{
+  "model": "frontier_cinderfen_workshop_lod0.glb",
+  "sha256": "81067dcb441ce106583c46160649b46646500e473567bda809c47ff994d79ab9",
+  "preview": "frontier_cinderfen_workshop_lod0_reimport.png",
+  "preview_sha256": "9545ced50cfeca264440926a40de4335f16473f304f1918aa427b969c364df4d",
+  "reviewer_sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+  "neutral_camera": {
+    "camera_position_z_up": [
+      11.031908988952637,
+      -18.638046264648438,
+      13.62153434753418
+    ],
+    "target_z_up": [
+      1.1205673217773438e-05,
+      -1.2192621231079102,
+      3.7508885860443115
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "gameplay_preview": "frontier_cinderfen_workshop_lod0_gameplay.png",
+  "gameplay_preview_sha256": "c4dc9d968fc56a4fcd101ecad09831290bf21c8ca0d16aa1e014c68d4117efa3",
+  "gameplay_camera": {
+    "camera_position_z_up": [
+      4.064394474029541,
+      -41.219261169433594,
+      5.400000095367432
+    ],
+    "target_z_up": [
+      1.1205673217773438e-05,
+      -1.2192621231079102,
+      3.7508885860443115
+    ],
+    "projection": "PERSP",
+    "lens_mm": 38.0,
+    "distance_m": 40,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1280,
+      720
+    ]
+  },
+  "material_camera": {
+    "camera_position_z_up": [
+      0.25,
+      -8.579999923706055,
+      5.25
+    ],
+    "target_z_up": [
+      -2.5999999046325684,
+      -4.079999923706055,
+      2.700000047683716
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": 3.0,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "material_preview": "frontier_cinderfen_workshop_lod0_material.png",
+  "material_preview_sha256": "207c5ada608c89938182e8a1b49c4926feaf838633a6aa152575f6a29f02b883",
+  "reed_camera": {
+    "camera_position_z_up": [
+      7.960000038146973,
+      -6.0,
+      6.960000038146973
+    ],
+    "target_z_up": [
+      5.300000190734863,
+      -1.7999999523162842,
+      4.579999923706055
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": 2.8,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "reed_preview": "frontier_cinderfen_workshop_lod0_reed.png",
+  "reed_preview_sha256": "80db14f49539e31a606b02380bc6b72e89c00f22b8acbd4cfeb3c0d6a29740b9"
+}

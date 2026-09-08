@@ -1,0 +1,10 @@
+[
+  { "name": "Ash cottage", "width": 8, "depth": 8, "height": 7, "roof": "offset", "rise": 4 },
+  { "name": "Blackvein workshop", "width": 15, "depth": 10, "height": 8, "roof": "shed", "rise": 2 },
+  { "name": "Watchman's tenement", "width": 10, "depth": 8, "height": 16, "roof": "gable", "rise": 4 },
+  { "name": "Split-gable guildhouse", "width": 16, "depth": 10, "height": 11, "roof": "double", "rise": 4 },
+  { "name": "Stone roofcourt", "width": 12, "depth": 9, "height": 9, "roof": "court", "rise": 1 },
+  { "name": "Chainwright towerhome", "width": 9, "depth": 8, "height": 15, "roof": "offset", "rise": 5 },
+  { "name": "Low timber works", "width": 14, "depth": 10, "height": 7, "roof": "shed", "rise": 3 },
+  { "name": "Oriel merchant house", "width": 11, "depth": 9, "height": 12, "roof": "gable", "rise": 4 }
+]

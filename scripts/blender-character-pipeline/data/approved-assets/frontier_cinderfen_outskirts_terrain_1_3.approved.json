@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen.outskirts.terrain.1.3",
+  "displayName": "frontier cinderfen outskirts terrain 1 3",
+  "category": "prop",
+  "model": "frontier_cinderfen_outskirts_terrain_1_3.glb",
+  "qc": "frontier_cinderfen_outskirts_terrain_1_3.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_outskirts_terrain_1_3"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "7c742bfd1261b52e1711e49ccc33e479eb4cf9369ea232a60cce43bb5df681a7",
+    "qcSha256": "1d1234d6d305bf34934cadb048113470e759fbbe5e3e3e32df17aa14495442ce",
+    "previews": {
+      "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-08T19:22:07.052Z",
+    "reviewHash": "c71a2fb98239c43332f7488e5dddb17993091952df33ff64b61a510fed270e88"
+  },
+  "provenance": {
+    "createdBy": "original_authored_blender_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "texture_source",
+      "mesh_authoring"
+    ],
+    "promptIds": [
+      "cinderfen_peat_albedo_v1",
+      "cinderfen_causeway_albedo_v1"
+    ],
+    "referencePackId": "original_cinderfen_survey",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/cinderfen-terrain/build_terrain.py"
+  },
+  "approvalState": "approved"
+}

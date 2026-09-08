@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.banner",
+  "displayName": "Riftspire banner",
+  "category": "prop",
+  "model": "prop_riftspire_banner.glb",
+  "qc": "prop_riftspire_banner.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_banner"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "af96ac8909521b420eee1b38dc0ab5336d59690b5691a15fbcdfc7cae4538a5c",
+    "qcSha256": "bb1247fdc2e13b33ebccb22d4236b711013aea7f5ab34cabb9acd0ca5f5c3538",
+    "previews": {
+      "assembly": "e05be6f596e87976b48bb285458316c56b6d31ad31c25b52c45d5fc5a7be4b9b"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/banner-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.213Z",
+    "reviewHash": "dd2f6732993998983c45713aadf041c74f10ead6fedab780e0d2e4dafa6e73d5"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

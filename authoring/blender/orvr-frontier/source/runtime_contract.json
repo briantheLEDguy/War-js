@@ -1,0 +1,805 @@
+{
+  "status": "exported_and_reviewed_for_integration; unpublished",
+  "units": "metres",
+  "blenderAxes": {
+    "up": "+Z",
+    "forward": "-Y",
+    "right": "+X"
+  },
+  "gltfAxes": {
+    "up": "+Y",
+    "forward": "+Z",
+    "right": "+X"
+  },
+  "conversion": "glTF(x,y,z) = Blender(x,z,-y)",
+  "authorityBoundary": "No clip translates an asset root. The authoritative client adapter drives world position/yaw, scales rolling or locomotion by distance, and triggers siege clips from accepted server events. Clip events do not apply gameplay damage.",
+  "assets": {
+    "frontier_supply_wagon": {
+      "drivenNodes": [
+        "wheel_0",
+        "wheel_1",
+        "wheel_2",
+        "wheel_3"
+      ],
+      "wheelRadius": 0.79,
+      "wheelAxisGltf": "+X",
+      "rollClip": "caravan_roll",
+      "rollDistancePerCycle": 4.963716392671874,
+      "rollClipSeconds": 1.6,
+      "playbackRule": "clip time advances by distanceTravelled / rollDistancePerCycle * rollClipSeconds; stop at zero authoritative movement",
+      "horseAsset": "frontier_draft_horse",
+      "horseOriginGltf": [
+        0,
+        0,
+        3.75
+      ],
+      "shaftSocketsGltf": [
+        [
+          -0.61,
+          0.98,
+          3.47
+        ],
+        [
+          0.61,
+          0.98,
+          3.47
+        ]
+      ],
+      "driverSeatNote": "Socket is butt contact, not the hips joint. Use the fitted canonical pose and avatar origin below; omit the hand-held weapon.",
+      "builder": {
+        "displayName": "Sunmeadow Covered Supply Wagon",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_supply_wagon_lod0.glb",
+          "frontier_supply_wagon_lod1.glb",
+          "frontier_supply_wagon_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "socketsGltf": {
+        "draft_horse_origin": [
+          0,
+          0,
+          3.75
+        ],
+        "driver_seat": [
+          0,
+          1.54,
+          1.38
+        ],
+        "driver_feet": [
+          0,
+          1.16,
+          1.91
+        ],
+        "shaft_left": [
+          -0.61,
+          0.98,
+          3.47
+        ],
+        "shaft_right": [
+          0.61,
+          0.98,
+          3.47
+        ]
+      },
+      "socketParents": {},
+      "driverSeatGltf": [
+        0,
+        1.54,
+        1.38
+      ],
+      "driverAnimationAsset": "frontier_teamster_animations",
+      "driverAvatarOriginGltf": [
+        0,
+        0.6541226744651794,
+        1.38
+      ],
+      "driverClip": "driver_seated",
+      "reinAsset": "frontier_caravan_reins",
+      "reinOriginGltf": [
+        0,
+        0,
+        0
+      ],
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_supply_wagon_lod0.glb",
+          "sha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+          "triangles": 87766,
+          "bytes": 13438408
+        },
+        {
+          "level": 1,
+          "model": "frontier_supply_wagon_lod1.glb",
+          "sha256": "5af903d426e281792b18ff3b34bad29e70c6119bd4a79d985c54d1515ca39d20",
+          "triangles": 42214,
+          "bytes": 12258924
+        },
+        {
+          "level": 2,
+          "model": "frontier_supply_wagon_lod2.glb",
+          "sha256": "e6c72a7c40c10739f5aeba2b1a4fd3b134ff284147dcceb232f9d7c00a4b50be",
+          "triangles": 28628,
+          "bytes": 4486504
+        }
+      ]
+    },
+    "frontier_draft_horse": {
+      "rig": "draft_horse_rig",
+      "shaftNodes": [
+        "hitch_shaft_left",
+        "hitch_shaft_right"
+      ],
+      "shaftSocketsGltf": [
+        [
+          -0.61,
+          0.98,
+          -0.28
+        ],
+        [
+          0.61,
+          0.98,
+          -0.28
+        ]
+      ],
+      "nominalDraftSpeed": 3.5,
+      "rootMotion": false,
+      "note": "Anatomy and harness are under review; no horse runtime export is currently approved.",
+      "builder": {
+        "displayName": "Frontier Bay Draft Horse",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_draft_horse_lod0.glb",
+          "frontier_draft_horse_lod1.glb",
+          "frontier_draft_horse_lod2.glb"
+        ],
+        "category": "fauna",
+        "reviewStatus": "pending"
+      },
+      "socketsGltf": {},
+      "socketParents": {},
+      "nominalGaits": {
+        "idle": 0,
+        "walk": 1.5,
+        "draft_trot": 3.5
+      },
+      "skinMeshes": [
+        "frontier_draft_horse_coat",
+        "frontier_draft_horse_tack"
+      ],
+      "footPlantMeasuredMaximumMetres": {
+        "authoredKeys": 0.001,
+        "interpolatedMidpoints": 0.006111
+      },
+      "limitations": [
+        "Stylized short coat; no hair cards or free-roaming wildlife behavior.",
+        "Harness is fitted to this horse and the documented wagon shafts."
+      ],
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_draft_horse_lod0.glb",
+          "sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+          "triangles": 118342,
+          "bytes": 12152196
+        },
+        {
+          "level": 1,
+          "model": "frontier_draft_horse_lod1.glb",
+          "sha256": "7cb634b85460155417b17b33b8885c6ab199eab7bcd3e5196719e3ce1b6a45ab",
+          "triangles": 52512,
+          "bytes": 8014204
+        },
+        {
+          "level": 2,
+          "model": "frontier_draft_horse_lod2.glb",
+          "sha256": "fe465b53dd01aa02124d5140878c13b9f24a2f98e7f826dc34123fc96e5f3728",
+          "triangles": 16534,
+          "bytes": 2978364
+        }
+      ],
+      "clips": [
+        {
+          "name": "idle",
+          "seconds": 4.0,
+          "root_motion": false
+        },
+        {
+          "name": "walk",
+          "seconds": 1.0,
+          "root_motion": false
+        },
+        {
+          "name": "draft_trot",
+          "seconds": 0.6666666666666666,
+          "root_motion": false
+        }
+      ]
+    },
+    "frontier_battering_ram": {
+      "drivenNodes": [
+        "wheel_0",
+        "wheel_1",
+        "wheel_2",
+        "wheel_3",
+        "ram_striker",
+        "suspension_front",
+        "suspension_rear"
+      ],
+      "wheelRadius": 0.6794,
+      "wheelAxisGltf": "+X",
+      "rollClip": "siege_roll",
+      "strikeClip": "ram_strike",
+      "strikeSeconds": 1.5,
+      "impactSeconds": 0.7,
+      "strikeTravelGltfZ": {
+        "backswing": -0.28,
+        "impact": 0.34
+      },
+      "operatorFeetGltf": [
+        [
+          -0.71,
+          0.83,
+          0.15
+        ],
+        [
+          0.71,
+          0.83,
+          0.15
+        ]
+      ],
+      "builder": {
+        "displayName": "Bull-brow Mantlet Ram",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_battering_ram_lod0.glb",
+          "frontier_battering_ram_lod1.glb",
+          "frontier_battering_ram_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "socketsGltf": {
+        "operator_left": [
+          -0.71,
+          0.83,
+          0.15
+        ],
+        "operator_right": [
+          0.71,
+          0.83,
+          0.15
+        ],
+        "ram_impact_rest": [
+          0,
+          1.63,
+          2.75
+        ]
+      },
+      "socketParents": {
+        "ram_impact_rest": "ram_striker"
+      },
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_battering_ram_lod0.glb",
+          "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+          "triangles": 70560,
+          "bytes": 17679080
+        },
+        {
+          "level": 1,
+          "model": "frontier_battering_ram_lod1.glb",
+          "sha256": "d40803b8a0b4d09351bafd7c74ff0fa22f9f8d42e86f9839322ce4c462af1986",
+          "triangles": 33740,
+          "bytes": 16788360
+        },
+        {
+          "level": 2,
+          "model": "frontier_battering_ram_lod2.glb",
+          "sha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4",
+          "triangles": 22442,
+          "bytes": 6678704
+        }
+      ]
+    },
+    "frontier_oil_cauldron": {
+      "drivenNodes": [
+        "tipping_cauldron"
+      ],
+      "pivotGltf": [
+        0,
+        0.82,
+        0
+      ],
+      "rotationAxisGltf": "+X",
+      "pourClip": "oil_pour",
+      "pourSeconds": 3.5,
+      "pourStartsSeconds": 0.9333333333333333,
+      "maximumAngleRadians": 1.02,
+      "operatorLocalReferenceGltf": [
+        0.9,
+        0,
+        -1.55
+      ],
+      "operatorNote": "Installation geometry reference only. Sunmeadow uses its existing fixed reachable ground winch anchor; do not teleport operators onto the cauldron.",
+      "builder": {
+        "displayName": "Parapet Tipping Oil Cauldron",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_oil_cauldron_lod0.glb",
+          "frontier_oil_cauldron_lod1.glb",
+          "frontier_oil_cauldron_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "socketsGltf": {
+        "operator_reference": [
+          0.9,
+          0,
+          -1.55
+        ],
+        "pour_lip_rest": [
+          0,
+          1.005,
+          0.86
+        ]
+      },
+      "socketParents": {
+        "pour_lip_rest": "tipping_cauldron"
+      },
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_oil_cauldron_lod0.glb",
+          "sha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+          "triangles": 23584,
+          "bytes": 2094212
+        },
+        {
+          "level": 1,
+          "model": "frontier_oil_cauldron_lod1.glb",
+          "sha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48",
+          "triangles": 5958,
+          "bytes": 1404416
+        },
+        {
+          "level": 2,
+          "model": "frontier_oil_cauldron_lod2.glb",
+          "sha256": "be2b1e463fa55479fd1dfde25baf2754aed0615051e4ce5b7fa3753b5200022c",
+          "triangles": 2766,
+          "bytes": 546004
+        }
+      ]
+    },
+    "frontier_field_catapult": {
+      "drivenNodes": [
+        "wheel_0",
+        "wheel_1",
+        "wheel_2",
+        "wheel_3",
+        "throwing_assembly",
+        "winding_drum",
+        "haul_rope"
+      ],
+      "wheelRadius": 0.6794,
+      "wheelAxisGltf": "+X",
+      "fireClip": "catapult_fire",
+      "fireSeconds": 0.8,
+      "releaseSeconds": 0.3,
+      "reloadClip": "catapult_reload",
+      "reloadSeconds": 3.6,
+      "armPivotGltf": [
+        0,
+        0.88,
+        0
+      ],
+      "armRotationAxisGltf": "+X",
+      "armCockAngleRadians": -1.1,
+      "armReleasedAngleRadians": 0.37,
+      "operatorFeetGltf": [
+        1.5,
+        0,
+        -1.35
+      ],
+      "projectileNote": "A server-controlled projectile begins at the evaluated spoon socket at release; the GLB contains no autonomous projectile or damage effect.",
+      "builder": {
+        "displayName": "Frontier Torsion Field Catapult",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_field_catapult_lod0.glb",
+          "frontier_field_catapult_lod1.glb",
+          "frontier_field_catapult_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "socketsGltf": {
+        "operator": [
+          1.5,
+          0,
+          -1.35
+        ],
+        "projectile_rest": [
+          0,
+          3.43,
+          -0.68
+        ],
+        "reload_winch": [
+          1.18,
+          1.27,
+          -1.25
+        ]
+      },
+      "socketParents": {
+        "projectile_rest": "throwing_assembly",
+        "reload_winch": "winding_drum"
+      },
+      "mechanismNotes": "Named driven meshes sit under fixed pivot parent nodes; winding drum freewheels on release and winds the parented haul rope on reload.",
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_field_catapult_lod0.glb",
+          "sha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+          "triangles": 75376,
+          "bytes": 20947756
+        },
+        {
+          "level": 1,
+          "model": "frontier_field_catapult_lod1.glb",
+          "sha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861",
+          "triangles": 30692,
+          "bytes": 19538576
+        },
+        {
+          "level": 2,
+          "model": "frontier_field_catapult_lod2.glb",
+          "sha256": "e95a9524f9bf47dfc332146cf14784d19b75cc826544c2bf62486fa02b891ea1",
+          "triangles": 20780,
+          "bytes": 6729488
+        }
+      ]
+    },
+    "frontier_keep_gate": {
+      "drivenNodes": [
+        "gate_leaf_left",
+        "gate_leaf_right"
+      ],
+      "hingePivotsGltf": [
+        [
+          -2.85,
+          0,
+          0
+        ],
+        [
+          2.85,
+          0,
+          0
+        ]
+      ],
+      "clips": [
+        "gate_open",
+        "gate_close"
+      ],
+      "clipSeconds": 1.3,
+      "rotationAxisGltf": "+Y",
+      "openingRadians": [
+        1.5707963267948966,
+        -1.5707963267948966
+      ],
+      "note": "Generic frontier leaf assembly; already published Sunmeadow leaves keep their separate approved model and footprint.",
+      "builder": {
+        "displayName": "Oak and Scroll-iron Double Keep Gate",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_keep_gate_lod0.glb",
+          "frontier_keep_gate_lod1.glb",
+          "frontier_keep_gate_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "socketsGltf": {},
+      "socketParents": {},
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_keep_gate_lod0.glb",
+          "sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+          "triangles": 25080,
+          "bytes": 10693876
+        },
+        {
+          "level": 1,
+          "model": "frontier_keep_gate_lod1.glb",
+          "sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+          "triangles": 11848,
+          "bytes": 10008880
+        },
+        {
+          "level": 2,
+          "model": "frontier_keep_gate_lod2.glb",
+          "sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+          "triangles": 6964,
+          "bytes": 3442880
+        }
+      ]
+    },
+    "frontier_caravan_reins": {
+      "originGltf": [
+        0,
+        0,
+        0
+      ],
+      "mountParent": "wagon root",
+      "driverGripGltf": [
+        [
+          0.2,
+          1.895,
+          1.61
+        ],
+        [
+          -0.2,
+          1.895,
+          1.61
+        ]
+      ],
+      "socketNodes": [
+        "socket.driver_hand_left",
+        "socket.driver_hand_right"
+      ],
+      "canonicalGripBones": {
+        "socket.driver_hand_left": "hand_R",
+        "socket.driver_hand_right": "hand_L"
+      },
+      "limitations": [
+        "Static loose leather; use the fitted horse offset and subtle exported head motion. Do not attach to arbitrary horse sizes."
+      ],
+      "builder": {
+        "displayName": "Fitted Wagon Reins and Bit",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_caravan_reins_lod0.glb",
+          "frontier_caravan_reins_lod1.glb",
+          "frontier_caravan_reins_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_caravan_reins_lod0.glb",
+          "sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+          "triangles": 2176,
+          "bytes": 392064
+        },
+        {
+          "level": 1,
+          "model": "frontier_caravan_reins_lod1.glb",
+          "sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+          "triangles": 1414,
+          "bytes": 323604
+        },
+        {
+          "level": 2,
+          "model": "frontier_caravan_reins_lod2.glb",
+          "sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+          "triangles": 826,
+          "bytes": 154820
+        }
+      ]
+    },
+    "frontier_supply_officer_kit": {
+      "socketNodes": [
+        "socket.belt_mount"
+      ],
+      "profileFit": {
+        "status": "pending_visual_review",
+        "inputs": [
+          {
+            "path": "public\\assets\\models\\chr_civic_battle_prelate_t1_m.glb",
+            "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_back_novitiate_m.glb",
+            "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_chest_novitiate_m.glb",
+            "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_feet_novitiate_m.glb",
+            "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_hands_novitiate_m.glb",
+            "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_head_novitiate_m.glb",
+            "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_legs_novitiate_m.glb",
+            "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+            "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_tabard_novitiate_m.glb",
+            "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+          },
+          {
+            "path": "public\\assets\\models\\arm_civic_battle_prelate_waist_novitiate_m.glb",
+            "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8"
+          },
+          {
+            "path": "authoring\\blender\\orvr-frontier\\runtime\\frontier_supply_officer_kit_lod0.glb",
+            "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d"
+          }
+        ],
+        "asset_id": "frontier_supply_officer_kit",
+        "profile_key": "civic_battle_prelate_m",
+        "skeleton_id": "humanoid_game_v2",
+        "bone": "hips",
+        "attachment_matrix_gltf_column_major": [
+          0.5403022170066833,
+          0.2862921953201294,
+          -0.7912713885307312,
+          0.0,
+          -4.967366251662497e-08,
+          0.940342903137207,
+          0.3402281403541565,
+          0.0,
+          0.8414710760116577,
+          -0.1838259994983673,
+          0.5080693960189819,
+          0.0,
+          0.29048827290534973,
+          -0.2922729551792145,
+          -0.06184196472167969,
+          1.0
+        ],
+        "rest_mount_avatar_gltf": [
+          0.24,
+          1.065,
+          0.015
+        ],
+        "image": "review\\frontier_supply_officer_equipped.png",
+        "image_sha256": "9e7c3bbbb35b11e16841064d90178e874b0e387ade5a87ea372e2114285db787",
+        "scope": "Fitted only to this approved body and novitiate armor at scale1; other body/race profiles require a separate fit."
+      },
+      "limitations": [
+        "Rigid belt attachment. The provided fit is only for civic_battle_prelate_m with novitiate armor; no race substitution is implied."
+      ],
+      "builder": {
+        "displayName": "Supply Officer Ledger Pouch",
+        "defaultScale": 1,
+        "units": "metres",
+        "forwardAxis": "+Z",
+        "originGltf": [
+          0,
+          0,
+          0
+        ],
+        "lodModels": [
+          "frontier_supply_officer_kit_lod0.glb",
+          "frontier_supply_officer_kit_lod1.glb",
+          "frontier_supply_officer_kit_lod2.glb"
+        ],
+        "category": "siege_logistics",
+        "reviewStatus": "pending"
+      },
+      "exportedLods": [
+        {
+          "level": 0,
+          "model": "frontier_supply_officer_kit_lod0.glb",
+          "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+          "triangles": 13048,
+          "bytes": 7448840
+        },
+        {
+          "level": 1,
+          "model": "frontier_supply_officer_kit_lod1.glb",
+          "sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+          "triangles": 7131,
+          "bytes": 2163436
+        },
+        {
+          "level": 2,
+          "model": "frontier_supply_officer_kit_lod2.glb",
+          "sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+          "triangles": 2557,
+          "bytes": 676924
+        }
+      ]
+    },
+    "frontier_teamster_animations": {
+      "model": "frontier_teamster_animations.glb",
+      "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2",
+      "clips": [
+        {
+          "name": "driver_seated",
+          "seconds": 4,
+          "root_motion": false
+        }
+      ],
+      "avatarOriginWagonLocalGltf": [
+        0,
+        0.6541226744651794,
+        1.38
+      ],
+      "notes": [
+        "Every bone is keyed, including rest channels. No world-root motion.",
+        "Use one AnimationMixer per independently skinned actor; separate horse and driver roots.",
+        "This is a fitted held pose; no enter/exit or separate ram-crew action is included."
+      ]
+    }
+  },
+  "integrationNotes": [
+    "Preserve fixed pivot.* parents and named driven children. Flattening this hierarchy collapses mechanical motion.",
+    "Initialize catapult_fire at time zero to show the cocked ready pose. The default bind pose is vertical.",
+    "The Sunmeadow wheat standard is regional artwork. This package does not include exported realm/color variants.",
+    "Projectile, poured liquid, damage, ownership and replacement timing remain authoritative runtime responsibilities.",
+    "Static and animated reimport reviews, hashes, measured counts and contact fits are in review/. Publication remains a separate root integration decision."
+  ]
+}

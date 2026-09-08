@@ -1,0 +1,86 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_wheat",
+      "level": 0,
+      "model": "frontier_sunmeadow_wheat_lod0.glb",
+      "model_sha256": "b94f67f25f621ff0c5cc7d4cefcc2fc2bb4c4a225a0e287959d0ed7e414b0bf9",
+      "image": "review\\frontier_sunmeadow_wheat_lod0_reimport.png",
+      "image_sha256": "9736d9dbdf01c6d30fd013ab0fe8313e9eb972583970c9b00ad38f69c363efcc",
+      "bounds_blender": {
+        "min": [
+          -1.0051482915878296,
+          -0.9957338571548462,
+          -0.0003330128383822739
+        ],
+        "max": [
+          1.007079839706421,
+          0.9605903625488281,
+          1.237959384918213
+        ],
+        "span": [
+          2.012228012084961,
+          1.9563242197036743,
+          1.2382924556732178
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_wheat",
+      "level": 1,
+      "model": "frontier_sunmeadow_wheat_lod1.glb",
+      "model_sha256": "dea7517d5d603e7a750d8cb5bc89f605359dd933b4f3ce7ef39ba29bab130bf7",
+      "image": "review\\frontier_sunmeadow_wheat_lod1_reimport.png",
+      "image_sha256": "1cbc62eb51de1f7620489ef2df0090b5c2048b50ee953b64bbe1f3b9e4068f9a",
+      "bounds_blender": {
+        "min": [
+          -1.0051482915878296,
+          -0.9957338571548462,
+          -0.0003330128383822739
+        ],
+        "max": [
+          1.007079839706421,
+          0.9037599563598633,
+          1.1981219053268433
+        ],
+        "span": [
+          2.012228012084961,
+          1.8994938135147095,
+          1.1984549760818481
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_wheat",
+      "level": 2,
+      "model": "frontier_sunmeadow_wheat_lod2.glb",
+      "model_sha256": "b0b681a380c8dbea4a2df781f54eee863338a7b971b0e1da992851d9f73133aa",
+      "image": "review\\frontier_sunmeadow_wheat_lod2_reimport.png",
+      "image_sha256": "50b25a407b721754959cee268e414d56309aea308f7883846be5e9e55d009c57",
+      "bounds_blender": {
+        "min": [
+          -0.9699376821517944,
+          -0.9034512639045715,
+          -0.00030352859175764024
+        ],
+        "max": [
+          0.9209437370300293,
+          0.9605903625488281,
+          1.1901241540908813
+        ],
+        "span": [
+          1.8908814191818237,
+          1.8640415668487549,
+          1.1904276609420776
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

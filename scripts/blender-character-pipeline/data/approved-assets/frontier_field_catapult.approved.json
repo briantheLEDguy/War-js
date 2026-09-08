@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.field_catapult",
+  "displayName": "Frontier Torsion Field Catapult",
+  "category": "prop",
+  "model": "frontier_field_catapult_lod0.glb",
+  "qc": "frontier_field_catapult_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_field_catapult"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+    "qcSha256": "9a8084c8168e69bc8eadc6b4d50da45b38b2ea6fdf62897e8c33dfd026534925",
+    "previews": {
+      "assembly": "61fe0ffd48e69e183bfa42d57b5c3aa2d40728bceae5177ae4a508045fc09afb"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/orvr-frontier/review/frontier_field_catapult_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "approvalState": "approved"
+}

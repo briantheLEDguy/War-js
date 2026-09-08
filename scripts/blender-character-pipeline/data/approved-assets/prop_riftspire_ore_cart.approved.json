@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.ore_cart",
+  "displayName": "Riftspire ore cart",
+  "category": "prop",
+  "model": "prop_riftspire_ore_cart.glb",
+  "qc": "prop_riftspire_ore_cart.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_ore_cart"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "d00a85880942c4d42edf8726cbc876ab707350f8a11d652a00a7ae2c1f68d91d",
+    "qcSha256": "e276055d85285112f83e40b88950caf4f2ce992c2e6437008ce924690623a438",
+    "previews": {
+      "assembly": "4b2c2d51e82ff0ed4afe539e94f5002fa477be8737d17e3e48c2d1784313914e"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/ore_cart-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.130112+00:00",
+    "reviewHash": "26757849b96e58a949c3027677d5c529fb336d5b8d9b33e27aee62e0438bd279"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

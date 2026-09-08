@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+  "reviewedAt": "2026-09-07T08:26:02.766545+00:00",
+  "observations": "Inspected all three exported LODs in contact sheets 08-10 and full-size workshop, split-gable and rock previews. Residence silhouettes now span low sheds, asymmetric cottages, split gables, roof courts and tall narrow tenements. Door openings and balconies remain visible; distant LODs simplify small railing ornament. Solid fractured rock infill retains its silhouette and closed depth at all LODs. Shared profile dimensions supply model-space floors and collision.",
+  "modelSha256s": [
+    "a545bba693b517daf3d65e99b4a7db419b61e965585959a7fe6d0742e92f2dd6",
+    "806b2e2234151d317503140f10f789306cd1d73a16ebc96c25836bc85dd5793d",
+    "32be741947c6a99349e6fff6b810e4056668745621987d4505929d4d88867edb"
+  ],
+  "previewSha256s": {
+    "house_8-lod0.png": "48d50152dd82d6a5a7e7c16616a5978078a9ccb9df476328546901a206957e6d",
+    "house_8-lod1.png": "df28da16dd8bf1c77229cd8798b9553d292b663c1ed82aaab23612cd9045bb8f",
+    "house_8-lod2.png": "95e572d9880c62d9aa743544d67822cdb6cb635e84101b587fd39f4c68979df1"
+  }
+}

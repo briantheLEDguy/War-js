@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent } from 'react';
 import type { Game } from '../../game/Game';
 import { startForegroundLoop } from '../../game/ForegroundFrameLoop';
@@ -19,6 +19,8 @@ import {
   type MarkerToggle,
   type ZoneExitMarker,
 } from './mapData';
+import { layoutMapSymbols, mapResolutionScale } from './worldMapPresentation';
+import { drawMapFeatures, drawMapWater, mapFeatureRole, mapFeatureVisible, zoneMapFeatures } from './zoneMapGeometry';
 import { useDraggableWindow } from './useDraggableWindow';
 
 interface Props {
@@ -35,7 +37,7 @@ const DEFAULT_WORLD_MAP_LAYERS: Record<WorldMapLayer, boolean> = {
 
 const WORLD_MAP_LAYERS: Array<{ key: WorldMapLayer; label: string; color: string }> = [
   { key: 'terrain', label: 'Terrain', color: '#9ea770' },
-  { key: 'landmarks', label: 'Camps', color: '#d4b060' },
+  { key: 'landmarks', label: 'Buildings', color: '#d4b060' },
   ...MAP_MARKER_LEGEND,
 ];
 
@@ -46,6 +48,7 @@ interface Point {
 
 interface Projection {
   size: number;
+  screenScale: number;
   scale: number;
   left: number;
   top: number;
@@ -277,14 +280,14 @@ export function ZoneMapCanvas({
   const hoverTargetsRef = useRef<MapHoverTarget[]>([]);
   const [hoveredLocation, setHoveredLocation] = useState<MapHoverTarget | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !zone) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     const draw = () => {
-      const size = prepareCanvas(canvas, ctx, renderScale);
+      const size = prepareVisibleZoneCanvas(canvas, ctx, renderScale);
       hoverTargetsRef.current = drawWorldMap(ctx, {
         character,
         enemies,
@@ -295,12 +298,24 @@ export function ZoneMapCanvas({
         npcs,
         quests,
         showPlayer,
+        screenScale: renderScale,
         width: size.width,
         zone,
       });
     };
 
-    return startForegroundLoop(draw, () => 15);
+    const viewport = canvas.closest('.campaign-map-viewport');
+    // Scroll events run before paint; don't leave the crop following a 15 FPS timer.
+    viewport?.addEventListener('scroll', draw, { passive: true });
+    const resizeObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(draw);
+    if (canvas.parentElement) resizeObserver?.observe(canvas.parentElement);
+    draw();
+    const stop = startForegroundLoop(draw, () => 15);
+    return () => {
+      stop();
+      viewport?.removeEventListener('scroll', draw);
+      resizeObserver?.disconnect();
+    };
   }, [character, enemies, game, layers, markerVisible, npcs, quests, renderScale, showPlayer, zone]);
 
   function handlePointerMove(event: PointerEvent<HTMLCanvasElement>) {
@@ -309,7 +324,7 @@ export function ZoneMapCanvas({
   }
 
   return (
-    <div className="zone-map-canvas-surface">
+    <div className="zone-map-canvas-surface" style={{ '--map-inverse-scale': 1 / Math.max(0.01, renderScale) } as CSSProperties}>
       {zone ? (
         <>
           <canvas
@@ -344,9 +359,10 @@ export function ZoneMapCanvas({
 
 function canvasPointerPosition(event: PointerEvent<HTMLCanvasElement>): [number, number] {
   const canvas = event.currentTarget;
-  const rect = canvas.getBoundingClientRect();
-  const scaleX = rect.width / Math.max(1, canvas.clientWidth);
-  const scaleY = rect.height / Math.max(1, canvas.clientHeight);
+  const surface = canvas.parentElement?.classList.contains('zone-map-canvas-surface') ? canvas.parentElement : canvas;
+  const rect = surface.getBoundingClientRect();
+  const scaleX = rect.width / Math.max(1, surface.clientWidth);
+  const scaleY = rect.height / Math.max(1, surface.clientHeight);
   return [
     (event.clientX - rect.left) / scaleX,
     (event.clientY - rect.top) / scaleY,
@@ -365,6 +381,7 @@ function drawWorldMap(
     npcs: ReturnType<typeof useGameStore.getState>['npcs'];
     quests: ReturnType<typeof useGameStore.getState>['quests'];
     showPlayer: boolean;
+    screenScale?: number;
     width: number;
     zone: ZoneDefinition;
   },
@@ -374,7 +391,7 @@ function drawWorldMap(
   ctx.fillStyle = '#070604';
   ctx.fillRect(0, 0, ctxWidth, ctxHeight);
 
-  const projection = createProjection(input.zone, ctxWidth, ctxHeight);
+  const projection = createProjection(input.zone, ctxWidth, ctxHeight, input.screenScale);
   const playerPosition = input.game
     ? { x: input.game.playerPos.x, z: input.game.playerPos.z }
     : {
@@ -398,21 +415,42 @@ function drawWorldMap(
 
   drawTerrain(ctx, input.zone, projection, input.layers.terrain);
   drawMapGrid(ctx, input.zone, projection);
-  if (input.layers.terrain) drawPaths(ctx, input.zone.paths ?? [], projection);
+  if (input.layers.terrain) {
+    ctx.save(); clipMap(ctx, projection);
+    drawMapFeatures(ctx, input.zone, projection, ['nature']);
+    drawMapWater(ctx, input.zone, projection);
+    drawMapFeatures(ctx, input.zone, projection, ['ground']);
+    ctx.restore();
+    drawPaths(ctx, input.zone.paths ?? [], projection);
+  }
   if (input.layers.terrain || input.layers.landmarks) drawProps(ctx, input.zone, projection, input.layers);
   if (input.layers.landmarks) drawObjectives(ctx, input.zone, projection);
-  if (input.layers.exits) drawZoneExits(ctx, exits, projection);
   if (input.zone.spawnPoint) drawSpawnPoint(ctx, input.zone.spawnPoint, projection);
 
-  for (const marker of markers) {
-    drawWorldMarker(ctx, marker, projection);
+  const targets = buildMapHoverTargets(input.zone, projection, markers, input.layers);
+  const symbols = layoutMapSymbols(targets.filter(target => target.kind !== 'Landmark'), projection.screenScale);
+  const anchors = new Map(targets.map(target => [target.id, target.position]));
+  const markerById = new Map(markers.map(marker => [marker.id, marker]));
+  for (const symbol of symbols) {
+    const anchor = anchors.get(symbol.id)!;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(223, 217, 184, 0.5)';
+    ctx.lineWidth = 1 / projection.screenScale;
+    ctx.beginPath(); ctx.moveTo(anchor.x, anchor.y); ctx.lineTo(symbol.position.x, symbol.position.y); ctx.stroke();
+    ctx.translate(symbol.position.x, symbol.position.y);
+    ctx.scale(1 / projection.screenScale, 1 / projection.screenScale);
+    const marker = markerById.get(symbol.id);
+    drawMarkerShape(ctx, marker ?? {
+      id: symbol.id, kind: 'npcs', color: symbol.color, shape: 'square', position: { x: 0, z: 0 },
+    }, 0, 0, marker?.priority ? 6 : 4.5);
+    ctx.restore();
   }
   if (input.showPlayer) drawPlayerMarker(ctx, playerPosition, projection);
   drawCompass(ctx, projection);
   drawScale(ctx, projection);
   drawMapRelief(ctx, projection, input.zone);
 
-  return buildMapHoverTargets(input.zone, projection, markers, input.layers);
+  return [...targets.filter(target => target.kind === 'Landmark'), ...symbols];
 }
 
 function buildMapHoverTargets(
@@ -424,16 +462,14 @@ function buildMapHoverTargets(
   const targets: MapHoverTarget[] = [];
 
   if (layers.landmarks) {
-    for (const prop of zone.props ?? []) {
-      if (isTerrainProp(prop) || !shouldLabelProp(prop)) continue;
+    for (const feature of zoneMapFeatures(zone)) {
+      if (!['building', 'landmark'].includes(feature.role) || !mapFeatureVisible(feature, projection.scale * projection.screenScale)) continue;
+      const prop = feature.prop;
       targets.push({
         id: `prop-${prop.id ?? `${prop.kind}-${prop.x}-${prop.z}`}`,
-        label: propLabel(prop, zone.id),
-        detail: propKind(prop.kind),
-        kind: 'Landmark',
-        color: '#d4b060',
-        position: projection.toCanvas(prop),
-        radius: Math.max(10, (prop.scale ?? 1) * projection.scale * 8),
+        label: propLabel(prop, zone.id), detail: propKind(prop.kind), kind: 'Landmark', color: '#d4b060',
+        position: projection.toCanvas(feature.center),
+        radius: Math.max(2 / projection.screenScale, Math.min(feature.width, feature.depth) * projection.scale / 2),
       });
     }
 
@@ -446,7 +482,7 @@ function buildMapHoverTargets(
         color: objective.defaultRealm === 'aegis' ? '#72a6d8' : '#d06161',
         priority: true,
         position: projection.toCanvas(objective),
-        radius: Math.max(14, objective.captureRadius * projection.scale),
+        radius: 10 / projection.screenScale,
       });
     }
   }
@@ -461,14 +497,14 @@ function buildMapHoverTargets(
       color: marker.color,
       priority: marker.priority,
       position: projection.toCanvas(marker.position),
-      radius: marker.priority ? 15 : 11,
+      radius: (marker.priority ? 12 : 9) / projection.screenScale,
     });
   }
 
   return targets;
 }
 
-function findMapHoverTarget(
+export function findMapHoverTarget(
   targets: MapHoverTarget[],
   x: number,
   y: number,
@@ -479,8 +515,8 @@ function findMapHoverTarget(
   for (const target of targets) {
     const distance = Math.hypot(target.position.x - x, target.position.y - y);
     if (distance > target.radius) continue;
-    const isPreferred = target.priority && !nearest?.priority;
-    if (isPreferred || (!isPreferred && distance < nearestDistance)) {
+    const symbolOverLandmark = nearest?.kind === 'Landmark' && target.kind !== 'Landmark';
+    if (symbolOverLandmark || (distance < nearestDistance && !(nearest && nearest.kind !== 'Landmark' && target.kind === 'Landmark'))) {
       nearest = target;
       nearestDistance = distance;
     }
@@ -512,20 +548,59 @@ function prepareCanvas(
   // preserve the logical drawing space; getBoundingClientRect() is screen space.
   const width = Math.max(320, Math.floor(canvas.clientWidth || rect.width));
   const height = Math.max(260, Math.floor(canvas.clientHeight || rect.height));
-  const resolutionScale = Math.max(1, renderScale);
-  const backingWidth = Math.floor(width * pixelRatio * resolutionScale);
-  const backingHeight = Math.floor(height * pixelRatio * resolutionScale);
+  const resolutionScale = mapResolutionScale(width, height, pixelRatio, renderScale);
+  const backingWidth = Math.floor(width * resolutionScale);
+  const backingHeight = Math.floor(height * resolutionScale);
 
   if (canvas.width !== backingWidth || canvas.height !== backingHeight) {
     canvas.width = backingWidth;
     canvas.height = backingHeight;
   }
 
-  ctx.setTransform(pixelRatio * resolutionScale, 0, 0, pixelRatio * resolutionScale, 0, 0);
+  ctx.setTransform(resolutionScale, 0, 0, resolutionScale, 0, 0);
   return { width, height };
 }
 
-function createProjection(zone: ZoneDefinition, width: number, height: number): Projection {
+/** Include a screen-space gutter for compositor scrolling between canvas redraws. */
+export const MAP_CANVAS_OVERSCAN = 96;
+
+/** Rasterize the buffered viewport, keeping memory independent of the full magnified zone. */
+export function prepareVisibleZoneCanvas(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, screenScale: number) {
+  const surface = canvas.parentElement;
+  const viewport = canvas.closest<HTMLElement>('.campaign-map-viewport');
+  if (!surface || !viewport) return prepareCanvas(canvas, ctx, screenScale);
+  const scale = Math.max(0.01, screenScale);
+  const rect = surface.getBoundingClientRect();
+  const view = viewport.getBoundingClientRect();
+  const viewLeft = view.left + viewport.clientLeft;
+  const viewTop = view.top + viewport.clientTop;
+  const left = Math.max(0, (viewLeft - rect.left - MAP_CANVAS_OVERSCAN) / scale);
+  const top = Math.max(0, (viewTop - rect.top - MAP_CANVAS_OVERSCAN) / scale);
+  const right = Math.min(surface.clientWidth, (viewLeft + viewport.clientWidth - rect.left + MAP_CANVAS_OVERSCAN) / scale);
+  const bottom = Math.min(surface.clientHeight, (viewTop + viewport.clientHeight - rect.top + MAP_CANVAS_OVERSCAN) / scale);
+  const width = Math.max(1, right - left);
+  const height = Math.max(1, bottom - top);
+  const pixelScale = Math.min(window.devicePixelRatio || 1, 2) * scale;
+  canvas.style.position = 'absolute';
+  canvas.style.left = `${left}px`;
+  canvas.style.top = `${top}px`;
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+  const backingWidth = Math.ceil(width * pixelScale), backingHeight = Math.ceil(height * pixelScale);
+  if (canvas.width !== backingWidth || canvas.height !== backingHeight) {
+    canvas.width = backingWidth;
+    canvas.height = backingHeight;
+  }
+  // Clear every backing pixel, including rounded crop edges outside scene coordinates.
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#070604';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.setTransform(pixelScale, 0, 0, pixelScale, -left * pixelScale, -top * pixelScale);
+  return { width: surface.clientWidth, height: surface.clientHeight };
+}
+
+function createProjection(zone: ZoneDefinition, width: number, height: number, screenScale = 1): Projection {
   const size = Math.max(zone.size || 120, 60);
   const padding = Math.max(28, Math.min(54, Math.min(width, height) * 0.08));
   const mapPixels = Math.max(1, Math.min(width - padding * 2, height - padding * 2));
@@ -537,6 +612,7 @@ function createProjection(zone: ZoneDefinition, width: number, height: number): 
 
   return {
     size,
+    screenScale: Math.max(0.01, screenScale),
     scale,
     left,
     top,
@@ -575,36 +651,35 @@ function drawTerrain(
   ctx.strokeRect(projection.left + 3, projection.top + 3, projection.width - 6, projection.height - 6);
 }
 
+const terrainSurfaces = new WeakMap<ZoneDefinition, HTMLCanvasElement>();
+
 function drawNaturalTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
-  const half = projection.size / 2;
-  const cells = 38;
-  const step = projection.size / cells;
-
-  for (let ix = 0; ix < cells; ix++) {
-    for (let iz = 0; iz < cells; iz++) {
-      const x = -half + ix * step;
-      const z = -half + iz * step;
-      const value = terrainValue(x + step / 2, z + step / 2, zone.id);
-      const moisture = Math.cos((x - z) * 0.028 + zone.id.length);
-      ctx.fillStyle = terrainColor(value, moisture);
-      const p = projection.toCanvas({ x, z });
-      ctx.fillRect(p.x, p.y, Math.ceil(step * projection.scale) + 1, Math.ceil(step * projection.scale) + 1);
+  let surface = terrainSurfaces.get(zone);
+  if (!surface) {
+    surface = document.createElement('canvas');
+    surface.width = surface.height = 384;
+    const terrain = surface.getContext('2d');
+    if (!terrain) return;
+    const pixels = terrain.createImageData(384, 384);
+    for (let y = 0; y < 384; y++) for (let x = 0; x < 384; x++) {
+      const wx = (x / 383 - 0.5) * projection.size;
+      const wz = (y / 383 - 0.5) * projection.size;
+      const height = terrainValue(wx, wz, zone.id);
+      const moisture = Math.cos((wx - wz) * 0.028 + zone.id.length);
+      const relief = height * 10;
+      const contour = Math.pow((Math.cos(height * 27) + 1) / 2, 24) * 3;
+      const i = (y * 384 + x) * 4;
+      pixels.data[i] = 35 + relief - moisture * 3 + contour;
+      pixels.data[i + 1] = 51 + relief + moisture * 3 + contour;
+      pixels.data[i + 2] = 46 + relief + contour;
+      pixels.data[i + 3] = 255;
     }
+    terrain.putImageData(pixels, 0, 0);
+    terrainSurfaces.set(zone, surface);
   }
-
-  ctx.strokeStyle = 'rgba(173, 194, 186, 0.16)';
-  ctx.lineWidth = 1;
-  for (let z = -half + step * 3; z < half; z += step * 4) {
-    ctx.beginPath();
-    for (let i = 0; i <= 72; i++) {
-      const x = -half + (i / 72) * projection.size;
-      const waveZ = z + Math.sin(x * 0.035 + z * 0.015) * step * 0.65;
-      const p = projection.toCanvas({ x, z: waveZ });
-      if (i === 0) ctx.moveTo(p.x, p.y);
-      else ctx.lineTo(p.x, p.y);
-    }
-    ctx.stroke();
-  }
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(surface, projection.left, projection.top, projection.width, projection.height);
 }
 
 function drawCityTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
@@ -622,53 +697,7 @@ function drawCityTerrain(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, pr
   ctx.fillStyle = gradient;
   ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
 
-  ctx.save();
-  clipMap(ctx, projection);
-  const structuralProps = (zone.props ?? []).filter((prop) => !isTerrainProp(prop));
-  ctx.fillStyle = 'rgba(153, 127, 75, 0.13)';
-  for (const prop of structuralProps) {
-    const point = projection.toCanvas(prop);
-    const radius = Math.max(8, (prop.scale ?? 1) * projection.scale * 7);
-    ctx.beginPath();
-    ctx.ellipse(point.x, point.y, radius * 1.55, radius, 0, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  // Broad contour lines preserve a sense of connected districts without making
-  // the terrain a grid of equal visual-weight rectangles.
-  ctx.strokeStyle = 'rgba(167, 188, 183, 0.1)';
-  ctx.lineWidth = 1;
-  const half = projection.size / 2;
-  const contourStep = projection.size / 6;
-  for (let x = -half + contourStep; x < half; x += contourStep) {
-    ctx.beginPath();
-    for (let i = 0; i <= 32; i += 1) {
-      const z = -half + (i / 32) * projection.size;
-      const waveX = x + Math.sin(z * 0.035 + zone.id.length) * 3.5;
-      const point = projection.toCanvas({ x: waveX, z });
-      if (i === 0) ctx.moveTo(point.x, point.y);
-      else ctx.lineTo(point.x, point.y);
-    }
-    ctx.stroke();
-  }
-  for (let z = -half + contourStep; z < half; z += contourStep) {
-    ctx.beginPath();
-    for (let i = 0; i <= 32; i += 1) {
-      const x = -half + (i / 32) * projection.size;
-      const waveZ = z + Math.cos(x * 0.03 + zone.id.length) * 3.5;
-      const point = projection.toCanvas({ x, z: waveZ });
-      if (i === 0) ctx.moveTo(point.x, point.y);
-      else ctx.lineTo(point.x, point.y);
-    }
-    ctx.stroke();
-  }
-
-  const center = projection.toCanvas({ x: 0, z: 0 });
-  ctx.fillStyle = 'rgba(184, 166, 118, 0.1)';
-  ctx.beginPath();
-  ctx.arc(center.x, center.y, projection.width * 0.1, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.restore();
+  // The city's actual streets, water and footprints provide its structure.
 }
 
 function drawMapGrid(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
@@ -725,29 +754,19 @@ function drawMapGrid(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projec
   ctx.restore();
 }
 
-function drawPaths(ctx: CanvasRenderingContext2D, paths: PathDefinition[], projection: Projection) {
+export function drawPaths(ctx: CanvasRenderingContext2D, paths: PathDefinition[], projection: Projection) {
   ctx.save();
   clipMap(ctx, projection);
-  for (const path of paths) {
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  // Complete each layer across the network so junctions have no internal seams.
+  for (const pass of [0, 1, 2]) for (const path of paths) {
     if (path.points.length < 2) continue;
-    const width = Math.max(3, path.width * projection.scale);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.strokeStyle = 'rgba(3, 7, 9, 0.92)';
-    ctx.lineWidth = width + 5;
+    const width = Math.max(1.5 / projection.screenScale, path.width * projection.scale);
+    const paved = path.style === 'cobblestone_avenue' || path.style === 'brick_walkway';
+    ctx.strokeStyle = pass === 0 ? '#30352b' : pass === 1 ? (paved ? '#7a8176' : '#84734e') : (paved ? '#95988a' : '#a48c60');
+    ctx.lineWidth = pass === 0 ? width + 2 / projection.screenScale : pass === 1 ? width : width * 0.5;
     strokePath(ctx, path, projection);
-    ctx.strokeStyle = path.style === 'cobblestone_avenue'
-      ? 'rgba(153, 174, 169, 0.64)'
-      : 'rgba(133, 105, 61, 0.72)';
-    ctx.lineWidth = width;
-    strokePath(ctx, path, projection);
-    ctx.setLineDash([Math.max(7, width * 1.4), Math.max(8, width * 1.2)]);
-    ctx.strokeStyle = path.style === 'cobblestone_avenue'
-      ? 'rgba(214, 228, 211, 0.3)'
-      : 'rgba(236, 195, 120, 0.28)';
-    ctx.lineWidth = Math.max(1, width * 0.16);
-    strokePath(ctx, path, projection);
-    ctx.setLineDash([]);
   }
   ctx.restore();
 }
@@ -770,60 +789,9 @@ function drawProps(
 ) {
   ctx.save();
   clipMap(ctx, projection);
-  for (const prop of zone.props ?? []) {
-    if ((prop.kind === 'tree' || prop.kind === 'rock' || prop.kind.startsWith('pnw_')) && !layers.terrain) {
-      continue;
-    }
-    if (!isTerrainProp(prop) && !layers.landmarks) continue;
-      drawProp(ctx, prop, projection);
-  }
+  if (layers.landmarks) drawMapFeatures(ctx, zone, projection, ['wall', 'building', 'landmark']);
+  if (layers.terrain) drawMapFeatures(ctx, zone, projection, ['detail']);
   ctx.restore();
-}
-
-function drawProp(
-  ctx: CanvasRenderingContext2D,
-  prop: PropSpawn,
-  projection: Projection,
-) {
-  const p = projection.toCanvas(prop);
-  const scale = Math.max(0.65, prop.scale ?? 1);
-
-  switch (prop.kind) {
-    case 'tree':
-    case 'pnw_low_shrub':
-      drawTree(ctx, p, scale);
-      break;
-    case 'rock':
-      drawRock(ctx, p, scale);
-      break;
-    case 'banner_post':
-      drawBanner(ctx, p, scale);
-      break;
-    case 'gate':
-    case 'castle_gate':
-    case 'castle_door':
-      drawGate(ctx, p, prop.rotY ?? 0, scale);
-      break;
-    case 'tower':
-      drawTower(ctx, p, scale);
-      break;
-    case 'castle':
-      drawCastle(ctx, p, prop.rotY ?? 0, scale);
-      break;
-    case 'bridge':
-    case 'dock':
-      drawBridge(ctx, p, prop.rotY ?? 0, scale);
-      break;
-    case 'building':
-    case 'vendor_stall':
-    case 'fountain':
-    case 'statue':
-    case 'wall_segment':
-    case 'dummy':
-    default:
-      drawStructure(ctx, p, prop.rotY ?? 0, scale, prop.kind);
-      break;
-  }
 }
 
 function drawObjectives(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, projection: Projection) {
@@ -831,41 +799,19 @@ function drawObjectives(ctx: CanvasRenderingContext2D, zone: ZoneDefinition, pro
   clipMap(ctx, projection);
   for (const objective of zone.rvrObjectives ?? []) {
     const p = projection.toCanvas(objective);
-    const radius = Math.max(12, objective.captureRadius * projection.scale);
+    const radius = objective.captureRadius * projection.scale;
     const color = objective.defaultRealm === 'aegis' ? '#72a6d8' : '#d06161';
     ctx.fillStyle = colorWithAlpha(color, 0.13);
     ctx.strokeStyle = colorWithAlpha(color, 0.72);
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 1 / projection.screenScale;
     ctx.beginPath();
     ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-    ctx.fill();
   }
   ctx.restore();
 }
 
-function drawZoneExits(ctx: CanvasRenderingContext2D, exits: ZoneExitMarker[], projection: Projection) {
-  ctx.save();
-  clipMap(ctx, projection);
-  for (const exit of exits) {
-    const p = projection.toCanvas(exit.position);
-    ctx.fillStyle = '#84a7ff';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.85)';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(p.x, p.y - 8);
-    ctx.lineTo(p.x + 7, p.y + 6);
-    ctx.lineTo(p.x - 7, p.y + 6);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-  }
-  ctx.restore();
-}
 
 function drawSpawnPoint(
   ctx: CanvasRenderingContext2D,
@@ -878,28 +824,12 @@ function drawSpawnPoint(
   ctx.fillStyle = 'rgba(240, 216, 128, 0.18)';
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+  ctx.arc(p.x, p.y, 8 / projection.screenScale, 0, Math.PI * 2);
   ctx.fill();
   ctx.stroke();
   ctx.restore();
 }
 
-function drawWorldMarker(
-  ctx: CanvasRenderingContext2D,
-  marker: MapMarker,
-  projection: Projection,
-) {
-  const p = projection.toCanvas(marker.position);
-  const size = marker.priority ? 6 : 4.5;
-  if (
-    p.x < projection.left - 8 ||
-    p.x > projection.left + projection.width + 8 ||
-    p.y < projection.top - 8 ||
-    p.y > projection.top + projection.height + 8
-  ) return;
-
-  drawMarkerShape(ctx, marker, p.x, p.y, size);
-}
 
 function drawPlayerMarker(
   ctx: CanvasRenderingContext2D,
@@ -909,6 +839,7 @@ function drawPlayerMarker(
   const p = projection.toCanvas(playerPosition);
   ctx.save();
   ctx.translate(p.x, p.y);
+  ctx.scale(1 / projection.screenScale, 1 / projection.screenScale);
   ctx.fillStyle = '#ffe08a';
   ctx.strokeStyle = 'rgba(0, 0, 0, 0.9)';
   ctx.lineWidth = 2;
@@ -920,8 +851,8 @@ function drawPlayerMarker(
   ctx.closePath();
   ctx.stroke();
   ctx.fill();
+  drawMapLabel(ctx, 0, -16, 'You', '#ffe08a');
   ctx.restore();
-  drawMapLabel(ctx, p.x, p.y - 16, 'You', '#ffe08a');
 }
 
 function drawMarkerShape(
@@ -936,7 +867,7 @@ function drawMarkerShape(
   ctx.strokeStyle = 'rgba(0, 0, 0, 0.88)';
   ctx.lineWidth = 1.8;
 
-  if (marker.priority) {
+  if (marker.focused || marker.kind === 'quests') {
     ctx.strokeStyle = 'rgba(240, 216, 128, 0.62)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
@@ -994,117 +925,6 @@ function drawMarkerShape(
   ctx.restore();
 }
 
-function drawTree(ctx: CanvasRenderingContext2D, p: Point, scale: number) {
-  const size = 3.5 * scale;
-  ctx.fillStyle = 'rgba(33, 91, 43, 0.82)';
-  ctx.strokeStyle = 'rgba(8, 18, 8, 0.82)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-}
-
-function drawRock(ctx: CanvasRenderingContext2D, p: Point, scale: number) {
-  const size = 3 * scale;
-  ctx.fillStyle = 'rgba(133, 129, 112, 0.78)';
-  ctx.strokeStyle = 'rgba(18, 16, 14, 0.78)';
-  ctx.beginPath();
-  ctx.moveTo(p.x, p.y - size);
-  ctx.lineTo(p.x + size * 1.2, p.y);
-  ctx.lineTo(p.x + size * 0.35, p.y + size);
-  ctx.lineTo(p.x - size, p.y + size * 0.55);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-}
-
-function drawBanner(ctx: CanvasRenderingContext2D, p: Point, scale: number) {
-  const size = 7 * scale;
-  ctx.strokeStyle = '#1a1209';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(p.x, p.y - size);
-  ctx.lineTo(p.x, p.y + size);
-  ctx.stroke();
-  ctx.fillStyle = '#d4b060';
-  ctx.beginPath();
-  ctx.moveTo(p.x, p.y - size);
-  ctx.lineTo(p.x + size * 0.85, p.y - size * 0.48);
-  ctx.lineTo(p.x, p.y);
-  ctx.closePath();
-  ctx.fill();
-}
-
-function drawGate(ctx: CanvasRenderingContext2D, p: Point, rotY: number, scale: number) {
-  drawRotated(ctx, p, rotY, () => {
-    ctx.fillStyle = '#5f4c2e';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.88)';
-    ctx.lineWidth = 2;
-    ctx.fillRect(-10 * scale, -4 * scale, 20 * scale, 8 * scale);
-    ctx.strokeRect(-10 * scale, -4 * scale, 20 * scale, 8 * scale);
-    ctx.fillStyle = '#14100c';
-    ctx.fillRect(-4 * scale, -3 * scale, 8 * scale, 6 * scale);
-  });
-}
-
-function drawTower(ctx: CanvasRenderingContext2D, p: Point, scale: number) {
-  ctx.fillStyle = '#6c6556';
-  ctx.strokeStyle = 'rgba(0, 0, 0, 0.88)';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, 7 * scale, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-}
-
-function drawCastle(ctx: CanvasRenderingContext2D, p: Point, rotY: number, scale: number) {
-  drawRotated(ctx, p, rotY, () => {
-    ctx.fillStyle = '#6a5d48';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.88)';
-    ctx.lineWidth = 2;
-    ctx.fillRect(-15 * scale, -10 * scale, 30 * scale, 20 * scale);
-    ctx.strokeRect(-15 * scale, -10 * scale, 30 * scale, 20 * scale);
-    ctx.fillStyle = '#80765f';
-    ctx.fillRect(-20 * scale, -14 * scale, 8 * scale, 8 * scale);
-    ctx.fillRect(12 * scale, -14 * scale, 8 * scale, 8 * scale);
-    ctx.strokeRect(-20 * scale, -14 * scale, 8 * scale, 8 * scale);
-    ctx.strokeRect(12 * scale, -14 * scale, 8 * scale, 8 * scale);
-  });
-}
-
-function drawBridge(ctx: CanvasRenderingContext2D, p: Point, rotY: number, scale: number) {
-  drawRotated(ctx, p, rotY, () => {
-    ctx.fillStyle = '#6f5637';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.78)';
-    ctx.lineWidth = 1.5;
-    ctx.fillRect(-15 * scale, -4 * scale, 30 * scale, 8 * scale);
-    ctx.strokeRect(-15 * scale, -4 * scale, 30 * scale, 8 * scale);
-  });
-}
-
-function drawStructure(ctx: CanvasRenderingContext2D, p: Point, rotY: number, scale: number, kind: string) {
-  drawRotated(ctx, p, rotY, () => {
-    ctx.fillStyle = kind === 'fountain'
-      ? 'rgba(111, 145, 162, 0.78)'
-      : kind === 'statue'
-        ? 'rgba(152, 144, 120, 0.78)'
-        : 'rgba(117, 91, 54, 0.72)';
-    ctx.strokeStyle = 'rgba(20, 16, 11, 0.62)';
-    ctx.lineWidth = 1;
-    if (kind === 'fountain' || kind === 'statue' || kind === 'dummy') {
-      ctx.beginPath();
-      ctx.arc(0, 0, 6 * scale, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-    } else {
-      drawRoundedRect(ctx, -7 * scale, -5 * scale, 14 * scale, 10 * scale, 2 * scale);
-      ctx.fill();
-      ctx.stroke();
-    }
-  });
-}
-
 function drawRoundedRect(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -1125,14 +945,6 @@ function drawRoundedRect(
   ctx.lineTo(x, y + r);
   ctx.quadraticCurveTo(x, y, x + r, y);
   ctx.closePath();
-}
-
-function drawRotated(ctx: CanvasRenderingContext2D, p: Point, rotY: number, draw: () => void) {
-  ctx.save();
-  ctx.translate(p.x, p.y);
-  ctx.rotate(rotY);
-  draw();
-  ctx.restore();
 }
 
 function drawMapLabel(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: string) {
@@ -1179,26 +991,6 @@ function drawMapRelief(
   light.addColorStop(1, 'rgba(0, 2, 3, 0.72)');
   ctx.fillStyle = light;
   ctx.fillRect(projection.left, projection.top, projection.width, projection.height);
-
-  const half = projection.size / 2;
-  ctx.strokeStyle = 'rgba(222, 199, 139, 0.08)';
-  ctx.lineWidth = 1;
-  for (let ring = 1; ring <= 4; ring += 1) {
-    const radius = projection.width * (0.12 + ring * 0.1);
-    ctx.beginPath();
-    for (let i = 0; i <= 64; i += 1) {
-      const angle = (i / 64) * Math.PI * 2;
-      const x = Math.cos(angle) * radius * (1 + Math.sin(angle * 3 + zone.id.length) * 0.08);
-      const z = Math.sin(angle) * radius * (1 + Math.cos(angle * 2 + zone.id.length) * 0.06);
-      const point = projection.toCanvas({
-        x: (x / projection.scale) * 0.8 + half * 0.08,
-        z: (z / projection.scale) - half * 0.04,
-      });
-      if (i === 0) ctx.moveTo(point.x, point.y);
-      else ctx.lineTo(point.x, point.y);
-    }
-    ctx.stroke();
-  }
 
   ctx.restore();
 }
@@ -1262,13 +1054,6 @@ function terrainValue(x: number, z: number, seed: string): number {
   );
 }
 
-function terrainColor(value: number, moisture: number): string {
-  if (value > 0.58) return 'rgba(64, 72, 72, 0.98)';
-  if (value > 0.25) return 'rgba(47, 57, 59, 0.98)';
-  if (moisture > 0.52) return 'rgba(27, 52, 48, 0.98)';
-  if (value < -0.55) return 'rgba(20, 39, 38, 0.98)';
-  return 'rgba(33, 48, 49, 0.98)';
-}
 
 function colorWithAlpha(color: string, alpha: number): string {
   const value = color.replace('#', '');
@@ -1353,22 +1138,15 @@ function landmarkRows(zone: ZoneDefinition): Array<{ id: string; kind: string; l
 }
 
 function isTerrainProp(prop: PropSpawn): boolean {
-  return prop.kind === 'tree' || prop.kind === 'rock' || prop.kind.startsWith('pnw_');
+  return !['building', 'landmark'].includes(mapFeatureRole(prop));
 }
 
 function shouldLabelProp(prop: PropSpawn): boolean {
-  return [
-    'castle',
-    'building',
-    'vendor_stall',
-    'fountain',
-    'statue',
-    'dock',
-    'bridge',
-  ].includes(prop.kind);
+  return ['building', 'landmark'].includes(mapFeatureRole(prop));
 }
 
 function propLabel(prop: PropSpawn, zoneId: string): string {
+  if (prop.label) return prop.label;
   const raw = prop.id
     ? prop.id.replace(new RegExp(`^${escapeRegExp(zoneId)}_?`), '')
     : prop.kind;

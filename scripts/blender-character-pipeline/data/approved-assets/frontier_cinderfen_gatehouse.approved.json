@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_gatehouse",
+  "displayName": "Cinderfen six-metre causeway gatehouse",
+  "category": "prop",
+  "model": "frontier_cinderfen_gatehouse_lod0.glb",
+  "qc": "frontier_cinderfen_gatehouse_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_gatehouse"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90",
+    "qcSha256": "cf8e3473ddcf83ce5243d983b19247c0d9f00b4c4add32fed77eae147f9176b3",
+    "previews": {
+      "assembly": "1c8504fa838a4a357b61245da855878b635e40517107126ef98caf34fb0a7033"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_gatehouse.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+    "reviewedAt": "2026-09-07T19:56:19.116125+00:00",
+    "reviewHash": "0f44f8d29dda3c5a8590f3e164a0c28aceef90ba68adc4803483ca1c82421e32"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/cinderfen-architecture/source/architecture.json",
+    "sourceSha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f"
+  },
+  "approvalState": "approved"
+}

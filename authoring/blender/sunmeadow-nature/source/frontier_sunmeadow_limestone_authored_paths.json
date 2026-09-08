@@ -1,0 +1,71 @@
+{
+  "asset": "frontier_sunmeadow_limestone",
+  "design_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "paths": [],
+  "parts": {
+    "fracture_massif_0_bed_0": {
+      "vertices": 201,
+      "faces": 201
+    },
+    "fracture_massif_0_bed_1": {
+      "vertices": 201,
+      "faces": 201
+    },
+    "fracture_massif_0_bed_2": {
+      "vertices": 201,
+      "faces": 201
+    },
+    "fracture_massif_0_bed_3": {
+      "vertices": 201,
+      "faces": 201
+    },
+    "fracture_massif_0_bed_4": {
+      "vertices": 201,
+      "faces": 201
+    },
+    "fracture_massif_1_bed_0": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_1_bed_1": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_1_bed_2": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_1_bed_3": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_1_bed_4": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_2_bed_0": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_2_bed_1": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_2_bed_2": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_2_bed_3": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_massif_2_bed_4": {
+      "vertices": 221,
+      "faces": 221
+    },
+    "fracture_chips": {
+      "vertices": 24,
+      "faces": 20
+    }
+  }
+}

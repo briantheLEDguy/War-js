@@ -56,6 +56,16 @@ describe('campaign encounter activity', () => {
     expect(activity).toMatchObject({ activity: 'defend', defenders: 1, blocker: 'Defeat 1 remaining defender', holdMs: OBJECTIVE_DEFENSE_HOLD_MS });
   });
 
+  test('stacked city floors do not capture or contest objectives through a bridge', () => {
+    const elevated = { ...objective, y: -105 };
+    const below = makeEnemy({ id: spawn.id, position: { x: 0, y: -150, z: 0 } });
+    expect(objectiveDefenders(elevated, [{ ...spawn, x: 0, y: -150 }], [below])).toEqual([]);
+    const activity = describeCampaignActivity({ zoneId, objective: elevated, realm: 'aegis', spawns: [],
+      enemies: [], player: { x: 0, y: -150, z: 0 }, inventory: [], nowMs: 1000 });
+    expect(activity.distance).toBe(45);
+    expect(activity.distance).toBeGreaterThan(elevated.captureRadius);
+  });
+
   test('only living aggressive defenders or aggressive arrivals in the ring block progress', () => {
     const spawns: EnemySpawn[] = [
       spawn,

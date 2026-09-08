@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.chain_winch",
+  "modelSha256": "da63ed80426ea990822a8468ec49a2d673461c2eb0bbd3d3ec50708e61bf37b4",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_chain_winch.glb",
+    "triangles": 6584,
+    "sha256": "da63ed80426ea990822a8468ec49a2d673461c2eb0bbd3d3ec50708e61bf37b4",
+    "bytes": 687924,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_chain_winch.glb",
+      "triangles": 6584,
+      "sha256": "da63ed80426ea990822a8468ec49a2d673461c2eb0bbd3d3ec50708e61bf37b4",
+      "bytes": 687924,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_chain_winch_lod1.glb",
+      "triangles": 6584,
+      "sha256": "589731629a607ed64d8eb95ce9078b55cda6f0331ddf1d5a49f888945f95245d",
+      "bytes": 687924,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_chain_winch_lod2.glb",
+      "triangles": 4618,
+      "sha256": "0613028479a618195bd4916d39b3cd4890acedacc1482b8a0fa10b369f28351f",
+      "bytes": 304504,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "c999227d45640572e093a8ad1f4f4b30d80eb3763014bc2d6480015f4cb0065b",
+  "textureMaxDimension": 2048
+}

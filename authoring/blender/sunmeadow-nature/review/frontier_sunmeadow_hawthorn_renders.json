@@ -1,0 +1,86 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_hawthorn",
+      "level": 0,
+      "model": "frontier_sunmeadow_hawthorn_lod0.glb",
+      "model_sha256": "e73dbc12121f6453b9fb84f47df8193a01335d3ab0c26168b5c3ec96c3fa1c11",
+      "image": "review\\frontier_sunmeadow_hawthorn_lod0_reimport.png",
+      "image_sha256": "ccbeac00fd553dce5ef4709b089fad7547b4dafa5ec707277d1c18e808cded2f",
+      "bounds_blender": {
+        "min": [
+          -2.341400384902954,
+          -0.6483269929885864,
+          -0.02813451550900936
+        ],
+        "max": [
+          2.429816246032715,
+          0.8805903196334839,
+          1.982679843902588
+        ],
+        "span": [
+          4.77121639251709,
+          1.5289173126220703,
+          2.0108144283294678
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_hawthorn",
+      "level": 1,
+      "model": "frontier_sunmeadow_hawthorn_lod1.glb",
+      "model_sha256": "876e618833a6fa8ea2ecb21e951e14242e6dd694ac9b043a13164955f8fc4e60",
+      "image": "review\\frontier_sunmeadow_hawthorn_lod1_reimport.png",
+      "image_sha256": "114453019b1c3e30657313c5e89f42434a7a7177406c2bc0e29e6e8dae9efbe5",
+      "bounds_blender": {
+        "min": [
+          -2.3209104537963867,
+          -0.6479669809341431,
+          -0.027158698067069054
+        ],
+        "max": [
+          2.4260642528533936,
+          0.8673505187034607,
+          1.9945769309997559
+        ],
+        "span": [
+          4.746974945068359,
+          1.515317440032959,
+          2.021735668182373
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_hawthorn",
+      "level": 2,
+      "model": "frontier_sunmeadow_hawthorn_lod2.glb",
+      "model_sha256": "9d9d7467b976b88d5695b6792a305209b13873c4cdca0d8269d3e3ff552016ad",
+      "image": "review\\frontier_sunmeadow_hawthorn_lod2_reimport.png",
+      "image_sha256": "430148cf637dba636ee8e5a77d3c223d4ab3353eb92908e09989041dc348f744",
+      "bounds_blender": {
+        "min": [
+          -2.375994920730591,
+          -0.701350212097168,
+          -0.021796878427267075
+        ],
+        "max": [
+          2.4285404682159424,
+          0.8810125589370728,
+          1.9673746824264526
+        ],
+        "span": [
+          4.804535388946533,
+          1.5823627710342407,
+          1.9891715049743652
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

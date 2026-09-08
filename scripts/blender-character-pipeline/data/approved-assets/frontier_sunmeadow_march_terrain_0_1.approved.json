@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.march.terrain.0.1",
+  "displayName": "frontier sunmeadow march terrain 0 1",
+  "category": "prop",
+  "model": "frontier_sunmeadow_march_terrain_0_1.glb",
+  "qc": "frontier_sunmeadow_march_terrain_0_1.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_march_terrain_0_1"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "05dabb277151474f7dd9f75d85ef3d64a19a1cf35d5e1e69f181f90043eefc48",
+    "qcSha256": "f6567572c37e91157e8272d760e5c906b14026de92576c3e87a8b63e18124f1a",
+    "previews": {
+      "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:43:22.018Z",
+    "reviewHash": "38db03632371655c249b983595969b25af84c321e954678333a897e69231e805"
+  },
+  "provenance": {
+    "createdBy": "original_authored_blender_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "texture_source",
+      "mesh_authoring"
+    ],
+    "promptIds": [
+      "sunmeadow_meadow_albedo_v1",
+      "sunmeadow_road_albedo_v1"
+    ],
+    "referencePackId": "original_sunmeadow_survey",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/sunmeadow-terrain/build_terrain.py"
+  },
+  "approvalState": "approved"
+}

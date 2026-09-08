@@ -1,13 +1,15 @@
 import * as THREE from 'three';
+import { colliderHasWalkableTop } from '../shared/worldNavigation';
 import { AssetLoader } from '../game/AssetLoader';
 import type { WorldPropObject } from '../services/types';
 import { prefabFallbackKindForKind } from './editor/PrefabCatalog';
 import type { Terrain } from './Terrain';
 import type { PropSpawn } from './ZoneLoader';
 import { buildWorldLifeProp, WORLD_LIFE_PROP_KINDS } from './WorldLifeAssets';
-import { architectureLods, cityFallback, shareCityMaterials } from './CityArchitecture';
+import { architectureLods, cityFallback, shareCityMaterials, loadReviewedCityObject } from './CityArchitecture';
 import { applyCityWeathering } from './CityWeathering';
 import { cityRoadGeometry } from './CityRoad';
+import { isFrontierProp, loadApprovedFrontierProp } from './FrontierProps';
 
 export interface WorldCollider {
   id: string;
@@ -18,6 +20,7 @@ export interface WorldCollider {
   rotY: number;
   minY?: number;
   maxY?: number;
+  walkableTop?: boolean;
   blocksWhen: 'always' | 'closed';
   interactionId?: string;
   sourceObjectId?: string;
@@ -102,8 +105,10 @@ export async function spawnProps(
   const objects: SpawnedStaticWorldObject[] = [];
 
   for (const [index, s] of spawns.entries()) {
+    const frontier = isFrontierProp(s);
+    if (frontier && s.visible === false) continue;
     const sourceObjectId = s.id ?? `static-prop-${index.toString().padStart(4, '0')}`;
-    const propRotY = s.rotY ?? Math.random() * Math.PI * 2;
+    const propRotY = s.rotY ?? (frontier ? 0 : Math.random() * Math.PI * 2);
     // Collision queries use the opposite XZ angle convention from Three.js yaw.
     // Existing map/edit data keeps its original convention unless explicitly opted in.
     const collisionYawSign = s.colliderSpace === 'model' ? -1 : 1;
@@ -113,11 +118,20 @@ export async function spawnProps(
     let propScaleZ = propScale * (s.scaleZ ?? 1);
     let animated: Awaited<ReturnType<AssetLoader['loadModelWithAnimations']>> | null = null;
     let obj: THREE.Object3D;
-    let y = terrain.heightAt(s.x, s.z) + (s.y ?? 0);
+    let y = (s.heightMode === 'absolute' ? 0 : terrain.heightAt(s.x, s.z)) + (s.y ?? 0);
 
     if (s.visible === false) {
       obj = new THREE.Group();
       obj.visible = false;
+    } else if (frontier) {
+      const reviewed = await loadApprovedFrontierProp(s, loader);
+      if (!reviewed) continue;
+      obj = reviewed.object;
+      if (s.interaction?.type === 'gate') animated = reviewed;
+    } else if (s.kind.startsWith('riftspire_')) {
+      const lod = await loadReviewedCityObject(s.assetKey ?? s.kind, loader);
+      if (!lod) continue; // Missing structures never leave invisible support planes.
+      obj = lod;
     } else if (isTerrainPathKind(s.kind)) {
       obj = buildTerrainPathObject(s.kind, terrain, s.x, s.z, propRotY, propScaleX, propScaleZ, s.y ?? 0);
       if (s.kind === 'path_brick') {
@@ -160,7 +174,7 @@ export async function spawnProps(
     }
 
     obj.position.set(s.x, y, s.z);
-    obj.rotation.y = propRotY;
+    obj.rotation.set(s.rotX ?? 0, propRotY, s.rotZ ?? 0);
     obj.scale.set(propScaleX, propScaleY, propScaleZ);
     obj.userData.worldEditObjectId = sourceObjectId;
     obj.traverse((node) => {
@@ -174,13 +188,13 @@ export async function spawnProps(
         id: sourceObjectId,
         type: 'prop',
         kind: s.kind,
-        label: s.kind.replaceAll('_', ' '),
+        label: s.label ?? s.kind.replaceAll('_', ' '),
         model: s.model,
         assetKey: s.assetKey,
         colliderSpace: s.colliderSpace,
         transform: {
           position: { x: s.x, y, z: s.z },
-          rotation: { x: 0, y: propRotY, z: 0 },
+          rotation: { x: s.rotX ?? 0, y: propRotY, z: s.rotZ ?? 0 },
           scale: { x: propScaleX, y: propScaleY, z: propScaleZ },
         },
         colliders: s.colliders ? cloneJson(s.colliders) : undefined,
@@ -208,6 +222,7 @@ export async function spawnProps(
           rotY: collisionYawSign * (propRotY + (c.rotY ?? 0)),
           minY: c.minY === undefined ? undefined : y + c.minY * propScaleY,
           maxY: c.maxY === undefined ? undefined : y + c.maxY * propScaleY,
+          walkableTop: colliderHasWalkableTop(c, s.walkableSurfaces),
           blocksWhen: c.blocksWhen ?? 'always',
           interactionId: c.interactionId,
           sourceObjectId,

@@ -1,0 +1,388 @@
+{
+  "model": "frontier_cinderfen_gate_leaves_lod1.glb",
+  "sha256": "e78551db351e8d9d55853a5994d4474fcbc03ec701586f98d19330d630e30699",
+  "preview": "frontier_cinderfen_gate_leaves_lod1_reimport.png",
+  "preview_sha256": "88ca6f89b40e4b81787ff3416bd8440b550c596dec0ad62fec9f6726ca3fa986",
+  "reviewer_sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+  "neutral_camera": {
+    "camera_position_z_up": [
+      5.86323356628418,
+      -8.96654224395752,
+      7.648096084594727
+    ],
+    "target_z_up": [
+      -0.0020933151245117188,
+      0.2945000231266022,
+      2.4001715183258057
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "gameplay_preview": "frontier_cinderfen_gate_leaves_lod1_gameplay.png",
+  "gameplay_preview_sha256": "1e12ddc2193a8c36f9e261e49a65a7842a73883c0ed99748305bd678076bd62b",
+  "gameplay_camera": {
+    "camera_position_z_up": [
+      2.1588165760040283,
+      -89.70549774169922,
+      5.400000095367432
+    ],
+    "target_z_up": [
+      -0.0020933151245117188,
+      0.2945000231266022,
+      2.4001715183258057
+    ],
+    "projection": "PERSP",
+    "lens_mm": 38.0,
+    "distance_m": 90,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1280,
+      720
+    ]
+  },
+  "clips": {
+    "gate_open": {
+      "start": {
+        "gate_leaf_left": {
+          "location": [
+            -3.0,
+            -0.0,
+            0.0
+          ],
+          "quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -3.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "gate_leaf_right": {
+          "location": [
+            3.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              3.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "end": {
+        "gate_leaf_left": {
+          "location": [
+            -3.0,
+            -0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.0,
+            0.0,
+            0.7071068286895752
+          ],
+          "world_matrix": [
+            [
+              -1.3435885648505064e-07,
+              -0.9999999403953552,
+              0.0,
+              -3.0
+            ],
+            [
+              0.9999999403953552,
+              -1.3435885648505064e-07,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "gate_leaf_right": {
+          "location": [
+            3.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.0,
+            0.0,
+            -0.7071068286895752
+          ],
+          "world_matrix": [
+            [
+              -1.3435885648505064e-07,
+              0.9999999403953552,
+              0.0,
+              3.0
+            ],
+            [
+              -0.9999999403953552,
+              -1.3435885648505064e-07,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      }
+    },
+    "gate_close": {
+      "start": {
+        "gate_leaf_left": {
+          "location": [
+            -3.0,
+            -0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.0,
+            0.0,
+            0.7071068286895752
+          ],
+          "world_matrix": [
+            [
+              -1.3435885648505064e-07,
+              -0.9999999403953552,
+              0.0,
+              -3.0
+            ],
+            [
+              0.9999999403953552,
+              -1.3435885648505064e-07,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "gate_leaf_right": {
+          "location": [
+            3.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.0,
+            0.0,
+            -0.7071068286895752
+          ],
+          "world_matrix": [
+            [
+              -1.3435885648505064e-07,
+              0.9999999403953552,
+              0.0,
+              3.0
+            ],
+            [
+              -0.9999999403953552,
+              -1.3435885648505064e-07,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "end": {
+        "gate_leaf_left": {
+          "location": [
+            -3.0,
+            -0.0,
+            0.0
+          ],
+          "quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -3.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "gate_leaf_right": {
+          "location": [
+            3.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              3.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "opened_passage": {
+    "width_m": 6,
+    "minimum_height_m": 4.8,
+    "full_depth_m": 6.5,
+    "ray_samples": 775,
+    "surface_tolerance_m": 0.02,
+    "floor_clearance_m": 0.25,
+    "blocked_rays": []
+  },
+  "open_preview": "frontier_cinderfen_gate_leaves_lod1_opened.png",
+  "open_preview_sha256": "8db8a5b84e762ac4b5ac04c1ea65bd7d370239d017a071e45eb6362d97bd12fb"
+}

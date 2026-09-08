@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.crate",
+  "displayName": "Riftspire crate",
+  "category": "prop",
+  "model": "prop_riftspire_crate.glb",
+  "qc": "prop_riftspire_crate.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_crate"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+    "qcSha256": "d25fadebd5d101247ad55389e579032701bd9761037693cc4a635aab8d9571ef",
+    "previews": {
+      "assembly": "4e50d3fe9408567a28de747b3a9f22309acf246abaa04e8c8adcde8f6dc6c105"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/crate-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.234Z",
+    "reviewHash": "8cc15992e9dc7145e897b614e0c1f48287ced6d2e7cbb9c59167d75fb77021aa"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

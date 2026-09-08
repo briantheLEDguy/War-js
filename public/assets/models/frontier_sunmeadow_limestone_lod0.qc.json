@@ -1,0 +1,52 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.limestone",
+  "modelSha256": "fba74c19a4d665d7c1133ff57867bc4794d67cc3538b2542fd8a32efd0165b70",
+  "lod": 0,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_limestone_lod0.glb",
+      "sha256": "fba74c19a4d665d7c1133ff57867bc4794d67cc3538b2542fd8a32efd0165b70",
+      "triangles": 6402
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_limestone_lod1.glb",
+      "sha256": "9000fb30b6c52a40f65c3419f64a4ab954987c142ecb36c26bc207e90ca65fd0",
+      "triangles": 3202
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_limestone_lod2.glb",
+      "sha256": "d9223bc807947c8d3ca0e5fff8da12d8bae6819dd2bcc5173863f71f8989d7bc",
+      "triangles": 1602
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8",
+  "bounds": {
+    "min": [
+      -2.9100000858306885,
+      -0.042493075132369995,
+      -1.902999997138977
+    ],
+    "max": [
+      2.990000009536743,
+      2.4018852710723877,
+      2.0490000247955322
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_limestone_lod0_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_limestone_lod1_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_limestone_lod2_reimport.png"
+  ]
+}

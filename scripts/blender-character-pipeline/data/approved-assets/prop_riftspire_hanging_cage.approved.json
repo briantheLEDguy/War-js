@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.hanging_cage",
+  "displayName": "Riftspire hanging cage",
+  "category": "prop",
+  "model": "prop_riftspire_hanging_cage.glb",
+  "qc": "prop_riftspire_hanging_cage.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_hanging_cage"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "e0fd31a33d67386ffcb0d2bfce7c3b52cb34bcfc10cd8b1bec78f99672a1f75f",
+    "qcSha256": "cfe9ece244b390bb22b3af96bf329a27624fdc25a500c405403c2b4fb13ea8b7",
+    "previews": {
+      "assembly": "e7cc35d809a13361bb32946f2a76a586f35a4e639dc243a086902e10d0520799"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/hanging_cage-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.150472+00:00",
+    "reviewHash": "2d58b7b6b9a672faff7d4b8bb3493f33bd40380e0cec11a6b4f5e28e8757eee4"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

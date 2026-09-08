@@ -1,0 +1,40 @@
+{
+  "assetId": "prop.frontier.battering_ram",
+  "qcPassed": true,
+  "modelSha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_battering_ram_lod0.glb",
+      "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+      "triangles": 70560,
+      "bytes": 17679080
+    },
+    {
+      "level": 1,
+      "model": "frontier_battering_ram_lod1.glb",
+      "sha256": "d40803b8a0b4d09351bafd7c74ff0fa22f9f8d42e86f9839322ce4c462af1986",
+      "triangles": 33740,
+      "bytes": 16788360
+    },
+    {
+      "level": 2,
+      "model": "frontier_battering_ram_lod2.glb",
+      "sha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4",
+      "triangles": 22442,
+      "bytes": 6678704
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod2_reimport.png"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "assetId": "prop.frontier.sunmeadow.march.terrain.2.1",
+  "displayName": "frontier sunmeadow march terrain 2 1",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "sunmeadow_terrain"
+  ],
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_march_terrain_2_1"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_march_terrain_2_1.glb",
+    "artifactDir": "authoring/blender/sunmeadow-terrain/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-terrain/runtime/frontier_sunmeadow_march_terrain_2_1.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 75297,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 11361,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 4545,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_SunmeadowTerrain",
+    "textureSet": "sunmeadow_terrain",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal"
+    ],
+    "maxTextureResolution": 1024
+  },
+  "collision": {
+    "policy": "none",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_blender_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "texture_source",
+      "mesh_authoring"
+    ],
+    "promptIds": [
+      "sunmeadow_meadow_albedo_v1",
+      "sunmeadow_road_albedo_v1"
+    ],
+    "referencePackId": "original_sunmeadow_survey",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/sunmeadow-terrain/build_terrain.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 2,
+    "maxFileSizeMb": 16,
+    "maxMeshObjects": 2,
+    "maxTris": 100000,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:43:22.018Z",
+    "notes": "Reviewed authored terrain; authoritative ground uses the exact source Float32 survey."
+  }
+}

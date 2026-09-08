@@ -14,6 +14,7 @@ interface Entry {
   activeLevel: number;
   bounds: THREE.Sphere;
   detached: boolean;
+  detailCullDistance: number;
 }
 /** Batch repeated static architecture while retaining the individual authoring
 * objects, colliders and interaction IDs. GM mode restores those originals. */
@@ -28,12 +29,19 @@ export class CityInstances {
   private dirtyBatches = new Set<THREE.InstancedMesh>();
   constructor(private scene: THREE.Scene, objects: SpawnedStaticWorldObject[]) {
     scene.traverse(node => { if (node instanceof THREE.Light) this.shadowLights.push(node); });
-    const eligible = objects.filter(o => o.definition.kind.startsWith('aegis_') && !o.definition.interaction);
+    const eligible = objects.filter(o => /^(aegis_|riftspire_)/.test(o.definition.kind)
+      && o.definition.kind !== 'riftspire_lift' && !o.definition.interaction);
+    const cells = new Map<string, string>();
+    for (const entry of eligible) {
+      const p = entry.object.position;
+      cells.set(entry.id, entry.definition.kind.startsWith('riftspire_')
+        ? `${Math.floor((p.x+512)/512)},${Math.floor((p.z+512)/512)}` : 'shared');
+    }
     const capacities = new Map<string, number>();
     for (const entry of eligible) {
       entry.object.traverse(node => {
         if (!(node instanceof THREE.Mesh) || Array.isArray(node.material)) return;
-        const key = `${node.geometry.uuid}:${node.material.uuid}`;
+        const key = `${node.geometry.uuid}:${node.material.uuid}:${cells.get(entry.id)}`;
         capacities.set(key, (capacities.get(key) ?? 0) + 1);
       });
     }
@@ -46,12 +54,12 @@ export class CityInstances {
         level.traverse(node => {
           if (!(node instanceof THREE.Mesh) || Array.isArray(node.material))
             return;
-          const key = `${node.geometry.uuid}:${node.material.uuid}`;
+          const key = `${node.geometry.uuid}:${node.material.uuid}:${cells.get(entry.id)}`;
           let batch = this.batches.get(key);
           if (!batch) {
             // Count mesh occurrences, including repeated parts within one prop.
             batch = new THREE.InstancedMesh(node.geometry, node.material, capacities.get(key)!);
-            batch.name = 'aegis-city-instances';
+            batch.name = 'capital-city-instances';
             batch.count = 0;
             batch.visible = false;
             batch.castShadow = node.castShadow;
@@ -66,7 +74,8 @@ export class CityInstances {
       });
       if (parts.some(p => p.length))
         this.entries.push({ id: entry.id, object: root, position: root.getWorldPosition(new THREE.Vector3()), levels: parts,
-          activeLevel: -2, bounds: new THREE.Box3().setFromObject(root).getBoundingSphere(new THREE.Sphere()), detached: false });
+          activeLevel: -2, bounds: new THREE.Box3().setFromObject(root).getBoundingSphere(new THREE.Sphere()), detached: false,
+          detailCullDistance: /^riftspire_(lantern|table|archive|rack|altar|forge|crate|bed|banner|war_brazier|arms_rack|checkpoint|market_stall|apothecary|provision_stall|supply_cart|barrel_stack|laundry_rig|communal_hearth|chain_winch|ore_cart|water_pump|war_table|hanging_cage)$/.test(entry.definition.kind) ? 220 : Infinity });
     }
   }
   update(camera: THREE.Camera, enabled: boolean, suppressed: (id: string) => boolean): void {
@@ -122,7 +131,7 @@ export class CityInstances {
         if (level > entry.activeLevel && distanceSq < (boundary * 1.12) ** 2
           || level < entry.activeLevel && distanceSq > (boundary * 0.88) ** 2) level = entry.activeLevel;
       }
-      if (!enabled || hidden || !inView) level = -1;
+      if (!enabled || hidden || !inView || distanceSq > entry.detailCullDistance ** 2) level = -1;
       if (level !== entry.activeLevel) {
         for (const part of entry.levels[entry.activeLevel] ?? []) this.dirtyBatches.add(part.batch);
         for (const part of entry.levels[level] ?? []) this.dirtyBatches.add(part.batch);

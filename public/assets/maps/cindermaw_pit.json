@@ -934,9 +934,9 @@
       "radius": 9,
       "targetZoneId": "cinderfen_outskirts",
       "targetSpawn": {
-        "x": -113.3,
+        "x": -510.55,
         "y": 0,
-        "z": 19.5
+        "z": 87.57
       }
     }
   ],
@@ -977,5 +977,55 @@
       ]
     }
   ],
-  "staticMapHash": "1570174ab644289b"
+  "artDirection": {
+    "zoneId": "cindermaw_pit",
+    "realm": "riftbound",
+    "races": [
+      "greenskin",
+      "dark_elf",
+      "chaos"
+    ],
+    "biomeId": "geothermal_marsh",
+    "season": "autumn",
+    "cultures": "Greenskin fen settlements; Dark Elf supply officers",
+    "vegetation": [
+      "dead_alder",
+      "reed",
+      "rust_sedge",
+      "fungus",
+      "moss"
+    ],
+    "fauna": [
+      "marsh_boar",
+      "cinder_wolf",
+      "marsh_bird"
+    ],
+    "palette": [
+      "#696c47",
+      "#9a7752",
+      "#515859"
+    ],
+    "landmark": "Mineral-crusted sinkhole and steaming reed margins",
+    "reliefMetres": 11,
+    "vegetationAssetKeys": [
+      "frontier_geothermal_marsh_dead_alder",
+      "frontier_geothermal_marsh_reed",
+      "frontier_geothermal_marsh_rust_sedge",
+      "frontier_geothermal_marsh_fungus",
+      "frontier_geothermal_marsh_moss"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_marsh_boar",
+      "frontier_creature_cinder_wolf",
+      "frontier_creature_marsh_bird"
+    ],
+    "materialSetKey": "frontier_geothermal_marsh_materials",
+    "architectureAssetKey": "frontier_geothermal_marsh_settlement",
+    "status": "planned",
+    "parentZoneId": "cinderfen_outskirts",
+    "population": "Vent predators and cindermaw guardian",
+    "bossProfileKey": "frontier_boss_cindermaw_pit",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "82a0e5b5d58647c8"
 }

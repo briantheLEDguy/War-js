@@ -1,0 +1,51 @@
+{
+  "model": "frontier_cinderfen_supply_shelter_lod1.glb",
+  "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c",
+  "preview": "frontier_cinderfen_supply_shelter_lod1_reimport.png",
+  "preview_sha256": "2a7de715639dd2daee76411f681a37fd1ec40b959fe7b9b8c1888a9efbcc16f5",
+  "reviewer_sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+  "neutral_camera": {
+    "camera_position_z_up": [
+      8.731441497802734,
+      -14.403264045715332,
+      10.800995826721191
+    ],
+    "target_z_up": [
+      1.1205673217773438e-05,
+      -0.6167954206466675,
+      2.9886634349823
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "gameplay_preview": "frontier_cinderfen_supply_shelter_lod1_gameplay.png",
+  "gameplay_preview_sha256": "0521e163fc51abb8650fbcae0dc2c523e3da3d149bb57130e474d19a46616c9c",
+  "gameplay_camera": {
+    "camera_position_z_up": [
+      3.2168538570404053,
+      -90.6167984008789,
+      5.400000095367432
+    ],
+    "target_z_up": [
+      1.1205673217773438e-05,
+      -0.6167954206466675,
+      2.9886634349823
+    ],
+    "projection": "PERSP",
+    "lens_mm": 38.0,
+    "distance_m": 90,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1280,
+      720
+    ]
+  }
+}

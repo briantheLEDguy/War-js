@@ -75,6 +75,7 @@ function segmentToChunkProps(
 
 export function applyZonePaths(zone: ZoneDefinition): ZoneDefinition {
   if (!zone.paths?.length) return zone;
+  if (zone.orvrLayout) return zone; // Outdoor roads are continuous authored ribbons or part of reviewed terrain sectors.
 
   const generated: PropSpawn[] = [];
   for (const path of zone.paths) {

@@ -1,0 +1,33 @@
+{
+  "qcPassed": true,
+  "modelSha256": "2b92b884e23dd7e33ea6fac161185b5e70d7e4ef5fabbb5e081073311c320b15",
+  "lods": [
+    {
+      "level": 0,
+      "model": "chr_riftspire_dark_elf.glb",
+      "triangles": 28500,
+      "bytes": 3032636,
+      "sha256": "890f2b921626d752e447699be59907d4f66e0228ba86d91b79cd346a78f0bc29",
+      "repairedDegenerateTangents": 1
+    },
+    {
+      "level": 1,
+      "model": "chr_riftspire_dark_elf_lod1.glb",
+      "triangles": 15675,
+      "bytes": 1124940,
+      "sha256": "2b92b884e23dd7e33ea6fac161185b5e70d7e4ef5fabbb5e081073311c320b15",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "chr_riftspire_dark_elf_lod2.glb",
+      "triangles": 7123,
+      "bytes": 579968,
+      "sha256": "bf75368215f28b414dd78690820556db69f07151cb20eb4be21dea345500485e",
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "textureMaxDimension": 2048,
+  "reviewHash": "47eb70dd50bba19330c17ebfa3a955dc39b8e4ee349a945bf2f847995f6732cf"
+}

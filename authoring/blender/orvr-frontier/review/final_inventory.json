@@ -1,0 +1,573 @@
+{
+  "source_sha256": "b1d0c79da87c2f6984a673fc3eafe21bbd652a98aab56282fcf3d05c2585771c",
+  "technical_validation_passed": true,
+  "visual_approval": false,
+  "lifecycle": "review_pending",
+  "contact_sheet": "review/final_lod_contact_sheet.png",
+  "contact_sheet_sha256": "cbfc451cec83e5732277775b7ceac31c3337d198ac9a0f757c19026a8c7c89ba",
+  "assets": [
+    {
+      "asset_id": "frontier_supply_wagon",
+      "master": "masters/frontier_supply_wagon.blend",
+      "master_sha256": "2c9105d5f13d5ce64bfa5ea19dc1c8a1e9d01ee386fdafb889feb28f9f914257",
+      "build_report": "review/frontier_supply_wagon_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_supply_wagon_lod0.glb",
+          "sha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+          "triangles": 87766,
+          "materials": 3,
+          "bytes": 13438408,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7808759212493896,
+              -3.5899999141693115,
+              0.008027613162994385
+            ],
+            "maximum": [
+              1.7808759212493896,
+              1.9319723844528198,
+              2.9141669273376465
+            ]
+          },
+          "image": "review/frontier_supply_wagon_lod0_reimport.png",
+          "image_sha256": "f7d1c7c8c3e9052792b3d04ae430b8222e42b0e3b4422936635894e82e3ff4ba",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_supply_wagon_lod1.glb",
+          "sha256": "5af903d426e281792b18ff3b34bad29e70c6119bd4a79d985c54d1515ca39d20",
+          "triangles": 42214,
+          "materials": 3,
+          "bytes": 12258924,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7811832427978516,
+              -3.5899999141693115,
+              0.008027613162994385
+            ],
+            "maximum": [
+              1.7811832427978516,
+              1.9319723844528198,
+              2.9141669273376465
+            ]
+          },
+          "image": "review/frontier_supply_wagon_lod1_reimport.png",
+          "image_sha256": "ae36d206cd909ed31908fe79ccc331d95e4e255a0b23a4b719c69ad4729553f5",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_supply_wagon_lod2.glb",
+          "sha256": "e6c72a7c40c10739f5aeba2b1a4fd3b134ff284147dcceb232f9d7c00a4b50be",
+          "triangles": 28628,
+          "materials": 3,
+          "bytes": 4486504,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7811832427978516,
+              -3.5899999141693115,
+              0.008027613162994385
+            ],
+            "maximum": [
+              1.7811832427978516,
+              1.9319723844528198,
+              2.9141669273376465
+            ]
+          },
+          "image": "review/frontier_supply_wagon_lod2_reimport.png",
+          "image_sha256": "9f044cf9623b89fbefe0dc70b63fab9b9d21171ba86f5dd334fcf66b542d4ac7",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Separate draft horse and actor seat pose are required for the complete caravan assembly."
+      ]
+    },
+    {
+      "asset_id": "frontier_battering_ram",
+      "master": "masters/frontier_battering_ram.blend",
+      "master_sha256": "06cb94d04cd0d3dee12383fe55cd5ca8984a5b808a6402287d3a9d45d843a109",
+      "build_report": "review/frontier_battering_ram_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_battering_ram_lod0.glb",
+          "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+          "triangles": 70560,
+          "materials": 6,
+          "bytes": 17679080,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7373533248901367,
+              -2.9800000190734863,
+              0.0069037675857543945
+            ],
+            "maximum": [
+              1.7373533248901367,
+              2.0899999141693115,
+              3.1454715728759766
+            ]
+          },
+          "image": "review/frontier_battering_ram_lod0_reimport.png",
+          "image_sha256": "39d8773b195794d4b42a21f193e2667ba896659eb323420f260e4437b7311202",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_battering_ram_lod1.glb",
+          "sha256": "d40803b8a0b4d09351bafd7c74ff0fa22f9f8d42e86f9839322ce4c462af1986",
+          "triangles": 33740,
+          "materials": 6,
+          "bytes": 16788360,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7376176118850708,
+              -2.9800000190734863,
+              0.0069037675857543945
+            ],
+            "maximum": [
+              1.7376174926757812,
+              2.0899999141693115,
+              3.1454715728759766
+            ]
+          },
+          "image": "review/frontier_battering_ram_lod1_reimport.png",
+          "image_sha256": "56da841a5c2a32ae33040a3ff489ec87eed3f3a5bfb62767f0cd5a08dc37c078",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_battering_ram_lod2.glb",
+          "sha256": "81d554b8388af37f303afedf933dd2dff3d9fb7e0fc36b57d26f8b641aae00f4",
+          "triangles": 22442,
+          "materials": 6,
+          "bytes": 6678704,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7376176118850708,
+              -2.9800000190734863,
+              0.0069037675857543945
+            ],
+            "maximum": [
+              1.7376174926757812,
+              2.0899999141693115,
+              3.1454715728759766
+            ]
+          },
+          "image": "review/frontier_battering_ram_lod2_reimport.png",
+          "image_sha256": "f3be7a932a518dda59730432fb295a1cae004d0e6a8b540be4565f40a09d4d1d",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Impact outcomes and operator interaction remain authoritative runtime systems."
+      ]
+    },
+    {
+      "asset_id": "frontier_oil_cauldron",
+      "master": "masters/frontier_oil_cauldron.blend",
+      "master_sha256": "9e3069cd503a7c7644760cfe924b59ceb8319de72b9819ceab99a1556c1e6ce0",
+      "build_report": "review/frontier_oil_cauldron_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_oil_cauldron_lod0.glb",
+          "sha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+          "triangles": 23584,
+          "materials": 2,
+          "bytes": 2094212,
+          "bounds_z_up": {
+            "minimum": [
+              -0.8231250643730164,
+              -0.8596751689910889,
+              0.15000000596046448
+            ],
+            "maximum": [
+              0.9070318341255188,
+              1.1083335876464844,
+              1.2990949153900146
+            ]
+          },
+          "image": "review/frontier_oil_cauldron_lod0_reimport.png",
+          "image_sha256": "4a904135c072dcc04d6bf68e46a8f58f2206559f6fdcc3e7402e577965faa154",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_oil_cauldron_lod1.glb",
+          "sha256": "73160914b2a4c7f36e1a41c1f9a03d8b42650ba0746f309c3eb1c6d28b73ae48",
+          "triangles": 5958,
+          "materials": 2,
+          "bytes": 1404416,
+          "bounds_z_up": {
+            "minimum": [
+              -0.8231250643730164,
+              -0.8596391677856445,
+              0.15000000596046448
+            ],
+            "maximum": [
+              0.9070318341255188,
+              1.1083335876464844,
+              1.2991632223129272
+            ]
+          },
+          "image": "review/frontier_oil_cauldron_lod1_reimport.png",
+          "image_sha256": "ff7d0d851659432d6b471704ebb1d0fcfaa1722b361fc24e495099d5d4b798e6",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_oil_cauldron_lod2.glb",
+          "sha256": "be2b1e463fa55479fd1dfde25baf2754aed0615051e4ce5b7fa3753b5200022c",
+          "triangles": 2766,
+          "materials": 2,
+          "bytes": 546004,
+          "bounds_z_up": {
+            "minimum": [
+              -0.8231250643730164,
+              -0.8596500754356384,
+              0.15000000596046448
+            ],
+            "maximum": [
+              0.9077421426773071,
+              1.1083335876464844,
+              1.2993375062942505
+            ]
+          },
+          "image": "review/frontier_oil_cauldron_lod2_reimport.png",
+          "image_sha256": "18a5acd17315c1201dc2331a27e8ce966b627b15309bd525f98df248af2ea5d0",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Oil liquid and fire effects are runtime systems; no liquid surface is exported."
+      ]
+    },
+    {
+      "asset_id": "frontier_field_catapult",
+      "master": "masters/frontier_field_catapult.blend",
+      "master_sha256": "de1a197611f7a9494316fce44c6800967d1ea47f8e529caa3d68bb4d68f08966",
+      "build_report": "review/frontier_field_catapult_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_field_catapult_lod0.glb",
+          "sha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+          "triangles": 75376,
+          "materials": 6,
+          "bytes": 20947756,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7373533248901367,
+              -1.972519874572754,
+              0.0069037675857543945
+            ],
+            "maximum": [
+              1.7373533248901367,
+              1.9724961519241333,
+              3.803936719894409
+            ]
+          },
+          "image": "review/frontier_field_catapult_lod0_reimport.png",
+          "image_sha256": "61fe0ffd48e69e183bfa42d57b5c3aa2d40728bceae5177ae4a508045fc09afb",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_field_catapult_lod1.glb",
+          "sha256": "f5e12239a1da36d42afefd2f97640f98118e0e92b12062f1f75d622e209bf861",
+          "triangles": 30692,
+          "materials": 6,
+          "bytes": 19538576,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7376176118850708,
+              -1.972519874572754,
+              0.0069037675857543945
+            ],
+            "maximum": [
+              1.7376174926757812,
+              1.9724961519241333,
+              3.803679943084717
+            ]
+          },
+          "image": "review/frontier_field_catapult_lod1_reimport.png",
+          "image_sha256": "3ae382a840be3ac25eebc40e06b2dd35e52575a1e83d29d539ceaba9e3e4a77a",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_field_catapult_lod2.glb",
+          "sha256": "e95a9524f9bf47dfc332146cf14784d19b75cc826544c2bf62486fa02b891ea1",
+          "triangles": 20780,
+          "materials": 6,
+          "bytes": 6729488,
+          "bounds_z_up": {
+            "minimum": [
+              -1.7376176118850708,
+              -1.972519874572754,
+              0.0069037675857543945
+            ],
+            "maximum": [
+              1.7376174926757812,
+              1.9724961519241333,
+              3.803679943084717
+            ]
+          },
+          "image": "review/frontier_field_catapult_lod2_reimport.png",
+          "image_sha256": "aa71dc79cf08e5a442a5e6df65a611f40db842940e1e85f9b6c05c837ab904d7",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Projectile launch and impact remain authoritative; use the parented projectile socket at the release event."
+      ]
+    },
+    {
+      "asset_id": "frontier_keep_gate",
+      "master": "masters/frontier_keep_gate.blend",
+      "master_sha256": "26abc9e9ec09be800515d3b3caa1d25a6f7e0b45a0bbb9cd7f93c9bf2161badf",
+      "build_report": "review/frontier_keep_gate_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_keep_gate_lod0.glb",
+          "sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+          "triangles": 25080,
+          "materials": 2,
+          "bytes": 10693876,
+          "bounds_z_up": {
+            "minimum": [
+              -2.8499999046325684,
+              -0.7209999561309814,
+              0.051282431930303574
+            ],
+            "maximum": [
+              2.8499999046325684,
+              0.17005859315395355,
+              4.786146640777588
+            ]
+          },
+          "image": "review/frontier_keep_gate_lod0_reimport.png",
+          "image_sha256": "105f9906fe9e7bdfc2e96d18f4bf735023b12050003354d4dcb6a96ca0a13ebf",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_keep_gate_lod1.glb",
+          "sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+          "triangles": 11848,
+          "materials": 2,
+          "bytes": 10008880,
+          "bounds_z_up": {
+            "minimum": [
+              -2.8499999046325684,
+              -0.7209999561309814,
+              0.051282431930303574
+            ],
+            "maximum": [
+              2.8499999046325684,
+              0.17005859315395355,
+              4.78646183013916
+            ]
+          },
+          "image": "review/frontier_keep_gate_lod1_reimport.png",
+          "image_sha256": "4517dbe956eceb6ea6eabba8828b5275ce86244a09ae317ebae86d3ea5bbc727",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_keep_gate_lod2.glb",
+          "sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+          "triangles": 6964,
+          "materials": 2,
+          "bytes": 3442880,
+          "bounds_z_up": {
+            "minimum": [
+              -2.847818374633789,
+              -0.7209999561309814,
+              0.051282431930303574
+            ],
+            "maximum": [
+              2.847818374633789,
+              0.17005859315395355,
+              4.78746223449707
+            ]
+          },
+          "image": "review/frontier_keep_gate_lod2_reimport.png",
+          "image_sha256": "60d56cafba2ba7981b7a9cc63b1eb3c460ab75908d157a4c23c4c22e7b41e560",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Includes two hinged leaves only; keep masonry and broken gate state are separate future assets."
+      ]
+    },
+    {
+      "asset_id": "frontier_draft_horse",
+      "master": "masters/frontier_draft_horse_lod0.blend",
+      "master_sha256": "609e3a65178e31715f7fa782db0eca52f70c7f0a0596ae370ee336f85554a2da",
+      "build_report": "review/frontier_draft_horse_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_draft_horse_lod0.glb",
+          "sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+          "triangles": 118342,
+          "materials": 2,
+          "bytes": 12152196,
+          "bounds_z_up": null,
+          "image": "review/frontier_draft_horse_lod0_reimport.png",
+          "image_sha256": "a05aa6b36f0c9dee0d20b282de5f092e59f4f4281c8d1b131092d05524c9ba84",
+          "validation_errors": 0,
+          "validation_warnings": 2
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_draft_horse_lod1.glb",
+          "sha256": "7cb634b85460155417b17b33b8885c6ab199eab7bcd3e5196719e3ce1b6a45ab",
+          "triangles": 52512,
+          "materials": 2,
+          "bytes": 8014204,
+          "bounds_z_up": null,
+          "image": "review/frontier_draft_horse_lod1_reimport.png",
+          "image_sha256": "bb860206448b257f7571ca1549f619e11853a1bd21d52cdfe6ef209d0f7bd1df",
+          "validation_errors": 0,
+          "validation_warnings": 2
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_draft_horse_lod2.glb",
+          "sha256": "fe465b53dd01aa02124d5140878c13b9f24a2f98e7f826dc34123fc96e5f3728",
+          "triangles": 16534,
+          "materials": 2,
+          "bytes": 2978364,
+          "bounds_z_up": null,
+          "image": "review/frontier_draft_horse_lod2_reimport.png",
+          "image_sha256": "9a9c0e607182beeb6630093ebf767e66b4681a974ccdb3c622d3891efc5fb1aa",
+          "validation_errors": 0,
+          "validation_warnings": 2
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "asset_id": "frontier_caravan_reins",
+      "master": "masters/frontier_caravan_reins.blend",
+      "master_sha256": "6ddee89966d7346fe1b3cbd05e5b4d7a258a77ff4252dda1f7e37275e207805f",
+      "build_report": "review/frontier_caravan_reins_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_caravan_reins_lod0.glb",
+          "sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+          "triangles": 2176,
+          "materials": 1,
+          "bytes": 392064,
+          "bounds_z_up": null,
+          "image": "review/frontier_caravan_reins_lod0_reimport.png",
+          "image_sha256": "0457978032be99ca62d7d776f6d05e28dc4c874d728d46846786bc9b40a40b15",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_caravan_reins_lod1.glb",
+          "sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+          "triangles": 1414,
+          "materials": 1,
+          "bytes": 323604,
+          "bounds_z_up": null,
+          "image": "review/frontier_caravan_reins_lod1_reimport.png",
+          "image_sha256": "bc58115fe138aad2bacfbfd58c30ff4a79595600bd81cc6e7df640e2a31dfc3d",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_caravan_reins_lod2.glb",
+          "sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+          "triangles": 826,
+          "materials": 1,
+          "bytes": 154820,
+          "bounds_z_up": null,
+          "image": "review/frontier_caravan_reins_lod2_reimport.png",
+          "image_sha256": "7934156547f9b29187febc6c48198ad859b148bcb366a3dd869a6402fc76786f",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Origin is the wagon origin; only mount with the horse at glTF[0,0,3.75]. Reins are loose static leather fitted for subtle head movement."
+      ]
+    },
+    {
+      "asset_id": "frontier_supply_officer_kit",
+      "master": "masters/frontier_supply_officer_kit.blend",
+      "master_sha256": "ac5c45918688de5fa571ad3be8efa9e0b49d680090a416e3409d76b268ff77b9",
+      "build_report": "review/frontier_supply_officer_kit_build.json",
+      "lods": [
+        {
+          "level": 0,
+          "model": "runtime/frontier_supply_officer_kit_lod0.glb",
+          "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+          "triangles": 13048,
+          "materials": 1,
+          "bytes": 7448840,
+          "bounds_z_up": null,
+          "image": "review/frontier_supply_officer_kit_lod0_reimport.png",
+          "image_sha256": "41e1a07d27f36c370c0a63eb6b1fed2ca2bbb25826d5dc16d5a3741165e2a537",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 1,
+          "model": "runtime/frontier_supply_officer_kit_lod1.glb",
+          "sha256": "beee81e32c5bda7f15721af33d190d4a1cc18ada6e73a1336cd2baad199f9538",
+          "triangles": 7131,
+          "materials": 1,
+          "bytes": 2163436,
+          "bounds_z_up": null,
+          "image": "review/frontier_supply_officer_kit_lod1_reimport.png",
+          "image_sha256": "0193327901afd66598c2fbf30b17acc990318df6beb86eaaf8b969f7aa97ea29",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        },
+        {
+          "level": 2,
+          "model": "runtime/frontier_supply_officer_kit_lod2.glb",
+          "sha256": "4ba2eb8f93f2526880491b7bada6aaad2c19cb77afe526adecc6c77407084f63",
+          "triangles": 2557,
+          "materials": 1,
+          "bytes": 676924,
+          "bounds_z_up": null,
+          "image": "review/frontier_supply_officer_kit_lod2_reimport.png",
+          "image_sha256": "591cc437376737555241a750b6d57c451cf1ccbf414395b44bb5b7f45596b532",
+          "validation_errors": 0,
+          "validation_warnings": 0
+        }
+      ],
+      "limitations": [
+        "Supply officer body and pose must use an approved existing race profile; belt fit is profile-specific."
+      ]
+    }
+  ]
+}

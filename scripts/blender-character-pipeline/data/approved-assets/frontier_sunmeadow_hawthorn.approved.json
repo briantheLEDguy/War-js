@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.hawthorn",
+  "displayName": "Sunmeadow fruiting hawthorn hedge",
+  "category": "prop",
+  "model": "frontier_sunmeadow_hawthorn_lod0.glb",
+  "qc": "frontier_sunmeadow_hawthorn_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_hawthorn"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "e73dbc12121f6453b9fb84f47df8193a01335d3ab0c26168b5c3ec96c3fa1c11",
+    "qcSha256": "71a8d4989b503d724cf92aaddf3e682c750d96f34d756cbaa8543bd905a64e37",
+    "previews": {
+      "assembly": "ccbeac00fd553dce5ef4709b089fad7547b4dafa5ec707277d1c18e808cded2f"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_hawthorn_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal asset review",
+    "reviewedAt": "2026-09-07T17:00:33.663Z",
+    "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_late_summer_01",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/source/design.json",
+    "sourceSha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.room",
+  "displayName": "Riftspire room",
+  "category": "prop",
+  "model": "prop_riftspire_room.glb",
+  "qc": "prop_riftspire_room.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_room"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "1cfd1f039f4710494070ab81e4eed5384b26c3782544a07c8c5337d8926176de",
+    "qcSha256": "ee57e51b28f76a5060a650674805276380a4a3313d26dee07b1dcf59b7992a88",
+    "previews": {
+      "assembly": "9cb0f5e1747950e2409b88408dbce904db6948f021bada1c7dff639691f843eb"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/room-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T08:26:02.771896+00:00",
+    "reviewHash": "8a21ea0bda98be14916265a376071dfc1aa3545a6efa6ca3bc69f224db84164e"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

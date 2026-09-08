@@ -6,6 +6,7 @@ import {
   EDGES as CAMPAIGN_EDGES,
   NODES as CAMPAIGN_NODES,
 } from './campaign/static-campaign-source.mjs';
+import { ORVR_ZONE_LAYOUTS, routeLength } from './campaign/orvr-zone-layouts.mjs';
 
 const root = process.cwd();
 const mapsDir = path.join(root, 'public', 'assets', 'maps');
@@ -212,6 +213,7 @@ function validateCampaignMaps(zonesById) {
     }
     if (!zone.campaign) errors.push(`${file}: missing campaign metadata`);
     if (!zone.rvrObjectives?.length) errors.push(`${file}: missing rvrObjectives`);
+    if (ORVR_ZONE_LAYOUTS[zone.id]) validateOrvrLayout(file, zone);
 
     for (const [index, prop] of (zone.props ?? []).entries()) {
       if (!prop.id) errors.push(`${file}: campaign props[${index}] missing stable id`);
@@ -258,8 +260,57 @@ function validatePortalPair(zonesById, from, to) {
   validatePositive(fromEntry.file, `zoneTriggers[${trigger.id}].radius`, trigger.radius);
   if (!trigger.targetSpawn) errors.push(`${fromEntry.file}: portal to ${to} missing targetSpawn`);
 
-  const reverse = (toEntry.zone.zoneTriggers ?? []).some((entry) => entry.targetZoneId === from);
+  const reverse = (toEntry.zone.zoneTriggers ?? []).find((entry) => entry.targetZoneId === from);
   if (!reverse) errors.push(`${toEntry.file}: missing reverse portal to ${from}`);
+  if (reverse && toEntry.zone.orvrLayout && trigger.targetSpawn) {
+    const spawn = trigger.targetSpawn;
+    if (!Number.isFinite(spawn.x) || !Number.isFinite(spawn.z) || Math.abs(spawn.x) > toEntry.zone.size / 2 || Math.abs(spawn.z) > toEntry.zone.size / 2) {
+      errors.push(`${fromEntry.file}: portal to ${to} has an invalid destination spawn`);
+    }
+    const separation = Math.hypot(spawn.x - reverse.x, spawn.z - reverse.z);
+    if (separation <= reverse.radius || separation > reverse.radius + 15) {
+      errors.push(`${fromEntry.file}: portal to ${to} must arrive outside and near its relocated reverse trigger`);
+    }
+  }
+}
+
+function validateOrvrLayout(file, zone) {
+  const layout = zone.orvrLayout;
+  if (!layout) { errors.push(`${file}: missing expanded ORvR layout`); return; }
+  if (zone.size !== 1200 || layout.size !== 1200) errors.push(`${file}: ORvR battlefields and fortresses must be 1200 metres square`);
+  const objectives = zone.rvrObjectives ?? [];
+  const fields = objectives.filter((entry) => entry.type === 'battle_objective');
+  const keeps = objectives.filter((entry) => entry.type === 'keep');
+  if (fields.length !== 3 || keeps.length !== 2 || objectives.length !== 5) errors.push(`${file}: ORvR requires exactly three battlefield objectives and two keeps`);
+  if (new Set(objectives.map((entry) => entry.id)).size !== objectives.length) errors.push(`${file}: duplicated ORvR objective IDs`);
+  if (keeps.length === 2 && Math.abs(Math.hypot(keeps[0].x - keeps[1].x, keeps[0].z - keeps[1].z) - 700) > 0.1) errors.push(`${file}: opposing keeps must be 700 metres apart`);
+  if (layout.battlefieldObjectives?.length !== 3 || layout.battlefieldObjectives.some((entry) => entry.initialRealm !== 'neutral')) errors.push(`${file}: ORvR battlefield objectives must start neutral`);
+  const camps = layout.stagingCamps ?? [];
+  if (camps.length !== 2 || new Set(camps.map((camp) => camp.realm)).size !== 2) errors.push(`${file}: ORvR requires a staging camp for each realm`);
+  for (const camp of camps) if (camp.capturable !== false || camp.respawnSeconds !== 15) errors.push(`${file}: staging camps must be uncapturable with fifteen-second respawns`);
+  if (layout.assetPolicy?.allowNewPrimitiveModels !== false) errors.push(`${file}: expanded ORvR forbids new primitive models`);
+  if (layout.status === 'complete' && layout.assetPolicy?.mode !== 'authored-required') errors.push(`${file}: completed ORvR zones must require authored assets`);
+  const routes = layout.caravanRoutes ?? [];
+  if (routes.length !== 6 || new Set(routes.map((route) => `${route.objectiveId}:${route.realm}`)).size !== 6) errors.push(`${file}: every battlefield objective requires a supply route to each keep`);
+  for (const route of routes) {
+    const objective = fields.find((entry) => entry.id === route.objectiveId);
+    const keep = layout.keeps?.find((entry) => entry.objectiveId === route.destinationKeepId && entry.realm === route.realm);
+    const points = route.points ?? [];
+    if (!objective || !keep || points.length < 2) { errors.push(`${file}: supply route ${route.id} has invalid objective/keep endpoints`); continue; }
+    if (Math.hypot(points[0].x - objective.x, points[0].z - objective.z) > 0.1 || Math.hypot(points.at(-1).x - keep.deliveryPoint.x, points.at(-1).z - keep.deliveryPoint.z) > 0.1) errors.push(`${file}: supply route ${route.id} endpoints do not match its objective and delivery point`);
+    const length = routeLength(points);
+    if (length < 350 || length > 750 || Math.abs(length - route.lengthMetres) > 0.02) errors.push(`${file}: supply route ${route.id} must have an accurate 350–750 metre length along the authored road network`);
+    if (!(route.width >= 12) || !(route.clearanceRadius >= route.width / 2 + 3)) errors.push(`${file}: supply route ${route.id} has insufficient traversal clearance`);
+    if (points.some((entry) => !Number.isFinite(entry.x) || !Number.isFinite(entry.z) || Math.abs(entry.x) + route.clearanceRadius >= 600 || Math.abs(entry.z) + route.clearanceRadius >= 600)) errors.push(`${file}: supply route ${route.id} leaves zone bounds`);
+  }
+  for (const keep of layout.keeps ?? []) {
+    if (!keeps.some((entry) => entry.id === keep.objectiveId && entry.defaultRealm === keep.realm)) errors.push(`${file}: keep layout ${keep.objectiveId} has no matching owned objective`);
+    if (keep.gates?.length !== 2 || keep.gates[0].stage !== 'outer' || keep.gates[1].stage !== 'inner') errors.push(`${file}: keep ${keep.objectiveId} requires ordered outer and inner gates`);
+    if (keep.siegeSlots?.filter((slot) => slot.kind === 'oil').length !== 1 || keep.siegeSlots?.filter((slot) => slot.kind === 'catapult').length !== 2) errors.push(`${file}: keep ${keep.objectiveId} requires one oil and two catapult slots`);
+    if (!zone.enemies?.some((enemy) => enemy.id === keep.commander.entityId && enemy.encounter?.objectiveId === keep.objectiveId)) errors.push(`${file}: keep ${keep.objectiveId} commander identity is missing`);
+  }
+  if (layout.terrain?.chunks?.length !== 16 || layout.terrain.chunkSize !== 300) errors.push(`${file}: expanded terrain requires sixteen 300-metre chunks`);
+  if (!zone.artDirection?.biomeId || zone.artDirection.biomeId !== layout.biome?.id) errors.push(`${file}: explicit outdoor climate metadata is missing or inconsistent`);
 }
 
 function validateWorldLife(file, zone) {
@@ -269,7 +320,8 @@ function validateWorldLife(file, zone) {
     errors.push(`${file}: ambientLife requires actors and emitters arrays`);
     return;
   }
-  if (life.actors.length > 48) errors.push(`${file}: ambientLife exceeds the 48 actor budget`);
+  const actorBudget = zone.craterCity ? 160 : 48;
+  if (life.actors.length > actorBudget) errors.push(`${file}: ambientLife exceeds the ${actorBudget} actor budget`);
   if (life.emitters.length > 24) errors.push(`${file}: ambientLife exceeds the 24 emitter budget`);
   const ids = new Set();
   const point = (label, value) => {
@@ -291,6 +343,9 @@ function validateWorldLife(file, zone) {
       continue;
     }
     point(label, actor);
+    if (zone.craterCity && (!actor.approvedOnly || !actor.characterProfileKey || !Number.isFinite(actor.y))) {
+      errors.push(`${file}: ${label} requires a reviewed profile and an absolute height`);
+    }
     if (actor.route !== undefined && !Array.isArray(actor.route)) errors.push(`${file}: ${label}.route must be an array`);
     for (const waypoint of Array.isArray(actor.route) ? actor.route : []) point(`${label}.route`, waypoint);
     range(`${label}.speed`, actor.speed, 0, 6);

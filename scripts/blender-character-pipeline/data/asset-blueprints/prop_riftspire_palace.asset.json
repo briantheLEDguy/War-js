@@ -1,0 +1,93 @@
+{
+  "assetId": "prop.riftspire.palace",
+  "displayName": "Riftspire palace",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "riftspire_crater_city"
+  ],
+  "runtime": {
+    "staticKey": "riftspire_palace"
+  },
+  "output": {
+    "model": "prop_riftspire_palace.glb",
+    "artifactDir": "authoring/blender/riftspire-city/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/riftspire-city/runtime/prop_riftspire_palace.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 27896,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 13948,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 5393,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_RiftspirePbr",
+    "textureSet": "riftspire_city",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "collision": {
+    "policy": "editor_prefab_default",
+    "primitives": [
+      {
+        "type": "box",
+        "tag": "prefab_footprint"
+      }
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 10,
+    "maxFileSizeMb": 24,
+    "maxMeshObjects": 10,
+    "maxTris": 30000,
+    "requiresSkinnedMeshes": false
+  }
+}

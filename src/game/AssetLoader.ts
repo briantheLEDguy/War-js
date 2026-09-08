@@ -9,12 +9,36 @@ import { SharedTextureLoader } from './SharedTextureLoader';
 
 export type PrimitiveFactory = () => THREE.Object3D;
 
+interface ApprovedExternalTexture { uri: string; sha256: string }
+
+function reviewedTextureReferences(value: unknown): ApprovedExternalTexture[] | undefined {
+  if (value === undefined) return undefined;
+  if (!Array.isArray(value)) throw new Error('Invalid reviewed texture references');
+  const references = value.map((entry: { uri?: unknown; sha256?: unknown }) => {
+    if (typeof entry?.uri !== 'string' || !/^\.\.\/textures\/[a-z0-9_./-]+\.(?:png|jpe?g|webp)$/i.test(entry.uri)
+      || entry.uri.slice(3).includes('..') || typeof entry.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(entry.sha256)) {
+      throw new Error('Invalid reviewed texture path or hash');
+    }
+    return { uri: entry.uri, sha256: entry.sha256 };
+  });
+  if (new Set(references.map(entry => entry.uri)).size !== references.length) throw new Error('Duplicate reviewed texture');
+  return references;
+}
+
+function textureUrlKey(url: string): string {
+  return new URL(url, 'https://asset-loader.invalid/').href;
+}
+
 interface IndexedModel {
+  qc?: string;
+  qcSha256?: string;
   animationPack?: CharacterAnimationPack;
   assetId?: string;
   model?: string;
+  modelSha256?: string;
   bodyModel?: string;
   runtimeReady?: boolean;
+  approvalState?: string;
   lifecycleStatus?: string;
   reviewStatus?: string;
   bodyFamily?: string;
@@ -220,9 +244,13 @@ export class AssetLoader {
   private assetIndex: Promise<AssetIndex | null> | null = null;
   private animationPacks = new Map<string, Promise<THREE.AnimationClip[]>>();
   private disposed = false;
+  private approvedExternalTextures = new Map<string, ApprovedExternalTexture[]>();
+  private verifiedTextureLoads = new Map<string, Promise<void>>();
+  private verifiedTextureUrls = new Map<string, { sha256: string; blobUrl: string }>();
 
   constructor() {
     this.manager.addHandler(/\.(?:png|jpe?g|webp)(?:[?#].*)?$/i, this.sharedTextures);
+    this.manager.setURLModifier(url => this.verifiedTextureUrls.get(textureUrlKey(url))?.blobUrl ?? url);
   }
 
   private assertActive(): void {
@@ -246,6 +274,13 @@ export class AssetLoader {
     this.animationPacks.clear();
     this.texCache.clear();
     this.assetProbeCache.clear();
+    this.approvedAssetModels.clear();
+    this.approvedCityModels.clear();
+    this.approvedCityHashes.clear();
+    this.approvedExternalTextures.clear();
+    this.verifiedTextureLoads.clear();
+    for (const texture of this.verifiedTextureUrls.values()) URL.revokeObjectURL(texture.blobUrl);
+    this.verifiedTextureUrls.clear();
     this.assetIndex = null;
   }
 
@@ -272,11 +307,21 @@ export class AssetLoader {
     const requestedVariant = normalizedBodyVariant(bodyVariant);
     const entryVariant = normalizedBodyVariant(entry.bodyVariant);
     if (requestedVariant && entryVariant && requestedVariant !== entryVariant) return null;
-    if (!await this.canLoadAsset(modelUrl(entry.model))) return null;
+    let model = entry.model;
+    if (profileKey.startsWith('npc_riftspire_')) {
+      model = '';
+      for (const candidate of await this.resolveApprovedCityModels(profileKey)) {
+        const loaded = await this.loadModelWithAnimations(candidate, () => new THREE.Group());
+        let valid = false;
+        loaded.object.traverse(node => { if ((node as THREE.Mesh).isMesh) valid = true; });
+        if (valid) { model = candidate; break; }
+      }
+      if (!model) return null;
+    } else if (!await this.canLoadAsset(modelUrl(model))) return null;
 
     return {
       assetId: entry.assetId,
-      model: entry.model,
+      model,
       bodyFamily: entry.bodyFamily,
       bodyVariant: entry.bodyVariant,
       skeletonId: entry.skeletonId,
@@ -389,6 +434,100 @@ export class AssetLoader {
     return index?.staticProps?.[staticKey]?.model ?? fallbackModel;
   }
 
+  private approvedCityModels = new Map<string, Promise<string[]>>();
+  private approvedCityHashes = new Map<string, string>();
+  private approvedAssetModels = new Map<string, Promise<string[]>>();
+
+  /** Verified LOD references for shared-campaign presentation; never approves a draft registry entry. */
+  async resolveApprovedAssetModels(key: string, category: 'staticProps' | 'characterProfiles' | 'equipment', context?: EquipmentCompatibilityContext): Promise<string[]> {
+    const cacheKey = `${category}:${key}:${JSON.stringify(context ?? null)}`;
+    let pending = this.approvedAssetModels.get(cacheKey);
+    if (!pending) {
+      pending = (async () => {
+        const index = await this.loadAssetIndex();
+        const indexed = category === 'equipment' ? findIndexedEquipmentEntry(index, key) : index?.[category]?.[key];
+        if (!indexed || !isRuntimeApproved(indexed)) return [];
+        const entry = category === 'equipment' ? selectEquipmentVariant(indexed, context) : indexed;
+        if (!entry?.model || !isRuntimeApproved(entry) || !entry.qc || !entry.qcSha256) return [];
+        if (category === 'equipment' && !isEquipmentCompatible(entry, context)) return [];
+        if (key.startsWith('frontier_') && (entry.runtimeReady !== true || entry.lifecycleStatus !== 'approved' || entry.reviewStatus !== 'approved')) return [];
+        if (!/^[a-f0-9]{64}$/.test(entry.qcSha256)) return [];
+        try {
+          const response = await fetch(modelUrl(entry.qc));
+          if (!response.ok) return [];
+          const bytes = await response.arrayBuffer();
+          const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(value => value.toString(16).padStart(2, '0')).join('');
+          if (digest !== entry.qcSha256) return [];
+          const qc = JSON.parse(new TextDecoder().decode(bytes));
+          // Older published casts retain their source QC; final approval is recorded in the registry.
+          const legacyCivicQc = category === 'characterProfiles' && key.startsWith('npc_aegis_people_')
+            && entry.runtimeReady === true && entry.lifecycleStatus === 'approved' && entry.reviewStatus === 'approved'
+            && qc.qcPassed === undefined && qc.validationErrors === 0 && qc.model === entry.model
+            && qc.modelSha256 === entry.modelSha256 && qc.skeletonId === entry.skeletonId && qc.bindPoseId === entry.bindPoseId
+            && typeof qc.review === 'string' && /^reviews\/aegis-(people|civic-locomotion)\/[a-z_-]+\.json$/.test(qc.review);
+          const legacyRosterQc = category === 'characterProfiles' && /^(npc_|enemy_)/.test(key)
+            && !key.startsWith('npc_riftspire_') && !key.startsWith('npc_aegis_people_')
+            && entry.runtimeReady === true && entry.approvalState === 'approved'
+            && entry.lifecycleStatus === 'approved' && entry.reviewStatus === 'approved'
+            && qc.qcPassed === undefined && qc.technicalRoundTripPassed === true
+            && qc.modelSha256 === entry.modelSha256 && /^[a-f0-9]{64}$/.test(qc.modelSha256)
+            && Array.isArray(qc.invalidBounds) && qc.invalidBounds.length === 0
+            && ['idle', 'walk', 'run', 'death', 'jump', 'cast', 'combat_idle', 'attack_melee', 'attack_ranged']
+              .every(clip => qc.animationClips?.includes(clip));
+          if ((!legacyCivicQc && !legacyRosterQc && qc.qcPassed !== true) || (qc.validationErrors !== undefined && qc.validationErrors !== 0)) return [];
+          const source = Array.isArray(qc.builtLods) ? qc.builtLods : Array.isArray(qc.lods) ? qc.lods : [{ model: entry.model, sha256: qc.modelSha256, level: 0 }];
+          const levels: Array<{ model: string; sha256: string; level: number; externalTextures?: ApprovedExternalTexture[] }> = source.flatMap((level: { model?: unknown; sha256?: unknown; level?: unknown; name?: unknown; externalTextures?: unknown }, index: number) => {
+            if (typeof level.model !== 'string' || typeof level.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(level.sha256)) return [];
+            if (!/^[a-z0-9_./-]+\.glb$/i.test(level.model) || level.model.startsWith('/') || level.model.includes('..')) return [];
+            const number = typeof level.level === 'number' ? level.level : typeof level.name === 'string' && /^LOD\d+$/i.test(level.name) ? Number(level.name.slice(3)) : index;
+            const externalTextures = reviewedTextureReferences(level.externalTextures ?? (level.model === entry.model ? qc.externalTextures : undefined));
+            return [{ model: level.model, sha256: level.sha256, level: number, externalTextures }];
+          });
+          const approvedBase = levels.find(level => level.model === entry.model);
+          if (!approvedBase) return [];
+          levels.sort((a, b) => a.level - b.level);
+          // A reviewed NPC may deliberately start at LOD1; do not promote its source LOD0.
+          const approved = category === 'characterProfiles' ? levels.filter(level => level.level >= approvedBase.level) : levels;
+          this.assertActive();
+          for (const level of approved) {
+            this.approvedCityHashes.set(level.model, level.sha256);
+            if (level.externalTextures || key.startsWith('frontier_')) this.approvedExternalTextures.set(level.model, level.externalTextures ?? []);
+          }
+          return [...new Set(approved.map(level => level.model))];
+        } catch { return []; }
+      })();
+      this.approvedAssetModels.set(cacheKey, pending);
+    }
+    return pending;
+  }
+
+  async resolveApprovedCityModels(staticKey: string): Promise<string[]> {
+    let pending = this.approvedCityModels.get(staticKey);
+    if (!pending) {
+      pending = (async () => {
+        const index = await this.loadAssetIndex();
+        const character = staticKey.startsWith('npc_riftspire_');
+        const entry = character ? index?.characterProfiles?.[staticKey] : index?.staticProps?.[staticKey];
+        if (!entry?.model || !entry.runtimeReady || !isRuntimeApproved(entry) || !entry.qc || !entry.qcSha256) return [];
+        try {
+          const response = await fetch(modelUrl(entry.qc));
+          if (!response.ok) return [];
+          const bytes = await response.arrayBuffer();
+          const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(b => b.toString(16).padStart(2,'0')).join('');
+          if (digest !== entry.qcSha256) return [];
+          const qc = JSON.parse(new TextDecoder().decode(bytes));
+          if (!qc.qcPassed || qc.validationErrors !== 0 || !Array.isArray(qc.lods)) return [];
+          const lods = qc.lods.filter((l: { triangles: number; model: string; sha256: string }) => l.triangles <= 30000 && /^(prop|chr)_riftspire_[a-z0-9_]+\.glb$/.test(l.model) && /^[a-f0-9]{64}$/.test(l.sha256));
+          for (const lod of lods) this.approvedCityHashes.set(lod.model,lod.sha256);
+          if (character) lods.sort((a: {model:string},b: {model:string}) => Number(b.model===entry.model)-Number(a.model===entry.model));
+          return lods.map((l: { model: string }) => l.model);
+        } catch { return []; }
+      })();
+      this.approvedCityModels.set(staticKey, pending);
+    }
+    return pending;
+  }
+
   private async canLoadAsset(url: string, expectedType?: 'image'): Promise<boolean> {
     this.assertActive();
     const cached = this.assetProbeCache.get(url);
@@ -415,6 +554,51 @@ export class AssetLoader {
     return (await this.loadModelWithAnimations(path, fallback)).object;
   }
 
+  private async verifyModelTextures(model: string, bytes: ArrayBuffer): Promise<void> {
+    const references = this.approvedExternalTextures.get(model);
+    if (!references) return;
+    const header = new DataView(bytes);
+    if (bytes.byteLength < 20 || header.getUint32(0, true) !== 0x46546c67 || header.getUint32(16, true) !== 0x4e4f534a) {
+      throw new Error('Reviewed asset is not a GLB');
+    }
+    const jsonLength = header.getUint32(12, true);
+    const document = JSON.parse(new TextDecoder().decode(new Uint8Array(bytes, 20, jsonLength)));
+    const uris: string[] = (document.images ?? []).flatMap((image: { uri?: unknown }) => typeof image.uri === 'string' ? [image.uri] : []);
+    // glTF may use several image slots for one shared resource; QC hashes each URI once.
+    const actual = new Set(uris);
+    const expected = new Set(references.map(entry => entry.uri));
+    if (actual.size !== expected.size || [...actual].some(uri => !expected.has(uri)) || (document.buffers ?? []).some((buffer: { uri?: unknown }) => buffer.uri)) {
+      throw new Error('GLB external resources differ from reviewed texture references');
+    }
+    await Promise.all(references.map(async reference => {
+      const directory = model.slice(0, model.lastIndexOf('/') + 1);
+      const url = `${BASE}assets/models/${directory}${reference.uri}`;
+      const key = textureUrlKey(url), requestKey = `${key}:${reference.sha256}`;
+      let pending = this.verifiedTextureLoads.get(requestKey);
+      if (!pending) {
+        pending = (async () => {
+          const response = await fetch(`${url}?sha=${reference.sha256}`);
+          if (!response.ok) throw new Error(`Reviewed texture HTTP ${response.status}`);
+          const textureBytes = await response.arrayBuffer();
+          const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', textureBytes))].map(value => value.toString(16).padStart(2, '0')).join('');
+          if (digest !== reference.sha256) throw new Error('Reviewed texture hash mismatch');
+          this.assertActive();
+          const existing = this.verifiedTextureUrls.get(key);
+          if (existing && existing.sha256 !== reference.sha256) throw new Error('Conflicting reviewed texture hashes');
+          if (!existing) {
+            const extension = reference.uri.split('.').pop()!.toLowerCase();
+            const type = extension === 'jpg' || extension === 'jpeg' ? 'image/jpeg' : `image/${extension}`;
+            const blobUrl = URL.createObjectURL(new Blob([textureBytes], { type }));
+            this.verifiedTextureUrls.set(key, { sha256: reference.sha256, blobUrl });
+          }
+        })();
+        this.verifiedTextureLoads.set(requestKey, pending);
+      }
+      await pending;
+    }));
+    this.assertActive();
+  }
+
   async loadModelWithAnimations(
     path: string,
     fallback: PrimitiveFactory,
@@ -428,7 +612,17 @@ export class AssetLoader {
           const canLoad = await this.canLoadAsset(modelUrl(path));
           this.assertActive();
           if (!canLoad) throw new Error('asset missing');
-          const gltf: GLTF = await this.gltfLoader.loadAsync(modelUrl(path));
+          const approvedHash = this.approvedCityHashes.get(path);
+          let gltf: GLTF;
+          if (approvedHash) {
+            const response = await fetch(modelUrl(path));
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const bytes = await response.arrayBuffer();
+            const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');
+            if (digest!==approvedHash) throw new Error('Reviewed model hash mismatch');
+            await this.verifyModelTextures(path, bytes);
+            gltf = await this.gltfLoader.parseAsync(bytes, `${BASE}assets/models/${path.slice(0, path.lastIndexOf('/') + 1)}`);
+          } else gltf = await this.gltfLoader.loadAsync(modelUrl(path));
           prepareLoadedModel(gltf.scene);
           result = { object: gltf.scene, animations: gltf.animations ?? [] };
         } catch (err) {

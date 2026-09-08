@@ -934,9 +934,9 @@
       "radius": 9,
       "targetZoneId": "obsidian_scar",
       "targetSpawn": {
-        "x": 113.3,
+        "x": 510.55,
         "y": 0,
-        "z": -19.5
+        "z": -87.57
       }
     }
   ],
@@ -977,5 +977,55 @@
       ]
     }
   ],
-  "staticMapHash": "81d934ec066029da"
+  "artDirection": {
+    "zoneId": "obsidian_maw",
+    "realm": "riftbound",
+    "races": [
+      "chaos",
+      "greenskin",
+      "dark_elf"
+    ],
+    "biomeId": "volcanic_badlands",
+    "season": "summer",
+    "cultures": "Chaos forge crews; Greenskin haulers",
+    "vegetation": [
+      "ash_scrub",
+      "dry_grass",
+      "lichen",
+      "charred_trunk",
+      "basalt_scree"
+    ],
+    "fauna": [
+      "scar_lizard",
+      "glass_hound",
+      "cliff_bird"
+    ],
+    "palette": [
+      "#585358",
+      "#8f5845",
+      "#a89c8f"
+    ],
+    "landmark": "Cooled lava throat with fractured obsidian ribs",
+    "reliefMetres": 27,
+    "vegetationAssetKeys": [
+      "frontier_volcanic_badlands_ash_scrub",
+      "frontier_volcanic_badlands_dry_grass",
+      "frontier_volcanic_badlands_lichen",
+      "frontier_volcanic_badlands_charred_trunk",
+      "frontier_volcanic_badlands_basalt_scree"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_scar_lizard",
+      "frontier_creature_glass_hound",
+      "frontier_creature_cliff_bird"
+    ],
+    "materialSetKey": "frontier_volcanic_badlands_materials",
+    "architectureAssetKey": "frontier_volcanic_badlands_settlement",
+    "status": "planned",
+    "parentZoneId": "obsidian_scar",
+    "population": "Scar predators and glass-maw guardian",
+    "bossProfileKey": "frontier_boss_obsidian_maw",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "07c3a7f0567d9ef1"
 }

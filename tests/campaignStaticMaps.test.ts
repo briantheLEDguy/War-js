@@ -7,9 +7,11 @@ import {
   CAMPAIGN_STATIC_MAP_HASHES,
   CAMPAIGN_ZONES,
 } from '../src/data/campaign';
+import type { OrvrKeepLayout, OrvrZoneLayout } from '../src/world/orvrTypes';
 
 interface ZoneFile {
   id: string;
+  orvrLayout?: OrvrZoneLayout;
   staticMapVersion?: string;
   staticMapHash?: string;
   terrainModel?: string;
@@ -26,6 +28,7 @@ interface ZoneFile {
     scale?: number;
     scaleX?: number;
     scaleZ?: number;
+    colliderSpace?: 'legacy' | 'model';
     colliders?: Array<{
       x?: number;
       z?: number;
@@ -195,7 +198,7 @@ describe('static campaign map files', () => {
 
   test('provides passive indexed training dummies in both capital cities', () => {
     for (const capitalId of ['aegis_capital', 'riftspire_capital']) {
-      const dummies = loadZone(capitalId).enemies?.filter((enemy) => enemy.assetKey === 'dummy') ?? [];
+      const dummies = loadZone(capitalId).enemies?.filter((enemy) => ['dummy','riftspire_training_dummy'].includes(enemy.assetKey??'')) ?? [];
 
       expect(dummies).toHaveLength(3);
       expect(dummies.map((dummy) => dummy.name)).toEqual([
@@ -243,7 +246,7 @@ describe('static campaign map files', () => {
     }
   });
 
-  test('generates keeps as editable modular pieces with animated entrances and exits', () => {
+  test('generates editable keep defenses with animated gates and protected exits', () => {
     for (const node of CAMPAIGN_ZONES) {
       if (node.nodeRole !== 'battlefield' && node.nodeRole !== 'fortress') continue;
 
@@ -253,6 +256,11 @@ describe('static campaign map files', () => {
       expect(zone.props.some((prop) => prop.kind === 'castle' && prop.id?.includes('_keep'))).toBe(false);
 
       for (const keep of keeps) {
+        const layout = zone.orvrLayout?.keeps.find(entry => entry.objectiveId === keep.id);
+        if (layout?.gates.every(gate => ['frontier_sunmeadow_gate_leaves', 'frontier_cinderfen_gate_leaves'].includes(gate.assetKey))) {
+          expectAuthoredKeep(zone, layout);
+          continue;
+        }
         const keepPrefix = `${keep.id}_keep`;
         const keepProps = zone.props.filter((prop) => prop.id?.startsWith(keepPrefix));
         expect(keepProps.filter((prop) => prop.kind === 'wall_segment').length, keep.id).toBeGreaterThanOrEqual(8);
@@ -272,76 +280,22 @@ describe('static campaign map files', () => {
   });
 
   test('capital city gates use closed-only interactive colliders', () => {
-    for (const node of CAMPAIGN_ZONES.filter((entry) => entry.nodeRole === 'capital')) {
+    for (const node of CAMPAIGN_ZONES.filter((entry) => entry.nodeRole === 'capital' && entry.id!=='riftspire_capital')) {
       const zone = loadZone(node.id);
       const cityGate = zone.props.find((prop) => prop.id === `${node.id}_city_gate_gate`);
       expectInteractiveGate(cityGate, node.id === 'aegis_capital' ? 'prop_aegis_portcullis.glb' : 'castle_gate.glb');
     }
   });
 
-  test('Riftspire retains its reusable fortress build pack and original town districts', () => {
-    for (const node of CAMPAIGN_ZONES.filter((entry) => entry.id === 'riftspire_capital')) {
-      const zone = loadZone(node.id);
-      const wallPrefix = `${node.id}_city_wall`;
-      const citadelPrefix = `${node.id}_capital_citadel`;
-      const wallProps = zone.props.filter((prop) => prop.id?.startsWith(wallPrefix));
-      const citadelProps = zone.props.filter((prop) => prop.id?.startsWith(citadelPrefix));
-
-      expect(zone.terrainModel, node.id).toBeUndefined();
-      expect(zone.paths?.length ?? 0, node.id).toBeGreaterThanOrEqual(12);
-      expect(zone.paths?.some((pathDef: any) => pathDef.id === `${node.id}_castle_service_lane`), node.id).toBe(true);
-      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_wall').length, node.id).toBeGreaterThanOrEqual(8);
-      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_corner_tower').length, node.id).toBeGreaterThanOrEqual(10);
-      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_gatehouse').length, node.id).toBeGreaterThanOrEqual(3);
-      expect(wallProps.filter((prop) => prop.assetKey === 'town_fortress_wall').every((prop) => prop.model === 'prop_town_fortress_wall.glb'), node.id).toBe(true);
-      expect(wallProps.filter((prop) => prop.kind === 'town_fortress_wall').every((prop) => (prop.walkableSurfaces?.length ?? 0) > 0), node.id).toBe(true);
-      const houses = zone.props.filter((prop) => prop.id?.startsWith(`${node.id}_capital_house_`));
-      expect(houses.length, node.id).toBeGreaterThanOrEqual(44);
-      expect(houses.every((prop) =>
-        prop.kind === 'building' &&
-        ['town_house_1', 'town_house_2'].includes(prop.assetKey ?? '') &&
-        (prop.colliders?.length ?? 0) > 0 &&
-        prop.interaction?.type === 'house_portal' &&
-        prop.interaction.interiorVariant === (prop.assetKey === 'town_house_2' ? 'large' : 'small') &&
-        (prop.interaction.maxDistance ?? 0) >= 9,
-      ), node.id).toBe(true);
-
-      const castle = citadelProps.find((prop) => prop.id === citadelPrefix);
-      expect(castle, node.id).toEqual(expect.objectContaining({
-        kind: 'castle',
-        assetKey: 'town_castle',
-        model: 'prop_town_castle.glb',
-        x: 0,
-        z: 86,
-      }));
-      expect(castle?.colliders?.some((collider) => collider.width >= 38 && collider.depth >= 34), node.id).toBe(true);
-
-      expectInteractiveGate(zone.props.find((prop) => prop.id === `${node.id}_city_gate_gate`), 'castle_gate.glb');
-      expect(zone.props.find((prop) => prop.id === `${node.id}_city_gate_gatehouse`)).toEqual(expect.objectContaining({
-        kind: 'town_fortress_gatehouse',
-        assetKey: 'town_fortress_gatehouse',
-        model: 'prop_town_fortress_gatehouse.glb',
-      }));
-      expectInteractiveGate(zone.props.find((prop) => prop.id === `${wallPrefix}_west_gate`), 'castle_gate.glb');
-      expectInteractiveGate(zone.props.find((prop) => prop.id === `${wallPrefix}_east_gate`), 'castle_gate.glb');
-      expectInteractiveGate(zone.props.find((prop) => prop.id === `${wallPrefix}_rear_gate`), 'castle_gate.glb');
-
-      const fortressScenery = zone.props.filter((prop) => prop.id?.startsWith(`${node.id}_fortress_scenery`));
-      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_brazier').length, node.id).toBeGreaterThanOrEqual(8);
-      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_banner').length, node.id).toBeGreaterThanOrEqual(4);
-      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_barricade').length, node.id).toBeGreaterThanOrEqual(2);
-      expect(fortressScenery.filter((prop) => prop.kind === 'town_fortress_wall_stairs').length, node.id).toBeGreaterThanOrEqual(2);
-
-      if (node.realm === 'aegis') {
-        expect(zone.props.some((prop) => prop.id === `${node.id}_sun_court_temple` && prop.kind === 'temple')).toBe(true);
-      } else {
-        for (const kind of ['rift_tower', 'rift_obelisk', 'rift_brazier', 'rift_spike_cluster']) {
-          expect(zone.props.some((prop) => prop.kind === kind), `${node.id}:${kind}`).toBe(true);
-        }
-        expect(zone.props.some((prop) => prop.id?.includes('sun_court'))).toBe(false);
-        expect(zone.props.some((prop) => prop.id === `${node.id}_central_fountain`)).toBe(false);
-      }
-    }
+  test('Riftspire replaces the flat fortress with authored crater districts and permanent crossings', () => {
+    const zone = loadZone('riftspire_capital');
+    expect(zone.size).toBe(1024);
+    expect(zone.cityLayoutVersion).toBe('riftspire-crater-v3');
+    expect(zone.craterCity.levels.map((level: any)=>level.y)).toEqual([0,-50,-105,-130,-150,-175,-245]);
+    expect(zone.props.filter((p: any)=>p.id?.startsWith('riftspire_rim_gate_'))).toHaveLength(4);
+    expect(zone.props.filter((p: any)=>p.id?.startsWith('riftspire_transit_arm_')).every((p: any)=>p.walkableSurfaces[0].width===18)).toBe(true);
+    expect(zone.props.every((p: any)=>p.model.startsWith('prop_riftspire_') && p.heightMode==='absolute')).toBe(true);
+    expect(zone.cityDistricts.map((d: any)=>d.name)).toEqual(['Ashgate Rim','Blackvein Market','Hollowwall Warrens','Chainwake Commons','Drowned Works','Riftspire Crown']);
   });
 
   test('has bidirectional portal triggers for every campaign edge', () => {
@@ -404,10 +358,11 @@ describe('static campaign map files', () => {
 
 function expectInteractiveGate(
   prop: ZoneFile['props'][number] | undefined,
-  model: string,
+  model: string | { assetKey: string },
 ): void {
   expect(prop).toBeTruthy();
-  expect(prop?.model).toBe(model);
+  if (typeof model === 'string') expect(prop?.model).toBe(model);
+  else expect(prop?.assetKey).toBe(model.assetKey);
   expect(prop?.interaction).toEqual(expect.objectContaining({
     id: expect.any(String),
     type: 'gate',
@@ -417,6 +372,75 @@ function expectInteractiveGate(
     collider.blocksWhen === 'closed' &&
     collider.interactionId === prop?.interaction?.id,
   )).toBe(true);
+}
+
+function expectAuthoredKeep(zone: ZoneFile, keep: OrvrKeepLayout): void {
+  const cinderfen = zone.id === 'cinderfen_outskirts';
+  const prefix = cinderfen ? 'frontier_cinderfen' : 'frontier_sunmeadow';
+  expect([...zone.orvrLayout!.assetPolicy.requiredAssetKeys, ...(zone.orvrLayout!.assetPolicy.optionalAssetKeys ?? [])]).toContain(`${prefix}_gate_leaves`);
+  const props = zone.props.filter(prop => prop.id?.startsWith(`${keep.objectiveId}_`));
+  const curtains = props.filter(prop => prop.assetKey === `${prefix}_${cinderfen ? 'curtain_walk' : 'curtain_wall'}`);
+  const gatehouses = props.filter(prop => prop.assetKey === `${prefix}_gatehouse`);
+  expect(curtains.length, keep.objectiveId).toBeGreaterThanOrEqual(32);
+  expect(gatehouses, keep.objectiveId).toHaveLength(2);
+  expect(curtains.every(prop => prop.colliders?.some(box => box.width > 0 && box.depth > 0))).toBe(true);
+  expect(gatehouses.every(prop => (prop.colliders?.length ?? 0) >= 2)).toBe(true);
+  expect(keep.gates.map(gate => gate.stage).sort()).toEqual(['inner', 'outer']);
+  for (const gate of keep.gates) {
+    const prop = zone.props.find(prop => prop.id === gate.propId);
+    expectInteractiveGate(prop, { assetKey: gate.assetKey });
+    expect(prop!.interaction).toMatchObject({ openClip: 'gate_open', closeClip: 'gate_close' });
+    expect({ x: prop!.x, z: prop!.z }).toEqual({ x: gate.x, z: gate.z });
+    expect(prop!.colliders!.some(box => box.width === gate.width && box.depth === gate.depth)).toBe(true);
+  }
+  expect(zone.props.find(prop => prop.id === keep.postern?.propId)?.assetKey).toBe(`${prefix}_gate_leaves`);
+  expect(distance2d(keep.postern!.inside, keep.postern!.outside)).toBeGreaterThan(4);
+
+  // Actual transformed collision must seal both defensive rings. Opening the
+  // outer gate grants courtyard access; the commander still needs the inner gate.
+  const closed = keepReachability(props, keep, new Set());
+  const outerBreached = keepReachability(props, keep, new Set([keep.gates.find(gate => gate.stage === 'outer')!.propId]));
+  const bothBreached = keepReachability(props, keep, new Set(keep.gates.map(gate => gate.propId)));
+  expect(closed(keep.commander), `${keep.objectiveId} closed enclosure`).toBe(false);
+  expect(outerBreached(keep.commander), `${keep.objectiveId} inner enclosure`).toBe(false);
+  for (const slot of keep.siegeSlots.filter(slot => slot.kind === 'catapult')) {
+    expect(closed(slot), `${keep.objectiveId} sealed courtyard`).toBe(false);
+    expect(outerBreached(slot), `${keep.objectiveId} reachable courtyard`).toBe(true);
+  }
+  expect(bothBreached(keep.commander), `${keep.objectiveId} reachable commander`).toBe(true);
+}
+
+function keepReachability(props: ZoneFile['props'], keep: OrvrKeepLayout, openGates: Set<string>) {
+  const minX = Math.floor(keep.x - 45), maxX = Math.ceil(keep.x + 45);
+  const minZ = Math.floor(keep.z - 85), maxZ = Math.ceil(keep.z + 65);
+  const width = maxX - minX + 1, height = maxZ - minZ + 1;
+  const blocked = new Uint8Array(width * height), visited = new Uint8Array(blocked.length);
+  const boxes = props.flatMap(prop => (prop.colliders ?? [])
+    // Ground flood-fill must pass below overhead lintels and wall walks.
+    .filter(box => (box.minY ?? -Infinity) + (prop.y ?? 0) < 1.8 && (box.maxY ?? Infinity) + (prop.y ?? 0) > .01)
+    .filter(box => !(box.blocksWhen === 'closed' && openGates.has(prop.id!)))
+    .map(box => {
+      const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1), sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
+      const sign = prop.colliderSpace === 'model' ? -1 : 1, angle = (prop.rotY ?? 0) * sign;
+      return { x: prop.x! + (box.x ?? 0) * sx * Math.cos(angle) - (box.z ?? 0) * sz * Math.sin(angle),
+        z: prop.z! + (box.x ?? 0) * sx * Math.sin(angle) + (box.z ?? 0) * sz * Math.cos(angle),
+        rotY: angle + (box.rotY ?? 0) * sign, width: box.width * sx + 1, depth: box.depth * sz + 1 };
+    }));
+  const index = (point: { x: number; z: number }) => (Math.round(point.z) - minZ) * width + Math.round(point.x) - minX;
+  for (let z = minZ; z <= maxZ; z++) for (let x = minX; x <= maxX; x++) {
+    if (boxes.some(box => pointInsideCollider({ x, z }, box))) blocked[index({ x, z })] = 1;
+  }
+  const start = index(keep.deliveryPoint), queue = [start];
+  expect(blocked[start], `${keep.objectiveId} delivery approach`).toBe(0);
+  visited[start] = 1;
+  for (let head = 0; head < queue.length; head++) {
+    const current = queue[head], x = current % width, z = Math.floor(current / width);
+    for (const next of [x > 0 ? current - 1 : -1, x < width - 1 ? current + 1 : -1,
+      z > 0 ? current - width : -1, z < height - 1 ? current + width : -1]) {
+      if (next >= 0 && !visited[next] && !blocked[next]) { visited[next] = 1; queue.push(next); }
+    }
+  }
+  return (point: { x: number; z: number }) => Boolean(visited[index(point)]);
 }
 
 function expectedGuideTargets(zoneId: string): string[] {

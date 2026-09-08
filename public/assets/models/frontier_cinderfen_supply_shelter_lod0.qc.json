@@ -1,0 +1,1846 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.cinderfen_supply_shelter",
+  "modelSha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+  "validationErrors": 0,
+  "reviewHash": "0f44f8d29dda3c5a8590f3e164a0c28aceef90ba68adc4803483ca1c82421e32",
+  "totalTris": 73904,
+  "meshCount": 10,
+  "nonManifoldEdges": 0,
+  "missingRequiredClips": [],
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 1024,
+  "builtLods": [
+    {
+      "name": "LOD0",
+      "level": 0,
+      "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+      "triangles": 73904,
+      "sha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+          "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+          "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+          "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+          "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+          "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+          "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+          "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+          "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+          "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+          "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+          "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+          "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+          "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+          "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+          "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+          "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+          "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+          "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+          "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+          "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+          "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+          "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+          "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+          "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+          "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+          "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+          "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+          "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+        }
+      ]
+    },
+    {
+      "name": "LOD1",
+      "level": 1,
+      "model": "frontier_cinderfen_supply_shelter_lod1.glb",
+      "triangles": 22142,
+      "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c",
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+          "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+          "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+          "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+          "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+          "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+          "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+          "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+          "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+          "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+          "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+          "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+          "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+          "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+          "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+          "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+          "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+          "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+          "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+          "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+          "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+          "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+          "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+          "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+          "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+          "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+          "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+          "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+          "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+        }
+      ]
+    },
+    {
+      "name": "LOD2",
+      "level": 2,
+      "model": "frontier_cinderfen_supply_shelter_lod2.glb",
+      "triangles": 7424,
+      "sha256": "e9ea7f00c65617faa41accafa7eb6548c51f4dc7004ad9ad49b8dad2a75f7586",
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+          "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+          "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+          "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+          "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+          "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+          "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+          "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+          "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+          "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+          "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+          "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+          "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+          "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+          "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+          "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+          "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+          "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+          "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+          "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+          "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+          "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+          "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+          "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+          "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+          "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+          "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+          "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+          "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+        }
+      ]
+    }
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+      "sha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+      "bytes": 4363428,
+      "triangles": 73904,
+      "vertices": 38408,
+      "materials": 10,
+      "bounds_z_up": {
+        "minimum": [
+          -4.595478057861328,
+          -4.771195411682129,
+          -0.3251791000366211
+        ],
+        "maximum": [
+          4.595500469207764,
+          3.5369999408721924,
+          6.302000045776367
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
+        "input_glb_sha256": "0b4e1786e8aca0a55d4569ba08ab9760d807bbfade7b9bc58e2ba39f4a22525d",
+        "output_glb_sha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+        "embedded_bytes": 10941864,
+        "externalized_bytes": 4363428
+      },
+      "external_textures": {
+        "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e",
+        "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67",
+        "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6",
+        "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223",
+        "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace",
+        "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc",
+        "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc",
+        "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a",
+        "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111",
+        "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3",
+        "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3",
+        "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87",
+        "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0",
+        "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673",
+        "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685",
+        "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7",
+        "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50",
+        "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216",
+        "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2",
+        "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096",
+        "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf",
+        "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7",
+        "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d",
+        "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855",
+        "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a",
+        "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6",
+        "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b",
+        "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+      },
+      "meshes": 1,
+      "drawCalls": 10,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+          "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+          "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+          "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+          "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+          "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+          "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+          "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+          "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+          "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+          "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+          "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+          "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+          "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+          "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+          "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+          "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+          "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+          "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+          "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+          "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+          "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+          "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+          "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+          "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+          "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+          "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+          "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+          "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+        }
+      ],
+      "topology": {
+        "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+        "sha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "coincident_join_segments": [],
+        "weld_tolerance_m": 0.000001,
+        "audit_tool_sha256": "2eca366ec80dd83cdced0968b23652446248b1f30a7a02201468b076fc6e014a",
+        "walkable_surfaces": [
+          {
+            "surface": "interior_deck",
+            "samples": [
+              {
+                "x": -2.418,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -2.418,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -2.418,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "missing": 0,
+            "max_error": 2.384185793236071e-8
+          },
+          {
+            "surface": "front_ramp",
+            "samples": [
+              {
+                "x": -0.9299999999999999,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2689799964427948,
+                "error": 0.006030798581832253,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.9299999999999999,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.1792200356721878,
+                "error": 0.00027083781122524964,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.9299999999999999,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07354004681110382,
+                "error": -0.006510755327933618,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2689799964427948,
+                "error": 0.006030798581832253,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.179220050573349,
+                "error": 0.0002708527123864435,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07354000955820084,
+                "error": -0.006510792580836602,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2689799666404724,
+                "error": 0.006030768779509865,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.179220050573349,
+                "error": 0.0002708527123864435,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07354001700878143,
+                "error": -0.0065107851302560055,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              }
+            ],
+            "missing": 0,
+            "max_error": 0.006510792580836602
+          }
+        ],
+        "doorway": {
+          "width": 5.8,
+          "height": 3.1,
+          "floor_height": 0.35,
+          "ray_samples": 806,
+          "wall_depth_tested": 1.2,
+          "floor_tolerance": 0.12,
+          "edge_tolerance": 0.04,
+          "blocked_rays": []
+        }
+      },
+      "reviewImages": {
+        "frontier_cinderfen_supply_shelter_lod0_reimport.png": "d279ad37860260e692d796576d4157c776076b68ec1c18cd583a211679b974db",
+        "frontier_cinderfen_supply_shelter_lod0_gameplay.png": "9e959f74642a854d9f468112ded4bdea96dd841136dce3bb9d5e0d9b3f11aa32"
+      },
+      "preview": "frontier_cinderfen_supply_shelter_lod0_reimport.png",
+      "preview_sha256": "d279ad37860260e692d796576d4157c776076b68ec1c18cd583a211679b974db"
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_supply_shelter_lod1.glb",
+      "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c",
+      "bytes": 1537120,
+      "triangles": 22142,
+      "vertices": 11715,
+      "materials": 10,
+      "bounds_z_up": {
+        "minimum": [
+          -4.595478057861328,
+          -4.770590782165527,
+          -0.3246731460094452
+        ],
+        "maximum": [
+          4.595500469207764,
+          3.5369999408721924,
+          6.302000045776367
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
+        "input_glb_sha256": "e874e815b22a0abd5d96235cf6a5b7504012b53f8fa4dbc4e07e541846161dce",
+        "output_glb_sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c",
+        "embedded_bytes": 8115548,
+        "externalized_bytes": 1537120
+      },
+      "external_textures": {
+        "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e",
+        "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67",
+        "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6",
+        "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223",
+        "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace",
+        "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc",
+        "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc",
+        "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a",
+        "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111",
+        "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3",
+        "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3",
+        "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87",
+        "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0",
+        "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673",
+        "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685",
+        "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7",
+        "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50",
+        "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216",
+        "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2",
+        "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096",
+        "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf",
+        "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7",
+        "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d",
+        "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855",
+        "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a",
+        "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6",
+        "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b",
+        "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+      },
+      "meshes": 1,
+      "drawCalls": 10,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+          "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+          "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+          "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+          "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+          "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+          "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+          "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+          "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+          "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+          "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+          "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+          "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+          "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+          "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+          "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+          "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+          "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+          "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+          "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+          "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+          "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+          "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+          "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+          "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+          "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+          "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+          "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+          "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+        }
+      ],
+      "topology": {
+        "model": "frontier_cinderfen_supply_shelter_lod1.glb",
+        "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "coincident_join_segments": [],
+        "weld_tolerance_m": 0.000001,
+        "audit_tool_sha256": "2eca366ec80dd83cdced0968b23652446248b1f30a7a02201468b076fc6e014a",
+        "walkable_surfaces": [
+          {
+            "surface": "interior_deck",
+            "samples": [
+              {
+                "x": -2.418,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3488972783088684,
+                "error": -0.0011027216911315696,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -2.418,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.349016398191452,
+                "error": -0.0009836018085479514,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": -2.418,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.34907039999961853,
+                "error": -0.0009296000003814475,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3486395478248596,
+                "error": -0.0013604521751403587,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3486800491809845,
+                "error": -0.0013199508190154807,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3487340807914734,
+                "error": -0.0012659192085265891,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3489803373813629,
+                "error": -0.0010196626186370628,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3491635322570801,
+                "error": -0.0008364677429198997,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.34912559390068054,
+                "error": -0.0008744060993194358,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "missing": 0,
+            "max_error": 0.0013604521751403587
+          },
+          {
+            "surface": "front_ramp",
+            "samples": [
+              {
+                "x": -0.9299999999999999,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.26791244745254517,
+                "error": 0.004963249591582619,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.9299999999999999,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.1920308768749237,
+                "error": -0.000019925264113734853,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": -0.9299999999999999,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07234854251146317,
+                "error": -0.007702259627574273,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2670738697052002,
+                "error": 0.004124671844237648,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.19131389260292053,
+                "error": -0.0007369095361169087,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07163391262292862,
+                "error": -0.00841688951610882,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2674022614955902,
+                "error": 0.004453063634627663,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.19169177114963531,
+                "error": -0.00035903098940212597,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07202033698558807,
+                "error": -0.008030465153449365,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              }
+            ],
+            "missing": 0,
+            "max_error": 0.00841688951610882
+          }
+        ],
+        "doorway": {
+          "width": 5.8,
+          "height": 3.1,
+          "floor_height": 0.35,
+          "ray_samples": 806,
+          "wall_depth_tested": 1.2,
+          "floor_tolerance": 0.12,
+          "edge_tolerance": 0.04,
+          "blocked_rays": []
+        }
+      },
+      "reviewImages": {
+        "frontier_cinderfen_supply_shelter_lod1_reimport.png": "2a7de715639dd2daee76411f681a37fd1ec40b959fe7b9b8c1888a9efbcc16f5",
+        "frontier_cinderfen_supply_shelter_lod1_gameplay.png": "0521e163fc51abb8650fbcae0dc2c523e3da3d149bb57130e474d19a46616c9c"
+      },
+      "preview": "frontier_cinderfen_supply_shelter_lod1_reimport.png",
+      "preview_sha256": "2a7de715639dd2daee76411f681a37fd1ec40b959fe7b9b8c1888a9efbcc16f5"
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_supply_shelter_lod2.glb",
+      "sha256": "e9ea7f00c65617faa41accafa7eb6548c51f4dc7004ad9ad49b8dad2a75f7586",
+      "bytes": 552480,
+      "triangles": 7424,
+      "vertices": 4066,
+      "materials": 10,
+      "bounds_z_up": {
+        "minimum": [
+          -4.596999645233154,
+          -4.772274971008301,
+          -0.3261485993862152
+        ],
+        "maximum": [
+          4.596999645233154,
+          3.5369999408721924,
+          6.302000045776367
+        ]
+      },
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
+        "input_glb_sha256": "3a2cc255e94a67614cf75e9df31be0d351423748a3640f6e716a155f40cbc434",
+        "output_glb_sha256": "e9ea7f00c65617faa41accafa7eb6548c51f4dc7004ad9ad49b8dad2a75f7586",
+        "embedded_bytes": 7130928,
+        "externalized_bytes": 552480
+      },
+      "external_textures": {
+        "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e",
+        "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67",
+        "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6",
+        "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223",
+        "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace",
+        "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc",
+        "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc",
+        "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a",
+        "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87",
+        "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0",
+        "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673",
+        "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685",
+        "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7",
+        "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50",
+        "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216",
+        "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2",
+        "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096",
+        "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf",
+        "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7",
+        "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111",
+        "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3",
+        "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3",
+        "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d",
+        "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855",
+        "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a",
+        "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6",
+        "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b",
+        "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+      },
+      "meshes": 1,
+      "drawCalls": 10,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+          "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+          "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+          "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+          "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+          "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+          "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+          "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+          "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+          "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+          "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+          "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+          "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+          "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+          "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+          "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+          "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+          "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+          "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+          "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+          "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+          "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+          "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+          "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+          "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+          "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+          "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+          "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+        },
+        {
+          "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+          "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+        }
+      ],
+      "topology": {
+        "model": "frontier_cinderfen_supply_shelter_lod2.glb",
+        "sha256": "e9ea7f00c65617faa41accafa7eb6548c51f4dc7004ad9ad49b8dad2a75f7586",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "coincident_join_segments": [],
+        "weld_tolerance_m": 0.000001,
+        "audit_tool_sha256": "2eca366ec80dd83cdced0968b23652446248b1f30a7a02201468b076fc6e014a",
+        "walkable_surfaces": [
+          {
+            "surface": "interior_deck",
+            "samples": [
+              {
+                "x": -2.418,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -2.418,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -2.418,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -0.546,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": -1.566,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": -0.17400000000000015,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": 1.6379999999999997,
+                "z": 1.6820000000000002,
+                "expected_height": 0.35,
+                "height": 0.3500000238418579,
+                "error": 2.384185793236071e-8,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "missing": 0,
+            "max_error": 2.384185793236071e-8
+          },
+          {
+            "surface": "front_ramp",
+            "samples": [
+              {
+                "x": -0.9299999999999999,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2689799964427948,
+                "error": 0.006030798581832253,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.9299999999999999,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.1792200356721878,
+                "error": 0.00027083781122524964,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.9299999999999999,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07354001700878143,
+                "error": -0.0065107851302560055,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2689799964427948,
+                "error": 0.006030798581832253,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.179220050573349,
+                "error": 0.0002708527123864435,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -0.21000000000000002,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07353999465703964,
+                "error": -0.006510807481997796,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 3.3701,
+                "expected_height": 0.26949999999999996,
+                "height": 0.2689799964427948,
+                "error": 0.006030798581832253,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 3.8188999999999997,
+                "expected_height": 0.1855,
+                "height": 0.179220050573349,
+                "error": 0.0002708527123864435,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": 0.6299999999999999,
+                "z": 4.4173,
+                "expected_height": 0.07350000000000001,
+                "height": 0.07353999465703964,
+                "error": -0.006510807481997796,
+                "foot_contact_offset": [
+                  0,
+                  -0.035
+                ]
+              }
+            ],
+            "missing": 0,
+            "max_error": 0.006510807481997796
+          }
+        ],
+        "doorway": {
+          "width": 5.8,
+          "height": 3.1,
+          "floor_height": 0.35,
+          "ray_samples": 806,
+          "wall_depth_tested": 1.2,
+          "floor_tolerance": 0.12,
+          "edge_tolerance": 0.04,
+          "blocked_rays": []
+        }
+      },
+      "reviewImages": {
+        "frontier_cinderfen_supply_shelter_lod2_reimport.png": "4a5e4f942b593d37511526f63d400196acf9a1eea0443a88ca43e81ff5577ebe",
+        "frontier_cinderfen_supply_shelter_lod2_gameplay.png": "87ab2295cf1eac6aab136681c1c27c23121a7f8f15d8964d0159e552b0e0568e"
+      },
+      "preview": "frontier_cinderfen_supply_shelter_lod2_reimport.png",
+      "preview_sha256": "4a5e4f942b593d37511526f63d400196acf9a1eea0443a88ca43e81ff5577ebe"
+    }
+  ],
+  "externalTextures": [
+    {
+      "uri": "../textures/cinderfen_architecture/1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e.png",
+      "sha256": "1ef5b9fe22a6e612eb08b062d1b731566c0925cc8a4428df783d70e75acf385e"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67.png",
+      "sha256": "7fd43c21c21d4778c5043b086647bc2a3884bdd435961233ea4c99a56ff99c67"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6.png",
+      "sha256": "f25aa6978a2d7e9fa95b0721457e2d69d7fcc902942be69ac29b070084bc9fb6"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
+      "sha256": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace.png",
+      "sha256": "72b9a3c22a81660fbaaa69b54342d6e9fe15657b51601bba8c8bc2fbb1e31ace"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc.png",
+      "sha256": "5fd6498bdb92dd05d7def97f0b40a90b12de5d7ee6bb0739d9f07068533481fc"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc.png",
+      "sha256": "edc2c775a84abc5455f11a951f6682818fc4212a87a2a8bb919045c9ac60b7fc"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a.png",
+      "sha256": "2c999b890230955d657ca190c67700f42668da3519a0f9143172afc2073b8b8a"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111.png",
+      "sha256": "8dea8a944ce4f070285e512ec560250745aa2be9887cd083d27dc83b86bbb111"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3.png",
+      "sha256": "a5bf840e2a85498a81972f36acfe7f0b753a5e01b9673909e7fc78c6438122f3"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3.png",
+      "sha256": "b2a53e20cdca4b1f3445fcf8f1ce6f1456083e1d1bc0662ca59d300428def4a3"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87.png",
+      "sha256": "3e4819aa2e4815efef0cd20c3dbc4fca5b6928a898587f6de89cbbd5b4b84a87"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0.png",
+      "sha256": "86fef1ea06616bfbee1534c93f033205c2d3bec8cb1888d1135bae23cc8d00f0"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673.png",
+      "sha256": "590935b6cd0ca753ee9c37e869919b78f8684737db4fffe40c831551918bb673"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685.png",
+      "sha256": "527b30c8bfe7e61a44d8c8537548ca068054877c04839f815248cb48f929e685"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7.png",
+      "sha256": "e9716f0c903a4597762f61ed6b99eb06488acfe6888aac85f9a73e24b2248db7"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50.png",
+      "sha256": "53bbd198156a0c43ac37d8360e56d7bd9c53d94a1fbc944282fe51ca16b18e50"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216.png",
+      "sha256": "50ba3ab04dda4149cf151933435b29fadb8fb7e6838febd26810030d3c123216"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2.png",
+      "sha256": "43da636af7784180baeff5df924115ed2d8754ba865f28f49e812023512fa6d2"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096.png",
+      "sha256": "6d6feee0d1f19dc202c802ca8711a30c6768f6455341fd1465cf622b8e5e0096"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf.png",
+      "sha256": "a5e116d66820b45f48d4420db9610eb3b1aa7390139b06982b866552b5e2facf"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7.png",
+      "sha256": "b3e9b1081a58f4d9bd3a04756f62cc14dd72f4e7d571ec5fb9bdc62e4ed45db7"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d.png",
+      "sha256": "b439efce4929498f314d81260a905341597840bb3af63e2727a8126500f2bd6d"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855.png",
+      "sha256": "11ed1d705aa036944396a8e8afea3b5a7d58ba9e54058f29d4975a9467e45855"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a.png",
+      "sha256": "7954126fee158f4f628a20d3155d9e555e9a35d5fa2770adba1bdffdda93e77a"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6.png",
+      "sha256": "4c749456e761b004d535c0b46f69508f59b166df6510767248b7aa4a87e9faa6"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b.png",
+      "sha256": "aee2b54db39690dab48d92b4e2e8b046e1abc2a3b166d34ef195f82b3a64561b"
+    },
+    {
+      "uri": "../textures/cinderfen_architecture/20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32.png",
+      "sha256": "20a4c38da6dbedc3ee1869e5a041000a553fb500002b9bc32cb6badeadcced32"
+    }
+  ],
+  "previewImages": [
+    "public/assets/models/previews/frontier_cinderfen_supply_shelter.png"
+  ],
+  "heightM": 6.627179145812988,
+  "bounds": {
+    "minimum": [
+      -4.595478057861328,
+      -4.771195411682129,
+      -0.3251791000366211
+    ],
+    "maximum": [
+      4.595500469207764,
+      3.5369999408721924,
+      6.302000045776367
+    ]
+  },
+  "placementContract": {
+    "footprint": [
+      8,
+      6
+    ],
+    "floor_height": 0.35,
+    "front_door_clearance": [
+      5.8,
+      3.1
+    ],
+    "front_door_runtime": {
+      "x": 0,
+      "y": 0.35,
+      "z": 3
+    },
+    "anchor": "ground centre",
+    "door_faces": "glTF +Z",
+    "ramp": {
+      "width": 3,
+      "depth": 1.75,
+      "front_z": 4.75,
+      "back_z": 3
+    },
+    "walkableSurfaces": [
+      {
+        "id": "interior_deck",
+        "x": 0,
+        "z": 0,
+        "width": 7.8,
+        "depth": 5.8,
+        "fromY": 0.35,
+        "toY": 0.35
+      },
+      {
+        "id": "front_ramp",
+        "x": 0,
+        "z": 3.875,
+        "width": 3,
+        "depth": 1.87,
+        "fromY": 0.35,
+        "toY": 0,
+        "axis": "z"
+      }
+    ],
+    "colliders": [
+      {
+        "x": -4,
+        "z": 0,
+        "width": 0.4,
+        "depth": 6,
+        "minY": 0,
+        "maxY": 1.55
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "width": 0.4,
+        "depth": 6,
+        "minY": 0,
+        "maxY": 1.55
+      },
+      {
+        "x": 0,
+        "z": -3,
+        "width": 8,
+        "depth": 0.4,
+        "minY": 0,
+        "maxY": 1.55
+      },
+      {
+        "x": -3.35,
+        "z": -0.6,
+        "width": 0.7,
+        "depth": 3.4,
+        "minY": 0.35,
+        "maxY": 1.17
+      },
+      {
+        "x": 3.35,
+        "z": -0.6,
+        "width": 0.7,
+        "depth": 3.4,
+        "minY": 0.35,
+        "maxY": 1.17
+      }
+    ]
+  },
+  "topologyPolicy": "Original fitted construction cages remain editable in the Blender master. Closed construction pieces deliberately share metre-scaled tiled material UVs for reeds, basalt, alder and hardware; these are reusable material fields rather than a unique atlas. Positional audit welds glTF material/UV/normal seam splits at one micrometre and requires zero boundary and multi-face edges on every LOD. Coarse authored roof and deck courses preserve the curved envelope and support height while reducing distant seams. Exact bounds, raised floors, ramps, treads, colliders and keep passage contracts are retained in authoring/blender/cinderfen-architecture/build-report.json. Accepted internally against the exact build and all reimport previews; the approval record retains review hashes."
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Sunmeadow roads · game runtime review</title>
+<style>
+  body { margin: 0; background: #182125; color: #f4f0dd; font: 14px system-ui; }
+  #view { position: absolute; inset: 0; }
+  nav { position: absolute; z-index: 40; top: 12px; left: 12px; max-width: 370px; padding: 14px; background: #182125ee; border: 1px solid #677469; border-radius: 6px; }
+  button, select { margin: 4px 3px 4px 0; padding: 7px; }
+  p { margin: 7px 0; } output { display: block; white-space: pre-wrap; font: 12px monospace; }
+</style>
+<div id="view"></div>
+<nav>
+  <strong id="title">Sunmeadow March · road review</strong>
+  <p>Actual local game renderer · WASD walk, drag orbit, wheel zoom.</p>
+  <select id="location" aria-label="Review location"></select><button id="go">Visit</button>
+  <button id="overview">Road overview</button><button id="measure">Measure 10 seconds</button>
+  <output id="status">Loading reviewed assets…</output><output id="result"></output>
+  <div id="builder" hidden>
+    <p><strong>GM asset placement review</strong></p>
+    <select id="asset" aria-label="GM asset" style="max-width:340px"></select>
+    <button id="stamp">Place asset</button><button id="reload-stamps">Save and reload placements</button>
+    <button id="clear-stamps">Clear placements</button><output id="builder-status"></output>
+  </div>
+</nav>
+<script type="module">
+  import { Game } from '/src/game/Game.ts';
+  import { services } from '/src/services/index.ts';
+  import { useGameStore } from '/src/state/gameStore.ts';
+  import { WORLD_EDITOR_PREFABS } from '/src/world/editor/PrefabCatalog.ts';
+  import { createEmptyWorldEditDocument } from '/src/world/WorldEditValidation.ts';
+  const source = await services.characters.load('char-sigmund');
+  // This isolated authoring page never persists inspection positions or character changes.
+  services.characters.save = async () => {};
+  services.world.updatePosition = async () => {};
+  const character = { ...source, id: 'sunmeadow-review-only', zoneId: 'sunmeadow_march', position: { x: -420, y: 0, z: -168 } };
+  useGameStore.getState().setCharacter(character);
+  useGameStore.setState({ gmFlyingMode: false, settings: { ...useGameStore.getState().settings, renderResolution: 'native', frameRateLimit: 60, viewDistance: 1000 } });
+  const game = new Game(document.querySelector('#view'), character);
+  await game.start();
+  if (new URLSearchParams(location.search).get('review') === 'gm') {
+    const editor = game.worldEditor, output = document.querySelector('#builder-status');
+    // Inspection uses the real placement runtime, but keeps its draft entirely in memory.
+    editor.onChange = undefined;
+    await editor.loadDocument(createEmptyWorldEditDocument('sunmeadow_march', 'draft'), false);
+    document.querySelector('#builder').hidden = false;
+    const selectAsset = document.querySelector('#asset');
+    const assets = WORLD_EDITOR_PREFABS.filter(asset => asset.assetCategory);
+    assets.forEach(asset => selectAsset.add(new Option(`${asset.group} · ${asset.label}`, asset.kind)));
+    selectAsset.value = assets.find(asset => asset.assetCategory === 'characterProfiles').kind;
+    const report = label => {
+      const placements = editor.currentDocument.objects;
+      let loaded = 0;
+      game.scene.traverse(node => { if (node.userData.builderApprovedAsset) loaded++; });
+      output.textContent = `${label}\n${placements.length} saved placements · ${loaded} loaded models`;
+    };
+    document.querySelector('#stamp').onclick = async () => {
+      output.textContent = 'Loading reviewed model…';
+      editor.setSettings({ prefabKind: selectAsset.value });
+      const p = game.player.position;
+      await editor.stampPrefabAtPlayer({ x: p.x + 3, y: p.y, z: p.z + 2 });
+      editor.selectObject(null);
+      const selected = assets.find(asset => asset.kind === selectAsset.value);
+      game.camera.distance = Math.max(7, Math.min(500, Math.max(selected.footprint.width, selected.footprint.depth) * 1.8));
+      game.camera.pitch = .35;
+      report(selected.label);
+    };
+    document.querySelector('#reload-stamps').onclick = async () => {
+      const saved = JSON.parse(JSON.stringify(editor.currentDocument));
+      await editor.loadDocument(saved, false); report('Placements saved and reloaded');
+    };
+    document.querySelector('#clear-stamps').onclick = async () => {
+      await editor.loadDocument(createEmptyWorldEditDocument('sunmeadow_march', 'draft'), false); report('Placements cleared');
+    };
+    report(`${assets.length} reviewed asset choices`);
+  }
+  const groundFog = game.scene.fog;
+  const places = [
+    { name: 'Settlement approach', x: -420, z: -168, yaw: 0, distance: 24 },
+    { name: 'Aegis keep approach', x: -350, z: -70, yaw: Math.PI, distance: 30 },
+    { name: 'Riftbound keep approach', x: 350, z: -70, yaw: Math.PI, distance: 30 },
+    { name: 'Central crossroads', x: 0, z: 0, yaw: 0, distance: 45 },
+    { name: 'North road and woodland', x: 35, z: 326, yaw: Math.PI, distance: 28 },
+    { name: 'Farm track', x: -202, z: -286, yaw: -Math.PI / 2, distance: 24 },
+    { name: 'Capital road', x: -471, z: -343, yaw: Math.PI / 2, distance: 24 },
+  ];
+  let reviewView = places[0].name;
+  const select = document.querySelector('#location');
+  places.forEach((place, index) => select.add(new Option(place.name, String(index))));
+  const visit = () => {
+    const place = places[Number(select.value)]; reviewView = place.name;
+    game.scene.fog = groundFog;
+    game.camera.camera.far = 1200; game.camera.camera.updateProjectionMatrix();
+    useGameStore.setState({ gmFlyingMode: false });
+    game.player.teleportTo({ x: place.x, y: game.terrain.heightAt(place.x, place.z), z: place.z });
+    game.camera.distance = place.distance; game.camera.pitch = .42; game.camera.yaw = place.yaw;
+  };
+  document.querySelector('#go').onclick = visit; visit();
+  document.querySelector('#overview').onclick = () => {
+    reviewView = 'Road overview · inspection fog disabled'; useGameStore.setState({ gmFlyingMode: true });
+    game.scene.fog = null;
+    game.camera.camera.far = 2000; game.camera.camera.updateProjectionMatrix();
+    game.player.position.set(0, 100, 0); game.camera.distance = 920; game.camera.pitch = 1.47; game.camera.yaw = 0;
+  };
+  const interval = setInterval(() => {
+    const p = game.player.position, r = game.renderer.info;
+    document.querySelector('#status').textContent = `${reviewView}\n${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)}\n${r.render.calls} draws · ${r.render.triangles.toLocaleString()} triangles\n${useGameStore.getState().assetFallbacks} missing legacy assets`;
+  }, 500);
+  document.querySelector('#measure').onclick = () => {
+    const result = document.querySelector('#result'), frames = [], start = performance.now(); let previous = start;
+    result.textContent = 'Measuring this foreground view…';
+    const sample = now => {
+      frames.push(now - previous); previous = now;
+      if (now - start < 10000) requestAnimationFrame(sample);
+      else {
+        frames.sort((a, b) => a - b);
+        result.textContent = JSON.stringify({ view: reviewView, width: game.renderer.domElement.width, height: game.renderer.domElement.height, frames: frames.length, medianMs: frames[Math.floor(frames.length * .5)], p95Ms: frames[Math.floor(frames.length * .95)] }, null, 2);
+      }
+    }; requestAnimationFrame(sample);
+  };
+  addEventListener('beforeunload', () => { clearInterval(interval); game.dispose({ persistCharacter: false }); });
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Cinderfen assembled landscape review</title>
+<style>
+body { margin:0; background:#acb8b7; color:#e8e7d5; font:14px system-ui; }
+canvas { display:block; } nav { position:absolute; left:18px; top:18px; width:290px; padding:18px; background:#192422ed; border:1px solid #63746d; border-radius:6px; }
+h1 { font:24px Georgia; margin:0 0 12px; } p { line-height:1.5; } select,button { padding:8px; margin:4px 0; color:#eee; background:#31443e; border:1px solid #7f9186; } output { display:block; font-size:12px; white-space:pre-wrap; margin-top:12px; }
+</style>
+<canvas></canvas><nav><h1>Cinderfen Outskirts</h1><p>Assembled terrain and buildings. Drag to orbit; scroll to inspect.</p>
+<label>Location <select id="location"><option value="overview">Whole zone</option><option value="village">Village</option><option value="aegis">Aegis keep</option><option value="riftbound">Riftbound keep</option><option value="fen">Peat inlets</option></select></label>
+<button id="visit">Visit</button><br><label>Detail <select id="lod"><option value="0">Close</option><option value="1" selected>Middle</option><option value="2">Distant</option></select></label>
+<output id="status">Loading exact staged models and reviewed props…</output></nav>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+const renderer = new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#acb8b7');scene.fog=new THREE.Fog('#acb8b7',750,1700);
+const camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,3000);
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.maxPolarAngle=Math.PI*.49;
+scene.add(new THREE.HemisphereLight(0xe1eced,0x605b42,2));
+const sun=new THREE.DirectionalLight(0xfff3de,3);sun.position.set(-300,650,-350);scene.add(sun);
+const sky=new THREE.Scene();sky.background=new THREE.Color('#c6d2cf');
+const pmrem=new THREE.PMREMGenerator(renderer),environment=pmrem.fromScene(sky);scene.environment=environment.texture;pmrem.dispose();
+const loader=new GLTFLoader(),cache=new Map(),status=document.querySelector('#status');let preview,group=new THREE.Group(),generation=0;
+scene.add(group);
+async function load(url,expected) {
+  if(!cache.has(url)) cache.set(url,(async()=>{
+    const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`Missing ${url}`);
+    const bytes=await response.arrayBuffer(), hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
+    if(hash!==expected)throw new Error(`Export changed: ${url}`);
+    return (await loader.parseAsync(bytes,new URL('.',new URL(url,location.href)).href)).scene;
+  })());
+  return (await cache.get(url)).clone(true);
+}
+function visit(){
+  scene.fog=document.querySelector('#location').value==='overview'?null:new THREE.Fog('#acb8b7',750,1700);
+  const places={overview:[[950,820,1080],[0,0,0]],village:[[490,28,-187],[443,3,-249]],aegis:[[-418,47,-95],[-350,3,5]],riftbound:[[420,47,-95],[350,3,5]],fen:[[-270,12,120],[-205,-1,245]]};
+  const [position,target]=places[document.querySelector('#location').value];camera.position.set(...position);controls.target.set(...target);controls.update();
+}
+async function build(){
+  const token=++generation,lod=Number(document.querySelector('#lod').value),next=new THREE.Group();status.textContent='Verifying actual model hashes…';
+  for(const chunk of preview.terrain){const model=chunk.lods[lod],object=await load('./runtime/'+model.model,model.sha256);object.position.set(chunk.x,0,chunk.z);next.add(object);}
+  for(const prop of preview.props){
+    const choices=preview.assets[prop.assetKey??prop.kind].lods,model=choices[Math.min(lod,choices.length-1)];
+    const object=await load(model.url,model.sha256);object.position.set(prop.x,prop.y??0,prop.z);object.rotation.y=prop.rotY??0;
+    const scale=prop.scale??1;object.scale.set(scale*(prop.scaleX??1),scale*(prop.scaleY??1),scale*(prop.scaleZ??1));next.add(object);
+  }
+  if(token!==generation)return;scene.remove(group);group=next;scene.add(group);
+  status.textContent=`${preview.terrain.length} sectors and ${preview.props.length} props.\nExact input hashes verified.\nDraft scene: population and ecology are still being completed.`;
+}
+document.querySelector('#visit').onclick=visit;document.querySelector('#lod').onchange=()=>build().catch(error=>status.textContent=error.message);
+const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();};addEventListener('resize',resize);resize();visit();
+renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera);});
+fetch('./review/zone-preview.json',{cache:'no-store'}).then(response=>response.json()).then(value=>{preview=value;return build();}).catch(error=>status.textContent=error.message);
+addEventListener('pagehide',()=>{generation++;renderer.setAnimationLoop(null);controls.dispose();environment.dispose();renderer.dispose();},{once:true});
+</script></html>

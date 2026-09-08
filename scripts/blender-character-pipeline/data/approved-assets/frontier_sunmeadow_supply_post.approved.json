@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow_supply_post",
+  "displayName": "Sunmeadow wayside supply post",
+  "category": "prop",
+  "model": "frontier_sunmeadow_supply_post_lod0.glb",
+  "qc": "frontier_sunmeadow_supply_post_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_supply_post"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+    "qcSha256": "911efdfe84d341b0b459ced4e1b93e1eaa600bf1d059b9269893835ff8d0567a",
+    "previews": {
+      "assembly": "42a82d2f77f2306094673d790271de8b0b46cb3d836a8411efba2850f8da2d54"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_sunmeadow_supply_post.png"
+  },
+  "review": {
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:22:55.0905427Z",
+    "reviewHash": "3d1dbdef56970059ff2d5e3e4625ed213d878160c66a3428aed47d5e93751bac"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_sunmeadow_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/sunmeadow-architecture/source/architecture.json",
+    "sourceSha256": "1ec935cb6ad05321db5dd2b87fddb7db2c10c4f41298ed95a3efa5736cb1ec85"
+  },
+  "approvalState": "approved"
+}

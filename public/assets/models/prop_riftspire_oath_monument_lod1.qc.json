@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.oath_monument",
+  "modelSha256": "6dfe1222deea2ac0f47bb63116fc596700f0adff2697eb2fe031f62087899292",
+  "lod": {
+    "level": 1,
+    "model": "prop_riftspire_oath_monument_lod1.glb",
+    "triangles": 1501,
+    "sha256": "6dfe1222deea2ac0f47bb63116fc596700f0adff2697eb2fe031f62087899292",
+    "bytes": 112984,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_oath_monument.glb",
+      "triangles": 1612,
+      "sha256": "bfb937a31599264e1c5b86a42355f4c722bfd8b070d32562d870c84c0ee4d3d1",
+      "bytes": 122516,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_oath_monument_lod1.glb",
+      "triangles": 1501,
+      "sha256": "6dfe1222deea2ac0f47bb63116fc596700f0adff2697eb2fe031f62087899292",
+      "bytes": 112984,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_oath_monument_lod2.glb",
+      "triangles": 1447,
+      "sha256": "498e0af7234524eec1458cddc59e42bd185d6f7c10e290a557c73d491f59b5c9",
+      "bytes": 110028,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "bcbb725c1429edcae044a03a629da3ae01855b3a858864797b92239a4c9e462e",
+  "textureMaxDimension": 2048
+}

@@ -1,0 +1,454 @@
+{
+  "models": [
+    {
+      "model": "frontier_sunmeadow_curtain_wall_lod0.glb",
+      "sha256": "ca96a296e08197f00a6802fde8d4e9176b227e39db6dea5861a7ea399282fc50",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_curtain_wall_lod1.glb",
+      "sha256": "35fa0066e295d477305bac8e226a81f1c1cfc06b8dd157d79e8d61a96a1a7904",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_curtain_wall_lod2.glb",
+      "sha256": "bf0a06e69a0efae2fe70553b061825d4ac831136d65710fe8b480f4a5f5eb63b",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 7,
+      "coincident_join_segments": [
+        {
+          "vertices": [
+            [
+              -3.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              -3.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              -2.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              -2.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              -1.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              -1.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              0.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              0.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              1.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              1.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              2.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              2.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              3.0,
+              -1.013157844543457,
+              6.119999885559082
+            ],
+            [
+              3.0,
+              1.013157844543457,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        }
+      ],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_farmhouse_lod0.glb",
+      "sha256": "9609f2825cd119046412bc62ded7eef7cb8caf51953772ee3f96937d7d769b26",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 1.6,
+        "height": 2.5,
+        "front_wall_y_z_up": -5,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_farmhouse_lod1.glb",
+      "sha256": "1eede59e774c1c244545a8790f5c3e9d743b0feaa3ec9a887efc9bfdbe3c2a49",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 1.6,
+        "height": 2.5,
+        "front_wall_y_z_up": -5,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_farmhouse_lod2.glb",
+      "sha256": "40e23b3529e88de4b1e1fae15e39fc82f95a7a7e4140a917f19c9c9802fba88f",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 1.6,
+        "height": 2.5,
+        "front_wall_y_z_up": -5,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_gate_leaves_lod0.glb",
+      "sha256": "06774879019a68787a55a9cda114bade45a3661ef5b8c54a9d3c485f28b7c1ea",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_gate_leaves_lod1.glb",
+      "sha256": "72292ca542c5d3cdfb5a2f2d57db3485b6b8f46529913853681f8ab1a467b7cc",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_gate_leaves_lod2.glb",
+      "sha256": "54304917cd3d432a58ca3f6820550d966a339bf25ffde1dbf20f8d6e5dc8a3c6",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_gatehouse_lod0.glb",
+      "sha256": "d1b8999851d23107f6b3d96501ecec5cd003c85b49e6cef8784c1c94442d3685",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_gatehouse_lod1.glb",
+      "sha256": "3b06c65205a3b010bec5e4b872f73285d3690f34c9240b74b8ce893d2b26febd",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_gatehouse_lod2.glb",
+      "sha256": "b044c8e8a2d7271f9b98749f975c2ef717d680c56ae5e522b78387ee9d9dd2e5",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 6,
+      "coincident_join_segments": [
+        {
+          "vertices": [
+            [
+              -13.0,
+              -5.613157749176025,
+              6.119999885559082
+            ],
+            [
+              -13.0,
+              -3.5868420600891113,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              -12.0,
+              -5.613157749176025,
+              6.119999885559082
+            ],
+            [
+              -12.0,
+              -3.5868420600891113,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              -11.0,
+              -5.613157749176025,
+              6.119999885559082
+            ],
+            [
+              -11.0,
+              -3.5868420600891113,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              11.0,
+              -5.613157749176025,
+              6.119999885559082
+            ],
+            [
+              11.0,
+              -3.5868420600891113,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              12.0,
+              -5.613157749176025,
+              6.119999885559082
+            ],
+            [
+              12.0,
+              -3.5868420600891113,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        },
+        {
+          "vertices": [
+            [
+              13.0,
+              -5.613157749176025,
+              6.119999885559082
+            ],
+            [
+              13.0,
+              -3.5868420600891113,
+              6.119999885559082
+            ]
+          ],
+          "incident_faces": 4
+        }
+      ],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922"
+    },
+    {
+      "model": "frontier_sunmeadow_supply_post_lod0.glb",
+      "sha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 5.6,
+        "height": 3.1,
+        "front_wall_y_z_up": -2.5,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_supply_post_lod1.glb",
+      "sha256": "35f471451009fea6bf3d6f2e43145cf33212e1df06c26bef0cfdc2f3548a3f45",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 5.6,
+        "height": 3.1,
+        "front_wall_y_z_up": -2.5,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_supply_post_lod2.glb",
+      "sha256": "231876432291639b1bd9c73228a2eaeb6f09ff479d7e0c8c15ca3fbd82be6f77",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 5.6,
+        "height": 3.1,
+        "front_wall_y_z_up": -2.5,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_workshop_lod0.glb",
+      "sha256": "980a3d7069096f49bd6707c1af2904384e6fd349ff359996ec5ae8150702afc9",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 2.6,
+        "height": 3,
+        "front_wall_y_z_up": -4,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_workshop_lod1.glb",
+      "sha256": "e148434b210f8566dcb22fdaeb43e595fd6c7ca239c6377811efa55ef4a929e6",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 2.6,
+        "height": 3,
+        "front_wall_y_z_up": -4,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    },
+    {
+      "model": "frontier_sunmeadow_workshop_lod2.glb",
+      "sha256": "4be0cd5b3eb1f33a486230bd519c7bd215d2f5f7d35fd280ccbe891ff3244e4d",
+      "boundary_edges_after_positional_weld": 0,
+      "multi_face_edges_after_positional_weld": 0,
+      "coincident_join_segments": [],
+      "weld_tolerance_m": 1e-06,
+      "audit_tool_sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "doorway": {
+        "width": 2.6,
+        "height": 3,
+        "front_wall_y_z_up": -4,
+        "ray_samples": 441,
+        "wall_depth_tested": 1.6,
+        "floor_tolerance": 0.3,
+        "edge_tolerance": 0.04,
+        "blocked_rays": []
+      }
+    }
+  ],
+  "method": "Per exported rigid mesh: weld glTF material/UV/normal split vertices at 1 micrometre and count incident faces. This is a geometric seam audit, not a boolean solid-union test."
+}

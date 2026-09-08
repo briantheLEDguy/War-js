@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.bridge",
+  "modelSha256": "a7eba7614144513da88c2435f0bcd7e612d1f9c4cb9576f7b5946021afa9c630",
+  "lod": {
+    "level": 1,
+    "model": "prop_riftspire_bridge_lod1.glb",
+    "triangles": 2378,
+    "sha256": "a7eba7614144513da88c2435f0bcd7e612d1f9c4cb9576f7b5946021afa9c630",
+    "bytes": 279532,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_bridge.glb",
+      "triangles": 4756,
+      "sha256": "94dbf33f7bc6bf3b03756b89eec31be060c9b313ac5b724822355a7c2259b878",
+      "bytes": 531964,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_bridge_lod1.glb",
+      "triangles": 2378,
+      "sha256": "a7eba7614144513da88c2435f0bcd7e612d1f9c4cb9576f7b5946021afa9c630",
+      "bytes": 279532,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_bridge_lod2.glb",
+      "triangles": 902,
+      "sha256": "78417d507424ede39ddddd7f08134f3e3bdfda8a81660d98b7c6104d6eeb832f",
+      "bytes": 103032,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "9db3738e8d3a72868004301c1cf7f8d6d25218f07474980c7e57070d291b2c86",
+  "textureMaxDimension": 2048
+}

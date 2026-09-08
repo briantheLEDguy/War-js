@@ -1,0 +1,356 @@
+{
+  "asset_id": "frontier_keep_gate",
+  "source_sha256": "b1d0c79da87c2f6984a673fc3eafe21bbd652a98aab56282fcf3d05c2585771c",
+  "builder_sha256": "26afac284b1ff5946042eee4b9d57dd3ed5777853e95527d413c67a38f30585b",
+  "mechanics_sha256": "42f42983f219a5cc098b594165888835a4343a3fd2be04a32c2d7dec054d2593",
+  "baker_sha256": "9ee1b6dc0de053c56b702d92b50c00506db9bb518d45713df41d47ec94192fec",
+  "paint_record_sha256": "ff0a6dbff576df70d475d2241b7d0e92f02bc1e14352ae21fdf3ff3db8b05b33",
+  "source_texture_sha256": {
+    "textures/source/accord_standard_basecolor.png": "ddaec48921996e46897f1edd22b40b616ff7f18365d7c6969dda1e8275c878ac",
+    "textures/source/accord_standard_height.png": "1d6afdaa4e1436ed0028721ff4f3056a69474a53797922a2a2f66d0c5a8d9586",
+    "textures/source/accord_standard_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/accord_standard_roughness.png": "7b89724b4d3cc781d11431388f7d929b322b12c5f2b9bc501501f4261a24c7fe",
+    "textures/source/aged_oak_basecolor.png": "d8c384759fef0c529e9e883aed4a970f6c8847b19dc6a178e1ec4a0fdc6d50bc",
+    "textures/source/aged_oak_height.png": "81a801b8048cb9d5c9fb10a9b484253958772150695a686cc93fb159651b01c1",
+    "textures/source/aged_oak_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/aged_oak_roughness.png": "8ec6d184a9da25f64282272fcf8e338ea109bfa60c1f35cf88e869c2861198b2",
+    "textures/source/burnished_brass_basecolor.png": "1bc66a538a37da78934d0e5cd8fde8306eec681aa7a0ebef6f47f804e5311747",
+    "textures/source/burnished_brass_height.png": "6e1ca00190ed9dc48b50f447661bd302112fbc072ee623e637915758581ef48b",
+    "textures/source/burnished_brass_metallic.png": "f2cd9f574724517034be2f69d037b8635436cc68f5235b198685f701b7e7e845",
+    "textures/source/burnished_brass_roughness.png": "72ff3a756d1c8d5c25af6f04d2341af6fbcc3bd87662512a4d28db89996e0b3f",
+    "textures/source/campaign_canvas_basecolor.png": "6810501ae6b46401d9d15e82f99eccccdbe0e82b2c641f5d77152db3c8ce8e7e",
+    "textures/source/campaign_canvas_height.png": "553af37f5a1505d95ad77ad311074f8622cbb7953612ad70c01a5e5b096d3125",
+    "textures/source/campaign_canvas_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/campaign_canvas_roughness.png": "93fcd52bb029002c8d9d53bed4e3205545ee272598ffa524bdecced79e0e0458",
+    "textures/source/canvas_binding_basecolor.png": "8a35930f9492ffb5c6f0d20c7faef4e433779fc4e90e0ae488c54ad02ca9984e",
+    "textures/source/canvas_binding_height.png": "553af37f5a1505d95ad77ad311074f8622cbb7953612ad70c01a5e5b096d3125",
+    "textures/source/canvas_binding_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/canvas_binding_roughness.png": "cc6e949e584d7934aa9ee4f243dec9a7c43e676ab04e6a5f8e0481aec6ba855c",
+    "textures/source/canvas_patch_basecolor.png": "e44aaf980af40ec2d02abd0909b7256edca36594c14b22eace172967f757ee49",
+    "textures/source/canvas_patch_height.png": "553af37f5a1505d95ad77ad311074f8622cbb7953612ad70c01a5e5b096d3125",
+    "textures/source/canvas_patch_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/canvas_patch_roughness.png": "e4c1832aac58f493dad2624010f6fd3d6cb5a835f283c963276e7d9a1a378336",
+    "textures/source/forged_iron_basecolor.png": "ade73adc8596deeb0fd2e88fb52c4a30e0dc465c3bbfcd76229648b89aed4eb9",
+    "textures/source/forged_iron_height.png": "6e1ca00190ed9dc48b50f447661bd302112fbc072ee623e637915758581ef48b",
+    "textures/source/forged_iron_metallic.png": "dd8f6147295122328f5cc67692afc1b272e2fac420a0c7645c8e7237bd141aa1",
+    "textures/source/forged_iron_roughness.png": "d9bcd59c3347c5b4a83aac111bf93a7e2e4f51d7f4de58ba718f26409e68c175",
+    "textures/source/fresh_oak_basecolor.png": "4a13974f96d3630217e5ceebfd7f40eb84cfd75ef036fca701b419cf231697f4",
+    "textures/source/fresh_oak_height.png": "81a801b8048cb9d5c9fb10a9b484253958772150695a686cc93fb159651b01c1",
+    "textures/source/fresh_oak_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/fresh_oak_roughness.png": "76aad106cb84e2f786c900a727b9ce4d383b9db286d6ce80984663abe1edc00e",
+    "textures/source/grain_sacking_basecolor.png": "850551481ca405ac7da0af23039d7469913804bf17e214d53cf80018d16383fb",
+    "textures/source/grain_sacking_height.png": "553af37f5a1505d95ad77ad311074f8622cbb7953612ad70c01a5e5b096d3125",
+    "textures/source/grain_sacking_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/grain_sacking_roughness.png": "696bb242d6d596912e1bf6d8dbc611f522957166b9398e76585a1a4940e46932",
+    "textures/source/leather_basecolor.png": "5c52359cb8b60e0697e0bc2ed373ae233606aef23c5fdbeccdd3088096f9c273",
+    "textures/source/leather_binding_basecolor.png": "d8eb7ca23d4662fba94e4bc7ea4ab812eb2d008c68503af4bd94d8cef0fed10b",
+    "textures/source/leather_binding_height.png": "fbb3812b17c6743ce617ef1598e0666bb30af73460dc5048003b945adea18545",
+    "textures/source/leather_binding_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/leather_binding_roughness.png": "9a4c6c8ea4d1d4f7f92fee1d4231b74b5205053b34b64401c23e1b3fb00432f1",
+    "textures/source/leather_height.png": "fbb3812b17c6743ce617ef1598e0666bb30af73460dc5048003b945adea18545",
+    "textures/source/leather_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/leather_roughness.png": "f5032571843a43b37575b428e2f9d30f142ebf3981ed526d68ea5d61749b5ac0",
+    "textures/source/rift_standard_basecolor.png": "a6ade1db78b709458892675460cbb6a7efddd53f2d791b8cd1acf42a2717bd64",
+    "textures/source/rift_standard_height.png": "04e59268b5631d25d6ab226fd960d21636c5ebede182e72cee1ac93b1b1f3499",
+    "textures/source/rift_standard_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/rift_standard_roughness.png": "7b89724b4d3cc781d11431388f7d929b322b12c5f2b9bc501501f4261a24c7fe",
+    "textures/source/rope_basecolor.png": "3cfb1e1c70ffb027b2e0d3a649774f7ebff632cc926931001e1f744cd526a337",
+    "textures/source/rope_height.png": "553af37f5a1505d95ad77ad311074f8622cbb7953612ad70c01a5e5b096d3125",
+    "textures/source/rope_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/rope_roughness.png": "6ec47f18aff57db07ac51f79ed39964eb5ffcde24515d5871b53befac71482b1",
+    "textures/source/sooted_iron_basecolor.png": "47cb32ae889254427f82433e4953bfe01f4c523408bbc31f41ed4a6282cf1d84",
+    "textures/source/sooted_iron_height.png": "6e1ca00190ed9dc48b50f447661bd302112fbc072ee623e637915758581ef48b",
+    "textures/source/sooted_iron_metallic.png": "94e421e3da56197061e79454b5ac7ccd0de759c7f060d2bd76b60da1b0f2eff4",
+    "textures/source/sooted_iron_roughness.png": "29513f32ebaca0a704c632032a43455db7203a3c61ed04c7a32c5c3c6ed579c9",
+    "textures/source/waxed_hide_basecolor.png": "9b0d8a200b3b21e9367f1a56ecf86258c0c9414ace88e42d794f546c601dce34",
+    "textures/source/waxed_hide_height.png": "fbb3812b17c6743ce617ef1598e0666bb30af73460dc5048003b945adea18545",
+    "textures/source/waxed_hide_metallic.png": "0f4b1668d119f77ceb6b86645573f088ab2341d7b284314d5df0be7226ea5d91",
+    "textures/source/waxed_hide_roughness.png": "ba4249b17f7113046ec27400d3d2fd8772ad9df00370c7e2cfe25eaf9725aa7e",
+    "textures/source/worked_iron_basecolor.png": "91b0cec28ec68a41f91cd44277d726765aa6d92d5f9459b7dc15e7c525b19335",
+    "textures/source/worked_iron_height.png": "6e1ca00190ed9dc48b50f447661bd302112fbc072ee623e637915758581ef48b",
+    "textures/source/worked_iron_metallic.png": "94e421e3da56197061e79454b5ac7ccd0de759c7f060d2bd76b60da1b0f2eff4",
+    "textures/source/worked_iron_roughness.png": "7dc13b162c2367c7b886fbba75b8096cca9e912d1d0a1582f854b7bfd79fa670"
+  },
+  "master": "masters\\frontier_keep_gate.blend",
+  "master_sha256": "26abc9e9ec09be800515d3b3caa1d25a6f7e0b45a0bbb9cd7f93c9bf2161badf",
+  "source_bounds": null,
+  "authoring_policy": "literal_authored_control_cage",
+  "approval": "pending_visual_review",
+  "limitations": [
+    "Includes two hinged leaves only; keep masonry and broken gate state are separate future assets."
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "path": "runtime\\frontier_keep_gate_lod0.glb",
+      "sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+      "bytes": 10693876,
+      "triangles": 25080,
+      "vertices": 12652,
+      "materials": 2,
+      "bounds_z_up": {
+        "minimum": [
+          -2.8499999046325684,
+          -0.7209999561309814,
+          0.051282431930303574
+        ],
+        "maximum": [
+          2.8499999046325684,
+          0.17005859315395355,
+          4.786146640777588
+        ]
+      },
+      "textures": {
+        "gate_leaf_left": {
+          "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_left_baseColor.png",
+          "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_left_normal.png",
+          "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_left_roughness.png",
+          "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_left_metallic.png",
+          "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_left_occlusion.png",
+          "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_left_orm.png"
+        },
+        "gate_leaf_right": {
+          "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_right_baseColor.png",
+          "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_right_normal.png",
+          "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_right_roughness.png",
+          "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_right_metallic.png",
+          "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_right_occlusion.png",
+          "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod0_gate_leaf_right_orm.png"
+        }
+      },
+      "rigid_nodes": [
+        {
+          "node": "gate_leaf_left",
+          "pivot_node": "pivot.gate_leaf_left",
+          "pivot_z_up": [
+            -2.8499999046325684,
+            0.0,
+            0.0
+          ],
+          "motion": "rotate_z"
+        },
+        {
+          "node": "gate_leaf_right",
+          "pivot_node": "pivot.gate_leaf_right",
+          "pivot_z_up": [
+            2.8499999046325684,
+            0.0,
+            0.0
+          ],
+          "motion": "rotate_z"
+        }
+      ],
+      "clips": [
+        {
+          "name": "gate_open",
+          "duration_seconds": 1.3,
+          "loop": false,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "gate_close",
+          "duration_seconds": 1.3,
+          "loop": false,
+          "event_seconds": null,
+          "root_motion": false
+        }
+      ],
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_keep_gate",
+        "level": 0,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+        "output_glb_sha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+        "vertices": []
+      }
+    },
+    {
+      "level": 1,
+      "path": "runtime\\frontier_keep_gate_lod1.glb",
+      "sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+      "bytes": 10008880,
+      "triangles": 11848,
+      "vertices": 6036,
+      "materials": 2,
+      "bounds_z_up": {
+        "minimum": [
+          -2.8499999046325684,
+          -0.7209999561309814,
+          0.051282431930303574
+        ],
+        "maximum": [
+          2.8499999046325684,
+          0.17005859315395355,
+          4.78646183013916
+        ]
+      },
+      "textures": {
+        "gate_leaf_left": {
+          "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_left_baseColor.png",
+          "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_left_normal.png",
+          "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_left_roughness.png",
+          "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_left_metallic.png",
+          "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_left_occlusion.png",
+          "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_left_orm.png"
+        },
+        "gate_leaf_right": {
+          "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_right_baseColor.png",
+          "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_right_normal.png",
+          "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_right_roughness.png",
+          "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_right_metallic.png",
+          "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_right_occlusion.png",
+          "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod1_gate_leaf_right_orm.png"
+        }
+      },
+      "rigid_nodes": [
+        {
+          "node": "gate_leaf_left",
+          "pivot_node": "pivot.gate_leaf_left",
+          "pivot_z_up": [
+            -2.8499999046325684,
+            0.0,
+            0.0
+          ],
+          "motion": "rotate_z"
+        },
+        {
+          "node": "gate_leaf_right",
+          "pivot_node": "pivot.gate_leaf_right",
+          "pivot_z_up": [
+            2.8499999046325684,
+            0.0,
+            0.0
+          ],
+          "motion": "rotate_z"
+        }
+      ],
+      "clips": [
+        {
+          "name": "gate_open",
+          "duration_seconds": 1.3,
+          "loop": false,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "gate_close",
+          "duration_seconds": 1.3,
+          "loop": false,
+          "event_seconds": null,
+          "root_motion": false
+        }
+      ],
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_keep_gate",
+        "level": 1,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+        "output_glb_sha256": "a60e09eb2f6ac42f002a16f539163443204f39ee191a96e7321943f93193d0f2",
+        "vertices": []
+      }
+    },
+    {
+      "level": 2,
+      "path": "runtime\\frontier_keep_gate_lod2.glb",
+      "sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+      "bytes": 3442880,
+      "triangles": 6964,
+      "vertices": 3594,
+      "materials": 2,
+      "bounds_z_up": {
+        "minimum": [
+          -2.847818374633789,
+          -0.7209999561309814,
+          0.051282431930303574
+        ],
+        "maximum": [
+          2.847818374633789,
+          0.17005859315395355,
+          4.78746223449707
+        ]
+      },
+      "textures": {
+        "gate_leaf_left": {
+          "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_left_baseColor.png",
+          "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_left_normal.png",
+          "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_left_roughness.png",
+          "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_left_metallic.png",
+          "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_left_occlusion.png",
+          "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_left_orm.png"
+        },
+        "gate_leaf_right": {
+          "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_right_baseColor.png",
+          "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_right_normal.png",
+          "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_right_roughness.png",
+          "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_right_metallic.png",
+          "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_right_occlusion.png",
+          "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_keep_gate_lod2_gate_leaf_right_orm.png"
+        }
+      },
+      "rigid_nodes": [
+        {
+          "node": "gate_leaf_left",
+          "pivot_node": "pivot.gate_leaf_left",
+          "pivot_z_up": [
+            -2.8499999046325684,
+            0.0,
+            0.0
+          ],
+          "motion": "rotate_z"
+        },
+        {
+          "node": "gate_leaf_right",
+          "pivot_node": "pivot.gate_leaf_right",
+          "pivot_z_up": [
+            2.8499999046325684,
+            0.0,
+            0.0
+          ],
+          "motion": "rotate_z"
+        }
+      ],
+      "clips": [
+        {
+          "name": "gate_open",
+          "duration_seconds": 1.3,
+          "loop": false,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "gate_close",
+          "duration_seconds": 1.3,
+          "loop": false,
+          "event_seconds": null,
+          "root_motion": false
+        }
+      ],
+      "lod_refinement": {
+        "tool": "tools/refine_mechanism_lod2.py",
+        "tool_sha256": "ad3c302f8e77a6f345a3449c147c474f037f5685ce77bd7da672d5c472836385",
+        "previous_glb_sha256": "b0bf173a687cab722be25e34f1bbe51e1ba7f24adcbe2ada8c9f9d0d9f61cee2",
+        "master": "masters\\frontier_keep_gate_lod2_finished.blend",
+        "master_sha256": "bff218a77620615a7901acd798f5d2bbd714d27307994ee43e7ee27101d749d6",
+        "part_finishing": {
+          "gate_oak_leaf": "retained two-segment bevels; normals finished after reduction",
+          "hinge_scroll": "retained two-segment bevels; normals finished after reduction",
+          "gate_crest": "retained two-segment bevels; normals finished after reduction",
+          "ram_forged_head": "retained two-segment bevels; normals finished after reduction",
+          "forged_horn": "retained two-segment bevels; normals finished after reduction",
+          "forged_rosette": "retained two-segment bevels; normals finished after reduction"
+        }
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_keep_gate",
+        "level": 2,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+        "output_glb_sha256": "172fac9ae76b7723540993a8b8d8f64271c031a434b262f4fa6cf200523d1dd5",
+        "vertices": []
+      }
+    }
+  ],
+  "animated_master": "masters\\frontier_keep_gate_animated.blend",
+  "animated_master_sha256": "c0b3896659b37450ec8a45cd0d413e362a83f182ef8de2c36630d5f6f6cc2231"
+}

@@ -1,0 +1,33 @@
+{
+  "approved": true,
+  "reviewedBy": "Codex integration reviewer (/root)",
+  "reviewedAt": "2026-09-07T17:22:55.0905427Z",
+  "buildSha256": "d021a6c85e44ae00164e177f3db51d71ae0bbdf95456aae9250de56ca0df0f4c",
+  "previewSha256": "4a973bbb8d869173bdf55cfe3c6139179a7f182b79f087c83d0ad2e730dcb4c1",
+  "heroSha256": {
+    "frontier_sunmeadow_farmhouse_lod0_reimport.png": "3f2e0d6e2838263447ac22ba945d85802186f8528f608a1191bea44aaac8b7ce",
+    "frontier_sunmeadow_farmhouse_lod1_reimport.png": "b592dc82cbdf2c5ac192565523ddf9e12f4a37bb736582e2e9e369cbe818dbbb",
+    "frontier_sunmeadow_farmhouse_lod2_reimport.png": "c4be15aa6aff81d70b4ce0c53f6cfed6555cf5db0d91e28b994006ea018c2538",
+    "frontier_sunmeadow_workshop_lod0_reimport.png": "ccf726113c9ab5f1c266591926a09d5f47da0b42e4ab23ddfde55d77998e2278",
+    "frontier_sunmeadow_workshop_lod1_reimport.png": "719516ff399243360521aef43f72e8567f595c0ab8b25f2275b473979163639e",
+    "frontier_sunmeadow_workshop_lod2_reimport.png": "d428766120e2c6a7dae644329916e68872d74ac0b69ea5a6abc7acbab9d80e6a",
+    "frontier_sunmeadow_supply_post_lod0_reimport.png": "42a82d2f77f2306094673d790271de8b0b46cb3d836a8411efba2850f8da2d54",
+    "frontier_sunmeadow_supply_post_lod1_reimport.png": "a33315c9d9a458b3ff3c786f2e99873e8080f79f99e1acf9c68e5cdde595900e",
+    "frontier_sunmeadow_supply_post_lod2_reimport.png": "a4a6169bb919ca0b61999ca4bc82beb0e122452470836de6177e9231cd91ac2e",
+    "frontier_sunmeadow_curtain_wall_lod0_reimport.png": "c1fedea85303bc6ef45037de23fa39f86e6e60c97eea8f26c05a388ba8d2a960",
+    "frontier_sunmeadow_curtain_wall_lod1_reimport.png": "7a719bdf80486b6b7f9507392577111716ea4a33951f9cf51bbbdae4de12e549",
+    "frontier_sunmeadow_curtain_wall_lod2_reimport.png": "313157f17b2e621cd782d8df6039f8d13481135e3b5bef42160bbe6ff5cac893",
+    "frontier_sunmeadow_gatehouse_lod0_reimport.png": "d54dc59c6060dec203b64adc9f6c2b6ad6c20d74020cd0599caa18d2f6e7665f",
+    "frontier_sunmeadow_gatehouse_lod0_front.png": "f467ae4ee9315792eabc614496ca5a969fc7938c519f83e4a254f4920fa78317",
+    "frontier_sunmeadow_gatehouse_lod1_reimport.png": "a4f6fee8d732b7537ea6317887a81c7805e799e4e31c4ca28391f0306ad73250",
+    "frontier_sunmeadow_gatehouse_lod2_reimport.png": "d838af55e97254759e3bbbe987bbd292e916f5698d4ef595c512f67111482add",
+    "frontier_sunmeadow_gate_leaves_lod0_reimport.png": "9cb967cc8c523cd5f72c803bb2d1aaf2aae9a56c1c9847b1ad52efe2b0da0f87",
+    "frontier_sunmeadow_gate_leaves_lod0_opened.png": "4b82c32c6fe19770498f9c54baa00c81d8e32f689ced8a94076c27b96522e01b",
+    "frontier_sunmeadow_gate_leaves_lod1_reimport.png": "5c3a0ddd7630aed435bad8277712c1a68edd5540b2cf917dda7625467208dd7e",
+    "frontier_sunmeadow_gate_leaves_lod1_opened.png": "e4cfbc4d797f452dcd3cfa99d99cff3cb4b1fc1cc3341009dc1a7861e138c866",
+    "frontier_sunmeadow_gate_leaves_lod2_reimport.png": "68d6b04596011f597c2bb166588171d7b0cf7e958d547e56641a317fb8ff93ee",
+    "frontier_sunmeadow_gate_leaves_lod2_opened.png": "6f720b00cecee742f5f2edd46e020dd2a455cf04090a3948585c0b5c599f1ef1"
+  },
+  "approvalScope": "Six Sunmeadow architecture assets for local integration",
+  "reviewEvidence": "The integration reviewer inspected the final all-exports contact sheet, final gatehouse LOD0 and LOD2, and opened gate leaves; accepted consistent LOD silhouettes and fitted construction. Signed technical checks cover all 22 views, openings, closed shells and paired hinge motion."
+}

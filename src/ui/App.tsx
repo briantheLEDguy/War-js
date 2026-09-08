@@ -6,22 +6,27 @@ import { CharacterSelectScreen } from './screens/CharacterSelectScreen';
 import { GameScreen } from './screens/GameScreen';
 import { ModelReviewScreen } from './screens/ModelReviewScreen';
 import './styles.css';
+const SharedCampaignScreen = lazy(() => import('./screens/SharedCampaignScreen').then(module => ({ default: module.SharedCampaignScreen })));
 const CombatAnimationReviewScreen = import.meta.env.DEV
   ? lazy(() => import('./screens/CombatAnimationReviewScreen').then((module) => ({ default: module.CombatAnimationReviewScreen }))) : null;
 
 export function App() {
   const modelReview = new URLSearchParams(window.location.search).get('modelReview');
+  const sharedCampaign = new URLSearchParams(window.location.search).get('campaign') === 'shared';
   const screen = useGameStore((s) => s.screen);
   const setUser = useGameStore((s) => s.setUser);
   const setScreen = useGameStore((s) => s.setScreen);
 
   useEffect(() => {
+    if (sharedCampaign) return;
     const existing = services.auth.currentUser();
     if (existing) {
       setUser(existing);
       setScreen('character-select');
     }
-  }, [setUser, setScreen]);
+  }, [setUser, setScreen, sharedCampaign]);
+
+  if (sharedCampaign) return <Suspense fallback="Loading the campaign…"><SharedCampaignScreen /></Suspense>;
 
   return (
     <div className="app-root">

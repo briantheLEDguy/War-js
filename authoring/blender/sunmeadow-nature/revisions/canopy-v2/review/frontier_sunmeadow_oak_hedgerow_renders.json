@@ -1,0 +1,209 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 0,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "model_sha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png",
+      "image_sha256": "995e5b29e314f4aac178308542e04f25759dd59a3d8adf7b26ca7ba93b5f73d3",
+      "bounds_blender": {
+        "min": [
+          -3.171562671661377,
+          -3.061281442642212,
+          -0.04792404547333717
+        ],
+        "max": [
+          3.7439463138580322,
+          3.3808679580688477,
+          12.806864738464355
+        ],
+        "span": [
+          6.915509223937988,
+          6.4421491622924805,
+          12.854788780212402
+        ]
+      },
+      "camera_location": [
+        18.354860305786133,
+        -30.36160659790039,
+        21.518083572387695
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 0,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "model_sha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod0_ground_reimport.png",
+      "image_sha256": "7a8384016c2ba4ad61d9ed492e76a5e97b54804ceb3bfdbbda8690764ed81c7b",
+      "bounds_blender": {
+        "min": [
+          -3.171562671661377,
+          -3.061281442642212,
+          -0.04792404547333717
+        ],
+        "max": [
+          3.7439463138580322,
+          3.3808679580688477,
+          12.806864738464355
+        ],
+        "span": [
+          6.915509223937988,
+          6.4421491622924805,
+          12.854788780212402
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 1,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "model_sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod1_studio_reimport.png",
+      "image_sha256": "fe4fe7244d76a6972724fa0d004225a7ef8a98cf611ba036c18f55bae2470082",
+      "bounds_blender": {
+        "min": [
+          -3.2503154277801514,
+          -3.1655890941619873,
+          -0.0475141666829586
+        ],
+        "max": [
+          3.8179354667663574,
+          3.4522769451141357,
+          12.70226764678955
+        ],
+        "span": [
+          7.06825065612793,
+          6.617866039276123,
+          12.749781608581543
+        ]
+      },
+      "camera_location": [
+        18.20488166809082,
+        -30.128734588623047,
+        21.342327117919922
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 1,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "model_sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod1_ground_reimport.png",
+      "image_sha256": "f7b48c5dfcd70cf7f817cbfbef5f54f8fabea1ddb4642cffc1067f2cf98c98e4",
+      "bounds_blender": {
+        "min": [
+          -3.2503154277801514,
+          -3.1655890941619873,
+          -0.0475141666829586
+        ],
+        "max": [
+          3.8179354667663574,
+          3.4522769451141357,
+          12.70226764678955
+        ],
+        "span": [
+          7.06825065612793,
+          6.617866039276123,
+          12.749781608581543
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 2,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "model_sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod2_studio_reimport.png",
+      "image_sha256": "0290661e97dad52082a6d4adab8157cadb3e2e212e287f81db9665e51ddd496e",
+      "bounds_blender": {
+        "min": [
+          -3.321608543395996,
+          -3.24247145652771,
+          -0.04682445898652077
+        ],
+        "max": [
+          3.884918689727783,
+          3.557417154312134,
+          13.054259300231934
+        ],
+        "span": [
+          7.206527233123779,
+          6.799888610839844,
+          13.101083755493164
+        ]
+      },
+      "camera_location": [
+        18.696516036987305,
+        -30.94870948791504,
+        21.932384490966797
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_oak_hedgerow",
+      "level": 2,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "model_sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c",
+      "image": "review\\frontier_sunmeadow_oak_hedgerow_lod2_ground_reimport.png",
+      "image_sha256": "bb39396ba9316b9b428252935a5b049777c3e23048257f791e3fd0f2f56d7d7e",
+      "bounds_blender": {
+        "min": [
+          -3.321608543395996,
+          -3.24247145652771,
+          -0.04682445898652077
+        ],
+        "max": [
+          3.884918689727783,
+          3.557417154312134,
+          13.054259300231934
+        ],
+        "span": [
+          7.206527233123779,
+          6.799888610839844,
+          13.101083755493164
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

@@ -181,7 +181,7 @@ describe('full playable, NPC, and creature roster contract', () => {
 });
 
 describe('canonical creature placement redistribution', () => {
-  it('preserves every generated beast coordinate/level while using all twelve realm species', () => {
+  it('keeps canonical beast identities and levels with the expanded frontier habitat placements', () => {
     const maps = readdirSync(path.resolve('public', 'assets', 'maps'))
       .filter((file) => file.endsWith('.json') && file !== 'zone1.json')
       .map((file) => JSON.parse(readFileSync(path.resolve('public', 'assets', 'maps', file), 'utf8')));
@@ -207,12 +207,19 @@ describe('canonical creature placement redistribution', () => {
     expect(placements).toHaveLength(60);
     expect(new Set(placements.map((row) => row.assetKey))).toEqual(new Set([...aegis, ...riftbound]));
     expect(placements.every((row) => (row.realm === 'aegis' ? aegis : riftbound).has(row.assetKey))).toBe(true);
+    for (const zone of maps.filter(zone => zone.orvrLayout)) {
+      const creatures = placements.filter(row => row.zone === zone.id);
+      expect(creatures.map(row => [row.x, row.z])).toEqual([[-210, 365], [220, 365]]);
+      for (const creature of creatures) {
+        expect(zone.npcs.every((npc: { x: number; z: number }) => Math.hypot(creature.x - npc.x, creature.z - npc.z) > 200), creature.id).toBe(true);
+      }
+    }
     const placementIdentity = placements
       .map(({ zone, id, level, x, z }) => `${zone}:${id}:${level}:${x}:${z}`)
       .sort()
       .join('\n');
     expect(createHash('sha256').update(placementIdentity).digest('hex')).toBe(
-      '645e5d32de5e0c6739ab3b969588f2d2fa6243f1ad7c122ec1b9ce4adbb93c85',
+      '00e8a4d282059c14d15d90df218ef1da0c9884242a2f6c59270ce4e5d2eb634b',
     );
   });
 });

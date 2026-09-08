@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+  "reviewedAt": "2026-09-06T21:30:22.169Z",
+  "observations": "Inspected exported LOD0, LOD1 and LOD2 renders, including revised stairs, furnishings, training effigy and lift courts. Thin structural surfaces remain intact after planar simplification. Recesses, roof profiles, balconies, chains and surface materials remain readable. The representative residence, palace and bridge/hut assembly were also inspected in the game before expanding the collection.",
+  "modelSha256s": [
+    "4c8e4f3285533a06a38434fac31b24a0d11fe6370607853f756c0f17a0d7ce7a",
+    "a4990bfe29e280bb58a89287a1a6246e5d5c7649bd5af31630295220e67f5df3",
+    "5122a668995753087ec3b28456e3d216c19c17042a225c1997119cc02021cfcb"
+  ],
+  "previewSha256s": {
+    "deck-lod0.png": "dc9f956d927dab3b1741caf8cf5dc974044195475978deb89f4b1155598ec8d0",
+    "deck-lod1.png": "6e1bfc788816e6e5fcde3a2184697439ea5174b1bf168141ff0bada7b2337d37",
+    "deck-lod2.png": "70598c85695b37e1898052fe728bcf3142232fd8eca9fb0656577a64036b0104"
+  }
+}

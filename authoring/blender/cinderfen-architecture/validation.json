@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "issues": [],
+  "models": [
+    {
+      "model": "frontier_cinderfen_dwelling_lod0.glb",
+      "sha256": "e623c3fd7b6f5388d4cca781957e284a270bd82333c9e69633ac2aedffc4b1fd",
+      "triangles": 108924,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_dwelling_lod1.glb",
+      "sha256": "c91664ad59a0b04b271db33239c567d8cf63538c8f0fb2febae8eb9e43f01bbf",
+      "triangles": 34140,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_dwelling_lod2.glb",
+      "sha256": "24d5a55b75af479959db1588553fa3bf627b19981fe8cb49c95ebd137aa5b291",
+      "triangles": 11744,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_workshop_lod0.glb",
+      "sha256": "81067dcb441ce106583c46160649b46646500e473567bda809c47ff994d79ab9",
+      "triangles": 134704,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_workshop_lod1.glb",
+      "sha256": "90d165713fcccd8eabf63a5130995bc2d6ea092bd08bc4564eaddbe1fb072d39",
+      "triangles": 39250,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_workshop_lod2.glb",
+      "sha256": "06de5cd0325ba088dfecd6929371568fc217825e336003d29964b364b7762167",
+      "triangles": 12108,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+      "sha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+      "triangles": 73904,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_supply_shelter_lod1.glb",
+      "sha256": "8e8414d42aaf80d75fb2d63aaee5f34206c57c3ae5258e28575d37eee2aa455c",
+      "triangles": 22142,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_supply_shelter_lod2.glb",
+      "sha256": "e9ea7f00c65617faa41accafa7eb6548c51f4dc7004ad9ad49b8dad2a75f7586",
+      "triangles": 7424,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+      "sha256": "d1afc68d62c053ee987dabeef8909a0c219d5a299a499e12d8989ca792c56008",
+      "triangles": 30968,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_curtain_walk_lod1.glb",
+      "sha256": "288c6d8a418737e968162687fb2a61636a322945302bb7fba082a9c81785ed0c",
+      "triangles": 14784,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_curtain_walk_lod2.glb",
+      "sha256": "a7989e77b2116771e0989bd3ca6a71d64e8595833bb43a484530fee8ce8a8dfb",
+      "triangles": 4084,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_gatehouse_lod0.glb",
+      "sha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90",
+      "triangles": 356272,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_gatehouse_lod1.glb",
+      "sha256": "5520033197bdcc1f69bb72b0ed9d4a0af5d31e9d2208b776f6a8509019ce8e61",
+      "triangles": 143994,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_gatehouse_lod2.glb",
+      "sha256": "c7e5e59b4f674b68677b436884ff9969ef6858fa3cc4cfb97e55aa2268c4fdd4",
+      "triangles": 44068,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_gate_leaves_lod0.glb",
+      "sha256": "1bb62c5f20416e1f8903e891d84a30710fbc6b1aa28fbb95e408386383e899b1",
+      "triangles": 16840,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_gate_leaves_lod1.glb",
+      "sha256": "e78551db351e8d9d55853a5994d4474fcbc03ec701586f98d19330d630e30699",
+      "triangles": 7592,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_gate_leaves_lod2.glb",
+      "sha256": "5d5ac853e371a8301a631bf45fd304606c788b733fc1b5124d82a21911839db2",
+      "triangles": 1880,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_wall_stair_lod0.glb",
+      "sha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65",
+      "triangles": 28708,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_wall_stair_lod1.glb",
+      "sha256": "05e199dfa9b25ef5d56ae9bee32c8d062e9418fcfeaeb8ef6fc652e07565e5c8",
+      "triangles": 10396,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_wall_stair_lod2.glb",
+      "sha256": "78439d853e168a9a11a92f9df824588eba5f1aa8655167e32ab89f31744843ec",
+      "triangles": 3916,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "completeReimportReview": true
+}

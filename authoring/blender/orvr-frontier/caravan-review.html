@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Actual caravan assembly review</title>
+<style>html,body{margin:0;height:100%;background:#252b30;color:#ddd;font:14px system-ui}canvas{width:100%;height:100%;display:block}aside{position:absolute;top:24px;left:24px;width:275px;padding:20px;background:#1a2025e8;border:1px solid #58606a;border-radius:6px}h1{font:25px Georgia;margin:0 0 14px}p{line-height:1.6;color:#b6c0c6}select,button{padding:9px;background:#303943;color:#eee;border:1px solid #68707b;border-radius:4px}button{margin-top:12px;cursor:pointer}#status{font-size:12px;white-space:pre-wrap}a{color:#dbc59c}</style></head>
+<body><canvas></canvas><aside><h1>Covered supply caravan</h1><p>Literal staged GLBs with the published equipped Battle Prelate body. Motion plays in place for inspection.</p><label>Nominal movement <select id="speed"><option value="0">Stopped · idle</option><option value="1.5">Walk · 1.5 m/s</option><option value="3.5">Draft trot · 3.5 m/s</option></select></label><button id="reset">Frame caravan</button><p id="status">Loading and verifying exact file hashes…</p><p><a href="./review.html">Individual assets and LODs</a></p></aside>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import {findFirstSkeleton,bindSkinnedOverlayToPlayer,prepareEquipmentOverlay,applyBodyRegionMask,sanitizePlayerAnimationClip} from '/src/game/CharacterEquipmentPresentation.ts';
+const renderer=new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#252b30');
+const camera=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.03,200);
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;
+const light=new THREE.DirectionalLight(0xffe6c1,3);light.position.set(-5,8,5);scene.add(light,new THREE.HemisphereLight(0xcbdcec,0x504435,2));
+const fill=new THREE.DirectionalLight(0xb3d0ff,2);fill.position.set(6,3,-3);scene.add(fill);
+const envCanvas=document.createElement('canvas');envCanvas.width=512;envCanvas.height=256;
+const context=envCanvas.getContext('2d'),gradient=context.createLinearGradient(0,0,0,256);
+for(const [offset,color] of [[0,'#b9cbdc'],[.46,'#e5e4db'],[.53,'#777268'],[1,'#39382f']])gradient.addColorStop(offset,color);
+context.fillStyle=gradient;context.fillRect(0,0,512,256);
+const texture=new THREE.CanvasTexture(envCanvas);texture.colorSpace=THREE.SRGBColorSpace;texture.mapping=THREE.EquirectangularReflectionMapping;
+const pmrem=new THREE.PMREMGenerator(renderer),environment=pmrem.fromEquirectangular(texture);scene.environment=environment.texture;texture.dispose();pmrem.dispose();
+const loader=new GLTFLoader(),loaded=[],mixers=[];let alive=true,wagonAction,horseMixer,horseClips,horseRoot,frame=()=>{},prior=0;
+const status=document.querySelector('#status');
+const json=async url=>{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`Missing ${url}`);return response.json();};
+async function model(url,expected){
+ const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`Missing ${url}`);const bytes=await response.arrayBuffer();
+ const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),byte=>byte.toString(16).padStart(2,'0')).join('');
+ if(hash!==expected)throw new Error(`Hash mismatch: ${url}`);
+ const gltf=await loader.parseAsync(bytes,new URL('.',new URL(url,location.href)).href);loaded.push(gltf.scene);if(!alive)throw new Error('Review closed');return gltf;
+}
+async function staged(key){const report=await json(`./review/${key}_build.json`);return model(`./runtime/${key}_lod0.glb`,report.lods[0].sha256);}
+function mixerFor(root){const mixer=new THREE.AnimationMixer(root);mixers.push(mixer);return mixer;}
+function play(mixer,clips,name){const clip=clips.find(clip=>clip.name===name);if(!clip)throw new Error(`Missing actual clip ${name}`);return mixer.clipAction(clip).reset().play();}
+function movement(){if(!horseMixer)return;const speed=Number(document.querySelector('#speed').value);horseMixer.stopAllAction();play(horseMixer,horseClips,speed===0?'idle':speed===1.5?'walk':'draft_trot');wagonAction.paused=speed===0;wagonAction.timeScale=speed/4.963716392671874*1.6;}
+async function start(){
+ const catalog=await json('/assets/models/asset-index.json'),profile=catalog.characterProfiles.civic_battle_prelate_m;
+ if(profile.approvalState!=='approved')throw new Error('Body is not approved');
+ const body=await model(`/assets/models/${profile.model}`,profile.modelSha256),skeleton=findFirstSkeleton(body.scene),regions=new Set();
+ if(!skeleton)throw new Error('Body skeleton unavailable');
+ for(const key of Object.keys(catalog.equipment).filter(key=>key.startsWith('novitiate_civic_battle_prelate_')).sort()){
+  const definition=catalog.equipment[key].variants.m;if(definition.approvalState!=='approved')throw new Error(`Equipment is not approved: ${key}`);
+  const overlay=await model(`/assets/models/${definition.model}`,definition.modelSha256);prepareEquipmentOverlay(overlay.scene);
+  if(!bindSkinnedOverlayToPlayer(overlay.scene,skeleton))throw new Error(`Equipment skeleton mismatch: ${key}`);
+  overlay.scene.userData.equipmentOverlay=true;body.scene.add(overlay.scene);for(const region of definition.coveredRegions??[])regions.add(region);
+ }
+ applyBodyRegionMask(body.scene,regions);
+ const driverReport=await json('./review/frontier_teamster_animations_build.json');
+ const driver=await model('./runtime/frontier_teamster_animations.glb',driverReport.sha256);
+ body.scene.position.fromArray(driverReport.avatar_origin_wagon_local_gltf);
+ play(mixerFor(body.scene),driver.animations.map(sanitizePlayerAnimationClip),'driver_seated');
+ const wagon=await staged('frontier_supply_wagon'),horse=await staged('frontier_draft_horse'),reins=await staged('frontier_caravan_reins');
+ wagonAction=play(mixerFor(wagon.scene),wagon.animations,'caravan_roll');
+ horseRoot=horse.scene;horseRoot.position.set(0,0,3.75);horseMixer=mixerFor(horseRoot);horseClips=horse.animations;
+ const assembly=new THREE.Group();assembly.add(body.scene,wagon.scene,horse.scene,reins.scene);scene.add(assembly);movement();
+ for(const mixer of mixers)mixer.update(0);
+ const box=new THREE.Box3().setFromObject(assembly),centre=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3()),extent=Math.max(size.x,size.y,size.z);
+ frame=()=>{camera.position.copy(centre).add(new THREE.Vector3(extent*1.1,extent*.65,extent*1.2));controls.target.copy(centre);controls.update();};frame();
+ status.textContent='All input hashes verified.\nEach moving asset has its own AnimationMixer. Wheel timing follows distance; horse uses its exported gait.\nStaged — visual acceptance pending.';
+}
+document.querySelector('#speed').addEventListener('change',movement);document.querySelector('#reset').addEventListener('click',()=>frame());
+const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();};addEventListener('resize',resize);resize();
+renderer.setAnimationLoop(time=>{const delta=prior?Math.min(.05,(time-prior)/1000):0;prior=time;for(const mixer of mixers)mixer.update(delta);controls.update();renderer.render(scene,camera);});
+function release(){const geometries=new Set(),materials=new Set(),textures=new Set(),skeletons=new Set();for(const root of loaded)root.traverse(node=>{if(!node.isMesh)return;geometries.add(node.geometry);if(node.isSkinnedMesh)skeletons.add(node.skeleton);for(const material of [node.material].flat()){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});for(const resource of [...geometries,...materials,...textures,...skeletons])resource.dispose();}
+addEventListener('pagehide',()=>{alive=false;renderer.setAnimationLoop(null);for(const mixer of mixers){mixer.stopAllAction();mixer.uncacheRoot(mixer.getRoot());}release();environment.dispose();controls.dispose();renderer.dispose();},{once:true});
+start().catch(error=>{status.textContent=`Review failed: ${error.message}`;release();});
+</script></body></html>

@@ -142,7 +142,11 @@ describe('Crownwatch objective progression', () => {
     await expect(readyCampaign.claimObjective('riftspire_capital', riftspireGate.id, 'aegis')).resolves.toMatchObject({
       objective: { control: 'aegis' },
     });
-    expect(CAMPAIGN_OBJECTIVES_BY_ZONE.riftspire_capital.every(({ requiresObjectiveIds }) => !requiresObjectiveIds)).toBe(true);
+    const [bridgehead, vault, throne] = CAMPAIGN_OBJECTIVES_BY_ZONE.riftspire_capital;
+    expect(vault.requiresObjectiveIds).toEqual([bridgehead.id]);
+    await expect(readyCampaign.claimObjective('riftspire_capital', throne.id, 'aegis')).rejects.toThrow(/Blackvein Vault/);
+    await readyCampaign.claimObjective('riftspire_capital', vault.id, 'aegis');
+    await expect(readyCampaign.claimObjective('riftspire_capital', throne.id, 'aegis')).resolves.toMatchObject({zoneControlChanged:true});
   });
 
   test('fails closed if a prerequisite is missing from the zone objective list', () => {

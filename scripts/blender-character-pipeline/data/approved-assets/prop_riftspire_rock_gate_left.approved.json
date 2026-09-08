@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.rock_gate_left",
+  "displayName": "Riftspire rock gate left",
+  "category": "prop",
+  "model": "prop_riftspire_rock_gate_left.glb",
+  "qc": "prop_riftspire_rock_gate_left.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_rock_gate_left"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "226728bec58f428e4891512a6685a786a5ec828f9e85ec887ad5cba49cdb3f6d",
+    "qcSha256": "4b844b76d35e3b12ee720cff15fb9b1ff7a11b26b2ee4397dd7e3f7526d0c183",
+    "previews": {
+      "assembly": "eaec9c8979f4c57d71fde82f34d14e8ec431169baec08c8f63e3da685d363219"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/rock_gate_left-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:45:20.523Z",
+    "reviewHash": "60173cc7bf6fbe43ea2d8fcc70af2fb49cb12f0d9a87f5b96f479a1e98d08d75"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

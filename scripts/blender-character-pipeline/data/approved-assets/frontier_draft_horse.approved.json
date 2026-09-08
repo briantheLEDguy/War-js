@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.draft_horse",
+  "displayName": "Frontier Bay Draft Horse",
+  "category": "prop",
+  "model": "frontier_draft_horse_lod0.glb",
+  "qc": "frontier_draft_horse_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_draft_horse",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "draft_horse",
+    "bodyVariant": "neutral",
+    "skeletonId": "draft_horse_rig",
+    "bindPoseId": "draft_horse_rest_v1"
+  },
+  "hashes": {
+    "modelSha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+    "qcSha256": "f916d17041f508a804eec4220eda88419dd40f8d1fc3d211e84dd704fee2d3a9",
+    "previews": {
+      "assembly": "a05aa6b36f0c9dee0d20b282de5f092e59f4f4281c8d1b131092d05524c9ba84"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/orvr-frontier/review/frontier_draft_horse_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "approvalState": "approved"
+}

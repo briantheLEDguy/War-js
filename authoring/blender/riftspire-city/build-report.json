@@ -1,0 +1,1684 @@
+[
+  {
+    "kind": "hut",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_hut.glb",
+        "triangles": 6030,
+        "sha256": "a7fb9ed22196219ab7f07aafd8385813fadd87e851d8f7758e2b242d3883d0ea",
+        "bytes": 652604,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_hut_lod1.glb",
+        "triangles": 3014,
+        "sha256": "31ac7430826615898df3f5b7ac601688e54ad5d09e6b0684ccb997ce49ecc012",
+        "bytes": 340404,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_hut_lod2.glb",
+        "triangles": 1143,
+        "sha256": "5ba6b070c2da8c46bac22ef6d3e5b8164e9b2727f7adca6dd4d343eb51c8c933",
+        "bytes": 139928,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "bridge",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_bridge.glb",
+        "triangles": 4756,
+        "sha256": "94dbf33f7bc6bf3b03756b89eec31be060c9b313ac5b724822355a7c2259b878",
+        "bytes": 531964,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_bridge_lod1.glb",
+        "triangles": 2378,
+        "sha256": "a7eba7614144513da88c2435f0bcd7e612d1f9c4cb9576f7b5946021afa9c630",
+        "bytes": 279532,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_bridge_lod2.glb",
+        "triangles": 902,
+        "sha256": "78417d507424ede39ddddd7f08134f3e3bdfda8a81660d98b7c6104d6eeb832f",
+        "bytes": 103032,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rope_bridge",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rope_bridge.glb",
+        "triangles": 2420,
+        "sha256": "1d457edee6174ebc864e3d156b61743482c1a75f345b67382dafe548c511117e",
+        "bytes": 271172,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rope_bridge_lod1.glb",
+        "triangles": 1210,
+        "sha256": "6fcf05c57b8241b325c47a6013bb89f08a2719d507deb299824547851cd96af0",
+        "bytes": 147808,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rope_bridge_lod2.glb",
+        "triangles": 448,
+        "sha256": "d2ee0dff70095afca70b8b016e31d1c045b0a7c9e6075221861771d536917dea",
+        "bytes": 49372,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "palace",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_palace.glb",
+        "triangles": 27896,
+        "sha256": "363872e8bcf186e95e645e290da8cd33ddf7ea815c43692025b9c10cf719b810",
+        "bytes": 2956076,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_palace_lod1.glb",
+        "triangles": 13948,
+        "sha256": "55fc38161214e136259605de7b64a6c30df1a60448b6770494ad5f9756749413",
+        "bytes": 1605684,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_palace_lod2.glb",
+        "triangles": 5393,
+        "sha256": "56eca4d9e7e362acdd9bbd37081e5bf6fdd171d995eb6fb657f20e0049e4d600",
+        "bytes": 694736,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "hall",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_hall.glb",
+        "triangles": 2320,
+        "sha256": "f0c8ef9779cfba0efefc3c7d59570098430b9e0ffa50e39421c517095f4b3f60",
+        "bytes": 258164,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_hall_lod1.glb",
+        "triangles": 1160,
+        "sha256": "6bf4a2eaa279d1b3fbf8696c857f7440963bac3a8be056078f4491ffea05f10d",
+        "bytes": 138380,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_hall_lod2.glb",
+        "triangles": 436,
+        "sha256": "ef9134cf7ddfdf05fc4fa48adaf29f6db3ad5f4fcea7b6511ea87f22aba1d91e",
+        "bytes": 51392,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "chain",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_chain.glb",
+        "triangles": 6144,
+        "sha256": "6dc0c061d788dfc7e86d2ff53af16a177ac4994d03f36bbc9e075e4069c61e1f",
+        "bytes": 628552,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_chain_lod1.glb",
+        "triangles": 3071,
+        "sha256": "69c58d396fca0d021a66a4e53d9898461e78904880f2e1b09c23f6411b6599ac",
+        "bytes": 392236,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_chain_lod2.glb",
+        "triangles": 1228,
+        "sha256": "326c7b2f5a9df7d9abeb869360095985ba125e0e01c86d8b538ccc7a07bf7a11",
+        "bytes": 176740,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "deck",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_deck.glb",
+        "triangles": 4556,
+        "sha256": "4c8e4f3285533a06a38434fac31b24a0d11fe6370607853f756c0f17a0d7ce7a",
+        "bytes": 478884,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_deck_lod1.glb",
+        "triangles": 2277,
+        "sha256": "a4990bfe29e280bb58a89287a1a6246e5d5c7649bd5af31630295220e67f5df3",
+        "bytes": 269552,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_deck_lod2.glb",
+        "triangles": 872,
+        "sha256": "5122a668995753087ec3b28456e3d216c19c17042a225c1997119cc02021cfcb",
+        "bytes": 123016,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "deck_open",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_deck_open.glb",
+        "triangles": 220,
+        "sha256": "e6840b8a8cec0056b171a9bb2c052b6de487c35c94d27de17de1d5ca7ed9bf32",
+        "bytes": 27496,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_deck_open_lod1.glb",
+        "triangles": 110,
+        "sha256": "8bee61917a38d70921610c893f653b8b84bdc5239da29816cd90ca343ffbdc32",
+        "bytes": 15212,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_deck_open_lod2.glb",
+        "triangles": 42,
+        "sha256": "1a464662a3e08f77ecd5e2ad92a351994f823bdef1066c5712698e87f40ef2bc",
+        "bytes": 7912,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "basin",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_basin.glb",
+        "triangles": 96,
+        "sha256": "ccc48a1d0c55e256709bc136fa702a83ae122d8419515d5892dfdce69011ac8b",
+        "bytes": 13744,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_basin_lod1.glb",
+        "triangles": 48,
+        "sha256": "ffdde18c3d51438c6a28fa085115c71db9ddaf93b2fc099d88bdca732c431d6f",
+        "bytes": 7948,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_basin_lod2.glb",
+        "triangles": 19,
+        "sha256": "84bd07fa3d69e211c1b37505135abcae30f096ce7fed2f594819060a5c38161a",
+        "bytes": 4480,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "throne",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_throne.glb",
+        "triangles": 952,
+        "sha256": "b2025d6bc047942b9dfa3e4de0c6363d8e8fd018910569f87c7725754258ee2b",
+        "bytes": 109308,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_throne_lod1.glb",
+        "triangles": 476,
+        "sha256": "bd114a7f7b684a13a813ce2b7e4059723f558ebacc81f6cdf772a91e1dc01b15",
+        "bytes": 60304,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_throne_lod2.glb",
+        "triangles": 180,
+        "sha256": "9651e4303828552108c92b1b1f10cf5de22e614b8c998a2c44276a33588b96d7",
+        "bytes": 25420,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "anchor",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_anchor.glb",
+        "triangles": 412,
+        "sha256": "8023efd083c74bae743c086a54126e35726ae977c194267e7a891f254e629eaa",
+        "bytes": 47060,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_anchor_lod1.glb",
+        "triangles": 412,
+        "sha256": "65e837554bba159ec7ef5a55e4d7d986ad54674d39d8572a6462f1dbb9ba7488",
+        "bytes": 47060,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_anchor_lod2.glb",
+        "triangles": 412,
+        "sha256": "a5b3221a0f7e4db1dd66f4e836afca8357b9eb43ddc0bed044057ad0886b193f",
+        "bytes": 31420,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "lift",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_lift.glb",
+        "triangles": 3772,
+        "sha256": "6ef6ed09ce10fd43342282ef40e597779c1e7c6e3060d77a7a5a020601284518",
+        "bytes": 399036,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_lift_lod1.glb",
+        "triangles": 3772,
+        "sha256": "4dd2e67e3f81e29140971ee1d7832d14dcc3a2e276b04d3befaebe40dea48b06",
+        "bytes": 399036,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_lift_lod2.glb",
+        "triangles": 3688,
+        "sha256": "a3079f5cfe1ac06e380ef1e73865cdb9234534809ce8270830b89505990c9182",
+        "bytes": 251304,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "lift_landing",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_lift_landing.glb",
+        "triangles": 968,
+        "sha256": "66f7e57a2c89f37ac8f3b2159aac4abf18c7d6eee13525abcecd4082f1d25cbb",
+        "bytes": 110408,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_lift_landing_lod1.glb",
+        "triangles": 968,
+        "sha256": "6a8eae97c5cb8fc168c9233cd259025a432d5078ad9a08983808514c1dde77e4",
+        "bytes": 110408,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_lift_landing_lod2.glb",
+        "triangles": 968,
+        "sha256": "33b7cb0b7a52da6a23f6b925645023babf73af9806b8e0c9dce640d1d67b0eef",
+        "bytes": 110408,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "stairs",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_stairs.glb",
+        "triangles": 1848,
+        "sha256": "50926d67e5b3502f9049c361a9eea2feea7206db7e70dac3a7239ac5bf39a61e",
+        "bytes": 207852,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_stairs_lod1.glb",
+        "triangles": 1848,
+        "sha256": "3b3711c174cc7cd459353e68c6cedf29a4e8d6cea283e1d09bb225ed44ddb9e1",
+        "bytes": 207852,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_stairs_lod2.glb",
+        "triangles": 1848,
+        "sha256": "5f77d6742506c88a18f2d723257d649eda92a975a25869edb037848e64981827",
+        "bytes": 207852,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "lantern",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_lantern.glb",
+        "triangles": 232,
+        "sha256": "8b3f67ace0ce90169016460070ba9c8d0ebc9b2d8411e3e9ec11efc8d3c3637b",
+        "bytes": 28456,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_lantern_lod1.glb",
+        "triangles": 232,
+        "sha256": "bb6f5939a53ecc458a195c5881c216477ccfde61fe1c4f80f2dc63e1384e5513",
+        "bytes": 28456,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_lantern_lod2.glb",
+        "triangles": 232,
+        "sha256": "fd42ffc74c4169d2809867eeb8ac9bfb57cb649ef14f7177e40438b8dacb45bf",
+        "bytes": 28456,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "banner",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_banner.glb",
+        "triangles": 176,
+        "sha256": "af96ac8909521b420eee1b38dc0ab5336d59690b5691a15fbcdfc7cae4538a5c",
+        "bytes": 23468,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_banner_lod1.glb",
+        "triangles": 176,
+        "sha256": "725b3fb8bdcdb7b74c7fe464d53a03f8c184576c3b550eb2623cf5536ddf3c03",
+        "bytes": 23468,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_banner_lod2.glb",
+        "triangles": 176,
+        "sha256": "f346228e70a3f3ffe12f097e867a4e97d9847da4354cb3817d6065bff9e418a0",
+        "bytes": 23468,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "table",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_table.glb",
+        "triangles": 1192,
+        "sha256": "c8282ee1f5010ca123a7a25abf13386417baf4a8c627f60b86efc50c67c1aeb3",
+        "bytes": 130168,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_table_lod1.glb",
+        "triangles": 1192,
+        "sha256": "f7ce2049eabc0fef93c1b489b877f4f693d530c8308f3b59d9a75385b24083f8",
+        "bytes": 130168,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_table_lod2.glb",
+        "triangles": 1150,
+        "sha256": "1795269eda0601c740b8d55c5b24fb737238682fcd13ae69dc1cdc39fdb7faf7",
+        "bytes": 83740,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "archive",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_archive.glb",
+        "triangles": 2112,
+        "sha256": "4032a4fb93748f9a787cfb388b16b3a3f21920b44b23796064d079bebbaf5c51",
+        "bytes": 237304,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_archive_lod1.glb",
+        "triangles": 2112,
+        "sha256": "cdaa1d2f5131e1882ac2fcf57915f08b86cb408932e9e431349352d5ff7da66b",
+        "bytes": 237304,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_archive_lod2.glb",
+        "triangles": 2112,
+        "sha256": "ca86ab544d2af38c4a2a7108ca449e24ce558bf37ce6ef2c106695d36f8f85ac",
+        "bytes": 237304,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rack",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rack.glb",
+        "triangles": 616,
+        "sha256": "6541491b0640577bd43de06328a45cab81c63a33c9aaf23aabb76e786f8324fc",
+        "bytes": 71396,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rack_lod1.glb",
+        "triangles": 616,
+        "sha256": "12c26d2632ee09fdbb21e8eb624bb6fe2ca3be64026f64113d92543d34fe36e2",
+        "bytes": 71396,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rack_lod2.glb",
+        "triangles": 616,
+        "sha256": "0cff4eafd791f4cad13a0b360195dd76eb11420c8f79abb4458c277dcf3c6959",
+        "bytes": 71396,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "altar",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_altar.glb",
+        "triangles": 544,
+        "sha256": "bc01bbdaf1ed50f913ae36ba3a5df69df72ae8b9599981298698453b6ca7ec59",
+        "bytes": 63844,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_altar_lod1.glb",
+        "triangles": 464,
+        "sha256": "df052ed246c9bd874fe0cf2be068e7dc7fff6034f94fea9b6a66a1631693d846",
+        "bytes": 38984,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_altar_lod2.glb",
+        "triangles": 416,
+        "sha256": "1a0692b01e7f6a7613b3b6944956400f76eb7a63b8d1242caa2da5dd171ce5fc",
+        "bytes": 35112,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "forge",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_forge.glb",
+        "triangles": 1072,
+        "sha256": "5a25facb257ecaf3fa76dcac9b8247d4b8f673d2fb71f63d9fc3a4a2c3e7e172",
+        "bytes": 122716,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_forge_lod1.glb",
+        "triangles": 1028,
+        "sha256": "a2e20ea0bfd94aea24b7a381f2d0a94d3969337aefcc4a8877621232478f8efe",
+        "bytes": 80784,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_forge_lod2.glb",
+        "triangles": 988,
+        "sha256": "97d7f77fcc635ad97516943d5beddd6e2d4cdd92395ee6ef1a75577e861b5981",
+        "bytes": 77216,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "crate",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_crate.glb",
+        "triangles": 396,
+        "sha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+        "bytes": 47084,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_crate_lod1.glb",
+        "triangles": 396,
+        "sha256": "5f111124abf31fddb674895810c1b845f67d3f0cec6f99c39866ed19c256c546",
+        "bytes": 47084,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_crate_lod2.glb",
+        "triangles": 396,
+        "sha256": "a1d52479d324346989fc32c88d9a534cede5ad78ec16efff742b02a50db7d1d7",
+        "bytes": 47084,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "bed",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_bed.glb",
+        "triangles": 704,
+        "sha256": "c7239457b2d23330f8c4e73a27902502ccdd35721c6ccb27b0f3e135fb2cc26e",
+        "bytes": 78032,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_bed_lod1.glb",
+        "triangles": 704,
+        "sha256": "daec9a5c53a86575f0e54b91241285e16943a64a355dfbdf30692ac3660c2f35",
+        "bytes": 78032,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_bed_lod2.glb",
+        "triangles": 704,
+        "sha256": "a78acb6fa4e406e5232035e354b3f702e4c4bc2bcd82d1f957a1781a4bb7bea2",
+        "bytes": 78032,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "training_dummy",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_training_dummy.glb",
+        "triangles": 1764,
+        "sha256": "468041db3977fa27ee8de169b59a666e04f0d83f98e102b80841a2355f12f454",
+        "bytes": 184476,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_training_dummy_lod1.glb",
+        "triangles": 1764,
+        "sha256": "385a10212a70b7c8759623dcd7a917c4bd9360b8e53143b414c3462e87fec51d",
+        "bytes": 128204,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_training_dummy_lod2.glb",
+        "triangles": 1548,
+        "sha256": "70eb1554fd60ef56048cab1ad44b0ede58b8b55d2abfa18d67c3fed6b4b104ee",
+        "bytes": 115120,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "hub",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_hub.glb",
+        "triangles": 29000,
+        "sha256": "ebc6aeb6fb82c65ab132bae95cd1eab602154fc5ff7aafdc95335dba931f7376",
+        "bytes": 3102300,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_hub_lod1.glb",
+        "triangles": 14500,
+        "sha256": "50a2d8c960e11522840bfe0cd50cffb5193df6f3e9b1dea2902914c30342b5e8",
+        "bytes": 1690044,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_hub_lod2.glb",
+        "triangles": 5525,
+        "sha256": "9467a6dc78aa4d415e0d55efd7775da8410b2339f7eb4e6efe7d5725ca50dbe1",
+        "bytes": 756496,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rock_sector",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rock_sector.glb",
+        "triangles": 1964,
+        "sha256": "435633644243ac5823babdb87e1da3353c1a33bde347875a3cf487e7486e1a24",
+        "bytes": 276932,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rock_sector_lod1.glb",
+        "triangles": 1818,
+        "sha256": "7afc853b5221e3b660dde2e09c919975169629923b9ac2a18c264de23134c7ac",
+        "bytes": 143352,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rock_sector_lod2.glb",
+        "triangles": 1552,
+        "sha256": "946baff83d574becf74fbfaee9fc28372976b0de404b4b24c924e4d493473a22",
+        "bytes": 100600,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rock_palace_left",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rock_palace_left.glb",
+        "triangles": 1624,
+        "sha256": "3920255afec1488830b4a2eb0b95faa3b981a3c710f32961d7170079a934f2ff",
+        "bytes": 228820,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rock_palace_left_lod1.glb",
+        "triangles": 1478,
+        "sha256": "c12e11377afb88a3dad0e4137edb2d2a916efd63fb20b19e6b7357cffc2f3078",
+        "bytes": 116484,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rock_palace_left_lod2.glb",
+        "triangles": 1270,
+        "sha256": "b241c53625201c70708056fab392fc755c8ab70ffc2f7bd551829aea1e891f75",
+        "bytes": 83172,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rock_palace_right",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rock_palace_right.glb",
+        "triangles": 1624,
+        "sha256": "27ed9ae2bc2f7b3cc51c0327cff86930434757cd477b10f008bbd6cf753b6838",
+        "bytes": 228820,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rock_palace_right_lod1.glb",
+        "triangles": 1474,
+        "sha256": "b4b0cad0e23bde9b360edfd005af797cf377ec645d9d9897b97ca13d4459242f",
+        "bytes": 116332,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rock_palace_right_lod2.glb",
+        "triangles": 1280,
+        "sha256": "fcc4a42a27bae591c6543e8da92ae1d758281f7e477498cf893a20cd1a1939d4",
+        "bytes": 84192,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rock_gate_left",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rock_gate_left.glb",
+        "triangles": 1864,
+        "sha256": "226728bec58f428e4891512a6685a786a5ec828f9e85ec887ad5cba49cdb3f6d",
+        "bytes": 261936,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rock_gate_left_lod1.glb",
+        "triangles": 1720,
+        "sha256": "542de24b1904fa29d561b9e96005d6461ec2d5e34fae33b608c3218ef307b2a1",
+        "bytes": 135024,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rock_gate_left_lod2.glb",
+        "triangles": 1467,
+        "sha256": "11c3da15d2dcfd821bd06a45f7ac18ce41c5a6eeb2e3f0ba3adf1e373b3e2af7",
+        "bytes": 94880,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rock_gate_right",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rock_gate_right.glb",
+        "triangles": 1864,
+        "sha256": "c21130c70787f5c792cc053ebceeddac38b251a428271a01296c14312f9a64ec",
+        "bytes": 261940,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rock_gate_right_lod1.glb",
+        "triangles": 1716,
+        "sha256": "80d79a4d56382bd7728f44d360ae6ffd3b4a42ba6b5a06130403341fd8bb3013",
+        "bytes": 134872,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rock_gate_right_lod2.glb",
+        "triangles": 1477,
+        "sha256": "8357abc0a8676dd2fa55265104e1a4dae097a6dbbee8aa4abb0a10a2bedd0ba8",
+        "bytes": 95900,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_1",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_1.glb",
+        "triangles": 4826,
+        "sha256": "4dca11ed005725971a6cc22fb8f1f5e5c30818d08332f34271bf77c259d5cacb",
+        "bytes": 524440,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_1_lod1.glb",
+        "triangles": 2412,
+        "sha256": "37ff79dc16d7d481aaec0b64406a5621e160dcfb9501870c4bd15f9d480d0878",
+        "bytes": 284208,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_1_lod2.glb",
+        "triangles": 912,
+        "sha256": "2a4ff1b25ef3aba0d33816f59f8cc4f4b34bace0b42cb13f9fa1a5571a23a45e",
+        "bytes": 112084,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_2",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_2.glb",
+        "triangles": 5960,
+        "sha256": "d71c1de283a37c5abed65fd2070f5b9e77e4c24f4af696699adf40c7e55a6695",
+        "bytes": 647560,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_2_lod1.glb",
+        "triangles": 2980,
+        "sha256": "925ab614af71e28141563f0f8892006685e5320d18ab01fbc59742dc62ac023e",
+        "bytes": 348044,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_2_lod2.glb",
+        "triangles": 1126,
+        "sha256": "3380027e8e4ddf42cafac4e10951bfb24d68308c6183c2af78ab829600554d3a",
+        "bytes": 148424,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_3",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_3.glb",
+        "triangles": 7434,
+        "sha256": "a7619d0dc45c02695d5cde82edcf9ae297d80354221fc89b3e7792439eec06eb",
+        "bytes": 802728,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_3_lod1.glb",
+        "triangles": 3716,
+        "sha256": "0ff5ddb364bcd4bf3607e99f76b9ba834fb689fd665b02e62eb1fc13d91f060c",
+        "bytes": 426872,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_3_lod2.glb",
+        "triangles": 1426,
+        "sha256": "0f93a825097d43dd8179bd9c183b2369119eb996bdca088717960cb752d8732f",
+        "bytes": 175404,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_4",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_4.glb",
+        "triangles": 8344,
+        "sha256": "3110964859c53da439765e061c07208802b21fb7cb79d0d55f77b46ec447d96b",
+        "bytes": 895552,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_4_lod1.glb",
+        "triangles": 4172,
+        "sha256": "fb7734e8f44ee8a3b3aed6bf6ebd147f50a99f225387698350d61a8841c96737",
+        "bytes": 459676,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_4_lod2.glb",
+        "triangles": 1586,
+        "sha256": "7ec67b45dd3101679c3f916fa43f637934ccc6ab87abaed8d2fe260356d6b970",
+        "bytes": 194392,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_5",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_5.glb",
+        "triangles": 7256,
+        "sha256": "69f083eadb3b1a58382e6619474f4709e04fd84965bcc07717c9087b2a8a3fe9",
+        "bytes": 776556,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_5_lod1.glb",
+        "triangles": 3628,
+        "sha256": "81d474592273e3148de98765a17debb6af8e9e090b1d1d74dce39cc8b61caeb2",
+        "bytes": 425520,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_5_lod2.glb",
+        "triangles": 1386,
+        "sha256": "5b55d8ef7e0e4bd40f6444326ee0e0ca4d200f60da55b05b8b30b849ccaf7e0f",
+        "bytes": 180544,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_6",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_6.glb",
+        "triangles": 7094,
+        "sha256": "d4c2912ab8dc91dacee220c060f093e1a6a379fc4b102f8ad6536d3758a7b157",
+        "bytes": 769900,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_6_lod1.glb",
+        "triangles": 3546,
+        "sha256": "cdc4a5f943e37b351d99a21050a6a1e8d1828ca6949b3106fb214c2754135195",
+        "bytes": 414460,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_6_lod2.glb",
+        "triangles": 1356,
+        "sha256": "5e84242e6ca2bd654e2a8af29bb79a255164b9044d664dbb430d792ef42d0372",
+        "bytes": 167388,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_7",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_7.glb",
+        "triangles": 5356,
+        "sha256": "589473921f91dec322597ec4156742e134c7af50ebbdfbc4344845c68f692adf",
+        "bytes": 582600,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_7_lod1.glb",
+        "triangles": 2678,
+        "sha256": "e082ab2c0055fe3d5960bd888dc2b336bf4cfeca48189e5fc31b827ab3833d3b",
+        "bytes": 312336,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_7_lod2.glb",
+        "triangles": 1019,
+        "sha256": "e94f5979f6da6aaf303b7319bd2aa18c842f2c2c95dac1a92b6fa2c78bbd6255",
+        "bytes": 132188,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "house_8",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_house_8.glb",
+        "triangles": 7054,
+        "sha256": "a545bba693b517daf3d65e99b4a7db419b61e965585959a7fe6d0742e92f2dd6",
+        "bytes": 763864,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_house_8_lod1.glb",
+        "triangles": 3526,
+        "sha256": "806b2e2234151d317503140f10f789306cd1d73a16ebc96c25836bc85dd5793d",
+        "bytes": 407508,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_house_8_lod2.glb",
+        "triangles": 1353,
+        "sha256": "32be741947c6a99349e6fff6b810e4056668745621987d4505929d4d88867edb",
+        "bytes": 167144,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "room",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_room.glb",
+        "triangles": 8344,
+        "sha256": "1cfd1f039f4710494070ab81e4eed5384b26c3782544a07c8c5337d8926176de",
+        "bytes": 895548,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_room_lod1.glb",
+        "triangles": 4172,
+        "sha256": "f10d08636490207d83fff54085b931225bd95e606068d69564b338b2808a6225",
+        "bytes": 459676,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_room_lod2.glb",
+        "triangles": 1586,
+        "sha256": "e1ae2d569511ae3cdbdd7a4ecc3d75a10ceb29d6aa0005e50bb141dbfa6eb3ab",
+        "bytes": 194388,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "rock_infill",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_rock_infill.glb",
+        "triangles": 392,
+        "sha256": "42084d0183493a5bb3f48770cee8344285b1c7450ef35e4cd8ec6ca4acde85c9",
+        "bytes": 54068,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_rock_infill_lod1.glb",
+        "triangles": 392,
+        "sha256": "241e18393720d1aedd787893652579c8c53f1bfd1285c3bb829337b47ca0af04",
+        "bytes": 34592,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_rock_infill_lod2.glb",
+        "triangles": 372,
+        "sha256": "b7ae63194fe158d27ee0df2bb1232978ffe46f966af91f851593ac6df3078b3e",
+        "bytes": 27944,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "war_brazier",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_war_brazier.glb",
+        "triangles": 1104,
+        "sha256": "a08f24bd335da97da5362eb410d59dfb4cd07820470b249a32ff26fc93131bb2",
+        "bytes": 80272,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_war_brazier_lod1.glb",
+        "triangles": 1104,
+        "sha256": "cd55f3c5d8d502479d76a76d7ae4d46f91d2763ac7ec461ac186281cf0ce6973",
+        "bytes": 80272,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_war_brazier_lod2.glb",
+        "triangles": 990,
+        "sha256": "174aeede4d1996c784ec0363b714451efabe1fba8d2835efc33df38fd3e9c00e",
+        "bytes": 72996,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "war_standard",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_war_standard.glb",
+        "triangles": 768,
+        "sha256": "87a095d11121f4decf44663291ed83cb057416ac27074361c28789852528262c",
+        "bytes": 90232,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_war_standard_lod1.glb",
+        "triangles": 700,
+        "sha256": "33f216fa06b63563e645de87e61ab29c1bde4f88538b325f238ccccdd04041e8",
+        "bytes": 56596,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_war_standard_lod2.glb",
+        "triangles": 635,
+        "sha256": "99b795d3c45f9aee6687a3784c0d8a22924a16b0371f0f0e1a7cc180a01ce9ed",
+        "bytes": 52520,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "checkpoint",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_checkpoint.glb",
+        "triangles": 1592,
+        "sha256": "22f06cb1ed9ba9424c1595b512cd7ecc12eaa76df77bb03dd064bc0234c8bb68",
+        "bytes": 118492,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_checkpoint_lod1.glb",
+        "triangles": 1592,
+        "sha256": "e22381589f3e02b76c8388d50f0c90d4ba87c9582f361b13047f1985903b57e9",
+        "bytes": 118492,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_checkpoint_lod2.glb",
+        "triangles": 1576,
+        "sha256": "30c5876c66276bed3d70b67275699e2514887d3d467adf42e52dfe49321eab12",
+        "bytes": 115900,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "supply_cart",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_supply_cart.glb",
+        "triangles": 6772,
+        "sha256": "caa0a6a5f09ce22d0fb7773a911714ad4216f8839e41e93b400feaf6ec3a8017",
+        "bytes": 485800,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_supply_cart_lod1.glb",
+        "triangles": 6735,
+        "sha256": "cf06c389bb1b0f788329cb39977bfbb88a55d4826bc6a8e682815b3801b4fca3",
+        "bytes": 481580,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_supply_cart_lod2.glb",
+        "triangles": 5453,
+        "sha256": "5985067c5dd594aa6472d6ac1ab21119b498ea352117c880f2b4728dad8f7f78",
+        "bytes": 386524,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "barrel_stack",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_barrel_stack.glb",
+        "triangles": 5376,
+        "sha256": "1313590949fe3d0e667e4de7782e17f58e0ae47fde38ee8bbd4eb64537784aec",
+        "bytes": 344252,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_barrel_stack_lod1.glb",
+        "triangles": 5376,
+        "sha256": "072dc9c317119efd90405939032938371085192addecceb65b3b19bffe7c731c",
+        "bytes": 344252,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_barrel_stack_lod2.glb",
+        "triangles": 3818,
+        "sha256": "71b7a1ea8e0fe5c2591236631d7ef3a3ca33cf0d4e12e3a4b960f2467bfbbf55",
+        "bytes": 244468,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "communal_hearth",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_communal_hearth.glb",
+        "triangles": 1990,
+        "sha256": "b9712482c51437c3a98fff7ce5095116375493686edad5b8947db142282081fb",
+        "bytes": 143724,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_communal_hearth_lod1.glb",
+        "triangles": 1990,
+        "sha256": "5923433719b1e26ead283c365e3b3696c34be6cb1c308d07e33ca2f6e460d8ca",
+        "bytes": 143724,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_communal_hearth_lod2.glb",
+        "triangles": 1898,
+        "sha256": "13ca3681887784717e8604a589e0ed5fde03e0a4de2e64911b710142791d15e5",
+        "bytes": 131520,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "chain_winch",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_chain_winch.glb",
+        "triangles": 6584,
+        "sha256": "da63ed80426ea990822a8468ec49a2d673461c2eb0bbd3d3ec50708e61bf37b4",
+        "bytes": 687924,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_chain_winch_lod1.glb",
+        "triangles": 6584,
+        "sha256": "589731629a607ed64d8eb95ce9078b55cda6f0331ddf1d5a49f888945f95245d",
+        "bytes": 687924,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_chain_winch_lod2.glb",
+        "triangles": 4618,
+        "sha256": "0613028479a618195bd4916d39b3cd4890acedacc1482b8a0fa10b369f28351f",
+        "bytes": 304504,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "ore_cart",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_ore_cart.glb",
+        "triangles": 4812,
+        "sha256": "d00a85880942c4d42edf8726cbc876ab707350f8a11d652a00a7ae2c1f68d91d",
+        "bytes": 356736,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_ore_cart_lod1.glb",
+        "triangles": 4812,
+        "sha256": "5befd3c5da52a20ad6ca9007a12a0b8f7bbeef4a7bcc46f7d6d3626de005f86e",
+        "bytes": 356736,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_ore_cart_lod2.glb",
+        "triangles": 4124,
+        "sha256": "0ad5018f1d74fec6779d919601135be92fe7fd8ca782f4913bcce844c0c4227e",
+        "bytes": 300576,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "water_pump",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_water_pump.glb",
+        "triangles": 2288,
+        "sha256": "c1e1f3f26ded5707ce6482787f7e8d2c08ee9fd58ecf4f71060124e61c34c7dd",
+        "bytes": 160996,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_water_pump_lod1.glb",
+        "triangles": 2256,
+        "sha256": "e9ef9e954dc99b2670a960416140129af2bb13afb119bc186ac196175c1f282e",
+        "bytes": 158756,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_water_pump_lod2.glb",
+        "triangles": 1750,
+        "sha256": "590a84264faa6f2280eaf9f0b2e2650a18d0ac5b30f597f74e1aa3b38ac8cee9",
+        "bytes": 124032,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "ritual_obelisk",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_ritual_obelisk.glb",
+        "triangles": 652,
+        "sha256": "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+        "bytes": 75548,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_ritual_obelisk_lod1.glb",
+        "triangles": 652,
+        "sha256": "22fef09852d8b067cffea36d4c32535bf52a9b7baea316b2740597d6d9fb4603",
+        "bytes": 75548,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_ritual_obelisk_lod2.glb",
+        "triangles": 652,
+        "sha256": "1bfa7a44ec9cc0de29acfc578a7a2c4cf3bb4c5366f869905e645e590d1ab213",
+        "bytes": 75548,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "oath_monument",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_oath_monument.glb",
+        "triangles": 1612,
+        "sha256": "bfb937a31599264e1c5b86a42355f4c722bfd8b070d32562d870c84c0ee4d3d1",
+        "bytes": 122516,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_oath_monument_lod1.glb",
+        "triangles": 1501,
+        "sha256": "6dfe1222deea2ac0f47bb63116fc596700f0adff2697eb2fe031f62087899292",
+        "bytes": 112984,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_oath_monument_lod2.glb",
+        "triangles": 1447,
+        "sha256": "498e0af7234524eec1458cddc59e42bd185d6f7c10e290a557c73d491f59b5c9",
+        "bytes": 110028,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "hanging_cage",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_hanging_cage.glb",
+        "triangles": 3564,
+        "sha256": "e0fd31a33d67386ffcb0d2bfce7c3b52cb34bcfc10cd8b1bec78f99672a1f75f",
+        "bytes": 249132,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_hanging_cage_lod1.glb",
+        "triangles": 3564,
+        "sha256": "2140dbf0d7df7a6333d67e5fb947fc54f8dd383603392604862eadc3f5624a6d",
+        "bytes": 249132,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_hanging_cage_lod2.glb",
+        "triangles": 3092,
+        "sha256": "e35f4c19969c2031b51e5913451242bb68749a9cd17d909e9157c7dcd0735f1e",
+        "bytes": 213852,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "market_stall",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_market_stall.glb",
+        "triangles": 3348,
+        "sha256": "3bec91804ae21c042b9aebdcff44266f304fdca481c138a6b03ab523754c7e0d",
+        "bytes": 246192,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_market_stall_lod1.glb",
+        "triangles": 3319,
+        "sha256": "a419069d8a6a9a1e0f7598eb1771b6cb34d698e8a3ca9e017f9c95ed98f46217",
+        "bytes": 242400,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_market_stall_lod2.glb",
+        "triangles": 3169,
+        "sha256": "2f41eed8439887a047166b9df0f98478d1d40e0d43408bd2c74bfe6aaeb6fe1e",
+        "bytes": 228316,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "apothecary",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_apothecary.glb",
+        "triangles": 3436,
+        "sha256": "d5cb34b85993ac7f46ae5bf34ea23948189f648154de7e3d12267861fa05fd1a",
+        "bytes": 242568,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_apothecary_lod1.glb",
+        "triangles": 3409,
+        "sha256": "1ba1983b5dfd92bb04874c59c57f38225dc3cd25318f88473813c1ad81ebef26",
+        "bytes": 239112,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_apothecary_lod2.glb",
+        "triangles": 3300,
+        "sha256": "303fd06d6c45553a6c0053ccc1367db3a7beab1fe46f9becd3df4f97c6eb2d3a",
+        "bytes": 231192,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "arms_rack",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_arms_rack.glb",
+        "triangles": 2362,
+        "sha256": "22d1d6ab42e423ed28567ab3cf57ecd666c6397d461d58dcd7757bdf940148e6",
+        "bytes": 171016,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_arms_rack_lod1.glb",
+        "triangles": 2362,
+        "sha256": "81d4e5a6007cf0c2ba9c9bc29d2931c2eaf3a1105d6600d466beb896d9942b62",
+        "bytes": 170952,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_arms_rack_lod2.glb",
+        "triangles": 2348,
+        "sha256": "06af4918d7f61f86e6f9b77e1e08e686e775cc20a7748dfac8bffbc77defce45",
+        "bytes": 166192,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "provision_stall",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_provision_stall.glb",
+        "triangles": 7280,
+        "sha256": "d9b10f9b5b65b83b508dfc03e0aea8dca8a2aebb6b810f8f981c416b83c674d0",
+        "bytes": 497328,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_provision_stall_lod1.glb",
+        "triangles": 7253,
+        "sha256": "bbf837bedce2635daefe04944856cdabfa89980a117708eb854049a184de7172",
+        "bytes": 493872,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_provision_stall_lod2.glb",
+        "triangles": 5974,
+        "sha256": "2c835f947e4a30f5245d6e87e48b052c8ed42f04b7f32968267548e309c0b04f",
+        "bytes": 409872,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "laundry_rig",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_laundry_rig.glb",
+        "triangles": 2080,
+        "sha256": "e9c10bcfbf5a70f0020631d8e6a55dfaf4c59d7d09e1b431b4c9474371cd168c",
+        "bytes": 219132,
+        "repairedDegenerateTangents": 12
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_laundry_rig_lod1.glb",
+        "triangles": 1998,
+        "sha256": "cbadfcdf4fa9a41e77955f2bd3800c57bb52b8aff5e4e0709866d7bd4279a987",
+        "bytes": 139124,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_laundry_rig_lod2.glb",
+        "triangles": 1522,
+        "sha256": "b1da9481da26699627ab21f72373886018b90367a4623faefebc658c8cb31e79",
+        "bytes": 105860,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  },
+  {
+    "kind": "war_table",
+    "lods": [
+      {
+        "level": 0,
+        "model": "prop_riftspire_war_table.glb",
+        "triangles": 1264,
+        "sha256": "9d9b533b5a95b2567f4aa2d0b47cc7af73d21650f5967cc0ef6a1f4ff94e164c",
+        "bytes": 97600,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 1,
+        "model": "prop_riftspire_war_table_lod1.glb",
+        "triangles": 1264,
+        "sha256": "73b321af644d65fe032f8144c6c6e836538ce6f3fe743b11349cd3ef2f452ace",
+        "bytes": 97600,
+        "repairedDegenerateTangents": 0
+      },
+      {
+        "level": 2,
+        "model": "prop_riftspire_war_table_lod2.glb",
+        "triangles": 1144,
+        "sha256": "5581c202959b164bb1c09aebb4f8d2b496e2f0dcc2a40403b9f18c4d9fdf5e97",
+        "bytes": 89200,
+        "repairedDegenerateTangents": 0
+      }
+    ]
+  }
+]

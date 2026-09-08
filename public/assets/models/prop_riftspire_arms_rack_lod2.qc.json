@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.arms_rack",
+  "modelSha256": "06af4918d7f61f86e6f9b77e1e08e686e775cc20a7748dfac8bffbc77defce45",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_arms_rack_lod2.glb",
+    "triangles": 2348,
+    "sha256": "06af4918d7f61f86e6f9b77e1e08e686e775cc20a7748dfac8bffbc77defce45",
+    "bytes": 166192,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_arms_rack.glb",
+      "triangles": 2362,
+      "sha256": "22d1d6ab42e423ed28567ab3cf57ecd666c6397d461d58dcd7757bdf940148e6",
+      "bytes": 171016,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_arms_rack_lod1.glb",
+      "triangles": 2362,
+      "sha256": "81d4e5a6007cf0c2ba9c9bc29d2931c2eaf3a1105d6600d466beb896d9942b62",
+      "bytes": 170952,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_arms_rack_lod2.glb",
+      "triangles": 2348,
+      "sha256": "06af4918d7f61f86e6f9b77e1e08e686e775cc20a7748dfac8bffbc77defce45",
+      "bytes": 166192,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "ddf60ddc7af40188e66ed3cbbcfbc4b8e353be2163e49df8ede0a62973e47abb",
+  "textureMaxDimension": 2048
+}

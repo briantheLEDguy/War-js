@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.rock_sector",
+  "modelSha256": "435633644243ac5823babdb87e1da3353c1a33bde347875a3cf487e7486e1a24",
+  "lod": {
+    "level": 0,
+    "model": "prop_riftspire_rock_sector.glb",
+    "triangles": 1964,
+    "sha256": "435633644243ac5823babdb87e1da3353c1a33bde347875a3cf487e7486e1a24",
+    "bytes": 276932,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_rock_sector.glb",
+      "triangles": 1964,
+      "sha256": "435633644243ac5823babdb87e1da3353c1a33bde347875a3cf487e7486e1a24",
+      "bytes": 276932,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_rock_sector_lod1.glb",
+      "triangles": 1818,
+      "sha256": "7afc853b5221e3b660dde2e09c919975169629923b9ac2a18c264de23134c7ac",
+      "bytes": 143352,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_rock_sector_lod2.glb",
+      "triangles": 1552,
+      "sha256": "946baff83d574becf74fbfaee9fc28372976b0de404b4b24c924e4d493473a22",
+      "bytes": 100600,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "8fe6e02c322524acdc36ab8fc65406974bcbf6f1d49f81a67032b806ae78379c",
+  "textureMaxDimension": 2048
+}

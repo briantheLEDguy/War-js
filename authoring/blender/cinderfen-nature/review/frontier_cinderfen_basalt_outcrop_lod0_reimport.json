@@ -1,0 +1,105 @@
+{
+  "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+  "sha256": "b9077268e93f3145b9c701fa996332aa35ecf266bf6c6b9989a3d21ea575f60b",
+  "reviewer_sha256": "ee78882ac19021103ae05b823393ec4f648465fe0f04d91d4fba531e5fd0ab55",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "surveyed_irregular_basalt_cleavage_masses.lod0",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 12474
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -2.626711130142212,
+        -2.0052993297576904,
+        -0.2378426492214203
+      ],
+      "maximum": [
+        2.2451210021972656,
+        2.0559284687042236,
+        2.6376099586486816
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_cinderfen_basalt_outcrop_lod0_neutral.png",
+      "sha256": "2fc69a1c66979cfc29fe218888b5eaec010e48de447ca47a49970c76a2e25092",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          3.7066702842712402,
+          -7.76961612701416,
+          3.051179885864258
+        ],
+        "target_z_up": [
+          -0.19079506397247314,
+          0.0253145694732666,
+          1.1998836994171143
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_cinderfen_basalt_outcrop_lod0_gameplay.png",
+      "sha256": "54fe70a7cfead39a3eaf3e1f0714ace940def28657b9a772b968b66c3189ccac",
+      "camera": {
+        "distance_m": 8,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          0.7835713028907776,
+          -7.9746856689453125,
+          2.2871832847595215
+        ],
+        "target_z_up": [
+          -0.19079506397247314,
+          0.0253145694732666,
+          1.1998836994171143
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "detail": {
+      "image": "frontier_cinderfen_basalt_outcrop_lod0_detail.png",
+      "sha256": "889e9d1604789ffefc9142712cdcb260cf9d4b0c18589d08c01fbb0b70c39b9d",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          2.897465467453003,
+          -8.694931030273438,
+          3.201296091079712
+        ],
+        "target_z_up": [
+          -1.0,
+          -0.8999999761581421,
+          1.350000023841858
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

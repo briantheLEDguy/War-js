@@ -1,0 +1,15 @@
+{
+  "buildSha256": "dd297993fe61040ed9b563aeb365b6cef9c361dca9684aa568895d7bbd46d8ab",
+  "sourceSha256": "056291ad25753602777c853acc2eae9a7fbccebc0f12b3955a739a6673786357",
+  "renderReceiptSha256": "a19a6f2d3387a63ba111ffe01c954ff2441ac89cc65fb9b31f3242cd83078691",
+  "previewSha256s": {
+    "terrain_overview_lod0.png": "ae8670008018ecf062afdff6f52bb15f4442b3af884cf3c1d61f5d7a320ee9f1",
+    "road_material.png": "3ea26c89aa35c0bf96d28b4055f641457004434d53a319905616cebdc58d17c1",
+    "terrain_overview_lod1.png": "4008b6e8adf277bd12d20042911640e552d321c935b0c093897e27de84b1ae7c",
+    "terrain_overview_lod2.png": "b7e0d6546eb30e595967d7f163735f2d200a00378367256b6fa266e3915c7c39"
+  },
+  "status": "approved",
+  "reviewedBy": "Codex internal terrain review",
+  "reviewedAt": "2026-09-07T17:26:18.518Z",
+  "notes": "Root accepted the connected road hierarchy and final material view. All three actual GLB LOD overview renders inspected: continuous terrain silhouette and shared borders; broad smooth shoulders; coherent ground texture scale; authored verge alpha retained in COLOR_0. Exact source, 48 GLBs, external textures and four current images match the render receipt. This approves the local terrain delivery only; complete zone ecology and target GPU frame rate remain separately verified work."
+}

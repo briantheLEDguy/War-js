@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.oak_pasture",
+  "displayName": "Sunmeadow spreading pasture oak",
+  "category": "prop",
+  "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+  "qc": "frontier_sunmeadow_oak_pasture_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_oak_pasture"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "2c0c2371fe08c8652bf0a7a6aaa594b00bc6ba889659edf8308917ee499239d6",
+    "qcSha256": "9361f8d475c9a5e2c298c18669cdfc7d6811572ee0568786aaa6e95432c158c8",
+    "previews": {
+      "assembly": "1a011ef54eab516fa590dad8cd9201db9999395cd996784659045996f1f97aca"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_pasture_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal asset review",
+    "reviewedAt": "2026-09-07T17:00:33.663Z",
+    "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_late_summer_01",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/source/design.json",
+    "sourceSha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3"
+  },
+  "approvalState": "approved"
+}

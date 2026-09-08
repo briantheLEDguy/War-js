@@ -1,4 +1,15 @@
 # Approved runtime and authoring GLBs are binary assets managed by Git LFS.
+authoring/blender/sunmeadow-*/** -text
+authoring/blender/sunmeadow-*/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/sunmeadow-*/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/sunmeadow-*/**/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/frontier_*.qc.json -text
+public/assets/models/*.qc.json -text
+public/assets/textures/sunmeadow_*/*.png filter=lfs diff=lfs merge=lfs -text
+scripts/blender-character-pipeline/data/approved-assets/frontier_*.approved.json -text
+authoring/blender/orvr-frontier/** -text
+authoring/blender/orvr-frontier/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/orvr-frontier/**/*.glb filter=lfs diff=lfs merge=lfs -text
 public/assets/models/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/approved/**/*.glb filter=lfs diff=lfs merge=lfs -text
 scripts/blender-character-pipeline/data/approved-assets/**/*.glb filter=lfs diff=lfs merge=lfs -text
@@ -76,3 +87,8 @@ public/assets/models/reviews/aegis-people/** -text
 public/assets/models/reviews/aegis-people/**/*.png filter=lfs diff=lfs merge=lfs -text
 public/assets/textures/aegis_citadel_interiors/*.png filter=lfs diff=lfs merge=lfs -text
 public/assets/textures/aegis_gardens/*.png filter=lfs diff=lfs merge=lfs -text
+# Regional population source and review receipts preserve their exact bytes.
+authoring/blender/frontier-population/** -text
+authoring/blender/frontier-population/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/frontier-population/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/frontier-population/**/*.png filter=lfs diff=lfs merge=lfs -text

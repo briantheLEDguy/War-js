@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_oak_pasture",
+  "name": "Sunmeadow spreading pasture oak",
+  "source_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "builder_sha256": "29f5975924a0d8ebf8e3a71aa3945b15862610a7cfa9a76e34752945ec1d525e",
+  "paint_record_sha256": "b8804ffc4341b271b6f393956dd6cae83556bfd4c69b16ff36ce779f4ec7603c",
+  "master": "masters\\frontier_sunmeadow_oak_pasture.blend",
+  "master_sha256": "74a1402b49a924085e87c41e39bab83aabc70aee6ec2d00244b55c1b096fc474",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+      "sha256": "2c0c2371fe08c8652bf0a7a6aaa594b00bc6ba889659edf8308917ee499239d6",
+      "bytes": 8139968,
+      "triangles": 83874,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -5.022907257080078,
+          -4.879417896270752,
+          -0.2559080123901367
+        ],
+        "max": [
+          5.03997278213501,
+          4.450727939605713,
+          10.943367004394531
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -5.022907257080078,
+          -0.2559080123901367,
+          -4.450727939605713
+        ],
+        "max": [
+          5.03997278213501,
+          10.943367004394531,
+          4.879417896270752
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_pasture_lod1.glb",
+      "sha256": "df39efb7afbd03d6c7a978487ea70d0761bd871a5fa3f113d385f135a14ba30c",
+      "bytes": 5624444,
+      "triangles": 45124,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -5.080195426940918,
+          -4.935360908508301,
+          -0.25760388374328613
+        ],
+        "max": [
+          5.042274475097656,
+          4.38582706451416,
+          10.989792823791504
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -5.080195426940918,
+          -0.25760388374328613,
+          -4.38582706451416
+        ],
+        "max": [
+          5.042274475097656,
+          10.989792823791504,
+          4.935360908508301
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_pasture_lod2.glb",
+      "sha256": "afab7237542bd12ce9d1244ab448227b631994c34619dca15259854685b016c0",
+      "bytes": 3690456,
+      "triangles": 11548,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -5.204946994781494,
+          -5.00669002532959,
+          -0.16817106306552887
+        ],
+        "max": [
+          5.07515811920166,
+          4.656087875366211,
+          10.805279731750488
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -5.204946994781494,
+          -0.16817106306552887,
+          -4.656087875366211
+        ],
+        "max": [
+          5.07515811920166,
+          10.805279731750488,
+          5.00669002532959
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

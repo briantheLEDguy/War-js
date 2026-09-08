@@ -1,0 +1,16 @@
+{
+  "buildSha256": "fce6a8b7d715f5f71b8d9382e72617131370a865705bad96d27c1813e8cc47a8",
+  "sourceSha256": "056291ad25753602777c853acc2eae9a7fbccebc0f12b3955a739a6673786357",
+  "renderReceiptSha256": "46eb3d2a8aa701f5b627f95160d4ca271481667de6ccaf418bfb38188af82e53",
+  "previewSha256s": {
+    "terrain_overview_lod0.png": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039",
+    "road_material.png": "2f671f0d8eba63fcbdef8da1e9bcf38a08e40932e46aa5d01eb4c0e81356035b",
+    "terrain_overview_lod1.png": "8e8a58c4688f218822dd83c7bffa415e47d5f37b8385b077f272023cfe704f3f",
+    "terrain_overview_lod2.png": "f47ca8925c11fd3a1b0ec1907446a2ef31b012626eb08eab9a5d7c85b8c99624",
+    "road_junction_lod0.png": "915642ada0c1471146f6b592d7949a51a914ff96b6a00dfcbbab40ce6f3a95cc"
+  },
+  "status": "approved",
+  "reviewedBy": "Codex integration reviewer (/root)",
+  "reviewedAt": "2026-09-07T17:43:22.018Z",
+  "notes": "Root inspected and accepted the current actual-export road junction close-up: smooth transition, soft verges and no circular shadow under the runtime terrain shadow contract. The asset author inspected all three current LOD overview images and the road material close-up; all five views have exact model, texture, source and image receipts. All 48 GLBs pass zero validation errors and warnings. Junction audit proves unchanged source bytes and exact land position, normal, UV, color and index buffers; eight recomputed tangent components differ by at most one 0.0001 exporter quantization step. Acceptance covers this bounded road-surface refinement of the existing Sunmeadow terrain."
+}

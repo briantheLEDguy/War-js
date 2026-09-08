@@ -13,6 +13,10 @@ export interface WorldEditorPrefabDefinition {
   group?: string;
   model?: string;
   assetKey?: string;
+  assetCategory?: WorldPropObject['assetCategory'];
+  defaultAnimation?: string;
+  modelOffset?: Vec3;
+  groundSurface?: 'mesh';
   fallbackKind?: string;
   footprint: PrefabFootprint;
   defaultScale?: Vec3;

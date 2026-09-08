@@ -1,0 +1,52 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.oak_hedgerow",
+  "modelSha256": "8ea273ac19359b83efb4bfd9d34232df5772ef9d01c52a96b55603fd022e9b4c",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "sha256": "a3f8853b8287ec7e55c4da7b8990451c1e6a2048ea53ff3bac4f0523f492270c",
+      "triangles": 63468
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod1.glb",
+      "sha256": "f044c11fa7603c09c72092e58b768d454c400993dc325a3225fec57becbf6e86",
+      "triangles": 34100
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_oak_hedgerow_lod2.glb",
+      "sha256": "8ea273ac19359b83efb4bfd9d34232df5772ef9d01c52a96b55603fd022e9b4c",
+      "triangles": 8756
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8",
+  "bounds": {
+    "min": [
+      -3.322003126144409,
+      -0.04682445898652077,
+      -3.412212610244751
+    ],
+    "max": [
+      3.774679183959961,
+      12.820642471313477,
+      3.235281229019165
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_hedgerow_lod0_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_hedgerow_lod1_reimport.png",
+    "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_oak_hedgerow_lod2_reimport.png"
+  ]
+}

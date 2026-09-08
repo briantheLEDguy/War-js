@@ -38,7 +38,7 @@ export async function spawnNpcs(
   const mixers: THREE.AnimationMixer[] = [];
 
   for (const s of spawns) {
-    const fallback = pickNpcFallback(s.role);
+    const fallback = s.approvedOnly ? () => { const g = new THREE.Group(); g.userData.assetMissing = true; return g; } : pickNpcFallback(s.role);
     const modelOverride = aegisNpcGuardVariantFor(s.role, s.characterProfileKey, s.id)
       ?? aegisNpcCivilianVariantFor(s.role, s.characterProfileKey, s.id);
     const overrideModel = modelOverride
@@ -47,6 +47,7 @@ export async function spawnNpcs(
     const profileModel = !modelOverride && s.characterProfileKey
       ? await loader.resolveCharacterModel(s.characterProfileKey)
       : null;
+    if (s.approvedOnly && !overrideModel && !profileModel) continue;
     const model = overrideModel
       ?? modelOverride?.fallbackModel
       ?? profileModel
@@ -55,9 +56,10 @@ export async function spawnNpcs(
     const { object: obj, animations } = model
       ? await loader.loadModelFull(model, fallback)
       : { object: fallback(), animations: [] };
+    if (obj.userData.assetMissing) continue;
     if (s.role === 'guard') prepareGuardNpcRuntimeObject(obj);
 
-    const heightHint = terrain.heightAt(s.x, s.z) + (s.y ?? 0);
+    const heightHint = (s.heightMode === 'absolute' ? 0 : terrain.heightAt(s.x, s.z)) + (s.y ?? 0);
     const y = groundHeightAt(s.x, s.z, heightHint);
     obj.position.set(s.x, y, s.z);
     obj.rotation.y = s.rotY ?? 0;

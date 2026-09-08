@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+  "reviewedAt": "2026-09-06T21:26:05.952Z",
+  "observations": "Inspected exported LOD0, LOD1 and LOD2 contact-sheet renders. Checked continuous surfaces, recessed openings, silhouette and material continuity. Distant LODs simplify small window bars, chain links and character clothing. Character rig/idle validation is recorded separately. Cliff excavations have rock back walls; palace sectors retain a deliberate open admission recess.",
+  "modelSha256s": [
+    "890f2b921626d752e447699be59907d4f66e0228ba86d91b79cd346a78f0bc29",
+    "2b92b884e23dd7e33ea6fac161185b5e70d7e4ef5fabbb5e081073311c320b15",
+    "bf75368215f28b414dd78690820556db69f07151cb20eb4be21dea345500485e"
+  ],
+  "previewSha256s": {
+    "population_dark_elf-lod0.png": "897998e16687b15b7d5958df6d7f7653c4fc3248de2e05c90fd03c178ce072e9",
+    "population_dark_elf-lod1.png": "01d1e9c62eeecb07645951415cbbf9b792877869bdd2165528e159e61ff62ac0",
+    "population_dark_elf-lod2.png": "645e026a102a96d47d819715ea40a5f37dc4d1ea152bf57cf14249c512d852f5"
+  }
+}

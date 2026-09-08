@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.throne",
+  "displayName": "Riftspire throne",
+  "category": "prop",
+  "model": "prop_riftspire_throne.glb",
+  "qc": "prop_riftspire_throne.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_throne"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "b2025d6bc047942b9dfa3e4de0c6363d8e8fd018910569f87c7725754258ee2b",
+    "qcSha256": "bbf2b15aed0f9f3f7adb2ca44ff1caaf68b20b65e5b1267e2a296da21e47d4d9",
+    "previews": {
+      "assembly": "da4ebf3484cf9d0d39972d213d6a862d5b8540cba9518ce22053bbfd85e72c21"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/throne-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.179Z",
+    "reviewHash": "d412039e47f2d3ac1bd5ff15035073fabff92386876f1e1ea80e95daa863fb68"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

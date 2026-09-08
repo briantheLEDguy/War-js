@@ -1,0 +1,68 @@
+{
+  "settings": {
+    "width": 1280,
+    "height": 720,
+    "renderResolution": "native",
+    "frameRateLimit": 60,
+    "viewDistance": 1000,
+    "durationSeconds": 10,
+    "browser": "Codex in-app browser, same local host"
+  },
+  "method": "Foreground actual Game runtime. No Blender or test job during timed samples. Browser rAF callbacks include idle display frames; the game field is a smoothed scheduled frame interval, not GPU time. The 60 FPS cap limits conclusions about spare rendering capacity. Street cameras use 18m distance, 0.24 pitch and 0 yaw; overview cameras frame each differently sized capital.",
+  "results": [
+    {
+      "zone": "aegis_capital",
+      "view": "Market",
+      "frames": 1476,
+      "browserMedianMs": 7,
+      "browserP95Ms": 7.1,
+      "medianSmoothedGameFrameMs": 16.60289978633893,
+      "p95SmoothedGameFrameMs": 17.030055791145923,
+      "draws": 285,
+      "triangles": 2765077,
+      "fallbacks": 1
+    },
+    {
+      "zone": "riftspire_capital",
+      "view": "Transit bridge",
+      "frames": 819,
+      "browserMedianMs": 13.2,
+      "browserP95Ms": 19.2,
+      "medianSmoothedGameFrameMs": 16.56854584835004,
+      "p95SmoothedGameFrameMs": 16.967529147627815,
+      "draws": 346,
+      "triangles": 1279857,
+      "fallbacks": 0
+    },
+    {
+      "zone": "aegis_capital",
+      "view": "Overview",
+      "frames": 1190,
+      "browserMedianMs": 7,
+      "browserP95Ms": 14.1,
+      "medianSmoothedGameFrameMs": 16.572291227530094,
+      "p95SmoothedGameFrameMs": 16.95963583469603,
+      "draws": 1112,
+      "triangles": 4242182,
+      "fallbacks": 1
+    },
+    {
+      "zone": "riftspire_capital",
+      "view": "Overview",
+      "frames": 1498,
+      "browserMedianMs": 7,
+      "browserP95Ms": 7.1,
+      "medianSmoothedGameFrameMs": 16.583974505491412,
+      "p95SmoothedGameFrameMs": 16.972061024546097,
+      "draws": 444,
+      "triangles": 1692591,
+      "fallbacks": 0
+    }
+  ],
+  "comparison": {
+    "streetGameFrameRatio": 0.9979308471152035,
+    "overviewGameFrameRatio": 1.0007049886947381,
+    "within20PercentAtTestedCap": true
+  },
+  "baselineNote": "Aegis reported one pre-existing asset fallback in this review. Riftspire reported zero."
+}

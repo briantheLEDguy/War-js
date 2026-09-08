@@ -57,9 +57,10 @@ export function Minimap({ game }: Props) {
 
       const px = game.playerPos.x;
       const pz = game.playerPos.z;
-      const playerPosition = { x: px, z: pz };
+      const playerPosition = { x: px, y: game.playerPos.y, z: pz };
       if (districtRef.current) districtRef.current.textContent = game.cityDistrictName ?? game.zoneName;
-      if (game.cityMapGeometry) drawCityMap(ctx, game.cityMapGeometry, playerPosition, cx, cy, radius, RANGE);
+      const mapZone = game.mapZoneDefinition ?? game.zoneDefinition;
+      if (mapZone) drawCityMap(ctx, mapZone, playerPosition, cx, cy, radius, RANGE);
       const markers = buildMarkers({
         character,
         craftingStations: game.craftingStationMarkers,
@@ -75,7 +76,7 @@ export function Minimap({ game }: Props) {
       const hasFocus = markers.some((marker) => marker.focused);
       for (const marker of markers) {
         if (hasFocus && !marker.focused && Math.hypot(marker.position.x - px, marker.position.z - pz) > RANGE) continue;
-        drawMapMarker(ctx, marker, playerPosition, cx, cy, radius);
+        drawMapMarker(ctx, marker, playerPosition, cx, cy, radius, Boolean(mapZone?.craterCity));
       }
 
       drawPlayer(ctx, cx, cy);
@@ -167,25 +168,31 @@ function drawBackground(
 function drawMapMarker(
   ctx: CanvasRenderingContext2D,
   marker: MapMarker,
-  playerPosition: { x: number; z: number },
+  playerPosition: { x: number; y?: number; z: number },
   cx: number,
   cy: number,
   radius: number,
+  elevationAware = false,
 ) {
   const dx = marker.position.x - playerPosition.x;
   const dz = marker.position.z - playerPosition.z;
   const worldDistance = Math.hypot(dx, dz);
   if (worldDistance > EDGE_RANGE && !marker.focused) return;
+  const alpha = elevationAware && Math.abs((marker.position.y ?? 0)-(playerPosition.y ?? 0))>15 ? .22 : 1;
 
   if (worldDistance > RANGE) {
     if (!marker.priority && marker.kind !== 'exits') return;
+    ctx.save();ctx.globalAlpha=alpha;
     drawEdgeMarker(ctx, marker, dx, dz, worldDistance, cx, cy, radius);
+    ctx.restore();
     return;
   }
 
   const x = cx + (dx / RANGE) * radius;
   const y = cy + (dz / RANGE) * radius;
+  ctx.save();ctx.globalAlpha=alpha;
   drawMarkerShape(ctx, marker, x, y, marker.priority ? 4.5 : 3);
+  ctx.restore();
 }
 
 function drawEdgeMarker(
@@ -207,7 +214,7 @@ function drawEdgeMarker(
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(angle + Math.PI / 2);
-  ctx.globalAlpha = marker.priority ? 0.95 : 0.72;
+  ctx.globalAlpha *= marker.priority ? 0.95 : 0.72;
   ctx.fillStyle = marker.color;
   ctx.strokeStyle = 'rgba(0, 0, 0, 0.85)';
   ctx.lineWidth = 2;

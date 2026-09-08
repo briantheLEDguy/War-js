@@ -1,0 +1,49 @@
+{
+  "sourceSha256": "056291ad25753602777c853acc2eae9a7fbccebc0f12b3955a739a6673786357",
+  "unchangedPositionNormalUvColorIndexModels": 48,
+  "maximumTangentDifference": 0.00010001659393310547,
+  "changedTangentComponents": 8,
+  "roadVertices": 75012,
+  "maxUvError": 0.0000152587890625,
+  "maxColorError": 0,
+  "maxBoundaryError": 0,
+  "probes": [
+    {
+      "name": "filled junction corner",
+      "x": -353.6,
+      "z": -73.8,
+      "min": 0.99,
+      "max": 1,
+      "opacityByLod": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "feathered junction verge",
+      "x": -354.2,
+      "z": -73.2,
+      "min": 0.05,
+      "max": 0.4,
+      "opacityByLod": [
+        0.21763310332022423,
+        0.21763310332022423,
+        0.21763310332022423
+      ]
+    },
+    {
+      "name": "outside rounded junction",
+      "x": -356.5,
+      "z": -71,
+      "min": 0,
+      "max": 0,
+      "opacityByLod": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "auditSha256": "b734157712266374cb6bf3843d2f7985234d7f5a436436d99cd676f5b32cec1e"
+}

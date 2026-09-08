@@ -5,6 +5,16 @@ import { civicFallback } from './CityCivicFallback';
 import { citadelDecorationFallback } from './CityCitadelFallback';
 const palettes = new WeakMap<AssetLoader, Map<string, THREE.Material>>();
 export const CITY_LOD_DISTANCES = [0, 55, 110] as const;
+export async function loadReviewedCityObject(key: string, loader: AssetLoader): Promise<THREE.LOD | null> {
+  const lod = new THREE.LOD();
+  for (const filename of await loader.resolveApprovedCityModels(key)) {
+    const part = await loader.loadModel(filename, () => { const g = new THREE.Group(); g.userData.assetMissing = true; return g; });
+    if (part.userData.assetMissing) continue;
+    shareCityMaterials(part, loader);
+    lod.addLevel(part, [0, 80, 180][lod.levels.length]);
+  }
+  return lod.levels.length ? lod : null;
+}
 /** The authored kit uses the same material definitions in every GLB. Intern them
 * per loader so repeated image references also share GPU texture allocation. */
 export function shareCityMaterials(object: THREE.Object3D, loader: AssetLoader): void {

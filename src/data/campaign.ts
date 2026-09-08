@@ -36,6 +36,7 @@ export interface CampaignZoneNode {
 }
 
 export interface CampaignObjectiveDefinition {
+  y?: number;
   id: string;
   type: CampaignObjectiveType;
   label: string;

@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.rock_gate_right",
+  "modelSha256": "80d79a4d56382bd7728f44d360ae6ffd3b4a42ba6b5a06130403341fd8bb3013",
+  "lod": {
+    "level": 1,
+    "model": "prop_riftspire_rock_gate_right_lod1.glb",
+    "triangles": 1716,
+    "sha256": "80d79a4d56382bd7728f44d360ae6ffd3b4a42ba6b5a06130403341fd8bb3013",
+    "bytes": 134872,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_rock_gate_right.glb",
+      "triangles": 1864,
+      "sha256": "c21130c70787f5c792cc053ebceeddac38b251a428271a01296c14312f9a64ec",
+      "bytes": 261940,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_rock_gate_right_lod1.glb",
+      "triangles": 1716,
+      "sha256": "80d79a4d56382bd7728f44d360ae6ffd3b4a42ba6b5a06130403341fd8bb3013",
+      "bytes": 134872,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_rock_gate_right_lod2.glb",
+      "triangles": 1477,
+      "sha256": "8357abc0a8676dd2fa55265104e1a4dae097a6dbbee8aa4abb0a10a2bedd0ba8",
+      "bytes": 95900,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "b34fccc8812f705ce5966f7737e906b851083f6762b3ca456b77196eea280839",
+  "textureMaxDimension": 2048
+}

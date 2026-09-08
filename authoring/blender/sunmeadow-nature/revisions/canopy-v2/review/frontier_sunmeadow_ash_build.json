@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_ash",
+  "name": "Sunmeadow airy common ash",
+  "source_sha256": "239762a5e304ac145b1b7e6c5e3b01d8873e91d534b08b826f2102b8783c812b",
+  "builder_sha256": "2e459914eaf6f296b32b5bbddd55e03ab6e0efce3e1c00d0360219a18937f3cf",
+  "paint_record_sha256": "734433076113f5a62c88b79ac5ef3aa9377d6699d94776807a374d65ee742be6",
+  "master": "masters\\frontier_sunmeadow_ash.blend",
+  "master_sha256": "13890645a9ae6ad16f67b2d5d57945b5cdca13c01e9a3d5e0cafcc34c2370863",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_ash_lod0.glb",
+      "sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "bytes": 9380724,
+      "triangles": 95516,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -4.249358654022217,
+          -3.925556182861328,
+          -0.05408892780542374
+        ],
+        "max": [
+          3.991551637649536,
+          3.956895351409912,
+          13.675841331481934
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -4.249358654022217,
+          -0.05408892780542374,
+          -3.956895351409912
+        ],
+        "max": [
+          3.991551637649536,
+          13.675841331481934,
+          3.925556182861328
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_ash_lod1.glb",
+      "sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "bytes": 6306972,
+      "triangles": 51682,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -4.387194633483887,
+          -4.020108222961426,
+          -0.05496381223201752
+        ],
+        "max": [
+          4.1261725425720215,
+          4.0610198974609375,
+          13.826451301574707
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -4.387194633483887,
+          -0.05496381223201752,
+          -4.0610198974609375
+        ],
+        "max": [
+          4.1261725425720215,
+          13.826451301574707,
+          4.020108222961426
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_ash_lod2.glb",
+      "sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+      "bytes": 4204140,
+      "triangles": 19820,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -4.537087440490723,
+          -4.35780668258667,
+          -0.03777502104640007
+        ],
+        "max": [
+          4.255638122558594,
+          4.41567850112915,
+          13.955071449279785
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -4.537087440490723,
+          -0.03777502104640007,
+          -4.41567850112915
+        ],
+        "max": [
+          4.255638122558594,
+          13.955071449279785,
+          4.35780668258667
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

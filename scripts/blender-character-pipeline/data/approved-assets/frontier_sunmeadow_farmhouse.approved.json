@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow_farmhouse",
+  "displayName": "Sunmeadow limestone farmhouse",
+  "category": "prop",
+  "model": "frontier_sunmeadow_farmhouse_lod0.glb",
+  "qc": "frontier_sunmeadow_farmhouse_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_farmhouse"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "9609f2825cd119046412bc62ded7eef7cb8caf51953772ee3f96937d7d769b26",
+    "qcSha256": "634898a1ae10146fa49c965d7427618cf1498ae127ad90b8024b002d2f40b1e8",
+    "previews": {
+      "assembly": "3f2e0d6e2838263447ac22ba945d85802186f8528f608a1191bea44aaac8b7ce"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_sunmeadow_farmhouse.png"
+  },
+  "review": {
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:22:55.0905427Z",
+    "reviewHash": "3d1dbdef56970059ff2d5e3e4625ed213d878160c66a3428aed47d5e93751bac"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_sunmeadow_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/sunmeadow-architecture/source/architecture.json",
+    "sourceSha256": "1ec935cb6ad05321db5dd2b87fddb7db2c10c4f41298ed95a3efa5736cb1ec85"
+  },
+  "approvalState": "approved"
+}

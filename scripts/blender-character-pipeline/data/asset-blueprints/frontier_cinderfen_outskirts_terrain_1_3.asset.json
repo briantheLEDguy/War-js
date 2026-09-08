@@ -1,0 +1,96 @@
+{
+  "assetId": "prop.frontier.cinderfen.outskirts.terrain.1.3",
+  "displayName": "frontier cinderfen outskirts terrain 1 3",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "cinderfen_terrain"
+  ],
+  "runtime": {
+    "staticKey": "frontier_cinderfen_outskirts_terrain_1_3"
+  },
+  "output": {
+    "model": "frontier_cinderfen_outskirts_terrain_1_3.glb",
+    "artifactDir": "authoring/blender/cinderfen-terrain/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/cinderfen-terrain/runtime/frontier_cinderfen_outskirts_terrain_1_3.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 76284,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 12348,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 5532,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_CinderfenTerrain",
+    "textureSet": "cinderfen_terrain",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal"
+    ],
+    "maxTextureResolution": 1024
+  },
+  "collision": {
+    "policy": "none",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_blender_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "texture_source",
+      "mesh_authoring"
+    ],
+    "promptIds": [
+      "cinderfen_peat_albedo_v1",
+      "cinderfen_causeway_albedo_v1"
+    ],
+    "referencePackId": "original_cinderfen_survey",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/cinderfen-terrain/build_terrain.py"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 3,
+    "maxFileSizeMb": 16,
+    "maxMeshObjects": 3,
+    "maxTris": 150000,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-08T19:22:07.052Z",
+    "notes": "Reviewed authored terrain; authoritative ground uses the exact source Float32 survey."
+  }
+}

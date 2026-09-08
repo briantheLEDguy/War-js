@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_wall_stair",
+  "displayName": "Cinderfen switchback wall stair",
+  "category": "prop",
+  "model": "frontier_cinderfen_wall_stair_lod0.glb",
+  "qc": "frontier_cinderfen_wall_stair_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_wall_stair"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65",
+    "qcSha256": "f22368afc67079a34751cd16d55c5cbeab9a8ac04951c810f7201427e464d996",
+    "previews": {
+      "assembly": "65b34986e44ccd5438002734f73691d8fa013d7d3bc7673b1ac8526798cd8ae2"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_wall_stair.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+    "reviewedAt": "2026-09-07T19:56:19.116125+00:00",
+    "reviewHash": "0f44f8d29dda3c5a8590f3e164a0c28aceef90ba68adc4803483ca1c82421e32"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/cinderfen-architecture/source/architecture.json",
+    "sourceSha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f"
+  },
+  "approvalState": "approved"
+}

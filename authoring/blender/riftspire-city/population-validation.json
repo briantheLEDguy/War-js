@@ -1,0 +1,56 @@
+[
+  {
+    "model": "chr_riftspire_chaos.glb",
+    "triangles": 28500,
+    "errors": [],
+    "warnings": 1
+  },
+  {
+    "model": "chr_riftspire_chaos_lod1.glb",
+    "triangles": 15675,
+    "errors": [],
+    "warnings": 1
+  },
+  {
+    "model": "chr_riftspire_chaos_lod2.glb",
+    "triangles": 7125,
+    "errors": [],
+    "warnings": 1
+  },
+  {
+    "model": "chr_riftspire_dark_elf.glb",
+    "triangles": 28500,
+    "errors": [],
+    "warnings": 1
+  },
+  {
+    "model": "chr_riftspire_dark_elf_lod1.glb",
+    "triangles": 15675,
+    "errors": [],
+    "warnings": 1
+  },
+  {
+    "model": "chr_riftspire_dark_elf_lod2.glb",
+    "triangles": 7123,
+    "errors": [],
+    "warnings": 1
+  },
+  {
+    "model": "chr_riftspire_greenskin.glb",
+    "triangles": 28499,
+    "errors": [],
+    "warnings": 3
+  },
+  {
+    "model": "chr_riftspire_greenskin_lod1.glb",
+    "triangles": 15674,
+    "errors": [],
+    "warnings": 3
+  },
+  {
+    "model": "chr_riftspire_greenskin_lod2.glb",
+    "triangles": 7122,
+    "errors": [],
+    "warnings": 3
+  }
+]

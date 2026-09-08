@@ -1,0 +1,40 @@
+{
+  "assetId": "prop.frontier.caravan_reins",
+  "qcPassed": true,
+  "modelSha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+  "lod": 1,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_caravan_reins_lod0.glb",
+      "sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+      "triangles": 2176,
+      "bytes": 392064
+    },
+    {
+      "level": 1,
+      "model": "frontier_caravan_reins_lod1.glb",
+      "sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+      "triangles": 1414,
+      "bytes": 323604
+    },
+    {
+      "level": 2,
+      "model": "frontier_caravan_reins_lod2.glb",
+      "sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+      "triangles": 826,
+      "bytes": 154820
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+  "inventorySha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+  "contractSha256": "ccbb417b4498ffd4a6853ef301369060a5e1edd195d0e4a108432ed302a2c9a1",
+  "previewImages": [
+    "authoring/blender/orvr-frontier/review/frontier_caravan_reins_lod0_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_caravan_reins_lod1_reimport.png",
+    "authoring/blender/orvr-frontier/review/frontier_caravan_reins_lod2_reimport.png"
+  ]
+}

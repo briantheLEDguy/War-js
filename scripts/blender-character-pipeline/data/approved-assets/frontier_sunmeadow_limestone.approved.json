@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.limestone",
+  "displayName": "Sunmeadow weathered limestone outcrop",
+  "category": "prop",
+  "model": "frontier_sunmeadow_limestone_lod0.glb",
+  "qc": "frontier_sunmeadow_limestone_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_limestone"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "fba74c19a4d665d7c1133ff57867bc4794d67cc3538b2542fd8a32efd0165b70",
+    "qcSha256": "6ebf0a7a4e201070943746b4d359fc8e3bd0e54f4be878ddec3c2a807a6e70df",
+    "previews": {
+      "assembly": "3c27119d2237bcec19f53f6e9fc6d31603f4a02e23c9086ae727e6809680042f"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_limestone_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex internal asset review",
+    "reviewedAt": "2026-09-07T17:00:33.661Z",
+    "reviewHash": "f2ad7eb20d4da363e22b6acb97c2dfd6722f54996cb7cf328942537cbbc3dca8"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_late_summer_01",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/source/design.json",
+    "sourceSha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3"
+  },
+  "approvalState": "approved"
+}

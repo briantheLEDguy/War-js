@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, writeFile as writeRawFile, rename } from 'node:fs/promises';
+import { mkdir, readFile, writeFile as writeRawFile, rename, copyFile, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import {
   CAMPAIGN_STATIC_VERSION,
@@ -11,6 +11,12 @@ import {
   REALMS,
 } from './static-campaign-source.mjs';
 import { withEnemyVisual, withNpcVisual } from '../npc-profile-rules.mjs';
+import { rebuildRiftspireCity, RIFTSPIRE_PORTALS } from './riftspire-city-source.mjs';
+import { applyOrvrZoneLayout, linkOrvrZoneTravel } from './orvr-zone-layouts.mjs';
+import { composeSunmeadowEnvironment } from './sunmeadow-environment.mjs';
+import { composeCinderfenLandscape } from './cinderfen-landscape.mjs';
+import { composeCinderfenEnvironment } from './cinderfen-environment.mjs';
+import { integrateCinderfen } from './cinderfen-integration.mjs';
 
 const root = process.cwd();
 const mapsDir = path.join(root, 'public', 'assets', 'maps');
@@ -97,13 +103,24 @@ await mkdir(supabaseDir, { recursive: true });
 for (const node of NODES) {
   const zone = buildZone(node);
   decorateWorldLife(zone);
+  applyOrvrZoneLayout(zone, node);
+  composeSunmeadowEnvironment(zone);
+  composeCinderfenLandscape(zone, true);
+  composeCinderfenEnvironment(zone, { architecture: true });
+  integrateCinderfen(zone);
   rebuildAegisCity(zone);
+  rebuildRiftspireCity(zone);
+  zones.push(zone);
+}
+
+// Return spawns depend on final destination layouts, including rebuilt capitals.
+linkOrvrZoneTravel(zones);
+for (const zone of zones) {
   const hash = hashZone(zone);
   zone.staticMapHash = hash;
-  zones.push(zone);
-  mapHashes[node.id] = hash;
+  mapHashes[zone.id] = hash;
   await writeFile(
-    path.join(mapsDir, `${node.id}.json`),
+    path.join(mapsDir, `${zone.id}.json`),
     `${JSON.stringify(zone, null, 2)}\n`,
     'utf8',
   );
@@ -159,6 +176,7 @@ function buildPortalPoints() {
       };
     });
   }
+  result.riftspire_capital = RIFTSPIRE_PORTALS;
   return result;
 }
 
@@ -2082,9 +2100,17 @@ function sql(value) {
   return `'${String(value).replaceAll("'", "''")}'`;
 }
 
-// Replace complete artifacts atomically; readers never observe a partial map.
+// Prefer atomic replacement; tolerate Windows preview watchers locking rename.
 async function writeFile(filename, data, encoding) {
+  // Avoid replacing unchanged city maps while the local preview holds them open.
+  if (await readFile(filename, encoding).catch(() => null) === data) return;
   const temporary = `${filename}.tmp`;
   await writeRawFile(temporary, data, encoding);
-  await rename(temporary, filename);
+  try { await rename(temporary, filename); }
+  catch (error) {
+    if (process.platform !== 'win32' || !['EPERM','EACCES'].includes(error.code)) throw error;
+    // Windows file watchers may deny replacement but permit writing the target.
+    await copyFile(temporary, filename);
+    await unlink(temporary);
+  }
 }

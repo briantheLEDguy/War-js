@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+  "reviewedAt": "2026-09-07T13:49:15.163769+00:00",
+  "observations": "Inspected all three exported LODs in contact sheets 11-15. Stalls, stock, washing lines, cart wheels, winches, iron cages, obelisks and horned armor remain readable. Corrected canopy overhangs, spear tang connections, hanging provision supports, clothes pegs and council bench legs before final inspection. Shared 2K materials and named editable parts retained. Footprints are paired with the district placement clearance checks.",
+  "modelSha256s": [
+    "22d1d6ab42e423ed28567ab3cf57ecd666c6397d461d58dcd7757bdf940148e6",
+    "81d4e5a6007cf0c2ba9c9bc29d2931c2eaf3a1105d6600d466beb896d9942b62",
+    "06af4918d7f61f86e6f9b77e1e08e686e775cc20a7748dfac8bffbc77defce45"
+  ],
+  "previewSha256s": {
+    "arms_rack-lod0.png": "776982cdbc57201d7fb307c08484f9154b87389061a81ac6e8c3bc3fb976cc86",
+    "arms_rack-lod1.png": "a46a6b0f981bb323840f8a1c0daf54ef2c9243d0815462fe82b3fce88b82ea6c",
+    "arms_rack-lod2.png": "2229b20d96a1095c521d2e24209feb1ebffe2ec3a162456f0443822fcc0819a9"
+  }
+}

@@ -1,5 +1,6 @@
 export interface WorldLifePoint {
   x: number;
+  y?: number;
   z: number;
 }
 
@@ -25,6 +26,7 @@ export function sampleWorldLifeRoute(
   pauseSeconds: number,
 ): WorldLifeRouteSample {
   const start = {
+    ...(origin.y === undefined ? {} : { y: origin.y }),
     x: Number.isFinite(origin.x) ? origin.x : 0,
     z: Number.isFinite(origin.z) ? origin.z : 0,
   };
@@ -71,6 +73,7 @@ export function sampleWorldLifeRoute(
     if (phase < segment.seconds) {
       const progress = phase / segment.seconds;
       return {
+        ...(segment.from.y === undefined ? {} : { y: segment.from.y + ((segment.to.y ?? segment.from.y) - segment.from.y) * progress }),
         x: segment.from.x + (segment.to.x - segment.from.x) * progress,
         z: segment.from.z + (segment.to.z - segment.from.z) * progress,
         heading: segment.heading,

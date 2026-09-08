@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_meadow",
+  "name": "Sunmeadow meadow grasses and wildflowers",
+  "source_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "builder_sha256": "29f5975924a0d8ebf8e3a71aa3945b15862610a7cfa9a76e34752945ec1d525e",
+  "paint_record_sha256": "b8804ffc4341b271b6f393956dd6cae83556bfd4c69b16ff36ce779f4ec7603c",
+  "master": "masters\\frontier_sunmeadow_meadow.blend",
+  "master_sha256": "f6e950c8f09fe68f8c64711a9e6e257574a9a0676dbe38f447079736187eba0e",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_meadow_lod0.glb",
+      "sha256": "3c0f772f1a0b237933102c02a15678c294df64e30d8dba3b9ca515de53913446",
+      "bytes": 1832704,
+      "triangles": 13308,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -1.134331464767456,
+          -0.9481866359710693,
+          -0.0006850549834780395
+        ],
+        "max": [
+          1.0333220958709717,
+          1.1809935569763184,
+          0.7187359929084778
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -1.134331464767456,
+          -0.0006850549834780395,
+          -1.1809935569763184
+        ],
+        "max": [
+          1.0333220958709717,
+          0.7187359929084778,
+          0.9481866359710693
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_meadow_lod1.glb",
+      "sha256": "0dfa8064ea829175f48bdb9516e87715f9b8e0d9f6894a8e486b16294563589d",
+      "bytes": 1528364,
+      "triangles": 7282,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -1.134331464767456,
+          -0.9373444318771362,
+          -0.0006850549834780395
+        ],
+        "max": [
+          1.0266050100326538,
+          1.1809935569763184,
+          0.7187359929084778
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -1.134331464767456,
+          -0.0006850549834780395,
+          -1.1809935569763184
+        ],
+        "max": [
+          1.0266050100326538,
+          0.7187359929084778,
+          0.9373444318771362
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_meadow_lod2.glb",
+      "sha256": "2c7c03406288f8844ea8772964d686b5d746ab02aac6ab476a6bacb0fccadbbf",
+      "bytes": 1275404,
+      "triangles": 2666,
+      "materials": 1,
+      "bounds_blender": {
+        "min": [
+          -1.0114880800247192,
+          -0.9481866359710693,
+          -0.0006538642337545753
+        ],
+        "max": [
+          1.0333220958709717,
+          1.0399285554885864,
+          0.7187359929084778
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -1.0114880800247192,
+          -0.0006538642337545753,
+          -1.0399285554885864
+        ],
+        "max": [
+          1.0333220958709717,
+          0.7187359929084778,
+          0.9481866359710693
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

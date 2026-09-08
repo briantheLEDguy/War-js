@@ -924,9 +924,9 @@
       "radius": 9,
       "targetZoneId": "glassriver_ford",
       "targetSpawn": {
-        "x": 108.4,
+        "x": 488.37,
         "y": 0,
-        "z": -38.4
+        "z": -172.7
       }
     }
   ],
@@ -968,5 +968,55 @@
       ]
     }
   ],
-  "staticMapHash": "30bfbb9cb5c07183"
+  "artDirection": {
+    "zoneId": "glassriver_depths",
+    "realm": "aegis",
+    "races": [
+      "high_elf",
+      "dwarf",
+      "empire"
+    ],
+    "biomeId": "clear_river_valley",
+    "season": "summer",
+    "cultures": "High Elf ferrymen and herbalists; Dwarf masons",
+    "vegetation": [
+      "birch",
+      "willow",
+      "river_grass",
+      "lily",
+      "wildflower"
+    ],
+    "fauna": [
+      "river_deer",
+      "river_stalker",
+      "kingfisher"
+    ],
+    "palette": [
+      "#699595",
+      "#93a676",
+      "#bcbab0"
+    ],
+    "landmark": "Water-cut limestone chamber below the river shelf",
+    "reliefMetres": 20,
+    "vegetationAssetKeys": [
+      "frontier_clear_river_valley_birch",
+      "frontier_clear_river_valley_willow",
+      "frontier_clear_river_valley_river_grass",
+      "frontier_clear_river_valley_lily",
+      "frontier_clear_river_valley_wildflower"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_river_deer",
+      "frontier_creature_river_stalker",
+      "frontier_creature_kingfisher"
+    ],
+    "materialSetKey": "frontier_clear_river_valley_materials",
+    "architectureAssetKey": "frontier_clear_river_valley_settlement",
+    "status": "planned",
+    "parentZoneId": "glassriver_ford",
+    "population": "River predators and drowned-vault guardian",
+    "bossProfileKey": "frontier_boss_glassriver_depths",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "b23a82527e4d7dbb"
 }

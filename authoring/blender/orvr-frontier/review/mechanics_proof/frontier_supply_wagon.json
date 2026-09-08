@@ -1,0 +1,63 @@
+{
+  "glb_sha256": "07e9014ccfdd4f0c4ff1714b42e7ee64642f674712fba46dc11db40123565366",
+  "clips": [
+    {
+      "name": "caravan_roll",
+      "duration_seconds": 1.6,
+      "loop": true,
+      "event_seconds": null,
+      "root_motion": false,
+      "distance_per_cycle_metres": 4.9637163926718735
+    }
+  ],
+  "components": [
+    {
+      "node": "body",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "wheel_0",
+      "world_pivot_z_up": [
+        -1.4700000286102295,
+        -1.149999976158142,
+        0.7900000214576721
+      ]
+    },
+    {
+      "node": "wheel_1",
+      "world_pivot_z_up": [
+        1.4700000286102295,
+        -1.149999976158142,
+        0.7900000214576721
+      ]
+    },
+    {
+      "node": "wheel_2",
+      "world_pivot_z_up": [
+        -1.4700000286102295,
+        1.149999976158142,
+        0.7900000214576721
+      ]
+    },
+    {
+      "node": "wheel_3",
+      "world_pivot_z_up": [
+        1.4700000286102295,
+        1.149999976158142,
+        0.7900000214576721
+      ]
+    },
+    {
+      "node": "realm_standard",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.ash",
+  "modelSha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+  "lod": 1,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_ash_lod0.glb",
+      "sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "triangles": 95516
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_ash_lod1.glb",
+      "sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "triangles": 51682
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_ash_lod2.glb",
+      "sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+      "triangles": 19820
+    }
+  ],
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_ash_lod0.glb",
+      "sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "triangles": 95516
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_ash_lod1.glb",
+      "sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "triangles": 51682
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_ash_lod2.glb",
+      "sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+      "triangles": 19820
+    }
+  ],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "55ebe62506be7b31cef28b990ee513fe76eaaf2f4019173dc8f112026d934c49",
+  "bounds": {
+    "min": [
+      -4.387194633483887,
+      -0.05496381223201752,
+      -4.0610198974609375
+    ],
+    "max": [
+      4.1261725425720215,
+      13.826451301574707,
+      4.020108222961426
+    ]
+  },
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ],
+  "previewImages": [
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod0_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod0_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod1_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod1_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod2_studio_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod2_ground_reimport.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/gameplay_group_30m_lod1.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/gameplay_group_90m_lod2.png",
+    "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/exports_contact_sheet.png"
+  ],
+  "reviewEvidence": {
+    "buildSha256": "84ebba55a8ea3d6d02eac079f4b17d561aa01765ce459037bc14aea4f09da25f",
+    "modelSha256s": [
+      "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613"
+    ],
+    "previewSha256s": {
+      "review\\frontier_sunmeadow_ash_lod0_studio_reimport.png": "7aa1583986eb2fc7b920ade8a8ac43d58a3d08b9fa022c41ec01e71a767c6e1e",
+      "review\\frontier_sunmeadow_ash_lod0_ground_reimport.png": "24a59c8a476a663cb47eec4bfef4d903e9bdc1eda02204f8b9174fd2b62fc0d4",
+      "review\\frontier_sunmeadow_ash_lod1_studio_reimport.png": "6fcfb171d0239095929fbd4aedeec36501f6cbb2d4a1ff315568abcc5dd462b8",
+      "review\\frontier_sunmeadow_ash_lod1_ground_reimport.png": "302ff815a05bd63a11d868032bb9bbea8300a18d4320388a98c692cbce1e78cb",
+      "review\\frontier_sunmeadow_ash_lod2_studio_reimport.png": "99637655479c3dc536c0db0229cce6207c0fbf0b8746dcb0b6dd37c02098ed20",
+      "review\\frontier_sunmeadow_ash_lod2_ground_reimport.png": "7ab2d328741d5faae843f440553c2b654293bca28c335ece9b9c2d21d440e937"
+    },
+    "gameplayReceiptSha256": "99b3fd118c856ec3de4aa10ded55f0085b4cce5791513d75a5b4ceefd93fd22f",
+    "contactSheetReceiptSha256": "ea5b44c935cf2e21c0af57ffc2ceb5ec0910d10ec782fa1726d6fa1f132e08af",
+    "contactSheetSha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294"
+  }
+}

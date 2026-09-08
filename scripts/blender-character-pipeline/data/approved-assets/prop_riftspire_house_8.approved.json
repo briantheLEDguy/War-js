@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.house_8",
+  "displayName": "Riftspire house 8",
+  "category": "prop",
+  "model": "prop_riftspire_house_8.glb",
+  "qc": "prop_riftspire_house_8.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_house_8"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "a545bba693b517daf3d65e99b4a7db419b61e965585959a7fe6d0742e92f2dd6",
+    "qcSha256": "5460a23d52a9ffb1403ccfd83753dd41b1c2c7573a49b425183eaa6f71de00d0",
+    "previews": {
+      "assembly": "48d50152dd82d6a5a7e7c16616a5978078a9ccb9df476328546901a206957e6d"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/house_8-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T08:26:02.766545+00:00",
+    "reviewHash": "b36867bdb6f0bb3a73da69748d80646285ecbbdc28813b9edc231e82698c4f1b"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

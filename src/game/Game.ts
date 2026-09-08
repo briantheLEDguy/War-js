@@ -1,7 +1,12 @@
 import * as THREE from 'three';
+import { colliderBlocksBody, WALKABLE_STEP_UP as WALKABLE_SURFACE_STEP_UP, walkableSurfaceHeight as getWalkableSurfaceHeight } from '../shared/worldNavigation';
 import { createCanalWater } from '../world/CityWater';
 import { safeCityEntry } from '../world/CityNavigation';
 import { CityInstances } from '../world/CityInstances';
+import { FrontierInstances } from '../world/FrontierProps';
+import { CityLifts } from '../world/CityLifts';
+import { craterGround, craterLevel, recoverCraterEntry, fixedCraterRecovery, CraterFloorIndex } from '../world/CraterCity';
+import { CityLighting } from '../world/CityLighting';
 import { isResourceNodeAvailable } from '../data/crafting';
 import { formatKeybinding, type KeybindAction } from '../data/keybindings';
 import { isRvrKeepZone, type CampaignObjectiveStatus, type CampaignRealm, type CampaignZoneStatus } from '../data/campaign';
@@ -65,8 +70,8 @@ import {
   zoneTransitionCanArm,
 } from './ZoneTransition';
 import { VfxLayer } from './animation/VfxLayer';
+import { resolveMapZone } from '../world/mapZoneSource';
 
-const WALKABLE_SURFACE_STEP_UP = 0.85;
 const CORPSE_INTERACT_RADIUS = 4;
 const RESOURCE_NODE_INTERACT_RADIUS = 4.5;
 const QUEST_INTERACT_RADIUS = 4;
@@ -86,6 +91,11 @@ export class Game {
   private loader = new AssetLoader();
   private terrain = new Terrain({ size: 140, segments: 112 });
   private cityInstances: CityInstances | null = null;
+  private frontierInstances: FrontierInstances | null = null;
+  private cityLifts: CityLifts | null = null;
+  private lastSafeLanding = { x: 0, y: 0, z: 0 };
+  private cityLighting: CityLighting | null = null;
+  private craterFloors: CraterFloorIndex | null = null;
   private player!: Player;
   private enemies: Enemy[] = [];
   private npcMixers: THREE.AnimationMixer[] = [];
@@ -132,6 +142,7 @@ export class Game {
   private zoneNpcStates: NpcState[] = [];
   private interactRaycaster = new THREE.Raycaster();
   private worldEditor: WorldEditorRuntime | null = null;
+  private cachedMapZone?: { source: ZoneDefinition; editor: WorldEditorRuntime | null; revision: number; zone: ZoneDefinition };
   private publishedWorldEdit: WorldEditDocument | null = null;
   private currentEditorDraft: WorldEditDocument | null = null;
   private editorAutosaveTimer: number | null = null;
@@ -156,12 +167,30 @@ export class Game {
   get cityDistrictName(): string | null {
     if (!this.currentZone?.cityDistricts?.length || !this.player || this.houseInteriors?.isActive) return null;
     const position = this.player.position;
+    if (this.currentZone.craterCity) {
+      const level = craterLevel(this.currentZone.craterCity, position.y);
+      const distance = (d: { x: number; y?: number; z: number }) => Math.hypot(d.x-position.x,d.z-position.z,2*((d.y??0)-position.y));
+      const nearestHeight = Math.min(...this.currentZone.cityDistricts.map(d => Math.abs((d.y??0)-position.y)));
+      const districts = this.currentZone.cityDistricts.filter(d => Math.abs((d.y??0)-position.y) <= nearestHeight+30);
+      const district = districts.reduce((a,b) => distance(a) < distance(b) ? a : b);
+      return `${district.name} · ${level.id} level · ${Math.round(position.y)} m`;
+    }
     return this.currentZone.cityDistricts.reduce((nearest, district) =>
       Math.hypot(district.x-position.x,district.z-position.z)<Math.hypot(nearest.x-position.x,nearest.z-position.z)?district:nearest
     ).name;
   }
   get cityMapGeometry() {
-    return this.currentZone?.cityLayoutVersion ? this.currentZone : null;
+    return this.currentZone?.cityLayoutVersion ? this.mapZoneDefinition : null;
+  }
+  get mapZoneDefinition(): ZoneDefinition | null {
+    const source = this.currentZone;
+    if (!source) return null;
+    const editor = this.worldEditor;
+    const revision = editor?.mapRevision ?? 0;
+    if (this.cachedMapZone?.source !== source || this.cachedMapZone.editor !== editor || this.cachedMapZone.revision !== revision) {
+      this.cachedMapZone = { source, editor, revision, zone: resolveMapZone(source, editor ? editor.currentDocument : this.publishedWorldEdit) };
+    }
+    return this.cachedMapZone.zone;
   }
   get zoneDefinition(): ZoneDefinition | null { return this.currentZone; }
   get campaignActivity(): { zone: CampaignZoneStatus; focus: CampaignActivity | null; progress: number } | null {
@@ -343,6 +372,11 @@ export class Game {
       flatTerrain: zone.flatTerrain,
       canals: zone.canals,
       cityElevation: zone.cityElevation,
+      orvrTerrain: zone.orvrLayout?.terrain,
+      authoredChunks: zone.orvrLayout?.terrain.chunks,
+      roads: zone.orvrLayout ? zone.paths : undefined,
+      biomePalette: zone.orvrLayout?.biome.palette,
+      authoredCrater: Boolean(zone.craterCity),
     });
     if (this.disposed) return;
     this.scene.add(terrainMesh);
@@ -372,7 +406,15 @@ export class Game {
     this.gates = new Map(spawnedProps.gates.map((gate) => [gate.id, gate]));
     this.housePortals = new Map(spawnedProps.housePortals.map((portal) => [portal.id, portal]));
     this.houseInteriors = new HouseInteriorRuntime(this.scene);
-    if (zone.cityLayoutVersion) await this.houseInteriors.loadCityRooms(this.loader);
+    if (zone.cityLayoutVersion && !zone.craterCity) await this.houseInteriors.loadCityRooms(this.loader);
+    if (zone.craterCity) {
+      this.craterFloors = new CraterFloorIndex(this.walkableSurfaces);
+      this.cityLifts = new CityLifts(zone.craterCity, spawnedProps, container);
+      this.cityLighting = new CityLighting(zone.craterCity,this.scene);
+      this.onDispose.push(()=>this.cityLighting?.dispose());
+      this.onDispose.push(() => this.cityLifts?.dispose());
+      if (this.publishedWorldEdit?.cityLayoutVersion !== zone.cityLayoutVersion) this.publishedWorldEdit = null;
+    }
     if (this.disposed) return;
     for (const object of spawnedProps.objects) {
       this.worldEditor.registerStaticObject(object.definition, object.object);
@@ -381,6 +423,7 @@ export class Game {
     await this.worldEditor.loadDocument(this.publishedWorldEdit, false);
     if (this.disposed) return;
     if (zone.cityLayoutVersion) this.cityInstances = new CityInstances(this.scene, spawnedProps.objects);
+    this.frontierInstances = new FrontierInstances(this.scene, spawnedProps.objects);
 
     // NPCs
     const spawnedNpcs = await spawnNpcs(
@@ -397,10 +440,10 @@ export class Game {
 
     this.worldLife = new WorldLife(this.scene, zone.ambientLife,
       zone.campaign?.realm === 'riftbound' ? 'riftbound' : 'aegis',
-      (x, z) => this.terrain.heightAt(x, z),
+      (x, z, y) => this.groundHeightAt(x, z, y),
       spawnedProps.objects.filter(({ definition }) => definition.kind.startsWith('life_')
         && !definition.model && !definition.assetKey).map(({ object }) => object),
-      zone.id === 'aegis_capital' ? this.loader : undefined);
+      zone.cityLayoutVersion ? this.loader : undefined, Boolean(zone.craterCity));
 
     // Zone triggers
     this.zoneTriggers = zone.zoneTriggers ?? [];
@@ -420,7 +463,16 @@ export class Game {
     }
 
     // Player
-    const requestedEntry = resolveZoneEntryPoint(this.character.position, zone.spawnPoint);
+    let requestedEntry = resolveZoneEntryPoint(this.character.position, zone.spawnPoint);
+    if (zone.craterCity && zone.spawnPoint) {
+      requestedEntry = recoverCraterEntry(requestedEntry, zone.spawnPoint, this.walkableSurfaces);
+      const fixed = fixedCraterRecovery(zone.craterCity, requestedEntry, zone.spawnPoint, this.walkableSurfaces);
+      if (!fixed) {
+        useGameStore.getState().setPendingZoneTransition({ targetZoneId: 'rift_gate_fortress' });
+        return;
+      }
+      requestedEntry = fixed;
+    }
     // Old flat-city saves must be tested against obstacles at the new grade.
     if (zone.cityElevation) requestedEntry.y = this.groundHeightAt(requestedEntry.x, requestedEntry.z);
     const entryPoint = zone.cityLayoutVersion && zone.spawnPoint
@@ -431,6 +483,7 @@ export class Game {
     const respawnY = this.groundHeightAt(safeRespawnPoint.x, safeRespawnPoint.z, safeRespawnPoint.y);
     this.spawnPoint = { x: safeRespawnPoint.x, y: respawnY, z: safeRespawnPoint.z };
     this.character.position = { x: entryPoint.x, y: entryY, z: entryPoint.z };
+    this.lastSafeLanding = { ...this.character.position };
     this.zoneTransitionArmed = false;
     this.zoneTransitionGraceUntilMs = performance.now() + ZONE_TRANSITION_GRACE_MS;
     this.player = new Player(this.character, this.terrain, this.groundHeightAt);
@@ -461,6 +514,7 @@ export class Game {
       e.objectiveDefender = (es.aggroRange ?? 0) > 0 && (zone.rvrObjectives ?? []).some((objective) =>
         Math.hypot(es.x - objective.x, es.z - objective.z) <= objective.captureRadius + 8);
       await e.build(this.loader, this.scene);
+      if (e.object.userData.assetMissing) continue;
       if (es.encounter) e.object.scale.multiplyScalar(1.2);
       this.enemies.push(e);
       this.combat.registerEnemy(e);
@@ -531,6 +585,10 @@ export class Game {
   private applyViewDistanceSetting(viewDistance: number): void {
     if (viewDistance === this.appliedViewDistance) return;
     const applied = applySceneViewDistance(this.scene, viewDistance);
+    if (this.currentZone?.craterCity && this.scene.fog instanceof THREE.Fog) {
+      this.scene.fog.near = Math.max(250, applied * .45);
+      this.scene.fog.far = Math.max(1100, applied);
+    }
     this.appliedViewDistance = applied;
     if (this.camera) {
       this.camera.camera.far = Math.max(1200, applied + 200);
@@ -557,6 +615,7 @@ export class Game {
     const simulationMs = performance.now() - updateStart;
     try {
       this.cityInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode, id => this.isStaticSourceSuppressed(id));
+      this.frontierInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode, id => this.isStaticSourceSuppressed(id), dt);
       this.renderer.render(this.scene, this.camera.camera);
     } catch (err) {
       console.error('Renderer threw — recovering', err);
@@ -567,6 +626,13 @@ export class Game {
 
   private update(dt: number, tMs: number) {
     const store = useGameStore.getState();
+    this.cityLifts?.update(dt, this.player.position, store.gmFlyingMode || store.gmBuildMode);
+    if (this.currentZone?.craterCity && !store.gmFlyingMode && !store.gmBuildMode) {
+      const p = this.player.position;
+      const floor = this.groundHeightAt(p.x, p.z, p.y);
+      if (Math.abs(p.y - floor) < .15 && p.y > -300 && !this.cityLifts?.contains(p)) this.lastSafeLanding = { x: p.x, y: floor, z: p.z };
+      if (!this.cityLifts?.contains(p) && (p.y < this.lastSafeLanding.y - 18 || p.y < -310)) this.player.teleportTo(this.lastSafeLanding);
+    }
     this.applyViewDistanceSetting(store.settings.viewDistance);
 
     // Handle respawn requested from the death-overlay button
@@ -751,6 +817,7 @@ export class Game {
         },
       );
     }
+    this.worldEditor?.update(dt);
     if (store.gmBuildMode) {
       this.worldEditor?.setPlayerPose(
         {
@@ -792,6 +859,7 @@ export class Game {
     for (const mixer of this.npcMixers) mixer.update(dt);
     this.houseInteriors?.update(dt);
     this.worldLife?.update(dt, this.player.position, store.settings.viewDistance);
+    this.cityLighting?.update(this.player.position);
 
     // Enemy visibility sync
     for (const e of this.enemies) {
@@ -842,11 +910,17 @@ export class Game {
     this.input.endFrame();
   }
 
+  private interactionDistance(point: {x: number; y?: number; z: number}): number {
+    const p = this.player.position;
+    return Math.hypot(p.x-point.x, p.z-point.z, this.currentZone?.craterCity && point.y !== undefined ? p.y-point.y : 0);
+  }
+
   private findContainingZoneTrigger(): ZoneTrigger | null {
     if (!this.player || this.zoneTriggers.length === 0) return null;
     const px = this.player.position.x;
     const pz = this.player.position.z;
     for (const trigger of this.zoneTriggers) {
+      if (trigger.y !== undefined && Math.abs(this.player.position.y - trigger.y) > 4) continue;
       const dx = px - trigger.x;
       const dz = pz - trigger.z;
       if (dx * dx + dz * dz < trigger.radius * trigger.radius) return trigger;
@@ -1026,7 +1100,7 @@ export class Game {
 
     for (const enemy of store.enemies) {
       if (enemy.alive || !enemy.gathering || enemy.gathering.harvested) continue;
-      const dist = Math.hypot(px - enemy.position.x, pz - enemy.position.z);
+      const dist = this.interactionDistance(enemy.position);
       if (dist <= CORPSE_INTERACT_RADIUS && (!best || dist < best.dist)) best = { enemy, dist };
     }
 
@@ -1060,7 +1134,7 @@ export class Game {
 
     for (const station of this.craftingStations) {
       const radius = station.radius ?? 5;
-      const dist = Math.hypot(px - station.x, pz - station.z);
+      const dist = this.interactionDistance(station);
       if (dist <= radius && (!best || dist < best.dist)) best = { station, dist };
     }
 
@@ -1081,7 +1155,7 @@ export class Game {
 
     for (const npc of store.npcs) {
       if (npc.role !== 'questgiver') continue;
-      const dist = Math.hypot(px - npc.position.x, pz - npc.position.z);
+      const dist = this.interactionDistance(npc.position);
       if (dist < QUEST_INTERACT_RADIUS && (!best || dist < best.dist)) best = { npc, dist };
     }
 
@@ -1139,7 +1213,7 @@ export class Game {
 
     for (const enemy of store.enemies) {
       if (!enemy.alive) continue;
-      const dist = Math.hypot(px - enemy.position.x, pz - enemy.position.z);
+      const dist = this.interactionDistance(enemy.position);
       if (dist <= TARGETABLE_ENEMY_PROMPT_RADIUS && (!best || dist < best.dist)) {
         best = { enemy, dist };
       }
@@ -1262,7 +1336,7 @@ export class Game {
     for (const node of this.resourceNodes) {
       if (!isResourceNodeAvailable(store.craftingState, zoneId, node.id)) continue;
       const radius = node.radius ?? RESOURCE_NODE_INTERACT_RADIUS;
-      const dist = Math.hypot(px - node.x, pz - node.z);
+      const dist = this.interactionDistance(node);
       if (dist <= radius && (!best || dist < best.dist)) best = { node, dist };
     }
 
@@ -1299,7 +1373,7 @@ export class Game {
 
     for (const enemy of store.enemies) {
       if (enemy.alive || !enemy.gathering || enemy.gathering.harvested) continue;
-      const d = Math.hypot(px - enemy.position.x, pz - enemy.position.z);
+      const d = this.interactionDistance(enemy.position);
       if (d <= CORPSE_INTERACT_RADIUS && (!best || d < best.dist)) best = { id: enemy.id, dist: d };
     }
 
@@ -1320,7 +1394,7 @@ export class Game {
 
     for (const station of this.craftingStations) {
       const radius = station.radius ?? 5;
-      const d = Math.hypot(px - station.x, pz - station.z);
+      const d = this.interactionDistance(station);
       if (d <= radius && (!best || d < best.dist)) best = { station, dist: d };
     }
 
@@ -1337,7 +1411,7 @@ export class Game {
 
     for (const npc of store.npcs) {
       if (npc.role !== 'questgiver') continue;
-      const d = Math.hypot(px - npc.position.x, pz - npc.position.z);
+      const d = this.interactionDistance(npc.position);
       if (d < QUEST_INTERACT_RADIUS && (!best || d < best.dist)) best = { id: npc.id, dist: d };
     }
 
@@ -1388,13 +1462,25 @@ export class Game {
   }
 
   private cameraGroundHeightAt = (x: number, z: number): number =>
-    this.houseInteriors?.getFloorHeightAt(x, z) ?? this.terrain.heightAt(x, z);
+    this.houseInteriors?.getFloorHeightAt(x, z) ?? (this.currentZone?.craterCity
+      ? this.groundHeightAt(x, z, this.player?.position.y ?? 0) : this.terrain.heightAt(x, z));
 
   private groundHeightAt = (x: number, z: number, currentY?: number): number => {
     const interiorFloor = this.houseInteriors?.getFloorHeightAt(x, z);
     if (interiorFloor !== null && interiorFloor !== undefined) return interiorFloor;
+    if (this.currentZone?.craterCity) {
+      const nearby = this.craterFloors?.at(x, z) ?? this.walkableSurfaces;
+      const walkables = [
+        ...nearby.filter(surface => !this.isStaticSourceSuppressed(surface.sourceObjectId)),
+        ...(this.worldEditor?.getWalkableSurfaces() ?? []),
+      ];
+      const y = currentY ?? this.player?.position.y ?? 0;
+      const height = craterGround(x, z, y, walkables, this.currentZone.craterCity.basinY);
+      return Math.max(height, this.worldEditor?.getTerrainHeightAt(x, z, y + WALKABLE_SURFACE_STEP_UP) ?? height);
+    }
     let height = this.terrain.heightAt(x, z);
     const reachableY = (currentY ?? height) + WALKABLE_SURFACE_STEP_UP;
+    height = Math.max(height, this.worldEditor?.getTerrainHeightAt(x, z, reachableY) ?? height);
     const walkables = [
       ...this.walkableSurfaces.filter((surface) => !this.isStaticSourceSuppressed(surface.sourceObjectId)),
       ...(this.worldEditor?.getWalkableSurfaces() ?? []),
@@ -1430,6 +1516,7 @@ export class Game {
       console.warn('[WorldEditor] failed to load GM draft:', err);
       return null;
     });
+    if (this.currentZone?.craterCity && draft?.cityLayoutVersion !== this.currentZone.cityLayoutVersion) draft = null;
     if (!draft) {
       draft = this.publishedWorldEdit
         ? cloneWorldEditDocument(this.publishedWorldEdit, {
@@ -1633,6 +1720,7 @@ export class Game {
     const user = useGameStore.getState().user;
     return {
       ...document,
+      cityLayoutVersion: this.currentZone?.cityLayoutVersion,
       authorUserId: user?.id ?? document.authorUserId,
       authorEmail: user?.email ?? document.authorEmail,
     };
@@ -1641,8 +1729,7 @@ export class Game {
   private isColliderActive(collider: WorldCollider, checkPlayerHeight = true): boolean {
     const playerY = this.player?.position.y;
     if (checkPlayerHeight && playerY !== undefined) {
-      if (collider.minY !== undefined && playerY < collider.minY) return false;
-      if (collider.maxY !== undefined && playerY > collider.maxY) return false;
+      if (!colliderBlocksBody(collider, playerY)) return false;
     }
     if (collider.blocksWhen === 'always') return true;
     if (!collider.interactionId) return true;
@@ -1900,6 +1987,7 @@ export class Game {
     for (const mixer of this.npcMixers) mixer.stopAllAction();
     this.player?.disposeAnimations();
     this.worldLife?.dispose();
+    this.frontierInstances?.dispose();
     this.loader.dispose(this.scene);
     this.cityInstances?.dispose();
     for (const fn of this.onDispose) {
@@ -2005,27 +2093,6 @@ function applyGateFallbackVisual(object: THREE.Object3D, progress: number): void
     if (typeof side !== 'number') return;
     node.rotation.y = -side * (Math.PI / 2) * clamped;
   });
-}
-
-function getWalkableSurfaceHeight(
-  x: number,
-  z: number,
-  surface: WorldWalkableSurface,
-): number | null {
-  const dx = x - surface.x;
-  const dz = z - surface.z;
-  const cos = Math.cos(surface.rotY);
-  const sin = Math.sin(surface.rotY);
-  const localX = dx * cos + dz * sin;
-  const localZ = -dx * sin + dz * cos;
-  const halfW = surface.width / 2;
-  const halfD = surface.depth / 2;
-  if (localX < -halfW || localX > halfW || localZ < -halfD || localZ > halfD) return null;
-
-  const t = surface.axis === 'x'
-    ? (localX + halfW) / surface.width
-    : (localZ + halfD) / surface.depth;
-  return surface.fromY + (surface.toY - surface.fromY) * clamp(t, 0, 1);
 }
 
 function clamp(value: number, min: number, max: number): number {

@@ -934,9 +934,9 @@
       "radius": 9,
       "targetZoneId": "ashen_steppe",
       "targetSpawn": {
-        "x": 113.3,
+        "x": 510.55,
         "y": 0,
-        "z": -19.5
+        "z": -87.57
       }
     }
   ],
@@ -977,5 +977,55 @@
       ]
     }
   ],
-  "staticMapHash": "a6afaf49b2722060"
+  "artDirection": {
+    "zoneId": "ashfang_pit",
+    "realm": "riftbound",
+    "races": [
+      "chaos",
+      "greenskin",
+      "dark_elf"
+    ],
+    "biomeId": "semiarid_steppe",
+    "season": "summer",
+    "cultures": "Chaos war settlements; Greenskin wagon crews",
+    "vegetation": [
+      "dry_grass",
+      "thorn_scrub",
+      "acacia",
+      "sage",
+      "deadwood"
+    ],
+    "fauna": [
+      "steppe_antelope",
+      "ash_hound",
+      "steppe_bird"
+    ],
+    "palette": [
+      "#ae936b",
+      "#897052",
+      "#716b61"
+    ],
+    "landmark": "Ochre dry wash opening into a layered sandstone pit",
+    "reliefMetres": 17,
+    "vegetationAssetKeys": [
+      "frontier_semiarid_steppe_dry_grass",
+      "frontier_semiarid_steppe_thorn_scrub",
+      "frontier_semiarid_steppe_acacia",
+      "frontier_semiarid_steppe_sage",
+      "frontier_semiarid_steppe_deadwood"
+    ],
+    "creatureProfileKeys": [
+      "frontier_creature_steppe_antelope",
+      "frontier_creature_ash_hound",
+      "frontier_creature_steppe_bird"
+    ],
+    "materialSetKey": "frontier_semiarid_steppe_materials",
+    "architectureAssetKey": "frontier_semiarid_steppe_settlement",
+    "status": "planned",
+    "parentZoneId": "ashen_steppe",
+    "population": "Steppe scavengers and ashfang pack leader",
+    "bossProfileKey": "frontier_boss_ashfang_pit",
+    "optionalCampaignBranch": true
+  },
+  "staticMapHash": "b1f4c36b6135bb92"
 }

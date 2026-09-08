@@ -1,0 +1,79 @@
+{
+  "status": "pending_visual_review",
+  "inputs": [
+    {
+      "path": "public\\assets\\models\\chr_civic_battle_prelate_t1_m.glb",
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_back_novitiate_m.glb",
+      "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_chest_novitiate_m.glb",
+      "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_feet_novitiate_m.glb",
+      "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_hands_novitiate_m.glb",
+      "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_head_novitiate_m.glb",
+      "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_legs_novitiate_m.glb",
+      "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+      "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_tabard_novitiate_m.glb",
+      "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+    },
+    {
+      "path": "public\\assets\\models\\arm_civic_battle_prelate_waist_novitiate_m.glb",
+      "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8"
+    },
+    {
+      "path": "authoring\\blender\\orvr-frontier\\runtime\\frontier_supply_officer_kit_lod0.glb",
+      "sha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d"
+    }
+  ],
+  "asset_id": "frontier_supply_officer_kit",
+  "profile_key": "civic_battle_prelate_m",
+  "skeleton_id": "humanoid_game_v2",
+  "bone": "hips",
+  "attachment_matrix_gltf_column_major": [
+    0.5403022170066833,
+    0.2862921953201294,
+    -0.7912713885307312,
+    0.0,
+    -4.967366251662497e-08,
+    0.940342903137207,
+    0.3402281403541565,
+    0.0,
+    0.8414710760116577,
+    -0.1838259994983673,
+    0.5080693960189819,
+    0.0,
+    0.29048827290534973,
+    -0.2922729551792145,
+    -0.06184196472167969,
+    1.0
+  ],
+  "rest_mount_avatar_gltf": [
+    0.24,
+    1.065,
+    0.015
+  ],
+  "image": "review\\frontier_supply_officer_equipped.png",
+  "image_sha256": "9e7c3bbbb35b11e16841064d90178e874b0e387ade5a87ea372e2114285db787",
+  "scope": "Fitted only to this approved body and novitiate armor at scale1; other body/race profiles require a separate fit."
+}

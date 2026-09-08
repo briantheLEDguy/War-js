@@ -1,0 +1,15 @@
+{
+  "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+  "reviewedAt": "2026-09-07T13:49:15.140792+00:00",
+  "observations": "Inspected all three exported LODs in contact sheets 11-15. Stalls, stock, washing lines, cart wheels, winches, iron cages, obelisks and horned armor remain readable. Corrected canopy overhangs, spear tang connections, hanging provision supports, clothes pegs and council bench legs before final inspection. Shared 2K materials and named editable parts retained. Footprints are paired with the district placement clearance checks.",
+  "modelSha256s": [
+    "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+    "22fef09852d8b067cffea36d4c32535bf52a9b7baea316b2740597d6d9fb4603",
+    "1bfa7a44ec9cc0de29acfc578a7a2c4cf3bb4c5366f869905e645e590d1ab213"
+  ],
+  "previewSha256s": {
+    "ritual_obelisk-lod0.png": "887827589c06b1b7bb03e61d7f774ba264cbf318dc44ea8e4b354ec457139ed7",
+    "ritual_obelisk-lod1.png": "0852a8e74cb5c782a5824664771128a1639a38163c5fce7ef708f04fbb59a26a",
+    "ritual_obelisk-lod2.png": "97ca31fdda948fb741a91e9cba9e6808ec6f8f3d68ed82453821431dc7529b31"
+  }
+}

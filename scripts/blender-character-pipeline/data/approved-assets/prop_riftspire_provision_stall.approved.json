@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.provision_stall",
+  "displayName": "Riftspire provision stall",
+  "category": "prop",
+  "model": "prop_riftspire_provision_stall.glb",
+  "qc": "prop_riftspire_provision_stall.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_provision_stall"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "d9b10f9b5b65b83b508dfc03e0aea8dca8a2aebb6b810f8f981c416b83c674d0",
+    "qcSha256": "10169415ac77932164afdf0189475144cf2ba949a0b1e30f0764d897e4ed4a22",
+    "previews": {
+      "assembly": "4dd6649353497def6ed89b9ed9bb39df7d7875da5b763ed386c4c15a66532e14"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/provision_stall-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.167994+00:00",
+    "reviewHash": "5c6df4368342d365e813fa97aa708e4ff5ba69189abbf5f3410cce68f9a85776"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

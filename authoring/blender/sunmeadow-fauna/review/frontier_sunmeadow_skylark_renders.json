@@ -1,0 +1,125 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_skylark",
+      "level": 0,
+      "state": "idle@0",
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "model_sha256": "732791f3b26e4ae7ac66408552456c980f7f7313df9743760f3ffd80c1f24ac0",
+      "image": "review\\frontier_sunmeadow_skylark_lod0_idle_0_reimport.png",
+      "image_sha256": "0b759e7fba42123545fbe9c565210a407ec845967ef1ca4c230b02cff6557a4e",
+      "bounds_blender": {
+        "min": [
+          -0.19294601678848267,
+          -0.1041853055357933,
+          0.004818285349756479
+        ],
+        "max": [
+          0.19295766949653625,
+          0.1504453867673874,
+          0.1829376369714737
+        ],
+        "span": [
+          0.3859036862850189,
+          0.2546306848526001,
+          0.17811934649944305
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.09239059686660767,
+          -0.10418522357940674,
+          0.004818289540708065
+        ],
+        "max": [
+          0.0923837348818779,
+          0.15044541656970978,
+          0.1829376369714737
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_skylark",
+      "level": 0,
+      "state": "fly@0.25",
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "model_sha256": "732791f3b26e4ae7ac66408552456c980f7f7313df9743760f3ffd80c1f24ac0",
+      "image": "review\\frontier_sunmeadow_skylark_lod0_fly_0p25_reimport.png",
+      "image_sha256": "52a2dba5e68e8aaf6d7cc9f06d1f44e06e8436d7bac4bf8aaf2d5297032f3fff",
+      "bounds_blender": {
+        "min": [
+          -0.19294601678848267,
+          -0.1041853055357933,
+          0.004818285349756479
+        ],
+        "max": [
+          0.19295766949653625,
+          0.1504453867673874,
+          0.1829376369714737
+        ],
+        "span": [
+          0.3859036862850189,
+          0.2546306848526001,
+          0.17811934649944305
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1542017012834549,
+          -0.10382621735334396,
+          0.015241922810673714
+        ],
+        "max": [
+          0.15421544015407562,
+          0.15113189816474915,
+          0.23174026608467102
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_skylark",
+      "level": 0,
+      "state": "hop@0.5",
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "model_sha256": "732791f3b26e4ae7ac66408552456c980f7f7313df9743760f3ffd80c1f24ac0",
+      "image": "review\\frontier_sunmeadow_skylark_lod0_hop_0p5_reimport.png",
+      "image_sha256": "9b0a6be5cc93426347030c9cb9c8bbd168cc695349ec29d68c92bf8d56556e2d",
+      "bounds_blender": {
+        "min": [
+          -0.19294601678848267,
+          -0.1041853055357933,
+          0.004818285349756479
+        ],
+        "max": [
+          0.19295766949653625,
+          0.1504453867673874,
+          0.1829376369714737
+        ],
+        "span": [
+          0.3859036862850189,
+          0.2546306848526001,
+          0.17811934649944305
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.09239057451486588,
+          -0.10418523102998734,
+          0.06119144707918167
+        ],
+        "max": [
+          0.0923837423324585,
+          0.15044540166854858,
+          0.24293765425682068
+        ]
+      },
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

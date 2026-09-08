@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.rack",
+  "displayName": "Riftspire rack",
+  "category": "prop",
+  "model": "prop_riftspire_rack.glb",
+  "qc": "prop_riftspire_rack.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_rack"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "6541491b0640577bd43de06328a45cab81c63a33c9aaf23aabb76e786f8324fc",
+    "qcSha256": "22365ede961f26704813fc6335b3f2d08c1b9c3c010cb031d4ee4663b07fe4be",
+    "previews": {
+      "assembly": "104a2fba07efb69237f7491ab763aa7f41d9038ea3c3bd092a3fe9055a104d71"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/rack-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.224Z",
+    "reviewHash": "9c1a783dd5548edd512bb4e72a9dcc7cbff6dcbd9e8f09e94d27d3b71894ce67"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

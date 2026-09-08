@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Riftspire exported model review</title>
+<style>body{margin:0;background:#182128;color:#eee;font:14px system-ui}canvas{display:block}nav{position:absolute;top:12px;left:12px;background:#12191ee8;padding:14px}button{padding:8px;margin:4px}output{display:block}</style>
+<nav><strong>Riftspire · exported model review</strong><p>Drag to orbit · scroll to inspect detail</p><button data-kind="house_1">Cliff residence</button><button data-kind="assembly">Suspended bridge / hut</button><button data-kind="palace">Palace façade</button><button id="lod">LOD 0</button><output>Loading</output></nav>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+const scene=new THREE.Scene();scene.background=new THREE.Color('#28333c');
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(1);renderer.toneMapping=THREE.ACESFilmicToneMapping;document.body.append(renderer.domElement);
+const camera=new THREE.PerspectiveCamera(45,innerWidth/innerHeight,.1,2000),controls=new OrbitControls(camera,renderer.domElement);
+scene.add(new THREE.HemisphereLight(0xbfd8ef,0x434044,2.1));const sun=new THREE.DirectionalLight(0xffe3c5,3);sun.position.set(-40,70,80);scene.add(sun);
+const loader=new GLTFLoader();let current=new THREE.Group(),kind='house_1',lod=0;scene.add(current);
+async function show(){scene.remove(current);current=new THREE.Group();scene.add(current);const add=async(k,x=0,y=0,z=0)=>{const g=await loader.loadAsync(`runtime/prop_riftspire_${k}${lod?`_lod${lod}`:''}.glb`);g.scene.position.set(x,y,z);current.add(g.scene);return g.scene;};
+if(kind==='assembly'){await add('bridge',0,18,0);await add('hut',0,0,0);for(const x of [-3,3]){const c=await add('chain',x,9,0);c.scale.y=.46;}}else await add(kind);
+const bounds=new THREE.Box3().setFromObject(current),size=bounds.getSize(new THREE.Vector3()),center=bounds.getCenter(new THREE.Vector3());controls.target.copy(center);camera.position.copy(center).add(new THREE.Vector3(size.x*.85,size.y*.25,Math.max(size.x,size.y)*1.9));controls.update();document.querySelector('output').textContent=`${kind} · LOD ${lod} · exported GLB / shared 2048px PBR`;}
+document.querySelectorAll('[data-kind]').forEach(b=>b.onclick=()=>{kind=b.dataset.kind;show();});document.querySelector('#lod').onclick=()=>{lod=(lod+1)%3;document.querySelector('#lod').textContent=`LOD ${lod}`;show();};
+renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera);});addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});await show();
+</script></html>

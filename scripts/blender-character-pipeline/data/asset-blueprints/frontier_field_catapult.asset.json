@@ -1,0 +1,104 @@
+{
+  "assetId": "prop.frontier.field_catapult",
+  "displayName": "Frontier Torsion Field Catapult",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "orvr_frontier_authored_siege"
+  ],
+  "runtime": {
+    "staticKey": "frontier_field_catapult"
+  },
+  "output": {
+    "model": "frontier_field_catapult_lod0.glb",
+    "artifactDir": "authoring/blender/orvr-frontier/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/orvr-frontier/runtime/frontier_field_catapult_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "authored_assembly_anchor",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 75376,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 30692,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 20780,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierAuthoredPbr",
+    "textureSet": "frontier_field_catapult",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": [
+      "siege_roll",
+      "catapult_fire",
+      "catapult_reload"
+    ]
+  },
+  "collision": {
+    "policy": "authoritative_orvr_hull",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 40,
+    "maxMeshObjects": 40,
+    "maxTris": 75376,
+    "maxFileSizeMb": 21,
+    "requiresPreview": true,
+    "requiresSkinnedMeshes": false
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "notes": "Exact inventory accepted. Projectile launch and impact remain authoritative; use the parented projectile socket at the release event."
+  }
+}

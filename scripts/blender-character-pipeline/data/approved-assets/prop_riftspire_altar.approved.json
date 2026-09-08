@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.altar",
+  "displayName": "Riftspire altar",
+  "category": "prop",
+  "model": "prop_riftspire_altar.glb",
+  "qc": "prop_riftspire_altar.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_altar"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "bc01bbdaf1ed50f913ae36ba3a5df69df72ae8b9599981298698453b6ca7ec59",
+    "qcSha256": "77bdfa046df0fd1b95ff07f5cb72c40605e4f579e669ec8b3087376917948714",
+    "previews": {
+      "assembly": "733d8ae65cb8f9e77bf0c505908b142a64ffb30582f20f7cf8c3b6423af946fc"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/altar-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.227Z",
+    "reviewHash": "bb18a575edff9b6ab67c7e4c58ed6cad8379519fd1bf998758a1dcf55c4d8670"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,473 @@
+{
+  "records": [
+    {
+      "asset_id": "frontier_battering_ram",
+      "level": 0,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "d06291ce8e92036afcc3127f025711bc829c9dc30da23b4277e39c9aa8d2b777",
+      "output_glb_sha256": "b4a0bb884b2d22a52b277f1bea8f243c18aab162d742956a4fd8f5dbd6edf576",
+      "maps": [
+        {
+          "image": "frontier_battering_ram_lod0_body_normal",
+          "corrected_texels": 44072,
+          "total_texels": 4194304,
+          "input_image_sha256": "9089565762448baba51bfc8676e266f70b9a13ea4c67adb4586e9bb8f96dd2f3",
+          "output_image_sha256": "f8077f751a4859c466b5c1b122e58532e99d647074e769e963dc93a58a0d8810",
+          "original_map": "textures/baked/frontier_battering_ram_lod0_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_battering_ram_lod0_wheel_0_normal",
+          "corrected_texels": 105671,
+          "total_texels": 4194304,
+          "input_image_sha256": "e2d3f41914de9603f0348330917567c4c03d40ce1b3d200c92e3caa26a313181",
+          "output_image_sha256": "f9b6666c0e3aff7845716782818804957484d878fda2a0cdf7e540f68e9f271b",
+          "original_map": "textures/baked/frontier_battering_ram_lod0_wheel_0_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_battering_ram_lod0_ram_striker_normal",
+          "corrected_texels": 6841,
+          "total_texels": 1048576,
+          "input_image_sha256": "f4e555cde54a83b31625152eb8714eb56033fe696f1c76c1cd9a887fc6ddc5e8",
+          "output_image_sha256": "768fa9854f28804c2af9a36701589295b2d8b317a6d0de904183c1f5ce2951d6",
+          "original_map": "textures/baked/frontier_battering_ram_lod0_ram_striker_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_battering_ram",
+      "level": 1,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "30a9db3e131baf08a8630936ec06d034f5f05ddef5a545e5821188ae5a9d8d9d",
+      "output_glb_sha256": "b0bca9f5e2389a6525ef12be7fa7403ccf146181859d9d6f539c87a29b1d149b",
+      "maps": [
+        {
+          "image": "frontier_battering_ram_lod1_body_normal",
+          "corrected_texels": 49451,
+          "total_texels": 4194304,
+          "input_image_sha256": "764655f2339b09cdfc66e866b32bb9ab809dfa56b3b156ceaa3b4f0a2d433b7f",
+          "output_image_sha256": "841f1d18ba674282bb3b6a68893649e49f8313ee6893fef558bab7e1627b8d44",
+          "original_map": "textures/baked/frontier_battering_ram_lod1_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_battering_ram_lod1_wheel_0_normal",
+          "corrected_texels": 77617,
+          "total_texels": 4194304,
+          "input_image_sha256": "b0496bc62dbc41f4c00d8728a614aac8c16c025f78b1572cae413ec83c523495",
+          "output_image_sha256": "127aee8a4702e97330cb77b02c86fc56e695d0320982760e3aadb2d42b4668c0",
+          "original_map": "textures/baked/frontier_battering_ram_lod1_wheel_0_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_battering_ram_lod1_ram_striker_normal",
+          "corrected_texels": 6892,
+          "total_texels": 1048576,
+          "input_image_sha256": "1553d210760b73b015a54e348fc87be2ce1906b3c5a7f5ff8354f106f7a7c801",
+          "output_image_sha256": "76055be19cde036c7dd91e00e4dae2dad2f2dfbb07667e49e5032a0ee38608aa",
+          "original_map": "textures/baked/frontier_battering_ram_lod1_ram_striker_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_battering_ram",
+      "level": 2,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "7a99d910c1c8ba6f34cd1e8d8fb0424c78e1e3ec2fa50120b5e0f14eba0f3da8",
+      "output_glb_sha256": "9cb49414081abd2bb5772e650342a0b6b8413fc70d6133594df265edb12ce95f",
+      "maps": [
+        {
+          "image": "frontier_battering_ram_lod2_body_normal",
+          "corrected_texels": 7543,
+          "total_texels": 1048576,
+          "input_image_sha256": "75aec75099dcb9c50233d46874ee028afc5fda074e5e08f02357f922d49c3619",
+          "output_image_sha256": "344347693b0825500ca35d50922ebed92e989755752da399a553a5baf7947ca8",
+          "original_map": "textures/baked/frontier_battering_ram_lod2_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_battering_ram_lod2_wheel_0_normal",
+          "corrected_texels": 28618,
+          "total_texels": 1048576,
+          "input_image_sha256": "2d9d76ce4ac1b5cd2ce3d609d381668e5eacef1d07cc9cccf13994208f16c675",
+          "output_image_sha256": "1125c530ceefaa1253329d135834041dced9b1f1677b96c294d469d4829d050c",
+          "original_map": "textures/baked/frontier_battering_ram_lod2_wheel_0_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_battering_ram_lod2_ram_striker_normal",
+          "corrected_texels": 5650,
+          "total_texels": 1048576,
+          "input_image_sha256": "65371d3d4811e3375d835e3ae127f08a2155085debd9ddecdd0d5902e8e79fec",
+          "output_image_sha256": "808d2d38cf72dbfa93ab8b8a805384c270d593a42ed20e14f245db63d0b4a79a",
+          "original_map": "textures/baked/frontier_battering_ram_lod2_ram_striker_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_field_catapult",
+      "level": 0,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "b9ebaf2c440a49b2d723a72e1923844aa24181c343a26862f577f66178c0731b",
+      "output_glb_sha256": "e3c42195e3d07bb0a3b32a3e68e0c000421f443b274c7d7bf5f9f1bdae4cda08",
+      "maps": [
+        {
+          "image": "frontier_field_catapult_lod0_body_normal",
+          "corrected_texels": 48155,
+          "total_texels": 4194304,
+          "input_image_sha256": "8c392f11db36180dda6dfebcfb344db0d9d504659f48ef791470a60ee0fd5ff2",
+          "output_image_sha256": "9f5db81fb3c65421ed8f0e0044fd479aa833f95e81ec46f6267d70ea374f1a7c",
+          "original_map": "textures/baked/frontier_field_catapult_lod0_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_field_catapult_lod0_wheel_0_normal",
+          "corrected_texels": 114405,
+          "total_texels": 4194304,
+          "input_image_sha256": "35cf735fc252933e072dade2bca1ee46f95ea575b2d06439218ab3dc21fcdfdd",
+          "output_image_sha256": "6dd718336474c5fe52f57ba45ebefd45feb96ca6fe42cec9cd92ffd13091c578",
+          "original_map": "textures/baked/frontier_field_catapult_lod0_wheel_0_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_field_catapult_lod0_throwing_assembly_normal",
+          "corrected_texels": 2917,
+          "total_texels": 4194304,
+          "input_image_sha256": "ff61ebde20345517821fe499bc1588ce11e7ad3e75c6b3341aed84fd2c2dc805",
+          "output_image_sha256": "58c5c84eba91af25651b00ee770c40ee3964a5517990a491a95e801171288be0",
+          "original_map": "textures/baked/frontier_field_catapult_lod0_throwing_assembly_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_field_catapult",
+      "level": 1,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "ae5ddde23b40f1a9c7f5c3c064914858fe4f5f90f9fece52abc31a2b8e98804a",
+      "output_glb_sha256": "ed76b88e60a65ab4c42d69bea72377778790e6e8ec003132bc9d1298f4fbf7c9",
+      "maps": [
+        {
+          "image": "frontier_field_catapult_lod1_body_normal",
+          "corrected_texels": 50680,
+          "total_texels": 4194304,
+          "input_image_sha256": "cc801cc68fa9534f08e121c2cb782d8f76b39d90f20be606d85c98d75a35ec4c",
+          "output_image_sha256": "051318cf3b9069785e521f759a380ff2d9bf76ebba688d78a661730cee7328e3",
+          "original_map": "textures/baked/frontier_field_catapult_lod1_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_field_catapult_lod1_wheel_0_normal",
+          "corrected_texels": 86797,
+          "total_texels": 4194304,
+          "input_image_sha256": "63b3c8f45ddd68c6290399153ea198b8190fcd66f67b6ae4d9cd623074d291c9",
+          "output_image_sha256": "fa47776ba29e77f7ef39b79af8b417893e3e8c3d11b243d3574beeb96835af86",
+          "original_map": "textures/baked/frontier_field_catapult_lod1_wheel_0_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_field_catapult_lod1_throwing_assembly_normal",
+          "corrected_texels": 2772,
+          "total_texels": 4194304,
+          "input_image_sha256": "daf49c94e21905e81d27a397d74872a80c6068d0650cbcb30d87462632fbcf8f",
+          "output_image_sha256": "5dd47978a9d939203851ee29be3a3d056a07b92d1feee012af3b3768fc48c0a6",
+          "original_map": "textures/baked/frontier_field_catapult_lod1_throwing_assembly_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_field_catapult",
+      "level": 2,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "45858f48ff048f3949f15de7ff63bafd7bcc6177cad32e8520b7ae88f92b2a25",
+      "output_glb_sha256": "50e5469ea22597497da30f7b0256c0af4834f977c0afc34151b333501ac35758",
+      "maps": [
+        {
+          "image": "frontier_field_catapult_lod2_body_normal",
+          "corrected_texels": 9307,
+          "total_texels": 1048576,
+          "input_image_sha256": "987baab76d3cf21e9565875f6f11dcbe58745e2d5b060cfbd61db9b42a490e42",
+          "output_image_sha256": "92e92a68714576684eff2b3d043fd0bb85c2cbfc71e1b9dd630729bb16733459",
+          "original_map": "textures/baked/frontier_field_catapult_lod2_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_field_catapult_lod2_wheel_0_normal",
+          "corrected_texels": 26960,
+          "total_texels": 1048576,
+          "input_image_sha256": "4c298226175c7c7326347a1eea563841f7a20cee2e0591e25abf50f1c8005cdd",
+          "output_image_sha256": "cc0256bfe92b6ec6f5303c4ec2f4c7f6e97bab006b76a86f317ba882f1b718fa",
+          "original_map": "textures/baked/frontier_field_catapult_lod2_wheel_0_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_field_catapult_lod2_throwing_assembly_normal",
+          "corrected_texels": 573,
+          "total_texels": 1048576,
+          "input_image_sha256": "7758fa8a47652b9644805785e2c095c261ea2553e93c2f69a1cbd4faf445e1fb",
+          "output_image_sha256": "8eec8a9f17a98d7e47bd4bc887aecb16d862638dc22bfd7a48b68848f9e2d24d",
+          "original_map": "textures/baked/frontier_field_catapult_lod2_throwing_assembly_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_keep_gate",
+      "level": 0,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "c5da291136d207c2955bd3640b85cfb930ceb2d47111645ca6b24b1539f3d8d8",
+      "output_glb_sha256": "d3cc30cbb1da031479659ce5c7e2aee17669bf9c252829b8de5a456256386d2e",
+      "maps": [
+        {
+          "image": "frontier_keep_gate_lod0_gate_leaf_left_normal",
+          "corrected_texels": 185799,
+          "total_texels": 4194304,
+          "input_image_sha256": "589cead5e7d96caed04a71888ed97cfabf82d2ffc8d12c6e93edc7f1e2b424eb",
+          "output_image_sha256": "d07666ff4e2365b397025613a57170d3ecc726516269c6b13d0c7cf805c05aef",
+          "original_map": "textures/baked/frontier_keep_gate_lod0_gate_leaf_left_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_keep_gate_lod0_gate_leaf_right_normal",
+          "corrected_texels": 168759,
+          "total_texels": 4194304,
+          "input_image_sha256": "f744f0bd7baa4f47f67b98da9e08ec945de2297d959defcba5f8e2001dbbb7c5",
+          "output_image_sha256": "9ac9bc52d55da5f8e46a8b9fea370fe726257ca9e81c5147b021f3d3569512ac",
+          "original_map": "textures/baked/frontier_keep_gate_lod0_gate_leaf_right_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_keep_gate",
+      "level": 1,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "7b133a834aeb44b737143ed9ffcd126f3b5c46563f6d0ed397b81bcc8f1c8300",
+      "output_glb_sha256": "6f85bf308d5dd4a3cf0c78925e73e5a8f07105932841b2bdb2f6fc3fbccfc17e",
+      "maps": [
+        {
+          "image": "frontier_keep_gate_lod1_gate_leaf_left_normal",
+          "corrected_texels": 179933,
+          "total_texels": 4194304,
+          "input_image_sha256": "cbc2e3fee709ce65bb57017c69dcd01bcd90dfc5336e31648854598d6b96f864",
+          "output_image_sha256": "4595ac5622eb78c29d19eaaa3fdc20df70a4cd8d25edce839f7230c54824820b",
+          "original_map": "textures/baked/frontier_keep_gate_lod1_gate_leaf_left_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_keep_gate_lod1_gate_leaf_right_normal",
+          "corrected_texels": 147772,
+          "total_texels": 4194304,
+          "input_image_sha256": "8de6f15fade8d14073d56e1d7ecf0357d6b2c8acc7dd1a72010ba69e838b9f26",
+          "output_image_sha256": "093b65975d5664bf6ec80f80aeee950c4d0539c147899b69b392e098c0f4d4b4",
+          "original_map": "textures/baked/frontier_keep_gate_lod1_gate_leaf_right_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_keep_gate",
+      "level": 2,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "a2f968d023a0152333685fc569b9462eb77100104f29a17253d94868bda03323",
+      "output_glb_sha256": "5506241b2b2dfe6b1904b4bc97d7be0ec3790fdb0d254c92510333c52647c0ef",
+      "maps": [
+        {
+          "image": "frontier_keep_gate_lod2_gate_leaf_left_normal",
+          "corrected_texels": 58229,
+          "total_texels": 1048576,
+          "input_image_sha256": "35f8e9601198d953b595d8c556d482a6fe397307c0084a14fe2abd384dd88ed0",
+          "output_image_sha256": "2e5837f68d61c274f634fee4f58ae314d35be0633d3f051b9e35f69987530b19",
+          "original_map": "textures/baked/frontier_keep_gate_lod2_gate_leaf_left_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_keep_gate_lod2_gate_leaf_right_normal",
+          "corrected_texels": 39587,
+          "total_texels": 1048576,
+          "input_image_sha256": "a07cdaeda32363aaa0cdfc066a4a2e0f50488a23f36550abd3e66ba6a55ddce8",
+          "output_image_sha256": "2348a7314c1f9774be747a7409a02bb338e2779eb64015cc0cf1a71c387e000a",
+          "original_map": "textures/baked/frontier_keep_gate_lod2_gate_leaf_right_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_oil_cauldron",
+      "level": 0,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "3c81a708f17789af080f81fe4eb80cc795a88a3918f139933ed4598207376916",
+      "output_glb_sha256": "7e2ed6daf2ef8bdfe85a3eb186e3cd5f2c150454097f273d59cd59dd4cd11ccf",
+      "maps": [
+        {
+          "image": "frontier_oil_cauldron_lod0_tipping_cauldron_normal",
+          "corrected_texels": 1514,
+          "total_texels": 1048576,
+          "input_image_sha256": "d41a40cfb5a608b6cec7c742b55542fe3407cd4f1e0b1b023b7ef028c1c5b6fc",
+          "output_image_sha256": "881042b381a5ef76a53dbbdf16a6c082b83f0ba4e92eaaa1b202cc2a3026fbf8",
+          "original_map": "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_oil_cauldron_lod0_body_normal",
+          "corrected_texels": 2081,
+          "total_texels": 1048576,
+          "input_image_sha256": "16b37863f282911323e3d9f350968ecce9ae56bbc6c689a9b47ff740d7fbcccd",
+          "output_image_sha256": "7f1453cef15a525d8837536b923367786256b153486e5bf91f09ccb415f5a4c0",
+          "original_map": "textures/baked/frontier_oil_cauldron_lod0_body_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_oil_cauldron",
+      "level": 1,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "3d6a4996de318330e590e393275dab12c207a44f39106f182dc59da6df95cf5b",
+      "output_glb_sha256": "2701956bab6f5a73374915def38bea910845fc159deb50b5863d635da196f046",
+      "maps": [
+        {
+          "image": "frontier_oil_cauldron_lod1_tipping_cauldron_normal",
+          "corrected_texels": 1128,
+          "total_texels": 1048576,
+          "input_image_sha256": "b9a4955e65b64d42eb52ce7cfdf76580d2620867b892dcc757af17412533bc5f",
+          "output_image_sha256": "737fd1e96543de9affaa4c9421ebbc803e962bcc69e0a205bd7e71fea8880648",
+          "original_map": "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_oil_cauldron_lod1_body_normal",
+          "corrected_texels": 708,
+          "total_texels": 1048576,
+          "input_image_sha256": "d9c6e6f23c79ef0ad4c5aa7d9d6eed035c8220c83a0198679f1c4613725a0cd2",
+          "output_image_sha256": "0c9874d9b5bcd2c39381b940603ec2c1115796010e3fbcc259b97b411d437329",
+          "original_map": "textures/baked/frontier_oil_cauldron_lod1_body_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_oil_cauldron",
+      "level": 2,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "5addd80c0db6f466636d36c61d6a196e8a5886a6e1c823fc18c54ed42b1e6247",
+      "output_glb_sha256": "6c1bc6e8a6fde61a911af8e265df2ea734425895d18e7e5fa4894791943ea49d",
+      "maps": [
+        {
+          "image": "frontier_oil_cauldron_lod2_tipping_cauldron_normal",
+          "corrected_texels": 567,
+          "total_texels": 262144,
+          "input_image_sha256": "311474d11e947c28faefde4e7111c3867f20dadfaed2c9ea1d971388d51cf391",
+          "output_image_sha256": "d260618836f11d5525645db6b24328b3249a27605a97400e7360cec4dfbd62fb",
+          "original_map": "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_oil_cauldron_lod2_body_normal",
+          "corrected_texels": 264,
+          "total_texels": 262144,
+          "input_image_sha256": "b87f5e694f271441ab0c4f1689a2ed21b4503c3ec8d6df56cbdb3d38f1abefd8",
+          "output_image_sha256": "658c7b01a231a654edb6e4a930555d5af8c99525ff4b9f3616d5211c68d3186c",
+          "original_map": "textures/baked/frontier_oil_cauldron_lod2_body_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_supply_wagon",
+      "level": 0,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "e405a2c60a95c2619bb030fe7111e24ff82bd5ed674664bc740bc11b61ee3e9b",
+      "output_glb_sha256": "5f1e726bf69f6aedb3c4f3025292fd117c379eaf1c32d57d4802b31e5c2f492d",
+      "maps": [
+        {
+          "image": "frontier_supply_wagon_lod0_body_normal",
+          "corrected_texels": 76218,
+          "total_texels": 4194304,
+          "input_image_sha256": "538bb80ec3c44941fb18ef1e5afdb5cdfe9a298ce7b550412c496470326fa5dc",
+          "output_image_sha256": "701ee1bb435061cd6476b30229d6bb6410454d10fc24f4dbf351eae22b4b04ba",
+          "original_map": "textures/baked/frontier_supply_wagon_lod0_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_supply_wagon_lod0_wheel_0_normal",
+          "corrected_texels": 101732,
+          "total_texels": 4194304,
+          "input_image_sha256": "762268882f83ad5233dda408e88af77e85e48382c6b041898febd9f8725cf3e9",
+          "output_image_sha256": "5983fe34fd3c399d8ae570dad2eecf47ce094f040e818a3fc02cfa290adb05f3",
+          "original_map": "textures/baked/frontier_supply_wagon_lod0_wheel_0_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_supply_wagon",
+      "level": 1,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "2a9678a114c971be6adbc985f3f81593ed56fdf9852b80f7aad815c76e2da22a",
+      "output_glb_sha256": "1afeb555be52d305e97e61e74d8927cfd89dd4482b6b0114bd2e9be552a5eb1e",
+      "maps": [
+        {
+          "image": "frontier_supply_wagon_lod1_body_normal",
+          "corrected_texels": 63460,
+          "total_texels": 4194304,
+          "input_image_sha256": "2ec3588bc91fb6eeae6c96167efca887f4d1063c8d18e657156d23ce9a7421aa",
+          "output_image_sha256": "fd2d7a0ac40ee991cf9e66dcc822fc3754bfb53d1662dddb9005a018f2d8e2eb",
+          "original_map": "textures/baked/frontier_supply_wagon_lod1_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_supply_wagon_lod1_wheel_0_normal",
+          "corrected_texels": 87635,
+          "total_texels": 4194304,
+          "input_image_sha256": "6bf54d23363f00ef102d38e9bdfafa6fc8b4334bed08461eb6d7ae72412c01f3",
+          "output_image_sha256": "3a5cf9145813dc45bf42b40795d9ae1c18a9c517289846b5fae595b015de1a2e",
+          "original_map": "textures/baked/frontier_supply_wagon_lod1_wheel_0_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    },
+    {
+      "asset_id": "frontier_supply_wagon",
+      "level": 2,
+      "method": "backward_ray_projection_to_evaluated_mesh_normal",
+      "blue_channel_threshold": 126,
+      "tool_sha256": "04c3e3a4b3b651231a54614ca8a39ed510fb2be45cbfd88fa9706b424507a207",
+      "input_glb_sha256": "c7b38100b51ffe7ed355ce4995810a73d47e62e3504594a82424a044dfe5a224",
+      "output_glb_sha256": "51f8836aa62cd2c848b56f36d3bdc560758d0073ba20851732f298f3266a7372",
+      "maps": [
+        {
+          "image": "frontier_supply_wagon_lod2_body_normal",
+          "corrected_texels": 21264,
+          "total_texels": 1048576,
+          "input_image_sha256": "6de4bfd93384947b02555fb99a7508a109c88a6d8d376e545cc69a8141c670c5",
+          "output_image_sha256": "d2d4b09b66477729dca9fa750ed21b7c06501dd0064efe36cb47b8d182254b18",
+          "original_map": "textures/baked/frontier_supply_wagon_lod2_body_normal_projection_original.png"
+        },
+        {
+          "image": "frontier_supply_wagon_lod2_wheel_0_normal",
+          "corrected_texels": 26931,
+          "total_texels": 1048576,
+          "input_image_sha256": "b6701215c7d5a8a8a81ea63c5bf772a1860f01c55577215d53399a3838881379",
+          "output_image_sha256": "93bfc90ca682a31f0b78a4720eb98161146e894f2449541412abbb76b69d9af5",
+          "original_map": "textures/baked/frontier_supply_wagon_lod2_wheel_0_normal_projection_original.png"
+        }
+      ],
+      "note": "Only invalid backward normal projections are reset to the evaluated mesh normal; original maps and all other material channels are retained."
+    }
+  ],
+  "visual_approval": false
+}

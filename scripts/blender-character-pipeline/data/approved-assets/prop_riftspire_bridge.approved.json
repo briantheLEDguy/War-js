@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.bridge",
+  "displayName": "Riftspire bridge",
+  "category": "prop",
+  "model": "prop_riftspire_bridge.glb",
+  "qc": "prop_riftspire_bridge.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_bridge"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "94dbf33f7bc6bf3b03756b89eec31be060c9b313ac5b724822355a7c2259b878",
+    "qcSha256": "12497aa3c810ad9622583103a41197adbdb6f2b77d941b6d8d0c28cf8900b56c",
+    "previews": {
+      "assembly": "3864afa0117e2e1bbcdd5c6b6abf6fcc43b3afe98fcd7aafa0ff23c9fbf0764b"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/bridge-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.147Z",
+    "reviewHash": "9db3738e8d3a72868004301c1cf7f8d6d25218f07474980c7e57070d291b2c86"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

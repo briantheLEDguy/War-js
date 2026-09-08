@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow_gatehouse",
+  "displayName": "Sunmeadow six-metre passage gatehouse",
+  "category": "prop",
+  "model": "frontier_sunmeadow_gatehouse_lod0.glb",
+  "qc": "frontier_sunmeadow_gatehouse_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_gatehouse"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "d1b8999851d23107f6b3d96501ecec5cd003c85b49e6cef8784c1c94442d3685",
+    "qcSha256": "35736346081a146a86655524f85151010729046af9881241f3a1b13489a91735",
+    "previews": {
+      "assembly": "d54dc59c6060dec203b64adc9f6c2b6ad6c20d74020cd0599caa18d2f6e7665f"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_sunmeadow_gatehouse.png"
+  },
+  "review": {
+    "reviewedBy": "Codex integration reviewer (/root)",
+    "reviewedAt": "2026-09-07T17:22:55.0905427Z",
+    "reviewHash": "3d1dbdef56970059ff2d5e3e4625ed213d878160c66a3428aed47d5e93751bac"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_sunmeadow_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/sunmeadow-architecture/source/architecture.json",
+    "sourceSha256": "1ec935cb6ad05321db5dd2b87fddb7db2c10c4f41298ed95a3efa5736cb1ec85"
+  },
+  "approvalState": "approved"
+}

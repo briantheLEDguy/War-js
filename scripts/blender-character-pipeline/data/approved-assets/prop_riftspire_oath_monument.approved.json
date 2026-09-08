@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.oath_monument",
+  "displayName": "Riftspire oath monument",
+  "category": "prop",
+  "model": "prop_riftspire_oath_monument.glb",
+  "qc": "prop_riftspire_oath_monument.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_oath_monument"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "bfb937a31599264e1c5b86a42355f4c722bfd8b070d32562d870c84c0ee4d3d1",
+    "qcSha256": "0d23afa810ab0f9a467ea65e52fbf307fc3154deeb03aac54f22cd0dd2634bfa",
+    "previews": {
+      "assembly": "49434ad43478be3df59787805ca5eda780c90a08ec26d99b86de4d4719bf5514"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/oath_monument-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.146300+00:00",
+    "reviewHash": "bcbb725c1429edcae044a03a629da3ae01855b3a858864797b92239a4c9e462e"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

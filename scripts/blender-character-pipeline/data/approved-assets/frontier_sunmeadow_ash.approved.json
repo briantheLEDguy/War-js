@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.ash",
+  "displayName": "Sunmeadow airy common ash",
+  "category": "prop",
+  "model": "frontier_sunmeadow_ash_lod0.glb",
+  "qc": "frontier_sunmeadow_ash_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_ash"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+    "qcSha256": "0a02a47a1f11b540ac530b3d9f83f2e5f4e4f20ef0c1782279f620f256d2361d",
+    "previews": {
+      "assembly": "7aa1583986eb2fc7b920ade8a8ac43d58a3d08b9fa022c41ec01e71a767c6e1e"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod0_studio_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root internal visual review",
+    "reviewedAt": "2026-09-07T18:27:22.545Z",
+    "reviewHash": "55ebe62506be7b31cef28b990ee513fe76eaaf2f4019173dc8f112026d934c49"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_canopy_v2_ground_view",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/source/design.json",
+    "sourceSha256": "239762a5e304ac145b1b7e6c5e3b01d8873e91d534b08b826f2102b8783c812b"
+  },
+  "approvalState": "approved"
+}

@@ -4,6 +4,7 @@ import { WorldEditorRuntime, propCollidersFromObject, propWalkablesFromObject } 
 import type { WorldEditDocument, WorldPropObject } from '../src/services/types';
 import type { AssetLoader } from '../src/game/AssetLoader';
 import type { Terrain } from '../src/world/Terrain';
+import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
 
 const prop = (): WorldPropObject => ({ id: 'map-stairs', type: 'prop', kind: 'aegis_stairs', createdAt: 0, updatedAt: 0,
   transform: { position: { x: 10, y: 4, z: 20 }, rotation: { x: 0, y: Math.PI / 2, z: 0 }, scale: { x: 2, y: 3, z: 4 } },
@@ -14,6 +15,31 @@ const document = (): WorldEditDocument => ({ schemaVersion: 1, versionId: 'draft
 
 afterEach(() => vi.unstubAllGlobals());
 describe('GM object editing', () => {
+  test('approved NPC stamps retain identity and idle animation through save, reload and deletion', async () => {
+    vi.stubGlobal('window', new EventTarget());
+    const element = Object.assign(new EventTarget(), { style: {}, ownerDocument: new EventTarget() });
+    const geometry = new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute([0,0,0, 1,0,0, 0,1,0], 3));
+    const material = new THREE.MeshStandardMaterial();
+    const assets = { resolveApprovedAssetModels: vi.fn(async () => ['reviewed.glb']), loadModelFull: vi.fn(async () => {
+      const object = new THREE.Group(), mesh = new THREE.Mesh(geometry, material); mesh.name = 'actor'; object.add(mesh);
+      return { object, animations: [new THREE.AnimationClip('idle', 1, [new THREE.NumberKeyframeTrack('actor.rotation[y]', [0,1], [0,.4])])] };
+    }) };
+    const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(); camera.position.z = 10; camera.updateMatrixWorld();
+    const runtime = new WorldEditorRuntime({ scene, camera, domElement: element as unknown as HTMLElement,
+      loader: assets as unknown as AssetLoader, terrain: { heightAt: () => 0 } as Terrain, groundHeightAt: () => 0 });
+    const prefab = WORLD_EDITOR_PREFABS.find(entry => entry.assetCategory === 'characterProfiles')!;
+    await runtime.loadDocument(document(), true); runtime.setSettings({ prefabKind: prefab.kind });
+    await runtime.stampPrefabAtPlayer({ x: 2, y: 0, z: 0 });
+    const saved = JSON.parse(JSON.stringify(runtime.currentDocument));
+    expect(saved.objects[0]).toMatchObject({ assetKey: prefab.assetKey, assetCategory: 'characterProfiles', defaultAnimation: 'idle' });
+    await runtime.loadDocument(saved, true); runtime.update(.5);
+    const actor = scene.getObjectByName('actor')!; expect(actor.rotation.y).toBeCloseTo(.2);
+    runtime.selectObject(saved.objects[0].id); expect(runtime.deleteSelectedObject()).toBe(true);
+    expect(scene.getObjectByName('actor')).toBeUndefined();
+    await runtime.loadDocument(runtime.currentDocument, true);
+    expect(runtime.currentDocument!.objects).toHaveLength(0);
+    runtime.dispose();
+  });
   test('rotated and scaled collision offsets match map spawning, including height bounds', () => {
     const collider = propCollidersFromObject(prop())[0];
     const walkable = propWalkablesFromObject(prop())[0];

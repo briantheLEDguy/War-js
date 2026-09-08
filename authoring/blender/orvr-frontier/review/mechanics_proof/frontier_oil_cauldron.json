@@ -1,0 +1,30 @@
+{
+  "glb_sha256": "f9d3a585832f7b0f19e54d512b98791d090a9a2db3c570a675fc91e162ecf1b6",
+  "clips": [
+    {
+      "name": "oil_pour",
+      "duration_seconds": 3.5,
+      "loop": false,
+      "event_seconds": 0.9333333333333333,
+      "root_motion": false
+    }
+  ],
+  "components": [
+    {
+      "node": "tipping_cauldron",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.8199999928474426
+      ]
+    },
+    {
+      "node": "body",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

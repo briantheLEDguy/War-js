@@ -1,0 +1,2743 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "rest",
+      "view": "head",
+      "focus": "0,-0.57,1.02,0.68",
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_head_reimport.png",
+      "image_sha256": "93709257da7330dd2323bbca464c3f666fe32ce6480a1fd0295984ec83818a79",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.259276698168833e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908472895622253,
+          1.2955422401428223
+        ]
+      },
+      "renderer": "Cycles 20 samples, 1000px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "rest",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_reimport.png",
+      "image_sha256": "73293d97e60ed55e04e241f9aa4382b34aca20a75d20f9bd8b8680d55a70e3fa",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.259276698168833e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908472895622253,
+          1.2955422401428223
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.35",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p35_reimport.png",
+      "image_sha256": "835347cc59fab65cdef6173c72027a552ef718439d29077d0e0b9a857d2ef06c",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19596721231937408,
+          -0.7607544660568237,
+          -0.0008499633404426277
+        ],
+        "max": [
+          0.19596965610980988,
+          0.4490644335746765,
+          1.2545709609985352
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "graze@0.5",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_graze_0p5_reimport.png",
+      "image_sha256": "fcbcc76c45ae13670718bd9bbc28328ff1fd00dca924fefc6b845e7e346311b5",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598162174224854,
+          -1.0239490270614624,
+          -2.0561731162160868e-06
+        ],
+        "max": [
+          0.19598619639873505,
+          0.4489902853965759,
+          0.7575493454933167
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 1,
+      "state": "rest",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
+      "model_sha256": "a9848bea6b0400246d10c56f664bd7e00e9cbf5bf9f615d2c54679e02dfaf15c",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod1_reimport.png",
+      "image_sha256": "07fc7f54f4dabfa82126120c42145b51be9a255496ba94c9d39469aff8a6d051",
+      "bounds_blender": {
+        "min": [
+          -0.18656976521015167,
+          -0.760032057762146,
+          3.060302697122097e-05
+        ],
+        "max": [
+          0.18668435513973236,
+          0.4491189122200012,
+          1.2953708171844482
+        ],
+        "span": [
+          0.37325412034988403,
+          1.209151029586792,
+          1.2953401803970337
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.18656976521015167,
+          -0.760032057762146,
+          3.060173548874445e-05
+        ],
+        "max": [
+          0.18668435513973236,
+          0.4491189420223236,
+          1.2953708171844482
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 1,
+      "state": "run@0.35",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
+      "model_sha256": "a9848bea6b0400246d10c56f664bd7e00e9cbf5bf9f615d2c54679e02dfaf15c",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod1_run_0p35_reimport.png",
+      "image_sha256": "a3f2d8d8da806f9311bc2573f0e76e182f1fb55ed9c134127506958def4acf6f",
+      "bounds_blender": {
+        "min": [
+          -0.18656976521015167,
+          -0.760032057762146,
+          3.060302697122097e-05
+        ],
+        "max": [
+          0.18668435513973236,
+          0.4491189122200012,
+          1.2953708171844482
+        ],
+        "span": [
+          0.37325412034988403,
+          1.209151029586792,
+          1.2953401803970337
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1869085282087326,
+          -0.7607544660568237,
+          -0.000820489483885467
+        ],
+        "max": [
+          0.18703363835811615,
+          0.4490986764431,
+          1.254399061203003
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 1,
+      "state": "graze@0.5",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
+      "model_sha256": "a9848bea6b0400246d10c56f664bd7e00e9cbf5bf9f615d2c54679e02dfaf15c",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod1_graze_0p5_reimport.png",
+      "image_sha256": "bdf07ade1de3386b0045ac18fcdb1b1c67dcfc9eac87d256acaca988ea24c021",
+      "bounds_blender": {
+        "min": [
+          -0.18656976521015167,
+          -0.760032057762146,
+          3.060302697122097e-05
+        ],
+        "max": [
+          0.18668435513973236,
+          0.4491189122200012,
+          1.2953708171844482
+        ],
+        "span": [
+          0.37325412034988403,
+          1.209151029586792,
+          1.2953401803970337
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1869353950023651,
+          -1.0237771272659302,
+          3.080202441196889e-05
+        ],
+        "max": [
+          0.18706002831459045,
+          0.4490242600440979,
+          0.7533329129219055
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 2,
+      "state": "rest",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
+      "model_sha256": "014098a5516eee587253d9a1218dceafb418a8ee66bcdabf5e977382cf2453a8",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod2_reimport.png",
+      "image_sha256": "0c50d4b16ee81f75ac57caa2557d780a14beb20a4cd9288ddb664ce0db9f4ea3",
+      "bounds_blender": {
+        "min": [
+          -0.1753760725259781,
+          -0.760032057762146,
+          0.0009740397799760103
+        ],
+        "max": [
+          0.17559248208999634,
+          0.4488096237182617,
+          1.295226812362671
+        ],
+        "span": [
+          0.35096853971481323,
+          1.2088416814804077,
+          1.2942527532577515
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1753760725259781,
+          -0.760032057762146,
+          0.0009740384994074702
+        ],
+        "max": [
+          0.17559248208999634,
+          0.4488096535205841,
+          1.295226812362671
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 2,
+      "state": "run@0.35",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
+      "model_sha256": "014098a5516eee587253d9a1218dceafb418a8ee66bcdabf5e977382cf2453a8",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod2_run_0p35_reimport.png",
+      "image_sha256": "4e962654bc51321ac701b2ed6731e6ff4105d68ad4b79b5462a9e14ec55c676d",
+      "bounds_blender": {
+        "min": [
+          -0.1753760725259781,
+          -0.760032057762146,
+          0.0009740397799760103
+        ],
+        "max": [
+          0.17559248208999634,
+          0.4488096237182617,
+          1.295226812362671
+        ],
+        "span": [
+          0.35096853971481323,
+          1.2088416814804077,
+          1.2942527532577515
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.17589455842971802,
+          -0.7606997489929199,
+          0.00017364195082336664
+        ],
+        "max": [
+          0.17603641748428345,
+          0.44887036085128784,
+          1.2542657852172852
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 2,
+      "state": "graze@0.5",
+      "view": "full",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
+      "model_sha256": "014098a5516eee587253d9a1218dceafb418a8ee66bcdabf5e977382cf2453a8",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod2_graze_0p5_reimport.png",
+      "image_sha256": "06ad3491c780c98f235d7a114154a014a2dbe2fc05a35c4074e79be00220cacd",
+      "bounds_blender": {
+        "min": [
+          -0.1753760725259781,
+          -0.760032057762146,
+          0.0009740397799760103
+        ],
+        "max": [
+          0.17559248208999634,
+          0.4488096237182617,
+          1.295226812362671
+        ],
+        "span": [
+          0.35096853971481323,
+          1.2088416814804077,
+          1.2942527532577515
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.17587947845458984,
+          -1.023716926574707,
+          0.000974238442722708
+        ],
+        "max": [
+          0.17605316638946533,
+          0.44892430305480957,
+          0.7422668933868408
+        ]
+      },
+      "renderer": "Cycles 16 samples, 900px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0_profile_reimport.png",
+      "image_sha256": "26123d326232dce55649391ff37d296a2968f226a31e977ebd0aab939884e5ba",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1959802657365799,
+          -0.7611209154129028,
+          -2.1975770323479082e-06
+        ],
+        "max": [
+          0.19598925113677979,
+          0.4489903151988983,
+          1.3010108470916748
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.125",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p125_profile_reimport.png",
+      "image_sha256": "0b8ccf01e4c9943206b8601f546f3e3749a4b40610dc77f76666f738c726432b",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598302245140076,
+          -0.7624514698982239,
+          -2.1868843759875745e-05
+        ],
+        "max": [
+          0.19597969949245453,
+          0.448921263217926,
+          1.2949172258377075
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.25",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p25_profile_reimport.png",
+      "image_sha256": "c90868ce237d32e5a7eb29874b91b30b68088556a84939f673fb52abd0610f73",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598598778247833,
+          -0.7621555924415588,
+          -1.6392166799050756e-05
+        ],
+        "max": [
+          0.19597868621349335,
+          0.4489458203315735,
+          1.2896568775177002
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.375",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p375_profile_reimport.png",
+      "image_sha256": "88f0e698fc54e57dc0a8a7b6ec50b98a963f3d2c97b99d1e08afee3896e56020",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598974287509918,
+          -0.7602958679199219,
+          -1.508732748334296e-05
+        ],
+        "max": [
+          0.19598160684108734,
+          0.48046401143074036,
+          1.2963486909866333
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.5",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p5_profile_reimport.png",
+      "image_sha256": "b7fb82dbd428ecf5c9845a785f057570fe8f390dfe79b3bb9d82fe9d3ab8b157",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598466157913208,
+          -0.7578021287918091,
+          -2.150512045773212e-06
+        ],
+        "max": [
+          0.1959848403930664,
+          0.4489903450012207,
+          1.3036880493164062
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.625",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p625_profile_reimport.png",
+      "image_sha256": "900bd53d00c0b82efe353a68d8642b98d4da3803198835033dc52aa649e0b3e0",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1959751397371292,
+          -0.7560708522796631,
+          -2.036209116340615e-05
+        ],
+        "max": [
+          0.19598759710788727,
+          0.44892120361328125,
+          1.2997725009918213
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.75",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p75_profile_reimport.png",
+      "image_sha256": "e894dbb125d369b4930776cb2864656d7b00e6d6aa8d915fe447119ec3172f65",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19597411155700684,
+          -0.7561922073364258,
+          -1.5973182598827407e-05
+        ],
+        "max": [
+          0.19599060714244843,
+          0.4489457607269287,
+          1.2945199012756348
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.875",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p875_profile_reimport.png",
+      "image_sha256": "ff358155be17ee41f0a7dc58bb673687d0f0afcc20621cc4a7cbb000375bca33",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19597703218460083,
+          -0.7582262754440308,
+          -1.4015617125551216e-05
+        ],
+        "max": [
+          0.19599436223506927,
+          0.4804631769657135,
+          1.2983524799346924
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0_profile_reimport.png",
+      "image_sha256": "f99ca632f18bf6f5767ebe1ff90e8cf6b86dbd6aab585fee79434f04631b56e3",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19597038626670837,
+          -0.7611206769943237,
+          -2.2932281353860162e-06
+        ],
+        "max": [
+          0.1959838569164276,
+          0.44899022579193115,
+          1.2659107446670532
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.125",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p125_profile_reimport.png",
+      "image_sha256": "54b27251c18741b476976450c04a1fb169d759cb2c790642c05e18c75210fce3",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19596292078495026,
+          -0.762443482875824,
+          -0.0017567842733114958
+        ],
+        "max": [
+          0.19597113132476807,
+          0.44892168045043945,
+          1.256221055984497
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.25",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p25_profile_reimport.png",
+      "image_sha256": "f95fe91aa55568cd484fe4010f2737995bee0aecbf48ba82d18ba53f8da8d77d",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19596420228481293,
+          -0.7621583938598633,
+          0.017836445942521095
+        ],
+        "max": [
+          0.1959667056798935,
+          0.4489452838897705,
+          1.2473303079605103
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.375",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p375_profile_reimport.png",
+      "image_sha256": "192c2101d0e517ae73ca3e5d6256a6df50275934149630ab4addd486c754cde3",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19596931338310242,
+          -0.760292649269104,
+          -0.0009673255844973028
+        ],
+        "max": [
+          0.19597038626670837,
+          0.4490765929222107,
+          1.257651448249817
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.5",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p5_profile_reimport.png",
+      "image_sha256": "ab144a4ffd170d27856de831aa29c2c56c9fdeec63f2cb43f2421ca6f0e696dc",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598516821861267,
+          -0.75780189037323,
+          6.355756795528578e-06
+        ],
+        "max": [
+          0.19597844779491425,
+          0.44899022579193115,
+          1.2685879468917847
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.625",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p625_profile_reimport.png",
+      "image_sha256": "2b03f3c239e45fa1997119f8ed1129d8d845b040d0cf2921956ee2d6fafdf5ce",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19600282609462738,
+          -0.7560800909996033,
+          -0.0011761643690988421
+        ],
+        "max": [
+          0.19599343836307526,
+          0.5942634344100952,
+          1.261065125465393
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.75",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p75_profile_reimport.png",
+      "image_sha256": "54d783b8e180aeba5e1e28e08ef345b82e58520b930482359a00037132e9fcf1",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19599023461341858,
+          -0.7561882734298706,
+          0.01098918542265892
+        ],
+        "max": [
+          0.19599983096122742,
+          0.5776804089546204,
+          1.2521986961364746
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.875",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p875_profile_reimport.png",
+      "image_sha256": "9a7d4068804c36fd6fddb879b6296d4bf28eff8209c13f2de44c43c5758dbbd0",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598190486431122,
+          -0.758230447769165,
+          -0.0015273748431354761
+        ],
+        "max": [
+          0.19599278271198273,
+          0.5038248896598816,
+          1.259645700454712
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "graze@0",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_graze_0_profile_reimport.png",
+      "image_sha256": "aa0b7cf9916b105a13d5cc8f8045468afccc115b9e84d4be7495bb0027a4b708",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598162174224854,
+          -0.7600318193435669,
+          -2.0561731162160868e-06
+        ],
+        "max": [
+          0.19598619639873505,
+          0.4489902853965759,
+          1.2955421209335327
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "graze@0.25",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_graze_0p25_profile_reimport.png",
+      "image_sha256": "62f54f1eda9a44483486485a6281a6608cb7ea0baf11f7c2454eaf40a26560cb",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1959817111492157,
+          -1.023483157157898,
+          -2.196021569034201e-06
+        ],
+        "max": [
+          0.1959862858057022,
+          0.4489453434944153,
+          0.7570322751998901
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "graze@0.5",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_graze_0p5_profile_reimport.png",
+      "image_sha256": "6f79e0115a00ab10824abb0a7876ea9ba115fa493d5f1a4b97384317386d4f20",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598162174224854,
+          -1.0239490270614624,
+          -2.0561731162160868e-06
+        ],
+        "max": [
+          0.19598619639873505,
+          0.4489902853965759,
+          0.7575493454933167
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "graze@0.75",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_graze_0p75_profile_reimport.png",
+      "image_sha256": "02fbfcf180faa3c4199bc6a1d06e4c60b1ca8676b150a4b4b95fce20646e9047",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598154723644257,
+          -1.024392008781433,
+          -2.2448014078690903e-06
+        ],
+        "max": [
+          0.19598612189292908,
+          0.44894540309906006,
+          0.7580640316009521
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "idle@0.25",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_idle_0p25_profile_reimport.png",
+      "image_sha256": "15b675d14110671cf452279fd19da1cd54891845f44be9ff87450791d4fac853",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.1959817111492157,
+          -0.7621585130691528,
+          -2.196021569034201e-06
+        ],
+        "max": [
+          0.1959862858057022,
+          0.4489453434944153,
+          1.2963802814483643
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "idle@0.75",
+      "view": "profile",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_idle_0p75_profile_reimport.png",
+      "image_sha256": "2ceaac093bb273e94929cc511a1c59c71c2bf286d5941af47ac80982156838ab",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598154723644257,
+          -0.7561883926391602,
+          -2.2448014078690903e-06
+        ],
+        "max": [
+          0.19598612189292908,
+          0.44894540309906006,
+          1.2985488176345825
+        ]
+      },
+      "renderer": "Cycles 8 samples, 500px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "rest",
+      "view": "front",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_front_reimport.png",
+      "image_sha256": "33d417a497b9cd083372e5db9aebff254834fd3ff6bdb9f26867924e02e210e6",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.259276698168833e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908472895622253,
+          1.2955422401428223
+        ]
+      },
+      "renderer": "Cycles 12 samples, 800px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.35",
+      "view": "front",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p35_front_reimport.png",
+      "image_sha256": "ca119314833c54ec44d38ab6c677a0bc3404360548cab8eff7c1a10195c14164",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19596721231937408,
+          -0.7607544660568237,
+          -0.0008499633404426277
+        ],
+        "max": [
+          0.19596965610980988,
+          0.4490644335746765,
+          1.2545709609985352
+        ]
+      },
+      "renderer": "Cycles 12 samples, 800px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "walk@0.5",
+      "view": "front",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_walk_0p5_front_reimport.png",
+      "image_sha256": "e369a5e9c6eb065610e434a6db462434951893d080383b2c052c93993c9a1bbd",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19598466157913208,
+          -0.7578021287918091,
+          -2.150512045773212e-06
+        ],
+        "max": [
+          0.1959848403930664,
+          0.4489903450012207,
+          1.3036880493164062
+        ]
+      },
+      "renderer": "Cycles 12 samples, 800px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "rest",
+      "view": "rear",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_rear_reimport.png",
+      "image_sha256": "0a6da2e7b919014154cbc1ec8fb93f022f51ac89e0840ae2fbd29f0b6af6315d",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.259276698168833e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908472895622253,
+          1.2955422401428223
+        ]
+      },
+      "renderer": "Cycles 12 samples, 800px, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_roe_deer_buck",
+      "level": 0,
+      "state": "run@0.125",
+      "view": "rear",
+      "focus": null,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "model_sha256": "75d918164e78b9dae2298d9f09e757e83c68d238ab1e1efc877f89add7c38781",
+      "build_sha256": "651f8cea224209a03967bb0ebf651cf8c58e1bfe7f5fb8bf50a6ee76061e2732",
+      "authored_files": {
+        "source/anatomy.json": "09202b0ba3d7cc8d2580bf1a12557da9db228074af4ea99d1ca8fe25f0c567e9",
+        "tools/build_fauna.py": "e5935d626674c52c05cc2027e152277276acf99b27c51b9bb59fe7d0697efd11",
+        "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+        "tools/motion.py": "a76aeac7aaca23cd430b4da48692a8ee9d35d680f56d104be416f68655f33c91",
+        "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+        "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+        "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+        "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+        "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+        "tools/reanimate_fauna.py": "a9194875bbdd6ee56b19a28845614dd4fb059f8bac1ad08d9092748d0fde1ef3",
+        "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+        "textures/roe_deer_buck_basecolor.png": "d972bfbffaaf30780bd2e3739fb2743d05527da0ca8cf8aa0ebb320172adf442",
+        "textures/roe_deer_buck_normal.png": "d63599bcd5dbfe49a2d9d83a1a699bc196223eac14ac6e6ffda838951fbd8911",
+        "textures/roe_deer_buck_orm.png": "b0bb0a4562d6e401242c6a47e61ce8c8d78dc7d971de058e9e45cd71e2554c29",
+        "masters/frontier_sunmeadow_roe_deer_buck.blend": "fb1ac6f4cef7cb0210055cdb2ed4c71563ad7aa69dc27e2587cc245ae54c7dd9",
+        "source/frontier_sunmeadow_roe_deer_buck_cage.json": "4e7122d7ffa2fbf876eef4063d30ce5c2556e162e0841239f23a9d9f89937f9d"
+      },
+      "lod0_bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.7600319385528564,
+          -2.2664664811600232e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.4490847885608673,
+          1.2955422401428223
+        ]
+      },
+      "reviewer_source_sha256": "59fb6bdc40cd8152756d341e9148f9c95d01c7d243ed30db87619d9babfde1cb",
+      "image": "review\\frontier_sunmeadow_roe_deer_buck_lod0_run_0p125_rear_reimport.png",
+      "image_sha256": "2b4a2f5ceb37d3f2fd9c4ba2defaf23cd06692d95e5d732a1c6af0c4377aa953",
+      "bounds_blender": {
+        "min": [
+          -0.19568003714084625,
+          -0.760032057762146,
+          -2.257984078823938e-06
+        ],
+        "max": [
+          0.1956833451986313,
+          0.44908469915390015,
+          1.2955422401428223
+        ],
+        "span": [
+          0.39136338233947754,
+          1.2091166973114014,
+          1.2955445051193237
+        ]
+      },
+      "pose_bounds_blender": {
+        "min": [
+          -0.19596292078495026,
+          -0.762443482875824,
+          -0.0017567842733114958
+        ],
+        "max": [
+          0.19597113132476807,
+          0.44892168045043945,
+          1.256221055984497
+        ]
+      },
+      "renderer": "Cycles 12 samples, 800px, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

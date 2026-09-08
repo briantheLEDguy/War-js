@@ -1,0 +1,94 @@
+{
+  "glb_sha256": "5cf4a95cae5ee03b0c6709e3d9aac2bf49ea710e3e31bfe6d443f4bea3b90cdd",
+  "clips": [
+    {
+      "name": "siege_roll",
+      "duration_seconds": 1.6,
+      "loop": true,
+      "event_seconds": null,
+      "root_motion": false,
+      "distance_per_cycle_metres": 4.268796097697811
+    },
+    {
+      "name": "ram_strike",
+      "duration_seconds": 1.5,
+      "loop": false,
+      "event_seconds": 0.7,
+      "root_motion": false
+    }
+  ],
+  "components": [
+    {
+      "node": "body",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "wheel_0",
+      "world_pivot_z_up": [
+        -1.4700000286102295,
+        -1.309999942779541,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "wheel_1",
+      "world_pivot_z_up": [
+        1.4700000286102295,
+        -1.309999942779541,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "wheel_2",
+      "world_pivot_z_up": [
+        -1.4700000286102295,
+        1.309999942779541,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "wheel_3",
+      "world_pivot_z_up": [
+        1.4700000286102295,
+        1.309999942779541,
+        0.6794000267982483
+      ]
+    },
+    {
+      "node": "ram_striker",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        1.6299999952316284
+      ]
+    },
+    {
+      "node": "suspension_front",
+      "world_pivot_z_up": [
+        0.0,
+        -1.1299999952316284,
+        2.890000104904175
+      ]
+    },
+    {
+      "node": "suspension_rear",
+      "world_pivot_z_up": [
+        0.0,
+        1.2400000095367432,
+        2.890000104904175
+      ]
+    },
+    {
+      "node": "realm_standard",
+      "world_pivot_z_up": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

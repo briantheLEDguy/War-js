@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.oak_pasture",
+  "displayName": "Sunmeadow spreading pasture oak",
+  "category": "prop",
+  "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+  "qc": "frontier_sunmeadow_oak_pasture_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_oak_pasture"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+    "qcSha256": "4bcbbf84e8a1a1866baae6ea4d3b5926ed020d6a24ee75f394f1c6ef5a854414",
+    "previews": {
+      "assembly": "f4b7f961412b836f5cd2f90c6cbf417eff9167f8b32f212d40b33dd62f610f17"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root internal visual review",
+    "reviewedAt": "2026-09-07T18:27:22.544Z",
+    "reviewHash": "55ebe62506be7b31cef28b990ee513fe76eaaf2f4019173dc8f112026d934c49"
+  },
+  "provenance": {
+    "createdBy": "original_authored_branch_paths_and_botanical_meshes",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "branch_path_authoring",
+      "leaf_and_blade_topology",
+      "uv_surface_painting",
+      "lod_authoring",
+      "technical_validation",
+      "export_reimport_review"
+    ],
+    "referencePackId": "sunmeadow_canopy_v2_ground_view",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow nature authoring",
+    "source": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/source/design.json",
+    "sourceSha256": "239762a5e304ac145b1b7e6c5e3b01d8873e91d534b08b826f2102b8783c812b"
+  },
+  "approvalState": "approved"
+}

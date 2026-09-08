@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.water_pump",
+  "displayName": "Riftspire water pump",
+  "category": "prop",
+  "model": "prop_riftspire_water_pump.glb",
+  "qc": "prop_riftspire_water_pump.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_water_pump"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "c1e1f3f26ded5707ce6482787f7e8d2c08ee9fd58ecf4f71060124e61c34c7dd",
+    "qcSha256": "adf9994b66c8887fead9afbc7eace6dc935178aadd7a6e435fd8931b55ab31b4",
+    "previews": {
+      "assembly": "f1bf96165838ea31c87d06ca694058ecc78522ffa05329e648e1734b379055e5"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/water_pump-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-07T13:49:15.134810+00:00",
+    "reviewHash": "c5308206c08fa1390b8c6427e091ef4c39cccca9fe61b0f41c88923a037d734c"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

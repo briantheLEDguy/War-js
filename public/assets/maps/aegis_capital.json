@@ -42024,7 +42024,7 @@
       "radius": 9,
       "targetZoneId": "brightfen_approach",
       "targetSpawn": {
-        "x": -115,
+        "x": -518,
         "y": 0,
         "z": 0
       }
@@ -42037,9 +42037,9 @@
       "radius": 9,
       "targetZoneId": "sunmeadow_march",
       "targetSpawn": {
-        "x": 115,
+        "x": -551.69,
         "y": 0,
-        "z": 0
+        "z": -367.8
       }
     },
     {
@@ -42052,7 +42052,7 @@
       "targetSpawn": {
         "x": 0,
         "y": 0,
-        "z": 132.2
+        "z": 518
       }
     }
   ],
@@ -685708,5 +685708,5 @@
       }
     }
   },
-  "staticMapHash": "2baf5372148d5ee2"
+  "staticMapHash": "0ab55c32f19c2fd6"
 }

@@ -1,0 +1,209 @@
+{
+  "renders": [
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 0,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_ash_lod0.glb",
+      "model_sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "image": "review\\frontier_sunmeadow_ash_lod0_studio_reimport.png",
+      "image_sha256": "7aa1583986eb2fc7b920ade8a8ac43d58a3d08b9fa022c41ec01e71a767c6e1e",
+      "bounds_blender": {
+        "min": [
+          -4.249358654022217,
+          -3.925556182861328,
+          -0.05408892780542374
+        ],
+        "max": [
+          3.991551637649536,
+          3.956895351409912,
+          13.675841331481934
+        ],
+        "span": [
+          8.240910530090332,
+          7.88245153427124,
+          13.72992992401123
+        ]
+      },
+      "camera_location": [
+        19.16986083984375,
+        -32.583595275878906,
+        22.980112075805664
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 0,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_ash_lod0.glb",
+      "model_sha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "image": "review\\frontier_sunmeadow_ash_lod0_ground_reimport.png",
+      "image_sha256": "24a59c8a476a663cb47eec4bfef4d903e9bdc1eda02204f8b9174fd2b62fc0d4",
+      "bounds_blender": {
+        "min": [
+          -4.249358654022217,
+          -3.925556182861328,
+          -0.05408892780542374
+        ],
+        "max": [
+          3.991551637649536,
+          3.956895351409912,
+          13.675841331481934
+        ],
+        "span": [
+          8.240910530090332,
+          7.88245153427124,
+          13.72992992401123
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 1,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_ash_lod1.glb",
+      "model_sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "image": "review\\frontier_sunmeadow_ash_lod1_studio_reimport.png",
+      "image_sha256": "6fcfb171d0239095929fbd4aedeec36501f6cbb2d4a1ff315568abcc5dd462b8",
+      "bounds_blender": {
+        "min": [
+          -4.387194633483887,
+          -4.020108222961426,
+          -0.05496381223201752
+        ],
+        "max": [
+          4.1261725425720215,
+          4.0610198974609375,
+          13.826451301574707
+        ],
+        "span": [
+          8.51336669921875,
+          8.081128120422363,
+          13.881415367126465
+        ]
+      },
+      "camera_location": [
+        19.381183624267578,
+        -32.9384880065918,
+        23.233379364013672
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 1,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_ash_lod1.glb",
+      "model_sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+      "image": "review\\frontier_sunmeadow_ash_lod1_ground_reimport.png",
+      "image_sha256": "302ff815a05bd63a11d868032bb9bbea8300a18d4320388a98c692cbce1e78cb",
+      "bounds_blender": {
+        "min": [
+          -4.387194633483887,
+          -4.020108222961426,
+          -0.05496381223201752
+        ],
+        "max": [
+          4.1261725425720215,
+          4.0610198974609375,
+          13.826451301574707
+        ],
+        "span": [
+          8.51336669921875,
+          8.081128120422363,
+          13.881415367126465
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 2,
+      "view": "studio",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_ash_lod2.glb",
+      "model_sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+      "image": "review\\frontier_sunmeadow_ash_lod2_studio_reimport.png",
+      "image_sha256": "99637655479c3dc536c0db0229cce6207c0fbf0b8746dcb0b6dd37c02098ed20",
+      "bounds_blender": {
+        "min": [
+          -4.537087440490723,
+          -4.35780668258667,
+          -0.03777502104640007
+        ],
+        "max": [
+          4.255638122558594,
+          4.41567850112915,
+          13.955071449279785
+        ],
+        "span": [
+          8.792725563049316,
+          8.77348518371582,
+          13.992846488952637
+        ]
+      },
+      "camera_location": [
+        19.527597427368164,
+        -33.194580078125,
+        23.437511444091797
+      ],
+      "camera_lens": 50.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    },
+    {
+      "asset": "frontier_sunmeadow_ash",
+      "level": 2,
+      "view": "ground",
+      "model": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\sunmeadow-nature\\revisions\\canopy-v2\\runtime\\frontier_sunmeadow_ash_lod2.glb",
+      "model_sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613",
+      "image": "review\\frontier_sunmeadow_ash_lod2_ground_reimport.png",
+      "image_sha256": "7ab2d328741d5faae843f440553c2b654293bca28c335ece9b9c2d21d440e937",
+      "bounds_blender": {
+        "min": [
+          -4.537087440490723,
+          -4.35780668258667,
+          -0.03777502104640007
+        ],
+        "max": [
+          4.255638122558594,
+          4.41567850112915,
+          13.955071449279785
+        ],
+        "span": [
+          8.792725563049316,
+          8.77348518371582,
+          13.992846488952637
+        ]
+      },
+      "camera_location": [
+        18.0,
+        -29.0,
+        1.7000000476837158
+      ],
+      "camera_lens": 48.0,
+      "renderer": "Cycles 24 samples, AgX, fixed daylight studio",
+      "decision": "pending"
+    }
+  ],
+  "visual_approval": false
+}

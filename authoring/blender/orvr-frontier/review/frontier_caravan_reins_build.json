@@ -1,0 +1,247 @@
+{
+  "asset_id": "frontier_caravan_reins",
+  "approval": "pending_visual_review",
+  "source_sha256": "9ba41813292355d1e3d596147d6496e579d264658b9239d0d2d962a21e9600d6",
+  "master": "masters\\frontier_caravan_reins.blend",
+  "master_sha256": "6ddee89966d7346fe1b3cbd05e5b4d7a258a77ff4252dda1f7e37275e207805f",
+  "lods": [
+    {
+      "level": 0,
+      "path": "runtime\\frontier_caravan_reins_lod0.glb",
+      "sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+      "bytes": 392064,
+      "triangles": 2176,
+      "materials": 1,
+      "textures": {
+        "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod0_baseColor.png",
+        "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod0_normal.png",
+        "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod0_roughness.png",
+        "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod0_metallic.png",
+        "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod0_occlusion.png",
+        "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod0_orm.png"
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_caravan_reins",
+        "level": 0,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "60a538246716949ece414fe7341b774f1b5a4570f1c1ab3385daca77f91cf9c5",
+        "output_glb_sha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+        "vertices": [
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 375,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              7.091045354628259e-05,
+              -0.057702735013097244,
+              0.9983338065715875,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 406,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.0037832437916221285,
+              0.9993043794037083,
+              0.037100463217899005,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 413,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.0015116519552204972,
+              -0.44641264623840593,
+              0.8948259407207583,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 450,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              -0.0007942299781919905,
+              -0.9110943555666039,
+              0.41219709418361544,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1116,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.023843928437894436,
+              -0.05768632987375034,
+              0.9980499759142051,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1147,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.003785615990786103,
+              0.9993006497459889,
+              0.03720054473814813,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1191,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "new": [
+              0.0002618613647274486,
+              -0.9110945240996993,
+              0.4121974036601495,
+              -1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1288,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              0.0007621558877787839,
+              0.8539430258841026,
+              -0.5203659555181388,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          },
+          {
+            "mesh": 0,
+            "primitive": 0,
+            "vertex": 1387,
+            "old": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "new": [
+              -0.002129753199182543,
+              0.5753890376572922,
+              -0.8178770809205536,
+              1.0
+            ],
+            "method": "adjacent_uv_derivative"
+          }
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "path": "runtime\\frontier_caravan_reins_lod1.glb",
+      "sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+      "bytes": 323604,
+      "triangles": 1414,
+      "materials": 1,
+      "textures": {
+        "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod1_baseColor.png",
+        "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod1_normal.png",
+        "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod1_roughness.png",
+        "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod1_metallic.png",
+        "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod1_occlusion.png",
+        "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod1_orm.png"
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_caravan_reins",
+        "level": 1,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+        "output_glb_sha256": "06c6e4203b4c4aa218c4ef25114aefd0622cc4020fe03a43e315013d2d465776",
+        "vertices": []
+      }
+    },
+    {
+      "level": 2,
+      "path": "runtime\\frontier_caravan_reins_lod2.glb",
+      "sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+      "bytes": 154820,
+      "triangles": 826,
+      "materials": 1,
+      "textures": {
+        "baseColor": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod2_baseColor.png",
+        "normal": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod2_normal.png",
+        "roughness": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod2_roughness.png",
+        "metallic": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod2_metallic.png",
+        "occlusion": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod2_occlusion.png",
+        "orm": "C:\\Users\\bschm\\Desktop\\GitPulls\\War-js\\authoring\\blender\\orvr-frontier\\textures\\baked\\frontier_caravan_reins_lod2_orm.png"
+      },
+      "degenerate_tangent_repair": {
+        "asset_id": "frontier_caravan_reins",
+        "level": 2,
+        "tool_sha256": "3d02c1cd2b4f45053b40f48f5d43e8ee86e9a11469fc4c480657ad5f7d2ab925",
+        "input_glb_sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+        "output_glb_sha256": "b2e89fac1a91872ba1c21f193ee1e4a06e07f82bfd625d7df2d48022c9684460",
+        "vertices": []
+      }
+    }
+  ],
+  "limitations": [
+    "Origin is the wagon origin; only mount with the horse at glTF[0,0,3.75]. Reins are loose static leather fitted for subtle head movement."
+  ]
+}

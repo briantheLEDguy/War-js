@@ -58,6 +58,8 @@ export function LoginScreen() {
         <div className="hint">
           Session is persisted in localStorage. Clear it to sign out fully.
         </div>
+        {(import.meta.env.DEV || import.meta.env.VITE_ORVR_SERVER_URL) &&
+          <a className="shared-playtest-link" href={`${import.meta.env.BASE_URL}?campaign=shared`}>Open shared campaign playtest</a>}
       </div>
     </div>
   );

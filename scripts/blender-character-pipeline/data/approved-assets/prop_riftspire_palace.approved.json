@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.palace",
+  "displayName": "Riftspire palace",
+  "category": "prop",
+  "model": "prop_riftspire_palace.glb",
+  "qc": "prop_riftspire_palace.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_palace"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "363872e8bcf186e95e645e290da8cd33ddf7ea815c43692025b9c10cf719b810",
+    "qcSha256": "dc7e1d095e602872bd7484114eef103d6c87ced3b45dd11334933f771f4b1755",
+    "previews": {
+      "assembly": "f7b533e3253e6b108d55778b763794d07fdc202aed8ce789149f78c2875e743a"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/palace-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.154Z",
+    "reviewHash": "ceeb217fdf06a7449390b41ddab4c5b6768255913604e2b2b19516c482d60554"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -2,6 +2,7 @@ import { applyBiomeKits } from './BiomeKit';
 import { applyZonePaths } from './PathKit';
 import type { WorldLifeDefinition } from './worldLifeTypes';
 import type { CanalDefinition } from './CityWater';
+import type { OrvrZoneArtDirection, OrvrZoneLayout } from './orvrTypes';
 import type {
   CampaignLane,
   CampaignNodeRole,
@@ -20,12 +21,17 @@ import type {
 export interface PropSpawn {
   /** Optional stable GM-editor id for static map props. Generated from prop index when omitted. */
   id?: string;
+  /** Optional human-readable label, also used by the atlas and GM editor. */
+  label?: string;
   kind: 'tree' | 'rock' | 'building' | 'dummy' | string;
   x: number;
   /** Optional vertical offset from terrain height. */
   y?: number;
+  heightMode?: 'absolute';
   z: number;
   rotY?: number;
+  rotX?: number;
+  rotZ?: number;
   scale?: number;
   /** Optional non-uniform scale for generated strips such as roads and trails. */
   scaleX?: number;
@@ -37,6 +43,10 @@ export interface PropSpawn {
   lodModels?: string[];
   /** Optional asset-index static key. Prefer this over direct model names. */
   assetKey?: string;
+  assetCategory?: 'staticProps' | 'characterProfiles';
+  defaultAnimation?: string;
+  modelOffset?: { x: number; y: number; z: number };
+  groundSurface?: 'mesh';
   /** If false, registers colliders/metadata without rendering a visible mesh. */
   visible?: boolean;
   /** Opt into mesh-local Three.js yaw for colliders and walkable surfaces. */
@@ -116,6 +126,8 @@ export interface BiomeKitPlacement {
 }
 
 export interface EnemySpawn {
+  heightMode?: 'absolute';
+  approvedOnly?: boolean;
   id: string;
   name: string;
   level: number;
@@ -156,6 +168,7 @@ export interface ZoneTrigger {
   /** Shown in travel UI, e.g. "Travel to Brightfen Approach" */
   label: string;
   x: number;
+  y?: number;
   z: number;
   /** Radius in world units — player within this distance activates the trigger. */
   radius: number;
@@ -173,6 +186,8 @@ export interface NpcSpawn {
   x: number;
   /** Optional height hint above terrain for stacked walkable floors. */
   y?: number;
+  heightMode?: 'absolute';
+  approvedOnly?: boolean;
   z: number;
   rotY?: number;
   /** Optional asset-index character profile key. Prefer this over direct model names. */
@@ -231,6 +246,7 @@ export interface RvrObjectiveDefinition {
   type: CampaignObjectiveType;
   label: string;
   x: number;
+  y?: number;
   z: number;
   captureRadius: number;
   defaultRealm: CampaignRealm;
@@ -265,6 +281,10 @@ export interface ZoneDefinition {
   staticMapHash?: string;
   /** Campaign metadata for generated RvR zones. */
   campaign?: ZoneCampaignMetadata;
+  /** Authored outdoor layout, supply routes, staging and replacement-asset production state. */
+  orvrLayout?: OrvrZoneLayout;
+  /** Explicit climate and population brief; planned entries are not runtime asset approvals. */
+  artDirection?: OrvrZoneArtDirection;
   /** Capturable objectives, keeps, fortresses, city gates, or boss goals. */
   rvrObjectives?: RvrObjectiveDefinition[];
   props: PropSpawn[];
@@ -285,6 +305,7 @@ export interface ZoneDefinition {
   /** Non-blocking visual walking paths generated into props when the zone loads. */
   paths?: PathDefinition[];
   cityLayoutVersion?: string;
+  craterCity?: import('./CraterCity').CraterCityDefinition;
   cityExpansion?: {
     version: string;
     houses: number;
@@ -342,8 +363,8 @@ export interface ZoneDefinition {
     furniture: number;
   };
   canals?: CanalDefinition[];
-  cityDistricts?: Array<{ id: string; name: string; x: number; z: number }>;
-  explorationPlaces?: Array<{ name: string; x: number; z: number }>;
+  cityDistricts?: Array<{ id: string; name: string; x: number; y?: number; z: number }>;
+  explorationPlaces?: Array<{ name: string; x: number; y?: number; z: number }>;
   atmosphere?: { fogColor: string; sunColor: string; sunIntensity: number };
 }
 
@@ -359,11 +380,16 @@ export interface PathDefinition {
 
 export async function loadZone(id: string): Promise<ZoneDefinition> {
   try {
-    const res = await fetch(`${import.meta.env.BASE_URL}assets/maps/${id}.json`);
+    const res = await fetch(`${import.meta.env.BASE_URL}assets/maps/${id}.json`, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const zone = applyZonePaths((await res.json()) as ZoneDefinition);
     return applyBiomeKits(zone);
   } catch (err) {
+    if (id === 'riftspire_capital') {
+      console.warn('[ZoneLoader] Riftspire map unavailable; recovering through the existing fortress connection.', err);
+      return { id, name: 'Riftspire recovery', size: 1024, segments: 1, flatTerrain: true, props: [], enemies: [], spawnPoint: {x:0,y:0,z:421},
+        craterCity: {version:'unavailable',basinY:-300,levels:[],recovery:[],routes:[],lifts:[],interiors:[],formations:[]} };
+    }
     console.warn(`[ZoneLoader] missing ${id}.json, using built-in default:`, err);
     return applyBiomeKits(applyZonePaths(buildInDefault(id)));
   }

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_glb_canopy_revision_review",
+  "assets": {
+    "frontier_sunmeadow_oak_pasture": {
+      "buildSha256": "1355326bdaf4ff65ece7dcd6e455180f631b348cc4ed030be7fb9c3f17041295",
+      "modelSha256s": [
+        "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+        "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23",
+        "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850"
+      ],
+      "previewSha256s": {
+        "review\\frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png": "f4b7f961412b836f5cd2f90c6cbf417eff9167f8b32f212d40b33dd62f610f17",
+        "review\\frontier_sunmeadow_oak_pasture_lod0_ground_reimport.png": "b441c4f3a9412ca52c530551f06a7b9e96668f0098502a650ca6345c67027cfe",
+        "review\\frontier_sunmeadow_oak_pasture_lod1_studio_reimport.png": "6f8e7d68852f9ce8fcf2f3f5fff2d99f3c9ac383557fef50942db85f03297d5b",
+        "review\\frontier_sunmeadow_oak_pasture_lod1_ground_reimport.png": "4d83f5abb6498dd68284e1132df83f6dc5fef5f1036c85947ff0e9da51382934",
+        "review\\frontier_sunmeadow_oak_pasture_lod2_studio_reimport.png": "bf2c5ca1909968d5159650edcc0fd136018a1c1019b79dcc3a8de11cf596c31d",
+        "review\\frontier_sunmeadow_oak_pasture_lod2_ground_reimport.png": "4566f6bb7f5c39880e0737341522d6184a5161f708805859c90671429dfee27b"
+      },
+      "gameplayReceiptSha256": "99b3fd118c856ec3de4aa10ded55f0085b4cce5791513d75a5b4ceefd93fd22f",
+      "contactSheetReceiptSha256": "ea5b44c935cf2e21c0af57ffc2ceb5ec0910d10ec782fa1726d6fa1f132e08af",
+      "contactSheetSha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294",
+      "status": "approved",
+      "reviewedBy": "Codex root internal visual review",
+      "reviewedAt": "2026-09-07T18:27:22.544Z",
+      "notes": "Root inspected equal-scale all-LOD sheet and actual GLB ground groups at 30m/90m. Fuller asymmetric crowns accepted. LOD2 coarse leaves are appropriate at 90m and must not be used close. All 9 exported GLBs and current review receipts verified."
+    },
+    "frontier_sunmeadow_oak_hedgerow": {
+      "buildSha256": "e27fedc1275fcc7ef3009b9d093555679a44deba445dbe8d11f82118262a4800",
+      "modelSha256s": [
+        "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+        "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa",
+        "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c"
+      ],
+      "previewSha256s": {
+        "review\\frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png": "995e5b29e314f4aac178308542e04f25759dd59a3d8adf7b26ca7ba93b5f73d3",
+        "review\\frontier_sunmeadow_oak_hedgerow_lod0_ground_reimport.png": "7a8384016c2ba4ad61d9ed492e76a5e97b54804ceb3bfdbbda8690764ed81c7b",
+        "review\\frontier_sunmeadow_oak_hedgerow_lod1_studio_reimport.png": "fe4fe7244d76a6972724fa0d004225a7ef8a98cf611ba036c18f55bae2470082",
+        "review\\frontier_sunmeadow_oak_hedgerow_lod1_ground_reimport.png": "f7b48c5dfcd70cf7f817cbfbef5f54f8fabea1ddb4642cffc1067f2cf98c98e4",
+        "review\\frontier_sunmeadow_oak_hedgerow_lod2_studio_reimport.png": "0290661e97dad52082a6d4adab8157cadb3e2e212e287f81db9665e51ddd496e",
+        "review\\frontier_sunmeadow_oak_hedgerow_lod2_ground_reimport.png": "bb39396ba9316b9b428252935a5b049777c3e23048257f791e3fd0f2f56d7d7e"
+      },
+      "gameplayReceiptSha256": "99b3fd118c856ec3de4aa10ded55f0085b4cce5791513d75a5b4ceefd93fd22f",
+      "contactSheetReceiptSha256": "ea5b44c935cf2e21c0af57ffc2ceb5ec0910d10ec782fa1726d6fa1f132e08af",
+      "contactSheetSha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294",
+      "status": "approved",
+      "reviewedBy": "Codex root internal visual review",
+      "reviewedAt": "2026-09-07T18:27:22.545Z",
+      "notes": "Root inspected equal-scale all-LOD sheet and actual GLB ground groups at 30m/90m. Fuller asymmetric crowns accepted. LOD2 coarse leaves are appropriate at 90m and must not be used close. All 9 exported GLBs and current review receipts verified."
+    },
+    "frontier_sunmeadow_ash": {
+      "buildSha256": "84ebba55a8ea3d6d02eac079f4b17d561aa01765ce459037bc14aea4f09da25f",
+      "modelSha256s": [
+        "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+        "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba",
+        "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613"
+      ],
+      "previewSha256s": {
+        "review\\frontier_sunmeadow_ash_lod0_studio_reimport.png": "7aa1583986eb2fc7b920ade8a8ac43d58a3d08b9fa022c41ec01e71a767c6e1e",
+        "review\\frontier_sunmeadow_ash_lod0_ground_reimport.png": "24a59c8a476a663cb47eec4bfef4d903e9bdc1eda02204f8b9174fd2b62fc0d4",
+        "review\\frontier_sunmeadow_ash_lod1_studio_reimport.png": "6fcfb171d0239095929fbd4aedeec36501f6cbb2d4a1ff315568abcc5dd462b8",
+        "review\\frontier_sunmeadow_ash_lod1_ground_reimport.png": "302ff815a05bd63a11d868032bb9bbea8300a18d4320388a98c692cbce1e78cb",
+        "review\\frontier_sunmeadow_ash_lod2_studio_reimport.png": "99637655479c3dc536c0db0229cce6207c0fbf0b8746dcb0b6dd37c02098ed20",
+        "review\\frontier_sunmeadow_ash_lod2_ground_reimport.png": "7ab2d328741d5faae843f440553c2b654293bca28c335ece9b9c2d21d440e937"
+      },
+      "gameplayReceiptSha256": "99b3fd118c856ec3de4aa10ded55f0085b4cce5791513d75a5b4ceefd93fd22f",
+      "contactSheetReceiptSha256": "ea5b44c935cf2e21c0af57ffc2ceb5ec0910d10ec782fa1726d6fa1f132e08af",
+      "contactSheetSha256": "2b563bc18efcb12c5e7c2ccd477d7195ab6baa20e4be21504c5ecb5be47c1294",
+      "status": "approved",
+      "reviewedBy": "Codex root internal visual review",
+      "reviewedAt": "2026-09-07T18:27:22.545Z",
+      "notes": "Root inspected equal-scale all-LOD sheet and actual GLB ground groups at 30m/90m. Fuller asymmetric crowns accepted. LOD2 coarse leaves are appropriate at 90m and must not be used close. All 9 exported GLBs and current review receipts verified."
+    }
+  }
+}

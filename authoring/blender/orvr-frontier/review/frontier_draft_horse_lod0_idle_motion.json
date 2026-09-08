@@ -1,0 +1,26 @@
+{
+  "asset": "frontier_draft_horse",
+  "lod": 0,
+  "clip": "idle",
+  "glb_sha256": "fe1310a52dbc993d55300b6426bb628ec610f205241f75f01d1d58e324e4e3a7",
+  "poses": [
+    {
+      "seconds": 0.0,
+      "bounds_z_up": [
+        [
+          -0.7192220091819763,
+          -1.9021191596984863,
+          -9.030298997458885e-08
+        ],
+        [
+          0.7192220091819763,
+          1.452229619026184,
+          2.4178099632263184
+        ]
+      ]
+    }
+  ],
+  "image": "review\\frontier_draft_horse_lod0_idle_motion.png",
+  "image_sha256": "3582baffcccce1d47f69dc57ef2e36ed0c91fbc1ead81032269d60fc376f3c0d",
+  "decision": "pending_visual_review"
+}

@@ -1,0 +1,82 @@
+{
+  "source_sha256": "91af22f3628455e511fed9dee1a57617c4086975425db64e7cfcd6de1dddaf1f",
+  "authoring_method": "Original literal Cinderfen construction cages, explicit fitted roof deformation records, finite structural placements and independently painted PBR channels. No stock primitive constructors or Sunmeadow mesh/pixel reuse.",
+  "tools": {
+    "tools/audit_geometry.py": "2eca366ec80dd83cdced0968b23652446248b1f30a7a02201468b076fc6e014a",
+    "tools/author_source.py": "2e6ba1ed8447fc9238f2c6ed9cda1c26627f037dcbf6db892ab0e01fc99c1bd5",
+    "tools/build_architecture.py": "87977c32866e8cb330bdf2b87ac95b51b38085f67e2e1d7cbbf07b699f7bb343",
+    "tools/contact_sheet.py": "8c26ce41c2fa87e5e308e1f984e2ba2ff4f2e1b80f359ba1e1fdc946e5545789",
+    "tools/measure_banner_sockets.py": "977c75faab70cbc32636faced8eae54b255b3694295e8796a3c7f3d07bd12291",
+    "tools/merge_builder_metadata.mjs": "24a17bc3ffd70ee373c3a92fcf50a8f2e8bd9d9f66482ea71a6559fb6f234e9b",
+    "tools/paint_surfaces.py": "35eb47b6d07771cbe481e5306f085ebb665bf2213970997695ddff59e4faf427",
+    "tools/review_exports.py": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+    "tools/review_keep_assembly.py": "ae28a9080d6ad3b517fe23065cdae75cf394a25e0b795ffec3dd4b3985e050a8",
+    "tools/share_textures.py": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
+    "tools/test_blueprints.mjs": "11905e245b05ec7484e3e9a2c3027d059e1bb6cf67c35090d9165d4d6a0ec2eb",
+    "tools/test_placement.mjs": "a9726636e2ba27d992377a2b169e182603d62adf549a598e13329ff8db9ee736",
+    "tools/test_published.mjs": "a6ac46aa61d1a341e64b5cd6740092003bf74f483f327d2c44223cd82748e0db",
+    "tools/test_source.py": "c87895035fceb5b785e4db89af493ac472e52a7bded92e20665d96006a8659cb",
+    "tools/validate_architecture.mjs": "5c177c8a5fa32c7e578af611e3f96da202412ec1b17349295a68ccdd8b756bec",
+    "tools/write_provenance.py": "91dc857365b2fe3e0e22d394ca562a6857ac0411a45221f1086b8a0d30a2a014"
+  },
+  "pipeline_references": [
+    {
+      "utility": "build_architecture.py",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/build_architecture.py",
+      "sha256": "a088bad239cc4e26421b4721df2dfaa9665ba1b19bb3251f4655b315d90acaf3",
+      "retained_copy": "source/pipeline-references/a088bad239cc4e26421b4721df2dfaa9665ba1b19bb3251f4655b315d90acaf3_build_architecture.py",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "share_textures.py",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/share_textures.py",
+      "sha256": "d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd",
+      "retained_copy": "source/pipeline-references/d60882ece48bc7e965c48f7e4478abc3a4b53a68b37ae7bd43985093bc23a1cd_share_textures.py",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "review_exports.py",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/review_exports.py",
+      "sha256": "13aacfd45465a5fd06bf59b2df448bf21f5baaede7e0cb35d3bcc3d0a2d299fa",
+      "retained_copy": "source/pipeline-references/13aacfd45465a5fd06bf59b2df448bf21f5baaede7e0cb35d3bcc3d0a2d299fa_review_exports.py",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "audit_geometry.py",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/audit_geometry.py",
+      "sha256": "17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922",
+      "retained_copy": "source/pipeline-references/17eaf46f752028a6f995ae11d15cdf1c175ffe366bcb247f2933ce0c31212922_audit_geometry.py",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "validate_architecture.mjs",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/validate_architecture.mjs",
+      "sha256": "50d7f44580af92231c32c9fc21a8f2836372cb7df44fdb27d7716d63d1d14b56",
+      "retained_copy": "source/pipeline-references/50d7f44580af92231c32c9fc21a8f2836372cb7df44fdb27d7716d63d1d14b56_validate_architecture.mjs",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "contact_sheet.py",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/contact_sheet.py",
+      "sha256": "ff63cd3f35a58da5a67498fc1ca6bd10a1c02c929c3489aab19eac6419ca1766",
+      "retained_copy": "source/pipeline-references/ff63cd3f35a58da5a67498fc1ca6bd10a1c02c929c3489aab19eac6419ca1766_contact_sheet.py",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "test_blueprints.mjs",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/test_blueprints.mjs",
+      "sha256": "86f875c35a05ed390b4a055b5a261b1c5c1c9a1ad523e469169d75258362af22",
+      "retained_copy": "source/pipeline-references/86f875c35a05ed390b4a055b5a261b1c5c1c9a1ad523e469169d75258362af22_test_blueprints.mjs",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    },
+    {
+      "utility": "test_published.mjs",
+      "origin": "authoring/blender/sunmeadow-architecture/tools/test_published.mjs",
+      "sha256": "192dad60648930abb33a253e1b9b2f7093181c4dfa2590e280f45691ff2ddffc",
+      "retained_copy": "source/pipeline-references/192dad60648930abb33a253e1b9b2f7093181c4dfa2590e280f45691ff2ddffc_test_published.mjs",
+      "reuse_scope": "Finishing, export, inspection and publication mechanics only; no geometry or painted pixels."
+    }
+  ],
+  "source_tests": "tools/test_source.py checks all Python tools for primitive constructors, all closed cages/UVs and no exact Sunmeadow cage reuse.",
+  "approval": "This record is provenance only; visual acceptance is separately bound to actual GLB reimport images."
+}

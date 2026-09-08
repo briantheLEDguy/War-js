@@ -1,0 +1,49 @@
+{
+  "views": [
+    {
+      "distance_metres": 30,
+      "lod": 1,
+      "camera_height": 1.7,
+      "lens_mm": 28,
+      "models": [
+        {
+          "model": "runtime\\frontier_sunmeadow_oak_pasture_lod1.glb",
+          "sha256": "066ab9cfa7f81a978891811dcc498ff3df5875a8883c9efc3a12498f1763bf23"
+        },
+        {
+          "model": "runtime\\frontier_sunmeadow_oak_hedgerow_lod1.glb",
+          "sha256": "8425ab07557f1bc66543e5c447b4a6cb4ad2365c68aca12496ef106748e1d3fa"
+        },
+        {
+          "model": "runtime\\frontier_sunmeadow_ash_lod1.glb",
+          "sha256": "fcdfb0fcfc9f8ffd09b85755bb9be9a931323707316c7c0747ac5e5c13da96ba"
+        }
+      ],
+      "image": "review\\gameplay_group_30m_lod1.png",
+      "image_sha256": "18371dd7f9a894810a4fc0595f26ec4b60287157f567c304520b04f91a381d2a"
+    },
+    {
+      "distance_metres": 90,
+      "lod": 2,
+      "camera_height": 1.7,
+      "lens_mm": 28,
+      "models": [
+        {
+          "model": "runtime\\frontier_sunmeadow_oak_pasture_lod2.glb",
+          "sha256": "3dbcbd4f2c4ca5aca34628866d54c4101c00660285ecbc6a356483c18ea5a850"
+        },
+        {
+          "model": "runtime\\frontier_sunmeadow_oak_hedgerow_lod2.glb",
+          "sha256": "0b5cb4089077f7bb23696a6ef60f864b6857e9baeea147e0cf68afc70692ff2c"
+        },
+        {
+          "model": "runtime\\frontier_sunmeadow_ash_lod2.glb",
+          "sha256": "e7aff6419439254fea0a3513bc50efd169b79d156023f59882278cdd08915613"
+        }
+      ],
+      "image": "review\\gameplay_group_90m_lod2.png",
+      "image_sha256": "c1333f34d034e5a9678a1414c54bc9afdc478e878f93a27ce6c9ec700db455f5"
+    }
+  ],
+  "approval": "pending"
+}

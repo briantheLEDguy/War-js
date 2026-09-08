@@ -1,0 +1,410 @@
+{
+  "method": "Edge incidence on actual GLB triangles; optional coincident-position welding at 1e-6 m; each unique mesh counted once.",
+  "interpretation": "Raw boundary edges include split export UV/normal seams. Position welding removes those splits but can merge intentionally touching joinery shells. These props contain disconnected assembled surfaces and are not certified watertight solids. Repeated wheel instances deliberately share one mesh and atlas; this is not a test of arbitrary atlas-interior overlap.",
+  "assets": [
+    {
+      "asset_id": "frontier_supply_wagon",
+      "lods": [
+        {
+          "level": 0,
+          "glb_sha256": "5f1e726bf69f6aedb3c4f3025292fd117c379eaf1c32d57d4802b31e5c2f492d",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 10098,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 4880,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 192,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "glb_sha256": "1afeb555be52d305e97e61e74d8927cfd89dd4482b6b0114bd2e9be552a5eb1e",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 5674,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 2996,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 144,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "glb_sha256": "62405f0d1be4acb411739974590b0da864a3a76804dc3f28265bb77651375459",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 7384,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 1806,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 96,
+              "coincident_triangles": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "frontier_battering_ram",
+      "lods": [
+        {
+          "level": 0,
+          "glb_sha256": "b4a0bb884b2d22a52b277f1bea8f243c18aab162d742956a4fd8f5dbd6edf576",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 6566,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 4880,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 192,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 2,
+              "instances": 1,
+              "raw_boundary_edges": 1468,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "glb_sha256": "b0bca9f5e2389a6525ef12be7fa7403ccf146181859d9d6f539c87a29b1d149b",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 2892,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 3064,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 144,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 2,
+              "instances": 1,
+              "raw_boundary_edges": 756,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "glb_sha256": "c9536a16319df88094a409d34443664e284097af3b71db7695ed54d2671ecba4",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 1592,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 1688,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 96,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 2,
+              "instances": 1,
+              "raw_boundary_edges": 326,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "frontier_oil_cauldron",
+      "lods": [
+        {
+          "level": 0,
+          "glb_sha256": "7e2ed6daf2ef8bdfe85a3eb186e3cd5f2c150454097f273d59cd59dd4cd11ccf",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 2112,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 1,
+              "raw_boundary_edges": 844,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "glb_sha256": "2701956bab6f5a73374915def38bea910845fc159deb50b5863d635da196f046",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 1026,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 1,
+              "raw_boundary_edges": 424,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "glb_sha256": "00ec6121bfe0a77efc0d03efda17c9481761f46e74566112bb23824a6de39449",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 384,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 1,
+              "raw_boundary_edges": 278,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "frontier_field_catapult",
+      "lods": [
+        {
+          "level": 0,
+          "glb_sha256": "b297698539c263b8336c38a52b9d02fbc8a590a1008e8dbdf923f28e5bc9c6e1",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 6736,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 4880,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 192,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 2,
+              "instances": 1,
+              "raw_boundary_edges": 566,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "glb_sha256": "ed76b88e60a65ab4c42d69bea72377778790e6e8ec003132bc9d1298f4fbf7c9",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 3390,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 3042,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 144,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 2,
+              "instances": 1,
+              "raw_boundary_edges": 296,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "glb_sha256": "076b134b0572a9c21e2d861b85bb46685e8c3c29f9c56338b9f29a8e8a9b15a5",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 1722,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 4,
+              "raw_boundary_edges": 1680,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 96,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 2,
+              "instances": 1,
+              "raw_boundary_edges": 234,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "frontier_keep_gate",
+      "lods": [
+        {
+          "level": 0,
+          "glb_sha256": "d3cc30cbb1da031479659ce5c7e2aee17669bf9c252829b8de5a456256386d2e",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 4794,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 1,
+              "raw_boundary_edges": 5572,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "glb_sha256": "6f85bf308d5dd4a3cf0c78925e73e5a8f07105932841b2bdb2f6fc3fbccfc17e",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 2888,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 1,
+              "raw_boundary_edges": 2984,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "glb_sha256": "2ffd3a221a826698e5ea3d887f09a748b6c06ddbb4742a4be2c10b872da96a30",
+          "meshes": [
+            {
+              "mesh": 0,
+              "instances": 1,
+              "raw_boundary_edges": 1566,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            },
+            {
+              "mesh": 1,
+              "instances": 1,
+              "raw_boundary_edges": 1560,
+              "position_welded_boundary_edges": 0,
+              "position_welded_multi_face_edges": 0,
+              "coincident_triangles": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "visual_approval": false
+}

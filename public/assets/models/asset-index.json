@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-1e9ba429db97a901",
+  "assetVersion": "approved-c918ad959de1e66a",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -1445,6 +1445,69 @@
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2",
       "skinned": true
+    },
+    "npc_riftspire_chaos": {
+      "approvalState": "approved",
+      "assetId": "chr.riftspire.chaos",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "aegis_city_guard",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_riftspire_chaos_lod1.glb",
+      "modelSha256": "c3ccd8f432c85859b2ed4168bd687b13c05373d8816d26491037ea52c97b018c",
+      "previews": {
+        "front": "authoring/blender/riftspire-city/review/population_chaos-lod0.png"
+      },
+      "previewSha256": {
+        "front": "69c774b2c49412e58f2d0a4e5c506397bf52cd84a441c6a4e55d99fb1857668f"
+      },
+      "qc": "chr_riftspire_chaos_lod1.qc.json",
+      "qcSha256": "ade696204c02f8d14f7637f43013630d36267bfd5ab4c673648a97c1dd61c5e9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
+    },
+    "npc_riftspire_dark_elf": {
+      "approvalState": "approved",
+      "assetId": "chr.riftspire.dark_elf",
+      "bindPoseId": "civic_relaxed_v1",
+      "bodyFamily": "aegis_people",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_riftspire_dark_elf_lod1.glb",
+      "modelSha256": "2b92b884e23dd7e33ea6fac161185b5e70d7e4ef5fabbb5e081073311c320b15",
+      "previews": {
+        "front": "authoring/blender/riftspire-city/review/population_dark_elf-lod0.png"
+      },
+      "previewSha256": {
+        "front": "897998e16687b15b7d5958df6d7f7653c4fc3248de2e05c90fd03c178ce072e9"
+      },
+      "qc": "chr_riftspire_dark_elf_lod1.qc.json",
+      "qcSha256": "701f7548206c3c9c735c911f993d2853d786a11ec2c7d7ce1325d6bc227d6226",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "aegis_people_v1"
+    },
+    "npc_riftspire_greenskin": {
+      "approvalState": "approved",
+      "assetId": "chr.riftspire.greenskin",
+      "bindPoseId": "a_pose_v2",
+      "bodyFamily": "mire_brutish_v1",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "chr_riftspire_greenskin_lod1.glb",
+      "modelSha256": "071f6bc8c7a7bda2e329852698db3bfbe061d4dc2c3a0aebb2e614cee85dde11",
+      "previews": {
+        "front": "authoring/blender/riftspire-city/review/population_greenskin-lod0.png"
+      },
+      "previewSha256": {
+        "front": "90eff9b1ac6c050ef48bb874d46c65489116cbd176375ddba78cfa522405e65c"
+      },
+      "qc": "chr_riftspire_greenskin_lod1.qc.json",
+      "qcSha256": "c67da3550de8485d5eb49683f6896ca3f5357cb58eb4cbb9ab48f8eed7cb1318",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "humanoid_game_v2"
     }
   },
   "equipment": {
@@ -5108,6 +5171,1294 @@
       "reviewStatus": "compatibility_allowed",
       "runtimeReady": true
     },
+    "frontier_battering_ram": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.battering_ram",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_battering_ram_lod0.glb",
+      "modelSha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "39d8773b195794d4b42a21f193e2667ba896659eb323420f260e4437b7311202"
+      },
+      "qc": "frontier_battering_ram_lod0.qc.json",
+      "qcSha256": "dc4278fe030ce6ea110896cc90114276109ba4b9e37b33796d9c815c2552db73",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_caravan_reins": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.caravan_reins",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_caravan_reins_lod0.glb",
+      "modelSha256": "3b99ff0ed89464e55c0c40213f2d288d46f9100b85927021aec9da11acaa0a9b",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_caravan_reins_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "0457978032be99ca62d7d776f6d05e28dc4c874d728d46846786bc9b40a40b15"
+      },
+      "qc": "frontier_caravan_reins_lod0.qc.json",
+      "qcSha256": "96ae48940349d9489211e65d67dfb399867dfe3a95fedf32178b223e0b602d1a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_corner_access": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_corner_access",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_corner_access_lod0.glb",
+      "modelSha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_corner_access.png"
+      },
+      "previewSha256": {
+        "assembly": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27"
+      },
+      "qc": "frontier_cinderfen_corner_access_lod0.qc.json",
+      "qcSha256": "463e472a54636aeb16896b468714ea0ef5fa0431db0970a5104e3780d15104e0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_curtain_walk": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_curtain_walk",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+      "modelSha256": "d1afc68d62c053ee987dabeef8909a0c219d5a299a499e12d8989ca792c56008",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_curtain_walk.png"
+      },
+      "previewSha256": {
+        "assembly": "036377cb667f97ccd0dd6b0640db550aa8e5dd7f3cef95e4c2d79c4c60ca4058"
+      },
+      "qc": "frontier_cinderfen_curtain_walk_lod0.qc.json",
+      "qcSha256": "944df8ef983eb18bc91e5998bb6e5d610e06a1e4c254e4e7c3307e4d8548863d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_dwelling": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_dwelling",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_dwelling_lod0.glb",
+      "modelSha256": "e623c3fd7b6f5388d4cca781957e284a270bd82333c9e69633ac2aedffc4b1fd",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_dwelling.png"
+      },
+      "previewSha256": {
+        "assembly": "fea6f16371dffe97b718061f73490acd87a7ae0bd7262b3640a0582db8c8dd3f"
+      },
+      "qc": "frontier_cinderfen_dwelling_lod0.qc.json",
+      "qcSha256": "fab4a7b63e223b5def021e62c1a02819d2861c7a3d2f5b3a16240bd01d6d57ec",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_gate_leaves": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_gate_leaves",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_gate_leaves_lod0.glb",
+      "modelSha256": "1bb62c5f20416e1f8903e891d84a30710fbc6b1aa28fbb95e408386383e899b1",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_gate_leaves.png"
+      },
+      "previewSha256": {
+        "assembly": "c818c38feb24b147b17f88e1e54d9d18a1c0704e15a54f5c2f69f7dbf557b08a"
+      },
+      "qc": "frontier_cinderfen_gate_leaves_lod0.qc.json",
+      "qcSha256": "7b35e051f7df149a9dbc8daf2b7a3e8423a2240f10da1620921d2f8a3ca7617e",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_gatehouse": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_gatehouse",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_gatehouse_lod0.glb",
+      "modelSha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_gatehouse.png"
+      },
+      "previewSha256": {
+        "assembly": "1c8504fa838a4a357b61245da855878b635e40517107126ef98caf34fb0a7033"
+      },
+      "qc": "frontier_cinderfen_gatehouse_lod0.qc.json",
+      "qcSha256": "cf8e3473ddcf83ce5243d983b19247c0d9f00b4c4add32fed77eae147f9176b3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_0_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.0.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_0_0.glb",
+      "modelSha256": "f5ae929eb6cc6a9dd1b5a381742f0c244dd6c7052b080dab3177a1b381783b57",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_0_0.qc.json",
+      "qcSha256": "4b221a173a1e72283abe3ec661d5b86a882c3e30e5b37e3bc9a0a84d7b3256a3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_0_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.0.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_0_1.glb",
+      "modelSha256": "f85bc74d29d43cb9d42f2681f20fa040d5af66bc82bb6875ecd4f8b01b1030f2",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_0_1.qc.json",
+      "qcSha256": "4ed3879acaaca66dd9408f33f831992693470b2f4fbe5b59f60b6bb3ae7fac6c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_0_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.0.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_0_2.glb",
+      "modelSha256": "f05c9728e4c63810e26cb018f98c2cce9965cd29e535d004a97147b9d0038e8f",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_0_2.qc.json",
+      "qcSha256": "dafffe6ed0280988b12d813f21008e2bf14c4986ae351e5cc412e44845437438",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_0_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.0.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_0_3.glb",
+      "modelSha256": "b1fd11bb379b47939933321b56aa0e125cc86551183299c81bc6ea59c788340f",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_0_3.qc.json",
+      "qcSha256": "55a49d54eeaa7b38d562280ae133048a468ecbdb0478cb9b6d30e4c4d37bdccf",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_1_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.1.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_1_0.glb",
+      "modelSha256": "8053457fcc061745f88cb05e950a04e376d35e1f4921905e040fdb6b1ca74ce8",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_1_0.qc.json",
+      "qcSha256": "7caa95ac878f615ba5ca321f5d8c36b96e782e322f5f146295ece86b7010b582",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_1_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.1.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_1_1.glb",
+      "modelSha256": "e1d8a29e9b99fa96b33235f4edaee90bfcfba9ffeaad724d4d3752a0f020dfc8",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_1_1.qc.json",
+      "qcSha256": "cad41d3a552885a12671105110658d8df7e35ccba03417bfd58f780f6b581135",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_1_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.1.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_1_2.glb",
+      "modelSha256": "27efaaa5303145259033ba85b1676f9a37e41840b761690b416d40c02ee0b7b9",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_1_2.qc.json",
+      "qcSha256": "14daa3f51b3e277d26257d2678670967dc801f077643b2bee48c754adf2b512b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_1_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.1.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_1_3.glb",
+      "modelSha256": "7c742bfd1261b52e1711e49ccc33e479eb4cf9369ea232a60cce43bb5df681a7",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_1_3.qc.json",
+      "qcSha256": "1d1234d6d305bf34934cadb048113470e759fbbe5e3e3e32df17aa14495442ce",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_2_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.2.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_2_0.glb",
+      "modelSha256": "12195cace081579e368f09f79d4449561234da5a1490ab090e120f7df14693b0",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_2_0.qc.json",
+      "qcSha256": "9860f3748b055cc023bc55b43ac5ae15037caa2af1631b4543e503899029d38a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_2_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.2.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_2_1.glb",
+      "modelSha256": "66bdb6194ef6523c9f2b74d037244ccd72a74108158755f2778600b226439219",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_2_1.qc.json",
+      "qcSha256": "98dc0143d97049b34ac9a5faf0d3ec8cf64c8e8e6023b5452ad265ddfc3f4cf4",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_2_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.2.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_2_2.glb",
+      "modelSha256": "a4298468bbf099431d4ae1345f679d41838090f014c8a46a11cef04341cb457b",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_2_2.qc.json",
+      "qcSha256": "214b5858e08461f450813691856a6ed82d1c7f0abb03ea559eaeca2d5e6e36bb",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_2_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.2.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_2_3.glb",
+      "modelSha256": "14759d483c8984e3fc87187d2a7ff3fee852b706208b278e8f814c7fb37e18c6",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_2_3.qc.json",
+      "qcSha256": "ef0f4c4dccf3bc66fff4c6308eb84c5aac138cc163bf569ddd7a1bbc8606d1ee",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_3_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.3.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_3_0.glb",
+      "modelSha256": "67a814f1f3a4fe804576327981c7dd36ca2226483f8af92f4acd9412ef3c20ba",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_3_0.qc.json",
+      "qcSha256": "2d47746eab2c64f7f6662cf398d4246ab15f695ee38702be31ebde2e16cbe7bc",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_3_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.3.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_3_1.glb",
+      "modelSha256": "ade4ff8ebc3e9e3fa0eeedb71c88405ea943715f6a45ec9ab2391a345b5b7977",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_3_1.qc.json",
+      "qcSha256": "097bb625cd2cd666aa6aada4cdae87d278fc487c6e6a357b4d35b58f1e00d4f2",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_3_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.3.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_3_2.glb",
+      "modelSha256": "423753d28982ce6545872a5dbef6cbca7d9a5247e0eccef4c65e64897b871018",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_3_2.qc.json",
+      "qcSha256": "4f45ccea3b960cb356370e8e1258e2bdf38fd0a773770e702a202a59c76da2a9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_outskirts_terrain_3_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen.outskirts.terrain.3.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_outskirts_terrain_3_3.glb",
+      "modelSha256": "9ac0b72a195d34d03be9d24135e76c3dfafa499115a508003c5eb02b4da3a9df",
+      "previews": {
+        "assembly": "authoring/blender/cinderfen-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f30aa1f8ec4eeb85a3e1d3429c7bc67f2e45baa6b52b7f1aa634657e8f89303b"
+      },
+      "qc": "frontier_cinderfen_outskirts_terrain_3_3.qc.json",
+      "qcSha256": "4e32326f28e7807a71183d34f1c5096a68a2c4205a672bcb5792fcd5eb5a8dea",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_supply_shelter": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_supply_shelter",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_supply_shelter_lod0.glb",
+      "modelSha256": "829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_supply_shelter.png"
+      },
+      "previewSha256": {
+        "assembly": "d279ad37860260e692d796576d4157c776076b68ec1c18cd583a211679b974db"
+      },
+      "qc": "frontier_cinderfen_supply_shelter_lod0.qc.json",
+      "qcSha256": "02ed0b809681f68eeca07d299b6de2c5a96c84f3e0428373a336c3fa6a1ebb50",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_wall_stair": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_wall_stair",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_wall_stair_lod0.glb",
+      "modelSha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_wall_stair.png"
+      },
+      "previewSha256": {
+        "assembly": "65b34986e44ccd5438002734f73691d8fa013d7d3bc7673b1ac8526798cd8ae2"
+      },
+      "qc": "frontier_cinderfen_wall_stair_lod0.qc.json",
+      "qcSha256": "f22368afc67079a34751cd16d55c5cbeab9a8ac04951c810f7201427e464d996",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_workshop": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_workshop",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_workshop_lod0.glb",
+      "modelSha256": "81067dcb441ce106583c46160649b46646500e473567bda809c47ff994d79ab9",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_workshop.png"
+      },
+      "previewSha256": {
+        "assembly": "9545ced50cfeca264440926a40de4335f16473f304f1918aa427b969c364df4d"
+      },
+      "qc": "frontier_cinderfen_workshop_lod0.qc.json",
+      "qcSha256": "78f0c027ecabdbe0b3ce88610f8c2fabcc222e34fe059cb036b760843856e362",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_draft_horse": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.draft_horse",
+      "bindPoseId": "draft_horse_rest_v1",
+      "bodyFamily": "draft_horse",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_draft_horse_lod0.glb",
+      "modelSha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_draft_horse_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "a05aa6b36f0c9dee0d20b282de5f092e59f4f4281c8d1b131092d05524c9ba84"
+      },
+      "qc": "frontier_draft_horse_lod0.qc.json",
+      "qcSha256": "f916d17041f508a804eec4220eda88419dd40f8d1fc3d211e84dd704fee2d3a9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "draft_horse_rig",
+      "skinned": true
+    },
+    "frontier_field_catapult": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.field_catapult",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_field_catapult_lod0.glb",
+      "modelSha256": "8c841bcd2bd889092c1eec30432ef7093ffd246ff7d4c8b92de0a456bb1fd9f8",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_field_catapult_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "61fe0ffd48e69e183bfa42d57b5c3aa2d40728bceae5177ae4a508045fc09afb"
+      },
+      "qc": "frontier_field_catapult_lod0.qc.json",
+      "qcSha256": "9a8084c8168e69bc8eadc6b4d50da45b38b2ea6fdf62897e8c33dfd026534925",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_keep_gate": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.keep_gate",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_keep_gate_lod0.glb",
+      "modelSha256": "19288c54ebaa3c8b725386bfd2cd5d99e73086a82fc9b11e84ede659aaf7a261",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_keep_gate_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "105f9906fe9e7bdfc2e96d18f4bf735023b12050003354d4dcb6a96ca0a13ebf"
+      },
+      "qc": "frontier_keep_gate_lod0.qc.json",
+      "qcSha256": "361c3aba6373cca6a730b2fbeb1b36c22a9cb67633ac862a595a57aeae0392c0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_oil_cauldron": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.oil_cauldron",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_oil_cauldron_lod0.glb",
+      "modelSha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_oil_cauldron_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "4a904135c072dcc04d6bf68e46a8f58f2206559f6fdcc3e7402e577965faa154"
+      },
+      "qc": "frontier_oil_cauldron_lod0.qc.json",
+      "qcSha256": "3739e98e9de4b06a3cad24df08b804ff436b3e58ba1aa49f85daf1e9f2b574d1",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_ash": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.ash",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_ash_lod0.glb",
+      "modelSha256": "32c8ecee1b04e6192457f8e99ae705e1eeec0e06a93bf1e533206aab0d34ec49",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_ash_lod0_studio_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "7aa1583986eb2fc7b920ade8a8ac43d58a3d08b9fa022c41ec01e71a767c6e1e"
+      },
+      "qc": "frontier_sunmeadow_ash_lod0.qc.json",
+      "qcSha256": "0a02a47a1f11b540ac530b3d9f83f2e5f4e4f20ef0c1782279f620f256d2361d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_curtain_wall": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow_curtain_wall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_curtain_wall_lod0.glb",
+      "modelSha256": "ca96a296e08197f00a6802fde8d4e9176b227e39db6dea5861a7ea399282fc50",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_sunmeadow_curtain_wall.png"
+      },
+      "previewSha256": {
+        "assembly": "c1fedea85303bc6ef45037de23fa39f86e6e60c97eea8f26c05a388ba8d2a960"
+      },
+      "qc": "frontier_sunmeadow_curtain_wall_lod0.qc.json",
+      "qcSha256": "3976ffd4be7de1c389484b5553aa68c4364cc410ccefa8e83bc8f4ba8a5ff10f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_farmhouse": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow_farmhouse",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_farmhouse_lod0.glb",
+      "modelSha256": "9609f2825cd119046412bc62ded7eef7cb8caf51953772ee3f96937d7d769b26",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_sunmeadow_farmhouse.png"
+      },
+      "previewSha256": {
+        "assembly": "3f2e0d6e2838263447ac22ba945d85802186f8528f608a1191bea44aaac8b7ce"
+      },
+      "qc": "frontier_sunmeadow_farmhouse_lod0.qc.json",
+      "qcSha256": "634898a1ae10146fa49c965d7427618cf1498ae127ad90b8024b002d2f40b1e8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_gate_leaves": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow_gate_leaves",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_gate_leaves_lod0.glb",
+      "modelSha256": "06774879019a68787a55a9cda114bade45a3661ef5b8c54a9d3c485f28b7c1ea",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_sunmeadow_gate_leaves.png"
+      },
+      "previewSha256": {
+        "assembly": "9cb967cc8c523cd5f72c803bb2d1aaf2aae9a56c1c9847b1ad52efe2b0da0f87"
+      },
+      "qc": "frontier_sunmeadow_gate_leaves_lod0.qc.json",
+      "qcSha256": "1ce0fb0b06e490321f35e338243ebcffa3ac62295baae41ae666847d531ab6c4",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_gatehouse": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow_gatehouse",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_gatehouse_lod0.glb",
+      "modelSha256": "d1b8999851d23107f6b3d96501ecec5cd003c85b49e6cef8784c1c94442d3685",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_sunmeadow_gatehouse.png"
+      },
+      "previewSha256": {
+        "assembly": "d54dc59c6060dec203b64adc9f6c2b6ad6c20d74020cd0599caa18d2f6e7665f"
+      },
+      "qc": "frontier_sunmeadow_gatehouse_lod0.qc.json",
+      "qcSha256": "35736346081a146a86655524f85151010729046af9881241f3a1b13489a91735",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_hawthorn": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.hawthorn",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_hawthorn_lod0.glb",
+      "modelSha256": "e73dbc12121f6453b9fb84f47df8193a01335d3ab0c26168b5c3ec96c3fa1c11",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_hawthorn_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "ccbeac00fd553dce5ef4709b089fad7547b4dafa5ec707277d1c18e808cded2f"
+      },
+      "qc": "frontier_sunmeadow_hawthorn_lod0.qc.json",
+      "qcSha256": "71a8d4989b503d724cf92aaddf3e682c750d96f34d756cbaa8543bd905a64e37",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_limestone": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.limestone",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_limestone_lod0.glb",
+      "modelSha256": "fba74c19a4d665d7c1133ff57867bc4794d67cc3538b2542fd8a32efd0165b70",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_limestone_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "3c27119d2237bcec19f53f6e9fc6d31603f4a02e23c9086ae727e6809680042f"
+      },
+      "qc": "frontier_sunmeadow_limestone_lod0.qc.json",
+      "qcSha256": "6ebf0a7a4e201070943746b4d359fc8e3bd0e54f4be878ddec3c2a807a6e70df",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_0_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.0.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_0_0.glb",
+      "modelSha256": "15689b51c6ef964c3ff8e792d4d704b0b94f7815db527d035c2ff216763900ce",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_0_0.qc.json",
+      "qcSha256": "25dba67aeb490041abe7b67fd59be3bc76f27395353cf8caa47946b28b67eecc",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_0_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.0.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_0_1.glb",
+      "modelSha256": "05dabb277151474f7dd9f75d85ef3d64a19a1cf35d5e1e69f181f90043eefc48",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_0_1.qc.json",
+      "qcSha256": "f6567572c37e91157e8272d760e5c906b14026de92576c3e87a8b63e18124f1a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_0_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.0.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_0_2.glb",
+      "modelSha256": "aad310dc0c29a0b05aed28baf244c5c05f29f6266e49faed13b031238aa21c5f",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_0_2.qc.json",
+      "qcSha256": "c8192f89330fa095a428e0a29c98c5a7d20f105c022a57fd45e48c78ccf6ba09",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_0_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.0.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_0_3.glb",
+      "modelSha256": "13615e8ecf61be9fd34f04e68efc422173cab607017014f26576c7ae3ee0a27e",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_0_3.qc.json",
+      "qcSha256": "479ca28288d084801c3a5567215ed6f4273fb3b7d4bbe26d61be6e1590114f16",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_1_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.1.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_1_0.glb",
+      "modelSha256": "886123e43dc4506fc2602a77312eab21a7135e0c8a1dde9a250df53afa71ae4b",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_1_0.qc.json",
+      "qcSha256": "1834ceecd6ad94b16550e8791ad68c9675ede94937ff2066d50dfae201cd9d08",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_1_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.1.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_1_1.glb",
+      "modelSha256": "345641820432fc0385029f773033b3fec46eda85c917051c9ebb233168e06e99",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_1_1.qc.json",
+      "qcSha256": "03568c3a35b2c23124576d9c55138dd79c142dea91be876a0d11164ebf38b4ba",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_1_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.1.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_1_2.glb",
+      "modelSha256": "b6e03e5ba2a6969c38f517316813bf4aa41a0d60176ba50c6c9f8f02a3f238c3",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_1_2.qc.json",
+      "qcSha256": "b09d306f5e4bab8560381608ee99b9656188c69a3982881aea63b2fe313c84dd",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_1_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.1.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_1_3.glb",
+      "modelSha256": "842e2f34e596df680d055676f398fb1e3c8492a31f4171104ac70484117e7644",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_1_3.qc.json",
+      "qcSha256": "2ad2f70ed02274cebc08171e9ac4edcd93340cffadd89070eecb1ddc0689a2e0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_2_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.2.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_2_0.glb",
+      "modelSha256": "bb850194f8da237a83a759f0e605e3c6ab61dbd8b87909d9e80665dce01f23d8",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_2_0.qc.json",
+      "qcSha256": "aae1e0dd8f93925287c542d81a83abe6b596227e56365b07932b5add7a6724e1",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_2_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.2.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_2_1.glb",
+      "modelSha256": "71845930ce273c6ad7815b1c4a6079ea69b5502887157e04608a697d7a2e7cd1",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_2_1.qc.json",
+      "qcSha256": "a5d02a0d06b3165990edcbb7ca6df9666cb6d47aa1df7759b2b3aafa5fc31c1d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_2_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.2.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_2_2.glb",
+      "modelSha256": "3acad384eb75aba3c2fac28b4bcb99071e43dbc37199b2631b5e35425814238e",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_2_2.qc.json",
+      "qcSha256": "0ed8dfa3e47cc8a03254a7789e2a69421554c4258fed79d6695d493ee904348b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_2_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.2.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_2_3.glb",
+      "modelSha256": "729acdb3ecb9e4d8f80c2afeecae90d39156172105a9653e6be60a5d85161357",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_2_3.qc.json",
+      "qcSha256": "6ddb9c0bada69c40e9470e8a367661f6330c3c382303b769b968da67c3a9582b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_3_0": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.3.0",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_3_0.glb",
+      "modelSha256": "c011bf55712ba286cf21aa137d7a08f692a846d38075484ff9234c820606a28d",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_3_0.qc.json",
+      "qcSha256": "6b854cad3b732a050b6a05fef6414b7dcf528df58602465ee9845b7bdc396c02",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_3_1": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.3.1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_3_1.glb",
+      "modelSha256": "7431e97ddceb6d80f4af7fa7e399904b475f7882c357981dd0c43e6baf28b35a",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_3_1.qc.json",
+      "qcSha256": "834aa93f7cdb1b24babe94934669157e79bda1d64efd82ac418d812b6f6b7f9d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_3_2": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.3.2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_3_2.glb",
+      "modelSha256": "66174152bdf5f8782dc332dfba98ab7b0097d181cfb4eb7a0002c622872346a8",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_3_2.qc.json",
+      "qcSha256": "6b8cd809d43ab0481844fa05a458c3279d2bc03baef454b3d58617730620b381",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_march_terrain_3_3": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.march.terrain.3.3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_march_terrain_3_3.glb",
+      "modelSha256": "b934c46ec94949345670362bfd0f0e42d6e896b839023ed1127e40d5e190657e",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-terrain/review/terrain_overview_lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "734a5a5cdc5c6fc563c15a84c13ad256dff6ad51e9f339aafd4cef2fa41c1039"
+      },
+      "qc": "frontier_sunmeadow_march_terrain_3_3.qc.json",
+      "qcSha256": "9817f98e66351ffe411eb3ee50e697c4066ba47e88246fd6b0d38b54f47392c8",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_meadow": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.meadow",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_meadow_lod0.glb",
+      "modelSha256": "3c0f772f1a0b237933102c02a15678c294df64e30d8dba3b9ca515de53913446",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_meadow_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "b52f455e4700771c128c451f836870d58e18edf0f20f4370f68a4c9d46c8eebd"
+      },
+      "qc": "frontier_sunmeadow_meadow_lod0.qc.json",
+      "qcSha256": "a4c86737ea86bc82cfcb1854f78b58b91eec79bf052fc0a8c9854fa7c188884d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_oak_hedgerow": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.oak_hedgerow",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_oak_hedgerow_lod0.glb",
+      "modelSha256": "673d552fc1058e1f078d9ee5337d7f7ee5dc5d0fee6e7de8f8d8568a79e0bd81",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_hedgerow_lod0_studio_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "995e5b29e314f4aac178308542e04f25759dd59a3d8adf7b26ca7ba93b5f73d3"
+      },
+      "qc": "frontier_sunmeadow_oak_hedgerow_lod0.qc.json",
+      "qcSha256": "d366ff31edb29da979cf5232603e4a54af2e4d7411d4bed257d9aeb258a3f2c7",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_oak_pasture": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.oak_pasture",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_oak_pasture_lod0.glb",
+      "modelSha256": "c6c18cf941c205fde1220e996aaf29c62394a22c960e0a4ad744e1663adb3668",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/revisions/canopy-v2/review/frontier_sunmeadow_oak_pasture_lod0_studio_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "f4b7f961412b836f5cd2f90c6cbf417eff9167f8b32f212d40b33dd62f610f17"
+      },
+      "qc": "frontier_sunmeadow_oak_pasture_lod0.qc.json",
+      "qcSha256": "4bcbbf84e8a1a1866baae6ea4d3b5926ed020d6a24ee75f394f1c6ef5a854414",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_supply_post": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow_supply_post",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_supply_post_lod0.glb",
+      "modelSha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_sunmeadow_supply_post.png"
+      },
+      "previewSha256": {
+        "assembly": "42a82d2f77f2306094673d790271de8b0b46cb3d836a8411efba2850f8da2d54"
+      },
+      "qc": "frontier_sunmeadow_supply_post_lod0.qc.json",
+      "qcSha256": "911efdfe84d341b0b459ced4e1b93e1eaa600bf1d059b9269893835ff8d0567a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_wheat": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.wheat",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_wheat_lod0.glb",
+      "modelSha256": "b94f67f25f621ff0c5cc7d4cefcc2fc2bb4c4a225a0e287959d0ed7e414b0bf9",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-nature/review/frontier_sunmeadow_wheat_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "9736d9dbdf01c6d30fd013ab0fe8313e9eb972583970c9b00ad38f69c363efcc"
+      },
+      "qc": "frontier_sunmeadow_wheat_lod0.qc.json",
+      "qcSha256": "da300234dddce184de525fc335910ad733903118e0c592de0c9b93d38c1e5271",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_sunmeadow_workshop": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow_workshop",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_workshop_lod0.glb",
+      "modelSha256": "980a3d7069096f49bd6707c1af2904384e6fd349ff359996ec5ae8150702afc9",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_sunmeadow_workshop.png"
+      },
+      "previewSha256": {
+        "assembly": "ccf726113c9ab5f1c266591926a09d5f47da0b42e4ab23ddfde55d77998e2278"
+      },
+      "qc": "frontier_sunmeadow_workshop_lod0.qc.json",
+      "qcSha256": "504bec342183dca729976becf816740e2a05e5c1bd317ddfdec883ca336d12b3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_supply_officer_kit": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.supply_officer_kit",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_supply_officer_kit_lod0.glb",
+      "modelSha256": "17dbc78f4c8b81b398a57bd5f66c6dd96fe2ad94cf73d90b2b49c80f310ab54d",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_supply_officer_kit_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "41e1a07d27f36c370c0a63eb6b1fed2ca2bbb25826d5dc16d5a3741165e2a537"
+      },
+      "qc": "frontier_supply_officer_kit_lod0.qc.json",
+      "qcSha256": "d1e68623e14a79f8c44d912c40d4885a5b69073a8d5fb85e11d00adce9e96026",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_supply_wagon": {
+      "animationPack": {
+        "bindPoseId": "a_pose_v2",
+        "model": "frontier_teamster_animations.glb",
+        "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+        "skeletonId": "humanoid_game_v2"
+      },
+      "approvalState": "approved",
+      "assetId": "prop.frontier.supply_wagon",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_supply_wagon_lod0.glb",
+      "modelSha256": "bd06ddc67f73046f452c59c0f9495583f930d06e5232ea242215f0f920384506",
+      "previews": {
+        "assembly": "authoring/blender/orvr-frontier/review/frontier_supply_wagon_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "assembly": "f7d1c7c8c3e9052792b3d04ae430b8222e42b0e3b4422936635894e82e3ff4ba"
+      },
+      "qc": "frontier_supply_wagon_lod0.qc.json",
+      "qcSha256": "966d0a082c98719097a164015680e4c3619e14bac13c81fb8d503b0fe9d9da95",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
     "gate": {
       "lifecycleStatus": "compatibility_allowed",
       "model": "gate.glb",
@@ -5142,6 +6493,1224 @@
       "reason": "character-pipeline compatibility exemption for an active non-character asset",
       "reviewStatus": "compatibility_allowed",
       "runtimeReady": true
+    },
+    "riftspire_altar": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.altar",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_altar.glb",
+      "modelSha256": "bc01bbdaf1ed50f913ae36ba3a5df69df72ae8b9599981298698453b6ca7ec59",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/altar-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "733d8ae65cb8f9e77bf0c505908b142a64ffb30582f20f7cf8c3b6423af946fc"
+      },
+      "qc": "prop_riftspire_altar.qc.json",
+      "qcSha256": "77bdfa046df0fd1b95ff07f5cb72c40605e4f579e669ec8b3087376917948714",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_anchor": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.anchor",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_anchor.glb",
+      "modelSha256": "8023efd083c74bae743c086a54126e35726ae977c194267e7a891f254e629eaa",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/anchor-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "fc81e17524f5b93cb6c29208edad32de9eac967b8bcc0a1ebc466a51938a99cb"
+      },
+      "qc": "prop_riftspire_anchor.qc.json",
+      "qcSha256": "2b6bc1e2ab31ec5388e673ba5e4cfc587869f8b48d1ff397ac2e423454d25819",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_apothecary": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.apothecary",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_apothecary.glb",
+      "modelSha256": "d5cb34b85993ac7f46ae5bf34ea23948189f648154de7e3d12267861fa05fd1a",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/apothecary-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "52d93f4350bcb634614e63e8293637a88ab875a329526a7131ae9a98fd6c7422"
+      },
+      "qc": "prop_riftspire_apothecary.qc.json",
+      "qcSha256": "9089574e7407917a48818dd4ebe1f6fbdacc1fb385190460427abf510baf3d37",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_archive": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.archive",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_archive.glb",
+      "modelSha256": "4032a4fb93748f9a787cfb388b16b3a3f21920b44b23796064d079bebbaf5c51",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/archive-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "2c593050664ca38119724e4bc27f93a3314880cab661a12efd44c988431a418a"
+      },
+      "qc": "prop_riftspire_archive.qc.json",
+      "qcSha256": "48f5502c665c9cdff8b3eb4ef67cf42d27d2085071ceba2ab3a2f1f118aba949",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_arms_rack": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.arms_rack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_arms_rack.glb",
+      "modelSha256": "22d1d6ab42e423ed28567ab3cf57ecd666c6397d461d58dcd7757bdf940148e6",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/arms_rack-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "776982cdbc57201d7fb307c08484f9154b87389061a81ac6e8c3bc3fb976cc86"
+      },
+      "qc": "prop_riftspire_arms_rack.qc.json",
+      "qcSha256": "93240c57cd9243e057a592863ac020b0e8a2dea406b4549ae382e1c7a7ce3ccd",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_banner": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.banner",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_banner.glb",
+      "modelSha256": "af96ac8909521b420eee1b38dc0ab5336d59690b5691a15fbcdfc7cae4538a5c",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/banner-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "e05be6f596e87976b48bb285458316c56b6d31ad31c25b52c45d5fc5a7be4b9b"
+      },
+      "qc": "prop_riftspire_banner.qc.json",
+      "qcSha256": "bb1247fdc2e13b33ebccb22d4236b711013aea7f5ab34cabb9acd0ca5f5c3538",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_barrel_stack": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.barrel_stack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_barrel_stack.glb",
+      "modelSha256": "1313590949fe3d0e667e4de7782e17f58e0ae47fde38ee8bbd4eb64537784aec",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/barrel_stack-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "7858004f2e5ffde4c6d218151afaa01f6b9260f157a5b7876122c1c3f2e31ec5"
+      },
+      "qc": "prop_riftspire_barrel_stack.qc.json",
+      "qcSha256": "1361a97ec73fea37e406effab120de03d519b04c4c378fb6c4b540682600a1a5",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_basin": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.basin",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_basin.glb",
+      "modelSha256": "ccc48a1d0c55e256709bc136fa702a83ae122d8419515d5892dfdce69011ac8b",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/basin-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "4cb9daa9cabcfb3b51d2cdff20b2a242a0bfcd22d20d533d28868007d4d8cb48"
+      },
+      "qc": "prop_riftspire_basin.qc.json",
+      "qcSha256": "2e9db079acc07b626263e03a9b7b21d782bcd3e3850aa0e24275136f1913a388",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_bed": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.bed",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_bed.glb",
+      "modelSha256": "c7239457b2d23330f8c4e73a27902502ccdd35721c6ccb27b0f3e135fb2cc26e",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/bed-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "ee4d2ac3ce40a563752ce68e4f65a46d4ae2cd4309c9871ac9199e96c8c45d40"
+      },
+      "qc": "prop_riftspire_bed.qc.json",
+      "qcSha256": "e2059df6a601170f4c9092ce621c62f9bdc73adc6cf6f0f66ba61e00df30f3ae",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_bridge": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.bridge",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_bridge.glb",
+      "modelSha256": "94dbf33f7bc6bf3b03756b89eec31be060c9b313ac5b724822355a7c2259b878",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/bridge-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "3864afa0117e2e1bbcdd5c6b6abf6fcc43b3afe98fcd7aafa0ff23c9fbf0764b"
+      },
+      "qc": "prop_riftspire_bridge.qc.json",
+      "qcSha256": "12497aa3c810ad9622583103a41197adbdb6f2b77d941b6d8d0c28cf8900b56c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_chain": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.chain",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_chain.glb",
+      "modelSha256": "6dc0c061d788dfc7e86d2ff53af16a177ac4994d03f36bbc9e075e4069c61e1f",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/chain-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "9786d1092e581a05cb3dddeb462f3b2897cdbc38b046092b97eeba099e80a91d"
+      },
+      "qc": "prop_riftspire_chain.qc.json",
+      "qcSha256": "20505aa616bb8314101b929b1786f50d5d2a68a1afd96fa10abe26b0103b94b6",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_chain_winch": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.chain_winch",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_chain_winch.glb",
+      "modelSha256": "da63ed80426ea990822a8468ec49a2d673461c2eb0bbd3d3ec50708e61bf37b4",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/chain_winch-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "033afa56e1744884e3b3779593a9c2f48461adee8c97a0ad41743c1a20ba9d7e"
+      },
+      "qc": "prop_riftspire_chain_winch.qc.json",
+      "qcSha256": "4b1127c8034df31d5cb3c00ec5b25510d79cbb2ab3c5d493e514f5b011723ccd",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_checkpoint": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.checkpoint",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_checkpoint.glb",
+      "modelSha256": "22f06cb1ed9ba9424c1595b512cd7ecc12eaa76df77bb03dd064bc0234c8bb68",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/checkpoint-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "be9e7976d0cbf972aec1224f05568a68952ff3d8c6de9f6825e3ff717da32040"
+      },
+      "qc": "prop_riftspire_checkpoint.qc.json",
+      "qcSha256": "06de350976dca87268353049e7785fa1d63e084cf83c3b0c02de384868b44692",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_communal_hearth": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.communal_hearth",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_communal_hearth.glb",
+      "modelSha256": "b9712482c51437c3a98fff7ce5095116375493686edad5b8947db142282081fb",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/communal_hearth-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "ed0a207c058ca6f4d46c3daedcf0870404ede592eda7caa4d19443bb46453ab2"
+      },
+      "qc": "prop_riftspire_communal_hearth.qc.json",
+      "qcSha256": "8afe79d5f9297c4a63d92ad4dd561dd757987830133e00eabb5d0b5b0b25b0d6",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_crate": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.crate",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_crate.glb",
+      "modelSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/crate-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "4e50d3fe9408567a28de747b3a9f22309acf246abaa04e8c8adcde8f6dc6c105"
+      },
+      "qc": "prop_riftspire_crate.qc.json",
+      "qcSha256": "d25fadebd5d101247ad55389e579032701bd9761037693cc4a635aab8d9571ef",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_deck": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.deck",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_deck.glb",
+      "modelSha256": "4c8e4f3285533a06a38434fac31b24a0d11fe6370607853f756c0f17a0d7ce7a",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/deck-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "dc9f956d927dab3b1741caf8cf5dc974044195475978deb89f4b1155598ec8d0"
+      },
+      "qc": "prop_riftspire_deck.qc.json",
+      "qcSha256": "05ef834d4107cb7a7f267746806f687d873fcf758f412c0b45d48e521ed48f2f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_deck_open": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.deck_open",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_deck_open.glb",
+      "modelSha256": "e6840b8a8cec0056b171a9bb2c052b6de487c35c94d27de17de1d5ca7ed9bf32",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/deck_open-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "08e09a0af324fcdb52e8220e77a851a8f1e798e4f23639dcdabd83cee639e9a7"
+      },
+      "qc": "prop_riftspire_deck_open.qc.json",
+      "qcSha256": "faed43fa0164f3b12d5ece984aa51d03ab04d531acd00fae330c36c6c89ecd61",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_forge": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.forge",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_forge.glb",
+      "modelSha256": "5a25facb257ecaf3fa76dcac9b8247d4b8f673d2fb71f63d9fc3a4a2c3e7e172",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/forge-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "dc41e77ece2be867bf17b8df0e858fd5293f291046c18fc40448b740342fb1ed"
+      },
+      "qc": "prop_riftspire_forge.qc.json",
+      "qcSha256": "e68ce1fdb77f9b180d9733cf339e7268cbe54a125b9aff3a8bc8a8b99ad2da97",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_hall": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.hall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_hall.glb",
+      "modelSha256": "f0c8ef9779cfba0efefc3c7d59570098430b9e0ffa50e39421c517095f4b3f60",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/hall-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "96296080b4c3968d27261a38de28279496d9b260e28ca4b588009d48a1ffba6a"
+      },
+      "qc": "prop_riftspire_hall.qc.json",
+      "qcSha256": "7d052bd83f64938d2baa275db1b89ed8803811038538f14902dc0a5423f8ca12",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_hanging_cage": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.hanging_cage",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_hanging_cage.glb",
+      "modelSha256": "e0fd31a33d67386ffcb0d2bfce7c3b52cb34bcfc10cd8b1bec78f99672a1f75f",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/hanging_cage-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "e7cc35d809a13361bb32946f2a76a586f35a4e639dc243a086902e10d0520799"
+      },
+      "qc": "prop_riftspire_hanging_cage.qc.json",
+      "qcSha256": "cfe9ece244b390bb22b3af96bf329a27624fdc25a500c405403c2b4fb13ea8b7",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_1": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_1",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_1.glb",
+      "modelSha256": "4dca11ed005725971a6cc22fb8f1f5e5c30818d08332f34271bf77c259d5cacb",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_1-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "1f2bb1959a8832efeadadd6cfabf9996117c52b71eadd08cc2552c0aa7f18427"
+      },
+      "qc": "prop_riftspire_house_1.qc.json",
+      "qcSha256": "9c35e9f1cb19425df91b66f8b1329421ec10ea73f3512699232882a71f48a2d0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_2": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_2",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_2.glb",
+      "modelSha256": "d71c1de283a37c5abed65fd2070f5b9e77e4c24f4af696699adf40c7e55a6695",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_2-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "c8b7216487c52fe79cacd13a29a4ada582ed69a1814ba909681d51aab0114a17"
+      },
+      "qc": "prop_riftspire_house_2.qc.json",
+      "qcSha256": "1a661d8d8ea6991107cfc4684d7cb1bef6abceb754c7bea1187f9ec7100715f9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_3": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_3",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_3.glb",
+      "modelSha256": "a7619d0dc45c02695d5cde82edcf9ae297d80354221fc89b3e7792439eec06eb",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_3-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "c6ff3b74a6d8b05e7f8fe1f4183dd92e1d355c06a4dd3bf90248b93e9819f2c8"
+      },
+      "qc": "prop_riftspire_house_3.qc.json",
+      "qcSha256": "745471637481449ee852ded50a8324ecc2f1a2c420586a4e6fa8a702c18958ce",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_4": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_4",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_4.glb",
+      "modelSha256": "3110964859c53da439765e061c07208802b21fb7cb79d0d55f77b46ec447d96b",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_4-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "2861a5f6547ae32bad299ab302e285c015d386ffa99b0771fadf974906546c41"
+      },
+      "qc": "prop_riftspire_house_4.qc.json",
+      "qcSha256": "041906abbb3896cbf8de971f93bcd5018d5fc90dc06e224363ce1f76eb030f70",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_5": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_5",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_5.glb",
+      "modelSha256": "69f083eadb3b1a58382e6619474f4709e04fd84965bcc07717c9087b2a8a3fe9",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_5-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "954c2c015e8c901fc0c571be0d0453b8f98da570405bd88fd2d410f261bffcba"
+      },
+      "qc": "prop_riftspire_house_5.qc.json",
+      "qcSha256": "23b4c83a09aa0a0e8e9a3d2ac9f82491e709bf7c7a28b390a488cf0d2c47340f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_6": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_6",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_6.glb",
+      "modelSha256": "d4c2912ab8dc91dacee220c060f093e1a6a379fc4b102f8ad6536d3758a7b157",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_6-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "bc53be69da5892a7df3a5697b10684e19223bd3448179e518099bed9eb1023e5"
+      },
+      "qc": "prop_riftspire_house_6.qc.json",
+      "qcSha256": "5ef1f5f6a10ad126affaae284a2ed5cbfd13f49453a0c23eadbca56d895964aa",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_7": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_7",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_7.glb",
+      "modelSha256": "589473921f91dec322597ec4156742e134c7af50ebbdfbc4344845c68f692adf",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_7-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "5037788a0112a0dd6dd92d5829a24c9f60fb7136fb54e6ff623a74fad8cdd2a6"
+      },
+      "qc": "prop_riftspire_house_7.qc.json",
+      "qcSha256": "05b5de731ee378d907690ab4b0a354cf52e9ede58e55e20033efc948f313b0b5",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_house_8": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.house_8",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_house_8.glb",
+      "modelSha256": "a545bba693b517daf3d65e99b4a7db419b61e965585959a7fe6d0742e92f2dd6",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/house_8-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "48d50152dd82d6a5a7e7c16616a5978078a9ccb9df476328546901a206957e6d"
+      },
+      "qc": "prop_riftspire_house_8.qc.json",
+      "qcSha256": "5460a23d52a9ffb1403ccfd83753dd41b1c2c7573a49b425183eaa6f71de00d0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_hub": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.hub",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_hub.glb",
+      "modelSha256": "ebc6aeb6fb82c65ab132bae95cd1eab602154fc5ff7aafdc95335dba931f7376",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/hub-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "9c69b568940d3edd657f2b2f30da8eb1713394f3e0a22ad7e93f04a9a24ba5fa"
+      },
+      "qc": "prop_riftspire_hub.qc.json",
+      "qcSha256": "dc59e798597409dd3d830c58fb3bd8a642699bd764683d1d465cab4f722a20c0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_hut": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.hut",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_hut.glb",
+      "modelSha256": "a7fb9ed22196219ab7f07aafd8385813fadd87e851d8f7758e2b242d3883d0ea",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/hut-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "1744bc74c75cfe92d0ba889dc605678796c8df36b819a48c688726aa7298de9e"
+      },
+      "qc": "prop_riftspire_hut.qc.json",
+      "qcSha256": "367f50922e613ee49f4054780c275a1e24bb1488d48f83c70fe1ca1ccee81e3c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_lantern": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.lantern",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_lantern.glb",
+      "modelSha256": "8b3f67ace0ce90169016460070ba9c8d0ebc9b2d8411e3e9ec11efc8d3c3637b",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/lantern-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "5db0bb54fb329b2218558874e6841c886d5afcf64882708ecab75b7e880009ae"
+      },
+      "qc": "prop_riftspire_lantern.qc.json",
+      "qcSha256": "15538db20c23d5800797af3a9017bb4c7b0ff09db55e691bac1879b2586cebb9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_laundry_rig": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.laundry_rig",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_laundry_rig.glb",
+      "modelSha256": "e9c10bcfbf5a70f0020631d8e6a55dfaf4c59d7d09e1b431b4c9474371cd168c",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/laundry_rig-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "b6d237de49354cbc03f71bc1c082a692b2eb1dc9f569601d9e6ce69a7bb78449"
+      },
+      "qc": "prop_riftspire_laundry_rig.qc.json",
+      "qcSha256": "c604e443d70119260fec7a39286efdcae695e10e733b6c37b280685124026c1f",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_lift": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.lift",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_lift.glb",
+      "modelSha256": "6ef6ed09ce10fd43342282ef40e597779c1e7c6e3060d77a7a5a020601284518",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/lift-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "221e94db338641fad54aaa9f73ac863c1d282289bc9cb34b6ebf37b3def72956"
+      },
+      "qc": "prop_riftspire_lift.qc.json",
+      "qcSha256": "5c0553ab67904cca58ef408857f661b8192107914f8eb29593dcd892b3680390",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_lift_landing": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.lift_landing",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_lift_landing.glb",
+      "modelSha256": "66f7e57a2c89f37ac8f3b2159aac4abf18c7d6eee13525abcecd4082f1d25cbb",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/lift_landing-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "e27bbf30c2056304710c8f7f43c9ed04934cdbe5ebe7ab8a2e42024d0a482ef6"
+      },
+      "qc": "prop_riftspire_lift_landing.qc.json",
+      "qcSha256": "ee0cff51dd5cd1f86ae1eac68923093c5e16b9ff9b0542a153ec6809cd8ee369",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_market_stall": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.market_stall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_market_stall.glb",
+      "modelSha256": "3bec91804ae21c042b9aebdcff44266f304fdca481c138a6b03ab523754c7e0d",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/market_stall-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "abecd172f1f7a2b5c4146550df8b0044d6331fa84e34dcdcd7071041e7babc27"
+      },
+      "qc": "prop_riftspire_market_stall.qc.json",
+      "qcSha256": "f9ac4b26572f4089607eebd484273b68b72e97069a3a293be6cd6577dd41cb1c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_oath_monument": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.oath_monument",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_oath_monument.glb",
+      "modelSha256": "bfb937a31599264e1c5b86a42355f4c722bfd8b070d32562d870c84c0ee4d3d1",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/oath_monument-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "49434ad43478be3df59787805ca5eda780c90a08ec26d99b86de4d4719bf5514"
+      },
+      "qc": "prop_riftspire_oath_monument.qc.json",
+      "qcSha256": "0d23afa810ab0f9a467ea65e52fbf307fc3154deeb03aac54f22cd0dd2634bfa",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_ore_cart": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.ore_cart",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_ore_cart.glb",
+      "modelSha256": "d00a85880942c4d42edf8726cbc876ab707350f8a11d652a00a7ae2c1f68d91d",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/ore_cart-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "4b2c2d51e82ff0ed4afe539e94f5002fa477be8737d17e3e48c2d1784313914e"
+      },
+      "qc": "prop_riftspire_ore_cart.qc.json",
+      "qcSha256": "e276055d85285112f83e40b88950caf4f2ce992c2e6437008ce924690623a438",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_palace": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.palace",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_palace.glb",
+      "modelSha256": "363872e8bcf186e95e645e290da8cd33ddf7ea815c43692025b9c10cf719b810",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/palace-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f7b533e3253e6b108d55778b763794d07fdc202aed8ce789149f78c2875e743a"
+      },
+      "qc": "prop_riftspire_palace.qc.json",
+      "qcSha256": "dc7e1d095e602872bd7484114eef103d6c87ced3b45dd11334933f771f4b1755",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_provision_stall": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.provision_stall",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_provision_stall.glb",
+      "modelSha256": "d9b10f9b5b65b83b508dfc03e0aea8dca8a2aebb6b810f8f981c416b83c674d0",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/provision_stall-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "4dd6649353497def6ed89b9ed9bb39df7d7875da5b763ed386c4c15a66532e14"
+      },
+      "qc": "prop_riftspire_provision_stall.qc.json",
+      "qcSha256": "10169415ac77932164afdf0189475144cf2ba949a0b1e30f0764d897e4ed4a22",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rack": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rack.glb",
+      "modelSha256": "6541491b0640577bd43de06328a45cab81c63a33c9aaf23aabb76e786f8324fc",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rack-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "104a2fba07efb69237f7491ab763aa7f41d9038ea3c3bd092a3fe9055a104d71"
+      },
+      "qc": "prop_riftspire_rack.qc.json",
+      "qcSha256": "22365ede961f26704813fc6335b3f2d08c1b9c3c010cb031d4ee4663b07fe4be",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_ritual_obelisk": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.ritual_obelisk",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_ritual_obelisk.glb",
+      "modelSha256": "1b83b18ab63e3ff4b80c89e15090edcf0989f4251ed4a32256733b163e34975a",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/ritual_obelisk-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "887827589c06b1b7bb03e61d7f774ba264cbf318dc44ea8e4b354ec457139ed7"
+      },
+      "qc": "prop_riftspire_ritual_obelisk.qc.json",
+      "qcSha256": "0519de9ef6a7fd64c9ece93166d91ca33e8427baf207dd8404f4d6bd5e51b9e7",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rock_gate_left": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rock_gate_left",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rock_gate_left.glb",
+      "modelSha256": "226728bec58f428e4891512a6685a786a5ec828f9e85ec887ad5cba49cdb3f6d",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rock_gate_left-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "eaec9c8979f4c57d71fde82f34d14e8ec431169baec08c8f63e3da685d363219"
+      },
+      "qc": "prop_riftspire_rock_gate_left.qc.json",
+      "qcSha256": "4b844b76d35e3b12ee720cff15fb9b1ff7a11b26b2ee4397dd7e3f7526d0c183",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rock_gate_right": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rock_gate_right",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rock_gate_right.glb",
+      "modelSha256": "c21130c70787f5c792cc053ebceeddac38b251a428271a01296c14312f9a64ec",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rock_gate_right-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "bfd3cfafb755a6eaa99d6241b8f1d8154a767198a9bfd603620971137ec039f2"
+      },
+      "qc": "prop_riftspire_rock_gate_right.qc.json",
+      "qcSha256": "bb039a8603e6ab9792ff480c1e6ac5b4bbfb7440d4704c16f016f9889d5c74a7",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rock_infill": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rock_infill",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rock_infill.glb",
+      "modelSha256": "42084d0183493a5bb3f48770cee8344285b1c7450ef35e4cd8ec6ca4acde85c9",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rock_infill-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "7d4270dbe32617333621cc17487997987f930f46b68239f4901db6911f26e18f"
+      },
+      "qc": "prop_riftspire_rock_infill.qc.json",
+      "qcSha256": "2a837a2aaf40c7123e382d3805c9ab61e16377bde6e3b46655998357b101efa3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rock_palace_left": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rock_palace_left",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rock_palace_left.glb",
+      "modelSha256": "3920255afec1488830b4a2eb0b95faa3b981a3c710f32961d7170079a934f2ff",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rock_palace_left-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "49249bba94f49b39b27745e33048d6aeb938744963fa7ac37177331a0653449a"
+      },
+      "qc": "prop_riftspire_rock_palace_left.qc.json",
+      "qcSha256": "f7bf8de6af0fe40f5aa85f208ec1abfd5b01f99f00feb34685538a850a4207d1",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rock_palace_right": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rock_palace_right",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rock_palace_right.glb",
+      "modelSha256": "27ed9ae2bc2f7b3cc51c0327cff86930434757cd477b10f008bbd6cf753b6838",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rock_palace_right-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "4dafefcca3702e24f76110ace2561d1341a6da85f3e9fb574943c6c45b19f582"
+      },
+      "qc": "prop_riftspire_rock_palace_right.qc.json",
+      "qcSha256": "dc3f66383899f4c5f8fc6b395f154df43463f8bba75255f131d7ca71d9abbc6b",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rock_sector": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rock_sector",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rock_sector.glb",
+      "modelSha256": "435633644243ac5823babdb87e1da3353c1a33bde347875a3cf487e7486e1a24",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rock_sector-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "2d6324605c480c043c86ffc4b4908ea56f9b9bbb86bfbf1ddae82451988d6c71"
+      },
+      "qc": "prop_riftspire_rock_sector.qc.json",
+      "qcSha256": "e38e8db42dbce2583b85ec0a010425bad61bc8bf7a8dd00cbafdb2f13de58cce",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_room": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.room",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_room.glb",
+      "modelSha256": "1cfd1f039f4710494070ab81e4eed5384b26c3782544a07c8c5337d8926176de",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/room-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "9cb0f5e1747950e2409b88408dbce904db6948f021bada1c7dff639691f843eb"
+      },
+      "qc": "prop_riftspire_room.qc.json",
+      "qcSha256": "ee57e51b28f76a5060a650674805276380a4a3313d26dee07b1dcf59b7992a88",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_rope_bridge": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.rope_bridge",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_rope_bridge.glb",
+      "modelSha256": "1d457edee6174ebc864e3d156b61743482c1a75f345b67382dafe548c511117e",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/rope_bridge-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "9885e8010dc168dea6db5556debb2b9aef58775e66c21d0ad3d44fc8b9da8961"
+      },
+      "qc": "prop_riftspire_rope_bridge.qc.json",
+      "qcSha256": "1fa3040398215c4e3e68f5adc20c6af8596021972013b29b9fe95231356365d2",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_stairs": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.stairs",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_stairs.glb",
+      "modelSha256": "50926d67e5b3502f9049c361a9eea2feea7206db7e70dac3a7239ac5bf39a61e",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/stairs-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "8c8e21a2c469cdf33a68151bcc46883de66897b06e090e39a53e7592f81c2347"
+      },
+      "qc": "prop_riftspire_stairs.qc.json",
+      "qcSha256": "595b0fe14450433b8e4bbc4ba4fed9c5cc3a373dcff342f4c94d309e3b47b130",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_supply_cart": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.supply_cart",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_supply_cart.glb",
+      "modelSha256": "caa0a6a5f09ce22d0fb7773a911714ad4216f8839e41e93b400feaf6ec3a8017",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/supply_cart-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "7faf66a41129b2a80529b8efe07498599c62ec677173298931614af1d696397d"
+      },
+      "qc": "prop_riftspire_supply_cart.qc.json",
+      "qcSha256": "b5e51c5071cf479384f5d4dcfb6a14528a7f5a06a4cd24bd220daa644d2e6834",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_table": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.table",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_table.glb",
+      "modelSha256": "c8282ee1f5010ca123a7a25abf13386417baf4a8c627f60b86efc50c67c1aeb3",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/table-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f9a21266712cd4c6b772120003b60831d92a4deb487ea8c3b5dbd8562881339d"
+      },
+      "qc": "prop_riftspire_table.qc.json",
+      "qcSha256": "5bf25f3306f647edd050631f12d82a2794003872bc2c13f1166b5c4bedb3c754",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_throne": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.throne",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_throne.glb",
+      "modelSha256": "b2025d6bc047942b9dfa3e4de0c6363d8e8fd018910569f87c7725754258ee2b",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/throne-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "da4ebf3484cf9d0d39972d213d6a862d5b8540cba9518ce22053bbfd85e72c21"
+      },
+      "qc": "prop_riftspire_throne.qc.json",
+      "qcSha256": "bbf2b15aed0f9f3f7adb2ca44ff1caaf68b20b65e5b1267e2a296da21e47d4d9",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_training_dummy": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.training_dummy",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_training_dummy.glb",
+      "modelSha256": "468041db3977fa27ee8de169b59a666e04f0d83f98e102b80841a2355f12f454",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/training_dummy-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "8a7e69aaf470efd55f7cbf08959dac0cc8ec6e9889694ec37d3db0b808a551a0"
+      },
+      "qc": "prop_riftspire_training_dummy.qc.json",
+      "qcSha256": "0a879ea702e56c3eff922c2acbc4f85adffc9355e3c55714904126b4665c284c",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_war_brazier": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.war_brazier",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_war_brazier.glb",
+      "modelSha256": "a08f24bd335da97da5362eb410d59dfb4cd07820470b249a32ff26fc93131bb2",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/war_brazier-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "d35736962b342daf49f484fe6e187bd8787888da8ed70e6b8406f5892b9b49fb"
+      },
+      "qc": "prop_riftspire_war_brazier.qc.json",
+      "qcSha256": "434b257e176a89f8a04f7f2f43a9f96ad34941e300164f87de1f52517fb7ac8d",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_war_standard": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.war_standard",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_war_standard.glb",
+      "modelSha256": "87a095d11121f4decf44663291ed83cb057416ac27074361c28789852528262c",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/war_standard-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f1b3081785de11f1b79520642b95df654e6ba1d7faf0159bb87a142080fa1895"
+      },
+      "qc": "prop_riftspire_war_standard.qc.json",
+      "qcSha256": "797d67fafe96c459b09649b70c64509bcaad9f21713587ee5fede384edb0f1e7",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_war_table": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.war_table",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_war_table.glb",
+      "modelSha256": "9d9b533b5a95b2567f4aa2d0b47cc7af73d21650f5967cc0ef6a1f4ff94e164c",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/war_table-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "b60b9cb0a2568ea920b76baf25ad27cabb18ac086ebbd79999b7b38b88841c77"
+      },
+      "qc": "prop_riftspire_war_table.qc.json",
+      "qcSha256": "cf0f05e2a8950add3b249608a12064cc580ac4c7b8d97c42cd61bd63d0946137",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "riftspire_water_pump": {
+      "approvalState": "approved",
+      "assetId": "prop.riftspire.water_pump",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "prop_riftspire_water_pump.glb",
+      "modelSha256": "c1e1f3f26ded5707ce6482787f7e8d2c08ee9fd58ecf4f71060124e61c34c7dd",
+      "previews": {
+        "assembly": "authoring/blender/riftspire-city/review/water_pump-lod0.png"
+      },
+      "previewSha256": {
+        "assembly": "f1bf96165838ea31c87d06ca694058ecc78522ffa05329e648e1734b379055e5"
+      },
+      "qc": "prop_riftspire_water_pump.qc.json",
+      "qcSha256": "adf9994b66c8887fead9afbc7eace6dc935178aadd7a6e435fd8931b55ab31b4",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
     },
     "town_castle": {
       "lifecycleStatus": "compatibility_allowed",

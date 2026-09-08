@@ -1,0 +1,190 @@
+{
+  "resolution": 1024,
+  "painterSha256": "a44d3e439898fd1e27fa4814979ad083f00d5e626f1501a4c8adf850c36f24b4",
+  "records": [
+    {
+      "material": "alder_bark",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/alder_bark_baseColor.png",
+          "sha256": "967a544c91285e6ede7ea76abf794713e53271fc5eae3c6a64015fd2a1f745cf"
+        },
+        "normal": {
+          "file": "textures/source/alder_bark_normal.png",
+          "sha256": "5d4ab53cc359f44aef1d3ac76097ee62b7ab28cffe61abdb335ad2acc16d21e4"
+        },
+        "orm": {
+          "file": "textures/source/alder_bark_orm.png",
+          "sha256": "9cde4d9d23a90ae8b2f9935f3a7e16214bfbbbf277d6087538656e7ddf78593f"
+        },
+        "height": {
+          "file": "textures/source/alder_bark_height.png",
+          "sha256": "915adfcba8009e642b81248bc00a3a4edd9fe680f1af6887a056a43e52e5e051"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "alder_leaf",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/alder_leaf_baseColor.png",
+          "sha256": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2"
+        },
+        "normal": {
+          "file": "textures/source/alder_leaf_normal.png",
+          "sha256": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28"
+        },
+        "orm": {
+          "file": "textures/source/alder_leaf_orm.png",
+          "sha256": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4"
+        },
+        "height": {
+          "file": "textures/source/alder_leaf_height.png",
+          "sha256": "9123d43873c9cda07506f1beabdf250b48ac7012aa78f345bfdc308703d8a477"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "reed_stem",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/reed_stem_baseColor.png",
+          "sha256": "2f65ca5ed98bade3b4f6e9c737c3809331e106e0525607d8b3a726f7c7a23309"
+        },
+        "normal": {
+          "file": "textures/source/reed_stem_normal.png",
+          "sha256": "90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72"
+        },
+        "orm": {
+          "file": "textures/source/reed_stem_orm.png",
+          "sha256": "7929de07d09bc2ffdd848d22ff1c488290bbe2e999d6ccafc417b74e47f32b3a"
+        },
+        "height": {
+          "file": "textures/source/reed_stem_height.png",
+          "sha256": "092782ce79ac63158a03b8298fac3b6a035356c293d2033c2f3e60263a056a97"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "reed_leaf",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/reed_leaf_baseColor.png",
+          "sha256": "0db70f752472cbbd84fd65c8ef4a8059766cadea94335d9a709f61fbdb367cc7"
+        },
+        "normal": {
+          "file": "textures/source/reed_leaf_normal.png",
+          "sha256": "583ad0094955f970135056071825b8ea1a395b5dc1ffa4adb625c6cafbe9bb10"
+        },
+        "orm": {
+          "file": "textures/source/reed_leaf_orm.png",
+          "sha256": "03c3cdd77bf74ed096c487356d0a372ba5b412d1e4f4ed65cdf8e7afb9f5bbb6"
+        },
+        "height": {
+          "file": "textures/source/reed_leaf_height.png",
+          "sha256": "362f84e1cba42bcd377eee558e0afc2cc08b454d9d8b2f9b5171a6ab0335b50b"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "sedge_leaf",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/sedge_leaf_baseColor.png",
+          "sha256": "5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d"
+        },
+        "normal": {
+          "file": "textures/source/sedge_leaf_normal.png",
+          "sha256": "ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403"
+        },
+        "orm": {
+          "file": "textures/source/sedge_leaf_orm.png",
+          "sha256": "2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5"
+        },
+        "height": {
+          "file": "textures/source/sedge_leaf_height.png",
+          "sha256": "45b14e41c12684f34a73b6b2c69d45793403bf9cd720cc788c9eaf125ffa252d"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "horsetail",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/horsetail_baseColor.png",
+          "sha256": "72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27"
+        },
+        "normal": {
+          "file": "textures/source/horsetail_normal.png",
+          "sha256": "af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00"
+        },
+        "orm": {
+          "file": "textures/source/horsetail_orm.png",
+          "sha256": "d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a"
+        },
+        "height": {
+          "file": "textures/source/horsetail_height.png",
+          "sha256": "2d27d026db38f73a6d83fcbaee68dab35f1a2cd9bda67c9fd4359daab022feed"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "seed_scales",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/seed_scales_baseColor.png",
+          "sha256": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0"
+        },
+        "normal": {
+          "file": "textures/source/seed_scales_normal.png",
+          "sha256": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f"
+        },
+        "orm": {
+          "file": "textures/source/seed_scales_orm.png",
+          "sha256": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
+        },
+        "height": {
+          "file": "textures/source/seed_scales_height.png",
+          "sha256": "21a57db88b3237633570890e07e6ba194ca19b228ed77a3ef6574fb6a65b4262"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    },
+    {
+      "material": "basalt",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/basalt_baseColor.png",
+          "sha256": "dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24"
+        },
+        "normal": {
+          "file": "textures/source/basalt_normal.png",
+          "sha256": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b"
+        },
+        "orm": {
+          "file": "textures/source/basalt_orm.png",
+          "sha256": "8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d"
+        },
+        "height": {
+          "file": "textures/source/basalt_height.png",
+          "sha256": "0b75e094d47640504a698a04db3f502a6902a5bf9e801ed14c5a87c69dca9a33"
+        }
+      },
+      "normalConvention": "Pillow top-down: tangent RGB encodes normalized (-dH/dx,+dH/dy,+1)",
+      "signedGradientMaxError": 0.0019608139991760254
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "model": "frontier_cinderfen_wall_stair_lod2.glb",
+  "sha256": "78439d853e168a9a11a92f9df824588eba5f1aa8655167e32ab89f31744843ec",
+  "preview": "frontier_cinderfen_wall_stair_lod2_reimport.png",
+  "preview_sha256": "125d161782e2daf2c594a277e291d463474f2823c6626686c1ad434e44c29f9c",
+  "reviewer_sha256": "74a96e5b8fd27c414a6be14f7880f82c9a820ea1b575bee57799436266e4937a",
+  "neutral_camera": {
+    "camera_position_z_up": [
+      8.13460922241211,
+      -13.057493209838867,
+      10.774490356445312
+    ],
+    "target_z_up": [
+      0.0,
+      -0.21337366104125977,
+      3.4961555004119873
+    ],
+    "projection": "ORTHO",
+    "lens_mm": null,
+    "distance_m": null,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1400,
+      1050
+    ]
+  },
+  "gameplay_preview": "frontier_cinderfen_wall_stair_lod2_gameplay.png",
+  "gameplay_preview_sha256": "56abc878aa459856e683826ceb9b2e987f6360dca88f1c76f95e23996be83150",
+  "gameplay_camera": {
+    "camera_position_z_up": [
+      2.9969613552093506,
+      -160.21337890625,
+      5.400000095367432
+    ],
+    "target_z_up": [
+      0.0,
+      -0.21337366104125977,
+      3.4961555004119873
+    ],
+    "projection": "PERSP",
+    "lens_mm": 38.0,
+    "distance_m": 160,
+    "detail_frame_m": null,
+    "lighting": "neutral white area lights; unmodified exported PBR channels",
+    "resolution": [
+      1280,
+      720
+    ]
+  }
+}

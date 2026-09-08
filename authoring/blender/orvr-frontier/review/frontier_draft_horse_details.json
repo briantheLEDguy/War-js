@@ -1,0 +1,31 @@
+{
+  "views": [
+    {
+      "asset": "frontier_draft_horse",
+      "glb_sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "clip": "idle",
+      "seconds": 0,
+      "decision": "pending_visual_review",
+      "image": "review\\frontier_draft_horse_head_close.png",
+      "image_sha256": "a119beb61855eba88bc43f1fd20270b697e3fcb7d30bd5086a5480fe68b9225f"
+    },
+    {
+      "asset": "frontier_draft_horse",
+      "glb_sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "clip": "idle",
+      "seconds": 0,
+      "decision": "pending_visual_review",
+      "image": "review\\frontier_draft_horse_side_anatomy.png",
+      "image_sha256": "c6ab1b7b1a57adeb2bdbc31b488a7f8b5d50b1fd4c1ce6faeb7fb9620183b4df"
+    },
+    {
+      "asset": "frontier_draft_horse",
+      "glb_sha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "clip": "draft_trot",
+      "seconds": 0.1666666667,
+      "decision": "pending_visual_review",
+      "image": "review\\frontier_draft_horse_trot_side.png",
+      "image_sha256": "27ea5758a2f9ea3a91f7c84543068bef78da191e95b5219aa9d47de5993fcae4"
+    }
+  ]
+}

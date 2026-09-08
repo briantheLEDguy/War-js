@@ -21,10 +21,11 @@ function expectClearOfColliders(enemy: EnemySpawn, props: PropSpawn[]): void {
     for (const collider of prop.colliders ?? []) {
       const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1);
       const sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
-      const rotation = prop.rotY ?? 0;
+      const yawSign = prop.colliderSpace === 'model' ? -1 : 1;
+      const rotation = (prop.rotY ?? 0) * yawSign;
       const centerX = prop.x + (collider.x ?? 0) * sx * Math.cos(rotation) - (collider.z ?? 0) * sz * Math.sin(rotation);
       const centerZ = prop.z + (collider.x ?? 0) * sx * Math.sin(rotation) + (collider.z ?? 0) * sz * Math.cos(rotation);
-      const angle = rotation + (collider.rotY ?? 0);
+      const angle = rotation + (collider.rotY ?? 0) * yawSign;
       const dx = (enemy.x - centerX) * Math.cos(angle) + (enemy.z - centerZ) * Math.sin(angle);
       const dz = -(enemy.x - centerX) * Math.sin(angle) + (enemy.z - centerZ) * Math.cos(angle);
       const clearance = Math.hypot(
@@ -66,12 +67,28 @@ describe('generated keep commanders', () => {
       const zone = maps.get(node.id)!;
       for (const enemy of commanders(zone)) {
         const keep = zone.rvrObjectives!.find((objective) => objective.id === enemy.encounter!.objectiveId)!;
-        const prefix = `${keep.id}_keep`;
-        const wall = (suffix: string) => zone.props.find((prop) => prop.id === `${prefix}_${suffix}`)!;
-        expect(enemy.x).toBeGreaterThan(wall('inner_west_wall').x + 2);
-        expect(enemy.x).toBeLessThan(wall('inner_east_wall').x - 2);
-        expect(enemy.z).toBeGreaterThan(wall('inner_front_door').z + 2);
-        expect(enemy.z).toBeLessThan(wall('inner_rear_door').z - 2);
+        const layout = zone.orvrLayout!.keeps.find(entry => entry.objectiveId === keep.id)!;
+        const innerGate = layout.gates.find(gate => gate.stage === 'inner')!;
+        if (['frontier_sunmeadow_gate_leaves', 'frontier_cinderfen_gate_leaves'].includes(innerGate.assetKey)) {
+          expect({ x: enemy.x, z: enemy.z }).toEqual({ x: layout.commander.x, z: layout.commander.z });
+          const defenses = zone.props.filter(prop => prop.id?.startsWith(`${keep.id}_inner_`) || prop.id === innerGate.propId);
+          expect(defenses.filter(prop => ['frontier_sunmeadow_curtain_wall', 'frontier_cinderfen_curtain_walk'].includes(prop.assetKey ?? '')).length).toBeGreaterThanOrEqual(8);
+          // Cast in all four directions against actual transformed inner-ring
+          // colliders, including the closed door, rather than legacy wall IDs.
+          for (const direction of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+            const distance = firstDefenseDistance(enemy, direction, defenses);
+            expect(distance, `${enemy.id} inner enclosure ${direction}`).toBeGreaterThan(2);
+            expect(distance, `${enemy.id} inner enclosure ${direction}`).toBeLessThan(40);
+          }
+          expect(enemy.z).toBeGreaterThan(innerGate.z + innerGate.depth / 2 + 2);
+        } else {
+          const prefix = `${keep.id}_keep`;
+          const wall = (suffix: string) => zone.props.find((prop) => prop.id === `${prefix}_${suffix}`)!;
+          expect(enemy.x).toBeGreaterThan(wall('inner_west_wall').x + 2);
+          expect(enemy.x).toBeLessThan(wall('inner_east_wall').x - 2);
+          expect(enemy.z).toBeGreaterThan(wall('inner_front_door').z + 2);
+          expect(enemy.z).toBeLessThan(wall('inner_rear_door').z - 2);
+        }
         expect(Math.hypot(enemy.x - keep.x, enemy.z - keep.z)).toBeLessThan(keep.captureRadius);
         expectClearOfColliders(enemy, zone.props);
       }
@@ -102,7 +119,9 @@ describe('generated keep commanders', () => {
     for (const node of keepZones) {
       const isFortress = node.nodeRole === 'fortress';
       const captain = maps.get(node.id)!.enemies.find((enemy) => enemy.id === `${node.id}_${isFortress ? 'captain' : 'field_captain'}`)!;
-      expect(captain, node.id).toMatchObject({ archetype: 'captain', x: 0, z: isFortress ? 72 : 78 });
+      expect(captain, node.id).toMatchObject({ archetype: 'captain', x: 0, z: 335 });
+      expect(maps.get(node.id)!.rvrObjectives!.filter(objective => objective.type === 'keep')
+        .every(keep => Math.hypot(captain.x - keep.x, captain.z - keep.z) > 200)).toBe(true);
       expect(captain.encounter).toBeUndefined();
     }
     for (const quest of QUESTS) {
@@ -135,3 +154,20 @@ describe('generated keep commanders', () => {
     }
   });
 });
+
+function firstDefenseDistance(enemy: EnemySpawn, direction: number[], props: PropSpawn[]): number {
+  for (let distance = .25; distance <= 40; distance += .25) {
+    const x = enemy.x + direction[0] * distance, z = enemy.z + direction[1] * distance;
+    for (const prop of props) for (const box of prop.colliders ?? []) {
+      const sx = (prop.scale ?? 1) * (prop.scaleX ?? 1), sz = (prop.scale ?? 1) * (prop.scaleZ ?? 1);
+      const sign = prop.colliderSpace === 'model' ? -1 : 1, rotation = (prop.rotY ?? 0) * sign;
+      const centerX = prop.x + (box.x ?? 0) * sx * Math.cos(rotation) - (box.z ?? 0) * sz * Math.sin(rotation);
+      const centerZ = prop.z + (box.x ?? 0) * sx * Math.sin(rotation) + (box.z ?? 0) * sz * Math.cos(rotation);
+      const angle = rotation + (box.rotY ?? 0) * sign;
+      const dx = (x - centerX) * Math.cos(angle) + (z - centerZ) * Math.sin(angle);
+      const dz = -(x - centerX) * Math.sin(angle) + (z - centerZ) * Math.cos(angle);
+      if (Math.abs(dx) <= box.width * sx / 2 && Math.abs(dz) <= box.depth * sz / 2) return distance;
+    }
+  }
+  return Infinity;
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.oil_cauldron",
+  "displayName": "Parapet Tipping Oil Cauldron",
+  "category": "prop",
+  "model": "frontier_oil_cauldron_lod0.glb",
+  "qc": "frontier_oil_cauldron_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_oil_cauldron"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
+    "qcSha256": "3739e98e9de4b06a3cad24df08b804ff436b3e58ba1aa49f85daf1e9f2b574d1",
+    "previews": {
+      "assembly": "4a904135c072dcc04d6bf68e46a8f58f2206559f6fdcc3e7402e577965faa154"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/orvr-frontier/review/frontier_oil_cauldron_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-07T20:01:19.153Z",
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "mesh_authoring",
+      "material_painting",
+      "animation_authoring",
+      "actual_export_review"
+    ],
+    "referencePackId": "original_frontier_siege_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+  },
+  "approvalState": "approved"
+}

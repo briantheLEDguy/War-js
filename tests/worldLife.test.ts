@@ -44,6 +44,31 @@ afterEach(() => {
 });
 
 describe('ambient world life runtime', () => {
+  test('loads district inhabitants beyond the ordinary cap and shows the nearest 48', () => {
+    const actors: WorldLifeActorSpawn[] = Array.from({length:180},(_,i)=>({id:`district_${i}`,kind:'citizen',x:i*.2,y:-50,z:0,speed:0,approvedOnly:true,characterProfileKey:'npc_riftspire_dark_elf'}));
+    const life = new WorldLife(new THREE.Scene(),{actors,emitters:[]},'riftbound',()=>-50,[],undefined,true);
+    instances.push(life);
+    expect(life.group.children).toHaveLength(160);
+    life.update(0,{x:31,y:-50,z:0},100);
+    expect(life.group.children.filter(o=>o.visible)).toHaveLength(48);
+    expect(objectNamed(life.group,'district_150').visible).toBe(true);
+    expect(objectNamed(life.group,'district_0').visible).toBe(false);
+    life.update(0,{x:0,y:-50,z:0},100);
+    expect(objectNamed(life.group,'district_0').visible).toBe(true);
+    expect(objectNamed(life.group,'district_150').visible).toBe(false);
+    const normal=createLife({actors,emitters:[]}).life;
+    expect(normal.group.children).toHaveLength(48);
+  });
+  test('does not admit unreviewed or heightless actors into a district population', () => {
+    const actors: WorldLifeActorSpawn[] = [
+      {id:'unreviewed',kind:'citizen',x:0,y:-50,z:0},
+      {id:'heightless',kind:'citizen',x:0,z:0,approvedOnly:true,characterProfileKey:'npc_riftspire_dark_elf'},
+      {id:'reviewed',kind:'citizen',x:0,y:-50,z:0,approvedOnly:true,characterProfileKey:'npc_riftspire_dark_elf'},
+    ];
+    const life = new WorldLife(new THREE.Scene(),{actors,emitters:[]},'riftbound',()=>-50,[],undefined,true);
+    instances.push(life);
+    expect(life.group.children.map(o=>o.name)).toEqual(['reviewed']);
+  });
   test('supports zones with no ambient definition', () => {
     const { life, scene } = createLife(undefined);
     expect(scene.children).toContain(life.group);

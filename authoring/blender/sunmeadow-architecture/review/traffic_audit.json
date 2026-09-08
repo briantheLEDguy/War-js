@@ -1,0 +1,88 @@
+{
+  "roadOverlaps": [],
+  "buildingOverlaps": [
+    [
+      "sunmeadow_march_salvage_station_visual",
+      "sunmeadow_march_craft_workshop"
+    ]
+  ],
+  "npcs": [
+    {
+      "id": "sunmeadow_march_quartermaster",
+      "name": "Elira Dawnmarch",
+      "title": "Aegis Quartermaster",
+      "role": "vendor",
+      "x": -451,
+      "z": -239,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_elira_dawnmarch_aegis_quartermaster"
+    },
+    {
+      "id": "sunmeadow_march_marshal",
+      "name": "Corren Vale",
+      "title": "Tier 1 Campaign Marshal",
+      "role": "guard",
+      "x": -419,
+      "z": -239,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_corren_vale_tier_1_campaign_marshal"
+    },
+    {
+      "id": "sunmeadow_march_scout",
+      "name": "Mira Stonewake",
+      "title": "Forward Scout",
+      "role": "guard",
+      "x": -457,
+      "z": -257,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_mira_stonewake_forward_scout"
+    },
+    {
+      "id": "sunmeadow_march_craft_mentor",
+      "name": "Alden Voss",
+      "title": "Field Crafting Mentor",
+      "role": "trainer",
+      "x": -413,
+      "z": -257,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_alden_voss_field_crafting_mentor"
+    },
+    {
+      "id": "sunmeadow_march_forager",
+      "name": "Serra Brightfield",
+      "title": "Resource Warden",
+      "role": "ambient",
+      "x": -446,
+      "z": -267,
+      "rotY": 0,
+      "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+    }
+  ],
+  "stations": [
+    {
+      "id": "sunmeadow_march_cultivation_station",
+      "label": "Field Cultivation Patch",
+      "kind": "cultivation",
+      "x": -469,
+      "z": -253,
+      "radius": 7
+    },
+    {
+      "id": "sunmeadow_march_salvage_station",
+      "label": "War Salvage Bench",
+      "kind": "salvage",
+      "x": -401,
+      "z": -253,
+      "radius": 6
+    },
+    {
+      "id": "sunmeadow_march_apothecary_station",
+      "label": "Field Apothecary Table",
+      "kind": "apothecary",
+      "x": -448,
+      "z": -266,
+      "radius": 6
+    }
+  ],
+  "method": "Conservative full LOD0 mesh envelope; exact segment-to-oriented-rectangle distance tests every authored road segment and full lane width. Gatehouses/walls excluded because their through-passages require per-surface checks. Roof-only overlaps require height review."
+}

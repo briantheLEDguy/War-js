@@ -1,0 +1,30 @@
+{
+  "kind": "chaos",
+  "source": "chr_aegis_city_guard_standard.glb",
+  "lods": [
+    {
+      "level": 0,
+      "model": "chr_riftspire_chaos.glb",
+      "triangles": 28500,
+      "bytes": 2151108,
+      "sha256": "d7e69cfa73c166bcc729846aba31c2d2e321419c605c9ed836aa64b1ab3c6e34",
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "chr_riftspire_chaos_lod1.glb",
+      "triangles": 15675,
+      "bytes": 1533704,
+      "sha256": "c3ccd8f432c85859b2ed4168bd687b13c05373d8816d26491037ea52c97b018c",
+      "repairedDegenerateTangents": 1
+    },
+    {
+      "level": 2,
+      "model": "chr_riftspire_chaos_lod2.glb",
+      "triangles": 7125,
+      "bytes": 985036,
+      "sha256": "1355f51170b0497c043ec9051d1d85187302b8533cb8ef0503023346b9aa1da2",
+      "repairedDegenerateTangents": 0
+    }
+  ]
+}

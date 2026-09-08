@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.chain",
+  "displayName": "Riftspire chain",
+  "category": "prop",
+  "model": "prop_riftspire_chain.glb",
+  "qc": "prop_riftspire_chain.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_chain"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "6dc0c061d788dfc7e86d2ff53af16a177ac4994d03f36bbc9e075e4069c61e1f",
+    "qcSha256": "20505aa616bb8314101b929b1786f50d5d2a68a1afd96fa10abe26b0103b94b6",
+    "previews": {
+      "assembly": "9786d1092e581a05cb3dddeb462f3b2897cdbc38b046092b97eeba099e80a91d"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/chain-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.166Z",
+    "reviewHash": "7444cf89475071eeadba83f6c4bbfd63cc5e4b85290b014912d14b8295c66dd0"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

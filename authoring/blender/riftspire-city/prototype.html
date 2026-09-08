@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Riftspire in-game prototype review</title><link rel="stylesheet" href="/src/ui/styles.css">
+<style>body{margin:0}#view{position:absolute;inset:0}nav{position:absolute;z-index:40;top:12px;left:12px;background:#181421e8;color:#eee;padding:14px}button{padding:8px;margin:4px}output{display:block}</style>
+<div id="view"></div><nav><strong>Riftspire · representative pieces in Game</strong><p>WASD walk · drag orbit · wheel zoom</p><button id="residence">Residence</button><button id="assembly">Bridge / hut</button><button id="palace">Palace façade</button><output>Loading</output></nav>
+<script type="module">
+import {Game} from '/src/game/Game.ts';import {services} from '/src/services/index.ts';import {useGameStore} from '/src/state/gameStore.ts';
+const source=await services.characters.load('char-sigmund'),fetchOriginal=window.fetch.bind(window);
+const prop=(kind,x,y,z,extra={})=>({id:`prototype_${kind}_${x}_${z}_${y}`,kind:`riftspire_${kind}`,model:`prop_riftspire_${kind}.glb`,assetKey:`riftspire_${kind}`,lodModels:[1,2].map(l=>`prop_riftspire_${kind}_lod${l}.glb`),x,y,z,rotY:0,heightMode:'absolute',colliderSpace:'model',...extra});
+const floor={width:18,depth:24,fromY:0,toY:0};
+const props=[prop('house_1',-25,0,-12,{walkableSurfaces:[{width:11,depth:9}]}),prop('palace',35,0,-18),prop('hut',0,-20,0),prop('chain',-3,-11,0,{scaleY:.55}),prop('chain',3,-11,0,{scaleY:.55})];
+for(let x=-36;x<=54;x+=18)for(let z=0;z<=24;z+=24)props.push(prop('bridge',x,0,z,{walkableSurfaces:[floor]}));
+window.fetch=async(url,opts)=>String(url).endsWith('assets/maps/riftspire_capital.json')?new Response(JSON.stringify({id:'riftspire_capital',name:'Riftspire prototype review',size:1024,segments:4,flatTerrain:true,spawnPoint:{x:-25,y:0,z:4},props,npcs:[],enemies:[],craterCity:{version:'prototype',basinY:-300,levels:[{id:'prototype',name:'Prototype',y:0,radius:400}],recovery:[],routes:[],lifts:[],interiors:[],formations:[]}}),{headers:{'Content-Type':'application/json'}}):fetchOriginal(url,opts);
+services.characters.save=async()=>{};services.world.updatePosition=async()=>{};
+const character={...source,id:'riftspire-review-only',zoneId:'riftspire_capital',position:{x:-25,y:0,z:4}};useGameStore.getState().setCharacter(character);
+const game=new Game(document.querySelector('#view'),character);await game.start();window.fetch=fetchOriginal;
+for(const [id,p] of Object.entries({residence:{x:-25,y:0,z:4},assembly:{x:0,y:-12,z:8},palace:{x:35,y:0,z:15}}))document.querySelector('#'+id).onclick=()=>{game.player.position.set(p.x,p.y,p.z);useGameStore.setState({gmFlyingMode:id==='assembly'});game.camera.yaw=0;game.camera.pitch=.2;game.camera.distance=id==='palace'?65:20;};
+setInterval(()=>{document.querySelector('output').textContent=`${Math.round(game.frameMs)} ms · ${game.renderer.info.render.calls} draws · ${game.player.position.y.toFixed(1)} m · ${useGameStore.getState().assetFallbacks} fallbacks`;},500);
+addEventListener('beforeunload',()=>game.dispose({persistCharacter:false}));
+</script></html>

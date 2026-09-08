@@ -1,0 +1,113 @@
+{
+  "asset": "frontier_sunmeadow_hawthorn",
+  "name": "Sunmeadow fruiting hawthorn hedge",
+  "source_sha256": "1a5f96aafe1256adbc73c6e05256c3066a2dc061bf38242880c6ce93eb1871b3",
+  "builder_sha256": "29f5975924a0d8ebf8e3a71aa3945b15862610a7cfa9a76e34752945ec1d525e",
+  "paint_record_sha256": "b8804ffc4341b271b6f393956dd6cae83556bfd4c69b16ff36ce779f4ec7603c",
+  "master": "masters\\frontier_sunmeadow_hawthorn.blend",
+  "master_sha256": "fb4d8b5198baf9756a081705c4c0d344bf67611bff91ac1adecc34e3f4e8f6dc",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_hawthorn_lod0.glb",
+      "sha256": "e73dbc12121f6453b9fb84f47df8193a01335d3ab0c26168b5c3ec96c3fa1c11",
+      "bytes": 4967820,
+      "triangles": 34272,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -2.341400384902954,
+          -0.6483269929885864,
+          -0.02813451550900936
+        ],
+        "max": [
+          2.429816246032715,
+          0.8805903196334839,
+          1.982679843902588
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -2.341400384902954,
+          -0.02813451550900936,
+          -0.8805903196334839
+        ],
+        "max": [
+          2.429816246032715,
+          1.982679843902588,
+          0.6483269929885864
+        ]
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_hawthorn_lod1.glb",
+      "sha256": "876e618833a6fa8ea2ecb21e951e14242e6dd694ac9b043a13164955f8fc4e60",
+      "bytes": 3778808,
+      "triangles": 13584,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -2.3209104537963867,
+          -0.6479669809341431,
+          -0.027158698067069054
+        ],
+        "max": [
+          2.4260642528533936,
+          0.8673505187034607,
+          1.9945769309997559
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -2.3209104537963867,
+          -0.027158698067069054,
+          -0.8673505187034607
+        ],
+        "max": [
+          2.4260642528533936,
+          1.9945769309997559,
+          0.6479669809341431
+        ]
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_hawthorn_lod2.glb",
+      "sha256": "9d9d7467b976b88d5695b6792a305209b13873c4cdca0d8269d3e3ff552016ad",
+      "bytes": 3243620,
+      "triangles": 4140,
+      "materials": 2,
+      "bounds_blender": {
+        "min": [
+          -2.375994920730591,
+          -0.701350212097168,
+          -0.021796878427267075
+        ],
+        "max": [
+          2.4285404682159424,
+          0.8810125589370728,
+          1.9673746824264526
+        ]
+      },
+      "bounds_runtime": {
+        "min": [
+          -2.375994920730591,
+          -0.021796878427267075,
+          -0.8810125589370728
+        ],
+        "max": [
+          2.4285404682159424,
+          1.9673746824264526,
+          0.701350212097168
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Static vegetation; no wind rig or seasonal growth simulation.",
+    "Opaque double-sided shaped leaves; deliberate open botanical surfaces.",
+    "Leaf sizes are stylized for readable game silhouettes.",
+    "Visual acceptance and runtime publication are separate from successful export."
+  ]
+}

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { colliderHasWalkableTop } from '../../shared/worldNavigation';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import type { AssetLoader, PrimitiveFactory } from '../../game/AssetLoader';
 import { AssetLoader as RuntimeAssetLoader } from '../../game/AssetLoader';
@@ -15,7 +16,8 @@ import type {
 import type { Terrain } from '../Terrain';
 import type { InteractiveGate, InteractiveHousePortal, WorldCollider, WorldWalkableSurface } from '../Props';
 import { pickFallback } from '../Props';
-import { architectureLods, shareCityMaterials } from '../CityArchitecture';
+import { architectureLods, shareCityMaterials, loadReviewedCityObject } from '../CityArchitecture';
+import { loadBuilderAsset, releaseBuilderAssets, type BuilderAssetPresentation } from './BuilderAssetPresentation';
 import {
   applyVoxelBrushToDocument,
   type VoxelBrushTool,
@@ -130,6 +132,7 @@ export class WorldEditorRuntime {
   private onSelectionChange?: (object: WorldObject | null) => void;
 
   private document: WorldEditDocument | null = null;
+  private mapRevisionValue = 0;
   private active = false;
   private tool: WorldEditorTool = 'select';
   private settings: WorldEditorSettings = { ...DEFAULT_SETTINGS };
@@ -152,6 +155,8 @@ export class WorldEditorRuntime {
   private groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   private pointerDown = false;
   private selectedId: string | null = null;
+  private builderAssets = new Map<string, BuilderAssetPresentation>();
+  private documentGeneration = 0;
   private spawned = new Map<string, SpawnedEditorObject>();
   private staticObjects = new Map<string, StaticEditorObject>();
   private colliders: WorldCollider[] = [];
@@ -202,6 +207,8 @@ export class WorldEditorRuntime {
   get currentDocument(): WorldEditDocument | null {
     return this.document ? cloneDoc(this.document) : null;
   }
+
+  get mapRevision(): number { return this.mapRevisionValue; }
 
   registerStaticObject(
     definition: WorldObject,
@@ -282,6 +289,7 @@ export class WorldEditorRuntime {
   ): Promise<void> {
     this.clearAuthoredObjects();
     this.document = document ? cloneDoc(document) : null;
+    const generation = this.documentGeneration;
     this.active = active;
     if (!options.preserveHistory) {
       this.undoStack = [];
@@ -295,12 +303,14 @@ export class WorldEditorRuntime {
       for (const object of this.document.objects) {
         if (object.hidden || this.staticObjects.has(object.id)) continue;
         await this.spawnEditorObject(object);
+        if (generation !== this.documentGeneration) return;
       }
     }
     this.applyStaticObjectOverrides();
     this.rebuildStandaloneCollision();
     this.selectObject(null);
     this.setActive(active);
+    this.mapRevisionValue++;
   }
 
   setPlayerPose(position: Vec3, rotationY: number): void {
@@ -310,6 +320,10 @@ export class WorldEditorRuntime {
       this.brushRotation.y = rotationY;
     }
     if (!this.pointerDown) this.updateBrushPreview();
+  }
+
+  update(dt: number): void {
+    for (const asset of this.builderAssets.values()) asset.update(dt, this.camera);
   }
 
   getColliders(): WorldCollider[] {
@@ -357,6 +371,15 @@ export class WorldEditorRuntime {
 
   getWalkableSurfaces(): WorldWalkableSurface[] {
     return this.walkableSurfaces;
+  }
+
+  getTerrainHeightAt(x: number, z: number, ceiling: number): number | null {
+    let height: number | null = null;
+    for (const asset of this.builderAssets.values()) {
+      const candidate = asset.groundHeightAt(x, z, ceiling);
+      if (candidate !== null && (height === null || candidate > height)) height = candidate;
+    }
+    return height;
   }
 
   getGates(): InteractiveGate[] {
@@ -419,6 +442,7 @@ export class WorldEditorRuntime {
       disposeObject(entry.object);
       this.unregisterGateForDefinition(entry.definition);
       this.spawned.delete(id);
+      this.builderAssets.delete(id);
     }
     this.document.objects = this.document.objects.filter((candidate) => candidate.id !== id);
     this.rebuildStandaloneCollision();
@@ -753,24 +777,36 @@ export class WorldEditorRuntime {
   }
 
   private async spawnPropObject(definition: WorldPropObject): Promise<void> {
+    const generation = this.documentGeneration;
+    const placement = { ...prefabDefinitionForKind(definition.kind), ...definition };
+    const approved = placement.assetCategory ? await loadBuilderAsset(placement, this.loader) : undefined;
+    if (approved === null) return;
+    if (generation !== this.documentGeneration || !this.document?.objects.some(object => object.id === definition.id && !object.hidden)) {
+      approved?.dispose(); return;
+    }
     const fallback = primitiveForKind(definition.kind);
-    const model = definition.assetKey
+    const model = approved ? undefined : definition.assetKey
       ? await this.loader.resolveStaticModel(definition.assetKey, definition.model ?? `${definition.kind}.glb`)
       : definition.model;
-    const animated = definition.interaction?.type === 'gate' && model
+    const animated = approved ?? (definition.interaction?.type === 'gate' && model
       ? await this.loader.loadModelWithAnimations(model, fallback)
-      : null;
-    let object = animated
+      : null);
+    const reviewed = !approved && definition.kind.startsWith('riftspire_') ? await loadReviewedCityObject(definition.assetKey ?? definition.kind, this.loader) : undefined;
+    if (reviewed === null) return;
+    let object = reviewed ?? (animated
       ? animated.object
       : model
         ? await this.loader.loadModel(model, fallback)
-        : fallback();
+        : fallback());
     const sourceKind = prefabFallbackKindForKind(definition.kind) ?? definition.kind;
     if (sourceKind.startsWith('aegis_')) {
       shareCityMaterials(object, this.loader);
       const lodModels = prefabDefinitionForKind(definition.kind)?.lodModels;
       if (lodModels?.length && !definition.interaction) object = await architectureLods(object, lodModels, sourceKind, this.loader);
       if (sourceKind === 'aegis_portcullis') object.children.forEach(child => { child.userData.gateLift = true; child.userData.gateLiftBaseY = child.position.y; });
+    }
+    if (generation !== this.documentGeneration || !this.document?.objects.some(candidate => candidate.id === definition.id && !candidate.hidden)) {
+      disposeObject(object); return;
     }
     applyTransform(object, definition.transform);
     object.userData.cameraStaticGeometry = !definition.interaction;
@@ -831,12 +867,16 @@ export class WorldEditorRuntime {
       });
     }
     this.group.add(object);
+    if (approved) this.builderAssets.set(definition.id, approved);
     this.spawned.set(definition.id, { definition, object, helper: null });
     this.rebuildStandaloneCollision();
   }
 
   private clearAuthoredObjects(): void {
+    this.documentGeneration++;
     this.controls.detach();
+    for (const asset of this.builderAssets.values()) asset.dispose();
+    this.builderAssets.clear();
     for (const entry of this.spawned.values()) {
       this.group.remove(entry.object);
       entry.helper?.dispose();
@@ -1022,15 +1062,25 @@ export class WorldEditorRuntime {
   }
 
   private async createPrefabPreviewObject(): Promise<THREE.Object3D> {
+    const definition = prefabDefinitionForKind(this.settings.prefabKind);
+    if (definition?.assetCategory) {
+      const approved = await loadBuilderAsset(definition, this.loader);
+      const preview = new THREE.Group();
+      if (approved) { applyGhostMaterial(approved.object, 0x48ff75, .42); preview.add(approved.object); }
+      preview.add(createFootprintPreview(footprintForKind(this.settings.prefabKind)));
+      preview.traverse(node => { node.userData.worldEditPreview = true; });
+      return preview;
+    }
     const fallback = primitiveForKind(this.settings.prefabKind);
     const assetKey = defaultAssetKeyForKind(this.settings.prefabKind);
     const fallbackModel = defaultModelForKind(this.settings.prefabKind) ?? '';
     const model = assetKey
       ? await this.loader.resolveStaticModel(assetKey, fallbackModel)
       : fallbackModel;
-    const object = model
+    const reviewed = this.settings.prefabKind.startsWith('riftspire_') ? await loadReviewedCityObject(assetKey ?? this.settings.prefabKind, this.loader) : undefined;
+    const object = reviewed === null ? new THREE.Group() : reviewed ?? (model
       ? await this.loader.loadModel(model, fallback)
-      : fallback();
+      : fallback());
     applyGhostMaterial(object, 0x48ff75, 0.42);
 
     const preview = new THREE.Group();
@@ -1155,6 +1205,7 @@ export class WorldEditorRuntime {
 
   private emitChanged(): void {
     if (!this.document) return;
+    this.mapRevisionValue++;
     this.document.updatedAt = Date.now();
     this.onChange?.(cloneDoc(this.document));
   }
@@ -1171,6 +1222,10 @@ function buildPropObject(kind: string, position: Vec3, rotation?: Vec3): WorldPr
     label: prefabLabelForKind(kind),
     model: defaultModelForKind(kind),
     assetKey: defaultAssetKeyForKind(kind),
+    assetCategory: prefabDefinitionForKind(kind)?.assetCategory,
+    defaultAnimation: prefabDefinitionForKind(kind)?.defaultAnimation,
+    modelOffset: prefabDefinitionForKind(kind)?.modelOffset,
+    groundSurface: prefabDefinitionForKind(kind)?.groundSurface,
     colliderSpace: prefabDefinitionForKind(kind)?.colliderSpace,
     transform: {
       ...defaultTransform(position),
@@ -1405,6 +1460,7 @@ export function propCollidersFromObject(object: WorldPropObject): WorldCollider[
     rotY: (object.colliderSpace === 'model' ? -1 : 1) * (object.transform.rotation.y + (collider.rotY ?? 0)),
     minY: collider.minY === undefined ? undefined : object.transform.position.y + collider.minY * object.transform.scale.y,
     maxY: collider.maxY === undefined ? undefined : object.transform.position.y + collider.maxY * object.transform.scale.y,
+    walkableTop: colliderHasWalkableTop(collider, object.walkableSurfaces),
     blocksWhen: collider.blocksWhen ?? 'always',
     interactionId: collider.interactionId,
     sourceObjectId: object.id,
@@ -1499,6 +1555,7 @@ function applyGhostMaterial(root: THREE.Object3D, color: number, opacity: number
     depthWrite: false,
     side: THREE.DoubleSide,
   });
+  material.userData.builderOwnedPreview = true;
   root.traverse((node) => {
     if (!(node as THREE.Mesh).isMesh) return;
     const mesh = node as THREE.Mesh;
@@ -1509,13 +1566,16 @@ function applyGhostMaterial(root: THREE.Object3D, color: number, opacity: number
 }
 
 function disposeObject(root: THREE.Object3D): void {
+  const materialsToDispose = new Set<THREE.Material>();
   root.traverse((node) => {
     if (!(node as THREE.Mesh).isMesh && !(node as THREE.Line).isLine) return;
     const renderable = node as THREE.Mesh | THREE.Line;
-    renderable.geometry?.dispose();
+    if (!node.userData.builderBorrowedResources) renderable.geometry?.dispose();
     const materials = Array.isArray(renderable.material) ? renderable.material : [renderable.material];
-    for (const material of materials) material?.dispose();
+    for (const material of materials) if (!node.userData.builderBorrowedResources || material?.userData.builderOwnedPreview) materialsToDispose.add(material);
   });
+  for (const material of materialsToDispose) material?.dispose();
+  releaseBuilderAssets(root);
 }
 
 function primitiveForKind(kind: string): PrimitiveFactory {

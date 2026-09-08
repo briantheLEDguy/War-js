@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.lift",
+  "displayName": "Riftspire lift",
+  "category": "prop",
+  "model": "prop_riftspire_lift.glb",
+  "qc": "prop_riftspire_lift.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_lift"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "6ef6ed09ce10fd43342282ef40e597779c1e7c6e3060d77a7a5a020601284518",
+    "qcSha256": "5c0553ab67904cca58ef408857f661b8192107914f8eb29593dcd892b3680390",
+    "previews": {
+      "assembly": "221e94db338641fad54aaa9f73ac863c1d282289bc9cb34b6ebf37b3def72956"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/lift-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.199Z",
+    "reviewHash": "bb1fc798344815f8bca93e12c4913e69a082ba2afd241fa30305dabce5936b6d"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.riftspire.chaos",
+  "displayName": "Riftspire chaos inhabitant",
+  "category": "character",
+  "model": "chr_riftspire_chaos_lod1.glb",
+  "qc": "chr_riftspire_chaos_lod1.qc.json",
+  "runtime": {
+    "profileKey": "npc_riftspire_chaos"
+  },
+  "compatibility": {
+    "bodyFamily": "aegis_city_guard",
+    "bodyVariant": "m",
+    "skeletonId": "humanoid_game_v2",
+    "bindPoseId": "a_pose_v2"
+  },
+  "approvalState": "approved",
+  "hashes": {
+    "modelSha256": "c3ccd8f432c85859b2ed4168bd687b13c05373d8816d26491037ea52c97b018c",
+    "qcSha256": "ade696204c02f8d14f7637f43013630d36267bfd5ab4c673648a97c1dd61c5e9",
+    "previews": {
+      "front": "69c774b2c49412e58f2d0a4e5c506397bf52cd84a441c6a4e55d99fb1857668f"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/riftspire-city/review/population_chaos-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:26:05.947Z",
+    "reviewHash": "b75f6f5a4af33a0feab8eee4557b15c27167a9887cb5501ea960998a410394b4"
+  },
+  "provenance": {
+    "sourcePackage": "authoring/blender/riftspire-city",
+    "sourceModel": "chr_aegis_city_guard_standard.glb",
+    "sourceSha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb",
+    "geometry": "Adapted reviewed anatomy and rig with fitted Riftbound apparel, headgear and faction features. Original upstream anatomy licenses and provenance remain applicable.",
+    "limitations": "Middle LOD used for residents. Dark Elf uses the existing civic idle and generated walking cycle."
+  }
+}

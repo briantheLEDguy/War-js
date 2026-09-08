@@ -1,0 +1,42 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.riftspire.water_pump",
+  "modelSha256": "590a84264faa6f2280eaf9f0b2e2650a18d0ac5b30f597f74e1aa3b38ac8cee9",
+  "lod": {
+    "level": 2,
+    "model": "prop_riftspire_water_pump_lod2.glb",
+    "triangles": 1750,
+    "sha256": "590a84264faa6f2280eaf9f0b2e2650a18d0ac5b30f597f74e1aa3b38ac8cee9",
+    "bytes": 124032,
+    "repairedDegenerateTangents": 0
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "prop_riftspire_water_pump.glb",
+      "triangles": 2288,
+      "sha256": "c1e1f3f26ded5707ce6482787f7e8d2c08ee9fd58ecf4f71060124e61c34c7dd",
+      "bytes": 160996,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 1,
+      "model": "prop_riftspire_water_pump_lod1.glb",
+      "triangles": 2256,
+      "sha256": "e9ef9e954dc99b2670a960416140129af2bb13afb119bc186ac196175c1f282e",
+      "bytes": 158756,
+      "repairedDegenerateTangents": 0
+    },
+    {
+      "level": 2,
+      "model": "prop_riftspire_water_pump_lod2.glb",
+      "triangles": 1750,
+      "sha256": "590a84264faa6f2280eaf9f0b2e2650a18d0ac5b30f597f74e1aa3b38ac8cee9",
+      "bytes": 124032,
+      "repairedDegenerateTangents": 0
+    }
+  ],
+  "validationErrors": 0,
+  "reviewHash": "c5308206c08fa1390b8c6427e091ef4c39cccca9fe61b0f41c88923a037d734c",
+  "textureMaxDimension": 2048
+}

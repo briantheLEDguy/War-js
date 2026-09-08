@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.hall",
+  "displayName": "Riftspire hall",
+  "category": "prop",
+  "model": "prop_riftspire_hall.glb",
+  "qc": "prop_riftspire_hall.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_hall"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "f0c8ef9779cfba0efefc3c7d59570098430b9e0ffa50e39421c517095f4b3f60",
+    "qcSha256": "7d052bd83f64938d2baa275db1b89ed8803811038538f14902dc0a5423f8ca12",
+    "previews": {
+      "assembly": "96296080b4c3968d27261a38de28279496d9b260e28ca4b588009d48a1ffba6a"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/hall-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.158Z",
+    "reviewHash": "4f4c3c987ba78b83fbec55c154d9c43361cf42a472a351d4164b50fc9bc368c4"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}

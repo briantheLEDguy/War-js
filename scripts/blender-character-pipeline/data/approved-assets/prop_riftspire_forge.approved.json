@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.riftspire.forge",
+  "displayName": "Riftspire forge",
+  "category": "prop",
+  "model": "prop_riftspire_forge.glb",
+  "qc": "prop_riftspire_forge.qc.json",
+  "runtime": {
+    "staticKey": "riftspire_forge"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "5a25facb257ecaf3fa76dcac9b8247d4b8f673d2fb71f63d9fc3a4a2c3e7e172",
+    "qcSha256": "e68ce1fdb77f9b180d9733cf339e7268cbe54a125b9aff3a8bc8a8b99ad2da97",
+    "previews": {
+      "assembly": "dc41e77ece2be867bf17b8df0e858fd5293f291046c18fc40448b740342fb1ed"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/riftspire-city/review/forge-lod0.png"
+  },
+  "review": {
+    "reviewedBy": "Codex exported-model inspection (not user aesthetic approval)",
+    "reviewedAt": "2026-09-06T21:30:22.231Z",
+    "reviewHash": "6e12d370f01a44d2674a3b1db936f6aa940bf493b338a98cba8d210a5b8882f1"
+  },
+  "provenance": {
+    "createdBy": "original_procedural_blender_generation",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "procedural_geometry"
+    ],
+    "promptIds": [
+      "riftspire_suspended_crater_v1"
+    ],
+    "referencePackId": "original_riftspire_crater",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/riftspire-city/tools/build.py"
+  },
+  "approvalState": "approved"
+}
