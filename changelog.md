@@ -39,6 +39,15 @@
 - Verify Cinderfen roads through the full regional composition; retain services, connectivity and deterministic vegetation exclusions.
 - Validation: 1,141 tests pass; client/server typechecks, 33-map validation, 374-entry GM catalog check and production build pass. Art packages remain under review.
 
+## 2026-09-08 - Capital rendering and camera performance
+
+- Recover the expanded-world checkpoint onto local main before starting the performance branch; no push or deployment.
+- Batch compatible opaque capital geometry with multi-draw, retaining native instancing, original unsupported objects, LOD ranges, weathering and shadows.
+- Preserve GM object identities and refresh batches after edits, hides, restores and undo/redo; mirrored edits use original rendering.
+- Index static camera geometry and accelerate larger meshes without changing shared render indices, terrain clearance or two-way collision probes. Keep gates and active interiors live.
+- Cull offscreen static NPC rigs conservatively without reducing population, animation rate or detail; warm textures, actor/batch variants and shadows during loading.
+- Add opt-in rendered-frame diagnostics, repeatable capital benchmarks and focused regression tests. Measurements and remaining limits are recorded in docs/capital-performance.md.
+
 ## 2026-09-07 - Campaign reconnect continuity
 
 - Preserve a returning character's position and last command sequence when its connection resumes; retain staging behavior for transfers and queue admission.

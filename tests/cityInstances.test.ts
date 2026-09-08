@@ -3,6 +3,46 @@ import { describe, expect, test, vi } from 'vitest';
 import { CityInstances } from '../src/world/CityInstances';
 import type { SpawnedStaticWorldObject } from '../src/world/Props';
 describe('city instance rendering', () => {
+  test('multi-draw retains LOD, edit/undo transforms, suppression and original object identity', () => {
+    const scene = new THREE.Scene();
+    const material = new THREE.MeshStandardMaterial();
+    const root = new THREE.LOD();
+    root.addLevel(new THREE.Mesh(new THREE.BoxGeometry(), material), 0);
+    root.addLevel(new THREE.Mesh(new THREE.BoxGeometry(2), material), 55);
+    root.traverse(node => { if (node instanceof THREE.Mesh) node.castShadow = true; });
+    scene.add(root);
+    const instances = new CityInstances(scene, [{ id: 'house', object: root,
+      definition: { kind: 'aegis_house_1' } }] as SpawnedStaticWorldObject[], true);
+    const camera = new THREE.PerspectiveCamera(60, 1, .1, 500);
+    camera.position.z = 10;
+    instances.update(camera, true, () => false);
+    const batch = scene.children.find(child => child instanceof THREE.BatchedMesh) as THREE.BatchedMesh;
+    expect(batch.castShadow).toBe(true);
+    expect(batch.getVisibleAt(0)).toBe(true); expect(batch.getVisibleAt(1)).toBe(false);
+    camera.position.z = 80;
+    instances.update(camera, true, () => false);
+    expect(batch.getVisibleAt(0)).toBe(false); expect(batch.getVisibleAt(1)).toBe(true);
+    instances.update(camera, false, () => false);
+    expect(root.parent).toBe(scene); expect(root.visible).toBe(true);
+    root.position.x = 7;
+    instances.update(camera, true, () => false, 1);
+    const matrix = new THREE.Matrix4(); batch.getMatrixAt(1, matrix);
+    expect(matrix.elements[12]).toBe(7);
+    root.position.x = 0; // Undo while rendering stays enabled.
+    instances.update(camera, true, () => false, 2);
+    batch.getMatrixAt(1, matrix); expect(matrix.elements[12]).toBe(0);
+    instances.update(camera, true, () => true, 3);
+    expect(batch.visible).toBe(false);
+    instances.update(camera, true, () => false, 4);
+    expect(batch.visible).toBe(true);
+    root.scale.x = -1;
+    instances.update(camera, true, () => false, 5);
+    expect(root.parent).toBe(scene); expect(root.visible).toBe(true); expect(batch.visible).toBe(false);
+    root.scale.x = 1;
+    instances.update(camera, true, () => false, 6);
+    expect(root.parent).toBeNull(); expect(batch.visible).toBe(true);
+    instances.dispose(); expect(scene.children).toEqual([root]);
+  });
   test('membership changes upload only affected batches and retain all shared members', () => {
     const scene = new THREE.Scene();
     const common = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshStandardMaterial());

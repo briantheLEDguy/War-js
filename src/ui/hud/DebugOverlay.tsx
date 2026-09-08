@@ -22,6 +22,7 @@ export function DebugOverlay({ game }: Props) {
   const py = game?.playerPos.y ?? 0;
   const pz = game?.playerPos.z ?? 0;
   const zone = game?.zoneName ?? '?';
+  const sample = game?.performanceSample;
 
   return (
     <div
@@ -38,7 +39,13 @@ Zone:       ${zone}
 Pos:        ${px.toFixed(2)}, ${py.toFixed(2)}, ${pz.toFixed(2)}
 Backend:    ${services.backend}
 GM Build:   ${gmBuildMode ? 'on' : 'off'}
-Fallbacks:  ${fallbacks}`}
+Fallbacks:  ${fallbacks}${sample ? `
+Simulation: ${sample.simulationMs.toFixed(1)} ms
+Camera:     ${sample.cameraMs.toFixed(1)} ms
+CPU submit: ${sample.submissionMs.toFixed(1)} ms (not GPU)
+Main draws: ${sample.calls}
+Triangles:  ${sample.triangles.toLocaleString()}
+Programs:   ${sample.programs}` : ''}`}
     </div>
   );
 }

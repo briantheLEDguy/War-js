@@ -59,6 +59,7 @@ describe('GM object editing', () => {
       terrain: { heightAt: () => 0 } as Terrain, groundHeightAt: () => 0 });
     const object = new THREE.Group(); // Even invisible collision-only map objects must be selectable by ID.
     runtime.registerStaticObject(prop(), object);
+    expect(object.userData.cameraStaticGeometry).toBe(true);
     await runtime.loadDocument(document(), true);
     runtime.selectObject('map-stairs');
     expect(runtime.deleteSelectedObject()).toBe(true);
@@ -80,6 +81,12 @@ describe('GM object editing', () => {
     runtime.registerStaticObject({ ...prop(), id: 'imported-terrain', kind: 'terrain', model: 'cave.glb' }, importedTerrain);
     expect(runtime.getCameraObjects()).not.toContain(heightfield);
     expect(runtime.getCameraObjects()).toContain(importedTerrain);
+    const revision = runtime.mapRevision;
+    const lift = new THREE.Group();
+    runtime.registerStaticObject({ ...prop(), id: 'lift', kind: 'riftspire_lift' }, lift);
+    expect(runtime.mapRevision).toBeGreaterThan(revision);
+    expect(lift.userData.cameraStaticGeometry).toBe(false);
+    expect(runtime.getCameraObjects()).toContain(lift);
     runtime.dispose();
   });
   test('new gate stamps preserve independent interaction IDs, lift visuals, deletion and reload', async () => {

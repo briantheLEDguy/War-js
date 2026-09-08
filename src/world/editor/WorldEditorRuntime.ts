@@ -214,7 +214,8 @@ export class WorldEditorRuntime {
     object: THREE.Object3D,
     options: RegisterStaticObjectOptions = {},
   ): void {
-    object.userData.cameraStaticGeometry = definition.type === 'prop' && !definition.interaction && definition.kind !== 'terrain';
+    object.userData.cameraStaticGeometry = definition.type === 'prop' && !definition.interaction
+      && definition.kind !== 'terrain' && definition.kind !== 'riftspire_lift';
     object.userData.worldEditObjectId = definition.id;
     object.traverse((node) => {
       node.userData.worldEditObjectId = definition.id;
@@ -228,11 +229,16 @@ export class WorldEditorRuntime {
       useAsPlacementSurface: options.useAsPlacementSurface,
     });
     this.applyStaticObjectOverride(definition.id);
+    this.mapRevisionValue++;
   }
 
   isStaticObjectSuppressed(id?: string): boolean {
     if (!id || !this.staticObjects.has(id) || !this.document) return false;
     return this.document.objects.some((object) => object.id === id);
+  }
+
+  isStaticObjectHidden(id: string): boolean {
+    return this.staticObjects.get(id)?.definition.hidden === true;
   }
 
   setActive(active: boolean): void {
@@ -801,7 +807,7 @@ export class WorldEditorRuntime {
       disposeObject(object); return;
     }
     applyTransform(object, definition.transform);
-    object.userData.cameraStaticGeometry = !definition.interaction;
+    object.userData.cameraStaticGeometry = !definition.interaction && definition.kind !== 'riftspire_lift';
     object.userData.worldEditObjectId = definition.id;
     object.traverse((node) => {
       node.userData.worldEditObjectId = definition.id;

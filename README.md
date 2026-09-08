@@ -17,6 +17,40 @@ Playable profiles and starter armor use shared class/variant/slot definitions in
 Approval-retention tests protect the archived reports and source inputs from
 cleanup, while exact ignore rules keep unreferenced diagnostics local.
 
+## Capital performance
+
+`CityInstances.ts` retains the original capital objects for collision and GM
+editing. `CityRenderBatch.ts` combines compatible opaque geometry by material
+and render state with Three.js `BatchedMesh` when `WEBGL_multi_draw` is available;
+other devices use geometry instancing. Transparent, animated, mirrored and
+unsupported assets retain their original rendering. Existing LOD distances,
+shadows and detail ranges are preserved. Editor revisions refresh transforms
+and suppression; mirrored edits restore the original object. `CityWeathering.ts`
+applies world-space weathering to both batching paths.
+
+`CameraCollisionIndex.ts` caches static mesh bounds in a spatial tree and uses
+`three-mesh-bvh` for larger rigid geometry. Editor revisions and zone changes
+rebuild membership; gates, lifts and active interiors remain live. The camera
+keeps the same terrain clearance, padding, high-detail geometry and two-way probes.
+Static NPC rigs use conservative visibility envelopes including shadow cameras;
+their animation rate and mesh detail are unchanged. `RenderWarmup.ts` uploads
+textures and warms actor, batch, interior-light and shadow rendering during loading.
+
+Append `?performance` to enable bounded rendered-frame samples and debug overlay
+timing/draw counters. `window.__warPerformance.reset()` starts a sample window;
+`window.__warPerformance.snapshot()` returns it. Simulation includes camera time;
+CPU render submission includes culling and drawing. Neither measures GPU time.
+Skipped scheduling callbacks are excluded from rendered-frame intervals.
+
+Install Playwright in a disposable tooling directory, then run
+`node scripts/benchmark-capitals.mjs --url=http://localhost:5173/ --driver=/absolute/path/to/tooling/package.json`.
+The driver package must resolve `playwright`; `--chrome` selects a Chrome binary.
+The default is three warmed 60-second runs per capital at 1280×720, device scale
+1, native resolution, view distance 350 and a 60 FPS limit in fresh browser contexts.
+This does not change the player's saved settings. `--output`, `--runs`, `--seconds`
+and `--character` customize a run. Match renderer and settings between builds.
+See [the measurement report](docs/capital-performance.md) for results and limits.
+
 ## Zone atlas controls and rendering
 
 Open the Campaign Atlas's Zone tier and use the wheel or **+ / -** to zoom up to

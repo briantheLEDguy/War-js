@@ -53,6 +53,8 @@ export class HouseInteriorRuntime {
     return this.activeVariant !== null;
   }
 
+  get warmupRooms(): THREE.Object3D[] { return Object.values(this.interiors).map(room => room.group); }
+
   async loadCityRooms(loader: AssetLoader): Promise<void> {
     if (this.cityRoomsLoaded || this.disposed) return;
     if (this.cityRoomsLoading) return this.cityRoomsLoading;
