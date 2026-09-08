@@ -157,7 +157,9 @@ publication hashes. The merged Cinderfen hash is `d22eea91c8979adc`.
 
 The regional road test rebuilds authoring exclusions before composing Cinderfen,
 so it still checks deterministic roads and every vegetation exclusion without
-requiring draft data in published maps. Its 37 tests pass. Production build,
+requiring draft data in published maps. It fills missing metadata from a cloned
+layout and preserves existing exclusions during repeat passes, including while
+unfinished furniture drafts relocate during composition. Its 37 tests pass. Production build,
 frontend/server typechecks, 33-map validation, 843 model records and the 374-entry
 builder catalog pass on the merged committed content. Unfinished world and art
 drafts in the original checkout remain separate from this merge.

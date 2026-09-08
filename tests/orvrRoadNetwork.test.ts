@@ -27,7 +27,10 @@ const key = (point: Point) => `${point.x},${point.z}`;
 const edge = (a: Point, b: Point) => [key(a), key(b)].sort().join('|');
 const cinderfen = (zone: ZoneDefinition) => {
   // Published maps omit draft vegetation; restore its authoring exclusions before regional composition.
-  applyOrvrZoneLayout(zone, { id: zone.id, realm: zone.campaign!.realm, nodeRole: zone.campaign!.nodeRole });
+  if (!zone.orvrLayout!.biome.placements) {
+    const authoring = applyOrvrZoneLayout(structuredClone(zone), { id: zone.id, realm: zone.campaign!.realm, nodeRole: zone.campaign!.nodeRole });
+    zone.orvrLayout!.biome.placements = authoring.orvrLayout.biome.placements;
+  }
   return integrateCinderfen(composeCinderfenEnvironment(composeCinderfenLandscape(zone, true), { architecture: true }));
 };
 

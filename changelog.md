@@ -1,3 +1,7 @@
+## 2026-09-08 - Draft-compatible road regression fixture
+
+- Restore only missing Cinderfen authoring exclusions from a cloned layout. Preserve existing metadata on repeated composition so the road test remains valid with unfinished furnishing drafts without altering published geometry.
+
 ## 2026-09-08 - Cleanup and world integration
 
 - Merge the two audited cleanup passes with reviewed caravan rendering and Cinderfen clearance from e1f5490; preserve every live map field while regenerating compact publication data.
