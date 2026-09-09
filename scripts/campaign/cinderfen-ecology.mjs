@@ -8,8 +8,23 @@ const metadata = read('../../authoring/blender/cinderfen-nature/builder-metadata
 const registry = read('../../public/assets/models/asset-index.json').staticProps;
 export const CINDERFEN_WETLAND_ASSETS = ['frontier_cinderfen_reed_clump', 'frontier_cinderfen_sedge_horsetail'];
 export const CINDERFEN_ALDER = 'frontier_cinderfen_marsh_alder';
+export const CINDERFEN_BASALT = 'frontier_cinderfen_basalt_outcrop';
 export const CINDERFEN_WATER_LEVEL = survey.waterLevel;
 const round = n => Math.round(n * 1000) / 1000;
+const readyAsset = key => registry[key]?.runtimeReady && metadata.assets[key]?.runtimeReady
+  && registry[key].modelSha256 === metadata.assets[key].modelSha256;
+
+function obstacleEnvelopes(props) {
+  return props.map(prop => {
+    const model = registry[prop.assetKey ?? prop.kind]?.model ?? prop.model;
+    const bounds = model ? reviewedSceneryModelBounds(model) : null, scale = prop.scale ?? 1;
+    let radius = bounds ? Math.hypot(Math.max(Math.abs(bounds.min.x), Math.abs(bounds.max.x)) * (prop.scaleX ?? 1),
+      Math.max(Math.abs(bounds.min.z), Math.abs(bounds.max.z)) * (prop.scaleZ ?? 1)) * scale : 0;
+    for (const c of prop.colliders ?? []) radius = Math.max(radius,
+      Math.hypot((Math.abs(c.x ?? 0) + c.width / 2) * (prop.scaleX ?? 1), (Math.abs(c.z ?? 0) + c.depth / 2) * (prop.scaleZ ?? 1)) * scale);
+    return { x: prop.x, z: prop.z, radius, foliage: prop.id?.includes('_wetland_') };
+  }).filter(p => p.radius > 0);
+}
 
 /** Bilinear samples of the exact Float32 grid used to build the retained terrain. */
 export function cinderfenSurveyHeightAt(x, z) {
@@ -52,11 +67,17 @@ export function composeCinderfenEcology(zone) {
       throw Error(`Cinderfen ecology needs a current retained terrain survey: ${field}`);
   }
   if (zone.size !== survey.size || zone.segments !== survey.segments) throw Error('Cinderfen ecology terrain grid changed.');
+  // Clear the previous geological pass before woodland placement so regeneration is stable.
+  if (readyAsset(CINDERFEN_BASALT)) {
+    const resources = new Set((zone.resourceNodes ?? []).map(p => p.visualPropId));
+    zone.props = zone.props.filter(p => resources.has(p.id) || !(p.id?.startsWith(`${zone.id}_basalt_`)
+      || (p.kind === 'rock' && new RegExp(`^${zone.id}_(ridge|rock)_\\d+$`).test(p.id ?? ''))));
+  }
   const ready = CINDERFEN_WETLAND_ASSETS.filter(key => registry[key]?.runtimeReady && metadata.assets[key]?.runtimeReady
     && registry[key].modelSha256 === metadata.assets[key].modelSha256);
   const prefix = `${zone.id}_wetland_`;
   zone.props = zone.props.filter(p => !p.id?.startsWith(prefix));
-  if (!ready.length) return composeCinderfenWoodland(zone);
+  if (!ready.length) return composeCinderfenGeology(composeCinderfenWoodland(zone));
   let seed = 824731;
   const random = () => ((seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 4294967296);
   const entries = [];
@@ -97,7 +118,7 @@ export function composeCinderfenEcology(zone) {
   zone.props.sort((a, b) => (a.id ?? '').localeCompare(b.id ?? ''));
   zone.orvrLayout.biome.vegetationAssetKeys = [...new Set([...zone.orvrLayout.biome.vegetationAssetKeys, ...ready])];
   zone.orvrLayout.assetPolicy.optionalAssetKeys = [...new Set([...zone.orvrLayout.assetPolicy.optionalAssetKeys, ...ready])];
-  return composeCinderfenWoodland(zone);
+  return composeCinderfenGeology(composeCinderfenWoodland(zone));
 }
 
 /** Broken stands follow the dry fen margins, leaving the deep basins and campaign routes open. */
@@ -107,16 +128,7 @@ export function composeCinderfenWoodland(zone) {
   if (!asset?.runtimeReady || !definition?.runtimeReady || asset.modelSha256 !== definition.modelSha256) return zone;
   const prefix = `${zone.id}_alder_`, resources = new Set((zone.resourceNodes ?? []).map(p => p.visualPropId));
   zone.props = zone.props.filter(p => !p.id?.startsWith(prefix) && (p.kind !== 'tree' || resources.has(p.id)));
-  const occupied = zone.props.map(prop => {
-    const model = registry[prop.assetKey ?? prop.kind]?.model ?? prop.model;
-    const bounds = model ? reviewedSceneryModelBounds(model) : null;
-    const scale = prop.scale ?? 1;
-    let radius = bounds ? Math.hypot(Math.max(Math.abs(bounds.min.x), Math.abs(bounds.max.x)) * (prop.scaleX ?? 1),
-      Math.max(Math.abs(bounds.min.z), Math.abs(bounds.max.z)) * (prop.scaleZ ?? 1)) * scale : 0;
-    for (const c of prop.colliders ?? []) radius = Math.max(radius,
-      Math.hypot((Math.abs(c.x ?? 0) + c.width / 2) * (prop.scaleX ?? 1), (Math.abs(c.z ?? 0) + c.depth / 2) * (prop.scaleZ ?? 1)) * scale);
-    return { x: prop.x, z: prop.z, radius, foliage: prop.id?.includes('_wetland_') };
-  }).filter(p => p.radius > 0);
+  const occupied = obstacleEnvelopes(zone.props);
   const { minimum, maximum } = definition.boundsYUp;
   const crownRadius = Math.hypot(Math.max(Math.abs(minimum[0]), Math.abs(maximum[0])), Math.max(Math.abs(minimum[2]), Math.abs(maximum[2])));
   let seed = 2936417;
@@ -154,5 +166,48 @@ export function composeCinderfenWoodland(zone) {
   zone.props.sort((a, b) => (a.id ?? '').localeCompare(b.id ?? ''));
   zone.orvrLayout.biome.vegetationAssetKeys = [...new Set([...zone.orvrLayout.biome.vegetationAssetKeys, CINDERFEN_ALDER])];
   zone.orvrLayout.assetPolicy.optionalAssetKeys = [...new Set([...zone.orvrLayout.assetPolicy.optionalAssetKeys, CINDERFEN_ALDER])];
+  return zone;
+}
+
+/** Discontinuous exposures follow the basalt shoulders and headlands, with buried toes. */
+export function composeCinderfenGeology(zone) {
+  if (zone.id !== 'cinderfen_outskirts' || !zone.orvrLayout || !readyAsset(CINDERFEN_BASALT)) return zone;
+  const prefix = `${zone.id}_basalt_`, definition = metadata.assets[CINDERFEN_BASALT];
+  zone.props = zone.props.filter(p => !p.id?.startsWith(prefix));
+  const occupied = obstacleEnvelopes(zone.props), rocks = [];
+  const { minimum, maximum } = definition.boundsYUp;
+  const baseRadius = Math.hypot(Math.max(Math.abs(minimum[0]), Math.abs(maximum[0])), Math.max(Math.abs(minimum[2]), Math.abs(maximum[2])));
+  const seams = [
+    ['north_watershed', [[-400,435],[-300,442],[-200,437],[-65,448],[60,475]], 26],
+    ['west_shoulder', [[-490,-450],[-500,-320],[-494,-190],[-520,-95]], 24],
+    ['steam_ridge', [[478,86],[473,210],[486,347],[479,447]], 24],
+    ['southern_slag', [[-60,-465],[90,-452],[210,-470],[350,-510]], 26],
+    ['east_headland', [[265,210],[285,238],[309,234]], 8],
+    ['cinder_spit', [[-4,-390],[33,-382],[65,-408]], 8],
+    ['west_headland', [[-330,245],[-299,270],[-270,280]], 6],
+    ['scout_bank', [[180,392],[240,416],[300,410]], 10],
+  ];
+  let seed = 581962;
+  const random = () => ((seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 4294967296);
+  for (const [name, points, limit] of seams) {
+    let count = 0;
+    for (let i = 0; i < 1400 && count < limit; i++) {
+      const segment = Math.floor(random() * (points.length - 1)), a = points[segment], b = points[segment + 1], t = random();
+      const x = round(a[0] + (b[0] - a[0]) * t + (random() - .5) * 26), z = round(a[1] + (b[1] - a[1]) * t + (random() - .5) * 26);
+      const scale = round(.65 + random() * .95), radius = baseRadius * scale, ground = cinderfenSurveyHeightAt(x, z);
+      if (ground < -.12 || ground > 24 || !cinderfenEcologyClear(zone, { x, z }, radius)) continue;
+      if (occupied.some(p => Math.hypot(p.x - x, p.z - z) < p.radius + radius + .4)) continue;
+      if (rocks.some(p => Math.hypot(p.x - x, p.z - z) < baseRadius * (p.scale + scale) + 1.5)) continue;
+      const around = Array.from({ length: 12 }, (_, j) => cinderfenSurveyHeightAt(x + Math.cos(j * Math.PI / 6) * radius, z + Math.sin(j * Math.PI / 6) * radius));
+      if (Math.max(ground, ...around) - Math.min(ground, ...around) > .45 * scale) continue;
+      rocks.push({ id: prefix + name + '_' + i, kind: CINDERFEN_BASALT, assetKey: CINDERFEN_BASALT,
+        x, z, y: round(Math.min(ground, ...around) - .06 * scale), heightMode: 'absolute', scale, rotY: round(random() * Math.PI * 2),
+        colliderSpace: 'model', colliders: structuredClone(definition.colliders), walkableSurfaces: [], cameraSolid: true });
+      count++;
+    }
+  }
+  zone.props.push(...rocks);
+  zone.props.sort((a, b) => (a.id ?? '').localeCompare(b.id ?? ''));
+  zone.orvrLayout.assetPolicy.optionalAssetKeys = [...new Set([...zone.orvrLayout.assetPolicy.optionalAssetKeys, CINDERFEN_BASALT])];
   return zone;
 }

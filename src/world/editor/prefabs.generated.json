@@ -4752,6 +4752,7 @@
   },
   {
     "kind": "frontier_cinderfen_basalt_outcrop",
+    "sourceKind": "frontier_cinderfen_basalt_outcrop",
     "label": "Cinderfen fractured basalt outcrop",
     "group": "Cinderfen Nature",
     "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
@@ -4765,12 +4766,6 @@
       "width": 4.8718321323394775,
       "depth": 4.061227798461914,
       "chainAxis": "x"
-    },
-    "assetCategory": "staticProps",
-    "defaultScale": {
-      "x": 1,
-      "y": 1,
-      "z": 1
     },
     "colliderSpace": "model",
     "colliders": [
@@ -4808,7 +4803,13 @@
       }
     ],
     "walkableSurfaces": [],
-    "cameraSolid": true
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
   },
   {
     "kind": "frontier_cinderfen_corner_access",

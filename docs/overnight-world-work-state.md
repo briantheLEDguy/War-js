@@ -1,5 +1,29 @@
 # World build continuation state
 
+## Basalt composition and full regression pass - 2026-09-09
+
+Checkpoint 27c5de1 saves the complete published Cinderfen nature package and
+621-tree placement. The next integration adds 38 basalt outcrops along eight
+landform exposures, removes the old 48 generic ridge/scatter rocks, and retains
+all resource visuals plus six objective flank stones. A basalt headland camera
+shows planted toes and clear space between the actual exports. Whole-zone preview
+contains 16 terrain sectors and 1,455 reviewed props; no new browser errors.
+
+All 1,201 tests in 150 files pass with two Vitest workers, recorded in
+artifacts/orvr/world-quality-geology-tests.json. This supersedes the earlier
+three-failure run below. The 62 focused geology/road/GM checks, 33-map validator,
+client typecheck and 378-entry builder check also pass. Production build passed
+after the alder publication; subsequent changes are geology placement and its
+LOD distance policy. Existing bundle-size warning remains.
+
+Buck shoulder/quarter-view corrections are accepted, but strict peak-tuck profile
+revealed a remaining flat rear shelf. Agent is making a bounded flexion correction;
+other clips and species remain under review. Dwarf revision j passes all three
+LOD wrist, garment and floor checks; hair and exterior shoulder seams are in
+final visual refinement. Separate woodland-floor meshes have source-direction
+review only and no runtime publication. Work and the hourly continuation remain
+active. No zone is art-complete.
+
 ## Woodland and basalt checkpoint - 2026-09-09
 
 Alder and basalt are now accepted and published at all three LODs; their scoped

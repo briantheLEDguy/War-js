@@ -13,6 +13,7 @@ const original = read('public/assets/maps/cinderfen_outskirts.json');
 const zone = composeCinderfenEcology(structuredClone(original)) as ZoneDefinition;
 const plants = zone.props.filter(p => p.id?.includes('_wetland_'));
 const trees = zone.props.filter(p => p.id?.includes('_alder_'));
+const rocks = zone.props.filter(p => p.id?.includes('_basalt_'));
 const metadata = read('authoring/blender/cinderfen-nature/builder-metadata.json');
 const heightAt = createOrvrGridHeightSampler(zone.orvrLayout!.terrain, zone.size, zone.segments);
 const radius = (key: string, scale: number) => {
@@ -93,10 +94,30 @@ describe('Cinderfen retained-survey wetland colonies', () => {
     expect(frontierPropDistances(trees[0].assetKey!)).toEqual({ lod: [0, 35, 90], cull: 450 });
   });
 
-  it('keeps tree crowns clear of built structures and full campaign road widths', () => {
-    const blockers = mapPropNavigation(zone.props.filter(p => !p.id?.includes('_alder_')), heightAt).collision;
+  it('embeds fractured basalt on stable shoulders without replacing gathering or objective visuals', () => {
+    expect(rocks.length).toBeGreaterThanOrEqual(30); expect(rocks.length).toBeLessThanOrEqual(140);
+    expect(new Set(rocks.map(p => p.id!.replace(/_\d+$/, ''))).size).toBe(8);
+    expect(zone.props.some(p => /^cinderfen_outskirts_(ridge|rock)_\d+$/.test(p.id ?? ''))).toBe(false);
+    expect(zone.props.filter(p => p.id?.includes('_objective_stone_'))).toHaveLength(6);
+    for (const rock of rocks) {
+      const ground = heightAt(rock.x, rock.z), scale = rock.scale ?? 1;
+      expect(ground).toBeGreaterThanOrEqual(-.12); expect(ground).toBeLessThanOrEqual(24);
+      expect(rock.heightMode).toBe('absolute'); expect(rock.y!).toBeLessThan(ground);
+      expect(ground - rock.y!).toBeLessThan(.511 * scale);
+      expect(rock.colliders).toEqual(metadata.assets[rock.assetKey!].colliders);
+      expect(rock.colliderSpace).toBe('model'); expect(rock.colliders).toHaveLength(4);
+      expect(rock.walkableSurfaces).toEqual([]); expect(rock.cameraSolid).toBe(true);
+    }
+    const entry = read('src/world/editor/prefabs.generated.json').find((p: { assetKey: string }) => p.assetKey === rocks[0].assetKey);
+    expect(entry.lodModels).toHaveLength(2); expect(entry.colliders).toEqual(rocks[0].colliders);
+    expect(frontierPropDistances(rocks[0].assetKey!)).toEqual({ lod: [0, 20, 50], cull: 550 });
+  });
+
+  it.each([{ name: 'tree crowns', entries: trees }, { name: 'basalt outcrops', entries: rocks }])('keeps $name clear of structures and full campaign road widths', ({ entries }) => {
+    const ids = new Set(entries.map(p => p.id));
+    const blockers = mapPropNavigation(zone.props.filter(p => !ids.has(p.id)), heightAt).collision;
     const blocked: string[] = [];
-    for (const tree of trees) {
+    for (const tree of entries) {
       const r = radius(tree.assetKey!, tree.scale ?? 1), point = { x: tree.x, y: tree.y!, z: tree.z };
       if (blockers.some(c => campaignColliderContains(c, point, r))) blocked.push(`${tree.id}: construction`);
       for (const objective of zone.rvrObjectives ?? []) if (Math.hypot(tree.x - objective.x, tree.z - objective.z) <= objective.captureRadius + r) blocked.push(`${tree.id}: objective`);

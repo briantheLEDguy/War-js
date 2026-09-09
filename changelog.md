@@ -1,3 +1,9 @@
+## 2026-09-09 - Cinderfen basalt placement
+
+- Replaced 48 generic ridge/scatter rocks with 38 reviewed basalt exposures along eight landform shoulders and headlands; preserved gathering and objective visuals.
+- Added measured rooting, structure/crown and road-clearance checks, close rock LOD distances and an assembled basalt inspection viewpoint.
+- Full regression suite passes: 1,201 tests across 150 files.
+
 ## 2026-09-09 - Reviewed Cinderfen woodland and basalt
 
 - Published the fitted marsh alder and continuous-material basalt at three LODs, with exact source/review evidence and measured GM defaults.

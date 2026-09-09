@@ -29412,6 +29412,1830 @@
       ]
     },
     {
+      "id": "cinderfen_outskirts_basalt_cinder_spit_14",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 7.393,
+      "z": -397.947,
+      "y": 1.262,
+      "heightMode": "absolute",
+      "scale": 1.273,
+      "rotY": 4.357,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_cinder_spit_23",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 17.05,
+      "z": -389.199,
+      "y": 1.121,
+      "heightMode": "absolute",
+      "scale": 0.981,
+      "rotY": 5.477,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_cinder_spit_342",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 21.216,
+      "z": -396.033,
+      "y": 1.555,
+      "heightMode": "absolute",
+      "scale": 0.944,
+      "rotY": 4.097,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_cinder_spit_450",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -5.378,
+      "z": -401.35,
+      "y": 0.649,
+      "heightMode": "absolute",
+      "scale": 0.908,
+      "rotY": 3.069,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_cinder_spit_67",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 30.258,
+      "z": -395.759,
+      "y": 1.078,
+      "heightMode": "absolute",
+      "scale": 1.202,
+      "rotY": 5.851,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_cinder_spit_718",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -13.81,
+      "z": -402.295,
+      "y": 0.131,
+      "heightMode": "absolute",
+      "scale": 0.763,
+      "rotY": 1.736,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_0",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 286.413,
+      "z": 223.848,
+      "y": 1.895,
+      "heightMode": "absolute",
+      "scale": 0.863,
+      "rotY": 1.362,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_1",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 273.099,
+      "z": 225.43,
+      "y": 1.324,
+      "heightMode": "absolute",
+      "scale": 0.867,
+      "rotY": 4.451,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_12",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 280.679,
+      "z": 235.576,
+      "y": 1.453,
+      "heightMode": "absolute",
+      "scale": 1.5,
+      "rotY": 0.177,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_13",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 269.003,
+      "z": 234.807,
+      "y": 0.904,
+      "heightMode": "absolute",
+      "scale": 1.277,
+      "rotY": 0.062,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_19",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 283.667,
+      "z": 210.559,
+      "y": 1.305,
+      "heightMode": "absolute",
+      "scale": 1.004,
+      "rotY": 4.686,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_2",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 294.875,
+      "z": 221.035,
+      "y": 2.043,
+      "heightMode": "absolute",
+      "scale": 0.765,
+      "rotY": 1.709,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_5",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 302.901,
+      "z": 226.834,
+      "y": 2.071,
+      "heightMode": "absolute",
+      "scale": 0.819,
+      "rotY": 3.033,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_east_headland_6",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 294.711,
+      "z": 231.037,
+      "y": 1.991,
+      "heightMode": "absolute",
+      "scale": 1.314,
+      "rotY": 6.059,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_north_watershed_75",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -396.829,
+      "z": 425.752,
+      "y": -0.015,
+      "heightMode": "absolute",
+      "scale": 1.293,
+      "rotY": 1.281,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_north_watershed_928",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -406.426,
+      "z": 429.126,
+      "y": -0.022,
+      "heightMode": "absolute",
+      "scale": 1.126,
+      "rotY": 3.127,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_scout_bank_213",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 227.689,
+      "z": 395.9,
+      "y": 7.059,
+      "heightMode": "absolute",
+      "scale": 1.086,
+      "rotY": 2.055,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_scout_bank_319",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 217.36,
+      "z": 392.484,
+      "y": 7.054,
+      "heightMode": "absolute",
+      "scale": 1.187,
+      "rotY": 3.704,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_scout_bank_551",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 194.426,
+      "z": 384.513,
+      "y": 6.424,
+      "heightMode": "absolute",
+      "scale": 0.833,
+      "rotY": 5.384,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_scout_bank_9",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 203.51,
+      "z": 391.757,
+      "y": 6.48,
+      "heightMode": "absolute",
+      "scale": 1.395,
+      "rotY": 2.894,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_southern_slag_0",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -67.476,
+      "z": -464.378,
+      "y": -0.005,
+      "heightMode": "absolute",
+      "scale": 1.545,
+      "rotY": 4.075,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_southern_slag_186",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -56.272,
+      "z": -456.338,
+      "y": 0.048,
+      "heightMode": "absolute",
+      "scale": 0.831,
+      "rotY": 5.188,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_southern_slag_432",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -66.256,
+      "z": -455.109,
+      "y": -0.041,
+      "heightMode": "absolute",
+      "scale": 0.804,
+      "rotY": 1.115,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_southern_slag_440",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -41.532,
+      "z": -451.277,
+      "y": -0.021,
+      "heightMode": "absolute",
+      "scale": 1.504,
+      "rotY": 4.73,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_steam_ridge_221",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 466.621,
+      "z": 445.823,
+      "y": -0.005,
+      "heightMode": "absolute",
+      "scale": 0.938,
+      "rotY": 2.932,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_steam_ridge_50",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 464.409,
+      "z": 109.428,
+      "y": -0.066,
+      "heightMode": "absolute",
+      "scale": 1.092,
+      "rotY": 6.283,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_steam_ridge_506",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 464.179,
+      "z": 131.744,
+      "y": -0.064,
+      "heightMode": "absolute",
+      "scale": 1.336,
+      "rotY": 4.068,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_steam_ridge_59",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 468.46,
+      "z": 119.026,
+      "y": -0.003,
+      "heightMode": "absolute",
+      "scale": 1.014,
+      "rotY": 1.441,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_steam_ridge_6",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": 474.636,
+      "z": 113.111,
+      "y": 0.004,
+      "heightMode": "absolute",
+      "scale": 0.794,
+      "rotY": 5.263,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_headland_20",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -321.352,
+      "z": 236.318,
+      "y": 1.697,
+      "heightMode": "absolute",
+      "scale": 1.022,
+      "rotY": 2.172,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_headland_35",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -315.353,
+      "z": 242.355,
+      "y": 2.273,
+      "heightMode": "absolute",
+      "scale": 0.652,
+      "rotY": 0.632,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_headland_38",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -316.395,
+      "z": 251.84,
+      "y": 2.391,
+      "heightMode": "absolute",
+      "scale": 0.989,
+      "rotY": 4.753,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_headland_5",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -298.68,
+      "z": 254.758,
+      "y": 1.947,
+      "heightMode": "absolute",
+      "scale": 1.45,
+      "rotY": 6.17,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_headland_66",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -337.655,
+      "z": 252.971,
+      "y": 1.087,
+      "heightMode": "absolute",
+      "scale": 1.506,
+      "rotY": 2.441,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_headland_9",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -311.792,
+      "z": 264.695,
+      "y": 1.807,
+      "heightMode": "absolute",
+      "scale": 1.437,
+      "rotY": 1.31,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_shoulder_133",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -480.778,
+      "z": -425.986,
+      "y": -0.082,
+      "heightMode": "absolute",
+      "scale": 1.531,
+      "rotY": 3.325,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_shoulder_15",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -480.166,
+      "z": -437.275,
+      "y": -0.076,
+      "heightMode": "absolute",
+      "scale": 1.27,
+      "rotY": 6.148,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
+      "id": "cinderfen_outskirts_basalt_west_shoulder_31",
+      "kind": "frontier_cinderfen_basalt_outcrop",
+      "assetKey": "frontier_cinderfen_basalt_outcrop",
+      "x": -484.794,
+      "z": -455.059,
+      "y": -0.085,
+      "heightMode": "absolute",
+      "scale": 1.416,
+      "rotY": 6.072,
+      "colliderSpace": "model",
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    {
       "id": "cinderfen_outskirts_central_objective_banner",
       "kind": "banner_post",
       "x": 7.071,
@@ -30534,150 +32358,6 @@
           "depth": 2
         }
       ]
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_01",
-      "kind": "rock",
-      "x": 552,
-      "z": 0,
-      "rotY": 0,
-      "scale": 1.9
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_02",
-      "kind": "rock",
-      "x": 548.8,
-      "z": 199.6,
-      "rotY": 0.3491,
-      "scale": 2.35
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_03",
-      "kind": "rock",
-      "x": 422.8,
-      "z": 354.8,
-      "rotY": 0.6981,
-      "scale": 2.8
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_04",
-      "kind": "rock",
-      "x": 292,
-      "z": 505.6,
-      "rotY": 1.0472,
-      "scale": 3.25
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_05",
-      "kind": "rock",
-      "x": 96,
-      "z": 543.6,
-      "rotY": 1.3963,
-      "scale": 1.9
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_06",
-      "kind": "rock",
-      "x": -101.6,
-      "z": 570,
-      "rotY": 1.7453,
-      "scale": 2.35
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_07",
-      "kind": "rock",
-      "x": -276,
-      "z": 478,
-      "rotY": 2.0944,
-      "scale": 2.8
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_08",
-      "kind": "rock",
-      "x": -447.2,
-      "z": 375.2,
-      "rotY": 2.4435,
-      "scale": 3.25
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_09",
-      "kind": "rock",
-      "x": -518.8,
-      "z": 188.8,
-      "rotY": 2.7925,
-      "scale": 1.9
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_10",
-      "kind": "rock",
-      "x": -570,
-      "z": 0,
-      "rotY": 3.1416,
-      "scale": 2.35
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_11",
-      "kind": "rock",
-      "x": -518.8,
-      "z": -188.8,
-      "rotY": 3.4907,
-      "scale": 2.8
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_12",
-      "kind": "rock",
-      "x": -447.2,
-      "z": -375.2,
-      "rotY": 3.8397,
-      "scale": 3.25
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_13",
-      "kind": "rock",
-      "x": -276,
-      "z": -478,
-      "rotY": 4.1888,
-      "scale": 1.9
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_14",
-      "kind": "rock",
-      "x": -101.6,
-      "z": -570,
-      "rotY": 4.5379,
-      "scale": 2.35
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_15",
-      "kind": "rock",
-      "x": 96,
-      "z": -543.6,
-      "rotY": 4.8869,
-      "scale": 2.8
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_16",
-      "kind": "rock",
-      "x": 292,
-      "z": -505.6,
-      "rotY": 5.236,
-      "scale": 3.25
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_17",
-      "kind": "rock",
-      "x": 422.8,
-      "z": -354.8,
-      "rotY": 5.5851,
-      "scale": 1.9
-    },
-    {
-      "id": "cinderfen_outskirts_ridge_18",
-      "kind": "rock",
-      "x": 548.8,
-      "z": -199.6,
-      "rotY": 5.9341,
-      "scale": 2.35
     },
     {
       "id": "cinderfen_outskirts_riftbound_keep_banner_left",
@@ -41638,246 +43318,6 @@
           "axis": "z"
         }
       ]
-    },
-    {
-      "id": "cinderfen_outskirts_rock_01",
-      "kind": "rock",
-      "x": -436.4,
-      "z": 310,
-      "rotY": 3.5079,
-      "scale": 2.4
-    },
-    {
-      "id": "cinderfen_outskirts_rock_02",
-      "kind": "rock",
-      "x": 226.8,
-      "z": -339.2,
-      "rotY": 0.3913,
-      "scale": 2.34
-    },
-    {
-      "id": "cinderfen_outskirts_rock_03",
-      "kind": "rock",
-      "x": -352.8,
-      "z": -411.6,
-      "rotY": 3.4641,
-      "scale": 1.34
-    },
-    {
-      "id": "cinderfen_outskirts_rock_04",
-      "kind": "rock",
-      "x": 375.2,
-      "z": 85.2,
-      "rotY": 1.7629,
-      "scale": 0.91
-    },
-    {
-      "id": "cinderfen_outskirts_rock_05",
-      "kind": "rock",
-      "x": 354.4,
-      "z": -182,
-      "rotY": 4.3966,
-      "scale": 0.77
-    },
-    {
-      "id": "cinderfen_outskirts_rock_06",
-      "kind": "rock",
-      "x": -128,
-      "z": -474.4,
-      "rotY": 6.1484,
-      "scale": 2.4
-    },
-    {
-      "id": "cinderfen_outskirts_rock_07",
-      "kind": "rock",
-      "x": -303.6,
-      "z": -288,
-      "rotY": 5.3175,
-      "scale": 2.49
-    },
-    {
-      "id": "cinderfen_outskirts_rock_08",
-      "kind": "rock",
-      "x": -6.4,
-      "z": 478.4,
-      "rotY": 2.585,
-      "scale": 1.05
-    },
-    {
-      "id": "cinderfen_outskirts_rock_09",
-      "kind": "rock",
-      "x": -197.6,
-      "z": -311.2,
-      "rotY": 5.7722,
-      "scale": 2.09
-    },
-    {
-      "id": "cinderfen_outskirts_rock_10",
-      "kind": "rock",
-      "x": 57.2,
-      "z": -450.8,
-      "rotY": 5.0995,
-      "scale": 1.74
-    },
-    {
-      "id": "cinderfen_outskirts_rock_11",
-      "kind": "rock",
-      "x": -408.8,
-      "z": -224,
-      "rotY": 4.157,
-      "scale": 1.21
-    },
-    {
-      "id": "cinderfen_outskirts_rock_12",
-      "kind": "rock",
-      "x": 248.8,
-      "z": 419.2,
-      "rotY": 1.0219,
-      "scale": 1.53
-    },
-    {
-      "id": "cinderfen_outskirts_rock_13",
-      "kind": "rock",
-      "x": -528.4,
-      "z": 108,
-      "rotY": 4.2566,
-      "scale": 1.08
-    },
-    {
-      "id": "cinderfen_outskirts_rock_14",
-      "kind": "rock",
-      "x": 466,
-      "z": -71.6,
-      "rotY": 3.2215,
-      "scale": 1.08
-    },
-    {
-      "id": "cinderfen_outskirts_rock_15",
-      "kind": "rock",
-      "x": 336.4,
-      "z": 424.8,
-      "rotY": 3.5392,
-      "scale": 1.49
-    },
-    {
-      "id": "cinderfen_outskirts_rock_16",
-      "kind": "rock",
-      "x": -427.2,
-      "z": 168.8,
-      "rotY": 3.2997,
-      "scale": 2.4
-    },
-    {
-      "id": "cinderfen_outskirts_rock_17",
-      "kind": "rock",
-      "x": 345.6,
-      "z": 392,
-      "rotY": 2.7729,
-      "scale": 1.29
-    },
-    {
-      "id": "cinderfen_outskirts_rock_18",
-      "kind": "rock",
-      "x": -78.4,
-      "z": -416.4,
-      "rotY": 5.1203,
-      "scale": 2.34
-    },
-    {
-      "id": "cinderfen_outskirts_rock_19",
-      "kind": "rock",
-      "x": 409,
-      "z": -55.6,
-      "rotY": 1.9205,
-      "scale": 1.07
-    },
-    {
-      "id": "cinderfen_outskirts_rock_20",
-      "kind": "rock",
-      "x": -356.8,
-      "z": 274,
-      "rotY": 3.7514,
-      "scale": 1.28
-    },
-    {
-      "id": "cinderfen_outskirts_rock_21",
-      "kind": "rock",
-      "x": -435.2,
-      "z": -262.4,
-      "rotY": 2.7465,
-      "scale": 2.29
-    },
-    {
-      "id": "cinderfen_outskirts_rock_22",
-      "kind": "rock",
-      "x": -298,
-      "z": -321.6,
-      "rotY": 3.309,
-      "scale": 1.78
-    },
-    {
-      "id": "cinderfen_outskirts_rock_23",
-      "kind": "rock",
-      "x": 303.2,
-      "z": -370,
-      "rotY": 1.0305,
-      "scale": 1.35
-    },
-    {
-      "id": "cinderfen_outskirts_rock_24",
-      "kind": "rock",
-      "x": -47.2,
-      "z": 542,
-      "rotY": 0.8082,
-      "scale": 1.09
-    },
-    {
-      "id": "cinderfen_outskirts_rock_25",
-      "kind": "rock",
-      "x": -364,
-      "z": -336.4,
-      "rotY": 6.2596,
-      "scale": 1.3
-    },
-    {
-      "id": "cinderfen_outskirts_rock_26",
-      "kind": "rock",
-      "x": 382.8,
-      "z": -298,
-      "rotY": 5.884,
-      "scale": 1.63
-    },
-    {
-      "id": "cinderfen_outskirts_rock_27",
-      "kind": "rock",
-      "x": -212.4,
-      "z": 300,
-      "rotY": 0.9916,
-      "scale": 1.84
-    },
-    {
-      "id": "cinderfen_outskirts_rock_28",
-      "kind": "rock",
-      "x": 320.8,
-      "z": 409.2,
-      "rotY": 2.4736,
-      "scale": 0.84
-    },
-    {
-      "id": "cinderfen_outskirts_rock_29",
-      "kind": "rock",
-      "x": -388.8,
-      "z": 113.6,
-      "rotY": 5.3172,
-      "scale": 0.98
-    },
-    {
-      "id": "cinderfen_outskirts_rock_30",
-      "kind": "rock",
-      "x": 74,
-      "z": 492,
-      "rotY": 2.3663,
-      "scale": 1.27
     },
     {
       "id": "cinderfen_outskirts_salvage_station_visual",
@@ -53092,7 +54532,8 @@
         "frontier_cinderfen_corner_access",
         "frontier_cinderfen_reed_clump",
         "frontier_cinderfen_sedge_horsetail",
-        "frontier_cinderfen_marsh_alder"
+        "frontier_cinderfen_marsh_alder",
+        "frontier_cinderfen_basalt_outcrop"
       ]
     },
     "battlefieldObjectives": [
@@ -61061,5 +62502,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "20b13d52a1988b3e"
+  "staticMapHash": "33bc5553e72dd49c"
 }
