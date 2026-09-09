@@ -13,6 +13,7 @@ from mathutils.bvhtree import BVHTree
 WORK=Path(__file__).resolve().parents[1]
 key=next((a.split('=',1)[1] for a in sys.argv if a.startswith('--asset=')),'frontier_sunmeadow_dwarf_artisan')
 lod=int(next((a.split('=',1)[1] for a in sys.argv if a.startswith('--lod=')),'0'))
+selected=next((a.split('=',1)[1].split(',') for a in sys.argv if a.startswith('--clips=')),None)
 source=WORK/'runtime'/f'{key}_lod{lod}.glb';raw=source.read_bytes()
 length=int.from_bytes(raw[12:16],'little');doc=json.loads(raw[20:20+length]);binary=raw[28+length:]
 bpy.ops.import_scene.gltf(filepath=str(source))
@@ -34,13 +35,36 @@ def positions():
 
 rest=positions();belt=(rig.matrix_world@rig.data.bones['apron_lower'].head_local).z
 hinge={vertex.index for vertex in body.data.vertices if any(body.vertex_groups[entry.group].name=='apron_lower' and entry.weight>.0001 for entry in vertex.groups)}
-apron=[tuple(face.vertices) for face in body.data.polygons if any(i in hinge for i in face.vertices)]
+candidates=[tuple(face.vertices) for face in body.data.polygons if any(i in hinge for i in face.vertices)]
+# The belt now follows the same cloth joint, so joint membership alone no
+# longer identifies the apron. Recover its largest connected surface, welding
+# only coincident export seams; separate belt/pocket parts remain separate.
+parents={}
+def root(point):
+    parents.setdefault(point,point)
+    if parents[point]!=point:parents[point]=root(parents[point])
+    return parents[point]
+keys={i:tuple(np.round(rest[i],6)) for face in candidates for i in face}
+for face in candidates:
+    first=root(keys[face[0]])
+    for i in face[1:]:parents[root(keys[i])]=first
+components={}
+for face in candidates:components.setdefault(root(keys[face[0]]),[]).append(face)
+apron=max(components.values(),key=len)
 trousers={i for face in body.data.polygons if '_wool' in body.data.materials[face.material_index].name for i in face.vertices}
 probes=np.array(sorted(i for i in trousers if belt-.39<rest[i,2]<belt-.035 and rest[i,1]<-.035 and abs(rest[i,0])<.31),dtype=int)
 if not apron or len(probes)<100:raise RuntimeError('Missing authored apron or trouser inspection surface')
-records=[]
+boot_triangles={};hem_probes={}
+for side,sign in [('L',1),('R',-1)]:
+    boot_triangles[side]=[tuple(face.vertices) for face in body.data.polygons
+                          if '_worked_leather' in body.data.materials[face.material_index].name
+                          and all(rest[i,2]<.245 and sign*rest[i,0]>.12 for i in face.vertices)]
+    hem_probes[side]=np.array(sorted(i for i in trousers if .145<rest[i,2]<.193 and sign*rest[i,0]>.12),dtype=int)
+    if not boot_triangles[side] or len(hem_probes[side])<30:raise RuntimeError('Missing boot/hem inspection surface: '+side)
+records=[];boot_records=[]
 for clip in doc['animations']:
-    if clip['name'] not in ('walk','run','jump'):continue
+    if selected is not None and clip['name'] not in selected:continue
+    measure_apron=clip['name'] in ('walk','run','jump')
     action=next(action for action in bpy.data.actions if action.name==clip['name'] or action.name.endswith('_'+clip['name']))
     rig.animation_data.action=action
     if action.slots:rig.animation_data.action_slot=action.slots[0]
@@ -50,21 +74,44 @@ for clip in doc['animations']:
         start=view.get('byteOffset',0)+accessor.get('byteOffset',0)
         times.update(round(struct.unpack_from('<f',binary,start+i*view.get('byteStride',4))[0],8) for i in range(accessor['count']))
     keys=sorted(times);times.update((a+b)/2 for a,b in zip(keys,keys[1:]))
-    samples=[]
+    samples=[];boot_samples=[]
     for seconds in sorted(times):
         for bone in rig.pose.bones:bone.matrix_basis.identity()
         frame=1+seconds*bpy.context.scene.render.fps/bpy.context.scene.render.fps_base
         bpy.context.scene.frame_set(math.floor(frame),subframe=frame%1);bpy.context.view_layer.update()
-        posed=positions();tree=BVHTree.FromPolygons(posed,apron,all_triangles=True)
+        posed=positions();tree=BVHTree.FromPolygons(posed,apron,all_triangles=True) if measure_apron else None
         gaps=[]
-        for i in probes:
+        for i in probes if measure_apron else []:
             point=posed[i]
             hit=tree.ray_cast(Vector((point[0],-2,point[2])),Vector((0,1,0)),3)[0]
             if hit is not None:gaps.append(float(point[1]-hit.y))
-        samples.append({'seconds':seconds,'raysIntersectingApron':len(gaps),'minimumGap':min(gaps) if gaps else None,
-                        'penetrationCount':sum(gap<-.002 for gap in gaps)})
-    records.append({'clip':clip['name'],'samples':samples,'maximumPenetration':max(0,-min((sample['minimumGap'] for sample in samples if sample['minimumGap'] is not None),default=0))})
+        if measure_apron:
+            samples.append({'seconds':seconds,'raysIntersectingApron':len(gaps),'minimumGap':min(gaps) if gaps else None,
+                            'penetrationCount':sum(gap<-.002 for gap in gaps)})
+        sides={}
+        for side in ('L','R'):
+            tree=BVHTree.FromPolygons(posed,boot_triangles[side],all_triangles=True)
+            shin=rig.matrix_world@rig.pose.bones['shin_'+side].matrix;inverse=shin.inverted()
+            gaps=[];worst=None
+            for i in hem_probes[side]:
+                point=Vector(posed[i]);local=inverse@point
+                origin=shin@Vector((0,local.y,0));direction=point-origin
+                distance=direction.length
+                if distance<.001:continue
+                hit=tree.ray_cast(origin,direction.normalized(),.3)[0]
+                if hit is not None:
+                    gap=(hit-origin).length-distance;gaps.append(gap)
+                    if worst is None or gap<worst['gap']:worst={'gap':gap,'vertex':int(i),'rest':rest[i].tolist(),'posed':list(point),'bootHit':list(hit)}
+            sides[side]={'raysIntersectingBoot':len(gaps),'minimumGap':min(gaps) if gaps else None,
+                         'penetrationCount':sum(gap<-.002 for gap in gaps),'worstProbe':worst}
+        boot_samples.append({'seconds':seconds,'sides':sides})
+    if measure_apron:
+        records.append({'clip':clip['name'],'samples':samples,'maximumPenetration':max(0,-min((sample['minimumGap'] for sample in samples if sample['minimumGap'] is not None),default=0))})
+    boot_records.append({'clip':clip['name'],'samples':boot_samples,
+                         'maximumPenetration':max(0,-min((side['minimumGap'] for sample in boot_samples for side in sample['sides'].values() if side['minimumGap'] is not None),default=0))})
 report={'model':source.name,'sha256':hashlib.sha256(raw).hexdigest(),'probeVertices':len(probes),
-        'apronTriangles':len(apron),'status':'inspection_only','clips':records}
-(WORK/'review'/f'{key}_lod{lod}_garment_clearance.json').write_text(json.dumps(report,indent=2))
+        'apronTriangles':len(apron),'status':'inspection_only','clips':records,
+        'bootHemProbeVertices':{side:len(indices) for side,indices in hem_probes.items()},'bootClips':boot_records}
+(WORK/'review'/f'{key}_lod{lod}_{"selected_" if selected else ""}garment_clearance.json').write_text(json.dumps(report,indent=2))
 print(json.dumps({clip['clip']:clip['maximumPenetration'] for clip in records}),flush=True)
+print(json.dumps({'boot/'+clip['clip']:clip['maximumPenetration'] for clip in boot_records}),flush=True)

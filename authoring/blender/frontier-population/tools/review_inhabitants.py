@@ -71,16 +71,28 @@ for view in views:
     target = center.copy()
     direction = Vector((.23,-1,.10))
     data.ortho_scale = height * 1.2
-    if view == 'side': direction = Vector((1,-.2,.06))
+    if view == 'side' or view.endswith('_side'): direction = Vector((1,-.2,.06))
     if view == 'rear': direction = Vector((.3,1,.10))
     if view == 'head':
         target = rig.matrix_world @ rig.pose.bones['head'].head
         target.z += .025; data.ortho_scale = .56
+    if 'waist' in view:
+        target=rig.matrix_world@rig.pose.bones['apron_lower'].head
+        target.z+=.035;data.ortho_scale=.66
     if 'forearm' in view:
         target = rig.matrix_world @ rig.pose.bones['forearm_R'].head.lerp(rig.pose.bones['hand_R'].tail, .6)
         data.ortho_scale = .65
         direction = Vector((-.3,-1,.18))
         if view.endswith('_side'): direction = Vector((-1,-.15,.05))
+    if clip=='death':
+        posed=[obj.evaluated_get(bpy.context.evaluated_depsgraph_get()) for obj in meshes]
+        corners=[obj.matrix_world@Vector(corner) for obj in posed for corner in obj.bound_box]
+        target=Vector([(min(point[i] for point in corners)+max(point[i] for point in corners))*.5 for i in range(3)])
+        direction=Vector((.65,-1,.7))
+        basis=(-direction).to_track_quat('-Z','Y').to_matrix()
+        horizontal=[point.dot(basis.col[0]) for point in corners]
+        vertical=[point.dot(basis.col[1]) for point in corners]
+        data.ortho_scale=max(max(vertical)-min(vertical),(max(horizontal)-min(horizontal))*scene.render.resolution_y/scene.render.resolution_x)*1.15
     camera.location = target + direction.normalized() * height * 3
     camera.rotation_euler = (target-camera.location).to_track_quat('-Z','Y').to_euler()
     safe_view=view.replace(':','_')

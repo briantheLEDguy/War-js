@@ -26,6 +26,8 @@ from tailored_locomotion import fit_locomotion, refine_sole_contacts
 from artisan_equipment import dress_artisan
 from export_tangents import repair_export_tangents
 from apron_clearance import fit_apron_clearance
+from apron_details import make_apron_details
+from surface_bindings import ClothSurface, bind_detail
 
 for folder in ['sources', 'runtime', 'textures', 'review']:
     (WORK / folder).mkdir(parents=True, exist_ok=True)
@@ -259,32 +261,50 @@ def build(kind, recipe):
         apron = make(kind + '_folded_work_apron', verts, faces, leather if kind != 'empire_herbalist' else cloth)
         smooth=apron.modifiers.new('Supple_leather_finish','SUBSURF');smooth.levels=2;smooth.render_levels=2
         solid = apron.modifiers.new('Sewn_panel_thickness', 'SOLIDIFY'); solid.thickness = .004
-        for col in (0,12):
-            points=[Vector(verts[r*13+col])+Vector((0,-.003,0)) for r in range(len(rows))]
-            sweep('apron_bound_edge',points,[.0025]*len(points),leather)
-        # The bib is suspended by a fitted strap, with its ends riveted through real leather thickness.
-        for side in [-1,1]:
-            points=[Vector((side*.108,front_at(side*.108,mapped(1.42))-.022,mapped(1.42))),
-                    Vector((side*.115,front_at(side*.115,mapped(1.51))-.012,mapped(1.51))),
-                    morphology((side*.092,-.020,1.565),race),morphology((side*.08,.038,1.52),race)]
-            strap=[]
-            for p in points:strap.extend([p+Vector((-.011,0,0)),p+Vector((.011,0,0))])
-            band=make('apron_neck_strap',strap,[(i*2,i*2+1,i*2+3,i*2+2) for i in range(3)],leather)
-            thick=band.modifiers.new('Strap_leather_thickness','SOLIDIFY');thick.thickness=.004
+        make_apron_details(apron,make,lambda point:morphology(point,race),leather)
     # Curved belt construction with a deliberately overlapped tongue and square forged buckle.
     belt_z = mapped(1.02)
     bpy.context.view_layer.update()
     belt_trees=[BVHTree.FromObject(o,bpy.context.evaluated_depsgraph_get()) for o in authored
                 if 'continuous_tailored_surface' in o.name or 'folded_work_apron' in o.name]
-    verts=[]
-    for depth,height in [(.009,-.023),(.009,.023),(.003,.023),(.003,-.023)]:
-        for i in range(64):
-            direction=Vector((math.sin(i*math.tau/64),math.cos(i*math.tau/64),0));origin=Vector((0,0,belt_z+height))
-            hits=[tree.ray_cast(origin,direction)[0] for tree in belt_trees]
-            distance=max(((hit-origin).length for hit in hits if hit is not None and (hit-origin).length<.45),default=.17)
+    # A belt wraps the exterior hull, bridging the apron edge instead of
+    # abruptly diving toward the shirt when a radial ray misses that edge.
+    def belt_hull(height):
+        points=[];origin=Vector((0,0,belt_z+height))
+        for i in range(128):
+            direction=Vector((math.sin(i*math.tau/128),math.cos(i*math.tau/128),0))
+            for tree in belt_trees:
+                hit=tree.ray_cast(origin,direction)[0]
+                if hit is not None and (hit-origin).length<.45:points.append((hit.x,hit.y))
+        points=sorted(set(points))
+        def cross(a,b,c):return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+        lower=[];upper=[]
+        for point in points:
+            while len(lower)>1 and cross(lower[-2],lower[-1],point)<=0:lower.pop()
+            lower.append(point)
+        for point in reversed(points):
+            while len(upper)>1 and cross(upper[-2],upper[-1],point)<=0:upper.pop()
+            upper.append(point)
+        return lower[:-1]+upper[:-1]
+    def hull_radius(hull,direction):
+        cross=lambda a,b:a[0]*b[1]-a[1]*b[0]
+        candidates=[]
+        for a,b in zip(hull,hull[1:]+hull[:1]):
+            edge=(b[0]-a[0],b[1]-a[1]);denominator=cross(direction,edge)
+            if abs(denominator)<1e-8:continue
+            distance=cross(a,edge)/denominator;fraction=cross(a,direction)/denominator
+            if distance>0 and -1e-7<=fraction<=1+1e-7:candidates.append(distance)
+        if not candidates:raise RuntimeError('Authored belt profile is not closed')
+        return min(candidates)
+    hulls={height:belt_hull(height) for height in (-.023,.023)}
+    verts=[];belt_sections=96
+    for depth,height in [(.013,-.023),(.013,.023),(.007,.023),(.007,-.023)]:
+        for i in range(belt_sections):
+            direction=Vector((math.sin(i*math.tau/belt_sections),math.cos(i*math.tau/belt_sections),0));origin=Vector((0,0,belt_z+height))
+            distance=hull_radius(hulls[height],direction)
             verts.append(origin+direction*(distance+depth))
-    make('work_belt', verts, [(r*64+i,r*64+(i+1)%64,((r+1)%4)*64+(i+1)%64,((r+1)%4)*64+i)
-                            for r in range(4) for i in range(64)], leather, 'hips')
+    make('work_belt', verts, [(r*belt_sections+i,r*belt_sections+(i+1)%belt_sections,((r+1)%4)*belt_sections+(i+1)%belt_sections,((r+1)%4)*belt_sections+i)
+                            for r in range(4) for i in range(belt_sections)], leather, 'hips')
     buckle_y = front_at(0,belt_z)-.034
     for a,b in [((-.035,buckle_y,belt_z-.032),(.035,buckle_y,belt_z-.032)),
                 ((-.035,buckle_y,belt_z+.032),(.035,buckle_y,belt_z+.032)),
@@ -301,7 +321,16 @@ def build(kind, recipe):
     # A hanging leather apron is suspended from the waist, not skinned to each
     # nearest thigh. Its pockets and bound edges must use the same cloth field.
     for ob in authored:
-        if 'folded_work_apron' in ob.name or ob.name.startswith(('apron_','artisan_apron_tool_pocket','pocket_','saddle_stitch')):
+        if kind=='dwarf_artisan' and ob.name=='work_belt':
+            ob.vertex_groups.clear()
+            hips=ob.vertex_groups.new(name='hips');chest=ob.vertex_groups.new(name='chest')
+            hinge=ob.vertex_groups.new(name='apron_lower')
+            for vertex in ob.data.vertices:
+                t=max(0,min(1,(vertex.co.z-belt_z)/.22));t=t*t*(3-2*t)
+                fold=max(0,min(1,(belt_z-vertex.co.z)/.18));fold=fold*fold*(3-2*fold)
+                front=max(0,min(1,(-vertex.co.y-.06)/.10));fold*=front
+                hips.add([vertex.index],1-t-fold,'REPLACE');chest.add([vertex.index],t,'REPLACE');hinge.add([vertex.index],fold,'REPLACE')
+        if 'folded_work_apron' in ob.name or (ob.name.startswith(('apron_','artisan_apron_tool_pocket','pocket_','saddle_stitch')) and ob.name!='apron_continuous_neck_loop'):
             ob.vertex_groups.clear()
             hips=ob.vertex_groups.new(name='hips');chest=ob.vertex_groups.new(name='chest')
             left=ob.vertex_groups.new(name='thigh_L');right=ob.vertex_groups.new(name='thigh_R')
@@ -323,6 +352,12 @@ def build(kind, recipe):
             for vertex in ob.data.vertices:
                 t=max(0,min(1,(vertex.co.z-mapped(.12))/(mapped(.27)-mapped(.12))));t=t*t*(3-2*t)
                 foot.add([vertex.index],1-t,'REPLACE');shin.add([vertex.index],t,'REPLACE')
+    if kind=='dwarf_artisan':
+        cloth=ClothSurface(apron)
+        bind_detail(bpy.data.objects['work_belt'],[cloth],minimum_distance=.009,select=lambda point:point.y<-.06)
+        bind_detail(bpy.data.objects['apron_bound_perimeter'],[cloth])
+        supports=[cloth]+[ClothSurface(obj) for obj in authored if 'shirt_continuous_tailored_surface' in obj.name or 'standing_shirt_collar' in obj.name]
+        bind_detail(bpy.data.objects['apron_continuous_neck_loop'],supports)
     # Keep source anatomical image bytes and rig data within the editable derivative.
     bm = bmesh.new(); bm.from_mesh(body.data); bm.faces.ensure_lookup_table()
     bmesh.ops.delete(bm, geom=[face for face in bm.faces if face.index in covered], context='FACES')

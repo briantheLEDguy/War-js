@@ -1,3 +1,9 @@
+## 2026-09-09 — Reviewed Cinderfen wetland colonies
+
+- Publish original reed and sedge/horsetail models with six reviewed LOD exports, signed shared textures and nonblocking GM builder defaults. Keep alder and basalt withheld for further visual correction.
+- Compose 634 clumps along shallow-water and damp-bank bands while preserving roads, capture areas, patrols and gathering visuals. Add close foliage distances and terrain-aware placement checks.
+- Support exact selected-asset publication receipts so accepted models remain usable while sibling drafts are revised.
+
 ## 2026-09-09 — Resume regional art and connect siege mechanisms
 
 - Drive siege animations from confirmed campaign operations: cocked catapult readiness, fire/reload, ram strikes, oil pours and distance-driven carriage wheels. Repeated snapshots and LOD changes preserve action phase; older saves remain valid.

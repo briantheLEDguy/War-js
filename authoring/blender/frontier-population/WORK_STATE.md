@@ -1,5 +1,60 @@
 # Inhabitant work state
 
+## 2026-09-09 resumed bounded dwarf motion work
+
+`/root/frontier_population` now owns this package. User resumed the world plan.
+Saved forearm/cuff geometry remains intact. `fit_stride_arms` now fits alternating
+bent-arm counter-swing for walk/run to the actual shortened skeleton. The complete
+atomic three-LOD build is running from source, including sole and apron fitting.
+Current review receipts are stale until regenerated from those completed bytes.
+First rebuilt GLBs passed Khronos at all three LODs, but actual run front/side
+review still rejected the high elbow plane, open hands, belt/apron intersection
+and trouser/boot cuff notch. The floor audit isolated a terminal pinky tip at
+-6.85 mm; the old toe defect is gone. A second complete build now fits lower
+counter-swing wrists and relaxed fingers, matches belt weights to the apron,
+tucks trouser hems inside their boot mouths, and fits actual hand skin to the
+floor. `inspect_garment_clearance.py` now also measures nine-clip boot/hem contact.
+Open visual checks remain the apron waist, run arm/shoulder shape, boot cuffs,
+nine-clip ground contact and terminal death posture. No character is approved.
+
+Root accepted the second revision's rounded shoulder/arm plane as a bounded
+correction. Its run revealed a hammer/forearm intersection and unsupported lace
+segments. The third source revision now places a flat-strapped hanger behind the
+hip, projects complete lace curves onto the boot, matches tucked wool to the
+boot's mixed ankle field, and wraps the belt around the true exterior hull.
+Idle now uses fitted relaxed arms. Reachable asymmetric hand targets replace the
+overextended death target; actual skin contact fitting remains active. The first
+boot ray audit correctly remains failing until these new bytes are checked.
+Apron audit component selection now separates the belt that shares its joint.
+
+Revision c passed the LOD0 nine-clip floor/deformation limits (minimum surface
+height +0.48 mm, worst material p99 1.78, maximum edge extension 44.9 mm).
+Run hem/apron checks reported no penetration, with at least 5.1 mm boot/hem gap.
+Root retained the fitted laces and rear-hip hanger, then identified discontinuous
+neck straps, protruding side piping and the rear shirt hem. Revision d is now
+building a continuous fitted neck loop, closed evaluated-panel binding and tucked
+shirt hem. `surface_bindings.py` samples exact finished-cloth skinning weights
+for the loop, binding and belt; no contact/deformation tolerances changed.
+
+## Checkpoint boundary — 2026-09-09
+
+Revision d completed its atomic source/three-LOD export. Package edits are frozen
+for root checkpoint staging. No build or render remains in progress. Its current
+binary review reports are stale and confer no approval. The completed build's
+new run apron fit reached 75.9 degrees after the shirt tuck, so inspect and correct
+the apron pattern's waist ease before accepting the continuity revision.
+
+Next mandatory correction: `fit_prone_contact` currently selects hand vertices
+with any nonzero hand-group weight. A retained 0.0006 cross-hand influence made
+the left hand react to the unfitted opposite hand. The isolated probe in
+`review/probe_hand_contact.py` confirms this. Use majority hand membership, settle
+both actual hands on the floor, and review the terminal pose. The new exported
+`handHeights` gate requires both terminal hands to settle; it is intentionally
+not satisfied by merely keeping the character's overall lowest point above floor.
+Continue with current GLB continuity renders and all-three-LOD/nine-clip audits.
+All derivatives remain drafts; accepted bounded arm/cuff/hanger/lace corrections
+do not constitute full-character acceptance.
+
 2026-09-08: `/root/orvr_simulation` owns this package's morphology, animation and
 review tools and generated drafts. No derivative is published or approved.
 

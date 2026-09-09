@@ -37,9 +37,10 @@ def dress_artisan(apron, make, sweep, materials, waist):
         mouth=vertices[:cols]
         sweep('pocket_rolled_mouth',mouth,[.0024]*cols,leather)
 
-    # Carried at the right hip, with the handle inclined clear of the thigh.
-    origin=Vector((.31,-.15,waist+.025))
-    def local(x,y,z):return origin+Vector((x-.18*z,y,z))
+    # Hang behind the hip, outside both the forearm swing and the trouser leg.
+    # The head lies tangent to the belt instead of pointing through the body.
+    origin=Vector((.275,.20,waist-.035))
+    def local(x,y,z):return origin+Vector((-y-.18*z,x,z))
     sections=[(-.27,.012,.009),(-.25,.015,.011),(-.19,.011,.010),(-.10,.013,.011),(-.025,.014,.012),(.027,.011,.010)]
     sides=10;vertices=[]
     for z,rx,ry in sections:
@@ -75,5 +76,11 @@ def dress_artisan(apron, make, sweep, materials, waist):
             a=i/count*math.tau;verts.append(local(.020*math.cos(a),.018*math.sin(a),z))
     loop=make('artisan_hammer_retaining_loop',verts,[(i,(i+1)%count,count+(i+1)%count,count+i) for i in range(count)],leather,'hips')
     solid=loop.modifiers.new('Thick_belt_loop','SOLIDIFY');solid.thickness=.003
-    for dx in [-.013,.013]:
-        sweep('hammer_loop_attachment',[local(dx,.016,-.055),Vector((.25+dx,-.125,waist-.008))],[.008,.008],leather,'hips',8)
+    belt_tree=BVHTree.FromObject(bpy.data.objects['work_belt'],bpy.context.evaluated_depsgraph_get())
+    anchor,normal,_,_=belt_tree.find_nearest(Vector((.26,.18,waist-.002)))
+    anchor+=normal*.003
+    end=local(0,.016,-.055)
+    stations=[anchor,anchor.lerp(end,.35)+Vector((.003,.004,0)),anchor.lerp(end,.72),end]
+    vertices=[point+Vector((width,0,0)) for point in stations for width in [-.016,.016]]
+    strap=make('hammer_loop_attachment',vertices,[(i*2,i*2+1,i*2+3,i*2+2) for i in range(3)],leather,'hips')
+    solid=strap.modifiers.new('Hanger_strap_thickness','SOLIDIFY');solid.thickness=.003

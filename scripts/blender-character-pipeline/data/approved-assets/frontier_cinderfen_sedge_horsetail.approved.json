@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_sedge_horsetail",
+  "displayName": "Cinderfen rust sedge and marsh horsetail",
+  "category": "prop",
+  "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+  "qc": "frontier_cinderfen_sedge_horsetail_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_sedge_horsetail"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+    "qcSha256": "cddc0dea7d764de45c7476e12d5c6e3ecdf44a8fb8de68da37cb525d7882e9ee",
+    "previews": {
+      "assembly": "9c473a5c4aa946975792e0d97a06650dedae074aa7d5934f8d401111af3d58f3"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_sedge_horsetail.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root internal visual review",
+    "reviewedAt": "2026-09-09T13:25:02.137Z",
+    "reviewHash": "70db16eb1475a839b3b3516bf3801fb66389165c8308567da657fe12ae1ba866"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_nature_v1",
+    "similarityReview": "not_required",
+    "author": "Codex ecology authoring",
+    "source": "authoring/blender/cinderfen-nature/source/nature.json",
+    "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe"
+  },
+  "approvalState": "approved"
+}

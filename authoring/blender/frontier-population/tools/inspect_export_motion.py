@@ -30,11 +30,17 @@ def vertices():
 
 rest=vertices();edge_groups={}
 sole_indices={}
+hand_indices={}
 for side in ('L','R'):
     indices=[vertex.index for vertex in body.data.vertices if rest[vertex.index,2]<.10 and
              any(body.vertex_groups[entry.group].name=='foot_'+side and entry.weight>.9 for entry in vertex.groups)]
     if not indices:raise RuntimeError('Export is missing measurable sole vertices: '+side)
     sole_indices[side]=np.array(indices,dtype=int)
+    hand_indices[side]=np.array([vertex.index for vertex in body.data.vertices
+                                if sum(entry.weight for entry in vertex.groups
+                                       if body.vertex_groups[entry.group].name.endswith('_'+side)
+                                       and body.vertex_groups[entry.group].name.startswith(('hand_','index_','middle_','ring_','pinky_','thumb_')))>.5],dtype=int)
+    if not len(hand_indices[side]):raise RuntimeError('Export is missing measurable hand vertices: '+side)
 for material,entry in enumerate(body.data.materials):
     edges=set()
     for face in body.data.polygons:
@@ -76,8 +82,16 @@ for clip in doc['animations']:
         matrix=np.array(body.matrix_world);world=posed@matrix[:3,:3].T+matrix[:3,3]
         lowest=int(np.argmin(world[:,2]))
         influences=[(body.vertex_groups[g.group].name,g.weight) for g in body.data.vertices[lowest].groups]
+        arms={}
+        for side in ('L','R'):
+            upper=rig.pose.bones['upper_arm_'+side];lower=rig.pose.bones['forearm_'+side]
+            proximal=(upper.tail-upper.head).normalized();distal=(lower.tail-lower.head).normalized()
+            arms[side]={'elbowFlexDegrees':math.degrees(math.acos(max(-1,min(1,proximal.dot(distal))))),
+                        'wristFromShoulder':list(rig.matrix_world.to_3x3()@(lower.tail-upper.head))}
         samples.append({'seconds':seconds,'minimumHeight':float(world[lowest,2]),
                         'soleHeights':{side:float(np.min(world[indices,2])) for side,indices in sole_indices.items()},
+                        'handHeights':{side:float(np.min(world[indices,2])) for side,indices in hand_indices.items()},
+                        'arms':arms,
                         'floorPoint':{'rest':rest[lowest].tolist(),'posed':world[lowest].tolist(),'weights':sorted(influences,key=lambda v:-v[1])[:4]},'materials':groups})
     record={'clip':clip['name'],'samples':samples,'maximumStretch':max(s['max'] for row in samples for s in row['materials'].values()),
             'worstP99':max(s['p99'] for row in samples for s in row['materials'].values()),

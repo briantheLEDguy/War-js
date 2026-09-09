@@ -1,0 +1,50 @@
+[
+  {
+    "lod": 0,
+    "originalGeometryUnchanged": true,
+    "geometrySha256": "ea035649bc416e704e605bb3e4e96a45abfb6037eae4726f0eab6383024e7f1a",
+    "atlas": {
+      "resolution": 4096,
+      "marginPixels": 4,
+      "dilationPixels": 2,
+      "occupiedFraction": 0.24003952738513504,
+      "normalBackground": [
+        0.5,
+        0.5,
+        1
+      ]
+    }
+  },
+  {
+    "lod": 1,
+    "originalGeometryUnchanged": true,
+    "geometrySha256": "ec59a5db3cd2199638c2e9203faf2bb82432a8ee92a3ea4e77870e35c6fe21bf",
+    "atlas": {
+      "resolution": 2048,
+      "marginPixels": 4,
+      "dilationPixels": 2,
+      "occupiedFraction": 0.1814428022365936,
+      "normalBackground": [
+        0.5,
+        0.5,
+        1
+      ]
+    }
+  },
+  {
+    "lod": 2,
+    "originalGeometryUnchanged": true,
+    "geometrySha256": "f448f9347ec1969ce0891cc01fe386f93ad380933a31025042ec9d9c8859b74f",
+    "atlas": {
+      "resolution": 1024,
+      "marginPixels": 4,
+      "dilationPixels": 2,
+      "occupiedFraction": 0.23614665795479697,
+      "normalBackground": [
+        0.5,
+        0.5,
+        1
+      ]
+    }
+  }
+]

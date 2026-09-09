@@ -1,0 +1,12 @@
+{
+  "model_sha256": "8346e6e9902f00af4065edcbcd6ef87f8dfeac80dcc63efdf32998fc1a97a80c",
+  "helper_sha256": "9995f063848ba0b8295102e377a8ec097d7a547555d8539e38aafb46294936fa",
+  "phase": 0.125,
+  "maximum_weight_error": 2.9802322387695312e-08,
+  "expected_signed_range": [
+    -0.917703241109848,
+    0.9474007785320282
+  ],
+  "modes": 38,
+  "passed": true
+}

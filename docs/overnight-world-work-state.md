@@ -12,7 +12,7 @@ Preserve the merged cleanup and capital performance changes.
 The alder has sharper bark and its normal-map dash is gone; localized junction
 fairing is being reviewed to remove geometric shading seams. Basalt is withheld
 for visible texture discontinuities. Reeds and sedges have exact-export internal
-visual acceptance; scoped publication is in progress. The deer is testing local
+visual acceptance and are now published with six LOD files and GM defaults. The deer is testing local
 pose correctives and pelvis weights against the actual exported run cycle. The
 dwarf has improved arms and shoulders; tool, belt, boot and prone contacts remain
 under correction. Neither character is accepted.
@@ -28,6 +28,17 @@ The actual animation data of all nine published GLBs passes focused tests. Oil
 cauldron floating ornaments remain an asset correction; crew and projectile/liquid
 effects and a full shared siege playthrough remain unfinished. Root Vite runs on
 port 5173. No zone is art-complete.
+
+Checkpoint `35dad89` saves the verified siege runtime. Root then added 634 reed
+and sedge clumps in separated shallow-water/damp-bank colonies through
+`scripts/campaign/cinderfen-ecology.mjs`. The retained survey must match the live
+terrain controls; placement keeps roads, capture areas, construction and patrols
+clear. All 68 focused ecology/road/world-life tests pass. The assembled browser
+review includes Reed bank and Sedge margin cameras; close roots and surface
+placement were inspected. Vite needed a restart to refresh its cached inline
+review script; the earlier camera error is resolved. Only reeds/sedges have been
+published this turn. Nature tools support exact selected-asset receipts; the
+package remains not-ready while alder/basalt are withheld.
 
 ## Paused by user — 2026-09-08
 

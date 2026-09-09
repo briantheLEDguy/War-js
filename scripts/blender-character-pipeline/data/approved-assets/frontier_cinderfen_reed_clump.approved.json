@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_reed_clump",
+  "displayName": "Cinderfen autumn reed colony",
+  "category": "prop",
+  "model": "frontier_cinderfen_reed_clump_lod0.glb",
+  "qc": "frontier_cinderfen_reed_clump_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_reed_clump"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
+    "qcSha256": "cbfe14def7a91baaeda58a9c652ffdde1118395a1f39180d5a8892d252077c74",
+    "previews": {
+      "assembly": "c5da02dbbc65637202e4390aec942ae97730e57693b917bb4408867be40a5486"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_reed_clump.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root internal visual review",
+    "reviewedAt": "2026-09-09T13:25:02.137Z",
+    "reviewHash": "70db16eb1475a839b3b3516bf3801fb66389165c8308567da657fe12ae1ba866"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_nature_v1",
+    "similarityReview": "not_required",
+    "author": "Codex ecology authoring",
+    "source": "authoring/blender/cinderfen-nature/source/nature.json",
+    "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe"
+  },
+  "approvalState": "approved"
+}

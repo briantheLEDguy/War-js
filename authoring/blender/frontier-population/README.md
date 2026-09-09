@@ -30,7 +30,10 @@ contact are checked. Its canonical core skeleton has one additional internal
 
 `tools/inspect_arm_volume.py` measures complete skin sections at actual GLB keys
 and their midpoints. `tools/inspect_export_motion.py` measures each material's
-edge deformation and ground contact across all nine clips. The review renderer
+edge deformation, fitted arm travel and ground contact across all nine clips.
+`tools/inspect_garment_clearance.py` checks the separate apron surface against
+raised knees and the trouser hems against their boot interiors. Matching a
+technical gate does not confer visual acceptance. The review renderer
 and `tools/make_motion_sheets.py` retain image/model hashes; the package-local
 `review/inhabitants.html` viewer verifies its GLB before offering clip, time and
 LOD controls. These tools do not write game placements.
@@ -40,6 +43,13 @@ with tailored fabric. Editable subdivision/thickness precedes armature
 deformation, matching the exported result. Undefined LOD tangents are repaired
 only from neighboring UV derivatives, with the exact affected vertices recorded
 in the build report.
+
+The current motion revision gives the dwarf fitted bent-arm counter-swing and
+relaxed idle hands. The apron belt follows its exterior contour and cloth
+weights; the working hammer is fitted behind the hip for motion review.
+Boot laces follow their curved supporting leather, and tucked wool follows the
+same ankle deformation field as the boots. The complete character remains draft
+until current export renders, contact evidence and material review are accepted.
 
 Current inspection:
 

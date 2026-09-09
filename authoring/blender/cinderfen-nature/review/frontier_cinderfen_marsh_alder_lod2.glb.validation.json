@@ -2,11 +2,11 @@
   "uri": "frontier_cinderfen_marsh_alder_lod2.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-08T20:27:23.370Z",
+  "validatedAt": "2026-09-09T13:03:03.791Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
-    "numInfos": 6,
+    "numInfos": 7,
     "numHints": 0,
     "messages": [
       {
@@ -44,6 +44,12 @@
         "message": "URI is used in GLB container.",
         "severity": 2,
         "pointer": "/images/5/uri"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
       }
     ],
     "truncated": false
@@ -56,16 +62,16 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 415056
+        "byteLength": 475032
       },
       {
         "pointer": "/images/0",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/5d4ab53cc359f44aef1d3ac76097ee62b7ab28cffe61abdb335ad2acc16d21e4.png",
+        "uri": "../textures/cinderfen_nature/ea11d10a15c48e3c1f2930bfd4444bb0d4c545d81357b6428de771439a6bf9d9.png",
         "image": {
-          "width": 1024,
-          "height": 1024,
+          "width": 512,
+          "height": 512,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -76,10 +82,10 @@
         "pointer": "/images/1",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/9cde4d9d23a90ae8b2f9935f3a7e16214bfbbbf277d6087538656e7ddf78593f.png",
+        "uri": "../textures/cinderfen_nature/4f966fdfc445281e81191c95dfae54880c9520f7b3d04c617c26e0a4392314ca.png",
         "image": {
-          "width": 1024,
-          "height": 1024,
+          "width": 512,
+          "height": 512,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -90,10 +96,10 @@
         "pointer": "/images/2",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/967a544c91285e6ede7ea76abf794713e53271fc5eae3c6a64015fd2a1f745cf.png",
+        "uri": "../textures/cinderfen_nature/18416f2ffd1f256720a99d725944bab6475781da70878524512c576aff7f4653.png",
         "image": {
-          "width": 1024,
-          "height": 1024,
+          "width": 512,
+          "height": 512,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -150,10 +156,10 @@
     "hasTextures": true,
     "hasDefaultScene": true,
     "drawCallCount": 2,
-    "totalVertexCount": 7938,
+    "totalVertexCount": 8235,
     "totalTriangleCount": 5672,
-    "maxUVs": 1,
+    "maxUVs": 2,
     "maxInfluences": 0,
-    "maxAttributes": 4
+    "maxAttributes": 5
   }
 }

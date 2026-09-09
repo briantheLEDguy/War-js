@@ -1,3 +1,57 @@
+## Checkpoint boundary — 2026-09-09, latest status
+
+All this agent's Blender processes are stopped at a safe output boundary. Source
+and diagnostics are saved and temporarily frozen for root's checkpoint staging.
+There is no in-progress render or export from this package right now.
+
+Root published reeds/sedge only. Their six exact GLBs, PBR and review evidence
+remain untouched. Alder and basalt remain unapproved and unpublished.
+
+Latest alder actual lower-join rendering shows accepted geometry direction: local
+fairing removes broad root triangles and the right branch ring. The completed
+fairing exports are 104874 / 40598 / 5672 triangles; LOD1 is OVER the 40000 budget.
+A source fix caps its local support subdivision to 600 priority edges. A rebuild
+was stopped before completion when root requested a better bark material. The
+staged build/runtime/pixel metadata from these intermediate passes is not final,
+and the last lower-join JSON receipt is stale after a Windows write rejection.
+The lower-join renderer now writes that receipt atomically on the next run.
+
+Latest new source-only material preview:
+review/diagnostic_bark_material_source.png. It uses the faired 25242-face bark
+master, with restrained broad brown/gray value variation, irregular broken
+noise-based fissures (not evenly outlined Voronoi polygons), damp root darkening,
+variable roughness and limited lichen. Young branches remain smoother. This new
+material has NOT been baked/exported. Root must inspect the source direction,
+then all three LODs must be rebuilt, packed and checked against actual export
+views. No full acceptance or visual receipt exists for that refinement.
+
+Basalt continuity repair is prepared only in tools/bake_basalt_projection.py;
+it has not been executed or integrated into the builder. Basalt remains withheld.
+Root owns validate_nature.mjs, publication_selection helpers, test_published.mjs
+and global publication/integration. Do not modify those files from this agent.
+
+## Latest state — resumed 2026-09-09
+
+Root published the exact reviewed reeds and sedge/horsetail assets, all six LOD
+GLBs. Their per-asset readiness survives scoped validation. Their geometry,
+materials and actual review images are frozen; do not rebuild them.
+
+Alder remains unapproved. Continuous denser bark baking fixed the black tangent
+normal dash and texture resets. Neutral diagnostics exposed remaining geometric
+junction shading. Root accepted the local neutral fairing direction for further
+actual-export review; the all-LOD alder-only fairing build is running on three
+threads (review/bark-junction-fairing-build.log). It adds local support vertices
+and bounds original-vertex movement to 5.5 cm. All original cages remain retained.
+The preceding unchanged-geometry proofs refer to the material-only iteration,
+not this newer local geometry repair.
+
+Root withheld basalt after identifying a coplanar crack/pigment UV seam. The
+new bake_basalt_projection.py is prepared source only and has not been executed.
+Its intended continuous object-space field will retain the finished geometry.
+Alder close-view review remains first. Root owns validate_nature.mjs, scoped
+publication helpers, test_published.mjs, and all global readiness/integration.
+Do not automatically accept or publish either withheld asset.
+
 # Cinderfen nature work state
 
 Original ecology package in progress. Architecture source, models, composition,
@@ -92,3 +146,32 @@ sheets are from the prior rejected alder bark finish and are now STALE. Do not
 relabel them or publish. Only root final exact-hash acceptance permits receipt
 and package publication. README/HANDOFF need final revision after acceptance.
 No global registry/maps/shared app/Git writes were made by this agent.
+
+## Resumed by user — 2026-09-09
+
+Root resumed world building on codex/world-quality-continuation. Texture packing
+completed and all 12 exports pass geometry-only validation with zero issues.
+Five source tests and four strict draft blueprint checks pass. Fresh actual-GLB
+lower-join rendering confirms the former horizontal bark reset bands are gone.
+The new exact view was sent to root before full reimport work; one small dark
+dash below the upper-right branch and soft bark detail were disclosed.
+No nature asset is approved or published. Other three models remain frozen.
+Waiting for bounded root visual direction before expensive full evidence batch.
+
+Root rejected the first resumed close view. Actual normal-off/flat-gray
+diagnostics isolate the black dash to the tangent normal texture and triangular
+patches to residual hard-edge shading on the joined geometry. Source now clears
+those sharp edge flags without moving geometry. The bake initializes unused
+normal pixels to neutral tangent normals, allocates 4096/2048/1024 bark atlases,
+and paints finer interrupted fissures weighted continuously toward mature bole
+and root bark, restrained mottling and sparse lenticels. Young limbs remain
+smoother. Blender rebuild session is in progress, three threads, alder only.
+Review log: review/bark-refinement-build.log. Full review remains pending.
+
+UV allocation diagnostic found the original bark face coverage was only 6.75%.
+Explicit concave island packing raises trial coverage to 25.64%. The projection
+now uses a four-pixel inter-island margin with two-pixel bake dilation and records
+actual coverage per LOD. This fixes the allocation cause rather than relying
+only on a larger atlas. All three geometry digests matched the preserved
+pre-refinement values in the first refinement build. Final atlas-adjusted
+bake is underway; prior lower-join imagery remains a rejected diagnostic.

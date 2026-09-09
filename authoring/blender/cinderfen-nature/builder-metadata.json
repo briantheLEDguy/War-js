@@ -4,7 +4,7 @@
   "upAxis": "+Y",
   "frontAxis": "+Z",
   "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
-  "buildSha256": "2b89330f7030b753f9bb54cb4ca481824b1dfff08e2c5f4595a5c8a509bbfa2b",
+  "buildSha256": "8909fa7601d9b49dd0eb8141fb281f96a056014481464f167172abd74bb28d61",
   "runtimeReady": false,
   "assets": {
     "frontier_cinderfen_marsh_alder": {
@@ -12,7 +12,7 @@
       "group": "Cinderfen Nature",
       "kind": "tree",
       "model": "frontier_cinderfen_marsh_alder_lod0.glb",
-      "modelSha256": "53a409a11d64ebf2ad32a737b887abfc23b26454f4078227a177942510e3832c",
+      "modelSha256": "689a2545113a1207b11cec2ab145523be4afbe84c05eca01175d2edcd9f55da6",
       "runtimeReady": false,
       "defaultScale": {
         "x": 1,
@@ -57,7 +57,10 @@
       "kind": "foliage",
       "model": "frontier_cinderfen_reed_clump_lod0.glb",
       "modelSha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
-      "runtimeReady": false,
+      "runtimeReady": true,
+      "reviewFile": "review/review-d889fd49a07b.json",
+      "reviewHash": "70db16eb1475a839b3b3516bf3801fb66389165c8308567da657fe12ae1ba866",
+      "buildSha256": "25c8c9be15631c12ded176faf4433dc41281ec0dc1d9306ef55b0d01f4d085bb",
       "defaultScale": {
         "x": 1,
         "y": 1,
@@ -92,7 +95,10 @@
       "kind": "foliage",
       "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
       "modelSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
-      "runtimeReady": false,
+      "runtimeReady": true,
+      "reviewFile": "review/review-d889fd49a07b.json",
+      "reviewHash": "70db16eb1475a839b3b3516bf3801fb66389165c8308567da657fe12ae1ba866",
+      "buildSha256": "25c8c9be15631c12ded176faf4433dc41281ec0dc1d9306ef55b0d01f4d085bb",
       "defaultScale": {
         "x": 1,
         "y": 1,

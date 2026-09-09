@@ -1,0 +1,27 @@
+{
+  "approved": true,
+  "reviewedBy": "Codex root internal visual review",
+  "reviewedAt": "2026-09-09T13:25:02.137Z",
+  "assetIds": [
+    "frontier_cinderfen_reed_clump",
+    "frontier_cinderfen_sedge_horsetail"
+  ],
+  "buildSha256": "25c8c9be15631c12ded176faf4433dc41281ec0dc1d9306ef55b0d01f4d085bb",
+  "images": {
+    "frontier_cinderfen_reed_clump_lod0_neutral.png": "c5da02dbbc65637202e4390aec942ae97730e57693b917bb4408867be40a5486",
+    "frontier_cinderfen_reed_clump_lod0_gameplay.png": "4885e7598b7c70ec63839607c306f475ca7e1756733f21a0e78402b37ee0b365",
+    "frontier_cinderfen_reed_clump_lod0_detail.png": "312e077d9602d1e5f249910d6afacc629d691ee850f8555aa53581c0a474609e",
+    "frontier_cinderfen_reed_clump_lod1_neutral.png": "b919ccf5fabdb335aef499ed3585bbdd103324a1f7cf03491704aaa0653effb1",
+    "frontier_cinderfen_reed_clump_lod1_gameplay.png": "1949bceabfbbe3185716d7fc8a8833b4dcf45f06f1d1b2984033b63e955d7ec9",
+    "frontier_cinderfen_reed_clump_lod2_neutral.png": "a53108f8b30801829ac8865cb1bbf242a34bcdb37c6bf02d006d6a595f98146f",
+    "frontier_cinderfen_reed_clump_lod2_gameplay.png": "46364e772f6165a9080220bea7f780429af87de161447b4ed9c1fa75cccd9f9b",
+    "frontier_cinderfen_sedge_horsetail_lod0_neutral.png": "9c473a5c4aa946975792e0d97a06650dedae074aa7d5934f8d401111af3d58f3",
+    "frontier_cinderfen_sedge_horsetail_lod0_gameplay.png": "344c690d409696549db2f4f48ee2ac430b4a4081740b515a8e1ae1812b6634b1",
+    "frontier_cinderfen_sedge_horsetail_lod0_detail.png": "a1cc7727a25dfbac354d81b260e01aa79045eb39c44b8cc0decf5f6ff3c5e6be",
+    "frontier_cinderfen_sedge_horsetail_lod1_neutral.png": "17e0b6b8cce101d24a682ffd665a929579c4df11fd13f5f9fc86b7713f96ca95",
+    "frontier_cinderfen_sedge_horsetail_lod1_gameplay.png": "576be7fa4e4dce90bfa8306c9cf20eb53c51f418b2acd6ba47a2800591e65e1d",
+    "frontier_cinderfen_sedge_horsetail_lod2_neutral.png": "d0f891877ca1558f8ca08c4d3e03b53ad05c84615fae494fe346be6709aab665",
+    "frontier_cinderfen_sedge_horsetail_lod2_gameplay.png": "03954d83d4d2876a0df5a994ef209a79661352f0aa95074e6a063264c9e66c6b"
+  },
+  "notes": "Accepted original reed and sedge/horsetail silhouettes, thick botanical geometry, stem/leaf contacts, painted surfaces, all three neutral LOD views and measured gameplay views, including LOD0 close details. Static seasonal vegetation; no wind animation claimed. Basalt and alder remain withheld. This is internal asset acceptance, not user approval of the complete zone."
+}

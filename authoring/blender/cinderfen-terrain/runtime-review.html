@@ -6,7 +6,7 @@ canvas { display:block; } nav { position:absolute; left:18px; top:18px; width:29
 h1 { font:24px Georgia; margin:0 0 12px; } p { line-height:1.5; } select,button { padding:8px; margin:4px 0; color:#eee; background:#31443e; border:1px solid #7f9186; } output { display:block; font-size:12px; white-space:pre-wrap; margin-top:12px; }
 </style>
 <canvas></canvas><nav><h1>Cinderfen Outskirts</h1><p>Assembled terrain and buildings. Drag to orbit; scroll to inspect.</p>
-<label>Location <select id="location"><option value="overview">Whole zone</option><option value="village">Village</option><option value="supplies">Supply shelter</option><option value="aegis">Aegis keep</option><option value="riftbound">Riftbound keep</option><option value="fen">Peat inlets</option></select></label>
+<label>Location <select id="location"><option value="overview">Whole zone</option><option value="village">Village</option><option value="supplies">Supply shelter</option><option value="aegis">Aegis keep</option><option value="riftbound">Riftbound keep</option><option value="fen">Peat inlets</option><option value="reedbank">Reed bank</option><option value="sedge">Sedge margin</option></select></label>
 <button id="visit">Visit</button><br><label>Detail <select id="lod"><option value="0">Close</option><option value="1" selected>Middle</option><option value="2">Distant</option></select></label>
 <output id="status">Loading exact staged models and reviewed props…</output></nav>
 <script type="module">
@@ -36,7 +36,7 @@ async function load(url,expected) {
 }
 function visit(){
   scene.fog=document.querySelector('#location').value==='overview'?null:new THREE.Fog('#acb8b7',750,1700);
-  const places={overview:[[950,820,1080],[0,0,0]],village:[[490,28,-187],[443,3,-249]],supplies:[[438,6,-263],[449,1.4,-278]],aegis:[[-418,47,-95],[-350,3,5]],riftbound:[[420,47,-95],[350,3,5]],fen:[[-270,12,120],[-205,-1,245]]};
+  const places={overview:[[950,820,1080],[0,0,0]],village:[[490,28,-187],[443,3,-249]],supplies:[[438,6,-263],[449,1.4,-278]],aegis:[[-418,47,-95],[-350,3,5]],riftbound:[[420,47,-95],[350,3,5]],fen:[[-270,12,120],[-205,-1,245]],reedbank:[[-309,2,136],[-300,1,140]],sedge:[[-318,1.5,148],[-313,0,146]]};
   const [position,target]=places[document.querySelector('#location').value];camera.position.set(...position);controls.target.set(...target);controls.update();
 }
 async function build(){

@@ -4,11 +4,16 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {publicationSelection} from './publication_selection.mjs';
 const work=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),repo=path.resolve(work,'../../..');
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const read=async p=>JSON.parse(await fs.readFile(p,'utf8'));
-const built=await read(path.join(work,'build-report.json')),meta=await read(path.join(work,'builder-metadata.json'));
-assert.equal(built.length,4);assert.equal(Object.keys(meta.assets).length,4);assert.equal(meta.runtimeReady,true);
+const source=await read(path.join(work,'source/nature.json'));
+const selection=publicationSelection(Object.keys(source.assets),process.argv.find(arg=>arg.startsWith('--assets='))?.slice('--assets='.length));
+const built=await read(path.join(work,selection.build)),meta=await read(path.join(work,'builder-metadata.json'));
+assert.deepEqual(built.map(asset=>asset.asset_id).sort(),selection.ids);
+assert.equal(Object.keys(meta.assets).length,Object.keys(source.assets).length);
+assert.equal(meta.runtimeReady,Object.values(meta.assets).every(asset=>asset.runtimeReady));
 for(const asset of built){
   const published=await read(path.join(repo,'scripts/blender-character-pipeline/data/approved-assets',asset.asset_id+'.approved.json'));
   assert.equal(published.approvalState,'approved');assert.equal(published.hashes.modelSha256,asset.lods[0].sha256);
@@ -23,4 +28,4 @@ for(const asset of built){
     for(const texture of qc.externalTextures)assert.equal(hash(await fs.readFile(path.resolve(path.dirname(filename),texture.uri))),texture.sha256);
   }
 }
-console.log('Four published ecology assets / 12 GLBs: model, QC, texture and GM metadata hashes pass.');
+console.log(`${built.length} published ecology assets / ${built.flatMap(asset=>asset.lods).length} GLBs: model, QC, texture and GM metadata hashes pass.`);

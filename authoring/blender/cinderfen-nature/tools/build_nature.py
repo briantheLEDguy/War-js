@@ -10,6 +10,7 @@ from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from bake_bark_projection import bake_bark
+from fair_bark_junctions import fair_junctions
 SOURCE_PATH=ROOT/'source/nature.json';SOURCE=json.loads(SOURCE_PATH.read_text())
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -127,6 +128,10 @@ def joined_bark(record,lod,materials,collection):
     invalid=[edge for edge in bm.edges if len(edge.link_faces)!=2]
     if invalid:raise RuntimeError(f'Joined bark LOD{lod} has {len(invalid)} nonmanifold edges before export')
     bm.to_mesh(base.data);bm.free()
+    # Boolean union must not retain cage hard-edge splits across living bark.
+    # This changes shading only: every authored vertex and triangle is retained.
+    for edge in base.data.edges:edge.use_edge_sharp=False
+    for polygon in base.data.polygons:polygon.use_smooth=True
     return base
 
 def build(key):
@@ -137,6 +142,7 @@ def build(key):
     for level in definition['lods']:
         lod=level['level'];collection=bpy.data.collections.new(f'{key}.authored_lod{lod}');bpy.context.scene.collection.children.link(collection)
         objects=[joined_bark(item,lod,materials,collection) if key.endswith('marsh_alder') and item['material']=='alder_bark' else mesh(item,lod,materials,collection) for item in level['objects']]
+        junction_fairing=fair_junctions(objects[0],lod) if key.endswith('marsh_alder') else None
         bark_projection=bake_bark(objects[0],lod) if key.endswith('marsh_alder') else None
         bpy.context.view_layer.update()
         if lod==0:
@@ -158,6 +164,7 @@ def build(key):
         triangles=sum(counts[n['mesh']] for n in doc['nodes'] if 'mesh' in n)
         record['lods'].append({'level':lod,'model':target.name,'sha256':sha(target),'bytes':target.stat().st_size,'triangles':triangles,'materials':len(doc['materials']),'bounds_z_up':bounds})
         if bark_projection:record['lods'][-1]['bark_projection']=bark_projection
+        if junction_fairing:record['lods'][-1]['junction_fairing']=junction_fairing
         for obj in objects:obj.hide_render=True;obj.hide_set(True)
         (ROOT/'review'/f'{key}_build.json').write_text(json.dumps(record,indent=2)+'\n')
         print('NATURE_EXPORTED',key,lod,triangles,flush=True)

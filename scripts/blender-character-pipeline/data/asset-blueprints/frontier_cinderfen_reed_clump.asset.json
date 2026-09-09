@@ -96,7 +96,9 @@
     "heightToleranceM": 0.03
   },
   "lifecycle": {
-    "status": "review_pending",
-    "notes": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Internal actual-export visual acceptance is required before publication."
+    "status": "approved",
+    "reviewedBy": "Codex root internal visual review",
+    "reviewedAt": "2026-09-09T13:25:02.137Z",
+    "notes": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Accepted internally at the exact retained build/model/image hashes."
   }
 }

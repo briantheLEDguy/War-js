@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-c918ad959de1e66a",
+  "assetVersion": "approved-7925d740825b94b8",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -5650,6 +5650,48 @@
       },
       "qc": "frontier_cinderfen_outskirts_terrain_3_3.qc.json",
       "qcSha256": "4e32326f28e7807a71183d34f1c5096a68a2c4205a672bcb5792fcd5eb5a8dea",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_reed_clump": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_reed_clump",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_reed_clump_lod0.glb",
+      "modelSha256": "bfe7d14840216e1e3ab4d28ec540f2c01a4adbbf741239b29f3ca8d7308227ca",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_reed_clump.png"
+      },
+      "previewSha256": {
+        "assembly": "c5da02dbbc65637202e4390aec942ae97730e57693b917bb4408867be40a5486"
+      },
+      "qc": "frontier_cinderfen_reed_clump_lod0.qc.json",
+      "qcSha256": "cbfe14def7a91baaeda58a9c652ffdde1118395a1f39180d5a8892d252077c74",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_sedge_horsetail": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_sedge_horsetail",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "modelSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_sedge_horsetail.png"
+      },
+      "previewSha256": {
+        "assembly": "9c473a5c4aa946975792e0d97a06650dedae074aa7d5934f8d401111af3d58f3"
+      },
+      "qc": "frontier_cinderfen_sedge_horsetail_lod0.qc.json",
+      "qcSha256": "cddc0dea7d764de45c7476e12d5c6e3ecdf44a8fb8de68da37cb525d7882e9ee",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"

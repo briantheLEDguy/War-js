@@ -49,7 +49,7 @@
       "normal",
       "occlusion"
     ],
-    "maxTextureResolution": 1024
+    "maxTextureResolution": 2048
   },
   "rigging": {
     "skinned": false,
@@ -87,7 +87,7 @@
     "allowNonManifold": false,
     "allowUvOverlap": true,
     "maxTris": 102450,
-    "maxFileSizeMb": 6,
+    "maxFileSizeMb": 7,
     "maxDrawCalls": 3,
     "maxMeshObjects": 3,
     "requiresSkinnedMeshes": false,

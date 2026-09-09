@@ -1,5 +1,5 @@
 """Neutral actual-GLB close view of the lower bole and limb/root interfaces."""
-import bpy,json,hashlib
+import bpy,json,hashlib,os,time
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[1]
@@ -14,4 +14,11 @@ for name,position,power in [('key',(-4,-6,8),1800),('fill',(6,-3,5),1300),('rim'
     data=bpy.data.lights.new(name,'AREA');data.energy=power;data.shape='DISK';data.size=5
     light=bpy.data.objects.new(name,data);scene.collection.objects.link(light);light.location=Vector(position);light.rotation_euler=(target-light.location).to_track_quat('-Z','Y').to_euler()
 scene.view_settings.view_transform='AgX';image=ROOT/'review/frontier_cinderfen_marsh_alder_lod0_lower_joins.png';scene.render.filepath=str(image);bpy.ops.render.render(write_still=True)
-(ROOT/'review/alder-join-view.json').write_text(json.dumps({'model':file.name,'modelSha256':sha(file),'toolSha256':sha(Path(__file__)),'image':image.name,'imageSha256':sha(image),'camera':{'position_z_up':list(camera.location),'target_z_up':list(target),'projection':'ORTHO','frame_m':5.5},'lighting':'Neutral white lights with unmodified exported PBR'},indent=2)+'\n')
+receipt=ROOT/'review/alder-join-view.json';temporary=receipt.with_suffix('.json.writing.tmp')
+temporary.write_text(json.dumps({'model':file.name,'modelSha256':sha(file),'toolSha256':sha(Path(__file__)),'image':image.name,'imageSha256':sha(image),'camera':{'position_z_up':list(camera.location),'target_z_up':list(target),'projection':'ORTHO','frame_m':5.5},'lighting':'Neutral white lights with unmodified exported PBR'},indent=2)+'\n')
+
+for attempt in range(6):
+    try:os.replace(temporary,receipt);break
+    except OSError:
+        if attempt==5:raise
+        time.sleep(.15*(attempt+1))

@@ -48,9 +48,17 @@ def tailor(kind, race, body, rig, make, sweep, morph, materials):
         smooth=boot.modifiers.new('Boot_last_finish','SUBSURF');smooth.levels=2;smooth.render_levels=2
         solid=boot.modifiers.new('Boot_upper_thickness','SOLIDIFY');solid.thickness=.006
         piping('welt_stitch_'+str(side),[(x+px*1.02,py*1.02,.047) for px,py in outline+[outline[0]]],.002,materials['seam'])
+        bpy.context.view_layer.update()
+        boot_tree=BVHTree.FromObject(boot,bpy.context.evaluated_depsgraph_get())
         for z in [.18,.21,.24,.27]:
             for direction in [-1,1]:
-                piping('crossed_boot_lace',[(x+direction*.032,-.071,z),(x-direction*.028,-.074,z+.018)],.0023,leather)
+                points=[]
+                for step in range(9):
+                    t=step/8;point=shape((x+direction*(.032*(1-t)-.028*t),0,z+.018*t))
+                    hit=boot_tree.ray_cast(Vector((point.x,-2,point.z)),Vector((0,1,0)))[0]
+                    if hit is None:raise RuntimeError('Boot lace has no supporting upper surface')
+                    points.append(hit+Vector((0,-.0026,0)))
+                sweep('crossed_boot_lace',points,[.0018]*len(points),leather,sides=6)
     # Sew closures onto the evaluated shirt, so the placket cannot float through
     # a beard or apron when the torso proportions change.
     bpy.context.view_layer.update()

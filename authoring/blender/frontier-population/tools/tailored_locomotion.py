@@ -111,8 +111,58 @@ def fit_locomotion(rig):
     rig.animation_data.action=None
     for bone in rig.pose.bones:bone.matrix_basis.identity()
     bpy.context.view_layer.update()
+    fit_stride_arms(rig)
     fit_action_arms(rig)
     fit_prone_contact(rig)
+
+
+def fit_stride_arms(rig):
+    """Counter-swing bent arms around the fitted chest, opposite each foot."""
+    names=[part+'_'+side for side in ('L','R') for part in ('upper_arm','forearm','hand')]
+    fingers=[bone.name for bone in rig.pose.bones if bone.name.startswith(('index_','middle_','ring_','pinky_','thumb_'))]
+    for clip,duration in [('idle',60),('walk',30),('run',20)]:
+        print('Fitting dwarf arm counter-swing: '+clip,flush=True)
+        action=bpy.data.actions[clip];poses=_sample_action(rig,action,duration)
+        for bag in _curves(action):
+            for curve in list(bag.fcurves):
+                if any(curve.data_path.startswith('pose.bones["'+name+'"]') for name in names+fingers):bag.fcurves.remove(curve)
+        for frame in range(duration+1):
+            bpy.context.scene.frame_set(frame);_restore_pose(rig,poses[frame])
+            for side,sign,offset in [('L',1,0),('R',-1,.5)]:
+                swing=math.cos((frame/duration+offset)*math.tau)
+                shoulder=rig.pose.bones['upper_arm_'+side].head
+                if clip=='run':
+                    target=Vector((sign*(.385+.020*swing),-.08+.23*swing,shoulder.z-.33-.055*swing))
+                    forward=Vector((sign*.06,-.70,-.55-.35*swing))
+                elif clip=='walk':
+                    target=Vector((sign*.405,-.065+.15*swing,shoulder.z-.37-.025*swing))
+                    forward=Vector((sign*.04,-.25,-1))
+                else:
+                    target=Vector((sign*.385,-.075+.006*swing,shoulder.z-.455))
+                    forward=Vector((sign*.025,-.14,-1))
+                hand=rig.data.bones['hand_'+side]
+                rotation=(hand.tail_local-hand.head_local).rotation_difference(forward)@hand.matrix_local.to_quaternion()
+                _solve_chain(rig,side,target,rotation,('upper_arm','forearm','hand'),Vector((sign*.15,.65,-1.5)))
+                palm=hand.matrix_local.to_3x3().col[2].normalized()
+                for name in (name for name in fingers if name.endswith('_'+side)):
+                    bone=rig.pose.bones[name];rest=bone.bone
+                    axis=(rest.tail_local-rest.head_local).normalized().cross(palm).normalized()
+                    local_axis=rest.matrix_local.to_3x3().inverted()@axis
+                    segment=int(name.split('_')[1])
+                    flex=([12,24,17] if clip=='run' else [7,13,9])[segment-1]
+                    if name.startswith('thumb_'):flex*=.45
+                    bone.rotation_mode='QUATERNION';bone.rotation_quaternion=Quaternion(local_axis,math.radians(flex))
+            for name in names+fingers:
+                bone=rig.pose.bones[name];bone.rotation_mode='QUATERNION'
+                bone.keyframe_insert('rotation_quaternion',frame=frame,group=name)
+                bone.keyframe_insert('location',frame=frame,group=name)
+        for bag in _curves(action):
+            for curve in bag.fcurves:
+                if any(curve.data_path.startswith('pose.bones["'+name+'"]') for name in names+fingers):
+                    for key in curve.keyframe_points:key.interpolation='LINEAR'
+    rig.animation_data.action=None
+    for bone in rig.pose.bones:bone.matrix_basis.identity()
+    bpy.context.view_layer.update()
 
 
 def fit_action_arms(rig):
@@ -160,6 +210,11 @@ def fit_prone_contact(rig):
     names=[part+'_'+side for side in ('L','R') for part in ('thigh','shin','foot','toe','upper_arm','forearm','hand')]+['spine']
     # Sample the original action before replacing its limb channels.
     poses=_sample_action(rig,action,60)
+    from apron_clearance import _surface,_skin
+    skin_surface=_surface(bpy.data.objects['dwarf_artisan_exposed_anatomy'])
+    hand_indices={side:sorted({int(index) for name,(indices,weights) in skin_surface[2].items()
+                              if name.endswith('_'+side) and name.startswith(('hand_','index_','middle_','ring_','pinky_','thumb_'))
+                              for index in indices}) for side in ('L','R')}
     for bag in _curves(action):
         for curve in list(bag.fcurves):
             if any(curve.data_path.startswith('pose.bones["'+name+'"]') for name in names):bag.fcurves.remove(curve)
@@ -201,10 +256,18 @@ def fit_prone_contact(rig):
                 ankle.z+=adjustment
                 _solve_chain(rig,side,ankle,rotation,hint=Vector((0,0,-1)))
             hand=rig.pose.bones['hand_'+side];rest=rig.data.bones['hand_'+side]
-            wrist=hand.head.lerp(Vector((sign*.54,.055,.10)),t)
+            wrist=hand.head.lerp(Vector((.39,.06,.075) if side=='L' else (-.49,.26,.075)),t)
             aligned=(rest.tail_local-rest.head_local).rotation_difference(Vector((sign*.08,-1,0)))@rest.matrix_local.to_quaternion()
+            aligned=Quaternion(Vector((1,0,0)),-.35)@aligned
             rotation=hand.matrix.to_quaternion().slerp(aligned,t)
             _solve_chain(rig,side,wrist,rotation,('upper_arm','forearm','hand'),Vector((sign,0,0)))
+            # Fit fingertips as well as the wrist: their retained anatomy reaches
+            # below the nominal palm plane during the final fall transition.
+            for _ in range(2):
+                lowest=min(_skin(skin_surface,rig)[hand_indices[side],2])
+                if lowest>=.004:break
+                wrist.z+=.004-lowest
+                _solve_chain(rig,side,wrist,rotation,('upper_arm','forearm','hand'),Vector((sign,0,0)))
         for name in names:
             bone=rig.pose.bones[name];bone.rotation_mode='QUATERNION'
             bone.keyframe_insert('rotation_quaternion',frame=frame,group=name);bone.keyframe_insert('location',frame=frame,group=name)

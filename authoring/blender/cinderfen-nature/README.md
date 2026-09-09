@@ -2,7 +2,8 @@
 
 Four original models for the autumn geothermal marsh: a steam-damaged alder,
 reed colony, rust sedge with marsh horsetail, and irregular fractured basalt.
-This package is staged for actual-export review; no model is approved yet.
+Reeds and sedges are internally accepted and published at exact reviewed hashes.
+Alder and basalt remain under visual correction and are withheld from runtime.
 The accepted architecture package is separate and remains frozen.
 
 The source retains the main bole and limb paths, asymmetrical cross-sections,
@@ -37,7 +38,8 @@ in each LOD and QC record. Repeated organs intentionally share material UVs.
   validation reports and the internal visual-acceptance receipt.
 - `build-report.json`: measured triangles, bounds and complete current hashes.
 - `builder-metadata.json`: model-space navigation/placement metadata; readiness
-  becomes true only on publication after internal visual acceptance.
+  is tracked per asset after internal visual acceptance. Package readiness remains
+  false until every model is accepted; this never hides accepted siblings.
 
 ## Rebuild and verify
 
@@ -66,6 +68,16 @@ incomplete PBR, unsigned textures, missing views, open positional mesh shells or
 an absent acceptance receipt. It publishes only this package's unique assets,
 approved records and QC sidecars. It does not compile the global runtime registry
 or alter campaign maps; root owns that integration.
+
+Selected assets can be validated and published separately with
+`--assets=frontier_cinderfen_reed_clump,frontier_cinderfen_sedge_horsetail`.
+The sorted selection determines separate build, validation and review filenames
+under `review/`; its receipt must identify exactly those assets and bind every
+actual-export image and the selected build. `test_published.mjs` accepts the same
+selection and verifies public model, QC, texture and GM defaults. Refresh
+`write_provenance.py` after deliberate tool changes and coordinate edits while
+validating. Never broaden a selection to a sibling still under correction.
+JSON receipts are replaced atomically so concurrent readers cannot see partial files.
 
 ## Placement
 

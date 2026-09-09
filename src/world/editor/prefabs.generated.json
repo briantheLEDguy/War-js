@@ -5933,6 +5933,62 @@
     "cameraSolid": true
   },
   {
+    "kind": "frontier_cinderfen_reed_clump",
+    "sourceKind": "frontier_cinderfen_reed_clump",
+    "label": "Cinderfen autumn reed colony",
+    "group": "Cinderfen Nature",
+    "model": "frontier_cinderfen_reed_clump_lod0.glb",
+    "assetKey": "frontier_cinderfen_reed_clump",
+    "fallbackKind": "frontier_cinderfen_reed_clump",
+    "lodModels": [
+      "frontier_cinderfen_reed_clump_lod1.glb",
+      "frontier_cinderfen_reed_clump_lod2.glb"
+    ],
+    "footprint": {
+      "width": 3.7169806957244873,
+      "depth": 3.4264343976974487,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_cinderfen_sedge_horsetail",
+    "sourceKind": "frontier_cinderfen_sedge_horsetail",
+    "label": "Cinderfen rust sedge and marsh horsetail",
+    "group": "Cinderfen Nature",
+    "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+    "assetKey": "frontier_cinderfen_sedge_horsetail",
+    "fallbackKind": "frontier_cinderfen_sedge_horsetail",
+    "lodModels": [
+      "frontier_cinderfen_sedge_horsetail_lod1.glb",
+      "frontier_cinderfen_sedge_horsetail_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.6025230884552,
+      "depth": 2.1711199283599854,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
     "kind": "frontier_cinderfen_supply_shelter",
     "sourceKind": "frontier_cinderfen_supply_shelter",
     "label": "Cinderfen open supply shelter",

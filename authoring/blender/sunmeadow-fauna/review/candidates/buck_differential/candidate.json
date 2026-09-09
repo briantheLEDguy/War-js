@@ -1,0 +1,169 @@
+{
+  "status": "actual_export_review_required",
+  "base_build_sha256": "be3b80e265190b812758a0d0bfe1350de8618ae49b2a08a3dc5fee9a8e121bee",
+  "sources": {
+    "bake_joint_correctives.py": "80718aebb811c25b95ca8a7c2aef5e58225f81b6c259c0decba5ca49a7fe0b9d",
+    "joint_correctives.py": "e268842a95442f28026cc2039b507fde708d1c5043512d7caf28578faa6994b6",
+    "prune_morph_normals.py": "a5f3cf8ad54c6aca08e863ccd8734bb0ba3faa7891b35a1fcf308bc55b80c4aa"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "sha256": "8346e6e9902f00af4065edcbcd6ef87f8dfeac80dcc63efdf32998fc1a97a80c",
+      "bytes": 11734136,
+      "unchanged_rest_geometry_sha256": "bff5311f554f4c915c35f0c62dc66d057e9e73cc6b0c64b57b3b70a4a9919b15",
+      "caudal_weight_vertices": 1841,
+      "samples": 192,
+      "modes": 38,
+      "regions": [
+        {
+          "side": "right",
+          "limb": "front",
+          "modes": 14,
+          "maximum_reconstruction_error_m": 0.00039461131412603227,
+          "p99_reconstruction_error_m": 7.325436192523911e-05,
+          "maximum_correction_m": 0.051045197367943225
+        },
+        {
+          "side": "right",
+          "limb": "hind",
+          "modes": 6,
+          "maximum_reconstruction_error_m": 0.0011862869986024717,
+          "p99_reconstruction_error_m": 0.00047558717619360324,
+          "maximum_correction_m": 0.04845340599588272
+        },
+        {
+          "side": "left",
+          "limb": "front",
+          "modes": 12,
+          "maximum_reconstruction_error_m": 0.0012144836135756323,
+          "p99_reconstruction_error_m": 0.00010693819742690121,
+          "maximum_correction_m": 0.04642491837913398
+        },
+        {
+          "side": "left",
+          "limb": "hind",
+          "modes": 6,
+          "maximum_reconstruction_error_m": 0.0010378258879838054,
+          "p99_reconstruction_error_m": 0.0004672604603965625,
+          "maximum_correction_m": 0.046682426810520115
+        }
+      ],
+      "maximum_reconstruction_error_m": 0.0012144836135756323,
+      "p99_reconstruction_error_m": 0.0003255080869193586,
+      "maximum_correction_m": 0.051045197367943225,
+      "normal_noise_pruning": {
+        "removed_normal_noise_vectors": 194765,
+        "maximum_removed_normal_delta": 1.4600096599955427e-07,
+        "bytes_saved": 2726896
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod1.glb",
+      "sha256": "226b89a100455b8580adc08b1020461c896fb84a70cdb05c84a35d1c27d51dac",
+      "bytes": 4443964,
+      "unchanged_rest_geometry_sha256": "20fa1246681357312fc548a9e20029bc8492cec2420ba8db753e798e43e64be1",
+      "caudal_weight_vertices": 849,
+      "samples": 192,
+      "modes": 32,
+      "regions": [
+        {
+          "side": "right",
+          "limb": "front",
+          "modes": 10,
+          "maximum_reconstruction_error_m": 0.001138142466725307,
+          "p99_reconstruction_error_m": 0.0001628703950211266,
+          "maximum_correction_m": 0.052037501527011566
+        },
+        {
+          "side": "right",
+          "limb": "hind",
+          "modes": 6,
+          "maximum_reconstruction_error_m": 0.0013214410371995694,
+          "p99_reconstruction_error_m": 0.0004720923575546057,
+          "maximum_correction_m": 0.04903629916923249
+        },
+        {
+          "side": "left",
+          "limb": "front",
+          "modes": 10,
+          "maximum_reconstruction_error_m": 0.0009365784531744629,
+          "p99_reconstruction_error_m": 0.0001621285219511417,
+          "maximum_correction_m": 0.04791122607293889
+        },
+        {
+          "side": "left",
+          "limb": "hind",
+          "modes": 6,
+          "maximum_reconstruction_error_m": 0.0011249898623311022,
+          "p99_reconstruction_error_m": 0.00046923404579128484,
+          "maximum_correction_m": 0.04825633696284329
+        }
+      ],
+      "maximum_reconstruction_error_m": 0.0013214410371995694,
+      "p99_reconstruction_error_m": 0.0003231482095823427,
+      "maximum_correction_m": 0.052037501527011566,
+      "normal_noise_pruning": {
+        "removed_normal_noise_vectors": 77763,
+        "maximum_removed_normal_delta": 1.4600096599955427e-07,
+        "bytes_saved": 1088688
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
+      "sha256": "656197a882bc2a4db9ea1d045fb825431a3a79e44c548de14de6ed5642b7ed54",
+      "bytes": 2034392,
+      "unchanged_rest_geometry_sha256": "f1c6ae01899e7fa5564205ff2718e4fc3292f3551508df09581638adba2c1db5",
+      "caudal_weight_vertices": 298,
+      "samples": 192,
+      "modes": 36,
+      "regions": [
+        {
+          "side": "right",
+          "limb": "front",
+          "modes": 10,
+          "maximum_reconstruction_error_m": 0.0008469625005463457,
+          "p99_reconstruction_error_m": 0.00020186166887896733,
+          "maximum_correction_m": 0.053588147265417774
+        },
+        {
+          "side": "right",
+          "limb": "hind",
+          "modes": 10,
+          "maximum_reconstruction_error_m": 0.0009136880076094254,
+          "p99_reconstruction_error_m": 0.00015314867828064175,
+          "maximum_correction_m": 0.05292118242111663
+        },
+        {
+          "side": "left",
+          "limb": "front",
+          "modes": 10,
+          "maximum_reconstruction_error_m": 0.0006923168497362823,
+          "p99_reconstruction_error_m": 0.00017992832546723705,
+          "maximum_correction_m": 0.046891323445849495
+        },
+        {
+          "side": "left",
+          "limb": "hind",
+          "modes": 6,
+          "maximum_reconstruction_error_m": 0.0013005171300100797,
+          "p99_reconstruction_error_m": 0.0005084688841693587,
+          "maximum_correction_m": 0.05518931897014802
+        }
+      ],
+      "maximum_reconstruction_error_m": 0.0013005171300100797,
+      "p99_reconstruction_error_m": 0.00025834840233928205,
+      "maximum_correction_m": 0.05518931897014802,
+      "normal_noise_pruning": {
+        "removed_normal_noise_vectors": 39584,
+        "maximum_removed_normal_delta": 1.4600096599955427e-07,
+        "bytes_saved": 554276
+      }
+    }
+  ],
+  "master": "frontier_sunmeadow_roe_deer_buck.blend",
+  "master_sha256": "cc126aef7728673657e526a4e679d60bf866c6eaa3e29fca256bfeca3bcd8cb6"
+}

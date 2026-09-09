@@ -15,15 +15,34 @@ def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def geometry_hash(obj):
     return hashlib.sha256(json.dumps({'vertices':[list(v.co) for v in obj.data.vertices],'faces':[list(p.vertices) for p in obj.data.polygons]},separators=(',',':')).encode()).hexdigest()
 
-def bake_bark(obj,lod):
+def bake_bark(obj,lod,preview_only=False):
     before=geometry_hash(obj);scene=bpy.context.scene
     bpy.ops.object.select_all(action='DESELECT');obj.hide_set(False);obj.hide_render=False;obj.select_set(True);bpy.context.view_layer.objects.active=obj
     data=obj.data
-    data.uv_layers['authored_uv'].name='retained_branch_uv'
-    data.uv_layers.new(name='authored_uv');data.uv_layers.active_index=len(data.uv_layers)-1;data.uv_layers['authored_uv'].active_render=True
-    bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.uv.smart_project(angle_limit=math.radians(68),island_margin=.006,area_weight=.8,correct_aspect=True,scale_to_bounds=True)
-    bpy.ops.object.mode_set(mode='OBJECT')
+    # Age is a continuous distance from the original trunk axis, so fine young
+    # limbs do not inherit the mature bole's deep fissures. No geometry moves.
+    trunk=json.loads((ROOT/'source/nature.json').read_text())['design']['alderTrunk']
+    age=data.attributes.get('bark_maturity') or data.attributes.new('bark_maturity','FLOAT','POINT')
+    for vertex in data.vertices:
+        point=vertex.co;first,second=next(((a,b) for a,b in zip(trunk,trunk[1:]) if a[2]<=point.z<=b[2]),(trunk[0],trunk[1]) if point.z<trunk[0][2] else (trunk[-2],trunk[-1]))
+        t=max(0,min(1,(point.z-first[2])/(second[2]-first[2])))
+        x=first[0]+(second[0]-first[0])*t;y=first[1]+(second[1]-first[1])*t;r=first[3]+(second[3]-first[3])*t
+        radial=math.hypot(point.x-x,point.y-y)
+        mature=max(0,min(1,1-(radial-r*.9)/max(.3,r*1.7)))
+        mature=mature*mature*(3-2*mature)
+        age.data[vertex.index].value=max(mature,.65 if point.z<.4 else 0)
+    if not preview_only:
+        data.uv_layers['authored_uv'].name='retained_branch_uv'
+        data.uv_layers.new(name='authored_uv');data.uv_layers.active_index=len(data.uv_layers)-1;data.uv_layers['authored_uv'].active_render=True
+        bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT')
+        resolution=[4096,2048,1024][lod];pixel_margin=4/resolution
+        bpy.ops.uv.smart_project(angle_limit=math.radians(68),island_margin=pixel_margin,area_weight=.8,correct_aspect=True,scale_to_bounds=True)
+        bpy.ops.uv.pack_islands(rotate=True,rotate_method='ANY',scale=True,margin_method='FRACTION',margin=pixel_margin,shape_method='CONCAVE')
+        bpy.ops.object.mode_set(mode='OBJECT')
+        uv_data=data.uv_layers['authored_uv'].data;occupied=0
+        for face in data.polygons:
+            coords=[uv_data[i].uv for i in face.loop_indices]
+            occupied+=abs(sum(a.x*b.y-b.x*a.y for a,b in zip(coords,coords[1:]+coords[:1])))*.5
     source=bpy.data.materials.new(f'retained_continuous_bark_projection_lod{lod}');source.use_nodes=True;source.use_fake_user=True
     nodes=source.node_tree.nodes;links=source.node_tree.links;nodes.clear()
     output=nodes.new('ShaderNodeOutputMaterial');shader=nodes.new('ShaderNodeBsdfPrincipled');links.new(shader.outputs[0],output.inputs[0])
@@ -45,30 +64,43 @@ def bake_bark(obj,lod):
             item=node.color_ramp.elements[index] if index<2 else node.color_ramp.elements.new(position)
             item.position=position;item.color=(*color,1)
         links.new(value,node.inputs[0]);return node.outputs['Color']
-    broad=noise((1.3,1.3,.9));grain=noise((30,30,3.5),2)
-    warp=nodes.new('ShaderNodeVectorMath');warp.operation='SCALE';links.new(noise((3,3,1)),warp.inputs[0]);warp.inputs['Scale'].default_value=.17
-    field=nodes.new('ShaderNodeVectorMath');field.operation='ADD';links.new(scaled((6,6,.8)),field.inputs[0]);links.new(warp.outputs[0],field.inputs[1])
+    age_node=nodes.new('ShaderNodeAttribute');age_node.attribute_name='bark_maturity';maturity=age_node.outputs['Fac']
+    broad=noise((.85,.85,.72),4);grain=noise((92,92,10),3)
+    warp=nodes.new('ShaderNodeVectorMath');warp.operation='SCALE';links.new(noise((4,4,1.4)),warp.inputs[0]);warp.inputs['Scale'].default_value=.28
+    field=nodes.new('ShaderNodeVectorMath');field.operation='ADD';links.new(scaled((21,21,2.15)),field.inputs[0]);links.new(warp.outputs[0],field.inputs[1])
     cracks=nodes.new('ShaderNodeTexVoronoi');cracks.voronoi_dimensions='3D';cracks.feature='DISTANCE_TO_EDGE';cracks.inputs['Scale'].default_value=1;links.new(field.outputs[0],cracks.inputs['Vector'])
-    fissure=ramp(cracks.outputs['Distance'],[(.008,(.10,.10,.10)),(.028,(.72,.72,.72)),(.11,(1,1,1))])
-    # Neutral grey-brown bark, longitudinal broken fissures and small lichen
-    # islands are all continuous in space; there is no repeat boundary in Z.
-    bark=ramp(broad,[(.16,(.030,.028,.023)),(.49,(.067,.064,.051)),(.84,(.113,.109,.088))])
-    multiply=nodes.new('ShaderNodeMixRGB');multiply.blend_type='MULTIPLY';multiply.inputs[0].default_value=.43;links.new(bark,multiply.inputs[1]);links.new(fissure,multiply.inputs[2])
-    lichen=ramp(noise((6,6,5),2),[(.64,(0,0,0)),(.72,(.42,.42,.42)),(.79,(.72,.72,.72))])
-    color=nodes.new('ShaderNodeMixRGB');links.new(lichen,color.inputs[0]);links.new(multiply.outputs[0],color.inputs[1]);color.inputs[2].default_value=(.12,.14,.082,1)
-    height=math_node('ADD',math_node('MULTIPLY',grain,.30),math_node('MULTIPLY',cracks.outputs['Distance'],.70))
-    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.38;bump.inputs['Distance'].default_value=.028;links.new(height,bump.inputs['Height']);links.new(bump.outputs['Normal'],shader.inputs['Normal'])
-    links.new(color.outputs[0],shader.inputs['Base Color']);roughness=math_node('ADD',.79,math_node('MULTIPLY',grain,.14));links.new(roughness,shader.inputs['Roughness'])
+    fissure=ramp(noise((22,22,1.7),4),[(.28,(1,1,1)),(.39,(.45,.45,.45)),(.49,(0,0,0))])
+    interrupted=ramp(noise((5,5,9),2),[(.43,(0,0,0)),(.56,(.6,.6,.6)),(.70,(1,1,1))])
+    age_strength=math_node('ADD',.035,math_node('MULTIPLY',maturity,.965))
+    fissure_strength=math_node('MULTIPLY',fissure,math_node('MULTIPLY',interrupted,age_strength))
+    # Pigment variation is independent of narrow interrupted fissures. Sparse
+    # fine lenticels and restrained lichen replace broad outlined polygons.
+    bark=ramp(broad,[(.29,(.027,.030,.025)),(.48,(.075,.066,.048)),(.67,(.135,.14,.117))])
+    furrow=nodes.new('ShaderNodeMixRGB');links.new(math_node('MULTIPLY',fissure_strength,.52),furrow.inputs[0]);links.new(bark,furrow.inputs[1]);furrow.inputs[2].default_value=(.028,.029,.022,1)
+    lenticels=ramp(noise((27,27,125),1),[(.67,(0,0,0)),(.78,(.18,.18,.18)),(.88,(.35,.35,.35))])
+    fleck=nodes.new('ShaderNodeMixRGB');links.new(lenticels,fleck.inputs[0]);links.new(furrow.outputs[0],fleck.inputs[1]);fleck.inputs[2].default_value=(.17,.16,.13,1)
+    lichen=ramp(noise((11,11,7),3),[(.63,(0,0,0)),(.76,(.35,.35,.35)),(.85,(.58,.58,.58))])
+    color=nodes.new('ShaderNodeMixRGB');links.new(lichen,color.inputs[0]);links.new(fleck.outputs[0],color.inputs[1]);color.inputs[2].default_value=(.12,.14,.08,1)
+    position=nodes.new('ShaderNodeSeparateXYZ');links.new(coordinate.outputs['Object'],position.inputs[0])
+    wet_height=math_node('ADD',math_node('SUBTRACT',.78,position.outputs['Z']),math_node('MULTIPLY',noise((3,3,.8),2),.3))
+    wet=math_node('MINIMUM',1,math_node('MAXIMUM',0,math_node('DIVIDE',wet_height,.85)))
+    damp=nodes.new('ShaderNodeMixRGB');links.new(math_node('MULTIPLY',wet,.7),damp.inputs[0]);links.new(color.outputs[0],damp.inputs[1]);damp.inputs[2].default_value=(.015,.024,.018,1)
+    height=math_node('SUBTRACT',math_node('MULTIPLY',grain,.22),math_node('MULTIPLY',fissure_strength,.78))
+    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.65;bump.inputs['Distance'].default_value=.011;links.new(height,bump.inputs['Height']);links.new(bump.outputs['Normal'],shader.inputs['Normal'])
+    links.new(damp.outputs[0],shader.inputs['Base Color']);roughness=math_node('SUBTRACT',math_node('ADD',.74,math_node('MULTIPLY',broad,.2)),math_node('MULTIPLY',wet,.19));links.new(roughness,shader.inputs['Roughness'])
     ao=nodes.new('ShaderNodeAmbientOcclusion');ao.samples=16;ao.inputs['Distance'].default_value=.14;ao.only_local=True
     orm=nodes.new('ShaderNodeCombineColor');orm.mode='RGB';links.new(ao.outputs['AO'],orm.inputs['Red']);links.new(roughness,orm.inputs['Green']);orm.inputs['Blue'].default_value=0
     data.materials.clear();data.materials.append(source)
     for face in data.polygons:face.material_index=0
-    scene.render.engine='CYCLES';scene.cycles.samples=12;scene.cycles.use_denoising=False;scene.render.bake.use_selected_to_active=False;scene.render.bake.use_clear=True;scene.render.bake.margin=12;scene.render.bake.normal_space='TANGENT'
-    folder=ROOT/'textures/bark-projection';folder.mkdir(exist_ok=True);resolution=[2048,1024,512][lod];images={};channels={}
+    if preview_only:return {'previewOnly':True,'material':source}
+    scene.render.engine='CYCLES';scene.cycles.samples=12;scene.cycles.use_denoising=False;scene.render.bake.use_selected_to_active=False;scene.render.bake.use_clear=False;scene.render.bake.margin=2;scene.render.bake.normal_space='TANGENT'
+    folder=ROOT/'textures/bark-projection';folder.mkdir(exist_ok=True);resolution=[4096,2048,1024][lod];images={};channels={}
     target=nodes.new('ShaderNodeTexImage');nodes.active=target;emission=nodes.new('ShaderNodeEmission');emission.inputs['Strength'].default_value=1
-    for channel,socket in [('baseColor',color.outputs[0]),('orm',orm.outputs[0]),('normal',None)]:
+    for channel,socket in [('baseColor',damp.outputs[0]),('orm',orm.outputs[0]),('normal',None)]:
         image=bpy.data.images.new(f'alder_continuous_bark_lod{lod}_{channel}',width=resolution,height=resolution,alpha=False)
-        image.colorspace_settings.name='sRGB' if channel=='baseColor' else 'Non-Color';target.image=image;nodes.active=target
+        image.colorspace_settings.name='sRGB' if channel=='baseColor' else 'Non-Color'
+        image.generated_color=(.5,.5,1,1) if channel=='normal' else (1,.86,0,1) if channel=='orm' else (.26,.25,.23,1)
+        target.image=image;nodes.active=target
         for link in list(output.inputs[0].links):links.remove(link)
         if socket is None:links.new(shader.outputs[0],output.inputs[0]);kind='NORMAL'
         else:links.new(socket,emission.inputs['Color']);links.new(emission.outputs[0],output.inputs[0]);kind='EMIT'
@@ -85,7 +117,7 @@ def bake_bark(obj,lod):
     output=nodes.new('ShaderNodeGroup');output.node_tree=bpy.data.node_groups['glTF Material Output'];links.new(split.outputs['Red'],output.inputs['Occlusion'])
     data.materials.clear();data.materials.append(result)
     if geometry_hash(obj)!=before:raise RuntimeError('Bark projection changed authored geometry')
-    record={'tool':'tools/bake_bark_projection.py','toolSha256':sha(Path(__file__)),'geometrySha256Before':before,'geometrySha256After':geometry_hash(obj),'method':'Continuous object-space 3D pigment, fissure, lichen and height fields baked on the identical joined mesh to a unique area-weighted UV atlas; no ray projection from a different LOD. Original branch UVs are retained in the master.','channels':channels}
+    record={'atlas':{'resolution':resolution,'marginPixels':4,'dilationPixels':2,'occupiedFraction':occupied,'normalBackground':[.5,.5,1]},'tool':'tools/bake_bark_projection.py','toolSha256':sha(Path(__file__)),'geometrySha256Before':before,'geometrySha256After':geometry_hash(obj),'method':'Continuous object-space 3D pigment, fissure, lichen and height fields baked on the identical joined mesh to a unique area-weighted UV atlas; no ray projection from a different LOD. Original branch UVs are retained in the master.','channels':channels}
     (ROOT/'review'/f'alder_bark_projection_lod{lod}.json').write_text(json.dumps(record,indent=2)+'\n')
     print('BARK_PROJECTION_BAKED',lod,resolution,flush=True)
     return record

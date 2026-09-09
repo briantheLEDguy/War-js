@@ -17,6 +17,7 @@ import { composeSunmeadowEnvironment } from './sunmeadow-environment.mjs';
 import { composeCinderfenLandscape } from './cinderfen-landscape.mjs';
 import { composeCinderfenEnvironment } from './cinderfen-environment.mjs';
 import { integrateCinderfen } from './cinderfen-integration.mjs';
+import { composeCinderfenEcology } from './cinderfen-ecology.mjs';
 import { compactCityElevation } from './compact-city-elevation.mjs';
 
 const root = process.cwd();
@@ -96,6 +97,7 @@ for (const node of NODES) {
   composeCinderfenLandscape(zone, true);
   composeCinderfenEnvironment(zone, { architecture: true });
   integrateCinderfen(zone);
+  composeCinderfenEcology(zone);
   rebuildAegisCity(zone);
   rebuildRiftspireCity(zone);
   zones.push(zone);

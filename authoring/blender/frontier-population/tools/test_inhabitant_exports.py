@@ -39,6 +39,10 @@ class InhabitantExportTests(unittest.TestCase):
                 self.assertGreater(len(clip['samples']),30)
                 self.assertGreaterEqual(clip['minimumHeight'],-.004,clip['clip'])
                 for sample in clip['samples']:
+                    if clip['clip']=='death' and sample['seconds']>clip['samples'][-1]['seconds']-.10:
+                        for side,height in sample['handHeights'].items():
+                            self.assertGreaterEqual(height,-.004,f'death/{side} hand')
+                            self.assertLessEqual(height,.012,f'death/{side} hand must settle onto ground')
                     if clip['clip'] in ('idle','combat_idle','attack_melee','attack_ranged','cast'):
                         self.assertLessEqual(sample['minimumHeight'],.012,clip['clip'])
                         for side,height in sample['soleHeights'].items():
@@ -57,6 +61,32 @@ class InhabitantExportTests(unittest.TestCase):
             for clip in report['clips']:
                 self.assertGreater(len(clip['samples']),30)
                 self.assertLessEqual(clip['maximumPenetration'],.002,clip['clip'])
+
+    def test_trouser_hems_remain_inside_boot_cuffs(self):
+        for lod in range(3):
+            report=json.loads((WORK/'review'/f'{KEY}_lod{lod}_garment_clearance.json').read_text())
+            self.assertEqual(report['sha256'],sha(WORK/'runtime'/report['model']))
+            self.assertEqual(len(report['bootClips']),9)
+            for clip in report['bootClips']:
+                self.assertLessEqual(clip['maximumPenetration'],.002,clip['clip'])
+                for sample in clip['samples']:
+                    for side,measurement in sample['sides'].items():
+                        self.assertGreater(measurement['raysIntersectingBoot'],report['bootHemProbeVertices'][side]*.60,
+                                           f'{clip["clip"]}/{side} boot coverage')
+
+    def test_run_has_bent_alternating_arms(self):
+        for lod in range(3):
+            report=json.loads((WORK/'review'/f'{KEY}_lod{lod}_motion.json').read_text())
+            clip=next(clip for clip in report['clips'] if clip['clip']=='run')
+            for side in ('L','R'):
+                poses=[sample['arms'][side] for sample in clip['samples']]
+                self.assertGreater(min(pose['elbowFlexDegrees'] for pose in poses),25)
+                forward=[pose['wristFromShoulder'][1] for pose in poses]
+                self.assertGreater(max(forward)-min(forward),.30)
+            alternating=[sample['arms']['L']['wristFromShoulder'][1]-sample['arms']['R']['wristFromShoulder'][1]
+                         for sample in clip['samples']]
+            self.assertGreater(max(alternating),.30)
+            self.assertLess(min(alternating),-.30)
 
 
 if __name__=='__main__':unittest.main()

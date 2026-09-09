@@ -74,6 +74,9 @@ def garments(family, race, make, morph, materials):
         for i,p in enumerate(vertices):
             normal=normals[i].normalized()
             allowance=.028 if kind=='shirt' else .024
+            if kind=='shirt' and p.z<1.12 and abs(p.x)<.30:
+                tuck=max(0,min(1,(1.12-p.z)/.165));tuck=tuck*tuck*(3-2*tuck)
+                allowance-=.023*tuck
             if kind=='shirt' and abs(p.x)<.27:
                 # Fabric falls from the chest toward the belted waist.
                 angle=math.atan2(p.y,p.x)
@@ -92,6 +95,25 @@ def garments(family, race, make, morph, materials):
                     p-=axis*(p-cuff[side]).dot(axis)
             elif p.z>.8:p.z=1.025
             else:p.z=.215
+        if race=='dwarf' and kind=='trousers':
+            # The wool is tucked inside the authored boot mouth. Give that
+            # hidden hem the same ankle field as the cuff, then ease into the
+            # original calf so ankle pitch cannot expose a serrated overlap.
+            for index,p in enumerate(vertices):
+                blend=max(0,min(1,(.39-p.z)/.085));blend=blend*blend*(3-2*blend)
+                if not blend:continue
+                side=1 if p.x>0 else -1
+                dx=p.x-side*.216;dy=p.y+.008
+                radius=math.sqrt((dx/.050)**2+(dy/.042)**2)
+                if radius>1:
+                    p.x=side*.216+dx*(1-blend+blend/radius)
+                    p.y=-.008+dy*(1-blend+blend/radius)
+                field={name:weight*(1-blend) for name,weight in fields[index].items()}
+                bone_side='L' if side>0 else 'R'
+                ankle=max(0,min(1,(morph((0,0,p.z),race).z-morph((0,0,.12),race).z)/(morph((0,0,.27),race).z-morph((0,0,.12),race).z)))
+                ankle=ankle*ankle*(3-2*ankle)
+                for name,weight in [('shin_'+bone_side,ankle),('foot_'+bone_side,1-ankle)]:field[name]=field.get(name,0)+weight*blend
+                fields[index]=field
         # The garment retains the source surface's vertex identity. Transferring
         # its exact weights avoids nearest-point jumps across the axilla/collar.
         obj=make(kind+'_continuous_tailored_surface',[morph(p,race) for p in vertices],faces,

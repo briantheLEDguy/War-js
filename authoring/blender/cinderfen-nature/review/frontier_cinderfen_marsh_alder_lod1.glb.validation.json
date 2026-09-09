@@ -2,11 +2,11 @@
   "uri": "frontier_cinderfen_marsh_alder_lod1.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-08T20:27:23.318Z",
+  "validatedAt": "2026-09-09T13:03:03.773Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
-    "numInfos": 9,
+    "numInfos": 10,
     "numHints": 0,
     "messages": [
       {
@@ -62,6 +62,12 @@
         "message": "URI is used in GLB container.",
         "severity": 2,
         "pointer": "/images/8/uri"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
       }
     ],
     "truncated": false
@@ -74,13 +80,13 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 2117040
+        "byteLength": 2363536
       },
       {
         "pointer": "/images/0",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/5d4ab53cc359f44aef1d3ac76097ee62b7ab28cffe61abdb335ad2acc16d21e4.png",
+        "uri": "../textures/cinderfen_nature/c625bbe329949a2e25ca75faaf7696e76e2f0494c44f00e51842cef8589c5901.png",
         "image": {
           "width": 1024,
           "height": 1024,
@@ -94,7 +100,7 @@
         "pointer": "/images/1",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/9cde4d9d23a90ae8b2f9935f3a7e16214bfbbbf277d6087538656e7ddf78593f.png",
+        "uri": "../textures/cinderfen_nature/2db9e42b3a39af455c56b240777120e2455a22d70d953b31088b7b70dbfe293d.png",
         "image": {
           "width": 1024,
           "height": 1024,
@@ -108,7 +114,7 @@
         "pointer": "/images/2",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/967a544c91285e6ede7ea76abf794713e53271fc5eae3c6a64015fd2a1f745cf.png",
+        "uri": "../textures/cinderfen_nature/0b3184653a83be105bc8cc58f63fa0b295a29082efc92efda23d68df874b501a.png",
         "image": {
           "width": 1024,
           "height": 1024,
@@ -210,10 +216,10 @@
     "hasTextures": true,
     "hasDefaultScene": true,
     "drawCallCount": 3,
-    "totalVertexCount": 39278,
+    "totalVertexCount": 41358,
     "totalTriangleCount": 38616,
-    "maxUVs": 1,
+    "maxUVs": 2,
     "maxInfluences": 0,
-    "maxAttributes": 4
+    "maxAttributes": 5
   }
 }

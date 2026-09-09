@@ -1,0 +1,28 @@
+{
+  "renders": [
+    {
+      "level": 0,
+      "state": "rest",
+      "view": "full",
+      "focus": null,
+      "model_sha256": "8346e6e9902f00af4065edcbcd6ef87f8dfeac80dcc63efdf32998fc1a97a80c",
+      "image": "lod0_rest_full.png",
+      "image_sha256": "1799fb3656f171444f83fca2886bce650f590cd5cb23b9124eb2a5128519bfab",
+      "reviewer_sha256": "443d7c6daa9cc1804f62494db5325fd3864bf77e04fcf898da48a7b11d12a5c7",
+      "action_helper_sha256": "9995f063848ba0b8295102e377a8ec097d7a547555d8539e38aafb46294936fa",
+      "status": "pending_visual_review"
+    },
+    {
+      "level": 0,
+      "state": "run@0.125",
+      "view": "full",
+      "focus": null,
+      "model_sha256": "8346e6e9902f00af4065edcbcd6ef87f8dfeac80dcc63efdf32998fc1a97a80c",
+      "image": "lod0_run_0p125_full.png",
+      "image_sha256": "985e09cf7c54afe9a88cca6d601a65bd922069631f553f5afca3fd1e33b4acdc",
+      "reviewer_sha256": "443d7c6daa9cc1804f62494db5325fd3864bf77e04fcf898da48a7b11d12a5c7",
+      "action_helper_sha256": "9995f063848ba0b8295102e377a8ec097d7a547555d8539e38aafb46294936fa",
+      "status": "pending_visual_review"
+    }
+  ]
+}
