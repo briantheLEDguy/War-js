@@ -1,5 +1,22 @@
 # Frontier siege and logistics handoff
 
+## Current publication — 2026-09-09
+
+The eight original assets and driver pack are published. The cauldron now uses
+the isolated `cauldron-fit/` replacement with six seated forged ornaments and
+23,648 / 5,986 / 2,782 triangles. Its actual contact/ready/pour review passed,
+and every original animation key, pivot and socket is retained. The old package
+inventory is the comparison baseline; do not republish it over the replacement.
+
+Runtime caravan and siege controllers are implemented. Both-client and reconnect
+WebSocket tests retain confirmed siege timing and reject cooldown replay.
+Twenty-eight focused cauldron/transport/motion/ecology tests pass; model and GM
+validation pass. Fitted siege crew, projectile/liquid effects and full composed
+campaign playthroughs remain unfinished. Root continues on
+`codex/world-quality-continuation`; no zone is art-complete.
+
+## Historical handoff — 2026-09-07
+
 Updated 2026-09-07, 21:55 local. Branch `codex/map-readability`.
 
 The current package is complete for main-task integration review and remains unpublished. All authoring/review Blender processes have finished. Do not resume old session IDs or run the obsolete pre-animation refinement scripts.

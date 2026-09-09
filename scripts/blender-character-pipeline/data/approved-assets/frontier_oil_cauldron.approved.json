@@ -15,19 +15,19 @@
     "bindPoseId": "none"
   },
   "hashes": {
-    "modelSha256": "74dac012a6d2279a14b61b1ba9450c1704bf83f0ca3a9d5d3bbee2e83fc7d333",
-    "qcSha256": "3739e98e9de4b06a3cad24df08b804ff436b3e58ba1aa49f85daf1e9f2b574d1",
+    "modelSha256": "c6c17a4960a10585f071587d6ccc6e20cb5f34cce366c1cce9ba6bf35b595b2c",
+    "qcSha256": "fb946ed8a80f999f822a494759d4d4f4f27afb1c2cbd02745368788434862ca2",
     "previews": {
-      "assembly": "4a904135c072dcc04d6bf68e46a8f58f2206559f6fdcc3e7402e577965faa154"
+      "assembly": "9786693c27caf2f4d286a605c59baf3c87c55a919cac0b0121ca8ea01a559a11"
     }
   },
   "previews": {
-    "assembly": "authoring/blender/orvr-frontier/review/frontier_oil_cauldron_lod0_reimport.png"
+    "assembly": "authoring/blender/orvr-frontier/cauldron-fit/review/cauldron_lod0_ready.png"
   },
   "review": {
     "reviewedBy": "Codex root integration review",
-    "reviewedAt": "2026-09-07T20:01:19.153Z",
-    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+    "reviewedAt": "2026-09-09T14:02:21.464Z",
+    "reviewHash": "8185702bbc0106119c451c4f5bada3661773ac0d91e520479719b744df30b3aa"
   },
   "provenance": {
     "createdBy": "original_authored_mesh_control_cages",
@@ -41,8 +41,8 @@
     ],
     "referencePackId": "original_frontier_siege_v1",
     "similarityReview": "not_required",
-    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
-    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+    "source": "authoring/blender/orvr-frontier/cauldron-fit/review/validated-inventory.json",
+    "sourceSha256": "f6c3c5aa3780f592113cc1043c35775f9d863787939b20aaeb0bd88d04120a92"
   },
   "approvalState": "approved"
 }

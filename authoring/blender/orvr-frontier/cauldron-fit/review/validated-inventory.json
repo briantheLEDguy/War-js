@@ -1,0 +1,89 @@
+{
+  "assetId": "frontier_oil_cauldron",
+  "sourceSha256": "cf29c6eb063ff2d20da7e7ccac0ffa0c9caea28601d204aa28a29b471ce5a7ac",
+  "buildSha256": "be96acad0095f8b5106b75c159bb570d2293b860289a57f7d57da6ee32d6b760",
+  "fittingSha256": "8d4a1ca45e122d82e4a73c57a2ce7a95a4632ac139ef113b1528609b54d99d25",
+  "actualReviewSha256": "c27e4deb70b29da9f2fa1d559f69fa9de74f6028833772d51ab8da7fc454eefb",
+  "validationToolSha256": "159cd82336ab61887d034d5234cff70698673149d4bdf82a249470769772c7c9",
+  "masters": {
+    "masters/frontier_oil_cauldron.blend": "36dc1fd4ae376cd0106bd9fa7be1b66e6f09ebe33c87b0a7f3c6c074959c4d12",
+    "masters/frontier_oil_cauldron_animated.blend": "b2e2e2fcbf30d0ca855b25a4e06261238a5adc251ade7c23cf66b1506444a137",
+    "masters/frontier_oil_cauldron_lod2_finished.blend": "a705ba1809e5082fda7bc168bdfe5750799fd6133adb39c473b95f6ffbe64a67"
+  },
+  "textures": {
+    "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_baseColor.png": "0defe0c492c845a761efd39f06873762d204fb5eb04a180bab1db7d41ce7739e",
+    "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_normal.png": "b408c6b0b23b09113955688f77aa7d23078acd9846d7d8754cb6192e8735f717",
+    "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_roughness.png": "e7c88f6b10a663238297c80016b8c7709304af55a7f26072a01fe9e9a4d923ca",
+    "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_metallic.png": "59a15ac89b7b39c1800d0d60a0fb6b37eeb66e850dc0667e9821ab14e2edc1f9",
+    "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_occlusion.png": "e03dfd995802399d3c1665cd74d262e66fcaba1c21dca1472aecc8685b6562d5",
+    "textures/baked/frontier_oil_cauldron_lod0_tipping_cauldron_orm.png": "3320cbf9ac381921dcd13d37c8e3d7d078d7cb02f08e13d23d56800754627e0f",
+    "textures/baked/frontier_oil_cauldron_lod0_body_baseColor.png": "ca235709cb3ef4df886a097d72086ba2613e56b65be6dce430b212bfd92334ce",
+    "textures/baked/frontier_oil_cauldron_lod0_body_normal.png": "37495990c2158f90fabaea43058d39c867648c10ae65ff486370f2b6d8010a36",
+    "textures/baked/frontier_oil_cauldron_lod0_body_roughness.png": "131d0cf4229f7f18096e9acfd7d3ad1658339c0a666088b10002e1f3fa7109a7",
+    "textures/baked/frontier_oil_cauldron_lod0_body_metallic.png": "880c38e51f2be8cf340581af8270dc71b9638f08790a713e5098a0b07f9eaa8c",
+    "textures/baked/frontier_oil_cauldron_lod0_body_occlusion.png": "8aa68d9917fedc17786741f5aa3fb078de8701b6d967b8f8a649309ae76260c2",
+    "textures/baked/frontier_oil_cauldron_lod0_body_orm.png": "d6180aa0eea62e340c867a088b7cd95a86eff657f01a89a5cb41463682f1ec24",
+    "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_baseColor.png": "3a4cecdf58ae67ced897154b7158ccd1ca015146dcac3814382f2e58f4b6d327",
+    "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_normal.png": "7d888a4ac998e28be0c40f898ce43341b26fd4a80a235cbf88c66abfc14ff5f5",
+    "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_roughness.png": "cb191cec97dffb79ce1b4c601bf81c7876c65e9fc277f09520ae528d953f1420",
+    "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_metallic.png": "784a2b98feea5b8304b455e03afe5e4efb4a04f967c7089a18251ad1212e6e64",
+    "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_occlusion.png": "931f5e82fea91170f135a7dd90b3b0510255015f88ecc7bd8b5c22c41d330dae",
+    "textures/baked/frontier_oil_cauldron_lod1_tipping_cauldron_orm.png": "fe222e72028d7fa05772353e8a4aaf30460ab8984bc838079bd3d01a1112e705",
+    "textures/baked/frontier_oil_cauldron_lod1_body_baseColor.png": "f667110433e1c181ba22a8d18459e76ed06aad46cc0a0c39bd33fbd2e2612043",
+    "textures/baked/frontier_oil_cauldron_lod1_body_normal.png": "d77c7240fd69760eed5ed5798e0cf1096e6f3701356ce85d60eb6c9e2be5b299",
+    "textures/baked/frontier_oil_cauldron_lod1_body_roughness.png": "be22423e29f4062f63ee47f45a270d656cf8b775c715bf597d9b6ed56596ac31",
+    "textures/baked/frontier_oil_cauldron_lod1_body_metallic.png": "f2cec1f938c42e16eb8f3847730a0e34640772983dd4b19bdbed83fe5bf59d55",
+    "textures/baked/frontier_oil_cauldron_lod1_body_occlusion.png": "cecabbad7ccb5b9c34b9d217540be96124d4eac4b76288038f38d48e8f901d50",
+    "textures/baked/frontier_oil_cauldron_lod1_body_orm.png": "846b78961a31abf7278827d45730fede7136b1e73899b3e5a9bc77b0cf720250",
+    "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_baseColor.png": "ae339a6c38ab704491a6cbcee3451114d3fc07725014c76bc1d8b4c9cc599b8e",
+    "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_normal.png": "b832a145b936a8fe20bbaf42bfba27440fbc6715714016eb99ac00273f924b40",
+    "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_roughness.png": "2b1aa562a95b60a387704e90714fa166a5cc6f76ed9efc7d8a1c2edf69fca000",
+    "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_metallic.png": "35e647eb20e25af6aebadc27f3ee8c1dd4bb49bb5f9a4c1ddd9b0c0ee548f76a",
+    "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_occlusion.png": "7da20f656ce4968fc9824d50b2f63630214df1c0921b7d195ea91ce303faa5e5",
+    "textures/baked/frontier_oil_cauldron_lod2_tipping_cauldron_orm.png": "849561a40d9bba6f5c95a3add70696a9bb247daa97f3518c1d23e9f52c0f8191",
+    "textures/baked/frontier_oil_cauldron_lod2_body_baseColor.png": "d9eb12fcf24a14008d1e1dd35e27891113df24eef98d88c549133263874b2307",
+    "textures/baked/frontier_oil_cauldron_lod2_body_normal.png": "cd2188b8154583ad4505d06b2333cb9a3e048320586ea45f5651617c8ba7a1aa",
+    "textures/baked/frontier_oil_cauldron_lod2_body_roughness.png": "4d4c77d9e8bb7ae839629c7f0476796e0b4db1fcf15d4521f188bacbd6829e5d",
+    "textures/baked/frontier_oil_cauldron_lod2_body_metallic.png": "49c008205cc4c3cb18af4159caf09241ba7ebfede04836545d324ee401d87f20",
+    "textures/baked/frontier_oil_cauldron_lod2_body_occlusion.png": "a842f9d61fc377e60887885162d3d11b80044f6396364da3aa4f47024fcafa7f",
+    "textures/baked/frontier_oil_cauldron_lod2_body_orm.png": "d24a592e03a2c0c89126c78f4c83d74b7a65501e2008f9949197f94e7e4be5e0"
+  },
+  "models": [
+    {
+      "level": 0,
+      "model": "frontier_oil_cauldron_lod0.glb",
+      "sha256": "c6c17a4960a10585f071587d6ccc6e20cb5f34cce366c1cce9ba6bf35b595b2c",
+      "triangles": 23648,
+      "bytes": 2090408,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 1,
+      "model": "frontier_oil_cauldron_lod1.glb",
+      "sha256": "f4b7635340baedc9aaa9ae7c34cac41bcaad2d6f042addcffef943cbf079a046",
+      "triangles": 5986,
+      "bytes": 1477356,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 2,
+      "model": "frontier_oil_cauldron_lod2.glb",
+      "sha256": "085717b65d06f5df6ce7b2955d70780e01b3b9a7b5e376c97e4773f9bd5a7329",
+      "triangles": 2782,
+      "bytes": 536280,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "images": {
+    "review/cauldron_lod0_ready.png": "9786693c27caf2f4d286a605c59baf3c87c55a919cac0b0121ca8ea01a559a11",
+    "review/cauldron_lod0_pour.png": "84a7adfa76544c6cd2d76720654a7908ca47a9c290c6091d890880858948a7f3",
+    "review/cauldron_lod0_contact_detail.png": "235840ee07b0c7589ba68f093c856a737464c7201f7ef13c669fa3191bb598f7",
+    "review/cauldron_lod1_ready.png": "60bc809beb3bbed07b65cc4c2b2a58bd3ace6f0a49b28451da53f0e2f4430544",
+    "review/cauldron_lod1_pour.png": "788155f75a7ee9166ee7f02f21d5762aa00377cc52a4f462e5bd2a27a7582d55",
+    "review/cauldron_lod2_ready.png": "bb97ff31c64d6bcc72a47e2719a1920a577d0d6446531f55ad1d30319bc3cb35",
+    "review/cauldron_lod2_pour.png": "5d83eae9c0541b5f285bc2394d57705baae28cfb3b50e2cff8f554c1f3d50bf0"
+  }
+}

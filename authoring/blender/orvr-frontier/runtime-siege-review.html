@@ -70,8 +70,13 @@ function resetAuthority() {
 function frame() {
   if(!current)return;
   const box=new THREE.Box3().setFromObject(current.object),center=box.getCenter(new THREE.Vector3());
-  const extent=box.getSize(new THREE.Vector3()).length(); controls.target.copy(center);
-  camera.position.copy(center).add(new THREE.Vector3(extent*.95,extent*.4,extent*.8)); controls.update();
+  const radius=box.getSize(new THREE.Vector3()).length()/2; controls.target.copy(center);
+  const reserved=Math.min(document.querySelector('nav').getBoundingClientRect().right+20,innerWidth*.45);
+  const vertical=THREE.MathUtils.degToRad(camera.fov/2);
+  const horizontal=Math.atan(Math.tan(vertical)*(innerWidth-reserved)/innerHeight);
+  const distance=radius/Math.sin(Math.min(vertical,horizontal))*1.08;
+  camera.setViewOffset(innerWidth,innerHeight,-reserved/2,0,innerWidth,innerHeight);
+  camera.position.copy(center).add(new THREE.Vector3(.95,.4,.8).normalize().multiplyScalar(distance)); controls.update();
 }
 async function build() {
   const token=++generation; controlsById.operate.disabled=true; controlsById.status.textContent='Loading verified model…';
@@ -101,7 +106,7 @@ controlsById.phase.oninput=()=>{
 };
 controlsById.kind.onchange=()=>{resetAuthority();build().catch(failed);};
 controlsById.lod.onchange=()=>build().catch(failed);controlsById.frame.onclick=frame;
-const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();};
+const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();frame();};
 addEventListener('resize',resize);resize();resetAuthority();build().catch(failed);
 renderer.setAnimationLoop(now=>{
   const dt=prior?Math.min((now-prior)/1000,.08):0;prior=now;

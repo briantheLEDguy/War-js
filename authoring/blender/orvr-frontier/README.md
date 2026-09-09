@@ -1,14 +1,16 @@
 # Frontier siege and caravan package
 
-This staging package contains eight original models at three LODs and one
-animation-only pack. It does not modify maps, the public registry, game saves or
-combat authority. No new body or prop uses primitive geometry constructors.
+This published package contains eight original models at three LODs and one
+animation-only pack. The cauldron's current replacement is documented in
+[cauldron-fit/README.md](cauldron-fit/README.md); its isolated sources fit the six
+forged ornaments to the bowl. The original collection and inventory below remain
+the retained baseline. No new body or prop uses primitive geometry constructors.
 
 | Asset | LOD0 / LOD1 / LOD2 triangles | Construction and motion |
 | --- | --- | --- |
 | Supply wagon | 87,766 / 42,214 / 28,628 | Fitted panel bindings, sewn repair, eyelets and ties; adzed joinery, spoke wheels, teamster bench and footboard; `caravan_roll` |
 | Battering ram | 70,560 / 33,740 / 22,442 | Bound hide mantlet, forged bull head, crew boards, animated striker and suspension slings; `siege_roll`, `ram_strike` |
-| Oil cauldron | 23,584 / 5,958 / 2,766 | Hollow bowl, rolled lip, open spout, trunnions, lever and wall brackets; `oil_pour` |
+| Oil cauldron | 23,648 / 5,986 / 2,782 | Hollow bowl, rolled lip, fitted forged ornaments, open spout, trunnions, lever and wall brackets; `oil_pour` |
 | Field catapult | 75,376 / 30,692 / 20,780 | Oak arm, rawhide spoon, torsion skein, winding drum, ratchet, crank and following haul rope; `siege_roll`, `catapult_fire`, `catapult_reload` |
 | Keep gate | 25,080 / 11,848 / 6,964 | Two hinged oak leaves, scroll iron, rosettes and bull reliefs; `gate_open`, `gate_close` |
 | Draft horse | 118,342 / 52,512 / 16,534 | Original anatomical cages, connected skin, hooves, mane, tail and full fitted harness; `idle`, `walk`, `draft_trot` |
@@ -123,5 +125,8 @@ The horse's planted forefoot differs by under 1 mm at authored keys and a measur
 The horse intentionally has a stylized, smooth short coat. Close facial, shoulder,
 hip and harness views are retained; there is no claim of photorealistic fur.
 Technical validation cannot certify the Battle Prelate benchmark or 60 FPS in a
-populated zone. This package remains unpublished until the main task records its
-integration/visual acceptance and promotes the exact reviewed hashes.
+populated zone. The original publication is bound by `review/accepted_review.json`;
+the current cauldron replacement has its own receipt under `cauldron-fit/review/`.
+The runtime campaign and siege review pages exercise the production resolver and
+animation controllers. Full escort/siege playthroughs and operating crew remain
+unfinished.

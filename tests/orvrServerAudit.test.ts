@@ -10,7 +10,7 @@ import { DevelopmentAuthenticator } from '../server/auth';
 import { FileCampaignRepository, MemoryCampaignRepository } from '../server/persistence';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { createCampaign, defaultZoneConfig } from '../src/shared/orvr';
-import type { CampaignEvent, CampaignState, ServerMessage } from '../src/shared/orvr';
+import type { CampaignEvent, CampaignState, PlayerAction, ServerMessage } from '../src/shared/orvr';
 
 class JournalRepository extends MemoryCampaignRepository {
   journals: CampaignEvent[][] = [];
@@ -129,6 +129,46 @@ describe('ORvR transport and persistence regressions', () => {
     await vi.waitFor(() => expect(client.messages.some(message => message.type === 'result' && message.result.ok)).toBe(true));
     await authority.step(.05); await authority.step(.05);
     await vi.waitFor(() => expect(client.messages.some(message => message.type === 'snapshot' && message.snapshot.zone?.id === 'ashen_steppe')).toBe(true));
+  });
+
+  it.each(['oil', 'catapult'] as const)('delivers a confirmed %s pose to both clients and a reconnect without replaying a rejected operation', async kind => {
+    const config = defaultZoneConfig('sunmeadow_march');
+    config.staging.aegis = { x: 0, y: 0, z: 80 };
+    config.staging.riftbound = { x: 0, y: 0, z: 85 };
+    config.keeps[0].quartermaster = { ...config.staging.aegis };
+    config.keeps[0].siegePositions![kind] = [{ ...config.staging.aegis }];
+    const state = createCampaign({ zones: [config] }), zone = state.zones.sunmeadow_march;
+    const keep = zone.keeps[config.keeps[0].id]; keep.level = 3; keep.supplies = 1000; zone.seconds = 25;
+    const repository = new JournalRepository(); repository.checkpoint = { revision: 1, state };
+    const auth = new DevelopmentAuthenticator();
+    const authority = await startAuthority({ port: 0, auth, repository, automaticTicks: false });
+    authorities.push(authority);
+    const credentials = auth.issue('aegis', 'Operator');
+    const operator = await connect(authority, credentials), target = await connect(authority, auth.issue('riftbound', 'Target'));
+    let sequence = 0;
+    const command = async (action: PlayerAction) => {
+      const current = ++sequence;
+      operator.socket.send(JSON.stringify({ type: 'command', command: { version: 1, sequence: current, activationId: zone.activationId, action } }));
+      await vi.waitFor(() => expect(operator.messages.some(m => m.type === 'result' && m.sequence === current)).toBe(true));
+      const message = operator.messages.find(m => m.type === 'result' && m.sequence === current)!;
+      if (message.type !== 'result') throw Error('Missing command result');
+      return message.result;
+    };
+    expect((await command({ type: 'purchase', keepId: keep.id, equipment: kind })).ok).toBe(true);
+    const machine = Object.values(authority.inspect().zones.sunmeadow_march.equipment)[0];
+    expect((await command({ type: 'board', equipmentId: machine.id })).ok).toBe(true);
+    expect((await command({ type: 'operate', equipmentId: machine.id, targetId: target.id })).ok).toBe(true);
+    const expected = { at: 25, target: config.staging.riftbound };
+    await authority.step(.05); await authority.step(.05);
+    for (const client of [operator, target]) await vi.waitFor(() => {
+      const update = client.messages.filter(m => m.type === 'update').at(-1);
+      expect(update?.type === 'update' && update.snapshot.zone?.equipment[machine.id].lastOperation).toEqual(expected);
+    });
+    expect((await command({ type: 'operate', equipmentId: machine.id, targetId: target.id })).code).toBe('equipment_cooldown');
+    const replacement = await connect(authority, credentials);
+    const snapshot = replacement.messages.find(m => m.type === 'snapshot');
+    expect(snapshot?.type === 'snapshot' && snapshot.snapshot.zone?.equipment[machine.id].lastOperation).toEqual(expected);
+    expect(repository.checkpoint!.state.zones.sunmeadow_march.equipment[machine.id].lastOperation).toEqual(expected);
   });
 
   it('recovers a file lease only when its recorded process no longer exists', async () => {

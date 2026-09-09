@@ -1,3 +1,8 @@
+## 2026-09-09 - Fitted cauldron and siege transport verification
+
+- Refit all six cauldron ornaments to the actual finished bowl at every LOD; publish the three reviewed GLBs with exact original pour keys, pivots and sockets. Retain isolated editable masters, PBR bakes, contact audits and signed review receipts.
+- Verify siege action timing across two WebSocket clients, reconnects and rejected cooldown attempts; preserve GM access to all three cauldron LODs.
+
 ## 2026-09-09 — Reviewed Cinderfen wetland colonies
 
 - Publish original reed and sedge/horsetail models with six reviewed LOD exports, signed shared textures and nonblocking GM builder defaults. Keep alder and basalt withheld for further visual correction.

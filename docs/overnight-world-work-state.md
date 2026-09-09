@@ -25,7 +25,10 @@ pose. Forty focused tests, both typechecks, all 1,188 suite tests and production
 build pass. Browser review at `/authoring/blender/orvr-frontier/runtime-siege-review.html`
 checked ready, strike/pour/fire/reload and LOD phases without console errors.
 The actual animation data of all nine published GLBs passes focused tests. Oil
-cauldron floating ornaments remain an asset correction; crew and projectile/liquid
+cauldron ornaments are now refitted and published at all three LODs through
+`authoring/blender/orvr-frontier/cauldron-fit/`. All 18 actual contacts meet the
+bowl; original pour keys, pivots and sockets are exact. Seven exported views,
+28 focused tests and model/GM/server-type validation pass. Crew, projectile/liquid
 effects and a full shared siege playthrough remain unfinished. Root Vite runs on
 port 5173. No zone is art-complete.
 
@@ -37,8 +40,15 @@ clear. All 68 focused ecology/road/world-life tests pass. The assembled browser
 review includes Reed bank and Sedge margin cameras; close roots and surface
 placement were inspected. Vite needed a restart to refresh its cached inline
 review script; the earlier camera error is resolved. Only reeds/sedges have been
-published this turn. Nature tools support exact selected-asset receipts; the
+published from nature this turn. Nature tools support exact selected-asset receipts; the
 package remains not-ready while alder/basalt are withheld.
+
+Checkpoint `0d8fc8b` saves the reed/sedge publication and all three agents' draft
+progress. Current alder work removes a tiny upper-shell sliver causing invalid
+tangents; basalt awaits its continuous mineral bake. Buck hooves and local folds
+improved; remaining low-rump bulk is in the rest cage. Dwarf neutral belt/strap/
+apron fits improved; current work checks run intersections, prone buckle/hand
+contacts and material detail. These three asset packages remain under review.
 
 ## Paused by user — 2026-09-08
 

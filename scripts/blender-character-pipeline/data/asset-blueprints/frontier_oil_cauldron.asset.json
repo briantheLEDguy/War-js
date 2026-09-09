@@ -11,11 +11,11 @@
   },
   "output": {
     "model": "frontier_oil_cauldron_lod0.glb",
-    "artifactDir": "authoring/blender/orvr-frontier/runtime"
+    "artifactDir": "authoring/blender/orvr-frontier/cauldron-fit/runtime"
   },
   "generator": {
     "kind": "copyExisting",
-    "copyFrom": "authoring/blender/orvr-frontier/runtime/frontier_oil_cauldron_lod0.glb"
+    "copyFrom": "authoring/blender/orvr-frontier/cauldron-fit/runtime/frontier_oil_cauldron_lod0.glb"
   },
   "geometry": {
     "originRule": "authored_assembly_anchor",
@@ -24,17 +24,17 @@
     "lods": [
       {
         "name": "LOD0",
-        "triTarget": 23584,
+        "triTarget": 23648,
         "screenCoverageMin": 0.2
       },
       {
         "name": "LOD1",
-        "triTarget": 5958,
+        "triTarget": 5986,
         "screenCoverageMin": 0.08
       },
       {
         "name": "LOD2",
-        "triTarget": 2766,
+        "triTarget": 2782,
         "screenCoverageMin": 0
       }
     ]
@@ -80,15 +80,15 @@
     ],
     "referencePackId": "original_frontier_siege_v1",
     "similarityReview": "not_required",
-    "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
-    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+    "source": "authoring/blender/orvr-frontier/cauldron-fit/review/validated-inventory.json",
+    "sourceSha256": "f6c3c5aa3780f592113cc1043c35775f9d863787939b20aaeb0bd88d04120a92"
   },
   "qc": {
     "allowNonManifold": true,
     "allowUvOverlap": true,
     "maxDrawCalls": 40,
     "maxMeshObjects": 40,
-    "maxTris": 23584,
+    "maxTris": 23648,
     "maxFileSizeMb": 3,
     "requiresPreview": true,
     "requiresSkinnedMeshes": false
@@ -96,7 +96,7 @@
   "lifecycle": {
     "status": "approved",
     "reviewedBy": "Codex root integration review",
-    "reviewedAt": "2026-09-07T20:01:19.153Z",
-    "notes": "Exact inventory accepted. Oil liquid and fire effects are runtime systems; no liquid surface is exported."
+    "reviewedAt": "2026-09-09T14:02:21.464Z",
+    "notes": "Six original forged ornaments fitted to the final bowl at every LOD. Actual contacts, ready/pour views and unchanged animation/pivots/sockets verified. No liquid effects or crew added."
   }
 }

@@ -1,0 +1,16 @@
+{
+  "approved": true,
+  "reviewedBy": "Codex root integration review",
+  "reviewedAt": "2026-09-09T14:02:21.464Z",
+  "inventorySha256": "f6c3c5aa3780f592113cc1043c35775f9d863787939b20aaeb0bd88d04120a92",
+  "images": {
+    "review/cauldron_lod0_ready.png": "9786693c27caf2f4d286a605c59baf3c87c55a919cac0b0121ca8ea01a559a11",
+    "review/cauldron_lod0_pour.png": "84a7adfa76544c6cd2d76720654a7908ca47a9c290c6091d890880858948a7f3",
+    "review/cauldron_lod0_contact_detail.png": "235840ee07b0c7589ba68f093c856a737464c7201f7ef13c669fa3191bb598f7",
+    "review/cauldron_lod1_ready.png": "60bc809beb3bbed07b65cc4c2b2a58bd3ace6f0a49b28451da53f0e2f4430544",
+    "review/cauldron_lod1_pour.png": "788155f75a7ee9166ee7f02f21d5762aa00377cc52a4f462e5bd2a27a7582d55",
+    "review/cauldron_lod2_ready.png": "bb97ff31c64d6bcc72a47e2719a1920a577d0d6446531f55ad1d30319bc3cb35",
+    "review/cauldron_lod2_pour.png": "5d83eae9c0541b5f285bc2394d57705baae28cfb3b50e2cff8f554c1f3d50bf0"
+  },
+  "notes": "Reviewed all three actual ready and pour exports plus the LOD0 ornament close-up. Six original forged washers follow the curved bowl without the former gaps; all 18 measured contacts seat within 3.22 mm with raised clinch relief retained. Original animation keys, pivots and sockets are exact. This is a bounded assembly-fit correction; original PBR design and distant silhouette simplification remain. No liquid, crew, or full-zone completion is claimed."
+}

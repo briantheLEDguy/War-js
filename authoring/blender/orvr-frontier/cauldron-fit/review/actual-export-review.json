@@ -1,0 +1,193 @@
+{
+  "toolSha256": "02e218b1f4b7a11b348f2da891393f55d0bd12eda6fdab4054f2cbe9a119a59a",
+  "models": [
+    {
+      "lod": 0,
+      "model": "frontier_oil_cauldron_lod0.glb",
+      "modelSha256": "c6c17a4960a10585f071587d6ccc6e20cb5f34cce366c1cce9ba6bf35b595b2c",
+      "contacts": [
+        {
+          "x": -0.3,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.002167962200473994,
+          "maximum_signed_distance_m": 0.017105924198403955,
+          "vertices": 307
+        },
+        {
+          "x": -0.3,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0019263352648977161,
+          "maximum_signed_distance_m": 0.019003459083251073,
+          "vertices": 278
+        },
+        {
+          "x": 0,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0012764067871557927,
+          "maximum_signed_distance_m": 0.020469632947424543,
+          "vertices": 295
+        },
+        {
+          "x": 0,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0009624662241094484,
+          "maximum_signed_distance_m": 0.02166735586433788,
+          "vertices": 298
+        },
+        {
+          "x": 0.3,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0021677642362192273,
+          "maximum_signed_distance_m": 0.01710599521175027,
+          "vertices": 320
+        },
+        {
+          "x": 0.3,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0019266739659542509,
+          "maximum_signed_distance_m": 0.019003311255801236,
+          "vertices": 306
+        }
+      ],
+      "views": {
+        "ready": {
+          "file": "review\\cauldron_lod0_ready.png",
+          "sha256": "9786693c27caf2f4d286a605c59baf3c87c55a919cac0b0121ca8ea01a559a11",
+          "seconds": 0
+        },
+        "pour": {
+          "file": "review\\cauldron_lod0_pour.png",
+          "sha256": "84a7adfa76544c6cd2d76720654a7908ca47a9c290c6091d890880858948a7f3",
+          "seconds": 1.4333333333333333
+        },
+        "contact_detail": {
+          "file": "review\\cauldron_lod0_contact_detail.png",
+          "sha256": "235840ee07b0c7589ba68f093c856a737464c7201f7ef13c669fa3191bb598f7",
+          "seconds": 0
+        }
+      }
+    },
+    {
+      "lod": 1,
+      "model": "frontier_oil_cauldron_lod1.glb",
+      "modelSha256": "f4b7635340baedc9aaa9ae7c34cac41bcaad2d6f042addcffef943cbf079a046",
+      "contacts": [
+        {
+          "x": -0.3,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.002468587859766558,
+          "maximum_signed_distance_m": 0.016758622601628304,
+          "vertices": 196
+        },
+        {
+          "x": -0.3,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0014745576004315808,
+          "maximum_signed_distance_m": 0.019326025634654798,
+          "vertices": 184
+        },
+        {
+          "x": 0,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0011715445261870627,
+          "maximum_signed_distance_m": 0.020595793209132726,
+          "vertices": 178
+        },
+        {
+          "x": 0,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0009907107379376612,
+          "maximum_signed_distance_m": 0.02162896553312521,
+          "vertices": 182
+        },
+        {
+          "x": 0.3,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0024684825039003044,
+          "maximum_signed_distance_m": 0.01675181870814413,
+          "vertices": 189
+        },
+        {
+          "x": 0.3,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.001474557641586216,
+          "maximum_signed_distance_m": 0.019327358662849292,
+          "vertices": 166
+        }
+      ],
+      "views": {
+        "ready": {
+          "file": "review\\cauldron_lod1_ready.png",
+          "sha256": "60bc809beb3bbed07b65cc4c2b2a58bd3ace6f0a49b28451da53f0e2f4430544",
+          "seconds": 0
+        },
+        "pour": {
+          "file": "review\\cauldron_lod1_pour.png",
+          "sha256": "788155f75a7ee9166ee7f02f21d5762aa00377cc52a4f462e5bd2a27a7582d55",
+          "seconds": 1.4333333333333333
+        }
+      }
+    },
+    {
+      "lod": 2,
+      "model": "frontier_oil_cauldron_lod2.glb",
+      "modelSha256": "085717b65d06f5df6ce7b2955d70780e01b3b9a7b5e376c97e4773f9bd5a7329",
+      "contacts": [
+        {
+          "x": -0.3,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0032114544446812943,
+          "maximum_signed_distance_m": 0.01799935253802687,
+          "vertices": 114
+        },
+        {
+          "x": -0.3,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0013399408939847035,
+          "maximum_signed_distance_m": 0.018757843751245673,
+          "vertices": 116
+        },
+        {
+          "x": 0,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0013210167198849376,
+          "maximum_signed_distance_m": 0.020586478234577044,
+          "vertices": 121
+        },
+        {
+          "x": 0,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.0009591120923175822,
+          "maximum_signed_distance_m": 0.02126809627034021,
+          "vertices": 128
+        },
+        {
+          "x": 0.3,
+          "z": 0.48,
+          "minimum_signed_distance_m": -0.0032042381208157167,
+          "maximum_signed_distance_m": 0.018036006949841976,
+          "vertices": 139
+        },
+        {
+          "x": 0.3,
+          "z": 0.75,
+          "minimum_signed_distance_m": -0.001305252983883065,
+          "maximum_signed_distance_m": 0.018745849085917143,
+          "vertices": 119
+        }
+      ],
+      "views": {
+        "ready": {
+          "file": "review\\cauldron_lod2_ready.png",
+          "sha256": "bb97ff31c64d6bcc72a47e2719a1920a577d0d6446531f55ad1d30319bc3cb35",
+          "seconds": 0
+        },
+        "pour": {
+          "file": "review\\cauldron_lod2_pour.png",
+          "sha256": "5d83eae9c0541b5f285bc2394d57705baae28cfb3b50e2cff8f554c1f3d50bf0",
+          "seconds": 1.4333333333333333
+        }
+      }
+    }
+  ]
+}
