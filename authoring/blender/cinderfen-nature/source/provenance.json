@@ -3,20 +3,24 @@
   "source": "source/nature.json",
   "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
   "geometry": "Original botanical paths, irregular section coordinates, thick blade outlines and cooling-fracture surveys expanded to inspectable mesh/UV records. No imported models or primitive constructors.",
-  "textures": "Eight new painted PBR fields plus continuous, age-weighted object-space bark pigment, fissure, lenticel and lichen fields baked on the identical joined mesh to measured 4096/2048/1024 atlases. Retained utility sources contain no reused geometry or pixels.",
+  "textures": "Eight new painted PBR fields plus continuous, age-weighted object-space bark pigment, fissure, lenticel and lichen fields baked on the identical joined mesh to measured 4096/2048/1024 atlases, and continuous object-space basalt mineral and fracture fields baked on identical finished geometry to 2048/1024/512 atlases. Retained utility sources contain no reused geometry or pixels.",
   "tools": {
     "tools/audit_alder_joins.py": "4c620d103ccc24a16f3ec3ee733e6a46123620a8ab0c8483e0be9797d3c94b74",
     "tools/author_nature.py": "f83909f38f2fec339e76119b240072c576808c1c31800dd19a3af5d6df7d662d",
-    "tools/bake_bark_projection.py": "a3a368741c46db4709fbffaaac4db9cd402c4ef863219622a04f0ef9f46c2a74",
-    "tools/bake_basalt_projection.py": "90c5485a813831d384948fd949f4537df78228bc3b2457dfaf021c9a65b31e7f",
-    "tools/build_nature.py": "e188d41128de11132e4434d7f57dfbbaa5bda581ed0a8f3bbd184c08246918bd",
+    "tools/bake_bark_projection.py": "a01b1c3989ecd443ffa9de0624e5e70f59810f6ab8506c7ac968ca286b0d1690",
+    "tools/bake_basalt_projection.py": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+    "tools/build_nature.py": "48597dcfb7757ad8a0bbb66095ac0b606451b5a7a30f03436147ee3b3edad88d",
     "tools/contact_sheet.py": "47950ec27893c97b12e18d02a09c79f20fc8e63283899aba9528d03d81bed19a",
     "tools/diagnose_bark.py": "18c5ffba7525fe3ebb612e5fd07bbf07941088bf55ec348b2885000d911c7a78",
-    "tools/fair_bark_junctions.py": "6f1a6ef6100f5ed1da204605577a1c56b163ffb64ee7ff83f1ff2a8f9c0b4a7b",
+    "tools/diagnose_basalt_tangents.py": "231821bf2d4238d1ce39a58323b3ea73998f24b9ca0a0e200709ffa1468791ac",
+    "tools/diagnose_export_uvs.py": "b4c65f732354ccde24fd46dc80b72decf1daa180e1969ce1ed59960988f09846",
+    "tools/diagnose_upper_slivers.py": "f7ae8e4ab26659d9f484f5ebd0d0cc91a607e6f025048416f36127bab8f257e0",
+    "tools/fair_bark_junctions.py": "8297188e78bee3b988d0146ff20a5fb753c01b6e1f4033eda07d482b21549e27",
     "tools/measure_bark_atlas.py": "3bbf42d9319f4708c291f98327b461a713151de836fa3d24670dbb2bf457de7e",
     "tools/paint_nature.py": "3624c77097612a96f5489eaa7ab4e5f4cbf1b8bef9d7b283fdb243d616a6cb5c",
     "tools/preflight_changed_nature.py": "b9494fdd605a209498784735b54a3c88dc1364d1f4dda874ace119e928d78845",
     "tools/preview_bark_material.py": "2182c0d80c1a130476d976560f76b9f8c7ee459c508eaf0f6f6551b3ba5238c6",
+    "tools/preview_basalt_material.py": "56700014a4bd2ac9441ec3634dc5bd8d43e4d53cdc4e086affc667eb31c18757",
     "tools/preview_junction_fairing.py": "42bd78fd05f7d168d1dc8ddf7842bc68383ce2609c15167ee3eda4d485ea49ed",
     "tools/publication_selection.mjs": "9d4e6e666ac1fa64efd5f7cb7322db913ba6f38ac9635e317fb5dcb156f36e98",
     "tools/publication_selection.test.mjs": "3aa90e954971fd99d7c337045d522efa0df5204c6af43af2aaadfedea7e8841f",
@@ -24,11 +28,12 @@
     "tools/review_nature.py": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
     "tools/review_stale.py": "4dc262d080f41f904398056634db4acc98f3cb66428c8621f1289bfb9ba015fe",
     "tools/share_textures.py": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-    "tools/test_blueprints.mjs": "436e6fe3cb167c60fd92451033f6bfe0030946b0a206aeee7b7d8a41ee9018c5",
+    "tools/test_basalt_geometry.py": "5f85ed891e8553c117a15ead88dc2abeb92163b72ede32429da835b064aa48f0",
+    "tools/test_blueprints.mjs": "f513ea39e852bbb7ae6da04587d058095d4d90e7080bc4aa7c489145dc444a5c",
     "tools/test_published.mjs": "05b14a67b35b0f12fa77a37b0c9953a49df9c87323cbeca99727888238159e6d",
     "tools/test_source.py": "f24df1d84335d4c723e86300292f2a36efe5a6194c5043a2e6c88fe301427191",
-    "tools/validate_nature.mjs": "090aafd7525c1d9cee756d45ecf9c40eabb08f2dd36aa31ab33fa4ac9f50cf69",
-    "tools/write_provenance.py": "b7d315199d846263b417ec3902787d9d4ff133a800c160ad811f9b32a108e59a"
+    "tools/validate_nature.mjs": "3552e2a69fa69cb5aaa21a2a7792f8165e8eecc44196790ceaf07a7218fc7de8",
+    "tools/write_provenance.py": "2427b4517c10b78f70c6f2d498626524dce8846088629edb51b919314b41d41c"
   },
   "retainedUtilityReferences": {
     "source/references/build_architecture.py": "fe07150f7ca7527e749d9d71134cda9ba2a67d61bc53ad6e829a1ca056dddcf1",
@@ -59,6 +64,7 @@
     }
   ],
   "retainedExporterSources": {
+    "review/tool_sources/build_nature_51fa086d842c1f20fdd23033087eab8600646c22e2cc78212899be1a007e1f0e.py": "51fa086d842c1f20fdd23033087eab8600646c22e2cc78212899be1a007e1f0e",
     "review/tool_sources/build_nature_6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb.py": "6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb"
   }
 }

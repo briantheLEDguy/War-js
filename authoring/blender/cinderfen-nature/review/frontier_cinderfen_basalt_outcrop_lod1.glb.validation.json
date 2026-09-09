@@ -2,7 +2,7 @@
   "uri": "frontier_cinderfen_basalt_outcrop_lod1.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-09T13:19:15.826Z",
+  "validatedAt": "2026-09-09T14:30:15.841Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
@@ -38,13 +38,13 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 107640
+        "byteLength": 119016
       },
       {
         "pointer": "/images/0",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png",
+        "uri": "../textures/cinderfen_nature/3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4.png",
         "image": {
           "width": 1024,
           "height": 1024,
@@ -58,7 +58,7 @@
         "pointer": "/images/1",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d.png",
+        "uri": "../textures/cinderfen_nature/1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2.png",
         "image": {
           "width": 1024,
           "height": 1024,
@@ -72,7 +72,7 @@
         "pointer": "/images/2",
         "mimeType": "image/png",
         "storage": "external",
-        "uri": "../textures/cinderfen_nature/dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24.png",
+        "uri": "../textures/cinderfen_nature/329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331.png",
         "image": {
           "width": 1024,
           "height": 1024,
@@ -90,7 +90,7 @@
     "hasTextures": true,
     "hasDefaultScene": true,
     "drawCallCount": 1,
-    "totalVertexCount": 1948,
+    "totalVertexCount": 2185,
     "totalTriangleCount": 2356,
     "maxUVs": 1,
     "maxInfluences": 0,

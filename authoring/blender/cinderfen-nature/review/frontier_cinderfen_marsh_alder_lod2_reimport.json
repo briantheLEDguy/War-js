@@ -1,6 +1,6 @@
 {
   "model": "frontier_cinderfen_marsh_alder_lod2.glb",
-  "sha256": "7899f2a6aab397419ee192ffb71563899010dea9397abfefd074e67fbfa98701",
+  "sha256": "574ddaf7d691fbf9eff6baa3cbe2ae839a83e1c52aaffb902f79de465338ff4e",
   "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
   "audit": {
     "meshes": [
@@ -23,7 +23,7 @@
       "minimum": [
         -2.913007974624634,
         -2.332132577896118,
-        -0.4388543963432312
+        -0.45938947796821594
       ],
       "maximum": [
         3.020490884780884,
@@ -38,20 +38,20 @@
   "views": {
     "neutral": {
       "image": "frontier_cinderfen_marsh_alder_lod2_neutral.png",
-      "sha256": "8ad7cb91be6d1a32028124dcba18bbe52808431dbe855db7377d64ff07b3c380",
+      "sha256": "f95ca5ed19e32ffa7d3e6508638ecd035c95d1c91752a57828befcdb0a3aad84",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",
         "lens_mm": null,
         "camera_position_z_up": [
-          8.686189651489258,
-          -16.887672424316406,
-          9.056838989257812
+          8.702618598937988,
+          -16.920530319213867,
+          9.054374694824219
         ],
         "target_z_up": [
           0.053741455078125,
           0.3772233724594116,
-          4.95642614364624
+          4.946158409118652
         ],
         "resolution": [
           1400,
@@ -62,20 +62,20 @@
     },
     "gameplay": {
       "image": "frontier_cinderfen_marsh_alder_lod2_gameplay.png",
-      "sha256": "1fc9723359428bb168644d8f05efeb297d63755f168f2e55a01275dd796bbbf9",
+      "sha256": "71d70232787530f100e5ec22678850b1f8e8a09ad48cf012f0ee8ea834b46f5f",
       "camera": {
         "distance_m": 100,
         "projection": "PERSP",
         "lens_mm": 38,
         "camera_position_z_up": [
-          2.211853504180908,
+          2.215960741043091,
           -99.6227798461914,
-          2.879055976867676
+          2.8811097145080566
         ],
         "target_z_up": [
           0.053741455078125,
           0.3772233724594116,
-          4.95642614364624
+          4.946158409118652
         ],
         "resolution": [
           1280,

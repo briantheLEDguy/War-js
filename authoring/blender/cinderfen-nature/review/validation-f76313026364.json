@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "completeReimportReview": true,
+  "issues": [],
+  "models": [
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+      "sha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+      "triangles": 104764,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod1.glb",
+      "sha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
+      "triangles": 39816,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_marsh_alder_lod2.glb",
+      "sha256": "574ddaf7d691fbf9eff6baa3cbe2ae839a83e1c52aaffb902f79de465338ff4e",
+      "triangles": 5672,
+      "errors": 0,
+      "warnings": 0
+    }
+  ]
+}

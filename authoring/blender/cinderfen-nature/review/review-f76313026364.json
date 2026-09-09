@@ -1,0 +1,21 @@
+{
+  "approved": true,
+  "reviewedBy": "Codex root integration review",
+  "reviewedAt": "2026-09-09T14:14:36.607Z",
+  "assetIds": [
+    "frontier_cinderfen_marsh_alder"
+  ],
+  "buildSha256": "c9627c0c3e298a4fc17335a8dace5994a12229208fa5fd8c787a3d35005416e6",
+  "alderJoinsSha256": "8b8e553cc657ae7e2ea21f8597ba6108c416af47c88c6d987859f626dde67114",
+  "images": {
+    "frontier_cinderfen_marsh_alder_lod0_neutral.png": "99e101f17c5f3c02b10d75945c40a403e6699469dae0fbcc60ede5f1ed5d6e62",
+    "frontier_cinderfen_marsh_alder_lod0_gameplay.png": "dc4a8aebe51a33099bf7004b6c86cdc8d2dfc1464e27e03b2f614ea372bee84d",
+    "frontier_cinderfen_marsh_alder_lod0_detail.png": "7ce90d8e4168f3bf5eabf0cff7a8c4d2437fc77fa15a1d4efdf4429d8320edbe",
+    "frontier_cinderfen_marsh_alder_lod0_lower_joins.png": "907dbe593c76bb94fac528c86bef9a7f7613c0da278ffe156a36d2b1c1bb013f",
+    "frontier_cinderfen_marsh_alder_lod1_neutral.png": "c921482816a86856f3596948859f04c6f383b3933b1d2723bfb6e4ed1e3ca507",
+    "frontier_cinderfen_marsh_alder_lod1_gameplay.png": "0fcbf1c65313be85af00013d0cab7d7021ce8f0599d3dea83f764d2a8a17001d",
+    "frontier_cinderfen_marsh_alder_lod2_neutral.png": "f95ca5ed19e32ffa7d3e6508638ecd035c95d1c91752a57828befcdb0a3aad84",
+    "frontier_cinderfen_marsh_alder_lod2_gameplay.png": "71d70232787530f100e5ec22678850b1f8e8a09ad48cf012f0ee8ea834b46f5f"
+  },
+  "notes": "Viewed all three exact neutral and measured-distance exports, LOD0 leaf/bark detail and lower-root/branch close-up. Accept continuous bark, seated primary joins, thick autumn leaves and retained sparse steam-scarred crown for Cinderfen. Small local bark/collar crease remains natural in context; former broad seam/ring is absent. Three actual LODs pass positional topology and 45 socket checks. Static tree: no wind animation or complete zone/forest claim. Basalt remains withheld."
+}

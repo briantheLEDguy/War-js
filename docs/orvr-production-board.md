@@ -12,9 +12,10 @@ applicable, visual and runtime checks. A finished asset package does not finish 
 | Cinderfen architecture and wall stairs | Architecture agent | Eight modules accepted, published and frozen; all 13 keep and 13 village destinations have measured access | Actual assembled campaign playthrough |
 | Supply wagon, ram, oil, catapult, gate and draft horse | Integration | Eight models and driver pack published; caravan and confirmed siege motion integrated. Cauldron ornaments refitted and published at all three LODs | Actual campaign escort/siege playthrough; fitted siege crew and effects |
 | Raised floors and collision heights | Integration | Measured stair risers traverse in shared and local movement; matching closed-gate footprint projection implemented | Final authority map integration and actual playthrough |
-| Regional service and civilian population | Population agent | Rounded dwarf forearms and continuous cuffs passed bounded review; nine-clip garment and fall corrections remain draft | Complete exported motion and six regional role acceptance |
-| GM builder asset coverage | Integration | 376 entries; approved characters/enemies, architecture, siege, terrain and reed/sedge assets included; guard save/reload and oak placement verified | New package publications inherit this path |
-| Cinderfen terrain and ecology composition | Integration / ecology agent | 16 terrain sectors, regional village dressing and 634 reviewed reed/sedge clumps integrated; alder and basalt withheld for final surface/export corrections | Remaining ecology publication and full composed scene review |
+| Regional service and civilian population | Population agent | Dwarf garment/ground contacts and linen/leather detail improved; wrist orientation and hair response remain draft corrections | Complete exported motion and six regional role acceptance |
+| GM builder asset coverage | Integration | 378 entries; all four reviewed Cinderfen nature assets included with three LODs and measured defaults; guard save/reload and oak placement verified | New package publications inherit this path |
+| Cinderfen terrain and ecology composition | Integration / ecology agent | 16 terrain sectors, village dressing, 634 reed/sedge clumps and 621 alders in twelve dry-margin stands integrated; basalt published | Basalt placement, woodland undergrowth/variation and full composed campaign playthrough |
+| Cinderfen woodland floor | Ecology agent | Separate fallen-alder and fern/wood-sedge package in production; published nature remains frozen | Exact-export visual acceptance and rooted, travel-safe composition |
 
 ## Completion order
 

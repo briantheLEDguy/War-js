@@ -1,0 +1,442 @@
+[
+  {
+    "asset_id": "frontier_cinderfen_basalt_outcrop",
+    "displayName": "Cinderfen fractured basalt outcrop",
+    "source_sha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
+    "builder_sha256": "48597dcfb7757ad8a0bbb66095ac0b606451b5a7a30f03436147ee3b3edad88d",
+    "paint_records_sha256": "363680b84a777f7d7431f8a0dfd13bc13967765a8243036bdd47f64eedb6e84c",
+    "contract": {
+      "kind": "rock",
+      "plantedDatum": 0,
+      "colliders": [
+        {
+          "x": -1.42,
+          "z": 0.13,
+          "width": 1.7,
+          "depth": 1.85,
+          "minY": 0,
+          "maxY": 2.42
+        },
+        {
+          "x": 0.81,
+          "z": -0.02,
+          "width": 2.14,
+          "depth": 2.04,
+          "minY": 0,
+          "maxY": 1.75
+        },
+        {
+          "x": -0.39,
+          "z": -1.34,
+          "width": 1.42,
+          "depth": 1,
+          "minY": 0,
+          "maxY": 1.18
+        },
+        {
+          "x": -0.1,
+          "z": 1.47,
+          "width": 1.3,
+          "depth": 0.5,
+          "minY": 0,
+          "maxY": 0.48
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true
+    },
+    "approval": "pending_visual_review",
+    "lods": [
+      {
+        "level": 0,
+        "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+        "sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+        "bytes": 595780,
+        "triangles": 12474,
+        "materials": 1,
+        "bounds_z_up": {
+          "minimum": [
+            -2.626711130142212,
+            -2.0052993297576904,
+            -0.2378426492214203
+          ],
+          "maximum": [
+            2.2451210021972656,
+            2.0559284687042236,
+            2.6376099586486816
+          ]
+        },
+        "basalt_projection": {
+          "tool": "tools/bake_basalt_projection.py",
+          "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+          "geometrySha256Before": "fecd7ff16559cb6b0830a2bb9469d0f6ebf0e4e1e47971b32008346ae194bb2f",
+          "geometrySha256After": "fecd7ff16559cb6b0830a2bb9469d0f6ebf0e4e1e47971b32008346ae194bb2f",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.6299598754407317,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "normalRepairs": [
+              {
+                "face": 10984,
+                "cornerIndices": [
+                  32952,
+                  32953,
+                  32954
+                ],
+                "areaM2": 3.776441701575095e-7,
+                "minimumOriginalNormalAlignment": 0.09604210406541824,
+                "method": "Geometric normal on tiny bevel facet; geometry and other corner normals retained."
+              }
+            ]
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/basalt-projection/basalt_lod0_baseColor.png",
+              "sha256": "241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/basalt-projection/basalt_lod0_orm.png",
+              "sha256": "cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/basalt-projection/basalt_lod0_normal.png",
+              "sha256": "d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103",
+              "resolution": 2048
+            }
+          },
+          "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+        },
+        "texture_packing": {
+          "tool": "tools/share_textures.py",
+          "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+          "input_glb_sha256": "1d0254fbc0371521d5f083607a58b0cb696831e383a53c41415954a7dd86cf20",
+          "output_glb_sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+          "embedded_bytes": 14228584,
+          "externalized_bytes": 595780
+        },
+        "external_textures": {
+          "../textures/cinderfen_nature/d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103.png": "d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103",
+          "../textures/cinderfen_nature/cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c.png": "cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c",
+          "../textures/cinderfen_nature/241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0.png": "241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0"
+        },
+        "meshes": 1,
+        "drawCalls": 1,
+        "externalTextures": [
+          {
+            "uri": "../textures/cinderfen_nature/d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103.png",
+            "sha256": "d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103"
+          },
+          {
+            "uri": "../textures/cinderfen_nature/cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c.png",
+            "sha256": "cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c"
+          },
+          {
+            "uri": "../textures/cinderfen_nature/241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0.png",
+            "sha256": "241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0"
+          }
+        ],
+        "topology": {
+          "meshes": [
+            {
+              "mesh": "surveyed_irregular_basalt_cleavage_masses.lod0",
+              "boundary_edges_after_positional_weld": 0,
+              "multi_face_edges_after_positional_weld": 0,
+              "loose_edges": 0,
+              "faces": 12474
+            }
+          ],
+          "bounds_z_up": {
+            "minimum": [
+              -2.626711130142212,
+              -2.0052993297576904,
+              -0.2378426492214203
+            ],
+            "maximum": [
+              2.2451210021972656,
+              2.0559284687042236,
+              2.6376099586486816
+            ]
+          },
+          "totalBoundaryEdges": 0,
+          "totalMultiFaceEdges": 0,
+          "totalLooseEdges": 0
+        },
+        "reviewImages": {
+          "frontier_cinderfen_basalt_outcrop_lod0_neutral.png": "ee818c873131d9984c07e7c6caa3582ce1bbb83f0abd725e1be3970c008e0183",
+          "frontier_cinderfen_basalt_outcrop_lod0_gameplay.png": "91ea1bb87b968dbb4fef0b2ccf9e2e061b433e039dd584336dc994954b1219d7",
+          "frontier_cinderfen_basalt_outcrop_lod0_detail.png": "41bf11fafa86c27685e6d78ed1418910d0a4f9e288dfe3c290104527ee5ca2ec"
+        },
+        "preview": "frontier_cinderfen_basalt_outcrop_lod0_neutral.png",
+        "preview_sha256": "ee818c873131d9984c07e7c6caa3582ce1bbb83f0abd725e1be3970c008e0183"
+      },
+      {
+        "level": 1,
+        "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
+        "sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+        "bytes": 121160,
+        "triangles": 2356,
+        "materials": 1,
+        "bounds_z_up": {
+          "minimum": [
+            -2.6272027492523193,
+            -2.0053648948669434,
+            -0.2380342185497284
+          ],
+          "maximum": [
+            2.245584011077881,
+            2.0547616481781006,
+            2.6364336013793945
+          ]
+        },
+        "basalt_projection": {
+          "tool": "tools/bake_basalt_projection.py",
+          "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+          "geometrySha256Before": "b74a0ff3ac17d1a2e08c86441547f06cf3fc4115629c7cd4892c089586ce3e89",
+          "geometrySha256After": "b74a0ff3ac17d1a2e08c86441547f06cf3fc4115629c7cd4892c089586ce3e89",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.6058295932934767,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "normalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/basalt-projection/basalt_lod1_baseColor.png",
+              "sha256": "329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/basalt-projection/basalt_lod1_orm.png",
+              "sha256": "1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/basalt-projection/basalt_lod1_normal.png",
+              "sha256": "3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4",
+              "resolution": 1024
+            }
+          },
+          "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+        },
+        "texture_packing": {
+          "tool": "tools/share_textures.py",
+          "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+          "input_glb_sha256": "807edcac86d79b45f9afba01bb3236ebe13c41a9b29adb6352583221c02b33d5",
+          "output_glb_sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+          "embedded_bytes": 3295464,
+          "externalized_bytes": 121160
+        },
+        "external_textures": {
+          "../textures/cinderfen_nature/3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4.png": "3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4",
+          "../textures/cinderfen_nature/1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2.png": "1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2",
+          "../textures/cinderfen_nature/329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331.png": "329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331"
+        },
+        "meshes": 1,
+        "drawCalls": 1,
+        "externalTextures": [
+          {
+            "uri": "../textures/cinderfen_nature/3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4.png",
+            "sha256": "3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4"
+          },
+          {
+            "uri": "../textures/cinderfen_nature/1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2.png",
+            "sha256": "1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2"
+          },
+          {
+            "uri": "../textures/cinderfen_nature/329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331.png",
+            "sha256": "329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331"
+          }
+        ],
+        "topology": {
+          "meshes": [
+            {
+              "mesh": "surveyed_irregular_basalt_cleavage_masses.lod1",
+              "boundary_edges_after_positional_weld": 0,
+              "multi_face_edges_after_positional_weld": 0,
+              "loose_edges": 0,
+              "faces": 2356
+            }
+          ],
+          "bounds_z_up": {
+            "minimum": [
+              -2.6272027492523193,
+              -2.0053648948669434,
+              -0.2380342185497284
+            ],
+            "maximum": [
+              2.245584011077881,
+              2.0547616481781006,
+              2.6364336013793945
+            ]
+          },
+          "totalBoundaryEdges": 0,
+          "totalMultiFaceEdges": 0,
+          "totalLooseEdges": 0
+        },
+        "reviewImages": {
+          "frontier_cinderfen_basalt_outcrop_lod1_neutral.png": "8eb1435c96e70d31ddb476bbb57e4a4681579f74c046f750eb543ad9860df460",
+          "frontier_cinderfen_basalt_outcrop_lod1_gameplay.png": "77b92197af5e36af6cdd1d5c9840087906c30edbc39e736f69f830856d546859"
+        },
+        "preview": "frontier_cinderfen_basalt_outcrop_lod1_neutral.png",
+        "preview_sha256": "8eb1435c96e70d31ddb476bbb57e4a4681579f74c046f750eb543ad9860df460"
+      },
+      {
+        "level": 2,
+        "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
+        "sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+        "bytes": 17280,
+        "triangles": 208,
+        "materials": 1,
+        "bounds_z_up": {
+          "minimum": [
+            -2.630000114440918,
+            -2.009999990463257,
+            -0.23999999463558197
+          ],
+          "maximum": [
+            2.25,
+            2.059999942779541,
+            2.640000104904175
+          ]
+        },
+        "basalt_projection": {
+          "tool": "tools/bake_basalt_projection.py",
+          "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+          "geometrySha256Before": "8a23c1d86cb2e82d5ecbefd84f38f86405bebacf87cfbf412b776da5046aecac",
+          "geometrySha256After": "8a23c1d86cb2e82d5ecbefd84f38f86405bebacf87cfbf412b776da5046aecac",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.5649431876650357,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "normalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/basalt-projection/basalt_lod2_baseColor.png",
+              "sha256": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/basalt-projection/basalt_lod2_orm.png",
+              "sha256": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/basalt-projection/basalt_lod2_normal.png",
+              "sha256": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2",
+              "resolution": 512
+            }
+          },
+          "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+        },
+        "texture_packing": {
+          "tool": "tools/share_textures.py",
+          "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
+          "input_glb_sha256": "87c0b8390b85dc8f6c92c8af2f30fecd1c5faf1ae985e2c2bbf6e1de74850f94",
+          "output_glb_sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+          "embedded_bytes": 757776,
+          "externalized_bytes": 17280
+        },
+        "external_textures": {
+          "../textures/cinderfen_nature/220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2.png": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2",
+          "../textures/cinderfen_nature/22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2.png": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2",
+          "../textures/cinderfen_nature/7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69.png": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69"
+        },
+        "meshes": 1,
+        "drawCalls": 1,
+        "externalTextures": [
+          {
+            "uri": "../textures/cinderfen_nature/220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2.png",
+            "sha256": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2"
+          },
+          {
+            "uri": "../textures/cinderfen_nature/22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2.png",
+            "sha256": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2"
+          },
+          {
+            "uri": "../textures/cinderfen_nature/7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69.png",
+            "sha256": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69"
+          }
+        ],
+        "topology": {
+          "meshes": [
+            {
+              "mesh": "surveyed_irregular_basalt_cleavage_masses.lod2",
+              "boundary_edges_after_positional_weld": 0,
+              "multi_face_edges_after_positional_weld": 0,
+              "loose_edges": 0,
+              "faces": 208
+            }
+          ],
+          "bounds_z_up": {
+            "minimum": [
+              -2.630000114440918,
+              -2.009999990463257,
+              -0.23999999463558197
+            ],
+            "maximum": [
+              2.25,
+              2.059999942779541,
+              2.640000104904175
+            ]
+          },
+          "totalBoundaryEdges": 0,
+          "totalMultiFaceEdges": 0,
+          "totalLooseEdges": 0
+        },
+        "reviewImages": {
+          "frontier_cinderfen_basalt_outcrop_lod2_neutral.png": "4850181516f6a9fbe63485a039a1dec423068922ae4b507d0052faccd5c3d281",
+          "frontier_cinderfen_basalt_outcrop_lod2_gameplay.png": "d46bbb8005f5acc9bd8c2de3f0722e46a8656321b4c6efc0830af42bf937d419"
+        },
+        "preview": "frontier_cinderfen_basalt_outcrop_lod2_neutral.png",
+        "preview_sha256": "4850181516f6a9fbe63485a039a1dec423068922ae4b507d0052faccd5c3d281"
+      }
+    ],
+    "texture_sha256": {
+      "textures/source/alder_bark_baseColor.png": "967a544c91285e6ede7ea76abf794713e53271fc5eae3c6a64015fd2a1f745cf",
+      "textures/source/alder_bark_height.png": "915adfcba8009e642b81248bc00a3a4edd9fe680f1af6887a056a43e52e5e051",
+      "textures/source/alder_bark_normal.png": "5d4ab53cc359f44aef1d3ac76097ee62b7ab28cffe61abdb335ad2acc16d21e4",
+      "textures/source/alder_bark_orm.png": "9cde4d9d23a90ae8b2f9935f3a7e16214bfbbbf277d6087538656e7ddf78593f",
+      "textures/source/alder_leaf_baseColor.png": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2",
+      "textures/source/alder_leaf_height.png": "9123d43873c9cda07506f1beabdf250b48ac7012aa78f345bfdc308703d8a477",
+      "textures/source/alder_leaf_normal.png": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28",
+      "textures/source/alder_leaf_orm.png": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4",
+      "textures/source/basalt_baseColor.png": "dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24",
+      "textures/source/basalt_height.png": "0b75e094d47640504a698a04db3f502a6902a5bf9e801ed14c5a87c69dca9a33",
+      "textures/source/basalt_normal.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
+      "textures/source/basalt_ochre_baseColor.png": "24ac0c5a474aef0e42de7a3a74ee65b3437ed3aad0ece802d06d747f8aaccd06",
+      "textures/source/basalt_ochre_height.png": "3e0d23470046e1e05ea94d47cfd25517c704fa40b4521d899de0a6f52549da65",
+      "textures/source/basalt_ochre_normal.png": "5e65a0e4d588e1c82a8404f0cd9fb5d1f9a2ec034e7f5c220074cf2b5be49bc1",
+      "textures/source/basalt_ochre_orm.png": "3f129cf1195b12f65db006d75059a14fd6eeb32e58e977b8029166964f737d68",
+      "textures/source/basalt_orm.png": "8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d",
+      "textures/source/horsetail_baseColor.png": "72e168135317e560dcd6e005ba056f8599f07a8e0e7637eb92327ce38d981d27",
+      "textures/source/horsetail_height.png": "2d27d026db38f73a6d83fcbaee68dab35f1a2cd9bda67c9fd4359daab022feed",
+      "textures/source/horsetail_normal.png": "af091f4336cec451da8a26b2c469f629353d573973bde7343bcb4e50968c9d00",
+      "textures/source/horsetail_orm.png": "d9687ea89209df64e801e6605092b4aeb736d5d1dcbfc09ac8035f778f8c716a",
+      "textures/source/reed_leaf_baseColor.png": "0db70f752472cbbd84fd65c8ef4a8059766cadea94335d9a709f61fbdb367cc7",
+      "textures/source/reed_leaf_height.png": "362f84e1cba42bcd377eee558e0afc2cc08b454d9d8b2f9b5171a6ab0335b50b",
+      "textures/source/reed_leaf_normal.png": "583ad0094955f970135056071825b8ea1a395b5dc1ffa4adb625c6cafbe9bb10",
+      "textures/source/reed_leaf_orm.png": "03c3cdd77bf74ed096c487356d0a372ba5b412d1e4f4ed65cdf8e7afb9f5bbb6",
+      "textures/source/reed_stem_baseColor.png": "2f65ca5ed98bade3b4f6e9c737c3809331e106e0525607d8b3a726f7c7a23309",
+      "textures/source/reed_stem_height.png": "092782ce79ac63158a03b8298fac3b6a035356c293d2033c2f3e60263a056a97",
+      "textures/source/reed_stem_normal.png": "90ff617de71e66d66bde6f1aa3e3f87f1c2acd1f1e3214e8272b8ead4568df72",
+      "textures/source/reed_stem_orm.png": "7929de07d09bc2ffdd848d22ff1c488290bbe2e999d6ccafc417b74e47f32b3a",
+      "textures/source/sedge_leaf_baseColor.png": "5496f1e235b0abd493148e2cad342acc65ad344664fb9110319a37b430afd11d",
+      "textures/source/sedge_leaf_height.png": "45b14e41c12684f34a73b6b2c69d45793403bf9cd720cc788c9eaf125ffa252d",
+      "textures/source/sedge_leaf_normal.png": "ebd8f5a324e4b8299f69d3d29fd343c02969813fce6117e707751919b64ed403",
+      "textures/source/sedge_leaf_orm.png": "2d458aeaab7eb9a414587d529f88549190dd7d041792584db5dae57009d170a5",
+      "textures/source/seed_scales_baseColor.png": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0",
+      "textures/source/seed_scales_height.png": "21a57db88b3237633570890e07e6ba194ca19b228ed77a3ef6574fb6a65b4262",
+      "textures/source/seed_scales_normal.png": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f",
+      "textures/source/seed_scales_orm.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
+    },
+    "master": "masters/frontier_cinderfen_basalt_outcrop.blend",
+    "master_sha256": "8546f973a0975232817dd608901786114e62ba06384dcd8fbef48e8ef4571f0b",
+    "maxTextureResolution": 2048
+  }
+]

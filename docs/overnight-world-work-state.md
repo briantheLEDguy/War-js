@@ -1,5 +1,31 @@
 # World build continuation state
 
+## Woodland and basalt checkpoint - 2026-09-09
+
+Alder and basalt are now accepted and published at all three LODs; their scoped
+receipts are review-f76313026364.json and review-0b5c2146f3fd.json. All four nature
+assets have exact public model/QC/texture/GM verification, and the catalog has
+378 entries. The separate woodland-floor package is unapproved work in progress.
+
+Cinderfen now has 621 alders in twelve broken dry-margin stands beside the 634
+reed/sedge clumps. The assembled browser review passed close/middle/distant tree
+loading and grounding inspection. Bare woodland floor and repeated tree forms
+remain visible limitations; undergrowth, deadwood and sapling variation are next.
+Basalt is ready for root-owned placement. No zone is art-complete.
+
+All 52 focused ecology/road tests pass. The full suite reported 1,196 passes and
+three failures: stale generated catalog plus two 5-second timeouts during parallel
+Blender work. Regenerating the catalog and rerunning the three files with two
+workers passed all 35 tests. Both JSON reports remain in artifacts/orvr. Client
+typecheck and 33-map validation pass. Model validation passes 855 records and the final registry contains 247 static
+props; the 378-entry builder catalog is synchronized.
+
+Checkpoint 1a51d4c retains the cauldron fitting and shared-operation regressions.
+The current siege review also frames the complete model beside its controls;
+the repaired cauldron received an actual accepted pour in the browser.
+The buck's tighter rear rest silhouette is accepted as a bounded correction;
+shoulder strain remains under repair. Dwarf wrist and hair refinements are drafts.
+
 ## Resumed by user — 2026-09-09 (latest instruction)
 
 The user said Continue after the saved work was merged into main at `2c4a37a`.

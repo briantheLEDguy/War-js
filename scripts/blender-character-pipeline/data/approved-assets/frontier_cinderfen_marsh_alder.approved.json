@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_marsh_alder",
+  "displayName": "Cinderfen steam-scarred marsh alder",
+  "category": "prop",
+  "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+  "qc": "frontier_cinderfen_marsh_alder_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_marsh_alder"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+    "qcSha256": "d328840d272271af73359be4baeb7eda3a098a447a2cfc3df694addd37b44d73",
+    "previews": {
+      "assembly": "99e101f17c5f3c02b10d75945c40a403e6699469dae0fbcc60ede5f1ed5d6e62"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_marsh_alder.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-09T14:14:36.607Z",
+    "reviewHash": "46cd4d0b307008c1c546b7751af5c23c87770f562d8dfddc89a1489abc541cf4"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_nature_v1",
+    "similarityReview": "not_required",
+    "author": "Codex ecology authoring",
+    "source": "authoring/blender/cinderfen-nature/source/nature.json",
+    "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe"
+  },
+  "approvalState": "approved"
+}

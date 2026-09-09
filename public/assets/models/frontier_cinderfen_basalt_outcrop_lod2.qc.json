@@ -1,0 +1,152 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.cinderfen_basalt_outcrop",
+  "modelSha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "23634ac070892073bc21ca008e0826a8f6a596fe371829cc38d848c6d7214fb6",
+  "totalTris": 208,
+  "meshCount": 1,
+  "nonManifoldEdges": 0,
+  "missingRequiredClips": [],
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 2048,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+      "sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+      "triangles": 12474,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_nature/d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103.png",
+          "sha256": "d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c.png",
+          "sha256": "cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0.png",
+          "sha256": "241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
+      "sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+      "triangles": 2356,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_nature/3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4.png",
+          "sha256": "3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2.png",
+          "sha256": "1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331.png",
+          "sha256": "329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
+      "sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+      "triangles": 208,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_nature/220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2.png",
+          "sha256": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2.png",
+          "sha256": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69.png",
+          "sha256": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69"
+        }
+      ]
+    }
+  ],
+  "externalTextures": [
+    {
+      "uri": "../textures/cinderfen_nature/220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2.png",
+      "sha256": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2.png",
+      "sha256": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69.png",
+      "sha256": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69"
+    }
+  ],
+  "previewImages": [
+    "public/assets/models/previews/frontier_cinderfen_basalt_outcrop.png"
+  ],
+  "bounds": {
+    "minimum": [
+      -2.630000114440918,
+      -2.009999990463257,
+      -0.23999999463558197
+    ],
+    "maximum": [
+      2.25,
+      2.059999942779541,
+      2.640000104904175
+    ]
+  },
+  "placementContract": {
+    "kind": "rock",
+    "plantedDatum": 0,
+    "colliders": [
+      {
+        "x": -1.42,
+        "z": 0.13,
+        "width": 1.7,
+        "depth": 1.85,
+        "minY": 0,
+        "maxY": 2.42
+      },
+      {
+        "x": 0.81,
+        "z": -0.02,
+        "width": 2.14,
+        "depth": 2.04,
+        "minY": 0,
+        "maxY": 1.75
+      },
+      {
+        "x": -0.39,
+        "z": -1.34,
+        "width": 1.42,
+        "depth": 1,
+        "minY": 0,
+        "maxY": 1.18
+      },
+      {
+        "x": -0.1,
+        "z": 1.47,
+        "width": 1.3,
+        "depth": 0.5,
+        "minY": 0,
+        "maxY": 0.48
+      }
+    ],
+    "walkableSurfaces": [],
+    "cameraSolid": true
+  },
+  "topologyPolicy": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Internal actual-export visual acceptance is required before publication."
+}

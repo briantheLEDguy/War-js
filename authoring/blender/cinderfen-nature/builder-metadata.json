@@ -5,15 +5,18 @@
   "frontAxis": "+Z",
   "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
   "buildSha256": "8909fa7601d9b49dd0eb8141fb281f96a056014481464f167172abd74bb28d61",
-  "runtimeReady": false,
+  "runtimeReady": true,
   "assets": {
     "frontier_cinderfen_marsh_alder": {
       "label": "Cinderfen steam-scarred marsh alder",
       "group": "Cinderfen Nature",
       "kind": "tree",
       "model": "frontier_cinderfen_marsh_alder_lod0.glb",
-      "modelSha256": "689a2545113a1207b11cec2ab145523be4afbe84c05eca01175d2edcd9f55da6",
-      "runtimeReady": false,
+      "modelSha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+      "runtimeReady": true,
+      "reviewFile": "review/review-f76313026364.json",
+      "reviewHash": "46cd4d0b307008c1c546b7751af5c23c87770f562d8dfddc89a1489abc541cf4",
+      "buildSha256": "c9627c0c3e298a4fc17335a8dace5994a12229208fa5fd8c787a3d35005416e6",
       "defaultScale": {
         "x": 1,
         "y": 1,
@@ -28,7 +31,7 @@
       "boundsYUp": {
         "minimum": [
           -2.9134013652801514,
-          -0.5334789156913757,
+          -0.5359242558479309,
           -3.1801137924194336
         ],
         "maximum": [
@@ -132,8 +135,11 @@
       "group": "Cinderfen Nature",
       "kind": "rock",
       "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
-      "modelSha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
-      "runtimeReady": false,
+      "modelSha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+      "runtimeReady": true,
+      "reviewFile": "review/review-0b5c2146f3fd.json",
+      "reviewHash": "23634ac070892073bc21ca008e0826a8f6a596fe371829cc38d848c6d7214fb6",
+      "buildSha256": "f79ce58a6021ba6e0eb3730d22c78581c4fd405b2b7c9fe4813c35f4dd954ca6",
       "defaultScale": {
         "x": 1,
         "y": 1,

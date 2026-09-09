@@ -9,7 +9,7 @@ def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def geometry_hash(obj):
     return hashlib.sha256(json.dumps({'vertices':[list(v.co) for v in obj.data.vertices],'faces':[list(p.vertices) for p in obj.data.polygons]},separators=(',',':')).encode()).hexdigest()
 
-def bake_basalt(obj,lod):
+def bake_basalt(obj,lod,preview_only=False):
     before=geometry_hash(obj);scene=bpy.context.scene;data=obj.data
     bpy.ops.object.select_all(action='DESELECT');obj.hide_set(False);obj.hide_render=False;obj.select_set(True);bpy.context.view_layer.objects.active=obj
     data.uv_layers['authored_uv'].name='retained_fracture_uv';data.uv_layers.new(name='authored_uv');data.uv_layers.active_index=len(data.uv_layers)-1;data.uv_layers['authored_uv'].active_render=True
@@ -20,6 +20,23 @@ def bake_basalt(obj,lod):
     bpy.ops.object.mode_set(mode='OBJECT');uv=data.uv_layers['authored_uv'].data;occupied=0
     for face in data.polygons:
         coords=[uv[i].uv for i in face.loop_indices];occupied+=abs(sum(a.x*b.y-b.x*a.y for a,b in zip(coords,coords[1:]+coords[:1])))*.5
+    # A sub-square-millimetre bevel sliver inherits almost perpendicular
+    # weighted corner normals. An independent chart exposes its undefined
+    # tangent. Use that real facet's geometric normal only on affected tiny
+    # faces; preserve every vertex, triangle and all other corner normals.
+    data.calc_tangents(uvmap='authored_uv');invalid=[loop.index for loop in data.loops if loop.tangent.length<.99];data.free_tangents()
+    normal_repairs=[]
+    if invalid:
+        normals=[list(item.vector) for item in data.corner_normals]
+        for face in data.polygons:
+            if not any(i in invalid for i in face.loop_indices):continue
+            alignments=[data.corner_normals[i].vector.dot(face.normal) for i in face.loop_indices]
+            if face.area>1e-6 or min(alignments)>.2:raise RuntimeError('Unexpected basalt tangent defect outside tiny bevel-normal case')
+            normal_repairs.append({'face':face.index,'cornerIndices':list(face.loop_indices),'areaM2':face.area,'minimumOriginalNormalAlignment':min(alignments),'method':'Geometric normal on tiny bevel facet; geometry and other corner normals retained.'})
+            for i in face.loop_indices:normals[i]=list(face.normal)
+        data.normals_split_custom_set(normals);data.update()
+        data.calc_tangents(uvmap='authored_uv');invalid=[loop.index for loop in data.loops if loop.tangent.length<.99];data.free_tangents()
+    if invalid:raise RuntimeError(f'Basalt LOD{lod} still has invalid tangents: {invalid[:8]}')
     source=bpy.data.materials.new(f'retained_continuous_basalt_projection_lod{lod}');source.use_nodes=True;source.use_fake_user=True
     nodes=source.node_tree.nodes;links=source.node_tree.links;nodes.clear()
     output=nodes.new('ShaderNodeOutputMaterial');shader=nodes.new('ShaderNodeBsdfPrincipled');links.new(shader.outputs[0],output.inputs[0]);coordinate=nodes.new('ShaderNodeTexCoord')
@@ -67,6 +84,7 @@ def bake_basalt(obj,lod):
     orm=nodes.new('ShaderNodeCombineColor');orm.mode='RGB';links.new(ao.outputs['AO'],orm.inputs['Red']);links.new(roughness,orm.inputs['Green']);orm.inputs['Blue'].default_value=0
     data.materials.clear();data.materials.append(source)
     for face in data.polygons:face.material_index=0
+    if preview_only:return {'previewOnly':True,'material':source}
     scene.render.engine='CYCLES';scene.cycles.samples=12;scene.cycles.use_denoising=False;scene.render.bake.use_selected_to_active=False;scene.render.bake.use_clear=False;scene.render.bake.margin=2;scene.render.bake.normal_space='TANGENT'
     folder=ROOT/'textures/basalt-projection';folder.mkdir(exist_ok=True);images={};channels={};target=nodes.new('ShaderNodeTexImage');nodes.active=target;emission=nodes.new('ShaderNodeEmission')
     for channel,socket in [('baseColor',color),('orm',orm.outputs[0]),('normal',None)]:
@@ -80,5 +98,5 @@ def bake_basalt(obj,lod):
         n=nodes.new('ShaderNodeTexImage');n.image=image;n.extension='EXTEND';links.new(uv.outputs['UV'],n.inputs['Vector']);maps[channel]=n
     links.new(maps['baseColor'].outputs['Color'],shader.inputs['Base Color']);normal=nodes.new('ShaderNodeNormalMap');normal.uv_map='authored_uv';links.new(maps['normal'].outputs['Color'],normal.inputs['Color']);links.new(normal.outputs['Normal'],shader.inputs['Normal']);split=nodes.new('ShaderNodeSeparateColor');links.new(maps['orm'].outputs['Color'],split.inputs[0]);links.new(split.outputs['Green'],shader.inputs['Roughness']);links.new(split.outputs['Blue'],shader.inputs['Metallic']);output=nodes.new('ShaderNodeGroup');output.node_tree=bpy.data.node_groups['glTF Material Output'];links.new(split.outputs['Red'],output.inputs['Occlusion']);data.materials.clear();data.materials.append(result)
     if geometry_hash(obj)!=before:raise RuntimeError('Basalt projection changed finished geometry')
-    record={'tool':'tools/bake_basalt_projection.py','toolSha256':sha(Path(__file__)),'geometrySha256Before':before,'geometrySha256After':geometry_hash(obj),'atlas':{'resolution':resolution,'occupiedFraction':occupied,'marginPixels':4,'dilationPixels':2},'channels':channels,'method':'Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master.'}
+    record={'tool':'tools/bake_basalt_projection.py','toolSha256':sha(Path(__file__)),'geometrySha256Before':before,'geometrySha256After':geometry_hash(obj),'atlas':{'resolution':resolution,'occupiedFraction':occupied,'marginPixels':4,'dilationPixels':2,'normalRepairs':normal_repairs},'channels':channels,'method':'Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master.'}
     (ROOT/'review'/f'basalt_projection_lod{lod}.json').write_text(json.dumps(record,indent=2)+'\n');print('BASALT_PROJECTION_BAKED',lod,resolution,flush=True);return record

@@ -1,0 +1,31 @@
+{
+  "tool": "tools/bake_basalt_projection.py",
+  "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+  "geometrySha256Before": "8a23c1d86cb2e82d5ecbefd84f38f86405bebacf87cfbf412b776da5046aecac",
+  "geometrySha256After": "8a23c1d86cb2e82d5ecbefd84f38f86405bebacf87cfbf412b776da5046aecac",
+  "atlas": {
+    "resolution": 512,
+    "occupiedFraction": 0.5649431876650357,
+    "marginPixels": 4,
+    "dilationPixels": 2,
+    "normalRepairs": []
+  },
+  "channels": {
+    "baseColor": {
+      "file": "textures/basalt-projection/basalt_lod2_baseColor.png",
+      "sha256": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69",
+      "resolution": 512
+    },
+    "orm": {
+      "file": "textures/basalt-projection/basalt_lod2_orm.png",
+      "sha256": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2",
+      "resolution": 512
+    },
+    "normal": {
+      "file": "textures/basalt-projection/basalt_lod2_normal.png",
+      "sha256": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2",
+      "resolution": 512
+    }
+  },
+  "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+}

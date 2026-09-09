@@ -1,6 +1,6 @@
 {
   "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
-  "sha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
+  "sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
   "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
   "audit": {
     "meshes": [
@@ -31,7 +31,7 @@
   "views": {
     "neutral": {
       "image": "frontier_cinderfen_basalt_outcrop_lod2_neutral.png",
-      "sha256": "951ec9727ed48b3ec1bce10fd26a34328470d43b5236030cd0059650df6fbf85",
+      "sha256": "4850181516f6a9fbe63485a039a1dec423068922ae4b507d0052faccd5c3d281",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",
@@ -55,7 +55,7 @@
     },
     "gameplay": {
       "image": "frontier_cinderfen_basalt_outcrop_lod2_gameplay.png",
-      "sha256": "87f7dcee1be139f3b21b2d442e5cf3b6c035589def53e880756fdd6931e27817",
+      "sha256": "d46bbb8005f5acc9bd8c2de3f0722e46a8656321b4c6efc0830af42bf937d419",
       "camera": {
         "distance_m": 50,
         "projection": "PERSP",

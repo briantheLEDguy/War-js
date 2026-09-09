@@ -1,0 +1,19 @@
+{
+  "approved": true,
+  "reviewedBy": "Codex root integration review",
+  "reviewedAt": "2026-09-09T14:30:15.189Z",
+  "assetIds": [
+    "frontier_cinderfen_basalt_outcrop"
+  ],
+  "buildSha256": "f79ce58a6021ba6e0eb3730d22c78581c4fd405b2b7c9fe4813c35f4dd954ca6",
+  "images": {
+    "frontier_cinderfen_basalt_outcrop_lod0_neutral.png": "ee818c873131d9984c07e7c6caa3582ce1bbb83f0abd725e1be3970c008e0183",
+    "frontier_cinderfen_basalt_outcrop_lod0_gameplay.png": "91ea1bb87b968dbb4fef0b2ccf9e2e061b433e039dd584336dc994954b1219d7",
+    "frontier_cinderfen_basalt_outcrop_lod0_detail.png": "41bf11fafa86c27685e6d78ed1418910d0a4f9e288dfe3c290104527ee5ca2ec",
+    "frontier_cinderfen_basalt_outcrop_lod1_neutral.png": "8eb1435c96e70d31ddb476bbb57e4a4681579f74c046f750eb543ad9860df460",
+    "frontier_cinderfen_basalt_outcrop_lod1_gameplay.png": "77b92197af5e36af6cdd1d5c9840087906c30edbc39e736f69f830856d546859",
+    "frontier_cinderfen_basalt_outcrop_lod2_neutral.png": "4850181516f6a9fbe63485a039a1dec423068922ae4b507d0052faccd5c3d281",
+    "frontier_cinderfen_basalt_outcrop_lod2_gameplay.png": "d46bbb8005f5acc9bd8c2de3f0722e46a8656321b4c6efc0830af42bf937d419"
+  },
+  "notes": "Viewed all seven exact-export images: neutral and measured gameplay distance at three LODs, plus LOD0 material close-up. Accept continuous mineral pigment and fine pitting across finished basalt faces, restrained fracture lines, planted toes and distinct cleavage masses. Original positional triangles are exact at every LOD; one measured microscopic bevel facet uses its geometric normal to eliminate an invalid tangent. LOD2 retains the distant silhouette with reduced material resolution; its close view is a diagnostic, not a close-range quality claim. Static outcrop, no walkable platform or complete-zone claim."
+}

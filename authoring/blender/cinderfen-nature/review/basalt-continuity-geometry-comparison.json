@@ -1,0 +1,23 @@
+[
+  {
+    "level": 0,
+    "modelSha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+    "positionTriangleSha256": "9dd653ed21f07373752f9fa172fe44beea7065699eed2e287be8117aab51b4fe",
+    "triangles": 12474,
+    "matchesPreviousActualGeometry": true
+  },
+  {
+    "level": 1,
+    "modelSha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+    "positionTriangleSha256": "74d894084554704196cfb0be58116654a219d59768f328a2d9f75b4d6dab641d",
+    "triangles": 2356,
+    "matchesPreviousActualGeometry": true
+  },
+  {
+    "level": 2,
+    "modelSha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+    "positionTriangleSha256": "e6345c955e0a59f065b51e3d53ac00b907cb4c70c4a71fbd409d01ae5f36f021",
+    "triangles": 208,
+    "matchesPreviousActualGeometry": true
+  }
+]

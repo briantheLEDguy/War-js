@@ -1,0 +1,130 @@
+[
+  {
+    "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+    "sha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+    "triangles": 104764,
+    "audit": {
+      "meshes": [
+        {
+          "mesh": "root_flare_bole_and_authored_forks.joined_lod0",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 25132
+        },
+        {
+          "mesh": "rounded_alternate_bronze_leaves.lod0",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 75264
+        },
+        {
+          "mesh": "retained_woody_alder_cones.lod0",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 4368
+        }
+      ],
+      "bounds_z_up": {
+        "minimum": [
+          -2.9134013652801514,
+          -2.3321664333343506,
+          -0.5359242558479309
+        ],
+        "maximum": [
+          3.212371587753296,
+          3.1801137924194336,
+          10.352274894714355
+        ]
+      },
+      "totalBoundaryEdges": 0,
+      "totalMultiFaceEdges": 0,
+      "totalLooseEdges": 0
+    }
+  },
+  {
+    "model": "frontier_cinderfen_marsh_alder_lod1.glb",
+    "sha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
+    "triangles": 39816,
+    "audit": {
+      "meshes": [
+        {
+          "mesh": "root_flare_bole_and_authored_forks.joined_lod1",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 13944
+        },
+        {
+          "mesh": "rounded_alternate_bronze_leaves.lod1",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 22848
+        },
+        {
+          "mesh": "retained_woody_alder_cones.lod1",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 3024
+        }
+      ],
+      "bounds_z_up": {
+        "minimum": [
+          -2.9134013652801514,
+          -2.332132577896118,
+          -0.5384602546691895
+        ],
+        "maximum": [
+          3.204603910446167,
+          3.117926597595215,
+          10.352274894714355
+        ]
+      },
+      "totalBoundaryEdges": 0,
+      "totalMultiFaceEdges": 0,
+      "totalLooseEdges": 0
+    }
+  },
+  {
+    "model": "frontier_cinderfen_marsh_alder_lod2.glb",
+    "sha256": "574ddaf7d691fbf9eff6baa3cbe2ae839a83e1c52aaffb902f79de465338ff4e",
+    "triangles": 5672,
+    "audit": {
+      "meshes": [
+        {
+          "mesh": "root_flare_bole_and_authored_forks.joined_lod2",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 3656
+        },
+        {
+          "mesh": "rounded_alternate_bronze_leaves.lod2",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 2016
+        }
+      ],
+      "bounds_z_up": {
+        "minimum": [
+          -2.913007974624634,
+          -2.332132577896118,
+          -0.45938947796821594
+        ],
+        "maximum": [
+          3.020490884780884,
+          3.0865793228149414,
+          10.351706504821777
+        ]
+      },
+      "totalBoundaryEdges": 0,
+      "totalMultiFaceEdges": 0,
+      "totalLooseEdges": 0
+    }
+  }
+]

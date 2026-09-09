@@ -9,6 +9,7 @@ export function isFrontierProp(prop: Pick<PropSpawn, 'kind' | 'assetKey' | 'mode
 }
 
 export function frontierPropDistances(key: string): { lod: number[]; cull: number } {
+  if (key === 'frontier_cinderfen_marsh_alder') return { lod: [0, 35, 90], cull: 450 };
   if (key === 'frontier_cinderfen_reed_clump') return { lod: [0, 18, 45], cull: 120 };
   if (key === 'frontier_cinderfen_sedge_horsetail') return { lod: [0, 12, 30], cull: 75 };
   if (/^frontier_sunmeadow_(wheat|meadow)/.test(key)) return { lod: [0, 12, 30], cull: 80 };

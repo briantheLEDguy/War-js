@@ -12,6 +12,7 @@ const read = (file: string) => JSON.parse(readFileSync(file, 'utf8'));
 const original = read('public/assets/maps/cinderfen_outskirts.json');
 const zone = composeCinderfenEcology(structuredClone(original)) as ZoneDefinition;
 const plants = zone.props.filter(p => p.id?.includes('_wetland_'));
+const trees = zone.props.filter(p => p.id?.includes('_alder_'));
 const metadata = read('authoring/blender/cinderfen-nature/builder-metadata.json');
 const heightAt = createOrvrGridHeightSampler(zone.orvrLayout!.terrain, zone.size, zone.segments);
 const radius = (key: string, scale: number) => {
@@ -73,5 +74,38 @@ describe('Cinderfen retained-survey wetland colonies', () => {
       expect(entry.cameraSolid).toBe(false); expect(frontierPropDistances(key).lod[1]).toBeLessThanOrEqual(18);
       expect(frontierPropDistances(key).cull).toBeLessThanOrEqual(120);
     }
+  });
+
+  it('plants varied alder stands on dry margins with their authored trunk collision', () => {
+    expect(trees.length).toBeGreaterThan(500); expect(trees.length).toBeLessThanOrEqual(650);
+    expect(new Set(trees.map(p => p.id!.replace(/_\d+$/, ''))).size).toBe(12);
+    expect(new Set(trees.map(p => p.scale)).size).toBeGreaterThan(100);
+    for (const tree of trees) {
+      const ground = heightAt(tree.x, tree.z);
+      expect(ground).toBeGreaterThanOrEqual(-.14); expect(ground).toBeLessThanOrEqual(9);
+      expect(tree.heightMode).toBe('absolute'); expect(tree.y!).toBeLessThan(ground);
+      expect(ground - tree.y!).toBeLessThan(.3);
+      expect(tree.colliders).toEqual(metadata.assets[tree.assetKey!].colliders);
+      expect(tree.colliderSpace).toBe('model'); expect(tree.cameraSolid).toBe(true);
+    }
+    const entry = read('src/world/editor/prefabs.generated.json').find((p: { assetKey: string }) => p.assetKey === trees[0].assetKey);
+    expect(entry.lodModels).toHaveLength(2); expect(entry.colliders).toEqual(trees[0].colliders);
+    expect(frontierPropDistances(trees[0].assetKey!)).toEqual({ lod: [0, 35, 90], cull: 450 });
+  });
+
+  it('keeps tree crowns clear of built structures and full campaign road widths', () => {
+    const blockers = mapPropNavigation(zone.props.filter(p => !p.id?.includes('_alder_')), heightAt).collision;
+    const blocked: string[] = [];
+    for (const tree of trees) {
+      const r = radius(tree.assetKey!, tree.scale ?? 1), point = { x: tree.x, y: tree.y!, z: tree.z };
+      if (blockers.some(c => campaignColliderContains(c, point, r))) blocked.push(`${tree.id}: construction`);
+      for (const objective of zone.rvrObjectives ?? []) if (Math.hypot(tree.x - objective.x, tree.z - objective.z) <= objective.captureRadius + r) blocked.push(`${tree.id}: objective`);
+      for (const road of zone.paths ?? []) for (let i = 1; i < road.points.length; i++) {
+        const a = road.points[i - 1], b = road.points[i], dx = b.x - a.x, dz = b.z - a.z;
+        const t = Math.max(0, Math.min(1, ((tree.x - a.x) * dx + (tree.z - a.z) * dz) / (dx * dx + dz * dz || 1)));
+        if (Math.hypot(tree.x - a.x - dx * t, tree.z - a.z - dz * t) <= road.width / 2 + r) blocked.push(`${tree.id}: road ${road.id}`);
+      }
+    }
+    expect(blocked).toEqual([]);
   });
 });

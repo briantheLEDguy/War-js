@@ -11,6 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from bake_bark_projection import bake_bark
 from fair_bark_junctions import fair_junctions
+from bake_basalt_projection import bake_basalt
 SOURCE_PATH=ROOT/'source/nature.json';SOURCE=json.loads(SOURCE_PATH.read_text())
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -142,6 +143,17 @@ def build(key):
     for level in definition['lods']:
         lod=level['level'];collection=bpy.data.collections.new(f'{key}.authored_lod{lod}');bpy.context.scene.collection.children.link(collection)
         objects=[joined_bark(item,lod,materials,collection) if key.endswith('marsh_alder') and item['material']=='alder_bark' else mesh(item,lod,materials,collection) for item in level['objects']]
+        if key.endswith('basalt_outcrop'):
+            # Retain the literal fracture mesh and finishing stack in the master;
+            # bake on the exact evaluated surface used by the previous export.
+            if lod==0:
+                retained=bpy.data.collections.new('Retained_original_fracture_mesh_and_finish');bpy.context.scene.collection.children.link(retained)
+                for obj in objects:
+                    original=obj.copy();original.data=obj.data.copy();original.name='retained_'+obj.name;retained.objects.link(original);original.hide_render=True;original.hide_set(True)
+            for obj in objects:
+                bpy.context.view_layer.objects.active=obj
+                for modifier in list(obj.modifiers):bpy.ops.object.modifier_apply(modifier=modifier.name)
+        basalt_projection=bake_basalt(objects[0],lod) if key.endswith('basalt_outcrop') else None
         junction_fairing=fair_junctions(objects[0],lod) if key.endswith('marsh_alder') else None
         bark_projection=bake_bark(objects[0],lod) if key.endswith('marsh_alder') else None
         bpy.context.view_layer.update()
@@ -150,6 +162,13 @@ def build(key):
                 if image.source in ('FILE','GENERATED'):image.pack()
             master=ROOT/'masters'/f'{key}.blend';bpy.ops.wm.save_as_mainfile(filepath=str(master))
             record['master']=str(master.relative_to(ROOT)).replace('\\','/');record['master_sha256']=sha(master)
+        # Preserve the source UVs in the saved master, but export only the
+        # actual PBR bake map so runtime tangents have one unambiguous UV basis.
+        if key.endswith(('marsh_alder','basalt_outcrop')):
+            for obj in objects:
+                for name in [uv.name for uv in obj.data.uv_layers if uv.name!='authored_uv']:
+                    obj.data.uv_layers.remove(obj.data.uv_layers[name])
+                obj.data.uv_layers.active_index=0;obj.data.uv_layers[0].active_render=True
         bpy.ops.object.select_all(action='DESELECT')
         for obj in objects:obj.select_set(True)
         bpy.context.view_layer.objects.active=objects[0]
@@ -163,6 +182,7 @@ def build(key):
         raw=target.read_bytes();size=struct.unpack_from('<I',raw,12)[0];doc=json.loads(raw[20:20+size]);counts=[sum(doc['accessors'][p['indices']]['count']//3 for p in m['primitives']) for m in doc['meshes']]
         triangles=sum(counts[n['mesh']] for n in doc['nodes'] if 'mesh' in n)
         record['lods'].append({'level':lod,'model':target.name,'sha256':sha(target),'bytes':target.stat().st_size,'triangles':triangles,'materials':len(doc['materials']),'bounds_z_up':bounds})
+        if basalt_projection:record['lods'][-1]['basalt_projection']=basalt_projection
         if bark_projection:record['lods'][-1]['bark_projection']=bark_projection
         if junction_fairing:record['lods'][-1]['junction_fairing']=junction_fairing
         for obj in objects:obj.hide_render=True;obj.hide_set(True)

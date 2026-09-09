@@ -1,3 +1,9 @@
+## 2026-09-09 - Reviewed Cinderfen woodland and basalt
+
+- Published the fitted marsh alder and continuous-material basalt at three LODs, with exact source/review evidence and measured GM defaults.
+- Planted 621 varied alders in twelve dry-margin stands, preserving roads, capture areas, structures, resources and existing wetland colonies.
+- Added spatial batching and an alder viewpoint to the assembled scene review; expanded independent grounding and clearance tests.
+
 ## 2026-09-09 - Fitted cauldron and siege transport verification
 
 - Refit all six cauldron ornaments to the actual finished bowl at every LOD; publish the three reviewed GLBs with exact original pour keys, pivots and sockets. Retain isolated editable masters, PBR bakes, contact audits and signed review receipts.

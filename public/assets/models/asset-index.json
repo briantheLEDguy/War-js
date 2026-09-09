@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-2157d9561ac0a79a",
+  "assetVersion": "approved-8e60bde48b958b8e",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -5213,6 +5213,27 @@
       "runtimeReady": true,
       "skeletonId": "none"
     },
+    "frontier_cinderfen_basalt_outcrop": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_basalt_outcrop",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+      "modelSha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_basalt_outcrop.png"
+      },
+      "previewSha256": {
+        "assembly": "ee818c873131d9984c07e7c6caa3582ce1bbb83f0abd725e1be3970c008e0183"
+      },
+      "qc": "frontier_cinderfen_basalt_outcrop_lod0.qc.json",
+      "qcSha256": "2bf46ace35b015ff9db8ab003f316d28a594e459657977732cb6d16b9bfc2bae",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
     "frontier_cinderfen_corner_access": {
       "approvalState": "approved",
       "assetId": "prop.frontier.cinderfen_corner_access",
@@ -5314,6 +5335,27 @@
       },
       "qc": "frontier_cinderfen_gatehouse_lod0.qc.json",
       "qcSha256": "cf8e3473ddcf83ce5243d983b19247c0d9f00b4c4add32fed77eae147f9176b3",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_cinderfen_marsh_alder": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.cinderfen_marsh_alder",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+      "modelSha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+      "previews": {
+        "assembly": "public/assets/models/previews/frontier_cinderfen_marsh_alder.png"
+      },
+      "previewSha256": {
+        "assembly": "99e101f17c5f3c02b10d75945c40a403e6699469dae0fbcc60ede5f1ed5d6e62"
+      },
+      "qc": "frontier_cinderfen_marsh_alder_lod0.qc.json",
+      "qcSha256": "d328840d272271af73359be4baeb7eda3a098a447a2cfc3df694addd37b44d73",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"

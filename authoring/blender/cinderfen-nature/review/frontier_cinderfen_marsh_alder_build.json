@@ -2,7 +2,7 @@
   "asset_id": "frontier_cinderfen_marsh_alder",
   "displayName": "Cinderfen steam-scarred marsh alder",
   "source_sha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
-  "builder_sha256": "e188d41128de11132e4434d7f57dfbbaa5bda581ed0a8f3bbd184c08246918bd",
+  "builder_sha256": "51fa086d842c1f20fdd23033087eab8600646c22e2cc78212899be1a007e1f0e",
   "paint_records_sha256": "363680b84a777f7d7431f8a0dfd13bc13967765a8243036bdd47f64eedb6e84c",
   "contract": {
     "kind": "tree",
@@ -26,9 +26,9 @@
     {
       "level": 0,
       "model": "frontier_cinderfen_marsh_alder_lod0.glb",
-      "sha256": "daca440f0cc63eb1852b2f04be15c8b2c931a4953fcbda7a4843641de900bb93",
-      "bytes": 5712704,
-      "triangles": 104874,
+      "sha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+      "bytes": 5379648,
+      "triangles": 104764,
       "materials": 3,
       "bounds_z_up": {
         "minimum": [
@@ -47,7 +47,7 @@
           "resolution": 4096,
           "marginPixels": 4,
           "dilationPixels": 2,
-          "occupiedFraction": 0.24482924603165096,
+          "occupiedFraction": 0.21376155918460849,
           "normalBackground": [
             0.5,
             0.5,
@@ -55,38 +55,40 @@
           ]
         },
         "tool": "tools/bake_bark_projection.py",
-        "toolSha256": "132dc158bb07b6025c825b275ad370ff6157e33b90793dbce3d5b0467a86757d",
-        "geometrySha256Before": "8f1c519a5a912ecb9bb2507e1dff781f3660ffc057b0ae3e3e2524a1c3275e05",
-        "geometrySha256After": "8f1c519a5a912ecb9bb2507e1dff781f3660ffc057b0ae3e3e2524a1c3275e05",
+        "toolSha256": "a01b1c3989ecd443ffa9de0624e5e70f59810f6ab8506c7ac968ca286b0d1690",
+        "geometrySha256Before": "a55237dddb81c5cd6cb0b5424eb8c86bb120e2f403e32322554878da6e3d0365",
+        "geometrySha256After": "a55237dddb81c5cd6cb0b5424eb8c86bb120e2f403e32322554878da6e3d0365",
         "method": "Continuous object-space 3D pigment, fissure, lichen and height fields baked on the identical joined mesh to a unique area-weighted UV atlas; no ray projection from a different LOD. Original branch UVs are retained in the master.",
         "channels": {
           "baseColor": {
             "file": "textures/bark-projection/alder_bark_lod0_baseColor.png",
-            "sha256": "028b31bb9cfa750e1a32a61d19115cf85047312c29f6a21de6d4a9d15f956d88",
+            "sha256": "c7be38514a39967d24dc4db471b00e377650ea6ff772147513bf8c4662368f69",
             "resolution": 4096
           },
           "orm": {
             "file": "textures/bark-projection/alder_bark_lod0_orm.png",
-            "sha256": "3f39943dd7a7e5983bb6e14733be8021b8376da87022cbd0cc5d91ef55b9d2db",
+            "sha256": "60decc94c8997e95a9ab334d24f000069ba6cb6221133aa703e4bc1db2f49638",
             "resolution": 4096
           },
           "normal": {
             "file": "textures/bark-projection/alder_bark_lod0_normal.png",
-            "sha256": "ec6002f1d6580267b8486e8f0813928b19c39aeb80c5fe322ac770046bab7c0f",
+            "sha256": "b9dc1bb8e89341f92625070f72a06cb9ca1d04b89aaa4018df50ca75bbf4bd1c",
             "resolution": 4096
           }
         }
       },
       "junction_fairing": {
-        "affectedVertices": 2082,
-        "maximumDisplacementM": 0.0550001353820686,
-        "subdividedEdges": 1212,
-        "vertices": 14055,
-        "triangles": 25242,
+        "affectedVertices": 2029,
+        "maximumDisplacementM": 0.055000047458881485,
+        "subdividedEdges": 1167,
+        "collapsedSliverEdges": 10,
+        "sliverMaxEdgeM": 0.0015,
+        "vertices": 14000,
+        "triangles": 25132,
         "tool": "tools/fair_bark_junctions.py",
-        "toolSha256": "3296bb74c296c91fdd1ffd28f3dc58a04e547d92ed79f5ba443a9d3c3b577cd5",
+        "toolSha256": "8297188e78bee3b988d0146ff20a5fb753c01b6e1f4033eda07d482b21549e27",
         "geometryBeforeSha256": "ea035649bc416e704e605bb3e4e96a45abfb6037eae4726f0eab6383024e7f1a",
-        "geometryAfterSha256": "8f1c519a5a912ecb9bb2507e1dff781f3660ffc057b0ae3e3e2524a1c3275e05",
+        "geometryAfterSha256": "a55237dddb81c5cd6cb0b5424eb8c86bb120e2f403e32322554878da6e3d0365",
         "displacementLimitM": 0.055,
         "nonManifoldEdges": 0,
         "method": "Local support subdivision and bounded volume-preserving fairing of the connected primary bark shell at root and limb junctions; retained source cages and unattached fine shoots are unchanged."
@@ -94,15 +96,15 @@
       "texture_packing": {
         "tool": "tools/share_textures.py",
         "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-        "input_glb_sha256": "c3adb16cd650315c5a267d632b4b95f0c41ec3e4eab6d399b7f0c1a79ac4c245",
-        "output_glb_sha256": "daca440f0cc63eb1852b2f04be15c8b2c931a4953fcbda7a4843641de900bb93",
-        "embedded_bytes": 32821700,
-        "externalized_bytes": 5712704
+        "input_glb_sha256": "aadfefb21ebda8fd498f79b7dbbff0db7da539b938863b2cb0259d6148176a59",
+        "output_glb_sha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+        "embedded_bytes": 29341732,
+        "externalized_bytes": 5379648
       },
       "external_textures": {
-        "../textures/cinderfen_nature/ec6002f1d6580267b8486e8f0813928b19c39aeb80c5fe322ac770046bab7c0f.png": "ec6002f1d6580267b8486e8f0813928b19c39aeb80c5fe322ac770046bab7c0f",
-        "../textures/cinderfen_nature/3f39943dd7a7e5983bb6e14733be8021b8376da87022cbd0cc5d91ef55b9d2db.png": "3f39943dd7a7e5983bb6e14733be8021b8376da87022cbd0cc5d91ef55b9d2db",
-        "../textures/cinderfen_nature/028b31bb9cfa750e1a32a61d19115cf85047312c29f6a21de6d4a9d15f956d88.png": "028b31bb9cfa750e1a32a61d19115cf85047312c29f6a21de6d4a9d15f956d88",
+        "../textures/cinderfen_nature/b9dc1bb8e89341f92625070f72a06cb9ca1d04b89aaa4018df50ca75bbf4bd1c.png": "b9dc1bb8e89341f92625070f72a06cb9ca1d04b89aaa4018df50ca75bbf4bd1c",
+        "../textures/cinderfen_nature/60decc94c8997e95a9ab334d24f000069ba6cb6221133aa703e4bc1db2f49638.png": "60decc94c8997e95a9ab334d24f000069ba6cb6221133aa703e4bc1db2f49638",
+        "../textures/cinderfen_nature/c7be38514a39967d24dc4db471b00e377650ea6ff772147513bf8c4662368f69.png": "c7be38514a39967d24dc4db471b00e377650ea6ff772147513bf8c4662368f69",
         "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28",
         "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4",
         "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2",
@@ -114,15 +116,15 @@
     {
       "level": 1,
       "model": "frontier_cinderfen_marsh_alder_lod1.glb",
-      "sha256": "748be4387ee4a3410ba5a930f02ecb5ea660f9f26a97edbb835c3e8a18ae5451",
-      "bytes": 2464304,
-      "triangles": 40598,
+      "sha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
+      "bytes": 2239512,
+      "triangles": 39816,
       "materials": 3,
       "bounds_z_up": {
         "minimum": [
           -2.9134013652801514,
           -2.332132577896118,
-          -0.5353291630744934
+          -0.5384602546691895
         ],
         "maximum": [
           3.204603910446167,
@@ -135,7 +137,7 @@
           "resolution": 2048,
           "marginPixels": 4,
           "dilationPixels": 2,
-          "occupiedFraction": 0.26155258422629457,
+          "occupiedFraction": 0.23946624163663324,
           "normalBackground": [
             0.5,
             0.5,
@@ -143,38 +145,40 @@
           ]
         },
         "tool": "tools/bake_bark_projection.py",
-        "toolSha256": "132dc158bb07b6025c825b275ad370ff6157e33b90793dbce3d5b0467a86757d",
-        "geometrySha256Before": "7cd9f2e229aa9565989a613f90db7104ef812a36b6fb0dde1a53aae4fbfdb90a",
-        "geometrySha256After": "7cd9f2e229aa9565989a613f90db7104ef812a36b6fb0dde1a53aae4fbfdb90a",
+        "toolSha256": "a01b1c3989ecd443ffa9de0624e5e70f59810f6ab8506c7ac968ca286b0d1690",
+        "geometrySha256Before": "169b5b660670ec2d89c90a73f24de81c42f4205db9c9e57e9d52258a94b7e7f1",
+        "geometrySha256After": "169b5b660670ec2d89c90a73f24de81c42f4205db9c9e57e9d52258a94b7e7f1",
         "method": "Continuous object-space 3D pigment, fissure, lichen and height fields baked on the identical joined mesh to a unique area-weighted UV atlas; no ray projection from a different LOD. Original branch UVs are retained in the master.",
         "channels": {
           "baseColor": {
             "file": "textures/bark-projection/alder_bark_lod1_baseColor.png",
-            "sha256": "bd5463fb0625ede3e0d3d7ff7cdabce2bc365e38f27ba3854ba1bc75c94ad453",
+            "sha256": "1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133",
             "resolution": 2048
           },
           "orm": {
             "file": "textures/bark-projection/alder_bark_lod1_orm.png",
-            "sha256": "4c6cc4c6c33197616d49ac080947e058b874ff59be33ca272931bc9fd7495f47",
+            "sha256": "e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231",
             "resolution": 2048
           },
           "normal": {
             "file": "textures/bark-projection/alder_bark_lod1_normal.png",
-            "sha256": "1f5b3c6a18f69ceb819c18133f2ee9c5549fba09fda5e9241159cd6967e6407e",
+            "sha256": "b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720",
             "resolution": 2048
           }
         }
       },
       "junction_fairing": {
-        "affectedVertices": 2052,
-        "maximumDisplacementM": 0.05500009033736889,
-        "subdividedEdges": 991,
-        "vertices": 8293,
-        "triangles": 14726,
+        "affectedVertices": 1657,
+        "maximumDisplacementM": 0.0550001056829976,
+        "subdividedEdges": 600,
+        "collapsedSliverEdges": 0,
+        "sliverMaxEdgeM": 0.0015,
+        "vertices": 7902,
+        "triangles": 13944,
         "tool": "tools/fair_bark_junctions.py",
-        "toolSha256": "3296bb74c296c91fdd1ffd28f3dc58a04e547d92ed79f5ba443a9d3c3b577cd5",
+        "toolSha256": "8297188e78bee3b988d0146ff20a5fb753c01b6e1f4033eda07d482b21549e27",
         "geometryBeforeSha256": "ec59a5db3cd2199638c2e9203faf2bb82432a8ee92a3ea4e77870e35c6fe21bf",
-        "geometryAfterSha256": "7cd9f2e229aa9565989a613f90db7104ef812a36b6fb0dde1a53aae4fbfdb90a",
+        "geometryAfterSha256": "169b5b660670ec2d89c90a73f24de81c42f4205db9c9e57e9d52258a94b7e7f1",
         "displacementLimitM": 0.055,
         "nonManifoldEdges": 0,
         "method": "Local support subdivision and bounded volume-preserving fairing of the connected primary bark shell at root and limb junctions; retained source cages and unattached fine shoots are unchanged."
@@ -182,15 +186,15 @@
       "texture_packing": {
         "tool": "tools/share_textures.py",
         "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-        "input_glb_sha256": "6e473c7dc949bd3fb7d699d6d0b22683a41d63c1186f10d5c8eefd07f021badb",
-        "output_glb_sha256": "748be4387ee4a3410ba5a930f02ecb5ea660f9f26a97edbb835c3e8a18ae5451",
-        "embedded_bytes": 12845628,
-        "externalized_bytes": 2464304
+        "input_glb_sha256": "bbfcfbb6483136a8283c363f9282c0c5ccb935420e431f83751227875efd7003",
+        "output_glb_sha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
+        "embedded_bytes": 11804580,
+        "externalized_bytes": 2239512
       },
       "external_textures": {
-        "../textures/cinderfen_nature/1f5b3c6a18f69ceb819c18133f2ee9c5549fba09fda5e9241159cd6967e6407e.png": "1f5b3c6a18f69ceb819c18133f2ee9c5549fba09fda5e9241159cd6967e6407e",
-        "../textures/cinderfen_nature/4c6cc4c6c33197616d49ac080947e058b874ff59be33ca272931bc9fd7495f47.png": "4c6cc4c6c33197616d49ac080947e058b874ff59be33ca272931bc9fd7495f47",
-        "../textures/cinderfen_nature/bd5463fb0625ede3e0d3d7ff7cdabce2bc365e38f27ba3854ba1bc75c94ad453.png": "bd5463fb0625ede3e0d3d7ff7cdabce2bc365e38f27ba3854ba1bc75c94ad453",
+        "../textures/cinderfen_nature/b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720.png": "b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720",
+        "../textures/cinderfen_nature/e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231.png": "e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231",
+        "../textures/cinderfen_nature/1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133.png": "1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133",
         "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28",
         "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4",
         "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2",
@@ -202,8 +206,8 @@
     {
       "level": 2,
       "model": "frontier_cinderfen_marsh_alder_lod2.glb",
-      "sha256": "790577a597ae5002af3eb941a2a0374e681f0a341c04cd6d1885ad3b3861d3c8",
-      "bytes": 484940,
+      "sha256": "574ddaf7d691fbf9eff6baa3cbe2ae839a83e1c52aaffb902f79de465338ff4e",
+      "bytes": 427732,
       "triangles": 5672,
       "materials": 2,
       "bounds_z_up": {
@@ -223,7 +227,7 @@
           "resolution": 1024,
           "marginPixels": 4,
           "dilationPixels": 2,
-          "occupiedFraction": 0.23374678550976377,
+          "occupiedFraction": 0.2353190901646385,
           "normalBackground": [
             0.5,
             0.5,
@@ -231,38 +235,40 @@
           ]
         },
         "tool": "tools/bake_bark_projection.py",
-        "toolSha256": "132dc158bb07b6025c825b275ad370ff6157e33b90793dbce3d5b0467a86757d",
-        "geometrySha256Before": "a8f43473d6bc69446eb88da13a497c95b07610cb7872d5c7630b807f97efa630",
-        "geometrySha256After": "a8f43473d6bc69446eb88da13a497c95b07610cb7872d5c7630b807f97efa630",
+        "toolSha256": "a01b1c3989ecd443ffa9de0624e5e70f59810f6ab8506c7ac968ca286b0d1690",
+        "geometrySha256Before": "6d64e8e377df4022ce27df95d2f7ac9d301bae6a2daa0347a5ecd8335656988c",
+        "geometrySha256After": "6d64e8e377df4022ce27df95d2f7ac9d301bae6a2daa0347a5ecd8335656988c",
         "method": "Continuous object-space 3D pigment, fissure, lichen and height fields baked on the identical joined mesh to a unique area-weighted UV atlas; no ray projection from a different LOD. Original branch UVs are retained in the master.",
         "channels": {
           "baseColor": {
             "file": "textures/bark-projection/alder_bark_lod2_baseColor.png",
-            "sha256": "e3ade7af00fe49f9b9c720f6c943f8b5bcf8d6a488c929c05f8289315866081d",
+            "sha256": "8ea82e8b9c53f83e707f92a7861263fa75ede973c0ce5fe5fd6f869ed2aaaa02",
             "resolution": 1024
           },
           "orm": {
             "file": "textures/bark-projection/alder_bark_lod2_orm.png",
-            "sha256": "ea975fe84becfff41aa6f86e85f40d95bb21b7ef36d4d62ffc87f7dcee5409f7",
+            "sha256": "b41548cb7aeb60b739b7efb77828f7276f77ba7c39d5c797af339ef298f712c5",
             "resolution": 1024
           },
           "normal": {
             "file": "textures/bark-projection/alder_bark_lod2_normal.png",
-            "sha256": "6885082939cd5b0829f2fb9a56c6b1ed702c60121abbab9ec30a20f8eac1eb6c",
+            "sha256": "41cb8b7976ef73ef88aa6b9e6f7f30aa7acf9aa69ad9a2fa7216e39b2c3146f9",
             "resolution": 1024
           }
         }
       },
       "junction_fairing": {
-        "affectedVertices": 257,
-        "maximumDisplacementM": 0.05500034062933021,
-        "subdividedEdges": 454,
+        "affectedVertices": 256,
+        "maximumDisplacementM": 0.055000234172498136,
+        "subdividedEdges": 0,
+        "collapsedSliverEdges": 0,
+        "sliverMaxEdgeM": 0.0015,
         "vertices": 2084,
         "triangles": 3656,
         "tool": "tools/fair_bark_junctions.py",
-        "toolSha256": "3296bb74c296c91fdd1ffd28f3dc58a04e547d92ed79f5ba443a9d3c3b577cd5",
+        "toolSha256": "8297188e78bee3b988d0146ff20a5fb753c01b6e1f4033eda07d482b21549e27",
         "geometryBeforeSha256": "f448f9347ec1969ce0891cc01fe386f93ad380933a31025042ec9d9c8859b74f",
-        "geometryAfterSha256": "a8f43473d6bc69446eb88da13a497c95b07610cb7872d5c7630b807f97efa630",
+        "geometryAfterSha256": "6d64e8e377df4022ce27df95d2f7ac9d301bae6a2daa0347a5ecd8335656988c",
         "displacementLimitM": 0.055,
         "nonManifoldEdges": 0,
         "method": "Local support subdivision and bounded volume-preserving fairing of the connected primary bark shell at root and limb junctions; retained source cages and unattached fine shoots are unchanged."
@@ -270,15 +276,15 @@
       "texture_packing": {
         "tool": "tools/share_textures.py",
         "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-        "input_glb_sha256": "6568a9c7453bdfc5ef3f8a1369819d0901cbd997795b09045e8db5fd742d5c4d",
-        "output_glb_sha256": "790577a597ae5002af3eb941a2a0374e681f0a341c04cd6d1885ad3b3861d3c8",
-        "embedded_bytes": 4180968,
-        "externalized_bytes": 484940
+        "input_glb_sha256": "f2a9073639db6e080ad73528f2ed0dba9e57274b3fd21354000e5b2371053eed",
+        "output_glb_sha256": "574ddaf7d691fbf9eff6baa3cbe2ae839a83e1c52aaffb902f79de465338ff4e",
+        "embedded_bytes": 4070320,
+        "externalized_bytes": 427732
       },
       "external_textures": {
-        "../textures/cinderfen_nature/6885082939cd5b0829f2fb9a56c6b1ed702c60121abbab9ec30a20f8eac1eb6c.png": "6885082939cd5b0829f2fb9a56c6b1ed702c60121abbab9ec30a20f8eac1eb6c",
-        "../textures/cinderfen_nature/ea975fe84becfff41aa6f86e85f40d95bb21b7ef36d4d62ffc87f7dcee5409f7.png": "ea975fe84becfff41aa6f86e85f40d95bb21b7ef36d4d62ffc87f7dcee5409f7",
-        "../textures/cinderfen_nature/e3ade7af00fe49f9b9c720f6c943f8b5bcf8d6a488c929c05f8289315866081d.png": "e3ade7af00fe49f9b9c720f6c943f8b5bcf8d6a488c929c05f8289315866081d",
+        "../textures/cinderfen_nature/41cb8b7976ef73ef88aa6b9e6f7f30aa7acf9aa69ad9a2fa7216e39b2c3146f9.png": "41cb8b7976ef73ef88aa6b9e6f7f30aa7acf9aa69ad9a2fa7216e39b2c3146f9",
+        "../textures/cinderfen_nature/b41548cb7aeb60b739b7efb77828f7276f77ba7c39d5c797af339ef298f712c5.png": "b41548cb7aeb60b739b7efb77828f7276f77ba7c39d5c797af339ef298f712c5",
+        "../textures/cinderfen_nature/8ea82e8b9c53f83e707f92a7861263fa75ede973c0ce5fe5fd6f869ed2aaaa02.png": "8ea82e8b9c53f83e707f92a7861263fa75ede973c0ce5fe5fd6f869ed2aaaa02",
         "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28",
         "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4",
         "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2"
@@ -324,5 +330,5 @@
     "textures/source/seed_scales_orm.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
   },
   "master": "masters/frontier_cinderfen_marsh_alder.blend",
-  "master_sha256": "3c1b656167340db9092de7a7a92f3ba5848250b45145ae8d20a76c8c54640e68"
+  "master_sha256": "0619e1e3ad45553f861bacc6b9f9fa24b951d5d2789d5a555745ea447d8654b2"
 }

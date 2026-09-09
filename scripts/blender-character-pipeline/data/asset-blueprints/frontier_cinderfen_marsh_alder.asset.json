@@ -24,12 +24,12 @@
     "lods": [
       {
         "name": "LOD0",
-        "triTarget": 102450,
+        "triTarget": 104764,
         "screenCoverageMin": 0.15
       },
       {
         "name": "LOD1",
-        "triTarget": 38616,
+        "triTarget": 39816,
         "screenCoverageMin": 0.05
       },
       {
@@ -49,7 +49,7 @@
       "normal",
       "occlusion"
     ],
-    "maxTextureResolution": 2048
+    "maxTextureResolution": 4096
   },
   "rigging": {
     "skinned": false,
@@ -86,17 +86,19 @@
   "qc": {
     "allowNonManifold": false,
     "allowUvOverlap": true,
-    "maxTris": 102450,
+    "maxTris": 104764,
     "maxFileSizeMb": 7,
     "maxDrawCalls": 3,
     "maxMeshObjects": 3,
     "requiresSkinnedMeshes": false,
     "requiresPreview": true,
-    "expectedHeightM": 10.885753810405731,
+    "expectedHeightM": 10.888199150562286,
     "heightToleranceM": 0.03
   },
   "lifecycle": {
-    "status": "review_pending",
-    "notes": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Internal actual-export visual acceptance is required before publication."
+    "status": "approved",
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-09T14:14:36.607Z",
+    "notes": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Accepted internally at the exact retained build/model/image hashes."
   }
 }

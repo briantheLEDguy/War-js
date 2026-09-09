@@ -3,7 +3,7 @@
     "resolution": 4096,
     "marginPixels": 4,
     "dilationPixels": 2,
-    "occupiedFraction": 0.24482924603165096,
+    "occupiedFraction": 0.21376155918460849,
     "normalBackground": [
       0.5,
       0.5,
@@ -11,24 +11,24 @@
     ]
   },
   "tool": "tools/bake_bark_projection.py",
-  "toolSha256": "132dc158bb07b6025c825b275ad370ff6157e33b90793dbce3d5b0467a86757d",
-  "geometrySha256Before": "8f1c519a5a912ecb9bb2507e1dff781f3660ffc057b0ae3e3e2524a1c3275e05",
-  "geometrySha256After": "8f1c519a5a912ecb9bb2507e1dff781f3660ffc057b0ae3e3e2524a1c3275e05",
+  "toolSha256": "a01b1c3989ecd443ffa9de0624e5e70f59810f6ab8506c7ac968ca286b0d1690",
+  "geometrySha256Before": "a55237dddb81c5cd6cb0b5424eb8c86bb120e2f403e32322554878da6e3d0365",
+  "geometrySha256After": "a55237dddb81c5cd6cb0b5424eb8c86bb120e2f403e32322554878da6e3d0365",
   "method": "Continuous object-space 3D pigment, fissure, lichen and height fields baked on the identical joined mesh to a unique area-weighted UV atlas; no ray projection from a different LOD. Original branch UVs are retained in the master.",
   "channels": {
     "baseColor": {
       "file": "textures/bark-projection/alder_bark_lod0_baseColor.png",
-      "sha256": "028b31bb9cfa750e1a32a61d19115cf85047312c29f6a21de6d4a9d15f956d88",
+      "sha256": "c7be38514a39967d24dc4db471b00e377650ea6ff772147513bf8c4662368f69",
       "resolution": 4096
     },
     "orm": {
       "file": "textures/bark-projection/alder_bark_lod0_orm.png",
-      "sha256": "3f39943dd7a7e5983bb6e14733be8021b8376da87022cbd0cc5d91ef55b9d2db",
+      "sha256": "60decc94c8997e95a9ab334d24f000069ba6cb6221133aa703e4bc1db2f49638",
       "resolution": 4096
     },
     "normal": {
       "file": "textures/bark-projection/alder_bark_lod0_normal.png",
-      "sha256": "ec6002f1d6580267b8486e8f0813928b19c39aeb80c5fe322ac770046bab7c0f",
+      "sha256": "b9dc1bb8e89341f92625070f72a06cb9ca1d04b89aaa4018df50ca75bbf4bd1c",
       "resolution": 4096
     }
   }

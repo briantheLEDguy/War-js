@@ -1,0 +1,95 @@
+[
+  {
+    "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+    "sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+    "triangles": 12474,
+    "audit": {
+      "meshes": [
+        {
+          "mesh": "surveyed_irregular_basalt_cleavage_masses.lod0",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 12474
+        }
+      ],
+      "bounds_z_up": {
+        "minimum": [
+          -2.626711130142212,
+          -2.0052993297576904,
+          -0.2378426492214203
+        ],
+        "maximum": [
+          2.2451210021972656,
+          2.0559284687042236,
+          2.6376099586486816
+        ]
+      },
+      "totalBoundaryEdges": 0,
+      "totalMultiFaceEdges": 0,
+      "totalLooseEdges": 0
+    }
+  },
+  {
+    "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
+    "sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+    "triangles": 2356,
+    "audit": {
+      "meshes": [
+        {
+          "mesh": "surveyed_irregular_basalt_cleavage_masses.lod1",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 2356
+        }
+      ],
+      "bounds_z_up": {
+        "minimum": [
+          -2.6272027492523193,
+          -2.0053648948669434,
+          -0.2380342185497284
+        ],
+        "maximum": [
+          2.245584011077881,
+          2.0547616481781006,
+          2.6364336013793945
+        ]
+      },
+      "totalBoundaryEdges": 0,
+      "totalMultiFaceEdges": 0,
+      "totalLooseEdges": 0
+    }
+  },
+  {
+    "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
+    "sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+    "triangles": 208,
+    "audit": {
+      "meshes": [
+        {
+          "mesh": "surveyed_irregular_basalt_cleavage_masses.lod2",
+          "boundary_edges_after_positional_weld": 0,
+          "multi_face_edges_after_positional_weld": 0,
+          "loose_edges": 0,
+          "faces": 208
+        }
+      ],
+      "bounds_z_up": {
+        "minimum": [
+          -2.630000114440918,
+          -2.009999990463257,
+          -0.23999999463558197
+        ],
+        "maximum": [
+          2.25,
+          2.059999942779541,
+          2.640000104904175
+        ]
+      },
+      "totalBoundaryEdges": 0,
+      "totalMultiFaceEdges": 0,
+      "totalLooseEdges": 0
+    }
+  }
+]

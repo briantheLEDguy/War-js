@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.cinderfen_basalt_outcrop",
+  "displayName": "Cinderfen fractured basalt outcrop",
+  "category": "prop",
+  "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+  "qc": "frontier_cinderfen_basalt_outcrop_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_cinderfen_basalt_outcrop"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+    "qcSha256": "2bf46ace35b015ff9db8ab003f316d28a594e459657977732cb6d16b9bfc2bae",
+    "previews": {
+      "assembly": "ee818c873131d9984c07e7c6caa3582ce1bbb83f0abd725e1be3970c008e0183"
+    }
+  },
+  "previews": {
+    "assembly": "public/assets/models/previews/frontier_cinderfen_basalt_outcrop.png"
+  },
+  "review": {
+    "reviewedBy": "Codex root integration review",
+    "reviewedAt": "2026-09-09T14:30:15.189Z",
+    "reviewHash": "23634ac070892073bc21ca008e0826a8f6a596fe371829cc38d848c6d7214fb6"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_nature_v1",
+    "similarityReview": "not_required",
+    "author": "Codex ecology authoring",
+    "source": "authoring/blender/cinderfen-nature/source/nature.json",
+    "sourceSha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe"
+  },
+  "approvalState": "approved"
+}

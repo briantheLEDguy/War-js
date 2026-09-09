@@ -2,7 +2,7 @@
   "asset_id": "frontier_cinderfen_basalt_outcrop",
   "displayName": "Cinderfen fractured basalt outcrop",
   "source_sha256": "509d7e8e7a1c1e5beeee07ea76f84be5c2cca85c62c91f35e80297a132c6babe",
-  "builder_sha256": "6caadc5fcaf597ebf861897a8ad1c958fcdf8b04a7e26a3e74f67ea5bacdc1eb",
+  "builder_sha256": "48597dcfb7757ad8a0bbb66095ac0b606451b5a7a30f03436147ee3b3edad88d",
   "paint_records_sha256": "363680b84a777f7d7431f8a0dfd13bc13967765a8243036bdd47f64eedb6e84c",
   "contract": {
     "kind": "rock",
@@ -49,8 +49,8 @@
     {
       "level": 0,
       "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
-      "sha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
-      "bytes": 497220,
+      "sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+      "bytes": 595780,
       "triangles": 12474,
       "materials": 1,
       "bounds_z_up": {
@@ -65,25 +65,68 @@
           2.6376099586486816
         ]
       },
+      "basalt_projection": {
+        "tool": "tools/bake_basalt_projection.py",
+        "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+        "geometrySha256Before": "fecd7ff16559cb6b0830a2bb9469d0f6ebf0e4e1e47971b32008346ae194bb2f",
+        "geometrySha256After": "fecd7ff16559cb6b0830a2bb9469d0f6ebf0e4e1e47971b32008346ae194bb2f",
+        "atlas": {
+          "resolution": 2048,
+          "occupiedFraction": 0.6299598754407317,
+          "marginPixels": 4,
+          "dilationPixels": 2,
+          "normalRepairs": [
+            {
+              "face": 10984,
+              "cornerIndices": [
+                32952,
+                32953,
+                32954
+              ],
+              "areaM2": 3.776441701575095e-07,
+              "minimumOriginalNormalAlignment": 0.09604210406541824,
+              "method": "Geometric normal on tiny bevel facet; geometry and other corner normals retained."
+            }
+          ]
+        },
+        "channels": {
+          "baseColor": {
+            "file": "textures/basalt-projection/basalt_lod0_baseColor.png",
+            "sha256": "241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0",
+            "resolution": 2048
+          },
+          "orm": {
+            "file": "textures/basalt-projection/basalt_lod0_orm.png",
+            "sha256": "cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c",
+            "resolution": 2048
+          },
+          "normal": {
+            "file": "textures/basalt-projection/basalt_lod0_normal.png",
+            "sha256": "d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103",
+            "resolution": 2048
+          }
+        },
+        "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+      },
       "texture_packing": {
         "tool": "tools/share_textures.py",
         "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-        "input_glb_sha256": "b5d5bcabaaa3d65c9fa675c5b143422c722d1441d8b9bfff0319f80dadc63167",
-        "output_glb_sha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
-        "embedded_bytes": 3189240,
-        "externalized_bytes": 497220
+        "input_glb_sha256": "1d0254fbc0371521d5f083607a58b0cb696831e383a53c41415954a7dd86cf20",
+        "output_glb_sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+        "embedded_bytes": 14228584,
+        "externalized_bytes": 595780
       },
       "external_textures": {
-        "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
-        "../textures/cinderfen_nature/8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d.png": "8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d",
-        "../textures/cinderfen_nature/dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24.png": "dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24"
+        "../textures/cinderfen_nature/d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103.png": "d52c816bc12ad2486be13bb238516afdee58977ae35085f184ea6509caa03103",
+        "../textures/cinderfen_nature/cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c.png": "cd85ccd9906f514f810bbb7b099243738334c58cefd6b33361d668d019ae031c",
+        "../textures/cinderfen_nature/241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0.png": "241f3e5997c7885fcc3128e9d6d6c978c61f9e89d25245ca5a4d0311099afab0"
       }
     },
     {
       "level": 1,
       "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
-      "sha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
-      "bytes": 109724,
+      "sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+      "bytes": 121160,
       "triangles": 2356,
       "materials": 1,
       "bounds_z_up": {
@@ -98,25 +141,56 @@
           2.6364336013793945
         ]
       },
+      "basalt_projection": {
+        "tool": "tools/bake_basalt_projection.py",
+        "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+        "geometrySha256Before": "b74a0ff3ac17d1a2e08c86441547f06cf3fc4115629c7cd4892c089586ce3e89",
+        "geometrySha256After": "b74a0ff3ac17d1a2e08c86441547f06cf3fc4115629c7cd4892c089586ce3e89",
+        "atlas": {
+          "resolution": 1024,
+          "occupiedFraction": 0.6058295932934767,
+          "marginPixels": 4,
+          "dilationPixels": 2,
+          "normalRepairs": []
+        },
+        "channels": {
+          "baseColor": {
+            "file": "textures/basalt-projection/basalt_lod1_baseColor.png",
+            "sha256": "329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331",
+            "resolution": 1024
+          },
+          "orm": {
+            "file": "textures/basalt-projection/basalt_lod1_orm.png",
+            "sha256": "1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2",
+            "resolution": 1024
+          },
+          "normal": {
+            "file": "textures/basalt-projection/basalt_lod1_normal.png",
+            "sha256": "3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4",
+            "resolution": 1024
+          }
+        },
+        "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+      },
       "texture_packing": {
         "tool": "tools/share_textures.py",
         "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-        "input_glb_sha256": "3f4960d2d1f12bb8a8533f0e6caa8b5a40d9010a0202e99264b71b0d0974e56b",
-        "output_glb_sha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
-        "embedded_bytes": 2801744,
-        "externalized_bytes": 109724
+        "input_glb_sha256": "807edcac86d79b45f9afba01bb3236ebe13c41a9b29adb6352583221c02b33d5",
+        "output_glb_sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+        "embedded_bytes": 3295464,
+        "externalized_bytes": 121160
       },
       "external_textures": {
-        "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
-        "../textures/cinderfen_nature/8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d.png": "8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d",
-        "../textures/cinderfen_nature/dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24.png": "dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24"
+        "../textures/cinderfen_nature/3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4.png": "3838fd44d5d9e5e819c08565365c139f2a3ca46496a81e1a736ff753a23238f4",
+        "../textures/cinderfen_nature/1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2.png": "1cd7884eddea8ffcef45c22874dffe9e76be276857ccc5fc674176f6a83615d2",
+        "../textures/cinderfen_nature/329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331.png": "329431156ff8228820473c25430afcad6198826072a6ff67c04203d2fbec1331"
       }
     },
     {
       "level": 2,
       "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
-      "sha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
-      "bytes": 16500,
+      "sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+      "bytes": 17280,
       "triangles": 208,
       "materials": 1,
       "bounds_z_up": {
@@ -131,18 +205,49 @@
           2.640000104904175
         ]
       },
+      "basalt_projection": {
+        "tool": "tools/bake_basalt_projection.py",
+        "toolSha256": "ffae93fac063f83425be2845b9c1b53b9aa44f23b50a4c50172022528acbb188",
+        "geometrySha256Before": "8a23c1d86cb2e82d5ecbefd84f38f86405bebacf87cfbf412b776da5046aecac",
+        "geometrySha256After": "8a23c1d86cb2e82d5ecbefd84f38f86405bebacf87cfbf412b776da5046aecac",
+        "atlas": {
+          "resolution": 512,
+          "occupiedFraction": 0.5649431876650357,
+          "marginPixels": 4,
+          "dilationPixels": 2,
+          "normalRepairs": []
+        },
+        "channels": {
+          "baseColor": {
+            "file": "textures/basalt-projection/basalt_lod2_baseColor.png",
+            "sha256": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69",
+            "resolution": 512
+          },
+          "orm": {
+            "file": "textures/basalt-projection/basalt_lod2_orm.png",
+            "sha256": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2",
+            "resolution": 512
+          },
+          "normal": {
+            "file": "textures/basalt-projection/basalt_lod2_normal.png",
+            "sha256": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2",
+            "resolution": 512
+          }
+        },
+        "method": "Continuous object-space mineral, weathering, pits and three original cooling-fracture paths baked directly on the identical finished mesh; original face UVs remain in the master."
+      },
       "texture_packing": {
         "tool": "tools/share_textures.py",
         "tool_sha256": "6f56eeee9a18e20660deb0fb5987817eaa72eed2b14b1c9e4ea7fb098f598e6c",
-        "input_glb_sha256": "dab503e3ae21576f8e3bff4ca8a6838d57bb7449bb9844c00e1f4751c682e675",
-        "output_glb_sha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
-        "embedded_bytes": 2708524,
-        "externalized_bytes": 16500
+        "input_glb_sha256": "87c0b8390b85dc8f6c92c8af2f30fecd1c5faf1ae985e2c2bbf6e1de74850f94",
+        "output_glb_sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+        "embedded_bytes": 757776,
+        "externalized_bytes": 17280
       },
       "external_textures": {
-        "../textures/cinderfen_nature/7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b.png": "7753ccf6f162031c3f49a7dca77e91121f39ec134941f6a52cf3cdf97477860b",
-        "../textures/cinderfen_nature/8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d.png": "8bcf848be0d77801e194393b3665e1a06962de8f1ad0bc3c442add6cb10ea94d",
-        "../textures/cinderfen_nature/dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24.png": "dded8e5e52baf86fe1b963dd8bd3989f69b90f7d45944c05b1e923011a4d4e24"
+        "../textures/cinderfen_nature/220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2.png": "220f86f410b38428f2be67250bee3f916f2cecde10a2e97f7fae874d1a50f8c2",
+        "../textures/cinderfen_nature/22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2.png": "22c38c3666aa21e70ce546a17aee7d4bccad9d75fcfd2d0fb916d93128f58be2",
+        "../textures/cinderfen_nature/7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69.png": "7b4216a8ef2984dd97942bc13e56451ece4011189302a6d62346546ede9e3f69"
       }
     }
   ],
@@ -185,5 +290,5 @@
     "textures/source/seed_scales_orm.png": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
   },
   "master": "masters/frontier_cinderfen_basalt_outcrop.blend",
-  "master_sha256": "3f19ecfaffd5b0c74cd0baaf9378975c25a96106d0086cf33808297904c8bb8e"
+  "master_sha256": "8546f973a0975232817dd608901786114e62ba06384dcd8fbef48e8ef4571f0b"
 }

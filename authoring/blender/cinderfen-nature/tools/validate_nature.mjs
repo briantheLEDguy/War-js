@@ -58,7 +58,9 @@ for(const [key,definition] of Object.entries(source.assets)){
   check(built.master_sha256===await hashFile(path.join(work,built.master)),key+': changed editable master');
   check(JSON.stringify(built.contract)===JSON.stringify(definition.contract),key+': changed placement contract');
   for(const [file,digest] of Object.entries(built.texture_sha256))check(digest===await hashFile(path.join(work,file)),key+': changed texture '+file);
-  built.maxTextureResolution=key.includes('alder')?4096:1024;
+  const projectionPolicy=key.includes('alder')?{field:'bark_projection',tool:'bake_bark_projection.py',receipt:'alder_bark_projection',resolutions:[4096,2048,1024]}:
+    key.includes('basalt')?{field:'basalt_projection',tool:'bake_basalt_projection.py',receipt:'basalt_projection',resolutions:[2048,1024,512]}:undefined;
+  built.maxTextureResolution=projectionPolicy?.resolutions[0]??1024;
   check(JSON.stringify(built.lods.map(l=>l.level))==='[0,1,2]',key+': three ordered LODs required');
   for(const lod of built.lods){
     const file=path.join(work,'runtime',lod.model),bytes=await fs.readFile(file);
@@ -90,17 +92,17 @@ for(const [key,definition] of Object.entries(source.assets)){
     }
     check(lod.texture_packing?.output_glb_sha256===lod.sha256,lod.model+': texture packing receipt mismatch');
     check(lod.texture_packing?.tool_sha256===await hashFile(path.join(work,'tools/share_textures.py')),lod.model+': packing tool changed');
-    if(key.includes('alder')){
-      const projection=lod.bark_projection;
-      check(projection?.toolSha256===await hashFile(path.join(work,'tools/bake_bark_projection.py')),lod.model+': changed continuous bark projection tool');
-      check(projection?.geometrySha256Before===projection?.geometrySha256After&&!!projection?.geometrySha256Before,lod.model+': bark projection altered geometry');
-      const retained=await read(path.join(work,'review',`alder_bark_projection_lod${lod.level}.json`));
-      check(JSON.stringify(retained)===JSON.stringify(projection),lod.model+': changed retained bark projection receipt');
+    if(projectionPolicy){
+      const projection=lod[projectionPolicy.field];
+      check(projection?.toolSha256===await hashFile(path.join(work,'tools',projectionPolicy.tool)),lod.model+': changed continuous projection tool');
+      check(projection?.geometrySha256Before===projection?.geometrySha256After&&!!projection?.geometrySha256Before,lod.model+': projection altered geometry');
+      const retained=await read(path.join(work,'review',`${projectionPolicy.receipt}_lod${lod.level}.json`));
+      check(JSON.stringify(retained)===JSON.stringify(projection),lod.model+': changed retained projection receipt');
       for(const channel of ['baseColor','normal','orm']){
-        const map=projection?.channels?.[channel];check(!!map,lod.model+': missing baked bark '+channel);if(!map)continue;
+        const map=projection?.channels?.[channel];check(!!map,lod.model+': missing baked projection '+channel);if(!map)continue;
         const image=await fs.readFile(path.join(work,map.file));
-        check(hash(image)===map.sha256,lod.model+': changed baked bark '+channel);
-        check(map.resolution===[4096,2048,1024][lod.level]&&image.readUInt32BE(16)===map.resolution&&image.readUInt32BE(20)===map.resolution,lod.model+': incorrect bark atlas dimensions');
+        check(hash(image)===map.sha256,lod.model+': changed baked projection '+channel);
+        check(map.resolution===projectionPolicy.resolutions[lod.level]&&image.readUInt32BE(16)===map.resolution&&image.readUInt32BE(20)===map.resolution,lod.model+': incorrect projection atlas dimensions');
       }
     }
     const checked=await validator.validateBytes(new Uint8Array(bytes),{uri:lod.model,maxIssues:1000,externalResourceFunction:uri=>fs.readFile(path.resolve(path.dirname(file),uri))});

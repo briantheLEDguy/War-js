@@ -1,0 +1,20 @@
+[
+  {
+    "level": 0,
+    "modelSha256": "73a4024da48d7ae8af88e0ce175e8eef29cc214f2832b8c32c7071a48088e6d5",
+    "positionTriangleSha256": "9dd653ed21f07373752f9fa172fe44beea7065699eed2e287be8117aab51b4fe",
+    "triangles": 12474
+  },
+  {
+    "level": 1,
+    "modelSha256": "3921b960efb2af9aff6705b20363ba6c15c4889e6d663e7119f61db9c6161ff3",
+    "positionTriangleSha256": "74d894084554704196cfb0be58116654a219d59768f328a2d9f75b4d6dab641d",
+    "triangles": 2356
+  },
+  {
+    "level": 2,
+    "modelSha256": "3d918f5009238c9e9bfb42b4412187b4a0b56f2b3e88805302dc5feb31eb1205",
+    "positionTriangleSha256": "e6345c955e0a59f065b51e3d53ac00b907cb4c70c4a71fbd409d01ae5f36f021",
+    "triangles": 208
+  }
+]

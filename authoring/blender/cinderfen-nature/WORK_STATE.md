@@ -1,3 +1,85 @@
+## All four assets published - 2026-09-09
+
+Root accepted the seven final basalt images and published review-0b5c2146f3fd.json.
+All three GLBs preserve the original positional triangles; the continuous material
+field replaces the rejected face discontinuities. Exact public model, QC, texture
+and GM checks pass. Package runtimeReady is true; all four models are frozen.
+Root integrated 621 alders and 634 wetland plants. Basalt placement is next.
+Agent continues only in the separate cinderfen-woodland-floor package.
+
+## Basalt final evidence complete and frozen - 2026-09-09
+
+All seven exact exported basalt neutral/detail/measured-distance views are fresh
+and hash-bound in the three reimport receipts. New GLBs retain exactly the old
+position triangles at 12474 / 2356 / 208; independent comparison receipts and
+Khronos reports pass, with zero errors/warnings and zero positional boundary,
+multi-face or loose edges. Continuous PBR atlases are 2048 / 1024 / 512 pixels.
+The only normal repair is the three corners of one 0.000000378 m2 LOD0 bevel
+facet; geometry and all other normals remain unchanged. Original finished UVs
+and modifier/cage source are retained in the master. Root must still accept the
+actual images and publish basalt; this agent has not approved it.
+
+The five source tests pass. Strict blueprint tests now read each current
+per-asset build record so scoped publication cannot compare against a stale
+aggregate; all four blueprint checks pass. The published alder/reeds/sedge
+scopes still pass exact model/QC/texture/GM hash tests. Tools are settled and
+source/provenance.json has been refreshed. All nature package edits are frozen
+for root review/publication; no Blender process is running. Next root-assigned
+work is a separate Cinderfen woodland-floor package after this evidence boundary.
+
+## Alder published; basalt chart correction active - 2026-09-09
+
+Root accepted the complete alder review set and signed review-f76313026364.json.
+Its three exact GLBs/PBR/QC/blueprint/manifest/GM records are published; scoped
+validation and exact published hash tests pass. Alder, reeds and sedge models,
+masters and accepted images are frozen. Root owns woodland placement.
+
+Basalt geometry and normals are unchanged from its prior finished master. The
+new UV atlas exposed one near-collinear subpixel bevel chart; the original UVs
+pass tangent calculation on the same mesh. A bounded atlas correction allocates
+an independent eight-texel chart to failed corners and rechecks tangents before
+baking. The basalt all-LOD rebuild is running with that correction. No new
+basalt images or visual acceptance exist yet. Source/tool editing freeze has
+been released for this bounded work; root still owns publication and metadata.
+
+## Stable alder export boundary - 2026-09-09
+
+Final repaired bark build completed at 104764 / 39816 / 5672 triangles. Actual
+packed GLBs pass Khronos with zero errors and warnings at all three LODs;
+positional topology reports zero boundary, multi-face and loose edges. All 45
+primary limb sockets pass their joined-shell audit. The exact LOD0 lower-join
+image and atomic receipt are fresh (model SHA begins 97c26ebd, image 907dbe59).
+Root has been sent the image for visual judgment. The full neutral, distance and
+detail views still need refresh; no visual approval or publication exists.
+No Blender build/render is running at this boundary. Exporter source bytes are
+retained at review/tool_sources/build_nature_51fa086d842c1f20fdd23033087eab8600646c22e2cc78212899be1a007e1f0e.py.
+Source/provenance.json has deliberately not been refreshed while tools settle.
+
+## Active alder export repair - 2026-09-09
+
+Root accepted the current irregular longitudinal bark source direction for exact
+export review. Lower join fairing remains accepted direction, not final approval.
+The prior all-LOD bake met 110000/40000/8000 budgets but Khronos detected a zero
+tangent at a very thin upper-bole triangle. The new source keeps a persistent
+primary-shell tag and collapses only sub-1.5 mm edges shared by two triangles
+with aspect above 100, excluding the separate fine-shoot components. LOD0
+source diagnosis removes 10 such edges and retains zero nonmanifold edges.
+The all-LOD rebuild is running; an explicit tangent audit now runs before baking.
+No final all-LOD validation or visual acceptance exists for this repair yet.
+
+Reeds and sedge are published and frozen. Basalt continuity source preview is
+approved direction for an exact-geometry bake after alder export review; it is
+still unpublished. Root owns scoped validation, readiness and publication.
+Review images and receipts are stale wherever rebuilt GLB hashes differ.
+
+## Resumed after checkpoint 0d8fc8b — 2026-09-09
+
+Root released the staging freeze. The new stronger irregular longitudinal bark
+source preview is complete at review/diagnostic_bark_material_source.png; waiting
+for root direction before the final three-LOD bake. The 600-edge LOD1 support cap
+is saved but its completed export is not yet verified. Alder/basalt stay withheld.
+Reeds/sedge stay published and frozen. No process is running at this boundary.
+
 ## Checkpoint boundary — 2026-09-09, latest status
 
 All this agent's Blender processes are stopped at a safe output boundary. Source

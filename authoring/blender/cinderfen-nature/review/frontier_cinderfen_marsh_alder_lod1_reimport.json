@@ -1,6 +1,6 @@
 {
   "model": "frontier_cinderfen_marsh_alder_lod1.glb",
-  "sha256": "d1c6532f964352012891ffc6742018f52e20522c552d44f45e5070b83b03ad49",
+  "sha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
   "reviewer_sha256": "0e7de3958ef58454244ed5381a85df3e687ee1c3b579da9c4c726b13f319d755",
   "audit": {
     "meshes": [
@@ -9,7 +9,7 @@
         "boundary_edges_after_positional_weld": 0,
         "multi_face_edges_after_positional_weld": 0,
         "loose_edges": 0,
-        "faces": 12744
+        "faces": 13944
       },
       {
         "mesh": "rounded_alternate_bronze_leaves.lod1",
@@ -30,7 +30,7 @@
       "minimum": [
         -2.9134013652801514,
         -2.332132577896118,
-        -0.5334789156913757
+        -0.5384602546691895
       ],
       "maximum": [
         3.204603910446167,
@@ -45,20 +45,20 @@
   "views": {
     "neutral": {
       "image": "frontier_cinderfen_marsh_alder_lod1_neutral.png",
-      "sha256": "ad898407d1f06d8787d910918da73f74cde444ac403b9cb428f1bab87faa21f9",
+      "sha256": "c921482816a86856f3596948859f04c6f383b3933b1d2723bfb6e4ed1e3ca507",
       "camera": {
         "distance_m": null,
         "projection": "ORTHO",
         "lens_mm": null,
         "camera_position_z_up": [
-          8.854204177856445,
-          -17.024309158325195,
-          9.045984268188477
+          8.858189582824707,
+          -17.03227996826172,
+          9.045387268066406
         ],
         "target_z_up": [
           0.1456012725830078,
           0.39289700984954834,
-          4.909398078918457
+          4.906907081604004
         ],
         "resolution": [
           1400,
@@ -69,20 +69,20 @@
     },
     "gameplay": {
       "image": "frontier_cinderfen_marsh_alder_lod1_gameplay.png",
-      "sha256": "f1a5b2557f4c87e727e7957da487e84a4d746c6ca74f208bb7e52d6aacb42418",
+      "sha256": "0fcbf1c65313be85af00013d0cab7d7021ce8f0599d3dea83f764d2a8a17001d",
       "camera": {
         "distance_m": 45,
         "projection": "PERSP",
         "lens_mm": 38,
         "camera_position_z_up": [
-          2.322751998901367,
+          2.3237483501434326,
           -44.60710144042969,
-          2.888575315475464
+          2.889073610305786
         ],
         "target_z_up": [
           0.1456012725830078,
           0.39289700984954834,
-          4.909398078918457
+          4.906907081604004
         ],
         "resolution": [
           1280,

@@ -43,6 +43,17 @@ def bake_bark(obj,lod,preview_only=False):
         for face in data.polygons:
             coords=[uv_data[i].uv for i in face.loop_indices]
             occupied+=abs(sum(a.x*b.y-b.x*a.y for a,b in zip(coords,coords[1:]+coords[:1])))*.5
+    if not preview_only:
+        data.calc_tangents(uvmap='authored_uv')
+        invalid=[loop.index for loop in data.loops if loop.tangent.length<.99]
+        if invalid:
+            rows=[]
+            for i in invalid:
+                face=next(p for p in data.polygons if i in p.loop_indices)
+                rows.append({'loop':i,'vertex':data.loops[i].vertex_index,'position':list(data.vertices[data.loops[i].vertex_index].co),'normal':list(data.corner_normals[i].vector),'tangent':list(data.loops[i].tangent),'face':face.index,'faceNormal':list(face.normal),'positions':[list(data.vertices[data.loops[j].vertex_index].co) for j in face.loop_indices],'uvs':[list(data.uv_layers['authored_uv'].data[j].uv) for j in face.loop_indices]})
+            (ROOT/'review'/f'invalid_tangents_lod{lod}.json').write_text(json.dumps(rows,indent=2)+'\n')
+        data.free_tangents()
+        if invalid:raise RuntimeError(f'Bark LOD{lod} has {len(invalid)} invalid tangents before baking: {invalid[:8]}')
     source=bpy.data.materials.new(f'retained_continuous_bark_projection_lod{lod}');source.use_nodes=True;source.use_fake_user=True
     nodes=source.node_tree.nodes;links=source.node_tree.links;nodes.clear()
     output=nodes.new('ShaderNodeOutputMaterial');shader=nodes.new('ShaderNodeBsdfPrincipled');links.new(shader.outputs[0],output.inputs[0])
@@ -66,17 +77,14 @@ def bake_bark(obj,lod,preview_only=False):
         links.new(value,node.inputs[0]);return node.outputs['Color']
     age_node=nodes.new('ShaderNodeAttribute');age_node.attribute_name='bark_maturity';maturity=age_node.outputs['Fac']
     broad=noise((.85,.85,.72),4);grain=noise((92,92,10),3)
-    warp=nodes.new('ShaderNodeVectorMath');warp.operation='SCALE';links.new(noise((4,4,1.4)),warp.inputs[0]);warp.inputs['Scale'].default_value=.28
-    field=nodes.new('ShaderNodeVectorMath');field.operation='ADD';links.new(scaled((21,21,2.15)),field.inputs[0]);links.new(warp.outputs[0],field.inputs[1])
-    cracks=nodes.new('ShaderNodeTexVoronoi');cracks.voronoi_dimensions='3D';cracks.feature='DISTANCE_TO_EDGE';cracks.inputs['Scale'].default_value=1;links.new(field.outputs[0],cracks.inputs['Vector'])
-    fissure=ramp(noise((22,22,1.7),4),[(.28,(1,1,1)),(.39,(.45,.45,.45)),(.49,(0,0,0))])
-    interrupted=ramp(noise((5,5,9),2),[(.43,(0,0,0)),(.56,(.6,.6,.6)),(.70,(1,1,1))])
+    fissure=ramp(noise((22,22,1.7),4),[(.30,(1,1,1)),(.44,(.55,.55,.55)),(.57,(0,0,0))])
+    interrupted=ramp(noise((5,5,9),2),[(.39,(0,0,0)),(.52,(.65,.65,.65)),(.68,(1,1,1))])
     age_strength=math_node('ADD',.035,math_node('MULTIPLY',maturity,.965))
     fissure_strength=math_node('MULTIPLY',fissure,math_node('MULTIPLY',interrupted,age_strength))
     # Pigment variation is independent of narrow interrupted fissures. Sparse
     # fine lenticels and restrained lichen replace broad outlined polygons.
     bark=ramp(broad,[(.29,(.027,.030,.025)),(.48,(.075,.066,.048)),(.67,(.135,.14,.117))])
-    furrow=nodes.new('ShaderNodeMixRGB');links.new(math_node('MULTIPLY',fissure_strength,.52),furrow.inputs[0]);links.new(bark,furrow.inputs[1]);furrow.inputs[2].default_value=(.028,.029,.022,1)
+    furrow=nodes.new('ShaderNodeMixRGB');links.new(math_node('MULTIPLY',fissure_strength,.67),furrow.inputs[0]);links.new(bark,furrow.inputs[1]);furrow.inputs[2].default_value=(.019,.024,.019,1)
     lenticels=ramp(noise((27,27,125),1),[(.67,(0,0,0)),(.78,(.18,.18,.18)),(.88,(.35,.35,.35))])
     fleck=nodes.new('ShaderNodeMixRGB');links.new(lenticels,fleck.inputs[0]);links.new(furrow.outputs[0],fleck.inputs[1]);fleck.inputs[2].default_value=(.17,.16,.13,1)
     lichen=ramp(noise((11,11,7),3),[(.63,(0,0,0)),(.76,(.35,.35,.35)),(.85,(.58,.58,.58))])
@@ -86,7 +94,7 @@ def bake_bark(obj,lod,preview_only=False):
     wet=math_node('MINIMUM',1,math_node('MAXIMUM',0,math_node('DIVIDE',wet_height,.85)))
     damp=nodes.new('ShaderNodeMixRGB');links.new(math_node('MULTIPLY',wet,.7),damp.inputs[0]);links.new(color.outputs[0],damp.inputs[1]);damp.inputs[2].default_value=(.015,.024,.018,1)
     height=math_node('SUBTRACT',math_node('MULTIPLY',grain,.22),math_node('MULTIPLY',fissure_strength,.78))
-    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.65;bump.inputs['Distance'].default_value=.011;links.new(height,bump.inputs['Height']);links.new(bump.outputs['Normal'],shader.inputs['Normal'])
+    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.82;bump.inputs['Distance'].default_value=.017;links.new(height,bump.inputs['Height']);links.new(bump.outputs['Normal'],shader.inputs['Normal'])
     links.new(damp.outputs[0],shader.inputs['Base Color']);roughness=math_node('SUBTRACT',math_node('ADD',.74,math_node('MULTIPLY',broad,.2)),math_node('MULTIPLY',wet,.19));links.new(roughness,shader.inputs['Roughness'])
     ao=nodes.new('ShaderNodeAmbientOcclusion');ao.samples=16;ao.inputs['Distance'].default_value=.14;ao.only_local=True
     orm=nodes.new('ShaderNodeCombineColor');orm.mode='RGB';links.new(ao.outputs['AO'],orm.inputs['Red']);links.new(roughness,orm.inputs['Green']);orm.inputs['Blue'].default_value=0

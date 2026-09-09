@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "completeReimportReview": true,
+  "issues": [],
+  "models": [
+    {
+      "model": "frontier_cinderfen_basalt_outcrop_lod0.glb",
+      "sha256": "da59a6ddbe30f35e57d394679f8b7e7c2fde9d27ecaea9393ca5d1b50e62e071",
+      "triangles": 12474,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_basalt_outcrop_lod1.glb",
+      "sha256": "8d0a49bffb65afcfb401ab28b478b0e91097f1d53d8fc1ea3d46d0a855cdb6be",
+      "triangles": 2356,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_basalt_outcrop_lod2.glb",
+      "sha256": "52809ed1c4c9684422761cc94f6297aec2e230b2355232c04f602348445e4a43",
+      "triangles": 208,
+      "errors": 0,
+      "warnings": 0
+    }
+  ]
+}

@@ -2,8 +2,8 @@
 
 Four original models for the autumn geothermal marsh: a steam-damaged alder,
 reed colony, rust sedge with marsh horsetail, and irregular fractured basalt.
-Reeds and sedges are internally accepted and published at exact reviewed hashes.
-Alder and basalt remain under visual correction and are withheld from runtime.
+All four assets are internally accepted and published at exact reviewed hashes.
+Their separate receipts retain the original reviewed build and image evidence.
 The accepted architecture package is separate and remains frozen.
 
 The source retains the main bole and limb paths, asymmetrical cross-sections,
@@ -20,7 +20,18 @@ No Blender primitive constructors, generic imported models or canopy cards are
 used. The models are static: they do not claim wind or skeletal animation.
 
 Eight original 1024-pixel painted fields provide base color, tangent normal,
-roughness, ambient occlusion and zero metallic. Height source images remain
+roughness, ambient occlusion and zero metallic. The alder additionally uses a
+continuous object-space bark field with age-weighted longitudinal fissures,
+broad pigment variation, damp roots and restrained lichen, baked into measured
+4096/2048/1024 atlases. Basalt uses continuous object-space mineral pigment,
+pitting and fracture fields baked into 2048/1024/512 atlases. Its original triangle
+positions are unchanged; one microscopic bevel facet has a recorded geometric
+normal correction to remove an invalid tangent. Original UVs and shader sources remain in the master;
+runtime exports contain only their actual bake UV. Basalt uses continuous
+mineral, weathering and cooling-fracture fields baked to 2048/1024/512 atlases.
+Its finished triangle positions are independently checked against the previous
+actual exports; one sub-square-millimetre bevel facet uses its geometric normal
+to resolve an undefined tangent from the inherited weighted normals. Height source images remain
 inspectable. Plant fibres and leaf veins follow the authored UV direction.
 Pillow writes rows from top to bottom, so normal RGB derives from
 `(-dH/dx, +dH/dy, +1)`; a focused test verifies that signed convention against
@@ -45,6 +56,9 @@ in each LOD and QC record. Repeated organs intentionally share material UVs.
 
 Run commands from the repository root, checking each exit status before moving
 on. Coordinate CPU resources with other asset work. Blender uses three threads.
+These are authoring commands, not a publication refresh: preserve the accepted
+masters, models, textures and receipts. New revisions need isolated outputs and
+a new visual review before replacing a published asset.
 
 ```powershell
 python authoring/blender/cinderfen-nature/tools/author_nature.py
