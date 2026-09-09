@@ -2,13 +2,14 @@ import * as THREE from 'three';
 import { AssetLoader, type CharacterAssetResolution } from '../AssetLoader';
 import { Terrain } from '../../world/Terrain';
 import { loadZone, type ZoneDefinition, type PropSpawn } from '../../world/ZoneLoader';
-import type { WorldSnapshot, Position } from '../../shared/orvr/protocol';
+import type { WorldSnapshot, Position, EquipmentState } from '../../shared/orvr/protocol';
 import type { CampaignConnection } from './CampaignConnection';
 import { assembleCampaignEquipment, campaignAnimationClips, campaignNpcProfile, resolveCampaignEquipment, type CampaignEquipmentModule } from './CampaignCharacterPresentation';
 import { StaticPropInstances } from '../StaticPropInstances';
 import { frontierPropDistances } from '../../world/FrontierProps';
 import { campaignGateBindings, campaignGateVisible, sceneryDistanceLod, type CampaignGateBinding } from './CampaignSceneryPresentation';
 import { assembleCampaignCaravan, caravanFacing, type CampaignCaravanVisual } from './CampaignCaravanPresentation';
+import { assembleCampaignSiege, campaignSiegeFacing, campaignSiegeKind, SIEGE_ASSET_KEYS, type CampaignSiegeVisual } from './CampaignSiegePresentation';
 
 /** One queue bounds GLB parsing across all chunks and actors in a stage. */
 export class CampaignAssetQueue {
@@ -89,15 +90,16 @@ export function releaseCampaignActor(root: THREE.Object3D, mixers: THREE.Animati
   root.removeFromParent();
 }
 
-interface Visual { object: THREE.Object3D; mixer?: THREE.AnimationMixer; moving?: THREE.AnimationAction; idle?: THREE.AnimationAction; caravan?: CampaignCaravanVisual }
+interface Visual { object: THREE.Object3D; mixer?: THREE.AnimationMixer; moving?: THREE.AnimationAction; idle?: THREE.AnimationAction; caravan?: CampaignCaravanVisual; siege?: CampaignSiegeVisual }
 interface Actor {
   object: THREE.Group; target: THREE.Vector3; signature: string; models: string[]; asset?: CharacterAssetResolution;
   levels: Map<number, Visual>; pending: Set<number>; failed: Set<number>; selected: number; desired: number; valid: boolean; moving: boolean;
   animationTime: number; animationAccumulator: number;
   travelDistance: number; speed: number;
   equipment: CampaignEquipmentModule[];
+  machine?: EquipmentState;
 }
-interface ActorDescription { id: string; position: Position; profile?: string; staticKey?: string; self: boolean; signature: string; selectable?: boolean; facing?: number }
+interface ActorDescription { id: string; position: Position; profile?: string; staticKey?: string; self: boolean; signature: string; selectable?: boolean; facing?: number; machine?: EquipmentState }
 interface Scenery { object: THREE.Group; models: string[]; levels: Map<number, THREE.Object3D>; pending: Set<number>; failed: Set<number>; selected: number; desired: number; batchable: boolean; distances: number[]; cull: number; inRange: boolean; gate?: CampaignGateBinding }
 interface Chunk { x: number; z: number; props: PropSpawn[]; group: THREE.Group; loaded: boolean; loading: boolean; loader: AssetLoader | null; instances: Scenery[]; batches?: StaticPropInstances }
 interface Stage {
@@ -117,6 +119,7 @@ export class SharedCampaignRenderer {
   private camera = new THREE.PerspectiveCamera(55, 1, .15, 1100);
   private stage: Stage | null = null;
   private snapshot: WorldSnapshot | null = null;
+  private snapshotElapsed = 0;
   private loadingId = '';
   private generation = 0;
   private disposed = false;
@@ -157,6 +160,7 @@ export class SharedCampaignRenderer {
   }
   update(snapshot: WorldSnapshot): void {
     this.snapshot = snapshot;
+    this.snapshotElapsed = 0;
     if (snapshot.zone && snapshot.zone.id !== this.stage?.id && snapshot.zone.id !== this.loadingId) void this.load(snapshot.zone.id);
     if (snapshot.self && this.stage?.id === snapshot.self.zoneId) this.updateActors();
   }
@@ -352,15 +356,19 @@ export class SharedCampaignRenderer {
     for (const wagon of Object.values(snapshot.zone.caravans)) if (wagon.status === 'moving' || wagon.status === 'waiting') {
       add(wagon.id, wagon.position, undefined, wagon.health, false, 'frontier_supply_wagon', caravanFacing(wagon));
     }
-    const equipmentKeys = { ram: 'frontier_battering_ram', oil: 'frontier_oil_cauldron', catapult: 'frontier_field_catapult' };
-    for (const machine of Object.values(snapshot.zone.equipment)) add(machine.id, machine.position, undefined, machine.health, false, equipmentKeys[machine.kind]);
+    for (const machine of Object.values(snapshot.zone.equipment)) {
+      add(machine.id, machine.position, undefined, machine.health, false, SIEGE_ASSET_KEYS[machine.kind],
+        campaignSiegeFacing(machine, snapshot.zone.config.keeps.find(keep => keep.id === machine.keepId)));
+      const description = wanted.get(machine.id);
+      if (description) description.machine = machine;
+    }
     stage.desiredActors = wanted;
     for (const [id, actor] of stage.actors) if (!wanted.has(id) || wanted.get(id)!.signature !== actor.signature) {
       this.releaseActor(actor); stage.actors.delete(id);
     }
     for (const [id, description] of wanted) {
       const actor = stage.actors.get(id);
-      if (actor) { actor.target.set(description.position.x, description.position.y, description.position.z); continue; }
+      if (actor) { actor.target.set(description.position.x, description.position.y, description.position.z); actor.machine = description.machine; continue; }
       if (!stage.pending.has(id) && stage.unavailable.get(id) !== description.signature) void this.createActor(stage, description);
     }
   }
@@ -385,7 +393,7 @@ export class SharedCampaignRenderer {
       object.position.set(latest.position.x, latest.position.y, latest.position.z);
       actor = {
         object, target: object.position.clone(), signature: description.signature, models, asset: asset ?? undefined,
-        levels: new Map(), pending: new Set(), failed: new Set(), selected: -1, desired: 0, valid: true, moving: false, animationTime: 0, animationAccumulator: 0, travelDistance: 0, speed: 0, equipment,
+        levels: new Map(), pending: new Set(), failed: new Set(), selected: -1, desired: 0, valid: true, moving: false, animationTime: 0, animationAccumulator: 0, travelDistance: 0, speed: 0, equipment, machine: latest.machine,
       };
       const self = this.snapshot?.self?.position ?? latest.position;
       actor.desired = campaignLodLevel(description.self ? 0 : Math.hypot(latest.position.x - self.x, latest.position.z - self.z), models.length, true);
@@ -395,6 +403,7 @@ export class SharedCampaignRenderer {
         this.releaseActor(actor); stage.unavailable.set(id, description.signature); return;
       }
       actor.target.set(current.position.x, current.position.y, current.position.z); actor.object.position.copy(actor.target);
+      actor.machine = current.machine;
       stage.actors.set(id, actor); stage.scene.add(object);
     } catch {
       if (actor) this.releaseActor(actor);
@@ -412,6 +421,13 @@ export class SharedCampaignRenderer {
       object = loaded.object;
       if (!actor.valid || stage !== this.stage || this.disposed) { releaseCampaignActor(object); return; }
       if (!hasMesh(object)) throw new Error('Reviewed actor model unavailable');
+      const siegeKind = campaignSiegeKind(actor.signature);
+      if (siegeKind) {
+        const siege = assembleCampaignSiege(object, loaded.animations, siegeKind);
+        object.visible = false; actor.object.add(object); actor.levels.set(level, { object, siege });
+        if (level === actor.desired || actor.selected < 0) this.selectActorLevel(actor, level);
+        return;
+      }
       if (actor.signature === 'frontier_supply_wagon') {
         const caravan = await assembleCampaignCaravan(object, loaded.animations, level, stage.loader,
           load => stage.queue.run(load, true), () => actor.valid && stage === this.stage && !this.disposed);
@@ -449,6 +465,7 @@ export class SharedCampaignRenderer {
       this.setActorMotion(visual, actor.moving);
       visual.mixer?.setTime(actor.animationTime);
       visual.caravan?.update(actor.animationTime, actor.travelDistance, actor.speed);
+      visual.siege?.update(this.siegeTime(), actor.machine?.lastOperation, actor.travelDistance);
     }
   }
   private setActorMotion(visual: Visual, moving: boolean): void {
@@ -457,7 +474,7 @@ export class SharedCampaignRenderer {
   }
   private releaseActor(actor: Actor): void {
     actor.valid = false;
-    releaseCampaignActor(actor.object, [...actor.levels.values()].flatMap(visual => visual.caravan?.mixers ?? (visual.mixer ? [visual.mixer] : [])));
+    releaseCampaignActor(actor.object, [...actor.levels.values()].flatMap(visual => visual.caravan?.mixers ?? (visual.siege ? [visual.siege.mixer] : visual.mixer ? [visual.mixer] : [])));
     actor.levels.clear();
   }
   private releaseStage(stage: Stage): void {
@@ -470,6 +487,7 @@ export class SharedCampaignRenderer {
   }
   private frame = () => {
     const dt = Math.min(this.clock.getDelta(), .08), stage = this.stage, self = this.snapshot?.self;
+    this.snapshotElapsed = Math.min(.25, this.snapshotElapsed + dt);
     this.moveClock += dt; this.streamingClock += dt;
     if (this.moveClock >= .05) {
       this.moveClock = 0;
@@ -488,6 +506,7 @@ export class SharedCampaignRenderer {
       const travelled = distance > 20 ? 0 : Math.hypot(previous.x - actor.object.position.x, previous.z - actor.object.position.z);
       actor.travelDistance += travelled; actor.speed = dt > 0 ? travelled / dt : 0;
       if (moving) actor.object.rotation.y = Math.atan2(actor.target.x - previous.x, actor.target.z - previous.z);
+      else if (actor.machine) actor.object.rotation.y = stage.desiredActors.get(id)?.facing ?? actor.object.rotation.y;
       const visual = actor.levels.get(actor.selected);
       if (moving !== actor.moving) { actor.moving = moving; if (visual) this.setActorMotion(visual, moving); }
       actor.animationTime += dt; actor.animationAccumulator += dt;
@@ -496,6 +515,7 @@ export class SharedCampaignRenderer {
       if (actor.object.visible && actor.animationAccumulator >= interval) {
         visual?.mixer?.update(actor.animationAccumulator);
         visual?.caravan?.update(actor.animationTime, actor.travelDistance, actor.speed);
+        visual?.siege?.update(this.siegeTime(), actor.machine?.lastOperation, actor.travelDistance);
         actor.animationAccumulator = 0;
       }
     }
@@ -511,6 +531,7 @@ export class SharedCampaignRenderer {
     this.camera.lookAt(this.cameraTarget.x, this.cameraTarget.y + 1.8, this.cameraTarget.z);
     this.renderer.render(stage.scene, this.camera);
   };
+  private siegeTime(): number { return (this.snapshot?.zone?.seconds ?? 0) + this.snapshotElapsed; }
   private resize(): void { const w = Math.max(1, this.container.clientWidth), h = Math.max(1, this.container.clientHeight); this.renderer.setSize(w, h); this.camera.aspect = w / h; this.camera.updateProjectionMatrix(); }
   private keyDown = (event: KeyboardEvent) => { if (!(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLSelectElement) && !(event.target instanceof HTMLTextAreaElement) && !(event.target as HTMLElement)?.isContentEditable && !event.ctrlKey && !event.metaKey) this.keys.add(event.code); };
   private keyUp = (event: KeyboardEvent) => { this.keys.delete(event.code); };

@@ -6,6 +6,7 @@ import { useGameStore } from '../state/gameStore';
 import { buildCharacterMesh } from './CharacterMeshes';
 import { ResourceDisposer } from './ResourceDisposer';
 import { SharedTextureLoader } from './SharedTextureLoader';
+import { applyMechanismReadyPose } from './animation/MechanismReadyPose';
 
 export type PrimitiveFactory = () => THREE.Object3D;
 
@@ -650,7 +651,9 @@ export class AssetLoader {
     }
     const { object, animations } = await pending;
     this.assertActive();
-    return { object: cloneSkeleton(object), animations };
+    const clone = cloneSkeleton(object);
+    applyMechanismReadyPose(clone, animations);
+    return { object: clone, animations };
   }
 
   /**

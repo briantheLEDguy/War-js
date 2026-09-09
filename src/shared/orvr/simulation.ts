@@ -565,6 +565,7 @@ function operate(state: CampaignState, zone: ZoneState, player: PlayerState, equ
   if (!equipment || equipment.health <= 0 || equipment.realm !== player.realm || !equipment.operators.includes(player.id)) return 'not_operator';
   if (equipment.nextOperationAt > zone.seconds + EPSILON) return 'equipment_cooldown';
   if (!targetId) return 'target_required';
+  let targetPosition: Position;
   if (equipment.kind === 'ram') {
     const operators = equipment.operators.map(id => state.players[id]).filter(p => p && live(p) && p.equipmentId === equipment.id);
     if (operators.length < 2) return 'two_operators_required';
@@ -572,6 +573,7 @@ function operate(state: CampaignState, zone: ZoneState, player: PlayerState, equ
     if (!gate || gate.keep.owner === player.realm || gate.gate.health <= 0) return 'invalid_gate';
     if (gate.kind === 'inner' && gate.keep.gates.outer.health > 0) return 'outer_gate_required';
     if (distance(equipment.position, gate.position) > 14) return 'out_of_range';
+    targetPosition = { ...gate.position };
     gate.gate.health = Math.max(0, gate.gate.health - 100);
     gate.gate.lastDamagedAt = zone.seconds;
     equipment.nextOperationAt = zone.seconds + 3;
@@ -581,9 +583,12 @@ function operate(state: CampaignState, zone: ZoneState, player: PlayerState, equ
     const range = equipment.kind === 'oil' ? 18 : 160;
     if (!target || target.realm === player.realm || distance(equipment.position, target.position) > range) return 'invalid_target';
     if ('kind' in target && target.kind === 'commander') return 'invalid_target';
+    targetPosition = { ...target.position };
     applyDamage(state, zone, target, equipment.kind === 'oil' ? 45 : 80, equipment.id, events);
     equipment.nextOperationAt = zone.seconds + (equipment.kind === 'oil' ? 4 : 6);
   }
+  equipment.lastOperation = { at: zone.seconds, target: targetPosition };
+  emit(state, events, 'equipment_operated', zone, { equipmentId, targetId, kind: equipment.kind });
   return null;
 }
 

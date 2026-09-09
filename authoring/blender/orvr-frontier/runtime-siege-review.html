@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Campaign siege runtime review</title>
+<style>
+body { margin:0; background:#aab3bb; color:#ece8dd; font:14px system-ui; }
+canvas { display:block; }
+nav { position:absolute; left:20px; top:20px; background:#18232bed; padding:20px; width:285px; border-radius:6px; }
+h1 { font:24px Georgia; margin:0 0 14px; }
+label { display:block; margin:10px 0; }
+select, button { background:#33434d; color:white; padding:8px; border:1px solid #77878e; }
+button { margin:5px 3px; }
+output { display:block; white-space:pre-wrap; line-height:1.5; margin-top:12px; }
+p { line-height:1.5; color:#c8cece; }
+</style>
+<canvas></canvas>
+<nav>
+  <h1>Siege mechanisms</h1>
+  <label>Engine <select id="kind"><option value="catapult">Field catapult</option><option value="ram">Battering ram</option><option value="oil">Oil cauldron</option></select></label>
+  <label>Detail <select id="lod"><option value="0">Close</option><option value="1">Middle</option><option value="2">Distant</option></select></label>
+  <label><input type="checkbox" id="rolling"> Roll carriage</label>
+  <button id="operate" disabled>Operate</button><button id="pause">Pause</button><button id="frame">Frame</button>
+  <label>Pose time <input type="range" id="phase" min="0" max="6" step="0.025" value="0"></label>
+  <output id="status">Loading approved runtime model…</output>
+  <p>Operations use the shared authority. The slider freezes playback for close inspection. This page keeps its test campaign in memory.</p>
+</nav>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { AssetLoader } from '/src/game/AssetLoader.ts';
+import { assembleCampaignSiege, SIEGE_ASSET_KEYS } from '/src/game/network/CampaignSiegePresentation.ts';
+import { releaseCampaignActor } from '/src/game/network/SharedCampaignRenderer.ts';
+import { createCampaign, addPlayer, submitCommand } from '/src/shared/orvr/index.ts';
+
+const controlsById = Object.fromEntries(['kind','lod','rolling','operate','pause','frame','phase','status'].map(id => [id,document.getElementById(id)]));
+const renderer = new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene = new THREE.Scene(); scene.background=new THREE.Color('#aab3bb');
+scene.add(new THREE.HemisphereLight('#dbe5eb','#454337',2));
+const sun=new THREE.DirectionalLight('#fff1d5',3); sun.position.set(-6,10,5); scene.add(sun);
+const sky=new THREE.Scene(); sky.background=new THREE.Color('#c8d3dc');
+const generator=new THREE.PMREMGenerator(renderer), environment=generator.fromScene(sky);
+scene.environment=environment.texture; generator.dispose();
+const camera=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.05,200);
+const controls=new OrbitControls(camera,renderer.domElement), loader=new AssetLoader();
+let current, state, zone, machine, targetId, kind, generation=0, alive=true, paused=false, distance=0, prior=0, notice='';
+
+function command(id,action) {
+  return submitCommand(state,id,{version:1,sequence:state.players[id].lastSequence+1,activationId:zone.activationId,action});
+}
+function resetAuthority() {
+  kind=controlsById.kind.value; state=createCampaign();
+  for (const [id,realm] of [['driver','aegis'],['crew','aegis'],['target','riftbound']]) {
+    addPlayer(state,{id,userId:id,characterId:id,realm,zoneId:'sunmeadow_march'});
+  }
+  zone=state.zones.sunmeadow_march; zone.seconds=10;
+  const keep=zone.config.keeps[0]; zone.keeps[keep.id].level=3; zone.keeps[keep.id].supplies=1000;
+  state.players.driver.position={...keep.quartermaster};
+  command('driver',{type:'purchase',keepId:keep.id,equipment:kind});
+  machine=Object.values(zone.equipment)[0];
+  if(kind==='ram')machine.position={...zone.config.keeps[1].outerGate};
+  for(const id of ['driver','crew']) {
+    state.players[id].position={...(machine.operatorPosition??machine.position)};
+    if(id==='driver'||kind==='ram')command(id,{type:'board',equipmentId:machine.id});
+  }
+  state.players.target.position={...machine.position,z:machine.position.z+5};
+  targetId=kind==='ram'?zone.keeps[zone.config.keeps[1].id].gates.outer.id:'target';
+  notice='Ready. No operation has been requested.'; distance=0;
+}
+function frame() {
+  if(!current)return;
+  const box=new THREE.Box3().setFromObject(current.object),center=box.getCenter(new THREE.Vector3());
+  const extent=box.getSize(new THREE.Vector3()).length(); controls.target.copy(center);
+  camera.position.copy(center).add(new THREE.Vector3(extent*.95,extent*.4,extent*.8)); controls.update();
+}
+async function build() {
+  const token=++generation; controlsById.operate.disabled=true; controlsById.status.textContent='Loading verified model…';
+  const key=SIEGE_ASSET_KEYS[kind], level=Number(controlsById.lod.value);
+  const models=await loader.resolveApprovedAssetModels(key,'staticProps');
+  if(!models.length)throw new Error('Approved mechanism unavailable');
+  const loaded=await loader.loadModelFull(models[Math.min(level,models.length-1)],()=>new THREE.Group());
+  if(!alive||token!==generation){releaseCampaignActor(loaded.object);return;}
+  if(current)releaseCampaignActor(current.object,[current.visual.mixer]);
+  current={object:loaded.object,level,kind,visual:assembleCampaignSiege(loaded.object,loaded.animations,kind)};
+  scene.add(current.object); current.visual.update(zone.seconds,machine.lastOperation,distance);
+  controlsById.operate.disabled=false; frame();
+}
+function operate() {
+  state.players.target.health=state.players.target.maxHealth;
+  zone.keeps[zone.config.keeps[1].id].gates.outer.health=1000;
+  const result=command('driver',{type:'operate',equipmentId:machine.id,targetId});
+  notice=result.ok?'Authority accepted operation.':`Authority rejected: ${result.code}`;
+  return result.ok;
+}
+const failed=error=>{controlsById.status.textContent=error.message;};
+controlsById.operate.onclick=()=>{if(operate()){paused=false;controlsById.pause.textContent='Pause';}};
+controlsById.pause.onclick=()=>{paused=!paused;controlsById.pause.textContent=paused?'Play':'Pause';};
+controlsById.phase.oninput=()=>{
+  if(!machine.lastOperation&&!operate())return;
+  paused=true;controlsById.pause.textContent='Play';zone.seconds=machine.lastOperation.at+Number(controlsById.phase.value);
+};
+controlsById.kind.onchange=()=>{resetAuthority();build().catch(failed);};
+controlsById.lod.onchange=()=>build().catch(failed);controlsById.frame.onclick=frame;
+const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();};
+addEventListener('resize',resize);resize();resetAuthority();build().catch(failed);
+renderer.setAnimationLoop(now=>{
+  const dt=prior?Math.min((now-prior)/1000,.08):0;prior=now;
+  if(!paused){zone.seconds+=dt;if(controlsById.rolling.checked&&kind!=='oil')distance+=dt*2;}
+  if(current){
+    current.visual.update(zone.seconds,machine.lastOperation,distance);
+    const age=machine.lastOperation?Math.max(0,zone.seconds-machine.lastOperation.at):0;
+    if(!paused)controlsById.phase.value=String(Math.min(6,age));
+    if(!controlsById.operate.disabled)controlsById.status.textContent=`${SIEGE_ASSET_KEYS[current.kind]} · LOD ${current.level}\n${notice}\nAction time: ${age.toFixed(2)} s\n${paused?'Paused for inspection':'Live AnimationMixer playback'}`;
+  }
+  controls.update();renderer.render(scene,camera);
+});
+addEventListener('pagehide',()=>{alive=false;generation++;renderer.setAnimationLoop(null);if(current)releaseCampaignActor(current.object,[current.visual.mixer]);loader.dispose();controls.dispose();environment.dispose();renderer.dispose();},{once:true});
+</script>
+</html>

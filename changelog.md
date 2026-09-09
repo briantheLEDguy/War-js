@@ -1,3 +1,8 @@
+## 2026-09-09 — Resume regional art and connect siege mechanisms
+
+- Drive siege animations from confirmed campaign operations: cocked catapult readiness, fire/reload, ram strikes, oil pours and distance-driven carriage wheels. Repeated snapshots and LOD changes preserve action phase; older saves remain valid.
+- Add an in-memory shared-authority review page for the approved siege GLBs and focused operation/recovery tests. Resume the saved regional nature, wildlife and inhabitant drafts without granting asset approval.
+
 ## 2026-09-08 — Saved Cinderfen dressing and paused authoring work
 
 - Replace 21 Cinderfen furniture placements with reviewed neutral cargo, garden and laundry assets fitted around lanes and patrol routes. Add measured cargo grounding/collision checks and terrain-aware scene review.

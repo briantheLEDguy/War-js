@@ -207,6 +207,8 @@ export interface EquipmentState {
   maxHealth: number;
   operators: string[];
   nextOperationAt: number;
+  /** Accepted operation on the zone clock; optional for older saved campaigns. */
+  lastOperation?: { at: number; target: Position };
   abandonedSeconds: number;
 }
 export interface ZoneState {

@@ -1,6 +1,35 @@
 # World build continuation state
 
-## Paused by user — 2026-09-08 (latest instruction)
+## Resumed by user — 2026-09-09 (latest instruction)
+
+The user said Continue after the saved work was merged into main at `2c4a37a`.
+Work is active on `codex/world-quality-continuation`; the existing hourly
+continuation is ACTIVE. This entry supersedes every historical pause below.
+Three bounded agents own Cinderfen nature, Sunmeadow fauna and frontier population.
+Root owns siege runtime, visual decisions and global map/registry/GM integration.
+Preserve the merged cleanup and capital performance changes.
+
+The alder has sharper bark and its normal-map dash is gone; localized junction
+fairing is being reviewed to remove geometric shading seams. Basalt is withheld
+for visible texture discontinuities. Reeds and sedges have exact-export internal
+visual acceptance; scoped publication is in progress. The deer is testing local
+pose correctives and pelvis weights against the actual exported run cycle. The
+dwarf has improved arms and shoulders; tool, belt, boot and prone contacts remain
+under correction. Neither character is accepted.
+
+Siege presentation now samples accepted operations from zone time, including
+catapult cocked/fire/reload poses, ram strike, oil pour and distance-driven wheels.
+An optional lastOperation record preserves playback through snapshots and LOD
+loads; older saves remain valid. Static/GM catapults also hold the cocked ready
+pose. Forty focused tests, both typechecks, all 1,188 suite tests and production
+build pass. Browser review at `/authoring/blender/orvr-frontier/runtime-siege-review.html`
+checked ready, strike/pour/fire/reload and LOD phases without console errors.
+The actual animation data of all nine published GLBs passes focused tests. Oil
+cauldron floating ornaments remain an asset correction; crew and projectile/liquid
+effects and a full shared siege playthrough remain unfinished. Root Vite runs on
+port 5173. No zone is art-complete.
+
+## Paused by user — 2026-09-08
 
 The user explicitly paused this world work until they say continue. All three
 asset agents are paused, and the hourly continuation automation is PAUSED. Do not
