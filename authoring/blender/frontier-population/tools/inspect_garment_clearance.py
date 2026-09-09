@@ -51,6 +51,19 @@ for face in candidates:
 components={}
 for face in candidates:components.setdefault(root(keys[face[0]]),[]).append(face)
 apron=max(components.values(),key=len)
+band_faces=[tuple(face.vertices) for face in body.data.polygons
+            if '_worked_leather' in body.data.materials[face.material_index].name
+            and all(abs(rest[i,2]-belt)<.032 for i in face.vertices)]
+parents={};keys={i:tuple(np.round(rest[i],6)) for face in band_faces for i in face}
+for face in band_faces:
+    first=root(keys[face[0]])
+    for i in face[1:]:parents[root(keys[i])]=first
+bands={}
+for face in band_faces:bands.setdefault(root(keys[face[0]]),[]).append(face)
+band=max(bands.values(),key=len)
+band_vertices=sorted({i for face in band for i in face})
+if np.ptp(rest[band_vertices,0])<.4 or np.ptp(rest[band_vertices,1])<.4:raise RuntimeError('Missing complete waist belt inspection surface')
+band_edges=sorted({tuple(sorted((a,b))) for face in band for a,b in zip(face,face[1:]+face[:1])})
 trousers={i for face in body.data.polygons if '_wool' in body.data.materials[face.material_index].name for i in face.vertices}
 probes=np.array(sorted(i for i in trousers if belt-.39<rest[i,2]<belt-.035 and rest[i,1]<-.035 and abs(rest[i,0])<.31),dtype=int)
 if not apron or len(probes)<100:raise RuntimeError('Missing authored apron or trouser inspection surface')
@@ -61,7 +74,7 @@ for side,sign in [('L',1),('R',-1)]:
                           and all(rest[i,2]<.245 and sign*rest[i,0]>.12 for i in face.vertices)]
     hem_probes[side]=np.array(sorted(i for i in trousers if .145<rest[i,2]<.193 and sign*rest[i,0]>.12),dtype=int)
     if not boot_triangles[side] or len(hem_probes[side])<30:raise RuntimeError('Missing boot/hem inspection surface: '+side)
-records=[];boot_records=[]
+records=[];boot_records=[];belt_records=[]
 for clip in doc['animations']:
     if selected is not None and clip['name'] not in selected:continue
     measure_apron=clip['name'] in ('walk','run','jump')
@@ -74,12 +87,20 @@ for clip in doc['animations']:
         start=view.get('byteOffset',0)+accessor.get('byteOffset',0)
         times.update(round(struct.unpack_from('<f',binary,start+i*view.get('byteStride',4))[0],8) for i in range(accessor['count']))
     keys=sorted(times);times.update((a+b)/2 for a,b in zip(keys,keys[1:]))
-    samples=[];boot_samples=[]
+    samples=[];boot_samples=[];belt_samples=[]
     for seconds in sorted(times):
         for bone in rig.pose.bones:bone.matrix_basis.identity()
         frame=1+seconds*bpy.context.scene.render.fps/bpy.context.scene.render.fps_base
         bpy.context.scene.frame_set(math.floor(frame),subframe=frame%1);bpy.context.view_layer.update()
-        posed=positions();tree=BVHTree.FromPolygons(posed,apron,all_triangles=True) if measure_apron else None
+        posed=positions();tree=BVHTree.FromPolygons(posed,apron,all_triangles=True)
+        intersections=[]
+        for a,b in band_edges:
+            start=Vector(posed[a]);delta=Vector(posed[b])-start
+            if delta.length<.00003:continue
+            direction=delta.normalized()
+            hit=tree.ray_cast(start+direction*.00001,direction,delta.length-.00002)[0]
+            if hit is not None:intersections.append({'edge':[a,b],'point':list(hit)})
+        belt_samples.append({'seconds':seconds,'intersections':len(intersections),'firstCrossings':intersections[:4]})
         gaps=[]
         for i in probes if measure_apron else []:
             point=posed[i]
@@ -109,9 +130,12 @@ for clip in doc['animations']:
         records.append({'clip':clip['name'],'samples':samples,'maximumPenetration':max(0,-min((sample['minimumGap'] for sample in samples if sample['minimumGap'] is not None),default=0))})
     boot_records.append({'clip':clip['name'],'samples':boot_samples,
                          'maximumPenetration':max(0,-min((side['minimumGap'] for sample in boot_samples for side in sample['sides'].values() if side['minimumGap'] is not None),default=0))})
+    belt_records.append({'clip':clip['name'],'samples':belt_samples,'maximumIntersections':max(sample['intersections'] for sample in belt_samples)})
 report={'model':source.name,'sha256':hashlib.sha256(raw).hexdigest(),'probeVertices':len(probes),
         'apronTriangles':len(apron),'status':'inspection_only','clips':records,
-        'bootHemProbeVertices':{side:len(indices) for side,indices in hem_probes.items()},'bootClips':boot_records}
+        'bootHemProbeVertices':{side:len(indices) for side,indices in hem_probes.items()},'bootClips':boot_records,
+        'beltEdges':len(band_edges),'beltClips':belt_records}
 (WORK/'review'/f'{key}_lod{lod}_{"selected_" if selected else ""}garment_clearance.json').write_text(json.dumps(report,indent=2))
 print(json.dumps({clip['clip']:clip['maximumPenetration'] for clip in records}),flush=True)
 print(json.dumps({'boot/'+clip['clip']:clip['maximumPenetration'] for clip in boot_records}),flush=True)
+print(json.dumps({'belt/'+clip['clip']:clip['maximumIntersections'] for clip in belt_records}),flush=True)

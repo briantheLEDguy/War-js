@@ -12,6 +12,11 @@ const read = async file => JSON.parse(await fs.readFile(file, 'utf8'));
 const source = await read(path.join(root, 'source/anatomy.json'));
 const resolve = key => ({ ...(source.assets[key].inherits ? resolve(source.assets[key].inherits) : {}), ...source.assets[key] });
 const selected = process.argv.find(a => a.startsWith('--assets='))?.slice(9).split(',') ?? Object.keys(source.assets);
+const candidateArgument = process.argv.find(a => a.startsWith('--candidate-dir='))?.slice(16);
+const candidateDirectory = candidateArgument ? path.resolve(root, candidateArgument) : null;
+if (candidateDirectory && !candidateDirectory.startsWith(path.join(root, 'review', 'candidates') + path.sep)) throw new Error('Candidate validation must stay inside review/candidates');
+const modelDirectory = candidateDirectory ?? path.join(root, 'runtime');
+const reviewDirectory = candidateDirectory ?? path.join(root, 'review');
 const widths = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
 const formats = { 5120: ['readInt8', 1, 127], 5121: ['readUInt8', 1, 255], 5122: ['readInt16LE', 2, 32767],
   5123: ['readUInt16LE', 2, 65535], 5125: ['readUInt32LE', 4, 4294967295], 5126: ['readFloatLE', 4, 1] };
@@ -35,7 +40,7 @@ for (const kind of selected) {
     if (build[key] !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed source/master: ${file}`);
   }
   const sourceFiles = ['source/anatomy.json', ...['build_fauna.py', 'quadruped_rig.py', 'motion.py', 'bird_geometry.py',
-    'stitched_skin.py', 'atlas_checks.py', 'surface_detail.py', 'texture_detail.py', 'texture_lods.py', 'gait_curves.py'].map(name => `tools/${name}`)];
+    'hoof_geometry.py', 'stitched_skin.py', 'atlas_checks.py', 'surface_detail.py', 'texture_detail.py', 'texture_lods.py', 'gait_curves.py'].map(name => `tools/${name}`)];
   for (const file of sourceFiles) if (build.source_files?.[file] !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed or unsigned build dependency: ${file}`);
   for (const [file, digest] of Object.entries(build.source_files ?? {})) if (digest !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed recorded source: ${file}`);
   for (const channel of ['basecolor', 'normal', 'orm']) {
@@ -45,9 +50,17 @@ for (const kind of selected) {
   for (const [file, digest] of Object.entries(build.texture_sources ?? {})) if (digest !== sha(await fs.readFile(path.join(root, file)))) fail(`Changed recorded texture: ${file}`);
   if (!build.cage || build.cage_sha256 !== sha(await fs.readFile(path.join(root, build.cage)))) fail('Changed or unsigned editable cage');
   if (build.lods.length !== 3) fail('Exactly three authored LODs required');
+  if (candidateDirectory) {
+    const candidate = await read(path.join(candidateDirectory, 'candidate.json'));
+    if (candidate.base_build_sha256 !== sha(await fs.readFile(path.join(root, 'review', `${asset}_build.json`)))) fail('Candidate uses a previous authored base');
+    for (const [name, digest] of Object.entries(candidate.sources)) if (digest !== sha(await fs.readFile(path.join(root, 'tools', name)))) fail(`Changed corrective source: ${name}`);
+    if (!candidate.master || candidate.master_sha256 !== sha(await fs.readFile(path.join(candidateDirectory, candidate.master)))) fail('Changed or missing corrective master');
+    if (candidate.lods.length !== 3) fail('Exactly three corrective LODs required');
+    build.lods = build.lods.map(lod => ({ ...lod, ...candidate.lods.find(entry => entry.level === lod.level) }));
+  }
   const budgets = kind === 'skylark' ? [22000, 12000, 5000] : kind === 'brown_hare' ? [35000, 18000, 7000] : [65000, 30000, 11000];
   for (const lod of build.lods) {
-    const bytes = await fs.readFile(path.join(root, 'runtime', lod.model)), hash = sha(bytes);
+    const bytes = await fs.readFile(path.join(modelDirectory, lod.model)), hash = sha(bytes);
     if (hash !== lod.sha256) fail(`${lod.model}: changed binary`);
     const jsonLength = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + jsonLength)), binary = bytes.subarray(28 + jsonLength);
     const result = await validator.validateBytes(new Uint8Array(bytes), { uri: lod.model, maxIssues: 2000 });
@@ -55,7 +68,7 @@ for (const kind of selected) {
     // deterministic diagnostic to its actual binary; approval carries its date.
     delete result.validatedAt;
     result.modelSha256 = hash;
-    await fs.writeFile(path.join(root, 'review', `${lod.model}.validation.json`), JSON.stringify(result, null, 2) + '\n');
+    await fs.writeFile(path.join(reviewDirectory, `${lod.model}.validation.json`), JSON.stringify(result, null, 2) + '\n');
     if (result.issues.numErrors || result.issues.numWarnings) fail(`${lod.model}: Khronos ${result.issues.numErrors} errors/${result.issues.numWarnings} warnings`);
     if (doc.images.some(image => image.uri)) fail(`${lod.model}: unsigned external images`);
     let textureEvidence = [];
@@ -107,11 +120,12 @@ for (const kind of selected) {
       }
     }
     try {
-      const motion = await read(path.join(root, 'review', `${asset}_lod${lod.level}_motion_inspection.json`));
+      const motion = await read(path.join(reviewDirectory, `${asset}_lod${lod.level}_motion_inspection.json`));
       if (motion.model_sha256 !== hash) fail(`${lod.model}: stale reimport motion inspection`);
       if (motion.build_sha256 !== sha(await fs.readFile(path.join(root, 'review', `${asset}_build.json`)))) fail(`${lod.model}: stale motion authority contract`);
       if (motion.sampling !== 'exported_keys_and_midpoints'
         || motion.inspector_sha256 !== sha(await fs.readFile(path.join(root, 'tools/inspect_motion.py')))
+        || motion.imported_action_helper_sha256 !== sha(await fs.readFile(path.join(root, 'tools/imported_actions.py')))
         || motion.sampling_helper_sha256 !== sha(await fs.readFile(path.join(root, 'tools/glb_sampling.py')))) fail(`${lod.model}: stale or incomplete motion sampling method`);
       if (JSON.stringify(motion.clips.map(c => c.name).sort()) !== JSON.stringify([...definition.clips].sort())) fail(`${lod.model}: incomplete reimport clip inspection`);
       for (const clip of motion.clips) {
@@ -130,7 +144,7 @@ for (const kind of selected) {
   }
   if (lods.length === 3 && !(lods[0].triangles > lods[1].triangles && lods[1].triangles > lods[2].triangles)) fail('LOD triangle counts must decrease');
   const report = { asset, passed: issues.length === 0, issues, lods, visualApproval: false };
-  reports.push(report); await fs.writeFile(path.join(root, 'review', `${asset}_technical.json`), JSON.stringify(report, null, 2) + '\n');
+  reports.push(report); await fs.writeFile(path.join(reviewDirectory, `${asset}_technical.json`), JSON.stringify(report, null, 2) + '\n');
 }
 console.log(JSON.stringify(reports.map(r => ({ asset: r.asset, passed: r.passed, issues: r.issues })), null, 2));
 if (reports.some(r => !r.passed)) process.exitCode = 1;

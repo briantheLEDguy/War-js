@@ -1,5 +1,13 @@
 # War-js
 
+## Regional production priorities
+
+Character models, equipment, and town/siege items take priority; animals come
+last. Current work finishes the dwarf artisan, fitted ram crews, a siege repair
+bench and ammunition cradle. Wildlife and woodland-floor drafts are saved and
+paused. See the [production board](docs/orvr-production-board.md) for owners and
+acceptance dependencies; unfinished authoring files are not runtime approvals.
+
 ## Repository size and generated data
 
 Run `npm run audit:size` for tracked/unignored text counts and large files, or

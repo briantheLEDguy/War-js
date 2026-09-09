@@ -1,0 +1,50 @@
+{
+  "asset": "frontier_cinderfen_fern_wood_sedge",
+  "lod": 2,
+  "sourceSha256": "0268043442943f0d6fd2206d26d4ab5187993f2291e23280ea8db872d27fa029",
+  "builderSha256": "81a8cfc69c8b91a4ac12aaa9223e4b0ea873249a6efca1e31ff19b1d219f3ccb",
+  "master": "masters\\frontier_cinderfen_fern_wood_sedge_lod2.source-preview.blend",
+  "masterSha256": "cc8f64b6772b21d077afd3af33e253ef293d390325115413ac6c18bbbec4d930",
+  "stage": "source geometry with flat material colors; not exported or approved",
+  "triangles": 3122,
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "arched_green_fern_rachises.lod2",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 130
+      },
+      {
+        "mesh": "separate_folded_fern_pinnules.lod2",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 2200
+      },
+      {
+        "mesh": "broad_shade_wood_sedge_blades.lod2",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 792
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -0.9402459859848022,
+        -0.5520408153533936,
+        -0.018261300399899483
+      ],
+      "maximum": [
+        0.7690572738647461,
+        0.7702525854110718,
+        0.5528525710105896
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  }
+}

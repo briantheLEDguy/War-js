@@ -1,0 +1,21 @@
+{
+  "modelSha256": "5a1f2db2345b274eadb9dc7ce7651fd5e5712b0529d0c906be8add98d61bd826",
+  "sheets": [
+    {
+      "category": "locomotion",
+      "image": "frontier_sunmeadow_dwarf_artisan_lod1_locomotion_sheet.png",
+      "sha256": "4af078877b3bff9e4d351145d1738a57722121244a60a6c526ad20dbfbc10709"
+    },
+    {
+      "category": "actions",
+      "image": "frontier_sunmeadow_dwarf_artisan_lod1_actions_sheet.png",
+      "sha256": "c43476f4a43a529ce99c37973926cc5c9ab8cb33bc6e1e06bbace7ce836dde7a"
+    },
+    {
+      "category": "response",
+      "image": "frontier_sunmeadow_dwarf_artisan_lod1_response_sheet.png",
+      "sha256": "c201a2893295584ee78debf96ed011dc4db11b39d0da98eeabeeb1903776219a"
+    }
+  ],
+  "visualApproval": false
+}

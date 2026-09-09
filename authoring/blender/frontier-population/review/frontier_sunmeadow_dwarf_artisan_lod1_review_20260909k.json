@@ -1,0 +1,46 @@
+{
+  "modelSha256": "5a1f2db2345b274eadb9dc7ce7651fd5e5712b0529d0c906be8add98d61bd826",
+  "bounds": {
+    "min": [
+      -0.4427575170993805,
+      -0.3038993179798126,
+      0.00399993360042572
+    ],
+    "max": [
+      0.4436977505683899,
+      0.2749999463558197,
+      1.3604223728179932
+    ]
+  },
+  "images": [
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_head_20260909k.png",
+      "sha256": "c6f6d7bc4bd5741f7014279ec29ae42ee528b88f2056324c5d23b9e534e6c8d3",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_front_20260909k.png",
+      "sha256": "e959f6903c44a21cd9e5c434ee8b5e6860c642961cb623a6ad1d58b5b11f365b",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_run_side_20260909k.png",
+      "sha256": "20ee146ae0ed336fc836b1e29aa9bd11ef596c192e75bbb33aa01d4f083ebc4a",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_death_2_20260909k.png",
+      "sha256": "291856258c2c442374008d3fb2687abaf73d0319b31411693dbb6d5159847b77",
+      "clip": "death",
+      "seconds": 2.0
+    }
+  ],
+  "status": "pending"
+}

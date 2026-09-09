@@ -6,10 +6,13 @@ import { fileURLToPath } from 'node:url';
 import { validateApprovedManifest } from '../../../../scripts/blender-character-pipeline/tools/runtime-registry.mjs';
 import { validateJsonSchema } from '../../../../scripts/blender-character-pipeline/tools/json-schema-validator.mjs';
 import { collectEvidence, fileSha, localPath, read, sha } from './review_evidence.mjs';
+import { candidatePath, collectCandidateDelivery } from './candidate_evidence.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repo = path.resolve(root, '../../..');
 const packagePath = path.relative(repo, root).replaceAll('\\', '/');
+const candidateArgument = process.argv.find(a => a.startsWith('--candidate-dir='))?.slice('--candidate-dir='.length);
+const candidateDirectory = candidateArgument ? candidatePath(root, candidateArgument) : null;
 const selected = process.argv.find(a => a.startsWith('--assets='))?.slice(9).split(',') ?? ['roe_deer_buck'];
 if (!process.argv.some(a => a.startsWith('--assets='))) process.argv.push(`--assets=${selected.join(',')}`);
 await import('./validate_fauna.mjs');
@@ -17,8 +20,21 @@ assert(!process.exitCode, 'Actual fauna export validation must pass');
 const source = await read(path.join(root, 'source/anatomy.json'));
 const resolve = key => ({ ...(source.assets[key]?.inherits ? resolve(source.assets[key].inherits) : {}), ...source.assets[key] });
 const evidence = new Map();
-for (const kind of selected) evidence.set(kind, await collectEvidence(root, `frontier_sunmeadow_${kind}`, resolve(kind).clips));
-const reviewPath = path.join(root, 'review/visual_review.json');
+const deliveries = new Map();
+for (const kind of selected) {
+  const key = `frontier_sunmeadow_${kind}`;
+  if (candidateDirectory) {
+    const delivery = await collectCandidateDelivery(root, key, resolve(kind).clips, candidateDirectory);
+    deliveries.set(kind, delivery); evidence.set(kind, delivery.evidence);
+  } else {
+    evidence.set(kind, await collectEvidence(root, key, resolve(kind).clips));
+    deliveries.set(kind, { build: await read(path.join(root, 'review', `${key}_build.json`)),
+      technical: await read(path.join(root, 'review', `${key}_technical.json`)),
+      renders: (await read(path.join(root, 'review', `${key}_renders.json`))).renders,
+      modelDirectory: 'runtime', reviewDirectory: 'review' });
+  }
+}
+const reviewPath = path.join(root, candidateDirectory ?? 'review', 'visual_review.json');
 if (process.argv.includes('--prepare-review')) {
   let previous = { assets: {} };
   try { previous = await read(reviewPath); } catch (error) { if (error.code !== 'ENOENT') throw error; }
@@ -43,9 +59,7 @@ for (const [kind, fresh] of evidence) {
   assert.deepEqual(approved.evidence, fresh, `${key}: approved evidence changed`);
   const approvalBytes = Buffer.from(JSON.stringify({ schemaVersion: 1, asset: key, review: approved }, null, 2) + '\n');
   const reviewHash = sha(approvalBytes);
-  const build = await read(path.join(root, 'review', `${key}_build.json`));
-  const technical = await read(path.join(root, 'review', `${key}_technical.json`));
-  const renders = (await read(path.join(root, 'review', `${key}_renders.json`))).renders;
+  const { build, technical, renders, modelDirectory, reviewDirectory } = deliveries.get(kind);
   const releaseId = sha(JSON.stringify(approved)).slice(0, 20), releaseRelative = `releases/${key}/${releaseId}`;
   const releaseRepo = `${packagePath}/${releaseRelative}`, release = localPath(root, releaseRelative);
   const skeletonId = `sunmeadow_${kind}_anatomical_v1`, assetId = `prop.frontier.sunmeadow.${kind}`;
@@ -57,8 +71,8 @@ for (const [kind, fresh] of evidence) {
     referencePackId: 'battle_prelate_craftsmanship_and_sunmeadow_fauna', similarityReview: 'not_required', author: 'Codex Sunmeadow fauna authoring',
     source: `${releaseRepo}/source/anatomy.json`, sourceSha256: build.source_sha256 };
   const blueprint = { assetId, displayName: definition.name, category: 'prop', version: '1.0.0', sets: ['sunmeadow_authored_fauna'],
-    runtime: { staticKey: key }, output: { model: lods[0].model, artifactDir: `${releaseRepo}/runtime` },
-    generator: { kind: 'copyExisting', copyFrom: `${releaseRepo}/runtime/${lods[0].model}` },
+    runtime: { staticKey: key }, output: { model: lods[0].model, artifactDir: `${releaseRepo}/${modelDirectory}` },
+    generator: { kind: 'copyExisting', copyFrom: `${releaseRepo}/${modelDirectory}/${lods[0].model}` },
     geometry: { originRule: 'ground_beneath_anatomical_body', upAxis: '+Y', forwardAxis: '+Z', bodyFamily: `fauna_${kind}`, skeletonId, bindPoseId: 'authored_anatomical_rest_v1',
       lods: lods.map((lod, level) => ({ name: `LOD${level}`, triTarget: lod.triangles, screenCoverageMin: [.2, .06, 0][level] })) },
     materials: { master: 'MM_SunmeadowAuthoredPelt', textureSet: key, channels: ['baseColor', 'normal', 'roughness', 'metallic', 'occlusion'], maxTextureResolution: 4096 },
@@ -74,7 +88,7 @@ for (const [kind, fresh] of evidence) {
     qcPassed: true, assetId, modelSha256: lod.sha256, lod: lod.level, lods, builtLods: lods, externalTextures: [],
     validationErrors: 0, validationWarnings: 0, reviewHash, bounds: runtimeBounds(lod.bounds_blender), previewImages: previews,
     rig: { skeletonId, bones: build.bones.length, maximumInfluences: 4 }, animationClips: build.motion, defaultAnimation: 'idle',
-    motionInspection: JSON.parse(await fs.readFile(path.join(root, 'review', `${key}_lod${lod.level}_motion_inspection.json`), 'utf8')),
+    motionInspection: JSON.parse(await fs.readFile(path.join(root, reviewDirectory, `${key}_lod${lod.level}_motion_inspection.json`), 'utf8')),
     limitations: ['In-place motion; world authority uses the measured playback speeds.', 'No runtime fur cards or procedural primitive substitutes.'],
     reviewEvidence: fresh, frozenSource: releaseRepo, technical: technical.lods.find(l => l.level === lod.level),
   }, null, 2) + '\n') })));
@@ -86,7 +100,7 @@ for (const [kind, fresh] of evidence) {
     previews: { assembly: `${releaseRepo}/${assembly.image.replaceAll('\\', '/')}`, detail: `${releaseRepo}/${detail.image.replaceAll('\\', '/')}` },
     review: { reviewedBy: approved.reviewedBy, reviewedAt: approved.reviewedAt, reviewHash }, provenance, approvalState: 'approved' };
   validateApprovedManifest(manifest, key);
-  changes.push({ key, blueprint, manifest, qcFiles, release, fresh, reviewBytes: approvalBytes, build });
+  changes.push({ key, blueprint, manifest, qcFiles, release, fresh, reviewBytes: approvalBytes, build, modelDirectory });
 }
 
 // Verify every selected asset first. Frozen copies keep the accepted source and
@@ -103,7 +117,7 @@ for (const change of changes) {
   const writes = [
     [path.join(repo, 'scripts/blender-character-pipeline/data/asset-blueprints', `${change.key}.asset.json`), Buffer.from(JSON.stringify(change.blueprint, null, 2) + '\n')],
     [path.join(repo, 'scripts/blender-character-pipeline/data/approved-assets', `${change.key}.approved.json`), Buffer.from(JSON.stringify(change.manifest, null, 2) + '\n')],
-    ...await Promise.all(change.build.lods.map(async lod => [path.join(repo, 'public/assets/models', lod.model), await fs.readFile(path.join(change.release, 'runtime', lod.model))])),
+    ...await Promise.all(change.build.lods.map(async lod => [path.join(repo, 'public/assets/models', lod.model), await fs.readFile(path.join(change.release, change.modelDirectory, lod.model))])),
     ...change.qcFiles.map(qc => [path.join(repo, 'public/assets/models', qc.filename), qc.bytes]),
   ];
   for (const [file, bytes] of writes) {

@@ -1,0 +1,207 @@
+{
+  "modelSha256": "5a1f2db2345b274eadb9dc7ce7651fd5e5712b0529d0c906be8add98d61bd826",
+  "bounds": {
+    "min": [
+      -0.4427575170993805,
+      -0.3038993179798126,
+      0.00399993360042572
+    ],
+    "max": [
+      0.4436977505683899,
+      0.2749999463558197,
+      1.3604223728179932
+    ]
+  },
+  "images": [
+    {
+      "view": "idle:0",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_idle_0.png",
+      "sha256": "aaa2f16953e92ee65a162c7ffc390284257eae0a0b7ef576007af8e5cbc71d5c",
+      "clip": "idle",
+      "seconds": 0.0
+    },
+    {
+      "view": "idle:1",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_idle_1.png",
+      "sha256": "59b9a735f2625e677ea32330000113cf4b6e4bf6417ae4c6acf9b1d43a244ecf",
+      "clip": "idle",
+      "seconds": 1.0
+    },
+    {
+      "view": "idle:2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_idle_2.png",
+      "sha256": "75a158c36cc8e8a24356ece09c426c20f146bbab6189cb80c7aed9f305dcd188",
+      "clip": "idle",
+      "seconds": 2.0
+    },
+    {
+      "view": "walk:0",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_walk_0.png",
+      "sha256": "119b5db2200bca27591402f666eedbbc0e9eafea4aa0f4ca890c77b30f63e118",
+      "clip": "walk",
+      "seconds": 0.0
+    },
+    {
+      "view": "walk:0.25",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_walk_0.25.png",
+      "sha256": "a136f5258ddbdafee5325aae949893dc084bd09cd466be061ce54309a914f76b",
+      "clip": "walk",
+      "seconds": 0.25
+    },
+    {
+      "view": "walk:0.5",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_walk_0.5.png",
+      "sha256": "87a1cd85d696f878500307629fe500eb01f9c17140cc212f997c1c604f30c13f",
+      "clip": "walk",
+      "seconds": 0.5
+    },
+    {
+      "view": "run:0",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_run_0.png",
+      "sha256": "c50354bed27a6d8ae7c429575f4b2b7b03654b20b7c3d65d76fe546ff7280b5f",
+      "clip": "run",
+      "seconds": 0.0
+    },
+    {
+      "view": "run:0.16666666666666666",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_run_0.16666666666666666.png",
+      "sha256": "0ac5445b04e87daf4b7c14b1d2301cc1f038c6033827e6c0f1df0a62e73b2e7d",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "run:0.3333333333333333",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_run_0.3333333333333333.png",
+      "sha256": "aafeff8e2843af11986d690797648830ea277c4d6f246e690aac2240a84d6c06",
+      "clip": "run",
+      "seconds": 0.3333333333333333
+    },
+    {
+      "view": "combat_idle:0",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_combat_idle_0.png",
+      "sha256": "a5e7596567acc42da374c63527c0a7b1363d79259235d724b7b325216c0d725d",
+      "clip": "combat_idle",
+      "seconds": 0.0
+    },
+    {
+      "view": "combat_idle:1",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_combat_idle_1.png",
+      "sha256": "879d18a3971fd68cb35a7486ba5042c869d7c8c9d1b48b85fd01a14029fb7cc9",
+      "clip": "combat_idle",
+      "seconds": 1.0
+    },
+    {
+      "view": "combat_idle:2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_combat_idle_2.png",
+      "sha256": "489e2b8816bc430c86b59f336cefdf1fb63cb1aaca5bedd4c3800dd2a5d67ba4",
+      "clip": "combat_idle",
+      "seconds": 2.0
+    },
+    {
+      "view": "attack_melee:0.2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_attack_melee_0.2.png",
+      "sha256": "42e5f14523b8c5c778baccfb78df972d79ffe5e88ef175e7ac1b737834306960",
+      "clip": "attack_melee",
+      "seconds": 0.2
+    },
+    {
+      "view": "attack_melee:0.5",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_attack_melee_0.5.png",
+      "sha256": "a1971793659193891eb32b74bad6752eef8ed2343175f8e6796a219e0da72ab8",
+      "clip": "attack_melee",
+      "seconds": 0.5
+    },
+    {
+      "view": "attack_melee:0.8",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_attack_melee_0.8.png",
+      "sha256": "c22d964ea032b99620534bce91b5c828c15278b5dd1da1e56dcd11e2298b3dc3",
+      "clip": "attack_melee",
+      "seconds": 0.8
+    },
+    {
+      "view": "attack_ranged:0.2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_attack_ranged_0.2.png",
+      "sha256": "003db83583e7bbfa0755f4818e6f42f188848ab812eb9796fc98e78b790b1bc9",
+      "clip": "attack_ranged",
+      "seconds": 0.2
+    },
+    {
+      "view": "attack_ranged:0.65",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_attack_ranged_0.65.png",
+      "sha256": "877bb31a42bed38b3ac24820262b75384d3041c6704da2a733b07598aa9d8247",
+      "clip": "attack_ranged",
+      "seconds": 0.65
+    },
+    {
+      "view": "attack_ranged:1.1",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_attack_ranged_1.1.png",
+      "sha256": "5a88bbc3b6e789a7db63031ee0752aaf1a07c8d6a579041812d37406256522c4",
+      "clip": "attack_ranged",
+      "seconds": 1.1
+    },
+    {
+      "view": "cast:0.25",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_cast_0.25.png",
+      "sha256": "9b0242e0109b6df2eaf2001c1e4f8fcf1eda235953813847c3c85f0ad2171ce8",
+      "clip": "cast",
+      "seconds": 0.25
+    },
+    {
+      "view": "cast:1",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_cast_1.png",
+      "sha256": "90194ecc152ba1ba9da9b321e1ce9559346728dea3685e95cc22cf5e94f87acb",
+      "clip": "cast",
+      "seconds": 1.0
+    },
+    {
+      "view": "cast:1.75",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_cast_1.75.png",
+      "sha256": "a101a9c734b946e9743d615d7cc6d76a6fd1227038c780433efbab879c46a4fe",
+      "clip": "cast",
+      "seconds": 1.75
+    },
+    {
+      "view": "death:0.2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_death_0.2.png",
+      "sha256": "6f187e11cc47b943e8766130e3e30a7e7052973abf4aa7a75372eed129c354c9",
+      "clip": "death",
+      "seconds": 0.2
+    },
+    {
+      "view": "death:1",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_death_1.png",
+      "sha256": "1fba38d551bde093f333a21eb51eccc01c4d5b768d38b33365b859327dc8e962",
+      "clip": "death",
+      "seconds": 1.0
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_death_2.png",
+      "sha256": "f515d7671165e238ad8cf2efc199791567cd81df0a17b7889f222c8d0f5fc02e",
+      "clip": "death",
+      "seconds": 2.0
+    },
+    {
+      "view": "jump:0.2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_jump_0.2.png",
+      "sha256": "93b703f1b0732a9b3bb2901b008a72695a6cc30a2e84e2a64a2c70151965663c",
+      "clip": "jump",
+      "seconds": 0.2
+    },
+    {
+      "view": "jump:0.65",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_jump_0.65.png",
+      "sha256": "887544713ebc1bc5839df9a5a450315e24148e6e7ce89ecac21078235b47b622",
+      "clip": "jump",
+      "seconds": 0.65
+    },
+    {
+      "view": "jump:1.1",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod1_jump_1.1.png",
+      "sha256": "4a40403e2b84a1268be9ed5b842a6680b8a792f94a0b3102ebe8b9c2ac2ad4b2",
+      "clip": "jump",
+      "seconds": 1.1
+    }
+  ],
+  "status": "pending"
+}

@@ -1,3 +1,9 @@
+## 2026-09-09 — Character and siege production priority
+
+- Prioritized character models, equipment and town/siege items; paused animal and woodland-floor drafts. The current buck shape is accepted for now without further anatomical refinement.
+- Saved dwarf k clothing, wrist, hair and motion-audit progress; complete character publication still awaits the bounded boot-welt fit.
+- Assigned fitted two-person ram crew animations and an original siege repair bench/ammunition cradle; these remain staged work, with GM integration required after acceptance.
+
 ## 2026-09-09 - Cinderfen basalt placement
 
 - Replaced 48 generic ridge/scatter rocks with 38 reviewed basalt exposures along eight landform shoulders and headlands; preserved gathering and objective visuals.

@@ -2,11 +2,11 @@
   "uri": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-09T13:28:00.116Z",
+  "validatedAt": "2026-09-09T14:49:57.252Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
-    "numInfos": 17,
+    "numInfos": 19,
     "numHints": 0,
     "messages": [
       {
@@ -91,25 +91,37 @@
         "code": "UNUSED_MESH_TANGENT",
         "message": "Tangents are not used because the material has no normal texture.",
         "severity": 2,
-        "pointer": "/meshes/0/primitives/12/attributes/TANGENT"
+        "pointer": "/meshes/0/primitives/13/attributes/TANGENT"
       },
       {
         "code": "UNUSED_OBJECT",
         "message": "This object may be unused.",
         "severity": 2,
-        "pointer": "/meshes/0/primitives/12/attributes/TEXCOORD_0"
+        "pointer": "/meshes/0/primitives/13/attributes/TEXCOORD_0"
       },
       {
         "code": "UNUSED_MESH_TANGENT",
         "message": "Tangents are not used because the material has no normal texture.",
         "severity": 2,
-        "pointer": "/meshes/0/primitives/14/attributes/TANGENT"
+        "pointer": "/meshes/0/primitives/15/attributes/TANGENT"
       },
       {
         "code": "UNUSED_OBJECT",
         "message": "This object may be unused.",
         "severity": 2,
-        "pointer": "/meshes/0/primitives/14/attributes/TEXCOORD_0"
+        "pointer": "/meshes/0/primitives/15/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_MESH_TANGENT",
+        "message": "Tangents are not used because the material has no normal texture.",
+        "severity": 2,
+        "pointer": "/meshes/0/primitives/16/attributes/TANGENT"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/0/primitives/16/attributes/TEXCOORD_0"
       }
     ],
     "truncated": false
@@ -122,7 +134,7 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 13759956
+        "byteLength": 17178728
       },
       {
         "pointer": "/images/0",
@@ -326,7 +338,7 @@
         "image": {
           "width": 1024,
           "height": 1024,
-          "format": "rgba",
+          "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
           "bits": 8
@@ -352,6 +364,58 @@
         "image": {
           "width": 1024,
           "height": 1024,
+          "format": "rgba",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/18",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/19",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgba",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/20",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgba",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/21",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
           "format": "rgb",
           "primaries": "srgb",
           "transfer": "srgb",
@@ -360,14 +424,14 @@
       }
     ],
     "animationCount": 9,
-    "materialCount": 15,
+    "materialCount": 17,
     "hasMorphTargets": false,
     "hasSkins": true,
     "hasTextures": true,
     "hasDefaultScene": true,
-    "drawCallCount": 15,
-    "totalVertexCount": 23217,
-    "totalTriangleCount": 34690,
+    "drawCallCount": 17,
+    "totalVertexCount": 32959,
+    "totalTriangleCount": 39188,
     "maxUVs": 1,
     "maxInfluences": 4,
     "maxAttributes": 6

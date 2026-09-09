@@ -1,0 +1,26 @@
+[
+  {
+    "lod": 0,
+    "weltVertices": 320,
+    "maximumDistanceMetres": 0.018248042091727257,
+    "p95DistanceMetres": 0.01740933209657669,
+    "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+    "sha256": "994d4632e0a55a9e0624163e1f19efb2891aab95ac390319e8cdd0d30eef3fc0"
+  },
+  {
+    "lod": 1,
+    "weltVertices": 320,
+    "maximumDistanceMetres": 0.018287062644958496,
+    "p95DistanceMetres": 0.017445478588342667,
+    "model": "frontier_sunmeadow_dwarf_artisan_lod1.glb",
+    "sha256": "5a1f2db2345b274eadb9dc7ce7651fd5e5712b0529d0c906be8add98d61bd826"
+  },
+  {
+    "lod": 2,
+    "weltVertices": 228,
+    "maximumDistanceMetres": 0.017918400466442108,
+    "p95DistanceMetres": 0.017235292028635715,
+    "model": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
+    "sha256": "d7f8c2ea889226620689b125f34f4ba45bdb7e8327cf56ff7192b69f84ac4341"
+  }
+]

@@ -1,12 +1,12 @@
 {
-  "model_sha256": "8346e6e9902f00af4065edcbcd6ef87f8dfeac80dcc63efdf32998fc1a97a80c",
+  "model_sha256": "fa0ad9424de77683e619b1e79a55c44d29462bced201092e57457d16fb0cafee",
   "helper_sha256": "9995f063848ba0b8295102e377a8ec097d7a547555d8539e38aafb46294936fa",
   "phase": 0.125,
   "maximum_weight_error": 2.9802322387695312e-08,
   "expected_signed_range": [
-    -0.917703241109848,
-    0.9474007785320282
+    -0.9119310975074768,
+    0.9486026465892792
   ],
-  "modes": 38,
+  "modes": 32,
   "passed": true
 }

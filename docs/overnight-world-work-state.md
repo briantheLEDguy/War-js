@@ -1,5 +1,33 @@
 # World build continuation state
 
+## Character, equipment and settlement priority - 2026-09-09
+
+Latest user steering: prioritize character models, equipment, and town/siege
+items; animals are last. The buck is good for now and must not receive further
+rear-anatomy iteration. Its exact candidate hashes begin 5ef5815a / 9525ad6c /
+39cb49e2; its final image-receipt batch was stopped rather than delaying priority
+work. No fauna publication is claimed. Root's isolated sunmeadow-skylark folder
+retains original baselines and a new unapproved LOD0 anatomy/material/motion
+candidate; no further animal work is active.
+
+The population agent continues the dwarf: k's hair, wrist, continuous exterior
+sleeve seam and clothing are accepted refinements; seven exact-export gates pass
+after correcting a multi-LOD inspection scene-isolation bug. The remaining
+bounded correction fits the boot welt to the evaluated sole. The prior k set is
+frozen for checkpoint before this edit. Full character approval remains pending.
+
+The former fauna agent now owns authoring/blender/siege-crew: fitted two-person
+ram idle/drive/strike poses on the unchanged canonical equipped humanoid. The
+former nature agent owns authoring/blender/frontier-workshop-items: a siege repair
+bench and ammunition cradle. Their work is staged; root owns public registry,
+GM catalog, map and runtime integration. Woodland-floor sources/material proofs
+are paused and saved without runtime exports. Existing published nature is frozen.
+
+Checkpoint 714011c contains the verified basalt placement and full 1,201-test
+pass. The current priority change introduces no new approved game assets yet.
+The hourly continuation remains active and follows these priorities. No zone is
+art-complete. No push or deployment has been performed.
+
 ## Basalt composition and full regression pass - 2026-09-09
 
 Checkpoint 27c5de1 saves the complete published Cinderfen nature package and

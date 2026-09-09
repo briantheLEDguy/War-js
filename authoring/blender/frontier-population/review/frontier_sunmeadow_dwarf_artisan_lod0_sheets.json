@@ -1,20 +1,20 @@
 {
-  "modelSha256": "b326d793d36adcdcab8415c8c5028d86098e0cb12a191a6ad35bf74e3c90ca80",
+  "modelSha256": "994d4632e0a55a9e0624163e1f19efb2891aab95ac390319e8cdd0d30eef3fc0",
   "sheets": [
     {
       "category": "locomotion",
       "image": "frontier_sunmeadow_dwarf_artisan_lod0_locomotion_sheet.png",
-      "sha256": "c25142d293b47126e2b4328d4d1462a32f4a541e19771767ee3ed129c227b69b"
+      "sha256": "2f696a680e476b1ef53f7817f4a4c83387015a1e153324698b26dbfb2c5775cd"
     },
     {
       "category": "actions",
       "image": "frontier_sunmeadow_dwarf_artisan_lod0_actions_sheet.png",
-      "sha256": "ac094561ac118b1945c64e2c8e29caaa038ab53c1fb5074d6e2925a9a8060e3c"
+      "sha256": "70b1cfd287ff290054e657968e1c2c8b95daa19b20bc4f2d46ffa2c3e961235a"
     },
     {
       "category": "response",
       "image": "frontier_sunmeadow_dwarf_artisan_lod0_response_sheet.png",
-      "sha256": "e11c8102f9abe0418d97155c96e556255ac43a74552139b08d5c18733ba1de88"
+      "sha256": "b8c96161b1643c746a4ef94f972fde821bb8e222ecddd4d5424807d057b22746"
     }
   ],
   "visualApproval": false

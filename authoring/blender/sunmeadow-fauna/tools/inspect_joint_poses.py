@@ -8,6 +8,7 @@ import bpy
 from mathutils import Vector,Matrix
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from reimport_review import ROOT,sha,setup,build_evidence
+from imported_actions import activate_imported_clip
 
 parser=argparse.ArgumentParser();parser.add_argument('--states',default='rest,run@0.125,run@0.375,run@0.625,run@0.75');parser.add_argument('--normal-off',action='store_true');args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 key='frontier_sunmeadow_roe_deer_buck';model=ROOT/'runtime'/f'{key}_lod0.glb';digest=sha(model);evidence=build_evidence(key)
@@ -18,18 +19,15 @@ if args.normal_off:
         if material.use_nodes:
             for node in material.node_tree.nodes:
                 if node.type=='NORMAL_MAP':node.inputs['Strength'].default_value=0
-rig.animation_data_create();rig.animation_data.action=None
-for bone in rig.pose.bones:bone.matrix_basis=Matrix.Identity(4)
+activate_imported_clip(rig,objects,'rest')
 bpy.context.view_layer.update();_,camera=setup(objects,ROOT/'review/joints.png',900,16)
 center=Vector((0,-.005,.43));camera.location=center+Vector((4,0,.20));camera.rotation_euler=(center-camera.location).to_track_quat('-Z','Y').to_euler();camera.data.ortho_scale=1.13
 records=[]
 for state in args.states.split(','):
-    rig.animation_data.action=None
-    for bone in rig.pose.bones:bone.matrix_basis=Matrix.Identity(4)
-    if state!='rest':
-        clip,phase=state.split('@');action=next(a for a in bpy.data.actions if a.name==clip);rig.animation_data.action=action;rig.animation_data.action_slot=action.slots[0]
+    clip,_,phase=state.partition('@');action=activate_imported_clip(rig,objects,clip)
+    if action:
         first,last=action.frame_range;frame=first+(last-first)*float(phase);bpy.context.scene.frame_set(math.floor(frame),subframe=frame-math.floor(frame))
     bpy.context.view_layer.update();name=state.replace('@','_').replace('.','p')+('_normal_off' if args.normal_off else '');target=ROOT/'review'/f'{key}_joint_{name}.png';bpy.context.scene.render.filepath=str(target);bpy.ops.render.render(write_still=True)
     if sha(model)!=digest:raise RuntimeError('Diagnostic model changed during render')
-    records.append({'state':state,'image':target.relative_to(ROOT).as_posix(),'image_sha256':sha(target),'model_sha256':digest,'build_sha256':evidence['build_sha256'],'status':'diagnostic_not_approval'})
+    records.append({'state':state,'image':target.relative_to(ROOT).as_posix(),'image_sha256':sha(target),'model_sha256':digest,'build_sha256':evidence['build_sha256'],'action_helper_sha256':sha(ROOT/'tools/imported_actions.py'),'status':'diagnostic_not_approval'})
 (ROOT/'review'/(f'{key}_joint_inspection'+('_normal_off' if args.normal_off else '')+'.json')).write_text(json.dumps({'renders':records},indent=2)+'\n')

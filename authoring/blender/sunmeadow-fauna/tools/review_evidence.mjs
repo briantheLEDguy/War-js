@@ -41,6 +41,7 @@ export async function collectEvidence(root, asset, clips) {
     const inspection = `review/${asset}_lod${lod.level}_motion_inspection.json`, report = await read(localPath(root, inspection));
     assert.equal(report.model_sha256, lod.sha256, 'Stale actual motion report');
     assert.equal(report.build_sha256, buildHash, 'Stale movement contract');
+    assert.equal(report.imported_action_helper_sha256, await fileSha(localPath(root, 'tools/imported_actions.py')), 'Stale imported animation evaluator');
     files[inspection] = await fileSha(localPath(root, inspection));
     files[`review/${lod.model}.validation.json`] = await fileSha(localPath(root, `review/${lod.model}.validation.json`));
   }
@@ -54,6 +55,7 @@ export async function collectEvidence(root, asset, clips) {
     assert.equal(render.build_sha256, buildHash, 'Render displays a previous authored build');
     assert.equal(render.model_sha256, build.lods[render.level].sha256, 'Render displays a previous model');
     assert.equal(render.reviewer_source_sha256, await fileSha(localPath(root, 'tools/reimport_review.py')), 'Changed render source');
+    assert.equal(render.action_helper_sha256, await fileSha(localPath(root, 'tools/imported_actions.py')), 'Changed render animation evaluator');
     await verifyFiles(root, render.authored_files);
     files[render.image.replaceAll('\\', '/')] = render.image_sha256;
   }
@@ -61,6 +63,7 @@ export async function collectEvidence(root, asset, clips) {
   files['tools/reimport_review.py'] = await fileSha(localPath(root, 'tools/reimport_review.py'));
   files['tools/inspect_motion.py'] = await fileSha(localPath(root, 'tools/inspect_motion.py'));
   files['tools/glb_sampling.py'] = await fileSha(localPath(root, 'tools/glb_sampling.py'));
+  files['tools/imported_actions.py'] = await fileSha(localPath(root, 'tools/imported_actions.py'));
   files['tools/validate_fauna.mjs'] = await fileSha(localPath(root, 'tools/validate_fauna.mjs'));
   files['tools/texture_evidence.mjs'] = await fileSha(localPath(root, 'tools/texture_evidence.mjs'));
   const compositeName = `review/${asset}_composites.json`, composites = await read(localPath(root, compositeName));

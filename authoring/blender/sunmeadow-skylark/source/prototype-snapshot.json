@@ -1,0 +1,22 @@
+{
+  "status": "unapproved prototype; retained for comparison only",
+  "date": "2026-09-09T14:48:36.920Z",
+  "origin": "authoring/blender/sunmeadow-fauna",
+  "files": {
+    "tools/build_fauna.py": "fd5577756642daa816ef822b0a0e3b420b19a92b4ae69fa7fcfafd01f1057165",
+    "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34",
+    "tools/motion.py": "ab88b65c22535b2ba0c06ea3d34ad870bf752b1c87842877c292b024a7506ce5",
+    "tools/gait_curves.py": "3e625bfd06f0535ca920f5a920dcbb3cf9aafd23c6cba54d05735585cd39f256",
+    "tools/bird_geometry.py": "5f4b3aa67a8b84843a4f3f56fde027d70b54c432e1a9e1b0f74add14a478e27c",
+    "tools/hoof_geometry.py": "e022a47979a069a4291be58c5fcd2041a9654771d71c056b4acf2758cc638670",
+    "tools/stitched_skin.py": "8574f220e5f313e7b0d4937ffe9538f5b9c6f578a4d2d5478c7c8419311a0cb8",
+    "tools/atlas_checks.py": "fbaae1a32d6cf26a946471a1f8efefe9ba000df2ccbbf7711f12916a0f41961a",
+    "tools/surface_detail.py": "0728449e9112f2b64f8f102588f7a5aa05667a3fe88c7a552dba6c374a3ca418",
+    "tools/texture_detail.py": "ec07265f7aafb9386ac4c15268b487c10d10025c581ab044709880d0ae400999",
+    "tools/texture_lods.py": "23382567fa9c925cea63ca0f1e99c6190a335b99c7f0e26e2e6e768f86584d69",
+    "tools/imported_actions.py": "9995f063848ba0b8295102e377a8ec097d7a547555d8539e38aafb46294936fa",
+    "baseline/frontier_sunmeadow_skylark_lod0.glb": "732791f3b26e4ae7ac66408552456c980f7f7313df9743760f3ffd80c1f24ac0",
+    "baseline/frontier_sunmeadow_skylark_lod1.glb": "45b0780930f011c8674ef9bee07cd9631f916321728aeb3949ef73dabf102ab7",
+    "baseline/frontier_sunmeadow_skylark_lod2.glb": "7015d59b6896e1fb0730a7d00fb2c4734a9d555a8dc6b18e7900e5a8fc90f646"
+  }
+}

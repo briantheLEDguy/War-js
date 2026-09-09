@@ -9,8 +9,10 @@ import numpy as np
 from mathutils import Matrix
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_fauna import ROOT, resolve
-from joint_correctives import JointRelaxation, compact_anatomical_modes, caudal_weight_transfer, fascia_displacement
+from joint_correctives import JointRelaxation, compact_anatomical_modes, caudal_weight_transfer, fascia_displacement, haunch_detail_retention
 from prune_morph_normals import prune_morph_normals
+from static_normals import restore_static_normals
+from hamstring_contour import hamstring_displacement
 
 
 def sha(file):
@@ -36,10 +38,12 @@ def main():
     rig = next(obj for obj in bpy.context.scene.objects if obj.type == 'ARMATURE')
     actions = {a.name: a for a in bpy.data.actions}
     models = [next(obj for obj in bpy.context.scene.objects if obj.type == 'MESH' and obj.name.startswith(key+f'_LOD{lod}') and any(mod.type == 'ARMATURE' for mod in obj.modifiers)) for lod in range(3)]
+    if any(obj.data.shape_keys for obj in models):
+        raise RuntimeError('Corrective baking requires a fresh uncorrected base master')
     rig_slots = {name: a.slots[0] for name, a in actions.items()}
     bone_names = [b.name for b in rig.data.bones]
     inverse_bind = {name: rig.data.bones[name].matrix_local.inverted() for name in bone_names}
-    evidence = {'status': 'actual_export_review_required', 'base_build_sha256': sha(report_path), 'sources': {name: sha(ROOT/'tools'/name) for name in ['bake_joint_correctives.py', 'joint_correctives.py', 'prune_morph_normals.py']}, 'lods': []}
+    evidence = {'status': 'actual_export_review_required', 'forelimb_corrective_amplitude': .5, 'peak_tuck_hamstring_lift_m': .065, 'base_build_sha256': sha(report_path), 'sources': {name: sha(ROOT/'tools'/name) for name in ['bake_joint_correctives.py', 'joint_correctives.py', 'prune_morph_normals.py', 'static_normals.py', 'hamstring_contour.py']}, 'lods': []}
     for level, obj in enumerate(models):
         rig.animation_data.action = None
         for bone in rig.pose.bones: bone.matrix_basis = Matrix.Identity(4)
@@ -91,7 +95,10 @@ def main():
                     direction = np.linalg.solve(carried_rotation, np.asarray(bone.tail-bone.head))
                     flexions[side] = math.atan2(resting[1]*direction[2]-resting[2]*direction[1], resting[1]*direction[1]+resting[2]*direction[2])
                 fascia = fascia_displacement(rest, resolve('roe_deer_buck')['scale'], carried_rotation, flexions)
-                delta = relaxation.delta(posed, rotations, fascia)
+                retention = haunch_detail_retention(rest, resolve('roe_deer_buck')['scale'], flexions)
+                delta = relaxation.delta(posed, rotations, fascia, retention, front_blend=.5)
+                hamstring = hamstring_displacement(rest, resolve('roe_deer_buck')['scale'], carried_rotation, flexions)
+                delta += np.linalg.solve(rotations, hamstring[..., None])[..., 0]
                 if not np.isfinite(delta).all(): raise RuntimeError('Nonfinite corrective sample')
                 timelines[name].append((frame, len(samples))); samples.append(delta)
             print('JOINT_SAMPLES', level, name, len(frames), 'diffusion', relaxation.iterations, flush=True)
@@ -126,8 +133,9 @@ def main():
         target = output/f'{key}_lod{level}.glb'
         bpy.ops.export_scene.gltf(filepath=str(target), export_format='GLB', use_selection=True, export_yup=True, export_normals=True, export_tangents=True, export_texcoords=True, export_skins=True, export_animations=True, export_animation_mode='ACTIONS', export_merge_animation='ACTION', export_anim_single_armature=True, export_force_sampling=True, export_frame_range=False, export_vertex_color='NAME', export_vertex_color_name='AnatomicalTint', export_all_vertex_colors=False, export_try_sparse_sk=True, export_morph_normal=True)
         payload, compression = prune_morph_normals(target.read_bytes())
+        payload, preserved_normals = restore_static_normals(payload, (ROOT/'runtime'/target.name).read_bytes())
         target.write_bytes(payload)
-        evidence['lods'].append({'level': level, 'model': target.name, 'sha256': sha(target), 'bytes': target.stat().st_size, 'unchanged_rest_geometry_sha256': geometry_hash, 'caudal_weight_vertices': changed_weights, 'samples': len(samples), **quality, 'normal_noise_pruning': compression})
+        evidence['lods'].append({'level': level, 'model': target.name, 'sha256': sha(target), 'bytes': target.stat().st_size, 'unchanged_rest_geometry_sha256': geometry_hash, 'caudal_weight_vertices': changed_weights, 'samples': len(samples), **quality, 'normal_noise_pruning': compression, 'static_normal_preservation': preserved_normals})
         (output/'candidate.json').write_text(json.dumps(evidence, indent=2)+'\n')
         obj.hide_set(level != 0); obj.hide_render = level != 0
         print('JOINT_CANDIDATE', level, quality, target.stat().st_size, flush=True)

@@ -1,0 +1,89 @@
+{
+  "toolSha256": "133d1676ef3180d3a44c3dbcecfd38b7f50868bbfeec7b33639f4a3a0bc47e78",
+  "materials": [
+    {
+      "material": "fern_stem",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/fern_stem_baseColor.png",
+          "sha256": "706702d36c95ba742695c63eb482174a8812c7aa3d8d7b143b14bc2b6c8c3504",
+          "resolution": 1024
+        },
+        "normal": {
+          "file": "textures/source/fern_stem_normal.png",
+          "sha256": "7c99ad39039f248ff9df69cd17f40003e7237c8a0acac63081a1c2e92f8b0a3d",
+          "resolution": 1024
+        },
+        "orm": {
+          "file": "textures/source/fern_stem_orm.png",
+          "sha256": "18e916808524336d72466fdfd0291c59cf03a0d6f8402eb11a43b477dc9ef5bf",
+          "resolution": 1024
+        }
+      },
+      "height": {
+        "file": "textures/source/fern_stem_height.png",
+        "sha256": "ac65feb590ca53ed4979a5ef4c40b5498622b6b4d156fe13c88e2ef7e1982459",
+        "maximumM": 0.0003,
+        "uSpanM": 0.18,
+        "vSpanM": 0.55
+      },
+      "normalConvention": "OpenGL tangent RGB from (-dH/dx,+dH/dImageRow,1); PNG rows increase downward."
+    },
+    {
+      "material": "fern_leaf",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/fern_leaf_baseColor.png",
+          "sha256": "efb3f90f939745288c303547e50afebc157f3fb31eb3bb6def6b4288ec654265",
+          "resolution": 1024
+        },
+        "normal": {
+          "file": "textures/source/fern_leaf_normal.png",
+          "sha256": "2558fe975ccf08bcf910bb03efcea13bfe32a3d14b800ed0762bae1d19f2bc49",
+          "resolution": 1024
+        },
+        "orm": {
+          "file": "textures/source/fern_leaf_orm.png",
+          "sha256": "f0b251b0c59df424c0a450a6c003a3f377094ebbfb6659bf47b35ad8ea0defd7",
+          "resolution": 1024
+        }
+      },
+      "height": {
+        "file": "textures/source/fern_leaf_height.png",
+        "sha256": "cba803622867db4edd4b27ef27fe2827bcc3188f30d20d70b7c45e32d6c18683",
+        "maximumM": 0.0003,
+        "uSpanM": 0.188,
+        "vSpanM": 0.17
+      },
+      "normalConvention": "OpenGL tangent RGB from (-dH/dx,+dH/dImageRow,1); PNG rows increase downward."
+    },
+    {
+      "material": "wood_sedge",
+      "channels": {
+        "baseColor": {
+          "file": "textures/source/wood_sedge_baseColor.png",
+          "sha256": "c98b2776a2e10b8069b77afd6339e17c1bf93e5211fcbda744bca555bf57b019",
+          "resolution": 1024
+        },
+        "normal": {
+          "file": "textures/source/wood_sedge_normal.png",
+          "sha256": "908d9b18a9e9b405a9544c8b6fba6bc316aca6bafbcefb83f7e71e396b7841b5",
+          "resolution": 1024
+        },
+        "orm": {
+          "file": "textures/source/wood_sedge_orm.png",
+          "sha256": "f0b251b0c59df424c0a450a6c003a3f377094ebbfb6659bf47b35ad8ea0defd7",
+          "resolution": 1024
+        }
+      },
+      "height": {
+        "file": "textures/source/wood_sedge_height.png",
+        "sha256": "376163596efac7326c3b9bb2ac28f62f054465bcb9e2320ee501fe7d5c0a8fc2",
+        "maximumM": 0.0003,
+        "uSpanM": 0.164,
+        "vSpanM": 0.54
+      },
+      "normalConvention": "OpenGL tangent RGB from (-dH/dx,+dH/dImageRow,1); PNG rows increase downward."
+    }
+  ]
+}

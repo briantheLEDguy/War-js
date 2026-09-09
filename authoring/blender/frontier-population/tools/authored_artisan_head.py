@@ -150,6 +150,22 @@ def build_head(make, morph, race):
         hit,normal,_,_=tree.find_nearest(vertex.co)
         vertex.co=hit+normal*.006
     scalp.data.update()
+    # Comb the cap from its crown part. The retained atlas crosses the new
+    # swept direction and caused transverse bands beneath the authored locks.
+    points=[vertex.co for vertex in scalp.data.vertices]
+    center=Vector((0,(min(p.y for p in points)+max(p.y for p in points))*.5,max(p.z for p in points)-.12))
+    crown=Vector((.6,.5,.7)).normalized()
+    cross=crown.cross(Vector((0,0,1))).normalized();along=crown.cross(cross).normalized()
+    uv=[]
+    for point in points:
+        direction=(point-center).normalized()
+        uv.append(((math.atan2(direction.dot(along),direction.dot(cross))/math.tau)%1,
+                   math.acos(max(-1,min(1,direction.dot(crown))))/math.pi))
+    for face in scalp.data.polygons:
+        values=[uv[index] for index in face.vertices]
+        wrap=max(value[0] for value in values)-min(value[0] for value in values)>.5
+        for loop,(u,v) in zip(face.loop_indices,values):
+            scalp.data.uv_layers.active.data[loop].uv=(u+1 if wrap and u<.5 else u,v)
     build_swept_hair(make,face_shape,materials['hair'],tree)
     return materials['hair'],face_shape,tree
 
@@ -190,20 +206,41 @@ def hair_material():
     """Directionally painted locks with fine strand normals, retained in the GLB."""
     size=1024;v,u=np.mgrid[0:size,0:size]/size
     drift=.006*np.sin(v*math.tau*1.5)+.003*np.sin(v*math.tau*4.5)
-    phase=(u+drift)*math.tau
-    broad=.12*np.sin(phase*19)+.08*np.sin(phase*31+.8)
-    fine=.07*np.sin(phase*211+.8*np.sin(v*16))+.045*np.sin(phase*379+v*7)
-    tone=.86+broad+fine+.06*np.sin(v*7+u*21)
-    color=np.array([.105,.059,.028])[None,None,:]*tone[:,:,None]
-    # A few desaturated strands break the pigment uniformly through each lock.
-    grey=np.maximum(0,np.sin(phase*47)-.97)*3
+    growth=u+drift
+    def irregular(position,seed,period):
+        index=np.floor(position);t=position-index;t=t*t*(3-2*t)
+        noise=lambda value:((np.sin((value%period)*12.9898+seed)*43758.5453)%1)*2-1
+        return noise(index)*(1-t)+noise(index+1)*t
+    clump=irregular(growth*47+.13*np.sin(v*4),3.1,47)
+    secondary=irregular(growth*131+.17*np.sin(v*8),9.7,131)
+    strand=growth*211+.12*np.sin(v*13);index=np.floor(strand)
+    random=(np.sin((index%211)*17.73)*19431.117)%1
+    fibre=np.exp(-((strand-index-(.32+.27*random))/.12)**2)
+    # Secondary bundles have irregular spacing and tapered lengths. The 0.4 m
+    # transverse / 0.24 m growth field gives 0.3–0.7 mm relief at beard scale.
+    rng=np.random.default_rng(812);relief=np.zeros_like(u);pigment=np.zeros_like(u);center=0.
+    ease=lambda value:np.clip(value,0,1)**2*(3-2*np.clip(value,0,1))
+    while center<1:
+        center+=rng.uniform(.0016,.0034)/.4
+        start=rng.uniform(.25,.72);end=min(1.06,start+rng.uniform(.16,.42))
+        bend=rng.uniform(.0003,.0012)/.4*np.sin(v*rng.uniform(4,9)+rng.uniform(0,math.tau))
+        delta=(growth-center-bend+.5)%1-.5
+        width=rng.uniform(.00028,.00052)/.4
+        length=ease((v-start)/.055)*ease((end-v)/.045)
+        groove=np.exp(-(delta/width)**2)*length
+        depth=rng.uniform(.0003,.0007)
+        relief-=depth*groove; pigment-=rng.uniform(.035,.075)*groove
+    tone=.84+.07*clump+.025*secondary+.015*(fibre-.2)+pigment
+    color=np.array([.145,.075,.035])[None,None,:]*tone[:,:,None]
+    # Sparse grey fibres vary along growth instead of forming repeated bands.
+    grey=np.maximum(0,random-.975)*3*fibre*(.65+.25*np.sin(v*6))
     color+=grey[:,:,None]*np.array([.16,.13,.10])[None,None,:]
-    relief=.30*np.sin(phase*211)+.15*np.sin(phase*379+v*7)+.2*np.sin(phase*31)
-    gy,gx=np.gradient(relief);normal=np.stack((-gx*3,-gy*3,np.ones_like(gx)),axis=-1)
+    gy,gx=np.gradient(relief);normal=np.stack((-gx*size/.4,-gy*size/.24,np.ones_like(gx)),axis=-1)
     normal/=np.linalg.norm(normal,axis=-1,keepdims=True)
     mat=bpy.data.materials.new('artisan_chestnut_directional_hair');mat.use_nodes=True
-    shader=mat.node_tree.nodes['Principled BSDF'];shader.inputs['Roughness'].default_value=.76
-    for channel,values in [('basecolor',color),('normal',normal*.5+.5)]:
+    shader=mat.node_tree.nodes['Principled BSDF'];shader.inputs['Roughness'].default_value=.88
+    roughness=np.clip(.88+.03*clump-.016*fibre,.83,.94)
+    for channel,values in [('basecolor',color),('normal',normal*.5+.5),('roughness',np.repeat(roughness[:,:,None],3,axis=2))]:
         rgba=np.ones((size,size,4),np.float32);rgba[:,:,:3]=values
         image=bpy.data.images.new('artisan_hair_'+channel,width=size,height=size,alpha=True)
         image.colorspace_settings.name='sRGB' if channel=='basecolor' else 'Non-Color'
@@ -211,10 +248,10 @@ def hair_material():
         image.file_format='PNG';image.save();image.pack()
         texture=mat.node_tree.nodes.new('ShaderNodeTexImage');texture.image=image
         if channel=='normal':
-            node=mat.node_tree.nodes.new('ShaderNodeNormalMap');node.uv_map='UVMap';node.inputs['Strength'].default_value=.35
+            node=mat.node_tree.nodes.new('ShaderNodeNormalMap');node.uv_map='UVMap';node.inputs['Strength'].default_value=1
             mat.node_tree.links.new(texture.outputs['Color'],node.inputs['Color'])
             mat.node_tree.links.new(node.outputs['Normal'],shader.inputs['Normal'])
-        else:mat.node_tree.links.new(texture.outputs['Color'],shader.inputs['Base Color'])
+        else:mat.node_tree.links.new(texture.outputs['Color'],shader.inputs['Base Color' if channel=='basecolor' else 'Roughness'])
     return mat
 
 
@@ -235,7 +272,7 @@ def build_beard(make, face_shape, hair, tree):
             zz=z+rise*(abs(math.sin(angle))**1.2)+.022*(1-facing)
             if r>=4:zz+=.006*math.cos(angle*5)*(r-3)/2*facing
             # Sculpt shallow coherent locks into the volume; no stray wire hairs.
-            ripple=.0025*math.cos(angle*9+r*.6)*math.sin(r/(len(profiles)-1)*math.pi)
+            ripple=.0055*math.cos(angle*9+r*.3)*math.sin(r/(len(profiles)-1)*math.pi)
             y-=ripple*facing
             point=face_shape((x,y,zz))
             if r<2:

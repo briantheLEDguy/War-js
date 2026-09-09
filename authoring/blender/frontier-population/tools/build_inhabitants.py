@@ -28,6 +28,7 @@ from export_tangents import repair_export_tangents
 from apron_clearance import fit_apron_clearance
 from apron_details import make_apron_details
 from surface_bindings import ClothSurface, bind_detail
+from workwear_finish import sew_work_shirt, finish_apron
 
 for folder in ['sources', 'runtime', 'textures', 'review']:
     (WORK / folder).mkdir(parents=True, exist_ok=True)
@@ -105,6 +106,14 @@ def material(name, color, rough=.8, metal=0, textile=False):
             relief=.34*grain+.13*np.sin(xx*.12+yy*.17)+.08*mottling
             pigment=.91+.065*mottling+.025*grain
             roughness=np.clip(rough+.06*mottling+.04*grain,.35,.94)
+        elif 'woven_linen' in name:
+            # Coarse work linen has readable paired threads and dye variation;
+            # the fine fibrils sit beneath the weave, not over the whole shape.
+            warp=np.cos(xx*math.pi/4+.20*np.sin(yy*.017))
+            weft=np.cos(yy*math.pi/4+.18*np.sin(xx*.023))
+            relief=.27*(warp+weft)+.14*warp*weft
+            pigment=.965+.012*mottling+.023*warp+.018*weft
+            roughness=np.clip(rough+.022*(warp+weft),.82,.98)
         else:
             warp=np.cos(xx*math.pi/2+.1*np.sin(yy*.035))
             weft=np.cos(yy*math.pi/2+.1*np.sin(xx*.027))
@@ -124,7 +133,7 @@ def material(name, color, rough=.8, metal=0, textile=False):
             node=mat.node_tree.nodes.new('ShaderNodeTexImage');node.image=image
             if channel=='normal':
                 normal_node=mat.node_tree.nodes.new('ShaderNodeNormalMap');normal_node.uv_map='UVMap'
-                normal_node.inputs['Strength'].default_value=.3
+                normal_node.inputs['Strength'].default_value=.5 if 'woven_linen' in name else .3
                 mat.node_tree.links.new(node.outputs['Color'],normal_node.inputs['Color'])
                 mat.node_tree.links.new(normal_node.outputs['Normal'],shader.inputs['Normal'])
             else:mat.node_tree.links.new(node.outputs['Color'],shader.inputs['Base Color' if channel=='basecolor' else 'Roughness'])
@@ -250,7 +259,9 @@ def build(kind, recipe):
     if kind in ('dwarf_artisan', 'greenskin_peat_worker', 'empire_herbalist'):
         rows = [(mapped(z),w) for z,w in [(1.42,.13),(1.34,.16),(1.22,.19),(1.10,.20),(1.0,.20),(.90,.195),(.79,.195),(.68,.205),(.62,.22)]]
         verts = []
-        waist_y=front_at(0,mapped(1.01))-.022
+        # The free-hanging leather follows the torso envelope; tucking the
+        # shirt hem must not pull its lower pattern inward through the knees.
+        waist_y=min(front_at(0,mapped(1.01))-.022,front_at(0,mapped(1.22))-.015)
         for r, (z, width) in enumerate(rows):
             for c in range(13):
                 t = c/12; x = (t-.5)*2*width*(1.17 if race=='dwarf' else 1)
@@ -265,17 +276,21 @@ def build(kind, recipe):
     # Curved belt construction with a deliberately overlapped tongue and square forged buckle.
     belt_z = mapped(1.02)
     bpy.context.view_layer.update()
-    belt_trees=[BVHTree.FromObject(o,bpy.context.evaluated_depsgraph_get()) for o in authored
-                if 'continuous_tailored_surface' in o.name or 'folded_work_apron' in o.name]
+    belt_surfaces=[ClothSurface(o) for o in authored
+                   if 'continuous_tailored_surface' in o.name or 'folded_work_apron' in o.name]
     # A belt wraps the exterior hull, bridging the apron edge instead of
     # abruptly diving toward the shirt when a radial ray misses that edge.
     def belt_hull(height):
-        points=[];origin=Vector((0,0,belt_z+height))
-        for i in range(128):
-            direction=Vector((math.sin(i*math.tau/128),math.cos(i*math.tau/128),0))
-            for tree in belt_trees:
-                hit=tree.ray_cast(origin,direction)[0]
-                if hit is not None and (hit-origin).length<.45:points.append((hit.x,hit.y))
+        points=[];plane=belt_z+height
+        # Exact cross-sections retain narrow apron corners which radial probes
+        # can miss. The belt must wrap the whole sewn panel's exterior.
+        for surface in belt_surfaces:
+            for triangle in surface.triangles:
+                for first,second in zip(triangle,triangle[1:]+triangle[:1]):
+                    a,b=surface.points[first],surface.points[second]
+                    if (a.z>plane)!=(b.z>plane):
+                        point=a.lerp(b,(plane-a.z)/(b.z-a.z))
+                        points.append((point.x,point.y))
         points=sorted(set(points))
         def cross(a,b,c):return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
         lower=[];upper=[]
@@ -296,16 +311,21 @@ def build(kind, recipe):
             if distance>0 and -1e-7<=fraction<=1+1e-7:candidates.append(distance)
         if not candidates:raise RuntimeError('Authored belt profile is not closed')
         return min(candidates)
-    hulls={height:belt_hull(height) for height in (-.023,.023)}
+    heights=[-.023,-.0115,0,.0115,.023]
+    hulls={height:belt_hull(height) for height in heights}
     verts=[];belt_sections=96
-    for depth,height in [(.013,-.023),(.013,.023),(.007,.023),(.007,-.023)]:
+    # Preserve the leather's six-millimetre thickness as a paired profile.
+    # Independently pushing its two surfaces outward collapses the inner face
+    # onto the outer one and creates visible overlapping triangles.
+    profile=[(.021,height) for height in heights]+[(.015,height) for height in reversed(heights)]
+    for depth,height in profile:
         for i in range(belt_sections):
             direction=Vector((math.sin(i*math.tau/belt_sections),math.cos(i*math.tau/belt_sections),0));origin=Vector((0,0,belt_z+height))
             distance=hull_radius(hulls[height],direction)
             verts.append(origin+direction*(distance+depth))
-    make('work_belt', verts, [(r*belt_sections+i,r*belt_sections+(i+1)%belt_sections,((r+1)%4)*belt_sections+(i+1)%belt_sections,((r+1)%4)*belt_sections+i)
-                            for r in range(4) for i in range(belt_sections)], leather, 'hips')
-    buckle_y = front_at(0,belt_z)-.034
+    make('work_belt', verts, [(r*belt_sections+i,r*belt_sections+(i+1)%belt_sections,((r+1)%len(profile))*belt_sections+(i+1)%belt_sections,((r+1)%len(profile))*belt_sections+i)
+                            for r in range(len(profile)) for i in range(belt_sections)], leather, 'hips')
+    buckle_y = min(vertex.co.y for vertex in bpy.data.objects['work_belt'].data.vertices if abs(vertex.co.x)<.05)-.010
     for a,b in [((-.035,buckle_y,belt_z-.032),(.035,buckle_y,belt_z-.032)),
                 ((-.035,buckle_y,belt_z+.032),(.035,buckle_y,belt_z+.032)),
                 ((-.035,buckle_y,belt_z-.032),(-.035,buckle_y,belt_z+.032)),
@@ -353,11 +373,17 @@ def build(kind, recipe):
                 t=max(0,min(1,(vertex.co.z-mapped(.12))/(mapped(.27)-mapped(.12))));t=t*t*(3-2*t)
                 foot.add([vertex.index],1-t,'REPLACE');shin.add([vertex.index],t,'REPLACE')
     if kind=='dwarf_artisan':
-        cloth=ClothSurface(apron)
-        bind_detail(bpy.data.objects['work_belt'],[cloth],minimum_distance=.009,select=lambda point:point.y<-.06)
-        bind_detail(bpy.data.objects['apron_bound_perimeter'],[cloth])
-        supports=[cloth]+[ClothSurface(obj) for obj in authored if 'shirt_continuous_tailored_surface' in obj.name or 'standing_shirt_collar' in obj.name]
+        apron_surface=ClothSurface(apron)
+        belt=bpy.data.objects['work_belt']
+        bind_detail(belt,[apron_surface],select=lambda point:point.y<-.06)
+        belt_surface=ClothSurface(belt)
+        for obj in authored:
+            if obj.name.startswith('forged_buckle_frame'):bind_detail(obj,[belt_surface])
+        bind_detail(bpy.data.objects['apron_bound_perimeter'],[apron_surface])
+        supports=[apron_surface]+[ClothSurface(obj) for obj in authored if 'shirt_continuous_tailored_surface' in obj.name or 'standing_shirt_collar' in obj.name]
         bind_detail(bpy.data.objects['apron_continuous_neck_loop'],supports)
+        sew_work_shirt(make,material,lambda point:morphology(point,race),rig)
+        finish_apron(apron,authored,belt_z,WORK)
     # Keep source anatomical image bytes and rig data within the editable derivative.
     bm = bmesh.new(); bm.from_mesh(body.data); bm.faces.ensure_lookup_table()
     bmesh.ops.delete(bm, geom=[face for face in bm.faces if face.index in covered], context='FACES')

@@ -1,0 +1,25 @@
+{
+  "modelSha256": "7a49e9bcd7a2d6af736b2ff75a2254a2e21323060818846dc8b46d56b39c15e8",
+  "bounds": {
+    "min": [
+      -0.44275766611099243,
+      -0.3038993179798126,
+      0.00399993360042572
+    ],
+    "max": [
+      0.4436977505683899,
+      0.2749999463558197,
+      1.3603782653808594
+    ]
+  },
+  "images": [
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_head_20260909k_hairproof.png",
+      "sha256": "4bd3788615c7eacbc8238cd9167efdaeb1e6e17d815a7b669158c205208b8178",
+      "clip": "idle",
+      "seconds": 0
+    }
+  ],
+  "status": "pending"
+}

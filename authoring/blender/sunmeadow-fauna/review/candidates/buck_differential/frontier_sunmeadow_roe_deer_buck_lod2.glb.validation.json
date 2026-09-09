@@ -1,0 +1,77 @@
+{
+  "uri": "frontier_sunmeadow_roe_deer_buck_lod2.glb",
+  "mimeType": "model/gltf-binary",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "issues": {
+    "numErrors": 0,
+    "numWarnings": 0,
+    "numInfos": 0,
+    "numHints": 0,
+    "messages": [],
+    "truncated": false
+  },
+  "info": {
+    "version": "2.0",
+    "generator": "Khronos glTF Blender I/O v5.0.21",
+    "resources": [
+      {
+        "pointer": "/buffers/0",
+        "mimeType": "application/gltf-buffer",
+        "storage": "glb",
+        "byteLength": 1897848
+      },
+      {
+        "pointer": "/images/0",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 512,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/1",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 512,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/2",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 512,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      }
+    ],
+    "animationCount": 4,
+    "materialCount": 1,
+    "hasMorphTargets": true,
+    "hasSkins": true,
+    "hasTextures": true,
+    "hasDefaultScene": true,
+    "drawCallCount": 1,
+    "totalVertexCount": 5917,
+    "totalTriangleCount": 8684,
+    "maxUVs": 1,
+    "maxInfluences": 4,
+    "maxAttributes": 7
+  },
+  "modelSha256": "39cb49e2692917c6f8a2aacf437050da1dfab9ffc0889c49d6c5330781e3e0ed"
+}

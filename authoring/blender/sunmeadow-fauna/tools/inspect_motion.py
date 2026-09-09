@@ -64,7 +64,9 @@ def inspect(kind,lod,candidate_dir=None):
     if sha(model)!=model_sha:raise RuntimeError('Model changed during actual export inspection')
     if sha(build_path)!=build_hash:raise RuntimeError('Build contract changed during actual export inspection')
     report={'asset':key,'lod':lod,'model_sha256':model_sha,'build_sha256':build_hash,'inspector_sha256':sha(Path(__file__)),'sampling_helper_sha256':sha(ROOT/'tools/glb_sampling.py'),'imported_action_helper_sha256':sha(ROOT/'tools/imported_actions.py'),'sampling':'exported_keys_and_midpoints','vertices':len(rest),'bones':len(rig.data.bones),'clips':clips,'approval':'pending'}
-    target=(delivery if candidate_dir else ROOT/'review')/f'{key}_lod{lod}_motion_inspection.json';target.write_text(json.dumps(report,indent=2)+'\n');print('FAUNA_MOTION',key,lod,[(clip['name'],round(clip['maximum_edge_stretch'],3),round(clip['p99_edge_stretch'],3),clip['locomotion']['maximum_plant_error_m'] if clip['locomotion'] else None) for clip in clips],flush=True)
+    target=(delivery if candidate_dir else ROOT/'review')/f'{key}_lod{lod}_motion_inspection.json'
+    pending=target.with_suffix('.json.pending');pending.write_text(json.dumps(report,indent=2)+'\n');pending.replace(target)
+    print('FAUNA_MOTION',key,lod,[(clip['name'],round(clip['maximum_edge_stretch'],3),round(clip['p99_edge_stretch'],3),clip['locomotion']['maximum_plant_error_m'] if clip['locomotion'] else None) for clip in clips],flush=True)
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--assets',default='roe_deer_buck');parser.add_argument('--lods',default='0');parser.add_argument('--candidate-dir');args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])

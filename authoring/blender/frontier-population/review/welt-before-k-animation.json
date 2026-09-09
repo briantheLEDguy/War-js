@@ -1,0 +1,47 @@
+[
+  {
+    "lod": 0,
+    "modelSha256": "994d4632e0a55a9e0624163e1f19efb2891aab95ac390319e8cdd0d30eef3fc0",
+    "animationChannelSha256": {
+      "attack_melee": "df1204ceb84af7d3e1f71e37b7cf5bbf9f5dfdb2b78ea20b8b3daeca2334065a",
+      "attack_ranged": "50c4a18c1cb378a328c78729731c933e7c5083246d43ad1c75275cb47909a1fb",
+      "cast": "0a8e1b53d8f546fbb230a3c49ae0ed2494f441d71f1d4639c6b526697d73e9c3",
+      "combat_idle": "27fd7824ccdc497beb1e7bea6a7f4245de2a4404e0dce93b68fdbec1ec21d452",
+      "death": "13acb4be9d690abd3a76d7d7a7bdfabca7b4a98df33125b1907163bfa2376991",
+      "idle": "ce9262182ab227171dd62f86fe35969abb4aa70f20ac656335c07a1f41450d6c",
+      "jump": "beddadd0fd72a501c775840c21e441951182f7881c77b55ef656cf50f9f08d14",
+      "run": "6138b825d1fa5089d3016ab06c964d8a254bb53dc308d715b7b9b200086f6b9e",
+      "walk": "9464719501ca59f49ecc93e1f7d089f35fed7ce3c542f31b23f1f1ddc0a6c449"
+    }
+  },
+  {
+    "lod": 1,
+    "modelSha256": "5a1f2db2345b274eadb9dc7ce7651fd5e5712b0529d0c906be8add98d61bd826",
+    "animationChannelSha256": {
+      "attack_melee": "df1204ceb84af7d3e1f71e37b7cf5bbf9f5dfdb2b78ea20b8b3daeca2334065a",
+      "attack_ranged": "50c4a18c1cb378a328c78729731c933e7c5083246d43ad1c75275cb47909a1fb",
+      "cast": "0a8e1b53d8f546fbb230a3c49ae0ed2494f441d71f1d4639c6b526697d73e9c3",
+      "combat_idle": "27fd7824ccdc497beb1e7bea6a7f4245de2a4404e0dce93b68fdbec1ec21d452",
+      "death": "13acb4be9d690abd3a76d7d7a7bdfabca7b4a98df33125b1907163bfa2376991",
+      "idle": "ce9262182ab227171dd62f86fe35969abb4aa70f20ac656335c07a1f41450d6c",
+      "jump": "beddadd0fd72a501c775840c21e441951182f7881c77b55ef656cf50f9f08d14",
+      "run": "6138b825d1fa5089d3016ab06c964d8a254bb53dc308d715b7b9b200086f6b9e",
+      "walk": "9464719501ca59f49ecc93e1f7d089f35fed7ce3c542f31b23f1f1ddc0a6c449"
+    }
+  },
+  {
+    "lod": 2,
+    "modelSha256": "d7f8c2ea889226620689b125f34f4ba45bdb7e8327cf56ff7192b69f84ac4341",
+    "animationChannelSha256": {
+      "attack_melee": "df1204ceb84af7d3e1f71e37b7cf5bbf9f5dfdb2b78ea20b8b3daeca2334065a",
+      "attack_ranged": "50c4a18c1cb378a328c78729731c933e7c5083246d43ad1c75275cb47909a1fb",
+      "cast": "0a8e1b53d8f546fbb230a3c49ae0ed2494f441d71f1d4639c6b526697d73e9c3",
+      "combat_idle": "27fd7824ccdc497beb1e7bea6a7f4245de2a4404e0dce93b68fdbec1ec21d452",
+      "death": "13acb4be9d690abd3a76d7d7a7bdfabca7b4a98df33125b1907163bfa2376991",
+      "idle": "ce9262182ab227171dd62f86fe35969abb4aa70f20ac656335c07a1f41450d6c",
+      "jump": "beddadd0fd72a501c775840c21e441951182f7881c77b55ef656cf50f9f08d14",
+      "run": "6138b825d1fa5089d3016ab06c964d8a254bb53dc308d715b7b9b200086f6b9e",
+      "walk": "9464719501ca59f49ecc93e1f7d089f35fed7ce3c542f31b23f1f1ddc0a6c449"
+    }
+  }
+]

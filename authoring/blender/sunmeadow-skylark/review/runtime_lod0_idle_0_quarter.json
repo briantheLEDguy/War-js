@@ -1,0 +1,24 @@
+{
+  "status": "pending_visual_review",
+  "model": "runtime/frontier_sunmeadow_skylark_lod0.glb",
+  "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+  "imageSha256": "c769d131789500c6664b4fa02fc794dc12d5009d363d38d913a9f0b774cba6db",
+  "toolSha256": "ffb4b6ccd442552dd0da1757efbe672475ab4c46ea32427de1f7bff54bb9a974",
+  "actionHelperSha256": "9995f063848ba0b8295102e377a8ec097d7a547555d8539e38aafb46294936fa",
+  "lod": 0,
+  "state": "idle@0",
+  "view": "quarter",
+  "camera": {
+    "orthoSpanM": 0.28,
+    "position": [
+      0.699999988079071,
+      -0.8999999761581421,
+      0.4749999940395355
+    ],
+    "target": [
+      0.0,
+      0.009999999776482582,
+      0.09000000357627869
+    ]
+  }
+}

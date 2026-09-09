@@ -13,6 +13,8 @@ WORK = Path(__file__).resolve().parents[1]
 lod = next((int(a.split('=',1)[1]) for a in sys.argv if a.startswith('--lod=')), None)
 SOURCE = WORK / (f'runtime/frontier_sunmeadow_dwarf_artisan_lod{lod}.glb' if lod is not None
                  else 'sources/frontier_sunmeadow_dwarf_artisan.blend')
+override=next((a.split('=',1)[1] for a in sys.argv if a.startswith('--source=')),None)
+if override:SOURCE=Path(override).resolve()
 if lod is None: bpy.ops.wm.open_mainfile(filepath=str(SOURCE))
 else: bpy.ops.import_scene.gltf(filepath=str(SOURCE))
 rig = next(o for o in bpy.context.scene.objects if o.type == 'ARMATURE')
@@ -48,6 +50,8 @@ skin_faces = [face for face in body.data.polygons if '.body' in body.data.materi
 skin_edges = {tuple(sorted((a,b))) for face in skin_faces for a,b in zip(tuple(face.vertices),tuple(face.vertices[1:])+tuple(face.vertices[:1]))}
 edges = np.array(sorted(skin_edges),dtype=int)
 samples = [('rest',0),('idle',0),('idle',1),('walk',0),('walk',.25),('walk',.5),('run',0),('run',1/6),('run',1/3)]
+if lod is None and '--dense' in sys.argv:
+    samples=[('rest',0)]+[(clip,half_frame/60) for clip,duration in [('idle',60),('walk',30),('run',20)] for half_frame in range(duration*2+1)]
 if lod is not None:
     binary=SOURCE.read_bytes();length=int.from_bytes(binary[12:16],'little')
     document=json.loads(binary[20:20+length]);data=binary[28+length:]

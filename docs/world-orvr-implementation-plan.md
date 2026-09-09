@@ -6,6 +6,11 @@ The approved outcome is a complete original Aegis Accord versus Riftbound Host c
 
 The [production board](orvr-production-board.md) tracks the active parallel work and integration dependencies.
 
+The September 9 production priority is character models, equipment, and town/siege
+items. Animals come last. The current buck shape is accepted for now, with further
+anatomical refinement stopped. Paused wildlife drafts remain saved; this changes
+the execution order without removing the eventual zone ecosystem requirements.
+
 The repository now contains expanded outdoor layout sources, explicit art direction for all thirty noncapital zones, generated travel-safe maps, shared terrain controls, and a local authoritative server/client playtest. **A layout is not a completed environment.** Replacement terrain, settlement, vegetation, population, wildlife, and siege assets remain subject to the production and visual-review requirements below. Production multiplayer activation, hosted infrastructure, complete city navigation integration, and measured 18-versus-18 performance are not established by these source changes.
 
 | Milestone | Status and evidence |

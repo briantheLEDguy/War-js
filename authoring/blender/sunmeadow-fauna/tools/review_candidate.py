@@ -21,6 +21,13 @@ def main():
     args = parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     base = ROOT/'review/candidates/buck_differential'
     records = []
+    receipt = base/'render_receipts.json'
+    if receipt.exists():
+        for record in json.loads(receipt.read_text()).get('renders', []):
+            model = base/f'frontier_sunmeadow_roe_deer_buck_lod{record["level"]}.glb'
+            image = base/record['image']
+            if model.exists() and image.exists() and sha(model) == record['model_sha256'] and sha(image) == record['image_sha256'] and record['reviewer_sha256'] == sha(__file__) and record['action_helper_sha256'] == sha(ROOT/'tools/imported_actions.py'):
+                records.append(record)
     for level in map(int, args.lods.split(',')):
         model = base/f'frontier_sunmeadow_roe_deer_buck_lod{level}.glb'
         digest = sha(model)
@@ -54,6 +61,7 @@ def main():
                 target = base/f'lod{level}_{state.replace("@", "_").replace(".", "p")}_{view}{suffix}.png'
                 bpy.context.scene.render.filepath = str(target); bpy.ops.render.render(write_still=True)
                 if sha(model) != digest: raise RuntimeError('Candidate changed during review')
+                records = [record for record in records if record['image'] != target.name]
                 records.append({'level': level, 'state': state, 'view': view, 'focus': args.focus, 'model_sha256': digest, 'image': target.name, 'image_sha256': sha(target), 'reviewer_sha256': sha(__file__), 'action_helper_sha256': sha(ROOT/'tools/imported_actions.py'), 'status': 'pending_visual_review'})
                 (base/'render_receipts.json').write_text(json.dumps({'renders': records}, indent=2)+'\n')
                 print('CANDIDATE_RENDER', level, state, view, flush=True)

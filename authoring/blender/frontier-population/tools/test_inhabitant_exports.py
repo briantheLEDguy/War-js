@@ -88,5 +88,15 @@ class InhabitantExportTests(unittest.TestCase):
             self.assertGreater(max(alternating),.30)
             self.assertLess(min(alternating),-.30)
 
+    def test_belt_never_crosses_the_apron(self):
+        for lod in range(3):
+            report=json.loads((WORK/'review'/f'{KEY}_lod{lod}_garment_clearance.json').read_text())
+            self.assertEqual(report['sha256'],sha(WORK/'runtime'/report['model']))
+            self.assertGreater(report['beltEdges'],100)
+            self.assertEqual(len(report['beltClips']),9)
+            for clip in report['beltClips']:
+                self.assertGreater(len(clip['samples']),30)
+                self.assertEqual(clip['maximumIntersections'],0,clip['clip'])
+
 
 if __name__=='__main__':unittest.main()

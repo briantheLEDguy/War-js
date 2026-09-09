@@ -1,0 +1,106 @@
+{
+  "asset": "frontier_cinderfen_fallen_alder_limb",
+  "stage": "source PBR direction only; not exported or approved",
+  "master": "masters\\frontier_cinderfen_fallen_alder_limb_lod0.material-preview.blend",
+  "masterSha256": "ca12b6cef7bfb4b92a7a9d583ddef79b1634ff9b8f6e8ae528766c9a41d9b06e",
+  "toolSha256": "4ef71cb81cfc2252681c2f92863bf7ff3dc6958d19b4624f9998be3cb1d702d4",
+  "materialToolSha256": "a467e5d76ad7df6cc5384776b1850cf067ca59dd699aeb323595947881b60fbc",
+  "views": {
+    "overall": {
+      "image": "frontier_cinderfen_fallen_alder_limb_overall_material_source.png",
+      "sha256": "0fddb14a23ebf9af492b7a173eeb3e938ad36004ba75c954302debc215ddabd4",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          2.5796151161193848,
+          -5.256896018981934,
+          1.5432353019714355
+        ],
+        "target_z_up": [
+          -0.07712900638580322,
+          0.05659213662147522,
+          0.28128188848495483
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "large_break": {
+      "image": "frontier_cinderfen_fallen_alder_limb_large_break_material_source.png",
+      "sha256": "6e0620092029491cdb2667576ede3469e46042c8562426a4535fa93631417613",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          -4.940929889678955,
+          -1.5547904968261719,
+          1.3391162157058716
+        ],
+        "target_z_up": [
+          -1.6200000047683716,
+          -0.1599999964237213,
+          0.20999999344348907
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "side_stub": {
+      "image": "frontier_cinderfen_fallen_alder_limb_side_stub_material_source.png",
+      "sha256": "868111aacd954e4032052bf915bd433652ae4e3e23a7544300ff059721f98260",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          3.200930118560791,
+          -3.9759299755096436,
+          2.839651107788086
+        ],
+        "target_z_up": [
+          -0.11999999731779099,
+          -0.6549999713897705,
+          0.5149999856948853
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "bark": {
+      "image": "frontier_cinderfen_fallen_alder_limb_bark_material_source.png",
+      "sha256": "3b64755fece70af30df91071c90b60034092b131e7e550cbd992fff9f2eba387",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          1.4762790203094482,
+          -3.2209300994873047,
+          2.9667439460754395
+        ],
+        "target_z_up": [
+          0.47999998927116394,
+          0.10000000149011612,
+          0.3100000023841858
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

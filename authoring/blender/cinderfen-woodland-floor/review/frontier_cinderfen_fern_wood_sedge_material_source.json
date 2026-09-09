@@ -1,0 +1,58 @@
+{
+  "asset": "frontier_cinderfen_fern_wood_sedge",
+  "stage": "source PBR direction only; not exported or approved",
+  "master": "masters\\frontier_cinderfen_fern_wood_sedge_lod0.material-preview.blend",
+  "masterSha256": "17a85c39df2f8755f9bdd54d3fac3a5177fec8457299803c9a32b7a662a08985",
+  "toolSha256": "4ef71cb81cfc2252681c2f92863bf7ff3dc6958d19b4624f9998be3cb1d702d4",
+  "materialToolSha256": "a467e5d76ad7df6cc5384776b1850cf067ca59dd699aeb323595947881b60fbc",
+  "views": {
+    "overall": {
+      "image": "frontier_cinderfen_fern_wood_sedge_overall_material_source.png",
+      "sha256": "d73ff1b7325e638d78a7bb89a7abf2a58fd3fb03bd8e25fb36b9927b4fc2e400",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          1.281883955001831,
+          -2.7463881969451904,
+          0.9176654815673828
+        ],
+        "target_z_up": [
+          -0.0856652557849884,
+          -0.011289864778518677,
+          0.2680796682834625
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "fronds": {
+      "image": "frontier_cinderfen_fern_wood_sedge_fronds_material_source.png",
+      "sha256": "241d6c6b69c0f78fb90f05892b1fe3ea97a75dc533b8c39b33f5f181323dc226",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          0.6037746071815491,
+          -1.7894364595413208,
+          1.5420773029327393
+        ],
+        "target_z_up": [
+          -0.07999999821186066,
+          -0.07999999821186066,
+          0.25999999046325684
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

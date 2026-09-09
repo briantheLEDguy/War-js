@@ -1,0 +1,55 @@
+{
+  "stage": "flat-color source geometry, not exported/PBR approval",
+  "masterSha256": "fe3f194d24d2073191c6fd7a27cd69acbb9c6b5654ee5e7238ebee5901bcfead",
+  "toolSha256": "832be6b2648a195e2eee6419632318b84a8ba506795630598d85aabe6bee6934",
+  "views": [
+    {
+      "image": "frontier_cinderfen_fallen_alder_limb_large_break_source.png",
+      "sha256": "5c67592573fa190589c47f9f2fd5e262067b2879db9a7fa7aa3aaef1c3e1fd8e",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          -4.940929889678955,
+          -1.5547904968261719,
+          1.3391162157058716
+        ],
+        "target_z_up": [
+          -1.6200000047683716,
+          -0.1599999964237213,
+          0.20999999344348907
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    {
+      "image": "frontier_cinderfen_fallen_alder_limb_side_stub_source.png",
+      "sha256": "9b6cba8724d987b84d43e0c81e05bf685173d33c3b2fc20757f3aeea12f10249",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          3.200930118560791,
+          -3.9759299755096436,
+          2.839651107788086
+        ],
+        "target_z_up": [
+          -0.11999999731779099,
+          -0.6549999713897705,
+          0.5149999856948853
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  ]
+}

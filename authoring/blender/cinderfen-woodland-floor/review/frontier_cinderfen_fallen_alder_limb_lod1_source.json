@@ -1,0 +1,36 @@
+{
+  "asset": "frontier_cinderfen_fallen_alder_limb",
+  "lod": 1,
+  "sourceSha256": "0268043442943f0d6fd2206d26d4ab5187993f2291e23280ea8db872d27fa029",
+  "builderSha256": "81a8cfc69c8b91a4ac12aaa9223e4b0ea873249a6efca1e31ff19b1d219f3ccb",
+  "master": "masters\\frontier_cinderfen_fallen_alder_limb_lod1.source-preview.blend",
+  "masterSha256": "81710b3f5b63afb1adc3e0b33cb152af48c5af1bc9bcef0575035e287e1ac736",
+  "stage": "source geometry with flat material colors; not exported or approved",
+  "triangles": 3040,
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "surveyed_broken_alder_limb_0.lod1",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 3040
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -1.737863302230835,
+        -0.7408465147018433,
+        -0.0057772002182900906
+      ],
+      "maximum": [
+        1.5833412408828735,
+        0.8520032167434692,
+        0.5697718262672424
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  }
+}

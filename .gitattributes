@@ -110,3 +110,13 @@ authoring/blender/cinderfen-architecture/junction/tools/write_provenance.py text
 authoring/blender/cinderfen-architecture/junction/source/source-provenance.json text eol=lf
 # Vite 5 SSR requires an LF shebang when this CLI is imported by tests.
 scripts/blender-character-pipeline/tools/promote-roster-revision.mjs text eol=lf
+# Priority workshop/crew packages and paused woodland sources retain exact receipts.
+authoring/blender/cinderfen-woodland-floor/** -text
+authoring/blender/cinderfen-woodland-floor/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-woodland-floor/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/frontier-workshop-items/** -text
+authoring/blender/frontier-workshop-items/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/frontier-workshop-items/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/siege-crew/** -text
+authoring/blender/siege-crew/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/siege-crew/**/*.glb filter=lfs diff=lfs merge=lfs -text

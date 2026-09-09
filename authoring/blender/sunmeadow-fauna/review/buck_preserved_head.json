@@ -1,0 +1,20 @@
+{
+  "reference": "runtime/frontier_sunmeadow_roe_deer_buck_lod0.glb",
+  "reference_sha256": "11174c371354473663fe6bdf7fbe67efa35c18efbace540417cbf801225f4cae",
+  "model": "review/candidates/buck_differential/frontier_sunmeadow_roe_deer_buck_lod0.glb",
+  "model_sha256": "5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76",
+  "reference_head_vertices": 8257,
+  "model_head_vertices": 8257,
+  "head_attribute_maximum_errors": {
+    "position": 0.0,
+    "normal": 0.0,
+    "tangent": 0.0,
+    "uv": 0.0,
+    "color": 0.0
+  },
+  "head_positions_exact": true,
+  "head_authored_position_normal_uv_color_exact": true,
+  "tangents_within_exporter_decimal_rounding": true,
+  "original_atlas_islands_0_through_6_exact": true,
+  "passed": true
+}

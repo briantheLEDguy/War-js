@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 import bpy
 from mathutils import Vector, Matrix
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from imported_actions import activate_imported_clip
 
 ROOT=Path(__file__).resolve().parents[1]
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -52,13 +54,12 @@ def main():
         if receipt.exists():
             for record in json.loads(receipt.read_text()).get('renders',[]):
                 model_path=ROOT/'runtime'/record['model'];image_path=ROOT/record['image']
-                if model_path.exists() and image_path.exists() and sha(model_path)==record['model_sha256'] and sha(image_path)==record['image_sha256'] and record.get('build_sha256')==evidence['build_sha256'] and record.get('reviewer_source_sha256')==sha(__file__):records.append(record)
+                if model_path.exists() and image_path.exists() and sha(model_path)==record['model_sha256'] and sha(image_path)==record['image_sha256'] and record.get('build_sha256')==evidence['build_sha256'] and record.get('reviewer_source_sha256')==sha(__file__) and record.get('action_helper_sha256')==sha(ROOT/'tools/imported_actions.py'):records.append(record)
         for lod in map(int,args.lods.split(',')):
             bpy.ops.wm.read_factory_settings(use_empty=True)
             model=ROOT/'runtime'/f'{key}_lod{lod}.glb';model_hash=sha(model);bpy.ops.import_scene.gltf(filepath=str(model))
             objects=[ob for ob in bpy.context.scene.objects if ob.type=='MESH' and any(m.type=='ARMATURE' for m in ob.modifiers)];rig=next(ob for ob in bpy.context.scene.objects if ob.type=='ARMATURE')
-            rig.animation_data_create();rig.animation_data.action=None
-            for bone in rig.pose.bones:bone.matrix_basis=Matrix.Identity(4)
+            activate_imported_clip(rig,objects,'rest')
             bpy.context.view_layer.update()
             output=ROOT/'review'/f'{key}_lod{lod}_reimport.png';bounds,camera=setup(objects,output,args.size,args.samples)
             reference=evidence['lod0_bounds_blender'];center=(Vector(reference['min'])+Vector(reference['max']))/2;span=max(Vector(reference['max'])-Vector(reference['min']));camera.data.ortho_scale=span*1.3
@@ -69,12 +70,8 @@ def main():
                 center=Vector(values[:3]);span=values[3];camera.data.ortho_scale=span
             camera.location=center+direction*span*3;camera.rotation_euler=(center-camera.location).to_track_quat('-Z','Y').to_euler()
             for state in args.states.split(','):
-                clip,_,fraction=state.partition('@');rig.animation_data.action=None
-                for bone in rig.pose.bones:bone.matrix_basis=Matrix.Identity(4)
-                if clip!='rest':
-                    action=next(a for a in bpy.data.actions if a.name.split('|')[-1]==clip)
-                    rig.animation_data.action=action
-                    if action.slots:rig.animation_data.action_slot=action.slots[0]
+                clip,_,fraction=state.partition('@');action=activate_imported_clip(rig,objects,clip)
+                if action:
                     first,last=action.frame_range;position=first+(last-first)*float(fraction or 0)
                     bpy.context.scene.frame_set(math.floor(position),subframe=position-math.floor(position))
                 bpy.context.view_layer.update();suffix='' if state=='rest' else '_'+state.replace('@','_').replace('.','p')
@@ -87,7 +84,7 @@ def main():
                 evaluated=bpy.context.evaluated_depsgraph_get();points=[obj.matrix_world@v.co for obj in objects for v in obj.evaluated_get(evaluated).data.vertices]
                 pose_bounds={'min':[min(p[i] for p in points) for i in range(3)],'max':[max(p[i] for p in points) for i in range(3)]}
                 records=[r for r in records if not(r['asset']==key and r['level']==lod and r['state']==state and r.get('view','full')==args.view)]
-                records.append({'asset':key,'level':lod,'state':state,'view':args.view,'focus':args.focus,'model':model.name,'model_sha256':model_hash,**evidence,'reviewer_source_sha256':sha(__file__),'image':str(output.relative_to(ROOT)),'image_sha256':sha(output),'bounds_blender':bounds,'pose_bounds_blender':pose_bounds,'renderer':f'Cycles {args.samples} samples, {args.size}px, AgX, fixed daylight studio','decision':'pending'})
+                records.append({'asset':key,'level':lod,'state':state,'view':args.view,'focus':args.focus,'model':model.name,'model_sha256':model_hash,**evidence,'reviewer_source_sha256':sha(__file__),'action_helper_sha256':sha(ROOT/'tools/imported_actions.py'),'image':str(output.relative_to(ROOT)),'image_sha256':sha(output),'bounds_blender':bounds,'pose_bounds_blender':pose_bounds,'renderer':f'Cycles {args.samples} samples, {args.size}px, AgX, fixed daylight studio','decision':'pending'})
                 (ROOT/'review'/f'{key}_renders.json').write_text(json.dumps({'renders':[r for r in records if r['asset']==key],'visual_approval':False},indent=2)+'\n')
                 print('FAUNA_REIMPORT',key,lod,state,flush=True)
 

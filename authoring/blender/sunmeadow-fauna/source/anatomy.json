@@ -51,17 +51,17 @@
         [
           0,
           0.4,
-          0.59,
+          0.6125,
           0.155,
-          0.185,
+          0.1625,
           "pelvis"
         ],
         [
           0,
           0.26,
-          0.605,
+          0.625,
           0.185,
-          0.205,
+          0.185,
           "pelvis"
         ],
         [
@@ -388,8 +388,9 @@
         "run_foot_lift": 0.06,
         "run_body_crouch": 0.035,
         "run_body_bob": 0.01,
-        "run_hind_knee_splay": 0.16
-      }
+        "run_hind_knee_splay": 0.36
+      },
+      "hoof_profile": "tapered_cloven_v2"
     },
     "roe_deer_doe": {
       "name": "Sunmeadow roe deer doe",

@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "checkpoints/buck-combined-before-pelvis/frontier_sunmeadow_roe_deer_buck_lod0.glb": "327efd5f56f5e625ec9dc4a34a89144c11c8cfee40e0dbf956c725985e58a3ad",
+    "runtime/frontier_sunmeadow_roe_deer_buck_lod0.glb": "11174c371354473663fe6bdf7fbe67efa35c18efbace540417cbf801225f4cae"
+  },
+  "directed_surface_comparisons": [
+    {
+      "from": "checkpoints/buck-combined-before-pelvis/frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "to": "runtime/frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "samples": 8238,
+      "maximum_surface_distance_m": 8.971671195467934e-05,
+      "p99_surface_distance_m": 2.1257980364453102e-07
+    },
+    {
+      "from": "runtime/frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "to": "checkpoints/buck-combined-before-pelvis/frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "samples": 8257,
+      "maximum_surface_distance_m": 0.0002255775179946795,
+      "p99_surface_distance_m": 8.050081578401982e-07
+    }
+  ],
+  "status": "diagnostic_not_visual_approval"
+}

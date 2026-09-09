@@ -32,7 +32,8 @@ contact are checked. Its canonical core skeleton has one additional internal
 and their midpoints. `tools/inspect_export_motion.py` measures each material's
 edge deformation, fitted arm travel and ground contact across all nine clips.
 `tools/inspect_garment_clearance.py` checks the separate apron surface against
-raised knees and the trouser hems against their boot interiors. Matching a
+raised knees, the trouser hems against their boot interiors, and actual belt
+edge/triangle intersections against the apron in every clip. Matching a
 technical gate does not confer visual acceptance. The review renderer
 and `tools/make_motion_sheets.py` retain image/model hashes; the package-local
 `review/inhabitants.html` viewer verifies its GLB before offering clip, time and
@@ -50,6 +51,22 @@ weights; the working hammer is fitted behind the hip for motion review.
 Boot laces follow their curved supporting leather, and tucked wool follows the
 same ankle deformation field as the boots. The complete character remains draft
 until current export renders, contact evidence and material review are accepted.
+`apron_details.py` constructs the continuous neck loop and the closed binding
+from the finished panel boundary. `surface_bindings.py` samples the supporting
+cloth's actual skinning weights for those details and the belt. The lower apron
+keeps its torso ease when the shirt hem is tucked beneath it.
+The belt profile comes from exact garment cross-sections. During the prone fall,
+the actual buckle/panel surface supports the torso before limb contact is fitted;
+untouched parent animation interpolation is preserved throughout that bake.
+
+`workwear_finish.py` binds cuff and shoulder stitches to the shirt surface and
+maps apron wear to its perimeter and pocket use areas. The linen weave and
+directional hair maps remain embedded in every export, with editable source
+construction retained in the master. All finishes still require close visual
+review at all three LODs; a successful technical report is not publication.
+Shoulder seams use the exterior cloth surface, excluding the thickness lining.
+`probe_hair_finish.py` creates a separate GLB for bounded head-material review
+from the current master without replacing the master or runtime exports.
 
 Current inspection:
 
@@ -63,3 +80,7 @@ python authoring/blender/frontier-population/tools/test_inhabitant_exports.py
 The export regression test requires current three-LOD arm and full-motion audit
 reports. A stale report or failed geometry/contact check fails the test; it must
 be regenerated and inspected against the new binary before approval.
+Its seven gates cover binary/clip validity, arm volume, full-motion contact and
+deformation, apron clearance, boot/hem clearance, alternating bent run arms and
+belt/apron separation. The final death hand contact is measured per hand, so one
+grounded body point cannot conceal a floating opposite hand.

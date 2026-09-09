@@ -26,19 +26,42 @@ def caudal_weight_transfer(point, weights, scale):
     return {name: weight for name, weight in result.items() if weight > 1e-8}
 
 
+def haunch_support(points, side):
+    support = np.exp(-((points[:, 1]-.18)/.135)**2-((points[:, 2]-.49)/.14)**2)
+    return support*smoothstep(.07, .155, side*points[:, 0])*smoothstep(.31, .41, points[:, 2])*(1-smoothstep(.67, .80, points[:, 2]))
+
+
+def haunch_detail_retention(rest, scale, flexions):
+    """Release the resting groin concavity only while that thigh is tucked."""
+    retained = np.ones(len(rest))
+    for side, angle in flexions.items():
+        retained -= .9*haunch_support(rest/scale, side)*smoothstep(.10, .55, -angle)
+    return retained
+
+
+def shoulder_detail_retention(rest, scale, flexions):
+    """The moving axillary fold releases inward detail without thinning the limb."""
+    points = rest/scale; retained = np.ones(len(rest))
+    for side, angle in flexions.items():
+        support = np.exp(-((points[:, 1]+.21)/.105)**2-((points[:, 2]-.46)/.13)**2)
+        support *= smoothstep(.045, .08, side*points[:, 0])*(1-smoothstep(.115, .18, side*points[:, 0]))
+        support *= smoothstep(.31, .40, points[:, 2])*(1-smoothstep(.60, .74, points[:, 2]))
+        retained -= .72*support*smoothstep(.10, .65, abs(angle))
+    return retained
+
+
 def fascia_displacement(rest, scale, carrier_rotation, flexions):
     """Smooth lateral fascia bulges during tuck and vanishes during extension."""
     points = rest/scale; result = np.zeros_like(rest)
     for side, angle in flexions.items():
         tuck = smoothstep(.10, .70, -angle)
-        support = np.exp(-((points[:, 1]-.18)/.135)**2-((points[:, 2]-.49)/.14)**2)
-        support *= smoothstep(.07, .155, side*points[:, 0])*smoothstep(.31, .41, points[:, 2])*(1-smoothstep(.67, .80, points[:, 2]))
+        support = haunch_support(points, side)
         result[:, 0] += side*.045*support*tuck*scale
     return result@carrier_rotation.T
 
 
 class JointRelaxation:
-    def __init__(self, rest, edges, scale):
+    def __init__(self, rest, edges, scale, front_strength=1):
         self.rest = np.asarray(rest, dtype=np.float64)
         self.unique, self.reverse = np.unique(np.round(self.rest/scale, 5), axis=0, return_inverse=True)
         self.counts = np.bincount(self.reverse)
@@ -53,14 +76,16 @@ class JointRelaxation:
         mask *= smoothstep(.018, .09, np.abs(points[:, 0]))
         hind = smoothstep(-.025, .10, points[:, 1])*(1-smoothstep(.39, .49, points[:, 1]))
         front = smoothstep(-.48, -.36, points[:, 1])*(1-smoothstep(-.21, -.09, points[:, 1]))
-        self.mask = mask*np.maximum(hind, front)
+        calibration_mask = mask*np.maximum(hind, front)
+        self.mask = mask*np.maximum(hind, front*front_strength)
         # Keep the diffusion distance stable across independently reduced LODs.
         lengths = np.linalg.norm(self.rest[self._representatives()][edges[:, 0]]-self.rest[self._representatives()][edges[:, 1]], axis=1)
-        proximal = np.maximum(self.mask[edges[:, 0]], self.mask[edges[:, 1]]) > .2
+        proximal = np.maximum(calibration_mask[edges[:, 0]], calibration_mask[edges[:, 1]]) > .2
         edge_length = np.median(lengths[proximal])
         self.iterations = max(12, round(150*(.0102*scale/max(edge_length, 1e-6))**2))
         self.iterations = min(250, self.iterations)
         smoothed = self.relax(self.rest)
+        self.smoothed_rest = self.weld(smoothed)
         self.detail = self.rest-smoothed
 
     def _representatives(self):
@@ -77,11 +102,43 @@ class JointRelaxation:
             points += (average-points)*self.mask[:, None]*.5
         return points[self.reverse]
 
-    def delta(self, posed, rotations, fascia=None):
-        target = self.relax(posed)+np.einsum('nij,nj->ni', rotations, self.detail)
+    def surface_rotations(self, smoothed):
+        """Fit proper local rotations from the relaxed surface edge frames."""
+        current = self.weld(smoothed)
+        rest_edges = self.smoothed_rest[self.b]-self.smoothed_rest[self.a]
+        pose_edges = current[self.b]-current[self.a]
+        covariance = np.empty((len(self.unique), 3, 3))
+        for row in range(3):
+            for column in range(3):
+                covariance[:, row, column] = np.bincount(self.a, weights=pose_edges[:, row]*rest_edges[:, column], minlength=len(self.unique))
+        # Neighbouring triangles must carry one continuous muscle frame. A
+        # tiny independent frame at each corner can flip across a tight fold.
+        for _ in range(8):
+            average = np.empty_like(covariance)
+            for row in range(3):
+                for column in range(3):
+                    average[:, row, column] = np.bincount(self.a, weights=covariance[self.b, row, column], minlength=len(self.unique))/self.degree
+            covariance = (covariance+average)*.5
+        u, _, vt = np.linalg.svd(covariance)
+        orientation = np.ones((len(u), 3)); orientation[:, 2] = np.linalg.det(u@vt)
+        return ((u*orientation[:, None, :])@vt)[self.reverse]
+
+    def delta(self, posed, rotations, fascia=None, detail_retention=None, surface_front=False, front_blend=1):
+        detail = self.detail if detail_retention is None else self.detail*detail_retention[:, None]
+        smoothed = self.relax(posed)
+        transported = np.einsum('nij,nj->ni', rotations, detail)
+        if surface_front:
+            frames = self.surface_rotations(smoothed)
+            selected = (self.unique[self.reverse, 1]<-.09)&(self.mask[self.reverse]>0)
+            transported[selected] = np.einsum('nij,nj->ni', frames[selected], detail[selected])
+        target = smoothed+transported
         if fascia is not None:
             target += fascia
         difference = target-posed
+        # The forelimb needs less corrective displacement than the deep haunch.
+        # Blend the final deformation, preserving its diffusion neighbourhood.
+        amplitude = front_blend+(1-front_blend)*smoothstep(-.09, 0, self.unique[self.reverse, 1])
+        difference *= amplitude[:, None]
         difference[self.mask[self.reverse] == 0] = 0
         # glTF applies morphs before skinning. Invert the actual blended linear
         # transform, not a single bone rotation, so the exported pose matches.

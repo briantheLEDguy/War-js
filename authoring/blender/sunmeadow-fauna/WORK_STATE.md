@@ -1,6 +1,79 @@
 # Fauna work state
 
+## Paused — user reprioritized characters, equipment and town/siege assets
+
+**Stable checkpoint boundary:** root cancelled the remaining buck render batch;
+session69463 exited1 after Ctrl-C. No fauna processes remain assigned to this
+agent. Current matching final profiles cover all8 run phases and walk0/.125/.25;
+walk.375/.5/.625/.75/.875, idle0/.5 and graze0/.25/.5/.875 profile receipts remain
+incomplete. The existing3LOD rest/run/graze full views, head close views and
+peak-tuck close views are saved. No review-preparation or publication command ran.
+No further fauna work is authorized while priority character/equipment/town/siege
+work proceeds. Agent's next exclusive folder is `authoring/blender/siege-crew`.
+
+Stop all new fauna iteration, including red fox. No red-fox model/source changes
+were made after the brief assignment; only its existing prototype and reference
+were read. Root will assign the next priority subtask. The already-running
+`buck_final_cycle_receipts.log` render may finish safely, then all fauna writes
+stop at the checkpoint boundary. Do not start another fauna build or review.
+
+Buck is **accepted for now by explicit user steering**, with no further shape
+work. Literal corrected candidate directory: `review/candidates/buck_differential/`.
+Editable morph master: `frontier_sunmeadow_roe_deer_buck.blend`.
+
+- LOD0: `5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76`
+- LOD1: `9525ad6c0ec4d78329ba4d113bcda9c554859a6a96eec6e91677e3a9c679fd1d`
+- LOD2: `39cb49e2692917c6f8a2aacf437050da1dfab9ffc0889c49d6c5330781e3e0ed`
+
+All unchanged technical gates passed for these bytes;36 Python and10 Node tests
+passed. Nine current3LOD rest/run/graze views, head detail and peak-tuck views are
+saved. The candidate-aware publication path is implemented/tested; prepare-review
+and publication have **not** run. Root owns the eventual approved record/public
+writes. Do not substitute uncorrected `runtime/` exports for this candidate.
+
 All fauna remains draft. No fauna blueprint, approval record, or runtime publication exists. The accepted canopy-v2 package is frozen and is confirmed in the game/GM builder.
+
+## Current status — 2026-09-09 peak-tuck actual review
+
+**User steering supersedes further buck iteration:** "Do not spend any more time on that animals butt. Just call it good for now and move to the next one." Root instructed freezing the CURRENT actual candidate as accepted for now, with no more haunch/body changes or repetitive visual review. All three corrected GLBs and editable morph master are frozen in place at the hashes in candidate/HANDOFF.md. Only essential fixed-byte publication receipts remain; `buck_final_cycle_receipts.log` renders the existing complete-cycle coverage without any shape edits or further aesthetic approval loop. Prepare the candidate-aware pending evidence record when that finishes, then hand off to root for final publication. Move next to red fox; root owns isolated skylark.
+
+Current corrected buck candidate is `review/candidates/buck_differential/`, LOD0 hash `5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76`. Its actual3LOD/master bake completed and all unchanged technical checks pass again. The selected final addition is a high-flexion caudal underside curve; root accepted its source profile/opposite direction after accepting the existing shoulder transport, lifted resting pelvis and fitted hooves. `buck_hamstring_joint_review.log` is rendering matching actual .375 profile/opposite next. No full visual acceptance exists. Complete current cycle,3LOD rest/run/graze and close-head receipts still need to be produced and inspected.
+
+Preserve the current base anatomy/head/atlas/hoof trajectories and shoulder correction. Prior passing draft3LODs/morph master and rejected boxy .375 profile are saved in `checkpoints/buck-before-hamstring/`. There are36 passing Python regressions and10 passing Node evidence regressions. The candidate-aware publisher path is implemented/tested but has not prepared or approved a review record and has made no public writes. Root owns final publication. Root separately owns the isolated `sunmeadow-skylark` rebuild; do not edit other species here.
+
+## Combined hoof/haunch rebuild 2026-09-09 — active after checkpoint0d8fc8b
+
+**Current active correction:** `buck_shoulder_blend_corrective.log`. Root accepted the tighter-pelvis actual rest silhouette as the direction to preserve. Forelimb diffusion-strength .5 worsened source-pose maximum strain to5.253; local surface frames remained4.137 and were not selected. Raw shoulder LBS at phase7/9 was2.266 and visually smooth in extension, while uncorrected .125 retained the axillary pinch. Half amplitude of the existing full-neighbourhood forelimb correction preserves its rounded .125 transition and measures3.220 at phase7/9 (`shoulder_diffusion_1_bone_blend0.5_*.png`). The baker now selects that bounded final-displacement blend only for the forelimb; haunch correction, accepted rest geometry, head/atlas and hoof trajectories remain unchanged. Source probes do not approve the model; all3 actual GLBs, complete motion and matching views must be rebuilt/reviewed.
+
+The half-amplitude actual3LOD export and editable master are now saved; `buck_shoulder_blend_motion.log` is inspecting every exported key and midpoint. Current LOD0 hash is `fa0ad9424de77683e619b1e79a55c44d29462bced201092e57457d16fb0cafee`. Its8,257 head vertices match the current base exactly in position, normal, tangent, UV and color, with original atlas islands0–6 exact (`buck_preserved_head.json`). All33 Python regressions and all6 Node evidence tests pass together; package text diff check passes. No visual acceptance or publication exists.
+
+Actual technical validation now **passes** for this candidate: all3 Khronos exports have0 errors/warnings, all12 clip/LOD audits pass every literal key/midpoint, run maximum3.356 /p991.635 worst across LODs, foot planting4.47mm and root/loop displacement0. Actual signed morph playback differs from literal glTF by at most2.98e-8. `buck_shoulder_blend_joint_review.log` renders matching LOD0 full/opposite .125/.625/.7778 views; root and agent must inspect these before any visual acceptance. Numerical success is not approval.
+
+Root inspected the matching actual .125/.625/.7778 views and **accepted the bounded shoulder transport and lifted haunch corrections**, with remaining whole-cycle and other-LOD review still required. `buck_shoulder_blend_cycle_review.log` now renders8 run,8 walk,2 idle and4 graze profiles. No model or corrective source changes are planned while these receipts are produced. `candidate_evidence.mjs` plus the candidate-aware publisher path are being prepared to freeze exact corrected GLBs and editable morph master alongside their base inputs; root owns final publication. Candidate promotion must never regenerate or silently substitute base runtime bytes.
+
+Whole-cycle profiles completed and exposed a remaining rectangular caudal underside ledge at peak .25–.375 tuck. Root accepted .875 extension and the front flexion crease, requested only a bounded high-flexion rear-underside lift. The passing prior3LOD/master/metadata and selected views are saved in `checkpoints/buck-before-hamstring/` as unapproved reference. `probe_hamstring_contour.py` measures pelvis-relative thigh angles; a smooth lift begins at0.565rad forward flexion and reaches full support at0.62rad, so .125/.625/.778 sample poses and neutral remain unchanged. At .375 the source-only field lifts the selected caudal underside by45mm, leaving topline/tail/head/distal limbs exact. Profile/opposite proofs are `hamstring_lift_0.065_0.375_*.png`; root critique precedes an actual bake. Candidate promotion tooling now has4 additional passing regressions (10 Node tests total), but no review record is prepared or approved and no public writes occurred.
+
+The peak-tuck source proof was inspected and sent to root; it replaces the rectangular ledge with an upward caudal curve, with measured source strain2.493 max /1.357 p99 at .375. Three focused hamstring tests pass for exact unchanged rest/accepted-quarter landmarks, selected-side spatial support, pelvis transport and scale. The next actual bake selects `hamstring_contour.py` as a separately signed dependency and adds its displacement through the inverse blended skin transform (outside the earlier relaxation mask, so the caudal underside stays continuous across the midline). New actual bytes must pass the unchanged full-cycle/LOD/contact/size gates and peak-tuck profile/opposite review before acceptance.
+
+Root accepted both hamstring source proofs as the bounded direction. `buck_hamstring_corrective.log` finished all3GLBs and the editable morph master; actual LOD0 is12,315,668bytes,36modes, hash `5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76`. Its head attributes and original atlas islands remain exact against the retained base. `buck_hamstring_motion.log` is evaluating all actual keys/midpoints next. All36 Python regressions pass;10 Node evidence regressions pass. Root now owns an isolated skylark rebuild under `authoring/blender/sunmeadow-skylark`; this package's other species remain unchanged prototypes and none has current complete frozen evidence.
+
+**Latest active build:** `review/buck_pelvis_build.log`. After neutral plus eight actual full run phases were saved and visually inspected, the lower-pelvis resting cage was identified as the remaining heavy rump source. Actual `buck_rump_drag.json` showed lower-rump minimum362.57mm at rest and363.01mm in the .125 pose in pelvis space, with only0.89mm worst downward skin motion there. Two torso stations now lift their underside40/45mm in unscaled source while keeping existing topline and lateral width: y=.26 centerZ .605→.625, radiusZ .205→.185; y=.40 centerZ .590→.6125, radiusZ .185→.1625. Pelvis/spine origins, head/ear/antler/limb fields, hoof fit and gait are unchanged. The actual rebuilt candidate must be reviewed again; no approval exists.
+
+The tighter-pelvis base and all3 corrective GLBs are now saved. Actual full/opposite rest/.125/.625 views (`buck_pelvis_joint_review.log`) show a higher, less pendulous rear underside, but the candidate **fails** LOD0 run maximum strain4.689 at a2.31mm fore-shoulder edge near Blender(-.086,-.174,.408), phase~.778. Run p99=1.533 and plant error4.47mm. The LOD2 motion report hit an OS error reopening its existing JSON, so it must be rerun; `inspect_motion.py` now writes a sibling pending JSON and atomically replaces the completed report. No numerical limit changed. Shared decimation retessellated19 head vertices during the pelvis rebuild; actual bidirectional head-to-surface distance against the saved draft is at most0.226mm (p99<0.001mm), with original atlas islands unchanged (`buck_head_surface_comparison.json`).
+
+A source-only axillary rest-detail release was **rejected**: it raised worst-phase strain to7.259 and sharpened the shoulder fold. `probe_shoulder_release.py` and its PNG/log remain diagnostics, not selected delivery. Current active experiment is `probe_surface_frame.py` / `buck_surface_frame_probe.log`, fitting proper rotations from relaxed surface edge frames for proximal forelimb detail only. `JointRelaxation.delta(..., surface_front=True)` is opt-in and NOT enabled in the actual baker yet. Existing haunch transport remains selected. The source helper has changed for these experiments, so current candidate dependency evidence is stale pending the next selected bake. Thirty-two Python regressions are present; the full8-test joint module passes, including rest/rigid invariance of the surface frame. No fauna is visually approved.
+
+The preceding combined candidate is preserved as a **rejected visual reference** under `checkpoints/buck-combined-before-pelvis/`: its actual LOD0, source, technical/rump diagnostics and selected full rest/.125/.375/.625 views. That candidate passed all unchanged package checks: Khronos0 errors/warnings at all3LODs; worst run stretch3.951 max /1.593 p99; planted-foot error4.47mm; root/loop0. LOD0/1/2 were12,477,808 /4,723,880 /2,129,392 bytes. Head preservation check measured exactly0 difference for all8,238 head vertex positions/normals/tangents/UVs/colors and original atlas islands0–6. Root still rejected the heavy rest rump and far-shoulder pinch; technical success was never visual approval. Static normal preservation is now part of the reproducible candidate baker. Thirty Python regressions are present (28 passed together, then both new static-normal tests passed separately); six Node evidence tests also passed.
+
+Root released the checkpoint freeze and accepted the shallow `differential_haunch_release_0.125.png` fold as a direction for actual evaluation. The rebuilt base now has the authored tapered cloven hoof, a real separated cleft, fitted coronary crowns, dedicated atlas island7,0.36 hind-knee track and unchanged head source. Triangle counts54,098 /22,988 /8,684 remain within the existing budgets. The full base builder/master/3GLBs completed; corrective baking is running in `review/buck_combined_corrective.log` with three Blender threads. The previous differential candidate and its prior technical/render evidence become stale as these new candidate bytes are written.
+
+The combined corrective adds flexion-only release of the resting groin concavity, preserving rest/extension detail and the bounded fascia field. Twenty-eight Python tests and six Node evidence tests pass. Formal actual-review scripts now activate both armature and signed morph slots, and evidence verifies the imported-action helper hash. Candidate review receipts retain only matching current images; `validate_fauna.mjs --candidate-dir=review/candidates/buck_differential` now applies the unchanged full package gates to isolated drafts without publishing them. Actual gait/sole/strain, all3LOD and opposite-quarter/full-silhouette checks are next; no visual acceptance exists.
+
+The first combined base export encountered an OS error reopening the same GLB after a preliminary rest-only write. Full builds now export each model once, after animation authoring; the successful retry saved all outputs and master. Old main technical/render reports are deliberately stale until the new actual candidate is evaluated. No global registry/catalog/map or documentation files were changed.
+
+Root reviewed the combined actual .125 profile/opposite: hoof/coronet fit and cloven tips are better; the prior scoop is now shallow/continuous. Full approval is still withheld for the bulbous lower rump and a pinched fore-shoulder spot. Assess neutral/extension/full cycle before any further local adjustment. The current close images precede a static-normal preservation fix and will be rerendered after it; their limb geometry is unchanged by that fix.
+
+`inspect_preserved_head.py` found exact head positions/UV/tangents/colors and preserved atlas islands0–6, but146 head corner normals changed when adding morphs. Blender5's exporter uses `Basis.normals_split_get()` for morph models rather than the ordinary mesh's corner normals. `static_normals.py` now matches exact base POSITION/UV/COLOR and restores only corners with zero POSITION and NORMAL deltas across every morph. It leaves all animated normals unchanged; on LOD0 only154 static corners needed restoration, while the largest untouched dynamic difference was9.64e-5. Two focused regressions verify static-only modification, unchanged dynamic/other bytes, idempotence and rejected unmatched corners. The corrected bake is currently running with this dependency hash. All actual evidence must bind to its final bytes.
 
 ## Checkpoint freeze 2026-09-09 — all writes stopped at safe boundary
 
