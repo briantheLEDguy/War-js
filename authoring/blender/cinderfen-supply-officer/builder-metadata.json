@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "npc_frontier_cinderfen_dark_elf_supply_officer": {
+      "runtimeReady": true,
+      "modelSha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "label": "Cinderfen Dark Elf Supply Officer",
+      "group": "Characters and NPCs",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "defaultAnimation": "idle",
+      "footprint": {
+        "width": 0.602,
+        "depth": 0.605,
+        "chainAxis": "z"
+      },
+      "colliders": [],
+      "walkableSurfaces": [],
+      "cameraSolid": false
+    }
+  }
+}

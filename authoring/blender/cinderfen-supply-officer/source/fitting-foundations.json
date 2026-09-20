@@ -1,0 +1,128 @@
+[
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/build_inhabitants.py",
+    "sha256": "4732ac52cb276363f6881f9a5fc620d052dfe55a27a63d8f8ef8954b78352f54",
+    "snapshot": "tools/build_inhabitants.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/tailored_clothing.py",
+    "sha256": "5910f4f94c8e38a693a969297f55f83611ca601f95dec65940ee69cce7edf2c7",
+    "snapshot": "tools/tailored_clothing.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/surface_garments.py",
+    "sha256": "01bf0ba2fca94f1199fce45c662ecd371cc5d32f51ec06fba5ea2033e4d5c56b",
+    "snapshot": "tools/surface_garments.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/tailored_locomotion.py",
+    "sha256": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+    "snapshot": "tools/tailored_locomotion.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/export_tangents.py",
+    "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+    "snapshot": "tools/export_tangents.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/apron_clearance.py",
+    "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+    "snapshot": "tools/apron_clearance.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/surface_bindings.py",
+    "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+    "snapshot": "tools/surface_bindings.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/workwear_finish.py",
+    "sha256": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9",
+    "snapshot": "tools/workwear_finish.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/fitted_boot_details.py",
+    "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+    "snapshot": "tools/fitted_boot_details.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_arm_volume.py",
+    "sha256": "7f646ef6d8fa6f7a7f0e5e4b6de45004b3358a0b44b614ff9290da940c372596",
+    "snapshot": "tools/inspect_arm_volume.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_export_motion.py",
+    "sha256": "a8519d72f6fa1d704dde5a9f8eced9dbd94ae3f92c52c044a136f46d055db6f0",
+    "snapshot": "tools/inspect_export_motion.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_garment_clearance.py",
+    "sha256": "f2cc19d556f6aa864297446f83e4c1c2a5f6e8a870738626573b41c882815551",
+    "snapshot": "tools/inspect_garment_clearance.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_boot_welt.py",
+    "sha256": "5c5a1264ca0856366349722de79b1e8ce58b9048066d2f8a22f56957f15c30ce",
+    "snapshot": "tools/inspect_boot_welt.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_tool_clearance.py",
+    "sha256": "fbff5251bfdd14104e9311ddc8d879b7b3f4644d150f48011baaf6e6448e7d5e",
+    "snapshot": "tools/inspect_tool_clearance.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_master.py",
+    "sha256": "e3c76c17205b0e6d993b9f134788733ce25ed7423ea1cedcb183049ec97898f7",
+    "snapshot": "tools/inspect_master.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/review_inhabitants.py",
+    "sha256": "8fa436f9e2195d20b7858afd85a690513d12f45ca7eae20224b33e0a75a22fc7",
+    "snapshot": "tools/review_inhabitants.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/validate_inhabitants.mjs",
+    "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+    "snapshot": "tools/validate_inhabitants.mjs",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/test_exports.py",
+    "sha256": "ce2549486575129e64c6280de4843bc28f4213509d0afeae1c8aceb2d1c00c51",
+    "snapshot": "tools/test_exports.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/run_quality.py",
+    "sha256": "fe5f825dfbe28af74da024e45c4471c868856e73c2b3d17dbe9f92c19df27d0c",
+    "snapshot": "tools/run_quality.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/inspect_foundation.py",
+    "sha256": "3530b13e1c9a1d4b03ad723ad03c94dd03482bd2fa33617496559734e6737b07",
+    "snapshot": "tools/inspect_foundation.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  },
+  {
+    "source": "authoring/blender/cinderfen-peat-worker/tools/peat_locomotion.py",
+    "sha256": "a385c5c1474542f61cfb073f79ec425c8abcc96c791390c3415ccd1e9e3985e8",
+    "snapshot": "tools/officer_locomotion.py",
+    "relationship": "Adapted package-local derivative; source sha256 records the original delivered helper, current generating bytes are in the build receipt."
+  }
+]

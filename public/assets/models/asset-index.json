@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-a1c11308f950be76",
+  "assetVersion": "approved-b34cefbf259762fb",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -1246,6 +1246,30 @@
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_frontier_cinderfen_dark_elf_supply_officer": {
+      "approvalState": "approved",
+      "assetId": "chr.frontier.cinderfen.dark_elf_supply_officer",
+      "bindPoseId": "cinderfen_supply_officer_a_v1",
+      "bodyFamily": "frontier_cinderfen_supply_officer_v1_f",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+      "modelSha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "previews": {
+        "front": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/review\\frontier_cinderfen_dark_elf_supply_officer_lod0_front_f.png",
+        "head": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/review\\frontier_cinderfen_dark_elf_supply_officer_lod0_head_f.png"
+      },
+      "previewSha256": {
+        "front": "af58c731334d3dd3fc1aec7fe1925596a0eb72b6212ea82ac0b243e8df3a158c",
+        "head": "3bd4801e1bab1100c3fa52724837b41571f854ae209c5e9f0a57a081b3f517e3"
+      },
+      "qc": "frontier_cinderfen_dark_elf_supply_officer_lod0.qc.json",
+      "qcSha256": "740ae99eb2850c51069136bd03b4ec2befb9fd27b8706ffc8b349b730f389e51",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "cinderfen_supply_officer_humanoid_v1",
       "skinned": true
     },
     "npc_frontier_cinderfen_greenskin_peat_worker": {

@@ -16,6 +16,11 @@ const publications = [{
   assetId: 'chr.frontier.sunmeadow.empire_farmer', zone: 'sunmeadow_march',
   npcId: 'sunmeadow_march_inhabitant_homefield_farmer', name: 'Edric Hayward',
   race: 'empire', realm: 'aegis', role: 'ambient',
+}, {
+  packageName: 'cinderfen-supply-officer', key: 'frontier_cinderfen_dark_elf_supply_officer',
+  assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer', zone: 'cinderfen_outskirts',
+  npcId: 'cinderfen_outskirts_marshal', name: 'Nyra Vex',
+  race: 'dark_elf', realm: 'riftbound', role: 'guard',
 }] as const;
 const clips = ['attack_melee', 'attack_ranged', 'cast', 'combat_idle', 'death', 'idle', 'jump', 'run', 'walk'];
 const modelsRoot = path.resolve('public/assets/models');

@@ -1,3 +1,9 @@
+## 2026-09-20 — Cinderfen supply officer publication
+
+- Replaced Nyra Vex’s old presentation with the authored female Dark Elf supply-officer uniform while preserving her campaign-marshal identity, guard role and placement.
+- Published three own-rig LODs and nine clips in game and GM, with packed editable master, embedded PBR and physically attached ledger loops. Thirteen technical gates and three GLB validators pass.
+- Verified actual local NPC visibility and detail transitions at 6.2/45.2/100.2m. All 1,420 tests pass; production build, 33 maps, 894 model records and 447 GM definitions validate. Full campaign and performance acceptance remain unfinished.
+
 ## 2026-09-20 — Universal field supply chest
 
 - Published an original dovetail-built chest with three LODs, four embedded PBR material sets, six editable Blender masters and measured fitting/collision evidence.

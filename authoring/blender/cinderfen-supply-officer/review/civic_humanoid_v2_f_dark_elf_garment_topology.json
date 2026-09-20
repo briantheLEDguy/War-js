@@ -1,0 +1,31 @@
+[
+  {
+    "garment": "shirt",
+    "vertices": 2364,
+    "faces": 200,
+    "connectedComponents": [
+      2364
+    ],
+    "boundaryLoops": [
+      50,
+      50,
+      22,
+      22
+    ],
+    "boundaryValenceValid": true
+  },
+  {
+    "garment": "trousers",
+    "vertices": 1241,
+    "faces": 1200,
+    "connectedComponents": [
+      1241
+    ],
+    "boundaryLoops": [
+      44,
+      20,
+      20
+    ],
+    "boundaryValenceValid": true
+  }
+]

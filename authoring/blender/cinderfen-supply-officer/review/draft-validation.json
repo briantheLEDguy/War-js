@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "visualApproval": false,
+  "records": [
+    {
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+      "sha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "triangles": 144038,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod1.glb",
+      "sha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a",
+      "triangles": 83541,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod2.glb",
+      "sha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0",
+      "triangles": 38889,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    }
+  ],
+  "failures": []
+}

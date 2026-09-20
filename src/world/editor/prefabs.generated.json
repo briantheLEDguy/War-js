@@ -4439,6 +4439,32 @@
     }
   },
   {
+    "kind": "character__npc_frontier_cinderfen_dark_elf_supply_officer",
+    "label": "Cinderfen Dark Elf Supply Officer",
+    "group": "Characters and NPCs",
+    "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+    "assetKey": "npc_frontier_cinderfen_dark_elf_supply_officer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "frontier_cinderfen_dark_elf_supply_officer_lod1.glb",
+      "frontier_cinderfen_dark_elf_supply_officer_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.602,
+      "depth": 0.605,
+      "chainAxis": "z"
+    },
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false
+  },
+  {
     "kind": "character__npc_frontier_cinderfen_greenskin_peat_worker",
     "label": "Cinderfen Greenskin Peat Worker",
     "group": "Characters and NPCs",

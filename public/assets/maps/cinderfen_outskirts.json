@@ -73508,7 +73508,8 @@
       "x": 451,
       "z": -239,
       "rotY": 0,
-      "characterProfileKey": "npc_riftbound_nyra_vex_tier_1_campaign_marshal"
+      "characterProfileKey": "npc_frontier_cinderfen_dark_elf_supply_officer",
+      "approvedOnly": true
     },
     {
       "id": "cinderfen_outskirts_dispatch",
@@ -82498,8 +82499,8 @@
         "entityId": "cinderfen_outskirts_marshal",
         "race": "dark_elf",
         "role": "guard",
-        "desiredProfileKey": "frontier_geothermal_marsh_dark_elf_guard",
-        "status": "planned"
+        "desiredProfileKey": "npc_frontier_cinderfen_dark_elf_supply_officer",
+        "status": "approved"
       },
       {
         "entityId": "cinderfen_outskirts_dispatch",
@@ -82659,5 +82660,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "9f2e2bc68ec3dfb4"
+  "staticMapHash": "2bbf06519a2c2aa6"
 }

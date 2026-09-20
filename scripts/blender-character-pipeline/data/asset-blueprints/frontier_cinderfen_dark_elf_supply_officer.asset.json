@@ -1,0 +1,119 @@
+{
+  "assetId": "chr.frontier.cinderfen.dark_elf_supply_officer",
+  "displayName": "Cinderfen Dark Elf Supply Officer",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "regional_inhabitants"
+  ],
+  "runtime": {
+    "profileKey": "npc_frontier_cinderfen_dark_elf_supply_officer",
+    "bodyFamily": "frontier_cinderfen_supply_officer_v1_f",
+    "bodyVariant": "f",
+    "skeletonId": "cinderfen_supply_officer_humanoid_v1",
+    "bindPoseId": "cinderfen_supply_officer_a_v1"
+  },
+  "output": {
+    "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+    "artifactDir": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/runtime/frontier_cinderfen_dark_elf_supply_officer_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_feet",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "frontier_cinderfen_supply_officer_v1_f",
+    "skeletonId": "cinderfen_supply_officer_humanoid_v1",
+    "bindPoseId": "cinderfen_supply_officer_a_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 144038,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 83541,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 38889,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierInhabitant",
+    "textureSet": "frontier_cinderfen_dark_elf_supply_officer",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "body"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/sources/frontier_cinderfen_dark_elf_supply_officer.blend",
+    "sourceSha256": "3dff3c03dcb77bd4d276be9665a7dd08d89ad7162c002f65049fe890e78cbaec",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 32,
+    "maxTris": 144038,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.8288117423653603,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.004
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "fd4e6fa6555fd764edb20c27f417d72aa9cbc76484615677e3ca6c870fe6bd30",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

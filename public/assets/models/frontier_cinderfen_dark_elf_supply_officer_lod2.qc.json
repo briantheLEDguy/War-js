@@ -1,0 +1,505 @@
+{
+  "qcPassed": true,
+  "assetId": "chr.frontier.cinderfen.dark_elf_supply_officer",
+  "modelSha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0",
+  "lod": 2,
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+      "sha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "triangles": 144038,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod1.glb",
+      "sha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a",
+      "triangles": 83541,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod2.glb",
+      "sha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0",
+      "triangles": 38889,
+      "externalTextures": []
+    }
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+      "sha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "triangles": 144038,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod1.glb",
+      "sha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a",
+      "triangles": 83541,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod2.glb",
+      "sha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0",
+      "triangles": 38889,
+      "externalTextures": []
+    }
+  ],
+  "externalTextures": [],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "skeletonId": "cinderfen_supply_officer_humanoid_v1",
+  "bindPoseId": "cinderfen_supply_officer_a_v1",
+  "skinned": true,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "defaultAnimation": "idle",
+  "bounds": {
+    "min": [
+      -0.3022148609161377,
+      0.003999970853328705,
+      -0.278665691614151
+    ],
+    "max": [
+      0.3001824617385864,
+      1.832811713218689,
+      0.3265879154205322
+    ]
+  },
+  "reviewHash": "fd4e6fa6555fd764edb20c27f417d72aa9cbc76484615677e3ca6c870fe6bd30",
+  "reviewEvidence": {
+    "assetId": "chr.frontier.cinderfen.dark_elf_supply_officer",
+    "profileKey": "npc_frontier_cinderfen_dark_elf_supply_officer",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+        "sha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf"
+      },
+      {
+        "level": 1,
+        "model": "frontier_cinderfen_dark_elf_supply_officer_lod1.glb",
+        "sha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a"
+      },
+      {
+        "level": 2,
+        "model": "frontier_cinderfen_dark_elf_supply_officer_lod2.glb",
+        "sha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0"
+      }
+    ],
+    "files": {
+      "authoring/blender/cinderfen-supply-officer/character-contract.json": {
+        "sha256": "093b6c8693a9041f1f3d23fee21df4f76db9e1372ae0bade5b9e3eac9379eb31",
+        "bytes": 890
+      },
+      "authoring/blender/cinderfen-supply-officer/foundation-provenance.json": {
+        "sha256": "52a220f0e503314722030061ccc39775b90075fe6c551191fad7f334de66db3b",
+        "bytes": 1501
+      },
+      "authoring/blender/cinderfen-supply-officer/review/arm-volume-lod0.json": {
+        "sha256": "4bd8abf355d79f06244fe8e480581edfc7d1fba2134a4f4cb3063b3e552c2965",
+        "bytes": 592078
+      },
+      "authoring/blender/cinderfen-supply-officer/review/arm-volume-lod1.json": {
+        "sha256": "0608932784078854bf18168ddfa8bb5e8abfd54acde3b78c5434240a139ae646",
+        "bytes": 591987
+      },
+      "authoring/blender/cinderfen-supply-officer/review/arm-volume-lod2.json": {
+        "sha256": "6e954c1f9b357387242069b6592fdc29c9bd0d5ad382191b8561fcc28f7e36ac",
+        "bytes": 592025
+      },
+      "authoring/blender/cinderfen-supply-officer/review/carrier-fit.json": {
+        "sha256": "a8a962a88dd6b5f8cc1f5002b670160ab17b2348093d2023bc6c9a3192727696",
+        "bytes": 438
+      },
+      "authoring/blender/cinderfen-supply-officer/review/draft-validation.json": {
+        "sha256": "4b9de22f63b206e3d1eb13098fd626d414044d3cbabc851fd39bc38fcd922d42",
+        "bytes": 860
+      },
+      "authoring/blender/cinderfen-supply-officer/review/female-arm-foundation.json": {
+        "sha256": "7c051b29bfbdbe968b69774754027c3e8ffb81055e576ef792abc4e24487c47d",
+        "bytes": 3007
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_build.json": {
+        "sha256": "a7001038752e5414de88d386b5dbbcf6386f596b4b68028f89fd5885afb61154",
+        "bytes": 20975
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_death_2_f.png": {
+        "sha256": "1957340e00c5c4de362ddbe1f09cfe3751f4227d650dc572915a3240b7097f6c",
+        "bytes": 1070309
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_equipment_attachment.json": {
+        "sha256": "f2140bb51831e121a2f848073dad628788ce2770060b34b02fcca5ebf7c2e389",
+        "bytes": 795568
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_front_f.png": {
+        "sha256": "af58c731334d3dd3fc1aec7fe1925596a0eb72b6212ea82ac0b243e8df3a158c",
+        "bytes": 1043477
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_gameplay_f.png": {
+        "sha256": "709a4d689d5a1f4971d3f4ffe95ddc04b1746fb8e0a6fd964602a78835e88f4b",
+        "bytes": 986639
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_garment_clearance.json": {
+        "sha256": "612a5b7fe8635e51ff2bf30a91d04c846ec5a1e4a5a57f309218472a8a1d2e22",
+        "bytes": 810602
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_head_f.png": {
+        "sha256": "3bd4801e1bab1100c3fa52724837b41571f854ae209c5e9f0a57a081b3f517e3",
+        "bytes": 1106528
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_motion.json": {
+        "sha256": "eb0bb1116d7b3ce27acae8b6df15b2edc7873480f67e8a03c6772a89773b685d",
+        "bytes": 6716019
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_rear_f.png": {
+        "sha256": "9d8672b0d2eaa9c8aab4ec8cf1a4b038769bfb43bc9a570037a6596889a72c15",
+        "bytes": 1023235
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_review_f.json": {
+        "sha256": "f711d86666ed6078af139330579d3a04fd444425b7e5aa725a73569eadb91dbf",
+        "bytes": 2167
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_run_side_f.png": {
+        "sha256": "c5b9349e67fa6c8ab248f56a226409fe72f2aae82766d8b32b0fe2a58e0522ef",
+        "bytes": 1037747
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_side_f.png": {
+        "sha256": "e5df732c23fc328e9f4179c81e7d469dba4418b176d7086bd7587fda16a3a0c2",
+        "bytes": 1037595
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_tool_clearance.json": {
+        "sha256": "1571c901e264957b27032091a4818bbfd0e343b68169b8be1a192167dc9c4cdf",
+        "bytes": 67536
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0_welt.json": {
+        "sha256": "96fb5307df0051942c3c46e9e4396633a24d3a08c180fb08fc8d834a55385b83",
+        "bytes": 58218
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod0.glb.validation.json": {
+        "sha256": "ee0d8a46e8654abf9bc2e3303fd0397a00228ae7f6de0789bf75f66db7afa0f1",
+        "bytes": 9310
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod1_equipment_attachment.json": {
+        "sha256": "6ae2c0e19cd10203e810e03fc88aaa95a0096cb504e9434ceb4c6a771a21f5cc",
+        "bytes": 793267
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod1_garment_clearance.json": {
+        "sha256": "44dd1efa7c50403c9d6486ac612f1b352d150d8d99d430972b287c32a2be64d8",
+        "bytes": 809659
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod1_motion.json": {
+        "sha256": "8f242b2e0195a0584f76835de8276b6c5fb780b3e7ec065845d54436d6d5711a",
+        "bytes": 6707505
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod1_tool_clearance.json": {
+        "sha256": "dc72fb86cd26a54c8b46dd7d6ff3c4c627b15622be99b5f87d583f00894bfecf",
+        "bytes": 67535
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod1_welt.json": {
+        "sha256": "209285e8edf5817797f03bd2e36ebd2a1f4ec787753a6c750abe9b0299796ad4",
+        "bytes": 58532
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod1.glb.validation.json": {
+        "sha256": "d556d06e543d44ad3a0c51365584437eca9da37d1115c62cb1a50a3eb40d3d2d",
+        "bytes": 9309
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod2_equipment_attachment.json": {
+        "sha256": "deb5ee79dafffefa656038fabd38dbf812c2cb5cb90dd2b81f4309ae9f9cf480",
+        "bytes": 791457
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod2_garment_clearance.json": {
+        "sha256": "3ca0ea92376e9c26a50cab06b96a85f7b538f35771a8844f2466a5bc540c2e6a",
+        "bytes": 809528
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod2_motion.json": {
+        "sha256": "6c9b7b74524129d457b6f623f5be7200eac1efecf31e32893a0f846db92d11db",
+        "bytes": 6705854
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod2_tool_clearance.json": {
+        "sha256": "2e04965e6f3c911419e0da7fa5054a6619ed738e39e46a64c09ffed250a5b467",
+        "bytes": 67534
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod2_welt.json": {
+        "sha256": "d986638c4556db2839bd6e1c4efc7828a7e547cc5c67db9eb8ec27f4af74ed80",
+        "bytes": 58497
+      },
+      "authoring/blender/cinderfen-supply-officer/review/frontier_cinderfen_dark_elf_supply_officer_lod2.glb.validation.json": {
+        "sha256": "caa7d9c53828742c29bf316f3705cb5d6a074b4386d87bc920f66a721fde2d2b",
+        "bytes": 9309
+      },
+      "authoring/blender/cinderfen-supply-officer/review/master-continuity.json": {
+        "sha256": "824ffdc73296bceaed6301242555e4f7706475dad68fb98ef055e4bb646fc60b",
+        "bytes": 1799
+      },
+      "authoring/blender/cinderfen-supply-officer/runtime/frontier_cinderfen_dark_elf_supply_officer_lod0.glb": {
+        "sha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+        "bytes": 24085720
+      },
+      "authoring/blender/cinderfen-supply-officer/runtime/frontier_cinderfen_dark_elf_supply_officer_lod1.glb": {
+        "sha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a",
+        "bytes": 21233064
+      },
+      "authoring/blender/cinderfen-supply-officer/runtime/frontier_cinderfen_dark_elf_supply_officer_lod2.glb": {
+        "sha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0",
+        "bytes": 19046308
+      },
+      "authoring/blender/cinderfen-supply-officer/source/facial-sculpt.json": {
+        "sha256": "ea3e28494ca825b650c52bb1354ce655795ada5f1bf83ddbd9ae6e22490b90c5",
+        "bytes": 261
+      },
+      "authoring/blender/cinderfen-supply-officer/source/fitting-foundations.json": {
+        "sha256": "633f79cd6dd40de338fcdec7bedca4115b1c9abf2c6aa1ee88cafdb71b4a4f8f",
+        "bytes": 8143
+      },
+      "authoring/blender/cinderfen-supply-officer/sources/frontier_cinderfen_dark_elf_supply_officer.blend": {
+        "sha256": "3dff3c03dcb77bd4d276be9665a7dd08d89ad7162c002f65049fe890e78cbaec",
+        "bytes": 19390832
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/cinderfen_officer_cool_skin.png": {
+        "sha256": "e522082dc4df6c281dc586ef9d4cd9397c027a0c4de3e7b52b791208c0b0371e",
+        "bytes": 3922052
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_wool_basecolor.png": {
+        "sha256": "0f2fa2de46dfd8e22b9303b8a4f528085776bf84457380f39afac975f7178a3f",
+        "bytes": 234330
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_wool_normal.png": {
+        "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+        "bytes": 221744
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_wool_roughness.png": {
+        "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+        "bytes": 144135
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_worked_leather_basecolor.png": {
+        "sha256": "e990662a65367829ffc14c252c91851989819a84535517a08da182cb90d4a66a",
+        "bytes": 617282
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_worked_leather_normal.png": {
+        "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+        "bytes": 1928552
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_worked_leather_roughness.png": {
+        "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+        "bytes": 866702
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_woven_linen_basecolor.png": {
+        "sha256": "5809dca102b288adb632f3428d92dd87a585217a3227613b7edf06dbd0ab6303",
+        "bytes": 563598
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_woven_linen_normal.png": {
+        "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+        "bytes": 611208
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/dark_elf_supply_officer_woven_linen_roughness.png": {
+        "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+        "bytes": 350720
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/officer_directional_hair_basecolor.png": {
+        "sha256": "e05b2482c8b22cb2d34b4b8901bc38e3966ff5577a753b12d1547f4576aacc8d",
+        "bytes": 40767
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/officer_directional_hair_normal.png": {
+        "sha256": "78e61db434ee51790b8641406775710f90c34458b2574eae7d195e4caf941191",
+        "bytes": 91536
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/officer_directional_hair_roughness.png": {
+        "sha256": "d7ff890b1d71b3a95d25c48b46eca434e731c08295554a697409266aaad9ced4",
+        "bytes": 123569
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/officer_ledger_case_leather_basecolor.png": {
+        "sha256": "1f4fb9576541803027b79781a750fb3a9c5828c49c63ea7963436e4543518640",
+        "bytes": 582053
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/officer_ledger_case_leather_normal.png": {
+        "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+        "bytes": 1928552
+      },
+      "authoring/blender/cinderfen-supply-officer/textures/officer_ledger_case_leather_roughness.png": {
+        "sha256": "f9bf7331ead8883b13559a1133d84034b955c302113e7ec5a8c8e202f9895d83",
+        "bytes": 866901
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/apron_clearance.py": {
+        "sha256": "de97cc1351d0bf2ed90ee38b381cacdb9eb1a95714f77cc625480ef26f0748a7",
+        "bytes": 5184
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/arm_sections.py": {
+        "sha256": "a88e49813584e3114c86cf5a39e53938778f3531923c4cf8e59a5c334bd69fcb",
+        "bytes": 1386
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/build_inhabitants.py": {
+        "sha256": "362f61279276d5dd7268f3a5c801e61011a20016e6af03b0e89f85cecfa85465",
+        "bytes": 26272
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/export_tangents.py": {
+        "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "bytes": 3281
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/fitted_boot_details.py": {
+        "sha256": "3d7a6d5aea8e78c38324f741b15bf45e378dd1f9ff466237976fea5c0f7d6336",
+        "bytes": 3194
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_arm_volume.py": {
+        "sha256": "96b397c6ab2e00de479f61446a533b63742075bba753d688697e7356c12ed978",
+        "bytes": 6537
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_boot_welt.py": {
+        "sha256": "95d71cf1ec4f7d82829e93fe087e23094367dc2f72712563bc1cde53d9ba4cda",
+        "bytes": 6593
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_equipment_attachment.py": {
+        "sha256": "1338da82a6ca10c1f75b90a0a2d75417ef72efc9c7c591c0efc865e37fbcc12f",
+        "bytes": 7112
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_export_motion.py": {
+        "sha256": "9f048631a6fb59ec389469dc540aca265d5000e2f8bd99d2deb1638a56475569",
+        "bytes": 7095
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_female_foundation.py": {
+        "sha256": "9a3b3d785b6b44cd11c78cfc8023a0bfd6f56bb88691270f1ba9c40a4d7ede0a",
+        "bytes": 2272
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_foundation.py": {
+        "sha256": "880245796b5ef2c122841236987784cf11bb3868ec24d6b3aa46c7383abcc7c0",
+        "bytes": 1414
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_garment_clearance.py": {
+        "sha256": "51930e97baf0570d2c5b6e3a22fd2863899bd4e2c13997a28d408cf82157c356",
+        "bytes": 11932
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_master.py": {
+        "sha256": "94fc6227f32c2ea0aea7fa5e32b3a5481cc4b0b5c86de999c96fffbf5b0ece8e",
+        "bytes": 2759
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/inspect_tool_clearance.py": {
+        "sha256": "de194f2e5ac85b0b73a228417f729231dc6d91cfac1ac2270e64504fef69488d",
+        "bytes": 4629
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/officer_coat.py": {
+        "sha256": "cb7445570fe0a39bce822a043e8c12ffecc82ac7b862af0bdf2ffda1abd6716c",
+        "bytes": 4559
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/officer_equipment.py": {
+        "sha256": "716a9f1466bdf040f058f25793f3c51cb29422cfc865ced95db70c2d3af0660f",
+        "bytes": 12644
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/officer_identity.py": {
+        "sha256": "9591ff561113ae1475cc8fd19763bbe64e3fcd51b3b99261f09e6c81655730e6",
+        "bytes": 5304
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/officer_locomotion.py": {
+        "sha256": "286d46addf42269494985dce34d596315a4073981025f86e7687ed95122dc182",
+        "bytes": 9050
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/review_inhabitants.py": {
+        "sha256": "6270066a5e447e19d50cd5f68acab5926ebb3a805d60c7a72a1231f2de3eb07c",
+        "bytes": 7825
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/run_quality.py": {
+        "sha256": "b8557be8b0047fa3506ea5d70e261d8f7a2518ca23ee64034b2e6c078f7d8106",
+        "bytes": 1424
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/surface_bindings.py": {
+        "sha256": "cdb9d1b8fb4293dab25c5dd9315e158459a95a90a4bf5d665f2f71e91eb77898",
+        "bytes": 2267
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/surface_garments.py": {
+        "sha256": "49c633d7ad4725fe3f9e30483e0392d8ac307db9e63c711de13c5b1b3e87bb17",
+        "bytes": 11931
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/tailored_clothing.py": {
+        "sha256": "0e9b10a16a6cf40475a39fc1daab55e7ac2e4f036df9f6344c0dfbdfe712fd1b",
+        "bytes": 5877
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/tailored_locomotion.py": {
+        "sha256": "fe4a3ef477d3f4a34b3025235137c2de794630740050d8b5495fa5252a0ae7d5",
+        "bytes": 22128
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/test_exports.py": {
+        "sha256": "e70d94392e577228bea27c36381c6127ada4b5f155661968ef50f224df390901",
+        "bytes": 11841
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/validate_inhabitants.mjs": {
+        "sha256": "d7209b652b2760fe1947a8c7b9c94bb1222912cd00b22f0da75598e9fc9c613d",
+        "bytes": 2385
+      },
+      "authoring/blender/cinderfen-supply-officer/tools/workwear_finish.py": {
+        "sha256": "74fbf3d2de7f8b8135dc165405391c166ef9233db15ed8edd8e2b19bf852672e",
+        "bytes": 8069
+      },
+      "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.glb": {
+        "sha256": "3edd6e13efed1d07ef51a8794852a3dc0af7e281e406265d2b58a77046a8ffb6",
+        "bytes": 10059524
+      },
+      "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.qc.json": {
+        "sha256": "6a00c213e6573a936f43347522585f2886b35dce02a7f2a42cdac66667b070e7",
+        "bytes": 13754
+      },
+      "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.quad-surface.json.gz": {
+        "sha256": "dc0da94fa00d7b98836568e454d5beba04f15e95013a63b855bbebb5fbaabe13",
+        "bytes": 1130606
+      },
+      "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.source.blend": {
+        "sha256": "863c9315f0fe8dd137df0725dcb31be9e4426b85a1c4f3f84394f6b426019440",
+        "bytes": 2510116
+      },
+      "authoring/blender/frontier-population/tools/inhabitant_review.mjs": {
+        "sha256": "59ffe91d4fc9cb48b7207d37e48fb90da08fdbabf822e797f717a571d437ba95",
+        "bytes": 1430
+      },
+      "scripts/blender-character-pipeline/blender/anim_library.py": {
+        "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+        "bytes": 22611
+      },
+      "scripts/blender-character-pipeline/blender/canonical_animation_pack.py": {
+        "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+        "bytes": 8960
+      },
+      "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py": {
+        "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+        "bytes": 17430
+      },
+      "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json": {
+        "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+        "bytes": 1755
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+        "bytes": 1070
+      },
+      "scripts/blender-character-pipeline/tools/world-asset-approval.mjs": {
+        "sha256": "7335d52a94a977d785bd93b387bc50ba29cec19e494c9323b6d0b979688c0a38",
+        "bytes": 633
+      },
+      "scripts/campaign/publish-regional-inhabitant.mjs": {
+        "sha256": "ff164e5d56aa8832bbd9c0a2ffb65171a1910f904bb3cb5bf887ed0136b81f7b",
+        "bytes": 16140
+      },
+      "scripts/campaign/regional-publication-evidence.mjs": {
+        "sha256": "a728aef40a03be32f7a40c373463b9ae374068d6e4dd05609bcd37ea320924a4",
+        "bytes": 3249
+      }
+    }
+  },
+  "frozenSource": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2",
+  "previewImages": [],
+  "limitations": [
+    "Complete fitted outfit; not a modular armor body.",
+    "Requires its own fitted embedded clips; no siege crew compatibility claim.",
+    "Carried tools are visual equipment; no harvesting interaction is claimed."
+  ]
+}

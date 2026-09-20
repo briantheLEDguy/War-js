@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "description": "Retained original female anatomical foundation with exact embedded image bytes; local Dark Elf derivative changes mesh and rest joints together. No historical release trees copied.",
+  "license": "CC0-1.0 for MakeHuman system asset data; original project morphs and canonical rig adapter retained in repository",
+  "upstreamProvenance": {
+    "path": "authoring/blender/frontier-population/foundation-provenance.json",
+    "sha256": "569bd80a7ebe0331f00b649d8d298192defe39577cca01f289e35a7987564424",
+    "bytes": 11917
+  },
+  "inputs": [
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.glb",
+      "sha256": "3edd6e13efed1d07ef51a8794852a3dc0af7e281e406265d2b58a77046a8ffb6",
+      "bytes": 10059524
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.qc.json",
+      "sha256": "6a00c213e6573a936f43347522585f2886b35dce02a7f2a42cdac66667b070e7",
+      "bytes": 13754
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.source.blend",
+      "sha256": "863c9315f0fe8dd137df0725dcb31be9e4426b85a1c4f3f84394f6b426019440",
+      "bytes": 2510116
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.quad-surface.json.gz",
+      "sha256": "dc0da94fa00d7b98836568e454d5beba04f15e95013a63b855bbebb5fbaabe13",
+      "bytes": 1130606
+    }
+  ]
+}

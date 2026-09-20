@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.frontier.cinderfen.dark_elf_supply_officer",
+  "displayName": "Cinderfen Dark Elf Supply Officer",
+  "category": "character",
+  "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+  "qc": "frontier_cinderfen_dark_elf_supply_officer_lod0.qc.json",
+  "runtime": {
+    "profileKey": "npc_frontier_cinderfen_dark_elf_supply_officer",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "frontier_cinderfen_supply_officer_v1_f",
+    "bodyVariant": "f",
+    "skeletonId": "cinderfen_supply_officer_humanoid_v1",
+    "bindPoseId": "cinderfen_supply_officer_a_v1"
+  },
+  "hashes": {
+    "modelSha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+    "qcSha256": "740ae99eb2850c51069136bd03b4ec2befb9fd27b8706ffc8b349b730f389e51",
+    "previews": {
+      "front": "af58c731334d3dd3fc1aec7fe1925596a0eb72b6212ea82ac0b243e8df3a158c",
+      "head": "3bd4801e1bab1100c3fa52724837b41571f854ae209c5e9f0a57a081b3f517e3"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/review\\frontier_cinderfen_dark_elf_supply_officer_lod0_front_f.png",
+    "head": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/review\\frontier_cinderfen_dark_elf_supply_officer_lod0_head_f.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "fd4e6fa6555fd764edb20c27f417d72aa9cbc76484615677e3ca6c870fe6bd30"
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/sources/frontier_cinderfen_dark_elf_supply_officer.blend",
+    "sourceSha256": "3dff3c03dcb77bd4d276be9665a7dd08d89ad7162c002f65049fe890e78cbaec",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "approvalState": "approved"
+}

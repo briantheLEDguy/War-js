@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-20",
+  "profile": "npc_frontier_cinderfen_dark_elf_supply_officer",
+  "npcId": "cinderfen_outskirts_marshal",
+  "name": "Nyra Vex",
+  "zone": "cinderfen_outskirts",
+  "position": {
+    "x": 451,
+    "y": 0,
+    "z": -239
+  },
+  "mapSha256": "148b30c6567e0c87de577112165963ebb6081391b0871d0f43ad763f82c86505",
+  "harnessSha256": "45a5a901a5ba89d5c36ab17fad666a9b444f18cbe7218c7a2226fe260f634668",
+  "runtime": "Production local Game/NpcSpawner/RegionalNpcPresentation",
+  "release": "fd4e6fa6555fd764edb2",
+  "observed": [
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 144038,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
+      "sha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        451,
+        0.92,
+        -238.97
+      ]
+    },
+    {
+      "distanceM": 45.2,
+      "lod": 1,
+      "triangles": 83541,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod1.glb",
+      "sha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        451,
+        0.92,
+        -238.97
+      ]
+    },
+    {
+      "distanceM": 100.2,
+      "lod": 2,
+      "triangles": 38889,
+      "model": "frontier_cinderfen_dark_elf_supply_officer_lod2.glb",
+      "sha256": "bc3d500f95343ad50cabfc189e969f8521578dbfaeaa352651ffe5df068deaa0",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        451,
+        0.92,
+        -238.97
+      ]
+    }
+  ],
+  "legacyFallbacks": 1,
+  "gm": {
+    "catalogCountAtPublication": 447,
+    "models": 3,
+    "defaultAnimation": "idle",
+    "test": "tests/regionalCharacterPublication.test.ts"
+  },
+  "regression": {
+    "report": "artifacts/orvr/supply-officer-delivery-tests.json",
+    "sha256": "686baa8e3e23ba273b8f1d4e08a62012ff21fb97fe3f9b45f10ad2fa346e23b3",
+    "passed": 1420,
+    "files": 169
+  },
+  "limitations": [
+    "Bounded local NPC rendering and LOD verification; full network campaign not played through.",
+    "Complete fitted outfit, not modular armor or a fitted siege operator.",
+    "Ledger and stylus are visual equipment without inventory interactions.",
+    "A legacy unavailable asset remains in the inspection scene."
+  ]
+}

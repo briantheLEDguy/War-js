@@ -1,0 +1,32 @@
+{
+  "modelSha256": "6cf12b0f667d770b7c950d03b675d4d3393ea53a2a75e9fe67f02e3a4245646a",
+  "bounds": {
+    "min": [
+      -0.3022269010543823,
+      -0.3265879154205322,
+      0.003999970853328705
+    ],
+    "max": [
+      0.3001824617385864,
+      0.278665691614151,
+      1.8328263759613037
+    ]
+  },
+  "images": [
+    {
+      "view": "front",
+      "image": "review\\frontier_cinderfen_dark_elf_supply_officer_lod1_front_f.png",
+      "sha256": "34decc7f697c034d0d4aed0eccd011b4abd43301df4b9d3d2a1b5e3fe424cf73",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "gameplay",
+      "image": "review\\frontier_cinderfen_dark_elf_supply_officer_lod1_gameplay_f.png",
+      "sha256": "6b099c1247e60ae61f37d37d59901613fa6e20574c921bf46ade4e9567dc2873",
+      "clip": "idle",
+      "seconds": 0
+    }
+  ],
+  "status": "pending"
+}

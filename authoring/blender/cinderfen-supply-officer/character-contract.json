@@ -1,0 +1,26 @@
+{
+  "assetId": "chr.frontier.cinderfen.dark_elf_supply_officer",
+  "profileId": "npc_frontier_cinderfen_dark_elf_supply_officer",
+  "modelKey": "frontier_cinderfen_dark_elf_supply_officer",
+  "race": "dark_elf",
+  "realm": "riftbound",
+  "role": "supply officer",
+  "bodyFamily": "frontier_cinderfen_supply_officer_v1_f",
+  "bodyVariant": "f",
+  "skeletonId": "cinderfen_supply_officer_humanoid_v1",
+  "bindPoseId": "cinderfen_supply_officer_a_v1",
+  "requiredClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "runtimeReady": true,
+  "equipmentPolicy": "Complete fitted civilian uniform; carried ledger and inventory tools are visual equipment.",
+  "readinessScope": "Revision F frozen and technically verified source delivery; root owns game and GM publication."
+}

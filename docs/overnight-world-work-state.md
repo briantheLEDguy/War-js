@@ -17,14 +17,14 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,416 tests in 169 files**. Production build
+The latest full regression pass is **1,420 tests in 169 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 256 static props, 71 character
-profiles and 57 equipment records, and the GM builder has 446 definitions.
-All 33 maps and 891 model records validate. Remaining regional character, equipment and town/zone work
+The registry contains 256 static props, 72 character
+profiles and 57 equipment records, and the GM builder has 447 definitions.
+All 33 maps and 894 model records validate. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
@@ -36,8 +36,9 @@ F passed all 11 gates and is published as Barrek Reedhauler in Cinderfen and GM;
 actual gameplay verified its three LODs. Empire farmer f passed all five gates
 and is published as Edric Hayward in Sunmeadow and GM; actual gameplay verified
 its three LODs at 6.2/45.2/100.2m. Both characters retain editable masters and
-nine clips. The remaining initial cast is Empire herbalist, High Elf field scout
-and Dark Elf supply officer.
+nine clips. Dark Elf supply officer F is also published as existing Nyra Vex;
+its 13 technical gates and three actual-game LOD transitions pass. The remaining
+initial cast is Empire herbalist and High Elf field scout.
 All eight Sunmeadow supply shelters now expose their measured 86mm raised
 floor to local/shared navigation and GM placement. A local player walked off
 the boards to terrain and back onto them successfully. Twenty-three focused
@@ -45,10 +46,10 @@ floor, furnishing and village-access tests pass; the latest full suite above
 includes the floor and apothecary additions.
 
 The next parallel batch is active: `sunmeadow-herbalist/`,
-`cinderfen-supply-officer/` and `sunmeadow-scout/`. Their package work states
-record technical progress. Serra Brightfield and Nyra Vex keep their existing
-NPC identities when their new regional presentations publish; Mira Stonewake
-keeps her scout identity. The shared apothecary table is now published in both
+`cinderfen-quartermaster/` and `sunmeadow-scout/`. Their package work states
+record technical progress. Serra Brightfield, Vask Rauth and Mira Stonewake keep
+their existing NPC/service identities when the new presentations publish.
+The shared apothecary table is now published in both
 regional shelters and GM. Both actual-game table collision presses passed;
 mesh, support and half-metre navigation checks preserve station access.
 
@@ -62,12 +63,12 @@ named fitting contacts pass. Keep access, four regional wall/stair mesh checks,
 at (-342, 0, 13.867). Its release is `9869eaf9d6e8f9747a30`; source and runtime
 integration receipts are saved in `authoring/blender/field-supply-chest/`.
 
-Current technical holds: supply-officer E passed its original numeric gates but
-its rear view exposed detached ledger straps. Do not publish E; the agent is
-correcting attachment in F. Herbalist sleeve/smock contact and scout
-garment/gear fit are still being corrected. The publisher now requires side
-and rear views plus per-LOD equipment_attachment reports for all three new
-characters. Frozen previous civilian/table releases remain valid.
+Supply-officer E remains superseded. Published F fixes its detached ledger
+straps with measured closed suspension loops and zero outfit/body intersections
+across all clips and LODs. Herbalist attack-arm clearance and scout shoulder
+trim fit are still being corrected. The publisher requires side and rear views
+plus per-LOD equipment_attachment reports for these characters. Frozen previous
+civilian/table releases remain valid.
 
 Entries below preserve their historical state; the active summary above
 supersedes older pause, approval and delivery statements.

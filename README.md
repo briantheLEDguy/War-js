@@ -24,8 +24,11 @@ The universal field supply chest is also published in all 36 keeps and the GM
 builder. Its six editable masters, three LODs, PBR surfaces and measured fitting
 contacts are retained; skids, nearby meshes, keep access and a local player
 collision press passed. It is closed scenery, without an inventory interaction.
-The next character batch covers the herbalist, Dark Elf supply officer and High
-Elf scout. Publication preserves existing NPC/service IDs and requires matched
+Nyra Vex now uses the published Dark Elf supply-officer uniform, with physically
+attached ledger suspension, nine embedded clips and three verified runtime LODs.
+She keeps her existing Cinderfen identity, role and position and is available in
+the GM builder. Herbalist, High Elf scout and Greenskin quartermaster work continues.
+Publication preserves existing NPC/service IDs and requires matched
 body/rig identity plus fitted clothing and animation checks.
 Siege equipment and keep interiors are universal;
 exteriors and nature remain regional. See the [production board](docs/orvr-production-board.md).

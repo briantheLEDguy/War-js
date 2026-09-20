@@ -1,5 +1,27 @@
 # World build checkpoint — September 20, 2026
 
+## Cinderfen supply officer delivery
+
+Nyra Vex now uses the authored female Dark Elf supply-officer uniform in the
+game and GM builder. Her ID, name, campaign-marshal title, guard role and
+position are preserved. Frozen release `fd4e6fa6555fd764edb2` retains the packed
+editable master, generating inputs, full PBR textures, three actual LODs and
+nine clips. Thirteen technical gates pass; all three GLBs have zero validator
+errors and warnings. Ledger loops attach to both the belt and carrier across
+all clips and LODs, with zero equipment/clothing/anatomy crossings.
+
+Actual production Game/NpcSpawner checks show visible LOD0/1/2 at
+6.2 / 45.2 / 100.2m: 144,038 / 83,541 / 38,889 triangles. Exact map, model and
+harness hashes are retained in the package runtime integration receipt.
+One unavailable legacy asset remains; this is a bounded local check, without
+full shared-campaign or performance acceptance.
+
+All **1,420 tests in 169 files** pass, recorded in
+`artifacts/orvr/supply-officer-delivery-tests.json`. Production build and client
+typecheck pass; 33 maps, 894 model records and 447 GM definitions validate.
+Herbalist and scout continue all-clip fitting. The next character is Vask Rauth,
+using the planned Greenskin presentation while preserving his vendor identity.
+
 ## Universal supply chest delivery
 
 The original iron-bound field chest is published in all 36 keeps and the GM

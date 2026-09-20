@@ -18,7 +18,7 @@ values
   ('brightfen_approach', 'Brightfen Approach', 'aegis', 'T1', 'aegis_east', 'battlefield', 'aegis-riftbound-v1', '1fed763e0936509e'),
   ('glassriver_ford', 'Glassriver Ford', 'aegis', 'T2', 'aegis_east', 'battlefield', 'aegis-riftbound-v1', '6e4e4dac9df50fbd'),
   ('highvale_rampart', 'Highvale Rampart', 'aegis', 'T3', 'aegis_east', 'battlefield', 'aegis-riftbound-v1', '150efe1bb55fc8d4'),
-  ('cinderfen_outskirts', 'Cinderfen Outskirts', 'riftbound', 'T1', 'riftbound_west', 'battlefield', 'aegis-riftbound-v1', '9f2e2bc68ec3dfb4'),
+  ('cinderfen_outskirts', 'Cinderfen Outskirts', 'riftbound', 'T1', 'riftbound_west', 'battlefield', 'aegis-riftbound-v1', '2bbf06519a2c2aa6'),
   ('bleakroot_causeway', 'Bleakroot Causeway', 'riftbound', 'T2', 'riftbound_west', 'battlefield', 'aegis-riftbound-v1', '18a3fb3ddb4103d1'),
   ('vilemere_heights', 'Vilemere Heights', 'riftbound', 'T3', 'riftbound_west', 'battlefield', 'aegis-riftbound-v1', 'c8c720bf39ce3ea6'),
   ('ashen_steppe', 'Ashen Steppe', 'riftbound', 'T1', 'riftbound_east', 'battlefield', 'aegis-riftbound-v1', '7adcff2b26825f4b'),
