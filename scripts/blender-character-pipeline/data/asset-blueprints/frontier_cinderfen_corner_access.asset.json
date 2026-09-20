@@ -24,17 +24,17 @@
     "lods": [
       {
         "name": "LOD0",
-        "triTarget": 59188,
+        "triTarget": 60528,
         "screenCoverageMin": 0.2
       },
       {
         "name": "LOD1",
-        "triTarget": 29762,
+        "triTarget": 30052,
         "screenCoverageMin": 0.08
       },
       {
         "name": "LOD2",
-        "triTarget": 8028,
+        "triTarget": 8168,
         "screenCoverageMin": 0
       }
     ]
@@ -81,12 +81,12 @@
     "similarityReview": "not_required",
     "author": "Codex architecture authoring",
     "source": "authoring/blender/cinderfen-architecture/junction/source/architecture.json",
-    "sourceSha256": "d8d02e508e166899ae16c660b621ac7264756464d39a1b529d531e38cc0c12fe"
+    "sourceSha256": "a47900289fb94d15e8598061ce163449c00504922a6d37f7576c21ef8f46bbb4"
   },
   "qc": {
     "allowNonManifold": false,
     "allowUvOverlap": true,
-    "maxTris": 59188,
+    "maxTris": 60528,
     "maxFileSizeMb": 4,
     "maxDrawCalls": 9,
     "maxMeshObjects": 1,
@@ -97,8 +97,8 @@
   },
   "lifecycle": {
     "status": "approved",
-    "notes": "Original pentagonal deck cages and fitted Cinderfen construction pieces remain editable in the Blender master. Closed construction pieces deliberately share metre-scaled tiled material UVs for reeds, basalt, alder and hardware; these are reusable material fields rather than a unique atlas. Positional audit welds glTF material/UV/normal seam splits at one micrometre and requires zero boundary and multi-face edges on every LOD. Coarse authored roof and deck courses preserve the curved envelope and support height while reducing distant seams. Exact bounds, raised floors, ramps, treads, colliders and keep passage contracts are retained in authoring/blender/cinderfen-architecture/junction/build-report.json. Accepted internally against the exact build and all reimport previews; the approval record retains review hashes.",
-    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
-    "reviewedAt": "2026-09-07T19:58:45.720132+00:00"
+    "notes": "Original pentagonal deck cages and fitted Cinderfen construction pieces remain editable in the Blender master. Closed construction pieces deliberately share metre-scaled tiled material UVs for reeds, basalt, alder and hardware; these are reusable material fields rather than a unique atlas. Positional audit welds glTF material/UV/normal seam splits at one micrometre and requires zero boundary and multi-face edges on every LOD. Coarse authored roof and deck courses preserve the curved envelope and support height while reducing distant seams. Exact bounds, raised floors, ramps, treads, colliders and keep passage contracts are retained in authoring/blender/cinderfen-architecture/junction/build-report.json. Published under explicit user standing approval after exact-export technical validation; the approval record retains the instruction and review hashes.",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z"
   }
 }

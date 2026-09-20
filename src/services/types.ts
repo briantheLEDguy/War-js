@@ -167,7 +167,7 @@ export interface WorldPropObject extends WorldObjectBase {
   model?: string;
   assetKey?: string;
   /** Registry category for reviewed GM actor or scenery placements. */
-  assetCategory?: 'staticProps' | 'characterProfiles';
+  assetCategory?: 'staticProps' | 'characterProfiles' | 'equipment';
   defaultAnimation?: string;
   modelOffset?: Vec3;
   groundSurface?: 'mesh';

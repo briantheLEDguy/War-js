@@ -4,11 +4,16 @@ import { StaticPropInstances } from '../game/StaticPropInstances';
 import type { PropSpawn } from './ZoneLoader';
 import type { SpawnedStaticWorldObject } from './Props';
 
+const ambientMixers = new WeakMap<THREE.Object3D, THREE.AnimationMixer[]>();
+
 export function isFrontierProp(prop: Pick<PropSpawn, 'kind' | 'assetKey' | 'model'>): boolean {
   return Boolean(prop.kind.startsWith('frontier_') || prop.assetKey?.startsWith('frontier_') || /(?:^|\/)(?:prop_)?frontier_[^/]+\.glb$/i.test(prop.model ?? ''));
 }
 
 export function frontierPropDistances(key: string): { lod: number[]; cull: number } {
+  if (/^frontier_siege_(repair_bench|ammunition_cradle)$/.test(key)) return { lod: [0, 16, 42], cull: 160 };
+  if (key === 'frontier_sunmeadow_skylark') return { lod: [0], cull: 30 };
+  if (/^frontier_sunmeadow_(roe_deer|red_fox|brown_hare|barrow_wolf)/.test(key)) return { lod: [0, 22, 60], cull: 150 };
   if (key === 'frontier_cinderfen_marsh_alder') return { lod: [0, 35, 90], cull: 450 };
   if (key === 'frontier_cinderfen_basalt_outcrop') return { lod: [0, 20, 50], cull: 550 };
   if (key === 'frontier_cinderfen_reed_clump') return { lod: [0, 18, 45], cull: 120 };
@@ -28,6 +33,7 @@ export async function loadApprovedFrontierProp(prop: PropSpawn, loader: Pick<Ass
   const lod = new THREE.LOD(); lod.autoUpdate = false;
   const distances = frontierPropDistances(key).lod;
   let animations: THREE.AnimationClip[] = [];
+  const mixers: THREE.AnimationMixer[] = [];
   for (const [index, model] of models.entries()) {
     const loaded = await loader.loadModelFull(model, () => new THREE.Group());
     let meshes = 0;
@@ -36,11 +42,14 @@ export async function loadApprovedFrontierProp(prop: PropSpawn, loader: Pick<Ass
     // Interactive gate animations remain on one authored hierarchy, without LOD track ambiguity.
     if (!lod.levels.length) animations = loaded.animations;
     lod.addLevel(loaded.object, distances[Math.min(index, distances.length - 1)], .12);
+    const clip = !prop.interaction && loaded.animations.find(clip => clip.name === prop.defaultAnimation);
+    if (clip) { const mixer = new THREE.AnimationMixer(loaded.object); mixer.clipAction(clip).play(); mixers.push(mixer); }
     if (prop.interaction) break;
   }
   if (!lod.levels.length) return null;
   lod.levels.forEach((level, index) => { level.object.visible = index === 0; });
   lod.userData.approvedFrontierAsset = key;
+  if (mixers.length) ambientMixers.set(lod, mixers);
   return { object: lod, animations };
 }
 
@@ -54,6 +63,7 @@ export class FrontierInstances {
   private enabled = true;
   private position = new THREE.Vector3();
   private cameraPosition = new THREE.Vector3();
+  private animationTime = 0;
   constructor(private readonly scene: THREE.Scene, objects: SpawnedStaticWorldObject[]) {
     for (const source of objects) {
       const key = source.object.userData.approvedFrontierAsset;
@@ -70,6 +80,13 @@ export class FrontierInstances {
   }
 
   update(camera: THREE.Camera, enabled: boolean, suppressed: (id: string) => boolean, dt: number): void {
+    this.animationTime += dt;
+    for (const cell of this.cells.values()) for (const entry of cell.entries) {
+      if (!entry.object.visible || suppressed(entry.id)) continue;
+      for (const mixer of ambientMixers.get(entry.object) ?? []) {
+        if ((mixer.getRoot() as THREE.Object3D).visible) mixer.setTime(this.animationTime);
+      }
+    }
     this.elapsed += dt;
     if (this.elapsed < .25 && enabled === this.enabled) return;
     this.elapsed = 0; this.enabled = enabled;
@@ -94,7 +111,12 @@ export class FrontierInstances {
   }
 
   dispose(): void {
-    for (const cell of this.cells.values()) { cell.batcher.dispose(); cell.group.removeFromParent(); }
+    for (const cell of this.cells.values()) {
+      for (const entry of cell.entries) for (const mixer of ambientMixers.get(entry.object) ?? []) {
+        mixer.stopAllAction(); mixer.uncacheRoot(mixer.getRoot());
+      }
+      cell.batcher.dispose(); cell.group.removeFromParent();
+    }
     this.cells.clear();
   }
 }

@@ -3483,7 +3483,7 @@
     },
     "colliders": [
       {
-        "width": 5.4,
+        "width": 5.2,
         "depth": 1.2,
         "blocksWhen": "closed"
       }
@@ -3537,7 +3537,7 @@
     },
     "colliders": [
       {
-        "width": 18,
+        "width": 16,
         "depth": 2.5,
         "blocksWhen": "closed"
       }
@@ -4439,6 +4439,32 @@
     }
   },
   {
+    "kind": "character__npc_frontier_sunmeadow_dwarf_artisan",
+    "label": "Sunmeadow Dwarf Artisan",
+    "group": "Characters and NPCs",
+    "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+    "assetKey": "npc_frontier_sunmeadow_dwarf_artisan",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "frontier_sunmeadow_dwarf_artisan_lod1.glb",
+      "frontier_sunmeadow_dwarf_artisan_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.886,
+      "depth": 0.574,
+      "chainAxis": "z"
+    },
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false
+  },
+  {
     "kind": "character__npc_riftbound_gorvak_mirehand_forward_scout",
     "label": "Gorvak Mirehand - Forward Scout",
     "group": "Characters and NPCs",
@@ -4700,6 +4726,1157 @@
     }
   },
   {
+    "kind": "equipment__novitiate_civic_battle_prelate_back_m",
+    "label": "Novitiate Backplate",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_back_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_back_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_back_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_back_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 7.450580596923828e-9,
+      "y": -1.2504740953445435,
+      "z": 0.09616518579423428
+    },
+    "footprint": {
+      "width": 0.465,
+      "depth": 0.145,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_chest_m",
+    "label": "Novitiate Cuirass",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_chest_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_chest_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_chest_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_chest_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -7.450580596923828e-9,
+      "y": -1.2556341886520386,
+      "z": -0.06514100357890129
+    },
+    "footprint": {
+      "width": 0.484,
+      "depth": 0.259,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_feet_m",
+    "label": "Novitiate Boots",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_feet_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_feet_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_feet_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_feet_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.0005089813494123518,
+      "z": -0.11506350710988045
+    },
+    "footprint": {
+      "width": 0.632,
+      "depth": 0.432,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_hands_m",
+    "label": "Novitiate Handguards",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_hands_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_hands_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_hands_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_hands_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.0041639804840088,
+      "z": -0.21201822254806757
+    },
+    "footprint": {
+      "width": 1.21,
+      "depth": 0.369,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_head_m",
+    "label": "Novitiate Gorget",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_head_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_head_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_head_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_head_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -7.450580596923828e-9,
+      "y": -1.5303577184677124,
+      "z": -0.006921246647834778
+    },
+    "footprint": {
+      "width": 0.279,
+      "depth": 0.283,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_legs_m",
+    "label": "Novitiate Legguards",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_legs_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_legs_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_legs_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_legs_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.19185537099838257,
+      "z": -0.019269362092018127
+    },
+    "footprint": {
+      "width": 0.599,
+      "depth": 0.332,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_shoulders_m",
+    "label": "Novitiate Shoulder Plates",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_shoulders_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_shoulders_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_shoulders_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -1.4901161193847656e-8,
+      "y": -1.4588828086853027,
+      "z": 0.00590013712644577
+    },
+    "footprint": {
+      "width": 0.865,
+      "depth": 0.304,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_tabard_m",
+    "label": "Novitiate Tabard",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_tabard_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_tabard_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_tabard_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_tabard_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -0.002188257873058319,
+      "y": -0.6454200148582458,
+      "z": -0.02026449143886566
+    },
+    "footprint": {
+      "width": 0.468,
+      "depth": 0.412,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__novitiate_civic_battle_prelate_waist_m",
+    "label": "Novitiate Field Belt",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_waist_novitiate_m.glb",
+    "assetKey": "novitiate_civic_battle_prelate_waist_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_waist_novitiate_m_lod1.glb",
+      "arm_civic_battle_prelate_waist_novitiate_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.0206043720245361,
+      "z": -0.014365173876285553
+    },
+    "footprint": {
+      "width": 0.524,
+      "depth": 0.348,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_back_m",
+    "label": "Ember Arcanist Back",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_back_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_back_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_back_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_back_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.2504740953445435,
+      "z": 0.09616491943597794
+    },
+    "footprint": {
+      "width": 0.465,
+      "depth": 0.145,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_chest_m",
+    "label": "Ember Arcanist Chest",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_chest_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_chest_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_chest_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_chest_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.1725846529006958,
+      "z": -0.0795326866209507
+    },
+    "footprint": {
+      "width": 0.484,
+      "depth": 0.288,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_feet_m",
+    "label": "Ember Arcanist Feet",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_feet_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_feet_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_feet_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_feet_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.0005089813494123518,
+      "z": -0.11408334597945213
+    },
+    "footprint": {
+      "width": 0.63,
+      "depth": 0.428,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_hands_m",
+    "label": "Ember Arcanist Hands",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_hands_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_hands_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_hands_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_hands_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.0041639804840088,
+      "z": -0.21633844822645187
+    },
+    "footprint": {
+      "width": 1.21,
+      "depth": 0.361,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_head_m",
+    "label": "Ember Arcanist Head",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_head_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_head_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_head_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_head_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -0.004002474248409271,
+      "y": -1.461977243423462,
+      "z": -0.007661633193492889
+    },
+    "footprint": {
+      "width": 0.337,
+      "depth": 0.459,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_legs_m",
+    "label": "Ember Arcanist Legs",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_legs_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_legs_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_legs_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_legs_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.11285659670829773,
+      "z": -0.00046133995056152344
+    },
+    "footprint": {
+      "width": 0.599,
+      "depth": 0.294,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_shoulders_m",
+    "label": "Ember Arcanist Shoulders",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_shoulders_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_shoulders_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_shoulders_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_shoulders_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 2.9802322387695312e-8,
+      "y": -1.4560015201568604,
+      "z": 0.005241625010967255
+    },
+    "footprint": {
+      "width": 0.88,
+      "depth": 0.341,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_tabard_m",
+    "label": "Ember Arcanist Tabard",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_tabard_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_tabard_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_tabard_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_tabard_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.12061676383018494,
+      "z": -0.007996268570423126
+    },
+    "footprint": {
+      "width": 0.666,
+      "depth": 0.456,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_ember_arcanist_waist_m",
+    "label": "Ember Arcanist Waist",
+    "group": "Equipment",
+    "model": "arm_civic_ember_arcanist_waist_t1_m.glb",
+    "assetKey": "starter_civic_ember_arcanist_waist_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_ember_arcanist_waist_t1_m_lod1.glb",
+      "arm_civic_ember_arcanist_waist_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -0.03467200696468353,
+      "y": -0.8677089214324951,
+      "z": -0.045723363757133484
+    },
+    "footprint": {
+      "width": 0.643,
+      "depth": 0.411,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_back_f",
+    "label": "Battle Prelate Backpiece Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_back_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_back_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.0012200921773910522,
+      "y": -0.6092721223831177,
+      "z": 0.14472762122750282
+    },
+    "footprint": {
+      "width": 0.639,
+      "depth": 0.187,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_back_m",
+    "label": "Battle Prelate Backpiece Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_back_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_back_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_back_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_back_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.2504740953445435,
+      "z": 0.11644746363162994
+    },
+    "footprint": {
+      "width": 0.465,
+      "depth": 0.186,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_chest_f",
+    "label": "Battle Prelate Chestguard Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_chest_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_chest_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -1.4901161193847656e-8,
+      "y": -0.7142689228057861,
+      "z": -0.025108255445957184
+    },
+    "footprint": {
+      "width": 0.837,
+      "depth": 0.307,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_chest_m",
+    "label": "Battle Prelate Chestguard Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_chest_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_chest_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_chest_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_chest_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.242027997970581,
+      "z": -0.09526943042874336
+    },
+    "footprint": {
+      "width": 0.484,
+      "depth": 0.319,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_feet_f",
+    "label": "Battle Prelate Boots Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_feet_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_feet_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.00040195882320404053,
+      "y": 0.02255295403301716,
+      "z": -0.08287143334746361
+    },
+    "footprint": {
+      "width": 0.536,
+      "depth": 0.314,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_feet_m",
+    "label": "Battle Prelate Boots Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_feet_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_feet_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_feet_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_feet_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.0005089813494123518,
+      "z": -0.11556350812315941
+    },
+    "footprint": {
+      "width": 0.63,
+      "depth": 0.431,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_hands_f",
+    "label": "Battle Prelate Handguards Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_hands_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_hands_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.00006565451622009277,
+      "y": -0.9392186403274536,
+      "z": -0.17707619816064835
+    },
+    "footprint": {
+      "width": 1.093,
+      "depth": 0.318,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_hands_m",
+    "label": "Battle Prelate Handguards Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_hands_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_hands_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_hands_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_hands_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.0041639804840088,
+      "z": -0.20832893624901772
+    },
+    "footprint": {
+      "width": 1.21,
+      "depth": 0.377,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_head_f",
+    "label": "Battle Prelate Headgear Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_head_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_head_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.0002145133912563324,
+      "y": -1.5214612483978271,
+      "z": -0.06967603415250778
+    },
+    "footprint": {
+      "width": 0.23,
+      "depth": 0.281,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_head_m",
+    "label": "Battle Prelate Headgear Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_head_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_head_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_head_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_head_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.5307011604309082,
+      "z": -0.014871358871459961
+    },
+    "footprint": {
+      "width": 0.291,
+      "depth": 0.309,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_legs_f",
+    "label": "Battle Prelate Legguards Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_legs_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_legs_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.005101457238197327,
+      "y": -0.33000653982162476,
+      "z": -0.033663876354694366
+    },
+    "footprint": {
+      "width": 0.524,
+      "depth": 0.284,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_legs_m",
+    "label": "Battle Prelate Legguards Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_legs_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_legs_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_legs_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_legs_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.11246645450592041,
+      "z": -0.03779734671115875
+    },
+    "footprint": {
+      "width": 0.599,
+      "depth": 0.369,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_shoulders_f",
+    "label": "Battle Prelate Shoulders Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_shoulders_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_shoulders_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.3720494508743286,
+      "z": -0.048776206094771624
+    },
+    "footprint": {
+      "width": 0.876,
+      "depth": 0.123,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_shoulders_m",
+    "label": "Battle Prelate Shoulders Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_shoulders_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_shoulders_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_shoulders_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_shoulders_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.3970000743865967,
+      "z": 0.007649078965187073
+    },
+    "footprint": {
+      "width": 0.971,
+      "depth": 0.383,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_tabard_f",
+    "label": "Battle Prelate Tabard Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_tabard_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_tabard_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.5872066020965576,
+      "z": -0.2163444459438324
+    },
+    "footprint": {
+      "width": 0.4,
+      "depth": 0.1,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_tabard_m",
+    "label": "Battle Prelate Tabard Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_tabard_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_tabard_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_tabard_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_tabard_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -0.004495121538639069,
+      "y": -0.2378866970539093,
+      "z": -0.005872458219528198
+    },
+    "footprint": {
+      "width": 0.491,
+      "depth": 0.416,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_waist_f",
+    "label": "Battle Prelate Belt Female",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_waist_t1_f.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_waist_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.001569151878357,
+      "z": -0.023963667452335358
+    },
+    "footprint": {
+      "width": 0.477,
+      "depth": 0.386,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_civic_humanoid_battle_prelate_waist_m",
+    "label": "Battle Prelate Belt Male",
+    "group": "Equipment",
+    "model": "arm_civic_battle_prelate_waist_t1_m.glb",
+    "assetKey": "starter_civic_humanoid_battle_prelate_waist_m",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "arm_civic_battle_prelate_waist_t1_m_lod1.glb",
+      "arm_civic_battle_prelate_waist_t1_m_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -0.07590608298778534,
+      "y": -0.5740009546279907,
+      "z": -0.041628964245319366
+    },
+    "footprint": {
+      "width": 0.753,
+      "depth": 0.403,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_back_f",
+    "label": "Warbrute Backpiece Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_back_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_back_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.0012200772762298584,
+      "y": -0.6052021384239197,
+      "z": 0.1444475967437029
+    },
+    "footprint": {
+      "width": 0.639,
+      "depth": 0.187,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_back_m",
+    "label": "Warbrute Backpiece Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_back_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_back_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.0012199729681015015,
+      "y": -0.5720013380050659,
+      "z": 0.14109870605170727
+    },
+    "footprint": {
+      "width": 0.639,
+      "depth": 0.187,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_chest_f",
+    "label": "Warbrute Chestguard Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_chest_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_chest_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.0003585219383239746,
+      "y": -0.7803714871406555,
+      "z": -0.03837275505065918
+    },
+    "footprint": {
+      "width": 0.923,
+      "depth": 0.348,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_chest_m",
+    "label": "Warbrute Chestguard Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_chest_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_chest_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.00009222328662872314,
+      "y": -0.8997480273246765,
+      "z": -0.038029931485652924
+    },
+    "footprint": {
+      "width": 0.999,
+      "depth": 0.359,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_feet_f",
+    "label": "Warbrute Boots Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_feet_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_feet_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.00043657422065734863,
+      "y": 0.02325510047376156,
+      "z": -0.08876965194940567
+    },
+    "footprint": {
+      "width": 0.571,
+      "depth": 0.347,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_feet_m",
+    "label": "Warbrute Boots Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_feet_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_feet_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.00043936073780059814,
+      "y": 0.018160514533519745,
+      "z": -0.07777103036642075
+    },
+    "footprint": {
+      "width": 0.625,
+      "depth": 0.386,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_hands_f",
+    "label": "Warbrute Handguards Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_hands_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_hands_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.000018477439880371094,
+      "y": -1.0765149593353271,
+      "z": -0.23605626821517944
+    },
+    "footprint": {
+      "width": 1.194,
+      "depth": 0.215,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_hands_m",
+    "label": "Warbrute Handguards Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_hands_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_hands_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0.00013366341590881348,
+      "y": -1.1419389247894287,
+      "z": -0.29042772203683853
+    },
+    "footprint": {
+      "width": 1.322,
+      "depth": 0.249,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_head_f",
+    "label": "Warbrute Headgear Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_head_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_head_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.0002842545509338379,
+      "y": -1.6768840551376343,
+      "z": -0.07619071751832962
+    },
+    "footprint": {
+      "width": 0.249,
+      "depth": 0.295,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_head_m",
+    "label": "Warbrute Headgear Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_head_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_head_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.0019735582172870636,
+      "y": -1.7721835374832153,
+      "z": -0.08516493067145348
+    },
+    "footprint": {
+      "width": 0.251,
+      "depth": 0.307,
+      "chainAxis": "z"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_legs_f",
+    "label": "Warbrute Legguards Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_legs_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_legs_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.00631377100944519,
+      "y": -0.35863950848579407,
+      "z": -0.034044455736875534
+    },
+    "footprint": {
+      "width": 0.559,
+      "depth": 0.301,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_legs_m",
+    "label": "Warbrute Legguards Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_legs_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_legs_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": -0.004830792546272278,
+      "y": -0.38468801975250244,
+      "z": -0.03294385224580765
+    },
+    "footprint": {
+      "width": 0.595,
+      "depth": 0.295,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_shoulders_f",
+    "label": "Warbrute Shoulders Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_shoulders_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_shoulders_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.5196647644042969,
+      "z": -0.051097752060741186
+    },
+    "footprint": {
+      "width": 0.901,
+      "depth": 0.123,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_shoulders_m",
+    "label": "Warbrute Shoulders Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_shoulders_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_shoulders_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -1.6187810897827148,
+      "z": -0.047753951977938414
+    },
+    "footprint": {
+      "width": 0.924,
+      "depth": 0.116,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_tabard_f",
+    "label": "Warbrute Tabard Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_tabard_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_tabard_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.5832245945930481,
+      "z": -0.21557848900556564
+    },
+    "footprint": {
+      "width": 0.4,
+      "depth": 0.1,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_tabard_m",
+    "label": "Warbrute Tabard Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_tabard_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_tabard_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.5510751008987427,
+      "z": -0.20641792565584183
+    },
+    "footprint": {
+      "width": 0.4,
+      "depth": 0.1,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_waist_f",
+    "label": "Warbrute Belt Female",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_waist_t1_f.glb",
+    "assetKey": "starter_mire_brutish_warbrute_waist_f",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.9957064390182495,
+      "z": -0.02385510504245758
+    },
+    "footprint": {
+      "width": 0.475,
+      "depth": 0.384,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__starter_mire_brutish_warbrute_waist_m",
+    "label": "Warbrute Belt Male",
+    "group": "Equipment",
+    "model": "arm_mire_warbrute_waist_t1_m.glb",
+    "assetKey": "starter_mire_brutish_warbrute_waist_m",
+    "assetCategory": "equipment",
+    "lodModels": [],
+    "modelOffset": {
+      "x": 0,
+      "y": -0.9410644769668579,
+      "z": -0.0225566104054451
+    },
+    "footprint": {
+      "width": 0.462,
+      "depth": 0.369,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__weapon_ember_brazier_staff",
+    "label": "Ashbound Brazier Staff",
+    "group": "Equipment",
+    "model": "wep_civic_ember_arcanist_ember_staff.glb",
+    "assetKey": "weapon_ember_brazier_staff",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "wep_civic_ember_arcanist_ember_staff_lod1.glb",
+      "wep_civic_ember_arcanist_ember_staff_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": 0.009800940752029419,
+      "y": 0.17921991646289825,
+      "z": -0.02052244544029236
+    },
+    "footprint": {
+      "width": 1.818,
+      "depth": 0.957,
+      "chainAxis": "x"
+    }
+  },
+  {
+    "kind": "equipment__weapon_hammer_reliquary_2h",
+    "label": "Battle Prelate Sanctified Warhammer",
+    "group": "Equipment",
+    "model": "wep_civic_battle_prelate_dawn_maul.glb",
+    "assetKey": "weapon_hammer_reliquary_2h",
+    "assetCategory": "equipment",
+    "lodModels": [
+      "wep_civic_battle_prelate_dawn_maul_lod1.glb",
+      "wep_civic_battle_prelate_dawn_maul_lod2.glb"
+    ],
+    "modelOffset": {
+      "x": -0.16720861196517944,
+      "y": 0.19559113681316376,
+      "z": 0.05203935503959656
+    },
+    "footprint": {
+      "width": 1.589,
+      "depth": 0.859,
+      "chainAxis": "x"
+    }
+  },
+  {
     "kind": "fountain",
     "label": "Fountain",
     "group": "World Scenery",
@@ -4824,8 +6001,8 @@
       "frontier_cinderfen_corner_access_lod2.glb"
     ],
     "footprint": {
-      "width": 7.0375165939331055,
-      "depth": 7.0375165939331055,
+      "width": 8.036123752593994,
+      "depth": 8.036123752593994,
       "chainAxis": "z"
     },
     "colliderSpace": "model",
@@ -4900,8 +6077,8 @@
         "maxY": 6.29
       },
       {
-        "x": -4.211959594928933,
-        "z": -2.628040405071067,
+        "x": -5.211959594928933,
+        "z": -3.628040405071067,
         "width": 0.25,
         "depth": 0.25,
         "minY": 0,
@@ -4916,17 +6093,17 @@
         "maxY": 7.35
       },
       {
-        "x": -3.316959594928933,
-        "z": -1.7330404050710668,
-        "width": 2.7577164466275357,
+        "x": -3.816959594928933,
+        "z": -2.233040405071067,
+        "width": 4.171930009000631,
         "depth": 0.2,
         "rotY": -0.7853981633974483,
         "minY": 6.3,
         "maxY": 7.42
       },
       {
-        "x": -2.628040405071067,
-        "z": -4.211959594928933,
+        "x": -3.628040405071067,
+        "z": -5.211959594928933,
         "width": 0.25,
         "depth": 0.25,
         "minY": 0,
@@ -4941,19 +6118,19 @@
         "maxY": 7.35
       },
       {
-        "x": -1.7330404050710668,
-        "z": -3.316959594928933,
-        "width": 2.7577164466275357,
+        "x": -2.233040405071067,
+        "z": -3.816959594928933,
+        "width": 4.171930009000631,
         "depth": 0.2,
         "rotY": -0.7853981633974483,
         "minY": 6.3,
         "maxY": 7.42
       },
       {
-        "x": -2.525,
-        "z": -2.525,
+        "x": -3.025,
+        "z": -3.025,
         "width": 2.2,
-        "depth": 2.7877164466275355,
+        "depth": 4.201930009000631,
         "rotY": 0.7853981633974483,
         "minY": 6.15,
         "maxY": 6.29
@@ -4999,10 +6176,10 @@
       },
       {
         "id": "courtyard_stair_landing",
-        "x": -2.525,
-        "z": -2.525,
+        "x": -3.025,
+        "z": -3.025,
         "width": 2.2,
-        "depth": 2.7877164466275355,
+        "depth": 4.201930009000631,
         "rotY": 0.7853981633974483,
         "fromY": 6.3,
         "toY": 6.3
@@ -6625,6 +7802,1182 @@
         "depth": 0.32,
         "minY": 6.15,
         "maxY": 6.3
+      },
+      {
+        "x": -2.43,
+        "z": -1.474385,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.941109,
+        "maxY": 4.117177
+      },
+      {
+        "x": -2.43,
+        "z": -1.318336,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.852184,
+        "maxY": 4.07986
+      },
+      {
+        "x": -2.43,
+        "z": -1.162287,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.763259,
+        "maxY": 4.013856
+      },
+      {
+        "x": -2.43,
+        "z": -1.006238,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.674335,
+        "maxY": 3.928949
+      },
+      {
+        "x": -2.43,
+        "z": -0.850189,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.61879,
+        "maxY": 3.844043
+      },
+      {
+        "x": -2.43,
+        "z": -0.69414,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.531667,
+        "maxY": 3.759136
+      },
+      {
+        "x": -2.43,
+        "z": -0.53809,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.444543,
+        "maxY": 3.674229
+      },
+      {
+        "x": -2.43,
+        "z": -0.382041,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.327669,
+        "maxY": 3.589322
+      },
+      {
+        "x": -2.43,
+        "z": -0.225992,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.241872,
+        "maxY": 3.504076
+      },
+      {
+        "x": -2.43,
+        "z": -0.069943,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.156075,
+        "maxY": 3.416454
+      },
+      {
+        "x": -2.43,
+        "z": 0.086106,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.070277,
+        "maxY": 3.328832
+      },
+      {
+        "x": -2.43,
+        "z": 0.242155,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.98448,
+        "maxY": 3.24121
+      },
+      {
+        "x": -2.43,
+        "z": 0.398205,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.898683,
+        "maxY": 3.153588
+      },
+      {
+        "x": -2.43,
+        "z": 0.554254,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.812886,
+        "maxY": 3.065966
+      },
+      {
+        "x": -2.43,
+        "z": 0.710303,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.727088,
+        "maxY": 2.981391
+      },
+      {
+        "x": -2.43,
+        "z": 0.866352,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.641291,
+        "maxY": 2.897386
+      },
+      {
+        "x": -2.43,
+        "z": 1.022401,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.555494,
+        "maxY": 2.813382
+      },
+      {
+        "x": -2.43,
+        "z": 1.17845,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.469696,
+        "maxY": 2.729378
+      },
+      {
+        "x": -2.43,
+        "z": 1.3345,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.383899,
+        "maxY": 2.645374
+      },
+      {
+        "x": -2.43,
+        "z": 1.490549,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.298102,
+        "maxY": 2.56137
+      },
+      {
+        "x": -2.43,
+        "z": 1.646598,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.212305,
+        "maxY": 2.477365
+      },
+      {
+        "x": -2.43,
+        "z": 1.802647,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.126507,
+        "maxY": 2.393361
+      },
+      {
+        "x": -2.43,
+        "z": 1.958696,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.04071,
+        "maxY": 2.306756
+      },
+      {
+        "x": -2.43,
+        "z": 2.114745,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.954913,
+        "maxY": 2.22012
+      },
+      {
+        "x": -2.43,
+        "z": 2.270795,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.869115,
+        "maxY": 2.133485
+      },
+      {
+        "x": -2.43,
+        "z": 2.426844,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.783318,
+        "maxY": 2.04685
+      },
+      {
+        "x": -2.43,
+        "z": 2.582893,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.697521,
+        "maxY": 1.960215
+      },
+      {
+        "x": -2.43,
+        "z": 2.738942,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.651451,
+        "maxY": 1.87358
+      },
+      {
+        "x": -2.43,
+        "z": 2.894991,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.567189,
+        "maxY": 1.786945
+      },
+      {
+        "x": -2.43,
+        "z": 3.05104,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.482928,
+        "maxY": 1.700309
+      },
+      {
+        "x": -2.43,
+        "z": 3.20709,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.398666,
+        "maxY": 1.616118
+      },
+      {
+        "x": -2.43,
+        "z": 3.363139,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.275446,
+        "maxY": 1.532208
+      },
+      {
+        "x": -2.43,
+        "z": 3.519188,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.189068,
+        "maxY": 1.448299
+      },
+      {
+        "x": -2.43,
+        "z": 3.675237,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.10269,
+        "maxY": 1.36439
+      },
+      {
+        "x": -2.43,
+        "z": 3.831286,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.016312,
+        "maxY": 1.28048
+      },
+      {
+        "x": -2.43,
+        "z": 3.987335,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 0.944536,
+        "maxY": 1.196571
+      },
+      {
+        "x": -2.43,
+        "z": 4.143385,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 0.908115,
+        "maxY": 1.112661
+      },
+      {
+        "x": -0.17,
+        "z": -1.474385,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.941109,
+        "maxY": 4.117177
+      },
+      {
+        "x": -0.17,
+        "z": -1.318336,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.852184,
+        "maxY": 4.07986
+      },
+      {
+        "x": -0.17,
+        "z": -1.162287,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.763259,
+        "maxY": 4.013856
+      },
+      {
+        "x": -0.17,
+        "z": -1.006238,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.674335,
+        "maxY": 3.928949
+      },
+      {
+        "x": -0.17,
+        "z": -0.850189,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.61879,
+        "maxY": 3.844043
+      },
+      {
+        "x": -0.17,
+        "z": -0.69414,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.531667,
+        "maxY": 3.759136
+      },
+      {
+        "x": -0.17,
+        "z": -0.53809,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.444543,
+        "maxY": 3.674229
+      },
+      {
+        "x": -0.17,
+        "z": -0.382041,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.327669,
+        "maxY": 3.589322
+      },
+      {
+        "x": -0.17,
+        "z": -0.225992,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.241872,
+        "maxY": 3.504076
+      },
+      {
+        "x": -0.17,
+        "z": -0.069943,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.156075,
+        "maxY": 3.416454
+      },
+      {
+        "x": -0.17,
+        "z": 0.086106,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 3.070277,
+        "maxY": 3.328832
+      },
+      {
+        "x": -0.17,
+        "z": 0.242155,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.98448,
+        "maxY": 3.24121
+      },
+      {
+        "x": -0.17,
+        "z": 0.398205,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.898683,
+        "maxY": 3.153588
+      },
+      {
+        "x": -0.17,
+        "z": 0.554254,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.812886,
+        "maxY": 3.065966
+      },
+      {
+        "x": -0.17,
+        "z": 0.710303,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.727088,
+        "maxY": 2.981391
+      },
+      {
+        "x": -0.17,
+        "z": 0.866352,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.641291,
+        "maxY": 2.897386
+      },
+      {
+        "x": -0.17,
+        "z": 1.022401,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.555494,
+        "maxY": 2.813382
+      },
+      {
+        "x": -0.17,
+        "z": 1.17845,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.469696,
+        "maxY": 2.729378
+      },
+      {
+        "x": -0.17,
+        "z": 1.3345,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.383899,
+        "maxY": 2.645374
+      },
+      {
+        "x": -0.17,
+        "z": 1.490549,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.298102,
+        "maxY": 2.56137
+      },
+      {
+        "x": -0.17,
+        "z": 1.646598,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.212305,
+        "maxY": 2.477365
+      },
+      {
+        "x": -0.17,
+        "z": 1.802647,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.126507,
+        "maxY": 2.393361
+      },
+      {
+        "x": -0.17,
+        "z": 1.958696,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 2.04071,
+        "maxY": 2.306756
+      },
+      {
+        "x": -0.17,
+        "z": 2.114745,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.954913,
+        "maxY": 2.22012
+      },
+      {
+        "x": -0.17,
+        "z": 2.270795,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.869115,
+        "maxY": 2.133485
+      },
+      {
+        "x": -0.17,
+        "z": 2.426844,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.783318,
+        "maxY": 2.04685
+      },
+      {
+        "x": -0.17,
+        "z": 2.582893,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.697521,
+        "maxY": 1.960215
+      },
+      {
+        "x": -0.17,
+        "z": 2.738942,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.651451,
+        "maxY": 1.87358
+      },
+      {
+        "x": -0.17,
+        "z": 2.894991,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.567189,
+        "maxY": 1.786945
+      },
+      {
+        "x": -0.17,
+        "z": 3.05104,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.482928,
+        "maxY": 1.700309
+      },
+      {
+        "x": -0.17,
+        "z": 3.20709,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.398666,
+        "maxY": 1.616118
+      },
+      {
+        "x": -0.17,
+        "z": 3.363139,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.275446,
+        "maxY": 1.532208
+      },
+      {
+        "x": -0.17,
+        "z": 3.519188,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.189068,
+        "maxY": 1.448299
+      },
+      {
+        "x": -0.17,
+        "z": 3.675237,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.10269,
+        "maxY": 1.36439
+      },
+      {
+        "x": -0.17,
+        "z": 3.831286,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 1.016312,
+        "maxY": 1.28048
+      },
+      {
+        "x": -0.17,
+        "z": 3.987335,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 0.944536,
+        "maxY": 1.196571
+      },
+      {
+        "x": -0.17,
+        "z": 4.143385,
+        "width": 0.1472,
+        "depth": 0.156049,
+        "minY": 0.908115,
+        "maxY": 1.112661
+      },
+      {
+        "x": 0.17,
+        "z": -1.457319,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.084349,
+        "maxY": 4.282538
+      },
+      {
+        "x": 0.17,
+        "z": -1.297768,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.131273,
+        "maxY": 4.375991
+      },
+      {
+        "x": 0.17,
+        "z": -1.138216,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.214931,
+        "maxY": 4.463689
+      },
+      {
+        "x": 0.17,
+        "z": -0.978665,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.29859,
+        "maxY": 4.551387
+      },
+      {
+        "x": 0.17,
+        "z": -0.819114,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.382248,
+        "maxY": 4.639085
+      },
+      {
+        "x": 0.17,
+        "z": -0.659562,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.498546,
+        "maxY": 4.726783
+      },
+      {
+        "x": 0.17,
+        "z": -0.500011,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.583994,
+        "maxY": 4.814481
+      },
+      {
+        "x": 0.17,
+        "z": -0.340459,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.669442,
+        "maxY": 4.899773
+      },
+      {
+        "x": 0.17,
+        "z": -0.180908,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.735089,
+        "maxY": 4.984722
+      },
+      {
+        "x": 0.17,
+        "z": -0.021356,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.81197,
+        "maxY": 5.069671
+      },
+      {
+        "x": 0.17,
+        "z": 0.138195,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.898758,
+        "maxY": 5.15462
+      },
+      {
+        "x": 0.17,
+        "z": 0.297746,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.985546,
+        "maxY": 5.23957
+      },
+      {
+        "x": 0.17,
+        "z": 0.457298,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.072333,
+        "maxY": 5.326892
+      },
+      {
+        "x": 0.17,
+        "z": 0.616849,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.159121,
+        "maxY": 5.415522
+      },
+      {
+        "x": 0.17,
+        "z": 0.776401,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.245909,
+        "maxY": 5.504152
+      },
+      {
+        "x": 0.17,
+        "z": 0.935952,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.332696,
+        "maxY": 5.592781
+      },
+      {
+        "x": 0.17,
+        "z": 1.095504,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.419484,
+        "maxY": 5.681411
+      },
+      {
+        "x": 0.17,
+        "z": 1.255055,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.506272,
+        "maxY": 5.770041
+      },
+      {
+        "x": 0.17,
+        "z": 1.414606,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.593059,
+        "maxY": 5.858671
+      },
+      {
+        "x": 0.17,
+        "z": 1.574158,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.679847,
+        "maxY": 5.947249
+      },
+      {
+        "x": 0.17,
+        "z": 1.733709,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.766635,
+        "maxY": 6.033188
+      },
+      {
+        "x": 0.17,
+        "z": 1.893261,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.853422,
+        "maxY": 6.119127
+      },
+      {
+        "x": 0.17,
+        "z": 2.052812,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.94021,
+        "maxY": 6.205066
+      },
+      {
+        "x": 0.17,
+        "z": 2.212364,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.026998,
+        "maxY": 6.291005
+      },
+      {
+        "x": 0.17,
+        "z": 2.371915,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.113785,
+        "maxY": 6.376944
+      },
+      {
+        "x": 0.17,
+        "z": 2.531466,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.200573,
+        "maxY": 6.462883
+      },
+      {
+        "x": 0.17,
+        "z": 2.691018,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.287361,
+        "maxY": 6.548822
+      },
+      {
+        "x": 0.17,
+        "z": 2.850569,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.374148,
+        "maxY": 6.634898
+      },
+      {
+        "x": 0.17,
+        "z": 3.010121,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.501229,
+        "maxY": 6.723626
+      },
+      {
+        "x": 0.17,
+        "z": 3.169672,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.589592,
+        "maxY": 6.812354
+      },
+      {
+        "x": 0.17,
+        "z": 3.329224,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.677955,
+        "maxY": 6.901082
+      },
+      {
+        "x": 0.17,
+        "z": 3.488775,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.748346,
+        "maxY": 6.989811
+      },
+      {
+        "x": 0.17,
+        "z": 3.648326,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.814789,
+        "maxY": 7.078539
+      },
+      {
+        "x": 0.17,
+        "z": 3.807878,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.900988,
+        "maxY": 7.167267
+      },
+      {
+        "x": 0.17,
+        "z": 3.967429,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.987186,
+        "maxY": 7.245644
+      },
+      {
+        "x": 0.17,
+        "z": 4.126981,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 7.077924,
+        "maxY": 7.289148
+      },
+      {
+        "x": 2.43,
+        "z": -1.457319,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.084349,
+        "maxY": 4.282538
+      },
+      {
+        "x": 2.43,
+        "z": -1.297768,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.131273,
+        "maxY": 4.375991
+      },
+      {
+        "x": 2.43,
+        "z": -1.138216,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.214931,
+        "maxY": 4.463689
+      },
+      {
+        "x": 2.43,
+        "z": -0.978665,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.29859,
+        "maxY": 4.551387
+      },
+      {
+        "x": 2.43,
+        "z": -0.819114,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.382248,
+        "maxY": 4.639085
+      },
+      {
+        "x": 2.43,
+        "z": -0.659562,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.498546,
+        "maxY": 4.726783
+      },
+      {
+        "x": 2.43,
+        "z": -0.500011,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.583994,
+        "maxY": 4.814481
+      },
+      {
+        "x": 2.43,
+        "z": -0.340459,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.669442,
+        "maxY": 4.899773
+      },
+      {
+        "x": 2.43,
+        "z": -0.180908,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.735089,
+        "maxY": 4.984722
+      },
+      {
+        "x": 2.43,
+        "z": -0.021356,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.81197,
+        "maxY": 5.069671
+      },
+      {
+        "x": 2.43,
+        "z": 0.138195,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.898758,
+        "maxY": 5.15462
+      },
+      {
+        "x": 2.43,
+        "z": 0.297746,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 4.985546,
+        "maxY": 5.23957
+      },
+      {
+        "x": 2.43,
+        "z": 0.457298,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.072333,
+        "maxY": 5.326892
+      },
+      {
+        "x": 2.43,
+        "z": 0.616849,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.159121,
+        "maxY": 5.415522
+      },
+      {
+        "x": 2.43,
+        "z": 0.776401,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.245909,
+        "maxY": 5.504152
+      },
+      {
+        "x": 2.43,
+        "z": 0.935952,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.332696,
+        "maxY": 5.592781
+      },
+      {
+        "x": 2.43,
+        "z": 1.095504,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.419484,
+        "maxY": 5.681411
+      },
+      {
+        "x": 2.43,
+        "z": 1.255055,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.506272,
+        "maxY": 5.770041
+      },
+      {
+        "x": 2.43,
+        "z": 1.414606,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.593059,
+        "maxY": 5.858671
+      },
+      {
+        "x": 2.43,
+        "z": 1.574158,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.679847,
+        "maxY": 5.947249
+      },
+      {
+        "x": 2.43,
+        "z": 1.733709,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.766635,
+        "maxY": 6.033188
+      },
+      {
+        "x": 2.43,
+        "z": 1.893261,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.853422,
+        "maxY": 6.119127
+      },
+      {
+        "x": 2.43,
+        "z": 2.052812,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 5.94021,
+        "maxY": 6.205066
+      },
+      {
+        "x": 2.43,
+        "z": 2.212364,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.026998,
+        "maxY": 6.291005
+      },
+      {
+        "x": 2.43,
+        "z": 2.371915,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.113785,
+        "maxY": 6.376944
+      },
+      {
+        "x": 2.43,
+        "z": 2.531466,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.200573,
+        "maxY": 6.462883
+      },
+      {
+        "x": 2.43,
+        "z": 2.691018,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.287361,
+        "maxY": 6.548822
+      },
+      {
+        "x": 2.43,
+        "z": 2.850569,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.374148,
+        "maxY": 6.634898
+      },
+      {
+        "x": 2.43,
+        "z": 3.010121,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.501229,
+        "maxY": 6.723626
+      },
+      {
+        "x": 2.43,
+        "z": 3.169672,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.589592,
+        "maxY": 6.812354
+      },
+      {
+        "x": 2.43,
+        "z": 3.329224,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.677955,
+        "maxY": 6.901082
+      },
+      {
+        "x": 2.43,
+        "z": 3.488775,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.748346,
+        "maxY": 6.989811
+      },
+      {
+        "x": 2.43,
+        "z": 3.648326,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.814789,
+        "maxY": 7.078539
+      },
+      {
+        "x": 2.43,
+        "z": 3.807878,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.900988,
+        "maxY": 7.167267
+      },
+      {
+        "x": 2.43,
+        "z": 3.967429,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 6.987186,
+        "maxY": 7.245644
+      },
+      {
+        "x": 2.43,
+        "z": 4.126981,
+        "width": 0.1472,
+        "depth": 0.159551,
+        "minY": 7.077924,
+        "maxY": 7.289148
+      },
+      {
+        "x": -0.0098,
+        "z": -3.7,
+        "width": 4.8804,
+        "depth": 0.1472,
+        "minY": 4.0072,
+        "maxY": 4.17004
       }
     ],
     "walkableSurfaces": [
@@ -7159,6 +9512,264 @@
     "colliderSpace": "model"
   },
   {
+    "kind": "frontier_siege_ammunition_cradle",
+    "sourceKind": "frontier_siege_ammunition_cradle",
+    "label": "Frontier siege ammunition cradle",
+    "group": "Universal Siege Workshop",
+    "model": "frontier_siege_ammunition_cradle_lod0.glb",
+    "assetKey": "frontier_siege_ammunition_cradle",
+    "fallbackKind": "frontier_siege_ammunition_cradle",
+    "lodModels": [
+      "frontier_siege_ammunition_cradle_lod1.glb",
+      "frontier_siege_ammunition_cradle_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.9454949498176575,
+      "depth": 1.3727852702140808,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -0.7100000083446503,
+        "z": -0.0017168223857879639,
+        "width": 0.21999996900558472,
+        "depth": 1.3727852702140808,
+        "minY": 0,
+        "maxY": 0.13600000739097595
+      },
+      {
+        "x": 0.7100000083446503,
+        "z": -0.0017168223857879639,
+        "width": 0.21999996900558472,
+        "depth": 1.3727852702140808,
+        "minY": 0,
+        "maxY": 0.13600000739097595
+      },
+      {
+        "x": 0.0004493296146392822,
+        "z": -0.000002473592758178711,
+        "width": 1.9364859461784363,
+        "depth": 1.0498663783073425,
+        "minY": 0.14023512601852417,
+        "maxY": 0.23399999737739563
+      },
+      {
+        "x": -0.8600142598152161,
+        "z": 0.4930000454187393,
+        "width": 0.16271913051605225,
+        "depth": 0.15558966994285583,
+        "minY": 0.13500000536441803,
+        "maxY": 0.7223625779151917
+      },
+      {
+        "x": -0.8600142598152161,
+        "z": -0.49299998581409454,
+        "width": 0.16271913051605225,
+        "depth": 0.1557539403438568,
+        "minY": 0.13500000536441803,
+        "maxY": 0.7223629951477051
+      },
+      {
+        "x": 0.860009640455246,
+        "z": 0.49299998581409454,
+        "width": 0.16271907091140747,
+        "depth": 0.1557539403438568,
+        "minY": 0.13500000536441803,
+        "maxY": 0.7224916219711304
+      },
+      {
+        "x": 0.860009640455246,
+        "z": -0.4930000454187393,
+        "width": 0.16271907091140747,
+        "depth": 0.15558966994285583,
+        "minY": 0.13500000536441803,
+        "maxY": 0.7223474979400635
+      },
+      {
+        "x": 0,
+        "z": 0.49300001561641693,
+        "width": 1.899999976158142,
+        "depth": 0.10200002789497375,
+        "minY": 0.2524999976158142,
+        "maxY": 0.3774999976158142
+      },
+      {
+        "x": 0,
+        "z": -0.49300001561641693,
+        "width": 1.899999976158142,
+        "depth": 0.10200002789497375,
+        "minY": 0.2524999976158142,
+        "maxY": 0.3774999976158142
+      },
+      {
+        "x": 0,
+        "z": -0.49300001561641693,
+        "width": 1.899999976158142,
+        "depth": 0.10200002789497375,
+        "minY": 0.512499988079071,
+        "maxY": 0.637499988079071
+      },
+      {
+        "x": -0.8720000088214874,
+        "z": -0.005000025033950806,
+        "width": 0.07600003480911255,
+        "depth": 1.0699999928474426,
+        "minY": 0.3351995646953583,
+        "maxY": 0.6650000214576721
+      },
+      {
+        "x": 0.8720000088214874,
+        "z": -0.005000025033950806,
+        "width": 0.07600003480911255,
+        "depth": 1.0699999928474426,
+        "minY": 0.3351995646953583,
+        "maxY": 0.6650000214576721
+      },
+      {
+        "x": 0.002103656530380249,
+        "z": -0.0007287412881851196,
+        "width": 1.5538446307182312,
+        "depth": 0.898714691400528,
+        "minY": 0.23067627847194672,
+        "maxY": 0.956662654876709
+      }
+    ],
+    "walkableSurfaces": [],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_siege_repair_bench",
+    "sourceKind": "frontier_siege_repair_bench",
+    "label": "Frontier siege repair bench",
+    "group": "Universal Siege Workshop",
+    "model": "frontier_siege_repair_bench_lod0.glb",
+    "assetKey": "frontier_siege_repair_bench",
+    "fallbackKind": "frontier_siege_repair_bench",
+    "lodModels": [
+      "frontier_siege_repair_bench_lod1.glb",
+      "frontier_siege_repair_bench_lod2.glb"
+    ],
+    "footprint": {
+      "width": 2.559999942779541,
+      "depth": 1.2130871713161469,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": -0.960350751876831,
+        "z": 0.29239340126514435,
+        "width": 0.18540239334106445,
+        "depth": 0.17983904480934143,
+        "minY": 0,
+        "maxY": 0.8434503674507141
+      },
+      {
+        "x": -0.9604269564151764,
+        "z": -0.29324576258659363,
+        "width": 0.18558090925216675,
+        "depth": 0.18159103393554688,
+        "minY": 0,
+        "maxY": 0.8435722589492798
+      },
+      {
+        "x": 0.9603494107723236,
+        "z": 0.29316891729831696,
+        "width": 0.1854124665260315,
+        "depth": 0.18142232298851013,
+        "minY": 0,
+        "maxY": 0.8434632420539856
+      },
+      {
+        "x": 0.9604198932647705,
+        "z": -0.29248562455177307,
+        "width": 0.18557953834533691,
+        "depth": 0.18003922700881958,
+        "minY": 0,
+        "maxY": 0.8434604406356812
+      },
+      {
+        "x": 0,
+        "z": 0.2770000025629997,
+        "width": 2.055999994277954,
+        "depth": 0.12731559574604034,
+        "minY": 0.39504367113113403,
+        "maxY": 0.5349525213241577
+      },
+      {
+        "x": 0,
+        "z": -0.2770000025629997,
+        "width": 2.055999994277954,
+        "depth": 0.12731559574604034,
+        "minY": 0.39504367113113403,
+        "maxY": 0.5349525213241577
+      },
+      {
+        "x": -0.9500000178813934,
+        "z": 0,
+        "width": 0.12730151414871216,
+        "depth": 0.7239999771118164,
+        "minY": 0.18503741919994354,
+        "maxY": 0.3049592971801758
+      },
+      {
+        "x": 0.9500000178813934,
+        "z": 0,
+        "width": 0.12730151414871216,
+        "depth": 0.7239999771118164,
+        "minY": 0.18503741919994354,
+        "maxY": 0.3049592971801758
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "width": 2.559999942779541,
+        "depth": 0.8221743702888489,
+        "minY": 0.8346954584121704,
+        "maxY": 0.9445000290870667
+      },
+      {
+        "x": -5.960464477539063e-8,
+        "z": 0.3326479494571686,
+        "width": 2.077462077140808,
+        "depth": 0.09969967603683472,
+        "minY": 0.6974999904632568,
+        "maxY": 0.8424999713897705
+      },
+      {
+        "x": 5.960464477539063e-8,
+        "z": -0.3326479494571686,
+        "width": 2.0774625539779663,
+        "depth": 0.09969967603683472,
+        "minY": 0.6974999904632568,
+        "maxY": 0.8424999713897705
+      },
+      {
+        "x": -0.7399999797344208,
+        "z": 0.5384999960660934,
+        "width": 0.20800000429153442,
+        "depth": 0.5269999802112579,
+        "minY": 0.7929999828338623,
+        "maxY": 1.0740000009536743
+      }
+    ],
+    "walkableSurfaces": [],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
     "kind": "frontier_sunmeadow_ash",
     "sourceKind": "frontier_sunmeadow_ash",
     "label": "Sunmeadow airy common ash",
@@ -7188,6 +9799,62 @@
     ],
     "cameraSolid": true,
     "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_barrow_wolf",
+    "sourceKind": "frontier_sunmeadow_barrow_wolf",
+    "label": "Sunmeadow barrow wolf",
+    "group": "Frontier Wildlife",
+    "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+    "assetKey": "frontier_sunmeadow_barrow_wolf",
+    "fallbackKind": "frontier_sunmeadow_barrow_wolf",
+    "lodModels": [
+      "frontier_sunmeadow_barrow_wolf_lod1.glb",
+      "frontier_sunmeadow_barrow_wolf_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.508,
+      "depth": 2.124,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultAnimation": "",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_sunmeadow_brown_hare",
+    "sourceKind": "frontier_sunmeadow_brown_hare",
+    "label": "Sunmeadow brown hare",
+    "group": "Frontier Wildlife",
+    "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+    "assetKey": "frontier_sunmeadow_brown_hare",
+    "fallbackKind": "frontier_sunmeadow_brown_hare",
+    "lodModels": [
+      "frontier_sunmeadow_brown_hare_lod1.glb",
+      "frontier_sunmeadow_brown_hare_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.301,
+      "depth": 0.625,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultAnimation": "",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
   },
   {
     "kind": "frontier_sunmeadow_curtain_wall",
@@ -7917,6 +10584,81 @@
     ],
     "cameraSolid": true,
     "assetCategory": "staticProps"
+  },
+  {
+    "kind": "frontier_sunmeadow_red_fox",
+    "sourceKind": "frontier_sunmeadow_red_fox",
+    "label": "Sunmeadow red fox",
+    "group": "Frontier Wildlife",
+    "model": "frontier_sunmeadow_red_fox_lod0.glb",
+    "assetKey": "frontier_sunmeadow_red_fox",
+    "fallbackKind": "frontier_sunmeadow_red_fox",
+    "lodModels": [
+      "frontier_sunmeadow_red_fox_lod1.glb",
+      "frontier_sunmeadow_red_fox_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.312,
+      "depth": 1.519,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultAnimation": "",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "kind": "frontier_sunmeadow_roe_deer_buck",
+    "sourceKind": "frontier_sunmeadow_roe_deer_buck",
+    "label": "Sunmeadow roe deer buck",
+    "group": "Frontier Wildlife",
+    "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+    "assetKey": "frontier_sunmeadow_roe_deer_buck",
+    "fallbackKind": "frontier_sunmeadow_roe_deer_buck",
+    "lodModels": [
+      "frontier_sunmeadow_roe_deer_buck_lod1.glb",
+      "frontier_sunmeadow_roe_deer_buck_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.417,
+      "depth": 1.209,
+      "chainAxis": "z"
+    },
+    "colliderSpace": "model",
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultAnimation": "idle"
+  },
+  {
+    "kind": "frontier_sunmeadow_skylark",
+    "sourceKind": "frontier_sunmeadow_skylark",
+    "label": "Sunmeadow skylark",
+    "group": "Frontier Wildlife",
+    "model": "frontier_sunmeadow_skylark_lod0.glb",
+    "assetKey": "frontier_sunmeadow_skylark",
+    "fallbackKind": "frontier_sunmeadow_skylark",
+    "lodModels": [],
+    "footprint": {
+      "width": 0.352,
+      "depth": 0.182,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [],
+    "cameraSolid": false,
+    "assetCategory": "staticProps",
+    "defaultAnimation": "",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
   },
   {
     "kind": "frontier_sunmeadow_supply_post",

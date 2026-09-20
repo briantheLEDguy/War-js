@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-20T13:55:46.724Z",
+  "method": "CUA browser interaction with the production local Game/Player, not a simulated mesh-only collision check",
+  "reviewPage": "authoring/blender/orvr-frontier/runtime-keep-review.html?zone=cinderfen_outskirts",
+  "reviewPageSha256": "5bc0d5cfcc9a15da8dca09cfa6440cd286c6c1f0e963c6d2eec29dd46ebd0f32",
+  "registryVersion": "approved-f9b3eda3d5936d96",
+  "models": {
+    "frontier_siege_repair_bench": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+    "frontier_siege_ammunition_cradle": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d"
+  },
+  "observations": [
+    {
+      "assetKey": "frontier_siege_repair_bench",
+      "visible": true,
+      "action": "Walk north for two seconds from clear working frontage",
+      "start": {
+        "x": -358,
+        "y": 0,
+        "z": 10.5
+      },
+      "stop": {
+        "x": -358,
+        "y": 0,
+        "z": 8.861
+      },
+      "blockedBy": "front part collision"
+    },
+    {
+      "assetKey": "frontier_siege_ammunition_cradle",
+      "visible": true,
+      "action": "Walk north for two seconds from clear working frontage",
+      "start": {
+        "x": -342,
+        "y": 0,
+        "z": 10.5
+      },
+      "stop": {
+        "x": -342,
+        "y": 0,
+        "z": 8.994
+      },
+      "blockedBy": "front part collision"
+    }
+  ],
+  "fallbacks": {
+    "count": 2,
+    "existing": [
+      "sky.hdr",
+      "guard_male.glb"
+    ],
+    "workshop": 0
+  },
+  "limitations": [
+    "Local Aegis keep sample, not every placement manually walked",
+    "Static scenery; no repair or ammunition inventory interaction",
+    "No representative multiplayer performance acceptance"
+  ]
+}

@@ -92,5 +92,5 @@ export interface OrvrZoneLayout {
       excludeCorridors: OrvrTerrainControls['clearCorridors'];
     }>;
   };
-  populationAssignments: Array<{ entityId: string; race: string; role: string; desiredProfileKey: string; status: 'planned' }>;
+  populationAssignments: Array<{ entityId: string; race: string; role: string; desiredProfileKey: string; status: 'planned' | 'approved' }>;
 }

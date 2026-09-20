@@ -1,18 +1,18 @@
 {
   "model": "frontier_cinderfen_corner_access_lod1.glb",
-  "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
+  "sha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261",
   "preview": "frontier_cinderfen_corner_access_lod1_reimport.png",
-  "preview_sha256": "6ea88eb6d6124a4b056c568114d5101a57101620cf42db14db509ae569be68cf",
-  "reviewer_sha256": "b12b95024a350754db9489b91942d7df0b7d38f81756397b1c1cd8b31e7b7bf4",
+  "preview_sha256": "f35dd35ce0b617fbdc0f0a941896cf6747ed4fd46751a337dbff323be09d3703",
+  "reviewer_sha256": "eabcb34ad87875b964f4e3ea5f8646f4f0d0e2976b7542799cfcf70e4a5fa9e2",
   "neutral_camera": {
     "camera_position_z_up": [
-      6.9238057136535645,
-      -11.442983627319336,
+      6.423882961273193,
+      -10.943061828613281,
       11.089929580688477
     ],
     "target_z_up": [
-      -0.8820472955703735,
-      0.8820472955703735,
+      -1.3819698095321655,
+      1.3819698095321655,
       4.105745792388916
     ],
     "projection": "ORTHO",
@@ -25,16 +25,16 @@
     ]
   },
   "gameplay_preview": "frontier_cinderfen_corner_access_lod1_gameplay.png",
-  "gameplay_preview_sha256": "c2e448267d60105c24e91d1f238a8e0a3d8ff864639f1287eb066e2e5997e3f1",
+  "gameplay_preview_sha256": "4431e1b2e50b048166e70da5d16bffb5767b22c4f5ce9d51dfa21aea89a39a90",
   "gameplay_camera": {
     "camera_position_z_up": [
-      1.993793249130249,
-      -89.11795043945312,
+      1.493870735168457,
+      -88.61802673339844,
       5.400000095367432
     ],
     "target_z_up": [
-      -0.8820472955703735,
-      0.8820472955703735,
+      -1.3819698095321655,
+      1.3819698095321655,
       4.105745792388916
     ],
     "projection": "PERSP",

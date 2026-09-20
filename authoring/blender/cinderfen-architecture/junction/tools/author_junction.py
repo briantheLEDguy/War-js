@@ -92,7 +92,7 @@ surfaces=[{'id':'corner_main','x':.82,'z':.82,'width':3.08,'depth':3.08,'fromY':
 for s in surfaces:colliders.append({key:s[key] for key in ('x','z','width','depth','rotY') if key in s}|{'minY':0,'maxY':6.29})
 # The switchback's lower entry sits beside its upper landing. Carry the actual
 # landing into the courtyard so that entry clears both adjacent curtain bases.
-start,end=-3.5,-1.55;length=(end-start)*2**.5;steps=9;step=length/steps
+start,end=-4.5,-1.55;length=(end-start)*2**.5;steps=math.ceil(length/.32);step=length/steps
 for row in range(steps):
     point=start+(row+.5)*(end-start)/steps
     place('fen_deck_plank',point,point,6.225,(2.35/1.004,(step-.005)/.498,1),-45)
@@ -107,7 +107,7 @@ for side in (-1,1):
     colliders.append({'x':mid+offset,'z':mid-offset,'width':length,'depth':.20,'rotY':-math.pi/4,'minY':6.3,'maxY':7.42})
 gangway={'id':'courtyard_stair_landing','x':(start+end)/2,'z':(start+end)/2,'width':2.20,'depth':length+.03,'rotY':math.pi/4,'fromY':6.3,'toY':6.3}
 surfaces.append(gangway);colliders.append({key:gangway[key] for key in ('x','z','width','depth','rotY')}|{'minY':6.15,'maxY':6.29})
-contract={'footprint':[4.8,4.8],'floor_height':6.3,'anchor':'ground centre','walkway_sockets_runtime':[[-2.4,6.3,0],[0,6.3,-2.4]],'stair_socket_runtime':[-3.5,6.3,-3.5],'stair_socket_forward_runtime':[2**-.5,0,2**-.5],'walkableSurfaces':surfaces,'colliders':colliders,'assembly_note':'Two perpendicular wall ends join the west and south openings. The supported diagonal gangway carries the stair socket into the courtyard so the lower stair entry clears both curtain bases. Rotate the complete assembly for each keep corner. No visible rail crosses any socket.'}
+contract={'footprint':[4.8,4.8],'floor_height':6.3,'anchor':'ground centre','walkway_sockets_runtime':[[-2.4,6.3,0],[0,6.3,-2.4]],'stair_socket_runtime':[start,6.3,start],'stair_socket_forward_runtime':[2**-.5,0,2**-.5],'walkableSurfaces':surfaces,'colliders':colliders,'assembly_note':'Two perpendicular wall ends join the unchanged west and south openings. The supported diagonal gangway extends 1.414m farther into the courtyard to clear actual stair stringers and handrails from the curtain bases. Rotate the complete assembly for each keep corner. No visible rail crosses any socket.'}
 record={'materials':source['materials'],'parts':parts,'assets':{'frontier_cinderfen_corner_access':{'name':'Cinderfen corner landing and courtyard stair access','contract':contract,'instances':instances}},'reused_authored_construction':{'path':'../source/architecture.json','sha256':hashlib.sha256((BASE/'source/architecture.json').read_bytes()).hexdigest(),'scope':'Original Cinderfen stone/stave/fixing cages and material fields, fitted into a new pentagonal corner assembly; no stock primitive construction. Visual acceptance is recorded separately.'}}
 for folder in ('source','runtime','masters','review','textures/source'): (ROOT/folder).mkdir(parents=True,exist_ok=True)
 (ROOT/'source/architecture.json').write_text(json.dumps(record,indent=2)+'\n')

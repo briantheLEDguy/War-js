@@ -32,7 +32,7 @@ class CornerSource(unittest.TestCase):
         digest=hashlib.sha256((ROOT.parent/'source/architecture.json').read_bytes()).hexdigest()
         self.assertEqual(SOURCE['reused_authored_construction']['sha256'],digest)
         asset=SOURCE['assets']['frontier_cinderfen_corner_access'];contract=asset['contract']
-        self.assertEqual(contract['stair_socket_runtime'],[-3.5,6.3,-3.5])
+        self.assertEqual(contract['stair_socket_runtime'],[-4.5,6.3,-4.5])
         self.assertEqual(contract['walkway_sockets_runtime'],[[-2.4,6.3,0],[0,6.3,-2.4]])
         self.assertTrue(any(surface['id']=='courtyard_stair_landing' for surface in contract['walkableSurfaces']))
         self.assertTrue(all(instance['part'] in SOURCE['parts'] for instance in asset['instances']))

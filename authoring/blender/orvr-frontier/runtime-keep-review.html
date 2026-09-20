@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Keep access · local gameplay review</title>
+<style>
+  body { margin: 0; background: #172024; color: #f1eddc; font: 14px system-ui; }
+  #view { position: absolute; inset: 0; }
+  nav { position: absolute; z-index: 40; top: 12px; left: 12px; width: 360px; padding: 14px; background: #172024ee; border: 1px solid #78816d; border-radius: 6px; }
+  select { max-width: 350px; } button, select { margin: 3px; padding: 7px; }
+  output { display: block; white-space: pre-wrap; font: 12px monospace; margin-top: 8px; }
+</style>
+<div id="view"></div>
+<nav>
+  <strong id="title">Keep access · production player and collision</strong>
+  <p>WASD walk, drag orbit, wheel zoom. Inspection positions are never saved.</p>
+  <select id="location" aria-label="Keep inspection position"></select><button id="visit">Visit</button>
+  <p>Walk for 2 seconds in world coordinates:</p>
+  <button data-x="-1" data-z="0">West</button><button data-x="1" data-z="0">East</button>
+  <button data-x="0" data-z="-1">North</button><button data-x="0" data-z="1">South</button>
+  <button id="stop">Stop</button><button id="ascent">Walk stair route</button>
+  <button data-rail="-1">Press left rail</button><button data-rail="1">Press right rail</button>
+  <output id="status">Loading game…</output><output id="result"></output>
+</nav>
+<script type="module">
+  import { Game } from '/src/game/Game.ts';
+  import { services } from '/src/services/index.ts';
+  import { useGameStore } from '/src/state/gameStore.ts';
+  import { mapPropNavigation } from '/server/mapNavigation.ts';
+  const status = document.querySelector('#status'), result = document.querySelector('#result');
+  let game, timer, interval;
+  try {
+    const zoneId = new URLSearchParams(location.search).get('zone') ?? 'cinderfen_outskirts';
+    const map = await fetch(`/assets/maps/${encodeURIComponent(zoneId)}.json`).then(response => {
+      if (!response.ok) throw Error(`Missing map ${zoneId}`); return response.json();
+    });
+    if (!map.orvrLayout?.keeps?.length) throw Error('Select a campaign zone with keeps.');
+    const source = await services.characters.load('char-sigmund');
+    services.characters.save = async () => {};
+    services.world.updatePosition = async () => {};
+    const gate = map.orvrLayout.keeps[0].gates[0];
+    const character = { ...source, id: 'keep-access-review-only', zoneId, position: { x: gate.x, y: 0, z: gate.z - 4 } };
+    useGameStore.getState().setCharacter(character);
+    useGameStore.setState({ gmFlyingMode: false, settings: { ...useGameStore.getState().settings, frameRateLimit: 60, viewDistance: 400 } });
+    game = new Game(document.querySelector('#view'), character);
+    await game.start();
+    document.querySelector('#title').textContent = `${map.name} · keep collision review`;
+    const places = map.orvrLayout.keeps.flatMap(keep => keep.gates.map(gate => ({
+      name: `${keep.realm} ${gate.stage} gate approach`, x: gate.x, z: gate.z - 3, yaw: Math.PI,
+    })));
+    for (const prop of map.props.filter(prop => /^frontier_siege_(repair_bench|ammunition_cradle)$/.test(prop.assetKey ?? ''))) {
+      places.push({ name: `${prop.id} working approach`, x: prop.x, z: prop.z + 2.5, yaw: 0 });
+    }
+    for (const prop of map.props.filter(prop => /wall_stair/.test(prop.assetKey ?? ''))) {
+      const surfaces = mapPropNavigation([prop], (x,z) => game.terrain.heightAt(x,z)).walkableSurfaces;
+      const localPoint = (x,y,z) => ({ x: prop.x + x * Math.cos(prop.rotY) + z * Math.sin(prop.rotY),
+        y, z: prop.z - x * Math.sin(prop.rotY) + z * Math.cos(prop.rotY) });
+      const flight = index => surfaces.filter(surface => surface.id.startsWith(`tread_${index}_`))
+        .sort((a,b) => a.toY - b.toY).map(surface => ({ x: surface.x, y: surface.toY, z: surface.z }));
+      // Walk onto the switchback landing before crossing to the return flight.
+      // Sorting every floor by height cuts the corner across its inner railing.
+      const route = [...flight(0), localPoint(-1.3,3.15,-2.6), localPoint(1.3,3.15,-2.6),
+        ...flight(1), localPoint(1.3,6.3,4.34), localPoint(1.3,6.3,4.5)];
+      if (!route.length) continue;
+      const direction = { x: route[1].x - route[0].x, z: route[1].z - route[0].z };
+      const length = Math.hypot(direction.x, direction.z);
+      places.push({ name: `${prop.id} bottom`, x: route[0].x - direction.x / length,
+        z: route[0].z - direction.z / length, y: 0, route, yaw: Math.atan2(-direction.x, -direction.z) });
+      const upper = route[Math.floor(route.length * .75)];
+      places.push({ name: `${prop.id} upper railing`, ...upper, yaw: prop.rotY, railYaw: prop.rotY });
+    }
+    const select = document.querySelector('#location');
+    places.forEach((place,index) => select.add(new Option(place.name, String(index))));
+    const stop = () => { clearTimeout(timer); game.input.touchMoveX = 0; game.input.touchMoveZ = 0; };
+    const visit = () => {
+      stop(); const place = places[Number(select.value)];
+      game.player.teleportTo({ x: place.x, y: place.y ?? game.terrain.heightAt(place.x, place.z), z: place.z });
+      game.camera.distance = 10; game.camera.pitch = .38; game.camera.yaw = place.yaw;
+      result.textContent = place.name;
+    };
+    document.querySelector('#visit').onclick = visit;
+    document.querySelector('#stop').onclick = stop;
+    const direction = (x,z) => {
+      const yaw = game.camera.yawAngle;
+      game.input.touchMoveX = x * Math.cos(yaw) - z * Math.sin(yaw);
+      game.input.touchMoveZ = x * Math.sin(yaw) + z * Math.cos(yaw);
+    };
+    for (const button of document.querySelectorAll('[data-x]')) button.onclick = () => {
+      stop(); const start = game.player.position.clone();
+      direction(Number(button.dataset.x), Number(button.dataset.z));
+      timer = setTimeout(() => { stop(); result.textContent = `${button.textContent}: ${start.toArray().map(v=>v.toFixed(2)).join(', ')} → ${game.player.position.toArray().map(v=>v.toFixed(2)).join(', ')}`; }, 2000);
+    };
+    for (const button of document.querySelectorAll('[data-rail]')) button.onclick = () => {
+      const place = places[Number(select.value)];
+      if (place.railYaw === undefined) { result.textContent = 'Choose an upper railing position.'; return; }
+      visit(); const start = game.player.position.clone(), sign = Number(button.dataset.rail);
+      direction(sign * Math.cos(place.railYaw), -sign * Math.sin(place.railYaw));
+      timer = setTimeout(() => { stop(); const end = game.player.position;
+        result.textContent = `${button.textContent}: ${start.toArray().map(v=>v.toFixed(3)).join(', ')} → ${end.toArray().map(v=>v.toFixed(3)).join(', ')}\nSideways travel ${end.distanceTo(start).toFixed(3)}m, height ${end.y.toFixed(3)}m`;
+      }, 2000);
+    };
+    document.querySelector('#ascent').onclick = () => {
+      const place = places[Number(select.value)];
+      if (!place.route) { result.textContent = 'Choose a stair bottom to walk its measured route.'; return; }
+      visit(); let index = 0; const started = performance.now();
+      const step = () => {
+        const target = place.route[index], p = game.player.position;
+        const dx = target.x - p.x, dz = target.z - p.z, distance = Math.hypot(dx,dz);
+        if (distance < .14 && ++index === place.route.length) {
+          stop(); result.textContent = `Stair route completed: ${p.y.toFixed(3)}m high`; return;
+        }
+        if (performance.now() - started > 20000) {
+          stop(); result.textContent = `Stair route stopped at ${index}/${place.route.length}, ${p.y.toFixed(3)}m high`; return;
+        }
+        direction(dx / Math.max(distance,.001), dz / Math.max(distance,.001));
+        timer = setTimeout(step, 20);
+      }; step();
+    };
+    interval = setInterval(() => {
+      const p = game.player.position, info = game.renderer.info.render;
+      status.textContent = `Position ${p.x.toFixed(3)}, ${p.y.toFixed(3)}, ${p.z.toFixed(3)}\n${info.calls} draws · ${info.triangles.toLocaleString()} triangles\n${useGameStore.getState().assetFallbacks} unavailable legacy assets`;
+    }, 300);
+    visit();
+  } catch (error) { status.textContent = `Review failed: ${error.message}`; console.error(error); }
+  addEventListener('beforeunload', () => { clearTimeout(timer); clearInterval(interval); game?.dispose({ persistCharacter: false }); });
+</script>
+</html>

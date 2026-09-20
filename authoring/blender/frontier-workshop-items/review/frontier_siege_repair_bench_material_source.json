@@ -1,0 +1,107 @@
+{
+  "asset": "frontier_siege_repair_bench",
+  "stage": "source PBR direction only; no GLB or approval",
+  "master": "masters\\frontier_siege_repair_bench_lod0.material-source.blend",
+  "masterSha256": "0e61c5d96f616de69256368ba470c9a593270563ecc06088b135de8cf647b7a3",
+  "sourceMasterSha256": "4ed28cc7430c47f51d595f3d429f325762fb98eb93c430fa85cad14695815145",
+  "materialToolSha256": "5f26352497743bbaff9aa27e74ef06899eb08aa16b9f8fb99d802563bb781b62",
+  "reviewToolSha256": "55eaa178b0c4d2b65a1199a9a3bf215234024ad5440880eafd625fe0af821a17",
+  "views": {
+    "overall": {
+      "image": "frontier_siege_repair_bench_overall_material_source.png",
+      "sha256": "dd74c85df35d3c5102cf16b848ceb554f3bddbccda4fce948b6c7d81c3c68445",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          2.047999858856201,
+          -4.29145622253418,
+          1.6555200815200806
+        ],
+        "target_z_up": [
+          0.0,
+          -0.195456400513649,
+          0.6827201247215271
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "vise": {
+      "image": "frontier_siege_repair_bench_vise_material_source.png",
+      "sha256": "9ec9c2890b3cde338fdd031862eb3b20e0a51dc892fe0bed234baa669f547847",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          0.9239999055862427,
+          -3.059999942779541,
+          2.4130001068115234
+        ],
+        "target_z_up": [
+          -0.7400000095367432,
+          -0.5,
+          1.0049999952316284
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "joinery": {
+      "image": "frontier_siege_repair_bench_joinery_material_source.png",
+      "sha256": "196c7c8c51abed07703110909d32340a45d1593b87ec69f8762d88ecd163f1c5",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          3.490000009536743,
+          -2.8299999237060547,
+          1.3259999752044678
+        ],
+        "target_z_up": [
+          0.9300000071525574,
+          -0.27000001072883606,
+          0.4300000071525574
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "tools": {
+      "image": "frontier_siege_repair_bench_tools_material_source.png",
+      "sha256": "da98b7b0399c51ed3bba453cc5fcf36e0852d7b5787da21ed19004bab6c814f5",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          1.1080000400543213,
+          -2.3899998664855957,
+          3.1480002403259277
+        ],
+        "target_z_up": [
+          0.3400000035762787,
+          0.17000000178813934,
+          1.100000023841858
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

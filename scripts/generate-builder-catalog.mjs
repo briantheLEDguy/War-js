@@ -150,8 +150,20 @@ export function generateBuilderCatalog() {
       model: asset.model, assetKey: key, assetCategory: 'characterProfiles', defaultAnimation: 'idle',
       lodModels: reviewedLods(asset), footprint: modelFootprint(asset.model) ?? { width: 1, depth: 1, chainAxis: 'z' } });
   }
+  for (const [key, record] of Object.entries(index.equipment ?? {})) {
+    // Standalone displays use the resolver's default authored variant. Equipping
+    // a player still uses the existing skeleton/body compatibility boundary.
+    const asset = record.variants?.m ?? record.variants?.f ?? record;
+    if (!asset.runtimeReady) continue;
+    const bounds = modelBounds(asset.model), center = bounds?.getCenter(new Vector3());
+    result.push({ kind: `equipment__${key}`, label: names.get(asset.assetId) ?? title(key), group: 'Equipment',
+      model: asset.model, assetKey: key, assetCategory: 'equipment', lodModels: reviewedLods(asset),
+      modelOffset: center ? { x: -center.x || 0, y: -bounds.min.y || 0, z: -center.z || 0 } : undefined,
+      footprint: modelFootprint(asset.model) ?? { width: 1, depth: 1, chainAxis: 'z' } });
+  }
   for (const entry of result) {
-    const asset = (entry.assetCategory === 'characterProfiles' ? index.characterProfiles : registry)[entry.assetKey];
+    const record = (index[entry.assetCategory ?? 'staticProps'] ?? registry)[entry.assetKey];
+    const asset = record?.variants?.m ?? record?.variants?.f ?? record;
     if (!asset?.runtimeReady) continue;
     entry.model ??= asset.model;
     entry.footprint = modelFootprint(entry.model) ?? entry.footprint;
@@ -193,8 +205,15 @@ export function generateBuilderCatalog() {
 
 export function writeBuilderCatalog() {
   const catalog = generateBuilderCatalog();
-  fs.writeFileSync(path.join(root, 'src/world/editor/prefabs.generated.json'), `${JSON.stringify(catalog, null, 2)}\n`);
+  writeCatalog(`${JSON.stringify(catalog, null, 2)}\n`);
   return catalog.length;
+}
+
+function writeCatalog(output) {
+  const target = path.join(root, 'src/world/editor/prefabs.generated.json');
+  const pending = `${target}.${process.pid}.pending`;
+  fs.writeFileSync(pending, output);
+  fs.renameSync(pending, target);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -204,6 +223,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8').replaceAll('\r\n', '\n') !== output) {
       throw new Error('GM catalog is stale. Run npm run builder:generate.');
     }
-  } else fs.writeFileSync(target, output);
+  } else writeCatalog(output);
   console.log(`GM catalog: ${JSON.parse(output).length} generated scenery definitions.`);
 }

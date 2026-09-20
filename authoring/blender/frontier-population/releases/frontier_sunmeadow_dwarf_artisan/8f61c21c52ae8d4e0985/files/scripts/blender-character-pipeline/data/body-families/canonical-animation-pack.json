@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "animationPackId": "humanoid_game_v2_local_keyframes_v2",
+  "version": "2.0.0",
+  "skeletonId": "humanoid_game_v2",
+  "bindPoseId": "a_pose_v2",
+  "framesPerSecond": 30,
+  "cost": "free_local_only",
+  "source": {
+    "kind": "project_authored_keyframes",
+    "module": "blender/anim_library.py",
+    "externalAsset": false,
+    "description": "Original deterministic keyframes authored in this repository, including MPFB rest-axis locomotion and equipment-aware carry/melee profiles; no third-party motion data or paid service is used."
+  },
+  "coordinateConversion": {
+    "source": "legacy_y_up_forward_positive_z",
+    "target": "blender_z_up_forward_negative_y",
+    "translation": "(x, y, z) -> (x, -z, y)",
+    "rootMotion": "in_place_runtime",
+    "rotation": "armature-axis deltas are converted into each MPFB bone rest basis"
+  },
+  "clips": [
+    { "name": "idle", "durationFrames": 60, "loop": true },
+    { "name": "walk", "durationFrames": 30, "loop": true },
+    { "name": "run", "durationFrames": 20, "loop": true },
+    { "name": "combat_idle", "durationFrames": 80, "loop": true },
+    { "name": "attack_melee", "durationFrames": 30, "loop": false },
+    { "name": "attack_ranged", "durationFrames": 40, "loop": false },
+    { "name": "cast", "durationFrames": 60, "loop": false },
+    { "name": "death", "durationFrames": 60, "loop": false },
+    { "name": "jump", "durationFrames": 40, "loop": false }
+  ],
+  "lifecycle": {
+    "status": "draft",
+    "reviewRequired": true,
+    "limitations": [
+      "This is a bounded procedural baseline, not captured human motion.",
+      "Equipped stress-pose and animation review remains mandatory before promotion."
+    ]
+  }
+}

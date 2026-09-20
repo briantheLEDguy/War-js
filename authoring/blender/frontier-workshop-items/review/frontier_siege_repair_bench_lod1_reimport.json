@@ -1,0 +1,96 @@
+{
+  "model": "frontier_siege_repair_bench_lod1.glb",
+  "sha256": "6c89dd33c9cdeae6089f941927f383173b54ad44d08715f83e83cd3c120d3093",
+  "reviewerSha256": "56b23083d45e7238a8524c369ee7bbcf51ebbb4ea6b356913cd42899a0135903",
+  "cameraToolSha256": "41fcbc12c5efa300e288c8f0e9bdc48bb2b068eb2d0fb5a37ecadaea1b134bf2",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "frontier_siege_repair_bench.timber",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 7246
+      },
+      {
+        "mesh": "frontier_siege_repair_bench.metal",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 4534
+      },
+      {
+        "mesh": "frontier_siege_repair_bench.loads",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 346
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -1.2799999713897705,
+        -0.8019999861717224,
+        0.0
+      ],
+      "maximum": [
+        1.2799999713897705,
+        0.4111434817314148,
+        1.3654581308364868
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_siege_repair_bench_lod1_neutral.png",
+      "sha256": "41c7968d00777ff0b917fecb8daf5817554b58f714621fa9df2586d5863027cf",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          2.047999858856201,
+          -4.291428089141846,
+          1.6555290222167969
+        ],
+        "target_z_up": [
+          0.0,
+          -0.1954282522201538,
+          0.6827290654182434
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_siege_repair_bench_lod1_gameplay.png",
+      "sha256": "722675b29dc61418ef22287ea594cef51cda3a929b83f9f9dd31a8728a1cb512",
+      "camera": {
+        "distance_m": 12,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          0.5119999647140503,
+          -12.195427894592285,
+          2.055999994277954
+        ],
+        "target_z_up": [
+          0.0,
+          -0.1954282522201538,
+          0.6827290654182434
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

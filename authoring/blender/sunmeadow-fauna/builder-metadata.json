@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "frontier_sunmeadow_red_fox": {
+      "runtimeReady": true,
+      "modelSha256": "25c11e195d047e482ad918e6577e418b4007af0a51e4c2701b0ea87f007597e4",
+      "defaultAnimation": "",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "group": "Frontier Wildlife",
+      "colliders": [],
+      "cameraSolid": false
+    },
+    "frontier_sunmeadow_brown_hare": {
+      "runtimeReady": true,
+      "modelSha256": "1cc9027e678616059b6117c02919b6f14c25874628170141df6498c0c5ac085d",
+      "defaultAnimation": "",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "group": "Frontier Wildlife",
+      "colliders": [],
+      "cameraSolid": false
+    },
+    "frontier_sunmeadow_barrow_wolf": {
+      "runtimeReady": true,
+      "modelSha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+      "defaultAnimation": "",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "group": "Frontier Wildlife",
+      "colliders": [],
+      "cameraSolid": false
+    }
+  }
+}

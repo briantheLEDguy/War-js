@@ -42,6 +42,24 @@ async function readAuthoredModel(filename: string) {
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('reviewed shared character presentation', () => {
+  test.each([
+    ['npc_frontier_sunmeadow_dwarf_artisan', 'dwarf', 'aegis'],
+    ['npc_frontier_sunmeadow_empire_farmer', 'empire', 'aegis'],
+    ['npc_frontier_sunmeadow_high_elf_scout', 'high_elf', 'aegis'],
+    ['npc_frontier_cinderfen_greenskin_peat_worker', 'greenskin', 'riftbound'],
+    ['npc_frontier_cinderfen_dark_elf_supply_officer', 'dark_elf', 'riftbound'],
+  ] as const)('preserves an explicit regional character %s instead of substituting a city model', (profileKey, race, realm) => {
+    expect(campaignNpcProfile({ id: 'regional-service', role: 'trainer', profileKey, race, realm })).toBe(profileKey);
+    expect(campaignNpcProfile({ id: 'regional-service', role: 'trainer', profileKey, realm })).toBe(profileKey);
+  });
+
+  test('regional profile selection rejects unknown and contradictory racial assignments', () => {
+    const npc = { id: 'regional-service', role: 'trainer', profileKey: 'npc_frontier_sunmeadow_dwarf_artisan' };
+    expect(campaignNpcProfile({ ...npc, race: 'empire', realm: 'aegis' })).toBeUndefined();
+    expect(campaignNpcProfile({ ...npc, race: 'dwarf', realm: 'riftbound' })).toBeUndefined();
+    expect(campaignNpcProfile({ ...npc, profileKey: 'npc_frontier_unbuilt_invented' })).toBeUndefined();
+  });
+
   test('every selected existing city population profile resolves reviewed runtime LODs', async () => {
     const loader = installManifestFetch();
     const profiles = Object.keys(registry.characterProfiles).filter(key => /^npc_aegis_(city_guard|people)_/.test(key) || /^npc_riftspire_(chaos|greenskin|dark_elf)$/.test(key));

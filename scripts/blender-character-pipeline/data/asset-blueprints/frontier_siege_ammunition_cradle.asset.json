@@ -1,0 +1,101 @@
+{
+  "assetId": "prop.frontier.siege_ammunition_cradle",
+  "displayName": "Frontier siege ammunition cradle",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "universal_siege_workshop"
+  ],
+  "runtime": {
+    "staticKey": "frontier_siege_ammunition_cradle"
+  },
+  "output": {
+    "model": "frontier_siege_ammunition_cradle_lod0.glb",
+    "artifactDir": "authoring/blender/frontier-workshop-items/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/frontier-workshop-items/runtime/frontier_siege_ammunition_cradle_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 31746,
+        "screenCoverageMin": 0.15
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 12954,
+        "screenCoverageMin": 0.05
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 3070,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierWorkshop",
+    "textureSet": "frontier_workshop_items",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authored_mass_segments",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_siege_workshop_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/frontier-workshop-items/source/items.json",
+    "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": false,
+    "maxTris": 31746,
+    "maxFileSizeMb": 8,
+    "maxDrawCalls": 3,
+    "maxMeshObjects": 3,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true,
+    "expectedHeightM": 0.956662654876709,
+    "heightToleranceM": 0.03
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "notes": "Standing user approval; three technically validated original LODs, retained editable masters, full PBR and measured part collision. Static scenery."
+  }
+}

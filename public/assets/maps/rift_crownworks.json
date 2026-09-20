@@ -992,31 +992,31 @@
         },
         {
           "x": -350,
-          "z": -75.953
+          "z": -75.878
         },
         {
           "x": -350,
-          "z": -73.076
+          "z": -72.818
         },
         {
           "x": -350,
-          "z": -69.541
+          "z": -69.058
         },
         {
           "x": -350,
-          "z": -65.52
+          "z": -64.832
         },
         {
           "x": -350,
-          "z": -61.184
+          "z": -60.378
         },
         {
           "x": -350,
-          "z": -56.704
+          "z": -55.93
         },
         {
           "x": -350,
-          "z": -52.252
+          "z": -51.725
         },
         {
           "x": -350,
@@ -1024,47 +1024,63 @@
         },
         {
           "x": -350,
-          "z": -44.89
+          "z": -44.571
         },
         {
           "x": -350,
-          "z": -41.119
+          "z": -40.494
         },
         {
           "x": -350,
-          "z": -36.838
+          "z": -35.999
         },
         {
           "x": -350,
-          "z": -32.196
+          "z": -31.316
         },
         {
           "x": -350,
-          "z": -27.341
+          "z": -26.673
         },
         {
           "x": -350,
-          "z": -22.425
+          "z": -22.301
         },
         {
           "x": -350,
-          "z": -17.596
+          "z": -18.428
         },
         {
           "x": -350,
-          "z": -13.004
+          "z": -15.285
         },
         {
           "x": -350,
-          "z": -8.799
+          "z": -13.1
+        }
+      ],
+      "autoConnect": false
+    },
+    {
+      "id": "rift_crownworks_aegis_keep_inner_approach",
+      "style": "dirt_trail",
+      "width": 2.076,
+      "points": [
+        {
+          "x": -350,
+          "z": -13.1
         },
         {
           "x": -350,
-          "z": -5.131
+          "z": -10.537
         },
         {
           "x": -350,
-          "z": -2.148
+          "z": -6.55
+        },
+        {
+          "x": -350,
+          "z": -2.563
         },
         {
           "x": -350,
@@ -1764,31 +1780,31 @@
         },
         {
           "x": 350,
-          "z": -75.953
+          "z": -75.873
         },
         {
           "x": 350,
-          "z": -73.076
+          "z": -72.803
         },
         {
           "x": 350,
-          "z": -69.541
+          "z": -69.028
         },
         {
           "x": 350,
-          "z": -65.52
+          "z": -64.79
         },
         {
           "x": 350,
-          "z": -61.184
+          "z": -60.328
         },
         {
           "x": 350,
-          "z": -56.704
+          "z": -55.883
         },
         {
           "x": 350,
-          "z": -52.252
+          "z": -51.693
         },
         {
           "x": 350,
@@ -1796,47 +1812,63 @@
         },
         {
           "x": 350,
-          "z": -44.89
+          "z": -44.624
         },
         {
           "x": 350,
-          "z": -41.119
+          "z": -40.628
         },
         {
           "x": 350,
-          "z": -36.838
+          "z": -36.232
         },
         {
           "x": 350,
-          "z": -32.196
+          "z": -31.659
         },
         {
           "x": 350,
-          "z": -27.341
+          "z": -27.13
         },
         {
           "x": 350,
-          "z": -22.425
+          "z": -22.868
         },
         {
           "x": 350,
-          "z": -17.596
+          "z": -19.095
         },
         {
           "x": 350,
-          "z": -13.004
+          "z": -16.031
         },
         {
           "x": 350,
-          "z": -8.799
+          "z": -13.9
+        }
+      ],
+      "autoConnect": false
+    },
+    {
+      "id": "rift_crownworks_riftbound_keep_inner_approach",
+      "style": "dirt_trail",
+      "width": 2.388,
+      "points": [
+        {
+          "x": 350,
+          "z": -13.9
         },
         {
           "x": 350,
-          "z": -5.131
+          "z": -11.181
         },
         {
           "x": 350,
-          "z": -2.148
+          "z": -6.95
+        },
+        {
+          "x": 350,
+          "z": -2.719
         },
         {
           "x": 350,
@@ -3198,11 +3230,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_outer_front_left_wall",
       "kind": "wall_segment",
-      "x": -367.1,
+      "x": -365.94,
       "z": -22.8,
       "rotY": 0,
       "scale": 0.95,
-      "scaleX": 1.8,
+      "scaleX": 2.043157894736841,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_outer_front_left_wall_collider",
@@ -3214,11 +3246,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_outer_front_right_wall",
       "kind": "wall_segment",
-      "x": -332.9,
+      "x": -334.05,
       "z": -22.8,
       "rotY": 0,
       "scale": 0.95,
-      "scaleX": 1.8,
+      "scaleX": 2.0431578947368423,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_outer_front_right_wall_collider",
@@ -3230,11 +3262,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_outer_rear_left_wall",
       "kind": "wall_segment",
-      "x": -365.7,
+      "x": -363.72,
       "z": 22.8,
       "rotY": 0,
       "scale": 0.95,
-      "scaleX": 2.1,
+      "scaleX": 2.5165263157894735,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_outer_rear_left_wall_collider",
@@ -3246,11 +3278,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_outer_rear_right_wall",
       "kind": "wall_segment",
-      "x": -334.3,
+      "x": -336.28,
       "z": 22.8,
       "rotY": 0,
       "scale": 0.95,
-      "scaleX": 2.1,
+      "scaleX": 2.516526315789474,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_outer_rear_right_wall_collider",
@@ -3362,7 +3394,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_front_gate_closed_collider",
-          "width": 18,
+          "width": 16,
           "depth": 2.5,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_aegis_keep_keep_front_gate_interaction"
@@ -3389,7 +3421,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_rear_postern_closed_collider",
-          "width": 5.4,
+          "width": 5.2,
           "depth": 1.2,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_aegis_keep_keep_rear_postern_interaction"
@@ -3408,11 +3440,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_inner_front_left_wall",
       "kind": "wall_segment",
-      "x": -359,
+      "x": -357.57,
       "z": -7.1,
       "rotY": 0,
       "scale": 0.82,
-      "scaleX": 1.1,
+      "scaleX": 1.4478048780487816,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_inner_front_left_wall_collider",
@@ -3424,11 +3456,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_inner_front_right_wall",
       "kind": "wall_segment",
-      "x": -341,
+      "x": -342.43,
       "z": -7.1,
       "rotY": 0,
       "scale": 0.82,
-      "scaleX": 1.1,
+      "scaleX": 1.4478048780487807,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_inner_front_right_wall_collider",
@@ -3440,11 +3472,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_inner_rear_left_wall",
       "kind": "wall_segment",
-      "x": -359,
+      "x": -357.52,
       "z": 14.3,
       "rotY": 0,
       "scale": 0.82,
-      "scaleX": 1.1,
+      "scaleX": 1.4604878048780496,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_inner_rear_left_wall_collider",
@@ -3456,11 +3488,11 @@
     {
       "id": "rift_crownworks_aegis_keep_keep_inner_rear_right_wall",
       "kind": "wall_segment",
-      "x": -341,
+      "x": -342.48,
       "z": 14.3,
       "rotY": 0,
       "scale": 0.82,
-      "scaleX": 1.1,
+      "scaleX": 1.4604878048780487,
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_inner_rear_right_wall_collider",
@@ -3572,7 +3604,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_inner_front_door_closed_collider",
-          "width": 5.4,
+          "width": 5.2,
           "depth": 1.2,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_aegis_keep_keep_inner_front_door_interaction"
@@ -3599,7 +3631,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_aegis_keep_keep_inner_rear_door_closed_collider",
-          "width": 5.4,
+          "width": 5.2,
           "depth": 1.2,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_aegis_keep_keep_inner_rear_door_interaction"
@@ -3634,11 +3666,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_outer_front_left_wall",
       "kind": "wall_segment",
-      "x": 331.1,
+      "x": 332.39,
       "z": -25.2,
       "rotY": 0,
       "scale": 1.05,
-      "scaleX": 1.8,
+      "scaleX": 2.044761904761905,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_outer_front_left_wall_collider",
@@ -3650,11 +3682,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_outer_front_right_wall",
       "kind": "wall_segment",
-      "x": 368.9,
+      "x": 367.62,
       "z": -25.2,
       "rotY": 0,
       "scale": 1.05,
-      "scaleX": 1.8,
+      "scaleX": 2.0447619047619052,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_outer_front_right_wall_collider",
@@ -3666,11 +3698,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_outer_rear_left_wall",
       "kind": "wall_segment",
-      "x": 332.7,
+      "x": 334.85,
       "z": 25.2,
       "rotY": 0,
       "scale": 1.05,
-      "scaleX": 2.1,
+      "scaleX": 2.509428571428571,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_outer_rear_left_wall_collider",
@@ -3682,11 +3714,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_outer_rear_right_wall",
       "kind": "wall_segment",
-      "x": 367.3,
+      "x": 365.15,
       "z": 25.2,
       "rotY": 0,
       "scale": 1.05,
-      "scaleX": 2.1,
+      "scaleX": 2.509428571428572,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_outer_rear_right_wall_collider",
@@ -3798,7 +3830,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_front_gate_closed_collider",
-          "width": 18,
+          "width": 16,
           "depth": 2.5,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_riftbound_keep_keep_front_gate_interaction"
@@ -3825,7 +3857,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_rear_postern_closed_collider",
-          "width": 5.4,
+          "width": 5.2,
           "depth": 1.2,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_riftbound_keep_keep_rear_postern_interaction"
@@ -3844,11 +3876,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_inner_front_left_wall",
       "kind": "wall_segment",
-      "x": 340,
+      "x": 341.63,
       "z": -7.9,
       "rotY": 0,
       "scale": 0.9,
-      "scaleX": 1.1,
+      "scaleX": 1.4617777777777785,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_inner_front_left_wall_collider",
@@ -3860,11 +3892,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_inner_front_right_wall",
       "kind": "wall_segment",
-      "x": 360,
+      "x": 358.37,
       "z": -7.9,
       "rotY": 0,
       "scale": 0.9,
-      "scaleX": 1.1,
+      "scaleX": 1.4617777777777785,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_inner_front_right_wall_collider",
@@ -3876,11 +3908,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_inner_rear_left_wall",
       "kind": "wall_segment",
-      "x": 340,
+      "x": 341.68,
       "z": 15.8,
       "rotY": 0,
       "scale": 0.9,
-      "scaleX": 1.1,
+      "scaleX": 1.4733333333333338,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_inner_rear_left_wall_collider",
@@ -3892,11 +3924,11 @@
     {
       "id": "rift_crownworks_riftbound_keep_keep_inner_rear_right_wall",
       "kind": "wall_segment",
-      "x": 360,
+      "x": 358.32,
       "z": 15.8,
       "rotY": 0,
       "scale": 0.9,
-      "scaleX": 1.1,
+      "scaleX": 1.4733333333333338,
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_inner_rear_right_wall_collider",
@@ -4008,7 +4040,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_inner_front_door_closed_collider",
-          "width": 5.4,
+          "width": 5.2,
           "depth": 1.2,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_riftbound_keep_keep_inner_front_door_interaction"
@@ -4035,7 +4067,7 @@
       "colliders": [
         {
           "id": "rift_crownworks_riftbound_keep_keep_inner_rear_door_closed_collider",
-          "width": 5.4,
+          "width": 5.2,
           "depth": 1.2,
           "blocksWhen": "closed",
           "interactionId": "rift_crownworks_riftbound_keep_keep_inner_rear_door_interaction"
@@ -5014,6 +5046,466 @@
       "z": -199.6,
       "rotY": 5.9341,
       "scale": 2.35
+    },
+    {
+      "id": "rift_crownworks_delivered_aegis_repair_bench",
+      "kind": "frontier_siege_repair_bench",
+      "assetKey": "frontier_siege_repair_bench",
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "x": -358,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.960350751876831,
+          "z": 0.29239340126514435,
+          "width": 0.18540239334106445,
+          "depth": 0.17983904480934143,
+          "minY": 0,
+          "maxY": 0.8434503674507141
+        },
+        {
+          "x": -0.9604269564151764,
+          "z": -0.29324576258659363,
+          "width": 0.18558090925216675,
+          "depth": 0.18159103393554688,
+          "minY": 0,
+          "maxY": 0.8435722589492798
+        },
+        {
+          "x": 0.9603494107723236,
+          "z": 0.29316891729831696,
+          "width": 0.1854124665260315,
+          "depth": 0.18142232298851013,
+          "minY": 0,
+          "maxY": 0.8434632420539856
+        },
+        {
+          "x": 0.9604198932647705,
+          "z": -0.29248562455177307,
+          "width": 0.18557953834533691,
+          "depth": 0.18003922700881958,
+          "minY": 0,
+          "maxY": 0.8434604406356812
+        },
+        {
+          "x": 0,
+          "z": 0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": 0,
+          "z": -0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": -0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 2.559999942779541,
+          "depth": 0.8221743702888489,
+          "minY": 0.8346954584121704,
+          "maxY": 0.9445000290870667
+        },
+        {
+          "x": -5.960464477539063e-8,
+          "z": 0.3326479494571686,
+          "width": 2.077462077140808,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": 5.960464477539063e-8,
+          "z": -0.3326479494571686,
+          "width": 2.0774625539779663,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": -0.7399999797344208,
+          "z": 0.5384999960660934,
+          "width": 0.20800000429153442,
+          "depth": 0.5269999802112579,
+          "minY": 0.7929999828338623,
+          "maxY": 1.0740000009536743
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "rift_crownworks_delivered_aegis_ammunition",
+      "kind": "frontier_siege_ammunition_cradle",
+      "assetKey": "frontier_siege_ammunition_cradle",
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "x": -342,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.0004493296146392822,
+          "z": -0.000002473592758178711,
+          "width": 1.9364859461784363,
+          "depth": 1.0498663783073425,
+          "minY": 0.14023512601852417,
+          "maxY": 0.23399999737739563
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": 0.4930000454187393,
+          "width": 0.16271913051605225,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223625779151917
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": -0.49299998581409454,
+          "width": 0.16271913051605225,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223629951477051
+        },
+        {
+          "x": 0.860009640455246,
+          "z": 0.49299998581409454,
+          "width": 0.16271907091140747,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7224916219711304
+        },
+        {
+          "x": 0.860009640455246,
+          "z": -0.4930000454187393,
+          "width": 0.16271907091140747,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223474979400635
+        },
+        {
+          "x": 0,
+          "z": 0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.512499988079071,
+          "maxY": 0.637499988079071
+        },
+        {
+          "x": -0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.002103656530380249,
+          "z": -0.0007287412881851196,
+          "width": 1.5538446307182312,
+          "depth": 0.898714691400528,
+          "minY": 0.23067627847194672,
+          "maxY": 0.956662654876709
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "rift_crownworks_delivered_riftbound_repair_bench",
+      "kind": "frontier_siege_repair_bench",
+      "assetKey": "frontier_siege_repair_bench",
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "x": 342,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.960350751876831,
+          "z": 0.29239340126514435,
+          "width": 0.18540239334106445,
+          "depth": 0.17983904480934143,
+          "minY": 0,
+          "maxY": 0.8434503674507141
+        },
+        {
+          "x": -0.9604269564151764,
+          "z": -0.29324576258659363,
+          "width": 0.18558090925216675,
+          "depth": 0.18159103393554688,
+          "minY": 0,
+          "maxY": 0.8435722589492798
+        },
+        {
+          "x": 0.9603494107723236,
+          "z": 0.29316891729831696,
+          "width": 0.1854124665260315,
+          "depth": 0.18142232298851013,
+          "minY": 0,
+          "maxY": 0.8434632420539856
+        },
+        {
+          "x": 0.9604198932647705,
+          "z": -0.29248562455177307,
+          "width": 0.18557953834533691,
+          "depth": 0.18003922700881958,
+          "minY": 0,
+          "maxY": 0.8434604406356812
+        },
+        {
+          "x": 0,
+          "z": 0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": 0,
+          "z": -0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": -0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 2.559999942779541,
+          "depth": 0.8221743702888489,
+          "minY": 0.8346954584121704,
+          "maxY": 0.9445000290870667
+        },
+        {
+          "x": -5.960464477539063e-8,
+          "z": 0.3326479494571686,
+          "width": 2.077462077140808,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": 5.960464477539063e-8,
+          "z": -0.3326479494571686,
+          "width": 2.0774625539779663,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": -0.7399999797344208,
+          "z": 0.5384999960660934,
+          "width": 0.20800000429153442,
+          "depth": 0.5269999802112579,
+          "minY": 0.7929999828338623,
+          "maxY": 1.0740000009536743
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "rift_crownworks_delivered_riftbound_ammunition",
+      "kind": "frontier_siege_ammunition_cradle",
+      "assetKey": "frontier_siege_ammunition_cradle",
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "x": 358,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.0004493296146392822,
+          "z": -0.000002473592758178711,
+          "width": 1.9364859461784363,
+          "depth": 1.0498663783073425,
+          "minY": 0.14023512601852417,
+          "maxY": 0.23399999737739563
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": 0.4930000454187393,
+          "width": 0.16271913051605225,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223625779151917
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": -0.49299998581409454,
+          "width": 0.16271913051605225,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223629951477051
+        },
+        {
+          "x": 0.860009640455246,
+          "z": 0.49299998581409454,
+          "width": 0.16271907091140747,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7224916219711304
+        },
+        {
+          "x": 0.860009640455246,
+          "z": -0.4930000454187393,
+          "width": 0.16271907091140747,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223474979400635
+        },
+        {
+          "x": 0,
+          "z": 0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.512499988079071,
+          "maxY": 0.637499988079071
+        },
+        {
+          "x": -0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.002103656530380249,
+          "z": -0.0007287412881851196,
+          "width": 1.5538446307182312,
+          "depth": 0.898714691400528,
+          "minY": 0.23067627847194672,
+          "maxY": 0.956662654876709
+        }
+      ],
+      "walkableSurfaces": []
     }
   ],
   "npcs": [
@@ -10928,31 +11420,31 @@
             },
             {
               "x": -350,
-              "z": -75.953
+              "z": -75.878
             },
             {
               "x": -350,
-              "z": -73.076
+              "z": -72.818
             },
             {
               "x": -350,
-              "z": -69.541
+              "z": -69.058
             },
             {
               "x": -350,
-              "z": -65.52
+              "z": -64.832
             },
             {
               "x": -350,
-              "z": -61.184
+              "z": -60.378
             },
             {
               "x": -350,
-              "z": -56.704
+              "z": -55.93
             },
             {
               "x": -350,
-              "z": -52.252
+              "z": -51.725
             },
             {
               "x": -350,
@@ -10960,54 +11452,70 @@
             },
             {
               "x": -350,
-              "z": -44.89
+              "z": -44.571
             },
             {
               "x": -350,
-              "z": -41.119
+              "z": -40.494
             },
             {
               "x": -350,
-              "z": -36.838
+              "z": -35.999
             },
             {
               "x": -350,
-              "z": -32.196
+              "z": -31.316
             },
             {
               "x": -350,
-              "z": -27.341
+              "z": -26.673
             },
             {
               "x": -350,
-              "z": -22.425
+              "z": -22.301
             },
             {
               "x": -350,
-              "z": -17.596
+              "z": -18.428
             },
             {
               "x": -350,
-              "z": -13.004
+              "z": -15.285
             },
             {
               "x": -350,
-              "z": -8.799
+              "z": -13.1
+            }
+          ],
+          "radius": 5.5,
+          "height": 0,
+          "feather": 20
+        },
+        {
+          "id": "rift_crownworks_aegis_keep_inner_approach",
+          "points": [
+            {
+              "x": -350,
+              "z": -13.1
             },
             {
               "x": -350,
-              "z": -5.131
+              "z": -10.537
             },
             {
               "x": -350,
-              "z": -2.148
+              "z": -6.55
+            },
+            {
+              "x": -350,
+              "z": -2.563
             },
             {
               "x": -350,
               "z": 0
             }
           ],
-          "radius": 5.5,
+          "radius": 4.038,
           "height": 0,
           "feather": 20
         },
@@ -11700,31 +12208,31 @@
             },
             {
               "x": 350,
-              "z": -75.953
+              "z": -75.873
             },
             {
               "x": 350,
-              "z": -73.076
+              "z": -72.803
             },
             {
               "x": 350,
-              "z": -69.541
+              "z": -69.028
             },
             {
               "x": 350,
-              "z": -65.52
+              "z": -64.79
             },
             {
               "x": 350,
-              "z": -61.184
+              "z": -60.328
             },
             {
               "x": 350,
-              "z": -56.704
+              "z": -55.883
             },
             {
               "x": 350,
-              "z": -52.252
+              "z": -51.693
             },
             {
               "x": 350,
@@ -11732,54 +12240,70 @@
             },
             {
               "x": 350,
-              "z": -44.89
+              "z": -44.624
             },
             {
               "x": 350,
-              "z": -41.119
+              "z": -40.628
             },
             {
               "x": 350,
-              "z": -36.838
+              "z": -36.232
             },
             {
               "x": 350,
-              "z": -32.196
+              "z": -31.659
             },
             {
               "x": 350,
-              "z": -27.341
+              "z": -27.13
             },
             {
               "x": 350,
-              "z": -22.425
+              "z": -22.868
             },
             {
               "x": 350,
-              "z": -17.596
+              "z": -19.095
             },
             {
               "x": 350,
-              "z": -13.004
+              "z": -16.031
             },
             {
               "x": 350,
-              "z": -8.799
+              "z": -13.9
+            }
+          ],
+          "radius": 5.5,
+          "height": 0,
+          "feather": 20
+        },
+        {
+          "id": "rift_crownworks_riftbound_keep_inner_approach",
+          "points": [
+            {
+              "x": 350,
+              "z": -13.9
             },
             {
               "x": 350,
-              "z": -5.131
+              "z": -11.181
             },
             {
               "x": 350,
-              "z": -2.148
+              "z": -6.95
+            },
+            {
+              "x": 350,
+              "z": -2.719
             },
             {
               "x": 350,
               "z": 0
             }
           ],
-          "radius": 5.5,
+          "radius": 4.194,
           "height": 0,
           "feather": 20
         },
@@ -13225,5 +13749,5 @@
       }
     ]
   },
-  "staticMapHash": "46736cea1e78fe02"
+  "staticMapHash": "3d3d88eb223f0be0"
 }

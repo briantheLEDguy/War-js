@@ -1,0 +1,116 @@
+{
+  "assetId": "prop.frontier.sunmeadow.roe_deer_buck",
+  "displayName": "Sunmeadow roe deer buck",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "sunmeadow_authored_fauna"
+  ],
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_roe_deer_buck"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/446b1961ea95a854dac2/review/candidates/buck_differential"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/446b1961ea95a854dac2/review/candidates/buck_differential/frontier_sunmeadow_roe_deer_buck_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_anatomical_body",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "fauna_roe_deer_buck",
+    "skeletonId": "sunmeadow_roe_deer_buck_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 53846,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 22990,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 8684,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_SunmeadowAuthoredPelt",
+    "textureSet": "frontier_sunmeadow_roe_deer_buck",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic",
+      "occlusion"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "idle",
+      "walk",
+      "run",
+      "graze"
+    ]
+  },
+  "collision": {
+    "policy": "authority_species_body_footprint",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_anatomical_cages_and_species_rigs",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "continuous_surface_authoring",
+      "uv_and_pbr_painting",
+      "explicit_skinning",
+      "motion_authoring",
+      "actual_export_validation",
+      "visual_review"
+    ],
+    "referencePackId": "battle_prelate_craftsmanship_and_sunmeadow_fauna",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow fauna authoring",
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/446b1961ea95a854dac2/source/anatomy.json",
+    "sourceSha256": "a402541dd1d883a7acdf03c5363063dbb7b505aa03b2e3c83176d002ffc47d0c"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 2,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 12,
+    "maxTris": 53846,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.2946422401000746,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.012
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T12:00:00+02:00",
+    "reviewHash": "32ab8f4d3ed578c83949a6126b7079dbb8629a345d091823c76c479026c33cde",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

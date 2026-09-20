@@ -1,0 +1,104 @@
+{
+  "assetId": "prop.frontier.cinderfen_corner_access",
+  "displayName": "Cinderfen corner landing and courtyard stair access",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "cinderfen_authored_architecture"
+  ],
+  "runtime": {
+    "staticKey": "frontier_cinderfen_corner_access"
+  },
+  "output": {
+    "model": "frontier_cinderfen_corner_access_lod0.glb",
+    "artifactDir": "authoring/blender/cinderfen-architecture/junction/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/cinderfen-architecture/junction/runtime/frontier_cinderfen_corner_access_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 59188,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 29762,
+        "screenCoverageMin": 0.08
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 8028,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_CinderfenArchitecture",
+    "textureSet": "cinderfen_authored_architecture",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 1024
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authored_wall_segments",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "art_direction",
+      "literal_control_cage_authoring",
+      "material_painting",
+      "blender_finishing",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_cinderfen_architecture_v1",
+    "similarityReview": "not_required",
+    "author": "Codex architecture authoring",
+    "source": "authoring/blender/cinderfen-architecture/junction/source/architecture.json",
+    "sourceSha256": "d8d02e508e166899ae16c660b621ac7264756464d39a1b529d531e38cc0c12fe"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxTris": 59188,
+    "maxFileSizeMb": 4,
+    "maxDrawCalls": 9,
+    "maxMeshObjects": 1,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true,
+    "expectedHeightM": 8.220632011536509,
+    "heightToleranceM": 0.03
+  },
+  "lifecycle": {
+    "status": "approved",
+    "notes": "Original pentagonal deck cages and fitted Cinderfen construction pieces remain editable in the Blender master. Closed construction pieces deliberately share metre-scaled tiled material UVs for reeds, basalt, alder and hardware; these are reusable material fields rather than a unique atlas. Positional audit welds glTF material/UV/normal seam splits at one micrometre and requires zero boundary and multi-face edges on every LOD. Coarse authored roof and deck courses preserve the curved envelope and support height while reducing distant seams. Exact bounds, raised floors, ramps, treads, colliders and keep passage contracts are retained in authoring/blender/cinderfen-architecture/junction/build-report.json. Accepted internally against the exact build and all reimport previews; the approval record retains review hashes.",
+    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+    "reviewedAt": "2026-09-07T19:58:45.720132+00:00"
+  }
+}

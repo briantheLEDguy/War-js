@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.red_fox",
+  "displayName": "Sunmeadow red fox",
+  "category": "prop",
+  "model": "frontier_sunmeadow_red_fox_lod0.glb",
+  "qc": "frontier_sunmeadow_red_fox_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_red_fox",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "fauna_red_fox",
+    "bodyVariant": "neutral",
+    "skeletonId": "sunmeadow_red_fox_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1"
+  },
+  "hashes": {
+    "modelSha256": "25c11e195d047e482ad918e6577e418b4007af0a51e4c2701b0ea87f007597e4",
+    "qcSha256": "dbcb36437682c578f64dd50c67aa6b2b7e14705e9868e43f23b04829ed97ec52",
+    "previews": {
+      "front": "45492163f3066dd06bb378966a4053205df0702594bb62591f1ff5096bf9b1ea"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_red_fox_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "7bc6dac41b72910998e5a17c2d9136ee2f9d4554646c7b8dbf25185c892cea41"
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_red_fox.blend",
+    "sourceSha256": "87de345fc265c043c0a16bb849a16abf5c07458721bd921898f901ff183d9b3e",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "approvalState": "approved"
+}

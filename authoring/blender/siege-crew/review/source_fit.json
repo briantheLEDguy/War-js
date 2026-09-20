@@ -1,0 +1,273 @@
+{
+  "status": "source_fit_in_progress",
+  "inputs": [
+    {
+      "path": "public/assets/models/frontier_battering_ram_lod0.glb",
+      "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef"
+    },
+    {
+      "path": "public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_back_novitiate_m.glb",
+      "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_chest_novitiate_m.glb",
+      "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_feet_novitiate_m.glb",
+      "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_hands_novitiate_m.glb",
+      "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_head_novitiate_m.glb",
+      "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_legs_novitiate_m.glb",
+      "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+      "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_tabard_novitiate_m.glb",
+      "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_waist_novitiate_m.glb",
+      "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8"
+    },
+    {
+      "path": "public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_back_novitiate_m.glb",
+      "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_chest_novitiate_m.glb",
+      "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_feet_novitiate_m.glb",
+      "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_hands_novitiate_m.glb",
+      "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_head_novitiate_m.glb",
+      "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_legs_novitiate_m.glb",
+      "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+      "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_tabard_novitiate_m.glb",
+      "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_waist_novitiate_m.glb",
+      "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8"
+    }
+  ],
+  "seats": [
+    {
+      "hidden_body_regions": [
+        "arms",
+        "back",
+        "feet",
+        "hands",
+        "head",
+        "legs",
+        "shoulders",
+        "tabard",
+        "torso",
+        "waist"
+      ],
+      "equipment_rest_matrix_max_error": 0,
+      "seat": "left",
+      "rig_rest_sha256": "bd2fe968869f343c680ddd2ada08449b8c4c3e535367aa7253c8b3d9732624a5",
+      "origin_blender": [
+        -0.7099999785423279,
+        -0.1850000023841858,
+        0.9100000262260437
+      ],
+      "origin_gltf": [
+        -0.7099999785423279,
+        0.9100000262260437,
+        0.1850000023841858
+      ],
+      "yaw_gltf_radians": 1.5707963267948966,
+      "socket_offset_blender": [
+        0,
+        -0.035,
+        0.08
+      ],
+      "board_heights": {
+        "L": 0.907343864440918,
+        "R": 0.9046247005462646
+      },
+      "finger_fit": {
+        "L": {
+          "index": {
+            "target_error_m": 0.0007759436064598267,
+            "axis_distance_m": 0.03734896786437776
+          },
+          "middle": {
+            "target_error_m": 0.0005293349749245481,
+            "axis_distance_m": 0.037605484616377687
+          },
+          "ring": {
+            "target_error_m": 0.0009622385221236658,
+            "axis_distance_m": 0.03725122809040016
+          },
+          "pinky": {
+            "target_error_m": 0.0007580156079491731,
+            "axis_distance_m": 0.03748846939287952
+          },
+          "thumb": {
+            "target_error_m": 0.0007119400464463964,
+            "axis_distance_m": 0.03757592059076861
+          }
+        },
+        "R": {
+          "index": {
+            "target_error_m": 0.0008660383074694457,
+            "axis_distance_m": 0.03728445375658976
+          },
+          "middle": {
+            "target_error_m": 0.0009793439338032985,
+            "axis_distance_m": 0.03719433944418816
+          },
+          "ring": {
+            "target_error_m": 0.0007054684201077564,
+            "axis_distance_m": 0.0374266984333196
+          },
+          "pinky": {
+            "target_error_m": 0.0007109232103885925,
+            "axis_distance_m": 0.03752583486495797
+          },
+          "thumb": {
+            "target_error_m": 0.0004436457805398357,
+            "axis_distance_m": 0.03813283429402194
+          }
+        }
+      }
+    },
+    {
+      "hidden_body_regions": [
+        "arms",
+        "back",
+        "feet",
+        "hands",
+        "head",
+        "legs",
+        "shoulders",
+        "tabard",
+        "torso",
+        "waist"
+      ],
+      "equipment_rest_matrix_max_error": 0,
+      "seat": "right",
+      "rig_rest_sha256": "bd2fe968869f343c680ddd2ada08449b8c4c3e535367aa7253c8b3d9732624a5",
+      "origin_blender": [
+        0.7099999785423279,
+        -0.1850000023841858,
+        0.9100000262260437
+      ],
+      "origin_gltf": [
+        0.7099999785423279,
+        0.9100000262260437,
+        0.1850000023841858
+      ],
+      "yaw_gltf_radians": -1.5707963267948966,
+      "socket_offset_blender": [
+        0,
+        -0.035,
+        0.08
+      ],
+      "board_heights": {
+        "L": 0.9054224491119385,
+        "R": 0.9090118408203125
+      },
+      "finger_fit": {
+        "L": {
+          "index": {
+            "target_error_m": 0.0006257778628519256,
+            "axis_distance_m": 0.03747983102333115
+          },
+          "middle": {
+            "target_error_m": 0.000560251834562214,
+            "axis_distance_m": 0.03758929441407046
+          },
+          "ring": {
+            "target_error_m": 0.000983312028174318,
+            "axis_distance_m": 0.037246573610870304
+          },
+          "pinky": {
+            "target_error_m": 0.0005260970807829272,
+            "axis_distance_m": 0.03763369871991511
+          },
+          "thumb": {
+            "target_error_m": 0.0008016798941577881,
+            "axis_distance_m": 0.03751255675158118
+          }
+        },
+        "R": {
+          "index": {
+            "target_error_m": 0.0008223206473129123,
+            "axis_distance_m": 0.03721969645810343
+          },
+          "middle": {
+            "target_error_m": 0.000729601953871323,
+            "axis_distance_m": 0.037276980625330386
+          },
+          "ring": {
+            "target_error_m": 0.0009124221088755606,
+            "axis_distance_m": 0.03709195714086342
+          },
+          "pinky": {
+            "target_error_m": 0.000747595369531263,
+            "axis_distance_m": 0.03747161182492778
+          },
+          "thumb": {
+            "target_error_m": 0.0005112133949940139,
+            "axis_distance_m": 0.03817087645230817
+          }
+        }
+      }
+    }
+  ],
+  "master": "masters\\ram_crew_source_assembly.blend",
+  "master_sha256": "8d17d4554fd93315369a8fff7441dcd011ad62446e263bcbf68005bf7af20777",
+  "rig_profile": "humanoid_game_v2",
+  "root_motion": false,
+  "source_sha256": "0b55543fe97af5babf8b5d065801222ec60405c3c09bc74555bfce34263fc4e2",
+  "hand_helper_sha256": "f56139347d2362e1e71828afb64c372647edc57153bf5ffad9d8cfeec9f76857",
+  "images": [
+    {
+      "path": "review\\source_assembly_front.png",
+      "sha256": "543ad4c388535d0b5d55666b52e55b95473949693985bdaeb0ca90722850bf4d"
+    },
+    {
+      "path": "review\\source_crew_rear.png",
+      "sha256": "ce5c2f0f9dd103e02a155465b7313ac669e4e854966ec302205783d577b78509"
+    }
+  ]
+}

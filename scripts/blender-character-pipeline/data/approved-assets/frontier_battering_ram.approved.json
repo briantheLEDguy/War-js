@@ -6,7 +6,21 @@
   "model": "frontier_battering_ram_lod0.glb",
   "qc": "frontier_battering_ram_lod0.qc.json",
   "runtime": {
-    "staticKey": "frontier_battering_ram"
+    "staticKey": "frontier_battering_ram",
+    "operatorAnimationPacks": {
+      "left": {
+        "model": "frontier_ram_crew_left_animations.glb",
+        "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+        "skeletonId": "humanoid_game_v2",
+        "bindPoseId": "a_pose_v2"
+      },
+      "right": {
+        "model": "frontier_ram_crew_right_animations.glb",
+        "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+        "skeletonId": "humanoid_game_v2",
+        "bindPoseId": "a_pose_v2"
+      }
+    }
   },
   "compatibility": {
     "bodyFamily": "static_architecture",
@@ -16,7 +30,7 @@
   },
   "hashes": {
     "modelSha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
-    "qcSha256": "dc4278fe030ce6ea110896cc90114276109ba4b9e37b33796d9c815c2552db73",
+    "qcSha256": "e9db95c3491263f88002b35fc0e53ffc227276535c6f67507ab3cc7a59f24f39",
     "previews": {
       "assembly": "39d8773b195794d4b42a21f193e2667ba896659eb323420f260e4437b7311202"
     }
@@ -27,7 +41,9 @@
   "review": {
     "reviewedBy": "Codex root integration review",
     "reviewedAt": "2026-09-07T20:01:19.153Z",
-    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240"
+    "reviewHash": "c972693798fb06c83d426cffed4f4c30d92dfe85bc46dbebc05da1917fb0a240",
+    "operatorCrewReviewHash": "6c6b78f62ac05bad67221ff76e0eb54650fcaee07b1acf1dc024846e013a4cb0",
+    "operatorCrewReviewedAt": "2026-09-09T15:35:30.638Z"
   },
   "provenance": {
     "createdBy": "original_authored_mesh_control_cages",

@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "issues": [],
+  "models": [
+    {
+      "model": "frontier_cinderfen_corner_access_lod0.glb",
+      "sha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+      "triangles": 59188,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_corner_access_lod1.glb",
+      "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
+      "triangles": 29762,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "model": "frontier_cinderfen_corner_access_lod2.glb",
+      "sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925",
+      "triangles": 8028,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "completeReimportReview": true
+}

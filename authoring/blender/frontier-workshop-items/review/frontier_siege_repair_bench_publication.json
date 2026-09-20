@@ -1,0 +1,28 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2",
+    "buildSha256": "59b09d863b180e64db29b684ec4da01a0547928c1635956da1f58d40bfbd664f",
+    "contractSha256": "2d406cf3a134478819f6c984a9ea627cb2a2e56e35c2519a5fc54fd4efd1b3af",
+    "validationSha256": "302c797d57b14e670fea862bd5e8c85d8c30ec24f26a867623e392f86f3429a5",
+    "modelSha256s": [
+      "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+      "6c89dd33c9cdeae6089f941927f383173b54ad44d08715f83e83cd3c120d3093",
+      "2124f1fc99d2dd4835d2d6dc49ceb50724b3e357e8dc28fc6c4ec06edf05f395"
+    ],
+    "images": {
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_neutral.png": "d05a1391d8ac25f5e2c03df58c0ae349ce65418a7be22d701b59b01ef5858351",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_gameplay.png": "86720f08d53ff230945079f88e29c7774965fe714bf36ae58012bb3f728d02c4",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_detail.png": "6c353c038a401dbeba9febae804b8236b0b49934c38273f5414d2b23395c1670",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod1_neutral.png": "41c7968d00777ff0b917fecb8daf5817554b58f714621fa9df2586d5863027cf",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod1_gameplay.png": "722675b29dc61418ef22287ea594cef51cda3a929b83f9f9dd31a8728a1cb512",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod2_neutral.png": "b225050dc1737387e28bf3b83ba19be25c0879d0c462a1e4238c1601e9d32333",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod2_gameplay.png": "27325d5795f07ba63ff5dcb48065c6b53cafd0e3f592df645d2d4046fa39fd2a"
+    }
+  }
+}

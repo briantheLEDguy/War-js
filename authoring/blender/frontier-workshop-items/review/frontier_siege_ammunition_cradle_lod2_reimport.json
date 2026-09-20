@@ -1,0 +1,96 @@
+{
+  "model": "frontier_siege_ammunition_cradle_lod2.glb",
+  "sha256": "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578",
+  "reviewerSha256": "56b23083d45e7238a8524c369ee7bbcf51ebbb4ea6b356913cd42899a0135903",
+  "cameraToolSha256": "41fcbc12c5efa300e288c8f0e9bdc48bb2b068eb2d0fb5a37ecadaea1b134bf2",
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "frontier_siege_ammunition_cradle.timber",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 1524
+      },
+      {
+        "mesh": "frontier_siege_ammunition_cradle.metal",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 464
+      },
+      {
+        "mesh": "frontier_siege_ammunition_cradle.loads",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 1082
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -0.9695000052452087,
+        -0.6852884292602539,
+        0.0
+      ],
+      "maximum": [
+        0.9695000052452087,
+        0.6897932887077332,
+        0.9191039800643921
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_siege_ammunition_cradle_lod2_neutral.png",
+      "sha256": "de531300016a6ac131111c6ea0b1ce78285430ee0b322bdd57423e1fd61c6249",
+      "camera": {
+        "distance_m": null,
+        "projection": "ORTHO",
+        "lens_mm": null,
+        "camera_position_z_up": [
+          1.551200032234192,
+          -3.1001477241516113,
+          1.1963720321655273
+        ],
+        "target_z_up": [
+          0.0,
+          0.002252429723739624,
+          0.45955199003219604
+        ],
+        "resolution": [
+          1400,
+          1050
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_siege_ammunition_cradle_lod2_gameplay.png",
+      "sha256": "5845c17a9bebfd676c3663a0a355c9902cd731a858f91cf4781e1b9806748410",
+      "camera": {
+        "distance_m": 28,
+        "projection": "PERSP",
+        "lens_mm": 38,
+        "camera_position_z_up": [
+          0.387800008058548,
+          -27.99774742126465,
+          1.9939000606536865
+        ],
+        "target_z_up": [
+          0.0,
+          0.002252429723739624,
+          0.45955199003219604
+        ],
+        "resolution": [
+          1280,
+          720
+        ],
+        "lighting": "neutral white lights; original exported PBR; no image retouching"
+      }
+    }
+  }
+}

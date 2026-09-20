@@ -1,0 +1,100 @@
+{
+  "assetId": "prop.frontier.sunmeadow.red_fox",
+  "displayName": "Sunmeadow red fox",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "sunmeadow_authored_fauna"
+  ],
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_red_fox"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_red_fox_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_red_fox_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_body",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "fauna_red_fox",
+    "skeletonId": "sunmeadow_red_fox_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 46130,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 20482,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 8300,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_SunmeadowAuthoredPelt",
+    "textureSet": "frontier_sunmeadow_red_fox",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_red_fox.blend",
+    "sourceSha256": "87de345fc265c043c0a16bb849a16abf5c07458721bd921898f901ff183d9b3e",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 32,
+    "maxFileSizeMb": 32,
+    "maxTris": 46130,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "7bc6dac41b72910998e5a17c2d9136ee2f9d4554646c7b8dbf25185c892cea41",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

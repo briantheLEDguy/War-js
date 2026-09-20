@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "npc_frontier_sunmeadow_dwarf_artisan": {
+      "runtimeReady": true,
+      "modelSha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+      "label": "Sunmeadow Dwarf Artisan",
+      "group": "Characters and NPCs",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "defaultAnimation": "idle",
+      "footprint": {
+        "width": 0.886,
+        "depth": 0.574,
+        "chainAxis": "z"
+      },
+      "colliders": [],
+      "walkableSurfaces": [],
+      "cameraSolid": false
+    }
+  }
+}

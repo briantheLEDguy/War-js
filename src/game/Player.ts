@@ -554,9 +554,15 @@ export class Player {
 
     if (len > 0) {
       const speed = MOVE_SPEED * Math.max(0, moveMultiplier);
-      this.position.x += wx * speed * dt;
-      this.position.z += wz * speed * dt;
-      if (!flying) resolveCollision?.(this.position, PLAYER_COLLISION_RADIUS);
+      const distance = speed * dt;
+      // A long frame must not put the cylinder past a thin wall's centre before
+      // penetration is resolved, which would push it out on the opposite side.
+      const steps = flying || !resolveCollision ? 1 : Math.max(1, Math.ceil(distance / (PLAYER_COLLISION_RADIUS * .5)));
+      for (let step = 0; step < steps; step++) {
+        this.position.x += wx * distance / steps;
+        this.position.z += wz * distance / steps;
+        if (!flying) resolveCollision?.(this.position, PLAYER_COLLISION_RADIUS);
+      }
       const targetYaw = Math.atan2(wx, wz);
       const turnT = input.mouseRightDown ? 1 : Math.min(1, TURN_SPEED * dt);
       this.rotationY = lerpAngle(this.rotationY, targetYaw, turnT);

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.roe_deer_buck",
+  "displayName": "Sunmeadow roe deer buck",
+  "category": "prop",
+  "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+  "qc": "frontier_sunmeadow_roe_deer_buck_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_roe_deer_buck",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "fauna_roe_deer_buck",
+    "bodyVariant": "neutral",
+    "skeletonId": "sunmeadow_roe_deer_buck_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1"
+  },
+  "hashes": {
+    "modelSha256": "5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76",
+    "qcSha256": "2cfab83de330027a56728c2d4e7bc8a2e482272521095cf92caba851d7cd12a5",
+    "previews": {
+      "assembly": "7049ceea0d36da4dccfb285791cd3e039c7f3177ebc67df1c8e0a8a5e90d8935",
+      "detail": "df9177cb440caa56f3c7d58a349f6f54b39584cda283a09414d5feb8a6e43568"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/review/candidates/buck_differential/lod0_rest_full.png",
+    "detail": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/review/candidates/buck_differential/lod0_rest_head_head.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "7e55f4235003187361d048bccebe5724339e00ad9215d71feebf948544c40432"
+  },
+  "provenance": {
+    "createdBy": "original_authored_anatomical_cages_and_species_rigs",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "continuous_surface_authoring",
+      "uv_and_pbr_painting",
+      "explicit_skinning",
+      "motion_authoring",
+      "actual_export_validation",
+      "visual_review"
+    ],
+    "referencePackId": "battle_prelate_craftsmanship_and_sunmeadow_fauna",
+    "similarityReview": "not_required",
+    "author": "Codex Sunmeadow fauna authoring",
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/source/anatomy.json",
+    "sourceSha256": "a402541dd1d883a7acdf03c5363063dbb7b505aa03b2e3c83176d002ffc47d0c"
+  },
+  "approvalState": "approved"
+}

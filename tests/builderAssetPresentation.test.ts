@@ -14,6 +14,14 @@ function loader(models = ['actor_lod0.glb','actor_lod1.glb','actor_lod2.glb']) {
 }
 
 describe('reviewed GM asset presentation', () => {
+  it('places equipment through the equipment registry with its grounded display offset', async () => {
+    const assets = loader();
+    const placed = await loadBuilderAsset({ assetKey: 'starter_civic_battle_prelate_head_m', assetCategory: 'equipment',
+      modelOffset: { x: -.1, y: -1.8, z: .2 } }, assets);
+    expect(assets.resolveApprovedAssetModels).toHaveBeenCalledWith('starter_civic_battle_prelate_head_m', 'equipment');
+    expect(placed!.object.levels[0].object.position.toArray()).toEqual([-.1, -1.8, .2]);
+    placed!.dispose();
+  });
   it('loads the correct registry category and animates independently through actual LODs', async () => {
     const assets = loader();
     const actor = await loadBuilderAsset({ assetKey: 'npc_frontier_civilian', assetCategory: 'characterProfiles', defaultAnimation: 'idle' },assets);

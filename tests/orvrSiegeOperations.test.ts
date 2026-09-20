@@ -18,7 +18,11 @@ describe('authoritative siege presentation state', () => {
     expect(command('a', { type: 'purchase', keepId: keep.id, equipment: kind }).ok).toBe(true);
     const machine = Object.values(zone.equipment)[0];
     expect(machine.lastOperation).toBeUndefined();
-    if (kind === 'ram') machine.position = { ...zone.config.keeps[1].outerGate };
+    if (kind === 'ram') {
+      const enemy = zone.config.keeps[1], dx = enemy.outerGate.x - enemy.position.x, dz = enemy.outerGate.z - enemy.position.z;
+      const length = Math.hypot(dx, dz);
+      machine.position = { ...enemy.outerGate, x: enemy.outerGate.x + dx / length * 8, z: enemy.outerGate.z + dz / length * 8 };
+    }
     player.position = { ...(machine.operatorPosition ?? machine.position) };
     expect(command('a', { type: 'board', equipmentId: machine.id }).ok).toBe(true);
     state.players.a2.position = { ...player.position };

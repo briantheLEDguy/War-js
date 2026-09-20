@@ -104,13 +104,15 @@ checks every perimeter, gangway, stair tread and preserved service approach.
 The navigation test executes the shared authority support/collision functions
 with a finite player footprint and both owner passage pairs through closed gates.
 
-After a named internal reviewer accepts the exact exports, `review/review.json`
-must bind the final build-report hash, contact-sheet hash and every review image.
-Then publication is local and scoped to this package:
+The original release used a named internal review. Current corner corrections use
+the user's standing approval (`--standing-approval`) after the same exact-export
+technical checks. `review/review.json` binds the instruction, final build report,
+contact sheet and every actual-import review image. Publication remains local and
+scoped to this package:
 
 ```powershell
 node authoring/blender/cinderfen-architecture/tools/validate_architecture.mjs --publish
-node authoring/blender/cinderfen-architecture/junction/tools/validate_architecture.mjs --publish
+node authoring/blender/cinderfen-architecture/junction/tools/validate_architecture.mjs --standing-approval --publish
 node authoring/blender/cinderfen-architecture/tools/merge_builder_metadata.mjs
 node authoring/blender/cinderfen-architecture/tools/test_published.mjs
 node authoring/blender/cinderfen-architecture/junction/tools/test_published.mjs
@@ -124,3 +126,19 @@ Re-run the metadata merge after republishing the main package: it deliberately
 owns seven entries, while the independent companion publishes the eighth. The
 campaign placement source remains `scripts/campaign/cinderfen-environment.mjs`;
 root integration activates it only after the complete package is accepted.
+
+The September 20 collision correction extends the corner gangway 1.414m toward
+the courtyard, moving its stair socket from `[-3.5, 6.3, -3.5]` to
+`[-4.5, 6.3, -4.5]`. Both wall sockets stay fixed. The old complete publication is
+retained under `junction/releases/pre-courtyard-clearance-5efebeab/`.
+`tools/audit_stair_fit.py` checks all placed stair triangles against published
+curtain/gatehouse triangles; it catches lower stringer intersections that the old
+centerline head-clearance audit missed.
+
+`tools/repair_stair_navigation.mjs` derives 147 elevated collision segments from
+the four unchanged sloped handrails and rear landing rail. It clips the authored
+pieces into short horizontal intervals, preserving the clear space below high
+rails. The correction updates runtime navigation and GM metadata together and
+runs after main-package metadata generation. The stair GLBs are unchanged.
+Run `npx vitest run tests/cinderfenStairCollision.test.ts` and the shared route
+audit (`tools/test_placement.mjs`) after changing these contracts.

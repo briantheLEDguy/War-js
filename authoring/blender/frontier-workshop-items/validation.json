@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2",
+  "validatorSha256": "257c78ed418f317af31ebf400406831092dbb96bbaaadfffc8efe149e20b3135",
+  "technicalReady": true,
+  "geometryOnly": false,
+  "issues": [],
+  "assets": [
+    {
+      "asset": "frontier_siege_repair_bench",
+      "buildSha256": "59b09d863b180e64db29b684ec4da01a0547928c1635956da1f58d40bfbd664f",
+      "lods": [
+        {
+          "model": "frontier_siege_repair_bench_lod0.glb",
+          "sha256": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+          "triangles": 22720
+        },
+        {
+          "model": "frontier_siege_repair_bench_lod1.glb",
+          "sha256": "6c89dd33c9cdeae6089f941927f383173b54ad44d08715f83e83cd3c120d3093",
+          "triangles": 12126
+        },
+        {
+          "model": "frontier_siege_repair_bench_lod2.glb",
+          "sha256": "2124f1fc99d2dd4835d2d6dc49ceb50724b3e357e8dc28fc6c4ec06edf05f395",
+          "triangles": 3904
+        }
+      ]
+    },
+    {
+      "asset": "frontier_siege_ammunition_cradle",
+      "buildSha256": "fde1d22920e2823053854fcca4007c4ec7e9150fd470db192e7e272c9c48f491",
+      "lods": [
+        {
+          "model": "frontier_siege_ammunition_cradle_lod0.glb",
+          "sha256": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+          "triangles": 31746
+        },
+        {
+          "model": "frontier_siege_ammunition_cradle_lod1.glb",
+          "sha256": "49631ebc93de0d57a531405acaa880b952e60cbae20ad6249d480afd2ca0fb01",
+          "triangles": 12954
+        },
+        {
+          "model": "frontier_siege_ammunition_cradle_lod2.glb",
+          "sha256": "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578",
+          "triangles": 3070
+        }
+      ]
+    }
+  ]
+}

@@ -21,6 +21,11 @@ describe('GM scenery catalog coverage', () => {
       if (asset.runtimeReady) expect(WORLD_EDITOR_PREFABS.some(p =>
         p.assetKey === key && p.assetCategory === 'characterProfiles' && p.defaultAnimation === 'idle'), key).toBe(true);
     }
+    for (const [key, record] of Object.entries(registry.equipment) as Array<[string, any]>) {
+      const asset = record.variants?.m ?? record.variants?.f ?? record;
+      if (asset.runtimeReady) expect(WORLD_EDITOR_PREFABS.some(p =>
+        p.assetKey === key && p.assetCategory === 'equipment' && p.model === asset.model), key).toBe(true);
+    }
     for (const file of fs.readdirSync('public/assets/maps').filter(f => f.endsWith('.json'))) {
       const map = JSON.parse(fs.readFileSync(`public/assets/maps/${file}`, 'utf8'));
       for (const prop of map.props ?? []) {

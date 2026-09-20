@@ -80,7 +80,20 @@ export function composeOrvrRoads(zone) {
   for (const keep of layout.keeps) {
     const sign = keep.x < 0 ? -1 : 1;
     road(`${keep.realm}_keep_road`, 12, [[0,0],[sign*75,-8],[sign*150,-38-bend],[sign*225,-70],[sign*290,-82],[keep.deliveryPoint.x,keep.deliveryPoint.z]]);
-    road(`${keep.realm}_keep_approach`, 5, [[keep.deliveryPoint.x,keep.deliveryPoint.z],[keep.x,-48],[keep.x,0]]);
+    const innerGate = keep.gates.find(gate => gate.stage === 'inner');
+    const innerDoor = (zone.props ?? []).find(prop => prop.id === innerGate?.propId);
+    // Cinderfen replaces its initial legacy props later in generation with authored 6m gates;
+    // its surveyed terrain corridors must therefore keep the full 5m approach throughout.
+    const leaf = zone.id !== 'cinderfen_outskirts' && innerDoor?.kind === 'castle_door'
+      ? innerDoor.colliders?.find(box => box.blocksWhen === 'closed') : undefined;
+    // The footpath enters the fitted inner doorway; the 12m supply road ends at delivery.
+    // Leave room for the rendered ribbon's 0.6m feather on each side of the actual scaled leaf.
+    const innerWidth = leaf ? round(Math.min(5, leaf.width * (innerDoor.scale ?? 1) * (innerDoor.scaleX ?? 1) - 1.2)) : 5;
+    if (innerWidth < 5) {
+      const forecourt = point(keep.x, innerDoor.z - 6);
+      road(`${keep.realm}_keep_approach`, 5, [[keep.deliveryPoint.x,keep.deliveryPoint.z],[keep.x,-48],[forecourt.x,forecourt.z]]);
+      road(`${keep.realm}_keep_inner_approach`, innerWidth, [[forecourt.x,forecourt.z],[keep.x,0]]);
+    } else road(`${keep.realm}_keep_approach`, 5, [[keep.deliveryPoint.x,keep.deliveryPoint.z],[keep.x,-48],[keep.x,0]]);
     road(`${keep.realm}_support_link`, 8, [[keep.deliveryPoint.x,keep.deliveryPoint.z],[sign*375,-83],[sign*395,-92]]);
     road(`${keep.realm}_staging_road`, 7, [[sign*395,-92],[sign*432,-62],[sign*450,5],[sign*477,52],[sign*505,80]]);
   }

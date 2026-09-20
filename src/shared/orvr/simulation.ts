@@ -2,7 +2,7 @@ import { defaultZoneConfigs, opposite, ORVR_RULES as R, ORVR_TRACKS } from './co
 import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from './navigation';
 import { ORVR_PROTOCOL_VERSION } from './protocol';
 import { keepPosterns, nearbyKeepPostern, posternExitFor } from './postern';
-import { equipmentOperatorPosition } from './equipment';
+import { equipmentFacing, equipmentLocalPosition, equipmentOperatorPosition, equipmentOperatorSeat, equipmentOperatorSeats, RAM_OPERATOR_SEATS } from './equipment';
 import type {
   CampaignConfig, CampaignEvent, CampaignState, CaravanState, CommandResult,
   EquipmentKind, EquipmentState, GateKind, GateState, KeepState, NpcState,
@@ -168,12 +168,56 @@ export function createCampaign(config: CampaignConfig = {}): CampaignState {
   return state;
 }
 
-function unboard(state: CampaignState, player: PlayerState): void {
+/** Boarding and dismounting are short traversals, never teleports through a keep wall. */
+function equipmentPathClear(zone: ZoneState, from: Position, to: Position): boolean {
+  const steps = Math.max(1, Math.ceil(distance(from, to) / .2));
+  for (let step = 1; step <= steps; step++) {
+    const t = step / steps;
+    if (blocked(zone, { x: from.x + (to.x - from.x) * t, y: from.y + (to.y - from.y) * t, z: from.z + (to.z - from.z) * t })) return false;
+  }
+  return true;
+}
+
+function placeEquipmentOperator(equipment: EquipmentState, player: PlayerState): void {
+  player.position = { ...equipmentOperatorPosition(equipment, player.id) };
+  const seat = equipmentOperatorSeat(equipment, player.id);
+  if (seat !== undefined) {
+    const angle = equipmentFacing(equipment) + RAM_OPERATOR_SEATS[seat].facing;
+    player.facing = { x: Math.sin(angle), z: Math.cos(angle) };
+  }
+}
+
+function unboard(state: CampaignState, player: PlayerState, requireSafeExit = false): boolean {
   if (player.equipmentId) {
-    const equipment = state.zones[player.zoneId]?.equipment[player.equipmentId];
-    if (equipment) equipment.operators = equipment.operators.filter(id => id !== player.id);
+    const zone = state.zones[player.zoneId], equipment = zone?.equipment[player.equipmentId];
+    if (equipment) {
+      const seat = equipmentOperatorSeat(equipment, player.id);
+      if (seat !== undefined) {
+        const side = seat === 0 ? -1 : 1;
+        const candidates = [{ x: side * 2.3, y: 0, z: .185 }, { x: side * 2.3, y: 0, z: -2.3 },
+          { x: -side * 2.3, y: 0, z: .185 }, { x: 0, y: 0, z: -2.8 }, { x: 0, y: 0, z: 0 },
+          { ...RAM_OPERATOR_SEATS[seat].offset, y: 0 }];
+        let landed = false;
+        for (const offset of candidates) {
+          const position = equipmentLocalPosition(equipment, offset);
+          position.y = campaignGroundHeight(zone.config, position);
+          const bounds = zone.config.bounds;
+          if (position.x >= bounds.minX + .5 && position.x <= bounds.maxX - .5
+            && position.z >= bounds.minZ + .5 && position.z <= bounds.maxZ - .5 && equipmentPathClear(zone, player.position, position)) {
+            player.position = position; landed = true; break;
+          }
+        }
+        // A voluntary exit must have a real landing. Destruction/death still releases
+        // ownership, but never invents a position across an obstructed wall.
+        if (!landed && requireSafeExit) return false;
+      }
+      if (equipment.kind === 'ram') equipment.operatorSeats = equipmentOperatorSeats(equipment);
+      equipment.operators = equipment.operators.filter(id => id !== player.id);
+      if (equipment.operatorSeats) delete equipment.operatorSeats[player.id];
+    }
   }
   player.equipmentId = null;
+  return true;
 }
 
 function fillQueue(state: CampaignState, zone: ZoneState, events: CampaignEvent[]): void {
@@ -292,8 +336,9 @@ function validTarget(state: CampaignState, zone: ZoneState, player: PlayerState,
 
 function destroyEquipment(state: CampaignState, zone: ZoneState, equipment: EquipmentState, events: CampaignEvent[]): void {
   equipment.health = 0;
-  for (const id of equipment.operators) if (state.players[id]) state.players[id].equipmentId = null;
+  for (const id of [...equipment.operators]) if (state.players[id]) unboard(state, state.players[id]);
   equipment.operators = [];
+  delete equipment.operatorSeats;
   if (equipment.kind === 'ram') zone.ramAvailableAt[equipment.realm] = zone.seconds + R.ramReplacementSeconds;
   emit(state, events, 'equipment_destroyed', zone, { equipmentId: equipment.id });
 }
@@ -553,6 +598,7 @@ function purchase(state: CampaignState, zone: ZoneState, player: PlayerState, ke
   zone.equipment[id] = {
     id, kind, realm: player.realm, keepId, position: { ...position }, health: rule.health, maxHealth: rule.health,
     ...(operatorPosition ? { operatorPosition: { ...operatorPosition } } : {}),
+    ...(kind === 'ram' ? { facing: Math.atan2(config.outerGate.x - config.position.x, config.outerGate.z - config.position.z) } : {}),
     operators: [], nextOperationAt: 0, abandonedSeconds: 0,
   };
   keep.supplies -= rule.cost;
@@ -588,6 +634,10 @@ function operate(state: CampaignState, zone: ZoneState, player: PlayerState, equ
     equipment.nextOperationAt = zone.seconds + (equipment.kind === 'oil' ? 4 : 6);
   }
   equipment.lastOperation = { at: zone.seconds, target: targetPosition };
+  if (equipment.kind === 'ram' && Math.hypot(targetPosition.x - equipment.position.x, targetPosition.z - equipment.position.z) > EPSILON) {
+    equipment.facing = Math.atan2(targetPosition.x - equipment.position.x, targetPosition.z - equipment.position.z);
+    for (const id of equipment.operators) if (state.players[id]) placeEquipmentOperator(equipment, state.players[id]);
+  }
   emit(state, events, 'equipment_operated', zone, { equipmentId, targetId, kind: equipment.kind });
   return null;
 }
@@ -627,7 +677,7 @@ export function submitCommand(state: CampaignState, playerId: string, command: P
     return { ok: true, events };
   }
   if (action.type === 'leaveEquipment') {
-    unboard(state, player);
+    if (!unboard(state, player, true)) return fail('dismount_position_blocked');
     return { ok: true, events };
   }
   if (zone.status !== 'active') return fail('zone_not_active');
@@ -698,10 +748,18 @@ export function submitCommand(state: CampaignState, playerId: string, command: P
       if (equipment.operatorPosition && blocked(zone, operatorPosition)) return fail('operator_position_blocked');
       if (player.equipmentId === equipment.id) return fail('already_operator');
       if (equipment.operators.length >= (equipment.kind === 'ram' ? 2 : 1)) return fail('equipment_full');
-      unboard(state, player);
+      let ramSeats: EquipmentState['operatorSeats'];
+      if (equipment.kind === 'ram') {
+        ramSeats = equipmentOperatorSeats(equipment);
+        ramSeats[player.id] = Object.values(ramSeats).includes(0) ? 1 : 0;
+        const destination = equipmentOperatorPosition({ ...equipment, operatorSeats: ramSeats, operators: [...equipment.operators, player.id] }, player.id);
+        if (!equipmentPathClear(zone, player.position, destination)) return fail('operator_position_blocked');
+      }
+      if (!unboard(state, player, true)) return fail('dismount_position_blocked');
       equipment.operators.push(player.id);
+      if (ramSeats) equipment.operatorSeats = ramSeats;
       player.equipmentId = equipment.id;
-      player.position = { ...operatorPosition };
+      placeEquipmentOperator(equipment, player);
       player.repair = null;
       emit(state, events, 'equipment_boarded', zone, { playerId, equipmentId: equipment.id });
       break;
@@ -779,9 +837,11 @@ function tickPlayers(state: CampaignState, zone: ZoneState, dt: number, events: 
       const equipment = zone.equipment[player.equipmentId];
       if (equipment?.health > 0) {
         if (equipment.kind === 'ram' && equipment.operators[0] === player.id) {
-          equipment.position = moveBy(zone, equipment.position, player.direction.x * 2.5 * dt, player.direction.z * 2.5 * dt, 1.5);
+          const previous = equipment.position;
+          equipment.position = moveBy(zone, previous, player.direction.x * 2.5 * dt, player.direction.z * 2.5 * dt, 1.5);
+          if (distance(previous, equipment.position) > EPSILON) equipment.facing = Math.atan2(equipment.position.x - previous.x, equipment.position.z - previous.z);
         }
-        player.position = { ...equipmentOperatorPosition(equipment) };
+        placeEquipmentOperator(equipment, player);
       } else unboard(state, player);
     } else {
       const multiplier = movementMultiplier(player.statuses, zone.seconds);
@@ -931,11 +991,13 @@ function tickCaravans(state: CampaignState, zone: ZoneState, dt: number, events:
 function tickEquipment(state: CampaignState, zone: ZoneState, dt: number, events: CampaignEvent[]): void {
   for (const equipment of Object.values(zone.equipment)) {
     if (equipment.health <= 0) continue;
+    if (equipment.kind === 'ram') equipment.operatorSeats = equipmentOperatorSeats(equipment);
     equipment.operators = equipment.operators.filter(id => {
       const player = state.players[id];
       return player && live(player) && player.zoneId === zone.id && player.equipmentId === equipment.id;
     });
-    for (const id of equipment.operators) state.players[id].position = { ...equipmentOperatorPosition(equipment) };
+    if (equipment.kind === 'ram') equipment.operatorSeats = equipmentOperatorSeats(equipment);
+    for (const id of equipment.operators) placeEquipmentOperator(equipment, state.players[id]);
     if (equipment.kind !== 'ram') continue;
     equipment.abandonedSeconds = equipment.operators.length ? 0 : equipment.abandonedSeconds + dt;
     if (equipment.abandonedSeconds + EPSILON >= R.abandonmentSeconds) destroyEquipment(state, zone, equipment, events);
@@ -1144,7 +1206,7 @@ export function restoreCampaign(saved: unknown): CampaignState {
     validateZoneConfig(zone.config);
     if (zone.id !== zone.config.id || !finite(zone.seconds) || !zone.objectives || !zone.keeps || !zone.equipment || !zone.caravans) throw new Error('Invalid saved zone');
     zone.queue = [];
-    for (const equipment of Object.values(zone.equipment)) equipment.operators = [];
+    for (const equipment of Object.values(zone.equipment)) { equipment.operators = []; delete equipment.operatorSeats; }
   }
   for (const player of Object.values(state.players)) {
     if (!state.zones[player.zoneId] || !positionValid(player.position)) throw new Error('Invalid saved player');

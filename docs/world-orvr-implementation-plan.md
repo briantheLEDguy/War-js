@@ -11,6 +11,13 @@ items. Animals come last. The current buck shape is accepted for now, with furth
 anatomical refinement stopped. Paused wildlife drafts remain saved; this changes
 the execution order without removing the eventual zone ecosystem requirements.
 
+Work resumed September 20. The user grants standing approval for existing and
+forthcoming assets: integrate technically completed exports into the game and GM
+builder without another aesthetic approval round. Siege equipment and internal
+keep assets are universal across pairings; keep/town exteriors and nature remain
+thematic. Keep enclosure, gate, stair fit and railing collision are part of asset
+delivery. The production board records measured checks and remaining limitations.
+
 The repository now contains expanded outdoor layout sources, explicit art direction for all thirty noncapital zones, generated travel-safe maps, shared terrain controls, and a local authoritative server/client playtest. **A layout is not a completed environment.** Replacement terrain, settlement, vegetation, population, wildlife, and siege assets remain subject to the production and visual-review requirements below. Production multiplayer activation, hosted infrastructure, complete city navigation integration, and measured 18-versus-18 performance are not established by these source changes.
 
 | Milestone | Status and evidence |
@@ -21,7 +28,7 @@ The repository now contains expanded outdoor layout sources, explicit art direct
 | Shared terrain evaluation | Implemented; server/client grid-height agreement, route plateaus, and keep/staging grounding have focused tests |
 | Shared authoritative campaign playtest | Local server, protocol, simulation, persistence adapters, and client presentation are implemented; use the recorded test results and operational guide to determine which scenarios have actually been verified |
 | Sunmeadow/Cinderfen replacement art | Sunmeadow terrain, regional buildings and vegetation are integrated; see the [verification record](orvr-verification.md). Full populations, wildlife, logistics and Cinderfen remain in production |
-| Frontier siege collection | Authored deliverables remain staged until binary, material, topology, animation, and visual review are complete; presence in an authoring directory never approves runtime use |
+| Frontier siege collection | Wagon, ram, oil, catapult, gates, draft horse, fitted ram operator packs and shared workshop items are published; every keep has a repair bench and ammunition cradle with measured collision. Binary, material, topology, motion and runtime checks remain required for new delivery |
 | Production multiplayer | Pending identity/database setup, durable deployment, recovery/load verification, and production activation |
 | 1080p/60 FPS, 18 versus 18 | Target only; requires measurement on the stated reference hardware and representative completed assets |
 
@@ -35,7 +42,8 @@ The road network follows a shared winding objective road and two keep branches.
 Caravan itineraries reuse those exact alignments instead of creating six separate
 overlapping roads. Measured deliveries range from approximately 364 to 647 metres;
 validation allows 350–750 metres for natural alignment. Five-metre keep approaches
-fit their passages, seven-to-eight-metre support roads serve camps and villages,
+reach the forecourts; generic inner-door footpaths narrow to the measured leaf
+width, including road-edge clearance. Seven-to-eight-metre support roads serve camps and villages,
 and narrower optional trails provide farm and lair access. Full lane widths,
 connected junctions and portal approaches have geometry and collision tests.
 

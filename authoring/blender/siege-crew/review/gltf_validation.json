@@ -1,0 +1,60 @@
+{
+  "validator": "2.0.0-dev.3.10",
+  "errors": 0,
+  "warnings": 0,
+  "assets": [
+    {
+      "path": "runtime\\frontier_ram_crew_left_animations.glb",
+      "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+      "bytes": 185276,
+      "animations": [
+        "ram_crew_idle",
+        "ram_crew_drive",
+        "ram_crew_strike"
+      ],
+      "nodes": 57,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/skins/0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "path": "runtime\\frontier_ram_crew_right_animations.glb",
+      "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+      "bytes": 185144,
+      "animations": [
+        "ram_crew_idle",
+        "ram_crew_drive",
+        "ram_crew_strike"
+      ],
+      "nodes": 57,
+      "issues": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNUSED_OBJECT",
+            "message": "This object may be unused.",
+            "severity": 2,
+            "pointer": "/skins/0"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  ],
+  "status": "passed"
+}

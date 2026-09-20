@@ -1,0 +1,85 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "asset": "frontier_sunmeadow_brown_hare",
+    "files": {
+      "authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_brown_hare_build.json": {
+        "sha256": "8da03efab7b285a376785658fb264a2c4dfa771c5b83487c9af1812e160f936c",
+        "bytes": 25650
+      },
+      "authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_brown_hare.blend": {
+        "sha256": "c63bf643867be1dd1144c9606d89612b44b082153eb93d9fa973449ae81dab65",
+        "bytes": 9159745
+      },
+      "authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_brown_hare_lod0.glb": {
+        "sha256": "1cc9027e678616059b6117c02919b6f14c25874628170141df6498c0c5ac085d",
+        "bytes": 5855620
+      },
+      "authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_brown_hare_lod1.glb": {
+        "sha256": "07199e6a5aa22b239bd14b52cdcd17f122d9c5d868e00b32a730700044dfa7e4",
+        "bytes": 3723248
+      },
+      "authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_brown_hare_lod2.glb": {
+        "sha256": "ad6af4c85ccd21d18785b122d7c5a461e9b966d3d10a5637d1f49a26fccdfff8",
+        "bytes": 3018912
+      },
+      "authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_brown_hare_lod0_reimport.png": {
+        "sha256": "5398c18f542a0e4093451c41eb7e54f4d1c2300e22500e3b02de159700ec7b66",
+        "bytes": 1387211
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+        "bytes": 677
+      }
+    },
+    "diagnostics": [
+      {
+        "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+        "errors": 0,
+        "warnings": 1,
+        "messages": [
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/34"
+          }
+        ]
+      },
+      {
+        "model": "frontier_sunmeadow_brown_hare_lod1.glb",
+        "errors": 0,
+        "warnings": 1,
+        "messages": [
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/34"
+          }
+        ]
+      },
+      {
+        "model": "frontier_sunmeadow_brown_hare_lod2.glb",
+        "errors": 0,
+        "warnings": 1,
+        "messages": [
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/34"
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "Rest-pose scenery; locomotion/combat behavior is unfinished."
+    ]
+  }
+}

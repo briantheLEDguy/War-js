@@ -16,23 +16,28 @@ p { line-height:1.5; color:#c8cece; }
 <canvas></canvas>
 <nav>
   <h1>Siege mechanisms</h1>
-  <label>Engine <select id="kind"><option value="catapult">Field catapult</option><option value="ram">Battering ram</option><option value="oil">Oil cauldron</option></select></label>
+  <label>Engine <select id="kind"><option value="ram">Battering ram</option><option value="catapult">Field catapult</option><option value="oil">Oil cauldron</option></select></label>
   <label>Detail <select id="lod"><option value="0">Close</option><option value="1">Middle</option><option value="2">Distant</option></select></label>
-  <label><input type="checkbox" id="rolling"> Roll carriage</label>
-  <button id="operate" disabled>Operate</button><button id="pause">Pause</button><button id="frame">Frame</button>
+  <label><input type="checkbox" id="rolling"> Drive / roll carriage</label>
+  <button id="left">Turn left</button><button id="right">Turn right</button>
+  <button id="driver">Dismount left</button><button id="crew">Dismount right</button>
+  <button id="operate" disabled>Operate</button><button id="pause">Pause</button><button id="frame">Frame</button><button id="reset">Reset</button>
   <label>Pose time <input type="range" id="phase" min="0" max="6" step="0.025" value="0"></label>
   <output id="status">Loading approved runtime model…</output>
-  <p>Operations use the shared authority. The slider freezes playback for close inspection. This page keeps its test campaign in memory.</p>
+  <p>The two ram operators use the game’s Battle Prelate bodies, equipment and fitted crew animations. Boarding, driving, turning and strikes use the shared authority. The slider freezes playback for inspection. This campaign stays in memory.</p>
 </nav>
 <script type="module">
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { AssetLoader } from '/src/game/AssetLoader.ts';
-import { assembleCampaignSiege, SIEGE_ASSET_KEYS } from '/src/game/network/CampaignSiegePresentation.ts';
+import { assembleCampaignSiege, campaignSiegeFacing, SIEGE_ASSET_KEYS } from '/src/game/network/CampaignSiegePresentation.ts';
+import { assembleCampaignSiegeCrew } from '/src/game/network/CampaignSiegeCrewPresentation.ts';
+import { assembleCampaignEquipment, campaignAnimationClips, resolveCampaignEquipment } from '/src/game/network/CampaignCharacterPresentation.ts';
 import { releaseCampaignActor } from '/src/game/network/SharedCampaignRenderer.ts';
-import { createCampaign, addPlayer, submitCommand } from '/src/shared/orvr/index.ts';
+import { equipmentOperatorSeat, RAM_OPERATOR_SEATS } from '/src/shared/orvr/index.ts';
+import { createSiegeReviewAuthority } from './siege-review-authority.ts';
 
-const controlsById = Object.fromEntries(['kind','lod','rolling','operate','pause','frame','phase','status'].map(id => [id,document.getElementById(id)]));
+const controlsById = Object.fromEntries(['kind','lod','rolling','operate','pause','frame','phase','status','driver','crew','left','right','reset'].map(id => [id,document.getElementById(id)]));
 const renderer = new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.toneMapping=THREE.ACESFilmicToneMapping;
 const scene = new THREE.Scene(); scene.background=new THREE.Color('#aab3bb');
@@ -43,33 +48,18 @@ const generator=new THREE.PMREMGenerator(renderer), environment=generator.fromSc
 scene.environment=environment.texture; generator.dispose();
 const camera=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.05,200);
 const controls=new OrbitControls(camera,renderer.domElement), loader=new AssetLoader();
-let current, state, zone, machine, targetId, kind, generation=0, alive=true, paused=false, distance=0, prior=0, notice='';
+let current, authority, kind, generation=0, alive=true, paused=false, distance=0, speed=0, prior=0, notice='', driveHeading=0;
 
-function command(id,action) {
-  return submitCommand(state,id,{version:1,sequence:state.players[id].lastSequence+1,activationId:zone.activationId,action});
-}
 function resetAuthority() {
-  kind=controlsById.kind.value; state=createCampaign();
-  for (const [id,realm] of [['driver','aegis'],['crew','aegis'],['target','riftbound']]) {
-    addPlayer(state,{id,userId:id,characterId:id,realm,zoneId:'sunmeadow_march'});
-  }
-  zone=state.zones.sunmeadow_march; zone.seconds=10;
-  const keep=zone.config.keeps[0]; zone.keeps[keep.id].level=3; zone.keeps[keep.id].supplies=1000;
-  state.players.driver.position={...keep.quartermaster};
-  command('driver',{type:'purchase',keepId:keep.id,equipment:kind});
-  machine=Object.values(zone.equipment)[0];
-  if(kind==='ram')machine.position={...zone.config.keeps[1].outerGate};
-  for(const id of ['driver','crew']) {
-    state.players[id].position={...(machine.operatorPosition??machine.position)};
-    if(id==='driver'||kind==='ram')command(id,{type:'board',equipmentId:machine.id});
-  }
-  state.players.target.position={...machine.position,z:machine.position.z+5};
-  targetId=kind==='ram'?zone.keeps[zone.config.keeps[1].id].gates.outer.id:'target';
-  notice='Ready. No operation has been requested.'; distance=0;
+  kind=controlsById.kind.value; authority=createSiegeReviewAuthority(kind);
+  notice='Boarding accepted. Ready to operate.'; distance=0; speed=0;
+  driveHeading=authority.machine.facing??0; controlsById.rolling.checked=false;
+  paused=false; controlsById.pause.textContent='Pause';
+  for(const id of ['driver','crew','left','right'])controlsById[id].disabled=kind!=='ram';
 }
 function frame() {
   if(!current)return;
-  const box=new THREE.Box3().setFromObject(current.object),center=box.getCenter(new THREE.Vector3());
+  const box=new THREE.Box3().setFromObject(current.rig),center=box.getCenter(new THREE.Vector3());
   const radius=box.getSize(new THREE.Vector3()).length()/2; controls.target.copy(center);
   const reserved=Math.min(document.querySelector('nav').getBoundingClientRect().right+20,innerWidth*.45);
   const vertical=THREE.MathUtils.degToRad(camera.fov/2);
@@ -78,47 +68,108 @@ function frame() {
   camera.setViewOffset(innerWidth,innerHeight,-reserved/2,0,innerWidth,innerHeight);
   camera.position.copy(center).add(new THREE.Vector3(.95,.4,.8).normalize().multiplyScalar(distance)); controls.update();
 }
+function release(review) {
+  for(const avatar of review.avatars)avatar.crew.dispose();
+  releaseCampaignActor(review.rig,[review.visual.mixer,...review.avatars.map(avatar=>avatar.mixer)]);
+}
+function present(review,dt=0) {
+  const {machine,zone,state,origin}=authority;
+  review.object.position.set(machine.position.x-origin.x,machine.position.y-origin.y,machine.position.z-origin.z);
+  review.object.rotation.y=campaignSiegeFacing(machine,zone.config.keeps[0]);
+  review.visual.update(zone.seconds,machine.lastOperation,distance);
+  for(const avatar of review.avatars) {
+    const player=state.players[avatar.id],seat=equipmentOperatorSeat(machine,avatar.id);
+    avatar.object.position.set(player.position.x-origin.x,player.position.y-origin.y,player.position.z-origin.z);
+    avatar.object.rotation.y=seat===undefined?Math.atan2(player.facing.x,player.facing.z):campaignSiegeFacing(machine)+RAM_OPERATOR_SEATS[seat].facing;
+    avatar.crew.setSeat(seat);
+    if(seat===undefined){avatar.idle?.play();avatar.mixer.update(dt);}
+    else{avatar.mixer.stopAllAction();avatar.crew.update(zone.seconds,machine.lastOperation,distance,speed);}
+    controlsById[avatar.id].textContent=`${seat===undefined?'Board':'Dismount'} ${avatar.id==='driver'?'left':'right'}`;
+  }
+}
 async function build() {
   const token=++generation; controlsById.operate.disabled=true; controlsById.status.textContent='Loading verified model…';
-  const key=SIEGE_ASSET_KEYS[kind], level=Number(controlsById.lod.value);
+  const key=SIEGE_ASSET_KEYS[kind], level=Number(controlsById.lod.value), buildKind=kind;
+  const live=()=>alive&&token===generation;
   const models=await loader.resolveApprovedAssetModels(key,'staticProps');
   if(!models.length)throw new Error('Approved mechanism unavailable');
   const loaded=await loader.loadModelFull(models[Math.min(level,models.length-1)],()=>new THREE.Group());
-  if(!alive||token!==generation){releaseCampaignActor(loaded.object);return;}
-  if(current)releaseCampaignActor(current.object,[current.visual.mixer]);
-  current={object:loaded.object,level,kind,visual:assembleCampaignSiege(loaded.object,loaded.animations,kind)};
-  scene.add(current.object); current.visual.update(zone.seconds,machine.lastOperation,distance);
-  controlsById.operate.disabled=false; frame();
+  if(!live()){releaseCampaignActor(loaded.object);return;}
+  const review={rig:new THREE.Group(),object:loaded.object,level,kind:buildKind,avatars:[],visual:assembleCampaignSiege(loaded.object,loaded.animations,buildKind)};
+  review.rig.add(review.object);
+  try {
+    if(buildKind==='ram') {
+      const profile='civic_battle_prelate_m',asset=await loader.resolveCharacterAsset(profile);
+      if(!asset)throw Error('Approved crew body unavailable');
+      const bodyModels=await loader.resolveApprovedAssetModels(profile,'characterProfiles');
+      const equipment=await resolveCampaignEquipment(loader,profile,asset);
+      for(const id of ['driver','crew']) {
+        if(!live()){release(review);return;}
+        const body=await loader.loadModelFull(bodyModels[Math.min(level,bodyModels.length-1)],()=>new THREE.Group());
+        review.rig.add(body.object);
+        await assembleCampaignEquipment(body.object,equipment,level,loader,load=>load(),live);
+        const clips=campaignAnimationClips(body.animations,await loader.loadCharacterAnimations(asset,body.object));
+        const mixer=new THREE.AnimationMixer(body.object),idle=clips.find(clip=>/^idle$/i.test(clip.name));
+        const crew=await assembleCampaignSiegeCrew(body.object,asset,loader,load=>load(),live);
+        if(!crew){mixer.uncacheRoot(body.object);throw Error('Approved crew animation packs unavailable');}
+        review.avatars.push({id,object:body.object,mixer,idle:idle&&mixer.clipAction(idle),crew});
+      }
+    }
+    if(!live()){release(review);return;}
+    if(current)release(current);
+    current=review;scene.add(current.rig);present(current);
+    controlsById.operate.disabled=false;frame();
+  } catch(error) {release(review);if(live())throw error;}
 }
 function operate() {
-  state.players.target.health=state.players.target.maxHealth;
-  zone.keeps[zone.config.keeps[1].id].gates.outer.health=1000;
-  const result=command('driver',{type:'operate',equipmentId:machine.id,targetId});
+  const result=authority.operate();
   notice=result.ok?'Authority accepted operation.':`Authority rejected: ${result.code}`;
+  if(result.ok)driveHeading=authority.machine.facing??driveHeading;
   return result.ok;
 }
 const failed=error=>{controlsById.status.textContent=error.message;};
 controlsById.operate.onclick=()=>{if(operate()){paused=false;controlsById.pause.textContent='Pause';}};
 controlsById.pause.onclick=()=>{paused=!paused;controlsById.pause.textContent=paused?'Play':'Pause';};
 controlsById.phase.oninput=()=>{
+  const {machine,zone}=authority;
   if(!machine.lastOperation&&!operate())return;
   paused=true;controlsById.pause.textContent='Play';zone.seconds=machine.lastOperation.at+Number(controlsById.phase.value);
 };
+for(const id of ['driver','crew'])controlsById[id].onclick=()=>{
+  const action=authority.state.players[id].equipmentId?{type:'leaveEquipment'}:{type:'board',equipmentId:authority.machine.id};
+  const result=authority.command(id,action);notice=result.ok?`Authority accepted ${action.type}.`:`Authority rejected: ${result.code}`;
+};
+for(const [id,angle] of [['left',Math.PI/2],['right',-Math.PI/2]])controlsById[id].onclick=()=>{
+  driveHeading+=angle;
+  const previous={...authority.machine.position};
+  authority.advance(.08,{x:Math.sin(driveHeading),z:Math.cos(driveHeading)});
+  const travelled=Math.hypot(previous.x-authority.machine.position.x,previous.z-authority.machine.position.z);
+  distance+=travelled;speed=travelled/.08;
+  notice='Turn requested through the ram driver.';
+};
 controlsById.kind.onchange=()=>{resetAuthority();build().catch(failed);};
+controlsById.reset.onclick=()=>{resetAuthority();build().catch(failed);};
 controlsById.lod.onchange=()=>build().catch(failed);controlsById.frame.onclick=frame;
 const resize=()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();frame();};
 addEventListener('resize',resize);resize();resetAuthority();build().catch(failed);
 renderer.setAnimationLoop(now=>{
   const dt=prior?Math.min((now-prior)/1000,.08):0;prior=now;
-  if(!paused){zone.seconds+=dt;if(controlsById.rolling.checked&&kind!=='oil')distance+=dt*2;}
-  if(current){
-    current.visual.update(zone.seconds,machine.lastOperation,distance);
+  const {machine,zone}=authority,previous={...machine.position};
+  if(!paused){
+    const driving=controlsById.rolling.checked&&kind==='ram';
+    authority.advance(dt,driving?{x:Math.sin(driveHeading),z:Math.cos(driveHeading)}:{x:0,z:0});
+    const travelled=Math.hypot(previous.x-machine.position.x,previous.z-machine.position.z);
+    speed=dt>0?travelled/dt:0;distance+=travelled;
+    if(controlsById.rolling.checked&&kind==='catapult')distance+=dt*2;
+  }
+  if(current&&current.kind===kind){
+    present(current,paused?0:dt);
     const age=machine.lastOperation?Math.max(0,zone.seconds-machine.lastOperation.at):0;
     if(!paused)controlsById.phase.value=String(Math.min(6,age));
-    if(!controlsById.operate.disabled)controlsById.status.textContent=`${SIEGE_ASSET_KEYS[current.kind]} · LOD ${current.level}\n${notice}\nAction time: ${age.toFixed(2)} s\n${paused?'Paused for inspection':'Live AnimationMixer playback'}`;
+    if(!controlsById.operate.disabled)controlsById.status.textContent=`${SIEGE_ASSET_KEYS[current.kind]} · LOD ${current.level}\n${notice}\nOperators: ${machine.operators.length} · speed ${speed.toFixed(2)} m/s\nAction time: ${age.toFixed(2)} s\n${paused?'Paused for inspection':'Live AnimationMixer playback'}`;
   }
   controls.update();renderer.render(scene,camera);
 });
-addEventListener('pagehide',()=>{alive=false;generation++;renderer.setAnimationLoop(null);if(current)releaseCampaignActor(current.object,[current.visual.mixer]);loader.dispose();controls.dispose();environment.dispose();renderer.dispose();},{once:true});
+addEventListener('pagehide',()=>{alive=false;generation++;renderer.setAnimationLoop(null);if(current)release(current);loader.dispose();controls.dispose();environment.dispose();renderer.dispose();},{once:true});
 </script>
 </html>

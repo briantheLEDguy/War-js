@@ -1,10 +1,10 @@
 {
   "qcPassed": true,
   "assetId": "prop.frontier.cinderfen_corner_access",
-  "modelSha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
+  "modelSha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261",
   "validationErrors": 0,
-  "reviewHash": "99550caf167ada6c55d88d57139f9e6b611efd54eb700bad8af8efaf4eb2a469",
-  "totalTris": 29762,
+  "reviewHash": "b9f2cd9495c9d85d93c4a06d142dbeb8ed5756604a945f3c7d9068f0a2d914c4",
+  "totalTris": 30052,
   "meshCount": 9,
   "nonManifoldEdges": 0,
   "missingRequiredClips": [],
@@ -21,8 +21,8 @@
       "name": "LOD0",
       "level": 0,
       "model": "frontier_cinderfen_corner_access_lod0.glb",
-      "triangles": 59188,
-      "sha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+      "triangles": 60528,
+      "sha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
       "externalTextures": [
         {
           "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
@@ -122,8 +122,8 @@
       "name": "LOD1",
       "level": 1,
       "model": "frontier_cinderfen_corner_access_lod1.glb",
-      "triangles": 29762,
-      "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
+      "triangles": 30052,
+      "sha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261",
       "externalTextures": [
         {
           "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
@@ -223,8 +223,8 @@
       "name": "LOD2",
       "level": 2,
       "model": "frontier_cinderfen_corner_access_lod2.glb",
-      "triangles": 8028,
-      "sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925",
+      "triangles": 8168,
+      "sha256": "43e1611667632e6d581443b0bec6a08868b93c208f1e9fa95065e8144ec28e64",
       "externalTextures": [
         {
           "uri": "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png",
@@ -293,30 +293,30 @@
     {
       "level": 0,
       "model": "frontier_cinderfen_corner_access_lod0.glb",
-      "sha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
-      "bytes": 3059740,
-      "triangles": 59188,
-      "vertices": 30622,
+      "sha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
+      "bytes": 3126628,
+      "triangles": 60528,
+      "vertices": 31302,
       "materials": 9,
       "bounds_z_up": {
         "minimum": [
-          -4.400516510009766,
+          -5.399123668670654,
           -2.63700008392334,
           -0.003463203553110361
         ],
         "maximum": [
           2.63700008392334,
-          4.400516510009766,
+          5.399123668670654,
           8.217168807983398
         ]
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
-        "input_glb_sha256": "5fe763d307735b3b98b679cae3746666d8e73d5ec6c791cbc16763d91b6c72e7",
-        "output_glb_sha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
-        "embedded_bytes": 11745112,
-        "externalized_bytes": 3059740
+        "tool_sha256": "2b463f1cc773cf1120ee7c130f85f06dd6ad15916dbc7b72cd36aa0feea6686c",
+        "input_glb_sha256": "183e62f2446f58b6190f80caf3b7a30860d16074c462f523906960209f76a6f0",
+        "output_glb_sha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
+        "embedded_bytes": 11812000,
+        "externalized_bytes": 3126628
       },
       "external_textures": {
         "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223",
@@ -441,12 +441,12 @@
       ],
       "topology": {
         "model": "frontier_cinderfen_corner_access_lod0.glb",
-        "sha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+        "sha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
         "boundary_edges_after_positional_weld": 0,
         "multi_face_edges_after_positional_weld": 0,
         "coincident_join_segments": [],
         "weld_tolerance_m": 0.000001,
-        "audit_tool_sha256": "fbefe3a12043b7ffe19a4a2fadc9f93b4c40fa7c2a7ec2f1e74e23d2eed83f7f",
+        "audit_tool_sha256": "a9526d4679bd41d43b43e4675288e3deeb6d0135e7d15f44d43afd28cd6e2add",
         "walkable_surfaces": [
           {
             "surface": "corner_main",
@@ -876,19 +876,8 @@
             "surface": "courtyard_stair_landing",
             "samples": [
               {
-                "x": -3.5394743896968364,
-                "z": -2.5749807401583857,
-                "expected_height": 6.3,
-                "height": 6.299999713897705,
-                "error": -2.861022947442393e-7,
-                "foot_contact_offset": [
-                  -0.035,
-                  0
-                ]
-              },
-              {
-                "x": -3.066383220872293,
-                "z": -2.1018895713338424,
+                "x": -4.309474389696836,
+                "z": -3.3449807401583858,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -898,8 +887,8 @@
                 ]
               },
               {
-                "x": -2.435594995772902,
-                "z": -1.4711013462344513,
+                "x": -3.5963832208722932,
+                "z": -2.6318895713338426,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -909,19 +898,8 @@
                 ]
               },
               {
-                "x": -3.1661220092303393,
-                "z": -2.948333120624883,
-                "expected_height": 6.3,
-                "height": 6.299999713897705,
-                "error": -2.861022947442393e-7,
-                "foot_contact_offset": [
-                  -0.035,
-                  0
-                ]
-              },
-              {
-                "x": -2.693030840405796,
-                "z": -2.4752419518003395,
+                "x": -2.645594995772902,
+                "z": -1.6811013462344513,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -931,8 +909,8 @@
                 ]
               },
               {
-                "x": -2.062242615306405,
-                "z": -1.8444537267009484,
+                "x": -3.9361220092303393,
+                "z": -3.718333120624883,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -942,8 +920,8 @@
                 ]
               },
               {
-                "x": -2.730544232019426,
-                "z": -3.383910897835796,
+                "x": -3.223030840405796,
+                "z": -3.0052419518003397,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -953,8 +931,8 @@
                 ]
               },
               {
-                "x": -2.2574530631948826,
-                "z": -2.9108197290112527,
+                "x": -2.272242615306405,
+                "z": -2.0544537267009484,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -964,8 +942,30 @@
                 ]
               },
               {
-                "x": -1.6266648380954916,
-                "z": -2.2800315039118617,
+                "x": -3.500544232019426,
+                "z": -4.153910897835797,
+                "expected_height": 6.3,
+                "height": 6.299999713897705,
+                "error": -2.861022947442393e-7,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -2.787453063194883,
+                "z": -3.440819729011253,
+                "expected_height": 6.3,
+                "height": 6.299999713897705,
+                "error": -2.861022947442393e-7,
+                "foot_contact_offset": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "x": -1.8366648380954915,
+                "z": -2.4900315039118617,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -981,40 +981,40 @@
         ]
       },
       "reviewImages": {
-        "frontier_cinderfen_corner_access_lod0_reimport.png": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27",
-        "corner_stair_assembly.png": "83b30f228c51c0cda10a083c2ef019e463ede616c9aa3015c68c03063f1d443d",
-        "frontier_cinderfen_corner_access_lod0_gameplay.png": "8e06e458f6cfb5f34b535b59d14a288a6de4d9b131ed516a85278b204a634b5e"
+        "frontier_cinderfen_corner_access_lod0_reimport.png": "5f0f6eee1d219e8c34913c7cf87c34ed267e54f9cccf15986f7522f589f5be58",
+        "corner_stair_assembly.png": "6c343848fc7a2676bd9a49331fe2e1df1b7dd0387bc9f0bcbeb2b1bb26bcc98b",
+        "frontier_cinderfen_corner_access_lod0_gameplay.png": "c163bfbbe4c4d3916f5b235adf3a9e9d8f4e869dd679fd47afece336cfeadf5f"
       },
       "preview": "frontier_cinderfen_corner_access_lod0_reimport.png",
-      "preview_sha256": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27"
+      "preview_sha256": "5f0f6eee1d219e8c34913c7cf87c34ed267e54f9cccf15986f7522f589f5be58"
     },
     {
       "level": 1,
       "model": "frontier_cinderfen_corner_access_lod1.glb",
-      "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
-      "bytes": 2106420,
-      "triangles": 29762,
-      "vertices": 15909,
+      "sha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261",
+      "bytes": 2119684,
+      "triangles": 30052,
+      "vertices": 16064,
       "materials": 9,
       "bounds_z_up": {
         "minimum": [
-          -4.398430347442627,
+          -5.398275375366211,
           -2.63433575630188,
           -0.002597402548417449
         ],
         "maximum": [
           2.63433575630188,
-          4.398430347442627,
+          5.398275375366211,
           8.214089393615723
         ]
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
-        "input_glb_sha256": "43f7164cbb3af6cad6f0acaa1cadb4d09ae6469b7a379bf6934f670c45264717",
-        "output_glb_sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
-        "embedded_bytes": 10791788,
-        "externalized_bytes": 2106420
+        "tool_sha256": "2b463f1cc773cf1120ee7c130f85f06dd6ad15916dbc7b72cd36aa0feea6686c",
+        "input_glb_sha256": "79ce19668d41efd1daf1ac2e7694ab067a9e3a0ec09a3325774ca901d3a07ba2",
+        "output_glb_sha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261",
+        "embedded_bytes": 10805052,
+        "externalized_bytes": 2119684
       },
       "external_textures": {
         "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223",
@@ -1139,12 +1139,12 @@
       ],
       "topology": {
         "model": "frontier_cinderfen_corner_access_lod1.glb",
-        "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f",
+        "sha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261",
         "boundary_edges_after_positional_weld": 0,
         "multi_face_edges_after_positional_weld": 0,
         "coincident_join_segments": [],
         "weld_tolerance_m": 0.000001,
-        "audit_tool_sha256": "fbefe3a12043b7ffe19a4a2fadc9f93b4c40fa7c2a7ec2f1e74e23d2eed83f7f",
+        "audit_tool_sha256": "a9526d4679bd41d43b43e4675288e3deeb6d0135e7d15f44d43afd28cd6e2add",
         "walkable_surfaces": [
           {
             "surface": "corner_main",
@@ -1574,52 +1574,41 @@
             "surface": "courtyard_stair_landing",
             "samples": [
               {
-                "x": -3.5394743896968364,
-                "z": -2.5749807401583857,
+                "x": -4.309474389696836,
+                "z": -3.3449807401583858,
                 "expected_height": 6.3,
-                "height": 6.298988342285156,
-                "error": -0.0010116577148435724,
-                "foot_contact_offset": [
-                  0,
-                  0.035
-                ]
-              },
-              {
-                "x": -3.066383220872293,
-                "z": -2.1018895713338424,
-                "expected_height": 6.3,
-                "height": 6.29897928237915,
-                "error": -0.0010207176208494317,
+                "height": 6.298994064331055,
+                "error": -0.0010059356689451349,
                 "foot_contact_offset": [
                   -0.035,
                   0
                 ]
               },
               {
-                "x": -2.435594995772902,
-                "z": -1.4711013462344513,
+                "x": -3.5963832208722932,
+                "z": -2.6318895713338426,
                 "expected_height": 6.3,
-                "height": 6.2989501953125,
-                "error": -0.0010498046874998224,
-                "foot_contact_offset": [
-                  0,
-                  0.035
-                ]
-              },
-              {
-                "x": -3.1661220092303393,
-                "z": -2.948333120624883,
-                "expected_height": 6.3,
-                "height": 6.298130989074707,
-                "error": -0.0018690109252927911,
+                "height": 6.298840522766113,
+                "error": -0.0011594772338865411,
                 "foot_contact_offset": [
                   -0.035,
                   0
                 ]
               },
               {
-                "x": -2.693030840405796,
-                "z": -2.4752419518003395,
+                "x": -2.645594995772902,
+                "z": -1.6811013462344513,
+                "expected_height": 6.3,
+                "height": 6.29896879196167,
+                "error": -0.0010312080383299005,
+                "foot_contact_offset": [
+                  0,
+                  0.035
+                ]
+              },
+              {
+                "x": -3.9361220092303393,
+                "z": -3.718333120624883,
                 "expected_height": 6.3,
                 "height": 6.298130989074707,
                 "error": -0.0018690109252927911,
@@ -1629,8 +1618,8 @@
                 ]
               },
               {
-                "x": -2.062242615306405,
-                "z": -1.8444537267009484,
+                "x": -3.223030840405796,
+                "z": -3.0052419518003397,
                 "expected_height": 6.3,
                 "height": 6.298130989074707,
                 "error": -0.0018690109252927911,
@@ -1640,33 +1629,44 @@
                 ]
               },
               {
-                "x": -2.730544232019426,
-                "z": -3.383910897835796,
+                "x": -2.272242615306405,
+                "z": -2.0544537267009484,
                 "expected_height": 6.3,
-                "height": 6.298469543457031,
-                "error": -0.0015304565429685724,
+                "height": 6.298130989074707,
+                "error": -0.0018690109252927911,
                 "foot_contact_offset": [
                   0,
-                  -0.035
+                  0
                 ]
               },
               {
-                "x": -2.2574530631948826,
-                "z": -2.9108197290112527,
+                "x": -3.500544232019426,
+                "z": -4.153910897835797,
                 "expected_height": 6.3,
-                "height": 6.298430442810059,
-                "error": -0.0015695571899412286,
+                "height": 6.298425197601318,
+                "error": -0.001574802398681463,
                 "foot_contact_offset": [
                   0.035,
                   0
                 ]
               },
               {
-                "x": -1.6266648380954916,
-                "z": -2.2800315039118617,
+                "x": -2.787453063194883,
+                "z": -3.440819729011253,
                 "expected_height": 6.3,
-                "height": 6.2984161376953125,
-                "error": -0.0015838623046873224,
+                "height": 6.298487663269043,
+                "error": -0.0015123367309568536,
+                "foot_contact_offset": [
+                  0.035,
+                  0
+                ]
+              },
+              {
+                "x": -1.8366648380954915,
+                "z": -2.4900315039118617,
+                "expected_height": 6.3,
+                "height": 6.298408508300781,
+                "error": -0.0015914916992185724,
                 "foot_contact_offset": [
                   0.035,
                   0
@@ -1679,39 +1679,39 @@
         ]
       },
       "reviewImages": {
-        "frontier_cinderfen_corner_access_lod1_reimport.png": "6ea88eb6d6124a4b056c568114d5101a57101620cf42db14db509ae569be68cf",
-        "frontier_cinderfen_corner_access_lod1_gameplay.png": "c2e448267d60105c24e91d1f238a8e0a3d8ff864639f1287eb066e2e5997e3f1"
+        "frontier_cinderfen_corner_access_lod1_reimport.png": "f35dd35ce0b617fbdc0f0a941896cf6747ed4fd46751a337dbff323be09d3703",
+        "frontier_cinderfen_corner_access_lod1_gameplay.png": "4431e1b2e50b048166e70da5d16bffb5767b22c4f5ce9d51dfa21aea89a39a90"
       },
       "preview": "frontier_cinderfen_corner_access_lod1_reimport.png",
-      "preview_sha256": "6ea88eb6d6124a4b056c568114d5101a57101620cf42db14db509ae569be68cf"
+      "preview_sha256": "f35dd35ce0b617fbdc0f0a941896cf6747ed4fd46751a337dbff323be09d3703"
     },
     {
       "level": 2,
       "model": "frontier_cinderfen_corner_access_lod2.glb",
-      "sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925",
-      "bytes": 614492,
-      "triangles": 8028,
-      "vertices": 4558,
+      "sha256": "43e1611667632e6d581443b0bec6a08868b93c208f1e9fa95065e8144ec28e64",
+      "bytes": 624360,
+      "triangles": 8168,
+      "vertices": 4638,
       "materials": 6,
       "bounds_z_up": {
         "minimum": [
-          -4.405096530914307,
+          -5.405096530914307,
           -2.625000238418579,
           -0.0017316017765551805
         ],
         "maximum": [
           2.625,
-          4.405096530914307,
+          5.405096530914307,
           8.221500396728516
         ]
       },
       "texture_packing": {
         "tool": "tools/share_textures.py",
-        "tool_sha256": "ce21ddc6eb694bb4ca8b0ac0442dfac870e3abe5341fd9f45cf05b7a4b9a5149",
-        "input_glb_sha256": "6711afd2723adf2b719d14f84e346f21b7c36840927c627b47edb2391b39ed80",
-        "output_glb_sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925",
-        "embedded_bytes": 7622816,
-        "externalized_bytes": 614492
+        "tool_sha256": "2b463f1cc773cf1120ee7c130f85f06dd6ad15916dbc7b72cd36aa0feea6686c",
+        "input_glb_sha256": "26a665dae20a096b0941d44ac38a2ab8383dd7ac85f91534e4f28d5858f39633",
+        "output_glb_sha256": "43e1611667632e6d581443b0bec6a08868b93c208f1e9fa95065e8144ec28e64",
+        "embedded_bytes": 7632684,
+        "externalized_bytes": 624360
       },
       "external_textures": {
         "../textures/cinderfen_architecture/173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223.png": "173ee95ae49a769f1e22ca82516e9a1866067fda784cbed47fcc79042b5f3223",
@@ -1796,12 +1796,12 @@
       ],
       "topology": {
         "model": "frontier_cinderfen_corner_access_lod2.glb",
-        "sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925",
+        "sha256": "43e1611667632e6d581443b0bec6a08868b93c208f1e9fa95065e8144ec28e64",
         "boundary_edges_after_positional_weld": 0,
         "multi_face_edges_after_positional_weld": 0,
         "coincident_join_segments": [],
         "weld_tolerance_m": 0.000001,
-        "audit_tool_sha256": "fbefe3a12043b7ffe19a4a2fadc9f93b4c40fa7c2a7ec2f1e74e23d2eed83f7f",
+        "audit_tool_sha256": "a9526d4679bd41d43b43e4675288e3deeb6d0135e7d15f44d43afd28cd6e2add",
         "walkable_surfaces": [
           {
             "surface": "corner_main",
@@ -2231,8 +2231,8 @@
             "surface": "courtyard_stair_landing",
             "samples": [
               {
-                "x": -3.5394743896968364,
-                "z": -2.5749807401583857,
+                "x": -4.309474389696836,
+                "z": -3.3449807401583858,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2242,8 +2242,8 @@
                 ]
               },
               {
-                "x": -3.066383220872293,
-                "z": -2.1018895713338424,
+                "x": -3.5963832208722932,
+                "z": -2.6318895713338426,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2253,8 +2253,8 @@
                 ]
               },
               {
-                "x": -2.435594995772902,
-                "z": -1.4711013462344513,
+                "x": -2.645594995772902,
+                "z": -1.6811013462344513,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2264,8 +2264,8 @@
                 ]
               },
               {
-                "x": -3.1661220092303393,
-                "z": -2.948333120624883,
+                "x": -3.9361220092303393,
+                "z": -3.718333120624883,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2275,8 +2275,8 @@
                 ]
               },
               {
-                "x": -2.693030840405796,
-                "z": -2.4752419518003395,
+                "x": -3.223030840405796,
+                "z": -3.0052419518003397,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2286,8 +2286,8 @@
                 ]
               },
               {
-                "x": -2.062242615306405,
-                "z": -1.8444537267009484,
+                "x": -2.272242615306405,
+                "z": -2.0544537267009484,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2297,8 +2297,8 @@
                 ]
               },
               {
-                "x": -2.730544232019426,
-                "z": -3.383910897835796,
+                "x": -3.500544232019426,
+                "z": -4.153910897835797,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2308,8 +2308,8 @@
                 ]
               },
               {
-                "x": -2.2574530631948826,
-                "z": -2.9108197290112527,
+                "x": -2.787453063194883,
+                "z": -3.440819729011253,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2319,8 +2319,8 @@
                 ]
               },
               {
-                "x": -1.6266648380954916,
-                "z": -2.2800315039118617,
+                "x": -1.8366648380954915,
+                "z": -2.4900315039118617,
                 "expected_height": 6.3,
                 "height": 6.299999713897705,
                 "error": -2.861022947442393e-7,
@@ -2336,11 +2336,11 @@
         ]
       },
       "reviewImages": {
-        "frontier_cinderfen_corner_access_lod2_reimport.png": "7d9d48afc6a0e6c0f59195275e9a3bf5bb75cd898e8becdd0e65e945bffc25f6",
-        "frontier_cinderfen_corner_access_lod2_gameplay.png": "1ebc919360eee66ac015c2649f2911bdda832d031855b2a645fb9a349677f41d"
+        "frontier_cinderfen_corner_access_lod2_reimport.png": "455b6147581c7ff6f62b9a5b25bd3f37b868430980dc9314548ccf4e249389c0",
+        "frontier_cinderfen_corner_access_lod2_gameplay.png": "7ff59ba9fb6efc81669fa20b43dd73883f24da8996d80a9c92dade0d1f8c21e1"
       },
       "preview": "frontier_cinderfen_corner_access_lod2_reimport.png",
-      "preview_sha256": "7d9d48afc6a0e6c0f59195275e9a3bf5bb75cd898e8becdd0e65e945bffc25f6"
+      "preview_sha256": "455b6147581c7ff6f62b9a5b25bd3f37b868430980dc9314548ccf4e249389c0"
     }
   ],
   "externalTextures": [
@@ -2443,13 +2443,13 @@
   "heightM": 8.21668679616414,
   "bounds": {
     "minimum": [
-      -4.398430347442627,
+      -5.398275375366211,
       -2.63433575630188,
       -0.002597402548417449
     ],
     "maximum": [
       2.63433575630188,
-      4.398430347442627,
+      5.398275375366211,
       8.214089393615723
     ]
   },
@@ -2473,9 +2473,9 @@
       ]
     ],
     "stair_socket_runtime": [
-      -3.5,
+      -4.5,
       6.3,
-      -3.5
+      -4.5
     ],
     "stair_socket_forward_runtime": [
       0.7071067811865476,
@@ -2522,10 +2522,10 @@
       },
       {
         "id": "courtyard_stair_landing",
-        "x": -2.525,
-        "z": -2.525,
+        "x": -3.025,
+        "z": -3.025,
         "width": 2.2,
-        "depth": 2.7877164466275355,
+        "depth": 4.201930009000631,
         "rotY": 0.7853981633974483,
         "fromY": 6.3,
         "toY": 6.3
@@ -2602,8 +2602,8 @@
         "maxY": 6.29
       },
       {
-        "x": -4.211959594928933,
-        "z": -2.628040405071067,
+        "x": -5.211959594928933,
+        "z": -3.628040405071067,
         "width": 0.25,
         "depth": 0.25,
         "minY": 0,
@@ -2618,17 +2618,17 @@
         "maxY": 7.35
       },
       {
-        "x": -3.316959594928933,
-        "z": -1.7330404050710668,
-        "width": 2.7577164466275357,
+        "x": -3.816959594928933,
+        "z": -2.233040405071067,
+        "width": 4.171930009000631,
         "depth": 0.2,
         "rotY": -0.7853981633974483,
         "minY": 6.3,
         "maxY": 7.42
       },
       {
-        "x": -2.628040405071067,
-        "z": -4.211959594928933,
+        "x": -3.628040405071067,
+        "z": -5.211959594928933,
         "width": 0.25,
         "depth": 0.25,
         "minY": 0,
@@ -2643,25 +2643,25 @@
         "maxY": 7.35
       },
       {
-        "x": -1.7330404050710668,
-        "z": -3.316959594928933,
-        "width": 2.7577164466275357,
+        "x": -2.233040405071067,
+        "z": -3.816959594928933,
+        "width": 4.171930009000631,
         "depth": 0.2,
         "rotY": -0.7853981633974483,
         "minY": 6.3,
         "maxY": 7.42
       },
       {
-        "x": -2.525,
-        "z": -2.525,
+        "x": -3.025,
+        "z": -3.025,
         "width": 2.2,
-        "depth": 2.7877164466275355,
+        "depth": 4.201930009000631,
         "rotY": 0.7853981633974483,
         "minY": 6.15,
         "maxY": 6.29
       }
     ],
-    "assembly_note": "Two perpendicular wall ends join the west and south openings. The supported diagonal gangway carries the stair socket into the courtyard so the lower stair entry clears both curtain bases. Rotate the complete assembly for each keep corner. No visible rail crosses any socket."
+    "assembly_note": "Two perpendicular wall ends join the unchanged west and south openings. The supported diagonal gangway extends 1.414m farther into the courtyard to clear actual stair stringers and handrails from the curtain bases. Rotate the complete assembly for each keep corner. No visible rail crosses any socket."
   },
-  "topologyPolicy": "Original pentagonal deck cages and fitted Cinderfen construction pieces remain editable in the Blender master. Closed construction pieces deliberately share metre-scaled tiled material UVs for reeds, basalt, alder and hardware; these are reusable material fields rather than a unique atlas. Positional audit welds glTF material/UV/normal seam splits at one micrometre and requires zero boundary and multi-face edges on every LOD. Coarse authored roof and deck courses preserve the curved envelope and support height while reducing distant seams. Exact bounds, raised floors, ramps, treads, colliders and keep passage contracts are retained in authoring/blender/cinderfen-architecture/junction/build-report.json. Accepted internally against the exact build and all reimport previews; the approval record retains review hashes."
+  "topologyPolicy": "Original pentagonal deck cages and fitted Cinderfen construction pieces remain editable in the Blender master. Closed construction pieces deliberately share metre-scaled tiled material UVs for reeds, basalt, alder and hardware; these are reusable material fields rather than a unique atlas. Positional audit welds glTF material/UV/normal seam splits at one micrometre and requires zero boundary and multi-face edges on every LOD. Coarse authored roof and deck courses preserve the curved envelope and support height while reducing distant seams. Exact bounds, raised floors, ramps, treads, colliders and keep passage contracts are retained in authoring/blender/cinderfen-architecture/junction/build-report.json. Published under explicit user standing approval after exact-export technical validation; the approval record retains the instruction and review hashes."
 }

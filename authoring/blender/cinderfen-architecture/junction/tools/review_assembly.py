@@ -11,7 +11,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 spec=importlib.util.spec_from_file_location('review_export_tools',ROOT/'tools/review_exports.py');review=importlib.util.module_from_spec(spec);spec.loader.exec_module(review)
 bpy.ops.wm.read_factory_settings(use_empty=True)
-theta=math.pi/4;socket=(-3.5,-3.5)
+contract=json.loads((ROOT/'source/architecture.json').read_text())['assets']['frontier_cinderfen_corner_access']['contract']
+theta=math.pi/4;socket=(contract['stair_socket_runtime'][0],contract['stair_socket_runtime'][2])
 stair=(socket[0]-1.3*math.cos(theta)-4.5*math.sin(theta),socket[1]+1.3*math.sin(theta)-4.5*math.cos(theta))
 entries=[(ROOT/'runtime/frontier_cinderfen_corner_access_lod0.glb',0,0,0),
  (ROOT.parent/'runtime/frontier_cinderfen_curtain_walk_lod0.glb',-6.4,0,0),

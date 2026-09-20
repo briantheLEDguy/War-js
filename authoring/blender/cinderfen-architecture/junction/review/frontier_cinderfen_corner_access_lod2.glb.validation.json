@@ -2,7 +2,7 @@
   "uri": "frontier_cinderfen_corner_access_lod2.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-09-07T19:58:46.059Z",
+  "validatedAt": "2026-09-20T13:33:42.599Z",
   "issues": {
     "numErrors": 0,
     "numWarnings": 0,
@@ -128,7 +128,7 @@
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 604200
+        "byteLength": 614064
       },
       {
         "pointer": "/images/0",
@@ -390,8 +390,8 @@
     "hasTextures": true,
     "hasDefaultScene": true,
     "drawCallCount": 6,
-    "totalVertexCount": 11584,
-    "totalTriangleCount": 8028,
+    "totalVertexCount": 11772,
+    "totalTriangleCount": 8168,
     "maxUVs": 1,
     "maxInfluences": 0,
     "maxAttributes": 4

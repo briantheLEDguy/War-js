@@ -1,0 +1,52 @@
+{
+  "exporterSha256": "dc47db75086789d17ff0e27c53b72ff5e6eecb2c271efefde07d37451465a0ee",
+  "lods": [
+    {
+      "lod": 0,
+      "invalidBefore": [
+        41858
+      ],
+      "invalidAfter": [],
+      "geometrySha256": "1bba3ba3cce3d9aeab067725b58fbcc63429d4306e4444f9770cfb5061a52a9b",
+      "geometryUnchanged": true,
+      "uvUnchanged": true,
+      "repairs": [
+        {
+          "loop": 41858,
+          "face": 13952,
+          "normalBefore": [
+            -0.08278940618038177,
+            0.9789236187934875,
+            -0.1866934448480606
+          ],
+          "normalAfter": [
+            -0.0890069231390953,
+            0.979830265045166,
+            -0.1789146512746811
+          ],
+          "faceAlignmentBefore": 0.001533757895231247,
+          "faceAlignmentAfter": 0.011533007025718689,
+          "changeDegrees": 0.5730077280825242
+        }
+      ]
+    },
+    {
+      "lod": 1,
+      "invalidBefore": [],
+      "invalidAfter": [],
+      "geometrySha256": "cc8be4221989c9e1b92e6b7030ce30e7804c0344d314958833eb006667d97e88",
+      "geometryUnchanged": true,
+      "uvUnchanged": true,
+      "repairs": []
+    },
+    {
+      "lod": 2,
+      "invalidBefore": [],
+      "invalidAfter": [],
+      "geometrySha256": "a4fd833fca18f89f6bceb13178d9faa45c8c29ca6640eabc7128244ec41d73a7",
+      "geometryUnchanged": true,
+      "uvUnchanged": true,
+      "repairs": []
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "modelSha256": "2f511356ab4ec7163f9e6019c3764498e869001acb8d00fc06870211b49369cc",
+  "bounds": {
+    "min": [
+      -0.4427575170993805,
+      -0.3038993179798126,
+      0.00399993360042572
+    ],
+    "max": [
+      0.4436977505683899,
+      0.2749999463558197,
+      1.3603782653808594
+    ]
+  },
+  "images": [
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_head_20260909j.png",
+      "sha256": "2abd59220441a111ddf2656dea7b906145aa1ee726a2463d78ab0e4c23affea1",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_front_20260909j.png",
+      "sha256": "1c625387a9268961fd62392801815f9d0df6525efbc9e0b5d6c7ec2230871fa2",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run_forearm",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_run_forearm_20260909j.png",
+      "sha256": "39a556525705cbc38b596d22e00be0ecba03fa4984c37ab2f19506bcb0c21161",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_run_side_20260909j.png",
+      "sha256": "af9dc40e1a3c1324df9ed30f9cf0fa83d4475d0faf7ee4eb2559e7d77f7fe2be",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "run_waist",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_run_waist_20260909j.png",
+      "sha256": "148866687308c114b0fc3263b7106a9bdb5523e7c5c6aafbcd04920ec2defa20",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_dwarf_artisan_lod0_death_2_20260909j.png",
+      "sha256": "8ad914657d774135045af1402c249ae6a417369ea8a762dd1ab91bcb95590db7",
+      "clip": "death",
+      "seconds": 2.0
+    }
+  ],
+  "status": "pending"
+}

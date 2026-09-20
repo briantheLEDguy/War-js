@@ -1,4 +1,25 @@
-# Saved work state: architecture released
+# Saved work state: September 20 stair collision correction published
+
+User resumed work. Corner gangways now extend 1.414m into the courtyard, preserving
+both wall sockets while moving the attached stair clear of the curtain base.
+The previous whole-publication snapshot is retained under
+`junction/releases/pre-courtyard-clearance-5efebeab/`. Replacement corner LOD0/1/2
+are published with source, editable master, actual reimport views, zero-error and
+zero-warning Khronos reports, topology/support audits and standing user approval.
+Parent integration owns global registry/campaign/GM regeneration.
+
+The unchanged stair model now has 147 continuous elevated rail blockers derived
+from its literal authored pieces. Six focused tests pass, including
+sideways containment between posts, rear landing containment, both-flight ascent
+and lower clearance, continuous landing turn and exact placed-model evidence.
+Shared route floodfill reaches all 13 keep and 13 village
+targets. Corner assembly has zero head obstructions or unsupported samples.
+Final all-16-stair actual LOD0 triangle audit after parent campaign regeneration
+reports zero curtain/gatehouse intersections (previously all16). The regression
+binds the audit to each placed transform and the exact published model hashes.
+
+Historical original release details follow; its claim about all geometry clearing
+walls was too broad because the original test only checked walking centerlines.
 
 All eight Cinderfen architecture modules are internally accepted and locally
 published. Main and companion review/review.json files bind the exact current

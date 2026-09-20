@@ -1,0 +1,192 @@
+{
+  "status": "exported_pending_actual_contact_verification",
+  "asset_id": "frontier_ram_crew",
+  "skeleton_id": "humanoid_game_v2",
+  "profile_key": "civic_battle_prelate_m",
+  "equipment": "literal approved male Battle Prelate novitiate set",
+  "inputs": [
+    {
+      "path": "public/assets/models/frontier_battering_ram_lod0.glb",
+      "sha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef"
+    },
+    {
+      "path": "public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_back_novitiate_m.glb",
+      "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_chest_novitiate_m.glb",
+      "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_feet_novitiate_m.glb",
+      "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_hands_novitiate_m.glb",
+      "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_head_novitiate_m.glb",
+      "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_legs_novitiate_m.glb",
+      "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+      "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_tabard_novitiate_m.glb",
+      "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_waist_novitiate_m.glb",
+      "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8"
+    },
+    {
+      "path": "public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_back_novitiate_m.glb",
+      "sha256": "0a0bdc379a7b9d99f1a1e08760320474729991d6e22eaf37f16890341b9ca37a"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_chest_novitiate_m.glb",
+      "sha256": "79d4c732d8e64425a67bf1cddd0da532aa7cb0226290ff4b0b4b22e949a9077d"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_feet_novitiate_m.glb",
+      "sha256": "92c80361032291d2fd96fb1f943795f32921ac43ea2578442a884329867143fd"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_hands_novitiate_m.glb",
+      "sha256": "72c2a3e01b5f826b5c2347d4e9227f2c79cfc145d0298f9a628059c12b142f4e"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_head_novitiate_m.glb",
+      "sha256": "cb212ca3666a04cc618e73b14d3c5bba3cd8d44aa9ef7187123c96d1b8960e84"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_legs_novitiate_m.glb",
+      "sha256": "3e101b769b288b90c1144b7d2fe04d77f6c73ff5247c63e63d986bb0e2e5a9b8"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_shoulders_novitiate_m.glb",
+      "sha256": "f2f863a18a7400e9057ac51cbd392a9bd7c61e9664646d909895d7140510a0a2"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_tabard_novitiate_m.glb",
+      "sha256": "9f6c1c13a552384dd8f294916c7169792d51e5652aef3d37bffd64ffa24a4094"
+    },
+    {
+      "path": "public/assets/models/arm_civic_battle_prelate_waist_novitiate_m.glb",
+      "sha256": "34ac09ea9bf973fcefab3e70ba86ce464209d2bd7c0e6c0824ef6b9afecac9a8"
+    }
+  ],
+  "master": "masters\\frontier_ram_crew_animations.blend",
+  "master_sha256": "654fd0eb85d01a394970b9a0a56d94a8e0852f251e9657c627906863f5747885",
+  "outputs": [
+    {
+      "seat": "left",
+      "path": "runtime\\frontier_ram_crew_left_animations.glb",
+      "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+      "rig_rest_sha256": "bd2fe968869f343c680ddd2ada08449b8c4c3e535367aa7253c8b3d9732624a5",
+      "origin_gltf": [
+        -0.7099999785423279,
+        0.9100000262260437,
+        0.1850000023841858
+      ],
+      "yaw_gltf_radians": 1.5707963267948966,
+      "socket_offset_blender": [
+        0,
+        -0.035,
+        0.08
+      ],
+      "board_heights": {
+        "L": 0.907343864440918,
+        "R": 0.9046247005462646
+      },
+      "clips": [
+        {
+          "name": "ram_crew_idle",
+          "duration_seconds": 4.0,
+          "loop": true,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "ram_crew_drive",
+          "duration_seconds": 1.6,
+          "loop": true,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "ram_crew_strike",
+          "duration_seconds": 1.5,
+          "loop": false,
+          "event_seconds": 0.7,
+          "root_motion": false
+        }
+      ]
+    },
+    {
+      "seat": "right",
+      "path": "runtime\\frontier_ram_crew_right_animations.glb",
+      "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+      "rig_rest_sha256": "bd2fe968869f343c680ddd2ada08449b8c4c3e535367aa7253c8b3d9732624a5",
+      "origin_gltf": [
+        0.7099999785423279,
+        0.9100000262260437,
+        0.1850000023841858
+      ],
+      "yaw_gltf_radians": -1.5707963267948966,
+      "socket_offset_blender": [
+        0,
+        -0.035,
+        0.08
+      ],
+      "board_heights": {
+        "L": 0.9054224491119385,
+        "R": 0.9090118408203125
+      },
+      "clips": [
+        {
+          "name": "ram_crew_idle",
+          "duration_seconds": 4.0,
+          "loop": true,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "ram_crew_drive",
+          "duration_seconds": 1.6,
+          "loop": true,
+          "event_seconds": null,
+          "root_motion": false
+        },
+        {
+          "name": "ram_crew_strike",
+          "duration_seconds": 1.5,
+          "loop": false,
+          "event_seconds": 0.7,
+          "root_motion": false
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "export_crew.py": "00bf96e36a142f914a0f7f745d772e2fa3b4e998ca6d377f5cc25bf2cc76e210",
+    "author_crew.py": "653cb0342a60cf1ef9e3eb5fd18f4db3847b9104ce23c4ec6ee4981d2a74e77e",
+    "crew_common.py": "106da167ec842f48e82b2e1ba5366ec6f6cf1b01e971cff5cd9018d166820a04"
+  },
+  "authority": "Avatar origins and ram travel are external transforms. No clip changes the root bone.",
+  "timing": "Play matching crew strike and published ram_strike together at t=0. Shared impact is t=0.7s. Drive loops at siege_roll duration 1.6s."
+}

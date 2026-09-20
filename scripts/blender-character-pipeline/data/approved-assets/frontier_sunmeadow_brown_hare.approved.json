@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.brown_hare",
+  "displayName": "Sunmeadow brown hare",
+  "category": "prop",
+  "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+  "qc": "frontier_sunmeadow_brown_hare_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_brown_hare",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "fauna_brown_hare",
+    "bodyVariant": "neutral",
+    "skeletonId": "sunmeadow_brown_hare_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1"
+  },
+  "hashes": {
+    "modelSha256": "1cc9027e678616059b6117c02919b6f14c25874628170141df6498c0c5ac085d",
+    "qcSha256": "7f22c06ca7a66936470a56147f6d7b3bb3e7ecfc36d0cbdc991908f767425065",
+    "previews": {
+      "front": "5398c18f542a0e4093451c41eb7e54f4d1c2300e22500e3b02de159700ec7b66"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_brown_hare_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "8dc07ff0b40f332650dcffbb3d5026ed8ae8895d5fb9e64d7f4f48b92af9ec47"
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_brown_hare.blend",
+    "sourceSha256": "c63bf643867be1dd1144c9606d89612b44b082153eb93d9fa973449ae81dab65",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "approvalState": "approved"
+}

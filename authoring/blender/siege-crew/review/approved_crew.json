@@ -1,0 +1,24 @@
+{
+  "status": "approved",
+  "reviewedBy": "user standing approval, implemented by Codex",
+  "reviewedAt": "2026-09-09T15:35:30.638Z",
+  "scope": "Both exact crew animation packs approved for integration; existing canonical avatar/equipment geometry remains unchanged.",
+  "contractSha256": "575db9abc5596e35a56ddde57732d793e28a6600ef8c8c5a84336a5dd15b8a30",
+  "contactSha256": "b7771cf0831a965c034cb62c414dc99b660bf4b1979769bc73f18fa5420d7083",
+  "validationSha256": "8a42aeeb202b7eb7374b24dd32d9c9a3e042a84500c023bc456154744519445f",
+  "actualImageSha256": "be78c4f27964bab92d950589f89cc7b5572ab65b4d0f2764775a131973702260",
+  "packs": {
+    "left": {
+      "model": "frontier_ram_crew_left_animations.glb",
+      "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2"
+    },
+    "right": {
+      "model": "frontier_ram_crew_right_animations.glb",
+      "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2"
+    }
+  }
+}

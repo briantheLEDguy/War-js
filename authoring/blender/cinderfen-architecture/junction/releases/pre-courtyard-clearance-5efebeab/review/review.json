@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "approved": true,
+  "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
+  "reviewedAt": "2026-09-07T19:58:45.720132+00:00",
+  "buildSha256": "1a1fcff55e1895fc56c2e58f18fd56fc71fd8674758c8f3198433161b71e7b66",
+  "previewSha256": "edbc90f289ed9a951e11773c8e30470407cdac0ec2206cc03b0cf525c405b8e5",
+  "heroSha256": {
+    "frontier_cinderfen_corner_access_lod0_reimport.png": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27",
+    "corner_stair_assembly.png": "83b30f228c51c0cda10a083c2ef019e463ede616c9aa3015c68c03063f1d443d",
+    "frontier_cinderfen_corner_access_lod0_gameplay.png": "8e06e458f6cfb5f34b535b59d14a288a6de4d9b131ed516a85278b204a634b5e",
+    "frontier_cinderfen_corner_access_lod1_reimport.png": "6ea88eb6d6124a4b056c568114d5101a57101620cf42db14db509ae569be68cf",
+    "frontier_cinderfen_corner_access_lod1_gameplay.png": "c2e448267d60105c24e91d1f238a8e0a3d8ff864639f1287eb066e2e5997e3f1",
+    "frontier_cinderfen_corner_access_lod2_reimport.png": "7d9d48afc6a0e6c0f59195275e9a3bf5bb75cd898e8becdd0e65e945bffc25f6",
+    "frontier_cinderfen_corner_access_lod2_gameplay.png": "1ebc919360eee66ac015c2649f2911bdda832d031855b2a645fb9a349677f41d"
+  },
+  "scope": "Independent original Cinderfen corner/access module. Root explicitly accepted these exact final hashes after all three LODs and the actual connected corner/stair review.",
+  "observations": [
+    "Material and fitted construction match the seven approved Cinderfen modules.",
+    "Three LODs preserve the open platform, palisade profile and real diagonal gangway.",
+    "Actual connected support/head checks and all26 keep/village navigation targets pass."
+  ],
+  "integration": "Local publication only; merged package GM metadata, registry activation and campaign dressing remain separate steps."
+}

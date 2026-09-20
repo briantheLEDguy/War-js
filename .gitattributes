@@ -7,6 +7,7 @@ public/assets/models/frontier_*.qc.json -text
 public/assets/models/*.qc.json -text
 public/assets/textures/sunmeadow_*/*.png filter=lfs diff=lfs merge=lfs -text
 scripts/blender-character-pipeline/data/approved-assets/frontier_*.approved.json -text
+scripts/blender-character-pipeline/data/world-asset-approval.json -text
 authoring/blender/orvr-frontier/** -text
 authoring/blender/orvr-frontier/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/orvr-frontier/**/*.glb filter=lfs diff=lfs merge=lfs -text
@@ -120,3 +121,5 @@ authoring/blender/frontier-workshop-items/**/*.glb filter=lfs diff=lfs merge=lfs
 authoring/blender/siege-crew/** -text
 authoring/blender/siege-crew/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/siege-crew/**/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/textures/frontier_workshop_items/*.png filter=lfs diff=lfs merge=lfs -text
+public/assets/models/previews/*cinderfen_corner_access.png filter=lfs diff=lfs merge=lfs -text

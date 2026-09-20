@@ -1,0 +1,100 @@
+{
+  "assetId": "prop.frontier.sunmeadow.barrow_wolf",
+  "displayName": "Sunmeadow barrow wolf",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "sunmeadow_authored_fauna"
+  ],
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_barrow_wolf"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_barrow_wolf_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_body",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "fauna_barrow_wolf",
+    "skeletonId": "sunmeadow_barrow_wolf_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 73184,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 34466,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 21216,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_SunmeadowAuthoredPelt",
+    "textureSet": "frontier_sunmeadow_barrow_wolf",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_barrow_wolf.blend",
+    "sourceSha256": "9135329ecd0aba716c404012568f7c69fa9dcf597596486992375d1a49e71609",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 32,
+    "maxFileSizeMb": 32,
+    "maxTris": 73184,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "17ba7dbf0db40c87803dc534baaf0bd7152ee4a4c363704dd5aaf37a8089c4b8",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

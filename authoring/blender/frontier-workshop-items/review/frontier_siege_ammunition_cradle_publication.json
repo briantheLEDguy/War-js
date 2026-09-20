@@ -1,0 +1,28 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2",
+    "buildSha256": "fde1d22920e2823053854fcca4007c4ec7e9150fd470db192e7e272c9c48f491",
+    "contractSha256": "2d406cf3a134478819f6c984a9ea627cb2a2e56e35c2519a5fc54fd4efd1b3af",
+    "validationSha256": "302c797d57b14e670fea862bd5e8c85d8c30ec24f26a867623e392f86f3429a5",
+    "modelSha256s": [
+      "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+      "49631ebc93de0d57a531405acaa880b952e60cbae20ad6249d480afd2ca0fb01",
+      "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578"
+    ],
+    "images": {
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_neutral.png": "7dda7d4b462b05c4cdab9dae068c9d613a18e9824b90f6e78c39d2da79e113f8",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_gameplay.png": "5a1946d787d314d5ba66d9781a266c6f378108a98bffe0d098d8192fd84d275b",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_detail.png": "63a21dc9d798990ae289fa0144d7f9fed17b92ac3c5e48a0aed860566f0301b2",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod1_neutral.png": "8db79d721681ebf0e2085c5883a0ff93dfcf92e751e3e0325708be2fddbf3992",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod1_gameplay.png": "5fdfd97a961efa17c4fa1899bb162dc95488508d99fcb82b75fde04dab351595",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod2_neutral.png": "de531300016a6ac131111c6ea0b1ce78285430ee0b322bdd57423e1fd61c6249",
+      "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod2_gameplay.png": "5845c17a9bebfd676c3663a0a355c9902cd731a858f91cf4781e1b9806748410"
+    }
+  }
+}

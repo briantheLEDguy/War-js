@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.barrow_wolf",
+  "displayName": "Sunmeadow barrow wolf",
+  "category": "prop",
+  "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+  "qc": "frontier_sunmeadow_barrow_wolf_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_barrow_wolf",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "fauna_barrow_wolf",
+    "bodyVariant": "neutral",
+    "skeletonId": "sunmeadow_barrow_wolf_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1"
+  },
+  "hashes": {
+    "modelSha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+    "qcSha256": "f2a231cca2ce78572308739d08f524c47d8cf782e010285a75c05e54e554a562",
+    "previews": {
+      "front": "beb1c0acda95b310d1fe61985c156048bbe31dcdb61761fc3a7dcd2ed70e74dc"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_barrow_wolf_lod0_reimport.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "17ba7dbf0db40c87803dc534baaf0bd7152ee4a4c363704dd5aaf37a8089c4b8"
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_barrow_wolf.blend",
+    "sourceSha256": "9135329ecd0aba716c404012568f7c69fa9dcf597596486992375d1a49e71609",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "approvalState": "approved"
+}

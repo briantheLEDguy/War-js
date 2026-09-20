@@ -12,8 +12,9 @@ export function campaignSiegeKind(assetKey: string): EquipmentKind | undefined {
 }
 
 /** Wall-mounted oil retains its authored orientation; mobile engines can aim at a confirmed target. */
-export function campaignSiegeFacing(machine: Pick<EquipmentState, 'kind' | 'position' | 'lastOperation'>,
+export function campaignSiegeFacing(machine: Pick<EquipmentState, 'kind' | 'position' | 'lastOperation' | 'facing'>,
   keep?: Pick<KeepConfig, 'position' | 'outerGate'>): number {
+  if (machine.kind === 'ram' && Number.isFinite(machine.facing)) return machine.facing!;
   const target = machine.kind !== 'oil' ? machine.lastOperation?.target : undefined;
   const dx = target ? target.x - machine.position.x : keep ? keep.outerGate.x - keep.position.x : 0;
   const dz = target ? target.z - machine.position.z : keep ? keep.outerGate.z - keep.position.z : 1;

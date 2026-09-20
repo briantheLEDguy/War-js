@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.sunmeadow.skylark",
+  "displayName": "Sunmeadow skylark",
+  "category": "prop",
+  "model": "frontier_sunmeadow_skylark_lod0.glb",
+  "qc": "frontier_sunmeadow_skylark_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_skylark",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "fauna_skylark",
+    "bodyVariant": "neutral",
+    "skeletonId": "sunmeadow_skylark_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1"
+  },
+  "hashes": {
+    "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+    "qcSha256": "f66176851681cd873ece70f3605d1f96eac342e52fcd4a9b1ca55ae1eb16722a",
+    "previews": {
+      "front": "c769d131789500c6664b4fa02fc794dc12d5009d363d38d913a9f0b774cba6db"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/review/runtime_lod0_idle_0_quarter.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "233a62b4ea350fe7d84651fb8a8dd41cd6a42c718e7582b15de9b1b172903799"
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/masters/frontier_sunmeadow_skylark_v2.blend",
+    "sourceSha256": "d0d083572b4a4ac39322cc63f83770d43b8db61578e3134312e8b01a7f0c0550",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "approvalState": "approved"
+}

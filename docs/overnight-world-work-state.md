@@ -1,3 +1,35 @@
+# ACTIVE — September 20, 2026
+
+The user resumed with “Continue.” The hourly continuation is active. The
+[September 9 handoff](world-build-paused-2026-09-09.md) remains a historical
+checkpoint; its pause instruction has been superseded.
+
+Keep collision corrections and the ram crew runtime are integrated. All 36 keep
+enclosures pass breach progression checks; all 16 Cinderfen stair assemblies now
+clear the actual wall meshes. Local browser checks held Greybrook's closed gate,
+completed the Cinderfen stair route to 6.3m and contained both upper rail presses
+at 5.075m. These are bounded checks, not full campaign acceptance.
+
+Dwarf revision l is published at three LODs with nine clips and assigned to the
+Sunmeadow craft mentor. Five saved wildlife packages are integrated with explicit
+motion/LOD limits, and equipment and delivered assets are in the GM builder.
+The ram uses two stable authority-owned operator seats and signed fitted poses;
+browser checks covered driving, turning, strike, three LODs, dismount and restored
+weapons on actual equipped Battle Prelate avatars.
+
+The latest full regression pass is **1,322 tests in 160 files**. Production build
+and client/server typechecks passed. Both workshop items are published at three
+LODs, with 72 placements across all 36 keeps; actual local player checks confirm
+their front collision. The registry contains 254 static props, 69 character
+profiles and 57 equipment records, and the GM builder has 442 definitions.
+All 33 maps and 879 model records validate. Remaining regional character, equipment and town/zone work
+continues; animals stay last. No zone is art-complete, and full campaign visual,
+multiplayer and performance acceptance remains open. See the
+[September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
+
+Entries below preserve their historical state; the active summary above
+supersedes older pause, approval and delivery statements.
+
 # World build continuation state
 
 ## Character, equipment and settlement priority - 2026-09-09

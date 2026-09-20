@@ -36,5 +36,20 @@
     "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod0_reimport.png",
     "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod1_reimport.png",
     "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod2_reimport.png"
-  ]
+  ],
+  "operatorAnimationPacks": {
+    "left": {
+      "model": "frontier_ram_crew_left_animations.glb",
+      "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2"
+    },
+    "right": {
+      "model": "frontier_ram_crew_right_animations.glb",
+      "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+      "skeletonId": "humanoid_game_v2",
+      "bindPoseId": "a_pose_v2"
+    }
+  },
+  "operatorCrewReviewHash": "6c6b78f62ac05bad67221ff76e0eb54650fcaee07b1acf1dc024846e013a4cb0"
 }

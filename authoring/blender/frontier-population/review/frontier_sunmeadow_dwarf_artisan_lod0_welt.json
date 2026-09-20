@@ -1,0 +1,3464 @@
+{
+  "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+  "sha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+  "importedTriangles": 150766,
+  "weltVertices": 4992,
+  "components": 2,
+  "nonManifoldEdges": 0,
+  "maximumRestDistance": 0.0025000472087413073,
+  "animationChannelSha256": {
+    "attack_melee": "df1204ceb84af7d3e1f71e37b7cf5bbf9f5dfdb2b78ea20b8b3daeca2334065a",
+    "attack_ranged": "50c4a18c1cb378a328c78729731c933e7c5083246d43ad1c75275cb47909a1fb",
+    "cast": "0a8e1b53d8f546fbb230a3c49ae0ed2494f441d71f1d4639c6b526697d73e9c3",
+    "combat_idle": "27fd7824ccdc497beb1e7bea6a7f4245de2a4404e0dce93b68fdbec1ec21d452",
+    "death": "13acb4be9d690abd3a76d7d7a7bdfabca7b4a98df33125b1907163bfa2376991",
+    "idle": "ce9262182ab227171dd62f86fe35969abb4aa70f20ac656335c07a1f41450d6c",
+    "jump": "beddadd0fd72a501c775840c21e441951182f7881c77b55ef656cf50f9f08d14",
+    "run": "6138b825d1fa5089d3016ab06c964d8a254bb53dc308d715b7b9b200086f6b9e",
+    "walk": "9464719501ca59f49ecc93e1f7d089f35fed7ce3c542f31b23f1f1ddc0a6c449"
+  },
+  "unchangedAnimationChannels": true,
+  "clips": [
+    {
+      "clip": "attack_melee",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.0025000874884426594
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.0025000860914587975
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.0025000812020152807
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.0025000683963298798
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.002500068163499236
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.0025000786408782005
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.0025000604800879955
+        }
+      ]
+    },
+    {
+      "clip": "attack_ranged",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.0025000874884426594
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.0025000860914587975
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500080270692706
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.01666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.0333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.05000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.06666672,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.08333337,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.10000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.1166666749999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.13333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.14999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.16666663,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.18333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.20000005,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.2166667000000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.23333335,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.25,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.26666665,
+          "maximumPoseDistance": 0.002500068163499236
+        },
+        {
+          "seconds": 1.2833332999999998,
+          "maximumPoseDistance": 0.0025000786408782005
+        },
+        {
+          "seconds": 1.29999995,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 1.31666666,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 1.33333337,
+          "maximumPoseDistance": 0.0025000604800879955
+        }
+      ]
+    },
+    {
+      "clip": "cast",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.0025000874884426594
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.0025000593159347773
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.002500080270692706
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.01666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.0333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.05000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.06666672,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.08333337,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.10000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.1166666749999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.13333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.14999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.16666663,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.18333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.20000005,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.2166667000000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.23333335,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.25,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.26666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.2833332999999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.29999995,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.31666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.33333337,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.35000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.36666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.3833333250000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.39999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.41666663,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.43333328,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.44999999,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.4666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.48333335,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.5,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.51666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.5333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.55000001,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.56666672,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.58333337,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.60000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.6166666749999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.63333333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.64999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.66666663,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.68333334,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.70000005,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.7166667000000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.73333335,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.75,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.76666665,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.7833332999999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.79999995,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.81666666,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.83333337,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.85000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.86666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.8833333250000002,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.89999998,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.91666663,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 1.93333328,
+          "maximumPoseDistance": 0.002500082366168499
+        },
+        {
+          "seconds": 1.94999999,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 1.9666667,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 1.98333335,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 2.0,
+          "maximumPoseDistance": 0.0025000604800879955
+        }
+      ]
+    },
+    {
+      "clip": "combat_idle",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.0025000686291605234
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500043949112296
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.0025000618770718575
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500060945749283
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.0025000686291605234
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.0025000551249831915
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.0025000611785799265
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.002500043949112296
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.0025000558234751225
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.002500084927305579
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.01666665,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.0333333,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.05000001,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.06666672,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 1.08333337,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 1.10000002,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 1.1166666749999998,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.13333333,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 1.14999998,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.16666663,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.18333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.20000005,
+          "maximumPoseDistance": 0.002500043949112296
+        },
+        {
+          "seconds": 1.2166667000000002,
+          "maximumPoseDistance": 0.0025000623427331448
+        },
+        {
+          "seconds": 1.23333335,
+          "maximumPoseDistance": 0.00250005885027349
+        },
+        {
+          "seconds": 1.25,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.26666665,
+          "maximumPoseDistance": 0.0025000537279993296
+        },
+        {
+          "seconds": 1.2833332999999998,
+          "maximumPoseDistance": 0.002500050701200962
+        },
+        {
+          "seconds": 1.29999995,
+          "maximumPoseDistance": 0.0025000395253300667
+        },
+        {
+          "seconds": 1.31666666,
+          "maximumPoseDistance": 0.002500077709555626
+        },
+        {
+          "seconds": 1.33333337,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.35000002,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.36666667,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.3833333250000002,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.39999998,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.41666663,
+          "maximumPoseDistance": 0.002500072354450822
+        },
+        {
+          "seconds": 1.43333328,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.44999999,
+          "maximumPoseDistance": 0.00250006141141057
+        },
+        {
+          "seconds": 1.4666667,
+          "maximumPoseDistance": 0.002500042086467147
+        },
+        {
+          "seconds": 1.48333335,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.5,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.51666665,
+          "maximumPoseDistance": 0.0025000441819429398
+        },
+        {
+          "seconds": 1.5333333,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.55000001,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 1.56666672,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 1.58333337,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 1.60000002,
+          "maximumPoseDistance": 0.002500055590644479
+        },
+        {
+          "seconds": 1.6166666749999998,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.63333333,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.64999998,
+          "maximumPoseDistance": 0.002500042552128434
+        },
+        {
+          "seconds": 1.66666663,
+          "maximumPoseDistance": 0.002500060945749283
+        },
+        {
+          "seconds": 1.68333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.70000005,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 1.7166667000000002,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.73333335,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 1.75,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 1.76666665,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 1.7833332999999998,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.79999995,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.81666666,
+          "maximumPoseDistance": 0.002500055590644479
+        },
+        {
+          "seconds": 1.83333337,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.85000002,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 1.86666667,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 1.8833333250000002,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 1.89999998,
+          "maximumPoseDistance": 0.0025000751484185457
+        },
+        {
+          "seconds": 1.91666663,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.93333328,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.94999999,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.9666667,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 1.98333335,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 2.0,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 2.01666665,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 2.0333333,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 2.04999995,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.0666666,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 2.08333325,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 2.0999999,
+          "maximumPoseDistance": 0.002500084927305579
+        },
+        {
+          "seconds": 2.11666667,
+          "maximumPoseDistance": 0.00250006141141057
+        },
+        {
+          "seconds": 2.13333344,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.150000095,
+          "maximumPoseDistance": 0.002500066300854087
+        },
+        {
+          "seconds": 2.16666675,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 2.1833334,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 2.20000005,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 2.2166667,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 2.23333335,
+          "maximumPoseDistance": 0.002500055590644479
+        },
+        {
+          "seconds": 2.25,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 2.26666665,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 2.2833333,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 2.29999995,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 2.3166666,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 2.33333325,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 2.349999905,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 2.36666656,
+          "maximumPoseDistance": 0.0025000551249831915
+        },
+        {
+          "seconds": 2.38333333,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 2.4000001,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.41666675,
+          "maximumPoseDistance": 0.0025000686291605234
+        },
+        {
+          "seconds": 2.4333334,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 2.45000005,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.4666667,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 2.48333335,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 2.5,
+          "maximumPoseDistance": 0.002500058151781559
+        },
+        {
+          "seconds": 2.51666665,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 2.5333333,
+          "maximumPoseDistance": 0.0025000558234751225
+        },
+        {
+          "seconds": 2.54999995,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 2.5666666,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 2.58333325,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.5999999,
+          "maximumPoseDistance": 0.002500061644241214
+        },
+        {
+          "seconds": 2.61666667,
+          "maximumPoseDistance": 0.002500091679394245
+        },
+        {
+          "seconds": 2.63333344,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.650000095,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 2.66666675,
+          "maximumPoseDistance": 0.0025000437162816525
+        }
+      ]
+    },
+    {
+      "clip": "death",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.0025000558234751225
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.002500056754797697
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.0025000562891364098
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.0025000604800879955
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500043483451009
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.002500052796676755
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.0025000586174428463
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.0025000558234751225
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500054193660617
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.0025000914465636015
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.002500086324289441
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500077011063695
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.002500067465007305
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.0025000812020152807
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.0025000800378620625
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500060247257352
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.002500059548765421
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.0025000888854265213
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.002500072820112109
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.0025000697933137417
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500074217095971
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.002500076312571764
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.002500084461644292
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500097034499049
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.0025001028552651405
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.002500080270692706
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.002500071655958891
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.00250005885027349
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.002500074915587902
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.002500093076378107
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.0025000544264912605
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.0025000590831041336
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.002500060247257352
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.0025000893510878086
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500084461644292
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.0025000988971441984
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.002500085858628154
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.0025000532623380423
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.0025000832974910736
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.0025000800378620625
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.0025000597815960646
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.002500077011063695
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.0025000975001603365
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.00250009773299098
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.0025001124013215303
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.0025000940077006817
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.0025000853929668665
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.0025000865571200848
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.002500096568837762
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.0025000956375151873
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.0025000744499266148
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.0025001014582812786
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.0025001002941280603
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.0025000981986522675
+        },
+        {
+          "seconds": 1.01666665,
+          "maximumPoseDistance": 0.0025000753812491894
+        },
+        {
+          "seconds": 1.0333333,
+          "maximumPoseDistance": 0.002500110538676381
+        },
+        {
+          "seconds": 1.05000001,
+          "maximumPoseDistance": 0.0025000879541039467
+        },
+        {
+          "seconds": 1.06666672,
+          "maximumPoseDistance": 0.002500079805031419
+        },
+        {
+          "seconds": 1.08333337,
+          "maximumPoseDistance": 0.0025000765454024076
+        },
+        {
+          "seconds": 1.10000002,
+          "maximumPoseDistance": 0.002500069560483098
+        },
+        {
+          "seconds": 1.1166666749999998,
+          "maximumPoseDistance": 0.002500071655958891
+        },
+        {
+          "seconds": 1.13333333,
+          "maximumPoseDistance": 0.0025000600144267082
+        },
+        {
+          "seconds": 1.14999998,
+          "maximumPoseDistance": 0.0025000714231282473
+        },
+        {
+          "seconds": 1.16666663,
+          "maximumPoseDistance": 0.0025000760797411203
+        },
+        {
+          "seconds": 1.18333334,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 1.20000005,
+          "maximumPoseDistance": 0.0025000753812491894
+        },
+        {
+          "seconds": 1.2166667000000002,
+          "maximumPoseDistance": 0.002500079572200775
+        },
+        {
+          "seconds": 1.23333335,
+          "maximumPoseDistance": 0.002500080969184637
+        },
+        {
+          "seconds": 1.25,
+          "maximumPoseDistance": 0.0025000881869345903
+        },
+        {
+          "seconds": 1.26666665,
+          "maximumPoseDistance": 0.0025000825989991426
+        },
+        {
+          "seconds": 1.2833332999999998,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 1.29999995,
+          "maximumPoseDistance": 0.0025000926107168198
+        },
+        {
+          "seconds": 1.31666666,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.33333337,
+          "maximumPoseDistance": 0.002500085160136223
+        },
+        {
+          "seconds": 1.35000002,
+          "maximumPoseDistance": 0.0025000651367008686
+        },
+        {
+          "seconds": 1.36666667,
+          "maximumPoseDistance": 0.0025000707246363163
+        },
+        {
+          "seconds": 1.3833333250000002,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 1.39999998,
+          "maximumPoseDistance": 0.002500074915587902
+        },
+        {
+          "seconds": 1.41666663,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.43333328,
+          "maximumPoseDistance": 0.0025000786408782005
+        },
+        {
+          "seconds": 1.44999999,
+          "maximumPoseDistance": 0.0025000765454024076
+        },
+        {
+          "seconds": 1.4666667,
+          "maximumPoseDistance": 0.0025000704918056726
+        },
+        {
+          "seconds": 1.48333335,
+          "maximumPoseDistance": 0.0025000888854265213
+        },
+        {
+          "seconds": 1.5,
+          "maximumPoseDistance": 0.0025000839959830046
+        },
+        {
+          "seconds": 1.51666665,
+          "maximumPoseDistance": 0.002500093774870038
+        },
+        {
+          "seconds": 1.5333333,
+          "maximumPoseDistance": 0.002500062109902501
+        },
+        {
+          "seconds": 1.55000001,
+          "maximumPoseDistance": 0.0025000565219670534
+        },
+        {
+          "seconds": 1.56666672,
+          "maximumPoseDistance": 0.0025000707246363163
+        },
+        {
+          "seconds": 1.58333337,
+          "maximumPoseDistance": 0.002500062109902501
+        },
+        {
+          "seconds": 1.60000002,
+          "maximumPoseDistance": 0.0025000714231282473
+        },
+        {
+          "seconds": 1.6166666749999998,
+          "maximumPoseDistance": 0.0025000714231282473
+        },
+        {
+          "seconds": 1.63333333,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.64999998,
+          "maximumPoseDistance": 0.0025000544264912605
+        },
+        {
+          "seconds": 1.66666663,
+          "maximumPoseDistance": 0.0025000714231282473
+        },
+        {
+          "seconds": 1.68333334,
+          "maximumPoseDistance": 0.0025000707246363163
+        },
+        {
+          "seconds": 1.70000005,
+          "maximumPoseDistance": 0.0025000714231282473
+        },
+        {
+          "seconds": 1.7166667000000002,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 1.73333335,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.75,
+          "maximumPoseDistance": 0.0025000714231282473
+        },
+        {
+          "seconds": 1.76666665,
+          "maximumPoseDistance": 0.0025000565219670534
+        },
+        {
+          "seconds": 1.7833332999999998,
+          "maximumPoseDistance": 0.0025000590831041336
+        },
+        {
+          "seconds": 1.79999995,
+          "maximumPoseDistance": 0.002500082366168499
+        },
+        {
+          "seconds": 1.81666666,
+          "maximumPoseDistance": 0.002500061644241214
+        },
+        {
+          "seconds": 1.83333337,
+          "maximumPoseDistance": 0.0025000590831041336
+        },
+        {
+          "seconds": 1.85000002,
+          "maximumPoseDistance": 0.002500082366168499
+        },
+        {
+          "seconds": 1.86666667,
+          "maximumPoseDistance": 0.0025000611785799265
+        },
+        {
+          "seconds": 1.8833333250000002,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 1.89999998,
+          "maximumPoseDistance": 0.002500064903870225
+        },
+        {
+          "seconds": 1.91666663,
+          "maximumPoseDistance": 0.002500061644241214
+        },
+        {
+          "seconds": 1.93333328,
+          "maximumPoseDistance": 0.0025000839959830046
+        },
+        {
+          "seconds": 1.94999999,
+          "maximumPoseDistance": 0.0025000707246363163
+        },
+        {
+          "seconds": 1.9666667,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.98333335,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 2.0,
+          "maximumPoseDistance": 0.002500062808394432
+        }
+      ]
+    },
+    {
+      "clip": "idle",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.0025000686291605234
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500048838555813
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500043949112296
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.0025000618770718575
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500060945749283
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.0025000686291605234
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.0025000551249831915
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.0025000611785799265
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.002500043949112296
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.0025000558234751225
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.002500084927305579
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.01666665,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.0333333,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.05000001,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.06666672,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 1.08333337,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 1.10000002,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 1.1166666749999998,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.13333333,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 1.14999998,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.16666663,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.18333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.20000005,
+          "maximumPoseDistance": 0.002500043949112296
+        },
+        {
+          "seconds": 1.2166667000000002,
+          "maximumPoseDistance": 0.0025000623427331448
+        },
+        {
+          "seconds": 1.23333335,
+          "maximumPoseDistance": 0.00250005885027349
+        },
+        {
+          "seconds": 1.25,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.26666665,
+          "maximumPoseDistance": 0.0025000537279993296
+        },
+        {
+          "seconds": 1.2833332999999998,
+          "maximumPoseDistance": 0.002500050701200962
+        },
+        {
+          "seconds": 1.29999995,
+          "maximumPoseDistance": 0.0025000395253300667
+        },
+        {
+          "seconds": 1.31666666,
+          "maximumPoseDistance": 0.002500077709555626
+        },
+        {
+          "seconds": 1.33333337,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.35000002,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.36666667,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.3833333250000002,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.39999998,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.41666663,
+          "maximumPoseDistance": 0.002500072354450822
+        },
+        {
+          "seconds": 1.43333328,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.44999999,
+          "maximumPoseDistance": 0.00250006141141057
+        },
+        {
+          "seconds": 1.4666667,
+          "maximumPoseDistance": 0.002500042086467147
+        },
+        {
+          "seconds": 1.48333335,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.5,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.51666665,
+          "maximumPoseDistance": 0.0025000441819429398
+        },
+        {
+          "seconds": 1.5333333,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.55000001,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 1.56666672,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 1.58333337,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 1.60000002,
+          "maximumPoseDistance": 0.002500055590644479
+        },
+        {
+          "seconds": 1.6166666749999998,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.63333333,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.64999998,
+          "maximumPoseDistance": 0.002500042552128434
+        },
+        {
+          "seconds": 1.66666663,
+          "maximumPoseDistance": 0.002500060945749283
+        },
+        {
+          "seconds": 1.68333334,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.70000005,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 1.7166667000000002,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.73333335,
+          "maximumPoseDistance": 0.002500078408047557
+        },
+        {
+          "seconds": 1.75,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 1.76666665,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 1.7833332999999998,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.79999995,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 1.81666666,
+          "maximumPoseDistance": 0.002500055590644479
+        },
+        {
+          "seconds": 1.83333337,
+          "maximumPoseDistance": 0.002500048605725169
+        },
+        {
+          "seconds": 1.85000002,
+          "maximumPoseDistance": 0.002500066766515374
+        },
+        {
+          "seconds": 1.86666667,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 1.8833333250000002,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 1.89999998,
+          "maximumPoseDistance": 0.0025000751484185457
+        },
+        {
+          "seconds": 1.91666663,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.93333328,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 1.94999999,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 1.9666667,
+          "maximumPoseDistance": 0.002500054659321904
+        },
+        {
+          "seconds": 1.98333335,
+          "maximumPoseDistance": 0.0025000779423862696
+        },
+        {
+          "seconds": 2.0,
+          "maximumPoseDistance": 0.002500068861991167
+        }
+      ]
+    },
+    {
+      "clip": "jump",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.00250006141141057
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.0025000611785799265
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.0025000562891364098
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.0025000872556120157
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.0025000760797411203
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.0025000781752169132
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.0025000690948218107
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.002500072354450822
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500072820112109
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.0025000765454024076
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.0025000781752169132
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.002500060247257352
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.0025000683963298798
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.002500074915587902
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.0025000814348459244
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.0025000658351927996
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.0025000746827572584
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.0025000805035233498
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.0025000562891364098
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500054193660617
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.0025000451132655144
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.0025000451132655144
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.0025000562891364098
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500054193660617
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.0025000660680234432
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.0025000441819429398
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.0025000744499266148
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.002500045346096158
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.0025000451132655144
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.0025000697933137417
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.0025000451132655144
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.002500043483451009
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.002500043250620365
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.0025000611785799265
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.002500072820112109
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.002500045346096158
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.002500055357813835
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.002500072820112109
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.0025000718887895346
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.0025000718887895346
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500043250620365
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500072820112109
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.0025000697933137417
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500072820112109
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.0025000746827572584
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.002500107977539301
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.0025000781752169132
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.00250010727904737
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.0025000926107168198
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.00250006141141057
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.0025000867899507284
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.0025000767782330513
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.0025000839959830046
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.0025000697933137417
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.0025000819005072117
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.0025000907480716705
+        },
+        {
+          "seconds": 1.01666665,
+          "maximumPoseDistance": 0.0025000907480716705
+        },
+        {
+          "seconds": 1.0333333,
+          "maximumPoseDistance": 0.002500077709555626
+        },
+        {
+          "seconds": 1.05000001,
+          "maximumPoseDistance": 0.0025000576861202717
+        },
+        {
+          "seconds": 1.06666672,
+          "maximumPoseDistance": 0.0025000772438943386
+        },
+        {
+          "seconds": 1.08333337,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 1.10000002,
+          "maximumPoseDistance": 0.002500074915587902
+        },
+        {
+          "seconds": 1.1166666749999998,
+          "maximumPoseDistance": 0.0025000753812491894
+        },
+        {
+          "seconds": 1.13333333,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 1.14999998,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 1.16666663,
+          "maximumPoseDistance": 0.0025000544264912605
+        },
+        {
+          "seconds": 1.18333334,
+          "maximumPoseDistance": 0.002500084927305579
+        },
+        {
+          "seconds": 1.20000005,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 1.2166667000000002,
+          "maximumPoseDistance": 0.002500052796676755
+        },
+        {
+          "seconds": 1.23333335,
+          "maximumPoseDistance": 0.002500072354450822
+        },
+        {
+          "seconds": 1.25,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 1.26666665,
+          "maximumPoseDistance": 0.0025000800378620625
+        },
+        {
+          "seconds": 1.2833332999999998,
+          "maximumPoseDistance": 0.0025000539608299732
+        },
+        {
+          "seconds": 1.29999995,
+          "maximumPoseDistance": 0.0025000462774187326
+        },
+        {
+          "seconds": 1.31666666,
+          "maximumPoseDistance": 0.0025000462774187326
+        },
+        {
+          "seconds": 1.33333337,
+          "maximumPoseDistance": 0.0025000462774187326
+        }
+      ]
+    },
+    {
+      "clip": "run",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.0025000646710395813
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.0025000988971441984
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.0025000835303217173
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.0025000509340316057
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.002500088419765234
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.0025000772438943386
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.002500096568837762
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.002500074915587902
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.002500104485079646
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.0025000933092087507
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.002500065602362156
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.0025000767782330513
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.002500074217095971
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.0025000572204589844
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.0025000718887895346
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.002500076312571764
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.002500062109902501
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.0025000949390232563
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.002500073052942753
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.0025001137983053923
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.0025000576861202717
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.0025000814348459244
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.0025000819005072117
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.002500074915587902
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.0025000793393701315
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.0025000690948218107
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.002500079805031419
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.0025000993628054857
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.0025000697933137417
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.0025000900495797396
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.0025000700261443853
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.0025000902824103832
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.0025000772438943386
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.002500060247257352
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.0025000644382089376
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.0025000739842653275
+        }
+      ]
+    },
+    {
+      "clip": "walk",
+      "samples": [
+        {
+          "seconds": 0.0,
+          "maximumPoseDistance": 0.002500072354450822
+        },
+        {
+          "seconds": 0.01666667,
+          "maximumPoseDistance": 0.0025000839959830046
+        },
+        {
+          "seconds": 0.03333334,
+          "maximumPoseDistance": 0.0025000618770718575
+        },
+        {
+          "seconds": 0.050000005,
+          "maximumPoseDistance": 0.0025000814348459244
+        },
+        {
+          "seconds": 0.06666667,
+          "maximumPoseDistance": 0.002500058151781559
+        },
+        {
+          "seconds": 0.08333333500000001,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 0.1,
+          "maximumPoseDistance": 0.0025000926107168198
+        },
+        {
+          "seconds": 0.11666667,
+          "maximumPoseDistance": 0.002500097267329693
+        },
+        {
+          "seconds": 0.13333334,
+          "maximumPoseDistance": 0.0025000707246363163
+        },
+        {
+          "seconds": 0.150000005,
+          "maximumPoseDistance": 0.0025000686291605234
+        },
+        {
+          "seconds": 0.16666667,
+          "maximumPoseDistance": 0.0025000814348459244
+        },
+        {
+          "seconds": 0.183333335,
+          "maximumPoseDistance": 0.0025000835303217173
+        },
+        {
+          "seconds": 0.2,
+          "maximumPoseDistance": 0.0025001047179102898
+        },
+        {
+          "seconds": 0.216666665,
+          "maximumPoseDistance": 0.0025000772438943386
+        },
+        {
+          "seconds": 0.23333333,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 0.25000000499999997,
+          "maximumPoseDistance": 0.0025000658351927996
+        },
+        {
+          "seconds": 0.26666668,
+          "maximumPoseDistance": 0.002500075614079833
+        },
+        {
+          "seconds": 0.28333334499999996,
+          "maximumPoseDistance": 0.002500085858628154
+        },
+        {
+          "seconds": 0.30000001,
+          "maximumPoseDistance": 0.0025000437162816525
+        },
+        {
+          "seconds": 0.316666675,
+          "maximumPoseDistance": 0.002500067465007305
+        },
+        {
+          "seconds": 0.33333334,
+          "maximumPoseDistance": 0.0025000753812491894
+        },
+        {
+          "seconds": 0.35000000499999995,
+          "maximumPoseDistance": 0.0025000537279993296
+        },
+        {
+          "seconds": 0.36666667,
+          "maximumPoseDistance": 0.002500062109902501
+        },
+        {
+          "seconds": 0.38333333999999997,
+          "maximumPoseDistance": 0.0025000718887895346
+        },
+        {
+          "seconds": 0.40000001,
+          "maximumPoseDistance": 0.0025000874884426594
+        },
+        {
+          "seconds": 0.416666675,
+          "maximumPoseDistance": 0.002500077709555626
+        },
+        {
+          "seconds": 0.43333334,
+          "maximumPoseDistance": 0.002500073751434684
+        },
+        {
+          "seconds": 0.45000000500000004,
+          "maximumPoseDistance": 0.0025000558234751225
+        },
+        {
+          "seconds": 0.46666667,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.483333335,
+          "maximumPoseDistance": 0.0025000632740557194
+        },
+        {
+          "seconds": 0.5,
+          "maximumPoseDistance": 0.00250005885027349
+        },
+        {
+          "seconds": 0.5166666799999999,
+          "maximumPoseDistance": 0.002500056754797697
+        },
+        {
+          "seconds": 0.53333336,
+          "maximumPoseDistance": 0.002500066999346018
+        },
+        {
+          "seconds": 0.55000001,
+          "maximumPoseDistance": 0.00250007351860404
+        },
+        {
+          "seconds": 0.56666666,
+          "maximumPoseDistance": 0.0025000718887895346
+        },
+        {
+          "seconds": 0.58333334,
+          "maximumPoseDistance": 0.0025000739842653275
+        },
+        {
+          "seconds": 0.60000002,
+          "maximumPoseDistance": 0.002500063506886363
+        },
+        {
+          "seconds": 0.616666675,
+          "maximumPoseDistance": 0.0025000632740557194
+        },
+        {
+          "seconds": 0.63333333,
+          "maximumPoseDistance": 0.0025000893510878086
+        },
+        {
+          "seconds": 0.6500000100000001,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.66666669,
+          "maximumPoseDistance": 0.0025000732857733965
+        },
+        {
+          "seconds": 0.68333334,
+          "maximumPoseDistance": 0.0025000935420393944
+        },
+        {
+          "seconds": 0.69999999,
+          "maximumPoseDistance": 0.002500060712918639
+        },
+        {
+          "seconds": 0.71666667,
+          "maximumPoseDistance": 0.0025000860914587975
+        },
+        {
+          "seconds": 0.73333335,
+          "maximumPoseDistance": 0.002500079572200775
+        },
+        {
+          "seconds": 0.75,
+          "maximumPoseDistance": 0.002500062808394432
+        },
+        {
+          "seconds": 0.76666665,
+          "maximumPoseDistance": 0.0025000658351927996
+        },
+        {
+          "seconds": 0.78333333,
+          "maximumPoseDistance": 0.002500060945749283
+        },
+        {
+          "seconds": 0.80000001,
+          "maximumPoseDistance": 0.0025000623427331448
+        },
+        {
+          "seconds": 0.81666666,
+          "maximumPoseDistance": 0.0025000644382089376
+        },
+        {
+          "seconds": 0.83333331,
+          "maximumPoseDistance": 0.0025000860914587975
+        },
+        {
+          "seconds": 0.8499999899999999,
+          "maximumPoseDistance": 0.0025000800378620625
+        },
+        {
+          "seconds": 0.86666667,
+          "maximumPoseDistance": 0.0025000707246363163
+        },
+        {
+          "seconds": 0.883333325,
+          "maximumPoseDistance": 0.00250007095746696
+        },
+        {
+          "seconds": 0.89999998,
+          "maximumPoseDistance": 0.0025000665336847305
+        },
+        {
+          "seconds": 0.91666666,
+          "maximumPoseDistance": 0.002500064903870225
+        },
+        {
+          "seconds": 0.93333334,
+          "maximumPoseDistance": 0.0025000672321766615
+        },
+        {
+          "seconds": 0.94999999,
+          "maximumPoseDistance": 0.002500068861991167
+        },
+        {
+          "seconds": 0.96666664,
+          "maximumPoseDistance": 0.0025000846944749355
+        },
+        {
+          "seconds": 0.9833333200000001,
+          "maximumPoseDistance": 0.0025000846944749355
+        },
+        {
+          "seconds": 1.0,
+          "maximumPoseDistance": 0.0025000846944749355
+        }
+      ]
+    }
+  ]
+}

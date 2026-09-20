@@ -1,0 +1,578 @@
+{
+  "asset": "frontier_siege_repair_bench",
+  "lod": 2,
+  "stage": "source construction proof; flat material colors; not exported or accepted",
+  "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2",
+  "authorSha256": "9d668d6a1846f160f317dafa3d6891d1111be36e0104ffef7451d43b309407fe",
+  "builderSha256": "d1aea517f97f20bc4b6bbed53db9fdee496b90d896977d59f9c64c0eb6b80e27",
+  "master": "masters/frontier_siege_repair_bench_lod2.source.blend",
+  "masterSha256": "835b9dc221acba9b8648c5e7c02473f6b77ade72fdef40508b60e191c4115da6",
+  "triangles": 3904,
+  "audit": {
+    "meshes": [
+      {
+        "mesh": "trestle_leg_-1_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 140
+      },
+      {
+        "mesh": "trestle_leg_-1_-1.drawbore_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_-1_-1.end_rail_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_-1_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 140
+      },
+      {
+        "mesh": "trestle_leg_-1_1.drawbore_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_-1_1.end_rail_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_1_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 140
+      },
+      {
+        "mesh": "trestle_leg_1_-1.drawbore_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_1_-1.end_rail_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_1_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 140
+      },
+      {
+        "mesh": "trestle_leg_1_1.drawbore_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "trestle_leg_1_1.end_rail_peg.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "shouldered_long_stretcher_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 92
+      },
+      {
+        "mesh": "shouldered_long_stretcher_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 92
+      },
+      {
+        "mesh": "shouldered_end_stretcher_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 92
+      },
+      {
+        "mesh": "trestle_top_bearer_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 60
+      },
+      {
+        "mesh": "shaped_trestle_knee_-1_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "shaped_trestle_knee_-1_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "shouldered_end_stretcher_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 92
+      },
+      {
+        "mesh": "trestle_top_bearer_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 60
+      },
+      {
+        "mesh": "shaped_trestle_knee_1_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "shaped_trestle_knee_1_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "individual_worktop_plank_0.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 104
+      },
+      {
+        "mesh": "individual_worktop_plank_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 104
+      },
+      {
+        "mesh": "individual_worktop_plank_2.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 104
+      },
+      {
+        "mesh": "individual_worktop_plank_3.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 104
+      },
+      {
+        "mesh": "breadboard_end_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 68
+      },
+      {
+        "mesh": "breadboard_drawpin_-1_-0.3.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "breadboard_drawpin_-1_0.1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "breadboard_drawpin_-1_0.3.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "breadboard_end_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 68
+      },
+      {
+        "mesh": "breadboard_drawpin_1_-0.3.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "breadboard_drawpin_1_0.1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "breadboard_drawpin_1_0.3.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "pegged_upper_apron_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 68
+      },
+      {
+        "mesh": "pegged_upper_apron_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 68
+      },
+      {
+        "mesh": "forged_vise_fixed_body.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 136
+      },
+      {
+        "mesh": "forged_vise_moving_jaw.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 84
+      },
+      {
+        "mesh": "worked_fixed_jaw_plate.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 32
+      },
+      {
+        "mesh": "fixed_jaw_retaining_rivet_-0.864.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "fixed_jaw_retaining_rivet_-0.616.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "worked_moving_jaw_plate.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 32
+      },
+      {
+        "mesh": "moving_jaw_retaining_rivet_-0.864.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "moving_jaw_retaining_rivet_-0.616.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "vise_fitted_lower_slide.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 28
+      },
+      {
+        "mesh": "vise_lead_screw_shank.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "vise_handle_cross_hub.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 132
+      },
+      {
+        "mesh": "sliding_vise_handle.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 68
+      },
+      {
+        "mesh": "bent_repair_strap_clamped_in_jaws.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 78
+      },
+      {
+        "mesh": "vise_mount_bolt_-0.816.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "vise_mount_bolt_-0.664.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "fitted_rear_tool_rest.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 306
+      },
+      {
+        "mesh": "tool_rest_support_-0.25.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 28
+      },
+      {
+        "mesh": "tool_rest_mount_-0.25.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "tool_rest_support_0.84.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 28
+      },
+      {
+        "mesh": "tool_rest_mount_0.84.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      },
+      {
+        "mesh": "socketed_repair_hammer_handle.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 44
+      },
+      {
+        "mesh": "forged_repair_hammer_head.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 160
+      },
+      {
+        "mesh": "hammer_handle_driven_wedge.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 12
+      },
+      {
+        "mesh": "cold_chisel_blade_0.29.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 44
+      },
+      {
+        "mesh": "chisel_turned_grip_0.29.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 56
+      },
+      {
+        "mesh": "chisel_ferrule_0.29.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 44
+      },
+      {
+        "mesh": "cold_chisel_blade_0.61.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 44
+      },
+      {
+        "mesh": "chisel_turned_grip_0.61.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 56
+      },
+      {
+        "mesh": "chisel_ferrule_0.61.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 44
+      },
+      {
+        "mesh": "forged_open_tong_arm_-1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 76
+      },
+      {
+        "mesh": "forged_open_tong_arm_1.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 76
+      },
+      {
+        "mesh": "tong_pivot_rivet.finished",
+        "boundary_edges_after_positional_weld": 0,
+        "multi_face_edges_after_positional_weld": 0,
+        "loose_edges": 0,
+        "faces": 20
+      }
+    ],
+    "bounds_z_up": {
+      "minimum": [
+        -1.2799999713897705,
+        -0.8019999861717224,
+        0.0
+      ],
+      "maximum": [
+        1.2799999713897705,
+        0.41127490997314453,
+        1.3654999732971191
+      ]
+    },
+    "totalBoundaryEdges": 0,
+    "totalMultiFaceEdges": 0,
+    "totalLooseEdges": 0
+  },
+  "cutSockets": [
+    {
+      "part": "trestle_leg_-1_-1",
+      "cutter": "trestle_leg_-1_-1.long_mortise"
+    },
+    {
+      "part": "trestle_leg_-1_-1",
+      "cutter": "trestle_leg_-1_-1.end_mortise"
+    },
+    {
+      "part": "trestle_leg_-1_1",
+      "cutter": "trestle_leg_-1_1.long_mortise"
+    },
+    {
+      "part": "trestle_leg_-1_1",
+      "cutter": "trestle_leg_-1_1.end_mortise"
+    },
+    {
+      "part": "trestle_leg_1_-1",
+      "cutter": "trestle_leg_1_-1.long_mortise"
+    },
+    {
+      "part": "trestle_leg_1_-1",
+      "cutter": "trestle_leg_1_-1.end_mortise"
+    },
+    {
+      "part": "trestle_leg_1_1",
+      "cutter": "trestle_leg_1_1.long_mortise"
+    },
+    {
+      "part": "trestle_leg_1_1",
+      "cutter": "trestle_leg_1_1.end_mortise"
+    },
+    {
+      "part": "forged_vise_fixed_body",
+      "cutter": "vise_slide_socket"
+    },
+    {
+      "part": "forged_vise_fixed_body",
+      "cutter": "vise_threaded_receiving_socket"
+    },
+    {
+      "part": "forged_vise_moving_jaw",
+      "cutter": "vise_threaded_receiving_socket"
+    },
+    {
+      "part": "vise_handle_cross_hub",
+      "cutter": "vise_handle_hub_socket"
+    },
+    {
+      "part": "bent_repair_strap_clamped_in_jaws",
+      "cutter": "repair_strap_pin_eye"
+    },
+    {
+      "part": "fitted_rear_tool_rest",
+      "cutter": "tool_rest_socket_-0.04"
+    },
+    {
+      "part": "fitted_rear_tool_rest",
+      "cutter": "tool_rest_socket_0.29"
+    },
+    {
+      "part": "fitted_rear_tool_rest",
+      "cutter": "tool_rest_socket_0.61"
+    },
+    {
+      "part": "forged_repair_hammer_head",
+      "cutter": "hammer_handle_eye"
+    }
+  ],
+  "stoneSupports": [],
+  "views": {}
+}

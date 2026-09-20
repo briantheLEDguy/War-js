@@ -31,4 +31,9 @@ test('nature uses tighter LOD and visibility budgets than large keep architectur
   expect(tree.cull).toBe(600); expect(meadow.cull).toBe(80); expect(meadow.lod).toEqual([0, 12, 30]);
   expect(frontierPropDistances('frontier_sunmeadow_hawthorn').lod).toEqual([0, 18, 55]);
   expect(frontierPropDistances('frontier_sunmeadow_keep_gatehouse').lod).toEqual([0, 90, 240]);
+  for (const key of ['frontier_siege_repair_bench', 'frontier_siege_ammunition_cradle']) {
+    const workshop = frontierPropDistances(key);
+    expect([0, 20, 50].map(distance => sceneryDistanceLod(distance, 3, workshop.lod))).toEqual([0, 1, 2]);
+    expect(workshop.cull).toBeLessThanOrEqual(160);
+  }
 });

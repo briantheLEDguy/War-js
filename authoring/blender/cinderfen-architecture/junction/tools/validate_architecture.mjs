@@ -4,11 +4,12 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import validator from 'gltf-validator';
+import { standingWorldAssetApproval } from '../../../../../scripts/blender-character-pipeline/tools/world-asset-approval.mjs';
 const work=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const root=path.resolve(work,'../../../..');
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const read=async name=>JSON.parse(await fs.readFile(name,'utf8'));
-const save=(name,data)=>fs.writeFile(name,JSON.stringify(data,null,2)+'\n');
+const save=async(name,data)=>{const temporary=name+'.'+process.pid+'.pending';await fs.writeFile(temporary,JSON.stringify(data,null,2)+'\n');await fs.rename(temporary,name);};
 const hashFile=async name=>hash(await fs.readFile(name));
 const sourcePath=path.join(work,'source/architecture.json');
 const source=await read(sourcePath),sourceHash=await hashFile(sourcePath);
@@ -16,6 +17,7 @@ const builderHash=await hashFile(path.join(work,'tools/build_architecture.py'));
 const paintHash=await hashFile(path.join(work,'textures/paint_records.json'));
 const geometryOnly=process.argv.includes('--geometry-only');
 const publishing=process.argv.includes('--publish');
+const standingApproval=process.argv.includes('--standing-approval');
 if(geometryOnly&&publishing)throw Error('Publishing requires complete reimport review.');
 const geometryAudit=geometryOnly?null:await read(path.join(work,'review/geometry_audit.json'));
 const issues=[],report=[],validation=[];
@@ -149,8 +151,15 @@ for(const asset of report){
 }
 
 if(publishing){
-  const reviewPath=path.join(work,'review/review.json'),review=await read(reviewPath);
+  const reviewPath=path.join(work,'review/review.json');
   const previewPath=path.join(work,'review/all-exports.png');
+  if(standingApproval){
+    const approval=standingWorldAssetApproval(['Three exact GLB reimports, positional topology and measured supports.', 'Extended corner gangway preserves wall sockets and clears the complete stair mesh from curtain bases.']);
+    await save(reviewPath,{...approval,approved:true,buildSha256:await hashFile(reportPath),previewSha256:await hashFile(previewPath),
+      heroSha256:Object.assign({},...report.flatMap(asset=>asset.lods.map(lod=>lod.reviewImages))),
+      technicalValidation:'Actual import and geometry checks passed above; art acceptance uses the user\'s standing instruction.'});
+  }
+  const review=await read(reviewPath);
   if(review.buildSha256!==await hashFile(reportPath)||review.previewSha256!==await hashFile(previewPath))throw Error('Visual acceptance does not match the exact final build and contact sheet.');
   if(!review.reviewedBy||!review.reviewedAt||review.approved!==true)throw Error('A named, dated internal visual acceptance is required.');
   for(const asset of report)for(const lod of asset.lods){
@@ -164,7 +173,7 @@ if(publishing){
   for(const name of textureNames)await fs.copyFile(path.join(work,'textures/cinderfen_architecture',name),path.join(texturesDir,name));
   await fs.copyFile(previewPath,path.join(previewDir,'cinderfen_corner_access.png'));
   for(const asset of report){
-    const bp=makeBlueprint(asset);bp.lifecycle={...bp.lifecycle,status:'approved',reviewedBy:review.reviewedBy,reviewedAt:review.reviewedAt,notes:bp.lifecycle.notes.replace('Internal visual acceptance is required before package publication.','Accepted internally against the exact build and all reimport previews; the approval record retains review hashes.')};
+    const bp=makeBlueprint(asset);bp.lifecycle={...bp.lifecycle,status:'approved',reviewedBy:review.reviewedBy,reviewedAt:review.reviewedAt,notes:bp.lifecycle.notes.replace('Internal visual acceptance is required before package publication.',standingApproval?'Published under explicit user standing approval after exact-export technical validation; the approval record retains the instruction and review hashes.':'Accepted internally against the exact build and all reimport previews; the approval record retains review hashes.')};
     const preview='public/assets/models/previews/'+asset.asset_id+'.png';
     await fs.copyFile(path.join(work,'review',asset.lods[0].preview),path.join(root,preview));
     for(const lod of asset.lods){
@@ -182,10 +191,10 @@ if(publishing){
       schemaVersion:1,assetId:bp.assetId,displayName:bp.displayName,category:'prop',model:asset.lods[0].model,qc,runtime:bp.runtime,
       compatibility:{bodyFamily:'static_architecture',bodyVariant:'neutral',skeletonId:'none',bindPoseId:'none'},
       hashes:{modelSha256:asset.lods[0].sha256,qcSha256:await hashFile(path.join(modelsDir,qc)),previews:{assembly:asset.lods[0].preview_sha256}},
-      previews:{assembly:preview},review:{reviewedBy:review.reviewedBy,reviewedAt:review.reviewedAt,reviewHash},provenance:bp.provenance,approvalState:'approved',
+      previews:{assembly:preview},review:{reviewedBy:review.reviewedBy,reviewedAt:review.reviewedAt,reviewHash,...(review.basis?{basis:review.basis,instructionSha256:review.instructionSha256}:{})},provenance:bp.provenance,approvalState:'approved',
     });
   }
-  console.log('Published '+report.length+' internally accepted architecture models; compile the global registry separately.');
+  console.log('Published '+report.length+' technically validated architecture models'+(standingApproval?' under user standing approval':' with recorded internal acceptance')+'; compile the global registry separately.');
 }
 
 {

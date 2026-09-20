@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "frontier_sunmeadow_skylark": {
+      "runtimeReady": true,
+      "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+      "defaultAnimation": "",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "group": "Frontier Wildlife",
+      "colliders": [],
+      "cameraSolid": false
+    }
+  }
+}

@@ -101,7 +101,7 @@ for(let head=0;head<villageQueue.length&&villageReached.size<villageTargets.leng
 }
 const missingVillage=villageTargets.filter(target=>!villageReached.has(target.id));
 const groundSurvey=[];
-for(const prop of zone.props.filter(prop=>prop.assetKey?.startsWith('frontier_cinderfen_'))){
+for(const prop of zone.props.filter(prop=>contracts[prop.assetKey])){
   const bounds=contracts[prop.assetKey].boundsYUp;
   for(const x of [bounds.minimum[0],0,bounds.maximum[0]])for(const z of [bounds.minimum[2],0,bounds.maximum[2]]){
     const offset=rotate(x*(prop.scaleX??1),z*(prop.scaleZ??1),prop.rotY??0),world={x:prop.x+offset.x,z:prop.z+offset.z};

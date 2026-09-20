@@ -1,0 +1,1068 @@
+{
+  "method": "Actual published LOD0 GLB triangle intersections at generated zone transforms; corner landing socket contacts excluded.",
+  "candidateDiagonalInset": 0,
+  "mapSha256": "bb89d077f8df6bcc2faae975c62ef6eb874d55db888996647e57440236d7e7c8",
+  "placements": [
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -365.798781,
+      "y": 0,
+      "z": -0.737258,
+      "rotY": 3.9269908169872414,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -332.362742,
+      "y": 0,
+      "z": 1.101219,
+      "rotY": 2.356194490192345,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -367.637258,
+      "y": 0,
+      "z": 12.698781,
+      "rotY": -0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -334.201219,
+      "y": 0,
+      "z": 14.537258,
+      "rotY": 0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -373.798781,
+      "y": 0,
+      "z": -17.237258,
+      "rotY": 3.9269908169872414,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -324.362742,
+      "y": 0,
+      "z": -15.398781,
+      "rotY": 2.356194490192345,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -375.637258,
+      "y": 0,
+      "z": 44.198781,
+      "rotY": -0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": -326.201219,
+      "y": 0,
+      "z": 46.037258,
+      "rotY": 0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_front_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 334.201219,
+      "y": 0,
+      "z": -0.737258,
+      "rotY": 3.9269908169872414,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_front_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 367.637258,
+      "y": 0,
+      "z": 1.101219,
+      "rotY": 2.356194490192345,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 332.362742,
+      "y": 0,
+      "z": 12.698781,
+      "rotY": -0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 365.798781,
+      "y": 0,
+      "z": 14.537258,
+      "rotY": 0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_front_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 326.201219,
+      "y": 0,
+      "z": -17.237258,
+      "rotY": 3.9269908169872414,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_front_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 375.637258,
+      "y": 0,
+      "z": -15.398781,
+      "rotY": 2.356194490192345,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_left_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 324.362742,
+      "y": 0,
+      "z": 44.198781,
+      "rotY": -0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_right_stair",
+      "assetKey": "frontier_cinderfen_wall_stair",
+      "x": 373.798781,
+      "y": 0,
+      "z": 46.037258,
+      "rotY": 0.7853981633974483,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_wall_-18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -368,
+      "y": 0,
+      "z": -7.5,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_front_wall_18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -332,
+      "y": 0,
+      "z": -7.5,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_gatehouse",
+      "assetKey": "frontier_cinderfen_gatehouse",
+      "x": -350,
+      "y": 0,
+      "z": -7.5,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_end_-1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -369,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_end_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -331,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_wall_-12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -362,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_wall_-4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -354,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_wall_12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -338,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_rear_wall_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -346,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_side_wall_-1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -374.4,
+      "y": 0,
+      "z": -1.1,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_side_wall_-1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -374.4,
+      "y": 0,
+      "z": 6.9,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_side_wall_-1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -374.4,
+      "y": 0,
+      "z": 14.9,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_side_wall_1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -325.6,
+      "y": 0,
+      "z": -1.1,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_side_wall_1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -325.6,
+      "y": 0,
+      "z": 6.9,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_inner_side_wall_1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -325.6,
+      "y": 0,
+      "z": 14.9,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_wall_-18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -368,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_wall_-26",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -376,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_wall_18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -332,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_front_wall_26",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -324,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_gatehouse",
+      "assetKey": "frontier_cinderfen_gatehouse",
+      "x": -350,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_end_-1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -377,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_end_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -323,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_wall_-12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -362,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_wall_-20",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -370,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_wall_-4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -354,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_wall_12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -338,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_wall_20",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -330,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_rear_wall_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -346,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": -17.6,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": -9.6,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": -1.6,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_3",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": 6.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": 14.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_5",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": 22.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_6",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": 30.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_7",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": 38.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_-1_8",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -382.4,
+      "y": 0,
+      "z": 46.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": -17.6,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": -9.6,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": -1.6,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_3",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": 6.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": 14.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_5",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": 22.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_6",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": 30.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_7",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": 38.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_aegis_keep_outer_side_wall_1_8",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": -317.6,
+      "y": 0,
+      "z": 46.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_front_wall_-18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 332,
+      "y": 0,
+      "z": -7.5,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_front_wall_18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 368,
+      "y": 0,
+      "z": -7.5,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_gatehouse",
+      "assetKey": "frontier_cinderfen_gatehouse",
+      "x": 350,
+      "y": 0,
+      "z": -7.5,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_end_-1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 331,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_end_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 369,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_wall_-12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 338,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_wall_-4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 346,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_wall_12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 362,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_rear_wall_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 354,
+      "y": 0,
+      "z": 21.3,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_side_wall_-1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 325.6,
+      "y": 0,
+      "z": -1.1,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_side_wall_-1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 325.6,
+      "y": 0,
+      "z": 6.9,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_side_wall_-1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 325.6,
+      "y": 0,
+      "z": 14.9,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_side_wall_1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 374.4,
+      "y": 0,
+      "z": -1.1,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_side_wall_1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 374.4,
+      "y": 0,
+      "z": 6.9,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_inner_side_wall_1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 374.4,
+      "y": 0,
+      "z": 14.9,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_front_wall_-18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 332,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_front_wall_-26",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 324,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_front_wall_18",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 368,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_front_wall_26",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 376,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_gatehouse",
+      "assetKey": "frontier_cinderfen_gatehouse",
+      "x": 350,
+      "y": 0,
+      "z": -24,
+      "rotY": 3.141592653589793,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_end_-1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 323,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_end_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 377,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1,
+      "scaleX": 0.75
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_wall_-12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 338,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_wall_-20",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 330,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_wall_-4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 346,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_wall_12",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 362,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_wall_20",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 370,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_rear_wall_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 354,
+      "y": 0,
+      "z": 52.8,
+      "rotY": 0,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": -17.6,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": -9.6,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": -1.6,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_3",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": 6.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": 14.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_5",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": 22.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_6",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": 30.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_7",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": 38.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_-1_8",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 317.6,
+      "y": 0,
+      "z": 46.4,
+      "rotY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_0",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": -17.6,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_1",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": -9.6,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_2",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": -1.6,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_3",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": 6.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_4",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": 14.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_5",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": 22.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_6",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": 30.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_7",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": 38.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "cinderfen_outskirts_riftbound_keep_outer_side_wall_1_8",
+      "assetKey": "frontier_cinderfen_curtain_walk",
+      "x": 382.4,
+      "y": 0,
+      "z": 46.4,
+      "rotY": 1.5707963267948966,
+      "scale": 1
+    }
+  ],
+  "models": [
+    {
+      "model": "frontier_cinderfen_wall_stair_lod0.glb",
+      "sha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65"
+    },
+    {
+      "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+      "sha256": "d1afc68d62c053ee987dabeef8909a0c219d5a299a499e12d8989ca792c56008"
+    },
+    {
+      "model": "frontier_cinderfen_gatehouse_lod0.glb",
+      "sha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90"
+    }
+  ],
+  "stairs": [
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_rear_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_rear_right_stair",
+      "wallIntersections": []
+    }
+  ],
+  "intersectingStairs": 0
+}

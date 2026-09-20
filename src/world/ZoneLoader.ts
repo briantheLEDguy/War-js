@@ -43,7 +43,7 @@ export interface PropSpawn {
   lodModels?: string[];
   /** Optional asset-index static key. Prefer this over direct model names. */
   assetKey?: string;
-  assetCategory?: 'staticProps' | 'characterProfiles';
+  assetCategory?: 'staticProps' | 'characterProfiles' | 'equipment';
   defaultAnimation?: string;
   modelOffset?: { x: number; y: number; z: number };
   groundSurface?: 'mesh';

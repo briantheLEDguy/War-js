@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "approvedBy": "User",
+  "approvedAt": "2026-09-09T15:22:39Z",
+  "scope": "Existing and forthcoming assets for the authorized regional world build",
+  "instruction": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "priorities": [
+    "character models",
+    "equipment",
+    "town and siege items",
+    "animals"
+  ],
+  "integration": "Publish completed exports into the runtime registry, GM builder, and appropriate game locations. Preserve technical validation results and unfinished-work notes without waiting for another aesthetic approval.",
+  "reusePolicy": {
+    "universal": [
+      "siege equipment",
+      "internal keep assets"
+    ],
+    "thematic": [
+      "keep exteriors",
+      "town exteriors",
+      "terrain",
+      "nature"
+    ]
+  },
+  "collisionRequirement": "Check collision on every new asset; verify keep corner and gate enclosure, clear stair-to-wall fit, and railing containment with actual character movement."
+}

@@ -1,5 +1,27 @@
 # Inhabitant work state
 
+## Current standing approval and publication
+
+The user explicitly grants standing visual approval to all current and prior
+assets and requests integration as they become technically ready. No further
+visual approval loop or anatomy refinement is required. Revision l completed
+all three exports with the evaluated-sole welt and zero Khronos errors/warnings.
+All nine export regression gates now pass across all three LODs: literal nine-clip
+ground/clothing contact, 224-pose arm sections, closed welt topology and actual
+posed sole clearance under 3.5 mm. All 27 animation channel fingerprints are
+unchanged from checkpoint k. Current front/head previews are saved with suffix
+`_20260909l`. Repetitive motion-sheet rendering was stopped under the new instruction.
+The build receipt verifies 47 unchanged generating files and 22 packed images;
+its original `sourceTools` snapshot is retained, with 8 current validation inputs
+recorded separately in `validationSourceFiles`, as directed by root. The welt
+auditor measures the actual deformed low-LOD surface rather than assuming an
+entire sole patch has rigid weights. No physical tolerance was increased.
+No active authoring/render/audit process remains for this package. Revision l is
+published in the runtime registry and GM builder and assigned to Sunmeadow's
+existing craft mentor. Its frozen release retains the source/export proofs;
+root verified the final integrated suite on September 20. The other planned
+regional civilian and service roles remain outstanding.
+
 ## 2026-09-09 resumed bounded dwarf motion work
 
 Revision j is a complete atomic three-LOD set. All three exports have zero
@@ -43,6 +65,17 @@ welt gap; `welt-before-k-animation.json` preserves exact channel fingerprints.
 FROZEN CHECKPOINT BOUNDARY: no build, export, render or audit process is active
 for this package. Root may checkpoint the entire folder before the bounded welt
 correction and audit-entry-point hardening. The complete character remains draft.
+
+Checkpoint `71e6f89` saved the frozen k revision and root independently reran all
+seven gates successfully. Work resumed on the bounded sole welt. The source now
+cuts a closed exterior section from the evaluated boot and binds the stitched
+profile to that same foot field. A new actual-export audit measures the sole gap,
+closed topology and every-clip rigid contact, retaining k's animation fingerprints.
+Inspection entry points now clear their scenes and verify imported triangle count.
+Motion-sheet framing accounts for each pose; before/after boot close cameras are
+available. Final build receipts now enumerate source/helper/material/master files.
+No hair, boot-upper, clothing or animation redesign. Root owns publication tools,
+visual_review.json, releases/ and builder-metadata.json; do not edit those files.
 
 Revision j source is ready. The isolated wrist correction passed all 224 dense
 source poses with area ratio 0.99653–1.000002 under unchanged limits. The next

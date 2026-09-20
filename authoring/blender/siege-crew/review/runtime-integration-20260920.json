@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-20",
+  "scope": "Runtime integration of published male Battle Prelate ram operator animation packs",
+  "modelBytesChanged": false,
+  "preview": "authoring/blender/orvr-frontier/runtime-siege-review.html",
+  "browserVerification": {
+    "surface": "Codex in-app browser, local Vite preview",
+    "productionModules": [
+      "src/game/network/CampaignSiegePresentation.ts",
+      "src/game/network/CampaignSiegeCrewPresentation.ts",
+      "src/game/network/CampaignCharacterPresentation.ts",
+      "src/shared/orvr/simulation.ts"
+    ],
+    "observed": [
+      "Two existing equipped Battle Prelate avatars loaded with published ram",
+      "Authority accepted strike, frozen impact inspected at 0.70 seconds",
+      "Close, middle and distant exports retained the frozen strike phase",
+      "Left dismount restored its hammer and placed the actor on ground while right operator retained its side",
+      "Reboarding succeeded and a quarter turn carried both actors with the ram",
+      "Live drive reported 2.50 metres per second with both actors aboard",
+      "Reset returned the review campaign to a stationary boarded state"
+    ],
+    "limitations": [
+      "Review uses production presenters and simulation in an isolated in-memory campaign; full networked multiplayer gameplay was not exercised",
+      "Fitted animation pack is compatible with civic_battle_prelate_m only; no fit claim for other bodies",
+      "Full keep and stair collision verification is a separate task"
+    ]
+  },
+  "verification": {
+    "focusedCommand": "npx vitest run tests/orvrRamCrew.test.ts tests/orvrEquipmentOperator.test.ts tests/orvrSiegeOperations.test.ts tests/campaignSiegePresentation.test.ts tests/campaignSiegeCrewPresentation.test.ts tests/campaignSiegeCrewResidency.test.ts tests/sharedCampaignRenderer.test.ts tests/siegeReviewAuthority.test.ts tests/ramCrewAssetDependency.test.ts",
+    "focusedTestsPassed": 40,
+    "focusedFilesPassed": 9,
+    "typecheck": "npm run typecheck: passed",
+    "roadFollowup": "npx vitest run tests/orvrRoadNetwork.test.ts: 39 passed"
+  }
+}

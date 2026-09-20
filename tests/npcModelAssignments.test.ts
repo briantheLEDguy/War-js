@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, test } from 'vitest';
 
@@ -74,7 +74,11 @@ describe('NPC and enemy model assignments', () => {
         }
         expect(indexed.lifecycleStatus, context).toBe('approved');
         expect(indexed.runtimeReady, context).not.toBe(false);
-        expect(indexed.model, context).toMatch(/^chr_.*\.glb$/);
+        // Character identity comes from the approved registry; authored regional
+        // exports also use frontier_ filenames instead of the legacy chr_ prefix.
+        expect(indexed.assetId, context).toMatch(/^chr\./);
+        expect(indexed.model, context).toMatch(/^[a-z0-9_]+\.glb$/);
+        expect(existsSync(path.join(process.cwd(), 'public/assets/models', indexed.model!)), context).toBe(true);
       }
     }
     expect(fallbackProfiles).toBeGreaterThan(0);

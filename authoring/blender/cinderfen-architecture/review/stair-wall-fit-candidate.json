@@ -1,0 +1,86 @@
+{
+  "method": "Actual published LOD0 GLB triangle intersections at generated zone transforms; corner landing socket contacts excluded.",
+  "candidateDiagonalInset": 1.0,
+  "mapSha256": "4313f42a70ec4a0d35d0a7bb73f1d294887f194a47e5cd3b73e376987ad1e283",
+  "models": [
+    {
+      "model": "frontier_cinderfen_wall_stair_lod0.glb",
+      "sha256": "24b2e1b25941f4c55084c9e1136b45c9f81a605acd6673a16b8ece379338ec65"
+    },
+    {
+      "model": "frontier_cinderfen_curtain_walk_lod0.glb",
+      "sha256": "d1afc68d62c053ee987dabeef8909a0c219d5a299a499e12d8989ca792c56008"
+    },
+    {
+      "model": "frontier_cinderfen_gatehouse_lod0.glb",
+      "sha256": "6404b8c4f42c7cceff961e996b09860be3a140b7dd2d04d71110ef0d957efe90"
+    }
+  ],
+  "stairs": [
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_inner_rear_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_front_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_front_right_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_rear_left_stair",
+      "wallIntersections": []
+    },
+    {
+      "stair": "cinderfen_outskirts_riftbound_keep_outer_rear_right_stair",
+      "wallIntersections": []
+    }
+  ],
+  "intersectingStairs": 0
+}

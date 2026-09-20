@@ -1,0 +1,64 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.barrow_wolf",
+  "modelSha256": "2d0fb33d0da8366f3af19d0a872618dbc7998084d873230a2105a42ebf57e79d",
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+      "sha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+      "triangles": 73184,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_barrow_wolf_lod1.glb",
+      "sha256": "1a4044ab775a25d1f7816fc387be94ee3720ecd955e9b83e45e6e16be6b1336a",
+      "triangles": 34466,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_barrow_wolf_lod2.glb",
+      "sha256": "2d0fb33d0da8366f3af19d0a872618dbc7998084d873230a2105a42ebf57e79d",
+      "triangles": 21216,
+      "externalTextures": []
+    }
+  ],
+  "externalTextures": [],
+  "bounds": {
+    "min": [
+      -0.2539047598838806,
+      0.00004609115421772003,
+      -1.1761648654937744
+    ],
+    "max": [
+      0.253925085067749,
+      1.1399999856948853,
+      0.9480000138282776
+    ]
+  },
+  "validationErrors": 0,
+  "validationWarnings": 1,
+  "animationClips": [],
+  "reviewHash": "17ba7dbf0db40c87803dc534baaf0bd7152ee4a4c363704dd5aaf37a8089c4b8",
+  "limitations": [
+    "Rest-pose scenery; locomotion/combat behavior is unfinished."
+  ],
+  "validation": {
+    "model": "frontier_sunmeadow_barrow_wolf_lod2.glb",
+    "errors": 0,
+    "warnings": 1,
+    "messages": [
+      {
+        "code": "NODE_SKINNED_MESH_NON_ROOT",
+        "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+        "severity": 1,
+        "pointer": "/nodes/34"
+      }
+    ]
+  },
+  "previewImages": [
+    "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_barrow_wolf_lod0_reimport.png"
+  ]
+}

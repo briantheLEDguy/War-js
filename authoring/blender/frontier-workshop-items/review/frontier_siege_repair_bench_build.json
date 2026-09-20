@@ -1,0 +1,554 @@
+{
+  "asset_id": "frontier_siege_repair_bench",
+  "displayName": "Frontier siege repair bench",
+  "source_sha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2",
+  "builder_sha256": "9aba93ea920a5f0b88379b4fa2c7128eb3477cccda98074c950a366605a13fec",
+  "material_tool_sha256": "5f26352497743bbaff9aa27e74ef06899eb08aa16b9f8fb99d802563bb781b62",
+  "contract": {
+    "kind": "siege_repair_station",
+    "plantedDatum": 0,
+    "worktopHeightM": 0.944,
+    "front": "-Y source; +Z runtime",
+    "approachSource": {
+      "minimum": [
+        -0.4,
+        -1.48,
+        0
+      ],
+      "maximum": [
+        1.05,
+        -0.49,
+        1.9
+      ]
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": true,
+    "placement": "Leave at least 1.0 m open before the centre/right frontage; vise occupies the left corner."
+  },
+  "approval": "standing_user_approval_pending_technical_validation",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "sha256": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+      "bytes": 2578132,
+      "triangles": 22720,
+      "materials": 3,
+      "exporter_sha256": "9aba93ea920a5f0b88379b4fa2c7128eb3477cccda98074c950a366605a13fec",
+      "master": "masters/frontier_siege_repair_bench_lod0.blend",
+      "master_sha256": "659b879df26fd7425c05412ca5bfbc4343ebdbc79ffd9505fe9d50349328dfd4",
+      "source_master_sha256": "d3a3d3bd319d983af875aa72507e14170308da44c5047e06f2d1aaf2ece286b5",
+      "source_receipt_sha256": "fc489ebe69e235f3b2983909ede97b31ecfb78fae8f8fcf3f3b854243aa23eb1",
+      "source_audit": {
+        "meshes": [
+          {
+            "mesh": "frontier_siege_repair_bench.timber",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 13792
+          },
+          {
+            "mesh": "frontier_siege_repair_bench.metal",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 8340
+          },
+          {
+            "mesh": "frontier_siege_repair_bench.loads",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 588
+          }
+        ],
+        "bounds_z_up": {
+          "minimum": [
+            -1.2799999713897705,
+            -0.8019999861717224,
+            0.0
+          ],
+          "maximum": [
+            1.2799999713897705,
+            0.41108718514442444,
+            1.3654402494430542
+          ]
+        },
+        "totalBoundaryEdges": 0,
+        "totalMultiFaceEdges": 0,
+        "totalLooseEdges": 0
+      },
+      "bounds_z_up": {
+        "minimum": [
+          -1.2799999713897705,
+          -0.8019999861717224,
+          0.0
+        ],
+        "maximum": [
+          1.2799999713897705,
+          0.41108718514442444,
+          1.3654402494430542
+        ]
+      },
+      "material_projections": [
+        {
+          "group": "frontier_siege_repair_bench_timber",
+          "geometrySha256Before": "c703e1b08a3fe655d1d65c14f5fe3eb1789b38e09912032362b4d7e1614ece9e",
+          "geometrySha256After": "c703e1b08a3fe655d1d65c14f5fe3eb1789b38e09912032362b4d7e1614ece9e",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.6645492369066294,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod0_baseColor.png",
+              "sha256": "5b6c2501c5f7f0295e8ae02424ed6baef17045bb44baf9626f228bccdf469daf",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod0_orm.png",
+              "sha256": "b4067afcd9ae32d7e5abbe41d160c0f79dc97316c321e42136e939713fa9beff",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod0_normal.png",
+              "sha256": "66ace579b59263a0ae695a89611955b3adb7f6253c599646e2a6b360fb194f6e",
+              "resolution": 2048
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_repair_bench_metal",
+          "geometrySha256Before": "551ef877fd9006944dbab282908aff2ec719babd5d1077cef270df6a1187fde7",
+          "geometrySha256After": "551ef877fd9006944dbab282908aff2ec719babd5d1077cef270df6a1187fde7",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.5080433819857165,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod0_baseColor.png",
+              "sha256": "d244a67779f54c4cbd3862fb83ca2ddea93ca8f22c84b86c9647fc9ee93a61a8",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod0_orm.png",
+              "sha256": "f8fb7db1e2b7cc62a2413a9328a6c56be518f33f9275990ece0b6b966c8d0e9a",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod0_normal.png",
+              "sha256": "ea1e7154d03b672bd41380760191ec144450cb95ec40038deba6f67bb19e735d",
+              "resolution": 2048
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_repair_bench_loads",
+          "geometrySha256Before": "15b3d4f3c4872bf0c04cc21084a1d5e300211c76df2eb28cf6c68c910414dfec",
+          "geometrySha256After": "15b3d4f3c4872bf0c04cc21084a1d5e300211c76df2eb28cf6c68c910414dfec",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.6317846188455476,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod0_baseColor.png",
+              "sha256": "190480d4fbd6ef815df82965fbd0892c869b62c6d3ba7015625f1abf69c85db0",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod0_orm.png",
+              "sha256": "169a7b6f0d4532ab524d0b55adde36000264aae13cf171aafcd2ef9c4bb766e9",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod0_normal.png",
+              "sha256": "9d70665a503595437b50f068e1c47fe81ebfe36376bc327ce154e7a2616b1a94",
+              "resolution": 2048
+            }
+          }
+        }
+      ],
+      "stoneSupports": [],
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "2792432986bab3389d03f43ec230ac775b43635c1695b37f748bfc3e5b40edb2",
+        "input_glb_sha256": "0656e52c2e24ab1c31146fa2d830f36923f49d1ea0b97c1c492188538b5b55a7",
+        "output_glb_sha256": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+        "embedded_bytes": 23687744,
+        "externalized_bytes": 2578132
+      },
+      "external_textures": {
+        "../textures/frontier_workshop_items/66ace579b59263a0ae695a89611955b3adb7f6253c599646e2a6b360fb194f6e.png": "66ace579b59263a0ae695a89611955b3adb7f6253c599646e2a6b360fb194f6e",
+        "../textures/frontier_workshop_items/b4067afcd9ae32d7e5abbe41d160c0f79dc97316c321e42136e939713fa9beff.png": "b4067afcd9ae32d7e5abbe41d160c0f79dc97316c321e42136e939713fa9beff",
+        "../textures/frontier_workshop_items/5b6c2501c5f7f0295e8ae02424ed6baef17045bb44baf9626f228bccdf469daf.png": "5b6c2501c5f7f0295e8ae02424ed6baef17045bb44baf9626f228bccdf469daf",
+        "../textures/frontier_workshop_items/ea1e7154d03b672bd41380760191ec144450cb95ec40038deba6f67bb19e735d.png": "ea1e7154d03b672bd41380760191ec144450cb95ec40038deba6f67bb19e735d",
+        "../textures/frontier_workshop_items/f8fb7db1e2b7cc62a2413a9328a6c56be518f33f9275990ece0b6b966c8d0e9a.png": "f8fb7db1e2b7cc62a2413a9328a6c56be518f33f9275990ece0b6b966c8d0e9a",
+        "../textures/frontier_workshop_items/d244a67779f54c4cbd3862fb83ca2ddea93ca8f22c84b86c9647fc9ee93a61a8.png": "d244a67779f54c4cbd3862fb83ca2ddea93ca8f22c84b86c9647fc9ee93a61a8",
+        "../textures/frontier_workshop_items/9d70665a503595437b50f068e1c47fe81ebfe36376bc327ce154e7a2616b1a94.png": "9d70665a503595437b50f068e1c47fe81ebfe36376bc327ce154e7a2616b1a94",
+        "../textures/frontier_workshop_items/169a7b6f0d4532ab524d0b55adde36000264aae13cf171aafcd2ef9c4bb766e9.png": "169a7b6f0d4532ab524d0b55adde36000264aae13cf171aafcd2ef9c4bb766e9",
+        "../textures/frontier_workshop_items/190480d4fbd6ef815df82965fbd0892c869b62c6d3ba7015625f1abf69c85db0.png": "190480d4fbd6ef815df82965fbd0892c869b62c6d3ba7015625f1abf69c85db0"
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_siege_repair_bench_lod1.glb",
+      "sha256": "6c89dd33c9cdeae6089f941927f383173b54ad44d08715f83e83cd3c120d3093",
+      "bytes": 1298568,
+      "triangles": 12126,
+      "materials": 3,
+      "exporter_sha256": "9aba93ea920a5f0b88379b4fa2c7128eb3477cccda98074c950a366605a13fec",
+      "master": "masters/frontier_siege_repair_bench_lod1.blend",
+      "master_sha256": "a95993236c796ae1a410487042d11ff07950affbada1957775683214a9783cce",
+      "source_master_sha256": "18dd47ad1366e39c8ed5fb84791decba539dc4d750b81b004d151232015000dc",
+      "source_receipt_sha256": "35439122197212e44691724a8734322a6fb0d8832f9dd6c442d377a953caac41",
+      "source_audit": {
+        "meshes": [
+          {
+            "mesh": "frontier_siege_repair_bench.timber",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 7246
+          },
+          {
+            "mesh": "frontier_siege_repair_bench.metal",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 4534
+          },
+          {
+            "mesh": "frontier_siege_repair_bench.loads",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 346
+          }
+        ],
+        "bounds_z_up": {
+          "minimum": [
+            -1.2799999713897705,
+            -0.8019999861717224,
+            0.0
+          ],
+          "maximum": [
+            1.2799999713897705,
+            0.4111434817314148,
+            1.3654581308364868
+          ]
+        },
+        "totalBoundaryEdges": 0,
+        "totalMultiFaceEdges": 0,
+        "totalLooseEdges": 0
+      },
+      "bounds_z_up": {
+        "minimum": [
+          -1.2799999713897705,
+          -0.8019999861717224,
+          0.0
+        ],
+        "maximum": [
+          1.2799999713897705,
+          0.4111434817314148,
+          1.3654581308364868
+        ]
+      },
+      "material_projections": [
+        {
+          "group": "frontier_siege_repair_bench_timber",
+          "geometrySha256Before": "d87d417fd0273fbbfca0f054c0463cc23c06d4228d5a1afa5ffca016696e12fc",
+          "geometrySha256After": "d87d417fd0273fbbfca0f054c0463cc23c06d4228d5a1afa5ffca016696e12fc",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.5220183399436878,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod1_baseColor.png",
+              "sha256": "126b05fe215dfd0b2e6e9d6f92bb7baa98b75c2ec416285d422c4912e71c45fb",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod1_orm.png",
+              "sha256": "0cb762223efec066dc1c753b9800efac310874c4aabea88306c64b105571fcb1",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod1_normal.png",
+              "sha256": "61e4a6081fa0360f836513b98b185e3eddfedd74722c1651fc3fe5799e6977d9",
+              "resolution": 1024
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_repair_bench_metal",
+          "geometrySha256Before": "70c44fe90c3ef109e85b7a5efda67d625ca3b6c8bf20733e1eff74083a9fd486",
+          "geometrySha256After": "70c44fe90c3ef109e85b7a5efda67d625ca3b6c8bf20733e1eff74083a9fd486",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.39188051052472633,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod1_baseColor.png",
+              "sha256": "636d75c6bb830bc49222779584ad78b29cec38459831f616a527a272466f5d7e",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod1_orm.png",
+              "sha256": "bef4cbe3f2afa55b9d47e4195b911da264efff65b92c33ad7b687453465d4b58",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod1_normal.png",
+              "sha256": "5d1dcf2fc4aef496588c5cdcdca0e2c6dbacca1c038ccce254237a0bc80269a3",
+              "resolution": 1024
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_repair_bench_loads",
+          "geometrySha256Before": "42030a453c5f00e23f5e01c09d3fe403986211e093c572580d6fa114418fe27a",
+          "geometrySha256After": "42030a453c5f00e23f5e01c09d3fe403986211e093c572580d6fa114418fe27a",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.636918388830424,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod1_baseColor.png",
+              "sha256": "6ecbd29535dc5f4648768094b7866bb43bffd02eaeeecbc22519ded04c7fa006",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod1_orm.png",
+              "sha256": "4d64fb6c5c8eb167f8e08ef5fbf6fa22b1f0054ff60bf3f89f8ca6caf3d83e71",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod1_normal.png",
+              "sha256": "037d83e687ee569412e08f44c088af3626843a27f51d6960682f2be9a730116d",
+              "resolution": 1024
+            }
+          }
+        }
+      ],
+      "stoneSupports": [],
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "2792432986bab3389d03f43ec230ac775b43635c1695b37f748bfc3e5b40edb2",
+        "input_glb_sha256": "3ffd051449bc106765a5f0542feeb26ee3a0b6d98d90efcece53dadbb163a212",
+        "output_glb_sha256": "6c89dd33c9cdeae6089f941927f383173b54ad44d08715f83e83cd3c120d3093",
+        "embedded_bytes": 7525040,
+        "externalized_bytes": 1298568
+      },
+      "external_textures": {
+        "../textures/frontier_workshop_items/61e4a6081fa0360f836513b98b185e3eddfedd74722c1651fc3fe5799e6977d9.png": "61e4a6081fa0360f836513b98b185e3eddfedd74722c1651fc3fe5799e6977d9",
+        "../textures/frontier_workshop_items/0cb762223efec066dc1c753b9800efac310874c4aabea88306c64b105571fcb1.png": "0cb762223efec066dc1c753b9800efac310874c4aabea88306c64b105571fcb1",
+        "../textures/frontier_workshop_items/126b05fe215dfd0b2e6e9d6f92bb7baa98b75c2ec416285d422c4912e71c45fb.png": "126b05fe215dfd0b2e6e9d6f92bb7baa98b75c2ec416285d422c4912e71c45fb",
+        "../textures/frontier_workshop_items/5d1dcf2fc4aef496588c5cdcdca0e2c6dbacca1c038ccce254237a0bc80269a3.png": "5d1dcf2fc4aef496588c5cdcdca0e2c6dbacca1c038ccce254237a0bc80269a3",
+        "../textures/frontier_workshop_items/bef4cbe3f2afa55b9d47e4195b911da264efff65b92c33ad7b687453465d4b58.png": "bef4cbe3f2afa55b9d47e4195b911da264efff65b92c33ad7b687453465d4b58",
+        "../textures/frontier_workshop_items/636d75c6bb830bc49222779584ad78b29cec38459831f616a527a272466f5d7e.png": "636d75c6bb830bc49222779584ad78b29cec38459831f616a527a272466f5d7e",
+        "../textures/frontier_workshop_items/037d83e687ee569412e08f44c088af3626843a27f51d6960682f2be9a730116d.png": "037d83e687ee569412e08f44c088af3626843a27f51d6960682f2be9a730116d",
+        "../textures/frontier_workshop_items/4d64fb6c5c8eb167f8e08ef5fbf6fa22b1f0054ff60bf3f89f8ca6caf3d83e71.png": "4d64fb6c5c8eb167f8e08ef5fbf6fa22b1f0054ff60bf3f89f8ca6caf3d83e71",
+        "../textures/frontier_workshop_items/6ecbd29535dc5f4648768094b7866bb43bffd02eaeeecbc22519ded04c7fa006.png": "6ecbd29535dc5f4648768094b7866bb43bffd02eaeeecbc22519ded04c7fa006"
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_siege_repair_bench_lod2.glb",
+      "sha256": "2124f1fc99d2dd4835d2d6dc49ceb50724b3e357e8dc28fc6c4ec06edf05f395",
+      "bytes": 393320,
+      "triangles": 3904,
+      "materials": 3,
+      "exporter_sha256": "9aba93ea920a5f0b88379b4fa2c7128eb3477cccda98074c950a366605a13fec",
+      "master": "masters/frontier_siege_repair_bench_lod2.blend",
+      "master_sha256": "ac77730d1a8c759d96df6774bfdbaf85fb9bc180b5beaaa110d7cb2765075928",
+      "source_master_sha256": "835b9dc221acba9b8648c5e7c02473f6b77ade72fdef40508b60e191c4115da6",
+      "source_receipt_sha256": "ea51792f07c8097647e2c4a2bf9703a085213c8dd107e2fd58e519f2d1816a92",
+      "source_audit": {
+        "meshes": [
+          {
+            "mesh": "frontier_siege_repair_bench.timber",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 2614
+          },
+          {
+            "mesh": "frontier_siege_repair_bench.metal",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 1130
+          },
+          {
+            "mesh": "frontier_siege_repair_bench.loads",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 160
+          }
+        ],
+        "bounds_z_up": {
+          "minimum": [
+            -1.2799999713897705,
+            -0.8019999861717224,
+            0.0
+          ],
+          "maximum": [
+            1.2799999713897705,
+            0.41127490997314453,
+            1.3654999732971191
+          ]
+        },
+        "totalBoundaryEdges": 0,
+        "totalMultiFaceEdges": 0,
+        "totalLooseEdges": 0
+      },
+      "bounds_z_up": {
+        "minimum": [
+          -1.2799999713897705,
+          -0.8019999861717224,
+          0.0
+        ],
+        "maximum": [
+          1.2799999713897705,
+          0.41127490997314453,
+          1.3654999732971191
+        ]
+      },
+      "material_projections": [
+        {
+          "group": "frontier_siege_repair_bench_timber",
+          "geometrySha256Before": "6c00c2d196c4b3bfa13c40d555f7405dde5af71da9f776078719764fa66cb560",
+          "geometrySha256After": "6c00c2d196c4b3bfa13c40d555f7405dde5af71da9f776078719764fa66cb560",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.353413512667082,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod2_baseColor.png",
+              "sha256": "7fa5a6e11635d8c1f4125862b890b062d7930f4f46442099a479edc08983e4b2",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod2_orm.png",
+              "sha256": "383ebc304a53c29480d7ca926ffbc497782428719d4c6a9e0ed886920c09093e",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_timber_lod2_normal.png",
+              "sha256": "9a927e9a6266c3257dc4b5c08b7a4253c8027b8a989494d81582892428d7fe8c",
+              "resolution": 512
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_repair_bench_metal",
+          "geometrySha256Before": "ce27c3fb827a6745fbefdb209f02b62fc45f8e4afba2994de6fd9288193182f9",
+          "geometrySha256After": "ce27c3fb827a6745fbefdb209f02b62fc45f8e4afba2994de6fd9288193182f9",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.39530768695204543,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod2_baseColor.png",
+              "sha256": "a35dee7216cdca504a3385526f64190fdc8fe7ae3ffe34f09dea14d2f02c7da9",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod2_orm.png",
+              "sha256": "6daabf991596a98f7e6d6d92e16d9db3f413bf7229b7d6528adfb429a422d0c6",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_metal_lod2_normal.png",
+              "sha256": "77fa79baf7db10a2e97bff9ccd796f1eb38419deafa4f4b5fa260a0112b4c8ed",
+              "resolution": 512
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_repair_bench_loads",
+          "geometrySha256Before": "c1fb6566bc8ac8c1183053d25f242f6e09c6a8a84bbef34b6bee95daf85b6e7f",
+          "geometrySha256After": "c1fb6566bc8ac8c1183053d25f242f6e09c6a8a84bbef34b6bee95daf85b6e7f",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.5735478665093018,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod2_baseColor.png",
+              "sha256": "72ae274e7da4ba4450b58d02dd96c98620b2dbb9cf948989219aa5430c0b5104",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod2_orm.png",
+              "sha256": "9df331717efd5af1d59f538d8c45512061fc98c789da39a231a811d49eb5e3eb",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_repair_bench_loads_lod2_normal.png",
+              "sha256": "b089bbae1cddcd23728bda31c7827cff8dccc9240ee90a5eca5c5f2c3ebb7925",
+              "resolution": 512
+            }
+          }
+        }
+      ],
+      "stoneSupports": [],
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "2792432986bab3389d03f43ec230ac775b43635c1695b37f748bfc3e5b40edb2",
+        "input_glb_sha256": "de7b52ab0cfe41dd115000626da769e72d3339c0c9c1bde7b47c7f6767c22211",
+        "output_glb_sha256": "2124f1fc99d2dd4835d2d6dc49ceb50724b3e357e8dc28fc6c4ec06edf05f395",
+        "embedded_bytes": 2186064,
+        "externalized_bytes": 393320
+      },
+      "external_textures": {
+        "../textures/frontier_workshop_items/9a927e9a6266c3257dc4b5c08b7a4253c8027b8a989494d81582892428d7fe8c.png": "9a927e9a6266c3257dc4b5c08b7a4253c8027b8a989494d81582892428d7fe8c",
+        "../textures/frontier_workshop_items/383ebc304a53c29480d7ca926ffbc497782428719d4c6a9e0ed886920c09093e.png": "383ebc304a53c29480d7ca926ffbc497782428719d4c6a9e0ed886920c09093e",
+        "../textures/frontier_workshop_items/7fa5a6e11635d8c1f4125862b890b062d7930f4f46442099a479edc08983e4b2.png": "7fa5a6e11635d8c1f4125862b890b062d7930f4f46442099a479edc08983e4b2",
+        "../textures/frontier_workshop_items/77fa79baf7db10a2e97bff9ccd796f1eb38419deafa4f4b5fa260a0112b4c8ed.png": "77fa79baf7db10a2e97bff9ccd796f1eb38419deafa4f4b5fa260a0112b4c8ed",
+        "../textures/frontier_workshop_items/6daabf991596a98f7e6d6d92e16d9db3f413bf7229b7d6528adfb429a422d0c6.png": "6daabf991596a98f7e6d6d92e16d9db3f413bf7229b7d6528adfb429a422d0c6",
+        "../textures/frontier_workshop_items/a35dee7216cdca504a3385526f64190fdc8fe7ae3ffe34f09dea14d2f02c7da9.png": "a35dee7216cdca504a3385526f64190fdc8fe7ae3ffe34f09dea14d2f02c7da9",
+        "../textures/frontier_workshop_items/b089bbae1cddcd23728bda31c7827cff8dccc9240ee90a5eca5c5f2c3ebb7925.png": "b089bbae1cddcd23728bda31c7827cff8dccc9240ee90a5eca5c5f2c3ebb7925",
+        "../textures/frontier_workshop_items/9df331717efd5af1d59f538d8c45512061fc98c789da39a231a811d49eb5e3eb.png": "9df331717efd5af1d59f538d8c45512061fc98c789da39a231a811d49eb5e3eb",
+        "../textures/frontier_workshop_items/72ae274e7da4ba4450b58d02dd96c98620b2dbb9cf948989219aa5430c0b5104.png": "72ae274e7da4ba4450b58d02dd96c98620b2dbb9cf948989219aa5430c0b5104"
+      }
+    }
+  ]
+}

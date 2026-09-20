@@ -203,9 +203,13 @@ export interface EquipmentState {
   keepId: string;
   position: Position;
   operatorPosition?: Position;
+  /** Authority-owned heading in radians; optional for earlier saved campaigns. */
+  facing?: number;
   health: number;
   maxHealth: number;
   operators: string[];
+  /** Physical ram seats stay fixed when the other operator dismounts. */
+  operatorSeats?: Partial<Record<string, 0 | 1>>;
   nextOperationAt: number;
   /** Accepted operation on the zone clock; optional for older saved campaigns. */
   lastOperation?: { at: number; target: Position };

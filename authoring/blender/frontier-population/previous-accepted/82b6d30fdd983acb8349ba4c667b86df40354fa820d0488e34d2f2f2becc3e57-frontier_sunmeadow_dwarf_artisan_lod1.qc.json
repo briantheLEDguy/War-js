@@ -1,0 +1,428 @@
+{
+  "qcPassed": true,
+  "assetId": "chr.frontier.sunmeadow.dwarf_artisan",
+  "modelSha256": "ad2d3fec857ab89d9a24e29d9dcad0de8ccb81cef91b2b764fd65f7d9ada27ad",
+  "lod": 1,
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+      "sha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+      "triangles": 150766,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_dwarf_artisan_lod1.glb",
+      "sha256": "ad2d3fec857ab89d9a24e29d9dcad0de8ccb81cef91b2b764fd65f7d9ada27ad",
+      "triangles": 87444,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
+      "sha256": "949f1f937f8284ff610ab4c5eb309e864b747babc00ae1f40ef15c3f59b9dfc2",
+      "triangles": 40705,
+      "externalTextures": []
+    }
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+      "sha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+      "triangles": 150766,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_dwarf_artisan_lod1.glb",
+      "sha256": "ad2d3fec857ab89d9a24e29d9dcad0de8ccb81cef91b2b764fd65f7d9ada27ad",
+      "triangles": 87444,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
+      "sha256": "949f1f937f8284ff610ab4c5eb309e864b747babc00ae1f40ef15c3f59b9dfc2",
+      "triangles": 40705,
+      "externalTextures": []
+    }
+  ],
+  "externalTextures": [],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "skeletonId": "frontier_dwarf_artisan_v1",
+  "bindPoseId": "frontier_dwarf_artisan_rest_v1",
+  "skinned": true,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "defaultAnimation": "idle",
+  "bounds": {
+    "min": [
+      -0.4427575170993805,
+      0.00399993360042572,
+      -0.2749999463558197
+    ],
+    "max": [
+      0.4436977505683899,
+      1.3603782653808594,
+      0.2990725636482239
+    ]
+  },
+  "reviewHash": "bd79a4168c84de74b4e5217174c367ca2390614a49e26769315ec0255d4d2a7b",
+  "reviewEvidence": {
+    "assetId": "chr.frontier.sunmeadow.dwarf_artisan",
+    "profileKey": "npc_frontier_sunmeadow_dwarf_artisan",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+        "sha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_dwarf_artisan_lod1.glb",
+        "sha256": "ad2d3fec857ab89d9a24e29d9dcad0de8ccb81cef91b2b764fd65f7d9ada27ad"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_dwarf_artisan_lod2.glb",
+        "sha256": "949f1f937f8284ff610ab4c5eb309e864b747babc00ae1f40ef15c3f59b9dfc2"
+      }
+    ],
+    "files": {
+      "authoring/blender/battle-prelate-reference-rebuild/source/head.json": {
+        "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+        "bytes": 166389
+      },
+      "authoring/blender/battle-prelate-reference-rebuild/textures/source/skin_basecolor.png": {
+        "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+        "bytes": 44236
+      },
+      "authoring/blender/battle-prelate-reference-rebuild/textures/source/skin_height.png": {
+        "sha256": "166b59cd99a886064605610529f289486d17488297d730dafa70e57f488aca11",
+        "bytes": 11432
+      },
+      "authoring/blender/battle-prelate-reference-rebuild/textures/source/skin_roughness.png": {
+        "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+        "bytes": 20073
+      },
+      "authoring/blender/ember-arcanist-reference-rebuild/source/hair.json": {
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "bytes": 43151
+      },
+      "authoring/blender/frontier-population/foundation-provenance.json": {
+        "sha256": "569bd80a7ebe0331f00b649d8d298192defe39577cca01f289e35a7987564424",
+        "bytes": 11917
+      },
+      "authoring/blender/frontier-population/foundations/arcanist-/hair.json": {
+        "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+        "bytes": 43151
+      },
+      "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_m.glb": {
+        "sha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
+        "bytes": 9050988
+      },
+      "authoring/blender/frontier-population/foundations/civic_humanoid_v2_m.quad-surface.json.gz": {
+        "sha256": "9e36be7bb14d94e0f71cf6754644aa4e57e4f0177c0f3f28123986a64dd806fc",
+        "bytes": 1130074
+      },
+      "authoring/blender/frontier-population/foundations/prelate-/head.json": {
+        "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+        "bytes": 166389
+      },
+      "authoring/blender/frontier-population/foundations/prelate-/skin_basecolor.png": {
+        "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+        "bytes": 44236
+      },
+      "authoring/blender/frontier-population/foundations/prelate-/skin_height.png": {
+        "sha256": "166b59cd99a886064605610529f289486d17488297d730dafa70e57f488aca11",
+        "bytes": 11432
+      },
+      "authoring/blender/frontier-population/foundations/prelate-/skin_roughness.png": {
+        "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+        "bytes": 20073
+      },
+      "authoring/blender/frontier-population/review/arm-volume-lod0.json": {
+        "sha256": "63ab6554e2adaf4d5c59bc5e85893f5ed8d7803e3a51a8d960aa442feb63f409",
+        "bytes": 972230
+      },
+      "authoring/blender/frontier-population/review/arm-volume-lod1.json": {
+        "sha256": "986141b346df7cb50c8414e09c1de69ef403c96ef318bb830b736fbd9eea2a38",
+        "bytes": 972236
+      },
+      "authoring/blender/frontier-population/review/arm-volume-lod2.json": {
+        "sha256": "414f0971abea6a475ced403a09aecf838ba176103f0ef175bee2256a561d8e94",
+        "bytes": 972060
+      },
+      "authoring/blender/frontier-population/review/draft-validation.json": {
+        "sha256": "1cb9d7358a4b30bd3bcf3b919f5f6eb2ed27f5197f9ec6b5c42d3a9d2ac66cd0",
+        "bytes": 830
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_build.json": {
+        "sha256": "2cbc0aed232e4a0aea9be5e572cd8b55ebd554ce14e037c1c5c1b2104ee9411a",
+        "bytes": 20814
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_front_20260909l.png": {
+        "sha256": "fd9c09fab95a2c5b6fb0029b9b58fa20e41963594c399d58aae1a46befa39038",
+        "bytes": 1134663
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_garment_clearance.json": {
+        "sha256": "57eeb5a7eb1f93e65343b3724b70b5451b26d532a3c12f86883f7a46f3304c5e",
+        "bytes": 1579983
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_head_20260909l.png": {
+        "sha256": "af840f69e7a67e534a02f35b006e6a814e798e059e9c00f72d74eda4b706899b",
+        "bytes": 1169751
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_motion.json": {
+        "sha256": "a0dc9663b6545fcedf3f5e20cdf6c022ad7730045c3b9b7b4788a551caa02e69",
+        "bytes": 11872902
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_review_20260909l.json": {
+        "sha256": "e6013cff7ad5fef57d655579713cc118cd8fcef0d9a4299d9175441e255c3e3b",
+        "bytes": 862
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0.glb.validation.json": {
+        "sha256": "3b10dd554fb596cfee35dd2bea3a53383e29f51613ea6e47369faf0395c714cb",
+        "bytes": 11619
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod1_garment_clearance.json": {
+        "sha256": "718a0607d75b410905d0c146ac3fdccf9847cd4d12a5cb38fd62962f5a4765d5",
+        "bytes": 1578116
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod1_motion.json": {
+        "sha256": "0e25fbae2f8e2be1f138b1c804db9aa1b5769d171273e0550a2b99333b9fb987",
+        "bytes": 11872911
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod1.glb.validation.json": {
+        "sha256": "9204955cf8fc8964a7634b5916b905c55a03352ab28f72ca3ff181c0a2b1e33e",
+        "bytes": 11617
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod2_garment_clearance.json": {
+        "sha256": "7cff106879cd7c24da7b9a4b3c4afb5702b6758b83582a2f47f02418ea15e4b0",
+        "bytes": 1577048
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod2_motion.json": {
+        "sha256": "d847a6b3902ce06ba792f89e205cebd47c353bb5784c8c1211c03557673741cc",
+        "bytes": 11867625
+      },
+      "authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod2.glb.validation.json": {
+        "sha256": "7b1ce5cf009e80d0b519057cf03f5fbc64c33f0eaa6b7baea3c97f3bdcf9e5eb",
+        "bytes": 11617
+      },
+      "authoring/blender/frontier-population/review/welt-before-k-animation.json": {
+        "sha256": "afef1495c7e8e26eee7b3797bf9a2fe873393acfaa402ee0d40e3b2befe9e49c",
+        "bytes": 2775
+      },
+      "authoring/blender/frontier-population/runtime/frontier_sunmeadow_dwarf_artisan_lod0.glb": {
+        "sha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+        "bytes": 22746136
+      },
+      "authoring/blender/frontier-population/runtime/frontier_sunmeadow_dwarf_artisan_lod1.glb": {
+        "sha256": "ad2d3fec857ab89d9a24e29d9dcad0de8ccb81cef91b2b764fd65f7d9ada27ad",
+        "bytes": 19812968
+      },
+      "authoring/blender/frontier-population/runtime/frontier_sunmeadow_dwarf_artisan_lod2.glb": {
+        "sha256": "949f1f937f8284ff610ab4c5eb309e864b747babc00ae1f40ef15c3f59b9dfc2",
+        "bytes": 17594604
+      },
+      "authoring/blender/frontier-population/sources/frontier_sunmeadow_dwarf_artisan.blend": {
+        "sha256": "b8032f12fb44e6a2a10472c07e9798f03da364b47e79d8d55a756a300992779c",
+        "bytes": 20104997
+      },
+      "authoring/blender/frontier-population/textures/artisan_apron_basecolor.png": {
+        "sha256": "218c92d43000fe51f9e10e2118a9675f71abecd9480b429ea5ca812c7b04f2ad",
+        "bytes": 908618
+      },
+      "authoring/blender/frontier-population/textures/artisan_apron_normal.png": {
+        "sha256": "e01f63981cc53f587644d2d72604b2362111ed28228bc40610ef78a9c44d025c",
+        "bytes": 1477580
+      },
+      "authoring/blender/frontier-population/textures/artisan_apron_roughness.png": {
+        "sha256": "eed544dd4b91f6e4d51bde219c52ad573a5d10426699b662afcbe75b0bc35513",
+        "bytes": 783942
+      },
+      "authoring/blender/frontier-population/textures/artisan_hair_basecolor.png": {
+        "sha256": "e5fea024de5e4661e3cdddcd79a91dbdb74f58765107166d7fb9eda6ae07873a",
+        "bytes": 152151
+      },
+      "authoring/blender/frontier-population/textures/artisan_hair_normal.png": {
+        "sha256": "61b1a49532e65da58b5bd89c5c605f30ffaffe9382026b489d343a2d22535778",
+        "bytes": 486569
+      },
+      "authoring/blender/frontier-population/textures/artisan_hair_roughness.png": {
+        "sha256": "de30ea1a5e6662870622c854f0d570327f5444136c8f83c9e18d8f438de067d2",
+        "bytes": 252691
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_tool_ash_basecolor.png": {
+        "sha256": "04d18f8bec70ad759cfaaa5fe70cb3a1cfbb71969cfda18b64334182917b476f",
+        "bytes": 253235
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_tool_ash_normal.png": {
+        "sha256": "f9c75f3abc4ac9458d53e7af23fdf71f760c1c35fad5f0f80176b8dffa373990",
+        "bytes": 81596
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_tool_ash_roughness.png": {
+        "sha256": "6ce118ce94f0c5f2ad0fa90845373e37e70576acab0720dedf6d0fdbaa8fa9b2",
+        "bytes": 160864
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_wool_basecolor.png": {
+        "sha256": "739d423086a22380cddd5a225d33b5ca104789cb9ce5ebe52ef0d0220efd83f6",
+        "bytes": 423325
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_wool_normal.png": {
+        "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+        "bytes": 221744
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_wool_roughness.png": {
+        "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+        "bytes": 144135
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_worked_leather_basecolor.png": {
+        "sha256": "5f5447c2f5e418624a0b7dfd7a3f79cf37d97d24884384cf7b9e0954ca66634c",
+        "bytes": 865136
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_worked_leather_normal.png": {
+        "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+        "bytes": 1928552
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_worked_leather_roughness.png": {
+        "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+        "bytes": 866702
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_woven_linen_basecolor.png": {
+        "sha256": "05175934100189c1baa4b3f547a710d13b120e16e36a6a3a4a1e35421c917f71",
+        "bytes": 714290
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_woven_linen_normal.png": {
+        "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+        "bytes": 611208
+      },
+      "authoring/blender/frontier-population/textures/dwarf_artisan_woven_linen_roughness.png": {
+        "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+        "bytes": 350720
+      },
+      "authoring/blender/frontier-population/tools/apron_clearance.py": {
+        "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+        "bytes": 5087
+      },
+      "authoring/blender/frontier-population/tools/apron_details.py": {
+        "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+        "bytes": 4150
+      },
+      "authoring/blender/frontier-population/tools/artisan_equipment.py": {
+        "sha256": "a56603a4dbd90267f6a8f24e299049693ef82dd09e21eeb380a24a11c92b7405",
+        "bytes": 5397
+      },
+      "authoring/blender/frontier-population/tools/authored_artisan_head.py": {
+        "sha256": "b4c9a722d719c19ff82e146266245b4494391ec7a219a3820d8381427b226086",
+        "bytes": 18155
+      },
+      "authoring/blender/frontier-population/tools/build_inhabitants.py": {
+        "sha256": "4bdfc8d01cda72cbdf216e19ed74995fe4d14a9065a9c23d7e4e9cb4364b280d",
+        "bytes": 31790
+      },
+      "authoring/blender/frontier-population/tools/export_tangents.py": {
+        "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "bytes": 3228
+      },
+      "authoring/blender/frontier-population/tools/fitted_boot_details.py": {
+        "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+        "bytes": 3130
+      },
+      "authoring/blender/frontier-population/tools/inhabitant_review.mjs": {
+        "sha256": "59ffe91d4fc9cb48b7207d37e48fb90da08fdbabf822e797f717a571d437ba95",
+        "bytes": 1430
+      },
+      "authoring/blender/frontier-population/tools/inspect_arm_volume.py": {
+        "sha256": "8855d56e60ba673312b823ea904261617158bb0f49370c9891c9de8cb3b1d3c9",
+        "bytes": 6904
+      },
+      "authoring/blender/frontier-population/tools/inspect_boot_welt.py": {
+        "sha256": "9d2429f0bd96e0de557c5d93c7c25829b8277e2324eb16561453e58f2ac39b06",
+        "bytes": 6780
+      },
+      "authoring/blender/frontier-population/tools/inspect_export_motion.py": {
+        "sha256": "cf4e880de1e305059954dc7dbac734277719c339cabed1673b06f6234f516949",
+        "bytes": 6967
+      },
+      "authoring/blender/frontier-population/tools/inspect_garment_clearance.py": {
+        "sha256": "75bd1842b41b1e26485e3784731c290e000dea2546645030194ddba9e4f96451",
+        "bytes": 9533
+      },
+      "authoring/blender/frontier-population/tools/publish_inhabitants.mjs": {
+        "sha256": "4d4d30562c40e183f1947ff24a7b75cd409bc181ed2ba7543f93dbaee3cc8140",
+        "bytes": 15093
+      },
+      "authoring/blender/frontier-population/tools/review_inhabitants.py": {
+        "sha256": "6cd01cf82c3770d7bbfe7bbc12935fada4e09e6035f90b9569e7899159d04264",
+        "bytes": 7648
+      },
+      "authoring/blender/frontier-population/tools/surface_bindings.py": {
+        "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+        "bytes": 2223
+      },
+      "authoring/blender/frontier-population/tools/surface_garments.py": {
+        "sha256": "7aaece5316b797227e631a231c4946b442322b6ea8a8b0a27418fc5fb10e1948",
+        "bytes": 9992
+      },
+      "authoring/blender/frontier-population/tools/tailored_clothing.py": {
+        "sha256": "ae17ed8e4b05c0fd4efbba660fbdd416a4aee19abe1c95f7dbb3fa37d9b724d1",
+        "bytes": 6013
+      },
+      "authoring/blender/frontier-population/tools/tailored_locomotion.py": {
+        "sha256": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+        "bytes": 21780
+      },
+      "authoring/blender/frontier-population/tools/test_inhabitant_exports.py": {
+        "sha256": "efcef3a30b11158849e68b1a9ce7a1c12c842120c617c5586f8bd90a4dc9b83b",
+        "bytes": 7462
+      },
+      "authoring/blender/frontier-population/tools/validate_inhabitants.mjs": {
+        "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+        "bytes": 2351
+      },
+      "authoring/blender/frontier-population/tools/workwear_finish.py": {
+        "sha256": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9",
+        "bytes": 7924
+      },
+      "scripts/blender-character-pipeline/blender/anim_library.py": {
+        "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+        "bytes": 22611
+      },
+      "scripts/blender-character-pipeline/blender/canonical_animation_pack.py": {
+        "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+        "bytes": 8960
+      },
+      "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py": {
+        "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+        "bytes": 17430
+      },
+      "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json": {
+        "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+        "bytes": 1755
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+        "bytes": 677
+      }
+    }
+  },
+  "frozenSource": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/bd79a4168c84de74b4e5",
+  "previewImages": [],
+  "limitations": [
+    "Complete fitted outfit; not a modular armor body.",
+    "Racially morphed rest skeleton and apron joint require this character’s own exported clips."
+  ]
+}

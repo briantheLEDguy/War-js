@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.siege_ammunition_cradle",
+  "displayName": "Frontier siege ammunition cradle",
+  "category": "prop",
+  "model": "frontier_siege_ammunition_cradle_lod0.glb",
+  "qc": "frontier_siege_ammunition_cradle_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_siege_ammunition_cradle"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+    "qcSha256": "8af84a594d15e91857c58bcf59c874d0455765301ebdd8aaaba8c0a39941689a",
+    "previews": {
+      "assembly": "7dda7d4b462b05c4cdab9dae068c9d613a18e9824b90f6e78c39d2da79e113f8"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_neutral.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "40370d5a9c7f7c067708b14a25caebc519da39d00136d8a41adc66449ff4f492"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_siege_workshop_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/frontier-workshop-items/source/items.json",
+    "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2"
+  },
+  "approvalState": "approved"
+}

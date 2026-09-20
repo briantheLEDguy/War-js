@@ -17,6 +17,8 @@ import { composeCinderfenEnvironment } from '../scripts/campaign/cinderfen-envir
 import { composeCinderfenLandscape } from '../scripts/campaign/cinderfen-landscape.mjs';
 // @ts-expect-error Executable authoring source is intentionally an mjs module.
 import { integrateCinderfen } from '../scripts/campaign/cinderfen-integration.mjs';
+// @ts-expect-error Executable authoring source is intentionally an mjs module.
+import { composeOrvrRoads } from '../scripts/campaign/orvr-road-network.mjs';
 
 type Point = { x: number; z: number };
 const outdoorIds = defaultZoneConfigs().filter(zone => zone.kind !== 'city').map(zone => zone.id);
@@ -90,6 +92,43 @@ test.each(outdoorIds)('%s keeps every full road lane clear of authoritative perm
       }
     }
   }
+});
+
+test('generic keep forecourts retain a broad approach and fit the inner road plus feather inside each scaled door', () => {
+  let doors = 0;
+  for (const zone of composed.values()) for (const keep of zone.orvrLayout!.keeps) {
+    const gate = keep.gates.find(gate => gate.stage === 'inner')!;
+    const door = zone.props.find(prop => prop.id === gate.propId)!;
+    if (door.kind !== 'castle_door') continue;
+    const leaf = door.colliders!.find(box => box.blocksWhen === 'closed')!;
+    const width = leaf.width * (door.scale ?? 1) * (door.scaleX ?? 1);
+    const approach = zone.paths!.find(path => path.id === `${zone.id}_${keep.realm}_keep_approach`)!;
+    const inner = zone.paths!.find(path => path.id === `${zone.id}_${keep.realm}_keep_inner_approach`)!;
+    expect(approach.width).toBe(5);
+    expect(inner.width).toBeGreaterThanOrEqual(2);
+    expect(inner.width + 1.2).toBeCloseTo(width, 3);
+    expect(approach.points.at(-1)).toEqual(inner.points[0]);
+    expect(inner.points[0].z).toBeLessThan(door.z - 5);
+    expect(inner.points.at(-1)).toEqual({ x: keep.x, z: 0 });
+    doors++;
+  }
+  expect(doors).toBe(32);
+});
+
+test('Cinderfen retains surveyed 5m approaches while initial legacy gates await regional replacement', () => {
+  const zone = structuredClone(composed.get('cinderfen_outskirts')!);
+  composeOrvrRoads(zone);
+  const expectedPaths = structuredClone(zone.paths);
+  for (const keep of zone.orvrLayout!.keeps) {
+    const gate = keep.gates.find(gate => gate.stage === 'inner')!;
+    const door = zone.props.find(prop => prop.id === gate.propId)!;
+    door.kind = 'castle_door'; door.scale = .63;
+    door.colliders = [{ width: 5.2, depth: 1.2, blocksWhen: 'closed' }];
+  }
+  composeOrvrRoads(zone);
+  expect(zone.paths).toEqual(expectedPaths);
+  expect(zone.paths!.filter(path => path.id.endsWith('_keep_approach')).map(path => path.width)).toEqual([5, 5]);
+  expect(zone.paths!.some(path => path.id.endsWith('_keep_inner_approach'))).toBe(false);
 });
 
 test.each(outdoorIds.filter(id => id !== 'sunmeadow_march'))('%s connects its road hierarchy and retains every existing portal/service identity', id => {

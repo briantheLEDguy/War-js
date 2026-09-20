@@ -1,0 +1,64 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.red_fox",
+  "modelSha256": "dfe51f585686e589302f7417373c9a1768c6ab78b1b2981746d0a2ff31702731",
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_red_fox_lod0.glb",
+      "sha256": "25c11e195d047e482ad918e6577e418b4007af0a51e4c2701b0ea87f007597e4",
+      "triangles": 46130,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_red_fox_lod1.glb",
+      "sha256": "c22b140d3462133a7e862eb898127b2a8df5c614b6833657f192d086f4346346",
+      "triangles": 20482,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_red_fox_lod2.glb",
+      "sha256": "dfe51f585686e589302f7417373c9a1768c6ab78b1b2981746d0a2ff31702731",
+      "triangles": 8300,
+      "externalTextures": []
+    }
+  ],
+  "externalTextures": [],
+  "bounds": {
+    "min": [
+      -0.15537129342556,
+      -0.000031869858503341675,
+      -0.8814294934272766
+    ],
+    "max": [
+      0.15699905157089233,
+      0.6990000009536743,
+      0.6380000114440918
+    ]
+  },
+  "validationErrors": 0,
+  "validationWarnings": 1,
+  "animationClips": [],
+  "reviewHash": "7bc6dac41b72910998e5a17c2d9136ee2f9d4554646c7b8dbf25185c892cea41",
+  "limitations": [
+    "Rest-pose scenery; locomotion/combat behavior is unfinished."
+  ],
+  "validation": {
+    "model": "frontier_sunmeadow_red_fox_lod2.glb",
+    "errors": 0,
+    "warnings": 1,
+    "messages": [
+      {
+        "code": "NODE_SKINNED_MESH_NON_ROOT",
+        "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+        "severity": 1,
+        "pointer": "/nodes/34"
+      }
+    ]
+  },
+  "previewImages": [
+    "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_red_fox_lod0_reimport.png"
+  ]
+}

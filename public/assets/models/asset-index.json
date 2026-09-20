@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-8e60bde48b958b8e",
+  "assetVersion": "approved-f9b3eda3d5936d96",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -1246,6 +1246,30 @@
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_frontier_sunmeadow_dwarf_artisan": {
+      "approvalState": "approved",
+      "assetId": "chr.frontier.sunmeadow.dwarf_artisan",
+      "bindPoseId": "frontier_dwarf_artisan_rest_v1",
+      "bodyFamily": "frontier_dwarf_artisan",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+      "modelSha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+      "previews": {
+        "front": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_front_20260909l.png",
+        "head": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_head_20260909l.png"
+      },
+      "previewSha256": {
+        "front": "fd9c09fab95a2c5b6fb0029b9b58fa20e41963594c399d58aae1a46befa39038",
+        "head": "af840f69e7a67e534a02f35b006e6a814e798e059e9c00f72d74eda4b706899b"
+      },
+      "qc": "frontier_sunmeadow_dwarf_artisan_lod0.qc.json",
+      "qcSha256": "ae7eabce14b4b24ce99e8bccb1d5fb0e020564fb58d1133897313a09a393a0d0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "frontier_dwarf_artisan_v1",
       "skinned": true
     },
     "npc_riftbound_gorvak_mirehand_forward_scout": {
@@ -5180,6 +5204,20 @@
       "lifecycleStatus": "approved",
       "model": "frontier_battering_ram_lod0.glb",
       "modelSha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
+      "operatorAnimationPacks": {
+        "left": {
+          "bindPoseId": "a_pose_v2",
+          "model": "frontier_ram_crew_left_animations.glb",
+          "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+          "skeletonId": "humanoid_game_v2"
+        },
+        "right": {
+          "bindPoseId": "a_pose_v2",
+          "model": "frontier_ram_crew_right_animations.glb",
+          "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+          "skeletonId": "humanoid_game_v2"
+        }
+      },
       "previews": {
         "assembly": "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod0_reimport.png"
       },
@@ -5187,7 +5225,7 @@
         "assembly": "39d8773b195794d4b42a21f193e2667ba896659eb323420f260e4437b7311202"
       },
       "qc": "frontier_battering_ram_lod0.qc.json",
-      "qcSha256": "dc4278fe030ce6ea110896cc90114276109ba4b9e37b33796d9c815c2552db73",
+      "qcSha256": "e9db95c3491263f88002b35fc0e53ffc227276535c6f67507ab3cc7a59f24f39",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"
@@ -5242,15 +5280,15 @@
       "bodyVariant": "neutral",
       "lifecycleStatus": "approved",
       "model": "frontier_cinderfen_corner_access_lod0.glb",
-      "modelSha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+      "modelSha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
       "previews": {
         "assembly": "public/assets/models/previews/frontier_cinderfen_corner_access.png"
       },
       "previewSha256": {
-        "assembly": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27"
+        "assembly": "5f0f6eee1d219e8c34913c7cf87c34ed267e54f9cccf15986f7522f589f5be58"
       },
       "qc": "frontier_cinderfen_corner_access_lod0.qc.json",
-      "qcSha256": "463e472a54636aeb16896b468714ea0ef5fa0431db0970a5104e3780d15104e0",
+      "qcSha256": "a222c7e8a54c66299d390ff6b3fe222a534ffe0493906aa38a3c5815eb5a2010",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"
@@ -5886,6 +5924,48 @@
       "runtimeReady": true,
       "skeletonId": "none"
     },
+    "frontier_siege_ammunition_cradle": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.siege_ammunition_cradle",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "modelSha256": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+      "previews": {
+        "assembly": "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_neutral.png"
+      },
+      "previewSha256": {
+        "assembly": "7dda7d4b462b05c4cdab9dae068c9d613a18e9824b90f6e78c39d2da79e113f8"
+      },
+      "qc": "frontier_siege_ammunition_cradle_lod0.qc.json",
+      "qcSha256": "8af84a594d15e91857c58bcf59c874d0455765301ebdd8aaaba8c0a39941689a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_siege_repair_bench": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.siege_repair_bench",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "modelSha256": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+      "previews": {
+        "assembly": "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_neutral.png"
+      },
+      "previewSha256": {
+        "assembly": "d05a1391d8ac25f5e2c03df58c0ae349ce65418a7be22d701b59b01ef5858351"
+      },
+      "qc": "frontier_siege_repair_bench_lod0.qc.json",
+      "qcSha256": "730624566f1c6efb818798306463206456835e36bb4a88c4f0895d2eac57e8b4",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
     "frontier_sunmeadow_ash": {
       "approvalState": "approved",
       "assetId": "prop.frontier.sunmeadow.ash",
@@ -5906,6 +5986,50 @@
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"
+    },
+    "frontier_sunmeadow_barrow_wolf": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.barrow_wolf",
+      "bindPoseId": "authored_anatomical_rest_v1",
+      "bodyFamily": "fauna_barrow_wolf",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+      "modelSha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+      "previews": {
+        "front": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_barrow_wolf/17ba7dbf0db40c87803d/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_barrow_wolf_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "front": "beb1c0acda95b310d1fe61985c156048bbe31dcdb61761fc3a7dcd2ed70e74dc"
+      },
+      "qc": "frontier_sunmeadow_barrow_wolf_lod0.qc.json",
+      "qcSha256": "f2a231cca2ce78572308739d08f524c47d8cf782e010285a75c05e54e554a562",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_barrow_wolf_anatomical_v1",
+      "skinned": true
+    },
+    "frontier_sunmeadow_brown_hare": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.brown_hare",
+      "bindPoseId": "authored_anatomical_rest_v1",
+      "bodyFamily": "fauna_brown_hare",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+      "modelSha256": "1cc9027e678616059b6117c02919b6f14c25874628170141df6498c0c5ac085d",
+      "previews": {
+        "front": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_brown_hare_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "front": "5398c18f542a0e4093451c41eb7e54f4d1c2300e22500e3b02de159700ec7b66"
+      },
+      "qc": "frontier_sunmeadow_brown_hare_lod0.qc.json",
+      "qcSha256": "7f22c06ca7a66936470a56147f6d7b3bb3e7ecfc36d0cbdc991908f767425065",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_brown_hare_anatomical_v1",
+      "skinned": true
     },
     "frontier_sunmeadow_curtain_wall": {
       "approvalState": "approved",
@@ -6431,6 +6555,74 @@
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"
+    },
+    "frontier_sunmeadow_red_fox": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.red_fox",
+      "bindPoseId": "authored_anatomical_rest_v1",
+      "bodyFamily": "fauna_red_fox",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_red_fox_lod0.glb",
+      "modelSha256": "25c11e195d047e482ad918e6577e418b4007af0a51e4c2701b0ea87f007597e4",
+      "previews": {
+        "front": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_red_fox/7bc6dac41b72910998e5/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_red_fox_lod0_reimport.png"
+      },
+      "previewSha256": {
+        "front": "45492163f3066dd06bb378966a4053205df0702594bb62591f1ff5096bf9b1ea"
+      },
+      "qc": "frontier_sunmeadow_red_fox_lod0.qc.json",
+      "qcSha256": "dbcb36437682c578f64dd50c67aa6b2b7e14705e9868e43f23b04829ed97ec52",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_red_fox_anatomical_v1",
+      "skinned": true
+    },
+    "frontier_sunmeadow_roe_deer_buck": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.roe_deer_buck",
+      "bindPoseId": "authored_anatomical_rest_v1",
+      "bodyFamily": "fauna_roe_deer_buck",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "modelSha256": "5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76",
+      "previews": {
+        "assembly": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/review/candidates/buck_differential/lod0_rest_full.png",
+        "detail": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/review/candidates/buck_differential/lod0_rest_head_head.png"
+      },
+      "previewSha256": {
+        "assembly": "7049ceea0d36da4dccfb285791cd3e039c7f3177ebc67df1c8e0a8a5e90d8935",
+        "detail": "df9177cb440caa56f3c7d58a349f6f54b39584cda283a09414d5feb8a6e43568"
+      },
+      "qc": "frontier_sunmeadow_roe_deer_buck_lod0.qc.json",
+      "qcSha256": "2cfab83de330027a56728c2d4e7bc8a2e482272521095cf92caba851d7cd12a5",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_roe_deer_buck_anatomical_v1",
+      "skinned": true
+    },
+    "frontier_sunmeadow_skylark": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.sunmeadow.skylark",
+      "bindPoseId": "authored_anatomical_rest_v1",
+      "bodyFamily": "fauna_skylark",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+      "previews": {
+        "front": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/review/runtime_lod0_idle_0_quarter.png"
+      },
+      "previewSha256": {
+        "front": "c769d131789500c6664b4fa02fc794dc12d5009d363d38d913a9f0b774cba6db"
+      },
+      "qc": "frontier_sunmeadow_skylark_lod0.qc.json",
+      "qcSha256": "f66176851681cd873ece70f3605d1f96eac342e52fcd4a9b1ca55ae1eb16722a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_skylark_anatomical_v1",
+      "skinned": true
     },
     "frontier_sunmeadow_supply_post": {
       "approvalState": "approved",

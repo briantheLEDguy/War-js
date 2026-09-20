@@ -18,6 +18,7 @@ import { composeCinderfenLandscape } from './cinderfen-landscape.mjs';
 import { composeCinderfenEnvironment } from './cinderfen-environment.mjs';
 import { integrateCinderfen } from './cinderfen-integration.mjs';
 import { composeCinderfenEcology } from './cinderfen-ecology.mjs';
+import { integrateRegionalAssets } from './regional-asset-integration.mjs';
 import { compactCityElevation } from './compact-city-elevation.mjs';
 
 const root = process.cwd();
@@ -98,6 +99,7 @@ for (const node of NODES) {
   composeCinderfenEnvironment(zone, { architecture: true });
   integrateCinderfen(zone);
   composeCinderfenEcology(zone);
+  integrateRegionalAssets(zone);
   rebuildAegisCity(zone);
   rebuildRiftspireCity(zone);
   zones.push(zone);
@@ -1032,11 +1034,11 @@ function keepProps(id, x, z, realm, scaleMultiplier = 1) {
   };
   const addDoor = (suffix, localX, localZ, rotY, doorScale, label, maxDistance = 14) => {
     const point = at(localX, localZ);
-    props.push(interactiveDoorProp(`${id}_${suffix}`, label, point.x, point.z, rotY, scale * doorScale, maxDistance));
+    props.push(interactiveDoorProp(`${id}_${suffix}`, label, point.x, point.z, rotY, scale * doorScale, maxDistance, 'castle_door', 5.2));
   };
   const addGate = (suffix, localX, localZ, rotY, gateScale, label, maxDistance = 20) => {
     const point = at(localX, localZ);
-    props.push(interactiveDoorProp(`${id}_${suffix}`, label, point.x, point.z, rotY, scale * gateScale, maxDistance, 'castle_gate', 18, 2.5));
+    props.push(interactiveDoorProp(`${id}_${suffix}`, label, point.x, point.z, rotY, scale * gateScale, maxDistance, 'castle_gate', 16, 2.5));
   };
 
   addWall('outer_front_left_wall', -18, -24, 18);
@@ -1064,6 +1066,21 @@ function keepProps(id, x, z, realm, scaleMultiplier = 1) {
   addTower('inner_tower_se', 15, 15, 0.82);
   addDoor('inner_front_door', 0, -7.5, 0, 0.66, `${labelPrefix} Keep Door`, 12);
   addDoor('inner_rear_door', 0, 15, Math.PI, 0.62, `${labelPrefix} Keep Rear Door`, 12);
+  // Fit visible wall ends to the exported leaves after scale rounding, preserving the corner joins.
+  const fitOpening = (wallPrefix, doorSuffix, leafWidth) => {
+    const door = props.find(entry => entry.id === `${id}_${doorSuffix}`);
+    for (const [side, direction] of [['left', -1], ['right', 1]]) {
+      const wall = props.find(entry => entry.id === `${id}_${wallPrefix}_${side}_wall`);
+      const outerEnd = wall.x + direction * 5 * wall.scale * wall.scaleX;
+      const leafEnd = door.x + direction * leafWidth * door.scale / 2;
+      wall.x = (outerEnd + leafEnd) / 2;
+      wall.scaleX = Math.abs(outerEnd - leafEnd) / (10 * wall.scale);
+    }
+  };
+  fitOpening('outer_front', 'front_gate', 16);
+  fitOpening('outer_rear', 'rear_postern', 5.2);
+  fitOpening('inner_front', 'inner_front_door', 5.2);
+  fitOpening('inner_rear', 'inner_rear_door', 5.2);
   return props;
 }
 

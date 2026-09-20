@@ -1,0 +1,100 @@
+{
+  "assetId": "prop.frontier.sunmeadow.brown_hare",
+  "displayName": "Sunmeadow brown hare",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "sunmeadow_authored_fauna"
+  ],
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_brown_hare"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_brown_hare_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_body",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "fauna_brown_hare",
+    "skeletonId": "sunmeadow_brown_hare_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 94799,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 44158,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 27806,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_SunmeadowAuthoredPelt",
+    "textureSet": "frontier_sunmeadow_brown_hare",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_brown_hare.blend",
+    "sourceSha256": "c63bf643867be1dd1144c9606d89612b44b082153eb93d9fa973449ae81dab65",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 32,
+    "maxFileSizeMb": 32,
+    "maxTris": 94799,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "8dc07ff0b40f332650dcffbb3d5026ed8ae8895d5fb9e64d7f4f48b92af9ec47",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

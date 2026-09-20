@@ -128,9 +128,25 @@ export interface CampaignNpcPresentation {
   profileKey?: string;
 }
 const riftRaces = new Set(['chaos', 'greenskin', 'dark_elf']);
+const regionalInhabitants = new Map<string, string>([
+  ['npc_frontier_sunmeadow_dwarf_artisan', 'dwarf'],
+  ['npc_frontier_sunmeadow_empire_farmer', 'empire'],
+  ['npc_frontier_sunmeadow_empire_herbalist', 'empire'],
+  ['npc_frontier_sunmeadow_high_elf_scout', 'high_elf'],
+  ['npc_frontier_cinderfen_greenskin_peat_worker', 'greenskin'],
+  ['npc_frontier_cinderfen_dark_elf_supply_officer', 'dark_elf'],
+]);
 
 /** Preserve authored race/role and reviewed city variants; unbuilt racial sets stay unavailable. */
 export function campaignNpcProfile(npc: CampaignNpcPresentation): string | undefined {
+  if (npc.profileKey?.startsWith('npc_frontier_')) {
+    const race = regionalInhabitants.get(npc.profileKey);
+    if (!race || (npc.race && npc.race !== race)) return undefined;
+    if (npc.realm && (riftRaces.has(race) ? 'riftbound' : 'aegis') !== npc.realm) return undefined;
+    // Preserve the authored regional cast. The loader still requires a matching
+    // approved registry entry; naming a planned profile does not publish it.
+    return npc.profileKey;
+  }
   let race = npc.race;
   if (npc.realm && race && (riftRaces.has(race) ? 'riftbound' : 'aegis') !== npc.realm) race = undefined;
   if (!race) {

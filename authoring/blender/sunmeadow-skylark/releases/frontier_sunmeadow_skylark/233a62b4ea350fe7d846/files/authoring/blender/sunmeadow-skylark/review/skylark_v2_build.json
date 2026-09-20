@@ -1,0 +1,1403 @@
+{
+  "status": "unapproved_anatomy_and_motion_candidate",
+  "sourceFiles": {
+    "tools/build_skylark.py": "d959db0d86f08c39ac2a494cd8364cddc73955d689c873ed5db97f2fc7585468",
+    "tools/skylark_anatomy.py": "827b4fe43d09bcec922e9e3cea5ce6add29ffbf6001c44fa50a8f9b980a837f2",
+    "tools/skylark_materials.py": "a950375e83d514c65717172351b9fe9dad770640ed2cbfec91e75a13a4fb3004",
+    "tools/quadruped_rig.py": "790feba76370966bd21c9df6a56b7b78036658a86d103226f284c67ede186f34"
+  },
+  "master": "masters/frontier_sunmeadow_skylark_v2.blend",
+  "masterSha256": "d0d083572b4a4ac39322cc63f83770d43b8db61578e3134312e8b01a7f0c0550",
+  "bones": [
+    {
+      "name": "root",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "tail": [
+        0,
+        0,
+        0.04
+      ]
+    },
+    {
+      "name": "pelvis",
+      "head": [
+        0,
+        0.015,
+        0.077
+      ],
+      "tail": [
+        0,
+        -0.005,
+        0.088
+      ],
+      "parent": "root"
+    },
+    {
+      "name": "chest",
+      "head": [
+        0,
+        -0.005,
+        0.088
+      ],
+      "tail": [
+        0,
+        -0.023,
+        0.109
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "neck",
+      "head": [
+        0,
+        -0.023,
+        0.109
+      ],
+      "tail": [
+        0,
+        -0.036,
+        0.123
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        -0.036,
+        0.123
+      ],
+      "tail": [
+        0,
+        -0.059,
+        0.12
+      ],
+      "parent": "neck"
+    },
+    {
+      "name": "jaw",
+      "head": [
+        0,
+        -0.054,
+        0.118
+      ],
+      "tail": [
+        0,
+        -0.074,
+        0.1155
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "tail",
+      "head": [
+        0,
+        0.039,
+        0.073
+      ],
+      "tail": [
+        0,
+        0.106,
+        0.057
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "wing_upper_L",
+      "head": [
+        0.021,
+        -0.01,
+        0.1
+      ],
+      "tail": [
+        0.06,
+        0.006,
+        0.1
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "wing_lower_L",
+      "head": [
+        0.06,
+        0.006,
+        0.1
+      ],
+      "tail": [
+        0.104,
+        -0.01,
+        0.101
+      ],
+      "parent": "wing_upper_L"
+    },
+    {
+      "name": "wing_hand_L",
+      "head": [
+        0.104,
+        -0.01,
+        0.101
+      ],
+      "tail": [
+        0.139,
+        0.007,
+        0.098
+      ],
+      "parent": "wing_lower_L"
+    },
+    {
+      "name": "thigh_L",
+      "head": [
+        0.016,
+        0.011,
+        0.062
+      ],
+      "tail": [
+        0.017,
+        -0.005,
+        0.055
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "ankle_L",
+      "head": [
+        0.017,
+        -0.005,
+        0.055
+      ],
+      "tail": [
+        0.017,
+        0.011,
+        0.031
+      ],
+      "parent": "thigh_L"
+    },
+    {
+      "name": "tarsus_L",
+      "head": [
+        0.017,
+        0.011,
+        0.031
+      ],
+      "tail": [
+        0.017,
+        -0.001,
+        0.005
+      ],
+      "parent": "ankle_L"
+    },
+    {
+      "name": "foot_L",
+      "head": [
+        0.017,
+        -0.001,
+        0.005
+      ],
+      "tail": [
+        0.017,
+        -0.025,
+        0.004
+      ],
+      "parent": "tarsus_L"
+    },
+    {
+      "name": "wing_upper_R",
+      "head": [
+        -0.021,
+        -0.01,
+        0.1
+      ],
+      "tail": [
+        -0.06,
+        0.006,
+        0.1
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "wing_lower_R",
+      "head": [
+        -0.06,
+        0.006,
+        0.1
+      ],
+      "tail": [
+        -0.104,
+        -0.01,
+        0.101
+      ],
+      "parent": "wing_upper_R"
+    },
+    {
+      "name": "wing_hand_R",
+      "head": [
+        -0.104,
+        -0.01,
+        0.101
+      ],
+      "tail": [
+        -0.139,
+        0.007,
+        0.098
+      ],
+      "parent": "wing_lower_R"
+    },
+    {
+      "name": "thigh_R",
+      "head": [
+        -0.016,
+        0.011,
+        0.062
+      ],
+      "tail": [
+        -0.017,
+        -0.005,
+        0.055
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "ankle_R",
+      "head": [
+        -0.017,
+        -0.005,
+        0.055
+      ],
+      "tail": [
+        -0.017,
+        0.011,
+        0.031
+      ],
+      "parent": "thigh_R"
+    },
+    {
+      "name": "tarsus_R",
+      "head": [
+        -0.017,
+        0.011,
+        0.031
+      ],
+      "tail": [
+        -0.017,
+        -0.001,
+        0.005
+      ],
+      "parent": "ankle_R"
+    },
+    {
+      "name": "foot_R",
+      "head": [
+        -0.017,
+        -0.001,
+        0.005
+      ],
+      "tail": [
+        -0.017,
+        -0.025,
+        0.004
+      ],
+      "parent": "tarsus_R"
+    }
+  ],
+  "clips": [
+    "idle",
+    "hop",
+    "fly"
+  ],
+  "lods": [
+    {
+      "lod": 0,
+      "triangles": 54948,
+      "vertices": 27834,
+      "parts": [
+        {
+          "name": "continuous_body_neck_head",
+          "first_vertex": 0,
+          "vertices": 1312,
+          "faces": 1282
+        },
+        {
+          "name": "primary_L_0",
+          "first_vertex": 1312,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_1",
+          "first_vertex": 1438,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_2",
+          "first_vertex": 1564,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_3",
+          "first_vertex": 1690,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_4",
+          "first_vertex": 1816,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_5",
+          "first_vertex": 1942,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_6",
+          "first_vertex": 2068,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_7",
+          "first_vertex": 2194,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_8",
+          "first_vertex": 2320,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_L_9",
+          "first_vertex": 2446,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_0",
+          "first_vertex": 2572,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_1",
+          "first_vertex": 2698,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_2",
+          "first_vertex": 2824,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_3",
+          "first_vertex": 2950,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_4",
+          "first_vertex": 3076,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_5",
+          "first_vertex": 3202,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_6",
+          "first_vertex": 3328,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_7",
+          "first_vertex": 3454,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_L_8",
+          "first_vertex": 3580,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_0",
+          "first_vertex": 3706,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_1",
+          "first_vertex": 3832,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_2",
+          "first_vertex": 3958,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_3",
+          "first_vertex": 4084,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_4",
+          "first_vertex": 4210,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_5",
+          "first_vertex": 4336,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_6",
+          "first_vertex": 4462,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_7",
+          "first_vertex": 4588,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_8",
+          "first_vertex": 4714,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_9",
+          "first_vertex": 4840,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_10",
+          "first_vertex": 4966,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_0_11",
+          "first_vertex": 5092,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_0",
+          "first_vertex": 5218,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_1",
+          "first_vertex": 5344,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_2",
+          "first_vertex": 5470,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_3",
+          "first_vertex": 5596,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_4",
+          "first_vertex": 5722,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_5",
+          "first_vertex": 5848,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_6",
+          "first_vertex": 5974,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_7",
+          "first_vertex": 6100,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_8",
+          "first_vertex": 6226,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_9",
+          "first_vertex": 6352,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_10",
+          "first_vertex": 6478,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_1_11",
+          "first_vertex": 6604,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_0",
+          "first_vertex": 6730,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_1",
+          "first_vertex": 6856,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_2",
+          "first_vertex": 6982,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_3",
+          "first_vertex": 7108,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_4",
+          "first_vertex": 7234,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_5",
+          "first_vertex": 7360,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_6",
+          "first_vertex": 7486,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_7",
+          "first_vertex": 7612,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_8",
+          "first_vertex": 7738,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_9",
+          "first_vertex": 7864,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_10",
+          "first_vertex": 7990,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_L_2_11",
+          "first_vertex": 8116,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_0",
+          "first_vertex": 8242,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_1",
+          "first_vertex": 8368,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_2",
+          "first_vertex": 8494,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_3",
+          "first_vertex": 8620,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_4",
+          "first_vertex": 8746,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_5",
+          "first_vertex": 8872,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_6",
+          "first_vertex": 8998,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_L_7",
+          "first_vertex": 9124,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scaly_leg_L",
+          "first_vertex": 9250,
+          "vertices": 416,
+          "faces": 386
+        },
+        {
+          "name": "tibial_feather_cuff_L",
+          "first_vertex": 9666,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_L_0",
+          "first_vertex": 9954,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_L_0",
+          "first_vertex": 10242,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_L_1",
+          "first_vertex": 10530,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_L_1",
+          "first_vertex": 10818,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_L_2",
+          "first_vertex": 11106,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_L_2",
+          "first_vertex": 11394,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_L_3",
+          "first_vertex": 11682,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_L_3",
+          "first_vertex": 11970,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "primary_R_0",
+          "first_vertex": 12258,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_1",
+          "first_vertex": 12384,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_2",
+          "first_vertex": 12510,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_3",
+          "first_vertex": 12636,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_4",
+          "first_vertex": 12762,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_5",
+          "first_vertex": 12888,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_6",
+          "first_vertex": 13014,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_7",
+          "first_vertex": 13140,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_8",
+          "first_vertex": 13266,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "primary_R_9",
+          "first_vertex": 13392,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_0",
+          "first_vertex": 13518,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_1",
+          "first_vertex": 13644,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_2",
+          "first_vertex": 13770,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_3",
+          "first_vertex": 13896,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_4",
+          "first_vertex": 14022,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_5",
+          "first_vertex": 14148,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_6",
+          "first_vertex": 14274,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_7",
+          "first_vertex": 14400,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "secondary_R_8",
+          "first_vertex": 14526,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_0",
+          "first_vertex": 14652,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_1",
+          "first_vertex": 14778,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_2",
+          "first_vertex": 14904,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_3",
+          "first_vertex": 15030,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_4",
+          "first_vertex": 15156,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_5",
+          "first_vertex": 15282,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_6",
+          "first_vertex": 15408,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_7",
+          "first_vertex": 15534,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_8",
+          "first_vertex": 15660,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_9",
+          "first_vertex": 15786,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_10",
+          "first_vertex": 15912,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_0_11",
+          "first_vertex": 16038,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_0",
+          "first_vertex": 16164,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_1",
+          "first_vertex": 16290,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_2",
+          "first_vertex": 16416,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_3",
+          "first_vertex": 16542,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_4",
+          "first_vertex": 16668,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_5",
+          "first_vertex": 16794,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_6",
+          "first_vertex": 16920,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_7",
+          "first_vertex": 17046,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_8",
+          "first_vertex": 17172,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_9",
+          "first_vertex": 17298,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_10",
+          "first_vertex": 17424,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_1_11",
+          "first_vertex": 17550,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_0",
+          "first_vertex": 17676,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_1",
+          "first_vertex": 17802,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_2",
+          "first_vertex": 17928,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_3",
+          "first_vertex": 18054,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_4",
+          "first_vertex": 18180,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_5",
+          "first_vertex": 18306,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_6",
+          "first_vertex": 18432,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_7",
+          "first_vertex": 18558,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_8",
+          "first_vertex": 18684,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_9",
+          "first_vertex": 18810,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_10",
+          "first_vertex": 18936,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "covert_R_2_11",
+          "first_vertex": 19062,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_0",
+          "first_vertex": 19188,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_1",
+          "first_vertex": 19314,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_2",
+          "first_vertex": 19440,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_3",
+          "first_vertex": 19566,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_4",
+          "first_vertex": 19692,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_5",
+          "first_vertex": 19818,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_6",
+          "first_vertex": 19944,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scapular_R_7",
+          "first_vertex": 20070,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "scaly_leg_R",
+          "first_vertex": 20196,
+          "vertices": 416,
+          "faces": 386
+        },
+        {
+          "name": "tibial_feather_cuff_R",
+          "first_vertex": 20612,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_R_0",
+          "first_vertex": 20900,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_R_0",
+          "first_vertex": 21188,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_R_1",
+          "first_vertex": 21476,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_R_1",
+          "first_vertex": 21764,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_R_2",
+          "first_vertex": 22052,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_R_2",
+          "first_vertex": 22340,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "toe_R_3",
+          "first_vertex": 22628,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "claw_R_3",
+          "first_vertex": 22916,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "rectrix_0",
+          "first_vertex": 23204,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_1",
+          "first_vertex": 23330,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_2",
+          "first_vertex": 23456,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_3",
+          "first_vertex": 23582,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_4",
+          "first_vertex": 23708,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_5",
+          "first_vertex": 23834,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_6",
+          "first_vertex": 23960,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_7",
+          "first_vertex": 24086,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_8",
+          "first_vertex": 24212,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_9",
+          "first_vertex": 24338,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_10",
+          "first_vertex": 24464,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "rectrix_11",
+          "first_vertex": 24590,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_0",
+          "first_vertex": 24716,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_1",
+          "first_vertex": 24842,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_2",
+          "first_vertex": 24968,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_3",
+          "first_vertex": 25094,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_4",
+          "first_vertex": 25220,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_5",
+          "first_vertex": 25346,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_6",
+          "first_vertex": 25472,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_7",
+          "first_vertex": 25598,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_8",
+          "first_vertex": 25724,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_9",
+          "first_vertex": 25850,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_10",
+          "first_vertex": 25976,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_11",
+          "first_vertex": 26102,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_12",
+          "first_vertex": 26228,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_13",
+          "first_vertex": 26354,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_14",
+          "first_vertex": 26480,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_15",
+          "first_vertex": 26606,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "crest_16",
+          "first_vertex": 26732,
+          "vertices": 126,
+          "faces": 124
+        },
+        {
+          "name": "upper_bill",
+          "first_vertex": 26858,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "lower_bill",
+          "first_vertex": 27146,
+          "vertices": 288,
+          "faces": 258
+        },
+        {
+          "name": "fitted_eye_-1",
+          "first_vertex": 27434,
+          "vertices": 200,
+          "faces": 162
+        },
+        {
+          "name": "fitted_eye_1",
+          "first_vertex": 27634,
+          "vertices": 200,
+          "faces": 162
+        }
+      ],
+      "model": "runtime/frontier_sunmeadow_skylark_lod0.glb",
+      "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+      "bytes": 4620992
+    }
+  ]
+}

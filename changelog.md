@@ -1,3 +1,17 @@
+## 2026-09-20 — Universal keep workshop delivery
+
+- Published the original siege repair bench and ammunition cradle at three LODs each, with complete PBR textures and exact-export technical/visual receipts.
+- Added 72 grounded placements across all 36 keeps, preserving gate/commander access and clear work fronts; measured part collision is shared with the GM builder.
+- Expanded GM coverage to 442 definitions and applied suitable workshop LOD/culling distances in local, shared-campaign and GM presentations. The two props remain static scenery; repair/ammunition interactions are future work.
+
+## 2026-09-20 — Keep access, siege crews and approved regional delivery
+
+- Closed gaps beside generic keep gates and rear doors in 32 keeps; all 36 keeps retain closed, outer-breached and fully-breached progression. Inner footpaths now fit their visible doorways.
+- Added local movement substeps to prevent crossing thin walls and railings during long frames. Extended Cinderfen corner gangways to clear all 16 stair meshes and added measured continuous railing collision to map and GM defaults.
+- Integrated signed two-person ram crew animation packs with stable seats, heading, dismount checks, and weapon restoration; added an actual equipped-player siege review.
+- Published the revised Sunmeadow dwarf artisan and assigned the craft mentor. Included existing approved fauna with explicit rest-pose/LOD limitations and added equipment to the GM catalog.
+- Added a local gameplay keep review and shared workshop placement checks for collision, grounded feet, work areas and breach access. Standing asset approval no longer waits on another art-review request.
+
 ## 2026-09-09 — Character and siege production priority
 
 - Prioritized character models, equipment and town/siege items; paused animal and woodland-floor drafts. The current buck shape is accepted for now without further anatomical refinement.

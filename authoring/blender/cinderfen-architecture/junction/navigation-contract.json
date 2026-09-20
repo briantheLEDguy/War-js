@@ -3,37 +3,37 @@
   "units": "metres",
   "upAxis": "+Y",
   "frontAxis": "+Z",
-  "sourceSha256": "d8d02e508e166899ae16c660b621ac7264756464d39a1b529d531e38cc0c12fe",
-  "buildSha256": "1a1fcff55e1895fc56c2e58f18fd56fc71fd8674758c8f3198433161b71e7b66",
+  "sourceSha256": "a47900289fb94d15e8598061ce163449c00504922a6d37f7576c21ef8f46bbb4",
+  "buildSha256": "adc55cced24e329413ff9312213a8a800978221b3b79a81c70428174fbd3fe94",
   "runtimeReady": true,
   "completeReimportReview": true,
   "assets": [
     {
       "assetId": "frontier_cinderfen_corner_access",
       "model": "frontier_cinderfen_corner_access_lod0.glb",
-      "modelSha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
+      "modelSha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
       "lods": [
         {
           "level": 0,
           "model": "frontier_cinderfen_corner_access_lod0.glb",
-          "sha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc"
+          "sha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a"
         },
         {
           "level": 1,
           "model": "frontier_cinderfen_corner_access_lod1.glb",
-          "sha256": "e8ec0579b776a3c3da731eb6326202f613105e42475704fb51e057a7a69ecf0f"
+          "sha256": "a9a10c859ea86e697108a76a4325c277773c7139861a34d666ee908ea9b99261"
         },
         {
           "level": 2,
           "model": "frontier_cinderfen_corner_access_lod2.glb",
-          "sha256": "96a0760e54f62167db8734af950e981e8732b3cf5f2d4b9d78905ed216b75925"
+          "sha256": "43e1611667632e6d581443b0bec6a08868b93c208f1e9fa95065e8144ec28e64"
         }
       ],
       "boundsYUp": {
         "minimum": [
-          -4.400516510009766,
+          -5.399123668670654,
           -0.003463203553110361,
-          -4.400516510009766
+          -5.399123668670654
         ],
         "maximum": [
           2.63700008392334,
@@ -60,9 +60,9 @@
         ]
       ],
       "stair_socket_runtime": [
-        -3.5,
+        -4.5,
         6.3,
-        -3.5
+        -4.5
       ],
       "stair_socket_forward_runtime": [
         0.7071067811865476,
@@ -109,10 +109,10 @@
         },
         {
           "id": "courtyard_stair_landing",
-          "x": -2.525,
-          "z": -2.525,
+          "x": -3.025,
+          "z": -3.025,
           "width": 2.2,
-          "depth": 2.7877164466275355,
+          "depth": 4.201930009000631,
           "rotY": 0.7853981633974483,
           "fromY": 6.3,
           "toY": 6.3
@@ -189,8 +189,8 @@
           "maxY": 6.29
         },
         {
-          "x": -4.211959594928933,
-          "z": -2.628040405071067,
+          "x": -5.211959594928933,
+          "z": -3.628040405071067,
           "width": 0.25,
           "depth": 0.25,
           "minY": 0,
@@ -205,17 +205,17 @@
           "maxY": 7.35
         },
         {
-          "x": -3.316959594928933,
-          "z": -1.7330404050710668,
-          "width": 2.7577164466275357,
+          "x": -3.816959594928933,
+          "z": -2.233040405071067,
+          "width": 4.171930009000631,
           "depth": 0.2,
           "rotY": -0.7853981633974483,
           "minY": 6.3,
           "maxY": 7.42
         },
         {
-          "x": -2.628040405071067,
-          "z": -4.211959594928933,
+          "x": -3.628040405071067,
+          "z": -5.211959594928933,
           "width": 0.25,
           "depth": 0.25,
           "minY": 0,
@@ -230,25 +230,25 @@
           "maxY": 7.35
         },
         {
-          "x": -1.7330404050710668,
-          "z": -3.316959594928933,
-          "width": 2.7577164466275357,
+          "x": -2.233040405071067,
+          "z": -3.816959594928933,
+          "width": 4.171930009000631,
           "depth": 0.2,
           "rotY": -0.7853981633974483,
           "minY": 6.3,
           "maxY": 7.42
         },
         {
-          "x": -2.525,
-          "z": -2.525,
+          "x": -3.025,
+          "z": -3.025,
           "width": 2.2,
-          "depth": 2.7877164466275355,
+          "depth": 4.201930009000631,
           "rotY": 0.7853981633974483,
           "minY": 6.15,
           "maxY": 6.29
         }
       ],
-      "assembly_note": "Two perpendicular wall ends join the west and south openings. The supported diagonal gangway carries the stair socket into the courtyard so the lower stair entry clears both curtain bases. Rotate the complete assembly for each keep corner. No visible rail crosses any socket."
+      "assembly_note": "Two perpendicular wall ends join the unchanged west and south openings. The supported diagonal gangway extends 1.414m farther into the courtyard to clear actual stair stringers and handrails from the curtain bases. Rotate the complete assembly for each keep corner. No visible rail crosses any socket."
     }
   ]
 }

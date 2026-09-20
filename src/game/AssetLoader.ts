@@ -34,6 +34,7 @@ interface IndexedModel {
   qc?: string;
   qcSha256?: string;
   animationPack?: CharacterAnimationPack;
+  operatorAnimationPacks?: Record<'left' | 'right', CharacterAnimationPack>;
   assetId?: string;
   model?: string;
   modelSha256?: string;
@@ -442,6 +443,14 @@ export class AssetLoader {
     if (!entry || !isRuntimeApproved(entry) || !entry.animationPack
       || !(await this.resolveApprovedAssetModels(staticKey, 'staticProps')).length) return null;
     return { ...entry.animationPack };
+  }
+
+  /** Seat packs belong to the reviewed engine; their hashes are checked when parsed. */
+  async resolveStaticOperatorAnimationPacks(staticKey: string): Promise<Record<'left' | 'right', CharacterAnimationPack> | null> {
+    const index = await this.loadAssetIndex(), entry = index?.staticProps?.[staticKey];
+    if (!entry || !isRuntimeApproved(entry) || !entry.operatorAnimationPacks
+      || !(await this.resolveApprovedAssetModels(staticKey, 'staticProps')).length) return null;
+    return { left: { ...entry.operatorAnimationPacks.left }, right: { ...entry.operatorAnimationPacks.right } };
   }
 
   private approvedCityModels = new Map<string, Promise<string[]>>();

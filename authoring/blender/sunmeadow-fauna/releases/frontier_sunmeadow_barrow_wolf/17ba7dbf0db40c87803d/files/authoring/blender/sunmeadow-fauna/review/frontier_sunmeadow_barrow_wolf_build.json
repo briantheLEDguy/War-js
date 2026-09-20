@@ -1,0 +1,1096 @@
+{
+  "asset": "frontier_sunmeadow_barrow_wolf",
+  "status": "anatomy-prototype-motion-pending",
+  "source_sha256": "7aec46a2251c15058922486d764ea239e67cd487178b8533544bf11c19220c0c",
+  "builder_sha256": "88f8e9ed106fec692cd2207a411d93750e430862766b6e372f509026252c1bdf",
+  "rig_helper_sha256": "c9b5297e943aef41653ae0c162bb96895ad768dc7f5bbcc01b7e5088d4c57127",
+  "motion_source_sha256": "4f47ac5941beec4ca83987665c9a220b7bdf96f22e7649926333080cd747c143",
+  "motion": [],
+  "master": "masters\\frontier_sunmeadow_barrow_wolf.blend",
+  "master_sha256": "9135329ecd0aba716c404012568f7c69fa9dcf597596486992375d1a49e71609",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+      "sha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+      "bytes": 4937888,
+      "triangles": 73184,
+      "vertices": 36729,
+      "bounds_blender": {
+        "min": [
+          -0.2539047598838806,
+          -0.9480000138282776,
+          4.609115421772003e-05
+        ],
+        "max": [
+          0.253925085067749,
+          1.1761648654937744,
+          1.1399999856948853
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 1080,
+          "faces": 1058
+        },
+        {
+          "name": "concave_ear_ear_L",
+          "first_vertex": 1080,
+          "vertices": 36,
+          "faces": 30
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 1116,
+          "vertices": 144,
+          "faces": 120
+        },
+        {
+          "name": "front_leg_L",
+          "first_vertex": 1260,
+          "vertices": 504,
+          "faces": 482
+        },
+        {
+          "name": "articulated_toe_front_leg_L_-1.15",
+          "first_vertex": 1764,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_front_leg_L_-0.38",
+          "first_vertex": 2076,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_front_leg_L_0.38",
+          "first_vertex": 2388,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_front_leg_L_1.15",
+          "first_vertex": 2700,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "hind_leg_L",
+          "first_vertex": 3012,
+          "vertices": 504,
+          "faces": 482
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_-1.15",
+          "first_vertex": 3516,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_-0.38",
+          "first_vertex": 3828,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_0.38",
+          "first_vertex": 4140,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_1.15",
+          "first_vertex": 4452,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "concave_ear_ear_R",
+          "first_vertex": 4764,
+          "vertices": 36,
+          "faces": 30
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 4800,
+          "vertices": 144,
+          "faces": 120
+        },
+        {
+          "name": "front_leg_R",
+          "first_vertex": 4944,
+          "vertices": 504,
+          "faces": 482
+        },
+        {
+          "name": "articulated_toe_front_leg_R_-1.15",
+          "first_vertex": 5448,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_front_leg_R_-0.38",
+          "first_vertex": 5760,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_front_leg_R_0.38",
+          "first_vertex": 6072,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_front_leg_R_1.15",
+          "first_vertex": 6384,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "hind_leg_R",
+          "first_vertex": 6696,
+          "vertices": 504,
+          "faces": 482
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_-1.15",
+          "first_vertex": 7200,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_-0.38",
+          "first_vertex": 7512,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_0.38",
+          "first_vertex": 7824,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_1.15",
+          "first_vertex": 8136,
+          "vertices": 312,
+          "faces": 290
+        },
+        {
+          "name": "tapered_tail",
+          "first_vertex": 8448,
+          "vertices": 504,
+          "faces": 482
+        },
+        {
+          "name": "sculpted_rhinarium_alar_folds",
+          "first_vertex": 8952,
+          "vertices": 48,
+          "faces": 37
+        },
+        {
+          "name": "nostril_recess_-1",
+          "first_vertex": 9000,
+          "vertices": 48,
+          "faces": 32
+        },
+        {
+          "name": "nostril_recess_1",
+          "first_vertex": 9048,
+          "vertices": 48,
+          "faces": 32
+        },
+        {
+          "name": "mandible_lower_lip",
+          "first_vertex": 9096,
+          "vertices": 312,
+          "faces": 290
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_barrow_wolf_lod1.glb",
+      "sha256": "1a4044ab775a25d1f7816fc387be94ee3720ecd955e9b83e45e6e16be6b1336a",
+      "bytes": 3294784,
+      "triangles": 34466,
+      "vertices": 17346,
+      "bounds_blender": {
+        "min": [
+          -0.25148019194602966,
+          -0.9480000138282776,
+          7.649697363376617e-05
+        ],
+        "max": [
+          0.2516363561153412,
+          1.1764092445373535,
+          1.1399999856948853
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 544,
+          "faces": 530
+        },
+        {
+          "name": "concave_ear_ear_L",
+          "first_vertex": 544,
+          "vertices": 36,
+          "faces": 30
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 580,
+          "vertices": 96,
+          "faces": 80
+        },
+        {
+          "name": "front_leg_L",
+          "first_vertex": 676,
+          "vertices": 256,
+          "faces": 242
+        },
+        {
+          "name": "articulated_toe_front_leg_L_-1.15",
+          "first_vertex": 932,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_front_leg_L_-0.38",
+          "first_vertex": 1092,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_front_leg_L_0.38",
+          "first_vertex": 1252,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_front_leg_L_1.15",
+          "first_vertex": 1412,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "hind_leg_L",
+          "first_vertex": 1572,
+          "vertices": 256,
+          "faces": 242
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_-1.15",
+          "first_vertex": 1828,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_-0.38",
+          "first_vertex": 1988,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_0.38",
+          "first_vertex": 2148,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_1.15",
+          "first_vertex": 2308,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "concave_ear_ear_R",
+          "first_vertex": 2468,
+          "vertices": 36,
+          "faces": 30
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 2504,
+          "vertices": 96,
+          "faces": 80
+        },
+        {
+          "name": "front_leg_R",
+          "first_vertex": 2600,
+          "vertices": 256,
+          "faces": 242
+        },
+        {
+          "name": "articulated_toe_front_leg_R_-1.15",
+          "first_vertex": 2856,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_front_leg_R_-0.38",
+          "first_vertex": 3016,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_front_leg_R_0.38",
+          "first_vertex": 3176,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_front_leg_R_1.15",
+          "first_vertex": 3336,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "hind_leg_R",
+          "first_vertex": 3496,
+          "vertices": 256,
+          "faces": 242
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_-1.15",
+          "first_vertex": 3752,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_-0.38",
+          "first_vertex": 3912,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_0.38",
+          "first_vertex": 4072,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_1.15",
+          "first_vertex": 4232,
+          "vertices": 160,
+          "faces": 146
+        },
+        {
+          "name": "tapered_tail",
+          "first_vertex": 4392,
+          "vertices": 256,
+          "faces": 242
+        },
+        {
+          "name": "sculpted_rhinarium_alar_folds",
+          "first_vertex": 4648,
+          "vertices": 48,
+          "faces": 37
+        },
+        {
+          "name": "nostril_recess_-1",
+          "first_vertex": 4696,
+          "vertices": 36,
+          "faces": 24
+        },
+        {
+          "name": "nostril_recess_1",
+          "first_vertex": 4732,
+          "vertices": 36,
+          "faces": 24
+        },
+        {
+          "name": "mandible_lower_lip",
+          "first_vertex": 4768,
+          "vertices": 160,
+          "faces": 146
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_barrow_wolf_lod2.glb",
+      "sha256": "2d0fb33d0da8366f3af19d0a872618dbc7998084d873230a2105a42ebf57e79d",
+      "bytes": 2714052,
+      "triangles": 21216,
+      "vertices": 10698,
+      "bounds_blender": {
+        "min": [
+          -0.24650730192661285,
+          -0.9480000138282776,
+          0.0015480220317840576
+        ],
+        "max": [
+          0.2465464025735855,
+          1.1758508682250977,
+          1.1399999856948853
+        ]
+      },
+      "parts": [
+        {
+          "name": "continuous_rump_chest_neck_head",
+          "first_vertex": 0,
+          "vertices": 230,
+          "faces": 222
+        },
+        {
+          "name": "concave_ear_ear_L",
+          "first_vertex": 230,
+          "vertices": 24,
+          "faces": 18
+        },
+        {
+          "name": "orbital_rim_iris_pupil_1",
+          "first_vertex": 254,
+          "vertices": 60,
+          "faces": 50
+        },
+        {
+          "name": "front_leg_L",
+          "first_vertex": 314,
+          "vertices": 110,
+          "faces": 102
+        },
+        {
+          "name": "articulated_toe_front_leg_L_-1.15",
+          "first_vertex": 424,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_front_leg_L_-0.38",
+          "first_vertex": 494,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_front_leg_L_0.38",
+          "first_vertex": 564,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_front_leg_L_1.15",
+          "first_vertex": 634,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "hind_leg_L",
+          "first_vertex": 704,
+          "vertices": 110,
+          "faces": 102
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_-1.15",
+          "first_vertex": 814,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_-0.38",
+          "first_vertex": 884,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_0.38",
+          "first_vertex": 954,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_hind_leg_L_1.15",
+          "first_vertex": 1024,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "concave_ear_ear_R",
+          "first_vertex": 1094,
+          "vertices": 24,
+          "faces": 18
+        },
+        {
+          "name": "orbital_rim_iris_pupil_-1",
+          "first_vertex": 1118,
+          "vertices": 60,
+          "faces": 50
+        },
+        {
+          "name": "front_leg_R",
+          "first_vertex": 1178,
+          "vertices": 110,
+          "faces": 102
+        },
+        {
+          "name": "articulated_toe_front_leg_R_-1.15",
+          "first_vertex": 1288,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_front_leg_R_-0.38",
+          "first_vertex": 1358,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_front_leg_R_0.38",
+          "first_vertex": 1428,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_front_leg_R_1.15",
+          "first_vertex": 1498,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "hind_leg_R",
+          "first_vertex": 1568,
+          "vertices": 110,
+          "faces": 102
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_-1.15",
+          "first_vertex": 1678,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_-0.38",
+          "first_vertex": 1748,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_0.38",
+          "first_vertex": 1818,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "articulated_toe_hind_leg_R_1.15",
+          "first_vertex": 1888,
+          "vertices": 70,
+          "faces": 62
+        },
+        {
+          "name": "tapered_tail",
+          "first_vertex": 1958,
+          "vertices": 110,
+          "faces": 102
+        },
+        {
+          "name": "sculpted_rhinarium_alar_folds",
+          "first_vertex": 2068,
+          "vertices": 24,
+          "faces": 19
+        },
+        {
+          "name": "nostril_recess_-1",
+          "first_vertex": 2092,
+          "vertices": 24,
+          "faces": 16
+        },
+        {
+          "name": "nostril_recess_1",
+          "first_vertex": 2116,
+          "vertices": 24,
+          "faces": 16
+        },
+        {
+          "name": "mandible_lower_lip",
+          "first_vertex": 2140,
+          "vertices": 70,
+          "faces": 62
+        }
+      ]
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "tail": [
+        0,
+        0,
+        0.15
+      ]
+    },
+    {
+      "name": "pelvis",
+      "head": [
+        0,
+        0.57,
+        0.61
+      ],
+      "tail": [
+        0,
+        0.07,
+        0.65
+      ],
+      "parent": "root"
+    },
+    {
+      "name": "spine",
+      "head": [
+        0,
+        0.07,
+        0.65
+      ],
+      "tail": [
+        0,
+        -0.16,
+        0.665
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "chest",
+      "head": [
+        0,
+        -0.16,
+        0.665
+      ],
+      "tail": [
+        0.0,
+        -0.19499999284744263,
+        0.6650000214576721
+      ],
+      "parent": "spine"
+    },
+    {
+      "name": "neck_base",
+      "head": [
+        0,
+        -0.16,
+        0.665
+      ],
+      "tail": [
+        0,
+        -0.46,
+        0.77
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "neck_01",
+      "head": [
+        0,
+        -0.46,
+        0.77
+      ],
+      "tail": [
+        0,
+        -0.568,
+        0.839
+      ],
+      "parent": "neck_base"
+    },
+    {
+      "name": "neck_02",
+      "head": [
+        0,
+        -0.568,
+        0.839
+      ],
+      "tail": [
+        0,
+        -0.658,
+        0.853
+      ],
+      "parent": "neck_01"
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        -0.658,
+        0.853
+      ],
+      "tail": [
+        0,
+        -0.938,
+        0.785
+      ],
+      "parent": "neck_02"
+    },
+    {
+      "name": "jaw",
+      "head": [
+        0,
+        -0.658,
+        0.853
+      ],
+      "tail": [
+        0.0,
+        -0.9230000376701355,
+        0.7600000500679016
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "ear_L",
+      "head": [
+        0.091,
+        -0.622,
+        0.959
+      ],
+      "tail": [
+        0.128,
+        -0.565,
+        1.14
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "shoulder_L",
+      "head": [
+        0.10217999666929245,
+        -0.3199999928474426,
+        0.6769999861717224
+      ],
+      "tail": [
+        0.1420000046491623,
+        -0.27000001072883606,
+        0.5120000243186951
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "forearm_L",
+      "head": [
+        0.1420000046491623,
+        -0.27000001072883606,
+        0.5120000243186951
+      ],
+      "tail": [
+        0.1459999978542328,
+        -0.23999999463558197,
+        0.3700000047683716
+      ],
+      "parent": "shoulder_L"
+    },
+    {
+      "name": "carpal_L",
+      "head": [
+        0.1459999978542328,
+        -0.23999999463558197,
+        0.3700000047683716
+      ],
+      "tail": [
+        0.1469999998807907,
+        -0.3449999988079071,
+        0.1899999976158142
+      ],
+      "parent": "forearm_L"
+    },
+    {
+      "name": "pastern_front_L",
+      "head": [
+        0.1469999998807907,
+        -0.3449999988079071,
+        0.1899999976158142
+      ],
+      "tail": [
+        0.14800000190734863,
+        -0.36000001430511475,
+        0.0560000017285347
+      ],
+      "parent": "carpal_L"
+    },
+    {
+      "name": "hoof_front_L",
+      "head": [
+        0.14800000190734863,
+        -0.36000001430511475,
+        0.0560000017285347
+      ],
+      "tail": [
+        0.14800000190734863,
+        -0.4150000214576721,
+        0.0560000017285347
+      ],
+      "parent": "pastern_front_L"
+    },
+    {
+      "name": "thigh_L",
+      "head": [
+        0.07999999821186066,
+        0.36000001430511475,
+        0.6480000019073486
+      ],
+      "tail": [
+        0.16500000655651093,
+        0.23499999940395355,
+        0.4699999988079071
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "shin_L",
+      "head": [
+        0.16500000655651093,
+        0.23499999940395355,
+        0.4699999988079071
+      ],
+      "tail": [
+        0.17399999499320984,
+        0.1550000011920929,
+        0.36000001430511475
+      ],
+      "parent": "thigh_L"
+    },
+    {
+      "name": "hock_L",
+      "head": [
+        0.17399999499320984,
+        0.1550000011920929,
+        0.36000001430511475
+      ],
+      "tail": [
+        0.16099999845027924,
+        0.38999998569488525,
+        0.1940000057220459
+      ],
+      "parent": "shin_L"
+    },
+    {
+      "name": "pastern_hind_L",
+      "head": [
+        0.16099999845027924,
+        0.38999998569488525,
+        0.1940000057220459
+      ],
+      "tail": [
+        0.1550000011920929,
+        0.3449999988079071,
+        0.052000001072883606
+      ],
+      "parent": "hock_L"
+    },
+    {
+      "name": "hoof_hind_L",
+      "head": [
+        0.1550000011920929,
+        0.3449999988079071,
+        0.052000001072883606
+      ],
+      "tail": [
+        0.1550000011920929,
+        0.28999999165534973,
+        0.052000001072883606
+      ],
+      "parent": "pastern_hind_L"
+    },
+    {
+      "name": "ear_R",
+      "head": [
+        -0.091,
+        -0.622,
+        0.959
+      ],
+      "tail": [
+        -0.128,
+        -0.565,
+        1.14
+      ],
+      "parent": "head"
+    },
+    {
+      "name": "shoulder_R",
+      "head": [
+        -0.10217999666929245,
+        -0.3199999928474426,
+        0.6769999861717224
+      ],
+      "tail": [
+        -0.1420000046491623,
+        -0.27000001072883606,
+        0.5120000243186951
+      ],
+      "parent": "chest"
+    },
+    {
+      "name": "forearm_R",
+      "head": [
+        -0.1420000046491623,
+        -0.27000001072883606,
+        0.5120000243186951
+      ],
+      "tail": [
+        -0.1459999978542328,
+        -0.23999999463558197,
+        0.3700000047683716
+      ],
+      "parent": "shoulder_R"
+    },
+    {
+      "name": "carpal_R",
+      "head": [
+        -0.1459999978542328,
+        -0.23999999463558197,
+        0.3700000047683716
+      ],
+      "tail": [
+        -0.1469999998807907,
+        -0.3449999988079071,
+        0.1899999976158142
+      ],
+      "parent": "forearm_R"
+    },
+    {
+      "name": "pastern_front_R",
+      "head": [
+        -0.1469999998807907,
+        -0.3449999988079071,
+        0.1899999976158142
+      ],
+      "tail": [
+        -0.14800000190734863,
+        -0.36000001430511475,
+        0.0560000017285347
+      ],
+      "parent": "carpal_R"
+    },
+    {
+      "name": "hoof_front_R",
+      "head": [
+        -0.14800000190734863,
+        -0.36000001430511475,
+        0.0560000017285347
+      ],
+      "tail": [
+        -0.14800000190734863,
+        -0.4150000214576721,
+        0.0560000017285347
+      ],
+      "parent": "pastern_front_R"
+    },
+    {
+      "name": "thigh_R",
+      "head": [
+        -0.07999999821186066,
+        0.36000001430511475,
+        0.6480000019073486
+      ],
+      "tail": [
+        -0.16500000655651093,
+        0.23499999940395355,
+        0.4699999988079071
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "shin_R",
+      "head": [
+        -0.16500000655651093,
+        0.23499999940395355,
+        0.4699999988079071
+      ],
+      "tail": [
+        -0.17399999499320984,
+        0.1550000011920929,
+        0.36000001430511475
+      ],
+      "parent": "thigh_R"
+    },
+    {
+      "name": "hock_R",
+      "head": [
+        -0.17399999499320984,
+        0.1550000011920929,
+        0.36000001430511475
+      ],
+      "tail": [
+        -0.16099999845027924,
+        0.38999998569488525,
+        0.1940000057220459
+      ],
+      "parent": "shin_R"
+    },
+    {
+      "name": "pastern_hind_R",
+      "head": [
+        -0.16099999845027924,
+        0.38999998569488525,
+        0.1940000057220459
+      ],
+      "tail": [
+        -0.1550000011920929,
+        0.3449999988079071,
+        0.052000001072883606
+      ],
+      "parent": "hock_R"
+    },
+    {
+      "name": "hoof_hind_R",
+      "head": [
+        -0.1550000011920929,
+        0.3449999988079071,
+        0.052000001072883606
+      ],
+      "tail": [
+        -0.1550000011920929,
+        0.28999999165534973,
+        0.052000001072883606
+      ],
+      "parent": "pastern_hind_R"
+    },
+    {
+      "name": "tail_01",
+      "head": [
+        0.0,
+        0.5139999985694885,
+        0.7170000076293945
+      ],
+      "tail": [
+        0.04699999839067459,
+        0.8309999704360962,
+        0.5099999904632568
+      ],
+      "parent": "pelvis"
+    },
+    {
+      "name": "tail_02",
+      "head": [
+        0.04699999839067459,
+        0.8309999704360962,
+        0.5099999904632568
+      ],
+      "tail": [
+        0.057999998331069946,
+        0.9700000286102295,
+        0.3700000047683716
+      ],
+      "parent": "tail_01"
+    },
+    {
+      "name": "tail_03",
+      "head": [
+        0.057999998331069946,
+        0.9700000286102295,
+        0.3700000047683716
+      ],
+      "tail": [
+        0.09799999743700027,
+        1.1649999618530273,
+        0.3499999940395355
+      ],
+      "parent": "tail_02"
+    }
+  ]
+}

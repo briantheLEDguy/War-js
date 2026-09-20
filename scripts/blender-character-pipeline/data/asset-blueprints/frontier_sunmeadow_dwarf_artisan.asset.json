@@ -1,0 +1,119 @@
+{
+  "assetId": "chr.frontier.sunmeadow.dwarf_artisan",
+  "displayName": "Sunmeadow Dwarf Artisan",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "regional_inhabitants"
+  ],
+  "runtime": {
+    "profileKey": "npc_frontier_sunmeadow_dwarf_artisan",
+    "bodyFamily": "frontier_dwarf_artisan",
+    "bodyVariant": "m",
+    "skeletonId": "frontier_dwarf_artisan_v1",
+    "bindPoseId": "frontier_dwarf_artisan_rest_v1"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
+    "artifactDir": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/runtime/frontier_sunmeadow_dwarf_artisan_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_feet",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "frontier_dwarf_artisan",
+    "skeletonId": "frontier_dwarf_artisan_v1",
+    "bindPoseId": "frontier_dwarf_artisan_rest_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 150766,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 87444,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 40705,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierInhabitant",
+    "textureSet": "frontier_sunmeadow_dwarf_artisan",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "body"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/sources/frontier_sunmeadow_dwarf_artisan.blend",
+    "sourceSha256": "b8032f12fb44e6a2a10472c07e9798f03da364b47e79d8d55a756a300992779c",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 32,
+    "maxTris": 150766,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.3563783317804337,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.004
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "8f61c21c52ae8d4e09850cff8b346c157c02b2743a43fe94ef6cf3937e6a7d94",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

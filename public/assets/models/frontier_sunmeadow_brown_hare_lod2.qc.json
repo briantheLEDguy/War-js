@@ -1,0 +1,64 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.sunmeadow.brown_hare",
+  "modelSha256": "ad6af4c85ccd21d18785b122d7c5a461e9b966d3d10a5637d1f49a26fccdfff8",
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+      "sha256": "1cc9027e678616059b6117c02919b6f14c25874628170141df6498c0c5ac085d",
+      "triangles": 94799,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_brown_hare_lod1.glb",
+      "sha256": "07199e6a5aa22b239bd14b52cdcd17f122d9c5d868e00b32a730700044dfa7e4",
+      "triangles": 44158,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_brown_hare_lod2.glb",
+      "sha256": "ad6af4c85ccd21d18785b122d7c5a461e9b966d3d10a5637d1f49a26fccdfff8",
+      "triangles": 27806,
+      "externalTextures": []
+    }
+  ],
+  "externalTextures": [],
+  "bounds": {
+    "min": [
+      -0.15052543580532074,
+      -0.0064823743887245655,
+      -0.29474887251853943
+    ],
+    "max": [
+      0.15046487748622894,
+      0.5289999842643738,
+      0.33000001311302185
+    ]
+  },
+  "validationErrors": 0,
+  "validationWarnings": 1,
+  "animationClips": [],
+  "reviewHash": "8dc07ff0b40f332650dcffbb3d5026ed8ae8895d5fb9e64d7f4f48b92af9ec47",
+  "limitations": [
+    "Rest-pose scenery; locomotion/combat behavior is unfinished."
+  ],
+  "validation": {
+    "model": "frontier_sunmeadow_brown_hare_lod2.glb",
+    "errors": 0,
+    "warnings": 1,
+    "messages": [
+      {
+        "code": "NODE_SKINNED_MESH_NON_ROOT",
+        "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+        "severity": 1,
+        "pointer": "/nodes/34"
+      }
+    ]
+  },
+  "previewImages": [
+    "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_brown_hare/8dc07ff0b40f332650dc/files/authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_brown_hare_lod0_reimport.png"
+  ]
+}

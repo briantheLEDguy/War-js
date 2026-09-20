@@ -15,19 +15,21 @@
     "bindPoseId": "none"
   },
   "hashes": {
-    "modelSha256": "5efebeabdc7989da8779db3875bec44e493a7140df9ab944c6762a594573facc",
-    "qcSha256": "463e472a54636aeb16896b468714ea0ef5fa0431db0970a5104e3780d15104e0",
+    "modelSha256": "8f3490661c48207a0ba172cc513ff39f2f6f25a6a7238e91598adf5b599cc11a",
+    "qcSha256": "a222c7e8a54c66299d390ff6b3fe222a534ffe0493906aa38a3c5815eb5a2010",
     "previews": {
-      "assembly": "3773380e477dc8f7721b0f3b080c61836044d358abe2184d5b7f4519789c4e27"
+      "assembly": "5f0f6eee1d219e8c34913c7cf87c34ed267e54f9cccf15986f7522f589f5be58"
     }
   },
   "previews": {
     "assembly": "public/assets/models/previews/frontier_cinderfen_corner_access.png"
   },
   "review": {
-    "reviewedBy": "Codex internal visual review: root reviewer, supported by authored_frontier_assets actual-export inspection",
-    "reviewedAt": "2026-09-07T19:58:45.720132+00:00",
-    "reviewHash": "99550caf167ada6c55d88d57139f9e6b611efd54eb700bad8af8efaf4eb2a469"
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "b9f2cd9495c9d85d93c4a06d142dbeb8ed5756604a945f3c7d9068f0a2d914c4",
+    "basis": "explicit_user_standing_approval",
+    "instructionSha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2"
   },
   "provenance": {
     "createdBy": "original_authored_mesh_control_cages",
@@ -44,7 +46,7 @@
     "similarityReview": "not_required",
     "author": "Codex architecture authoring",
     "source": "authoring/blender/cinderfen-architecture/junction/source/architecture.json",
-    "sourceSha256": "d8d02e508e166899ae16c660b621ac7264756464d39a1b529d531e38cc0c12fe"
+    "sourceSha256": "a47900289fb94d15e8598061ce163449c00504922a6d37f7576c21ef8f46bbb4"
   },
   "approvalState": "approved"
 }

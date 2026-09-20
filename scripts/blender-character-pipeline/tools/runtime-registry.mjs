@@ -33,6 +33,16 @@ function validateApprovedManifest(manifest, source = "approved manifest") {
   if (!manifest.review?.reviewedBy || !manifest.review?.reviewedAt || !manifest.review?.reviewHash) {
     errors.push("reviewedBy, reviewedAt, and reviewHash are required");
   }
+  const operatorPacks = manifest.runtime?.operatorAnimationPacks;
+  if (operatorPacks) {
+    for (const seat of ["left", "right"]) {
+      const pack = operatorPacks[seat];
+      if (!pack || !/^[a-z0-9_.-]+\.glb$/.test(pack.model ?? "") || !/^[a-f0-9]{64}$/.test(pack.sha256 ?? "")
+        || pack.skeletonId !== "humanoid_game_v2" || pack.bindPoseId !== "a_pose_v2") {
+        errors.push(`runtime.operatorAnimationPacks.${seat} requires a signed canonical animation pack`);
+      }
+    }
+  }
   const runtimeKeys = ["profileKey", "bodyKey", "itemKey", "staticKey"].filter((key) => manifest.runtime?.[key]);
   if (runtimeKeys.length !== 1) errors.push("runtime must contain exactly one of profileKey, bodyKey, itemKey, or staticKey");
   if (errors.length) throw workflowError("APPROVED_MANIFEST_INVALID", `${source} is invalid: ${errors.join("; ")}`, { errors });
@@ -81,6 +91,7 @@ function runtimeEntry(manifest) {
     skeletonId: compatibility.skeletonId,
     bindPoseId: compatibility.bindPoseId,
     ...(manifest.runtime?.animationPack ? { animationPack: manifest.runtime.animationPack } : {}),
+    ...(manifest.runtime?.operatorAnimationPacks ? { operatorAnimationPacks: manifest.runtime.operatorAnimationPacks } : {}),
     ...(manifest.runtime?.bodyModel ? { bodyModel: manifest.runtime.bodyModel } : {}),
     ...(skinned === undefined ? {} : { skinned }),
     ...(coveredRegions ? { coveredRegions } : {}),

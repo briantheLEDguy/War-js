@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.siege_repair_bench",
+  "displayName": "Frontier siege repair bench",
+  "category": "prop",
+  "model": "frontier_siege_repair_bench_lod0.glb",
+  "qc": "frontier_siege_repair_bench_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_siege_repair_bench"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+    "qcSha256": "730624566f1c6efb818798306463206456835e36bb4a88c4f0895d2eac57e8b4",
+    "previews": {
+      "assembly": "d05a1391d8ac25f5e2c03df58c0ae349ce65418a7be22d701b59b01ef5858351"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_neutral.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "e1d7deb41c143a068af057c83d732e224b075e4df90f6486431cf5af9e0699fb"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_siege_workshop_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/frontier-workshop-items/source/items.json",
+    "sourceSha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2"
+  },
+  "approvalState": "approved"
+}

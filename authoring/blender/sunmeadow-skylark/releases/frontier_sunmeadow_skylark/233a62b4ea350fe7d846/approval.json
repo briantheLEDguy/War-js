@@ -1,0 +1,45 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "asset": "frontier_sunmeadow_skylark",
+    "files": {
+      "authoring/blender/sunmeadow-skylark/review/skylark_v2_build.json": {
+        "sha256": "73f670b4aa333d617e60efeb9fa6fe91c98e5ac3011d9700a4bdc59ed35eea4e",
+        "bytes": 31189
+      },
+      "authoring/blender/sunmeadow-skylark/masters/frontier_sunmeadow_skylark_v2.blend": {
+        "sha256": "d0d083572b4a4ac39322cc63f83770d43b8db61578e3134312e8b01a7f0c0550",
+        "bytes": 3352499
+      },
+      "authoring/blender/sunmeadow-skylark/runtime/frontier_sunmeadow_skylark_lod0.glb": {
+        "sha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+        "bytes": 4620992
+      },
+      "authoring/blender/sunmeadow-skylark/review/runtime_lod0_idle_0_quarter.png": {
+        "sha256": "c769d131789500c6664b4fa02fc794dc12d5009d363d38d913a9f0b774cba6db",
+        "bytes": 1132767
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+        "bytes": 677
+      }
+    },
+    "diagnostics": [
+      {
+        "model": "frontier_sunmeadow_skylark_lod0.glb",
+        "errors": 0,
+        "warnings": 0,
+        "messages": []
+      }
+    ],
+    "limitations": [
+      "Rest-pose scenery; locomotion/combat behavior is unfinished.",
+      "Only the current LOD0 exists; use short-distance culling."
+    ]
+  }
+}

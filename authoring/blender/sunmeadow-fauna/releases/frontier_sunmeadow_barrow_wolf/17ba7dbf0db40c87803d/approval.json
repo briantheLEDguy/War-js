@@ -1,0 +1,85 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "asset": "frontier_sunmeadow_barrow_wolf",
+    "files": {
+      "authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_barrow_wolf_build.json": {
+        "sha256": "7e819464d298dd6c4d2a2f0b1ee06f57a961719d4ff81cebd3a63604cd05dc8f",
+        "bytes": 25581
+      },
+      "authoring/blender/sunmeadow-fauna/masters\\frontier_sunmeadow_barrow_wolf.blend": {
+        "sha256": "9135329ecd0aba716c404012568f7c69fa9dcf597596486992375d1a49e71609",
+        "bytes": 7381830
+      },
+      "authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_barrow_wolf_lod0.glb": {
+        "sha256": "2da4292f9111d77572127f5c883680fb4f960dbaca89c3318bd83a65e04d5500",
+        "bytes": 4937888
+      },
+      "authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_barrow_wolf_lod1.glb": {
+        "sha256": "1a4044ab775a25d1f7816fc387be94ee3720ecd955e9b83e45e6e16be6b1336a",
+        "bytes": 3294784
+      },
+      "authoring/blender/sunmeadow-fauna/runtime/frontier_sunmeadow_barrow_wolf_lod2.glb": {
+        "sha256": "2d0fb33d0da8366f3af19d0a872618dbc7998084d873230a2105a42ebf57e79d",
+        "bytes": 2714052
+      },
+      "authoring/blender/sunmeadow-fauna/review/frontier_sunmeadow_barrow_wolf_lod0_reimport.png": {
+        "sha256": "beb1c0acda95b310d1fe61985c156048bbe31dcdb61761fc3a7dcd2ed70e74dc",
+        "bytes": 1446953
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "ecc47f4cba858f8f1ee90693448d9c6246e06fedead46bc22ea38472484c509c",
+        "bytes": 677
+      }
+    },
+    "diagnostics": [
+      {
+        "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+        "errors": 0,
+        "warnings": 1,
+        "messages": [
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/34"
+          }
+        ]
+      },
+      {
+        "model": "frontier_sunmeadow_barrow_wolf_lod1.glb",
+        "errors": 0,
+        "warnings": 1,
+        "messages": [
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/34"
+          }
+        ]
+      },
+      {
+        "model": "frontier_sunmeadow_barrow_wolf_lod2.glb",
+        "errors": 0,
+        "warnings": 1,
+        "messages": [
+          {
+            "code": "NODE_SKINNED_MESH_NON_ROOT",
+            "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+            "severity": 1,
+            "pointer": "/nodes/34"
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "Rest-pose scenery; locomotion/combat behavior is unfinished."
+    ]
+  }
+}

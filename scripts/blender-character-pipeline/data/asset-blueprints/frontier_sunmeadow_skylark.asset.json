@@ -1,0 +1,90 @@
+{
+  "assetId": "prop.frontier.sunmeadow.skylark",
+  "displayName": "Sunmeadow skylark",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "sunmeadow_authored_fauna"
+  ],
+  "runtime": {
+    "staticKey": "frontier_sunmeadow_skylark"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_skylark_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/runtime/frontier_sunmeadow_skylark_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_body",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "fauna_skylark",
+    "skeletonId": "sunmeadow_skylark_anatomical_v1",
+    "bindPoseId": "authored_anatomical_rest_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 54948,
+        "screenCoverageMin": 0.2
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_SunmeadowAuthoredPelt",
+    "textureSet": "frontier_sunmeadow_skylark",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_fauna",
+    "author": "Codex regional world authoring",
+    "aiAssisted": true,
+    "aiStages": [
+      "anatomy",
+      "mesh_authoring",
+      "materials",
+      "export_validation"
+    ],
+    "source": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/masters/frontier_sunmeadow_skylark_v2.blend",
+    "sourceSha256": "d0d083572b4a4ac39322cc63f83770d43b8db61578e3134312e8b01a7f0c0550",
+    "referencePackId": "sunmeadow_fauna",
+    "similarityReview": "not_required"
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 32,
+    "maxFileSizeMb": 32,
+    "maxTris": 54948,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "233a62b4ea350fe7d84651fb8a8dd41cd6a42c718e7582b15de9b1b172903799",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

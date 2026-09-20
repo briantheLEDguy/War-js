@@ -1,0 +1,3350 @@
+{
+  "asset_id": "frontier_siege_ammunition_cradle",
+  "displayName": "Frontier siege ammunition cradle",
+  "source_sha256": "1169bff83c1b242682520a14975696a21d202f6942646e08dc0930d40f4bd8f2",
+  "builder_sha256": "dc47db75086789d17ff0e27c53b72ff5e6eecb2c271efefde07d37451465a0ee",
+  "material_tool_sha256": "5f26352497743bbaff9aa27e74ef06899eb08aa16b9f8fb99d802563bb781b62",
+  "contract": {
+    "kind": "siege_ammunition_storage",
+    "plantedDatum": 0,
+    "front": "-Y source; +Z runtime",
+    "approachSource": {
+      "minimum": [
+        -0.71,
+        -1.6,
+        0
+      ],
+      "maximum": [
+        0.71,
+        -0.71,
+        1.9
+      ]
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": true,
+    "placement": "Low front rail faces the loading approach; preserve 1 m clear frontage. Stone loads are visual static supply."
+  },
+  "approval": "standing_user_approval_pending_technical_validation",
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "sha256": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+      "bytes": 2590484,
+      "triangles": 31746,
+      "materials": 3,
+      "exporter_sha256": "dc47db75086789d17ff0e27c53b72ff5e6eecb2c271efefde07d37451465a0ee",
+      "master": "masters/frontier_siege_ammunition_cradle_lod0.blend",
+      "master_sha256": "c2f8de7d4354c13ed528574b5c5b41cd37c021ed4ca62f9ea34a78525a8d9ead",
+      "source_master_sha256": "c2cf20e7c2db693da3ed402a4f7f6d35e25f31569d392573fe3c8310ba8808b9",
+      "source_receipt_sha256": "4a1c17e8d0b2de63c228ec52314c64e22fb1bd27f498ca050a3a63562ba27400",
+      "source_audit": {
+        "meshes": [
+          {
+            "mesh": "frontier_siege_ammunition_cradle.timber",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 7782
+          },
+          {
+            "mesh": "frontier_siege_ammunition_cradle.metal",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 3028
+          },
+          {
+            "mesh": "frontier_siege_ammunition_cradle.loads",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 20936
+          }
+        ],
+        "bounds_z_up": {
+          "minimum": [
+            -0.9694777727127075,
+            -0.6846758127212524,
+            0.0
+          ],
+          "maximum": [
+            0.97601717710495,
+            0.6881094574928284,
+            0.956662654876709
+          ]
+        },
+        "totalBoundaryEdges": 0,
+        "totalMultiFaceEdges": 0,
+        "totalLooseEdges": 0
+      },
+      "bounds_z_up": {
+        "minimum": [
+          -0.9694777727127075,
+          -0.6846758127212524,
+          0.0
+        ],
+        "maximum": [
+          0.97601717710495,
+          0.6881094574928284,
+          0.956662654876709
+        ]
+      },
+      "material_projections": [
+        {
+          "group": "frontier_siege_ammunition_cradle_timber",
+          "geometrySha256Before": "17da7f42a46002933664eb19e70e179e4e9aefbbac0af24ee3592b5df3ad2c16",
+          "geometrySha256After": "17da7f42a46002933664eb19e70e179e4e9aefbbac0af24ee3592b5df3ad2c16",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.6105917823123168,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod0_baseColor.png",
+              "sha256": "0029ab3009a680b1838b89cfd3f71c4e775a4ac743d4d9b80c815b66b625becb",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod0_orm.png",
+              "sha256": "3f72a8616190126f23c7e7995b5d13d67b06fbb456708a1f800ee14ef7e7d238",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod0_normal.png",
+              "sha256": "063daa748e49ea7b20841e9356d496af12204d0b785bd210fc5a02f59819cc1f",
+              "resolution": 2048
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_ammunition_cradle_metal",
+          "geometrySha256Before": "c973018454d9e48ba0d6e9d265a5ff853ca1d9988c03451a2f0abc8eb360beda",
+          "geometrySha256After": "c973018454d9e48ba0d6e9d265a5ff853ca1d9988c03451a2f0abc8eb360beda",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.5370367688603139,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod0_baseColor.png",
+              "sha256": "951f1bcb7e1586c6a3574b4296d988d14f84e2f7097b09a12ded87697e81e427",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod0_orm.png",
+              "sha256": "e4f39ad1403203aedfbe634e9e7094c55c65b92aba30d804031615fdac6e3472",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod0_normal.png",
+              "sha256": "cdec8ba6853bb0c4f580b182e1d4ffc3b9ee0b0647cbe87a7f5ca73454115662",
+              "resolution": 2048
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_ammunition_cradle_loads",
+          "geometrySha256Before": "1bba3ba3cce3d9aeab067725b58fbcc63429d4306e4444f9770cfb5061a52a9b",
+          "geometrySha256After": "1bba3ba3cce3d9aeab067725b58fbcc63429d4306e4444f9770cfb5061a52a9b",
+          "atlas": {
+            "resolution": 2048,
+            "occupiedFraction": 0.41302686755845186,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": [
+              {
+                "loop": 41858,
+                "face": 13952,
+                "normalBefore": [
+                  -0.08278940618038177,
+                  0.9789236187934875,
+                  -0.1866934448480606
+                ],
+                "normalAfter": [
+                  -0.0890069231390953,
+                  0.979830265045166,
+                  -0.1789146512746811
+                ],
+                "faceAlignmentBefore": 0.001533757895231247,
+                "faceAlignmentAfter": 0.011533007025718689,
+                "changeDegrees": 0.5730077280825242
+              }
+            ]
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod0_baseColor.png",
+              "sha256": "12a81d36041389c15290a7ffe87e5049cfa875da62e4cec01a8afb90ee9deacd",
+              "resolution": 2048
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod0_orm.png",
+              "sha256": "232a32c8775449a81ca5af98cf351fa242e1f7e4a01a4d56d11dbf26aa14fca8",
+              "resolution": 2048
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod0_normal.png",
+              "sha256": "1eb9daa0f663c9ff1202442f2f6b5314988f12162ab7ebe46618548fddacd9af",
+              "resolution": 2048
+            }
+          }
+        }
+      ],
+      "stoneSupports": [
+        {
+          "part": "individually_cut_siege_stone_0",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.007561791658401511,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 356,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0017507128715515139,
+              "sample": [
+                -0.5639106631278992,
+                -0.215836301445961,
+                0.2422739565372467
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -3.742647171020488e-05,
+              "sample": [
+                -0.5582036972045898,
+                -0.2069023698568344,
+                0.24067537486553192
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5503376722335815,
+                -0.2184353917837143,
+                0.23970162868499756
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.00032109546661376973,
+              "sample": [
+                -0.5574840307235718,
+                -0.21372470259666443,
+                0.24088364839553833
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0005452089309692385,
+              "sample": [
+                -0.5437322854995728,
+                -0.20771807432174683,
+                0.24122442305088043
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5503376722335815,
+                -0.2184353917837143,
+                0.23970162868499756
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.006778096437454224,
+              "sample": [
+                -0.5144010186195374,
+                -0.22809889912605286,
+                0.24697916209697723
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5503376722335815,
+                -0.2184353917837143,
+                0.23970162868499756
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0020097844600677492,
+              "sample": [
+                -0.5542202591896057,
+                -0.23003071546554565,
+                0.24221159517765045
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.007980649948120117,
+              "sample": [
+                -0.5201683044433594,
+                -0.23901818692684174,
+                0.2479487657546997
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0020097844600677492,
+              "sample": [
+                -0.5542202591896057,
+                -0.23003071546554565,
+                0.24221159517765045
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0005452089309692385,
+              "sample": [
+                -0.5437322854995728,
+                -0.20771807432174683,
+                0.24122442305088043
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_1",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.00470556688308718,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 479,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.023571670055389404,
+                -0.23683419823646545,
+                0.23587650060653687
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0007976644039154055,
+              "sample": [
+                -0.022715294733643532,
+                -0.22391077876091003,
+                0.23770268261432648
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0067340188026428225,
+              "sample": [
+                0.010743988677859306,
+                -0.22140240669250488,
+                0.2436579167842865
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.023571670055389404,
+                -0.23683419823646545,
+                0.23587650060653687
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0016861908435821535,
+              "sample": [
+                -0.025246823206543922,
+                -0.24929022789001465,
+                0.23804756999015808
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.007613664150238037,
+              "sample": [
+                0.012516188435256481,
+                -0.23785164952278137,
+                0.2441801279783249
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.023571670055389404,
+                -0.23683419823646545,
+                0.23587650060653687
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0016861908435821535,
+              "sample": [
+                -0.025246823206543922,
+                -0.24929022789001465,
+                0.23804756999015808
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.010785346508026122,
+              "sample": [
+                -0.05720097944140434,
+                -0.2295856773853302,
+                0.2476033866405487
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0007976644039154055,
+              "sample": [
+                -0.022715294733643532,
+                -0.22391077876091003,
+                0.23770268261432648
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.023571670055389404,
+                -0.23683419823646545,
+                0.23587650060653687
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.009522413492202758,
+              "sample": [
+                -0.054302774369716644,
+                -0.21760790050029755,
+                0.2465997040271759
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_2",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.008044470071792625,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 333,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                0.5099568367004395,
+                -0.2335388958454132,
+                0.23872074484825134
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0008113138675689691,
+              "sample": [
+                0.505175769329071,
+                -0.221470445394516,
+                0.24054577946662903
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.006414627313613891,
+              "sample": [
+                0.5353622436523438,
+                -0.20772674679756165,
+                0.24641159176826477
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                0.5099568367004395,
+                -0.2335388958454132,
+                0.23872074484825134
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0016751341819763177,
+              "sample": [
+                0.5136524438858032,
+                -0.24553892016410828,
+                0.24088487029075623
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.007233744144439697,
+              "sample": [
+                0.5441457033157349,
+                -0.22202377021312714,
+                0.2469150722026825
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                0.5099568367004395,
+                -0.2335388958454132,
+                0.23872074484825134
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0016751341819763177,
+              "sample": [
+                0.5136524438858032,
+                -0.24553892016410828,
+                0.24088487029075623
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.01095787215232849,
+              "sample": [
+                0.4753289222717285,
+                -0.238877534866333,
+                0.2503509223461151
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.0008113138675689691,
+              "sample": [
+                0.505175769329071,
+                -0.221470445394516,
+                0.24054577946662903
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                0.5099568367004395,
+                -0.2335388958454132,
+                0.23872074484825134
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.009672587394714355,
+              "sample": [
+                0.4729042649269104,
+                -0.2268770933151245,
+                0.24932536482810974
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_3",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0034162588119507056,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 449,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0019027643203735354,
+              "sample": [
+                -0.5698786973953247,
+                0.22928167879581451,
+                0.23866187036037445
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -6.243062019348124e-05,
+              "sample": [
+                -0.5666218996047974,
+                0.2390536218881607,
+                0.2369072139263153
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5561560988426208,
+                0.2297702431678772,
+                0.23600494861602783
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.00036347436904907247,
+              "sample": [
+                -0.5642189383506775,
+                0.2327018678188324,
+                0.2371913492679596
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5561560988426208,
+                0.2297702431678772,
+                0.23600494861602783
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0005605869293212893,
+              "sample": [
+                -0.5527477264404297,
+                0.24173139035701752,
+                0.23757390677928925
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.006854628801345825,
+              "sample": [
+                -0.5200908184051514,
+                0.232692152261734,
+                0.2436346411705017
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0021272056102752688,
+              "sample": [
+                -0.5567135810852051,
+                0.21754275262355804,
+                0.23861493170261383
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5561560988426208,
+                0.2297702431678772,
+                0.23600494861602783
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.007240509271621704,
+              "sample": [
+                -0.5210399031639099,
+                0.22041663527488708,
+                0.24375265836715698
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0021272056102752688,
+              "sample": [
+                -0.5567135810852051,
+                0.21754275262355804,
+                0.23861493170261383
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0005605869293212893,
+              "sample": [
+                -0.5527477264404297,
+                0.24173139035701752,
+                0.23757390677928925
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_4",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.010067332506179832,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 388,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.009543794207274914,
+                0.23984698951244354,
+                0.2422858327627182
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0013054065704345696,
+              "sample": [
+                -0.0058651030994951725,
+                0.25246763229370117,
+                0.24357227981090546
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.006733690977096557,
+              "sample": [
+                0.021445944905281067,
+                0.22465214133262634,
+                0.2494032233953476
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.009543794207274914,
+                0.23984698951244354,
+                0.2422858327627182
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.003214275121688842,
+              "sample": [
+                -0.016001829877495766,
+                0.22810274362564087,
+                0.24599982798099518
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.00882384705543518,
+              "sample": [
+                0.01145944744348526,
+                0.21059265732765198,
+                0.25119614601135254
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.003214275121688842,
+              "sample": [
+                -0.016001829877495766,
+                0.22810274362564087,
+                0.24599982798099518
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.009543794207274914,
+                0.23984698951244354,
+                0.2422858327627182
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.012930160045623779,
+              "sample": [
+                -0.043848104774951935,
+                0.22385631501674652,
+                0.25565284490585327
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.009543794207274914,
+                0.23984698951244354,
+                0.2422858327627182
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0013054065704345696,
+              "sample": [
+                -0.0058651030994951725,
+                0.25246763229370117,
+                0.24357227981090546
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.012361412525177001,
+              "sample": [
+                -0.04145663604140282,
+                0.2355441451072693,
+                0.25533753633499146
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_5",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.004599977254867576,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 468,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.001947795629501343,
+              "sample": [
+                0.5051274299621582,
+                0.22739575803279877,
+                0.23868714272975922
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -6.791424751281718e-05,
+              "sample": [
+                0.5075026154518127,
+                0.23735983669757843,
+                0.2368871122598648
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5187464952468872,
+                0.2290121465921402,
+                0.23601004481315613
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0003766171932220461,
+              "sample": [
+                0.5104588270187378,
+                0.2312559187412262,
+                0.23719477653503418
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5187464952468872,
+                0.2290121465921402,
+                0.23601004481315613
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0005521826744079592,
+              "sample": [
+                0.5209577679634094,
+                0.2412206381559372,
+                0.23757719993591309
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0067874245643615725,
+              "sample": [
+                0.5542328357696533,
+                0.234899640083313,
+                0.2436380833387375
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.002134894609451294,
+              "sample": [
+                0.5193931460380554,
+                0.2167636901140213,
+                0.2386290580034256
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5187464952468872,
+                0.2290121465921402,
+                0.23601004481315613
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0071786694526672365,
+              "sample": [
+                0.554492712020874,
+                0.222577303647995,
+                0.24376022815704346
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.002134894609451294,
+              "sample": [
+                0.5193931460380554,
+                0.2167636901140213,
+                0.2386290580034256
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0005521826744079592,
+              "sample": [
+                0.5209577679634094,
+                0.2412206381559372,
+                0.23757719993591309
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_6",
+          "packingPose": {
+            "rotationXY": [
+              0.0,
+              -0.0375
+            ],
+            "offsetXY": [
+              0.0,
+              0.018
+            ]
+          },
+          "translationZ": -0.15150221061706545,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "individually_cut_siege_stone_0",
+            "individually_cut_siege_stone_3",
+            "individually_cut_siege_stone_4"
+          ],
+          "samples": 175,
+          "contactSamples": [
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -0.0005384631156921393,
+              "sample": [
+                -0.36571767926216125,
+                -0.1290639042854309,
+                0.7491172552108765
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -0.0005384631156921393,
+              "sample": [
+                -0.36571767926216125,
+                -0.1290639042854309,
+                0.7491172552108765
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.4282796382904053,
+                0.11600007116794586,
+                0.7592055797576904
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": 0.006355708122253417,
+              "sample": [
+                -0.3931032121181488,
+                0.15476348996162415,
+                0.7574164271354675
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -0.0005384631156921393,
+              "sample": [
+                -0.36571767926216125,
+                -0.1290639042854309,
+                0.7491172552108765
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -0.0005384631156921393,
+              "sample": [
+                -0.36571767926216125,
+                -0.1290639042854309,
+                0.7491172552108765
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -0.0005384631156921393,
+              "sample": [
+                -0.36571767926216125,
+                -0.1290639042854309,
+                0.7491172552108765
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -0.0005384631156921393,
+              "sample": [
+                -0.36571767926216125,
+                -0.1290639042854309,
+                0.7491172552108765
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0006115384101867682,
+              "sample": [
+                -0.15614421665668488,
+                0.1291860044002533,
+                0.7103471755981445
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0006115384101867682,
+              "sample": [
+                -0.15614421665668488,
+                0.1291860044002533,
+                0.7103471755981445
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0006115384101867682,
+              "sample": [
+                -0.15614421665668488,
+                0.1291860044002533,
+                0.7103471755981445
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0006115384101867682,
+              "sample": [
+                -0.15614421665668488,
+                0.1291860044002533,
+                0.7103471755981445
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_7",
+          "packingPose": {
+            "rotationXY": [
+              -0.0975,
+              0.08249999999999999
+            ],
+            "offsetXY": [
+              0.017000000000000005,
+              0.023700000000000002
+            ]
+          },
+          "translationZ": -0.13045277070999148,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "individually_cut_siege_stone_2",
+            "individually_cut_siege_stone_4",
+            "individually_cut_siege_stone_5"
+          ],
+          "samples": 274,
+          "contactSamples": [
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.00039210391044616766,
+              "sample": [
+                0.1618788093328476,
+                0.13488392531871796,
+                0.7186200022697449
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.010557865381240844,
+              "sample": [
+                0.3973274827003479,
+                -0.1266402304172516,
+                0.7612481713294983
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.0019784920215606683,
+              "sample": [
+                0.4017963111400604,
+                -0.1188109740614891,
+                0.753460168838501
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.006458764553070068,
+              "sample": [
+                0.4106460511684418,
+                -0.12238389253616333,
+                0.7637267112731934
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.00633174705505371,
+              "sample": [
+                0.4032566547393799,
+                -0.12261170893907547,
+                0.7594783902168274
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_5",
+              "gapAfterM": 0.010628169059753417,
+              "sample": [
+                0.40836969017982483,
+                0.16809770464897156,
+                0.7477966547012329
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_5",
+              "gapAfterM": 0.015149062156677245,
+              "sample": [
+                0.46143072843551636,
+                0.10849066078662872,
+                0.7489834427833557
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_5",
+              "gapAfterM": 0.016396944999694824,
+              "sample": [
+                0.41626212000846863,
+                0.16679149866104126,
+                0.7580967545509338
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.006458764553070068,
+              "sample": [
+                0.4106460511684418,
+                -0.12238389253616333,
+                0.7637267112731934
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": -0.0006664044857025153,
+              "sample": [
+                0.4119374454021454,
+                -0.11406814306974411,
+                0.7542425394058228
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.018647318363189697,
+              "sample": [
+                0.40998056530952454,
+                -0.1272125542163849,
+                0.7766073942184448
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.006458764553070068,
+              "sample": [
+                0.4106460511684418,
+                -0.12238389253616333,
+                0.7637267112731934
+              ]
+            }
+          ]
+        }
+      ],
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "2792432986bab3389d03f43ec230ac775b43635c1695b37f748bfc3e5b40edb2",
+        "input_glb_sha256": "dc95ddf332073d9be2ba6a21643274093abdebfd2967bc61f07225d7d6817715",
+        "output_glb_sha256": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+        "embedded_bytes": 25465516,
+        "externalized_bytes": 2590484
+      },
+      "external_textures": {
+        "../textures/frontier_workshop_items/063daa748e49ea7b20841e9356d496af12204d0b785bd210fc5a02f59819cc1f.png": "063daa748e49ea7b20841e9356d496af12204d0b785bd210fc5a02f59819cc1f",
+        "../textures/frontier_workshop_items/3f72a8616190126f23c7e7995b5d13d67b06fbb456708a1f800ee14ef7e7d238.png": "3f72a8616190126f23c7e7995b5d13d67b06fbb456708a1f800ee14ef7e7d238",
+        "../textures/frontier_workshop_items/0029ab3009a680b1838b89cfd3f71c4e775a4ac743d4d9b80c815b66b625becb.png": "0029ab3009a680b1838b89cfd3f71c4e775a4ac743d4d9b80c815b66b625becb",
+        "../textures/frontier_workshop_items/cdec8ba6853bb0c4f580b182e1d4ffc3b9ee0b0647cbe87a7f5ca73454115662.png": "cdec8ba6853bb0c4f580b182e1d4ffc3b9ee0b0647cbe87a7f5ca73454115662",
+        "../textures/frontier_workshop_items/e4f39ad1403203aedfbe634e9e7094c55c65b92aba30d804031615fdac6e3472.png": "e4f39ad1403203aedfbe634e9e7094c55c65b92aba30d804031615fdac6e3472",
+        "../textures/frontier_workshop_items/951f1bcb7e1586c6a3574b4296d988d14f84e2f7097b09a12ded87697e81e427.png": "951f1bcb7e1586c6a3574b4296d988d14f84e2f7097b09a12ded87697e81e427",
+        "../textures/frontier_workshop_items/1eb9daa0f663c9ff1202442f2f6b5314988f12162ab7ebe46618548fddacd9af.png": "1eb9daa0f663c9ff1202442f2f6b5314988f12162ab7ebe46618548fddacd9af",
+        "../textures/frontier_workshop_items/232a32c8775449a81ca5af98cf351fa242e1f7e4a01a4d56d11dbf26aa14fca8.png": "232a32c8775449a81ca5af98cf351fa242e1f7e4a01a4d56d11dbf26aa14fca8",
+        "../textures/frontier_workshop_items/12a81d36041389c15290a7ffe87e5049cfa875da62e4cec01a8afb90ee9deacd.png": "12a81d36041389c15290a7ffe87e5049cfa875da62e4cec01a8afb90ee9deacd"
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_siege_ammunition_cradle_lod1.glb",
+      "sha256": "49631ebc93de0d57a531405acaa880b952e60cbae20ad6249d480afd2ca0fb01",
+      "bytes": 1206008,
+      "triangles": 12954,
+      "materials": 3,
+      "exporter_sha256": "dc47db75086789d17ff0e27c53b72ff5e6eecb2c271efefde07d37451465a0ee",
+      "master": "masters/frontier_siege_ammunition_cradle_lod1.blend",
+      "master_sha256": "e30b558632a8872f026660351e5ea4ebfcb2e40738a2c186834a4b6d3118e9f4",
+      "source_master_sha256": "7361f401115e46fc72c8bf31982d68eae55d3d40c3fa5d3119af025846447b34",
+      "source_receipt_sha256": "1fb5f2e6b42ea8fee03c08a581fe50dee6a7d7f6668ccdee791f9f7e831c6336",
+      "source_audit": {
+        "meshes": [
+          {
+            "mesh": "frontier_siege_ammunition_cradle.timber",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 4002
+          },
+          {
+            "mesh": "frontier_siege_ammunition_cradle.metal",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 1596
+          },
+          {
+            "mesh": "frontier_siege_ammunition_cradle.loads",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 7356
+          }
+        ],
+        "bounds_z_up": {
+          "minimum": [
+            -0.9704725742340088,
+            -0.6848596334457397,
+            0.0
+          ],
+          "maximum": [
+            0.9763299226760864,
+            0.6879044771194458,
+            0.9446165561676025
+          ]
+        },
+        "totalBoundaryEdges": 0,
+        "totalMultiFaceEdges": 0,
+        "totalLooseEdges": 0
+      },
+      "bounds_z_up": {
+        "minimum": [
+          -0.9704725742340088,
+          -0.6848596334457397,
+          0.0
+        ],
+        "maximum": [
+          0.9763299226760864,
+          0.6879044771194458,
+          0.9446165561676025
+        ]
+      },
+      "material_projections": [
+        {
+          "group": "frontier_siege_ammunition_cradle_timber",
+          "geometrySha256Before": "3a43829edce44950fab0736d82af393ad36b061ff802ccbf82b75da322a47dd7",
+          "geometrySha256After": "3a43829edce44950fab0736d82af393ad36b061ff802ccbf82b75da322a47dd7",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.5595417657065923,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod1_baseColor.png",
+              "sha256": "d79714f21b5ef766ac7550999869b5f9d8a187c8671f94c2c7d6cbdaadac9e66",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod1_orm.png",
+              "sha256": "f0edc55eac06920990193f72e4379ccedd6b55963b0fb7b3c60ba6380bc1a117",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod1_normal.png",
+              "sha256": "f6b577ee60d0e61affa1f52961051d11249b7052cecf7f398313f53aab4c1ac3",
+              "resolution": 1024
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_ammunition_cradle_metal",
+          "geometrySha256Before": "64cfad99f3c7b3890c59bd0978b965e5573ee8890ccab7192c76f4ef58733c8b",
+          "geometrySha256After": "64cfad99f3c7b3890c59bd0978b965e5573ee8890ccab7192c76f4ef58733c8b",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.41442345928215457,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod1_baseColor.png",
+              "sha256": "7c2774c55df0a34b2a8810dd81b62e4d144ad082e1990b365899d52d71798132",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod1_orm.png",
+              "sha256": "5ccb3f1045d089c791ebce2c3c11fd75771cace0c26d9f91517dae9713b31bf5",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod1_normal.png",
+              "sha256": "29b4488ea21223d0d2af0348e528e2b85cdfddd3b04523737c127eb730f04583",
+              "resolution": 1024
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_ammunition_cradle_loads",
+          "geometrySha256Before": "cc8be4221989c9e1b92e6b7030ce30e7804c0344d314958833eb006667d97e88",
+          "geometrySha256After": "cc8be4221989c9e1b92e6b7030ce30e7804c0344d314958833eb006667d97e88",
+          "atlas": {
+            "resolution": 1024,
+            "occupiedFraction": 0.38643445503870993,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod1_baseColor.png",
+              "sha256": "2dc23043a5e72eeaaadfc70f0c9fa7b1d2b3b9ea21edca4796256abee29455fc",
+              "resolution": 1024
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod1_orm.png",
+              "sha256": "a01c872d124351f17ca7b8b89d5cfe3f2e900b99fd3fd113d0d89cd9491ee5ec",
+              "resolution": 1024
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod1_normal.png",
+              "sha256": "89c2b8b9e38a6a09fa1a5979ffa62943c0d6f97b54e1dae50327c425e52ef089",
+              "resolution": 1024
+            }
+          }
+        }
+      ],
+      "stoneSupports": [
+        {
+          "part": "individually_cut_siege_stone_0",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.006043840169906638,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 302,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 2.1582126617431842e-05,
+              "sample": [
+                -0.5530007481575012,
+                -0.22241908311843872,
+                0.23887090384960175
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0003291018009185789,
+              "sample": [
+                -0.5557811260223389,
+                -0.22076593339443207,
+                0.23855942487716675
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -7.60204792022703e-05,
+              "sample": [
+                -0.5566532611846924,
+                -0.2170688807964325,
+                0.23889441788196564
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00012784671783447246,
+              "sample": [
+                -0.5551450252532959,
+                -0.22008463740348816,
+                0.23877492547035217
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0005304164886474607,
+              "sample": [
+                -0.549047589302063,
+                -0.21400892734527588,
+                0.23849880695343018
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 2.1582126617431842e-05,
+              "sample": [
+                -0.5530007481575012,
+                -0.22241908311843872,
+                0.23887090384960175
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.007078563451766968,
+              "sample": [
+                -0.5172605514526367,
+                -0.23312142491340637,
+                0.24565479159355164
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 2.1582126617431842e-05,
+              "sample": [
+                -0.5530007481575012,
+                -0.22241908311843872,
+                0.23887090384960175
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0005304164886474607,
+              "sample": [
+                -0.549047589302063,
+                -0.21400892734527588,
+                0.23849880695343018
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 2.1582126617431842e-05,
+              "sample": [
+                -0.5530007481575012,
+                -0.22241908311843872,
+                0.23887090384960175
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0003291018009185789,
+              "sample": [
+                -0.5557811260223389,
+                -0.22076593339443207,
+                0.23855942487716675
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.01228759217262268,
+              "sample": [
+                -0.5796952843666077,
+                -0.2421567440032959,
+                0.2507334351539612
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_1",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0035335309505462867,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 389,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.022888140752911568,
+                -0.2321689873933792,
+                0.234803706407547
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00041600537300109843,
+              "sample": [
+                -0.02384233847260475,
+                -0.2417350858449936,
+                0.23493368923664093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.006441985845565796,
+              "sample": [
+                0.013649644330143929,
+                -0.23111896216869354,
+                0.2419794797897339
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.022888140752911568,
+                -0.2321689873933792,
+                0.234803706407547
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00041600537300109843,
+              "sample": [
+                -0.02384233847260475,
+                -0.2417350858449936,
+                0.23493368923664093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.009487783193588256,
+              "sample": [
+                -0.05546986684203148,
+                -0.22319255769252777,
+                0.2452719509601593
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00041600537300109843,
+              "sample": [
+                -0.02384233847260475,
+                -0.2417350858449936,
+                0.23493368923664093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.022888140752911568,
+                -0.2321689873933792,
+                0.234803706407547
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00041600537300109843,
+              "sample": [
+                -0.02384233847260475,
+                -0.2417350858449936,
+                0.23493368923664093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00041600537300109843,
+              "sample": [
+                -0.02384233847260475,
+                -0.2417350858449936,
+                0.23493368923664093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00041600537300109843,
+              "sample": [
+                -0.02384233847260475,
+                -0.2417350858449936,
+                0.23493368923664093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.022888140752911568,
+                -0.2321689873933792,
+                0.234803706407547
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_2",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.006876517057418845,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 280,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.508633017539978,
+                -0.22902017831802368,
+                0.23765109479427338
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0004243500232696531,
+              "sample": [
+                0.5118280649185181,
+                -0.23809213936328888,
+                0.2377789169549942
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.006075000047683716,
+              "sample": [
+                0.5423541069030762,
+                -0.21550437808036804,
+                0.2447299063205719
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.508633017539978,
+                -0.22902017831802368,
+                0.23765109479427338
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0004243500232696531,
+              "sample": [
+                0.5118280649185181,
+                -0.23809213936328888,
+                0.2377789169549942
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": 0.009636347770690917,
+              "sample": [
+                0.4742409586906433,
+                -0.2323642373085022,
+                0.24800217151641846
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0004243500232696531,
+              "sample": [
+                0.5118280649185181,
+                -0.23809213936328888,
+                0.2377789169549942
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.508633017539978,
+                -0.22902017831802368,
+                0.23765109479427338
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0004243500232696531,
+              "sample": [
+                0.5118280649185181,
+                -0.23809213936328888,
+                0.2377789169549942
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0004243500232696531,
+              "sample": [
+                0.5118280649185181,
+                -0.23809213936328888,
+                0.2377789169549942
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0004243500232696531,
+              "sample": [
+                0.5118280649185181,
+                -0.23809213936328888,
+                0.2377789169549942
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.508633017539978,
+                -0.22902017831802368,
+                0.23765109479427338
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_3",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0018303580284118875,
+          "minimumGapM": -0.00075,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 380,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 7.531571388244627e-05,
+              "sample": [
+                -0.5576222538948059,
+                0.22527877986431122,
+                0.23514755070209503
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00024759244918823244,
+              "sample": [
+                -0.560784101486206,
+                0.22622349858283997,
+                0.2348487675189972
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -9.263277053833023e-06,
+              "sample": [
+                -0.5625844597816467,
+                0.22970344126224518,
+                0.23516525328159332
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -6.0553073883056656e-05,
+              "sample": [
+                -0.5603302717208862,
+                0.22706857323646545,
+                0.2350538671016693
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 7.531571388244627e-05,
+              "sample": [
+                -0.5576222538948059,
+                0.22527877986431122,
+                0.23514755070209503
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.000515157699584961,
+              "sample": [
+                -0.5561274290084839,
+                0.23439602553844452,
+                0.23475517332553864
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0068242006301879885,
+              "sample": [
+                -0.5207658410072327,
+                0.2259957492351532,
+                0.2418723702430725
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 7.531571388244627e-05,
+              "sample": [
+                -0.5576222538948059,
+                0.22527877986431122,
+                0.23514755070209503
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.000515157699584961,
+              "sample": [
+                -0.5561274290084839,
+                0.23439602553844452,
+                0.23475517332553864
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -9.263277053833023e-06,
+              "sample": [
+                -0.5625844597816467,
+                0.22970344126224518,
+                0.23516525328159332
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5613569021224976,
+                0.23338672518730164,
+                0.2345038801431656
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.010280763387680053,
+              "sample": [
+                -0.5835826396942139,
+                0.2556408643722534,
+                0.24468305706977844
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_4",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.008476782560348534,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 342,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.00014144706726074152,
+              "sample": [
+                -0.010753448121249676,
+                0.23503419756889343,
+                0.24148263037204742
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.006932668853551149,
+                0.2442178726196289,
+                0.2405676245689392
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.006697391748428344,
+              "sample": [
+                0.019774846732616425,
+                0.2176501452922821,
+                0.24762478470802307
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.00014144706726074152,
+              "sample": [
+                -0.010753448121249676,
+                0.23503419756889343,
+                0.24148263037204742
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.006932668853551149,
+                0.2442178726196289,
+                0.2405676245689392
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.012041424989700317,
+              "sample": [
+                -0.04133698344230652,
+                0.22875118255615234,
+                0.25327807664871216
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.00014144706726074152,
+              "sample": [
+                -0.010753448121249676,
+                0.23503419756889343,
+                0.24148263037204742
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.006932668853551149,
+                0.2442178726196289,
+                0.2405676245689392
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.00014144706726074152,
+              "sample": [
+                -0.010753448121249676,
+                0.23503419756889343,
+                0.24148263037204742
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.006932668853551149,
+                0.2442178726196289,
+                0.2405676245689392
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.006932668853551149,
+                0.2442178726196289,
+                0.2405676245689392
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.006932668853551149,
+                0.2442178726196289,
+                0.2405676245689392
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_5",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0030109472274780493,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 396,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0005003862380981447,
+              "sample": [
+                0.5144866704940796,
+                0.2255050390958786,
+                0.23559921979904175
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 9.840011596679889e-06,
+              "sample": [
+                0.5123539566993713,
+                0.22842049598693848,
+                0.2351747751235962
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5132492184638977,
+                0.23217618465423584,
+                0.23449629545211792
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -7.98947811126707e-05,
+              "sample": [
+                0.5133633017539978,
+                0.22870057821273804,
+                0.23509010672569275
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 8.148479461669942e-05,
+              "sample": [
+                0.5177310705184937,
+                0.22441302239894867,
+                0.23515288531780243
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0005162901878356932,
+              "sample": [
+                0.5183207988739014,
+                0.2336314171552658,
+                0.23475641012191772
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.006760602474212647,
+              "sample": [
+                0.5542184114456177,
+                0.2281692922115326,
+                0.2418747991323471
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 8.148479461669942e-05,
+              "sample": [
+                0.5177310705184937,
+                0.22441302239894867,
+                0.23515288531780243
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0005162901878356932,
+              "sample": [
+                0.5183207988739014,
+                0.2336314171552658,
+                0.23475641012191772
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": 0.0005003862380981447,
+              "sample": [
+                0.5144866704940796,
+                0.2255050390958786,
+                0.23559921979904175
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0005162901878356932,
+              "sample": [
+                0.5183207988739014,
+                0.2336314171552658,
+                0.23475641012191772
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5132492184638977,
+                0.23217618465423584,
+                0.23449629545211792
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_6",
+          "packingPose": {
+            "rotationXY": [
+              -0.14250000000000002,
+              -0.14250000000000002
+            ],
+            "offsetXY": [
+              0.0045,
+              0.0021999999999999997
+            ]
+          },
+          "translationZ": -0.16035737466812136,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "individually_cut_siege_stone_0",
+            "individually_cut_siege_stone_1",
+            "individually_cut_siege_stone_3",
+            "individually_cut_siege_stone_4"
+          ],
+          "samples": 172,
+          "contactSamples": [
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.004200702190399169,
+              "sample": [
+                -0.3505066931247711,
+                -0.16118615865707397,
+                0.7633723020553589
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.017999594688415527,
+              "sample": [
+                -0.4163786768913269,
+                -0.048971086740493774,
+                0.7043653726577759
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.015468841075897216,
+              "sample": [
+                -0.3563082814216614,
+                -0.1042347252368927,
+                0.7202012538909912
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.004200702190399169,
+              "sample": [
+                -0.3505066931247711,
+                -0.16118615865707397,
+                0.7633723020553589
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": 0.018557374954223632,
+              "sample": [
+                -0.34354037046432495,
+                0.16828231513500214,
+                0.7356418371200562
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.017999594688415527,
+              "sample": [
+                -0.4163786768913269,
+                -0.048971086740493774,
+                0.7043653726577759
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": 0.00781947898864746,
+              "sample": [
+                -0.4309394061565399,
+                0.15574957430362701,
+                0.7915019392967224
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": 0.00781947898864746,
+              "sample": [
+                -0.4309394061565399,
+                0.15574957430362701,
+                0.7915019392967224
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": 0.018557374954223632,
+              "sample": [
+                -0.34354037046432495,
+                0.16828231513500214,
+                0.7356418371200562
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": 0.00019836950302123957,
+              "sample": [
+                -0.3728732466697693,
+                0.12108799070119858,
+                0.7287619709968567
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.017999594688415527,
+              "sample": [
+                -0.4163786768913269,
+                -0.048971086740493774,
+                0.7043653726577759
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.004200702190399169,
+              "sample": [
+                -0.3505066931247711,
+                -0.16118615865707397,
+                0.7633723020553589
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_7",
+          "packingPose": {
+            "rotationXY": [
+              -0.18,
+              -0.045
+            ],
+            "offsetXY": [
+              0.018,
+              0.018
+            ]
+          },
+          "translationZ": -0.13857342672348025,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "individually_cut_siege_stone_2",
+            "individually_cut_siege_stone_4",
+            "individually_cut_siege_stone_5"
+          ],
+          "samples": 227,
+          "contactSamples": [
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0003529734611511237,
+              "sample": [
+                0.1844860017299652,
+                0.1149909496307373,
+                0.6953592896461487
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.01863265562057495,
+              "sample": [
+                0.4211554527282715,
+                -0.14030002057552338,
+                0.7937379479408264
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.015453224658966064,
+              "sample": [
+                0.419598788022995,
+                -0.13937367498874664,
+                0.7898724675178528
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.012914722442626952,
+              "sample": [
+                0.4216533303260803,
+                -0.1366623044013977,
+                0.7869414687156677
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.015666966915130615,
+              "sample": [
+                0.4208025336265564,
+                -0.1387786716222763,
+                0.7901840209960938
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_5",
+              "gapAfterM": 0.0033440344333648675,
+              "sample": [
+                0.42832890152931213,
+                0.1538366824388504,
+                0.7561080455780029
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.01322949457168579,
+              "sample": [
+                0.42541393637657166,
+                -0.1348305642604828,
+                0.7875708341598511
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_5",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                0.4230097532272339,
+                0.15257737040519714,
+                0.7483556866645813
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_5",
+              "gapAfterM": 0.0033440344333648675,
+              "sample": [
+                0.42832890152931213,
+                0.1538366824388504,
+                0.7561080455780029
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0003529734611511237,
+              "sample": [
+                0.1844860017299652,
+                0.1149909496307373,
+                0.6953592896461487
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.01322949457168579,
+              "sample": [
+                0.42541393637657166,
+                -0.1348305642604828,
+                0.7875708341598511
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.012914722442626952,
+              "sample": [
+                0.4216533303260803,
+                -0.1366623044013977,
+                0.7869414687156677
+              ]
+            }
+          ]
+        }
+      ],
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "2792432986bab3389d03f43ec230ac775b43635c1695b37f748bfc3e5b40edb2",
+        "input_glb_sha256": "6666298919b0a97b181723687bfbd985735072e47de74d468947f7e389527a07",
+        "output_glb_sha256": "49631ebc93de0d57a531405acaa880b952e60cbae20ad6249d480afd2ca0fb01",
+        "embedded_bytes": 7811916,
+        "externalized_bytes": 1206008
+      },
+      "external_textures": {
+        "../textures/frontier_workshop_items/f6b577ee60d0e61affa1f52961051d11249b7052cecf7f398313f53aab4c1ac3.png": "f6b577ee60d0e61affa1f52961051d11249b7052cecf7f398313f53aab4c1ac3",
+        "../textures/frontier_workshop_items/f0edc55eac06920990193f72e4379ccedd6b55963b0fb7b3c60ba6380bc1a117.png": "f0edc55eac06920990193f72e4379ccedd6b55963b0fb7b3c60ba6380bc1a117",
+        "../textures/frontier_workshop_items/d79714f21b5ef766ac7550999869b5f9d8a187c8671f94c2c7d6cbdaadac9e66.png": "d79714f21b5ef766ac7550999869b5f9d8a187c8671f94c2c7d6cbdaadac9e66",
+        "../textures/frontier_workshop_items/29b4488ea21223d0d2af0348e528e2b85cdfddd3b04523737c127eb730f04583.png": "29b4488ea21223d0d2af0348e528e2b85cdfddd3b04523737c127eb730f04583",
+        "../textures/frontier_workshop_items/5ccb3f1045d089c791ebce2c3c11fd75771cace0c26d9f91517dae9713b31bf5.png": "5ccb3f1045d089c791ebce2c3c11fd75771cace0c26d9f91517dae9713b31bf5",
+        "../textures/frontier_workshop_items/7c2774c55df0a34b2a8810dd81b62e4d144ad082e1990b365899d52d71798132.png": "7c2774c55df0a34b2a8810dd81b62e4d144ad082e1990b365899d52d71798132",
+        "../textures/frontier_workshop_items/89c2b8b9e38a6a09fa1a5979ffa62943c0d6f97b54e1dae50327c425e52ef089.png": "89c2b8b9e38a6a09fa1a5979ffa62943c0d6f97b54e1dae50327c425e52ef089",
+        "../textures/frontier_workshop_items/a01c872d124351f17ca7b8b89d5cfe3f2e900b99fd3fd113d0d89cd9491ee5ec.png": "a01c872d124351f17ca7b8b89d5cfe3f2e900b99fd3fd113d0d89cd9491ee5ec",
+        "../textures/frontier_workshop_items/2dc23043a5e72eeaaadfc70f0c9fa7b1d2b3b9ea21edca4796256abee29455fc.png": "2dc23043a5e72eeaaadfc70f0c9fa7b1d2b3b9ea21edca4796256abee29455fc"
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_siege_ammunition_cradle_lod2.glb",
+      "sha256": "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578",
+      "bytes": 352908,
+      "triangles": 3070,
+      "materials": 3,
+      "exporter_sha256": "dc47db75086789d17ff0e27c53b72ff5e6eecb2c271efefde07d37451465a0ee",
+      "master": "masters/frontier_siege_ammunition_cradle_lod2.blend",
+      "master_sha256": "f041ddd71d6682cd8b8c5c18cb63b019b2ed9bc36af6ecefa5dc1259541daa99",
+      "source_master_sha256": "abeadbceb2c9d74112b3caa1fe0b5f7639296c9c655cebb3775b638d0f3998a9",
+      "source_receipt_sha256": "62479c51824bcc451de31a0113a6f7c2fe2e7df7c8860d780bf508987bf908fe",
+      "source_audit": {
+        "meshes": [
+          {
+            "mesh": "frontier_siege_ammunition_cradle.timber",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 1524
+          },
+          {
+            "mesh": "frontier_siege_ammunition_cradle.metal",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 464
+          },
+          {
+            "mesh": "frontier_siege_ammunition_cradle.loads",
+            "boundary_edges_after_positional_weld": 0,
+            "multi_face_edges_after_positional_weld": 0,
+            "loose_edges": 0,
+            "faces": 1082
+          }
+        ],
+        "bounds_z_up": {
+          "minimum": [
+            -0.9695000052452087,
+            -0.6852884292602539,
+            0.0
+          ],
+          "maximum": [
+            0.9695000052452087,
+            0.6897932887077332,
+            0.9191039800643921
+          ]
+        },
+        "totalBoundaryEdges": 0,
+        "totalMultiFaceEdges": 0,
+        "totalLooseEdges": 0
+      },
+      "bounds_z_up": {
+        "minimum": [
+          -0.9695000052452087,
+          -0.6852884292602539,
+          0.0
+        ],
+        "maximum": [
+          0.9695000052452087,
+          0.6897932887077332,
+          0.9191039800643921
+        ]
+      },
+      "material_projections": [
+        {
+          "group": "frontier_siege_ammunition_cradle_timber",
+          "geometrySha256Before": "ffc0ba4a36db08c59260c0703bd72506e0b74c2ddec805a2260118b6d73c368b",
+          "geometrySha256After": "ffc0ba4a36db08c59260c0703bd72506e0b74c2ddec805a2260118b6d73c368b",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.39997337144284706,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod2_baseColor.png",
+              "sha256": "fe9059ac90f4d2d356aff64ba817244ac3984906dc73815a145388b3abc71ecb",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod2_orm.png",
+              "sha256": "33580c341fd6b5503b0313d517135dd50c694a1bb399a1de199dbf66f99de020",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_timber_lod2_normal.png",
+              "sha256": "81f324d323671166e22582e06f96e00a453d2e71e375f6386f54b0e797ad2eb3",
+              "resolution": 512
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_ammunition_cradle_metal",
+          "geometrySha256Before": "7902e1960eefceea4d7ba50c8121ccb36f6aca90370bcfa753fbf677591f6550",
+          "geometrySha256After": "7902e1960eefceea4d7ba50c8121ccb36f6aca90370bcfa753fbf677591f6550",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.4030910517038002,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod2_baseColor.png",
+              "sha256": "a34985f3448143ad676c87cf9bab49730110120bddead86a63f5447faedcda42",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod2_orm.png",
+              "sha256": "ab95fbeedc93c369869e4479d7df96b6c29860f104505ae68fd4dd23d7f965cd",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_metal_lod2_normal.png",
+              "sha256": "464909aed32ad91a8adc334af94362f4d63a60387934d16ae754b129b8be143e",
+              "resolution": 512
+            }
+          }
+        },
+        {
+          "group": "frontier_siege_ammunition_cradle_loads",
+          "geometrySha256Before": "a4fd833fca18f89f6bceb13178d9faa45c8c29ca6640eabc7128244ec41d73a7",
+          "geometrySha256After": "a4fd833fca18f89f6bceb13178d9faa45c8c29ca6640eabc7128244ec41d73a7",
+          "atlas": {
+            "resolution": 512,
+            "occupiedFraction": 0.32666745412508663,
+            "marginPixels": 4,
+            "dilationPixels": 2,
+            "uvChartRepairs": [],
+            "cornerNormalRepairs": []
+          },
+          "channels": {
+            "baseColor": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod2_baseColor.png",
+              "sha256": "3223a0e303fa15dacdb8d436dc5d931ba42dc02f213833b166d15a8058fdae0c",
+              "resolution": 512
+            },
+            "orm": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod2_orm.png",
+              "sha256": "baa414c02d0bd8dbd375b2a43b04a85abc0f3d13f4c20f1379d0e929ee50f414",
+              "resolution": 512
+            },
+            "normal": {
+              "file": "textures/baked/frontier_siege_ammunition_cradle_loads_lod2_normal.png",
+              "sha256": "32e1383d056affbe2868602126c7fa782abcb7f507fe7cf275d6de578aaa91e7",
+              "resolution": 512
+            }
+          }
+        }
+      ],
+      "stoneSupports": [
+        {
+          "part": "individually_cut_siege_stone_0",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0046944804191589576,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 71,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5522630214691162,
+                -0.21781450510025024,
+                0.23684999346733093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5522630214691162,
+                -0.21781450510025024,
+                0.23684999346733093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5522630214691162,
+                -0.21781450510025024,
+                0.23684999346733093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5522630214691162,
+                -0.21781450510025024,
+                0.23684999346733093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5522630214691162,
+                -0.21781450510025024,
+                0.23684999346733093
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.5522630214691162,
+                -0.21781450510025024,
+                0.23684999346733093
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_1",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0018867738246917947,
+          "minimumGapM": -0.00075,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 89,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.022992700338363647,
+                -0.237164705991745,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.022992700338363647,
+                -0.237164705991745,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.022992700338363647,
+                -0.237164705991745,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.022992700338363647,
+                -0.237164705991745,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.022992700338363647,
+                -0.237164705991745,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.022992700338363647,
+                -0.237164705991745,
+                0.23305000364780426
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_2",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.005225587606430076,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_1"
+          ],
+          "samples": 84,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5107244253158569,
+                -0.23358729481697083,
+                0.23589999973773956
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5107244253158569,
+                -0.23358729481697083,
+                0.23589999973773956
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5107244253158569,
+                -0.23358729481697083,
+                0.23589999973773956
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5107244253158569,
+                -0.23358729481697083,
+                0.23589999973773956
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5107244253158569,
+                -0.23358729481697083,
+                0.23589999973773956
+              ]
+            },
+            {
+              "support": "crib_floor_board_1",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                0.5107244253158569,
+                -0.23358729481697083,
+                0.23589999973773956
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_3",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0004550106525421365,
+          "minimumGapM": -0.00075,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 91,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5581719279289246,
+                0.22995859384536743,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5581719279289246,
+                0.22995859384536743,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5581719279289246,
+                0.22995859384536743,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5581719279289246,
+                0.22995859384536743,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5581719279289246,
+                0.22995859384536743,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                -0.5581719279289246,
+                0.22995859384536743,
+                0.23305000364780426
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_4",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.006547171592712424,
+          "minimumGapM": -0.0007499999999999998,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 83,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.007578500080853701,
+                0.239227294921875,
+                0.23874999582767487
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.007578500080853701,
+                0.239227294921875,
+                0.23874999582767487
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.007578500080853701,
+                0.239227294921875,
+                0.23874999582767487
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.007578500080853701,
+                0.239227294921875,
+                0.23874999582767487
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.007578500080853701,
+                0.239227294921875,
+                0.23874999582767487
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.0007499999999999998,
+              "sample": [
+                -0.007578500080853701,
+                0.239227294921875,
+                0.23874999582767487
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_5",
+          "packingPose": {
+            "rotationXY": [
+              0,
+              0
+            ],
+            "offsetXY": [
+              0,
+              0
+            ]
+          },
+          "translationZ": -0.0016371495723724587,
+          "minimumGapM": -0.00075,
+          "nearestSupports": [
+            "crib_floor_board_3"
+          ],
+          "samples": 87,
+          "contactSamples": [
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                0.5167255997657776,
+                0.22904039919376373,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                0.5167255997657776,
+                0.22904039919376373,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                0.5167255997657776,
+                0.22904039919376373,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                0.5167255997657776,
+                0.22904039919376373,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                0.5167255997657776,
+                0.22904039919376373,
+                0.23305000364780426
+              ]
+            },
+            {
+              "support": "crib_floor_board_3",
+              "gapAfterM": -0.00075,
+              "sample": [
+                0.5167255997657776,
+                0.22904039919376373,
+                0.23305000364780426
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_6",
+          "packingPose": {
+            "rotationXY": [
+              -0.21749999999999997,
+              -0.15749999999999997
+            ],
+            "offsetXY": [
+              0.0,
+              -0.0021999999999999997
+            ]
+          },
+          "translationZ": -0.1892215795516968,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "individually_cut_siege_stone_0",
+            "individually_cut_siege_stone_1",
+            "individually_cut_siege_stone_3"
+          ],
+          "samples": 41,
+          "contactSamples": [
+            {
+              "support": "individually_cut_siege_stone_1",
+              "gapAfterM": -0.0006932563781738288,
+              "sample": [
+                -0.1058151125907898,
+                -0.11969944834709167,
+                0.7938971519470215
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_1",
+              "gapAfterM": -0.0006932563781738288,
+              "sample": [
+                -0.1058151125907898,
+                -0.11969944834709167,
+                0.7938971519470215
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_1",
+              "gapAfterM": -0.0006932563781738288,
+              "sample": [
+                -0.1058151125907898,
+                -0.11969944834709167,
+                0.7938971519470215
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.4332018792629242,
+                0.14695754647254944,
+                0.7812955379486084
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.4332018792629242,
+                0.14695754647254944,
+                0.7812955379486084
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.4332018792629242,
+                0.14695754647254944,
+                0.7812955379486084
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -4.72612380981452e-05,
+              "sample": [
+                -0.45713183283805847,
+                -0.08679433912038803,
+                0.7983911037445068
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -4.72612380981452e-05,
+              "sample": [
+                -0.45713183283805847,
+                -0.08679433912038803,
+                0.7983911037445068
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": 0.01470506715774536,
+              "sample": [
+                -0.4339291453361511,
+                -0.10148127377033234,
+                0.799724817276001
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_1",
+              "gapAfterM": -0.0006932563781738288,
+              "sample": [
+                -0.1058151125907898,
+                -0.11969944834709167,
+                0.7938971519470215
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_0",
+              "gapAfterM": -4.72612380981452e-05,
+              "sample": [
+                -0.45713183283805847,
+                -0.08679433912038803,
+                0.7983911037445068
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_3",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                -0.4332018792629242,
+                0.14695754647254944,
+                0.7812955379486084
+              ]
+            }
+          ]
+        },
+        {
+          "part": "individually_cut_siege_stone_7",
+          "packingPose": {
+            "rotationXY": [
+              -0.105,
+              0.135
+            ],
+            "offsetXY": [
+              -0.03950000000000001,
+              -0.035
+            ]
+          },
+          "translationZ": -0.17385472726821902,
+          "minimumGapM": -0.0007500000000000007,
+          "nearestSupports": [
+            "individually_cut_siege_stone_1",
+            "individually_cut_siege_stone_2",
+            "individually_cut_siege_stone_4"
+          ],
+          "samples": 49,
+          "contactSamples": [
+            {
+              "support": "individually_cut_siege_stone_1",
+              "gapAfterM": -0.0003054685592651374,
+              "sample": [
+                0.15685787796974182,
+                -0.1462785005569458,
+                0.7664501070976257
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": 0.0002427153587341302,
+              "sample": [
+                0.17899158596992493,
+                0.15449833869934082,
+                0.7559916973114014
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": -0.0007500000000000007,
+              "sample": [
+                0.16349658370018005,
+                0.09665101766586304,
+                0.7167573571205139
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": 0.0002427153587341302,
+              "sample": [
+                0.17899158596992493,
+                0.15449833869934082,
+                0.7559916973114014
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": -0.0005668349266052253,
+              "sample": [
+                0.4223720133304596,
+                -0.14872503280639648,
+                0.8145478367805481
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": 0.006540422916412353,
+              "sample": [
+                0.37141501903533936,
+                -0.10817769169807434,
+                0.7490858435630798
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": -0.0005668349266052253,
+              "sample": [
+                0.4223720133304596,
+                -0.14872503280639648,
+                0.8145478367805481
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_4",
+              "gapAfterM": 0.0002427153587341302,
+              "sample": [
+                0.17899158596992493,
+                0.15449833869934082,
+                0.7559916973114014
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": -0.0005668349266052253,
+              "sample": [
+                0.4223720133304596,
+                -0.14872503280639648,
+                0.8145478367805481
+              ]
+            },
+            {
+              "support": "individually_cut_siege_stone_2",
+              "gapAfterM": -0.0005668349266052253,
+              "sample": [
+                0.4223720133304596,
+                -0.14872503280639648,
+                0.8145478367805481
+              ]
+            }
+          ]
+        }
+      ],
+      "texture_packing": {
+        "tool": "tools/share_textures.py",
+        "tool_sha256": "2792432986bab3389d03f43ec230ac775b43635c1695b37f748bfc3e5b40edb2",
+        "input_glb_sha256": "18f3f81cfb9a6c29f4387876079bbdf9e191d1504ad3afd914893c5c67a171e1",
+        "output_glb_sha256": "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578",
+        "embedded_bytes": 2170320,
+        "externalized_bytes": 352908
+      },
+      "external_textures": {
+        "../textures/frontier_workshop_items/81f324d323671166e22582e06f96e00a453d2e71e375f6386f54b0e797ad2eb3.png": "81f324d323671166e22582e06f96e00a453d2e71e375f6386f54b0e797ad2eb3",
+        "../textures/frontier_workshop_items/33580c341fd6b5503b0313d517135dd50c694a1bb399a1de199dbf66f99de020.png": "33580c341fd6b5503b0313d517135dd50c694a1bb399a1de199dbf66f99de020",
+        "../textures/frontier_workshop_items/fe9059ac90f4d2d356aff64ba817244ac3984906dc73815a145388b3abc71ecb.png": "fe9059ac90f4d2d356aff64ba817244ac3984906dc73815a145388b3abc71ecb",
+        "../textures/frontier_workshop_items/464909aed32ad91a8adc334af94362f4d63a60387934d16ae754b129b8be143e.png": "464909aed32ad91a8adc334af94362f4d63a60387934d16ae754b129b8be143e",
+        "../textures/frontier_workshop_items/ab95fbeedc93c369869e4479d7df96b6c29860f104505ae68fd4dd23d7f965cd.png": "ab95fbeedc93c369869e4479d7df96b6c29860f104505ae68fd4dd23d7f965cd",
+        "../textures/frontier_workshop_items/a34985f3448143ad676c87cf9bab49730110120bddead86a63f5447faedcda42.png": "a34985f3448143ad676c87cf9bab49730110120bddead86a63f5447faedcda42",
+        "../textures/frontier_workshop_items/32e1383d056affbe2868602126c7fa782abcb7f507fe7cf275d6de578aaa91e7.png": "32e1383d056affbe2868602126c7fa782abcb7f507fe7cf275d6de578aaa91e7",
+        "../textures/frontier_workshop_items/baa414c02d0bd8dbd375b2a43b04a85abc0f3d13f4c20f1379d0e929ee50f414.png": "baa414c02d0bd8dbd375b2a43b04a85abc0f3d13f4c20f1379d0e929ee50f414",
+        "../textures/frontier_workshop_items/3223a0e303fa15dacdb8d436dc5d931ba42dc02f213833b166d15a8058fdae0c.png": "3223a0e303fa15dacdb8d436dc5d931ba42dc02f213833b166d15a8058fdae0c"
+      }
+    }
+  ]
+}

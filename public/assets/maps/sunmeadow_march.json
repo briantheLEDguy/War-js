@@ -23769,6 +23769,601 @@
           "z": 4
         }
       ]
+    },
+    {
+      "id": "sunmeadow_march_delivered_aegis_repair_bench",
+      "kind": "frontier_siege_repair_bench",
+      "assetKey": "frontier_siege_repair_bench",
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "x": -358,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.960350751876831,
+          "z": 0.29239340126514435,
+          "width": 0.18540239334106445,
+          "depth": 0.17983904480934143,
+          "minY": 0,
+          "maxY": 0.8434503674507141
+        },
+        {
+          "x": -0.9604269564151764,
+          "z": -0.29324576258659363,
+          "width": 0.18558090925216675,
+          "depth": 0.18159103393554688,
+          "minY": 0,
+          "maxY": 0.8435722589492798
+        },
+        {
+          "x": 0.9603494107723236,
+          "z": 0.29316891729831696,
+          "width": 0.1854124665260315,
+          "depth": 0.18142232298851013,
+          "minY": 0,
+          "maxY": 0.8434632420539856
+        },
+        {
+          "x": 0.9604198932647705,
+          "z": -0.29248562455177307,
+          "width": 0.18557953834533691,
+          "depth": 0.18003922700881958,
+          "minY": 0,
+          "maxY": 0.8434604406356812
+        },
+        {
+          "x": 0,
+          "z": 0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": 0,
+          "z": -0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": -0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 2.559999942779541,
+          "depth": 0.8221743702888489,
+          "minY": 0.8346954584121704,
+          "maxY": 0.9445000290870667
+        },
+        {
+          "x": -5.960464477539063e-8,
+          "z": 0.3326479494571686,
+          "width": 2.077462077140808,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": 5.960464477539063e-8,
+          "z": -0.3326479494571686,
+          "width": 2.0774625539779663,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": -0.7399999797344208,
+          "z": 0.5384999960660934,
+          "width": 0.20800000429153442,
+          "depth": 0.5269999802112579,
+          "minY": 0.7929999828338623,
+          "maxY": 1.0740000009536743
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "sunmeadow_march_delivered_aegis_ammunition",
+      "kind": "frontier_siege_ammunition_cradle",
+      "assetKey": "frontier_siege_ammunition_cradle",
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "x": -342,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.0004493296146392822,
+          "z": -0.000002473592758178711,
+          "width": 1.9364859461784363,
+          "depth": 1.0498663783073425,
+          "minY": 0.14023512601852417,
+          "maxY": 0.23399999737739563
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": 0.4930000454187393,
+          "width": 0.16271913051605225,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223625779151917
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": -0.49299998581409454,
+          "width": 0.16271913051605225,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223629951477051
+        },
+        {
+          "x": 0.860009640455246,
+          "z": 0.49299998581409454,
+          "width": 0.16271907091140747,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7224916219711304
+        },
+        {
+          "x": 0.860009640455246,
+          "z": -0.4930000454187393,
+          "width": 0.16271907091140747,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223474979400635
+        },
+        {
+          "x": 0,
+          "z": 0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.512499988079071,
+          "maxY": 0.637499988079071
+        },
+        {
+          "x": -0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.002103656530380249,
+          "z": -0.0007287412881851196,
+          "width": 1.5538446307182312,
+          "depth": 0.898714691400528,
+          "minY": 0.23067627847194672,
+          "maxY": 0.956662654876709
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "sunmeadow_march_delivered_riftbound_repair_bench",
+      "kind": "frontier_siege_repair_bench",
+      "assetKey": "frontier_siege_repair_bench",
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "x": 342,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.960350751876831,
+          "z": 0.29239340126514435,
+          "width": 0.18540239334106445,
+          "depth": 0.17983904480934143,
+          "minY": 0,
+          "maxY": 0.8434503674507141
+        },
+        {
+          "x": -0.9604269564151764,
+          "z": -0.29324576258659363,
+          "width": 0.18558090925216675,
+          "depth": 0.18159103393554688,
+          "minY": 0,
+          "maxY": 0.8435722589492798
+        },
+        {
+          "x": 0.9603494107723236,
+          "z": 0.29316891729831696,
+          "width": 0.1854124665260315,
+          "depth": 0.18142232298851013,
+          "minY": 0,
+          "maxY": 0.8434632420539856
+        },
+        {
+          "x": 0.9604198932647705,
+          "z": -0.29248562455177307,
+          "width": 0.18557953834533691,
+          "depth": 0.18003922700881958,
+          "minY": 0,
+          "maxY": 0.8434604406356812
+        },
+        {
+          "x": 0,
+          "z": 0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": 0,
+          "z": -0.2770000025629997,
+          "width": 2.055999994277954,
+          "depth": 0.12731559574604034,
+          "minY": 0.39504367113113403,
+          "maxY": 0.5349525213241577
+        },
+        {
+          "x": -0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0.9500000178813934,
+          "z": 0,
+          "width": 0.12730151414871216,
+          "depth": 0.7239999771118164,
+          "minY": 0.18503741919994354,
+          "maxY": 0.3049592971801758
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 2.559999942779541,
+          "depth": 0.8221743702888489,
+          "minY": 0.8346954584121704,
+          "maxY": 0.9445000290870667
+        },
+        {
+          "x": -5.960464477539063e-8,
+          "z": 0.3326479494571686,
+          "width": 2.077462077140808,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": 5.960464477539063e-8,
+          "z": -0.3326479494571686,
+          "width": 2.0774625539779663,
+          "depth": 0.09969967603683472,
+          "minY": 0.6974999904632568,
+          "maxY": 0.8424999713897705
+        },
+        {
+          "x": -0.7399999797344208,
+          "z": 0.5384999960660934,
+          "width": 0.20800000429153442,
+          "depth": 0.5269999802112579,
+          "minY": 0.7929999828338623,
+          "maxY": 1.0740000009536743
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "sunmeadow_march_delivered_riftbound_ammunition",
+      "kind": "frontier_siege_ammunition_cradle",
+      "assetKey": "frontier_siege_ammunition_cradle",
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "x": 358,
+      "z": 8,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": -0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.0017168223857879639,
+          "width": 0.21999996900558472,
+          "depth": 1.3727852702140808,
+          "minY": 0,
+          "maxY": 0.13600000739097595
+        },
+        {
+          "x": 0.0004493296146392822,
+          "z": -0.000002473592758178711,
+          "width": 1.9364859461784363,
+          "depth": 1.0498663783073425,
+          "minY": 0.14023512601852417,
+          "maxY": 0.23399999737739563
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": 0.4930000454187393,
+          "width": 0.16271913051605225,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223625779151917
+        },
+        {
+          "x": -0.8600142598152161,
+          "z": -0.49299998581409454,
+          "width": 0.16271913051605225,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223629951477051
+        },
+        {
+          "x": 0.860009640455246,
+          "z": 0.49299998581409454,
+          "width": 0.16271907091140747,
+          "depth": 0.1557539403438568,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7224916219711304
+        },
+        {
+          "x": 0.860009640455246,
+          "z": -0.4930000454187393,
+          "width": 0.16271907091140747,
+          "depth": 0.15558966994285583,
+          "minY": 0.13500000536441803,
+          "maxY": 0.7223474979400635
+        },
+        {
+          "x": 0,
+          "z": 0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.2524999976158142,
+          "maxY": 0.3774999976158142
+        },
+        {
+          "x": 0,
+          "z": -0.49300001561641693,
+          "width": 1.899999976158142,
+          "depth": 0.10200002789497375,
+          "minY": 0.512499988079071,
+          "maxY": 0.637499988079071
+        },
+        {
+          "x": -0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.8720000088214874,
+          "z": -0.005000025033950806,
+          "width": 0.07600003480911255,
+          "depth": 1.0699999928474426,
+          "minY": 0.3351995646953583,
+          "maxY": 0.6650000214576721
+        },
+        {
+          "x": 0.002103656530380249,
+          "z": -0.0007287412881851196,
+          "width": 1.5538446307182312,
+          "depth": 0.898714691400528,
+          "minY": 0.23067627847194672,
+          "maxY": 0.956662654876709
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_0",
+      "kind": "frontier_sunmeadow_roe_deer_buck",
+      "assetKey": "frontier_sunmeadow_roe_deer_buck",
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "x": -292,
+      "z": 266,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "defaultAnimation": "idle"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_1",
+      "kind": "frontier_sunmeadow_roe_deer_buck",
+      "assetKey": "frontier_sunmeadow_roe_deer_buck",
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "x": 205,
+      "z": 340,
+      "rotY": 2.399963,
+      "scale": 1,
+      "colliderSpace": "model",
+      "defaultAnimation": "idle"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_2",
+      "kind": "frontier_sunmeadow_roe_deer_buck",
+      "assetKey": "frontier_sunmeadow_roe_deer_buck",
+      "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
+      "x": -192,
+      "z": 425,
+      "rotY": 4.799926,
+      "scale": 1,
+      "colliderSpace": "model",
+      "defaultAnimation": "idle"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_3",
+      "kind": "frontier_sunmeadow_red_fox",
+      "assetKey": "frontier_sunmeadow_red_fox",
+      "model": "frontier_sunmeadow_red_fox_lod0.glb",
+      "x": -355,
+      "z": 200,
+      "rotY": 7.199889000000001,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_4",
+      "kind": "frontier_sunmeadow_red_fox",
+      "assetKey": "frontier_sunmeadow_red_fox",
+      "model": "frontier_sunmeadow_red_fox_lod0.glb",
+      "x": 115,
+      "z": -440,
+      "rotY": 9.599852,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_5",
+      "kind": "frontier_sunmeadow_brown_hare",
+      "assetKey": "frontier_sunmeadow_brown_hare",
+      "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+      "x": -304,
+      "z": -310,
+      "rotY": 11.999815,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_6",
+      "kind": "frontier_sunmeadow_brown_hare",
+      "assetKey": "frontier_sunmeadow_brown_hare",
+      "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+      "x": -174,
+      "z": 300,
+      "rotY": 14.399778000000001,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_7",
+      "kind": "frontier_sunmeadow_brown_hare",
+      "assetKey": "frontier_sunmeadow_brown_hare",
+      "model": "frontier_sunmeadow_brown_hare_lod0.glb",
+      "x": 280,
+      "z": 210,
+      "rotY": 16.799741,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_8",
+      "kind": "frontier_sunmeadow_barrow_wolf",
+      "assetKey": "frontier_sunmeadow_barrow_wolf",
+      "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+      "x": -415,
+      "z": 465,
+      "rotY": 19.199704,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_9",
+      "kind": "frontier_sunmeadow_barrow_wolf",
+      "assetKey": "frontier_sunmeadow_barrow_wolf",
+      "model": "frontier_sunmeadow_barrow_wolf_lod0.glb",
+      "x": -375,
+      "z": 480,
+      "rotY": 21.599667,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_10",
+      "kind": "frontier_sunmeadow_skylark",
+      "assetKey": "frontier_sunmeadow_skylark",
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "x": -303,
+      "z": -300,
+      "rotY": 23.99963,
+      "scale": 1,
+      "colliderSpace": "model"
+    },
+    {
+      "id": "sunmeadow_march_delivered_wildlife_11",
+      "kind": "frontier_sunmeadow_skylark",
+      "assetKey": "frontier_sunmeadow_skylark",
+      "model": "frontier_sunmeadow_skylark_lod0.glb",
+      "x": -130,
+      "z": 318,
+      "rotY": 26.399593,
+      "scale": 1,
+      "colliderSpace": "model"
     }
   ],
   "npcs": [
@@ -23810,7 +24405,7 @@
       "x": -413,
       "z": -257,
       "rotY": 0,
-      "characterProfileKey": "npc_aegis_alden_voss_field_crafting_mentor"
+      "characterProfileKey": "npc_frontier_sunmeadow_dwarf_artisan"
     },
     {
       "id": "sunmeadow_march_forager",
@@ -32787,10 +33382,10 @@
       },
       {
         "entityId": "sunmeadow_march_craft_mentor",
-        "race": "empire",
+        "race": "dwarf",
         "role": "trainer",
-        "desiredProfileKey": "frontier_temperate_farmland_empire_trainer",
-        "status": "planned"
+        "desiredProfileKey": "npc_frontier_sunmeadow_dwarf_artisan",
+        "status": "approved"
       },
       {
         "entityId": "sunmeadow_march_forager",
@@ -32906,5 +33501,5 @@
       }
     ]
   },
-  "staticMapHash": "31d3e4fff98eb6be"
+  "staticMapHash": "4d8fbb96314fbd0f"
 }
