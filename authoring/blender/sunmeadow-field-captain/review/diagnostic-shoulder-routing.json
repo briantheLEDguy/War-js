@@ -1,0 +1,25 @@
+{
+  "master": "sources/frontier_sunmeadow_empire_field_captain.prefit.blend",
+  "masterSha256": "67c9f3e9cbb3b3744b09ce5afe4b86741ad2bcb2b047dfc63fe18f47152bc239",
+  "strips": [
+    {
+      "object": "captain_structural_shoulder_bridge",
+      "rows": 81,
+      "maximumRowStep": 0.018935046391061857,
+      "minimumWidth": 0.0454242693820981,
+      "maximumWidth": 0.05393448591505432,
+      "minimumWidthDirectionDot": 0.9766051382757723,
+      "maximumTurnDegrees": 13.81579075685268
+    },
+    {
+      "object": "captain_structural_shoulder_bridge.001",
+      "rows": 81,
+      "maximumRowStep": 0.018892377629807427,
+      "minimumWidth": 0.04509197994328151,
+      "maximumWidth": 0.0541209044938442,
+      "minimumWidthDirectionDot": 0.9748663268983364,
+      "maximumTurnDegrees": 11.217402381472239
+    }
+  ],
+  "scope": "Actual authored paired-edge geometry. Does not substitute for final exported attachment/layer checks."
+}

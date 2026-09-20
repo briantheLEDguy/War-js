@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-54fd41e21eda5e18",
+  "assetVersion": "approved-d615b2feb93fcfc4",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -6040,6 +6040,27 @@
       },
       "qc": "frontier_field_catapult_lod0.qc.json",
       "qcSha256": "9a8084c8168e69bc8eadc6b4d50da45b38b2ea6fdf62897e8c33dfd026534925",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_field_command_table": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.field_command_table",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_field_command_table_lod0.glb",
+      "modelSha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+      "previews": {
+        "assembly": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/review/frontier_field_command_table_lod0_neutral.png"
+      },
+      "previewSha256": {
+        "assembly": "1f50c85594122e1774282e92367dc3766d6880297555344cf50f3cb7ec0263ac"
+      },
+      "qc": "frontier_field_command_table_lod0.qc.json",
+      "qcSha256": "ba05fe772177e9263f04e99364fdb214c34b5e65103d5214f22a4716959bbf66",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"

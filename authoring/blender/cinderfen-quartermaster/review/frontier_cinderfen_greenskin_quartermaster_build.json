@@ -1,0 +1,443 @@
+{
+  "key": "frontier_cinderfen_greenskin_quartermaster",
+  "status": "draft",
+  "sourceFoundationSha256": "d38a8005db49a4a592237bac44059c24f9dd4155f3dade4c1b9c54a6bfdd74f5",
+  "masterSha256": "d3b0a4d081653a8def392072f7245fc0a9789ab28badda70d76dcd0709ebcff0",
+  "generatorSha256": "c560fc200d3d4be2f0d320ca2e57021883cbb46b8bcec693b2e5599cdd4c1c47",
+  "sourceFiles": [
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/sources/frontier_cinderfen_greenskin_quartermaster.blend",
+      "sha256": "d3b0a4d081653a8def392072f7245fc0a9789ab28badda70d76dcd0709ebcff0",
+      "bytes": 23373140
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/cinderfen_quartermaster_umber_olive_skin.png",
+      "sha256": "9b718d9887d21c9e425f1e68fa27c62791d25004e5011ab1558f91c81ddcdf77",
+      "bytes": 3150619
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_wool_basecolor.png",
+      "sha256": "1a0cdaf99446c8563aa8b9b7bf303b75d7af0bd3bf86ca1c9a4375f3345a5633",
+      "bytes": 242255
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_wool_normal.png",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_wool_roughness.png",
+      "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+      "bytes": 144135
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_worked_leather_basecolor.png",
+      "sha256": "dead9f0ce071c0610ddec4768f5d28655a3bd417fd7d529307124bce3d5352cc",
+      "bytes": 774746
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_worked_leather_normal.png",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_worked_leather_roughness.png",
+      "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+      "bytes": 866702
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_woven_linen_basecolor.png",
+      "sha256": "b8c1a4bb4a612516612de1f8aaf699e5dcae7ffe9f88e7ddef166a96f4737222",
+      "bytes": 690332
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_woven_linen_normal.png",
+      "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+      "bytes": 611208
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/greenskin_quartermaster_woven_linen_roughness.png",
+      "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+      "bytes": 350720
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_ledger_case_leather_basecolor.png",
+      "sha256": "dc6233cc81a8a0b47c5e09fbed0206c127a1ff97593ce3f8e0e1cfac00b80cd1",
+      "bytes": 718311
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_ledger_case_leather_normal.png",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_ledger_case_leather_roughness.png",
+      "sha256": "f9bf7331ead8883b13559a1133d84034b955c302113e7ec5a8c8e202f9895d83",
+      "bytes": 866901
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_supply_waistcoat_basecolor.png",
+      "sha256": "e086003a698c1ff998ad98faa2ecc7543dacc3d96ebe5725e3af9ea318bc90ff",
+      "bytes": 361502
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_supply_waistcoat_normal.png",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_supply_waistcoat_roughness.png",
+      "sha256": "f8765f362a5ebe0bb01ba957398cdeeceed670543233646cb0744afc5cd807d9",
+      "bytes": 144136
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_worn_ivory_basecolor.png",
+      "sha256": "4ca5be7f0d6ebe4c43e3d3210d714166cdfb396abf3beb30672b59bb50269de5",
+      "bytes": 164522
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_worn_ivory_normal.png",
+      "sha256": "a7d71da2696a9e2ae9bf374eba72acff9559eb1c36e31ee106f27fe7622f87f3",
+      "bytes": 34049
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/textures/quartermaster_worn_ivory_roughness.png",
+      "sha256": "dbfa0e6765d46e00d0d9ab85082b05a858c9554c533df6eeb4027631e798b01a",
+      "bytes": 95350
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/apron_clearance.py",
+      "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+      "bytes": 5087
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/apron_details.py",
+      "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+      "bytes": 4150
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/build_inhabitants.py",
+      "sha256": "c560fc200d3d4be2f0d320ca2e57021883cbb46b8bcec693b2e5599cdd4c1c47",
+      "bytes": 34108
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/export_tangents.py",
+      "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+      "bytes": 3228
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/fitted_boot_details.py",
+      "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+      "bytes": 3130
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_arm_motion.py",
+      "sha256": "70b5138d860582059876d8d57d65564a7bfd8a68a93e73c255ea9d76d51e41ba",
+      "bytes": 3811
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_equipment.py",
+      "sha256": "df0e75468b8d66831628282db2aaba64fcb1705ef75b13cd75664602f66c6592",
+      "bytes": 11910
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_identity.py",
+      "sha256": "47fcae34226f3dcb0c3a70d9fbb34c658c29775b0bc75890be8794b8e9cee1c9",
+      "bytes": 5032
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_locomotion.py",
+      "sha256": "a49437ca6f932ac1823807587722fced4f60b82c7e1b8b1324b8e341857a5359",
+      "bytes": 6471
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_waistcoat.py",
+      "sha256": "4e2a9330dcd1bc6aa2164e7c16bce48d41d51fd458cbabf465f6616f1f29de7e",
+      "bytes": 12335
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/surface_bindings.py",
+      "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+      "bytes": 2223
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/surface_garments.py",
+      "sha256": "01bf0ba2fca94f1199fce45c662ecd371cc5d32f51ec06fba5ea2033e4d5c56b",
+      "bytes": 11537
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/tailored_clothing.py",
+      "sha256": "5910f4f94c8e38a693a969297f55f83611ca601f95dec65940ee69cce7edf2c7",
+      "bytes": 5962
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/tailored_locomotion.py",
+      "sha256": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+      "bytes": 21780
+    },
+    {
+      "path": "authoring/blender/cinderfen-quartermaster/tools/workwear_finish.py",
+      "sha256": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9",
+      "bytes": 7924
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.glb",
+      "sha256": "d38a8005db49a4a592237bac44059c24f9dd4155f3dade4c1b9c54a6bfdd74f5",
+      "bytes": 12137484
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.qc.json",
+      "sha256": "fbb044437f12f62b1bae0e63d349849f2c5ba5dc09cfb4d0af3727dc575aa0ec",
+      "bytes": 14290
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/mire_brutish_v1_m.quad-surface.json.gz",
+      "sha256": "09f2c2c70af084264885a3d9395bfd0a290a6ce5a237b430d12ecdff5518d5c8",
+      "bytes": 1130363
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/mire_brutish_v1_m.source.blend",
+      "sha256": "b9e60a82067848f33d0cdcdb3b5b513ab4646af991c989ca8405dc302bf4dfc3",
+      "bytes": 3020250
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/anim_library.py",
+      "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+      "bytes": 22611
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/canonical_animation_pack.py",
+      "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+      "bytes": 8960
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py",
+      "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+      "bytes": 17430
+    },
+    {
+      "path": "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json",
+      "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+      "bytes": 1755
+    }
+  ],
+  "embeddedImages": [
+    {
+      "name": "brown_eye",
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "bytes": 610817
+    },
+    {
+      "name": "cinderfen_quartermaster_umber_olive_skin",
+      "sha256": "9b718d9887d21c9e425f1e68fa27c62791d25004e5011ab1558f91c81ddcdf77",
+      "bytes": 3150619
+    },
+    {
+      "name": "greenskin_quartermaster_wool_basecolor",
+      "sha256": "1a0cdaf99446c8563aa8b9b7bf303b75d7af0bd3bf86ca1c9a4375f3345a5633",
+      "bytes": 242255
+    },
+    {
+      "name": "greenskin_quartermaster_wool_normal",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "name": "greenskin_quartermaster_wool_roughness",
+      "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+      "bytes": 144135
+    },
+    {
+      "name": "greenskin_quartermaster_worked_leather_basecolor",
+      "sha256": "dead9f0ce071c0610ddec4768f5d28655a3bd417fd7d529307124bce3d5352cc",
+      "bytes": 774746
+    },
+    {
+      "name": "greenskin_quartermaster_worked_leather_normal",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "name": "greenskin_quartermaster_worked_leather_roughness",
+      "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+      "bytes": 866702
+    },
+    {
+      "name": "greenskin_quartermaster_woven_linen_basecolor",
+      "sha256": "b8c1a4bb4a612516612de1f8aaf699e5dcae7ffe9f88e7ddef166a96f4737222",
+      "bytes": 690332
+    },
+    {
+      "name": "greenskin_quartermaster_woven_linen_normal",
+      "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+      "bytes": 611208
+    },
+    {
+      "name": "greenskin_quartermaster_woven_linen_roughness",
+      "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+      "bytes": 350720
+    },
+    {
+      "name": "orkMeshNORMAL",
+      "sha256": "972ec0677144d4085799a5f457469f1c0addb3e68de52e53836ee6da35d3a8db",
+      "bytes": 5207971
+    },
+    {
+      "name": "quartermaster_ledger_case_leather_basecolor",
+      "sha256": "dc6233cc81a8a0b47c5e09fbed0206c127a1ff97593ce3f8e0e1cfac00b80cd1",
+      "bytes": 718311
+    },
+    {
+      "name": "quartermaster_ledger_case_leather_normal",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "name": "quartermaster_ledger_case_leather_roughness",
+      "sha256": "f9bf7331ead8883b13559a1133d84034b955c302113e7ec5a8c8e202f9895d83",
+      "bytes": 866901
+    },
+    {
+      "name": "quartermaster_supply_waistcoat_basecolor",
+      "sha256": "e086003a698c1ff998ad98faa2ecc7543dacc3d96ebe5725e3af9ea318bc90ff",
+      "bytes": 361502
+    },
+    {
+      "name": "quartermaster_supply_waistcoat_normal",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "name": "quartermaster_supply_waistcoat_roughness",
+      "sha256": "f8765f362a5ebe0bb01ba957398cdeeceed670543233646cb0744afc5cd807d9",
+      "bytes": 144136
+    },
+    {
+      "name": "quartermaster_worn_ivory_basecolor",
+      "sha256": "4ca5be7f0d6ebe4c43e3d3210d714166cdfb396abf3beb30672b59bb50269de5",
+      "bytes": 164522
+    },
+    {
+      "name": "quartermaster_worn_ivory_normal",
+      "sha256": "a7d71da2696a9e2ae9bf374eba72acff9559eb1c36e31ee106f27fe7622f87f3",
+      "bytes": 34049
+    },
+    {
+      "name": "quartermaster_worn_ivory_roughness",
+      "sha256": "dbfa0e6765d46e00d0d9ab85082b05a858c9554c533df6eeb4027631e798b01a",
+      "bytes": 95350
+    },
+    {
+      "name": "tongue01_diffuse",
+      "sha256": "3150be398e48e8ba1feac164c3143c16c0b2e959d9ffb6155f0171f59cfb4ea9",
+      "bytes": 625419
+    }
+  ],
+  "sourceTools": {
+    "tools\\apron_clearance.py": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+    "tools\\apron_details.py": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+    "tools\\build_inhabitants.py": "c560fc200d3d4be2f0d320ca2e57021883cbb46b8bcec693b2e5599cdd4c1c47",
+    "tools\\export_tangents.py": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+    "tools\\fitted_boot_details.py": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+    "tools\\inspect_arm_volume.py": "6c0f6a742ec39e6fe0dc16d198939e9f9cc826af8b0b317d033695ba527d202a",
+    "tools\\inspect_boot_welt.py": "1c61a71f705edcfef11ed4d138fe3f270dc24d928e7606acd871cd2292c70413",
+    "tools\\inspect_equipment_attachment.py": "b317df397cf86946061bcf6f99d2d316cbc87da827128244f9515af812e22efa",
+    "tools\\inspect_export_motion.py": "49fa31dd7ed43a6d83fc1a746d4998ada054ecd2df82dd23e1c5631b9a21fbe8",
+    "tools\\inspect_foundation.py": "98a3c40c10c9f5ace3b24b63c8eedd8843a7679952070b351056098bef2d9612",
+    "tools\\inspect_garment_clearance.py": "508130e88cb63cc4b2703124f85bb0d091d8b5c0d2075c42f0829a44995cef69",
+    "tools\\inspect_layer_clearance.py": "61db6eed303a1e94149d7722d6dc7e5589540e9e83f37b49696974bd8c450b55",
+    "tools\\inspect_master.py": "2cb547938b95c29d15c93b7914a6f2ef1a7430aca99bb24af8bb34896e1d2add",
+    "tools\\inspect_tool_clearance.py": "167c01c0ae0668972089ac4accb084ad88b54bab26c2717833a0a361cf1cdf05",
+    "tools\\probe_layer_contact.py": "b2b72748dfe16d9a8c9e24b26c8d8d11e2a2a0d1909f7c75b31f9396cd8edb47",
+    "tools\\probe_layer_motion.py": "f9a9749697cc965763f08e44cf8148edbf76f3eceaf87fd188f8061286ecaa56",
+    "tools\\probe_source_arm_motion.py": "f66c0f25718b0e965302f01da5a46d360619283635d7a33bb3513c9d8354da1f",
+    "tools\\quartermaster_arm_motion.py": "70b5138d860582059876d8d57d65564a7bfd8a68a93e73c255ea9d76d51e41ba",
+    "tools\\quartermaster_equipment.py": "df0e75468b8d66831628282db2aaba64fcb1705ef75b13cd75664602f66c6592",
+    "tools\\quartermaster_identity.py": "47fcae34226f3dcb0c3a70d9fbb34c658c29775b0bc75890be8794b8e9cee1c9",
+    "tools\\quartermaster_locomotion.py": "a49437ca6f932ac1823807587722fced4f60b82c7e1b8b1324b8e341857a5359",
+    "tools\\quartermaster_waistcoat.py": "4e2a9330dcd1bc6aa2164e7c16bce48d41d51fd458cbabf465f6616f1f29de7e",
+    "tools\\retain_evidence.py": "36d4f5006370cc1370f762f83cea4d2415df7d728d5d0a122a3798feb7d65213",
+    "tools\\review_inhabitants.py": "d8ccf0bd2105c6967dcf65770592caee1816e02b55ecfde1e2d0633ebef8e251",
+    "tools\\run_quality.py": "487e84b7f9f63c8a5493babeda859c571afa822dfdd7ba779857dedc71745535",
+    "tools\\surface_bindings.py": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+    "tools\\surface_garments.py": "01bf0ba2fca94f1199fce45c662ecd371cc5d32f51ec06fba5ea2033e4d5c56b",
+    "tools\\tailored_clothing.py": "5910f4f94c8e38a693a969297f55f83611ca601f95dec65940ee69cce7edf2c7",
+    "tools\\tailored_locomotion.py": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+    "tools\\test_exports.py": "f0aa9c879acde1f097cf0b50b79b6512c439edfc69178a0b71416a118d39610e",
+    "tools\\workwear_finish.py": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_greenskin_quartermaster_lod0.glb",
+      "sha256": "5a88e9b122859b112ab3b29114931eea35bb6d8680a9f5fb880aba388efa5d18",
+      "bytes": 27801392,
+      "tangentRepair": {
+        "inputSha256": "5a88e9b122859b112ab3b29114931eea35bb6d8680a9f5fb880aba388efa5d18",
+        "outputSha256": "5a88e9b122859b112ab3b29114931eea35bb6d8680a9f5fb880aba388efa5d18",
+        "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "changes": []
+      },
+      "triangles": 147602,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_greenskin_quartermaster_lod1.glb",
+      "sha256": "42102c3da9edbebad2e2cb195661b2eff4c07b1f4120960ed050cd2075080095",
+      "bytes": 24953332,
+      "tangentRepair": {
+        "inputSha256": "42102c3da9edbebad2e2cb195661b2eff4c07b1f4120960ed050cd2075080095",
+        "outputSha256": "42102c3da9edbebad2e2cb195661b2eff4c07b1f4120960ed050cd2075080095",
+        "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "changes": []
+      },
+      "triangles": 85593,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_greenskin_quartermaster_lod2.glb",
+      "sha256": "ee08d74687b50a92d4fdff33d38ee47b99cb6a424825414b2036b9174f622b87",
+      "bytes": 22759648,
+      "tangentRepair": {
+        "inputSha256": "ee08d74687b50a92d4fdff33d38ee47b99cb6a424825414b2036b9174f622b87",
+        "outputSha256": "ee08d74687b50a92d4fdff33d38ee47b99cb6a424825414b2036b9174f622b87",
+        "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "changes": []
+      },
+      "triangles": 39821,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
+  ]
+}

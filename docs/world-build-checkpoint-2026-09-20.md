@@ -1,5 +1,44 @@
 # World build checkpoint — September 20, 2026
 
+## User-requested pause and all-work save
+
+The user asked to finish the current part, comment and commit everything so they
+can change focus. Command-table delivery and its verification are complete;
+automatic continuation is paused. All remaining editable character work and the
+runtime audit are included as explicit WIP, with package resume notes. Neither
+the captain nor quartermaster is published. The ambient routing fix is only
+planned in the audit; no runtime implementation started. No merge/push is requested.
+
+## Universal command table delivery
+
+The original field command table is published in all 36 keeps and GM, release
+`8f77f8a5152929d95d5c`. It retains six packed source/final masters, three LODs
+(27,534 / 13,366 / 5,274 triangles), six PBR materials, 300 measured fitting
+contacts and six geometry-derived collision masses. An original campaign chart,
+writing tools and supported leather folio fit the pegged oak trestle construction.
+
+All 144 skid probes stay within 9mm of their support; the four Sunmeadow/Cinderfen
+placements clear actual neighboring wall/stair/furnishing triangles. All 36 keep
+workfronts remain reachable without changing closed-gate or breach progression.
+Actual Cinderfen Game/Player presses stop at both table fronts (local Z0.950)
+and an Aegis table side (local X1.350), retaining the player's 0.45m radius.
+The full placement hashes and gameplay receipt are in the package's
+`review/runtime-integration-20260920.json`. This is static scenery, without
+chart interaction or tool pickup.
+
+The suite passes **1,440 tests in 171 files**; production build passes. All 33
+maps, 906 model records and 451 GM entries validate. The initial post-map GM
+staleness check was resolved by regenerating its catalog. Large scout pose
+receipts were normalized to their existing LFS rules, preserving literal bytes.
+The inspector now labels loader fallbacks accurately: the aggregate covers
+models, textures and HDR. The audit proves current guard GLBs exist and serve;
+the earlier count of one was not proof of a missing guard. The legacy wording
+in earlier receipts is historical and should not be read as model diagnosis.
+
+Field captain, quartermaster and regional ambient-cast integration are saved
+for resumption.
+The full world, shared campaign and performance acceptance remain unfinished.
+
 ## Sunmeadow herbalist/scout and expanded keep gameplay checks
 
 Serra Brightfield and Mira Stonewake now use their original fitted Empire

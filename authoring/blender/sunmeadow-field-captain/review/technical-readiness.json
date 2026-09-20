@@ -1,0 +1,20 @@
+{
+  "status": "work_in_progress_paused",
+  "passed": false,
+  "runtimeReady": false,
+  "visualApproval": false,
+  "revision": "A",
+  "reason": "Paused at the user's checkpoint before complete technical and visual gates.",
+  "openIssues": [
+    "Actual LOD0 dispatch case grazes the animated rear thigh during run; diagnostic found 11 crossing edges and 0.428 mm penetration.",
+    "Full garment/layer/tool clearance sweep interrupted before its final complete report.",
+    "Complete per-LOD gates, LOD1/2 actual import views and final validation-input freeze remain incomplete."
+  ],
+  "models": [
+    {"level": 0, "sha256": "eae89f5b537468b052a3ed68b9928baee2ad9d014dd4454a4baf9ca58558e29a", "triangles": 149882},
+    {"level": 1, "sha256": "661a4dc6be7eab27735a5018d25f51594146ff0237517393680faf6287f8ed8c", "triangles": 86930},
+    {"level": 2, "sha256": "e31f74f1ad46284ec53c3c2eaed03f4df90ac76617b72408e8a0835073cf3b42", "triangles": 44915}
+  ],
+  "workState": "WORK_STATE.md",
+  "limitations": "Fitted NPC outfit only. No modular armor, draw gameplay, runtime placement/collision/navigation or network verification claim. Not approved for publication."
+}

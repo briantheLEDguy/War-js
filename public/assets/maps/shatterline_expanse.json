@@ -5333,6 +5333,69 @@
       "walkableSurfaces": []
     },
     {
+      "id": "shatterline_expanse_delivered_aegis_command_table",
+      "kind": "frontier_field_command_table",
+      "assetKey": "frontier_field_command_table",
+      "model": "frontier_field_command_table_lod0.glb",
+      "x": -338,
+      "z": 2,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0,
+          "width": 1.7999999523162842,
+          "depth": 1,
+          "minY": 0.8139955401420593,
+          "maxY": 0.9760000109672546
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 1.5700000524520874,
+          "depth": 0.0949999988079071,
+          "minY": 0.22450000047683716,
+          "maxY": 0.8235132694244385
+        },
+        {
+          "x": -0.6399999856948853,
+          "z": 0,
+          "width": 0.16600000858306885,
+          "depth": 0.8700000047683716,
+          "minY": 0,
+          "maxY": 0.11800000071525574
+        },
+        {
+          "x": -0.6399999856948853,
+          "z": 0,
+          "width": 0.16999995708465576,
+          "depth": 0.9240000247955322,
+          "minY": 0.06199999898672104,
+          "maxY": 0.8140000104904175
+        },
+        {
+          "x": 0.6399999856948853,
+          "z": 0,
+          "width": 0.16600000858306885,
+          "depth": 0.8700000047683716,
+          "minY": 0,
+          "maxY": 0.11800000071525574
+        },
+        {
+          "x": 0.6399999856948853,
+          "z": 0,
+          "width": 0.16999995708465576,
+          "depth": 0.9240000247955322,
+          "minY": 0.06199999898672104,
+          "maxY": 0.8140000104904175
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
       "id": "shatterline_expanse_delivered_riftbound_repair_bench",
       "kind": "frontier_siege_repair_bench",
       "assetKey": "frontier_siege_repair_bench",
@@ -5835,6 +5898,69 @@
           "depth": 0.11500000208616257,
           "minY": 0.05999999865889549,
           "maxY": 1.564987301826477
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "shatterline_expanse_delivered_riftbound_command_table",
+      "kind": "frontier_field_command_table",
+      "assetKey": "frontier_field_command_table",
+      "model": "frontier_field_command_table_lod0.glb",
+      "x": 358,
+      "z": 2,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0,
+          "width": 1.7999999523162842,
+          "depth": 1,
+          "minY": 0.8139955401420593,
+          "maxY": 0.9760000109672546
+        },
+        {
+          "x": 0,
+          "z": 0,
+          "width": 1.5700000524520874,
+          "depth": 0.0949999988079071,
+          "minY": 0.22450000047683716,
+          "maxY": 0.8235132694244385
+        },
+        {
+          "x": -0.6399999856948853,
+          "z": 0,
+          "width": 0.16600000858306885,
+          "depth": 0.8700000047683716,
+          "minY": 0,
+          "maxY": 0.11800000071525574
+        },
+        {
+          "x": -0.6399999856948853,
+          "z": 0,
+          "width": 0.16999995708465576,
+          "depth": 0.9240000247955322,
+          "minY": 0.06199999898672104,
+          "maxY": 0.8140000104904175
+        },
+        {
+          "x": 0.6399999856948853,
+          "z": 0,
+          "width": 0.16600000858306885,
+          "depth": 0.8700000047683716,
+          "minY": 0,
+          "maxY": 0.11800000071525574
+        },
+        {
+          "x": 0.6399999856948853,
+          "z": 0,
+          "width": 0.16999995708465576,
+          "depth": 0.9240000247955322,
+          "minY": 0.06199999898672104,
+          "maxY": 0.8140000104904175
         }
       ],
       "walkableSurfaces": []
@@ -13895,5 +14021,5 @@
       }
     ]
   },
-  "staticMapHash": "00e8b30c283422f4"
+  "staticMapHash": "70dba5d0c08f9b09"
 }

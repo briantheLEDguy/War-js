@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.field_command_table",
+  "displayName": "Field Command Table",
+  "category": "prop",
+  "model": "frontier_field_command_table_lod0.glb",
+  "qc": "frontier_field_command_table_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_field_command_table"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+    "qcSha256": "ba05fe772177e9263f04e99364fdb214c34b5e65103d5214f22a4716959bbf66",
+    "previews": {
+      "assembly": "1f50c85594122e1774282e92367dc3766d6880297555344cf50f3cb7ec0263ac"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/review/frontier_field_command_table_lod0_neutral.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "8f77f8a5152929d95d5c4e70374a968a49b652f92a4407aa1a238e84030773bf"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_command_table_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/masters/frontier_field_command_table_lod0.source.blend",
+    "sourceSha256": "43fd77b6ad4c21c2436483aa45db6c5652d230e728bdd084aeb694f45ffeb218"
+  },
+  "approvalState": "approved"
+}

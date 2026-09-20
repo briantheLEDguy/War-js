@@ -1,8 +1,10 @@
-# ACTIVE — September 20, 2026
+# PAUSED — September 20, 2026
 
-The user resumed with “Continue.” The hourly continuation is active. The
-[September 9 handoff](world-build-paused-2026-09-09.md) remains a historical
-checkpoint; its pause instruction has been superseded.
+The user requested finishing the current part and committing everything to
+change focus. The command-table delivery is complete. Automatic continuation
+`continue-the-war-js-world-build` is PAUSED; all agents are stopped after
+saving their current work. Resume only when the user requests it. The September 9
+and earlier September 20 entries remain historical checkpoints.
 
 Keep collision corrections and the ram crew runtime are integrated. All 36 keep
 enclosures pass breach progression checks; all 16 Cinderfen stair assemblies now
@@ -18,16 +20,16 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,436 tests in 170 files**. Production build
+The latest full regression pass is **1,440 tests in 171 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 257 static props, 74 character
-profiles and 57 equipment records, and the GM builder has 450 definitions.
-All 33 maps and 903 model records validate. The combined herbalist/scout
+The registry contains 258 static props, 74 character
+profiles and 57 equipment records, and the GM builder has 451 definitions.
+All 33 maps and 906 model records validate. The command-table delivery
 regression run passes. Remaining regional character, equipment and town/zone work
-continues; animals stay last. No zone is art-complete, and full campaign visual,
+is saved for resumption; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
 
@@ -49,8 +51,8 @@ the boards to terrain and back onto them successfully. Twenty-three focused
 floor, furnishing and village-access tests pass; the latest full suite above
 includes the floor and apothecary additions.
 
-The next parallel batch is active: `sunmeadow-field-captain/`,
-`cinderfen-quartermaster/` and `field-command-table/`. Their package work states
+The paused unfinished batch is: `sunmeadow-field-captain/`,
+`cinderfen-quartermaster/` plus regional ambient-cast integration. Their package work states
 record technical progress. Corren Vale and Vask Rauth keep their existing
 NPC/service identities when the new presentations publish.
 The shared apothecary table is now published in both
@@ -428,3 +430,21 @@ city siege navigation. Populations, functional logistics, accepted assets in the
 GM builder, full campaign/recovery checks and representative performance all
 remain part of the authorized plan. Do not stop after one asset batch or report
 the whole world complete on the basis of source generation alone.
+
+The universal field command table is published in all 36 keeps and GM. Six packed
+masters, three reduced LODs, six PBR sets and 300 measured fitting contacts are
+retained. Ground support, nearby regional meshes and all keep workfront access
+pass; actual Cinderfen player presses held both front edges and one side edge.
+The inspector fallback count is aggregate model/texture/HDR loading, not a
+proven missing legacy model. The existing guard GLBs serve correctly; the audit
+in `authoring/blender/regional-runtime-audit/HANDOFF.md` records remaining
+primitive ambient actors and unresolved local enemy profiles separately.
+
+Pause boundary: the regional runtime audit is saved; its proposed ambient actor
+fix has not changed Game, WorldLife or any resolver/tests. The captain is draft A
+with a measured dispatch-case/thigh contact; its full gate remains incomplete.
+The quartermaster saved candidate K, including its editable master and three
+GLBs, but the revised fall contact is not yet verified. Its WORK_STATE and
+WIP_HANDOFF.json retain exact hashes and checks. Both contracts remain runtimeReady false. These are saved
+authoring sources, not approved runtime deliveries. No merge or push is part of
+this checkpoint.

@@ -1,0 +1,161 @@
+{
+  "description": "Exact approved local fitting inputs copied once for an isolated mutable quartermaster derivative; no historical release trees copied.",
+  "inputs": [
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/export_tangents.py",
+      "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+      "bytes": 3228,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/export_tangents.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/fitted_boot_details.py",
+      "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+      "bytes": 3130,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/fitted_boot_details.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/surface_bindings.py",
+      "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+      "bytes": 2223,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/surface_bindings.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/surface_garments.py",
+      "sha256": "01bf0ba2fca94f1199fce45c662ecd371cc5d32f51ec06fba5ea2033e4d5c56b",
+      "bytes": 11537,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/surface_garments.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/tailored_clothing.py",
+      "sha256": "5910f4f94c8e38a693a969297f55f83611ca601f95dec65940ee69cce7edf2c7",
+      "bytes": 5962,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/tailored_clothing.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/tailored_locomotion.py",
+      "sha256": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+      "bytes": 21780,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/tailored_locomotion.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/workwear_finish.py",
+      "sha256": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9",
+      "bytes": 7924,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/workwear_finish.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/apron_clearance.py",
+      "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+      "bytes": 5087,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/apron_clearance.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/apron_details.py",
+      "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+      "bytes": 4150,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/apron_details.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/build_inhabitants.py",
+      "sha256": "4732ac52cb276363f6881f9a5fc620d052dfe55a27a63d8f8ef8954b78352f54",
+      "bytes": 35269,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/build_inhabitants.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/greenskin_identity.py",
+      "sha256": "280b6d0f7f84236e16a6697e72e93224cb4b033acc6e40c586676b3c895f881a",
+      "bytes": 4935,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_identity.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/peat_locomotion.py",
+      "sha256": "a385c5c1474542f61cfb073f79ec425c8abcc96c791390c3415ccd1e9e3985e8",
+      "bytes": 5237,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_locomotion.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/inspect_arm_volume.py",
+      "sha256": "7f646ef6d8fa6f7a7f0e5e4b6de45004b3358a0b44b614ff9290da940c372596",
+      "bytes": 6932,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_arm_volume.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/inspect_boot_welt.py",
+      "sha256": "5c5a1264ca0856366349722de79b1e8ce58b9048066d2f8a22f56957f15c30ce",
+      "bytes": 6475,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_boot_welt.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/inspect_export_motion.py",
+      "sha256": "a8519d72f6fa1d704dde5a9f8eced9dbd94ae3f92c52c044a136f46d055db6f0",
+      "bytes": 6975,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_export_motion.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/inspect_foundation.py",
+      "sha256": "3530b13e1c9a1d4b03ad723ad03c94dd03482bd2fa33617496559734e6737b07",
+      "bytes": 1379,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_foundation.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/inspect_garment_clearance.py",
+      "sha256": "f2cc19d556f6aa864297446f83e4c1c2a5f6e8a870738626573b41c882815551",
+      "bytes": 10075,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_garment_clearance.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/inspect_master.py",
+      "sha256": "e3c76c17205b0e6d993b9f134788733ce25ed7423ea1cedcb183049ec97898f7",
+      "bytes": 2260,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_master.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/review_inhabitants.py",
+      "sha256": "8fa436f9e2195d20b7858afd85a690513d12f45ca7eae20224b33e0a75a22fc7",
+      "bytes": 7708,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/review_inhabitants.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/run_quality.py",
+      "sha256": "fe5f825dfbe28af74da024e45c4471c868856e73c2b3d17dbe9f92c19df27d0c",
+      "bytes": 1336,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/run_quality.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/test_exports.py",
+      "sha256": "ce2549486575129e64c6280de4843bc28f4213509d0afeae1c8aceb2d1c00c51",
+      "bytes": 9063,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/test_exports.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/tools/validate_inhabitants.mjs",
+      "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+      "bytes": 2351,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/validate_inhabitants.mjs"
+    },
+    {
+      "path": "authoring/blender/cinderfen-supply-officer/tools/officer_equipment.py",
+      "sha256": "716a9f1466bdf040f058f25793f3c51cb29422cfc865ced95db70c2d3af0660f",
+      "bytes": 12644,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/quartermaster_equipment.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-supply-officer/tools/inspect_equipment_attachment.py",
+      "sha256": "1338da82a6ca10c1f75b90a0a2d75417ef72efc9c7c591c0efc865e37fbcc12f",
+      "bytes": 7112,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_equipment_attachment.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-supply-officer/tools/inspect_tool_clearance.py",
+      "sha256": "de194f2e5ac85b0b73a228417f729231dc6d91cfac1ac2270e64504fef69488d",
+      "bytes": 4629,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/tools/inspect_tool_clearance.py"
+    },
+    {
+      "path": "authoring/blender/cinderfen-peat-worker/review/inhabitant.html",
+      "sha256": "92acc173651243c350130f8f4b6ee59be191551c9380622a97e4f57de7d3bb99",
+      "bytes": 7862,
+      "retainedAs": "authoring/blender/cinderfen-quartermaster/review/inhabitant.html"
+    }
+  ]
+}

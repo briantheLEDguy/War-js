@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "key": "frontier_field_command_table",
+  "buildSha256": "7fb859366e824d0b6b58c84defb7b257d43f249f4317df311e27d1317082c8dd",
+  "validationToolSha256": "3d089d2c4ff2a8e64e34ff3dadf5184555ee0eb8b5b2c71a11a71d6b6c32f058",
+  "records": [
+    {
+      "level": 0,
+      "model": "frontier_field_command_table_lod0.glb",
+      "sha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+      "bytes": 8343904,
+      "triangles": 27534,
+      "vertices": 53297,
+      "materials": 6,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_command_table_lod1.glb",
+      "sha256": "8e75aa87a5c2d1d8f6ef20d0697ba1c8ec4ebcf008d514ab35fb2c8c93b751be",
+      "bytes": 3117428,
+      "triangles": 13366,
+      "vertices": 24142,
+      "materials": 6,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_command_table_lod2.glb",
+      "sha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d",
+      "bytes": 968028,
+      "triangles": 5274,
+      "vertices": 7516,
+      "materials": 6,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "colliders": 6,
+  "limitations": [
+    "Static campaign chart and tools; no map interaction, pickup or tabletop walking claimed.",
+    "Placement and gameplay acceptance are outside this authoring gate."
+  ]
+}

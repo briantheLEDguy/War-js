@@ -1,3 +1,16 @@
+## 2026-09-20 — User-requested world-build checkpoint
+
+- Paused automatic continuation to change focus after completing command-table integration.
+- Saved unfinished field-captain and quartermaster editable sources, draft exports and technical limits; neither is a runtime delivery.
+- Saved the regional asset-routing audit and next steps; ambient population changes have not started.
+
+## 2026-09-20 — Shared keep command tables
+
+- Published the original command table in all 36 keeps and GM, with three reduced LODs, six packed masters, fitted campaign-chart tools and measured collision.
+- Verified grounded skids, actual regional mesh clearance, every keep's closed/breached access and three production-player collision presses.
+- Clarified inspector fallback counts and preserved reviewed scout pose evidence through its configured Git LFS storage.
+- Verification: 1,440 tests in 171 files, production build, 33 maps, 906 model records and 451 GM definitions pass. Full campaign/performance acceptance remains open.
+
 ## 2026-09-20 — Sunmeadow cast and complete Cinderfen stair checks
 
 - Published Serra Brightfield’s original Empire herbalist and Mira Stonewake’s High Elf scout in the game and GM builder, preserving service identities and positions. Both retain editable masters, PBR materials, nine fitted clips and three verified live LODs.

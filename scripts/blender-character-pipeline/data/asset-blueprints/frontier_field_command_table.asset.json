@@ -1,0 +1,102 @@
+{
+  "assetId": "prop.frontier.field_command_table",
+  "displayName": "Field Command Table",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "universal_town_logistics"
+  ],
+  "runtime": {
+    "staticKey": "frontier_field_command_table"
+  },
+  "output": {
+    "model": "frontier_field_command_table_lod0.glb",
+    "artifactDir": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/runtime/frontier_field_command_table_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 27534,
+        "screenCoverageMin": 0.15
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 13366,
+        "screenCoverageMin": 0.05
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 5274,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FieldCommandTable",
+    "textureSet": "frontier_field_command_table",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 2048
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authored_mass_segments",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_command_table_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/masters/frontier_field_command_table_lod0.source.blend",
+    "sourceSha256": "43fd77b6ad4c21c2436483aa45db6c5652d230e728bdd084aeb694f45ffeb218"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxTris": 27534,
+    "maxFileSizeMb": 15,
+    "maxDrawCalls": 6,
+    "maxMeshObjects": 6,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true,
+    "expectedHeightM": 0.9760000109672546,
+    "heightToleranceM": 0.01
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "8f77f8a5152929d95d5c4e70374a968a49b652f92a4407aa1a238e84030773bf",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

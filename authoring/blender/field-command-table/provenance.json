@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "originalGeometry": "tools/build_table.py",
+  "originalMaterialAndMapArt": "tools/make_textures.py",
+  "references": [
+    {
+      "source": "authoring/blender/field-arms-rack/tools/mesh_authoring.py",
+      "sha256": "7a427e39acbb267754e5e5c1eb5c4faab05e42b4bb635f8d9188ea11061d8b7c",
+      "local": "tools/mesh_authoring.py",
+      "use": "Unmodified explicit-mesh helper"
+    },
+    {
+      "source": "authoring/blender/field-arms-rack/tools/export_tangents.py",
+      "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+      "local": "tools/export_tangents.py",
+      "use": "Unmodified explicit-mesh helper"
+    },
+    {
+      "source": "authoring/blender/field-arms-rack/tools/review_rack.py",
+      "sha256": "8a9f69f30e46b9b9ccafff6a398b37f151948e028d28a646064beefa291958f4",
+      "local": "tools/review_table.py",
+      "use": "Adapted verification workflow; original table geometry authored separately"
+    },
+    {
+      "source": "authoring/blender/field-arms-rack/tools/audit_masters.py",
+      "sha256": "88d4574b05d49b460a95240300c19e3108b0d34b80fd201c4e46eb31b9493ae8",
+      "local": "tools/audit_masters.py",
+      "use": "Adapted verification workflow; original table geometry authored separately"
+    },
+    {
+      "source": "authoring/blender/field-arms-rack/tools/consolidate_build.py",
+      "sha256": "49efd3a639be0961d1d6d5a5edd93eb87dc6f954b4d78a4c1892a4e6968f950f",
+      "local": "tools/consolidate_build.py",
+      "use": "Adapted verification workflow; original table geometry authored separately"
+    },
+    {
+      "source": "authoring/blender/field-arms-rack/tools/validate_rack.mjs",
+      "sha256": "4c14cfa495fe5c47de097a46e3c8534300d01596c3e0d398b3e34fb042e2b380",
+      "local": "tools/validate_table.mjs",
+      "use": "Adapted verification workflow; original table geometry authored separately"
+    },
+    {
+      "source": "authoring/blender/field-arms-rack/tools/run_delivery.py",
+      "sha256": "880324d0d153c20b8405fbe0d8de1f298578210ebe8424e651ff615075a00631",
+      "local": "tools/run_delivery.py",
+      "use": "Adapted verification workflow; original table geometry authored separately"
+    }
+  ]
+}

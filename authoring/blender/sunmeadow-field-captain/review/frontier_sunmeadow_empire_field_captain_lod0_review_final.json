@@ -1,0 +1,67 @@
+{
+  "modelSha256": "eae89f5b537468b052a3ed68b9928baee2ad9d014dd4454a4baf9ca58558e29a",
+  "bounds": {
+    "min": [
+      -0.33347100019454956,
+      -0.23365017771720886,
+      0.004000447690486908
+    ],
+    "max": [
+      0.33345770835876465,
+      0.1900297850370407,
+      1.838083267211914
+    ]
+  },
+  "images": [
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_head_final.png",
+      "sha256": "11d42cdd9f8a9c40f057e2ec344f5098f3b25b76eedea31ff24de4f81b778600",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_front_final.png",
+      "sha256": "11e2fc92c41d941a5847b39d2e5871457f042c7a10de935ff15f3261ee77fb83",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "side",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_side_final.png",
+      "sha256": "41a2d53616743dfa40171058baa6c8afc0a47818d8cef33ae79ea7dd3477b1f7",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "rear",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_rear_final.png",
+      "sha256": "10fd0c0423266d57731bd9fac53bf732d228178beff2e5b6d00c9c1088e2725a",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_run_side_final.png",
+      "sha256": "3c7b81c2177dbf2e94ba5c75643436ca6c7336239476c904a83b8bc34a86bb04",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_death_2_final.png",
+      "sha256": "4d34b1bb6a24ddedbca84c2013bc82f440ac630a3089fc5789905ce384526119",
+      "clip": "death",
+      "seconds": 2.0
+    },
+    {
+      "view": "gameplay",
+      "image": "review\\frontier_sunmeadow_empire_field_captain_lod0_gameplay_final.png",
+      "sha256": "ee4c81e7de848b9456a486f93af1406ca8726ea1fff9f789a02eb9f57319debf",
+      "clip": "idle",
+      "seconds": 0
+    }
+  ],
+  "status": "pending"
+}

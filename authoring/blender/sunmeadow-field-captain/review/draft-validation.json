@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "visualApproval": false,
+  "records": [
+    {
+      "model": "frontier_sunmeadow_empire_field_captain_lod0.glb",
+      "sha256": "eae89f5b537468b052a3ed68b9928baee2ad9d014dd4454a4baf9ca58558e29a",
+      "triangles": 149882,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_sunmeadow_empire_field_captain_lod1.glb",
+      "sha256": "661a4dc6be7eab27735a5018d25f51594146ff0237517393680faf6287f8ed8c",
+      "triangles": 86930,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_sunmeadow_empire_field_captain_lod2.glb",
+      "sha256": "e31f74f1ad46284ec53c3c2eaed03f4df90ac76617b72408e8a0835073cf3b42",
+      "triangles": 44915,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    }
+  ],
+  "failures": []
+}

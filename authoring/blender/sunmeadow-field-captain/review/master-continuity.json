@@ -1,0 +1,19 @@
+{
+  "masterSha256": "484ed6e3f27514f3d685d1ab3f4df63a5e0be83e294e038c97d1785edf8f3eec",
+  "shirtConnectedComponents": [
+    2394
+  ],
+  "shirtBoundaryLoops": 4,
+  "shirtBoundaryValenceValid": true,
+  "fittedBrigandine": true,
+  "caseSuspensionLoops": 4,
+  "shoulderLames": 3,
+  "packedImages": 25,
+  "modifiers": [
+    "SUBSURF",
+    "SOLIDIFY",
+    "ARMATURE"
+  ],
+  "status": "passed",
+  "scope": "Continuous source shirt torso/axilla/sleeves; fitted brigandine, joined shoulder bridges and three small articulated plates, four physical case hangers; packed editable PBR inputs. Exact exported garment/layer/tool contact measured separately."
+}

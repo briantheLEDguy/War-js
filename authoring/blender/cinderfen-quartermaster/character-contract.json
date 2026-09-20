@@ -1,0 +1,36 @@
+{
+  "assetId": "chr.frontier.cinderfen.greenskin_quartermaster",
+  "profileId": "npc_frontier_cinderfen_greenskin_quartermaster",
+  "modelKey": "frontier_cinderfen_greenskin_quartermaster",
+  "race": "greenskin",
+  "realm": "riftbound",
+  "role": "vendor",
+  "bodyFamily": "frontier_cinderfen_quartermaster_v1_m",
+  "bodyVariant": "m",
+  "skeletonId": "cinderfen_quartermaster_humanoid_v1",
+  "bindPoseId": "cinderfen_quartermaster_a_v1",
+  "requiredClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "runtimeReady": false,
+  "equipmentPolicy": "Complete fitted supply-vendor outfit; ledger and stylus are carried visual equipment.",
+  "readinessScope": "Paused unfinished WIP at user request. Candidate K master/threeLODs saved; current-byte export checks, all13 gates, lower-LOD checks and final views are incomplete. Do not publish.",
+  "targetNpc": {
+    "id": "cinderfen_outskirts_quartermaster",
+    "name": "Vask Rauth",
+    "title": "Riftbound Quartermaster",
+    "role": "vendor",
+    "x": 419,
+    "z": -239,
+    "rotY": 0
+  },
+  "raceAuthority": "Existing generated production assignment specifies Greenskin vendor; old Chaos roster is placeholder presentation. Root confirmed this on September 20."
+}

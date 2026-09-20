@@ -28,6 +28,9 @@ Every keep also has the original field arms rack, with four fitted polearms,
 closed heel sockets, pegged timber joints and overlapping leather grips.
 Its three LODs, five PBR material sets, six packed masters and measured collision
 are retained; the same furnishing is available in the GM builder.
+The original field command table is also in all 36 keeps and GM, with a fitted
+campaign chart, writing tools and pegged trestle joinery. Three LODs and six
+packed masters are retained; table collision and clear working access are verified.
 Nyra Vex now uses the published Dark Elf supply-officer uniform, with physically
 attached ledger suspension, nine embedded clips and three verified runtime LODs.
 She keeps her existing Cinderfen identity, role and position and is available in
@@ -35,7 +38,9 @@ the GM builder. Serra Brightfield now uses the published Empire herbalist, with
 a fitted divided smock, suspended gathering equipment, nine clips and three
 verified in-game LODs. Mira Stonewake now uses the published High Elf scout,
 with joined shoulder seams, suspended scouting equipment and three verified
-runtime LODs. Greenskin quartermaster and Empire field-captain work continues.
+runtime LODs. Greenskin quartermaster and Empire field-captain drafts are saved but remain
+unpublished pending technical checks. World production is paused at the user's
+request to change focus; automatic continuation is paused too.
 
 The local keep inspection page supports ground coordinates and diagonal presses.
 Actual Game/Player checks held 16 corners and eight gates across Sunmeadow and

@@ -58,7 +58,7 @@ try {
     let triangles = 0;
     level?.object.traverse(node => { if (node.isMesh) triangles += (node.geometry.index?.count ?? node.geometry.attributes.position.count) / 3; });
     const bounds = new Box3().setFromObject(presentation.object), center = bounds.getCenter(new Vector3());
-    status.textContent = `${npc.characterProfileKey}\n${presentation.object.levels.length} approved detail levels\nVisible level ${index} · ${Math.round(triangles).toLocaleString()} triangles\nIn scene: ${presentation.object.parent === game.scene} · visible: ${presentation.object.visible}\nCamera distance: ${game.camera.camera.position.distanceTo(presentation.object.position).toFixed(1)} m\nBounds center: ${center.toArray().map(v=>v.toFixed(2)).join(', ')}\n${useGameStore.getState().assetFallbacks} unavailable legacy assets`;
+    status.textContent = `${npc.characterProfileKey}\n${presentation.object.levels.length} approved detail levels\nVisible level ${index} · ${Math.round(triangles).toLocaleString()} triangles\nIn scene: ${presentation.object.parent === game.scene} · visible: ${presentation.object.visible}\nCamera distance: ${game.camera.camera.position.distanceTo(presentation.object.position).toFixed(1)} m\nBounds center: ${center.toArray().map(v=>v.toFixed(2)).join(', ')}\n${useGameStore.getState().assetFallbacks} asset-loader fallbacks (models, textures or HDR)`;
   }, 300);
 } catch(error) { status.textContent = `Review failed: ${error.message}`; console.error(error); }
 addEventListener('beforeunload', () => { clearInterval(timer); game?.dispose({ persistCharacter: false }); });

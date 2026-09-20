@@ -1,0 +1,502 @@
+{
+  "recordedAt": "2026-09-20T18:38:41.266248+00:00",
+  "release": "8f77f8a5152929d95d5c",
+  "models": [
+    {
+      "level": 0,
+      "path": "public/assets/models/frontier_field_command_table_lod0.glb",
+      "sha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa"
+    },
+    {
+      "level": 1,
+      "path": "public/assets/models/frontier_field_command_table_lod1.glb",
+      "sha256": "8e75aa87a5c2d1d8f6ef20d0697ba1c8ec4ebcf008d514ab35fb2c8c93b751be"
+    },
+    {
+      "level": 2,
+      "path": "public/assets/models/frontier_field_command_table_lod2.glb",
+      "sha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d"
+    }
+  ],
+  "harness": "authoring/blender/orvr-frontier/runtime-keep-review.html",
+  "harnessSha256": "ec31ff50f30e4a0344f2f2bc48b5a10494c179acf951c4cc3ac8556d61e44aa7",
+  "placements": [
+    {
+      "zoneId": "aegis_crownworks",
+      "mapSha256": "7f16eeab156d71f82928e27eb3c300f0af033f2a87786a9b374b7d0ffa4e92ab",
+      "id": "aegis_crownworks_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "aegis_crownworks",
+      "mapSha256": "7f16eeab156d71f82928e27eb3c300f0af033f2a87786a9b374b7d0ffa4e92ab",
+      "id": "aegis_crownworks_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "aegis_gate_fortress",
+      "mapSha256": "ef8eb854bf92a83f43090094008f8f001364f02d6b5df20f159cd3fa37a9986b",
+      "id": "aegis_gate_fortress_delivered_aegis_command_table",
+      "position": {
+        "x": -342,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "aegis_gate_fortress",
+      "mapSha256": "ef8eb854bf92a83f43090094008f8f001364f02d6b5df20f159cd3fa37a9986b",
+      "id": "aegis_gate_fortress_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "ashen_steppe",
+      "mapSha256": "5baa4273ba5869da0683f85a354d9740e4ca8b5ead7ff69ce719191e3ede2e8f",
+      "id": "ashen_steppe_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "ashen_steppe",
+      "mapSha256": "5baa4273ba5869da0683f85a354d9740e4ca8b5ead7ff69ce719191e3ede2e8f",
+      "id": "ashen_steppe_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "bleakroot_causeway",
+      "mapSha256": "d3a58af9541461ee5f79bba01f2ea4fefb9f2cd734748134e4f07433d9cbe6de",
+      "id": "bleakroot_causeway_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "bleakroot_causeway",
+      "mapSha256": "d3a58af9541461ee5f79bba01f2ea4fefb9f2cd734748134e4f07433d9cbe6de",
+      "id": "bleakroot_causeway_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "brightfen_approach",
+      "mapSha256": "cc394e27125220f7686a836d876c527767e58cab47e4d1bf4cd1fd0e63470202",
+      "id": "brightfen_approach_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "brightfen_approach",
+      "mapSha256": "cc394e27125220f7686a836d876c527767e58cab47e4d1bf4cd1fd0e63470202",
+      "id": "brightfen_approach_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "cinderfen_outskirts",
+      "mapSha256": "caa323d2aa7e32cd270ce510c16f6c584bf10c9da324e8e32a4c11c07f3dc3b8",
+      "id": "cinderfen_outskirts_delivered_aegis_command_table",
+      "position": {
+        "x": -342,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "absolute"
+    },
+    {
+      "zoneId": "cinderfen_outskirts",
+      "mapSha256": "caa323d2aa7e32cd270ce510c16f6c584bf10c9da324e8e32a4c11c07f3dc3b8",
+      "id": "cinderfen_outskirts_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "absolute"
+    },
+    {
+      "zoneId": "dawnline_expanse",
+      "mapSha256": "021ab61d14949ddf7340afe23a47e48e064facaadc44bd2e63f14951f28d98bc",
+      "id": "dawnline_expanse_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "dawnline_expanse",
+      "mapSha256": "021ab61d14949ddf7340afe23a47e48e064facaadc44bd2e63f14951f28d98bc",
+      "id": "dawnline_expanse_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "glassriver_ford",
+      "mapSha256": "92c5c24632c90be11b01eb5cb2dd5e214548dc330eba3fd6cb62dd68b43a7e76",
+      "id": "glassriver_ford_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "glassriver_ford",
+      "mapSha256": "92c5c24632c90be11b01eb5cb2dd5e214548dc330eba3fd6cb62dd68b43a7e76",
+      "id": "glassriver_ford_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "gorepine_pass",
+      "mapSha256": "f372f1327af3bd062f8d6af74e0d8bc025886dc8fa0f80f01f31a295c295dd12",
+      "id": "gorepine_pass_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "gorepine_pass",
+      "mapSha256": "f372f1327af3bd062f8d6af74e0d8bc025886dc8fa0f80f01f31a295c295dd12",
+      "id": "gorepine_pass_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "greybrook_crossing",
+      "mapSha256": "d4b87e9e2786b879156a2dac94b005ff8dad06c424636713c1074565d1e849f9",
+      "id": "greybrook_crossing_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "greybrook_crossing",
+      "mapSha256": "d4b87e9e2786b879156a2dac94b005ff8dad06c424636713c1074565d1e849f9",
+      "id": "greybrook_crossing_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "highvale_rampart",
+      "mapSha256": "643a7f6ebf790e139c3c3c2aa4ef9136024e4fdafd2f8bd3aac2297f10123bfe",
+      "id": "highvale_rampart_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "highvale_rampart",
+      "mapSha256": "643a7f6ebf790e139c3c3c2aa4ef9136024e4fdafd2f8bd3aac2297f10123bfe",
+      "id": "highvale_rampart_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "ironwood_redoubt",
+      "mapSha256": "12051ba27873ad53ed6762bd5cbf728973380bea1b88873c1bb45916218c5cab",
+      "id": "ironwood_redoubt_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "ironwood_redoubt",
+      "mapSha256": "12051ba27873ad53ed6762bd5cbf728973380bea1b88873c1bb45916218c5cab",
+      "id": "ironwood_redoubt_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "obsidian_scar",
+      "mapSha256": "2474f0bd5fc25690e6b5a4f9ef026e0afe685cec14df9e3b0529094f6b126253",
+      "id": "obsidian_scar_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "obsidian_scar",
+      "mapSha256": "2474f0bd5fc25690e6b5a4f9ef026e0afe685cec14df9e3b0529094f6b126253",
+      "id": "obsidian_scar_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "rift_crownworks",
+      "mapSha256": "949c50c89317417bbf856505cfa0c834d9cc064776999bc590de833f7be4b2e7",
+      "id": "rift_crownworks_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "rift_crownworks",
+      "mapSha256": "949c50c89317417bbf856505cfa0c834d9cc064776999bc590de833f7be4b2e7",
+      "id": "rift_crownworks_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "rift_gate_fortress",
+      "mapSha256": "ec3889afb3165c30c1ee9ffb365ac5ae6a4eb1cd240f8cf3165438ad396c75b4",
+      "id": "rift_gate_fortress_delivered_aegis_command_table",
+      "position": {
+        "x": -342,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "rift_gate_fortress",
+      "mapSha256": "ec3889afb3165c30c1ee9ffb365ac5ae6a4eb1cd240f8cf3165438ad396c75b4",
+      "id": "rift_gate_fortress_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "shatterline_expanse",
+      "mapSha256": "cb241964600bd119741cbac3af568f497fae8df9f1644fd77d84185ab31277d9",
+      "id": "shatterline_expanse_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "shatterline_expanse",
+      "mapSha256": "cb241964600bd119741cbac3af568f497fae8df9f1644fd77d84185ab31277d9",
+      "id": "shatterline_expanse_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "sunmeadow_march",
+      "mapSha256": "1e8ea47c7c29654547e5ce6ee720bbdf1c25eaf5d5bb4f8fd6245a4e49d26d4c",
+      "id": "sunmeadow_march_delivered_aegis_command_table",
+      "position": {
+        "x": -344,
+        "y": 0,
+        "z": -12
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "sunmeadow_march",
+      "mapSha256": "1e8ea47c7c29654547e5ce6ee720bbdf1c25eaf5d5bb4f8fd6245a4e49d26d4c",
+      "id": "sunmeadow_march_delivered_riftbound_command_table",
+      "position": {
+        "x": 356,
+        "y": 0,
+        "z": -12
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "vilemere_heights",
+      "mapSha256": "c288e704238d3584d3293af4042a201d57169dfe1540955d8be363585c3bd369",
+      "id": "vilemere_heights_delivered_aegis_command_table",
+      "position": {
+        "x": -338,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    },
+    {
+      "zoneId": "vilemere_heights",
+      "mapSha256": "c288e704238d3584d3293af4042a201d57169dfe1540955d8be363585c3bd369",
+      "id": "vilemere_heights_delivered_riftbound_command_table",
+      "position": {
+        "x": 358,
+        "y": 0,
+        "z": 2
+      },
+      "heightMode": "terrain"
+    }
+  ],
+  "verification": {
+    "keepCount": 36,
+    "closedEnclosures": true,
+    "outerAndInnerBreachAccess": true,
+    "workingFrontsReachable": true,
+    "regionalAuthoredMeshChecks": 4,
+    "skidGroundingChecks": 144,
+    "skidMaximumAllowedGapM": 0.009,
+    "gmDefinitions": 451,
+    "validatedMaps": 33,
+    "validatedModelRecords": 906,
+    "fullSuite": {
+      "report": "artifacts/orvr/command-table-delivery-tests.json",
+      "sha256": "fec5124137ac6e14ce288c35743afd1cd5a3e7c1aa60a91f709ea5eb7fcc5c5e",
+      "passed": 1440,
+      "failed": 0,
+      "files": 171,
+      "workers": 1
+    },
+    "productionBuildPassed": true,
+    "initialBuilderCheck": "Catalog regenerated after campaign placement generation; current check passes."
+  },
+  "gameplay": [
+    {
+      "zoneId": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_delivered_aegis_command_table",
+      "action": "North world direction for two seconds through production Game/Player",
+      "start": {
+        "x": -342,
+        "y": 0,
+        "z": 3.08
+      },
+      "end": {
+        "x": -342,
+        "y": 0,
+        "z": 2.95
+      },
+      "result": "Player held at the measured tabletop collision boundary; table visibly grounded and clear of nearby stairs/walls.",
+      "aggregateAssetLoaderFallbacks": 1
+    },
+    {
+      "zoneId": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_delivered_aegis_command_table",
+      "action": "West world direction for two seconds through production Game/Player",
+      "start": {
+        "x": -339.9,
+        "y": 0,
+        "z": 2
+      },
+      "end": {
+        "x": -340.65,
+        "y": 0,
+        "z": 2
+      },
+      "result": "Player held at the measured tabletop collision boundary; table visibly grounded and clear of nearby stairs/walls.",
+      "aggregateAssetLoaderFallbacks": 1
+    },
+    {
+      "zoneId": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_delivered_riftbound_command_table",
+      "action": "North world direction for two seconds through production Game/Player",
+      "start": {
+        "x": 358,
+        "y": 0,
+        "z": 3.08
+      },
+      "end": {
+        "x": 358,
+        "y": 0,
+        "z": 2.95
+      },
+      "result": "Player held at the measured tabletop collision boundary; table visibly grounded and clear of nearby stairs/walls.",
+      "aggregateAssetLoaderFallbacks": 1
+    }
+  ],
+  "limitations": [
+    "Three bounded local-game presses, not an exhaustive live walk of all 36 placements.",
+    "Static chart and tools; no map interaction, pickup or tabletop walking.",
+    "The aggregate loader fallback count was 1 in the inspected scene; this does not identify a missing model.",
+    "Full shared campaign, 18 versus 18 performance and final zone acceptance remain open."
+  ]
+}

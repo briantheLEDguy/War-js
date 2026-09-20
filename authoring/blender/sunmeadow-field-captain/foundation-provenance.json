@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "description": "Literal reviewed adult male civic foundation used by the approved Empire farmer. Identity dimensions are retained at 1.86 m; no sex/race threshold substitution. Helper origins are historical literal snapshots; new source derivatives are frozen separately at export.",
+  "foundationFamily": "civic_humanoid_v2_m",
+  "bodyVariant": "m",
+  "authoringScale": 1,
+  "morphScale": [
+    1,
+    1,
+    1
+  ],
+  "inputs": [
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_m.glb",
+      "retained": "authoring/blender/sunmeadow-field-captain/foundations/body_civic_humanoid_v2_m.glb",
+      "sha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
+      "bytes": 9050988
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_m.qc.json",
+      "retained": "authoring/blender/sunmeadow-field-captain/foundations/body_civic_humanoid_v2_m.qc.json",
+      "sha256": "80c0ef76aeb2790062f76344d1f511732553d65303ea77daacbaaf40b93beb98",
+      "bytes": 14502
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_m.source.blend",
+      "retained": "authoring/blender/sunmeadow-field-captain/foundations/civic_humanoid_v2_m.source.blend",
+      "sha256": "67757dddf963bb09e18023a7a59b555b9d57720398ff738f84a8b8b0bfd47788",
+      "bytes": 2716579
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_m.quad-surface.json.gz",
+      "retained": "authoring/blender/sunmeadow-field-captain/foundations/civic_humanoid_v2_m.quad-surface.json.gz",
+      "sha256": "9e36be7bb14d94e0f71cf6754644aa4e57e4f0177c0f3f28123986a64dd806fc",
+      "bytes": 1130074
+    }
+  ],
+  "retainedHelperOrigins": [
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/build_inhabitants.py",
+      "sha256": "2c84baa007fe08c4b40dc53aa1ed293935931bfb236c08e3dbfc07fff13f9444",
+      "bytes": 32801,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/build_inhabitants.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/tailored_clothing.py",
+      "sha256": "2b10e464cebf79214b0718fa824125fe80ab56ca62c11b987bc7955db521abb8",
+      "bytes": 6162,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/tailored_clothing.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/surface_garments.py",
+      "sha256": "59f44a2a9affd84b9c1151b78def6c57cd73da7f43b0b1317c73f3483bcfca93",
+      "bytes": 10194,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/surface_garments.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/surface_bindings.py",
+      "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+      "bytes": 2223,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/surface_bindings.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/fitted_boot_details.py",
+      "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+      "bytes": 3130,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/fitted_boot_details.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/apron_clearance.py",
+      "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+      "bytes": 5087,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/apron_clearance.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/apron_details.py",
+      "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+      "bytes": 4150,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/apron_details.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/artisan_equipment.py",
+      "sha256": "a56603a4dbd90267f6a8f24e299049693ef82dd09e21eeb380a24a11c92b7405",
+      "bytes": 5397,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/artisan_equipment.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/workwear_finish.py",
+      "sha256": "b180fe850df9e0efae234b559bce36ac29e7774019c72fba0262c960b56103f8",
+      "bytes": 8066,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/workwear_finish.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/authored_artisan_head.py",
+      "sha256": "7614f035f6d11bfd20ff728cc87b6d3be06aad70f528265ddf44ff267cdf8d04",
+      "bytes": 18713,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/authored_artisan_head.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/export_tangents.py",
+      "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+      "bytes": 3228,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/export_tangents.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/tailored_locomotion.py",
+      "sha256": "cdb57dcdbbe0234d076b5e0ba8828bc4a9218b6467f1792d01db83aa00409db9",
+      "bytes": 26758,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/tailored_locomotion.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/surface_contact.py",
+      "sha256": "8a1d3235a580997aa548690353a6520654c9eaca2234ff29dfda5ca89e46d172",
+      "bytes": 9645,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/surface_contact.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_foundation.py",
+      "sha256": "7f5d91b57f25a6182911d38a1502189fa9726a25288495f3fe9cf70e0d239955",
+      "bytes": 2239,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_foundation.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_arm_volume.py",
+      "sha256": "753c3fd3df1c0346d192968d42e12cd2401571fd52d5177b1d9b5687d17103da",
+      "bytes": 8120,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_arm_volume.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_export_motion.py",
+      "sha256": "7cba0a2200c22628bf53101ddc6bd78a92356cc43f80355c498265e0b38bf0d9",
+      "bytes": 7864,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_export_motion.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_boot_clearance.py",
+      "sha256": "a940a77e384f223694e09ec84e5408937a16001093274f9b83e8fb9d5dcc18dd",
+      "bytes": 7210,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_boot_clearance.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_boot_welt.py",
+      "sha256": "e9cf5d62655bb076298b12d0e9a082f1504b8c4d30b865adcd786f9b7e64ef8d",
+      "bytes": 6574,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_boot_welt.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_outfit_clearance.py",
+      "sha256": "f1c488c31c81ad853d011dff5c6aa4875de9dbbd170a06aae481df784b3a487b",
+      "bytes": 10388,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_outfit_clearance.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_equipment_attachment.py",
+      "sha256": "93bb36fe6f8b4215e56f222e0de608b546b15d4760b9c84dd832c333e8d5a0a0",
+      "bytes": 7779,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_equipment_attachment.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/review_inhabitants.py",
+      "sha256": "1c6625d53718ccf7228312398bc610990d1967cbd614bf74aa01def48fedb57e",
+      "bytes": 7821,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/review_inhabitants.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/validate_inhabitants.mjs",
+      "sha256": "d7209b652b2760fe1947a8c7b9c94bb1222912cd00b22f0da75598e9fc9c613d",
+      "bytes": 2385,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/validate_inhabitants.mjs"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/inspect_master.py",
+      "sha256": "53372d7e6c20f136c0def910e47c2e36edb62082770c71b1c936419abd66509f",
+      "bytes": 2450,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/inspect_master.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/export_tagged.py",
+      "sha256": "0afca5219b4a275d39f7fc68bc15fa42a619cbc3759db3202fd47fd98d6380a6",
+      "bytes": 7882,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/export_tagged.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/retain_validation_inputs.py",
+      "sha256": "8cd6f7f66cf3bde254bd587bf7b540a6d6840b25ebc021b3617533878b030ca3",
+      "bytes": 1978,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/retain_validation_inputs.py"
+    },
+    {
+      "path": "authoring/blender/sunmeadow-scout/tools/test_exports.py",
+      "sha256": "f6aef9f1f8c028c64f80ac8520d719762d6133c3f14ace955fe584971111f1d4",
+      "bytes": 15466,
+      "retainedDerivative": "authoring/blender/sunmeadow-field-captain/tools/test_exports.py"
+    }
+  ]
+}

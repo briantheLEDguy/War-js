@@ -1,0 +1,32 @@
+{
+  "assetId": "chr.frontier.sunmeadow.empire_field_captain",
+  "profileId": "npc_frontier_sunmeadow_empire_field_captain",
+  "key": "frontier_sunmeadow_empire_field_captain",
+  "modelKey": "frontier_sunmeadow_empire_field_captain",
+  "displayName": "Sunmeadow Empire Field Captain",
+  "race": "empire",
+  "realm": "aegis",
+  "gender": "male",
+  "bodyVariant": "m",
+  "bodyFamily": "frontier_sunmeadow_field_captain_v1_m",
+  "foundationFamily": "civic_humanoid_v2_m",
+  "skeletonId": "sunmeadow_field_captain_humanoid_v1",
+  "bindPoseId": "sunmeadow_field_captain_a_v1",
+  "runtimeReady": false,
+  "publicationOwner": "root task",
+  "requiredClips": ["idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump"],
+  "technicalGate": "python authoring/blender/sunmeadow-field-captain/tools/test_exports.py",
+  "technicalReadiness": "review/technical-readiness.json",
+  "reviewSuffix": "_final",
+  "existingNpc": {
+    "zoneId": "sunmeadow_march",
+    "id": "sunmeadow_march_marshal",
+    "name": "Corren Vale",
+    "title": "Tier 1 Campaign Marshal",
+    "role": "guard",
+    "realm": "aegis",
+    "position": {"x": -419, "z": -239},
+    "rotY": 0
+  },
+  "scope": "Original complete fitted adult male field-officer uniform, light armor and physically supported belt equipment, using its own fitted nine-clip NPC animation pack. No modular armor or draw-gameplay compatibility claim."
+}

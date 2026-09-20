@@ -1,0 +1,811 @@
+{
+  "key": "frontier_sunmeadow_empire_field_captain",
+  "status": "draft",
+  "sourceFoundationSha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
+  "masterSha256": "484ed6e3f27514f3d685d1ab3f4df63a5e0be83e294e038c97d1785edf8f3eec",
+  "generatorSha256": "be61682c22de55793b695a6f5519285372d2c261d49647d54e7d8a778f10f158",
+  "exporterSha256": "d3253c9afba92fd4362270bbc72f46145e15a3936482b325e7b53bc7df3ce8ca",
+  "authoringMasterSha256": "bb1ad20be71a419b713972896038d3b7915e267e3735cb20aa37d90f65fa7e04",
+  "sourceFiles": [
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/character-contract.json",
+      "sha256": "9f512065b861f2e53d8f68079548772b5eae322a49e850fdeacfbcb842d4d9cd",
+      "bytes": 1419
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/foundation-provenance.json",
+      "sha256": "42126cabaab875da8b59e058cbd46e8055059bfff81b9797c47b508597c27d28",
+      "bytes": 9742
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/foundations/body_civic_humanoid_v2_m.glb",
+      "sha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
+      "bytes": 9050988
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/foundations/civic_humanoid_v2_m.quad-surface.json.gz",
+      "sha256": "9e36be7bb14d94e0f71cf6754644aa4e57e4f0177c0f3f28123986a64dd806fc",
+      "bytes": 1130074
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/foundations/prelate-/skin_basecolor.png",
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "bytes": 44236
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/foundations/prelate-/skin_roughness.png",
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "bytes": 20073
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/review/equipment-attachment-source.json",
+      "sha256": "003ca612437421da2698ce7d2e747e7f9af613c0b0f9ef8dfd2c02c28f285d7b",
+      "bytes": 43214
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/review/male-foundation.json",
+      "sha256": "678944e8e1f851658978f1c8b65533b79a2d1d83a2200d6bb194275ac61a69ac",
+      "bytes": 17220
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/sources/frontier_sunmeadow_empire_field_captain.blend",
+      "sha256": "484ed6e3f27514f3d685d1ab3f4df63a5e0be83e294e038c97d1785edf8f3eec",
+      "bytes": 24700758
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_hair_basecolor.png",
+      "sha256": "20e95bd0d0b08aff222f4b4d80c124644e7bdf2177f105e2f997c05ba19b218c",
+      "bytes": 109987
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_hair_normal.png",
+      "sha256": "61b1a49532e65da58b5bd89c5c605f30ffaffe9382026b489d343a2d22535778",
+      "bytes": 486569
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_hair_roughness.png",
+      "sha256": "de30ea1a5e6662870622c854f0d570327f5444136c8f83c9e18d8f438de067d2",
+      "bytes": 252691
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_layer_leather_brigandine_basecolor.png",
+      "sha256": "123d8b353089dadc95f2335aaa796cfbcf1601b14d7d8729d786cffebcbd45fd",
+      "bytes": 830460
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_layer_leather_brigandine_normal.png",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_layer_leather_brigandine_roughness.png",
+      "sha256": "a485387e82e5304858166a9d432e02588cd1bc1aec9b144ca4023f82ad85906d",
+      "bytes": 867071
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_layer_shoulder_felt_basecolor.png",
+      "sha256": "070e58d634386719ae479a65acd46e4457f246c94f49352b2086f0d42ac98994",
+      "bytes": 444553
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_layer_shoulder_felt_normal.png",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_layer_shoulder_felt_roughness.png",
+      "sha256": "15810ba5b101bd0e5a1a850424ce99789e8b9f369b7c38ed980a40919cf86056",
+      "bytes": 143780
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_tool_dispatch_leather_basecolor.png",
+      "sha256": "c4a10a91c6e63138aa920e56942af7fcdb766a5a3a91068916c6678b54e778e0",
+      "bytes": 642752
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_tool_dispatch_leather_normal.png",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/captain_tool_dispatch_leather_roughness.png",
+      "sha256": "e2b814522b47a3b2fb17a2a145cc2030666de699cd1996f55b0208aece635f3d",
+      "bytes": 866369
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_wool_basecolor.png",
+      "sha256": "54f5176fed57605741a8081c4116859b1dfaef08d3177ffd5aaf4722407ce0e3",
+      "bytes": 369373
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_wool_normal.png",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_wool_roughness.png",
+      "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+      "bytes": 144135
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_worked_leather_basecolor.png",
+      "sha256": "f0a5c141fbdd5f91ac29d0dcbbb7b70db2511e9277025f8a8e797d8cc04682cf",
+      "bytes": 810915
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_worked_leather_normal.png",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_worked_leather_roughness.png",
+      "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+      "bytes": 866702
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_woven_linen_basecolor.png",
+      "sha256": "980ff93c85ac7faeb0cdfe625e32b3db0d9c2508dacf2573aa1bb8ade9920e6e",
+      "bytes": 611864
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_woven_linen_normal.png",
+      "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+      "bytes": 611208
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/textures/empire_field_captain_woven_linen_roughness.png",
+      "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+      "bytes": 350720
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/apron_clearance.py",
+      "sha256": "de97cc1351d0bf2ed90ee38b381cacdb9eb1a95714f77cc625480ef26f0748a7",
+      "bytes": 5184
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/apron_details.py",
+      "sha256": "58e670bfc9aedecb3c995fb4815e51ee06115c1ceb7630c824020ff3b2dc2c10",
+      "bytes": 4221
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/artisan_equipment.py",
+      "sha256": "1e6fbf3235edea35ce189b6f3d99388ef1ad718c25eed02e7f48f46fd5ab8d94",
+      "bytes": 5483
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/authored_artisan_head.py",
+      "sha256": "90364d039936f07dd97a1da2e98ad7ae36ccdea0518d0c4624ee4a2deba7f242",
+      "bytes": 18725
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/build_inhabitants.py",
+      "sha256": "be61682c22de55793b695a6f5519285372d2c261d49647d54e7d8a778f10f158",
+      "bytes": 32392
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/captain_details.py",
+      "sha256": "4513dcc779ad027c78c5687740f8f317934fb25054f73af00232812fd7469ca3",
+      "bytes": 14771
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/export_tagged.py",
+      "sha256": "d3253c9afba92fd4362270bbc72f46145e15a3936482b325e7b53bc7df3ce8ca",
+      "bytes": 9756
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/export_tangents.py",
+      "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+      "bytes": 3281
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/fitted_boot_details.py",
+      "sha256": "3d7a6d5aea8e78c38324f741b15bf45e378dd1f9ff466237976fea5c0f7d6336",
+      "bytes": 3194
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/surface_bindings.py",
+      "sha256": "cdb9d1b8fb4293dab25c5dd9315e158459a95a90a4bf5d665f2f71e91eb77898",
+      "bytes": 2267
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/surface_garments.py",
+      "sha256": "e3389e67399833899bebd0754dce49799903c79de2f6601933bbee6baa52909d",
+      "bytes": 10145
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/tailored_clothing.py",
+      "sha256": "2b10e464cebf79214b0718fa824125fe80ab56ca62c11b987bc7955db521abb8",
+      "bytes": 6162
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/tailored_locomotion.py",
+      "sha256": "cb3b41dd8065b7257d9c30353d8e581494663a3893c57451beaad3dfeb96d3f7",
+      "bytes": 26789
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/tools/workwear_finish.py",
+      "sha256": "b180fe850df9e0efae234b559bce36ac29e7774019c72fba0262c960b56103f8",
+      "bytes": 8066
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/anim_library.py",
+      "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+      "bytes": 22611
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/canonical_animation_pack.py",
+      "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+      "bytes": 8960
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py",
+      "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+      "bytes": 17430
+    },
+    {
+      "path": "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json",
+      "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+      "bytes": 1755
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/sources/frontier_sunmeadow_empire_field_captain.authored.blend",
+      "sha256": "bb1ad20be71a419b713972896038d3b7915e267e3735cb20aa37d90f65fa7e04",
+      "bytes": 25196940
+    },
+    {
+      "path": "authoring/blender/sunmeadow-field-captain/review/semantic-parts.json",
+      "sha256": "d9d536f08e269a73187b15c9789f1448f5b5d1a5d7ed77647ad1b5b4006224fa",
+      "bytes": 16266
+    }
+  ],
+  "embeddedImages": [
+    {
+      "name": "captain_hair_basecolor",
+      "sha256": "20e95bd0d0b08aff222f4b4d80c124644e7bdf2177f105e2f997c05ba19b218c",
+      "bytes": 109987
+    },
+    {
+      "name": "captain_hair_normal",
+      "sha256": "61b1a49532e65da58b5bd89c5c605f30ffaffe9382026b489d343a2d22535778",
+      "bytes": 486569
+    },
+    {
+      "name": "captain_hair_roughness",
+      "sha256": "de30ea1a5e6662870622c854f0d570327f5444136c8f83c9e18d8f438de067d2",
+      "bytes": 252691
+    },
+    {
+      "name": "captain_layer_leather_brigandine_basecolor",
+      "sha256": "123d8b353089dadc95f2335aaa796cfbcf1601b14d7d8729d786cffebcbd45fd",
+      "bytes": 830460
+    },
+    {
+      "name": "captain_layer_leather_brigandine_normal",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "name": "captain_layer_leather_brigandine_roughness",
+      "sha256": "a485387e82e5304858166a9d432e02588cd1bc1aec9b144ca4023f82ad85906d",
+      "bytes": 867071
+    },
+    {
+      "name": "captain_layer_shoulder_felt_basecolor",
+      "sha256": "070e58d634386719ae479a65acd46e4457f246c94f49352b2086f0d42ac98994",
+      "bytes": 444553
+    },
+    {
+      "name": "captain_layer_shoulder_felt_normal",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "name": "captain_layer_shoulder_felt_roughness",
+      "sha256": "15810ba5b101bd0e5a1a850424ce99789e8b9f369b7c38ed980a40919cf86056",
+      "bytes": 143780
+    },
+    {
+      "name": "captain_skin_normal",
+      "sha256": "a39c4a7ad0741f450fb4aff8458669a35ea405142573a6d8a99bff0b3d5410ff",
+      "bytes": 107083
+    },
+    {
+      "name": "captain_tool_dispatch_leather_basecolor",
+      "sha256": "c4a10a91c6e63138aa920e56942af7fcdb766a5a3a91068916c6678b54e778e0",
+      "bytes": 642752
+    },
+    {
+      "name": "captain_tool_dispatch_leather_normal",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "name": "captain_tool_dispatch_leather_roughness",
+      "sha256": "e2b814522b47a3b2fb17a2a145cc2030666de699cd1996f55b0208aece635f3d",
+      "bytes": 866369
+    },
+    {
+      "name": "empire_field_captain_wool_basecolor",
+      "sha256": "54f5176fed57605741a8081c4116859b1dfaef08d3177ffd5aaf4722407ce0e3",
+      "bytes": 369373
+    },
+    {
+      "name": "empire_field_captain_wool_normal",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "name": "empire_field_captain_wool_roughness",
+      "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+      "bytes": 144135
+    },
+    {
+      "name": "empire_field_captain_worked_leather_basecolor",
+      "sha256": "f0a5c141fbdd5f91ac29d0dcbbb7b70db2511e9277025f8a8e797d8cc04682cf",
+      "bytes": 810915
+    },
+    {
+      "name": "empire_field_captain_worked_leather_normal",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "name": "empire_field_captain_worked_leather_roughness",
+      "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+      "bytes": 866702
+    },
+    {
+      "name": "empire_field_captain_woven_linen_basecolor",
+      "sha256": "980ff93c85ac7faeb0cdfe625e32b3db0d9c2508dacf2573aa1bb8ade9920e6e",
+      "bytes": 611864
+    },
+    {
+      "name": "empire_field_captain_woven_linen_normal",
+      "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+      "bytes": 611208
+    },
+    {
+      "name": "empire_field_captain_woven_linen_roughness",
+      "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+      "bytes": 350720
+    },
+    {
+      "name": "skin_basecolor.png",
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "bytes": 44236
+    },
+    {
+      "name": "skin_roughness.png",
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "bytes": 20073
+    },
+    {
+      "name": "young_lightskinned_male_diffuse",
+      "sha256": "f100f4cd9dd763bad925bfec17a434e98bdc926c385b7e7db9d93b46fcc9e456",
+      "bytes": 4230876
+    }
+  ],
+  "sourceTools": {
+    "tools\\apron_clearance.py": "de97cc1351d0bf2ed90ee38b381cacdb9eb1a95714f77cc625480ef26f0748a7",
+    "tools\\apron_details.py": "58e670bfc9aedecb3c995fb4815e51ee06115c1ceb7630c824020ff3b2dc2c10",
+    "tools\\artisan_equipment.py": "1e6fbf3235edea35ce189b6f3d99388ef1ad718c25eed02e7f48f46fd5ab8d94",
+    "tools\\authored_artisan_head.py": "90364d039936f07dd97a1da2e98ad7ae36ccdea0518d0c4624ee4a2deba7f242",
+    "tools\\build_inhabitants.py": "be61682c22de55793b695a6f5519285372d2c261d49647d54e7d8a778f10f158",
+    "tools\\captain_details.py": "4513dcc779ad027c78c5687740f8f317934fb25054f73af00232812fd7469ca3",
+    "tools\\export_tagged.py": "d3253c9afba92fd4362270bbc72f46145e15a3936482b325e7b53bc7df3ce8ca",
+    "tools\\export_tangents.py": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+    "tools\\fitted_boot_details.py": "3d7a6d5aea8e78c38324f741b15bf45e378dd1f9ff466237976fea5c0f7d6336",
+    "tools\\inspect_arm_volume.py": "79e3d70f37b472b3ab08bec8487a7728b8d8f7e2eb14fdaeac618b4dab5307b7",
+    "tools\\inspect_boot_clearance.py": "39f9ae468fffc99895fbceff32da1bde25ccd1350a2747fe11d82b443cb61b35",
+    "tools\\inspect_boot_welt.py": "7597569ffd746a7ef33a59327c9529cbe8921d7de13dce242aa172d63a78a341",
+    "tools\\inspect_equipment_attachment.py": "a3296f41e2539a8dbd6260c7e509a983cf97aaad2b74b64348feec239c962178",
+    "tools\\inspect_export_motion.py": "079c15d7fd3d1d1c5f109c53e19ba6f314ce86424fe6f18ca53645755537ac1b",
+    "tools\\inspect_foundation.py": "a8467dc213410c6dd7645f6477f11cdb98e70378ff7f6c32739a934a62e35983",
+    "tools\\inspect_master.py": "3174e7737b7a8ba2fa9489c31dc3437f7db98affdef46c9d5d130bc08844e757",
+    "tools\\inspect_outfit_clearance.py": "03995d5bc6d6e2b7c6e15a32aaa070634b776d313ef6b8d07aa697fad18c42f2",
+    "tools\\inspect_shoulder_routing.py": "b07c1140cf86b458db070ccda3afb1271390ff8f1fa7b141477e22f2bae78bb8",
+    "tools\\retain_validation_inputs.py": "2135fa493ea176d76237f8455c604e0394a43cc564170be6e736711301841c98",
+    "tools\\review_inhabitants.py": "3d7a73296406df80d695ffe4d018817a77c6520653156786dcd07084026abd3a",
+    "tools\\surface_bindings.py": "cdb9d1b8fb4293dab25c5dd9315e158459a95a90a4bf5d665f2f71e91eb77898",
+    "tools\\surface_contact.py": "85efd5a6df16f37e8f2001e7e7fbf0df2d8a083422c478a4640c57ecbb4f8b3b",
+    "tools\\surface_garments.py": "e3389e67399833899bebd0754dce49799903c79de2f6601933bbee6baa52909d",
+    "tools\\tailored_clothing.py": "2b10e464cebf79214b0718fa824125fe80ab56ca62c11b987bc7955db521abb8",
+    "tools\\tailored_locomotion.py": "cb3b41dd8065b7257d9c30353d8e581494663a3893c57451beaad3dfeb96d3f7",
+    "tools\\test_exports.py": "ad672e02bdd58a09e5b0019143954b0749261e7641c12afadd2cb6754ba573c3",
+    "tools\\workwear_finish.py": "b180fe850df9e0efae234b559bce36ac29e7774019c72fba0262c960b56103f8"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_empire_field_captain_lod0.glb",
+      "master": "sources/frontier_sunmeadow_empire_field_captain_lod0.blend",
+      "masterSha256": "25f4c7dc09b086508389a06dbbcc986ecc57f72ba001c4d55502a1583c4fd15d",
+      "sha256": "eae89f5b537468b052a3ed68b9928baee2ad9d014dd4454a4baf9ca58558e29a",
+      "bytes": 27350500,
+      "tangentRepair": {
+        "inputSha256": "eae89f5b537468b052a3ed68b9928baee2ad9d014dd4454a4baf9ca58558e29a",
+        "outputSha256": "eae89f5b537468b052a3ed68b9928baee2ad9d014dd4454a4baf9ca58558e29a",
+        "toolSha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "changes": []
+      },
+      "triangles": 149882,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "semanticCoverage": {
+        "vertices": 98418,
+        "partVertexCounts": {
+          "74": 4040,
+          "91": 19521,
+          "86": 2674,
+          "84": 76,
+          "85": 76,
+          "92": 9760,
+          "76": 3730,
+          "58": 102,
+          "59": 102,
+          "60": 102,
+          "61": 102,
+          "62": 102,
+          "63": 102,
+          "64": 102,
+          "65": 102,
+          "77": 3730,
+          "66": 102,
+          "67": 102,
+          "68": 102,
+          "69": 102,
+          "70": 102,
+          "71": 102,
+          "72": 102,
+          "73": 102,
+          "78": 40,
+          "79": 40,
+          "80": 40,
+          "81": 40,
+          "82": 40,
+          "83": 40,
+          "95": 1686,
+          "42": 163,
+          "43": 163,
+          "44": 163,
+          "45": 163,
+          "93": 1964,
+          "94": 1964,
+          "36": 382,
+          "37": 374,
+          "46": 5446,
+          "39": 422,
+          "40": 922,
+          "38": 1602,
+          "10": 522,
+          "54": 977,
+          "55": 977,
+          "56": 977,
+          "57": 809,
+          "87": 40,
+          "88": 40,
+          "89": 40,
+          "90": 40,
+          "11": 102,
+          "12": 102,
+          "13": 102,
+          "14": 102,
+          "15": 99,
+          "16": 98,
+          "17": 99,
+          "18": 100,
+          "19": 100,
+          "20": 98,
+          "21": 101,
+          "22": 99,
+          "23": 100,
+          "24": 99,
+          "25": 98,
+          "26": 103,
+          "27": 102,
+          "28": 100,
+          "29": 102,
+          "30": 103,
+          "31": 102,
+          "32": 102,
+          "33": 103,
+          "6": 148,
+          "2": 42,
+          "3": 32,
+          "4": 32,
+          "5": 32,
+          "75": 16311,
+          "41": 6934,
+          "50": 515,
+          "51": 510,
+          "52": 1380,
+          "53": 1378,
+          "35": 366,
+          "49": 366,
+          "1": 29,
+          "47": 555,
+          "7": 555,
+          "8": 555,
+          "9": 555,
+          "34": 248,
+          "48": 244
+        },
+        "fractionalIds": 0
+      }
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_empire_field_captain_lod1.glb",
+      "master": "sources/frontier_sunmeadow_empire_field_captain_lod1.blend",
+      "masterSha256": "741a4c1313d45ed161bb889b3c4fe4101dc060eac33e364badd9e2c6b4cd0e6b",
+      "sha256": "661a4dc6be7eab27735a5018d25f51594146ff0237517393680faf6287f8ed8c",
+      "bytes": 24348016,
+      "tangentRepair": {
+        "inputSha256": "661a4dc6be7eab27735a5018d25f51594146ff0237517393680faf6287f8ed8c",
+        "outputSha256": "661a4dc6be7eab27735a5018d25f51594146ff0237517393680faf6287f8ed8c",
+        "toolSha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "changes": []
+      },
+      "triangles": 86930,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "semanticCoverage": {
+        "vertices": 61964,
+        "partVertexCounts": {
+          "74": 3306,
+          "91": 11101,
+          "86": 1618,
+          "84": 76,
+          "85": 76,
+          "92": 6717,
+          "76": 2392,
+          "58": 94,
+          "59": 94,
+          "60": 94,
+          "61": 94,
+          "62": 94,
+          "63": 94,
+          "64": 94,
+          "65": 94,
+          "77": 2393,
+          "66": 94,
+          "67": 94,
+          "68": 94,
+          "69": 94,
+          "70": 94,
+          "71": 94,
+          "72": 94,
+          "73": 94,
+          "78": 40,
+          "79": 40,
+          "80": 40,
+          "81": 40,
+          "82": 40,
+          "83": 40,
+          "95": 1219,
+          "42": 119,
+          "43": 132,
+          "44": 102,
+          "45": 109,
+          "93": 525,
+          "94": 523,
+          "36": 261,
+          "37": 249,
+          "46": 2845,
+          "39": 213,
+          "40": 276,
+          "38": 788,
+          "10": 517,
+          "54": 418,
+          "55": 435,
+          "56": 426,
+          "57": 335,
+          "87": 40,
+          "88": 40,
+          "89": 40,
+          "90": 40,
+          "11": 81,
+          "12": 82,
+          "13": 83,
+          "14": 81,
+          "15": 79,
+          "16": 78,
+          "17": 81,
+          "18": 82,
+          "19": 80,
+          "20": 79,
+          "21": 80,
+          "22": 81,
+          "23": 82,
+          "24": 81,
+          "25": 79,
+          "26": 81,
+          "27": 83,
+          "28": 82,
+          "29": 83,
+          "30": 81,
+          "31": 83,
+          "32": 81,
+          "33": 81,
+          "6": 148,
+          "2": 42,
+          "3": 32,
+          "4": 32,
+          "5": 32,
+          "75": 11209,
+          "41": 4000,
+          "50": 479,
+          "51": 488,
+          "52": 1067,
+          "53": 1172,
+          "35": 366,
+          "49": 366,
+          "1": 29,
+          "47": 355,
+          "7": 293,
+          "8": 211,
+          "9": 224,
+          "34": 248,
+          "48": 232
+        },
+        "fractionalIds": 0
+      }
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_empire_field_captain_lod2.glb",
+      "master": "sources/frontier_sunmeadow_empire_field_captain_lod2.blend",
+      "masterSha256": "341f3037020901751df65b952d4d3d419e216942c9c67ad657d26c9f5c734795",
+      "sha256": "e31f74f1ad46284ec53c3c2eaed03f4df90ac76617b72408e8a0835073cf3b42",
+      "bytes": 22246028,
+      "tangentRepair": {
+        "inputSha256": "e31f74f1ad46284ec53c3c2eaed03f4df90ac76617b72408e8a0835073cf3b42",
+        "outputSha256": "e31f74f1ad46284ec53c3c2eaed03f4df90ac76617b72408e8a0835073cf3b42",
+        "toolSha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "changes": []
+      },
+      "triangles": 44915,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "semanticCoverage": {
+        "vertices": 36272,
+        "partVertexCounts": {
+          "74": 1988,
+          "91": 4933,
+          "86": 812,
+          "84": 64,
+          "85": 64,
+          "92": 3355,
+          "58": 54,
+          "59": 53,
+          "60": 53,
+          "61": 49,
+          "62": 51,
+          "63": 49,
+          "64": 49,
+          "65": 53,
+          "66": 54,
+          "67": 53,
+          "68": 53,
+          "69": 49,
+          "70": 51,
+          "71": 49,
+          "72": 49,
+          "73": 53,
+          "78": 22,
+          "79": 24,
+          "80": 18,
+          "81": 20,
+          "82": 18,
+          "83": 22,
+          "95": 666,
+          "42": 72,
+          "43": 84,
+          "44": 54,
+          "45": 57,
+          "76": 2392,
+          "77": 2393,
+          "93": 337,
+          "94": 340,
+          "36": 183,
+          "37": 158,
+          "46": 1134,
+          "39": 136,
+          "40": 140,
+          "38": 290,
+          "10": 401,
+          "54": 210,
+          "55": 213,
+          "56": 192,
+          "57": 174,
+          "87": 40,
+          "88": 40,
+          "89": 40,
+          "90": 40,
+          "11": 39,
+          "12": 38,
+          "13": 36,
+          "14": 37,
+          "15": 37,
+          "16": 36,
+          "17": 34,
+          "18": 35,
+          "19": 36,
+          "20": 32,
+          "21": 39,
+          "22": 35,
+          "23": 35,
+          "24": 34,
+          "25": 34,
+          "26": 36,
+          "27": 39,
+          "28": 35,
+          "29": 36,
+          "30": 36,
+          "31": 37,
+          "32": 36,
+          "33": 36,
+          "6": 117,
+          "2": 28,
+          "3": 24,
+          "4": 22,
+          "5": 20,
+          "75": 8210,
+          "41": 1794,
+          "50": 311,
+          "51": 323,
+          "52": 570,
+          "53": 736,
+          "35": 215,
+          "49": 197,
+          "1": 29,
+          "47": 191,
+          "7": 164,
+          "8": 137,
+          "9": 129,
+          "34": 148,
+          "48": 131
+        },
+        "fractionalIds": 0
+      },
+      "bootRetention": {
+        "policy": "Exact LOD1 boot topology, winding and skinning retained before lowest-LOD export.",
+        "referenceMaster": "sources/frontier_sunmeadow_empire_field_captain_lod1.blend",
+        "referenceMasterSha256": "741a4c1313d45ed161bb889b3c4fe4101dc060eac33e364badd9e2c6b4cd0e6b",
+        "tool": "tools/export_tagged.py",
+        "toolSha256": "d3253c9afba92fd4362270bbc72f46145e15a3936482b325e7b53bc7df3ce8ca",
+        "parts": [
+          76,
+          77
+        ]
+      }
+    }
+  ]
+}

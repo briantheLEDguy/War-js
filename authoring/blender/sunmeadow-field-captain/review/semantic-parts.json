@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 1,
+  "attribute": "_CAPTAIN_PART",
+  "authoringMaster": "sources/frontier_sunmeadow_empire_field_captain.authored.blend",
+  "authoringMasterSha256": "bb1ad20be71a419b713972896038d3b7915e267e3735cb20aa37d90f65fa7e04",
+  "parts": {
+    "captain_aegis_field_shield": {
+      "id": 1,
+      "sourceVertices": 10,
+      "materials": [
+        "captain_layer_shoulder_felt"
+      ]
+    },
+    "captain_aegis_rising_ray": {
+      "id": 2,
+      "sourceVertices": 18,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_aegis_rising_ray.001": {
+      "id": 3,
+      "sourceVertices": 12,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_aegis_rising_ray.002": {
+      "id": 4,
+      "sourceVertices": 12,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_aegis_rising_ray.003": {
+      "id": 5,
+      "sourceVertices": 12,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_aegis_shield_border": {
+      "id": 6,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_articulated_shoulder_lame": {
+      "id": 7,
+      "sourceVertices": 225,
+      "materials": [
+        "captain_layer_tempered_steel"
+      ]
+    },
+    "captain_articulated_shoulder_lame.001": {
+      "id": 8,
+      "sourceVertices": 225,
+      "materials": [
+        "captain_layer_tempered_steel"
+      ]
+    },
+    "captain_articulated_shoulder_lame.002": {
+      "id": 9,
+      "sourceVertices": 225,
+      "materials": [
+        "captain_layer_tempered_steel"
+      ]
+    },
+    "captain_auburn_scalp": {
+      "id": 10,
+      "sourceVertices": 221,
+      "materials": [
+        "captain_chestnut_directional_hair"
+      ]
+    },
+    "captain_brigandine_plate_rivet": {
+      "id": 11,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.001": {
+      "id": 12,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.002": {
+      "id": 13,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.003": {
+      "id": 14,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.004": {
+      "id": 15,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.005": {
+      "id": 16,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.006": {
+      "id": 17,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.007": {
+      "id": 18,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.008": {
+      "id": 19,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.009": {
+      "id": 20,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.010": {
+      "id": 21,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.011": {
+      "id": 22,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.012": {
+      "id": 23,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.013": {
+      "id": 24,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.014": {
+      "id": 25,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.015": {
+      "id": 26,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.016": {
+      "id": 27,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.017": {
+      "id": 28,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.018": {
+      "id": 29,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.019": {
+      "id": 30,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.020": {
+      "id": 31,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.021": {
+      "id": 32,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_brigandine_plate_rivet.022": {
+      "id": 33,
+      "sourceVertices": 60,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "captain_dispatch_case": {
+      "id": 34,
+      "sourceVertices": 160,
+      "materials": [
+        "captain_tool_dispatch_leather"
+      ]
+    },
+    "captain_dispatch_case_turned_flap_edge": {
+      "id": 35,
+      "sourceVertices": 198,
+      "materials": [
+        "captain_turned_binding"
+      ]
+    },
+    "captain_double_front_seam": {
+      "id": 36,
+      "sourceVertices": 165,
+      "materials": [
+        "empire_field_captain_linen_seam"
+      ]
+    },
+    "captain_double_front_seam.001": {
+      "id": 37,
+      "sourceVertices": 165,
+      "materials": [
+        "empire_field_captain_linen_seam"
+      ]
+    },
+    "captain_ears": {
+      "id": 38,
+      "sourceVertices": 1476,
+      "materials": [
+        "captain_authored_skin_ear"
+      ]
+    },
+    "captain_eyebrows": {
+      "id": 39,
+      "sourceVertices": 340,
+      "materials": [
+        "captain_authored_brow"
+      ]
+    },
+    "captain_eyes": {
+      "id": 40,
+      "sourceVertices": 794,
+      "materials": [
+        "captain_authored_eye_white",
+        "captain_authored_iris",
+        "captain_authored_pupil"
+      ]
+    },
+    "captain_fitted_brigandine": {
+      "id": 41,
+      "sourceVertices": 3200,
+      "materials": [
+        "captain_layer_leather_brigandine"
+      ]
+    },
+    "captain_flat_case_hanger": {
+      "id": 42,
+      "sourceVertices": 50,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "captain_flat_case_hanger.001": {
+      "id": 43,
+      "sourceVertices": 50,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "captain_flat_case_hanger.002": {
+      "id": 44,
+      "sourceVertices": 50,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "captain_flat_case_hanger.003": {
+      "id": 45,
+      "sourceVertices": 50,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "captain_head_skin": {
+      "id": 46,
+      "sourceVertices": 5123,
+      "materials": [
+        "captain_authored_skin",
+        "captain_authored_brow"
+      ]
+    },
+    "captain_left_shoulder_pad": {
+      "id": 47,
+      "sourceVertices": 225,
+      "materials": [
+        "captain_layer_shoulder_felt"
+      ]
+    },
+    "captain_seal_tool_sheath": {
+      "id": 48,
+      "sourceVertices": 160,
+      "materials": [
+        "captain_tool_dispatch_leather"
+      ]
+    },
+    "captain_seal_tool_sheath_turned_flap_edge": {
+      "id": 49,
+      "sourceVertices": 198,
+      "materials": [
+        "captain_turned_binding"
+      ]
+    },
+    "captain_structural_shoulder_bridge": {
+      "id": 50,
+      "sourceVertices": 162,
+      "materials": [
+        "captain_layer_leather_brigandine"
+      ]
+    },
+    "captain_structural_shoulder_bridge.001": {
+      "id": 51,
+      "sourceVertices": 162,
+      "materials": [
+        "captain_layer_leather_brigandine"
+      ]
+    },
+    "captain_turned_brigandine_edge": {
+      "id": 52,
+      "sourceVertices": 774,
+      "materials": [
+        "captain_turned_binding"
+      ]
+    },
+    "captain_turned_brigandine_edge.001": {
+      "id": 53,
+      "sourceVertices": 774,
+      "materials": [
+        "captain_turned_binding"
+      ]
+    },
+    "captain_volumetric_swept_lock_0": {
+      "id": 54,
+      "sourceVertices": 60,
+      "materials": [
+        "captain_chestnut_directional_hair"
+      ]
+    },
+    "captain_volumetric_swept_lock_1": {
+      "id": 55,
+      "sourceVertices": 60,
+      "materials": [
+        "captain_chestnut_directional_hair"
+      ]
+    },
+    "captain_volumetric_swept_lock_2": {
+      "id": 56,
+      "sourceVertices": 60,
+      "materials": [
+        "captain_chestnut_directional_hair"
+      ]
+    },
+    "captain_volumetric_swept_lock_3": {
+      "id": 57,
+      "sourceVertices": 50,
+      "materials": [
+        "captain_chestnut_directional_hair"
+      ]
+    },
+    "crossed_boot_lace": {
+      "id": 58,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.001": {
+      "id": 59,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.002": {
+      "id": 60,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.003": {
+      "id": 61,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.004": {
+      "id": 62,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.005": {
+      "id": 63,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.006": {
+      "id": 64,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.007": {
+      "id": 65,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.008": {
+      "id": 66,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.009": {
+      "id": 67,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.010": {
+      "id": 68,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.011": {
+      "id": 69,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.012": {
+      "id": 70,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.013": {
+      "id": 71,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.014": {
+      "id": 72,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.015": {
+      "id": 73,
+      "sourceVertices": 54,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "empire_field_captain_exposed_anatomy": {
+      "id": 74,
+      "sourceVertices": 4040,
+      "materials": [
+        "body_civic_humanoid_v2_m.body"
+      ]
+    },
+    "farmer_shirt_sewn_seams": {
+      "id": 75,
+      "sourceVertices": 8790,
+      "materials": [
+        "farmer_shirt_sewing_thread"
+      ]
+    },
+    "fitted_boot_-1": {
+      "id": 76,
+      "sourceVertices": 108,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_boot_1": {
+      "id": 77,
+      "sourceVertices": 108,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_placket_lace": {
+      "id": 78,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.001": {
+      "id": 79,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.002": {
+      "id": 80,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.003": {
+      "id": 81,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.004": {
+      "id": 82,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.005": {
+      "id": 83,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    },
+    "fitted_shirt_placket": {
+      "id": 84,
+      "sourceVertices": 40,
+      "materials": [
+        "empire_field_captain_woven_linen"
+      ]
+    },
+    "fitted_shirt_placket.001": {
+      "id": 85,
+      "sourceVertices": 40,
+      "materials": [
+        "empire_field_captain_woven_linen"
+      ]
+    },
+    "folded_standing_shirt_collar": {
+      "id": 86,
+      "sourceVertices": 260,
+      "materials": [
+        "empire_field_captain_woven_linen"
+      ]
+    },
+    "forged_buckle_frame": {
+      "id": 87,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "forged_buckle_frame.001": {
+      "id": 88,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "forged_buckle_frame.002": {
+      "id": 89,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "forged_buckle_frame.003": {
+      "id": 90,
+      "sourceVertices": 16,
+      "materials": [
+        "empire_field_captain_handled_brass"
+      ]
+    },
+    "shirt_continuous_tailored_surface": {
+      "id": 91,
+      "sourceVertices": 2394,
+      "materials": [
+        "empire_field_captain_woven_linen"
+      ]
+    },
+    "trousers_continuous_tailored_surface": {
+      "id": 92,
+      "sourceVertices": 1188,
+      "materials": [
+        "empire_field_captain_wool"
+      ]
+    },
+    "welt_stitch_-1": {
+      "id": 93,
+      "sourceVertices": 1164,
+      "materials": [
+        "empire_field_captain_linen_seam"
+      ]
+    },
+    "welt_stitch_1": {
+      "id": 94,
+      "sourceVertices": 1164,
+      "materials": [
+        "empire_field_captain_linen_seam"
+      ]
+    },
+    "work_belt": {
+      "id": 95,
+      "sourceVertices": 960,
+      "materials": [
+        "empire_field_captain_worked_leather"
+      ]
+    }
+  }
+}
