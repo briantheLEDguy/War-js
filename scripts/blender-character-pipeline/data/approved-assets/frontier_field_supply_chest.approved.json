@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.field_supply_chest",
+  "displayName": "Field Supply Chest",
+  "category": "prop",
+  "model": "frontier_field_supply_chest_lod0.glb",
+  "qc": "frontier_field_supply_chest_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_field_supply_chest"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "ce563b1256fd8bc7fa45675d8cb4128c3df6d4ff7d71a708e8ea055470ecdd37",
+    "qcSha256": "e4e3082b842f837b00a703031b75d3f4dcd7e63175f713a487bcd04a1c4a523d",
+    "previews": {
+      "assembly": "82e56f55281772ae82ba70a8fa947e4c53b4727147d3e6b2f0dd794c8e1df16d"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/field-supply-chest/releases/frontier_field_supply_chest/9869eaf9d6e8f9747a30/files/authoring/blender/field-supply-chest/review/frontier_field_supply_chest_lod0_neutral.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "9869eaf9d6e8f9747a307241235a389c7ac5beaee8b824940282690a5d5dce74"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_supply_chest_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-supply-chest/releases/frontier_field_supply_chest/9869eaf9d6e8f9747a30/files/authoring/blender/field-supply-chest/masters/frontier_field_supply_chest_lod0.source.blend",
+    "sourceSha256": "857e2ef587306c121bbed5764f5b7b4a79e409c0d52581b867a35c0d883cd8c3"
+  },
+  "approvalState": "approved"
+}

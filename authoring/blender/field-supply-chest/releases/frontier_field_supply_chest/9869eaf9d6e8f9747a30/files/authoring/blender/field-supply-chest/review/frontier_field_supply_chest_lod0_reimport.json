@@ -1,0 +1,155 @@
+{
+  "model": "frontier_field_supply_chest_lod0.glb",
+  "sha256": "ce563b1256fd8bc7fa45675d8cb4128c3df6d4ff7d71a708e8ea055470ecdd37",
+  "reviewerSha256": "5bef1bc24bca5c314403a1ad0f7217a77cb19ca82aa08a0fdc8e8ae047daf4a7",
+  "audit": {
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 29776,
+    "meshes": [
+      {
+        "part": "frontier_field_supply_chest.oak",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 8896
+      },
+      {
+        "part": "frontier_field_supply_chest.iron",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 10484
+      },
+      {
+        "part": "frontier_field_supply_chest.brass",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 4612
+      },
+      {
+        "part": "frontier_field_supply_chest.leather",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 5784
+      }
+    ],
+    "boundsZUp": {
+      "minimum": [
+        -0.773684024810791,
+        -0.41749998927116394,
+        0.0
+      ],
+      "maximum": [
+        0.7736845016479492,
+        0.39900001883506775,
+        0.7904999852180481
+      ]
+    }
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_field_supply_chest_lod0_neutral.png",
+      "sha256": "82e56f55281772ae82ba70a8fa947e4c53b4727147d3e6b2f0dd794c8e1df16d",
+      "camera": {
+        "cameraZUp": [
+          2.700000047683716,
+          -5.0,
+          2.3899998664855957
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.38999998569488525
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 1.95,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "rear": {
+      "image": "frontier_field_supply_chest_lod0_rear.png",
+      "sha256": "b8db6b63bc10aace48ad832e0172cba6ef696a3311f078bb0ff08b6d4bd24b69",
+      "camera": {
+        "cameraZUp": [
+          -2.700000047683716,
+          5.0,
+          1.8899999856948853
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.38999998569488525
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 1.95,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "detail": {
+      "image": "frontier_field_supply_chest_lod0_detail.png",
+      "sha256": "da3cf3e5a5f1be7fd670f1d887d7e96426ec6cbdf2c60b5eb0882107130dd3dd",
+      "camera": {
+        "cameraZUp": [
+          1.2999999523162842,
+          -3.240000009536743,
+          1.7599999904632568
+        ],
+        "targetZUp": [
+          0.0,
+          -0.23999999463558197,
+          0.5600000023841858
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 0.98,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "joinery": {
+      "image": "frontier_field_supply_chest_lod0_joinery.png",
+      "sha256": "30395b234ea70ef189183850d99da6261dc4a270449ea790f43c4f2d9adc8829",
+      "camera": {
+        "cameraZUp": [
+          -2.615000009536743,
+          -4.289999961853027,
+          1.3650000095367432
+        ],
+        "targetZUp": [
+          -0.6150000095367432,
+          -0.28999999165534973,
+          0.36500000953674316
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 0.61,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_field_supply_chest_lod0_gameplay.png",
+      "sha256": "5256d7604569a4a976d10e7e6bcbc9a0e817099f081e190f8d334630de0a3d2c",
+      "camera": {
+        "cameraZUp": [
+          0.6000000238418579,
+          -4.0,
+          1.7200000286102295
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.38999998569488525
+        ],
+        "projection": "PERSP",
+        "orthoScale": null,
+        "distanceM": 4,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    }
+  }
+}

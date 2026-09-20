@@ -19,7 +19,7 @@ import { createKeepEnclosureAudit } from '../scripts/audit-keep-enclosures';
 const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const source = read('public/assets/maps/sunmeadow_march.json');
 const registry = read('public/assets/models/asset-index.json');
-const furnishingContracts = () => Object.assign({}, ...['frontier-workshop-items', 'field-apothecary']
+const furnishingContracts = () => Object.assign({}, ...['frontier-workshop-items', 'field-apothecary', 'field-supply-chest']
   .map(name => read(`authoring/blender/${name}/builder-contract.json`).assets));
 
 test('delivered cast preserves service identities and wildlife stays off objective/travel corridors', () => {
@@ -53,7 +53,7 @@ test('siege contents share keys across pairings while existing thematic exterior
     const result = integrateRegionalAssets(map, ready, contracts);
     const config = configs.find(config => config.id === map.id)!;
     const items = result.props.filter((p: {id: string; assetKey: string}) => p.id.includes('_delivered_') && SHARED_KEEP_ITEMS.includes(p.assetKey));
-    expect(items, map.id).toHaveLength(6);
+    expect(items, map.id).toHaveLength(8);
     expect(result.props.filter((p: {id: string}) => !p.id.includes('_delivered_') && !p.id.includes('_worksite_'))).toEqual(before);
     expect(integrateRegionalAssets(structuredClone(result), ready, contracts)).toEqual(result);
     const solids = mapPropNavigation(before, () => 0).collision;
@@ -71,7 +71,7 @@ test('siege contents share keys across pairings while existing thematic exterior
         expect(Math.abs(campaignGroundHeight(config, { x, y: 0, z }) - baseY), `${item.id} grounded feet`).toBeLessThan(.025);
       }
       const navigation = mapPropNavigation([item], () => 0);
-      const solid = navigation.collision.find(collider => collider.maxY! > .8);
+      const solid = navigation.collision.find(collider => collider.maxY! - collider.minY! > .4);
       expect(solid).toBeDefined();
       expect(campaignColliderContains(solid!, solid!.footprint!, .45)).toBe(true);
       const approach = envelopes[1];
@@ -127,7 +127,7 @@ test('delivered Cinderfen workshop contents retain order and placement through r
   const prepared = refresh(read('public/assets/maps/cinderfen_outskirts.json'));
   const delivered = integrateRegionalAssets(prepared, ready, contracts);
   const items = delivered.props.filter((prop: { id: string; assetKey: string }) => prop.id.includes('_delivered_') && SHARED_KEEP_ITEMS.includes(prop.assetKey));
-  expect(items).toHaveLength(6);
+  expect(items).toHaveLength(8);
   const refreshed = refresh(structuredClone(delivered));
   expect(refreshed.props).toEqual(delivered.props);
   expect(integrateRegionalAssets(refreshed, ready, contracts).props).toEqual(delivered.props);

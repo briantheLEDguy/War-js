@@ -41071,6 +41071,63 @@
       "heightMode": "absolute"
     },
     {
+      "id": "cinderfen_outskirts_delivered_aegis_supply_chest",
+      "kind": "frontier_field_supply_chest",
+      "assetKey": "frontier_field_supply_chest",
+      "model": "frontier_field_supply_chest_lod0.glb",
+      "x": -342,
+      "z": 13,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0.009249985218048096,
+          "width": 1.378000020980835,
+          "depth": 0.8165000081062317,
+          "minY": 0.10800088196992874,
+          "maxY": 0.7904999852180481
+        },
+        {
+          "x": -0.49299998581409454,
+          "z": 0,
+          "width": 0.10499998927116394,
+          "depth": 0.7059999704360962,
+          "minY": 0,
+          "maxY": 0.12099999934434891
+        },
+        {
+          "x": 0.49299998581409454,
+          "z": 0,
+          "width": 0.10499998927116394,
+          "depth": 0.7059999704360962,
+          "minY": 0,
+          "maxY": 0.12099999934434891
+        },
+        {
+          "x": -0.7183420062065125,
+          "z": 0,
+          "width": 0.11068403720855713,
+          "depth": 0.3839636445045471,
+          "minY": 0.3022008240222931,
+          "maxY": 0.4729999899864197
+        },
+        {
+          "x": 0.7183422446250916,
+          "z": 0,
+          "width": 0.11068451404571533,
+          "depth": 0.3839636445045471,
+          "minY": 0.30220019817352295,
+          "maxY": 0.4729999899864197
+        }
+      ],
+      "walkableSurfaces": [],
+      "y": 0,
+      "heightMode": "absolute"
+    },
+    {
       "id": "cinderfen_outskirts_delivered_apothecary_table",
       "kind": "frontier_field_apothecary",
       "assetKey": "frontier_field_apothecary",
@@ -41636,6 +41693,63 @@
           "depth": 0.5269999802112579,
           "minY": 0.7929999828338623,
           "maxY": 1.0740000009536743
+        }
+      ],
+      "walkableSurfaces": [],
+      "y": 0,
+      "heightMode": "absolute"
+    },
+    {
+      "id": "cinderfen_outskirts_delivered_riftbound_supply_chest",
+      "kind": "frontier_field_supply_chest",
+      "assetKey": "frontier_field_supply_chest",
+      "model": "frontier_field_supply_chest_lod0.glb",
+      "x": 358,
+      "z": 13,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": 0,
+          "z": 0.009249985218048096,
+          "width": 1.378000020980835,
+          "depth": 0.8165000081062317,
+          "minY": 0.10800088196992874,
+          "maxY": 0.7904999852180481
+        },
+        {
+          "x": -0.49299998581409454,
+          "z": 0,
+          "width": 0.10499998927116394,
+          "depth": 0.7059999704360962,
+          "minY": 0,
+          "maxY": 0.12099999934434891
+        },
+        {
+          "x": 0.49299998581409454,
+          "z": 0,
+          "width": 0.10499998927116394,
+          "depth": 0.7059999704360962,
+          "minY": 0,
+          "maxY": 0.12099999934434891
+        },
+        {
+          "x": -0.7183420062065125,
+          "z": 0,
+          "width": 0.11068403720855713,
+          "depth": 0.3839636445045471,
+          "minY": 0.3022008240222931,
+          "maxY": 0.4729999899864197
+        },
+        {
+          "x": 0.7183422446250916,
+          "z": 0,
+          "width": 0.11068451404571533,
+          "depth": 0.3839636445045471,
+          "minY": 0.30220019817352295,
+          "maxY": 0.4729999899864197
         }
       ],
       "walkableSurfaces": [],
@@ -82545,5 +82659,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "c8f993bd44daa568"
+  "staticMapHash": "9f2e2bc68ec3dfb4"
 }

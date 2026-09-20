@@ -1,0 +1,2728 @@
+{
+  "key": "frontier_field_supply_chest",
+  "assetId": "prop.frontier.field_supply_chest",
+  "displayName": "Field Supply Chest",
+  "status": "technical_review_pending",
+  "sourceFiles": [
+    {
+      "path": "builder-contract.json",
+      "sha256": "3c4a3ba96cf8dbc98054f3de7f5b33dc75e4dd9cb923977a8383e8352577edb8",
+      "bytes": 8735
+    },
+    {
+      "path": "review/construction-contacts.json",
+      "sha256": "80a7cbb34292ab03db6d0ea761f0309d5ec26ecb2674f7106c1b3638134a171b",
+      "bytes": 17898
+    },
+    {
+      "path": "review/frontier_field_supply_chest_lod0_build.json",
+      "sha256": "7f2b06d83ee56de4d0c243419f3b0ab08057aa7fa86c16deaed3981dbf0c2dc9",
+      "bytes": 19351
+    },
+    {
+      "path": "review/frontier_field_supply_chest_lod1_build.json",
+      "sha256": "5212a0bb1aee2b2bdfdc98ded232942bd8da7feede6a9c0024572025e28048ae",
+      "bytes": 19301
+    },
+    {
+      "path": "review/frontier_field_supply_chest_lod2_build.json",
+      "sha256": "ca9f666ec9d59b545be5921febca00b97c950d917be790ef2b25c3e40e65435e",
+      "bytes": 19251
+    },
+    {
+      "path": "review/master-audit.json",
+      "sha256": "585952372e35b5c2bafe30c6f01891b811532d7dafe890287a70d56e39e8a04f",
+      "bytes": 61924
+    },
+    {
+      "path": "textures/brass_lod0_basecolor.png",
+      "sha256": "5d0cd81f1dda0ae9914d90b5b9d2927e6d9fabd55d75636e458a5ad2c215699b",
+      "bytes": 245772
+    },
+    {
+      "path": "textures/brass_lod0_normal.png",
+      "sha256": "28033ec2511798a9a5c994f50308c54590db4650c6361a0d2e3b954fefa686af",
+      "bytes": 933884
+    },
+    {
+      "path": "textures/brass_lod0_orm.png",
+      "sha256": "40ef14151df5cf8139913bb22694bb3045967b7fb563505c1d5859ab938a0938",
+      "bytes": 328745
+    },
+    {
+      "path": "textures/brass_lod1_basecolor.png",
+      "sha256": "ab67bc88ce9394089bb2f74bbefc2802c23f7643f6ce74e695922441a5d6479a",
+      "bytes": 110207
+    },
+    {
+      "path": "textures/brass_lod1_normal.png",
+      "sha256": "b460092959fefb4550f8414dfa64601211fd99a3e1cc6f6ef5dc8621cee52155",
+      "bytes": 323443
+    },
+    {
+      "path": "textures/brass_lod1_orm.png",
+      "sha256": "85188b308c86257607331c0816b0e8fdea5a951d46b20aa1a18d1009a960e5f9",
+      "bytes": 123097
+    },
+    {
+      "path": "textures/brass_lod2_basecolor.png",
+      "sha256": "3f4a76fd15827c63ed6633913dbd56032c937fbbd95941a97d39777cc6417e7e",
+      "bytes": 36874
+    },
+    {
+      "path": "textures/brass_lod2_normal.png",
+      "sha256": "fd33f0932e469bdc88c385573bae833ec50e2ee4132a94dc3a4acfc6cb7a8673",
+      "bytes": 66527
+    },
+    {
+      "path": "textures/brass_lod2_orm.png",
+      "sha256": "f5f93764b69d1a95ce5d2145e65f83b5fb3802661fd8a5ee4ffd7a67fb6535dc",
+      "bytes": 41775
+    },
+    {
+      "path": "textures/iron_lod0_basecolor.png",
+      "sha256": "8e7d8464acc8f6de3e6f734636041cd97aee599dc47e6350dd656e0f5104e116",
+      "bytes": 287787
+    },
+    {
+      "path": "textures/iron_lod0_normal.png",
+      "sha256": "d73b5901d0aaa548b50e51fc3c3740de9b10532e5b6824b13f3fbfd198094821",
+      "bytes": 1349385
+    },
+    {
+      "path": "textures/iron_lod0_orm.png",
+      "sha256": "aef13d23d383eba92bf5a9e7134b6050e0d2f0a9efd133dd4f97da53cd34c4de",
+      "bytes": 165387
+    },
+    {
+      "path": "textures/iron_lod1_basecolor.png",
+      "sha256": "a63da6f4532b760ada5ad731dccb6742a51d36a40dbc05f8c4c115d6c016bf56",
+      "bytes": 118502
+    },
+    {
+      "path": "textures/iron_lod1_normal.png",
+      "sha256": "11a24a706b031ea3483def7cf7670e59213aaf92c57266b2deb87264ec06610a",
+      "bytes": 410637
+    },
+    {
+      "path": "textures/iron_lod1_orm.png",
+      "sha256": "ac01a75fd5ccf8b091b7c80e688f5579c6a9bb0f2f02e4f86d7bf47ccf7f6ee1",
+      "bytes": 67704
+    },
+    {
+      "path": "textures/iron_lod2_basecolor.png",
+      "sha256": "d8f939cc2fc3304a957b3bbc1ddf1c1433a495f9e4e30ea7e1e4173a8a906e3d",
+      "bytes": 45594
+    },
+    {
+      "path": "textures/iron_lod2_normal.png",
+      "sha256": "6b4037839d3b260c2a0a10ef7faa42bbe215e0c1c8a32cd532902a753028cb49",
+      "bytes": 88829
+    },
+    {
+      "path": "textures/iron_lod2_orm.png",
+      "sha256": "b2785af58e148ac4af9ddd95358b30babb974cfba6b81219c3c7ae42b7f3235c",
+      "bytes": 21199
+    },
+    {
+      "path": "textures/leather_lod0_basecolor.png",
+      "sha256": "2d3e85b663103bcf6acb30878f781b762e3842d1d55263272794a918b5c646dd",
+      "bytes": 124172
+    },
+    {
+      "path": "textures/leather_lod0_normal.png",
+      "sha256": "7e7d2abef8e544894bd4c5292a5f330a284b7f47ccd5b01cd3d9a43878707f9f",
+      "bytes": 1934052
+    },
+    {
+      "path": "textures/leather_lod0_orm.png",
+      "sha256": "8e95c148e9f288701c96ce0080afa9789fa84820e0517f6d74aef069cc96ac81",
+      "bytes": 306454
+    },
+    {
+      "path": "textures/leather_lod1_basecolor.png",
+      "sha256": "783b320d5a154e6d0410832cb5bfcbf2b96266ad46b86c493e8e1c471b578db4",
+      "bytes": 53414
+    },
+    {
+      "path": "textures/leather_lod1_normal.png",
+      "sha256": "dd09009f72e8ecaf95146c3e586080fbf1ffca9b94b8cb4a911d572ffb8bc358",
+      "bytes": 558165
+    },
+    {
+      "path": "textures/leather_lod1_orm.png",
+      "sha256": "2a009b9a681f35361bd1619707a88b884f3acc0086f8d432202c24d4af31e0ba",
+      "bytes": 117253
+    },
+    {
+      "path": "textures/leather_lod2_basecolor.png",
+      "sha256": "d3310c8d39dbef2138dd2f023d1c81ac3cd51ff48209f66a2c95740e22c02887",
+      "bytes": 22433
+    },
+    {
+      "path": "textures/leather_lod2_normal.png",
+      "sha256": "d48e809d4f909a947c480a6ca1e69c887df0e3e3513e670963098442abf177bd",
+      "bytes": 123990
+    },
+    {
+      "path": "textures/leather_lod2_orm.png",
+      "sha256": "7f96f34251833131560b4799e9640f63b1ea11bd3606f53bcaafd8f0464fc74f",
+      "bytes": 39129
+    },
+    {
+      "path": "textures/oak_lod0_basecolor.png",
+      "sha256": "c96fe5aa1ebe84ffc9b8dadfa4a3b2681186fbf5381de5a8dbf36c3b00a898d4",
+      "bytes": 559653
+    },
+    {
+      "path": "textures/oak_lod0_normal.png",
+      "sha256": "f1071133f2f715e7c5a2aff5e283705204c5e9dd8d3dc54b809f70ec11c3e2ff",
+      "bytes": 1264134
+    },
+    {
+      "path": "textures/oak_lod0_orm.png",
+      "sha256": "7e9f4be6bf2d6a468770d0b4b128cf4f06486836c9716eea2bf0ade1c9186853",
+      "bytes": 320032
+    },
+    {
+      "path": "textures/oak_lod1_basecolor.png",
+      "sha256": "aac3c6d77507f555703efaad6d7492b9772bab9f0d41d591601f91dea1c3cf37",
+      "bytes": 215728
+    },
+    {
+      "path": "textures/oak_lod1_normal.png",
+      "sha256": "d81d0ff7c961c4f473c68b1c09369872b5c7b0008e4fbf22a0f2ee45441b9b43",
+      "bytes": 398466
+    },
+    {
+      "path": "textures/oak_lod1_orm.png",
+      "sha256": "404a218439417457305bc117386bf5237029c9006b236afe02c61c7552777221",
+      "bytes": 120976
+    },
+    {
+      "path": "textures/oak_lod2_basecolor.png",
+      "sha256": "94dba9228845d52c564bc6fc6e619bdedcc6d1324c217313cba67ed86c8c9a64",
+      "bytes": 69146
+    },
+    {
+      "path": "textures/oak_lod2_normal.png",
+      "sha256": "3b4211c93f6b3df373e74915b28026b8c104083e7e74d8b870f3a84ba8fb6fb7",
+      "bytes": 87293
+    },
+    {
+      "path": "textures/oak_lod2_orm.png",
+      "sha256": "0a1867673e9b6dd23247c151f77aadc3b404a81b752fada94127ae584f3df4ed",
+      "bytes": 40793
+    },
+    {
+      "path": "textures/sources.json",
+      "sha256": "c871bf40c0e59e22ecea10e8bf0c2dd0cf806e761c1922c5ce626a3f6485a2a3",
+      "bytes": 5648
+    },
+    {
+      "path": "tools/audit_masters.py",
+      "sha256": "c77ab529b1d2ba537ce92c1a93227040b695c8224bf7c6c307e473fe3f7f1e2f",
+      "bytes": 2538
+    },
+    {
+      "path": "tools/build_chest.py",
+      "sha256": "5d8f0d3fd7d830295bb83e46d9d65f8efba9c42526fcc7b545c61c35a165daaf",
+      "bytes": 17891
+    },
+    {
+      "path": "tools/consolidate_build.py",
+      "sha256": "1b81ee0d3e20b94cf0690bbe8941168377db4c070b20c1be3b022aef74b3f204",
+      "bytes": 1303
+    },
+    {
+      "path": "tools/inspect_construction.py",
+      "sha256": "b8126c777d07a94e7403cbf27ac012d7d3b29fc17df9b1601e548325b8c06907",
+      "bytes": 2757
+    },
+    {
+      "path": "tools/make_textures.py",
+      "sha256": "f319e77806e13e6ecc8e7fa87840e1c648521709ef684ff3ea5bf6864f2ac1e1",
+      "bytes": 2651
+    },
+    {
+      "path": "tools/mesh_authoring.py",
+      "sha256": "73008d19256e475eaf937a81f7d24348408ef4fb838f966cd9212a36adcfa115",
+      "bytes": 7392
+    },
+    {
+      "path": "tools/review_chest.py",
+      "sha256": "5bef1bc24bca5c314403a1ad0f7217a77cb19ca82aa08a0fdc8e8ae047daf4a7",
+      "bytes": 4100
+    },
+    {
+      "path": "tools/validate_chest.mjs",
+      "sha256": "a17f40ce40603b7b24195763cd68509b445af3c873966760f56bca91e3a35c88",
+      "bytes": 9940
+    }
+  ],
+  "lods": [
+    {
+      "key": "frontier_field_supply_chest",
+      "level": 0,
+      "model": "frontier_field_supply_chest_lod0.glb",
+      "sha256": "ce563b1256fd8bc7fa45675d8cb4128c3df6d4ff7d71a708e8ea055470ecdd37",
+      "bytes": 11125548,
+      "triangles": 29776,
+      "parts": 97,
+      "materials": 4,
+      "joints": [
+        {
+          "receiver": "end_board_-1_0",
+          "tenon": "dovetailed_long_board_-1_0",
+          "receivingCage": "end_board_-1_0_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_0",
+          "tenon": "dovetailed_long_board_-1_0",
+          "receivingCage": "end_board_1_0_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_0",
+          "tenon": "dovetailed_long_board_1_0",
+          "receivingCage": "end_board_-1_0_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_0",
+          "tenon": "dovetailed_long_board_1_0",
+          "receivingCage": "end_board_1_0_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_1",
+          "tenon": "dovetailed_long_board_-1_1",
+          "receivingCage": "end_board_-1_1_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_1",
+          "tenon": "dovetailed_long_board_-1_1",
+          "receivingCage": "end_board_1_1_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_1",
+          "tenon": "dovetailed_long_board_1_1",
+          "receivingCage": "end_board_-1_1_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_1",
+          "tenon": "dovetailed_long_board_1_1",
+          "receivingCage": "end_board_1_1_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_2",
+          "tenon": "dovetailed_long_board_-1_2",
+          "receivingCage": "end_board_-1_2_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_2",
+          "tenon": "dovetailed_long_board_-1_2",
+          "receivingCage": "end_board_1_2_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_2",
+          "tenon": "dovetailed_long_board_1_2",
+          "receivingCage": "end_board_-1_2_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_2",
+          "tenon": "dovetailed_long_board_1_2",
+          "receivingCage": "end_board_1_2_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        }
+      ],
+      "sourceMaster": "masters/frontier_field_supply_chest_lod0.source.blend",
+      "sourceMasterSha256": "857e2ef587306c121bbed5764f5b7b4a79e409c0d52581b867a35c0d883cd8c3",
+      "master": "masters/frontier_field_supply_chest_lod0.blend",
+      "masterSha256": "9edc20e3dc5fbaaac4d24d83c01c768d299d3cc6159f350d006fffb6ac62629d",
+      "audit": {
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 29776,
+        "meshes": [
+          {
+            "part": "shaped_ground_skid_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 244
+          },
+          {
+            "part": "shaped_ground_skid_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 244
+          },
+          {
+            "part": "raised_floor_board_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 220
+          },
+          {
+            "part": "raised_floor_board_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 220
+          },
+          {
+            "part": "raised_floor_board_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 220
+          },
+          {
+            "part": "raised_floor_board_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 220
+          },
+          {
+            "part": "end_board_-1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 436
+          },
+          {
+            "part": "end_board_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 436
+          },
+          {
+            "part": "dovetailed_long_board_-1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 332
+          },
+          {
+            "part": "dovetailed_long_board_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 332
+          },
+          {
+            "part": "end_board_-1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 436
+          },
+          {
+            "part": "end_board_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 436
+          },
+          {
+            "part": "dovetailed_long_board_-1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 332
+          },
+          {
+            "part": "dovetailed_long_board_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 332
+          },
+          {
+            "part": "end_board_-1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 436
+          },
+          {
+            "part": "end_board_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 436
+          },
+          {
+            "part": "dovetailed_long_board_-1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 332
+          },
+          {
+            "part": "dovetailed_long_board_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 332
+          },
+          {
+            "part": "arched_lid_end_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_end_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "lid_closing_rail_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "lid_closing_rail_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "arched_lid_stave_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_stave_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_stave_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_stave_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_stave_4",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_stave_5",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "arched_lid_stave_6",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 288
+          },
+          {
+            "part": "fitted_forged_lid_strap_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 1148
+          },
+          {
+            "part": "lid_strap_rivet_0_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_0_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_0_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_0_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "fitted_forged_lid_strap_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 1148
+          },
+          {
+            "part": "lid_strap_rivet_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_1_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "fitted_forged_lid_strap_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 1148
+          },
+          {
+            "part": "lid_strap_rivet_2_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_2_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_2_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "lid_strap_rivet_2_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "forged_wall_binding_-0.494_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 268
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "forged_wall_binding_-0.494_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 268
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "forged_wall_binding_0.494_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 268
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "forged_wall_binding_0.494_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 268
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "hinge_eye_-0.494_-0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 160
+          },
+          {
+            "part": "hinge_eye_-0.494_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 160
+          },
+          {
+            "part": "hinge_eye_-0.494_0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 160
+          },
+          {
+            "part": "hinge_through_pin_-0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "hinge_body_leaf_-0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 132
+          },
+          {
+            "part": "hinge_eye_0.494_-0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 160
+          },
+          {
+            "part": "hinge_eye_0.494_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 160
+          },
+          {
+            "part": "hinge_eye_0.494_0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 160
+          },
+          {
+            "part": "hinge_through_pin_0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "hinge_body_leaf_0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 132
+          },
+          {
+            "part": "closed_front_hasp",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 300
+          },
+          {
+            "part": "hasp_hinge_pin",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "keeper_backplate",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "keeper_through_hasp",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_plate_-1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "bail_anchor_rivet_-1_-0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_rivet_-1_-0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_eye_-1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 640
+          },
+          {
+            "part": "bail_anchor_plate_-1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "bail_anchor_rivet_-1_0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_rivet_-1_0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_eye_-1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 640
+          },
+          {
+            "part": "forged_carry_bail_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 284
+          },
+          {
+            "part": "leather_grip_wrap_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 2892
+          },
+          {
+            "part": "bail_anchor_plate_1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "bail_anchor_rivet_1_-0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_rivet_1_-0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_eye_1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 640
+          },
+          {
+            "part": "bail_anchor_plate_1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 164
+          },
+          {
+            "part": "bail_anchor_rivet_1_0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_rivet_1_0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "bail_anchor_eye_1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 640
+          },
+          {
+            "part": "forged_carry_bail_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 284
+          },
+          {
+            "part": "leather_grip_wrap_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 2892
+          },
+          {
+            "part": "inventory_brass_plate",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 396
+          },
+          {
+            "part": "inventory_plate_rivet_-0.145",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "inventory_plate_rivet_0.145",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          }
+        ],
+        "boundsZUp": {
+          "minimum": [
+            -0.773684024810791,
+            -0.41749998927116394,
+            0.0
+          ],
+          "maximum": [
+            0.7736845016479492,
+            0.39900001883506775,
+            0.7904999852180481
+          ]
+        }
+      },
+      "sourceFiles": [
+        {
+          "path": "tools/audit_masters.py",
+          "sha256": "c77ab529b1d2ba537ce92c1a93227040b695c8224bf7c6c307e473fe3f7f1e2f"
+        },
+        {
+          "path": "tools/build_chest.py",
+          "sha256": "5d8f0d3fd7d830295bb83e46d9d65f8efba9c42526fcc7b545c61c35a165daaf"
+        },
+        {
+          "path": "tools/consolidate_build.py",
+          "sha256": "1b81ee0d3e20b94cf0690bbe8941168377db4c070b20c1be3b022aef74b3f204"
+        },
+        {
+          "path": "tools/inspect_construction.py",
+          "sha256": "b8126c777d07a94e7403cbf27ac012d7d3b29fc17df9b1601e548325b8c06907"
+        },
+        {
+          "path": "tools/make_textures.py",
+          "sha256": "f319e77806e13e6ecc8e7fa87840e1c648521709ef684ff3ea5bf6864f2ac1e1"
+        },
+        {
+          "path": "tools/mesh_authoring.py",
+          "sha256": "73008d19256e475eaf937a81f7d24348408ef4fb838f966cd9212a36adcfa115"
+        },
+        {
+          "path": "tools/review_chest.py",
+          "sha256": "5bef1bc24bca5c314403a1ad0f7217a77cb19ca82aa08a0fdc8e8ae047daf4a7"
+        },
+        {
+          "path": "textures/sources.json",
+          "sha256": "c871bf40c0e59e22ecea10e8bf0c2dd0cf806e761c1922c5ce626a3f6485a2a3"
+        }
+      ]
+    },
+    {
+      "key": "frontier_field_supply_chest",
+      "level": 1,
+      "model": "frontier_field_supply_chest_lod1.glb",
+      "sha256": "b735b1d497d4b662a4c2ae476551a13b7a946865f23fcb369b579fd747142c67",
+      "bytes": 4142644,
+      "triangles": 14380,
+      "parts": 97,
+      "materials": 4,
+      "joints": [
+        {
+          "receiver": "end_board_-1_0",
+          "tenon": "dovetailed_long_board_-1_0",
+          "receivingCage": "end_board_-1_0_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_0",
+          "tenon": "dovetailed_long_board_-1_0",
+          "receivingCage": "end_board_1_0_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_0",
+          "tenon": "dovetailed_long_board_1_0",
+          "receivingCage": "end_board_-1_0_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_0",
+          "tenon": "dovetailed_long_board_1_0",
+          "receivingCage": "end_board_1_0_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_1",
+          "tenon": "dovetailed_long_board_-1_1",
+          "receivingCage": "end_board_-1_1_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_1",
+          "tenon": "dovetailed_long_board_-1_1",
+          "receivingCage": "end_board_1_1_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_1",
+          "tenon": "dovetailed_long_board_1_1",
+          "receivingCage": "end_board_-1_1_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_1",
+          "tenon": "dovetailed_long_board_1_1",
+          "receivingCage": "end_board_1_1_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_2",
+          "tenon": "dovetailed_long_board_-1_2",
+          "receivingCage": "end_board_-1_2_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_2",
+          "tenon": "dovetailed_long_board_-1_2",
+          "receivingCage": "end_board_1_2_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_2",
+          "tenon": "dovetailed_long_board_1_2",
+          "receivingCage": "end_board_-1_2_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_2",
+          "tenon": "dovetailed_long_board_1_2",
+          "receivingCage": "end_board_1_2_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        }
+      ],
+      "sourceMaster": "masters/frontier_field_supply_chest_lod1.source.blend",
+      "sourceMasterSha256": "2dc8f5142ab16f62d40946fc4057974cff66412db36151a7b634c9661222b89f",
+      "master": "masters/frontier_field_supply_chest_lod1.blend",
+      "masterSha256": "d7f0991214f89ab94d7c2dbb37ee88a2eab0bdfe2232a54b2e26bce57e4e35b1",
+      "audit": {
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 14380,
+        "meshes": [
+          {
+            "part": "shaped_ground_skid_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 108
+          },
+          {
+            "part": "shaped_ground_skid_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 108
+          },
+          {
+            "part": "raised_floor_board_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "raised_floor_board_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "raised_floor_board_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "raised_floor_board_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "end_board_-1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 180
+          },
+          {
+            "part": "end_board_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 180
+          },
+          {
+            "part": "dovetailed_long_board_-1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "dovetailed_long_board_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "end_board_-1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 180
+          },
+          {
+            "part": "end_board_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 180
+          },
+          {
+            "part": "dovetailed_long_board_-1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "dovetailed_long_board_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "end_board_-1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 180
+          },
+          {
+            "part": "end_board_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 180
+          },
+          {
+            "part": "dovetailed_long_board_-1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "dovetailed_long_board_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "arched_lid_end_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 116
+          },
+          {
+            "part": "arched_lid_end_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 116
+          },
+          {
+            "part": "lid_closing_rail_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "lid_closing_rail_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "arched_lid_stave_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "arched_lid_stave_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "arched_lid_stave_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "arched_lid_stave_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "arched_lid_stave_4",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "arched_lid_stave_5",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "arched_lid_stave_6",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 148
+          },
+          {
+            "part": "fitted_forged_lid_strap_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 580
+          },
+          {
+            "part": "lid_strap_rivet_0_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_0_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_0_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_0_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "fitted_forged_lid_strap_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 580
+          },
+          {
+            "part": "lid_strap_rivet_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_1_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "fitted_forged_lid_strap_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 580
+          },
+          {
+            "part": "lid_strap_rivet_2_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_2_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_2_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "lid_strap_rivet_2_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "forged_wall_binding_-0.494_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "forged_wall_binding_-0.494_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "forged_wall_binding_0.494_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "forged_wall_binding_0.494_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 124
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "hinge_eye_-0.494_-0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 112
+          },
+          {
+            "part": "hinge_eye_-0.494_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 112
+          },
+          {
+            "part": "hinge_eye_-0.494_0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 112
+          },
+          {
+            "part": "hinge_through_pin_-0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "hinge_body_leaf_-0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "hinge_eye_0.494_-0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 112
+          },
+          {
+            "part": "hinge_eye_0.494_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 112
+          },
+          {
+            "part": "hinge_eye_0.494_0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 112
+          },
+          {
+            "part": "hinge_through_pin_0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "hinge_body_leaf_0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "closed_front_hasp",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "hasp_hinge_pin",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "keeper_backplate",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "keeper_through_hasp",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_plate_-1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "bail_anchor_rivet_-1_-0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_rivet_-1_-0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_eye_-1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 224
+          },
+          {
+            "part": "bail_anchor_plate_-1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "bail_anchor_rivet_-1_0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_rivet_-1_0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_eye_-1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 224
+          },
+          {
+            "part": "forged_carry_bail_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "leather_grip_wrap_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 1612
+          },
+          {
+            "part": "bail_anchor_plate_1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "bail_anchor_rivet_1_-0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_rivet_1_-0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_eye_1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 224
+          },
+          {
+            "part": "bail_anchor_plate_1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "bail_anchor_rivet_1_0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_rivet_1_0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "bail_anchor_eye_1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 224
+          },
+          {
+            "part": "forged_carry_bail_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 140
+          },
+          {
+            "part": "leather_grip_wrap_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 1612
+          },
+          {
+            "part": "inventory_brass_plate",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 156
+          },
+          {
+            "part": "inventory_plate_rivet_-0.145",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "inventory_plate_rivet_0.145",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          }
+        ],
+        "boundsZUp": {
+          "minimum": [
+            -0.7743563055992126,
+            -0.41749998927116394,
+            0.0
+          ],
+          "maximum": [
+            0.7742611169815063,
+            0.39900001883506775,
+            0.7904999852180481
+          ]
+        }
+      },
+      "sourceFiles": [
+        {
+          "path": "tools/audit_masters.py",
+          "sha256": "c77ab529b1d2ba537ce92c1a93227040b695c8224bf7c6c307e473fe3f7f1e2f"
+        },
+        {
+          "path": "tools/build_chest.py",
+          "sha256": "5d8f0d3fd7d830295bb83e46d9d65f8efba9c42526fcc7b545c61c35a165daaf"
+        },
+        {
+          "path": "tools/consolidate_build.py",
+          "sha256": "1b81ee0d3e20b94cf0690bbe8941168377db4c070b20c1be3b022aef74b3f204"
+        },
+        {
+          "path": "tools/inspect_construction.py",
+          "sha256": "b8126c777d07a94e7403cbf27ac012d7d3b29fc17df9b1601e548325b8c06907"
+        },
+        {
+          "path": "tools/make_textures.py",
+          "sha256": "f319e77806e13e6ecc8e7fa87840e1c648521709ef684ff3ea5bf6864f2ac1e1"
+        },
+        {
+          "path": "tools/mesh_authoring.py",
+          "sha256": "73008d19256e475eaf937a81f7d24348408ef4fb838f966cd9212a36adcfa115"
+        },
+        {
+          "path": "tools/review_chest.py",
+          "sha256": "5bef1bc24bca5c314403a1ad0f7217a77cb19ca82aa08a0fdc8e8ae047daf4a7"
+        },
+        {
+          "path": "textures/sources.json",
+          "sha256": "c871bf40c0e59e22ecea10e8bf0c2dd0cf806e761c1922c5ce626a3f6485a2a3"
+        }
+      ]
+    },
+    {
+      "key": "frontier_field_supply_chest",
+      "level": 2,
+      "model": "frontier_field_supply_chest_lod2.glb",
+      "sha256": "f2d72fda7d86967d99cdb6cc6a00be588854ddb01bfaa3507be2e9668d0f55e1",
+      "bytes": 1295848,
+      "triangles": 6128,
+      "parts": 97,
+      "materials": 4,
+      "joints": [
+        {
+          "receiver": "end_board_-1_0",
+          "tenon": "dovetailed_long_board_-1_0",
+          "receivingCage": "end_board_-1_0_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_0",
+          "tenon": "dovetailed_long_board_-1_0",
+          "receivingCage": "end_board_1_0_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_0",
+          "tenon": "dovetailed_long_board_1_0",
+          "receivingCage": "end_board_-1_0_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_0",
+          "tenon": "dovetailed_long_board_1_0",
+          "receivingCage": "end_board_1_0_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_1",
+          "tenon": "dovetailed_long_board_-1_1",
+          "receivingCage": "end_board_-1_1_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_1",
+          "tenon": "dovetailed_long_board_-1_1",
+          "receivingCage": "end_board_1_1_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_1",
+          "tenon": "dovetailed_long_board_1_1",
+          "receivingCage": "end_board_-1_1_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_1",
+          "tenon": "dovetailed_long_board_1_1",
+          "receivingCage": "end_board_1_1_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_2",
+          "tenon": "dovetailed_long_board_-1_2",
+          "receivingCage": "end_board_-1_2_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_2",
+          "tenon": "dovetailed_long_board_-1_2",
+          "receivingCage": "end_board_1_2_receiving_dovetail_-1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_-1_2",
+          "tenon": "dovetailed_long_board_1_2",
+          "receivingCage": "end_board_-1_2_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        },
+        {
+          "receiver": "end_board_1_2",
+          "tenon": "dovetailed_long_board_1_2",
+          "receivingCage": "end_board_1_2_receiving_dovetail_1",
+          "clearanceM": 0.0006
+        }
+      ],
+      "sourceMaster": "masters/frontier_field_supply_chest_lod2.source.blend",
+      "sourceMasterSha256": "182ad8e6ae50b8a2ab2541e760f5a7341169ac42358cd3ba0cc4caacdd0ce45e",
+      "master": "masters/frontier_field_supply_chest_lod2.blend",
+      "masterSha256": "4ce3b443e1626e9824ef3cc4736e3c452630323b425677c3224d5a5790db99d0",
+      "audit": {
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 6128,
+        "meshes": [
+          {
+            "part": "shaped_ground_skid_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 36
+          },
+          {
+            "part": "shaped_ground_skid_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 36
+          },
+          {
+            "part": "raised_floor_board_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "raised_floor_board_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "raised_floor_board_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "raised_floor_board_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "end_board_-1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "end_board_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "dovetailed_long_board_-1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "dovetailed_long_board_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "end_board_-1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "end_board_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "dovetailed_long_board_-1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "dovetailed_long_board_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "end_board_-1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "end_board_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "dovetailed_long_board_-1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "dovetailed_long_board_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "arched_lid_end_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 32
+          },
+          {
+            "part": "arched_lid_end_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 32
+          },
+          {
+            "part": "lid_closing_rail_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "lid_closing_rail_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "arched_lid_stave_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "arched_lid_stave_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "arched_lid_stave_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "arched_lid_stave_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "arched_lid_stave_4",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "arched_lid_stave_5",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "arched_lid_stave_6",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 56
+          },
+          {
+            "part": "fitted_forged_lid_strap_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 236
+          },
+          {
+            "part": "lid_strap_rivet_0_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_0_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_0_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_0_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "fitted_forged_lid_strap_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 236
+          },
+          {
+            "part": "lid_strap_rivet_1_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_1_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_1_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_1_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "fitted_forged_lid_strap_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 236
+          },
+          {
+            "part": "lid_strap_rivet_2_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_2_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_2_2",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "lid_strap_rivet_2_3",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "forged_wall_binding_-0.494_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_-0.494_-1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "forged_wall_binding_-0.494_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_-0.494_1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "forged_wall_binding_0.494_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_0.494_-1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "forged_wall_binding_0.494_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 44
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.197",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.34",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "wall_rivet_0.494_1_0.553",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "hinge_eye_-0.494_-0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "hinge_eye_-0.494_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "hinge_eye_-0.494_0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "hinge_through_pin_-0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "hinge_body_leaf_-0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "hinge_eye_0.494_-0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "hinge_eye_0.494_0",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "hinge_eye_0.494_0.041",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "hinge_through_pin_0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "hinge_body_leaf_0.494",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "closed_front_hasp",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 52
+          },
+          {
+            "part": "hasp_hinge_pin",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "keeper_backplate",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "keeper_through_hasp",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_plate_-1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "bail_anchor_rivet_-1_-0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_rivet_-1_-0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_eye_-1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "bail_anchor_plate_-1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "bail_anchor_rivet_-1_0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_rivet_-1_0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_eye_-1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "forged_carry_bail_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "leather_grip_wrap_-1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 780
+          },
+          {
+            "part": "bail_anchor_plate_1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "bail_anchor_rivet_1_-0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_rivet_1_-0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_eye_1_-0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "bail_anchor_plate_1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 20
+          },
+          {
+            "part": "bail_anchor_rivet_1_0.154_0.363",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_rivet_1_0.154_0.449",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "bail_anchor_eye_1_0.154",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 80
+          },
+          {
+            "part": "forged_carry_bail_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 68
+          },
+          {
+            "part": "leather_grip_wrap_1",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 780
+          },
+          {
+            "part": "inventory_brass_plate",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 60
+          },
+          {
+            "part": "inventory_plate_rivet_-0.145",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          },
+          {
+            "part": "inventory_plate_rivet_0.145",
+            "boundary": 0,
+            "multi": 0,
+            "loose": 0,
+            "triangles": 28
+          }
+        ],
+        "boundsZUp": {
+          "minimum": [
+            -0.7792397141456604,
+            -0.41749998927116394,
+            0.0
+          ],
+          "maximum": [
+            0.779158890247345,
+            0.39900001883506775,
+            0.7904999852180481
+          ]
+        }
+      },
+      "sourceFiles": [
+        {
+          "path": "tools/audit_masters.py",
+          "sha256": "c77ab529b1d2ba537ce92c1a93227040b695c8224bf7c6c307e473fe3f7f1e2f"
+        },
+        {
+          "path": "tools/build_chest.py",
+          "sha256": "5d8f0d3fd7d830295bb83e46d9d65f8efba9c42526fcc7b545c61c35a165daaf"
+        },
+        {
+          "path": "tools/consolidate_build.py",
+          "sha256": "1b81ee0d3e20b94cf0690bbe8941168377db4c070b20c1be3b022aef74b3f204"
+        },
+        {
+          "path": "tools/inspect_construction.py",
+          "sha256": "b8126c777d07a94e7403cbf27ac012d7d3b29fc17df9b1601e548325b8c06907"
+        },
+        {
+          "path": "tools/make_textures.py",
+          "sha256": "f319e77806e13e6ecc8e7fa87840e1c648521709ef684ff3ea5bf6864f2ac1e1"
+        },
+        {
+          "path": "tools/mesh_authoring.py",
+          "sha256": "73008d19256e475eaf937a81f7d24348408ef4fb838f966cd9212a36adcfa115"
+        },
+        {
+          "path": "tools/review_chest.py",
+          "sha256": "5bef1bc24bca5c314403a1ad0f7217a77cb19ca82aa08a0fdc8e8ae047daf4a7"
+        },
+        {
+          "path": "textures/sources.json",
+          "sha256": "c871bf40c0e59e22ecea10e8bf0c2dd0cf806e761c1922c5ce626a3f6485a2a3"
+        }
+      ]
+    }
+  ]
+}

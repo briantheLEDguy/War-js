@@ -20,6 +20,10 @@ The shared apothecary worktable is placed in all 36 keeps and both regional supp
 available in the GM builder, with three LODs, measured collision and accessible
 working fronts. The shelter placements passed mesh, navigation and local gameplay
 checks; all keep workfronts remain reachable, with a local Cinderfen keep collision check.
+The universal field supply chest is also published in all 36 keeps and the GM
+builder. Its six editable masters, three LODs, PBR surfaces and measured fitting
+contacts are retained; skids, nearby meshes, keep access and a local player
+collision press passed. It is closed scenery, without an inventory interaction.
 The next character batch covers the herbalist, Dark Elf supply officer and High
 Elf scout. Publication preserves existing NPC/service IDs and requires matched
 body/rig identity plus fitted clothing and animation checks.

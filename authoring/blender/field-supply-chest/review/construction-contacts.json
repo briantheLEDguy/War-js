@@ -1,0 +1,534 @@
+{
+  "passed": true,
+  "toolSha256": "b8126c777d07a94e7403cbf27ac012d7d3b29fc17df9b1601e548325b8c06907",
+  "records": [
+    {
+      "level": 0,
+      "sourceMasterSha256": "857e2ef587306c121bbed5764f5b7b4a79e409c0d52581b867a35c0d883cd8c3",
+      "modelSha256": "ce563b1256fd8bc7fa45675d8cb4128c3df6d4ff7d71a708e8ea055470ecdd37",
+      "contacts": [
+        {
+          "part": "bail_anchor_eye_-1_-0.154",
+          "support": "bail_anchor_plate_-1_-0.154",
+          "minimumSurfaceGapM": 0.0002778768539428711,
+          "surfaceTriangleContacts": 120,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_-1",
+          "support": "bail_anchor_eye_-1_-0.154",
+          "minimumSurfaceGapM": 1.3216784282121807e-05,
+          "surfaceTriangleContacts": 53,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_-1_0.154",
+          "support": "bail_anchor_plate_-1_0.154",
+          "minimumSurfaceGapM": 0.0002778768539428711,
+          "surfaceTriangleContacts": 120,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_-1",
+          "support": "bail_anchor_eye_-1_0.154",
+          "minimumSurfaceGapM": 5.7284072681795806e-05,
+          "surfaceTriangleContacts": 58,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "leather_grip_wrap_-1",
+          "support": "forged_carry_bail_-1",
+          "minimumSurfaceGapM": 8.940696716308594e-08,
+          "surfaceTriangleContacts": 2241,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_1_-0.154",
+          "support": "bail_anchor_plate_1_-0.154",
+          "minimumSurfaceGapM": 0.0002778768539428711,
+          "surfaceTriangleContacts": 120,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_1",
+          "support": "bail_anchor_eye_1_-0.154",
+          "minimumSurfaceGapM": 5.7300308981211856e-05,
+          "surfaceTriangleContacts": 57,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_1_0.154",
+          "support": "bail_anchor_plate_1_0.154",
+          "minimumSurfaceGapM": 0.0002778768539428711,
+          "surfaceTriangleContacts": 120,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_1",
+          "support": "bail_anchor_eye_1_0.154",
+          "minimumSurfaceGapM": 1.3228639545559417e-05,
+          "surfaceTriangleContacts": 53,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "leather_grip_wrap_1",
+          "support": "forged_carry_bail_1",
+          "minimumSurfaceGapM": 1.5123210914680385e-06,
+          "surfaceTriangleContacts": 2333,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_-0.041",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0017783230869099498,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_0",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0017783441580832005,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_0.041",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0017783441580832005,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_body_leaf_-0.494",
+          "support": "hinge_eye_-0.494_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 17,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_-0.041",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0017783230869099498,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_0",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0017783441580832005,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_0.041",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0017783441580832005,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_body_leaf_0.494",
+          "support": "hinge_eye_0.494_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 17,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "closed_front_hasp",
+          "support": "hasp_hinge_pin",
+          "minimumSurfaceGapM": 0.0004999637603759766,
+          "surfaceTriangleContacts": 48,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "closed_front_hasp",
+          "support": "keeper_through_hasp",
+          "minimumSurfaceGapM": 0.0020000003278255463,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "keeper_through_hasp",
+          "support": "keeper_backplate",
+          "minimumSurfaceGapM": 0.0020000040531158447,
+          "surfaceTriangleContacts": 68,
+          "toleranceM": 0.003,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "level": 1,
+      "sourceMasterSha256": "2dc8f5142ab16f62d40946fc4057974cff66412db36151a7b634c9661222b89f",
+      "modelSha256": "b735b1d497d4b662a4c2ae476551a13b7a946865f23fcb369b579fd747142c67",
+      "contacts": [
+        {
+          "part": "bail_anchor_eye_-1_-0.154",
+          "support": "bail_anchor_plate_-1_-0.154",
+          "minimumSurfaceGapM": 0.00040900707244873047,
+          "surfaceTriangleContacts": 80,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_-1",
+          "support": "bail_anchor_eye_-1_-0.154",
+          "minimumSurfaceGapM": 2.0094148567295633e-05,
+          "surfaceTriangleContacts": 33,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_-1_0.154",
+          "support": "bail_anchor_plate_-1_0.154",
+          "minimumSurfaceGapM": 0.00040900707244873047,
+          "surfaceTriangleContacts": 80,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_-1",
+          "support": "bail_anchor_eye_-1_0.154",
+          "minimumSurfaceGapM": 2.005778151215054e-05,
+          "surfaceTriangleContacts": 38,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "leather_grip_wrap_-1",
+          "support": "forged_carry_bail_-1",
+          "minimumSurfaceGapM": 2.4677061105649045e-07,
+          "surfaceTriangleContacts": 818,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_1_-0.154",
+          "support": "bail_anchor_plate_1_-0.154",
+          "minimumSurfaceGapM": 0.00040900707244873047,
+          "surfaceTriangleContacts": 80,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_1",
+          "support": "bail_anchor_eye_1_-0.154",
+          "minimumSurfaceGapM": 2.005778151215054e-05,
+          "surfaceTriangleContacts": 35,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_1_0.154",
+          "support": "bail_anchor_plate_1_0.154",
+          "minimumSurfaceGapM": 0.00040900707244873047,
+          "surfaceTriangleContacts": 80,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_1",
+          "support": "bail_anchor_eye_1_0.154",
+          "minimumSurfaceGapM": 2.005778151215054e-05,
+          "surfaceTriangleContacts": 36,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "leather_grip_wrap_1",
+          "support": "forged_carry_bail_1",
+          "minimumSurfaceGapM": 4.3407226257841103e-07,
+          "surfaceTriangleContacts": 1222,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_-0.041",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0015487074851989746,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_0",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0015487074851989746,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_0.041",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0015487074851989746,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_body_leaf_-0.494",
+          "support": "hinge_eye_-0.494_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 17,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_-0.041",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0015487074851989746,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_0",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0015487074851989746,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_0.041",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0015487074851989746,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_body_leaf_0.494",
+          "support": "hinge_eye_0.494_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 17,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "closed_front_hasp",
+          "support": "hasp_hinge_pin",
+          "minimumSurfaceGapM": 0.0004999637603759766,
+          "surfaceTriangleContacts": 32,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "closed_front_hasp",
+          "support": "keeper_through_hasp",
+          "minimumSurfaceGapM": 0.0020000003278255463,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "keeper_through_hasp",
+          "support": "keeper_backplate",
+          "minimumSurfaceGapM": 0.0020000040531158447,
+          "surfaceTriangleContacts": 36,
+          "toleranceM": 0.003,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "level": 2,
+      "sourceMasterSha256": "182ad8e6ae50b8a2ab2541e760f5a7341169ac42358cd3ba0cc4caacdd0ce45e",
+      "modelSha256": "f2d72fda7d86967d99cdb6cc6a00be588854ddb01bfaa3507be2e9668d0f55e1",
+      "contacts": [
+        {
+          "part": "bail_anchor_eye_-1_-0.154",
+          "support": "bail_anchor_plate_-1_-0.154",
+          "minimumSurfaceGapM": 0.0002499818801879883,
+          "surfaceTriangleContacts": 48,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_-1",
+          "support": "bail_anchor_eye_-1_-0.154",
+          "minimumSurfaceGapM": 0.0005999801214784384,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_-1_0.154",
+          "support": "bail_anchor_plate_-1_0.154",
+          "minimumSurfaceGapM": 0.0002499818801879883,
+          "surfaceTriangleContacts": 48,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_-1",
+          "support": "bail_anchor_eye_-1_0.154",
+          "minimumSurfaceGapM": 0.0006000212160870433,
+          "surfaceTriangleContacts": 17,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "leather_grip_wrap_-1",
+          "support": "forged_carry_bail_-1",
+          "minimumSurfaceGapM": 2.0216899429215118e-05,
+          "surfaceTriangleContacts": 310,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_1_-0.154",
+          "support": "bail_anchor_plate_1_-0.154",
+          "minimumSurfaceGapM": 0.0002499818801879883,
+          "surfaceTriangleContacts": 48,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_1",
+          "support": "bail_anchor_eye_1_-0.154",
+          "minimumSurfaceGapM": 0.0005999801214784384,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "bail_anchor_eye_1_0.154",
+          "support": "bail_anchor_plate_1_0.154",
+          "minimumSurfaceGapM": 0.0002499818801879883,
+          "surfaceTriangleContacts": 48,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_carry_bail_1",
+          "support": "bail_anchor_eye_1_0.154",
+          "minimumSurfaceGapM": 0.000600003928411752,
+          "surfaceTriangleContacts": 15,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "leather_grip_wrap_1",
+          "support": "forged_carry_bail_1",
+          "minimumSurfaceGapM": 1.8672422811505385e-05,
+          "surfaceTriangleContacts": 294,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_-0.041",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0011190176010131836,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_0",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0011190176010131836,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_-0.494_0.041",
+          "support": "hinge_through_pin_-0.494",
+          "minimumSurfaceGapM": 0.0011190176010131836,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_body_leaf_-0.494",
+          "support": "hinge_eye_-0.494_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 17,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_-0.041",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0011190176010131836,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_0",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0011190176010131836,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_eye_0.494_0.041",
+          "support": "hinge_through_pin_0.494",
+          "minimumSurfaceGapM": 0.0011190176010131836,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "hinge_body_leaf_0.494",
+          "support": "hinge_eye_0.494_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 15,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "closed_front_hasp",
+          "support": "hasp_hinge_pin",
+          "minimumSurfaceGapM": 0.0004999637603759766,
+          "surfaceTriangleContacts": 24,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "closed_front_hasp",
+          "support": "keeper_through_hasp",
+          "minimumSurfaceGapM": 0.0020000003278255463,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "keeper_through_hasp",
+          "support": "keeper_backplate",
+          "minimumSurfaceGapM": 0.0020000040531158447,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

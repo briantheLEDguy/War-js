@@ -17,14 +17,14 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,412 tests in 168 files**. Production build
+The latest full regression pass is **1,416 tests in 169 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 255 static props, 71 character
-profiles and 57 equipment records, and the GM builder has 445 definitions.
-All 33 maps and 888 model records validate. Remaining regional character, equipment and town/zone work
+The registry contains 256 static props, 71 character
+profiles and 57 equipment records, and the GM builder has 446 definitions.
+All 33 maps and 891 model records validate. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
@@ -54,6 +54,13 @@ mesh, support and half-metre navigation checks preserve station access.
 
 Root owns publication through `scripts/campaign/publish-regional-inhabitant.mjs`,
 registry/GM generation and map integration. No aesthetic approval is outstanding.
+
+The universal field supply chest is published in all 36 keeps and GM, with three
+LODs, six packed editable masters and five measured collider masses. Sixty-three
+named fitting contacts pass. Keep access, four regional wall/stair mesh checks,
+144 skid-support probes and a Cinderfen local player press pass; the player stops
+at (-342, 0, 13.867). Its release is `9869eaf9d6e8f9747a30`; source and runtime
+integration receipts are saved in `authoring/blender/field-supply-chest/`.
 
 Current technical holds: supply-officer E passed its original numeric gates but
 its rear view exposed detached ledger straps. Do not publish E; the agent is

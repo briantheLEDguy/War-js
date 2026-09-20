@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "runtimeReady": false,
+  "assets": {
+    "frontier_field_supply_chest": {
+      "label": "Field Supply Chest",
+      "group": "Universal Town Logistics",
+      "kind": "field_supply_chest",
+      "model": "frontier_field_supply_chest_lod0.glb",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "colliderSpace": "model",
+      "sourceMasterSha256": "857e2ef587306c121bbed5764f5b7b4a79e409c0d52581b867a35c0d883cd8c3",
+      "boundsYUp": {
+        "minimum": [
+          -0.773684024810791,
+          0.0,
+          -0.39900001883506775
+        ],
+        "maximum": [
+          0.7736845016479492,
+          0.7904999852180481,
+          0.41749998927116394
+        ]
+      },
+      "footprint": {
+        "width": 1.5473685264587402,
+        "depth": 0.8165000081062317,
+        "chainAxis": "x"
+      },
+      "colliders": [
+        {
+          "x": 0.0,
+          "z": 0.009249985218048096,
+          "width": 1.378000020980835,
+          "depth": 0.8165000081062317,
+          "minY": 0.10800088196992874,
+          "maxY": 0.7904999852180481
+        },
+        {
+          "x": -0.49299998581409454,
+          "z": -0.0,
+          "width": 0.10499998927116394,
+          "depth": 0.7059999704360962,
+          "minY": 0,
+          "maxY": 0.12099999934434891
+        },
+        {
+          "x": 0.49299998581409454,
+          "z": -0.0,
+          "width": 0.10499998927116394,
+          "depth": 0.7059999704360962,
+          "minY": 0,
+          "maxY": 0.12099999934434891
+        },
+        {
+          "x": -0.7183420062065125,
+          "z": -0.0,
+          "width": 0.11068403720855713,
+          "depth": 0.3839636445045471,
+          "minY": 0.3022008240222931,
+          "maxY": 0.4729999899864197
+        },
+        {
+          "x": 0.7183422446250916,
+          "z": -0.0,
+          "width": 0.11068451404571533,
+          "depth": 0.3839636445045471,
+          "minY": 0.30220019817352295,
+          "maxY": 0.4729999899864197
+        }
+      ],
+      "collisionMeasurements": [
+        {
+          "name": "closed_chest_body",
+          "parts": [
+            "raised_floor_board_0",
+            "raised_floor_board_1",
+            "raised_floor_board_2",
+            "raised_floor_board_3",
+            "end_board_-1_0",
+            "end_board_1_0",
+            "dovetailed_long_board_-1_0",
+            "dovetailed_long_board_1_0",
+            "end_board_-1_1",
+            "end_board_1_1",
+            "dovetailed_long_board_-1_1",
+            "dovetailed_long_board_1_1",
+            "end_board_-1_2",
+            "end_board_1_2",
+            "dovetailed_long_board_-1_2",
+            "dovetailed_long_board_1_2",
+            "arched_lid_end_-1",
+            "arched_lid_end_1",
+            "lid_closing_rail_-1",
+            "lid_closing_rail_1",
+            "arched_lid_stave_0",
+            "arched_lid_stave_1",
+            "arched_lid_stave_2",
+            "arched_lid_stave_3",
+            "arched_lid_stave_4",
+            "arched_lid_stave_5",
+            "arched_lid_stave_6",
+            "fitted_forged_lid_strap_0",
+            "lid_strap_rivet_0_0",
+            "lid_strap_rivet_0_1",
+            "lid_strap_rivet_0_2",
+            "lid_strap_rivet_0_3",
+            "fitted_forged_lid_strap_1",
+            "lid_strap_rivet_1_0",
+            "lid_strap_rivet_1_1",
+            "lid_strap_rivet_1_2",
+            "lid_strap_rivet_1_3",
+            "fitted_forged_lid_strap_2",
+            "lid_strap_rivet_2_0",
+            "lid_strap_rivet_2_1",
+            "lid_strap_rivet_2_2",
+            "lid_strap_rivet_2_3",
+            "forged_wall_binding_-0.494_-1",
+            "wall_rivet_-0.494_-1_0.197",
+            "wall_rivet_-0.494_-1_0.34",
+            "wall_rivet_-0.494_-1_0.553",
+            "forged_wall_binding_-0.494_1",
+            "wall_rivet_-0.494_1_0.197",
+            "wall_rivet_-0.494_1_0.34",
+            "wall_rivet_-0.494_1_0.553",
+            "forged_wall_binding_0.494_-1",
+            "wall_rivet_0.494_-1_0.197",
+            "wall_rivet_0.494_-1_0.34",
+            "wall_rivet_0.494_-1_0.553",
+            "forged_wall_binding_0.494_1",
+            "wall_rivet_0.494_1_0.197",
+            "wall_rivet_0.494_1_0.34",
+            "wall_rivet_0.494_1_0.553",
+            "hinge_eye_-0.494_-0.041",
+            "hinge_eye_-0.494_0",
+            "hinge_eye_-0.494_0.041",
+            "hinge_through_pin_-0.494",
+            "hinge_body_leaf_-0.494",
+            "hinge_eye_0.494_-0.041",
+            "hinge_eye_0.494_0",
+            "hinge_eye_0.494_0.041",
+            "hinge_through_pin_0.494",
+            "hinge_body_leaf_0.494",
+            "closed_front_hasp",
+            "hasp_hinge_pin",
+            "keeper_backplate",
+            "keeper_through_hasp",
+            "inventory_brass_plate",
+            "inventory_plate_rivet_-0.145",
+            "inventory_plate_rivet_0.145"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              -0.6890000104904175,
+              -0.41749998927116394,
+              0.10800088196992874
+            ],
+            "maximum": [
+              0.6890000104904175,
+              0.39900001883506775,
+              0.7904999852180481
+            ]
+          }
+        },
+        {
+          "name": "shaped_ground_skid_-1",
+          "parts": [
+            "shaped_ground_skid_-1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              -0.5454999804496765,
+              -0.3529999852180481,
+              0.0
+            ],
+            "maximum": [
+              -0.4404999911785126,
+              0.3529999852180481,
+              0.12099999934434891
+            ]
+          }
+        },
+        {
+          "name": "shaped_ground_skid_1",
+          "parts": [
+            "shaped_ground_skid_1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              0.4404999911785126,
+              -0.3529999852180481,
+              0.0
+            ],
+            "maximum": [
+              0.5454999804496765,
+              0.3529999852180481,
+              0.12099999934434891
+            ]
+          }
+        },
+        {
+          "name": "carry_bail_-1",
+          "parts": [
+            "bail_anchor_plate_-1_-0.154",
+            "bail_anchor_rivet_-1_-0.154_0.363",
+            "bail_anchor_rivet_-1_-0.154_0.449",
+            "bail_anchor_eye_-1_-0.154",
+            "bail_anchor_plate_-1_0.154",
+            "bail_anchor_rivet_-1_0.154_0.363",
+            "bail_anchor_rivet_-1_0.154_0.449",
+            "bail_anchor_eye_-1_0.154",
+            "forged_carry_bail_-1",
+            "leather_grip_wrap_-1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              -0.773684024810791,
+              -0.19198182225227356,
+              0.3022008240222931
+            ],
+            "maximum": [
+              -0.6629999876022339,
+              0.19198182225227356,
+              0.4729999899864197
+            ]
+          }
+        },
+        {
+          "name": "carry_bail_1",
+          "parts": [
+            "bail_anchor_plate_1_-0.154",
+            "bail_anchor_rivet_1_-0.154_0.363",
+            "bail_anchor_rivet_1_-0.154_0.449",
+            "bail_anchor_eye_1_-0.154",
+            "bail_anchor_plate_1_0.154",
+            "bail_anchor_rivet_1_0.154_0.363",
+            "bail_anchor_rivet_1_0.154_0.449",
+            "bail_anchor_eye_1_0.154",
+            "forged_carry_bail_1",
+            "leather_grip_wrap_1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              0.6629999876022339,
+              -0.19198182225227356,
+              0.30220019817352295
+            ],
+            "maximum": [
+              0.7736845016479492,
+              0.19198182225227356,
+              0.4729999899864197
+            ]
+          }
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true,
+      "standingPoint": {
+        "x": 0,
+        "y": 0,
+        "z": 1.02
+      },
+      "workingFront": {
+        "minimum": [
+          -0.8,
+          0,
+          0.45
+        ],
+        "maximum": [
+          0.8,
+          2,
+          1.6
+        ]
+      },
+      "approachSource": {
+        "minimum": [
+          -0.8,
+          -1.6,
+          0
+        ],
+        "maximum": [
+          0.8,
+          -0.45,
+          2
+        ]
+      },
+      "placementDatum": "Two planed skids at Y0. Closed static scenery; no inventory or opening interaction."
+    }
+  }
+}

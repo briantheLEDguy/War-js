@@ -1,0 +1,95 @@
+{
+  "model": "frontier_field_supply_chest_lod1.glb",
+  "sha256": "b735b1d497d4b662a4c2ae476551a13b7a946865f23fcb369b579fd747142c67",
+  "reviewerSha256": "5bef1bc24bca5c314403a1ad0f7217a77cb19ca82aa08a0fdc8e8ae047daf4a7",
+  "audit": {
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 14380,
+    "meshes": [
+      {
+        "part": "frontier_field_supply_chest.oak",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 4036
+      },
+      {
+        "part": "frontier_field_supply_chest.iron",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 4924
+      },
+      {
+        "part": "frontier_field_supply_chest.brass",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 2196
+      },
+      {
+        "part": "frontier_field_supply_chest.leather",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 3224
+      }
+    ],
+    "boundsZUp": {
+      "minimum": [
+        -0.7743563055992126,
+        -0.41749998927116394,
+        0.0
+      ],
+      "maximum": [
+        0.7742611169815063,
+        0.39900001883506775,
+        0.7904999852180481
+      ]
+    }
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_field_supply_chest_lod1_neutral.png",
+      "sha256": "38acbc7cb8429f69a8bc8b2e5880ab5bdd52ab628d4557e24c13161fe2aa0a86",
+      "camera": {
+        "cameraZUp": [
+          2.700000047683716,
+          -5.0,
+          2.3899998664855957
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.38999998569488525
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 1.95,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_field_supply_chest_lod1_gameplay.png",
+      "sha256": "57a0cf511c93464641e1025978743f0afcdbdb1db9a024cc1141e633b5363ac9",
+      "camera": {
+        "cameraZUp": [
+          0.6000000238418579,
+          -12.0,
+          1.7200000286102295
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.38999998569488525
+        ],
+        "projection": "PERSP",
+        "orthoScale": null,
+        "distanceM": 12,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    }
+  }
+}

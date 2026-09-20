@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-c6b2497db179fd1c",
+  "assetVersion": "approved-a1c11308f950be76",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -5947,6 +5947,27 @@
       },
       "qc": "frontier_field_catapult_lod0.qc.json",
       "qcSha256": "9a8084c8168e69bc8eadc6b4d50da45b38b2ea6fdf62897e8c33dfd026534925",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_field_supply_chest": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.field_supply_chest",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_field_supply_chest_lod0.glb",
+      "modelSha256": "ce563b1256fd8bc7fa45675d8cb4128c3df6d4ff7d71a708e8ea055470ecdd37",
+      "previews": {
+        "assembly": "authoring/blender/field-supply-chest/releases/frontier_field_supply_chest/9869eaf9d6e8f9747a30/files/authoring/blender/field-supply-chest/review/frontier_field_supply_chest_lod0_neutral.png"
+      },
+      "previewSha256": {
+        "assembly": "82e56f55281772ae82ba70a8fa947e4c53b4727147d3e6b2f0dd794c8e1df16d"
+      },
+      "qc": "frontier_field_supply_chest_lod0.qc.json",
+      "qcSha256": "e4e3082b842f837b00a703031b75d3f4dcd7e63175f713a487bcd04a1c4a523d",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"

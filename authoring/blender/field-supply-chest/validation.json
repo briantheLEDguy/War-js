@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "key": "frontier_field_supply_chest",
+  "buildSha256": "acb175a71c4e6c1cbd2802248cbd8f3702c00ea2363a3cb0a77ecef67ef4db56",
+  "validationToolSha256": "a17f40ce40603b7b24195763cd68509b445af3c873966760f56bca91e3a35c88",
+  "records": [
+    {
+      "level": 0,
+      "model": "frontier_field_supply_chest_lod0.glb",
+      "sha256": "ce563b1256fd8bc7fa45675d8cb4128c3df6d4ff7d71a708e8ea055470ecdd37",
+      "bytes": 11125548,
+      "triangles": 29776,
+      "vertices": 65012,
+      "materials": 4,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_supply_chest_lod1.glb",
+      "sha256": "b735b1d497d4b662a4c2ae476551a13b7a946865f23fcb369b579fd747142c67",
+      "bytes": 4142644,
+      "triangles": 14380,
+      "vertices": 29832,
+      "materials": 4,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_supply_chest_lod2.glb",
+      "sha256": "f2d72fda7d86967d99cdb6cc6a00be588854ddb01bfaa3507be2e9668d0f55e1",
+      "bytes": 1295848,
+      "triangles": 6128,
+      "vertices": 11848,
+      "materials": 4,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "colliders": 5,
+  "limitations": [
+    "Static closed chest; no loot or opening interaction claimed.",
+    "Placement and gameplay acceptance are outside this authoring gate."
+  ]
+}

@@ -1,3 +1,9 @@
+## 2026-09-20 — Universal field supply chest
+
+- Published an original dovetail-built chest with three LODs, four embedded PBR material sets, six editable Blender masters and measured fitting/collision evidence.
+- Added it to all 36 keeps and the GM builder; keep access, skid support, nearby authored meshes and a local gameplay collision press pass.
+- Verified 1,416 tests, production build, 33 maps, 891 model records and 446 GM definitions. Character fitting continues; full zone/campaign acceptance remains open.
+
 ## 2026-09-20 — Character attachment verification
 
 - Require current side/rear inspection views and equipment-attachment evidence for the three regional characters in production. The unfinished supply officer remains out of runtime while its detached ledger suspension is corrected.

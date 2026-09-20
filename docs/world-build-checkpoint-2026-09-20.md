@@ -1,5 +1,28 @@
 # World build checkpoint — September 20, 2026
 
+## Universal supply chest delivery
+
+The original iron-bound field chest is published in all 36 keeps and the GM
+builder. Three LODs retain 29,776 / 14,380 / 6,128 triangles, four embedded PBR
+material sets and five geometry-derived colliders. Six packed editable masters
+retain the dovetail boards, arched lid, real receiving cuts, hinges, carrying
+bails and leather grips. Sixty-three fitting contacts pass, and all three GLBs
+have zero validator errors/warnings with unit orthogonal tangent bases.
+Frozen release: `9869eaf9d6e8f9747a30`; GLB sizes are 11.13 / 4.14 / 1.30 MB.
+
+All 36 keep boundaries, gate progression and furnishing fronts remain accessible
+under the existing collision checks. Four Sunmeadow/Cinderfen chests clear actual
+wall/stair/furnishing triangles; 144 skid probes stay within 9 mm of support.
+The Cinderfen local gameplay press stops at (-342, 0, 13.867), with the chest
+visible and grounded. The package integration receipt retains exact hashes and
+the bounded-check limitation. This is static closed scenery, without a loot or
+opening interaction. Full campaign/performance acceptance remains unfinished.
+
+The combined suite passes **1,416 tests in 169 files**, saved locally as
+`artifacts/orvr/field-supply-chest-tests.json`. Production build and client
+typecheck pass; 33 maps, 891 model records and 446 GM definitions validate.
+The three character agents continue technical fitting and all-clip validation.
+
 ## Universal keep preparation furnishings
 
 The same published apothecary table now supplies all 36 keeps, in addition to
