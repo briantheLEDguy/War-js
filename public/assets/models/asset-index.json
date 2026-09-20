@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-b34cefbf259762fb",
+  "assetVersion": "approved-c603af2da9404478",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -5950,6 +5950,27 @@
       },
       "qc": "frontier_field_apothecary_lod0.qc.json",
       "qcSha256": "306377f0b20a999f47c179d15d6868f48a5ae47de600ba2bce8dcb0659c99412",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
+    },
+    "frontier_field_arms_rack": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.field_arms_rack",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_field_arms_rack_lod0.glb",
+      "modelSha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+      "previews": {
+        "assembly": "authoring/blender/field-arms-rack/releases/frontier_field_arms_rack/6eac77928a01ab79cb2e/files/authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_neutral.png"
+      },
+      "previewSha256": {
+        "assembly": "2dd5f765cd859dce6087efb4afee61e94a42a709896fd8f60410014edcab0e0c"
+      },
+      "qc": "frontier_field_arms_rack_lod0.qc.json",
+      "qcSha256": "e510624bb79e5e71c118c56f446557cf66e7947d84fc386ec064d858c4c07f2c",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "none"

@@ -143,3 +143,12 @@ authoring/blender/field-supply-chest/**/*.blend filter=lfs diff=lfs merge=lfs -t
 authoring/blender/field-supply-chest/**/*.glb filter=lfs diff=lfs merge=lfs -text
 authoring/blender/field-supply-chest/**/*.png filter=lfs diff=lfs merge=lfs -text
 scripts/campaign/publish-field-supply-chest.mjs -text
+authoring/blender/cinderfen-quartermaster/** -text
+authoring/blender/cinderfen-quartermaster/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-quartermaster/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-quartermaster/**/*.png filter=lfs diff=lfs merge=lfs -text
+authoring/blender/field-arms-rack/** -text
+authoring/blender/field-arms-rack/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/field-arms-rack/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/field-arms-rack/**/*.png filter=lfs diff=lfs merge=lfs -text
+scripts/campaign/publish-field-arms-rack.mjs -text

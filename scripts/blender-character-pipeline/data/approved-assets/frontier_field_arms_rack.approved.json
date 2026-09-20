@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.field_arms_rack",
+  "displayName": "Field Arms Rack",
+  "category": "prop",
+  "model": "frontier_field_arms_rack_lod0.glb",
+  "qc": "frontier_field_arms_rack_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_field_arms_rack"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+    "qcSha256": "e510624bb79e5e71c118c56f446557cf66e7947d84fc386ec064d858c4c07f2c",
+    "previews": {
+      "assembly": "2dd5f765cd859dce6087efb4afee61e94a42a709896fd8f60410014edcab0e0c"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/field-arms-rack/releases/frontier_field_arms_rack/6eac77928a01ab79cb2e/files/authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_neutral.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "6eac77928a01ab79cb2e90d8e183c91f970fb64010fb914ca814b357d6c46f1a"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_arms_rack_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-arms-rack/releases/frontier_field_arms_rack/6eac77928a01ab79cb2e/files/authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod0.source.blend",
+    "sourceSha256": "37606907c75e94280f0f81e05c948cb0c87ac00ae20c395e08e18d9578d1910e"
+  },
+  "approvalState": "approved"
+}

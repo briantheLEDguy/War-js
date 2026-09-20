@@ -1,0 +1,102 @@
+{
+  "assetId": "prop.frontier.field_arms_rack",
+  "displayName": "Field Arms Rack",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "universal_town_logistics"
+  ],
+  "runtime": {
+    "staticKey": "frontier_field_arms_rack"
+  },
+  "output": {
+    "model": "frontier_field_arms_rack_lod0.glb",
+    "artifactDir": "authoring/blender/field-arms-rack/releases/frontier_field_arms_rack/6eac77928a01ab79cb2e/files/authoring/blender/field-arms-rack/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/field-arms-rack/releases/frontier_field_arms_rack/6eac77928a01ab79cb2e/files/authoring/blender/field-arms-rack/runtime/frontier_field_arms_rack_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 28246,
+        "screenCoverageMin": 0.15
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 17116,
+        "screenCoverageMin": 0.05
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 9606,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FieldArmsRack",
+    "textureSet": "frontier_field_arms_rack",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 1024
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authored_mass_segments",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_arms_rack_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-arms-rack/releases/frontier_field_arms_rack/6eac77928a01ab79cb2e/files/authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod0.source.blend",
+    "sourceSha256": "37606907c75e94280f0f81e05c948cb0c87ac00ae20c395e08e18d9578d1910e"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxTris": 28246,
+    "maxFileSizeMb": 15,
+    "maxDrawCalls": 5,
+    "maxMeshObjects": 5,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true,
+    "expectedHeightM": 2.380000114440918,
+    "heightToleranceM": 0.01
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "6eac77928a01ab79cb2e90d8e183c91f970fb64010fb914ca814b357d6c46f1a",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

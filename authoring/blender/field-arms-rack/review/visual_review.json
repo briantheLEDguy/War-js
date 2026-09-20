@@ -1,0 +1,407 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "assetId": "prop.frontier.field_arms_rack",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_field_arms_rack_lod0.glb",
+        "sha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+        "triangles": 28246,
+        "bytes": 10000460,
+        "externalTextures": []
+      },
+      {
+        "level": 1,
+        "model": "frontier_field_arms_rack_lod1.glb",
+        "sha256": "9e0c088e24b4f1799bc1b660be8c6b2a4916257ae5066b74466f71b0a413238b",
+        "triangles": 17116,
+        "bytes": 3765920,
+        "externalTextures": []
+      },
+      {
+        "level": 2,
+        "model": "frontier_field_arms_rack_lod2.glb",
+        "sha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+        "triangles": 9606,
+        "bytes": 1235148,
+        "externalTextures": []
+      }
+    ],
+    "files": {
+      "authoring/blender/field-arms-rack/builder-contract.json": {
+        "sha256": "5d3c9ea95de574a1a33d1953e82201626473d82131b27f45a38ea9493ee732d8",
+        "bytes": 7146
+      },
+      "authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod0.blend": {
+        "sha256": "06680b0b2e5d76be7df7ee8f5435127ae592c91b3e78133cb5e98c9f894f5603",
+        "bytes": 9492019
+      },
+      "authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod0.source.blend": {
+        "sha256": "37606907c75e94280f0f81e05c948cb0c87ac00ae20c395e08e18d9578d1910e",
+        "bytes": 8932321
+      },
+      "authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod1.blend": {
+        "sha256": "166dfeaaa8044b62bbc62088c15adbf078a6903b4bab9e3546fe8dd35d7f4537",
+        "bytes": 3531666
+      },
+      "authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod1.source.blend": {
+        "sha256": "9743e9dc422719cdcc30060563d78589c4cb357c50c4ab86cea5779ecc6927e3",
+        "bytes": 3201750
+      },
+      "authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod2.blend": {
+        "sha256": "45f15954d4eff5cff7b6d2619494fed2f5010ac4263d4e53f327b2253eff3200",
+        "bytes": 1156816
+      },
+      "authoring/blender/field-arms-rack/masters/frontier_field_arms_rack_lod2.source.blend": {
+        "sha256": "babcfaad0c87162e42472c44d094398eb06ceaf1ddb7126a6aa12d1b3cac993b",
+        "bytes": 1009820
+      },
+      "authoring/blender/field-arms-rack/review/construction-contacts.json": {
+        "sha256": "4de668cc6b148cc76a93382942c445dfbe3218accf6523421b8386e32d13aaa0",
+        "bytes": 43357
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_build.json": {
+        "sha256": "f3bd4f15faf24d50d53180590cca730a94f67a6ae86383f4076c1826b1ebff80",
+        "bytes": 106967
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_build.json": {
+        "sha256": "84c000e1794e9c5c65b45d0dcd8ebd5342106db2a2bf1467b266174c5fff3880",
+        "bytes": 43720
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_detail.png": {
+        "sha256": "18d18320f3a2abdb14e370f662f694675d105d81b7756a9e8ff65c5c0b7d8be0",
+        "bytes": 1673271
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_gameplay.png": {
+        "sha256": "011c73d6e22b67464709edd60032fc3168df847027475d9477e356c2e504cc02",
+        "bytes": 992039
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_joinery.png": {
+        "sha256": "427d77142bb3cf6d7f52151a996b4fc5bcf0ff4d13056c92041bebc02063e4c9",
+        "bytes": 1773628
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_neutral.png": {
+        "sha256": "2dd5f765cd859dce6087efb4afee61e94a42a709896fd8f60410014edcab0e0c",
+        "bytes": 1737250
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_rear.png": {
+        "sha256": "37004e51782e30091f0b97df6405696d4acdf88229107bd14ae421f0b439894c",
+        "bytes": 1743916
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_reimport.json": {
+        "sha256": "204e0db4bb8225874201db147c09dfc2a6ccebe8296ff24b4be6bf2eea04f9b1",
+        "bytes": 4434
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod0_source-audit.json": {
+        "sha256": "bc78cca01a605cdafaf7be0969827f42aaa668660fc5b945324cff93aa73af4b",
+        "bytes": 8184
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod1_build.json": {
+        "sha256": "d9f9e8490bd0aad0d0d087f5a528c8e1b34250c871e4cd7136aa035155c0705a",
+        "bytes": 21002
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod1_gameplay.png": {
+        "sha256": "40e07c6f3bfded05c186ebaeb5e3314315562ce68640b4750e4a5eb09a36c10d",
+        "bytes": 929164
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod1_neutral.png": {
+        "sha256": "080c38fdb304533748091c5ff903d295058588f17d1e78391b78fa9bfed6285c",
+        "bytes": 1734461
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod1_reimport.json": {
+        "sha256": "7731dd1c8393e4856060877e45604b600da84a6f213015cd5b9cec043b9a3bd7",
+        "bytes": 2592
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod1_source-audit.json": {
+        "sha256": "e066a76ca4753af1213a5c5506640fdc7ba122eb889fde523442fa668b3ed602",
+        "bytes": 8164
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod2_build.json": {
+        "sha256": "b30e1149eed14311b1e4fa9e56192dd4185a8ab41a24d7456db5fcb8a88513e3",
+        "bytes": 16555
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod2_gameplay.png": {
+        "sha256": "f8f1cacc75c59ceef6216864c39dcd65db14da2381503fb3ea40a84244080737",
+        "bytes": 916758
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod2_neutral.png": {
+        "sha256": "bd52560c62ea22a9785b543f502fbbfa1c343554f94846a203d030adb74a2c26",
+        "bytes": 1718747
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod2_reimport.json": {
+        "sha256": "1b438b872b40764291aecbbbc6e05accb148d0176c0c5159e0e4415277319fce",
+        "bytes": 2590
+      },
+      "authoring/blender/field-arms-rack/review/frontier_field_arms_rack_lod2_source-audit.json": {
+        "sha256": "ba2548142d7918292db8f30c26a9c2f3bba908bc24b3a3ec60f5b5411d374d1b",
+        "bytes": 8159
+      },
+      "authoring/blender/field-arms-rack/review/master-audit.json": {
+        "sha256": "0cdbbaa29379f5868efe882fb199e43eba764d9564aa697df8df0dc477b403c3",
+        "bytes": 40193
+      },
+      "authoring/blender/field-arms-rack/runtime/frontier_field_arms_rack_lod0.glb": {
+        "sha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+        "bytes": 10000460
+      },
+      "authoring/blender/field-arms-rack/runtime/frontier_field_arms_rack_lod1.glb": {
+        "sha256": "9e0c088e24b4f1799bc1b660be8c6b2a4916257ae5066b74466f71b0a413238b",
+        "bytes": 3765920
+      },
+      "authoring/blender/field-arms-rack/runtime/frontier_field_arms_rack_lod2.glb": {
+        "sha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+        "bytes": 1235148
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod0_basecolor.png": {
+        "sha256": "5d0cd81f1dda0ae9914d90b5b9d2927e6d9fabd55d75636e458a5ad2c215699b",
+        "bytes": 245772
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod0_normal.png": {
+        "sha256": "28033ec2511798a9a5c994f50308c54590db4650c6361a0d2e3b954fefa686af",
+        "bytes": 933884
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod0_orm.png": {
+        "sha256": "40ef14151df5cf8139913bb22694bb3045967b7fb563505c1d5859ab938a0938",
+        "bytes": 328745
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod1_basecolor.png": {
+        "sha256": "ab67bc88ce9394089bb2f74bbefc2802c23f7643f6ce74e695922441a5d6479a",
+        "bytes": 110207
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod1_normal.png": {
+        "sha256": "b460092959fefb4550f8414dfa64601211fd99a3e1cc6f6ef5dc8621cee52155",
+        "bytes": 323443
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod1_orm.png": {
+        "sha256": "85188b308c86257607331c0816b0e8fdea5a951d46b20aa1a18d1009a960e5f9",
+        "bytes": 123097
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod2_basecolor.png": {
+        "sha256": "3f4a76fd15827c63ed6633913dbd56032c937fbbd95941a97d39777cc6417e7e",
+        "bytes": 36874
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod2_normal.png": {
+        "sha256": "fd33f0932e469bdc88c385573bae833ec50e2ee4132a94dc3a4acfc6cb7a8673",
+        "bytes": 66527
+      },
+      "authoring/blender/field-arms-rack/textures/brass_lod2_orm.png": {
+        "sha256": "f5f93764b69d1a95ce5d2145e65f83b5fb3802661fd8a5ee4ffd7a67fb6535dc",
+        "bytes": 41775
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod0_basecolor.png": {
+        "sha256": "0d481ce9873d37bda2dde523382216cb7cc4698b4b86c25d9ad087bddfea5fb0",
+        "bytes": 363770
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod0_normal.png": {
+        "sha256": "d73b5901d0aaa548b50e51fc3c3740de9b10532e5b6824b13f3fbfd198094821",
+        "bytes": 1349385
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod0_orm.png": {
+        "sha256": "82d39ddf32d1268b1e866c5c79b5912a5136125b7e9c6fba0af3efc6a8ae4af8",
+        "bytes": 142419
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod1_basecolor.png": {
+        "sha256": "d96748a355abb386990f854fc0954f52ef64e709e9a39299e97a66cd0e6d013e",
+        "bytes": 150454
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod1_normal.png": {
+        "sha256": "11a24a706b031ea3483def7cf7670e59213aaf92c57266b2deb87264ec06610a",
+        "bytes": 410637
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod1_orm.png": {
+        "sha256": "2e07a33291c189a3c7ae6a862f20a3676a5ebf8ce0c29a4da09cc4814b5be84e",
+        "bytes": 60958
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod2_basecolor.png": {
+        "sha256": "8184f0df3313dd30cdd0eab4b4a84dc5994fd61ee5d9ddb8e7e37d21112e0173",
+        "bytes": 51994
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod2_normal.png": {
+        "sha256": "6b4037839d3b260c2a0a10ef7faa42bbe215e0c1c8a32cd532902a753028cb49",
+        "bytes": 88829
+      },
+      "authoring/blender/field-arms-rack/textures/iron_lod2_orm.png": {
+        "sha256": "6487f88a4925d219eb9c372c396745bc9d6b6210e7840365601c517d1b99dc51",
+        "bytes": 19469
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod0_basecolor.png": {
+        "sha256": "2d3e85b663103bcf6acb30878f781b762e3842d1d55263272794a918b5c646dd",
+        "bytes": 124172
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod0_normal.png": {
+        "sha256": "7e7d2abef8e544894bd4c5292a5f330a284b7f47ccd5b01cd3d9a43878707f9f",
+        "bytes": 1934052
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod0_orm.png": {
+        "sha256": "8e95c148e9f288701c96ce0080afa9789fa84820e0517f6d74aef069cc96ac81",
+        "bytes": 306454
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod1_basecolor.png": {
+        "sha256": "783b320d5a154e6d0410832cb5bfcbf2b96266ad46b86c493e8e1c471b578db4",
+        "bytes": 53414
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod1_normal.png": {
+        "sha256": "dd09009f72e8ecaf95146c3e586080fbf1ffca9b94b8cb4a911d572ffb8bc358",
+        "bytes": 558165
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod1_orm.png": {
+        "sha256": "2a009b9a681f35361bd1619707a88b884f3acc0086f8d432202c24d4af31e0ba",
+        "bytes": 117253
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod2_basecolor.png": {
+        "sha256": "d3310c8d39dbef2138dd2f023d1c81ac3cd51ff48209f66a2c95740e22c02887",
+        "bytes": 22433
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod2_normal.png": {
+        "sha256": "d48e809d4f909a947c480a6ca1e69c887df0e3e3513e670963098442abf177bd",
+        "bytes": 123990
+      },
+      "authoring/blender/field-arms-rack/textures/leather_lod2_orm.png": {
+        "sha256": "7f96f34251833131560b4799e9640f63b1ea11bd3606f53bcaafd8f0464fc74f",
+        "bytes": 39129
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod0_basecolor.png": {
+        "sha256": "c96fe5aa1ebe84ffc9b8dadfa4a3b2681186fbf5381de5a8dbf36c3b00a898d4",
+        "bytes": 559653
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod0_normal.png": {
+        "sha256": "f1071133f2f715e7c5a2aff5e283705204c5e9dd8d3dc54b809f70ec11c3e2ff",
+        "bytes": 1264134
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod0_orm.png": {
+        "sha256": "7e9f4be6bf2d6a468770d0b4b128cf4f06486836c9716eea2bf0ade1c9186853",
+        "bytes": 320032
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod1_basecolor.png": {
+        "sha256": "aac3c6d77507f555703efaad6d7492b9772bab9f0d41d591601f91dea1c3cf37",
+        "bytes": 215728
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod1_normal.png": {
+        "sha256": "d81d0ff7c961c4f473c68b1c09369872b5c7b0008e4fbf22a0f2ee45441b9b43",
+        "bytes": 398466
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod1_orm.png": {
+        "sha256": "404a218439417457305bc117386bf5237029c9006b236afe02c61c7552777221",
+        "bytes": 120976
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod2_basecolor.png": {
+        "sha256": "94dba9228845d52c564bc6fc6e619bdedcc6d1324c217313cba67ed86c8c9a64",
+        "bytes": 69146
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod2_normal.png": {
+        "sha256": "3b4211c93f6b3df373e74915b28026b8c104083e7e74d8b870f3a84ba8fb6fb7",
+        "bytes": 87293
+      },
+      "authoring/blender/field-arms-rack/textures/oak_lod2_orm.png": {
+        "sha256": "0a1867673e9b6dd23247c151f77aadc3b404a81b752fada94127ae584f3df4ed",
+        "bytes": 40793
+      },
+      "authoring/blender/field-arms-rack/textures/sources.json": {
+        "sha256": "5277548995432b0023a940710083a62e229450518030339f38ddbaa1b1e02f10",
+        "bytes": 7028
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod0_basecolor.png": {
+        "sha256": "38e607241d14702a33984a5312dc016510a7724385c38335f0a6628e64557d91",
+        "bytes": 393585
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod0_normal.png": {
+        "sha256": "cf4868dea2613f513f5511be39dcefc044dc76b852f72bf637b49633b3dc3d3d",
+        "bytes": 14551
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod0_orm.png": {
+        "sha256": "d0c45903dcda928dc49e6f6940cd242418c547f2068e0d04f915034f89c5573e",
+        "bytes": 247263
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod1_basecolor.png": {
+        "sha256": "3d83cc0073bfa8b3dd6b5965dfc622b241c5d4ddf0b4d02a890471a9dd62e072",
+        "bytes": 167115
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod1_normal.png": {
+        "sha256": "a2e49519f96603f7d8155ec86c52e20b48f0031eb58d313cc2f0b0c733a5ceaf",
+        "bytes": 2023
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod1_orm.png": {
+        "sha256": "7fd0a3f651e0dd81d547a30ecbbbc86facca9dc0c92b4179701b7c8dc4cc758f",
+        "bytes": 101104
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod2_basecolor.png": {
+        "sha256": "075b82757ccd445628df907a374f740e6e91c3386a4adb25587daa11e5ba746e",
+        "bytes": 52080
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod2_normal.png": {
+        "sha256": "3aeb03ce32e3e7c4ab15a3b4d4ed03ff94b12a968a2d452310166c8e8b8d8ce3",
+        "bytes": 760
+      },
+      "authoring/blender/field-arms-rack/textures/steel_lod2_orm.png": {
+        "sha256": "4390c7551dcc331aafaee22ed33c4dc82ff98aa23644b15cdf8b78107e622670",
+        "bytes": 32114
+      },
+      "authoring/blender/field-arms-rack/tools/audit_masters.py": {
+        "sha256": "88d4574b05d49b460a95240300c19e3108b0d34b80fd201c4e46eb31b9493ae8",
+        "bytes": 2536
+      },
+      "authoring/blender/field-arms-rack/tools/build_rack.py": {
+        "sha256": "c1e47b46e02109c6ab6b298cdde92bb872dc729d4a708a0de95191d91b558f2f",
+        "bytes": 15838
+      },
+      "authoring/blender/field-arms-rack/tools/consolidate_build.py": {
+        "sha256": "49efd3a639be0961d1d6d5a5edd93eb87dc6f954b4d78a4c1892a4e6968f950f",
+        "bytes": 1294
+      },
+      "authoring/blender/field-arms-rack/tools/export_tangents.py": {
+        "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "bytes": 3281
+      },
+      "authoring/blender/field-arms-rack/tools/inspect_construction.py": {
+        "sha256": "071e8791dc3901991fbe16c09551d84173ff8853e9be0b70b362f938cac48ed7",
+        "bytes": 2273
+      },
+      "authoring/blender/field-arms-rack/tools/make_textures.py": {
+        "sha256": "56f4b82d2af3d1cf6009d91659a69d8d809aaed477375deace153c1f25a8e869",
+        "bytes": 2884
+      },
+      "authoring/blender/field-arms-rack/tools/mesh_authoring.py": {
+        "sha256": "7a427e39acbb267754e5e5c1eb5c4faab05e42b4bb635f8d9188ea11061d8b7c",
+        "bytes": 7502
+      },
+      "authoring/blender/field-arms-rack/tools/review_rack.py": {
+        "sha256": "8a9f69f30e46b9b9ccafff6a398b37f151948e028d28a646064beefa291958f4",
+        "bytes": 4103
+      },
+      "authoring/blender/field-arms-rack/tools/run_delivery.py": {
+        "sha256": "880324d0d153c20b8405fbe0d8de1f298578210ebe8424e651ff615075a00631",
+        "bytes": 1246
+      },
+      "authoring/blender/field-arms-rack/tools/validate_rack.mjs": {
+        "sha256": "4c14cfa495fe5c47de097a46e3c8534300d01596c3e0d398b3e34fb042e2b380",
+        "bytes": 9952
+      },
+      "authoring/blender/field-arms-rack/validation.json": {
+        "sha256": "a4496405e2d99a9863f54c38ef3360403a91c0712c043bbfcadcc1c57f2cd381",
+        "bytes": 1353
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+        "bytes": 1070
+      },
+      "scripts/blender-character-pipeline/tools/world-asset-approval.mjs": {
+        "sha256": "7335d52a94a977d785bd93b387bc50ba29cec19e494c9323b6d0b979688c0a38",
+        "bytes": 633
+      },
+      "scripts/campaign/publish-field-arms-rack.mjs": {
+        "sha256": "098e62ef8831f292f791794593c39ddfbe8490474951e7090816a91d38563da5",
+        "bytes": 11632
+      },
+      "scripts/campaign/regional-publication-evidence.mjs": {
+        "sha256": "a728aef40a03be32f7a40c373463b9ae374068d6e4dd05609bcd37ea320924a4",
+        "bytes": 3249
+      }
+    }
+  }
+}

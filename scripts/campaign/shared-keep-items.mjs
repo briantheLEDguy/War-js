@@ -8,11 +8,13 @@ const KEEP_FURNISHINGS = [
     candidates: [[8, -6], [6, -6], [8, 13], [6, 13], [8, 3], [6, 10], [5, -6]] },
   { key: 'frontier_field_supply_chest', role: 'supply_chest', sign: 1,
     candidates: [[8, -6], [6, -6], [8, 13], [6, 13], [8, 3], [6, 10], [5, -6]] },
+  { key: 'frontier_field_arms_rack', role: 'arms_rack', sign: -1,
+    candidates: [[8, 2], [6, 2], [8, 13], [6, 13], [5, -6], [10, 2], [10, -6], [12, 2], [12, -6], [8, -12], [6, -12]] },
 ];
 export const SHARED_KEEP_ITEMS = KEEP_FURNISHINGS.map(item => item.key);
 
 export function sharedKeepItemMetadata() {
-  return Object.assign({}, ...['frontier-workshop-items', 'field-apothecary', 'field-supply-chest'].map(name => {
+  return Object.assign({}, ...['frontier-workshop-items', 'field-apothecary', 'field-supply-chest', 'field-arms-rack'].map(name => {
     const file = new URL(`../../authoring/blender/${name}/builder-metadata.json`, import.meta.url);
     return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).assets : {};
   }));

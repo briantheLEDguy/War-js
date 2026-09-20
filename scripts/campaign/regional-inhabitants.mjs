@@ -17,7 +17,9 @@ export const REGIONAL_SERVICE_PRESENTATIONS = {
   { suffix: 'scout', race: 'high_elf', profile: 'npc_frontier_sunmeadow_high_elf_scout',
     assetId: 'chr.frontier.sunmeadow.high_elf_scout' }],
   cinderfen_outskirts: [{ suffix: 'marshal', race: 'dark_elf',
-    profile: 'npc_frontier_cinderfen_dark_elf_supply_officer', assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer' }],
+    profile: 'npc_frontier_cinderfen_dark_elf_supply_officer', assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer' },
+  { suffix: 'quartermaster', race: 'greenskin', profile: 'npc_frontier_cinderfen_greenskin_quartermaster',
+    assetId: 'chr.frontier.cinderfen.greenskin_quartermaster' }],
 };
 
 function approvedCharacter(assets, character) {

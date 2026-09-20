@@ -150,6 +150,7 @@ describe('reviewed shared character presentation', () => {
     ['npc_frontier_sunmeadow_high_elf_scout', 'high_elf', 'aegis'],
     ['npc_frontier_cinderfen_greenskin_peat_worker', 'greenskin', 'riftbound'],
     ['npc_frontier_cinderfen_dark_elf_supply_officer', 'dark_elf', 'riftbound'],
+    ['npc_frontier_cinderfen_greenskin_quartermaster', 'greenskin', 'riftbound'],
   ] as const)('preserves an explicit regional character %s instead of substituting a city model', (profileKey, race, realm) => {
     expect(campaignNpcProfile({ id: 'regional-service', role: 'trainer', profileKey, race, realm })).toBe(profileKey);
     expect(campaignNpcProfile({ id: 'regional-service', role: 'trainer', profileKey, realm })).toBe(profileKey);

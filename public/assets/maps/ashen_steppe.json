@@ -5543,6 +5543,61 @@
       "walkableSurfaces": []
     },
     {
+      "id": "ashen_steppe_delivered_aegis_arms_rack",
+      "kind": "frontier_field_arms_rack",
+      "assetKey": "frontier_field_arms_rack",
+      "model": "frontier_field_arms_rack_lod0.glb",
+      "x": -362,
+      "z": 2,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": 0,
+          "z": -0.007092498242855072,
+          "width": 1.5700000524520874,
+          "depth": 0.23918499052524567,
+          "minY": 0.07999999821186066,
+          "maxY": 2.380000114440918
+        },
+        {
+          "x": -0.7100000083446503,
+          "z": 0,
+          "width": 0.16500002145767212,
+          "depth": 0.8600000143051147,
+          "minY": 0,
+          "maxY": 0.10999999940395355
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": 0,
+          "width": 0.16500002145767212,
+          "depth": 0.8600000143051147,
+          "minY": 0,
+          "maxY": 0.10999999940395355
+        },
+        {
+          "x": -0.7100000083446503,
+          "z": -0.03500000014901161,
+          "width": 0.17000001668930054,
+          "depth": 0.11500000208616257,
+          "minY": 0.05999999865889549,
+          "maxY": 1.5649877786636353
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.03500000014901161,
+          "width": 0.17000001668930054,
+          "depth": 0.11500000208616257,
+          "minY": 0.05999999865889549,
+          "maxY": 1.564987301826477
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
       "id": "ashen_steppe_delivered_riftbound_repair_bench",
       "kind": "frontier_siege_repair_bench",
       "assetKey": "frontier_siege_repair_bench",
@@ -5990,6 +6045,61 @@
           "depth": 0.3839636445045471,
           "minY": 0.30220019817352295,
           "maxY": 0.4729999899864197
+        }
+      ],
+      "walkableSurfaces": []
+    },
+    {
+      "id": "ashen_steppe_delivered_riftbound_arms_rack",
+      "kind": "frontier_field_arms_rack",
+      "assetKey": "frontier_field_arms_rack",
+      "model": "frontier_field_arms_rack_lod0.glb",
+      "x": 342,
+      "z": 2,
+      "rotY": 0,
+      "scale": 1,
+      "colliderSpace": "model",
+      "cameraSolid": true,
+      "colliders": [
+        {
+          "x": 0,
+          "z": -0.007092498242855072,
+          "width": 1.5700000524520874,
+          "depth": 0.23918499052524567,
+          "minY": 0.07999999821186066,
+          "maxY": 2.380000114440918
+        },
+        {
+          "x": -0.7100000083446503,
+          "z": 0,
+          "width": 0.16500002145767212,
+          "depth": 0.8600000143051147,
+          "minY": 0,
+          "maxY": 0.10999999940395355
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": 0,
+          "width": 0.16500002145767212,
+          "depth": 0.8600000143051147,
+          "minY": 0,
+          "maxY": 0.10999999940395355
+        },
+        {
+          "x": -0.7100000083446503,
+          "z": -0.03500000014901161,
+          "width": 0.17000001668930054,
+          "depth": 0.11500000208616257,
+          "minY": 0.05999999865889549,
+          "maxY": 1.5649877786636353
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.03500000014901161,
+          "width": 0.17000001668930054,
+          "depth": 0.11500000208616257,
+          "minY": 0.05999999865889549,
+          "maxY": 1.564987301826477
         }
       ],
       "walkableSurfaces": []
@@ -13997,5 +14107,5 @@
       }
     ]
   },
-  "staticMapHash": "7adcff2b26825f4b"
+  "staticMapHash": "5c315856166be14b"
 }

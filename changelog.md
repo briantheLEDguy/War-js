@@ -1,3 +1,10 @@
+## 2026-09-20 — Universal field arms rack
+
+- Added original four-polearm racks to all 36 keeps and the GM builder, with three LODs, five embedded PBR sets, six editable masters and 162 verified construction contacts.
+- Matched five collision masses to the actual rack; checked grounded skids, regional wall/stair clearance, keep breach access and a local player collision press.
+- Added quartermaster publication wiring and required herbalist belt-clearance evidence; unfinished character exports remain technically held.
+- Validation: 1,428 tests in 170 files, production build, 33 maps, 897 model records and 448 GM definitions pass. Full shared-campaign/performance acceptance remains open.
+
 ## 2026-09-20 — Cinderfen supply officer publication
 
 - Replaced Nyra Vex’s old presentation with the authored female Dark Elf supply-officer uniform while preserving her campaign-marshal identity, guard role and placement.

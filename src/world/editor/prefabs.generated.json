@@ -9710,6 +9710,75 @@
     }
   },
   {
+    "kind": "frontier_field_arms_rack",
+    "sourceKind": "frontier_field_arms_rack",
+    "label": "Field Arms Rack",
+    "group": "Universal Town Logistics",
+    "model": "frontier_field_arms_rack_lod0.glb",
+    "assetKey": "frontier_field_arms_rack",
+    "fallbackKind": "frontier_field_arms_rack",
+    "lodModels": [
+      "frontier_field_arms_rack_lod1.glb",
+      "frontier_field_arms_rack_lod2.glb"
+    ],
+    "footprint": {
+      "width": 1.590000033378601,
+      "depth": 0.8600000143051147,
+      "chainAxis": "x"
+    },
+    "colliderSpace": "model",
+    "colliders": [
+      {
+        "x": 0,
+        "z": -0.007092498242855072,
+        "width": 1.5700000524520874,
+        "depth": 0.23918499052524567,
+        "minY": 0.07999999821186066,
+        "maxY": 2.380000114440918
+      },
+      {
+        "x": -0.7100000083446503,
+        "z": 0,
+        "width": 0.16500002145767212,
+        "depth": 0.8600000143051147,
+        "minY": 0,
+        "maxY": 0.10999999940395355
+      },
+      {
+        "x": 0.7100000083446503,
+        "z": 0,
+        "width": 0.16500002145767212,
+        "depth": 0.8600000143051147,
+        "minY": 0,
+        "maxY": 0.10999999940395355
+      },
+      {
+        "x": -0.7100000083446503,
+        "z": -0.03500000014901161,
+        "width": 0.17000001668930054,
+        "depth": 0.11500000208616257,
+        "minY": 0.05999999865889549,
+        "maxY": 1.5649877786636353
+      },
+      {
+        "x": 0.7100000083446503,
+        "z": -0.03500000014901161,
+        "width": 0.17000001668930054,
+        "depth": 0.11500000208616257,
+        "minY": 0.05999999865889549,
+        "maxY": 1.564987301826477
+      }
+    ],
+    "walkableSurfaces": [],
+    "cameraSolid": true,
+    "assetCategory": "staticProps",
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
     "kind": "frontier_field_catapult",
     "label": "Frontier Torsion Field Catapult",
     "group": "Frontier Siege and Supplies",

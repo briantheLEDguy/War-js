@@ -17,14 +17,14 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,420 tests in 169 files**. Production build
+The latest full regression pass is **1,428 tests in 170 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 256 static props, 72 character
-profiles and 57 equipment records, and the GM builder has 447 definitions.
-All 33 maps and 894 model records validate. Remaining regional character, equipment and town/zone work
+The registry contains 257 static props, 72 character
+profiles and 57 equipment records, and the GM builder has 448 definitions.
+All 33 maps and 897 model records validate. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
@@ -63,12 +63,22 @@ named fitting contacts pass. Keep access, four regional wall/stair mesh checks,
 at (-342, 0, 13.867). Its release is `9869eaf9d6e8f9747a30`; source and runtime
 integration receipts are saved in `authoring/blender/field-supply-chest/`.
 
+The universal field arms rack is published in all 36 keeps and GM. Four original
+polearms, five embedded PBR sets and three LODs retain six packed editable masters,
+162 fitting contacts and five measured collision masses. All 144 skid probes,
+four regional mesh-clearance checks and keep approaches pass. A local Cinderfen
+player press stops at (-358, 0, 2.562); exact evidence is saved in
+`authoring/blender/field-arms-rack/review/runtime-integration-20260920.json`.
+Release `6eac77928a01ab79cb2e` is static racked scenery, without weapon pickup.
+
 Supply-officer E remains superseded. Published F fixes its detached ledger
 straps with measured closed suspension loops and zero outfit/body intersections
-across all clips and LODs. Herbalist attack-arm clearance and scout shoulder
-trim fit are still being corrected. The publisher requires side and rear views
-plus per-LOD equipment_attachment reports for these characters. Frozen previous
-civilian/table releases remain valid.
+across all clips and LODs. Herbalist L is correcting measured belt/cloth crossings;
+scout K attaches all shoulder-bridge seam corners to the actual jerkin; quartermaster
+F is correcting moving waistcoat/linen intersections. These are technical holds,
+not pending aesthetic approval. The publisher requires side/rear views and
+per-LOD equipment_attachment reports, plus herbalist belt_clearance and
+quartermaster layer_clearance. Frozen previous civilian/table releases remain valid.
 
 Entries below preserve their historical state; the active summary above
 supersedes older pause, approval and delivery statements.

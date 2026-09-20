@@ -1,0 +1,2104 @@
+{
+  "tangentRepair": {
+    "inputSha256": "5926a2dc49fe0eb61d56c7b0395febd9c4e4b98db3c8a1f8c74d4b22fb8764ac",
+    "outputSha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+    "toolSha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+    "changes": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 790,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00031750230153158057,
+          0.0001314335788250476,
+          -0.9999999409587497,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 793,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999457669877,
+          -0.00030428284697251774,
+          -0.00012600782056354748,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 801,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00013177111611887112,
+          0.00031751578896640635,
+          -0.9999999409100466,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 810,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999457803562,
+          -0.00012599228889002544,
+          -0.0003042453411874602,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 819,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999457803562,
+          0.00012599228889002544,
+          0.0003042453411874602,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 828,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00013177111611887112,
+          -0.00031751578896640635,
+          -0.9999999409100466,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 838,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0003174729810799269,
+          -0.0001315043892410249,
+          -0.9999999409587492,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 854,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999457669876,
+          0.0003042712089047016,
+          0.00012603592077335774,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1004,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999457803562,
+          0.00012599228889002544,
+          -0.0003042453411874602,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1013,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00013177111611887112,
+          -0.00031751578896640635,
+          0.9999999409100466,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1024,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0003174729810799269,
+          -0.0001315043892410249,
+          0.9999999409587492,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1039,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999457669891,
+          0.00030425472863185505,
+          -0.00012607568743374032,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1053,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00031750230153158057,
+          0.0001314335788250476,
+          0.9999999409587497,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1056,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999457669915,
+          -0.00030431093909683796,
+          0.00012593993133235565,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1064,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00013177111611887112,
+          0.00031751578896640635,
+          0.9999999409100466,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1073,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999457803562,
+          -0.00012599228889002544,
+          0.0003042453411874602,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1284,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00011427702157612797,
+          0.00027799794023198416,
+          -0.9999999548289528,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1291,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -3.7027983470515945e-05,
+          -0.9999999991940758,
+          -1.5516985199647563e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1294,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0003014034252528538,
+          0.0,
+          -0.9999999545779866,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1308,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.5971068644745365e-05,
+          -0.9999999991683816,
+          -3.752548312905295e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1358,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.6021607092231542e-05,
+          -0.9999999991264549,
+          3.860567752820064e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1365,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00031777542054088083,
+          -0.00013106302812186703,
+          -0.9999999409206306,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1376,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00013147626838835947,
+          -0.000317605426111896,
+          -0.9999999409203904,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1390,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -3.860313860497485e-05,
+          -0.9999999991269598,
+          1.5996192593699514e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1565,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0003013942533265238,
+          -2.2604568428322363e-06,
+          0.9999999545781961,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1571,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0,
+          -1.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1575,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00011427702157612797,
+          -0.00027799794023198416,
+          0.9999999548289528,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1592,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -5.890946834156394e-07,
+          -0.999999999998929,
+          1.3397696392560595e-06,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1679,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00013227217096576727,
+          0.00031727446727054223,
+          0.9999999409204908,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1687,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          3.8622406141425406e-05,
+          -0.9999999991269607,
+          1.5949553601592942e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1691,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00031696946073233077,
+          0.00013299586043238803,
+          0.9999999409212293,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1703,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          1.6021607092231542e-05,
+          -0.9999999991264549,
+          3.860567752820064e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1764,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9998536088430664,
+          -0.017110238528378386,
+          2.4919839277659946e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1770,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9998537556518128,
+          -0.01710167178732646,
+          -1.1447427101832458e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1937,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0001266746950176819,
+          0.0002905973285698252,
+          -0.9999999497533558,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 1949,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00031071451087915226,
+          5.643325861867694e-05,
+          -0.9999999501358888,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2005,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -3.11103611584035e-07,
+          -0.9999999999999429,
+          -1.3152071492983245e-07,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2033,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0003174385908784691,
+          -0.00013149014404534765,
+          -0.9999999409715398,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2043,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0001318055523171762,
+          -0.0003175987664548544,
+          -0.9999999408791582,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2092,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          3.8622406141425406e-05,
+          0.9999999991269607,
+          -1.5949553601592942e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2095,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0003176839930752286,
+          -0.00013102531986461526,
+          -0.9999999409546214,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2108,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          1.6021607092231542e-05,
+          0.9999999991264549,
+          -3.860567752820064e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2118,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00013173470894396172,
+          0.00031762815854406696,
+          0.999999940879158,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2150,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0003175386182518422,
+          0.00013124838337522145,
+          0.9999999409715422,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2156,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.6021607092231542e-05,
+          0.9999999991264549,
+          -3.860567752820064e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2165,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0003172834122247597,
+          0.00013199237150839373,
+          0.9999999409546234,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2189,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -3.860313860497485e-05,
+          0.9999999991269598,
+          -1.5996192593699514e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2201,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00031076637019050555,
+          -5.6146998573216676e-05,
+          0.9999999501358876,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2213,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.00012658316373605262,
+          -0.00029063722963804415,
+          0.9999999497533504,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2240,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2260,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          8.691393217868362e-07,
+          0.9999999999995544,
+          -3.685368891298752e-07,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 2319,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00031884925126154847,
+          -5.754255585028088e-05,
+          -0.9999999475120032,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3297,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.13216350525774095,
+          -0.9912279293270431,
+          9.93390250043674e-08,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3318,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.8823606439357586,
+          -0.47057379082006484,
+          3.77691295593814e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3383,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.882469208187775,
+          0.47036996702742034,
+          0.0004367139392613315,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3723,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -4.0873643749645374e-05,
+          -0.9999999990214219,
+          -1.6926352631622934e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3739,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.6950835035768405e-05,
+          -0.9999999990226229,
+          -4.0834096404778755e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3813,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -3.929912764103829e-05,
+          0.9999999990934052,
+          1.6394152711333632e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3838,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.6848625607831712e-05,
+          0.9999999990682237,
+          3.97451425700358e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 3991,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          1.6834261583379745e-05,
+          -0.999999999022947,
+          -4.087436362756168e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4022,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          4.086777840576287e-05,
+          -0.9999999990215219,
+          -1.6934603709849545e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4132,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0,
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4151,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.3038758184611117e-07,
+          0.9999999999999419,
+          -3.148592117496783e-07,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4172,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9998532498309087,
+          0.01713122287351698,
+          -2.3298705173999516e-06,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4228,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00022077087559896068,
+          0.0002728573791069884,
+          0.9999999384045337,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4236,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4391,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0,
+          -1.0,
+          -0.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4423,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          4.086829878313485e-05,
+          0.9999999990214221,
+          1.693924200704941e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4504,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4505,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.0,
+          1.0,
+          -0.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4527,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -4.6602040176134033e-07,
+          0.9999999999998718,
+          1.9790044938100202e-07,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4609,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          7.296963551327989e-07,
+          -0.9999999999996861,
+          3.08754261000051e-07,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4679,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.0,
+          -1.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4689,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -1.6979109457895172e-05,
+          0.9999999990229472,
+          4.081440255796556e-05,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 4753,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.00013529652249496824,
+          0.00031343864270862274,
+          0.9999999417255324,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9338,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999677746622,
+          -0.00015430181482024516,
+          -0.00020159767960873848,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9362,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999681526496,
+          0.00019874954470684743,
+          -0.00015554201465557232,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9403,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          1.0,
+          -2.2184402651469845e-09,
+          4.023794443308661e-09,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9464,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999651418973,
+          -0.00023500053733846804,
+          -0.00012037836990113557,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9478,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999677746622,
+          0.00015430181482024516,
+          0.00020159767960873848,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9496,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999681526496,
+          -0.00019874954470684743,
+          0.00015554201465557232,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9537,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          0.9999999658296421,
+          0.00012621723708805806,
+          -0.00022893213819315594,
+          1.0
+        ]
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "vertex": 9557,
+        "before": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "after": [
+          -0.9999999651418973,
+          0.00023501674041356211,
+          0.00012034673294592268,
+          1.0
+        ]
+      }
+    ]
+  },
+  "key": "frontier_field_arms_rack",
+  "level": 0,
+  "model": "frontier_field_arms_rack_lod0.glb",
+  "sha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+  "bytes": 10000460,
+  "triangles": 28246,
+  "parts": 56,
+  "materials": 5,
+  "joints": [
+    {
+      "part": "pegged_upright_-1",
+      "support": "shaped_ground_skid_-1"
+    },
+    {
+      "part": "pegged_upright_1",
+      "support": "shaped_ground_skid_1"
+    },
+    {
+      "part": "pegged_upright_-1",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "pegged_upright_-1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "pegged_upright_1",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "pegged_upright_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_0",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_0",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_0",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "forged_heel_ferrule_0",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_0",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "socket_braze_ring_0",
+      "support": "forged_blade_socket_0"
+    },
+    {
+      "part": "forged_leaf_blade_0",
+      "support": "forged_blade_socket_0"
+    },
+    {
+      "part": "continuous_leather_grip_0",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "grip_end_binding_0_0.692",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "grip_end_binding_0_0.932",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "tapered_ash_shaft_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_1",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_1",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "forged_heel_ferrule_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_1",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "socket_braze_ring_1",
+      "support": "forged_blade_socket_1"
+    },
+    {
+      "part": "forged_leaf_blade_1",
+      "support": "forged_blade_socket_1"
+    },
+    {
+      "part": "continuous_leather_grip_1",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "grip_end_binding_1_0.692",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "grip_end_binding_1_0.932",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "tapered_ash_shaft_2",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_2",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_2",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "forged_heel_ferrule_2",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_2",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "socket_braze_ring_2",
+      "support": "forged_blade_socket_2"
+    },
+    {
+      "part": "forged_leaf_blade_2",
+      "support": "forged_blade_socket_2"
+    },
+    {
+      "part": "continuous_leather_grip_2",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "grip_end_binding_2_0.692",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "grip_end_binding_2_0.932",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "tapered_ash_shaft_3",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_3",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_3",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "forged_heel_ferrule_3",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_3",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "socket_braze_ring_3",
+      "support": "forged_blade_socket_3"
+    },
+    {
+      "part": "forged_leaf_blade_3",
+      "support": "forged_blade_socket_3"
+    },
+    {
+      "part": "continuous_leather_grip_3",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "grip_end_binding_3_0.692",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "grip_end_binding_3_0.932",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "forged_foot_brace_-1_-1",
+      "support": "pegged_upright_-1"
+    },
+    {
+      "part": "forged_foot_brace_-1_-1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_foot_brace_-1_1",
+      "support": "pegged_upright_-1"
+    },
+    {
+      "part": "forged_foot_brace_-1_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_foot_brace_1_-1",
+      "support": "pegged_upright_1"
+    },
+    {
+      "part": "forged_foot_brace_1_-1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_foot_brace_1_1",
+      "support": "pegged_upright_1"
+    },
+    {
+      "part": "forged_foot_brace_1_1",
+      "support": "pierced_lower_heel_rest"
+    }
+  ],
+  "sourceMaster": "masters/frontier_field_arms_rack_lod0.source.blend",
+  "sourceMasterSha256": "37606907c75e94280f0f81e05c948cb0c87ac00ae20c395e08e18d9578d1910e",
+  "master": "masters/frontier_field_arms_rack_lod0.blend",
+  "masterSha256": "06680b0b2e5d76be7df7ee8f5435127ae592c91b3e78133cb5e98c9f894f5603",
+  "audit": {
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 28246,
+    "meshes": [
+      {
+        "part": "shaped_ground_skid_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 308
+      },
+      {
+        "part": "pegged_upright_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 556
+      },
+      {
+        "part": "foot_cross_peg_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "shaped_ground_skid_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 308
+      },
+      {
+        "part": "pegged_upright_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 550
+      },
+      {
+        "part": "foot_cross_peg_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "pierced_upper_weapon_rest",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1512
+      },
+      {
+        "part": "pierced_lower_heel_rest",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1308
+      },
+      {
+        "part": "tapered_ash_shaft_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 236
+      },
+      {
+        "part": "forged_heel_ferrule_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_blade_socket_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "socket_braze_ring_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_leaf_blade_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 3532
+      },
+      {
+        "part": "grip_end_binding_0_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "grip_end_binding_0_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "tapered_ash_shaft_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 236
+      },
+      {
+        "part": "forged_heel_ferrule_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_blade_socket_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "socket_braze_ring_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_leaf_blade_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 3532
+      },
+      {
+        "part": "grip_end_binding_1_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "grip_end_binding_1_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "tapered_ash_shaft_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 236
+      },
+      {
+        "part": "forged_heel_ferrule_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_blade_socket_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "socket_braze_ring_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_leaf_blade_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 3532
+      },
+      {
+        "part": "grip_end_binding_2_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "grip_end_binding_2_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "tapered_ash_shaft_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 236
+      },
+      {
+        "part": "forged_heel_ferrule_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_blade_socket_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "socket_braze_ring_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_leaf_blade_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 3532
+      },
+      {
+        "part": "grip_end_binding_3_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "grip_end_binding_3_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 288
+      },
+      {
+        "part": "forged_foot_brace_-1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 144
+      },
+      {
+        "part": "brace_clench_rivet_-1_-1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "brace_clench_rivet_-1_-1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "forged_foot_brace_-1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 144
+      },
+      {
+        "part": "brace_clench_rivet_-1_1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "brace_clench_rivet_-1_1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "tenon_cross_peg_-1_0.215",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "tenon_cross_peg_-1_1.315",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "forged_foot_brace_1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 144
+      },
+      {
+        "part": "brace_clench_rivet_1_-1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "brace_clench_rivet_1_-1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "forged_foot_brace_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 144
+      },
+      {
+        "part": "brace_clench_rivet_1_1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "brace_clench_rivet_1_1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "tenon_cross_peg_1_0.215",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      },
+      {
+        "part": "tenon_cross_peg_1_1.315",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 124
+      }
+    ],
+    "boundsZUp": {
+      "minimum": [
+        -0.7950000166893005,
+        -0.4300000071525574,
+        0.0
+      ],
+      "maximum": [
+        0.7950000166893005,
+        0.4300000071525574,
+        2.380000114440918
+      ]
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "tools/audit_masters.py",
+      "sha256": "88d4574b05d49b460a95240300c19e3108b0d34b80fd201c4e46eb31b9493ae8"
+    },
+    {
+      "path": "tools/build_rack.py",
+      "sha256": "c1e47b46e02109c6ab6b298cdde92bb872dc729d4a708a0de95191d91b558f2f"
+    },
+    {
+      "path": "tools/consolidate_build.py",
+      "sha256": "49efd3a639be0961d1d6d5a5edd93eb87dc6f954b4d78a4c1892a4e6968f950f"
+    },
+    {
+      "path": "tools/export_tangents.py",
+      "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211"
+    },
+    {
+      "path": "tools/inspect_construction.py",
+      "sha256": "071e8791dc3901991fbe16c09551d84173ff8853e9be0b70b362f938cac48ed7"
+    },
+    {
+      "path": "tools/make_textures.py",
+      "sha256": "56f4b82d2af3d1cf6009d91659a69d8d809aaed477375deace153c1f25a8e869"
+    },
+    {
+      "path": "tools/mesh_authoring.py",
+      "sha256": "7a427e39acbb267754e5e5c1eb5c4faab05e42b4bb635f8d9188ea11061d8b7c"
+    },
+    {
+      "path": "tools/review_rack.py",
+      "sha256": "8a9f69f30e46b9b9ccafff6a398b37f151948e028d28a646064beefa291958f4"
+    },
+    {
+      "path": "tools/run_delivery.py",
+      "sha256": "880324d0d153c20b8405fbe0d8de1f298578210ebe8424e651ff615075a00631"
+    },
+    {
+      "path": "textures/sources.json",
+      "sha256": "5277548995432b0023a940710083a62e229450518030339f38ddbaa1b1e02f10"
+    }
+  ]
+}

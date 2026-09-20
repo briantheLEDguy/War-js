@@ -24,6 +24,10 @@ The universal field supply chest is also published in all 36 keeps and the GM
 builder. Its six editable masters, three LODs, PBR surfaces and measured fitting
 contacts are retained; skids, nearby meshes, keep access and a local player
 collision press passed. It is closed scenery, without an inventory interaction.
+Every keep also has the original field arms rack, with four fitted polearms,
+closed heel sockets, pegged timber joints and overlapping leather grips.
+Its three LODs, five PBR material sets, six packed masters and measured collision
+are retained; the same furnishing is available in the GM builder.
 Nyra Vex now uses the published Dark Elf supply-officer uniform, with physically
 attached ledger suspension, nine embedded clips and three verified runtime LODs.
 She keeps her existing Cinderfen identity, role and position and is available in

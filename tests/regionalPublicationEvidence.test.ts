@@ -34,9 +34,10 @@ afterEach(async () => {
 test.each([
   ['sunmeadow-farmer', ['boot_clearance', 'welt']],
   ['cinderfen-peat-worker', ['garment_clearance', 'welt', 'tool_clearance']],
-  ['sunmeadow-herbalist', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment']],
+  ['sunmeadow-herbalist', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment', 'belt_clearance']],
   ['cinderfen-supply-officer', ['garment_clearance', 'welt', 'tool_clearance', 'equipment_attachment']],
   ['sunmeadow-scout', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment']],
+  ['cinderfen-quartermaster', ['garment_clearance', 'welt', 'tool_clearance', 'equipment_attachment', 'layer_clearance']],
 ] as const)('%s retains all current package gate inputs for three LODs', (name, requiredReports) => {
   const spec = REGIONAL_CHARACTER_PACKAGES[name];
   const lods = [0, 1, 2].map(level => ({ level, model: `${spec.key}_lod${level}.glb` }));

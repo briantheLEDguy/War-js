@@ -1,0 +1,692 @@
+{
+  "tangentRepair": {
+    "inputSha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+    "outputSha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+    "toolSha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+    "changes": []
+  },
+  "key": "frontier_field_arms_rack",
+  "level": 2,
+  "model": "frontier_field_arms_rack_lod2.glb",
+  "sha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+  "bytes": 1235148,
+  "triangles": 9606,
+  "parts": 56,
+  "materials": 5,
+  "joints": [
+    {
+      "part": "pegged_upright_-1",
+      "support": "shaped_ground_skid_-1"
+    },
+    {
+      "part": "pegged_upright_1",
+      "support": "shaped_ground_skid_1"
+    },
+    {
+      "part": "pegged_upright_-1",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "pegged_upright_-1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "pegged_upright_1",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "pegged_upright_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_0",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_0",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_0",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "forged_heel_ferrule_0",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_0",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "socket_braze_ring_0",
+      "support": "forged_blade_socket_0"
+    },
+    {
+      "part": "forged_leaf_blade_0",
+      "support": "forged_blade_socket_0"
+    },
+    {
+      "part": "continuous_leather_grip_0",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "grip_end_binding_0_0.692",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "grip_end_binding_0_0.932",
+      "support": "tapered_ash_shaft_0"
+    },
+    {
+      "part": "tapered_ash_shaft_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_1",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_1",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "forged_heel_ferrule_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_1",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "socket_braze_ring_1",
+      "support": "forged_blade_socket_1"
+    },
+    {
+      "part": "forged_leaf_blade_1",
+      "support": "forged_blade_socket_1"
+    },
+    {
+      "part": "continuous_leather_grip_1",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "grip_end_binding_1_0.692",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "grip_end_binding_1_0.932",
+      "support": "tapered_ash_shaft_1"
+    },
+    {
+      "part": "tapered_ash_shaft_2",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_2",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_2",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "forged_heel_ferrule_2",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_2",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "socket_braze_ring_2",
+      "support": "forged_blade_socket_2"
+    },
+    {
+      "part": "forged_leaf_blade_2",
+      "support": "forged_blade_socket_2"
+    },
+    {
+      "part": "continuous_leather_grip_2",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "grip_end_binding_2_0.692",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "grip_end_binding_2_0.932",
+      "support": "tapered_ash_shaft_2"
+    },
+    {
+      "part": "tapered_ash_shaft_3",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "tapered_ash_shaft_3",
+      "support": "pierced_upper_weapon_rest"
+    },
+    {
+      "part": "forged_heel_ferrule_3",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "forged_heel_ferrule_3",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_blade_socket_3",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "socket_braze_ring_3",
+      "support": "forged_blade_socket_3"
+    },
+    {
+      "part": "forged_leaf_blade_3",
+      "support": "forged_blade_socket_3"
+    },
+    {
+      "part": "continuous_leather_grip_3",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "grip_end_binding_3_0.692",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "grip_end_binding_3_0.932",
+      "support": "tapered_ash_shaft_3"
+    },
+    {
+      "part": "forged_foot_brace_-1_-1",
+      "support": "pegged_upright_-1"
+    },
+    {
+      "part": "forged_foot_brace_-1_-1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_foot_brace_-1_1",
+      "support": "pegged_upright_-1"
+    },
+    {
+      "part": "forged_foot_brace_-1_1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_foot_brace_1_-1",
+      "support": "pegged_upright_1"
+    },
+    {
+      "part": "forged_foot_brace_1_-1",
+      "support": "pierced_lower_heel_rest"
+    },
+    {
+      "part": "forged_foot_brace_1_1",
+      "support": "pegged_upright_1"
+    },
+    {
+      "part": "forged_foot_brace_1_1",
+      "support": "pierced_lower_heel_rest"
+    }
+  ],
+  "sourceMaster": "masters/frontier_field_arms_rack_lod2.source.blend",
+  "sourceMasterSha256": "babcfaad0c87162e42472c44d094398eb06ceaf1ddb7126a6aa12d1b3cac993b",
+  "master": "masters/frontier_field_arms_rack_lod2.blend",
+  "masterSha256": "45f15954d4eff5cff7b6d2619494fed2f5010ac4263d4e53f327b2253eff3200",
+  "audit": {
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 9606,
+    "meshes": [
+      {
+        "part": "shaped_ground_skid_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 52
+      },
+      {
+        "part": "pegged_upright_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "foot_cross_peg_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "shaped_ground_skid_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 52
+      },
+      {
+        "part": "pegged_upright_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 90
+      },
+      {
+        "part": "foot_cross_peg_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "pierced_upper_weapon_rest",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 300
+      },
+      {
+        "part": "pierced_lower_heel_rest",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 580
+      },
+      {
+        "part": "tapered_ash_shaft_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 116
+      },
+      {
+        "part": "forged_heel_ferrule_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_blade_socket_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "socket_braze_ring_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_leaf_blade_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1132
+      },
+      {
+        "part": "grip_end_binding_0_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "grip_end_binding_0_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "tapered_ash_shaft_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 116
+      },
+      {
+        "part": "forged_heel_ferrule_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_blade_socket_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "socket_braze_ring_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_leaf_blade_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1132
+      },
+      {
+        "part": "grip_end_binding_1_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "grip_end_binding_1_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "tapered_ash_shaft_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 116
+      },
+      {
+        "part": "forged_heel_ferrule_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_blade_socket_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "socket_braze_ring_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_leaf_blade_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1132
+      },
+      {
+        "part": "grip_end_binding_2_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "grip_end_binding_2_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "tapered_ash_shaft_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 116
+      },
+      {
+        "part": "forged_heel_ferrule_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_blade_socket_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "socket_braze_ring_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_leaf_blade_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 140
+      },
+      {
+        "part": "continuous_leather_grip_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1132
+      },
+      {
+        "part": "grip_end_binding_3_0.692",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "grip_end_binding_3_0.932",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 120
+      },
+      {
+        "part": "forged_foot_brace_-1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 24
+      },
+      {
+        "part": "brace_clench_rivet_-1_-1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "brace_clench_rivet_-1_-1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "forged_foot_brace_-1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 24
+      },
+      {
+        "part": "brace_clench_rivet_-1_1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "brace_clench_rivet_-1_1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "tenon_cross_peg_-1_0.215",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "tenon_cross_peg_-1_1.315",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "forged_foot_brace_1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 24
+      },
+      {
+        "part": "brace_clench_rivet_1_-1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "brace_clench_rivet_1_-1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "forged_foot_brace_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 24
+      },
+      {
+        "part": "brace_clench_rivet_1_1_0.135",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "brace_clench_rivet_1_1_0.29",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "tenon_cross_peg_1_0.215",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "tenon_cross_peg_1_1.315",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      }
+    ],
+    "boundsZUp": {
+      "minimum": [
+        -0.7950000166893005,
+        -0.4300000071525574,
+        0.0
+      ],
+      "maximum": [
+        0.7950000166893005,
+        0.4300000071525574,
+        2.380000114440918
+      ]
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "tools/audit_masters.py",
+      "sha256": "88d4574b05d49b460a95240300c19e3108b0d34b80fd201c4e46eb31b9493ae8"
+    },
+    {
+      "path": "tools/build_rack.py",
+      "sha256": "c1e47b46e02109c6ab6b298cdde92bb872dc729d4a708a0de95191d91b558f2f"
+    },
+    {
+      "path": "tools/consolidate_build.py",
+      "sha256": "49efd3a639be0961d1d6d5a5edd93eb87dc6f954b4d78a4c1892a4e6968f950f"
+    },
+    {
+      "path": "tools/export_tangents.py",
+      "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211"
+    },
+    {
+      "path": "tools/inspect_construction.py",
+      "sha256": "071e8791dc3901991fbe16c09551d84173ff8853e9be0b70b362f938cac48ed7"
+    },
+    {
+      "path": "tools/make_textures.py",
+      "sha256": "56f4b82d2af3d1cf6009d91659a69d8d809aaed477375deace153c1f25a8e869"
+    },
+    {
+      "path": "tools/mesh_authoring.py",
+      "sha256": "7a427e39acbb267754e5e5c1eb5c4faab05e42b4bb635f8d9188ea11061d8b7c"
+    },
+    {
+      "path": "tools/review_rack.py",
+      "sha256": "8a9f69f30e46b9b9ccafff6a398b37f151948e028d28a646064beefa291958f4"
+    },
+    {
+      "path": "tools/run_delivery.py",
+      "sha256": "880324d0d153c20b8405fbe0d8de1f298578210ebe8424e651ff615075a00631"
+    },
+    {
+      "path": "textures/sources.json",
+      "sha256": "5277548995432b0023a940710083a62e229450518030339f38ddbaa1b1e02f10"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "model": "frontier_field_arms_rack_lod2.glb",
+  "sha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+  "reviewerSha256": "8a9f69f30e46b9b9ccafff6a398b37f151948e028d28a646064beefa291958f4",
+  "audit": {
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 9606,
+    "meshes": [
+      {
+        "part": "frontier_field_arms_rack.oak",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1798
+      },
+      {
+        "part": "frontier_field_arms_rack.iron",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1280
+      },
+      {
+        "part": "frontier_field_arms_rack.brass",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 480
+      },
+      {
+        "part": "frontier_field_arms_rack.steel",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 560
+      },
+      {
+        "part": "frontier_field_arms_rack.leather",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 5488
+      }
+    ],
+    "boundsZUp": {
+      "minimum": [
+        -0.7950000166893005,
+        -0.4300000071525574,
+        0.0
+      ],
+      "maximum": [
+        0.7950000166893005,
+        0.4300000071525574,
+        2.380000114440918
+      ]
+    }
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_field_arms_rack_lod2_neutral.png",
+      "sha256": "bd52560c62ea22a9785b543f502fbbfa1c343554f94846a203d030adb74a2c26",
+      "camera": {
+        "cameraZUp": [
+          2.700000047683716,
+          -5.0,
+          2.549999952316284
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          1.149999976158142
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 3.55,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_field_arms_rack_lod2_gameplay.png",
+      "sha256": "f8f1cacc75c59ceef6216864c39dcd65db14da2381503fb3ea40a84244080737",
+      "camera": {
+        "cameraZUp": [
+          0.6000000238418579,
+          -34.0,
+          1.7200000286102295
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          1.149999976158142
+        ],
+        "projection": "PERSP",
+        "orthoScale": null,
+        "distanceM": 34,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    }
+  }
+}

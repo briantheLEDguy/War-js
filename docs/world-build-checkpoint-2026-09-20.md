@@ -1,5 +1,28 @@
 # World build checkpoint — September 20, 2026
 
+## Universal field arms rack delivery
+
+All 36 keeps and the GM builder now include the original four-polearm rack.
+Frozen release `6eac77928a01ab79cb2e` retains six packed editable Blender masters,
+five embedded PBR material sets and three actual exports: 28,246 / 17,116 / 9,606
+triangles. Mortised rails, shaped heel sockets, riveted braces, forged blades and
+continuous leather grips retain 162 verified fitting contacts. All three GLBs
+have zero Khronos errors/warnings and valid material tangent bases.
+
+Five measured collision masses match the GM contract. All 36 keep approaches and
+breach paths, 144 skid support probes and four regional wall/stair/furnishing
+mesh checks pass. An actual Cinderfen Game/Player northward press stops at
+(-358, 0, 2.562); the rack is visibly grounded and clear of surrounding structures.
+The integration receipt retains exact hashes and the bounded-check limitation.
+One unavailable legacy asset remains. This is static racked scenery without pickup.
+
+The complete suite passes **1,428 tests in 170 files**, recorded in
+`artifacts/orvr/arms-rack-final-tests.json`. An earlier concurrent run hit one
+enclosure timeout; all 75 enclosure checks passed unchanged before the full
+single-worker rerun. Production build passes; 33 maps, 897 model records and
+448 GM definitions validate. Herbalist L, scout K and quartermaster F remain in
+technical fitting. Full shared-campaign, performance and zone acceptance remain open.
+
 ## Cinderfen supply officer delivery
 
 Nyra Vex now uses the authored female Dark Elf supply-officer uniform in the

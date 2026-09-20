@@ -30,7 +30,7 @@ export const REGIONAL_CHARACTER_PACKAGES = {
     key: 'frontier_sunmeadow_empire_herbalist', assetId: 'chr.frontier.sunmeadow.empire_herbalist',
     name: 'Sunmeadow Empire Herbalist', bodyFamily: 'frontier_sunmeadow_empire_herbalist_v1_f', bodyVariant: 'f',
     skeletonId: 'sunmeadow_herbalist_humanoid_v1', bindPoseId: 'sunmeadow_herbalist_a_pose_v1',
-    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment'],
+    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment', 'belt_clearance'],
     masterReport: 'master-continuity.json',
   },
   'cinderfen-supply-officer': {
@@ -45,6 +45,13 @@ export const REGIONAL_CHARACTER_PACKAGES = {
     name: 'Sunmeadow High Elf Scout', bodyFamily: 'frontier_sunmeadow_high_elf_scout_v1_f', bodyVariant: 'f',
     skeletonId: 'sunmeadow_scout_humanoid_v1', bindPoseId: 'sunmeadow_scout_a_pose_v1',
     contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment'],
+    masterReport: 'master-continuity.json',
+  },
+  'cinderfen-quartermaster': {
+    key: 'frontier_cinderfen_greenskin_quartermaster', assetId: 'chr.frontier.cinderfen.greenskin_quartermaster',
+    name: 'Cinderfen Greenskin Quartermaster', bodyFamily: 'frontier_cinderfen_quartermaster_v1_m', bodyVariant: 'm',
+    skeletonId: 'cinderfen_quartermaster_humanoid_v1', bindPoseId: 'cinderfen_quartermaster_a_v1',
+    contract: 'character-contract.json', reports: ['garment_clearance', 'welt', 'tool_clearance', 'equipment_attachment', 'layer_clearance'],
     masterReport: 'master-continuity.json',
   },
 };

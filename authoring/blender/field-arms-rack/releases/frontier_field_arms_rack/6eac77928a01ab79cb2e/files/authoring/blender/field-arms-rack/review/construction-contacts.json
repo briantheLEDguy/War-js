@@ -1,0 +1,1326 @@
+{
+  "passed": true,
+  "toolSha256": "071e8791dc3901991fbe16c09551d84173ff8853e9be0b70b362f938cac48ed7",
+  "records": [
+    {
+      "level": 0,
+      "sourceMasterSha256": "37606907c75e94280f0f81e05c948cb0c87ac00ae20c395e08e18d9578d1910e",
+      "modelSha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2",
+      "contacts": [
+        {
+          "part": "pegged_upright_-1",
+          "support": "shaped_ground_skid_-1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "shaped_ground_skid_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_-1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 10,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_0",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 46,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_0",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.00010925588867394254,
+          "surfaceTriangleContacts": 37,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 194,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_0",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 306,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 205,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_0",
+          "support": "forged_blade_socket_0",
+          "minimumSurfaceGapM": 0.00048560291179455817,
+          "surfaceTriangleContacts": 156,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_0",
+          "support": "forged_blade_socket_0",
+          "minimumSurfaceGapM": 3.6937319237040356e-05,
+          "surfaceTriangleContacts": 32,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 1.7598054569134547e-07,
+          "surfaceTriangleContacts": 798,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_0_0.692",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.000324840861139819,
+          "surfaceTriangleContacts": 169,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_0_0.932",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 2.444292931613745e-06,
+          "surfaceTriangleContacts": 188,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 44,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.00014405677211470902,
+          "surfaceTriangleContacts": 25,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 194,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 304,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 205,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_1",
+          "support": "forged_blade_socket_1",
+          "minimumSurfaceGapM": 0.0004857330641243607,
+          "surfaceTriangleContacts": 163,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_1",
+          "support": "forged_blade_socket_1",
+          "minimumSurfaceGapM": 0.0002592198143247515,
+          "surfaceTriangleContacts": 40,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 3.354881812356325e-07,
+          "surfaceTriangleContacts": 696,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_1_0.692",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.00032255082624033093,
+          "surfaceTriangleContacts": 171,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_1_0.932",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 2.459301867929753e-06,
+          "surfaceTriangleContacts": 185,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_2",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 43,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_2",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 5.629116276395507e-05,
+          "surfaceTriangleContacts": 41,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 194,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_2",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 307,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 206,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_2",
+          "support": "forged_blade_socket_2",
+          "minimumSurfaceGapM": 0.00048545433674007654,
+          "surfaceTriangleContacts": 166,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_2",
+          "support": "forged_blade_socket_2",
+          "minimumSurfaceGapM": 0.00014494317292701453,
+          "surfaceTriangleContacts": 40,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 4.2491279828027473e-07,
+          "surfaceTriangleContacts": 896,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_2_0.692",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0003273629699833691,
+          "surfaceTriangleContacts": 170,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_2_0.932",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 2.4595944978500484e-06,
+          "surfaceTriangleContacts": 187,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_3",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 46,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_3",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 5.375747423386201e-05,
+          "surfaceTriangleContacts": 8,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 194,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_3",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 300,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 205,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_3",
+          "support": "forged_blade_socket_3",
+          "minimumSurfaceGapM": 0.00048581656301394105,
+          "surfaceTriangleContacts": 164,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_3",
+          "support": "forged_blade_socket_3",
+          "minimumSurfaceGapM": 0.00013152696192264557,
+          "surfaceTriangleContacts": 34,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 1.476273041589593e-07,
+          "surfaceTriangleContacts": 622,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_3_0.692",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0003213033196516335,
+          "surfaceTriangleContacts": 169,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_3_0.932",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 1.6660004575896892e-07,
+          "surfaceTriangleContacts": 184,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_-1",
+          "support": "pegged_upright_-1",
+          "minimumSurfaceGapM": 0.000999998301267624,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 1.862645149230957e-09,
+          "surfaceTriangleContacts": 28,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_1",
+          "support": "pegged_upright_-1",
+          "minimumSurfaceGapM": 0.0010000020265579224,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 26,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_-1",
+          "support": "pegged_upright_1",
+          "minimumSurfaceGapM": 0.000999998301267624,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 28,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_1",
+          "support": "pegged_upright_1",
+          "minimumSurfaceGapM": 0.0010000020265579224,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "level": 1,
+      "sourceMasterSha256": "9743e9dc422719cdcc30060563d78589c4cb357c50c4ab86cea5779ecc6927e3",
+      "modelSha256": "9e0c088e24b4f1799bc1b660be8c6b2a4916257ae5066b74466f71b0a413238b",
+      "contacts": [
+        {
+          "part": "pegged_upright_-1",
+          "support": "shaped_ground_skid_-1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "shaped_ground_skid_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_-1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 10,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_0",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 29,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_0",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 6.172163557494059e-05,
+          "surfaceTriangleContacts": 26,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 130,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_0",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 177,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 144,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_0",
+          "support": "forged_blade_socket_0",
+          "minimumSurfaceGapM": 0.00048040191177278757,
+          "surfaceTriangleContacts": 106,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_0",
+          "support": "forged_blade_socket_0",
+          "minimumSurfaceGapM": 0.00023287793737836182,
+          "surfaceTriangleContacts": 33,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 1.1387345466573606e-06,
+          "surfaceTriangleContacts": 376,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_0_0.692",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.00010157653014175594,
+          "surfaceTriangleContacts": 117,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_0_0.932",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 2.4162893623724813e-06,
+          "surfaceTriangleContacts": 125,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 23,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 3.7035326386103407e-05,
+          "surfaceTriangleContacts": 12,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 130,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 178,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 146,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_1",
+          "support": "forged_blade_socket_1",
+          "minimumSurfaceGapM": 0.0004805340722668916,
+          "surfaceTriangleContacts": 113,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_1",
+          "support": "forged_blade_socket_1",
+          "minimumSurfaceGapM": 0.0001974999759113416,
+          "surfaceTriangleContacts": 41,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 7.374506822088733e-06,
+          "surfaceTriangleContacts": 304,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_1_0.692",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 9.69610846368596e-05,
+          "surfaceTriangleContacts": 119,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_1_0.932",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 2.429666892567184e-06,
+          "surfaceTriangleContacts": 127,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_2",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 26,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_2",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0003300303069408983,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 130,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_2",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 178,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 150,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_2",
+          "support": "forged_blade_socket_2",
+          "minimumSurfaceGapM": 0.00048025252181105316,
+          "surfaceTriangleContacts": 112,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_2",
+          "support": "forged_blade_socket_2",
+          "minimumSurfaceGapM": 0.0001967107818927616,
+          "surfaceTriangleContacts": 40,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 2.330998995603295e-06,
+          "surfaceTriangleContacts": 438,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_2_0.692",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.00010664094588719308,
+          "surfaceTriangleContacts": 116,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_2_0.932",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 2.4308112642756896e-06,
+          "surfaceTriangleContacts": 127,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_3",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 23,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_3",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.00014584657037630677,
+          "surfaceTriangleContacts": 12,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 130,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_3",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 172,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 147,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_3",
+          "support": "forged_blade_socket_3",
+          "minimumSurfaceGapM": 0.0004806016222573817,
+          "surfaceTriangleContacts": 109,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_3",
+          "support": "forged_blade_socket_3",
+          "minimumSurfaceGapM": 6.699038931401446e-05,
+          "surfaceTriangleContacts": 33,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 2.7594228413363453e-06,
+          "surfaceTriangleContacts": 282,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_3_0.692",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 9.440212306799367e-05,
+          "surfaceTriangleContacts": 118,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_3_0.932",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 2.4155542632797733e-06,
+          "surfaceTriangleContacts": 125,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_-1",
+          "support": "pegged_upright_-1",
+          "minimumSurfaceGapM": 0.000999998301267624,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 1.862645149230957e-09,
+          "surfaceTriangleContacts": 28,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_1",
+          "support": "pegged_upright_-1",
+          "minimumSurfaceGapM": 0.0010000020265579224,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 26,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_-1",
+          "support": "pegged_upright_1",
+          "minimumSurfaceGapM": 0.000999998301267624,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 28,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_1",
+          "support": "pegged_upright_1",
+          "minimumSurfaceGapM": 0.0010000020265579224,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "level": 2,
+      "sourceMasterSha256": "babcfaad0c87162e42472c44d094398eb06ceaf1ddb7126a6aa12d1b3cac993b",
+      "modelSha256": "ca0ea85eab00fe62268e6d8c27fed3a1b6c5292b8d28f08f6b5adac395071710",
+      "contacts": [
+        {
+          "part": "pegged_upright_-1",
+          "support": "shaped_ground_skid_-1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "shaped_ground_skid_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_-1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 16,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 10,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "pegged_upright_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_0",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 19,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_0",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 8.585465548094362e-05,
+          "surfaceTriangleContacts": 12,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 66,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_0",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 181,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 71,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_0",
+          "support": "forged_blade_socket_0",
+          "minimumSurfaceGapM": 0.0004658180405385792,
+          "surfaceTriangleContacts": 64,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_0",
+          "support": "forged_blade_socket_0",
+          "minimumSurfaceGapM": 0.0006952660041861236,
+          "surfaceTriangleContacts": 33,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_0",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 1.1566202374524437e-05,
+          "surfaceTriangleContacts": 138,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_0_0.692",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 0.000513724866323173,
+          "surfaceTriangleContacts": 77,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_0_0.932",
+          "support": "tapered_ash_shaft_0",
+          "minimumSurfaceGapM": 2.3797579160600435e-06,
+          "surfaceTriangleContacts": 76,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 18,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_1",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 0.0003397348045837134,
+          "surfaceTriangleContacts": 12,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 66,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 186,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 73,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_1",
+          "support": "forged_blade_socket_1",
+          "minimumSurfaceGapM": 0.00046594918239861727,
+          "surfaceTriangleContacts": 67,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_1",
+          "support": "forged_blade_socket_1",
+          "minimumSurfaceGapM": 8.454191265627742e-05,
+          "surfaceTriangleContacts": 41,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_1",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 2.3877395506133325e-05,
+          "surfaceTriangleContacts": 118,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_1_0.692",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 0.0005137377302162349,
+          "surfaceTriangleContacts": 77,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_1_0.932",
+          "support": "tapered_ash_shaft_1",
+          "minimumSurfaceGapM": 2.3661555133003276e-06,
+          "surfaceTriangleContacts": 78,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_2",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 25,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_2",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 7.138297860365128e-06,
+          "surfaceTriangleContacts": 15,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 65,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_2",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 182,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 72,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_2",
+          "support": "forged_blade_socket_2",
+          "minimumSurfaceGapM": 0.0004656648088712245,
+          "surfaceTriangleContacts": 69,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_2",
+          "support": "forged_blade_socket_2",
+          "minimumSurfaceGapM": 0.0001967107818927616,
+          "surfaceTriangleContacts": 44,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_2",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 3.342945319673163e-06,
+          "surfaceTriangleContacts": 150,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_2_0.692",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 0.0005137443658895791,
+          "surfaceTriangleContacts": 76,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_2_0.932",
+          "support": "tapered_ash_shaft_2",
+          "minimumSurfaceGapM": 2.366732360314927e-06,
+          "surfaceTriangleContacts": 77,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_3",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 20,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "tapered_ash_shaft_3",
+          "support": "pierced_upper_weapon_rest",
+          "minimumSurfaceGapM": 2.342914194741752e-05,
+          "surfaceTriangleContacts": 10,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 68,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_heel_ferrule_3",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 182,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_blade_socket_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 72,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "socket_braze_ring_3",
+          "support": "forged_blade_socket_3",
+          "minimumSurfaceGapM": 0.0004660222912207246,
+          "surfaceTriangleContacts": 64,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_leaf_blade_3",
+          "support": "forged_blade_socket_3",
+          "minimumSurfaceGapM": 0.0007679011323489249,
+          "surfaceTriangleContacts": 33,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "continuous_leather_grip_3",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 6.704603492835304e-06,
+          "surfaceTriangleContacts": 106,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_3_0.692",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 0.000513725564815104,
+          "surfaceTriangleContacts": 76,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "grip_end_binding_3_0.932",
+          "support": "tapered_ash_shaft_3",
+          "minimumSurfaceGapM": 2.3797579160600435e-06,
+          "surfaceTriangleContacts": 76,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_-1",
+          "support": "pegged_upright_-1",
+          "minimumSurfaceGapM": 0.000999998301267624,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 1.862645149230957e-09,
+          "surfaceTriangleContacts": 28,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_1",
+          "support": "pegged_upright_-1",
+          "minimumSurfaceGapM": 0.0010000020265579224,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_-1_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 26,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_-1",
+          "support": "pegged_upright_1",
+          "minimumSurfaceGapM": 0.000999998301267624,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_-1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 28,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_1",
+          "support": "pegged_upright_1",
+          "minimumSurfaceGapM": 0.0010000020265579224,
+          "surfaceTriangleContacts": 0,
+          "toleranceM": 0.003,
+          "passed": true
+        },
+        {
+          "part": "forged_foot_brace_1_1",
+          "support": "pierced_lower_heel_rest",
+          "minimumSurfaceGapM": 0.0,
+          "surfaceTriangleContacts": 30,
+          "toleranceM": 0.003,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

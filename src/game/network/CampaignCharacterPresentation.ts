@@ -135,6 +135,7 @@ const regionalInhabitants = new Map<string, string>([
   ['npc_frontier_sunmeadow_high_elf_scout', 'high_elf'],
   ['npc_frontier_cinderfen_greenskin_peat_worker', 'greenskin'],
   ['npc_frontier_cinderfen_dark_elf_supply_officer', 'dark_elf'],
+  ['npc_frontier_cinderfen_greenskin_quartermaster', 'greenskin'],
 ]);
 
 export async function resolveCampaignCharacter(

@@ -66,3 +66,7 @@ authoring/blender/sunmeadow-farmer/review/*_lod0_death_2.png
 # Superseded officer drafts; final f views and frozen technical evidence ship.
 authoring/blender/cinderfen-supply-officer/review/*_[abcde].png
 authoring/blender/cinderfen-supply-officer/review/*_review_[abcde].json
+
+# Rejected rack diagnostics are superseded by retained passing master/export audits.
+authoring/blender/field-arms-rack/review/master-audit-failure.json
+authoring/blender/field-arms-rack/review/tangent-failure.json

@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "units": "metres",
+  "assets": {
+    "frontier_field_arms_rack": {
+      "label": "Field Arms Rack",
+      "group": "Universal Town Logistics",
+      "kind": "field_arms_rack",
+      "model": "frontier_field_arms_rack_lod0.glb",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "colliderSpace": "model",
+      "sourceMasterSha256": "37606907c75e94280f0f81e05c948cb0c87ac00ae20c395e08e18d9578d1910e",
+      "boundsYUp": {
+        "minimum": [
+          -0.7950000166893005,
+          0,
+          -0.4300000071525574
+        ],
+        "maximum": [
+          0.7950000166893005,
+          2.380000114440918,
+          0.4300000071525574
+        ]
+      },
+      "footprint": {
+        "width": 1.590000033378601,
+        "depth": 0.8600000143051147,
+        "chainAxis": "x"
+      },
+      "colliders": [
+        {
+          "x": 0,
+          "z": -0.007092498242855072,
+          "width": 1.5700000524520874,
+          "depth": 0.23918499052524567,
+          "minY": 0.07999999821186066,
+          "maxY": 2.380000114440918
+        },
+        {
+          "x": -0.7100000083446503,
+          "z": 0,
+          "width": 0.16500002145767212,
+          "depth": 0.8600000143051147,
+          "minY": 0,
+          "maxY": 0.10999999940395355
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": 0,
+          "width": 0.16500002145767212,
+          "depth": 0.8600000143051147,
+          "minY": 0,
+          "maxY": 0.10999999940395355
+        },
+        {
+          "x": -0.7100000083446503,
+          "z": -0.03500000014901161,
+          "width": 0.17000001668930054,
+          "depth": 0.11500000208616257,
+          "minY": 0.05999999865889549,
+          "maxY": 1.5649877786636353
+        },
+        {
+          "x": 0.7100000083446503,
+          "z": -0.03500000014901161,
+          "width": 0.17000001668930054,
+          "depth": 0.11500000208616257,
+          "minY": 0.05999999865889549,
+          "maxY": 1.564987301826477
+        }
+      ],
+      "collisionMeasurements": [
+        {
+          "name": "racked_arms_and_rest_rails",
+          "parts": [
+            "foot_cross_peg_-1",
+            "foot_cross_peg_1",
+            "pierced_upper_weapon_rest",
+            "pierced_lower_heel_rest",
+            "tapered_ash_shaft_0",
+            "forged_heel_ferrule_0",
+            "forged_blade_socket_0",
+            "socket_braze_ring_0",
+            "forged_leaf_blade_0",
+            "continuous_leather_grip_0",
+            "grip_end_binding_0_0.692",
+            "grip_end_binding_0_0.932",
+            "tapered_ash_shaft_1",
+            "forged_heel_ferrule_1",
+            "forged_blade_socket_1",
+            "socket_braze_ring_1",
+            "forged_leaf_blade_1",
+            "continuous_leather_grip_1",
+            "grip_end_binding_1_0.692",
+            "grip_end_binding_1_0.932",
+            "tapered_ash_shaft_2",
+            "forged_heel_ferrule_2",
+            "forged_blade_socket_2",
+            "socket_braze_ring_2",
+            "forged_leaf_blade_2",
+            "continuous_leather_grip_2",
+            "grip_end_binding_2_0.692",
+            "grip_end_binding_2_0.932",
+            "tapered_ash_shaft_3",
+            "forged_heel_ferrule_3",
+            "forged_blade_socket_3",
+            "socket_braze_ring_3",
+            "forged_leaf_blade_3",
+            "continuous_leather_grip_3",
+            "grip_end_binding_3_0.692",
+            "grip_end_binding_3_0.932",
+            "forged_foot_brace_-1_-1",
+            "brace_clench_rivet_-1_-1_0.135",
+            "brace_clench_rivet_-1_-1_0.29",
+            "forged_foot_brace_-1_1",
+            "brace_clench_rivet_-1_1_0.135",
+            "brace_clench_rivet_-1_1_0.29",
+            "tenon_cross_peg_-1_0.215",
+            "tenon_cross_peg_-1_1.315",
+            "forged_foot_brace_1_-1",
+            "brace_clench_rivet_1_-1_0.135",
+            "brace_clench_rivet_1_-1_0.29",
+            "forged_foot_brace_1_1",
+            "brace_clench_rivet_1_1_0.135",
+            "brace_clench_rivet_1_1_0.29",
+            "tenon_cross_peg_1_0.215",
+            "tenon_cross_peg_1_1.315"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              -0.7850000262260437,
+              -0.11249999701976776,
+              0.07999999821186066
+            ],
+            "maximum": [
+              0.7850000262260437,
+              0.1266849935054779,
+              2.380000114440918
+            ]
+          }
+        },
+        {
+          "name": "shaped_ground_skid_-1",
+          "parts": [
+            "shaped_ground_skid_-1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              -0.7925000190734863,
+              -0.4300000071525574,
+              0
+            ],
+            "maximum": [
+              -0.6274999976158142,
+              0.4300000071525574,
+              0.10999999940395355
+            ]
+          }
+        },
+        {
+          "name": "shaped_ground_skid_1",
+          "parts": [
+            "shaped_ground_skid_1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              0.6274999976158142,
+              -0.4300000071525574,
+              0
+            ],
+            "maximum": [
+              0.7925000190734863,
+              0.4300000071525574,
+              0.10999999940395355
+            ]
+          }
+        },
+        {
+          "name": "pegged_upright_-1",
+          "parts": [
+            "pegged_upright_-1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              -0.7950000166893005,
+              -0.02250000089406967,
+              0.05999999865889549
+            ],
+            "maximum": [
+              -0.625,
+              0.0925000011920929,
+              1.5649877786636353
+            ]
+          }
+        },
+        {
+          "name": "pegged_upright_1",
+          "parts": [
+            "pegged_upright_1"
+          ],
+          "boundsZUp": {
+            "minimum": [
+              0.625,
+              -0.02250000089406967,
+              0.05999999865889549
+            ],
+            "maximum": [
+              0.7950000166893005,
+              0.0925000011920929,
+              1.564987301826477
+            ]
+          }
+        }
+      ],
+      "walkableSurfaces": [],
+      "cameraSolid": true,
+      "standingPoint": {
+        "x": 0,
+        "y": 0,
+        "z": 1.02
+      },
+      "workingFront": {
+        "minimum": [
+          -0.9,
+          0,
+          0.47
+        ],
+        "maximum": [
+          0.9,
+          2,
+          1.7
+        ]
+      },
+      "approachSource": {
+        "minimum": [
+          -0.9,
+          -1.7,
+          0
+        ],
+        "maximum": [
+          0.9,
+          -0.47,
+          2
+        ]
+      },
+      "placementDatum": "Two planed skids at Y0. Racked static weapons; no pickup or equipment interaction.",
+      "runtimeReady": true,
+      "modelSha256": "fd2100d94ae66dbe88fd696d62fc95b6384da2a7d18bacda2d4c651489d5b7e2"
+    }
+  }
+}
