@@ -123,6 +123,9 @@ function previewReferences(source: string): Array<{ key?: string; model: string;
 export async function buildAssetLedger(repoRoot = ROOT) {
   const root = path.resolve(repoRoot);
   const index = readJson<AssetIndex>(root, `${MODEL_ROOT}asset-index.json`);
+  const reviews = readJson<{ schemaVersion: number; reviews: Array<{ sourceSha256: string; status: string; reason: string }> }>(root, 'migration/visual-reviews.json');
+  if (reviews.schemaVersion !== 1) throw new Error('Unsupported visual review schema.');
+  const rejectedSources = new Map(reviews.reviews.filter(row => row.status === 'rejected').map(row => [row.sourceSha256, row.reason]));
   const sources = sourceRecords(root);
   const roster = readJson<{ profiles: Array<{ profileKey: string; raceKey: string; variant: string; role: string }> }>(root,
     'scripts/blender-character-pipeline/data/npc-character-roster.json');
@@ -164,9 +167,12 @@ export async function buildAssetLedger(repoRoot = ROOT) {
       return speciesFor(candidate) === species;
     }) : Object.entries(index.characterProfiles).filter(([candidate]) => candidate !== key && inferRace(candidate) === race && race !== null);
     const unique = new Set<string>();
-    return pool.filter(([, entry]) => approved(entry) && entry.model && !unique.has(entry.model) && Boolean(unique.add(entry.model)))
+    return pool.filter(([, entry]) => approved(entry) && !rejectedSources.has(entry.modelSha256 ?? '') && entry.model && !unique.has(entry.model) && Boolean(unique.add(entry.model)))
       .sort(([a, left], [b, right]) => Number(right.bodyVariant === variant) - Number(left.bodyVariant === variant) || a.localeCompare(b))
-      .slice(0, 4).filter(([, entry]) => inspect(entry.model!).valid && inspect(entry.model!).meshes > 0)
+      .filter(([, entry]) => {
+        const evidence = inspect(entry.model!);
+        return evidence.valid && evidence.meshes > 0 && !rejectedSources.has(evidence.sha256 ?? '');
+      }).slice(0, 4)
       .map(([profileKey, entry]) => ({ profileKey, modelPath: `${MODEL_ROOT}${entry.model}`, status: 'adaptation_candidate_not_approved' as const,
         work: [variant && entry.bodyVariant !== variant ? 'body_variant_adaptation_required' : 'preserve_authored_body_variant',
           'role_class_or_species_art_review_required', 'rig_equipment_animation_and_unreal_import_required'] }));
@@ -176,6 +182,7 @@ export async function buildAssetLedger(repoRoot = ROOT) {
     const evidence = model ? inspect(model) : undefined;
     const qc = qcFor(entry);
     const blockers = [...(input.blockers ?? [])];
+    if (evidence?.sha256 && rejectedSources.has(evidence.sha256)) blockers.push(`visual_source_rejected:${rejectedSources.get(evidence.sha256)}`);
     if (!model) { if (input.requiresModel !== false) blockers.push('no_model_assignment'); }
     else if (!evidence?.exists) blockers.push('model_file_missing');
     else if (!evidence.valid) blockers.push('invalid_model_binary_or_dependencies');

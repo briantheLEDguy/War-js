@@ -16,6 +16,8 @@ class AEGISWAR_API UWarCharacterVisualDefinition : public UPrimaryDataAsset
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName ProfileKey;
+    /** Explicit reusable source identity; playable class/body identity remains ProfileKey. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Provenance") FName SourceProfileKey;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName RaceId;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName ClassId;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName BodyVariant;
@@ -26,10 +28,12 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") TSoftObjectPtr<USkeletalMesh> SkeletalMesh;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") TSoftClassPtr<UAnimInstance> AnimationBlueprint;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") TSoftObjectPtr<UAnimSequence> IdleAnimation;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") TMap<FName, TSoftObjectPtr<UAnimSequence>> ImportedAnimations;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") FTransform MeshTransform = FTransform::Identity;
 
     UFUNCTION(BlueprintCallable, Category="Validation")
     bool ValidateForSpawn(EWarRealm ExpectedRealm, FString& OutError) const;
+    FName GetSourceProfileKey() const { return SourceProfileKey.IsNone() ? ProfileKey : SourceProfileKey; }
 
     virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 #if WITH_EDITOR

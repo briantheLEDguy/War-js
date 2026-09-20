@@ -17,7 +17,13 @@ spec.loader.exec_module(importer)
 
 
 class ModelImportPreflightTest(unittest.TestCase):
-    def test_all_three_actual_examples_pass_preflight(self):
+    def test_material_slots_follow_unreal_fbx_names_without_losing_hyphens(self):
+        self.assertEqual(importer.material_slot_mapping(["body.high-poly", "ns:cloth.body"]),
+                         {"body_high-poly": "body.high-poly", "cloth_body": "ns:cloth.body"})
+        with self.assertRaisesRegex(RuntimeError, "collide"):
+            importer.material_slot_mapping(["body.high-poly", "body_high-poly"])
+
+    def test_all_actual_examples_pass_preflight(self):
         for profile in importer.PROFILES:
             with self.subTest(profile=profile):
                 context = importer.validate_inputs(profile)

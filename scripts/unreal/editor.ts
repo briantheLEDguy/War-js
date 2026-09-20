@@ -1,4 +1,5 @@
-import { mkdirSync, readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, rmSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
@@ -6,6 +7,7 @@ export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
+  'InventoryRewardParity',
 ].map(name => `AegisWar.Foundation.${name}`);
 
 export function validateAutomationReport(report: unknown): number {
@@ -30,6 +32,21 @@ export function validateAutomationReport(report: unknown): number {
   return tests.length;
 }
 
+export function validateImportReceipt(report: unknown, profile: string, conversionHash: string): void {
+  const data = report as Record<string, unknown> | null;
+  if (!data || data.schemaVersion !== 1 || data.profileKey !== profile || data.importSucceeded !== true
+    || data.status !== 'editor-import-succeeded-unreviewed' || data.conversionSha256 !== conversionHash
+    || data.artApproved !== false || data.unrealApproved !== false || !String(data.unrealVersion).startsWith('5.8.2-')
+    || !Array.isArray(data.meshes) || data.meshes.length === 0) throw new Error('Missing, stale or invalid Unreal import evidence.');
+  if (data.kind === 'characterProfiles') {
+    const poses = data.poseParity as { status?: string; toleranceCm?: number; clips?: unknown[] } | undefined;
+    if (poses?.status !== 'passed' || poses.toleranceCm !== 0.1 || !Array.isArray(poses.clips)
+      || !Array.isArray(data.animations) || poses.clips.length !== data.animations.length * 2 || !poses.clips.length) {
+      throw new Error('Missing or invalid Unreal skinning parity evidence.');
+    }
+  }
+}
+
 if (isMain(import.meta.url)) {
   try {
     const args = parseArguments(process.argv.slice(2), [], ['--engine-root', '--mode', '--profile']);
@@ -45,6 +62,8 @@ if (isMain(import.meta.url)) {
     else {
       const profile = args.get('--profile');
       if (!profile || !/^[a-zA-Z0-9_-]+$/.test(profile)) throw new Error('Model import requires a safe --profile registry key.');
+      // An editor exit code cannot attest that Python ran or wrote fresh evidence.
+      rmSync(path.join(repoRoot, 'artifacts/unreal/converted', profile, 'editor-import.json'), { force: true });
       const script = path.join(repoRoot, 'scripts/unreal/import-models.py');
       invocation = [...common, '-nullrhi', '-run=pythonscript', `-script=${script} --profile ${profile}`];
     }
@@ -53,6 +72,12 @@ if (isMain(import.meta.url)) {
     if (mode === 'test') {
       const data = JSON.parse(readFileSync(path.join(output, 'index.json'), 'utf8').replace(/^\uFEFF/, ''));
       console.log(JSON.stringify({ nativeTestsPassed: validateAutomationReport(data), report: output, graphicalAcceptance: false }));
-    } else console.log(JSON.stringify({ editorCommandCompleted: true, profile: args.get('--profile'), log: output, visualApproval: false }));
+    } else {
+      const profile = args.get('--profile')!;
+      const directory = path.join(repoRoot, 'artifacts/unreal/converted', profile);
+      const hash = createHash('sha256').update(readFileSync(path.join(directory, 'conversion.json'))).digest('hex');
+      validateImportReceipt(JSON.parse(readFileSync(path.join(directory, 'editor-import.json'), 'utf8')), profile, hash);
+      console.log(JSON.stringify({ importEvidenceVerified: true, profile, log: output, visualApproval: false }));
+    }
   } catch (error) { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; }
 }

@@ -1,12 +1,31 @@
 import { describe, expect, it } from 'vitest';
-import { requiredNativeTests, validateAutomationReport } from '../scripts/unreal/editor';
+import { requiredNativeTests, validateAutomationReport, validateImportReceipt } from '../scripts/unreal/editor';
 
 function report() { return { succeeded: requiredNativeTests.length, succeededWithWarnings: 0, failed: 0, notRun: 0, inProcess: 0,
   tests: requiredNativeTests.map(fullTestPath => ({ fullTestPath, state: 'Success', errors: 0 })) }; }
 
 describe('native automation receipt verification', () => {
+  it('rejects missing and stale import evidence even if the editor exited successfully', () => {
+    const receipt = { schemaVersion: 1, profileKey: 'character', importSucceeded: true,
+      status: 'editor-import-succeeded-unreviewed', conversionSha256: 'current', artApproved: false,
+      unrealApproved: false, unrealVersion: '5.8.2-test', meshes: [{}] };
+    expect(() => validateImportReceipt(receipt, 'character', 'current')).not.toThrow();
+    for (const invalid of [null, {}, { ...receipt, conversionSha256: 'old' }, { ...receipt, meshes: [] },
+      { ...receipt, profileKey: 'different' }, { ...receipt, artApproved: true }, { ...receipt, unrealVersion: '5.7.0' }]) {
+      expect(() => validateImportReceipt(invalid, 'character', 'current')).toThrow('evidence');
+    }
+  });
+  it('requires source skinning comparisons for character imports', () => {
+    const receipt = { schemaVersion: 1, profileKey: 'character', kind: 'characterProfiles', importSucceeded: true,
+      status: 'editor-import-succeeded-unreviewed', conversionSha256: 'current', artApproved: false,
+      unrealApproved: false, unrealVersion: '5.8.2-test', meshes: [{}], animations: [{}] };
+    expect(() => validateImportReceipt(receipt, 'character', 'current')).toThrow('skinning');
+    const verified = { ...receipt, poseParity: { status: 'passed', toleranceCm: 0.1, clips: [{}, {}] } };
+    expect(() => validateImportReceipt(verified, 'character', 'current')).not.toThrow();
+    expect(() => validateImportReceipt({ ...verified, animations: [{}, {}] }, 'character', 'current')).toThrow('skinning');
+  });
   it('requires actual completed native tests instead of accepting process exit alone', () => {
-    expect(validateAutomationReport(report())).toBe(7);
+    expect(validateAutomationReport(report())).toBe(8);
     expect(() => validateAutomationReport({})).toThrow();
     expect(() => validateAutomationReport({ ...report(), tests: [] })).toThrow('did not run');
   });

@@ -17,6 +17,14 @@ let ledger: Ledger;
 beforeAll(async () => { ledger = await buildAssetLedger(root); }, 120_000);
 
 describe('Unreal asset assignment coverage', () => {
+  test('visual rejection overrides polygon counts and browser registry approval', () => {
+    for (const profile of ['civic_battle_prelate_m', 'civic_ember_arcanist_m']) {
+      const row = ledger.assignments.find(item => item.id === `playable:${profile}`)!;
+      expect(row.status).toBe('blocked');
+      expect(row.blockers).toContain('visual_source_rejected:segmented_placeholder_body');
+      expect(ledger.assignments.some(item => item.candidates.some(candidate => candidate.profileKey === profile))).toBe(false);
+    }
+  });
   test('enumerates every map NPC, enemy, ambient actor, and visible prop including the dev map', () => {
     const files = readdirSync(path.join(root, 'public/assets/maps')).filter(file => file.endsWith('.json')).sort();
     expect(ledger.coverage.mapFiles).toEqual(files.map(file => `public/assets/maps/${file}`));
@@ -103,7 +111,7 @@ describe('Unreal asset assignment coverage', () => {
     expect(dwarf.candidates.some(candidate => candidate.profileKey === 'npc_frontier_sunmeadow_dwarf_artisan')).toBe(true);
     expect(dwarf.candidates.every(candidate => candidate.status === 'adaptation_candidate_not_approved')).toBe(true);
     expect(dwarf.candidates.some(candidate => candidate.work.includes('body_variant_adaptation_required'))).toBe(true);
-    expect(ledger.assignments.find(row => row.id === 'playable:civic_ember_arcanist_m')?.status).toBe('candidate');
+    expect(ledger.assignments.find(row => row.id === 'playable:mire_warbrute_m')?.status).toBe('candidate');
     expect(ledger.assignments.every(row => row.reviewRequirements.includes('unreal_import_and_cook_unverified'))).toBe(true);
     expect(ledger.summary.ready).toBe(0);
     expect(ledger.summary.packagingReady).toBe(false);

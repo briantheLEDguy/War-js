@@ -21,17 +21,17 @@ intentional effects remain valid technical geometry. Preserve Git history.
 behavior reference while replacements are developed; its legacy primitive paths
 are outstanding migration debt, not a completed cleanup.
 
-The owner requested a pause after the first implementation checkpoint to change
-models. See `docs/unreal-checkpoint-1.md` for verified results and the next work.
+The owner resumed work after changing models at the first implementation
+checkpoint. `docs/unreal-checkpoint-1.md` records that historical checkpoint.
 
 ## Implementation and stage gates
 
 | Stage | Required outcome | Current evidence |
 |---|---|---|
 | 0: inventory | Complete behavior/content/model ledgers and reproducible source fingerprints | Exporter, 39 detailed behavior contracts, asset resolver/GLB audit and readiness report implemented; art/rights review remains open |
-| 1: engine proof | Native builds on three OSes, Linux server, representative imports and two-client movement/combat | Windows Editor target compiles; conversion samples and development tools are ready. Other native targets, actual imports and two-client playtests remain unverified |
+| 1: engine proof | Native builds on three OSes, Linux server, representative imports and two-client movement/combat | Windows Editor and Development package build; three admitted character sources and one prop import; raw/compressed pose checks and two-client combat/movement pass, including packaged Windows clients. Linux/server, macOS, equipment, moving mechanisms and full visual acceptance remain open |
 | 2: assets | All character/species/environment replacements, rig/animation/equipment/LOD validation, primitive deletion | Incomplete; audit reports blocked/candidate rows, never fabricated approval |
-| 3: RPG | All current combat, progression, inventory, gathering/crafting, quests and HUD behavior under server authority | Pending; exported catalogs do not implement gameplay |
+| 3: RPG | All current combat, progression, inventory, gathering/crafting, quests and HUD behavior under server authority | First inventory/equipment rules pass seven browser-derived scenarios. Replicated inventory UI, durable economy, crafting integration and the remaining RPG systems are pending |
 | 4: online | Steam ownership, full characters/economy/chat, handoffs, supplies/siege/campaign, durable recovery | Pending; native production admission remains closed |
 | 5: world/GM | All 32 campaign zones, 70 directed routes, interiors/lifts, atlas/wiki/settings and runtime GM editor | Pending; preserving raw map data is not importing a playable world |
 | 6: hardening | WAN, simultaneous 18v18 fronts, crashes/retries/backup restore, platform and performance acceptance | Pending |
@@ -123,10 +123,10 @@ visual DataAssets before characters can spawn. No starter mannequin, cube,
 sphere, capsule or training dummy substitutes for a missing character.
 
 The build wrapper only accepts Development/DebugGame configurations. Production
-packaging, native acceptance receipts and the trusted Steam admission gateway
+packaging acceptance and the trusted Steam admission gateway
 are future implementation gates. Run `npm run unreal:test-native` after building
-the Editor target to execute the seven `AegisWar.Foundation` automation groups.
-The wrapper requires a fresh report containing all seven successful groups;
+the Editor target to execute the eight `AegisWar.Foundation` automation groups.
+The wrapper requires a fresh report containing all eight successful groups;
 editor exit status alone is not a passing test result.
 
 ## Asset conversion experiments
@@ -147,15 +147,86 @@ Any animation conversion failure is a failed experiment, not a reason to strip
 the animations or replace the character with a primitive.
 
 `scripts/unreal/import-models.py` consumes verified conversion receipts and
-imports the command table and two NPC samples into `/Game/Imported/`. Run
+imports the command table, two NPC samples and the Warbrute source into `/Game/Imported/`. Run
 `npm run unreal:import -- --profile frontier_field_command_table` after building
 the Editor; the other supported sample keys are
 `npc_frontier_sunmeadow_empire_herbalist` and
-`npc_frontier_cinderfen_dark_elf_supply_officer`. This reconstructs materials from
+`npc_frontier_cinderfen_dark_elf_supply_officer` and
+`mire_warbrute_m`. The Warbrute conversion uses `--bake-fps 480` to satisfy
+the same roundtrip tolerances. This reconstructs materials from
 source images and records actual imported mesh/animation paths. Native character
 entry requires a matching `Content/Migration/visual-imports.json` binding in
 addition to a visual DataAsset. An import receipt is development evidence, not
-art approval, a playable-class assignment or proof of full animation parity.
+art approval or proof of complete equipment/animation acceptance.
+
+Direct Blender source rendering rejected the legacy male Prelate and male
+Arcanist as segmented placeholder bodies despite their polygon counts and old
+registry approval. `migration/visual-reviews.json` records their exact hashes;
+conversion, import, assignment status and adaptation candidates honor those
+rejections. The rejected Prelate's generated Unreal assets and FBX were removed.
+Browser source replacement and comprehensive primitive cleanup remain unfinished.
+
+The development female Prelate explicitly reuses the complex female Empire
+herbalist source. `SourceProfileKey` binds its imported mesh/animations while
+`ProfileKey` preserves the playable class/body identity. Source-body checks prevent
+gender substitution. This is a development mapping, with class-specific equipment
+fit and final visual approval still pending. The Warbrute source has a substantive
+authored body but still needs its equipment and material review.
+
+The importer compares all sampled source joint positions and skinning transforms
+with both raw and compressed Unreal animations, using a fixed X/-Y/Z conversion
+and a 0.1 cm tolerance. Matching joint positions alone failed to detect an FBX
+bind-pose mismatch, so skinning transforms are mandatory. Importer-owned mesh,
+skeleton and animation packages are rebuilt to avoid retained atomic-reimport
+settings; unrelated assets are rejected before any replacement. PBR materials
+retain embedded source textures, normal maps, ORM channels and alpha behavior.
+
+The editor-only `AegisWarEditorTools` module exposes FBX clip provenance and
+constructs the allowed terrain surface for `/Game/MigrationProof/EngineProof`.
+Run `prepare-proof.py` with the Unreal Python commandlet after imports; it creates
+development visual DataAssets with the full imported animation sets. Run
+`render-proof.py` with `-AllowCommandletRendering` for front/back/side previews,
+or add `--rest` for bind-pose views. These previews do not grant art approval.
+
+```powershell
+npm run unreal:network-proof
+npm run unreal:network-proof -- --rendered
+npm run unreal:package-proof
+npm run unreal:network-proof -- --packaged-root artifacts/unreal/packages/Win64
+```
+
+The network harness starts an Editor-hosted dedicated process and two clients on
+loopback, then checks predicted/replicated movement, movement/strike animation,
+server damage and mana cost, and cooldown rejection. The optional packaged root
+uses actual Windows Development executables as clients. `--rendered` uses the
+normal game loop with offscreen rendering and captures both client views. It
+exposed and helped fix an imported-mesh offset that network smoothing restored
+incorrectly. Screenshots remain review evidence, not automatic art approval.
+Tests run at 60 FPS;
+uncapped NullRHI packaged clients failed the initial movement timing check and
+remain a hardening investigation. Reports explicitly exclude visual, WAN, load
+and packaged Linux-server acceptance. The harness stops only its own processes.
+
+Windows BuildCookRun succeeded. The attempted Linux server build failed because
+the installed engine lacks Linux target files. Linux platform support and a
+dedicated-server-capable engine/toolchain are still required; Mac builds and QA
+require Mac hardware. No Steam account or release action has occurred.
+
+## Native inventory rule parity
+
+`WarInventoryRules.h/.cpp` preserves the 24-slot bag, 99-item stacks, individual
+affixed/equippable items, existing-stack order, lowest-free-slot placement and
+exact deferred reward quantities/affixes. Equipment remains a reference to a bag
+slot, and strength bonuses resolve from that item. Invalid bag/gear references
+are rejected before outputs are changed. These are pure trusted-domain rules;
+they do not yet provide replicated UI, durable reward idempotency, consumables,
+crafting transactions or equipment attachment visuals.
+
+`npm run unreal:inventory-fixtures` captures seven reference scenarios directly
+from `src/game/RewardInventory.ts` into `migration/fixtures/inventory.json`.
+Vitest verifies the source hash and expected results against the browser; native
+automation compares the C++ outputs with the same fixtures. Full-bag reward
+retention and dangling equipment rejection are required acceptance cases.
 
 ## Completion and operating acceptance
 

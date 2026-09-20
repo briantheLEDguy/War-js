@@ -1,3 +1,11 @@
+## 2026-09-20 - Unreal Windows development proof
+
+- Imported three admitted authored character sources and the command table with source PBR materials and verified raw/compressed animation skinning. Fixed inconsistent FBX bind poses and stale reimport settings; added regression checks.
+- Rejected the legacy male Prelate and Arcanist source bodies after direct visual review; blocked their hashes in migration tooling. Removed the rejected generated Prelate assets and explicitly mapped the development female Prelate to the complex female Empire herbalist source. Fixed imported-mesh offsets during network smoothing.
+- Added development terrain/map preparation, rendered previews, imported movement/attack animation playback, and an editor-only import helper module.
+- Built a Windows Development package and verified two-client movement, animation, authoritative strike cost/damage and cooldown rejection, including packaged Windows clients at 60 FPS. Eight native foundation groups pass, including seven browser-derived inventory scenarios plus invalid-state and equipment-reference checks.
+- Linux server build remains blocked by missing installed platform files. Mac, complete equipment/visual review, all gameplay/world/GM systems, asset replacement and Steam release gates remain open. Uncapped headless movement timing needs hardening. No browser primitive assets were removed before suitable replacements exist.
+
 ## 2026-09-20 - Unreal foundation checkpoint validation
 
 - Verified the native Windows Editor target builds with Unreal 5.8.2; documented the owner-requested pause and resume handoff in docs/unreal-checkpoint-1.md.

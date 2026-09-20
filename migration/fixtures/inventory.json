@@ -1,0 +1,1305 @@
+{
+  "schemaVersion": 1,
+  "source": "src/game/RewardInventory.ts",
+  "sourceHashEncoding": "utf8-lf",
+  "sourceSha256": "e3b185bac25b20be1956d00a2b0a62538e3196d7013b4aef9df3695e11345a01",
+  "cases": [
+    {
+      "name": "empty_rewards_preserve_inventory",
+      "inventory": [
+        {
+          "key": "ore",
+          "name": "ore",
+          "qty": 4,
+          "kind": "misc",
+          "slot": 7
+        }
+      ],
+      "rewards": [],
+      "expected": {
+        "inventory": [
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 4,
+            "kind": "misc",
+            "slot": 7
+          }
+        ],
+        "pendingItems": []
+      }
+    },
+    {
+      "name": "fill_existing_stacks_then_lowest_hole",
+      "inventory": [
+        {
+          "key": "ore",
+          "name": "ore",
+          "qty": 98,
+          "kind": "misc",
+          "slot": 7
+        },
+        {
+          "key": "ore",
+          "name": "ore",
+          "qty": 95,
+          "kind": "misc",
+          "slot": 3
+        }
+      ],
+      "rewards": [
+        {
+          "key": "ore",
+          "name": "ore",
+          "qty": 110,
+          "kind": "misc"
+        }
+      ],
+      "expected": {
+        "inventory": [
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 7
+          },
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 3
+          },
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 0
+          },
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 6,
+            "kind": "misc",
+            "slot": 1
+          }
+        ],
+        "pendingItems": []
+      }
+    },
+    {
+      "name": "gear_instances_never_stack",
+      "inventory": [],
+      "rewards": [
+        {
+          "key": "test_blade",
+          "name": "Test blade",
+          "qty": 3,
+          "kind": "weapon",
+          "equipSlot": "mainHand",
+          "affix": {
+            "strengthBonus": 7
+          }
+        }
+      ],
+      "expected": {
+        "inventory": [
+          {
+            "key": "test_blade",
+            "name": "Test blade",
+            "qty": 1,
+            "kind": "weapon",
+            "equipSlot": "mainHand",
+            "affix": {
+              "strengthBonus": 7
+            },
+            "slot": 0
+          },
+          {
+            "key": "test_blade",
+            "name": "Test blade",
+            "qty": 1,
+            "kind": "weapon",
+            "equipSlot": "mainHand",
+            "affix": {
+              "strengthBonus": 7
+            },
+            "slot": 1
+          },
+          {
+            "key": "test_blade",
+            "name": "Test blade",
+            "qty": 1,
+            "kind": "weapon",
+            "equipSlot": "mainHand",
+            "affix": {
+              "strengthBonus": 7
+            },
+            "slot": 2
+          }
+        ],
+        "pendingItems": []
+      }
+    },
+    {
+      "name": "full_bag_defers_exact_rolled_gear",
+      "inventory": [
+        {
+          "key": "material_0",
+          "name": "material_0",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 0
+        },
+        {
+          "key": "material_1",
+          "name": "material_1",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 1
+        },
+        {
+          "key": "material_2",
+          "name": "material_2",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 2
+        },
+        {
+          "key": "material_3",
+          "name": "material_3",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 3
+        },
+        {
+          "key": "material_4",
+          "name": "material_4",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 4
+        },
+        {
+          "key": "material_5",
+          "name": "material_5",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 5
+        },
+        {
+          "key": "material_6",
+          "name": "material_6",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 6
+        },
+        {
+          "key": "material_7",
+          "name": "material_7",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 7
+        },
+        {
+          "key": "material_8",
+          "name": "material_8",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 8
+        },
+        {
+          "key": "material_9",
+          "name": "material_9",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 9
+        },
+        {
+          "key": "material_10",
+          "name": "material_10",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 10
+        },
+        {
+          "key": "material_11",
+          "name": "material_11",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 11
+        },
+        {
+          "key": "material_12",
+          "name": "material_12",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 12
+        },
+        {
+          "key": "material_13",
+          "name": "material_13",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 13
+        },
+        {
+          "key": "material_14",
+          "name": "material_14",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 14
+        },
+        {
+          "key": "material_15",
+          "name": "material_15",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 15
+        },
+        {
+          "key": "material_16",
+          "name": "material_16",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 16
+        },
+        {
+          "key": "material_17",
+          "name": "material_17",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 17
+        },
+        {
+          "key": "material_18",
+          "name": "material_18",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 18
+        },
+        {
+          "key": "material_19",
+          "name": "material_19",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 19
+        },
+        {
+          "key": "material_20",
+          "name": "material_20",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 20
+        },
+        {
+          "key": "material_21",
+          "name": "material_21",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 21
+        },
+        {
+          "key": "material_22",
+          "name": "material_22",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 22
+        },
+        {
+          "key": "material_23",
+          "name": "material_23",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 23
+        }
+      ],
+      "rewards": [
+        {
+          "key": "test_blade",
+          "name": "Test blade",
+          "qty": 2,
+          "kind": "weapon",
+          "equipSlot": "mainHand",
+          "affix": {
+            "strengthBonus": 7
+          }
+        }
+      ],
+      "expected": {
+        "inventory": [
+          {
+            "key": "material_0",
+            "name": "material_0",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 0
+          },
+          {
+            "key": "material_1",
+            "name": "material_1",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 1
+          },
+          {
+            "key": "material_2",
+            "name": "material_2",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 2
+          },
+          {
+            "key": "material_3",
+            "name": "material_3",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 3
+          },
+          {
+            "key": "material_4",
+            "name": "material_4",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 4
+          },
+          {
+            "key": "material_5",
+            "name": "material_5",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 5
+          },
+          {
+            "key": "material_6",
+            "name": "material_6",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 6
+          },
+          {
+            "key": "material_7",
+            "name": "material_7",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 7
+          },
+          {
+            "key": "material_8",
+            "name": "material_8",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 8
+          },
+          {
+            "key": "material_9",
+            "name": "material_9",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 9
+          },
+          {
+            "key": "material_10",
+            "name": "material_10",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 10
+          },
+          {
+            "key": "material_11",
+            "name": "material_11",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 11
+          },
+          {
+            "key": "material_12",
+            "name": "material_12",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 12
+          },
+          {
+            "key": "material_13",
+            "name": "material_13",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 13
+          },
+          {
+            "key": "material_14",
+            "name": "material_14",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 14
+          },
+          {
+            "key": "material_15",
+            "name": "material_15",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 15
+          },
+          {
+            "key": "material_16",
+            "name": "material_16",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 16
+          },
+          {
+            "key": "material_17",
+            "name": "material_17",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 17
+          },
+          {
+            "key": "material_18",
+            "name": "material_18",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 18
+          },
+          {
+            "key": "material_19",
+            "name": "material_19",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 19
+          },
+          {
+            "key": "material_20",
+            "name": "material_20",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 20
+          },
+          {
+            "key": "material_21",
+            "name": "material_21",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 21
+          },
+          {
+            "key": "material_22",
+            "name": "material_22",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 22
+          },
+          {
+            "key": "material_23",
+            "name": "material_23",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 23
+          }
+        ],
+        "pendingItems": [
+          {
+            "key": "test_blade",
+            "name": "Test blade",
+            "qty": 2,
+            "kind": "weapon",
+            "equipSlot": "mainHand",
+            "affix": {
+              "strengthBonus": 7
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "full_bag_can_top_up_matching_stack",
+      "inventory": [
+        {
+          "key": "material_0",
+          "name": "material_0",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 0
+        },
+        {
+          "key": "material_1",
+          "name": "material_1",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 1
+        },
+        {
+          "key": "material_2",
+          "name": "material_2",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 2
+        },
+        {
+          "key": "material_3",
+          "name": "material_3",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 3
+        },
+        {
+          "key": "material_4",
+          "name": "material_4",
+          "qty": 97,
+          "kind": "misc",
+          "slot": 4
+        },
+        {
+          "key": "material_5",
+          "name": "material_5",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 5
+        },
+        {
+          "key": "material_6",
+          "name": "material_6",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 6
+        },
+        {
+          "key": "material_7",
+          "name": "material_7",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 7
+        },
+        {
+          "key": "material_8",
+          "name": "material_8",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 8
+        },
+        {
+          "key": "material_9",
+          "name": "material_9",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 9
+        },
+        {
+          "key": "material_10",
+          "name": "material_10",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 10
+        },
+        {
+          "key": "material_11",
+          "name": "material_11",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 11
+        },
+        {
+          "key": "material_12",
+          "name": "material_12",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 12
+        },
+        {
+          "key": "material_13",
+          "name": "material_13",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 13
+        },
+        {
+          "key": "material_14",
+          "name": "material_14",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 14
+        },
+        {
+          "key": "material_15",
+          "name": "material_15",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 15
+        },
+        {
+          "key": "material_16",
+          "name": "material_16",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 16
+        },
+        {
+          "key": "material_17",
+          "name": "material_17",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 17
+        },
+        {
+          "key": "material_18",
+          "name": "material_18",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 18
+        },
+        {
+          "key": "material_19",
+          "name": "material_19",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 19
+        },
+        {
+          "key": "material_20",
+          "name": "material_20",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 20
+        },
+        {
+          "key": "material_21",
+          "name": "material_21",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 21
+        },
+        {
+          "key": "material_22",
+          "name": "material_22",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 22
+        },
+        {
+          "key": "material_23",
+          "name": "material_23",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 23
+        }
+      ],
+      "rewards": [
+        {
+          "key": "material_4",
+          "name": "material_4",
+          "qty": 5,
+          "kind": "misc"
+        }
+      ],
+      "expected": {
+        "inventory": [
+          {
+            "key": "material_0",
+            "name": "material_0",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 0
+          },
+          {
+            "key": "material_1",
+            "name": "material_1",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 1
+          },
+          {
+            "key": "material_2",
+            "name": "material_2",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 2
+          },
+          {
+            "key": "material_3",
+            "name": "material_3",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 3
+          },
+          {
+            "key": "material_4",
+            "name": "material_4",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 4
+          },
+          {
+            "key": "material_5",
+            "name": "material_5",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 5
+          },
+          {
+            "key": "material_6",
+            "name": "material_6",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 6
+          },
+          {
+            "key": "material_7",
+            "name": "material_7",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 7
+          },
+          {
+            "key": "material_8",
+            "name": "material_8",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 8
+          },
+          {
+            "key": "material_9",
+            "name": "material_9",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 9
+          },
+          {
+            "key": "material_10",
+            "name": "material_10",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 10
+          },
+          {
+            "key": "material_11",
+            "name": "material_11",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 11
+          },
+          {
+            "key": "material_12",
+            "name": "material_12",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 12
+          },
+          {
+            "key": "material_13",
+            "name": "material_13",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 13
+          },
+          {
+            "key": "material_14",
+            "name": "material_14",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 14
+          },
+          {
+            "key": "material_15",
+            "name": "material_15",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 15
+          },
+          {
+            "key": "material_16",
+            "name": "material_16",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 16
+          },
+          {
+            "key": "material_17",
+            "name": "material_17",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 17
+          },
+          {
+            "key": "material_18",
+            "name": "material_18",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 18
+          },
+          {
+            "key": "material_19",
+            "name": "material_19",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 19
+          },
+          {
+            "key": "material_20",
+            "name": "material_20",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 20
+          },
+          {
+            "key": "material_21",
+            "name": "material_21",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 21
+          },
+          {
+            "key": "material_22",
+            "name": "material_22",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 22
+          },
+          {
+            "key": "material_23",
+            "name": "material_23",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 23
+          }
+        ],
+        "pendingItems": [
+          {
+            "key": "material_4",
+            "name": "material_4",
+            "qty": 3,
+            "kind": "misc"
+          }
+        ]
+      }
+    },
+    {
+      "name": "one_hole_preserves_remaining_gear_and_materials",
+      "inventory": [
+        {
+          "key": "material_0",
+          "name": "material_0",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 0
+        },
+        {
+          "key": "material_1",
+          "name": "material_1",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 1
+        },
+        {
+          "key": "material_2",
+          "name": "material_2",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 2
+        },
+        {
+          "key": "material_3",
+          "name": "material_3",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 3
+        },
+        {
+          "key": "material_4",
+          "name": "material_4",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 4
+        },
+        {
+          "key": "material_5",
+          "name": "material_5",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 5
+        },
+        {
+          "key": "material_6",
+          "name": "material_6",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 6
+        },
+        {
+          "key": "material_7",
+          "name": "material_7",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 7
+        },
+        {
+          "key": "material_8",
+          "name": "material_8",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 8
+        },
+        {
+          "key": "material_10",
+          "name": "material_10",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 10
+        },
+        {
+          "key": "material_11",
+          "name": "material_11",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 11
+        },
+        {
+          "key": "material_12",
+          "name": "material_12",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 12
+        },
+        {
+          "key": "material_13",
+          "name": "material_13",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 13
+        },
+        {
+          "key": "material_14",
+          "name": "material_14",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 14
+        },
+        {
+          "key": "material_15",
+          "name": "material_15",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 15
+        },
+        {
+          "key": "material_16",
+          "name": "material_16",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 16
+        },
+        {
+          "key": "material_17",
+          "name": "material_17",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 17
+        },
+        {
+          "key": "material_18",
+          "name": "material_18",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 18
+        },
+        {
+          "key": "material_19",
+          "name": "material_19",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 19
+        },
+        {
+          "key": "material_20",
+          "name": "material_20",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 20
+        },
+        {
+          "key": "material_21",
+          "name": "material_21",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 21
+        },
+        {
+          "key": "material_22",
+          "name": "material_22",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 22
+        },
+        {
+          "key": "material_23",
+          "name": "material_23",
+          "qty": 99,
+          "kind": "misc",
+          "slot": 23
+        }
+      ],
+      "rewards": [
+        {
+          "key": "test_blade",
+          "name": "Test blade",
+          "qty": 2,
+          "kind": "weapon",
+          "equipSlot": "mainHand",
+          "affix": {
+            "strengthBonus": 7
+          }
+        },
+        {
+          "key": "ore",
+          "name": "ore",
+          "qty": 40,
+          "kind": "misc"
+        }
+      ],
+      "expected": {
+        "inventory": [
+          {
+            "key": "material_0",
+            "name": "material_0",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 0
+          },
+          {
+            "key": "material_1",
+            "name": "material_1",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 1
+          },
+          {
+            "key": "material_2",
+            "name": "material_2",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 2
+          },
+          {
+            "key": "material_3",
+            "name": "material_3",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 3
+          },
+          {
+            "key": "material_4",
+            "name": "material_4",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 4
+          },
+          {
+            "key": "material_5",
+            "name": "material_5",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 5
+          },
+          {
+            "key": "material_6",
+            "name": "material_6",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 6
+          },
+          {
+            "key": "material_7",
+            "name": "material_7",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 7
+          },
+          {
+            "key": "material_8",
+            "name": "material_8",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 8
+          },
+          {
+            "key": "material_10",
+            "name": "material_10",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 10
+          },
+          {
+            "key": "material_11",
+            "name": "material_11",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 11
+          },
+          {
+            "key": "material_12",
+            "name": "material_12",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 12
+          },
+          {
+            "key": "material_13",
+            "name": "material_13",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 13
+          },
+          {
+            "key": "material_14",
+            "name": "material_14",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 14
+          },
+          {
+            "key": "material_15",
+            "name": "material_15",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 15
+          },
+          {
+            "key": "material_16",
+            "name": "material_16",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 16
+          },
+          {
+            "key": "material_17",
+            "name": "material_17",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 17
+          },
+          {
+            "key": "material_18",
+            "name": "material_18",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 18
+          },
+          {
+            "key": "material_19",
+            "name": "material_19",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 19
+          },
+          {
+            "key": "material_20",
+            "name": "material_20",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 20
+          },
+          {
+            "key": "material_21",
+            "name": "material_21",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 21
+          },
+          {
+            "key": "material_22",
+            "name": "material_22",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 22
+          },
+          {
+            "key": "material_23",
+            "name": "material_23",
+            "qty": 99,
+            "kind": "misc",
+            "slot": 23
+          },
+          {
+            "key": "test_blade",
+            "name": "Test blade",
+            "qty": 1,
+            "kind": "weapon",
+            "equipSlot": "mainHand",
+            "affix": {
+              "strengthBonus": 7
+            },
+            "slot": 9
+          }
+        ],
+        "pendingItems": [
+          {
+            "key": "test_blade",
+            "name": "Test blade",
+            "qty": 1,
+            "kind": "weapon",
+            "equipSlot": "mainHand",
+            "affix": {
+              "strengthBonus": 7
+            }
+          },
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 40,
+            "kind": "misc"
+          }
+        ]
+      }
+    },
+    {
+      "name": "affixed_material_is_an_individual_instance",
+      "inventory": [],
+      "rewards": [
+        {
+          "key": "ore",
+          "name": "ore",
+          "qty": 3,
+          "kind": "misc",
+          "affix": {
+            "strengthBonus": 2
+          }
+        }
+      ],
+      "expected": {
+        "inventory": [
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 1,
+            "kind": "misc",
+            "affix": {
+              "strengthBonus": 2
+            },
+            "slot": 0
+          },
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 1,
+            "kind": "misc",
+            "affix": {
+              "strengthBonus": 2
+            },
+            "slot": 1
+          },
+          {
+            "key": "ore",
+            "name": "ore",
+            "qty": 1,
+            "kind": "misc",
+            "affix": {
+              "strengthBonus": 2
+            },
+            "slot": 2
+          }
+        ],
+        "pendingItems": []
+      }
+    }
+  ]
+}

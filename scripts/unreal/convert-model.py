@@ -260,9 +260,12 @@ def fbx_global_settings(file_path):
 
 
 def main():
+    global BAKE_FPS
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", required=True)
+    parser.add_argument("--bake-fps", type=int, choices=(120, 240, 480), default=120)
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
+    BAKE_FPS = args.bake_fps
     registry = json.loads((ROOT / "public/assets/models/asset-index.json").read_text(encoding="utf-8"))
     rows = [(kind, registry.get(kind, {}).get(args.profile)) for kind in ("characterProfiles", "staticProps", "equipment")]
     rows = [(kind, row) for kind, row in rows if row is not None]
@@ -274,6 +277,11 @@ def main():
     models_root = (ROOT / "public/assets/models").resolve()
     source = (models_root / record["model"]).resolve()
     source.relative_to(models_root)
+    reviews = json.loads((ROOT / "migration/visual-reviews.json").read_text(encoding="utf-8"))
+    if reviews.get("schemaVersion") != 1:
+        raise ValueError("Unsupported visual review schema")
+    if any(review["status"] == "rejected" and review["sourceSha256"] == digest(source) for review in reviews["reviews"]):
+        raise ValueError("Source failed the nonprimitive visual review; replacement is required")
     if source.suffix.lower() != ".glb" or digest(source) != record.get("modelSha256"):
         raise ValueError("Source GLB bytes do not match the registered source hash")
     qc = (models_root / record["qc"]).resolve()

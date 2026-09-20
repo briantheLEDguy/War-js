@@ -25,12 +25,17 @@ public:
     virtual void OnRep_PlayerState() override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+    virtual void Tick(float DeltaSeconds) override;
 
     bool SetVisualDefinition(UWarCharacterVisualDefinition* Definition, FString& OutError);
     bool IsVisualReady() const { return bVisualReady; }
+    FName GetPlayingAnimation() const { return PlayingAnimation; }
     bool CanStrikeTarget(const AWarCharacter* Target) const;
     AWarCharacter* GetRequestedStrikeTarget() const { return RequestedStrikeTarget.Get(); }
     void HandleDeath();
+    /** The server revalidates target, range, realm, cost and cooldown for every request. */
+    UFUNCTION(BlueprintCallable, Category="Combat") void RequestTargetStrike(AWarCharacter* Target);
+    UFUNCTION(NetMulticast, Unreliable) void MulticastPlayStrike();
 
 protected:
     UPROPERTY(VisibleAnywhere, Category="Camera") TObjectPtr<USpringArmComponent> CameraBoom;
@@ -43,6 +48,7 @@ private:
     UFUNCTION() void OnRep_Dead();
     UFUNCTION(Server, Reliable) void ServerRequestStrike(AWarCharacter* Target);
     bool ApplyVisual(FString& OutError);
+    void PlayImportedAnimation(FName Name, bool bLoop);
     void InitializeAbilityActor();
     void MoveForward(const FInputActionValue& Value);
     void MoveRight(const FInputActionValue& Value);
@@ -62,4 +68,6 @@ private:
     TWeakObjectPtr<UEnhancedInputLocalPlayerSubsystem> InputSubsystem;
     double NextStrikeRequestTime = 0.0;
     bool bVisualReady = false;
+    FName PlayingAnimation;
+    double ActionAnimationUntil = 0.0;
 };

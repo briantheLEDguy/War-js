@@ -47,5 +47,6 @@ void UWarStrikeAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
     UAbilitySystemComponent* Destination = Target->GetAbilitySystemComponent();
     const FGameplayEffectSpecHandle Damage = Source->MakeOutgoingSpec(UWarStrikeDamageEffect::StaticClass(), 1.f, Source->MakeEffectContext());
     if (Damage.IsValid()) Source->ApplyGameplayEffectSpecToTarget(*Damage.Data.Get(), Destination);
+    Attacker->MulticastPlayStrike();
     EndAbility(Handle, ActorInfo, ActivationInfo, true, false);
 }

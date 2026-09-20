@@ -3,7 +3,7 @@
 UnrealEditor-Cmd AegisWar.uproject -unattended -run=pythonscript
   -script=".../import-models.py --profile npc_frontier_sunmeadow_empire_herbalist"
 
-Omit --profile for all three examples. This creates import evidence, never art
+Omit --profile for all four admitted examples. This creates import evidence, never art
 approval, character identity assignments, generated collision, or fallback art.
 """
 import argparse
@@ -14,6 +14,7 @@ import math
 from pathlib import Path
 import re
 import struct
+import importlib.util
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -22,6 +23,7 @@ PROFILES = (
     "npc_frontier_sunmeadow_empire_herbalist",
     "npc_frontier_cinderfen_dark_elf_supply_officer",
     "frontier_field_command_table",
+    "mire_warbrute_m",
 )
 PROFILE_TAG = "WarMigrationProfile"
 SOURCE_TAG = "WarMigrationSourceSha256"
@@ -79,6 +81,16 @@ def safe_name(name):
     return re.sub(r"[^A-Za-z0-9_]", "_", name)
 
 
+def material_slot_mapping(names):
+    # Match UE 5.8 FFbxImporter::MakeName, which preserves hyphens and removes namespaces.
+    result = {}
+    for original in names:
+        imported = re.sub(r"[.,/`%]", "_", original.rsplit(":", 1)[-1])
+        require(imported not in result, f"Source material names collide in the FBX importer: {imported}")
+        result[imported] = original
+    return result
+
+
 def read_glb(path):
     data = path.read_bytes()
     require(len(data) >= 20, "Truncated GLB")
@@ -132,6 +144,10 @@ def validate_inputs(profile):
             "Conversion source no longer matches the registry")
     require(conversion["sourceSha256"] == record["modelSha256"], "Registry source SHA differs")
     verified_file(source, conversion["sourceSha256"])
+    reviews = load_json(ROOT / "migration/visual-reviews.json")
+    require(reviews.get("schemaVersion") == 1, "Unsupported visual review schema")
+    require(not any(row["status"] == "rejected" and row["sourceSha256"] == conversion["sourceSha256"] for row in reviews["reviews"]),
+            "Source failed nonprimitive visual review")
     qc = contained(ROOT / "public/assets/models" / record["qc"], ROOT / "public/assets/models")
     require(conversion["qcSha256"] == record["qcSha256"], "Registry QC SHA differs")
     verified_file(qc, conversion["qcSha256"])
@@ -203,14 +219,14 @@ def import_mesh(unreal, context):
         data = options.get_editor_property(name)
         data.set_editor_property("convert_scene", True)
         data.set_editor_property("convert_scene_unit", True)
-        data.set_editor_property("force_front_x_axis", True)
+        data.set_editor_property("force_front_x_axis", False)
         data.set_editor_property("import_uniform_scale", 1.0)
     static_data = options.get_editor_property("static_mesh_import_data")
     static_data.set_editor_property("combine_meshes", False)
     static_data.set_editor_property("auto_generate_collision", False)
     skeletal_data = options.get_editor_property("skeletal_mesh_import_data")
     skeletal_data.set_editor_property("use_t0_as_ref_pose", False)
-    skeletal_data.set_editor_property("update_skeleton_reference_pose", False)
+    skeletal_data.set_editor_property("update_skeleton_reference_pose", True)
     skeletal_data.set_editor_property("import_morph_targets", True)
     skeletal_data.set_editor_property("import_meshes_in_bone_hierarchy", True)
     for data in (static_data, skeletal_data):
@@ -221,7 +237,8 @@ def import_mesh(unreal, context):
     animation.set_editor_property("custom_sample_rate", context["conversion"]["verification"]["bakeFramesPerSecond"])
     animation.set_editor_property("snap_to_closest_frame_boundary", False)
     animation.set_editor_property("import_bone_tracks", True)
-    animation.set_editor_property("preserve_local_transform", True)
+    # Reconstruct in the same converted scene basis as the mesh bind pose.
+    animation.set_editor_property("preserve_local_transform", False)
     animation.set_editor_property("remove_redundant_keys", False)
     task = task_for(unreal, context["fbx"], context["destination"])
     task.set_editor_property("factory", unreal.FbxFactory())
@@ -234,15 +251,18 @@ def import_mesh(unreal, context):
 def texture_roles(gltf):
     roles = {}
     for material in gltf.get("materials", []):
-        require(set(material).issubset({"name", "doubleSided", "normalTexture", "pbrMetallicRoughness"}),
+        require(set(material).issubset({"name", "doubleSided", "normalTexture", "occlusionTexture",
+                                       "pbrMetallicRoughness", "extras", "alphaMode", "alphaCutoff"}),
                 f"Unsupported material properties: {material['name']}")
+        require(material.get("alphaMode", "OPAQUE") in ("OPAQUE", "MASK", "BLEND"), "Unsupported alpha mode")
         pbr = material.get("pbrMetallicRoughness", {})
         require(set(pbr).issubset({"baseColorFactor", "baseColorTexture", "metallicFactor", "roughnessFactor", "metallicRoughnessTexture"}),
                 "Unsupported PBR material properties")
         for info, role in ((pbr.get("baseColorTexture"), "color"),
-                           (pbr.get("metallicRoughnessTexture"), "linear"), (material.get("normalTexture"), "normal")):
+                           (pbr.get("metallicRoughnessTexture"), "linear"), (material.get("normalTexture"), "normal"),
+                           (material.get("occlusionTexture"), "linear")):
             if info is not None:
-                require(set(info).issubset({"index", "texCoord", "scale"}), "Unsupported texture transform or extension")
+                require(set(info).issubset({"index", "texCoord", "scale", "strength"}), "Unsupported texture transform or extension")
                 require(info.get("texCoord", 0) == 0, "Only source UV channel 0 is supported by these examples")
                 index = gltf["textures"][info["index"]]["source"]
                 roles.setdefault(index, set()).add(role)
@@ -301,6 +321,13 @@ def create_materials(unreal, context, textures):
         unreal.EditorAssetLibrary.set_metadata_tag(material, "WarOriginalMaterialName", source_name)
         unreal.EditorAssetLibrary.set_metadata_tag(material, "WarOriginalGltfMaterial", json.dumps(source, sort_keys=True))
         material.set_editor_property("two_sided", source.get("doubleSided", False))
+        alpha_mode = source.get("alphaMode", "OPAQUE")
+        material.set_editor_property("blend_mode", {"OPAQUE": unreal.BlendMode.BLEND_OPAQUE,
+            "MASK": unreal.BlendMode.BLEND_MASKED, "BLEND": unreal.BlendMode.BLEND_TRANSLUCENT}[alpha_mode])
+        if alpha_mode == "MASK":
+            material.set_editor_property("opacity_mask_clip_value", source.get("alphaCutoff", 0.5))
+        if alpha_mode == "BLEND":
+            material.set_editor_property("translucency_lighting_mode", unreal.TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING)
 
         def node(kind):
             return library.create_material_expression(material, kind)
@@ -339,11 +366,17 @@ def create_materials(unreal, context, textures):
 
         pbr = source.get("pbrMetallicRoughness", {})
         factor = pbr.get("baseColorFactor", [1, 1, 1, 1])
-        require(factor[3] == 1, "An opaque example unexpectedly has alpha below one")
         base = vector(factor)
+        color_sample = None
         if "baseColorTexture" in pbr:
-            base = product(sample(pbr["baseColorTexture"], "color"), "RGB", base)
+            color_sample = sample(pbr["baseColorTexture"], "color")
+            base = product(color_sample, "RGB", base)
         output(base, unreal.MaterialProperty.MP_BASE_COLOR)
+        if alpha_mode != "OPAQUE":
+            alpha = scalar(factor[3])
+            if color_sample is not None:
+                alpha = product(color_sample, "A", alpha)
+            output(alpha, unreal.MaterialProperty.MP_OPACITY_MASK if alpha_mode == "MASK" else unreal.MaterialProperty.MP_OPACITY)
         metallic = scalar(pbr.get("metallicFactor", 1.0))
         roughness = scalar(pbr.get("roughnessFactor", 1.0))
         if "metallicRoughnessTexture" in pbr:
@@ -352,6 +385,13 @@ def create_materials(unreal, context, textures):
             roughness = product(packed, "G", roughness)
         output(metallic, unreal.MaterialProperty.MP_METALLIC)
         output(roughness, unreal.MaterialProperty.MP_ROUGHNESS)
+        if "occlusionTexture" in source:
+            info = source["occlusionTexture"]
+            occlusion = node(unreal.MaterialExpressionLinearInterpolate)
+            connect(scalar(1), "", occlusion, "A")
+            connect(sample(info, "linear"), "R", occlusion, "B")
+            connect(scalar(info.get("strength", 1)), "", occlusion, "Alpha")
+            output(occlusion, unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
         if "normalTexture" in source:
             info = source["normalTexture"]
             normal = sample(info, "normal")
@@ -389,7 +429,7 @@ def inspect_assets(unreal, context, assets, materials):
     require(all(isinstance(asset, allowed) for asset in assets), "Unexpected imported asset class")
     mesh_records = []
     used_materials = set()
-    by_sanitized_name = {safe_name(name): name for name in materials}
+    by_imported_name = material_slot_mapping(materials)
     for mesh in meshes:
         property_name = "materials" if skeletal else "static_materials"
         slots = list(mesh.get_editor_property(property_name))
@@ -399,7 +439,7 @@ def inspect_assets(unreal, context, assets, materials):
             current_name = str(slot.get_editor_property("material_slot_name"))
             original = next((value for value in (imported_name, current_name) if value in materials), None)
             if original is None:
-                original = by_sanitized_name.get(imported_name) or by_sanitized_name.get(current_name)
+                original = by_imported_name.get(imported_name) or by_imported_name.get(current_name)
             require(original is not None, f"Material slot has no exact source mapping: {mesh.get_name()}/{imported_name}")
             slot.set_editor_property("material_interface", materials[original])
             slot.set_editor_property("material_slot_name", original)
@@ -417,7 +457,7 @@ def inspect_assets(unreal, context, assets, materials):
     expected = {clip["name"]: clip for clip in context["conversion"]["verification"]["animations"]}
     animation_records = []
     for animation in animations:
-        source_name = animation.get_editor_property("asset_import_data").get_editor_property("source_animation_name")
+        source_name = unreal.WarImportLibrary.get_source_animation_name(animation)
         require(source_name in expected, f"Unexpected imported animation: {source_name}")
         length = float(unreal.AnimationLibrary.get_sequence_length(animation))
         require(math.isfinite(length) and abs(length - expected[source_name]["sourceDurationSeconds"]) <= 1 / 120 + 1e-5,
@@ -441,6 +481,14 @@ def import_profile(unreal, context):
     existing = collect_assets(unreal, context)
     for asset in existing:
         require_owned(unreal, asset, context)
+    # Atomic FBX reimport can retain previous animation settings even when the
+    # task requests replacement settings. Rebuild only our generated geometry
+    # and rig packages so mesh bind poses and animation use the same options.
+    rebuild_order = {"AnimSequence": 0, "SkeletalMesh": 1, "Skeleton": 2, "StaticMesh": 3}
+    for asset in sorted(existing, key=lambda item: rebuild_order.get(item.get_class().get_name(), 4)):
+        if asset.get_class().get_name() in rebuild_order:
+            path = asset.get_path_name()
+            require(unreal.EditorAssetLibrary.delete_asset(path), f"Could not replace generated asset: {path}")
     texture_roles(context["gltf"])
     imported_paths = import_mesh(unreal, context)
     for asset in collect_assets(unreal, context):
@@ -449,6 +497,13 @@ def import_profile(unreal, context):
     materials, material_records = create_materials(unreal, context, textures)
     assets = collect_assets(unreal, context)
     meshes, skeletons, animations = inspect_assets(unreal, context, assets, materials)
+    pose_evidence = None
+    if animations:
+        spec = importlib.util.spec_from_file_location("war_pose_parity", Path(__file__).with_name("pose_parity.py"))
+        parity = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(parity)
+        unreal.WarImportLibrary.prepare_preview_frame(None)
+        pose_evidence = parity.verify_animations(unreal, animations, load_json(context["samples"])["source"])
     for asset in assets:
         mark_owned(unreal, asset, context)
     require(unreal.EditorAssetLibrary.save_directory(context["destination"], only_if_is_dirty=False, recursive=True),
@@ -464,15 +519,15 @@ def import_profile(unreal, context):
               "fbxSha256": context["conversion"]["outputSha256"], "sampleEvidenceSha256": context["conversion"]["verification"]["sampleEvidenceSha256"],
               "fbxTaskImportedPaths": imported_paths,
               "importSettings": {"factory": "FbxFactory", "interchangeFbx": False, "convertScene": True,
-                                 "convertSceneUnit": True, "forceFrontXAxis": True, "uniformScale": 1,
+                                 "convertSceneUnit": True, "forceFrontXAxis": False, "uniformScale": 1,
                                  "createPhysicsAsset": False, "autoGenerateCollision": False,
                                  "materials": "source GLB PBR reconstruction; exact embedded texture bytes",
-                                 "sampleRate": 120},
+                                 "sampleRate": context["conversion"]["verification"]["bakeFramesPerSecond"]},
               "counts": dict(sorted(Counter(asset.get_class().get_name() for asset in assets).items())),
               "meshes": meshes, "skeletons": skeletons, "animations": animations,
-              "materials": material_records, "textures": texture_records,
+              "materials": material_records, "textures": texture_records, "poseParity": pose_evidence,
               "limitations": ["Import evidence is not visual, gameplay, performance, licensing, or art approval.",
-                              "Animations are verified here for clip identity, duration and bone tracks; pose parity in Unreal remains unapproved.",
+                              "Sampled raw and compressed bone and skinning transforms are verified; rendered skin, materials, and animation transitions still require visual review.",
                               "Source-authored geometry is retained. No playable identity mapping or replacement art is approved by this receipt."]}
     temporary = receipt.with_suffix(".tmp")
     temporary.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8")

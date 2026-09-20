@@ -168,7 +168,7 @@ bool UWarContentSubsystem::ValidateVisualImportBinding(const UWarCharacterVisual
 {
     const auto Reject = [&OutError](const TCHAR* Message) { OutError = Message; return false; };
     OutError.Reset();
-    const FWarVisualImportBinding* Binding = Visual ? Bindings.Find(Visual->ProfileKey) : nullptr;
+    const FWarVisualImportBinding* Binding = Visual ? Bindings.Find(Visual->GetSourceProfileKey()) : nullptr;
     if (!Binding) return Reject(TEXT("Character profile has no verified import binding. Import it before spawning."));
     if (!WarValidation::IsSha256(Visual->SourceSha256) || Visual->SourceModel != Binding->SourceModel
         || Visual->SourceSha256 != Binding->SourceSha256)
@@ -180,6 +180,11 @@ bool UWarContentSubsystem::ValidateVisualImportBinding(const UWarCharacterVisual
     if ((!Visual->AnimationBlueprint.IsNull() && !Binding->AnimationPaths.Contains(Visual->AnimationBlueprint.ToSoftObjectPath().ToString()))
         || (!Visual->IdleAnimation.IsNull() && !Binding->AnimationPaths.Contains(Visual->IdleAnimation.ToSoftObjectPath().ToString())))
         return Reject(TEXT("Character animation differs from its verified import binding."));
+    for (const auto& Entry : Visual->ImportedAnimations)
+    {
+        if (!Binding->AnimationPaths.Contains(Entry.Value.ToSoftObjectPath().ToString()))
+            return Reject(TEXT("Character animation set differs from its verified import binding."));
+    }
     const USkeletalMesh* Mesh = Visual->SkeletalMesh.LoadSynchronous();
     if (!Mesh || Mesh->GetPathName() != Binding->SkeletalMeshPath)
         return Reject(TEXT("Verified skeletal mesh is missing or resolves to a different asset."));
@@ -188,6 +193,12 @@ bool UWarContentSubsystem::ValidateVisualImportBinding(const UWarCharacterVisual
         const UAnimSequence* Idle = Visual->IdleAnimation.LoadSynchronous();
         if (!Idle || !Binding->AnimationPaths.Contains(Idle->GetPathName()))
             return Reject(TEXT("Verified idle sequence is missing or redirects to a different asset."));
+    }
+    for (const auto& Entry : Visual->ImportedAnimations)
+    {
+        const UAnimSequence* Animation = Entry.Value.LoadSynchronous();
+        if (!Animation || !Binding->AnimationPaths.Contains(Animation->GetPathName()))
+            return Reject(TEXT("Verified animation set is missing or redirects to a different asset."));
     }
     if (!Visual->AnimationBlueprint.IsNull())
     {

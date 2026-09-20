@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "profileKey": "civic_battle_prelate_m",
+      "sourcePath": "public/assets/models/chr_civic_battle_prelate_t1_m.glb",
+      "sourceSha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "status": "rejected",
+      "reason": "segmented_placeholder_body",
+      "evidence": "Direct original-GLB Blender rendering on 2026-09-20; disconnected capsule-like clothing/body sections. High polygon count is not nonprimitive art approval."
+    },
+    {
+      "profileKey": "civic_ember_arcanist_m",
+      "sourcePath": "public/assets/models/chr_civic_ember_arcanist_t1_m.glb",
+      "sourceSha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856",
+      "status": "rejected",
+      "reason": "segmented_placeholder_body",
+      "evidence": "Direct original-GLB Blender rendering on 2026-09-20; disconnected capsule-like clothing/body sections. High polygon count is not nonprimitive art approval."
+    }
+  ]
+}

@@ -66,6 +66,10 @@ bool FWarVisualImportBindingTest::RunTest(const FString& Parameters)
     Visual->IdleAnimation = TSoftObjectPtr<UAnimSequence>(FSoftObjectPath(TEXT("/Game/Characters/Unverified_Idle.Unverified_Idle")));
     TestFalse(TEXT("Unverified animation refuses entry before loading a mesh"), UWarContentSubsystem::ValidateVisualImportBinding(Visual, Bindings, Error));
     TestTrue(TEXT("Wrong animation identifies the mismatched binding"), Error.Contains(TEXT("animation differs")));
+    Visual->IdleAnimation = TSoftObjectPtr<UAnimSequence>(FSoftObjectPath(TEXT("/Game/Characters/Prelate_Idle.Prelate_Idle")));
+    Visual->ImportedAnimations.Add(TEXT("run"), TSoftObjectPtr<UAnimSequence>(FSoftObjectPath(TEXT("/Game/Characters/Unverified_Run.Unverified_Run"))));
+    TestFalse(TEXT("An unverified locomotion clip cannot bypass the idle binding"), UWarContentSubsystem::ValidateVisualImportBinding(Visual, Bindings, Error));
+    TestTrue(TEXT("Wrong locomotion identifies the mismatched set"), Error.Contains(TEXT("animation set differs")));
     return true;
 }
 

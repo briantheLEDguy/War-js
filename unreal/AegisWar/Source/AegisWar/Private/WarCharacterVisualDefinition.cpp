@@ -44,6 +44,16 @@ bool UWarCharacterVisualDefinition::ValidateForSpawn(const EWarRealm ExpectedRea
         const UAnimSequence* Idle = IdleAnimation.LoadSynchronous();
         if (!Idle || Idle->GetSkeleton() != Mesh->GetSkeleton())
             return Reject(TEXT("Character needs a matching Animation Blueprint or imported idle sequence."));
+        for (const FName Required : { FName(TEXT("walk")), FName(TEXT("run")), FName(TEXT("jump")), FName(TEXT("death")), FName(TEXT("attack_melee")) })
+        {
+            if (!ImportedAnimations.Contains(Required)) return Reject(TEXT("Character is missing an imported movement/combat animation."));
+        }
+    }
+    for (const auto& Entry : ImportedAnimations)
+    {
+        const UAnimSequence* Animation = Entry.Value.LoadSynchronous();
+        if (!Animation || Animation->GetSkeleton() != Mesh->GetSkeleton())
+            return Reject(TEXT("Character animation set contains a missing or incompatible sequence."));
     }
     return true;
 }

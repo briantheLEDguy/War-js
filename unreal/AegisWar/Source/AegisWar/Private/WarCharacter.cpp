@@ -27,6 +27,7 @@
 AWarCharacter::AWarCharacter()
 {
     bReplicates = true;
+    PrimaryActorTick.bCanEverTick = true;
     bUseControllerRotationYaw = false;
     GetCapsuleComponent()->InitCapsuleSize(42.f, 96.f);
     GetCapsuleComponent()->SetHiddenInGame(true);
@@ -79,11 +80,51 @@ bool AWarCharacter::ApplyVisual(FString& OutError)
     }
     GetMesh()->SetSkeletalMesh(VisualDefinition->SkeletalMesh.LoadSynchronous());
     GetMesh()->SetRelativeTransform(VisualDefinition->MeshTransform);
+    // Network smoothing restores these cached offsets; update them after the
+    // imported mesh transform so remote characters do not float at capsule height.
+    CacheInitialMeshOffset(GetMesh()->GetRelativeLocation(), GetMesh()->GetRelativeRotation());
     if (!VisualDefinition->AnimationBlueprint.IsNull())
         GetMesh()->SetAnimInstanceClass(VisualDefinition->AnimationBlueprint.LoadSynchronous());
-    else GetMesh()->PlayAnimation(VisualDefinition->IdleAnimation.LoadSynchronous(), true);
+    else
+    {
+        GetMesh()->PlayAnimation(VisualDefinition->IdleAnimation.LoadSynchronous(), true);
+        PlayingAnimation = TEXT("idle");
+    }
     bVisualReady = true;
     return true;
+}
+
+void AWarCharacter::PlayImportedAnimation(const FName Name, const bool bLoop)
+{
+    if (!VisualDefinition || !VisualDefinition->AnimationBlueprint.IsNull() || PlayingAnimation == Name) return;
+    const auto* Reference = VisualDefinition->ImportedAnimations.Find(Name);
+    UAnimSequence* Animation = Name == TEXT("idle") ? VisualDefinition->IdleAnimation.LoadSynchronous()
+        : Reference ? Reference->LoadSynchronous() : nullptr;
+    if (!Animation) return; // The visual entry gate rejects incomplete animation sets before spawn.
+    GetMesh()->PlayAnimation(Animation, bLoop);
+    PlayingAnimation = Name;
+}
+
+void AWarCharacter::Tick(const float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    if (!bVisualReady || GetNetMode() == NM_DedicatedServer) return;
+    if (bDead) { PlayImportedAnimation(TEXT("death"), false); return; }
+    if (GetWorld()->GetTimeSeconds() < ActionAnimationUntil) return;
+    const float Speed = GetVelocity().Size2D();
+    PlayImportedAnimation(GetCharacterMovement()->IsFalling() ? TEXT("jump")
+        : Speed > 300.f ? TEXT("run") : Speed > 5.f ? TEXT("walk") : TEXT("idle"), true);
+}
+
+void AWarCharacter::MulticastPlayStrike_Implementation()
+{
+    if (!bVisualReady || bDead || GetNetMode() == NM_DedicatedServer || !VisualDefinition) return;
+    const auto* Reference = VisualDefinition->ImportedAnimations.Find(TEXT("attack_melee"));
+    const UAnimSequence* Animation = Reference ? Reference->LoadSynchronous() : nullptr;
+    if (!Animation) return;
+    PlayingAnimation = NAME_None;
+    PlayImportedAnimation(TEXT("attack_melee"), false);
+    ActionAnimationUntil = GetWorld()->GetTimeSeconds() + Animation->GetPlayLength();
 }
 
 void AWarCharacter::OnRep_VisualDefinition()
@@ -182,8 +223,13 @@ void AWarCharacter::RequestStrike()
     FCollisionQueryParams Params(SCENE_QUERY_STAT(WarSelectTarget), false, this);
     if (GetWorld()->LineTraceSingleByChannel(Hit, Origin, Origin + Direction.Vector() * 5000.f, ECC_Visibility, Params))
     {
-        if (AWarCharacter* Target = Cast<AWarCharacter>(Hit.GetActor())) ServerRequestStrike(Target);
+        if (AWarCharacter* Target = Cast<AWarCharacter>(Hit.GetActor())) RequestTargetStrike(Target);
     }
+}
+
+void AWarCharacter::RequestTargetStrike(AWarCharacter* Target)
+{
+    if (IsLocallyControlled() && !bDead && bVisualReady && IsValid(Target)) ServerRequestStrike(Target);
 }
 
 void AWarCharacter::ServerRequestStrike_Implementation(AWarCharacter* Target)

@@ -14,9 +14,14 @@ feature-parity and release-readiness reports under `artifacts/unreal/`. Run
 and `npm run typecheck:unreal-tools` for the migration tooling. Strict asset and
 release checks intentionally reject missing/unverified models and native parity.
 See [the staged migration and setup guide](docs/unreal-migration.md).
-The Windows Editor target has compiled successfully with Unreal 5.8.2. Work is
-paused at the owner's requested [first checkpoint](docs/unreal-checkpoint-1.md);
-that handoff records verification and the remaining work.
+The Windows Editor target has compiled successfully with Unreal 5.8.2. Work
+continued after the [first checkpoint](docs/unreal-checkpoint-1.md); actual
+authored-model imports, sampled animation/skinning parity, a Windows Development
+package, and a two-client loopback movement/combat proof now pass. The network
+proof also runs with packaged Windows clients. Complete graphical/equipment
+review, gameplay, Linux/macOS builds and release acceptance remain open.
+See [checkpoint 2](docs/unreal-checkpoint-2.md) for verified evidence, the rejected
+legacy model sources, and the unfinished work.
 
 ## Regional production priorities
 
