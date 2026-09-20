@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assetId": "prop.frontier.field_apothecary",
+  "displayName": "Field Apothecary Worktable",
+  "category": "prop",
+  "model": "frontier_field_apothecary_lod0.glb",
+  "qc": "frontier_field_apothecary_lod0.qc.json",
+  "runtime": {
+    "staticKey": "frontier_field_apothecary"
+  },
+  "compatibility": {
+    "bodyFamily": "static_architecture",
+    "bodyVariant": "neutral",
+    "skeletonId": "none",
+    "bindPoseId": "none"
+  },
+  "hashes": {
+    "modelSha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+    "qcSha256": "306377f0b20a999f47c179d15d6868f48a5ae47de600ba2bce8dcb0659c99412",
+    "previews": {
+      "assembly": "d4ed7d543fc79ef7a5309885d4e838a53de2f821b3069332c6e637cdfdbea168"
+    }
+  },
+  "previews": {
+    "assembly": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_neutral.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "839beb3b995788c0ccb2c6b8e1a41daf35ada06f2b0d9a21424f6fe272d45362"
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_apothecary_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod0.source.blend",
+    "sourceSha256": "17678e092327bbd9fc69451fc32ebcbfa00e93d6387c0ca2a62ff7c2819b137a"
+  },
+  "approvalState": "approved"
+}

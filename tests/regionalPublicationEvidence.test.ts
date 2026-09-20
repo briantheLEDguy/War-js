@@ -36,6 +36,7 @@ test.each([
   ['cinderfen-peat-worker', ['garment_clearance', 'welt', 'tool_clearance']],
   ['sunmeadow-herbalist', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance']],
   ['cinderfen-supply-officer', ['garment_clearance', 'welt', 'tool_clearance']],
+  ['sunmeadow-scout', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance']],
 ] as const)('%s retains all current package gate inputs for three LODs', (name, requiredReports) => {
   const spec = REGIONAL_CHARACTER_PACKAGES[name];
   const lods = [0, 1, 2].map(level => ({ level, model: `${spec.key}_lod${level}.glb` }));
@@ -54,7 +55,7 @@ test.each([
   expect(paths).toHaveLength(3 + 3 * (4 + requiredReports.length));
 });
 
-test.each(['sunmeadow-herbalist', 'cinderfen-supply-officer'])('%s preserves its authored female rig identity', name => {
+test.each(['sunmeadow-herbalist', 'cinderfen-supply-officer', 'sunmeadow-scout'])('%s preserves its authored female rig identity', name => {
   const spec = REGIONAL_CHARACTER_PACKAGES[name];
   const contract = { assetId: spec.assetId, profileId: `npc_${spec.key}`, bodyFamily: spec.bodyFamily,
     bodyVariant: 'f', skeletonId: spec.skeletonId, bindPoseId: spec.bindPoseId };

@@ -1,0 +1,52 @@
+{
+  "verifiedAt": "2026-09-20T16:01:31.808Z",
+  "method": "CUA browser controls driving the production Game/Player through the isolated runtime-keep-review.html; actual GLB mesh and authority-navigation tests separately verify supports and complete approaches.",
+  "assetKey": "frontier_field_apothecary",
+  "modelSha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+  "harnessSha256": "89be757d59660febd7a32c24f009936df491a005f069a9c38cb058ee278f7885",
+  "checks": [
+    {
+      "zone": "sunmeadow_march",
+      "mapSha256": "8ea60daed423c3a8dadca9f3bf2c97cb7d1eb9c844ff8f7e6dd07eec09f2f00f",
+      "start": [
+        -448,
+        0.086,
+        -266.38
+      ],
+      "end": [
+        -448,
+        0.086,
+        -266.54
+      ],
+      "action": "North for 2 seconds",
+      "observed": "Player held in front of the table, remained on the .086m floor; table and existing warden visually clear of the shelter structure."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "mapSha256": "8490043e1ca806ef72af5aac9d9c281a67b43e25af97e8c44bc68297402f7416",
+      "start": [
+        436,
+        0.35,
+        -272.98
+      ],
+      "end": [
+        436,
+        0.35,
+        -273.14
+      ],
+      "action": "North for 2 seconds",
+      "observed": "Player held in front of the table, remained on the .35m deck; assembled table fits under roof and between built-in benches."
+    }
+  ],
+  "verification": {
+    "tests": "18 tests in fieldApothecaryIntegration, regionalWorksites, sunmeadowShelterFloors passed",
+    "maps": 33,
+    "modelRecords": 888,
+    "gmDefinitions": 445
+  },
+  "limitations": [
+    "Bounded local game inspection, not full campaign/multiplayer or performance acceptance.",
+    "Existing missing sky.hdr and Cinderfen guard_male.glb fallbacks remain; no new apothecary fallback was observed.",
+    "The table is static scenery; existing crafting service identity and mechanics are unchanged."
+  ]
+}

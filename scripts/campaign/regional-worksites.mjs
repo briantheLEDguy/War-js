@@ -44,14 +44,14 @@ export const REGIONAL_APOTHECARIES = {
     floorY: .086, bay: { x: 0, z: 0, width: 4.8, depth: 4.1 },
     builtIns: [-3.45, 3.45].map(x => ({ x, z: 0, width: 1.1, depth: 2.9 })),
     entrance: [[0, 3.5], [0, 1.7]],
-    items: [{ role: 'table', key: 'frontier_field_apothecary', x: 0, z: -1.1 }],
+    items: [{ role: 'table', key: 'frontier_field_apothecary', x: 0, z: -1.5 }],
   },
   cinderfen_outskirts: {
     hostKey: 'frontier_cinderfen_supply_shelter',
     hostSha256: '829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394',
     floorY: .35, bay: { x: 0, z: 0, width: 4.8, depth: 5.1 },
     builtIns: [],
-    entrance: [[0, 5.3], [0, 1.7]],
+    entrance: [[1.4, 5.3], [1.4, 3.4], [0, 1.7]],
     items: [{ role: 'table', key: 'frontier_field_apothecary', x: 0, z: -1.1 }],
   },
 };

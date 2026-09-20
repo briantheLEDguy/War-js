@@ -13,7 +13,9 @@ export const REGIONAL_INHABITANTS = {
 /** Replace service art without replacing the NPC used by quests and services. */
 export const REGIONAL_SERVICE_PRESENTATIONS = {
   sunmeadow_march: [{ suffix: 'forager', race: 'empire',
-    profile: 'npc_frontier_sunmeadow_empire_herbalist', assetId: 'chr.frontier.sunmeadow.empire_herbalist' }],
+    profile: 'npc_frontier_sunmeadow_empire_herbalist', assetId: 'chr.frontier.sunmeadow.empire_herbalist' },
+  { suffix: 'scout', race: 'high_elf', profile: 'npc_frontier_sunmeadow_high_elf_scout',
+    assetId: 'chr.frontier.sunmeadow.high_elf_scout' }],
   cinderfen_outskirts: [{ suffix: 'marshal', race: 'dark_elf',
     profile: 'npc_frontier_cinderfen_dark_elf_supply_officer', assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer' }],
 };

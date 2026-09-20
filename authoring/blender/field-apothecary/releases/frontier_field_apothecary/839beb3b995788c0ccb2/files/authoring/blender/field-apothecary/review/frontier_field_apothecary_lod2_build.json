@@ -1,0 +1,1091 @@
+{
+  "key": "frontier_field_apothecary",
+  "level": 2,
+  "model": "frontier_field_apothecary_lod2.glb",
+  "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+  "bytes": 2176444,
+  "triangles": 8694,
+  "joints": [
+    {
+      "receiver": "pegged_tapered_leg_-1_-1",
+      "opening": "pegged_tapered_leg_-1_-1_X_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_-1_-1",
+      "opening": "pegged_tapered_leg_-1_-1_Y_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_-1_1",
+      "opening": "pegged_tapered_leg_-1_1_X_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_-1_1",
+      "opening": "pegged_tapered_leg_-1_1_Y_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_1_-1",
+      "opening": "pegged_tapered_leg_1_-1_X_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_1_-1",
+      "opening": "pegged_tapered_leg_1_-1_Y_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_1_1",
+      "opening": "pegged_tapered_leg_1_1_X_mortise"
+    },
+    {
+      "receiver": "pegged_tapered_leg_1_1",
+      "opening": "pegged_tapered_leg_1_1_Y_mortise"
+    },
+    {
+      "receiver": "worn_worktop_board_4",
+      "opening": "rack_rear_post_-0.96_worktop_socket"
+    },
+    {
+      "receiver": "worn_worktop_board_4",
+      "opening": "rack_rear_post_0.96_worktop_socket"
+    }
+  ],
+  "parts": 139,
+  "materials": 9,
+  "sourceMaster": "masters/frontier_field_apothecary_lod2.source.blend",
+  "sourceMasterSha256": "b2cee89ae5447e197c159bd82d2827599bd765ab4100810e6ac58ba61b26367c",
+  "master": "masters/frontier_field_apothecary_lod2.blend",
+  "masterSha256": "7e903d92f4126ba27478daee4986a0abdc3c99ee2017f564b30eec87f2fec6c0",
+  "boundsZUp": {
+    "minimum": [
+      -1.1460000276565552,
+      -0.5099999904632568,
+      0.0
+    ],
+    "maximum": [
+      1.1460000276565552,
+      0.5099999904632568,
+      1.850000023841858
+    ]
+  },
+  "audit": {
+    "meshes": [
+      {
+        "part": "pegged_tapered_leg_-1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 172
+      },
+      {
+        "part": "pegged_tapered_leg_-1_-1_drawpin",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "pegged_tapered_leg_-1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 172
+      },
+      {
+        "part": "pegged_tapered_leg_-1_1_drawpin",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "pegged_tapered_leg_1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 172
+      },
+      {
+        "part": "pegged_tapered_leg_1_-1_drawpin",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "pegged_tapered_leg_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 172
+      },
+      {
+        "part": "pegged_tapered_leg_1_1_drawpin",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "shouldered_long_stretcher_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "upper_apron_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "shouldered_long_stretcher_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "upper_apron_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "shouldered_side_stretcher_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "top_crossbearer_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "shaped_knee_-1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "shaped_knee_-1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "shouldered_side_stretcher_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "top_crossbearer_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "shaped_knee_1_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "shaped_knee_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "worn_worktop_board_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "worn_worktop_board_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "worn_worktop_board_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "worn_worktop_board_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 92
+      },
+      {
+        "part": "worn_worktop_board_4",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 174
+      },
+      {
+        "part": "breadboard_end_-1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "breadboard_pin_-1_-0.36",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "breadboard_pin_-1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "breadboard_pin_-1_0.36",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "breadboard_end_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "breadboard_pin_1_-0.36",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "breadboard_pin_1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "breadboard_pin_1_0.36",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "rack_rear_post_-0.96",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 60
+      },
+      {
+        "part": "rack_clamp_-0.96",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "rack_clamp_bolt_-0.96_0.79",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "rack_clamp_bolt_-0.96_0.992",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "rack_rear_post_0.96",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 60
+      },
+      {
+        "part": "rack_clamp_0.96",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "rack_clamp_bolt_0.96_0.79",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "rack_clamp_bolt_0.96_0.992",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "drying_crossbar",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "crossbar_peg_-0.96",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "crossbar_peg_0.96",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "fitted_vial_shelf",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "shelf_scroll_bracket_0.02",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 24
+      },
+      {
+        "part": "shelf_scroll_bracket_0.84",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 24
+      },
+      {
+        "part": "handblown_stoppered_vial_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 196
+      },
+      {
+        "part": "cork_stopper_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_0_-0.065",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_0_0.065",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "handblown_stoppered_vial_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 196
+      },
+      {
+        "part": "cork_stopper_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_1_-0.066",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_1_0.066",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "handblown_stoppered_vial_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 196
+      },
+      {
+        "part": "cork_stopper_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_2_-0.062",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_2_0.062",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "handblown_stoppered_vial_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 196
+      },
+      {
+        "part": "cork_stopper_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_3_-0.068",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_3_0.068",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "handblown_stoppered_vial_4",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 196
+      },
+      {
+        "part": "cork_stopper_4",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_4_-0.058",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_cradle_cheek_4_0.058",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "vial_retaining_leather_1.195",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "leather_rail_rivet_1.195_0.012",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "leather_rail_rivet_1.195_0.89",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "vial_retaining_leather_1.27",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 76
+      },
+      {
+        "part": "leather_rail_rivet_1.27_0.012",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "leather_rail_rivet_1.27_0.89",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "worked_stoneware_mortar",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 196
+      },
+      {
+        "part": "fitted_resting_pestle",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 60
+      },
+      {
+        "part": "fitted_preparation_tray",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 60
+      },
+      {
+        "part": "small_sorted_seed_tray",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 60
+      },
+      {
+        "part": "prepared_leaf_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "prepared_leaf_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "prepared_leaf_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "prepared_leaf_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "prepared_leaf_4",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "drying_peg_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "hanging_loop_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 128
+      },
+      {
+        "part": "herb_stem_0_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_0_0_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_0_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_0_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_0_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_0_1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_1_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_0_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_0_2_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_2_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_2_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_0_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_0_3_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_3_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_0_3_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "bundle_binding_0_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 160
+      },
+      {
+        "part": "drying_peg_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "hanging_loop_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 128
+      },
+      {
+        "part": "herb_stem_1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_1_0_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_0_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_0_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_1_1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_1_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_1_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_1_2_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_2_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_2_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_1_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_1_3_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_3_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_1_3_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "bundle_binding_1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 160
+      },
+      {
+        "part": "drying_peg_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 28
+      },
+      {
+        "part": "hanging_loop_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 128
+      },
+      {
+        "part": "herb_stem_2_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_2_0_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_0_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_0_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_2_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_2_1_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_1_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_1_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_2_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_2_2_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_2_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_2_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "herb_stem_2_3",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 20
+      },
+      {
+        "part": "curled_drying_leaf_2_3_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_3_1",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "curled_drying_leaf_2_3_2",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 44
+      },
+      {
+        "part": "bundle_binding_2_0",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 160
+      }
+    ],
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 8694,
+    "boundsZUp": {
+      "minimum": [
+        -1.1460000276565552,
+        -0.5099999904632568,
+        0.0
+      ],
+      "maximum": [
+        1.1460000276565552,
+        0.5099999904632568,
+        1.850000023841858
+      ]
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "tools/audit_masters.py",
+      "sha256": "1ea73048a6eeb32f59c03cae57a40040f9724c1b34593aa883c20fe4b3ddbd4d"
+    },
+    {
+      "path": "tools/build_station.py",
+      "sha256": "82d5445645b891543012fd0fa4f7df9eea33d59313baf1a186bc2cc0ec4239fd"
+    },
+    {
+      "path": "tools/consolidate_build.py",
+      "sha256": "53df10b80576f12681aa92b7dd9522e791fe10f972c73432433d14d55023d940"
+    },
+    {
+      "path": "tools/make_textures.py",
+      "sha256": "81157effd6aae6c79fccbbac55f155ba63d0d52e398eb37cbced80138da45a9b"
+    },
+    {
+      "path": "tools/mesh_authoring.py",
+      "sha256": "73008d19256e475eaf937a81f7d24348408ef4fb838f966cd9212a36adcfa115"
+    },
+    {
+      "path": "tools/review_station.py",
+      "sha256": "5f6dbd6fe604c45ce293b60815238e70894e21785b5c7ee2fd37727bd15f3865"
+    },
+    {
+      "path": "textures/sources.json",
+      "sha256": "8ada8aa9930b38d9ca4b0342bd27cd7dd947335c78e5e73e34611608ca801908"
+    }
+  ]
+}

@@ -48,8 +48,11 @@ test('planned, wrong-identity or obstructed characters never add proxy residents
   expect(blocked.npcs.some((npc: NpcSpawn) => npc.id.startsWith('sunmeadow_march_inhabitant_'))).toBe(false);
 });
 
-test.each(['sunmeadow_march', 'cinderfen_outskirts'])('%s service art preserves gameplay identity and selects its own racial rig', id => {
-  const source = map(id), character = REGIONAL_SERVICE_PRESENTATIONS[id][0];
+const servicePresentations = Object.entries(REGIONAL_SERVICE_PRESENTATIONS).flatMap(([id, characters]) =>
+  (characters as Array<{ suffix: string; race: string; profile: string; assetId: string }>).map(character => ({ id, character })));
+
+test.each(servicePresentations)('$id/$character.suffix service art preserves gameplay identity and selects its own racial rig', ({ id, character }) => {
+  const source = map(id);
   const npcId = `${id}_${character.suffix}`, original = structuredClone(source.npcs!.find(npc => npc.id === npcId)!);
   const assets = { characterProfiles: { [character.profile]: profile(character) } };
   const result = integrateRegionalServicePresentations(structuredClone(source), assets) as ZoneDefinition;
@@ -64,8 +67,8 @@ test.each(['sunmeadow_march', 'cinderfen_outskirts'])('%s service art preserves 
   expect(integrateRegionalServicePresentations(structuredClone(result), assets)).toEqual(result);
 });
 
-test.each(['sunmeadow_march', 'cinderfen_outskirts'])('%s unfinished service art leaves the existing NPC and population unchanged', id => {
-  const source = map(id), character = REGIONAL_SERVICE_PRESENTATIONS[id][0];
+test.each(servicePresentations)('$id/$character.suffix unfinished service art leaves the existing NPC and population unchanged', ({ id, character }) => {
+  const source = map(id);
   for (const overrides of [{ runtimeReady: false }, { assetId: 'chr.other' }, { approvalState: 'pending' },
     { reviewStatus: 'rejected' }, { lifecycleStatus: 'draft' }, { modelSha256: '' }]) {
     const assets = { characterProfiles: { [character.profile]: { ...profile(character), ...overrides } } };

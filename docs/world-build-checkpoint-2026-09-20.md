@@ -1,6 +1,28 @@
 # World build checkpoint — September 20, 2026
 
-## Delivered regional civilians — final continuation checkpoint
+## Shared apothecary and shelter-floor delivery
+
+The original field apothecary table is published with 38,574 / 19,512 / 8,694
+triangles, nine PBR material batches, six packed editable masters and 19 measured
+colliders. Frozen release: `839beb3b995788c0ccb2`. The GLBs are 18.29 / 6.97 /
+2.18 MB; broader download/render performance remains unaccepted.
+
+Both existing apothecary services now have this table inside their regional
+shelter. Sunmeadow's rear placement clears the NPC route; Cinderfen's approach
+passes beside the resource warden. Mesh tests verify actual host clearance and
+four supported feet; navigation tests verify a 0.5m actor can reach both working
+fronts and original station centers. Eighteen furnishing/floor tests and 24
+regional identity/publication tests pass. All 33 maps, 888 model records and 445
+GM definitions validate. Both actual-game two-second table presses stop the
+player correctly at .086m / .35m floor height. Exact map/model/harness hashes and
+bounded-check limitations are saved in the package runtime integration receipt.
+
+All eight Sunmeadow supply-post floor surfaces were also measured against the
+actual board mesh; the earlier floor checkpoint retains a successful local
+walk from floor to terrain and back. Herbalist, supply officer and High Elf
+scout authoring continues in parallel. No zone is declared complete.
+
+## Delivered regional civilians — preceding continuation checkpoint
 
 Edric Hayward (Empire farmer) and Barrek Reedhauler (Greenskin peat worker) are
 published in Sunmeadow and Cinderfen and in the GM builder. Each retains an

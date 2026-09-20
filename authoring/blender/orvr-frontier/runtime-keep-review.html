@@ -48,9 +48,9 @@
     const places = map.orvrLayout.keeps.flatMap(keep => keep.gates.map(gate => ({
       name: `${keep.realm} ${gate.stage} gate approach`, x: gate.x, z: gate.z - 3, yaw: Math.PI,
     })));
-    for (const prop of map.props.filter(prop => /^frontier_siege_(repair_bench|ammunition_cradle)$/.test(prop.assetKey ?? ''))) {
+    for (const prop of map.props.filter(prop => /^(frontier_siege_(repair_bench|ammunition_cradle)|frontier_field_apothecary)$/.test(prop.assetKey ?? ''))) {
       const yaw = prop.rotY ?? 0;
-      const approach = prop.id.includes('_worksite_') ? 1.65 : 2.5;
+      const approach = prop.assetKey === 'frontier_field_apothecary' ? 1.12 : prop.id.includes('_worksite_') ? 1.65 : 2.5;
       places.push({ name: `${prop.id} working approach`, x: prop.x + approach * Math.sin(yaw),
         z: prop.z + approach * Math.cos(yaw), y: prop.y, yaw });
     }

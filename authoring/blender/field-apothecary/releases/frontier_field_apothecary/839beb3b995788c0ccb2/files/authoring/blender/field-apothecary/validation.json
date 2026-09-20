@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "key": "frontier_field_apothecary",
+  "buildSha256": "bf07d867b3a65c8349e02ba5b5c0f783af6e65064c4488831868f9ba3d3cb56d",
+  "validationToolSha256": "f0b44a934c392f2b7e421cad7b4eab5fbe0ed466564f4c915f2055451a4104f8",
+  "records": [
+    {
+      "level": 0,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "sha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+      "bytes": 18287292,
+      "triangles": 38574,
+      "vertices": 57674,
+      "materials": 9,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_apothecary_lod1.glb",
+      "sha256": "74d711eed3c3bec87bf22a410d71bcb10659478768f7f5b2c7763e0de77fc50b",
+      "bytes": 6971708,
+      "triangles": 19512,
+      "vertices": 28589,
+      "materials": 9,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_apothecary_lod2.glb",
+      "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+      "bytes": 2176444,
+      "triangles": 8694,
+      "vertices": 12911,
+      "materials": 9,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "colliders": 19,
+  "limitations": [
+    "Static artwork; no preparation or harvesting interaction claimed.",
+    "Village host placement and full in-game navigation are verified by the integrating task."
+  ]
+}

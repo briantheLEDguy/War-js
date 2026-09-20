@@ -40,6 +40,13 @@ export const REGIONAL_CHARACTER_PACKAGES = {
     contract: 'character-contract.json', reports: ['garment_clearance', 'welt', 'tool_clearance'],
     masterReport: 'master-continuity.json',
   },
+  'sunmeadow-scout': {
+    key: 'frontier_sunmeadow_high_elf_scout', assetId: 'chr.frontier.sunmeadow.high_elf_scout',
+    name: 'Sunmeadow High Elf Scout', bodyFamily: 'frontier_sunmeadow_high_elf_scout_v1_f', bodyVariant: 'f',
+    skeletonId: 'sunmeadow_scout_humanoid_v1', bindPoseId: 'sunmeadow_scout_a_pose_v1',
+    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance'],
+    masterReport: 'master-continuity.json',
+  },
 };
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');

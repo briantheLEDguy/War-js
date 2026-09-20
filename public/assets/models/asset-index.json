@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-fe9da45e47315a17",
+  "assetVersion": "approved-c6b2497db179fd1c",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -5908,6 +5908,27 @@
       "runtimeReady": true,
       "skeletonId": "draft_horse_rig",
       "skinned": true
+    },
+    "frontier_field_apothecary": {
+      "approvalState": "approved",
+      "assetId": "prop.frontier.field_apothecary",
+      "bindPoseId": "none",
+      "bodyFamily": "static_architecture",
+      "bodyVariant": "neutral",
+      "lifecycleStatus": "approved",
+      "model": "frontier_field_apothecary_lod0.glb",
+      "modelSha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+      "previews": {
+        "assembly": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_neutral.png"
+      },
+      "previewSha256": {
+        "assembly": "d4ed7d543fc79ef7a5309885d4e838a53de2f821b3069332c6e637cdfdbea168"
+      },
+      "qc": "frontier_field_apothecary_lod0.qc.json",
+      "qcSha256": "306377f0b20a999f47c179d15d6868f48a5ae47de600ba2bce8dcb0659c99412",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "none"
     },
     "frontier_field_catapult": {
       "approvalState": "approved",

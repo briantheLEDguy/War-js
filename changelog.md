@@ -1,3 +1,9 @@
+## 2026-09-20 — Shared field apothecary delivery
+
+- Published original three-LOD apothecary worktable, six packed editable masters, measured collision and GM definition.
+- Fitted the table inside Sunmeadow and Cinderfen supply shelters; preserved NPC routes, existing station access and regional architecture. Actual local gameplay holds the player at the table edge on both raised floors.
+- Prepared identity-preserving High Elf scout publication alongside the herbalist and Dark Elf supply officer; unfinished character art remains gated.
+
 ## 2026-09-20 — Sunmeadow shelter floor support
 
 - Added measured floor support to all eight supply shelters and their GM definitions. Characters now stand on the raised boards and step down to terrain, verified against the actual GLB and in local gameplay.

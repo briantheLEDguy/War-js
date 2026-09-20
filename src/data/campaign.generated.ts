@@ -124,7 +124,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "sunlit_fields",
     "levelBand": "Tier 1",
-    "staticMapHash": "a4897716fdf3bfbe"
+    "staticMapHash": "c7f631f6a7758686"
   },
   {
     "id": "greybrook_crossing",
@@ -190,7 +190,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "cinderfen",
     "levelBand": "Tier 1",
-    "staticMapHash": "a3f70b59d5a833a6"
+    "staticMapHash": "60b4fd83149412c8"
   },
   {
     "id": "bleakroot_causeway",
@@ -1589,13 +1589,13 @@ export const CAMPAIGN_MAP_HASHES = {
   "rift_crownworks": "3d3d88eb223f0be0",
   "rift_gate_fortress": "537b63c5ef3dc9c0",
   "riftspire_capital": "7534a54b6d02d4b3",
-  "sunmeadow_march": "a4897716fdf3bfbe",
+  "sunmeadow_march": "c7f631f6a7758686",
   "greybrook_crossing": "b7355d8889e38084",
   "ironwood_redoubt": "80be7c103c8c9159",
   "brightfen_approach": "232aab410bd8a24e",
   "glassriver_ford": "4fedb7fe3e81d200",
   "highvale_rampart": "9ab88d41ee7e2a98",
-  "cinderfen_outskirts": "a3f70b59d5a833a6",
+  "cinderfen_outskirts": "60b4fd83149412c8",
   "bleakroot_causeway": "ef7a0387f490c014",
   "vilemere_heights": "c640d097a93c4bea",
   "ashen_steppe": "52e8ff767ba92dc4",

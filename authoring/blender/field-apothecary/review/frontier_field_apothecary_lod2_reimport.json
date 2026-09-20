@@ -1,0 +1,130 @@
+{
+  "model": "frontier_field_apothecary_lod2.glb",
+  "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+  "reviewerSha256": "5f6dbd6fe604c45ce293b60815238e70894e21785b5c7ee2fd37727bd15f3865",
+  "audit": {
+    "meshes": [
+      {
+        "part": "frontier_field_apothecary.timber",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 3334
+      },
+      {
+        "part": "frontier_field_apothecary.endgrain",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 800
+      },
+      {
+        "part": "frontier_field_apothecary.iron",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 264
+      },
+      {
+        "part": "frontier_field_apothecary.amber",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 980
+      },
+      {
+        "part": "frontier_field_apothecary.leather",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 152
+      },
+      {
+        "part": "frontier_field_apothecary.stoneware",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 256
+      },
+      {
+        "part": "frontier_field_apothecary.sage",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 1276
+      },
+      {
+        "part": "frontier_field_apothecary.linen",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 864
+      },
+      {
+        "part": "frontier_field_apothecary.dried",
+        "boundary": 0,
+        "multi": 0,
+        "loose": 0,
+        "triangles": 768
+      }
+    ],
+    "boundary": 0,
+    "multi": 0,
+    "loose": 0,
+    "triangles": 8694,
+    "boundsZUp": {
+      "minimum": [
+        -1.1460000276565552,
+        -0.5099999904632568,
+        0.0
+      ],
+      "maximum": [
+        1.1460000276565552,
+        0.5099999904632568,
+        1.850000023841858
+      ]
+    }
+  },
+  "views": {
+    "neutral": {
+      "image": "frontier_field_apothecary_lod2_neutral.png",
+      "sha256": "63ba75d8d368bc53e2b3067d68544a966af061412d0a01258ae93160ea8b19c5",
+      "camera": {
+        "cameraZUp": [
+          2.700000047683716,
+          -5.0,
+          2.950000047683716
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.949999988079071
+        ],
+        "projection": "ORTHO",
+        "orthoScale": 2.9,
+        "distanceM": null,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    },
+    "gameplay": {
+      "image": "frontier_field_apothecary_lod2_gameplay.png",
+      "sha256": "3aa6b17c9b71caea593f04287a4f1e632472c86fe8c91e1edbd986d2032084d4",
+      "camera": {
+        "cameraZUp": [
+          0.6000000238418579,
+          -28.0,
+          1.7200000286102295
+        ],
+        "targetZUp": [
+          0.0,
+          0.0,
+          0.949999988079071
+        ],
+        "projection": "PERSP",
+        "orthoScale": null,
+        "distanceM": 28,
+        "lighting": "neutral white area lights, actual exported PBR, no retouching"
+      }
+    }
+  }
+}

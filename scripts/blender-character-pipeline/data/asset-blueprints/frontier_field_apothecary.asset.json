@@ -1,0 +1,102 @@
+{
+  "assetId": "prop.frontier.field_apothecary",
+  "displayName": "Field Apothecary Worktable",
+  "category": "prop",
+  "version": "1.0.0",
+  "sets": [
+    "universal_town_workshops"
+  ],
+  "runtime": {
+    "staticKey": "frontier_field_apothecary"
+  },
+  "output": {
+    "model": "frontier_field_apothecary_lod0.glb",
+    "artifactDir": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/runtime/frontier_field_apothecary_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "root_grounded",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 38574,
+        "screenCoverageMin": 0.15
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 19512,
+        "screenCoverageMin": 0.05
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 8694,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FieldApothecary",
+    "textureSet": "frontier_field_apothecary",
+    "channels": [
+      "baseColor",
+      "roughness",
+      "metallic",
+      "normal",
+      "occlusion"
+    ],
+    "maxTextureResolution": 1024
+  },
+  "rigging": {
+    "skinned": false,
+    "requiredClips": []
+  },
+  "collision": {
+    "policy": "authored_mass_segments",
+    "primitives": []
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "prop"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_authored_mesh_control_cages",
+    "aiAssisted": true,
+    "aiStages": [
+      "mesh_authoring",
+      "material_painting",
+      "lod_authoring",
+      "technical_validation"
+    ],
+    "referencePackId": "original_universal_field_apothecary_v1",
+    "similarityReview": "not_required",
+    "source": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod0.source.blend",
+    "sourceSha256": "17678e092327bbd9fc69451fc32ebcbfa00e93d6387c0ca2a62ff7c2819b137a"
+  },
+  "qc": {
+    "allowNonManifold": false,
+    "allowUvOverlap": true,
+    "maxTris": 38574,
+    "maxFileSizeMb": 20,
+    "maxDrawCalls": 9,
+    "maxMeshObjects": 9,
+    "requiresSkinnedMeshes": false,
+    "requiresPreview": true,
+    "expectedHeightM": 1.850000023841858,
+    "heightToleranceM": 0.01
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "839beb3b995788c0ccb2c6b8e1a41daf35ada06f2b0d9a21424f6fe272d45362",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

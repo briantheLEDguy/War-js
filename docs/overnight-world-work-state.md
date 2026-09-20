@@ -22,9 +22,9 @@ and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 254 static props, 71 character
-profiles and 57 equipment records, and the GM builder has 444 definitions.
-All 33 maps and 885 model records validate. Remaining regional character, equipment and town/zone work
+The registry contains 255 static props, 71 character
+profiles and 57 equipment records, and the GM builder has 445 definitions.
+All 33 maps and 888 model records validate. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
@@ -45,10 +45,12 @@ floor, furnishing and village-access tests pass; the latest full suite above
 precedes this small collision-data addition.
 
 The next parallel batch is active: `sunmeadow-herbalist/`,
-`cinderfen-supply-officer/` and `field-apothecary/`. Their package work states
+`cinderfen-supply-officer/` and `sunmeadow-scout/`. Their package work states
 record technical progress. Serra Brightfield and Nyra Vex keep their existing
-NPC identities when their new regional presentations publish. The shared
-apothecary table must preserve the existing station standing points and paths.
+NPC identities when their new regional presentations publish; Mira Stonewake
+keeps her scout identity. The shared apothecary table is now published in both
+regional shelters and GM. Both actual-game table collision presses passed;
+mesh, support and half-metre navigation checks preserve station access.
 
 Root owns publication through `scripts/campaign/publish-regional-inhabitant.mjs`,
 registry/GM generation and map integration. No aesthetic approval is outstanding.

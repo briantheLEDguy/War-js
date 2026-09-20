@@ -1,0 +1,611 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.field_apothecary",
+  "modelSha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "sha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+      "triangles": 38574,
+      "bytes": 18287292,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_apothecary_lod1.glb",
+      "sha256": "74d711eed3c3bec87bf22a410d71bcb10659478768f7f5b2c7763e0de77fc50b",
+      "triangles": 19512,
+      "bytes": 6971708,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_apothecary_lod2.glb",
+      "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+      "triangles": 8694,
+      "bytes": 2176444,
+      "externalTextures": []
+    }
+  ],
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "sha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+      "triangles": 38574,
+      "bytes": 18287292,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_apothecary_lod1.glb",
+      "sha256": "74d711eed3c3bec87bf22a410d71bcb10659478768f7f5b2c7763e0de77fc50b",
+      "triangles": 19512,
+      "bytes": 6971708,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_apothecary_lod2.glb",
+      "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+      "triangles": 8694,
+      "bytes": 2176444,
+      "externalTextures": []
+    }
+  ],
+  "totalTris": 8694,
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "externalTextures": [],
+  "bounds": {
+    "min": [
+      -1.1460000276565552,
+      0,
+      -0.5099999904632568
+    ],
+    "max": [
+      1.1460000276565552,
+      1.850000023841858,
+      0.5099999904632568
+    ]
+  },
+  "collisionContractSha256": "9aed93d4f579f62cae090662cde617f505aae5638b4857bbb2d778d9e8ad0e3b",
+  "reviewHash": "839beb3b995788c0ccb2c6b8e1a41daf35ada06f2b0d9a21424f6fe272d45362",
+  "reviewEvidence": {
+    "assetId": "prop.frontier.field_apothecary",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_field_apothecary_lod0.glb",
+        "sha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+        "triangles": 38574,
+        "bytes": 18287292,
+        "externalTextures": []
+      },
+      {
+        "level": 1,
+        "model": "frontier_field_apothecary_lod1.glb",
+        "sha256": "74d711eed3c3bec87bf22a410d71bcb10659478768f7f5b2c7763e0de77fc50b",
+        "triangles": 19512,
+        "bytes": 6971708,
+        "externalTextures": []
+      },
+      {
+        "level": 2,
+        "model": "frontier_field_apothecary_lod2.glb",
+        "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+        "triangles": 8694,
+        "bytes": 2176444,
+        "externalTextures": []
+      }
+    ],
+    "files": {
+      "authoring/blender/field-apothecary/builder-contract.json": {
+        "sha256": "9aed93d4f579f62cae090662cde617f505aae5638b4857bbb2d778d9e8ad0e3b",
+        "bytes": 15397
+      },
+      "authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod0.blend": {
+        "sha256": "5b9f0f8c9d8419c3ca03aaeee50a29bea3c09a4d405f226483e5491ee3076fc9",
+        "bytes": 16484683
+      },
+      "authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod0.source.blend": {
+        "sha256": "17678e092327bbd9fc69451fc32ebcbfa00e93d6387c0ca2a62ff7c2819b137a",
+        "bytes": 15753766
+      },
+      "authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod1.blend": {
+        "sha256": "64594401bdf7e822fd9d2e403190cd47aa058cbc4113066d2534da59b158f50d",
+        "bytes": 6158165
+      },
+      "authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod1.source.blend": {
+        "sha256": "2f14932a492c2fdf70d9885f5009113165fe22ccde0aa34d5a3a754546832ef0",
+        "bytes": 5828940
+      },
+      "authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod2.blend": {
+        "sha256": "7e903d92f4126ba27478daee4986a0abdc3c99ee2017f564b30eec87f2fec6c0",
+        "bytes": 1890939
+      },
+      "authoring/blender/field-apothecary/masters/frontier_field_apothecary_lod2.source.blend": {
+        "sha256": "b2cee89ae5447e197c159bd82d2827599bd765ab4100810e6ac58ba61b26367c",
+        "bytes": 1779748
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_build.json": {
+        "sha256": "bf07d867b3a65c8349e02ba5b5c0f783af6e65064c4488831868f9ba3d3cb56d",
+        "bytes": 130245
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_build.json": {
+        "sha256": "432138cd1d034f271ae5dc9754623f9b4e09c368722b18c4bc682d50d40ceade",
+        "bytes": 40623
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_detail.png": {
+        "sha256": "5d2d1f68e94a84fb3972a69bc67c5777580add08650d3ea4e00b291bf4d8a7e8",
+        "bytes": 2092069
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_gameplay.png": {
+        "sha256": "b775b45f56568601380908676649c5ea8f4bec37e9f39cd5b004f212e6a7967e",
+        "bytes": 1120146
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_joinery.png": {
+        "sha256": "ff30d1918107b1ee54d6825d50e16eb8fe2d64ddd9c919f1ff921e8c936d30b1",
+        "bytes": 1791545
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_neutral.png": {
+        "sha256": "d4ed7d543fc79ef7a5309885d4e838a53de2f821b3069332c6e637cdfdbea168",
+        "bytes": 2027199
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_rear.png": {
+        "sha256": "ef19d60ebbabb90752178f40d402361c75718e22ebe0d021585792c0a649a804",
+        "bytes": 1943191
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_reimport.json": {
+        "sha256": "1feaa8761f286f98ceae157be42b77c9cd22b3e958ca8abd5269e8f843daeac0",
+        "bytes": 5105
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod0_source-audit.json": {
+        "sha256": "3c67cfc5696fd45339b4834312c6b7186569e442f5c8f1e439a46ad6b637068d",
+        "bytes": 34173
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod1_build.json": {
+        "sha256": "f561ae4111f03cd998d54cc306fca9a7273242e339db9fb216ddac34dd71390d",
+        "bytes": 31405
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod1_gameplay.png": {
+        "sha256": "c577a467825048e68578db9c1b2ea586e550fb6607faadfb4d048091b4707db2",
+        "bytes": 951779
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod1_neutral.png": {
+        "sha256": "a03627e0e6fb97ba53ab49b8a9b5af664cc2fdf59ff3a1b2b48984821dc70357",
+        "bytes": 2000535
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod1_reimport.json": {
+        "sha256": "8daba94db18d8b58af8d6ec20c9c0339b20a876999dc30b4ccad2bf3adc20261",
+        "bytes": 3262
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod1_source-audit.json": {
+        "sha256": "3d4a46663938e1ac20877636f9a58196f1049e347a08cef09a7c8fae939e4489",
+        "bytes": 25796
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_build.json": {
+        "sha256": "b9755b5783d7ef41455be9580293da0d5c89ef4d2530cae67ee81506a2466099",
+        "bytes": 24517
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_gameplay.png": {
+        "sha256": "3aa6b17c9b71caea593f04287a4f1e632472c86fe8c91e1edbd986d2032084d4",
+        "bytes": 922203
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_neutral.png": {
+        "sha256": "63ba75d8d368bc53e2b3067d68544a966af061412d0a01258ae93160ea8b19c5",
+        "bytes": 1963000
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_reimport.json": {
+        "sha256": "5d9f5c487653055d9ea3104c1940757813cd4b2b5dc948d071a5e0d5405b1214",
+        "bytes": 3257
+      },
+      "authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_source-audit.json": {
+        "sha256": "e4e9669a8496e776fdc4a226048ddd5fe4576f42e9e9a00914788501dfb49baf",
+        "bytes": 19539
+      },
+      "authoring/blender/field-apothecary/review/master-audit.json": {
+        "sha256": "43b3dba1ec1fc973db1e0735937a5d56a0f0df490256ddb6a81f0c4f5f239f25",
+        "bytes": 120652
+      },
+      "authoring/blender/field-apothecary/runtime/frontier_field_apothecary_lod0.glb": {
+        "sha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+        "bytes": 18287292
+      },
+      "authoring/blender/field-apothecary/runtime/frontier_field_apothecary_lod1.glb": {
+        "sha256": "74d711eed3c3bec87bf22a410d71bcb10659478768f7f5b2c7763e0de77fc50b",
+        "bytes": 6971708
+      },
+      "authoring/blender/field-apothecary/runtime/frontier_field_apothecary_lod2.glb": {
+        "sha256": "7fe1d8c3518ef48ba8d9965dd56601baa52c07dbee7a58ce181a58227b005cff",
+        "bytes": 2176444
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod0_basecolor.png": {
+        "sha256": "74550c8c6f25bcda75e0ae5437f876296fd05a4030ab2b9e29f6c4f7cf79e526",
+        "bytes": 67543
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod0_normal.png": {
+        "sha256": "7de1a0e0b9410b0461b5fb31bbccf9111af5c08bc34e3675b73b1a07c07f4693",
+        "bytes": 600844
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod0_orm.png": {
+        "sha256": "a9df3c4dcbb24984dee84d2a2e0a23a80b9a4a2e0913a7bd209abb82b8745cfc",
+        "bytes": 81262
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod1_basecolor.png": {
+        "sha256": "0e64907a0fe7ab847315a3dfe604c1fbfa49379cbd2f39f28036e10ea91f11c3",
+        "bytes": 29113
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod1_normal.png": {
+        "sha256": "27f4b2c875b2a2b8009669ef9cd0b115a4b0cf74e507f66d6e739afaeec5ec74",
+        "bytes": 237014
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod1_orm.png": {
+        "sha256": "9aa657a38cd0c503b35c53b3d41e092bef709eb36b699a8f3c821dbfa69e8b5d",
+        "bytes": 33159
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod2_basecolor.png": {
+        "sha256": "adca66bcd867b1f1abb411b9afcd81327204d426200711d5d4fdc55e0332b65f",
+        "bytes": 12976
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod2_normal.png": {
+        "sha256": "64844d90d257c31509104411227ad6c7faa87c40ee43770269035ce171837622",
+        "bytes": 53279
+      },
+      "authoring/blender/field-apothecary/textures/amber_lod2_orm.png": {
+        "sha256": "c426b227e8c69d0138b8e85e41df49d9993a2279a295398293965c3ced542a80",
+        "bytes": 13551
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod0_basecolor.png": {
+        "sha256": "c0a2658d0cc71c456299ee11111351990ad83c2ed32c30a69e0c2346de2b57c1",
+        "bytes": 288216
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod0_normal.png": {
+        "sha256": "04f719046af3691f1b8f1b4aa5e9e0b7ad504e06902580fd9307eba4d56be8f3",
+        "bytes": 963311
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod0_orm.png": {
+        "sha256": "5241e1825986ff8fe950b264e2a985f295542e325fc4c309fbfd5069b600c983",
+        "bytes": 248827
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod1_basecolor.png": {
+        "sha256": "a9dbe7d859cc2b70c6457ca21252715e9447111eb6f7a34da7ed3f70327d5182",
+        "bytes": 123186
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod1_normal.png": {
+        "sha256": "e80911e1be0d414f1e58e411ce2248f49b24ffe72e850d1eb86a069b0e17478e",
+        "bytes": 355604
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod1_orm.png": {
+        "sha256": "b4599ba00fbf6a55b317e53d3a734e9e4bdefdb4acc124c03ddd0a6fe0adbe8c",
+        "bytes": 102126
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod2_basecolor.png": {
+        "sha256": "474162a4c81096871bb4d00dd5f66e1f38884dcdeb6fdb5637b7f00b84e10368",
+        "bytes": 40707
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod2_normal.png": {
+        "sha256": "0389d22b8bf9d57da33995492f354284d445e3736316e4ace5bdc77a44a576fe",
+        "bytes": 84847
+      },
+      "authoring/blender/field-apothecary/textures/dried_lod2_orm.png": {
+        "sha256": "02440d4816207eebc68c6c5d28b87e47b1cbcb175d654269b707f0dd0b18684b",
+        "bytes": 32098
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod0_basecolor.png": {
+        "sha256": "4ffbb8b91ae069030f9dd85cf5a73a1afb420612bb533c5384ed849e222742b7",
+        "bytes": 571616
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod0_normal.png": {
+        "sha256": "afa60751848d1f81ce4c38572056e68759b2344d292bdecfa49b9a89825d7c27",
+        "bytes": 1422436
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod0_orm.png": {
+        "sha256": "4e6724cfdd7b96fd1e385e243fb4b8d1b32d16fce4a156db4dca38f2d5fc563d",
+        "bytes": 280549
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod1_basecolor.png": {
+        "sha256": "d41896ceed2da072407461d8fa242828bb7cd4104152d2fefc590d82e3461cc6",
+        "bytes": 226424
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod1_normal.png": {
+        "sha256": "d80af9786a544d385abb37b5bb71082ecc8a96405aab9afb6ff78d4ed826b7fc",
+        "bytes": 460071
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod1_orm.png": {
+        "sha256": "9238b8310a43ff3e47e8e5ff9acd9302af05b5961a10cceef694a5c174ae5089",
+        "bytes": 109867
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod2_basecolor.png": {
+        "sha256": "7b3c5e6d9b5766feec8493728a1ecb2b45dddbe7af850cf126ee7eee9374d5c6",
+        "bytes": 71304
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod2_normal.png": {
+        "sha256": "9269520d8f3fa75b181817d779f3b5769484689a9f4d2e2606fea706129fbcd7",
+        "bytes": 120019
+      },
+      "authoring/blender/field-apothecary/textures/endgrain_lod2_orm.png": {
+        "sha256": "e86791151876d16fdd230b0cde85da932012ad74c28482b70870e865280a4abb",
+        "bytes": 35373
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod0_basecolor.png": {
+        "sha256": "20f305a76441cd4dc88f1a156cfde9157b30ec9c86bde537dbc4cd76c2f16fd3",
+        "bytes": 316637
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod0_normal.png": {
+        "sha256": "9d3f7e9a8bef7bd1d100f91cab36f5a2b77162a4cdf956bb7bb7d6e7334f11c0",
+        "bytes": 974671
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod0_orm.png": {
+        "sha256": "271c30ab14acb7278fe48854d86458898695b1545e8db7b145262790bd6bc93f",
+        "bytes": 136252
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod1_basecolor.png": {
+        "sha256": "56517923431f09412b607db19a27bb6a9a9cad9d1fff250abf2e8033d88f8550",
+        "bytes": 130672
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod1_normal.png": {
+        "sha256": "85f3f91f652ec4fbfcee08bbc3cf1e5749a0ce2a7ff63ec07ea0373e14172ce7",
+        "bytes": 356578
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod1_orm.png": {
+        "sha256": "786979f9f4e43de2805512bfd53462f475dfc0e53745761425d9c38961142334",
+        "bytes": 58860
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod2_basecolor.png": {
+        "sha256": "7ae2faab255d36eb5de9a4f13fa0a041425db4a4ad1a8c51968507eb1278529a",
+        "bytes": 47239
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod2_normal.png": {
+        "sha256": "701b7d97d864fefeba7c08cbbfa8879971fa5c1cb45b374e4503b6c766068cdb",
+        "bytes": 87558
+      },
+      "authoring/blender/field-apothecary/textures/iron_lod2_orm.png": {
+        "sha256": "c14df4d373c20ffe1707a21980bf5a477979076aa572efe6466b75a3f9d3acc9",
+        "bytes": 18905
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod0_basecolor.png": {
+        "sha256": "62a7c7ebd894951bb2732876de371e6efb4d43760197f5af68dece221bd36ec0",
+        "bytes": 172760
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod0_normal.png": {
+        "sha256": "e64ce25c434c84d79896e1248dd7e1a17c0a9cadac3bb609a0021578781d6c42",
+        "bytes": 1665273
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod0_orm.png": {
+        "sha256": "46ac6363467136902c73711cebb8558aecf2cd27f8d95679835aebd014595728",
+        "bytes": 126020
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod1_basecolor.png": {
+        "sha256": "c82baadc361316d4bba15925cf7e3919713ac73c9496623582aa993a9b082915",
+        "bytes": 74365
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod1_normal.png": {
+        "sha256": "00c8199dcc036e83d523548395232aa44cc8ef60014310a1ef487c2b4d07f27a",
+        "bytes": 520297
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod1_orm.png": {
+        "sha256": "da687c92403477861de01e9c0c5f97575b185bd6dae86ed8de7a3d3e31f980ca",
+        "bytes": 53955
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod2_basecolor.png": {
+        "sha256": "4e02d6560008e088f13a1886c96bf1aebabfc53c6935c396b3131860a38d278c",
+        "bytes": 28363
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod2_normal.png": {
+        "sha256": "c3d25fcda65dc4f71cde7c3cc4bab822e9589f5e1a96ff9e46cf56a57b4e7899",
+        "bytes": 125583
+      },
+      "authoring/blender/field-apothecary/textures/leather_lod2_orm.png": {
+        "sha256": "eb90e51101c33151cc690b310aa48d3469379a1d26f68f44b3aa2bc41258896e",
+        "bytes": 17873
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod0_basecolor.png": {
+        "sha256": "5eb88f28b91df006c1c27a5aa275465666f2da1c4a98894ff91f4e14878feacc",
+        "bytes": 236652
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod0_normal.png": {
+        "sha256": "226b3ede7b8ee5eeaa2d425d05a0589548759ec802bd7e2f39ecbdc33a8ab461",
+        "bytes": 1529413
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod0_orm.png": {
+        "sha256": "703fb4909bd791c267d12666e4e6ec9903961b16433701de2c55710c5c871017",
+        "bytes": 239810
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod1_basecolor.png": {
+        "sha256": "7825d3cfed6d298833102793b68ecea97f890eabc6f63bf79c8ce299c27c0cac",
+        "bytes": 112073
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod1_normal.png": {
+        "sha256": "f1ee8decd3f35aff7afd6b213462c07a8a0bbe6150e913e8f5889f982c84f580",
+        "bytes": 441816
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod1_orm.png": {
+        "sha256": "b71989cbbb19fc4ebfe434279ff3ba09a4e481ba510fe3c3e1edc40a1a4bf7a2",
+        "bytes": 99510
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod2_basecolor.png": {
+        "sha256": "f9da1d608addab40841eb2d05c83a3def2c6833508f2c002d683299b5409a7b9",
+        "bytes": 37739
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod2_normal.png": {
+        "sha256": "6368788fc91af1ed37efad9b3b01a3dd11e0effc689a3a6eedf00f664d66da1c",
+        "bytes": 103568
+      },
+      "authoring/blender/field-apothecary/textures/linen_lod2_orm.png": {
+        "sha256": "1a24c86beea848b6927ede4287108ba4bf307988d8ca2f4254c3cbaad05dea6c",
+        "bytes": 31138
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod0_basecolor.png": {
+        "sha256": "dd66559e99bc68861a0748e225d0b10657869ecd1a524aec2dc8fc23bc84ecad",
+        "bytes": 260804
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod0_normal.png": {
+        "sha256": "b915865818d215afe807e98af1e8066a69f2054f7a0e61cdc6fe67f2595eb190",
+        "bytes": 960741
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod0_orm.png": {
+        "sha256": "6108cbdc0e131a47c8a3bb90df3c84f85986668674b92358d76645b50e6df622",
+        "bytes": 248705
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod1_basecolor.png": {
+        "sha256": "03eda81f2a6ea7d54ddc80843b1bd885245821990eec90cdac2519c563ca4d86",
+        "bytes": 110255
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod1_normal.png": {
+        "sha256": "c8f0bd3a5cbb02808d0cf59e421e03bbcbf06888ee591502c06153f8765e903a",
+        "bytes": 354798
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod1_orm.png": {
+        "sha256": "a105de8cd006d44606b09639834543c46002f9cdad737f68da07e84c48bc31b2",
+        "bytes": 102027
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod2_basecolor.png": {
+        "sha256": "076708f588a006e7f4c65e0ba87d575c6f795962ed4e08aa8a8d0f52b9264c72",
+        "bytes": 37738
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod2_normal.png": {
+        "sha256": "fd3aee474b57b4aa64d58caa625e02fa5604d814ddbebfc2b1c060fee3950331",
+        "bytes": 84733
+      },
+      "authoring/blender/field-apothecary/textures/sage_lod2_orm.png": {
+        "sha256": "e584ea1d2efde49ea19dbb769caeaa26f4bc5d3f80baba6daefaf3c50ecd376e",
+        "bytes": 32179
+      },
+      "authoring/blender/field-apothecary/textures/sources.json": {
+        "sha256": "8ada8aa9930b38d9ca4b0342bd27cd7dd947335c78e5e73e34611608ca801908",
+        "bytes": 12627
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod0_basecolor.png": {
+        "sha256": "113175af2000a751b18be4a24728086ca74b0dbc3eb6fcc618daba7b1cea12dc",
+        "bytes": 256498
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod0_normal.png": {
+        "sha256": "f1e59eca76329f4b291d33bcbae7f02b3ad899c834afd6cb7b536832e5d4ee89",
+        "bytes": 1325663
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod0_orm.png": {
+        "sha256": "f1e9a3b7bb1498978206553e9f80fe25328f56cfc16a83c5187874ecccd84718",
+        "bytes": 281858
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod1_basecolor.png": {
+        "sha256": "8eb5022fdbcb0b79b6da6f30365d7e09a817e530fb96c32c1bf05b7468c76357",
+        "bytes": 111658
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod1_normal.png": {
+        "sha256": "b4017a90a713eeb550d9eefc2f51682ed2c5a07611d8e96824bb058a5b36908a",
+        "bytes": 441746
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod1_orm.png": {
+        "sha256": "e7ca839c00481dce648261688cd3a8286ee4b630a69b910b562b5bf89be7f5e3",
+        "bytes": 111387
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod2_basecolor.png": {
+        "sha256": "94bf7a8b9c36bca6eeb14683193d09584be67d811824978734d9eb7960173505",
+        "bytes": 37324
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod2_normal.png": {
+        "sha256": "6083815f0b874b0a51c272ef003f2a004fa54deea8273066a2034c5f58097d70",
+        "bytes": 107568
+      },
+      "authoring/blender/field-apothecary/textures/stoneware_lod2_orm.png": {
+        "sha256": "7030535e7ebed61e450c7c74f4082216e5913626ee731b033905851a7147885c",
+        "bytes": 36037
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod0_basecolor.png": {
+        "sha256": "4c2d46b9befaacf05def1433a7963b41e2b5c57deb0ed7b8bb611cdc7e9bcf0a",
+        "bytes": 453125
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod0_normal.png": {
+        "sha256": "899a72a8e9ffbdd50910f1082d489bc58d5faa3460ef1cd1e65e2f88a6cb3937",
+        "bytes": 1282089
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod0_orm.png": {
+        "sha256": "29d30a915d58061cfacec31d11b85647f30a5b5c9901bebdcf715ea4ea10708b",
+        "bytes": 280815
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod1_basecolor.png": {
+        "sha256": "c4531c3287c25d18bff4374aeee098bf369ba34e0b8966291e949d304b6069e8",
+        "bytes": 180561
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod1_normal.png": {
+        "sha256": "147b251b5bd97bcf2055eebd7250aac1b6719c26fb2eab33c2c3d0bf17ac07bb",
+        "bytes": 420241
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod1_orm.png": {
+        "sha256": "603b8346cc0664e42c311c64e1a2c48f62cc0839d37cead72405779114d90ded",
+        "bytes": 109954
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod2_basecolor.png": {
+        "sha256": "aad297c0d1315e62c4159834ef4a785db7233a60a2fc449f664743110394f563",
+        "bytes": 55382
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod2_normal.png": {
+        "sha256": "fc24b179290d74f5b28c15d87a460fe3d193a7aeb342cd3d1475327f7d58e914",
+        "bytes": 101211
+      },
+      "authoring/blender/field-apothecary/textures/timber_lod2_orm.png": {
+        "sha256": "9983545d315264ba99b695063e26fffb805cc506ebd1e9ab14ccf37cf947b1d9",
+        "bytes": 35307
+      },
+      "authoring/blender/field-apothecary/tools/audit_masters.py": {
+        "sha256": "1ea73048a6eeb32f59c03cae57a40040f9724c1b34593aa883c20fe4b3ddbd4d",
+        "bytes": 2531
+      },
+      "authoring/blender/field-apothecary/tools/build_station.py": {
+        "sha256": "82d5445645b891543012fd0fa4f7df9eea33d59313baf1a186bc2cc0ec4239fd",
+        "bytes": 19135
+      },
+      "authoring/blender/field-apothecary/tools/consolidate_build.py": {
+        "sha256": "53df10b80576f12681aa92b7dd9522e791fe10f972c73432433d14d55023d940",
+        "bytes": 1257
+      },
+      "authoring/blender/field-apothecary/tools/make_textures.py": {
+        "sha256": "81157effd6aae6c79fccbbac55f155ba63d0d52e398eb37cbced80138da45a9b",
+        "bytes": 4442
+      },
+      "authoring/blender/field-apothecary/tools/mesh_authoring.py": {
+        "sha256": "73008d19256e475eaf937a81f7d24348408ef4fb838f966cd9212a36adcfa115",
+        "bytes": 7392
+      },
+      "authoring/blender/field-apothecary/tools/review_station.py": {
+        "sha256": "5f6dbd6fe604c45ce293b60815238e70894e21785b5c7ee2fd37727bd15f3865",
+        "bytes": 4061
+      },
+      "authoring/blender/field-apothecary/tools/validate_station.mjs": {
+        "sha256": "f0b44a934c392f2b7e421cad7b4eab5fbe0ed466564f4c915f2055451a4104f8",
+        "bytes": 9298
+      },
+      "authoring/blender/field-apothecary/validation.json": {
+        "sha256": "2299098d1685088577bcff6b2e28c59c25aa53eff809062a58b87cf3db671998",
+        "bytes": 1380
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+        "bytes": 1070
+      },
+      "scripts/blender-character-pipeline/tools/world-asset-approval.mjs": {
+        "sha256": "7335d52a94a977d785bd93b387bc50ba29cec19e494c9323b6d0b979688c0a38",
+        "bytes": 633
+      },
+      "scripts/campaign/publish-field-apothecary.mjs": {
+        "sha256": "128d75d9db73ef2ec245aba7f3fb4c243aa2df28cc430e37c603487d9fe56566",
+        "bytes": 11549
+      },
+      "scripts/campaign/regional-publication-evidence.mjs": {
+        "sha256": "a728aef40a03be32f7a40c373463b9ae374068d6e4dd05609bcd37ea320924a4",
+        "bytes": 3249
+      }
+    }
+  },
+  "frozenSource": "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2",
+  "previewImages": [
+    "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_neutral.png",
+    "authoring/blender/field-apothecary/releases/frontier_field_apothecary/839beb3b995788c0ccb2/files/authoring/blender/field-apothecary/review/frontier_field_apothecary_lod2_gameplay.png"
+  ],
+  "limitations": [
+    "Static preparation furniture; existing station crafting remains separate from the model."
+  ]
+}
