@@ -1,3 +1,15 @@
+## 2026-09-20 - Unreal foundation checkpoint validation
+
+- Verified the native Windows Editor target builds with Unreal 5.8.2; documented the owner-requested pause and resume handoff in docs/unreal-checkpoint-1.md.
+
+## 2026-09-20 - Unreal migration foundation
+
+- Started the approved Unreal 5.8.2 migration on a dedicated branch with native Game, Client, Server and Editor targets, Enhanced Input movement/camera, PlayerState-owned GAS attributes, a server-validated demonstration strike, and recoverable entry rejection when required character content is unavailable.
+- Added complete deterministic content export and 39 behavior-parity contracts covering both the local RPG and shared campaign. Source fingerprints, complete map payloads and explicit coordinate conversion preserve the existing catalog as the porting reference.
+- Added an exhaustive model-assignment and GLB evidence audit, including previews, equipment, residents, ambient/generated content and shared siege crews. Explicit missing/unsuitable assignments and pending visual/native review keep release checks closed.
+- Added native toolchain/build/test/import commands and Blender conversion experiments that preserve and numerically check source animation poses, rig geometry and scale. Conversion does not confer Unreal visual approval.
+- Recorded the no-visible-primitives target policy and repository-only source adaptation requirement. Legacy browser fallbacks and incomplete native systems remain tracked; this does not complete primitive removal, the full engine port, three-platform builds or Steam release.
+
 ## 2026-09-20 — User-requested world-build checkpoint
 
 - Paused automatic continuation to change focus after completing command-table integration.

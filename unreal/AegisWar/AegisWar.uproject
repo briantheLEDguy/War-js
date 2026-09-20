@@ -1,0 +1,16 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.8",
+  "Category": "Games",
+  "Description": "Aegis Accord / Riftbound Host native migration foundation. Target toolchain: Unreal Engine 5.8.2.",
+  "Modules": [{ "Name": "AegisWar", "Type": "Runtime", "LoadingPhase": "Default" }],
+  "Plugins": [
+    { "Name": "AndroidFileServer", "Enabled": false },
+    { "Name": "GameplayAbilities", "Enabled": true },
+    { "Name": "EnhancedInput", "Enabled": true },
+    { "Name": "OnlineSubsystemNull", "Enabled": true },
+    { "Name": "OnlineSubsystemSteam", "Enabled": true },
+    { "Name": "PythonScriptPlugin", "Enabled": true, "TargetAllowList": ["Editor"] },
+    { "Name": "EditorScriptingUtilities", "Enabled": true, "TargetAllowList": ["Editor"] }
+  ]
+}

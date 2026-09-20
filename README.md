@@ -1,5 +1,23 @@
 # War-js
 
+## Unreal migration
+
+The approved Unreal 5.8.2 / Steam migration is in progress on
+`codex/unreal-migration`. The target preserves implemented gameplay and GM tools
+in an online-only game for Windows, Linux and macOS. The native foundation is
+under `unreal/AegisWar/`; the browser remains the behavior reference during the
+transition. This is not a completed engine port or primitive-model cleanup.
+
+Run `npm run unreal:audit` to generate the complete content, asset-assignment,
+feature-parity and release-readiness reports under `artifacts/unreal/`. Run
+`npm run unreal:doctor` to check the engine installation, `npm run test:unreal`
+and `npm run typecheck:unreal-tools` for the migration tooling. Strict asset and
+release checks intentionally reject missing/unverified models and native parity.
+See [the staged migration and setup guide](docs/unreal-migration.md).
+The Windows Editor target has compiled successfully with Unreal 5.8.2. Work is
+paused at the owner's requested [first checkpoint](docs/unreal-checkpoint-1.md);
+that handoff records verification and the remaining work.
+
 ## Regional production priorities
 
 Character models, equipment, and town/siege items take priority; animals come

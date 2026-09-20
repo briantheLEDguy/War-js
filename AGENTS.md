@@ -3,6 +3,30 @@
 This file is read by Codex (and similar AI coding assistants) to understand
 the project layout, conventions, and commands before doing any work.
 
+## Active Unreal migration requirements
+
+The approved target is Unreal 5.8.2, online-only Steam play on Windows, Linux
+and macOS, with 18 players per realm per contested zone. Preserve every working
+local/shared gameplay and runtime GM capability; only offline play and browser
+save import are retired. See `docs/unreal-migration.md` and
+`migration/unreal-policy.json` for the stage gates.
+
+New native code lives under `unreal/AegisWar/`; migration tooling lives under
+`scripts/unreal/`. Use repository model sources/adaptations only. Visible
+primitive character, creature, equipment, prop, scenery and fallback models are
+forbidden in the target. Retain collision/navigation/terrain/editor/effect
+geometry. Replace dependencies before deleting legacy browser primitive paths,
+and report those paths as unfinished until they are actually removed. Missing
+required native models block packaging or return a recoverable loading error;
+never spawn invisible combatants or substitute another species/training dummy.
+
+Run `npm run unreal:audit`, `npm run test:unreal` and
+`npm run typecheck:unreal-tools`. `unreal:release-check` must fail until all native
+gameplay, model, three-platform and Steam acceptance is verified. Do not treat
+exported JSON, source-only C++ or an FBX conversion as native implementation or
+visual approval. These requirements supersede historical primitive fallback
+guidance below for the migration target.
+
 ## What this project is
 
 A browser-based fantasy MMO/RPG vertical slice built with **Three.js + React +

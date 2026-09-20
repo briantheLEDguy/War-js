@@ -11,6 +11,17 @@ supabase/.temp/
 tmp/
 __pycache__/
 artifacts/
+# Native generated state and imported/cooked outputs are reproducible local artifacts.
+unreal/**/Binaries/
+unreal/**/Intermediate/
+unreal/**/Saved/
+unreal/**/DerivedDataCache/
+unreal/**/.vs/
+unreal/**/*.sln
+unreal/AegisWar/Content/Migration/content.json
+unreal/AegisWar/Content/Migration/DEVELOPMENT_ONLY.txt
+unreal/AegisWar/Content/Migration/visual-imports.json
+unreal/AegisWar/Content/Imported/
 # Atomic model jobs and local authoring inputs never ship through Vite.
 artifacts/model-jobs/
 authoring/quarantine/

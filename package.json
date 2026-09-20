@@ -38,7 +38,18 @@
     "server:dev": "tsx --env-file-if-exists=.env.orvr server/start.ts --dev-auth",
     "server:start": "tsx --env-file-if-exists=.env.orvr server/start.ts",
     "typecheck:server": "tsc --project tsconfig.server.json --noEmit",
-    "test:orvr": "vitest run orvr expandedOrvrZones"
+    "test:orvr": "vitest run orvr expandedOrvrZones",
+    "unreal:doctor": "tsx scripts/unreal/toolchain.ts",
+    "unreal:export": "tsx scripts/unreal/export-content.ts",
+    "unreal:assets": "tsx scripts/unreal/asset-ledger.ts --output artifacts/unreal/asset-ledger.json",
+    "unreal:audit": "tsx scripts/unreal/migration.ts",
+    "unreal:stage": "tsx scripts/unreal/migration.ts --stage-development",
+    "unreal:release-check": "tsx scripts/unreal/migration.ts --strict",
+    "unreal:build": "tsx scripts/unreal/build.ts",
+    "unreal:test-native": "tsx scripts/unreal/editor.ts --mode test",
+    "unreal:import": "tsx scripts/unreal/editor.ts --mode import",
+    "typecheck:unreal-tools": "tsc --project tsconfig.unreal-tools.json --noEmit",
+    "test:unreal": "vitest run unreal --maxWorkers=2"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.115.0",

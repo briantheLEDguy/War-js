@@ -14,7 +14,7 @@ The model pipeline uses the research report as its source of truth.
 
 - Characters should read as layered dark-fantasy silhouettes at gameplay distance: helmet/hood, shoulders, torso, waist, cloth, boots, and carried/accessory forms must separate clearly.
 - Materials must break up by function: blackened or worn metal, dark leather, saturated cloth, skin, trim, and gem/emissive accents should not collapse into one flat color family.
-- Procedural proxy geometry is acceptable only when it is cohesive, grounded, skinned when required, and reviewed as runtime-ready. Clean toy-like boxes, floating modules, same-origin bind-pose overlays, and unskinned body-worn pieces must be blocked from runtime.
+- Visible primitive/proxy models are not acceptable for the Unreal migration target. Use finished complex repository models or adaptations, with actual silhouette, fitting, animation and material review. Preserve invisible collision/navigation, terrain construction, editor guides and intentional effects. Replace legacy dependencies before deleting them; no new primitive fallback may hide a missing character or prop.
 - Preview renders are part of QC for playable characters. If front/side/back/isometric previews reveal broken proportions, exposed fit seams, or fake-looking blocky gear, the asset should fail review even if the GLB exports.
 
 ## AI Use

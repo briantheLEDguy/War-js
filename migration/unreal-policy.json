@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "4965996",
+  "engineVersion": "5.8.2",
+  "projectName": "AegisWar",
+  "platforms": ["Win64", "Linux", "Mac"],
+  "serverPlatform": "Linux",
+  "onlineOnly": true,
+  "importBrowserSaves": false,
+  "playersPerRealmPerContestedZone": 18,
+  "modelSources": "repository-and-adaptations-only",
+  "visiblePrimitiveModelsAllowed": false,
+  "allowedTechnicalGeometry": ["collision", "navigation", "terrain", "editor-guides", "intentional-effects"],
+  "productionAdmissionRequiresVerifiedSteamOwnership": true,
+  "retiredCapabilities": ["offline-play", "browser-save-import"],
+  "unimplementedCapabilities": ["persistent-summons", "merchant-transactions", "banking-transactions", "trainer-transactions", "warbands", "trading", "mail", "guilds", "full-party-mechanics"],
+  "releasePlatformsRequireNativeBuildAndPlaytestEvidence": true
+}
