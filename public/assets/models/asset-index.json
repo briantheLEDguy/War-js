@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-f9b3eda3d5936d96",
+  "assetVersion": "approved-7fded417f1515d60",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -1246,6 +1246,30 @@
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2",
+      "skinned": true
+    },
+    "npc_frontier_cinderfen_greenskin_peat_worker": {
+      "approvalState": "approved",
+      "assetId": "chr.frontier.cinderfen.greenskin_peat_worker",
+      "bindPoseId": "frontier_mire_worker_a_v1",
+      "bodyFamily": "frontier_mire_worker",
+      "bodyVariant": "m",
+      "lifecycleStatus": "approved",
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
+      "modelSha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "previews": {
+        "front": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/review\\frontier_cinderfen_greenskin_peat_worker_lod0_front_f.png",
+        "head": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/review\\frontier_cinderfen_greenskin_peat_worker_lod0_head_f.png"
+      },
+      "previewSha256": {
+        "front": "98feceb98a89e781d086f0dd1e2bd239e7a66e89dc05bf12bf4093c2f338c663",
+        "head": "65dd2aa01964b749a85a19ce332eb02744281f9d00fce669f7a6d2a86f8a3703"
+      },
+      "qc": "frontier_cinderfen_greenskin_peat_worker_lod0.qc.json",
+      "qcSha256": "f8e313a1f75410148d6ef9843a84fb98bdd94ab27283f9be1ae9be7b468eecaa",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "frontier_mire_worker_v1",
       "skinned": true
     },
     "npc_frontier_sunmeadow_dwarf_artisan": {

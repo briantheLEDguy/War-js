@@ -1,0 +1,32 @@
+{
+  "modelSha256": "d187f41c4c3df12bdf65bd6780687031c62528af7d7de4c1eb4dadc0428fe4ec",
+  "bounds": {
+    "min": [
+      -0.3904784917831421,
+      -0.45457786321640015,
+      0.003999896347522736
+    ],
+    "max": [
+      0.387323260307312,
+      0.15564455091953278,
+      2.0004491806030273
+    ]
+  },
+  "images": [
+    {
+      "view": "front",
+      "image": "review\\frontier_cinderfen_greenskin_peat_worker_lod2_front_f.png",
+      "sha256": "475c4d3e9eec16fdb63e21a02aa86c4c7d6302562d483ac20da853f4423e5723",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "gameplay",
+      "image": "review\\frontier_cinderfen_greenskin_peat_worker_lod2_gameplay_f.png",
+      "sha256": "2bfccb792cf3d8490d91b44d022b05170d3fa714d2d95f0f088d93ab88ef8579",
+      "clip": "idle",
+      "seconds": 0
+    }
+  ],
+  "status": "pending"
+}

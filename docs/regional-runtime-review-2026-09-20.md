@@ -38,16 +38,27 @@ Package-local `builder-metadata.json` files are automatically discovered. Matchi
 registry/model hashes supply the GM scale, footprint, collision and idle defaults;
 the current dwarf catalog entry includes all three approved LODs.
 
-## Deferred missing-model limitation
+## Shared missing-primary-model correction
 
-Shared actor creation resolves `resolveCharacterAsset()` before requesting approved
-LOD alternatives. That resolver returns null when the primary model's HEAD request
-fails, so an unavailable LOD0 hides the entire shared character even if reviewed
-LOD1/2 files remain available. The shared renderer also remembers that unavailable
-profile for the stage. Local `RegionalNpcPresentation` instead tries the approved
-levels individually. A follow-up should retain approved metadata and try available
-reviewed LODs without substituting a different character.
+Shared actor creation previously stopped when `resolveCharacterAsset()` returned
+null for an unavailable LOD0, even when approved LOD1/2 files were available.
+`resolveCampaignCharacter()` now lets the known regional complete-outfit profiles
+request their own QC-approved LOD list in that case. The existing per-level loader
+tries those models individually. Their embedded rigs, fitted meshes and idle clips
+remain intact; modular characters still require compatible presentation metadata.
+Unapproved profiles and entirely missing model sets remain unavailable without
+substituting another character or primitive.
 
-No shared renderer changes were made in this audit. Full network gameplay and
-end-to-end shared rendering were not verified; the evidence above is source review,
-focused tests and actual-GLB offline reproduction.
+Focused regressions invoke the production shared renderer's actor creation with
+the actual dwarf registry/QC and real LOD1/2 geometry, skins and clips, simulating
+HTTP 404 for missing primary levels. They verify the available LOD is selected,
+its original mesh/bone identities are preserved, its embedded idle animates, and
+requesting the failed near LOD leaves the working model visible. Entirely missing
+levels, missing approval and missing modular metadata also have regression cases.
+The new cases reproduced four failures before the fix. The six related shared
+presentation/renderer suites now pass 44/44 tests; `npm run typecheck` passes.
+
+Full network gameplay and end-to-end shared browser rendering were not verified;
+the evidence above is source review, focused tests and actual-GLB offline
+reproduction. Test GLB parsing omits textures for Node compatibility and does not
+change the delivered files.

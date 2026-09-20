@@ -1,0 +1,72 @@
+[
+  {
+    "source": "authoring/blender/frontier-population/tools/build_inhabitants.py",
+    "sha256": "4bdfc8d01cda72cbdf216e19ed74995fe4d14a9065a9c23d7e4e9cb4364b280d",
+    "snapshot": "tools/build_inhabitants.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/tailored_clothing.py",
+    "sha256": "ae17ed8e4b05c0fd4efbba660fbdd416a4aee19abe1c95f7dbb3fa37d9b724d1",
+    "snapshot": "tools/tailored_clothing.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/surface_garments.py",
+    "sha256": "7aaece5316b797227e631a231c4946b442322b6ea8a8b0a27418fc5fb10e1948",
+    "snapshot": "tools/surface_garments.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/tailored_locomotion.py",
+    "sha256": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+    "snapshot": "tools/tailored_locomotion.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/export_tangents.py",
+    "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+    "snapshot": "tools/export_tangents.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/apron_clearance.py",
+    "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+    "snapshot": "tools/apron_clearance.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/apron_details.py",
+    "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+    "snapshot": "tools/apron_details.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/surface_bindings.py",
+    "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+    "snapshot": "tools/surface_bindings.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/workwear_finish.py",
+    "sha256": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9",
+    "snapshot": "tools/workwear_finish.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/fitted_boot_details.py",
+    "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+    "snapshot": "tools/fitted_boot_details.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/inspect_arm_volume.py",
+    "sha256": "8855d56e60ba673312b823ea904261617158bb0f49370c9891c9de8cb3b1d3c9",
+    "snapshot": "tools/inspect_arm_volume.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/inspect_export_motion.py",
+    "sha256": "cf4e880de1e305059954dc7dbac734277719c339cabed1673b06f6234f516949",
+    "snapshot": "tools/inspect_export_motion.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/review_inhabitants.py",
+    "sha256": "6cd01cf82c3770d7bbfe7bbc12935fada4e09e6035f90b9569e7899159d04264",
+    "snapshot": "tools/review_inhabitants.py"
+  },
+  {
+    "source": "authoring/blender/frontier-population/tools/validate_inhabitants.mjs",
+    "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+    "snapshot": "tools/validate_inhabitants.mjs"
+  }
+]

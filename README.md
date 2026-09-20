@@ -10,8 +10,9 @@ each export before publication to the game and GM builder. Keep enclosure, stair
 fit and railing corrections have passed bounded gameplay checks. Fitted ram crews
 and the repair bench/ammunition cradle are integrated; every keep has both items.
 Sunmeadow's supply post and Cinderfen's workshop also have fitted worksite pairs.
-The next civilian packages are the Empire farmer and Greenskin peat worker;
-their editable masters and exports remain draft until motion/contact checks pass.
+The Greenskin peat worker is published as Barrek Reedhauler in Cinderfen and in
+the GM catalog. The Empire farmer remains draft during its final motion/contact
+checks. Both retain editable masters and complete fitted clothing.
 Siege equipment and keep interiors are universal;
 exteriors and nature remain regional. See the [production board](docs/orvr-production-board.md).
 

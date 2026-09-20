@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "npc_frontier_cinderfen_greenskin_peat_worker": {
+      "runtimeReady": true,
+      "modelSha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "label": "Cinderfen Greenskin Peat Worker",
+      "group": "Characters and NPCs",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "defaultAnimation": "idle",
+      "footprint": {
+        "width": 0.778,
+        "depth": 0.61,
+        "chainAxis": "z"
+      },
+      "colliders": [],
+      "walkableSurfaces": [],
+      "cameraSolid": false
+    }
+  }
+}

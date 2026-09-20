@@ -38,7 +38,8 @@
     services.characters.save = async () => {};
     services.world.updatePosition = async () => {};
     const gate = map.orvrLayout.keeps[0].gates[0];
-    const character = { ...source, id: 'keep-access-review-only', zoneId, position: { x: gate.x, y: 0, z: gate.z - 4 } };
+    const character = { ...source, id: 'keep-access-review-only', zoneId, health: source.maxHealth,
+      mana: source.maxMana, position: { x: gate.x, y: 0, z: gate.z - 4 } };
     useGameStore.getState().setCharacter(character);
     useGameStore.setState({ gmFlyingMode: false, settings: { ...useGameStore.getState().settings, frameRateLimit: 60, viewDistance: 400 } });
     game = new Game(document.querySelector('#view'), character);
@@ -76,6 +77,10 @@
     const stop = () => { clearTimeout(timer); game.input.touchMoveX = 0; game.input.touchMoveZ = 0; };
     const visit = () => {
       stop(); const place = places[Number(select.value)];
+      // Waiting at a hostile keep can kill this isolated inspector between checks.
+      useGameStore.getState().setPlayerDead(false);
+      useGameStore.getState().updateCharacter({ health: character.maxHealth, mana: character.maxMana });
+      useGameStore.setState({ playerStatusEffects: [], pendingRespawn: false });
       game.player.teleportTo({ x: place.x, y: place.y ?? game.terrain.heightAt(place.x, place.z), z: place.z });
       game.camera.distance = 10; game.camera.pitch = .38; game.camera.yaw = place.yaw;
       result.textContent = place.name;
@@ -120,7 +125,7 @@
     };
     interval = setInterval(() => {
       const p = game.player.position, info = game.renderer.info.render;
-      status.textContent = `Position ${p.x.toFixed(3)}, ${p.y.toFixed(3)}, ${p.z.toFixed(3)}\n${info.calls} draws · ${info.triangles.toLocaleString()} triangles\n${useGameStore.getState().assetFallbacks} unavailable legacy assets`;
+      status.textContent = `Position ${p.x.toFixed(3)}, ${p.y.toFixed(3)}, ${p.z.toFixed(3)}\n${info.calls} draws · ${info.triangles.toLocaleString()} triangles\n${useGameStore.getState().assetFallbacks} unavailable legacy assets\nInspector ${useGameStore.getState().playerDead ? 'dead — revisit to restore' : 'alive'}`;
     }, 300);
     visit();
   } catch (error) { status.textContent = `Review failed: ${error.message}`; console.error(error); }

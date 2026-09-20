@@ -1,0 +1,39 @@
+{
+  "modelSha256": "04329ea0d70e482f18a85e3fcf9ab1b46d25130242cbede0c16c4ecbef9a9b60",
+  "bounds": {
+    "min": [
+      -0.3903195858001709,
+      -0.45456141233444214,
+      0.01603165827691555
+    ],
+    "max": [
+      0.38726139068603516,
+      0.14219142496585846,
+      2.046480894088745
+    ]
+  },
+  "images": [
+    {
+      "view": "front",
+      "image": "review\\frontier_cinderfen_greenskin_peat_worker_lod0_front.png",
+      "sha256": "f210343178a6e3af1f312a707e6ffa3d8efc9bf829fc33c611d3f4d233194185",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "head",
+      "image": "review\\frontier_cinderfen_greenskin_peat_worker_lod0_head.png",
+      "sha256": "401521840ab9f407b44bc60e150d3e8a541943b3681bc9fa13e79b6963a62fc8",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run",
+      "image": "review\\frontier_cinderfen_greenskin_peat_worker_lod0_run.png",
+      "sha256": "68dc1896bf94006a2c4378cd2ea385241b6a32a508fecf2ecd304581678b0271",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    }
+  ],
+  "status": "pending"
+}

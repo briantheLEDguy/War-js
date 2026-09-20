@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "visualApproval": false,
+  "records": [
+    {
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
+      "sha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "triangles": 133208,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod1.glb",
+      "sha256": "d4a5b4844bcfc4c70c9d90d5ec42bb4f687ab771530bc95a406ef0e58c8f5f1d",
+      "triangles": 77251,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod2.glb",
+      "sha256": "d187f41c4c3df12bdf65bd6780687031c62528af7d7de4c1eb4dadc0428fe4ec",
+      "triangles": 35849,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    }
+  ],
+  "failures": []
+}

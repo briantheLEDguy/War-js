@@ -119,7 +119,9 @@ the corrected dwarf remained visible at 6.2/45.2/100.2m, selecting 150,766/87,44
 40,705 triangles. Missing regional art preserves service identity without adding
 proxy geometry. The review page uses an isolated character and does not save its
 inspection position. See [the runtime review](regional-runtime-review-2026-09-20.md)
-for shared renderer findings and the deferred missing-LOD0 fallback limitation.
+for shared renderer findings. The subsequent missing-LOD0 correction retries
+approved siblings from the same regional profile; 44 focused presentation tests
+and the client typecheck pass. Full shared network gameplay remains unverified.
 
 After these changes, **1,349 tests in 164 files passed**, with zero failures in
 `artifacts/orvr/regional-inhabitant-integration-tests.json`. The production build,

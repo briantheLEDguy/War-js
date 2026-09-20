@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-20",
+  "profile": "npc_frontier_cinderfen_greenskin_peat_worker",
+  "npcId": "cinderfen_outskirts_inhabitant_peat_worker",
+  "name": "Barrek Reedhauler",
+  "zone": "cinderfen_outskirts",
+  "position": {
+    "x": 468,
+    "y": 0,
+    "z": -291
+  },
+  "mapSha256": "21bb2ef5e832195cf54ed04496daf00f61f9d265a02f8d053629fb64a7830432",
+  "harnessSha256": "45a5a901a5ba89d5c36ab17fad666a9b444f18cbe7218c7a2226fe260f634668",
+  "runtime": "Production local Game/NpcSpawner/RegionalNpcPresentation",
+  "observed": [
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 133208,
+      "visible": true
+    },
+    {
+      "distanceM": 45.2,
+      "lod": 1,
+      "triangles": 77251,
+      "visible": true
+    },
+    {
+      "distanceM": 100.2,
+      "lod": 2,
+      "triangles": 35849,
+      "visible": true
+    }
+  ],
+  "legacyFallbacks": 2,
+  "gm": {
+    "catalogCountAtPublication": 443,
+    "models": 3,
+    "defaultAnimation": "idle",
+    "test": "tests/regionalCharacterPublication.test.ts"
+  },
+  "limitations": [
+    "Full network campaign not played through.",
+    "Complete fitted outfit, not modular armor or a fitted siege operator.",
+    "Carried knife is visual equipment without harvesting interaction."
+  ]
+}

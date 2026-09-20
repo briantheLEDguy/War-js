@@ -42,3 +42,14 @@ authoring/blender/ember-arcanist-reference-rebuild/inherited/tools/
 authoring/blender/ember-arcanist-reference-rebuild/inherited/gorget.json
 authoring/blender/ember-arcanist-reference-rebuild/inherited/repeated_reliquaries.json
 authoring/blender/ember-arcanist-reference-rebuild/inherited/warhammer.json
+
+# Superseded civilian draft views stay local; final exports and frozen evidence ship.
+authoring/blender/cinderfen-peat-worker/review/*_[abcde].png
+authoring/blender/cinderfen-peat-worker/review/*_review_[abcde].json
+authoring/blender/cinderfen-peat-worker/review/*_lod0_front.png
+authoring/blender/cinderfen-peat-worker/review/*_lod0_head.png
+authoring/blender/cinderfen-peat-worker/review/arm-volume-lod0-a.json
+authoring/blender/cinderfen-peat-worker/review/tool-envelope-probe.json
+# Same model bytes before lossless audit compaction; retained locally for recovery.
+authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/62147b1f683ced60dbbf/
+authoring/blender/cinderfen-peat-worker/previous-accepted/

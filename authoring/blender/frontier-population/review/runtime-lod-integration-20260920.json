@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-20",
+  "profile": "npc_frontier_sunmeadow_dwarf_artisan",
+  "implementationCheckpoint": "22fcdb7",
+  "harness": "authoring/blender/frontier-population/runtime-npc-review.html",
+  "checks": [
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 150766
+    },
+    {
+      "distanceM": 45.2,
+      "lod": 1,
+      "triangles": 87444
+    },
+    {
+      "distanceM": 100.2,
+      "lod": 2,
+      "triangles": 40705
+    },
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 150766
+    }
+  ],
+  "visibleAtEverySample": true,
+  "correctedBoundsCenter": [
+    -413,
+    0.68,
+    -256.99
+  ],
+  "legacyFallbacks": 1,
+  "limitations": [
+    "Local production rendering only; no shared network playthrough.",
+    "Animation timeline continuity separately covered by focused unit tests."
+  ]
+}

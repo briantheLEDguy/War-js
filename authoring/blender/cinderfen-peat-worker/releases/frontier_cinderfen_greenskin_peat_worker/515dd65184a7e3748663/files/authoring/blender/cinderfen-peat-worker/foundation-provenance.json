@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "description": "Existing retained original Greenskin anatomy and weights; source GLB image bytes are packed into the editable derivative master. No historical release tree is copied.",
+  "license": "CC0-1.0 for MakeHuman system asset data; original project morphs and canonical rig adapter retained in repository",
+  "upstreamProvenance": {
+    "path": "authoring/blender/frontier-population/foundation-provenance.json",
+    "sha256": "569bd80a7ebe0331f00b649d8d298192defe39577cca01f289e35a7987564424",
+    "bytes": 11917
+  },
+  "inputs": [
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.glb",
+      "sha256": "d38a8005db49a4a592237bac44059c24f9dd4155f3dade4c1b9c54a6bfdd74f5",
+      "bytes": 12137484
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.qc.json",
+      "sha256": "fbb044437f12f62b1bae0e63d349849f2c5ba5dc09cfb4d0af3727dc575aa0ec",
+      "bytes": 14290
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/mire_brutish_v1_m.source.blend",
+      "sha256": "b9e60a82067848f33d0cdcdb3b5b513ab4646af991c989ca8405dc302bf4dfc3",
+      "bytes": 3020250
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/mire_brutish_v1_m.quad-surface.json.gz",
+      "sha256": "09f2c2c70af084264885a3d9395bfd0a290a6ce5a237b430d12ecdff5518d5c8",
+      "bytes": 1130363
+    }
+  ],
+  "derivative": "Broad jaw/muzzle, low brow, pointed ears, rooted curved tusks, complete original wet-work clothing and equipment, and character-specific contact fitting."
+}

@@ -1,0 +1,119 @@
+{
+  "assetId": "chr.frontier.cinderfen.greenskin_peat_worker",
+  "displayName": "Cinderfen Greenskin Peat Worker",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "regional_inhabitants"
+  ],
+  "runtime": {
+    "profileKey": "npc_frontier_cinderfen_greenskin_peat_worker",
+    "bodyFamily": "frontier_mire_worker",
+    "bodyVariant": "m",
+    "skeletonId": "frontier_mire_worker_v1",
+    "bindPoseId": "frontier_mire_worker_a_v1"
+  },
+  "output": {
+    "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
+    "artifactDir": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/runtime/frontier_cinderfen_greenskin_peat_worker_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_feet",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "frontier_mire_worker",
+    "skeletonId": "frontier_mire_worker_v1",
+    "bindPoseId": "frontier_mire_worker_a_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 133208,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 77251,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 35849,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierInhabitant",
+    "textureSet": "frontier_cinderfen_greenskin_peat_worker",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "body"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/sources/frontier_cinderfen_greenskin_peat_worker.blend",
+    "sourceSha256": "4bca8d68d410232b6f439f3d1ac5a452f8095a43a035c09ef3b87266980011f8",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 32,
+    "maxTris": 133208,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.9964492842555046,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.004
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "515dd65184a7e374866382a130b24f3b813bceb6bfdf68a512b1ce7753c04988",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

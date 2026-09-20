@@ -137,6 +137,19 @@ const regionalInhabitants = new Map<string, string>([
   ['npc_frontier_cinderfen_dark_elf_supply_officer', 'dark_elf'],
 ]);
 
+export async function resolveCampaignCharacter(
+  loader: Pick<AssetLoader, 'resolveCharacterAsset' | 'resolveApprovedAssetModels'>,
+  profileKey: string,
+): Promise<{ asset: CharacterAssetResolution | null; models: string[] }> {
+  const asset = await loader.resolveCharacterAsset(profileKey);
+  // These complete regional outfits carry their own rig and idle in each LOD.
+  // Missing primary-file metadata must not prevent trying their approved siblings;
+  // modular characters still require metadata for compatible gear and animation packs.
+  const models = asset || regionalInhabitants.has(profileKey)
+    ? await loader.resolveApprovedAssetModels(profileKey, 'characterProfiles') : [];
+  return { asset, models };
+}
+
 /** Preserve authored race/role and reviewed city variants; unbuilt racial sets stay unavailable. */
 export function campaignNpcProfile(npc: CampaignNpcPresentation): string | undefined {
   if (npc.profileKey?.startsWith('npc_frontier_')) {

@@ -5,16 +5,17 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { AssetLoader } from '../src/game/AssetLoader';
 import { assembleCampaignEquipment, campaignAnimationClips, campaignEquipmentKeys, campaignNpcProfile, resolveCampaignEquipment } from '../src/game/network/CampaignCharacterPresentation';
-import { releaseCampaignActor } from '../src/game/network/SharedCampaignRenderer';
+import { CampaignAssetQueue, releaseCampaignActor, SharedCampaignRenderer } from '../src/game/network/SharedCampaignRenderer';
 
 const modelPath = (name: string) => `${process.cwd()}/public/assets/models/${name}`;
 const registry = JSON.parse(readFileSync(modelPath('asset-index.json'), 'utf8'));
 const profile = registry.characterProfiles.civic_battle_prelate_m;
 
-function installManifestFetch(): AssetLoader {
+function installManifestFetch(missing = new Set<string>()): AssetLoader {
   vi.stubGlobal('crypto', webcrypto);
   vi.stubGlobal('fetch', vi.fn(async (input: string | Request, init?: RequestInit) => {
     const filename = String(input).split('?')[0].split('/').pop()!;
+    if (missing.has(filename)) return new Response(null, { status: 404 });
     const data = readFileSync(modelPath(filename));
     return new Response(init?.method === 'HEAD' ? null : data, { headers: { 'content-type': filename.endsWith('.json') ? 'application/json' : 'model/gltf-binary' } });
   }));
@@ -41,7 +42,108 @@ async function readAuthoredModel(filename: string) {
 
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
+async function createSharedActor(loader: AssetLoader, profileKey = 'npc_frontier_sunmeadow_dwarf_artisan') {
+  // Exercise production actor creation without allocating a browser WebGL context.
+  const description = { id: 'regional-service', profile: profileKey, signature: profileKey, position: { x: -413, y: 0, z: -257 }, self: false };
+  const stage = {
+    loader, queue: new CampaignAssetQueue(), scene: new THREE.Scene(), actors: new Map(),
+    pending: new Set(), unavailable: new Map(), desiredActors: new Map([[description.id, description]]),
+  };
+  const renderer = Object.assign(Object.create(SharedCampaignRenderer.prototype), { stage, disposed: false, snapshot: null });
+  await renderer.createActor(stage, description);
+  return { renderer, stage, description, actor: stage.actors.get(description.id) };
+}
+
 describe('reviewed shared character presentation', () => {
+  test.each([1, 2])('a missing primary regional GLB still presents its own available LOD%s, fitted meshes and embedded idle', async level => {
+    const key = 'npc_frontier_sunmeadow_dwarf_artisan';
+    const missing = new Set(Array.from({ length: level }, (_, index) => `frontier_sunmeadow_dwarf_artisan_lod${index}.glb`));
+    const loader = installManifestFetch(missing);
+    expect(await loader.resolveCharacterAsset(key)).toBeNull();
+    const models = await loader.resolveApprovedAssetModels(key, 'characterProfiles');
+    expect(models).toHaveLength(3);
+    const authored = await readAuthoredModel(models[level]);
+    const meshes = new Set<THREE.Mesh>(), bones = new Set<THREE.Bone>();
+    authored.object.traverse(node => {
+      if ((node as THREE.Mesh).isMesh) meshes.add(node as THREE.Mesh);
+      if ((node as THREE.Bone).isBone) bones.add(node as THREE.Bone);
+    });
+    const load = vi.spyOn(loader, 'loadModelFull').mockImplementation(async (filename, fallback) =>
+      missing.has(filename) ? { object: fallback!(), animations: [] } : authored);
+    const equipment = vi.spyOn(loader, 'resolveEquipmentModel');
+    const animationPack = vi.spyOn(loader, 'loadCharacterAnimations');
+    const { renderer, stage, actor, description } = await createSharedActor(loader, key);
+    expect(actor).toBeDefined();
+    expect(actor.selected).toBe(level);
+    expect(actor.models).toEqual(models);
+    expect(actor.signature).toBe(key);
+    expect(actor.object.parent).toBe(stage.scene);
+    expect(actor.object.position.toArray()).toEqual([-413, 0, -257]);
+    expect(actor.object.userData.campaignEntityId).toBe(description.id);
+    expect(stage.unavailable.size).toBe(0);
+    expect(stage.pending.size).toBe(0);
+    expect(load.mock.calls.map(([filename]) => filename)).toEqual(models.slice(0, level + 1));
+    expect(equipment).not.toHaveBeenCalled();
+    expect(animationPack).not.toHaveBeenCalled();
+    expect(actor.equipment).toEqual([]);
+    const visual = actor.levels.get(level);
+    expect(visual.object).toBe(authored.object);
+    expect(visual.object.visible).toBe(true);
+    expect(visual.crew).toBeUndefined();
+    const presentedMeshes = new Set<THREE.Mesh>();
+    actor.object.traverse((node: THREE.Object3D) => {
+      if ((node as THREE.Mesh).isMesh) presentedMeshes.add(node as THREE.Mesh);
+      if ((node as THREE.SkinnedMesh).isSkinnedMesh) {
+        expect((node as THREE.SkinnedMesh).skeleton.bones.every(bone => bones.has(bone))).toBe(true);
+      }
+      expect(node.userData.equipmentOverlay).toBeUndefined();
+    });
+    expect(meshes.size).toBeGreaterThan(0);
+    expect(bones.size).toBeGreaterThan(0);
+    expect(presentedMeshes).toEqual(meshes);
+    const authoredIdle = authored.animations.find(clip => /^idle$/i.test(clip.name))!;
+    expect(visual.idle.isRunning()).toBe(true);
+    expect(visual.idle.getClip().duration).toBe(authoredIdle.duration);
+    expect(visual.idle.getClip().tracks.length).toBeGreaterThan(0);
+    expect(visual.idle.getClip().tracks.every((track: THREE.KeyframeTrack) => authoredIdle.tracks.includes(track))).toBe(true);
+    const rotations = [...bones].map(bone => bone.quaternion.clone());
+    visual.mixer.update(.4);
+    expect([...bones].some((bone, index) => bone.quaternion.angleTo(rotations[index]) > .00001)).toBe(true);
+    // Returning toward the viewer never removes the working level in favor of a failed LOD0.
+    actor.desired = 0;
+    await renderer.loadActorLevel(stage, actor, 0);
+    expect(actor.selected).toBe(level);
+    expect(visual.object.visible).toBe(true);
+    renderer.releaseActor(actor); stage.queue.close(); loader.dispose();
+  });
+
+  test('an entirely unavailable regional set stays empty without substituting another character or primitive', async () => {
+    const missing = new Set([0, 1, 2].map(level => `frontier_sunmeadow_dwarf_artisan_lod${level}.glb`));
+    const loader = installManifestFetch(missing);
+    const load = vi.spyOn(loader, 'loadModelFull').mockImplementation(async (_, fallback) => ({ object: fallback!(), animations: [] }));
+    const { stage, actor, description } = await createSharedActor(loader);
+    expect(actor).toBeUndefined();
+    expect(load.mock.calls.map(([filename]) => filename)).toEqual([...missing]);
+    expect(stage.scene.children).toHaveLength(0);
+    expect(stage.pending.size).toBe(0);
+    expect(stage.unavailable.get(description.id)).toBe(description.signature);
+    stage.queue.close(); loader.dispose();
+  });
+
+  test.each(['npc_frontier_sunmeadow_dwarf_artisan', 'civic_battle_prelate_m'])('does not bypass missing approval or modular metadata for %s', async key => {
+    const loader = installManifestFetch();
+    vi.spyOn(loader, 'resolveCharacterAsset').mockResolvedValue(null);
+    const approved = vi.spyOn(loader, 'resolveApprovedAssetModels').mockResolvedValue(key.startsWith('npc_frontier_') ? [] : [profile.model]);
+    const load = vi.spyOn(loader, 'loadModelFull');
+    const { stage, actor, description } = await createSharedActor(loader, key);
+    expect(actor).toBeUndefined();
+    expect(stage.scene.children).toHaveLength(0);
+    expect(stage.unavailable.get(description.id)).toBe(key);
+    expect(load).not.toHaveBeenCalled();
+    if (key.startsWith('npc_frontier_')) expect(approved).toHaveBeenCalledWith(key, 'characterProfiles');
+    stage.queue.close(); loader.dispose();
+  });
+
   test.each([
     ['npc_frontier_sunmeadow_dwarf_artisan', 'dwarf', 'aegis'],
     ['npc_frontier_sunmeadow_empire_farmer', 'empire', 'aegis'],

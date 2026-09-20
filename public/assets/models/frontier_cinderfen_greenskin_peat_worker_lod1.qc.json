@@ -1,0 +1,505 @@
+{
+  "qcPassed": true,
+  "assetId": "chr.frontier.cinderfen.greenskin_peat_worker",
+  "modelSha256": "d4a5b4844bcfc4c70c9d90d5ec42bb4f687ab771530bc95a406ef0e58c8f5f1d",
+  "lod": 1,
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
+      "sha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "triangles": 133208,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod1.glb",
+      "sha256": "d4a5b4844bcfc4c70c9d90d5ec42bb4f687ab771530bc95a406ef0e58c8f5f1d",
+      "triangles": 77251,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod2.glb",
+      "sha256": "d187f41c4c3df12bdf65bd6780687031c62528af7d7de4c1eb4dadc0428fe4ec",
+      "triangles": 35849,
+      "externalTextures": []
+    }
+  ],
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
+      "sha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "triangles": 133208,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod1.glb",
+      "sha256": "d4a5b4844bcfc4c70c9d90d5ec42bb4f687ab771530bc95a406ef0e58c8f5f1d",
+      "triangles": 77251,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_greenskin_peat_worker_lod2.glb",
+      "sha256": "d187f41c4c3df12bdf65bd6780687031c62528af7d7de4c1eb4dadc0428fe4ec",
+      "triangles": 35849,
+      "externalTextures": []
+    }
+  ],
+  "externalTextures": [],
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "skeletonId": "frontier_mire_worker_v1",
+  "bindPoseId": "frontier_mire_worker_a_v1",
+  "skinned": true,
+  "animationClips": [
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "combat_idle",
+    "death",
+    "idle",
+    "jump",
+    "run",
+    "walk"
+  ],
+  "defaultAnimation": "idle",
+  "bounds": {
+    "min": [
+      -0.3903195858001709,
+      0.003999896347522736,
+      -0.15564455091953278
+    ],
+    "max": [
+      0.3872612714767456,
+      2.0004491806030273,
+      0.45456138253211975
+    ]
+  },
+  "reviewHash": "515dd65184a7e374866382a130b24f3b813bceb6bfdf68a512b1ce7753c04988",
+  "reviewEvidence": {
+    "assetId": "chr.frontier.cinderfen.greenskin_peat_worker",
+    "profileKey": "npc_frontier_cinderfen_greenskin_peat_worker",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
+        "sha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9"
+      },
+      {
+        "level": 1,
+        "model": "frontier_cinderfen_greenskin_peat_worker_lod1.glb",
+        "sha256": "d4a5b4844bcfc4c70c9d90d5ec42bb4f687ab771530bc95a406ef0e58c8f5f1d"
+      },
+      {
+        "level": 2,
+        "model": "frontier_cinderfen_greenskin_peat_worker_lod2.glb",
+        "sha256": "d187f41c4c3df12bdf65bd6780687031c62528af7d7de4c1eb4dadc0428fe4ec"
+      }
+    ],
+    "files": {
+      "authoring/blender/cinderfen-peat-worker/character-contract.json": {
+        "sha256": "2d9e970faa6fbf543ba6380afaea13153d3b48b4936b8475711c0079c6474cff",
+        "bytes": 997
+      },
+      "authoring/blender/cinderfen-peat-worker/foundation-provenance.json": {
+        "sha256": "532297bb6c870ab6ecc7289989db99ce22c135e5a38ecc116426429d758d64ba",
+        "bytes": 1653
+      },
+      "authoring/blender/cinderfen-peat-worker/review/arm-volume-lod0.json": {
+        "sha256": "f44ad66f4f231aa6e57a98bc8bff50cd475a44e69778835d636d461a527d6c65",
+        "bytes": 589157
+      },
+      "authoring/blender/cinderfen-peat-worker/review/arm-volume-lod1.json": {
+        "sha256": "0f7dd3a6d75da4ae4c11b82addc5ce92612197f9f3cf885b7f7049f8a4b01371",
+        "bytes": 589046
+      },
+      "authoring/blender/cinderfen-peat-worker/review/arm-volume-lod2.json": {
+        "sha256": "ddb46a0bd1b16d8fd92b424fa253b4651d04c8633b306991dadb05854c042b03",
+        "bytes": 589116
+      },
+      "authoring/blender/cinderfen-peat-worker/review/draft-validation.json": {
+        "sha256": "ca8f5a92f08c6933e86d0b048519bfae940e10a75097fb7514cbf3b5348c2880",
+        "bytes": 854
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_build.json": {
+        "sha256": "9a139fa73a71bfc24de350c93bcc0b2e2eadd4434e67d242f76538e1be84ebbf",
+        "bytes": 21992
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_death_2_f.png": {
+        "sha256": "7c931a4edb674886c5abf00c7a62bae845f1cf75ca9b8551c326ab983f29e90f",
+        "bytes": 1079802
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_front_f.png": {
+        "sha256": "98feceb98a89e781d086f0dd1e2bd239e7a66e89dc05bf12bf4093c2f338c663",
+        "bytes": 1066454
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_gameplay_f.png": {
+        "sha256": "fec96d422c6733aa4575e9c60f22a47ab3a46b2e50af370908d72816f5fce665",
+        "bytes": 989744
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_garment_clearance.json": {
+        "sha256": "77e8a40ca7277fe2a925fb93a689eb54d3419f81fe4a620726f99e66d5ef5559",
+        "bytes": 758669
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_head_f.png": {
+        "sha256": "65dd2aa01964b749a85a19ce332eb02744281f9d00fce669f7a6d2a86f8a3703",
+        "bytes": 1227930
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_motion.json": {
+        "sha256": "0d4d785b45603cdffc01d40d9298eefd7c9a0c3f344462ab56d7ffa21bb73d20",
+        "bytes": 5133892
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_rear_f.png": {
+        "sha256": "6fae361c62d8614788eef69d4e50d50562b96c956da964bdef4bb27a2ca2483f",
+        "bytes": 1039838
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_review_f.json": {
+        "sha256": "ca69ad19f34a9ce0363aa1694c1fbe0c52d2cca45150e57f5b1fff6060be058e",
+        "bytes": 2172
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_run_f.png": {
+        "sha256": "3966fb5d19769516eb33d5221c697cf3dbc60e7f3ad27105a3186f617d6a8659",
+        "bytes": 1069182
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_run_side_f.png": {
+        "sha256": "bd0a25b0b9df2519111c8a5ac095a5f1482c70af87f756edc271a5a0716cbce9",
+        "bytes": 1061134
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_tool_clearance.json": {
+        "sha256": "7dc1e153e3fb1ca4665b82f26cdaebef6653c4e019ed5fd5019a4b630fd2e320",
+        "bytes": 49664
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0_welt.json": {
+        "sha256": "b126c722130c6eaa0134a7cb23deb1b4476503d55d2853eb84fd8bc2d0468d66",
+        "bytes": 58201
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod0.glb.validation.json": {
+        "sha256": "756831117954a34eeeaa709ccee4273f15ed3e3ba193d7d60baa962fa34a0bbd",
+        "bytes": 10182
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod1_garment_clearance.json": {
+        "sha256": "06df601d426c4963b1d7f67600a0d2175307a08655a9060c0580ad928a63dbba",
+        "bytes": 756458
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod1_motion.json": {
+        "sha256": "7931219c734d0d777697f789a32c1bd3bbb8c6b123390f4402aa44c6519f2124",
+        "bytes": 5132379
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod1_tool_clearance.json": {
+        "sha256": "e5bddcf417b3b86103f041b45a2bf4c361b02e8734c22b29847be36d7e6e8333",
+        "bytes": 49662
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod1_welt.json": {
+        "sha256": "2a4eca37b87b38917056c1bb667a83df146083a497a83dbe74142d3be367e421",
+        "bytes": 58469
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod1.glb.validation.json": {
+        "sha256": "936e3a61680a162c2742f42b4dd658101546dfba0494b895b775cfb0d7833a6a",
+        "bytes": 10181
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod2_garment_clearance.json": {
+        "sha256": "838c8775927b44cd99b274c254a295de1eb19ccc525e86bab768e89f0245fd21",
+        "bytes": 755950
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod2_motion.json": {
+        "sha256": "1d851840f7a34172850441bdf78cd606171817cd8d6cff38a23e7bd9a98ddba4",
+        "bytes": 5130366
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod2_tool_clearance.json": {
+        "sha256": "aabb49af963d1966e007ee8c39dfc9cd8ede51ff49d63d5f7dbd9e9399da24f6",
+        "bytes": 49662
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod2_welt.json": {
+        "sha256": "5a6b075d81166245c53f4662ece74d93949cff62eed792f31f76c529cb760cfc",
+        "bytes": 58440
+      },
+      "authoring/blender/cinderfen-peat-worker/review/frontier_cinderfen_greenskin_peat_worker_lod2.glb.validation.json": {
+        "sha256": "6e1a5e2044ef2640b965a7d84b8d15d1b72adfa493317f0ab66d27970895b8b5",
+        "bytes": 10181
+      },
+      "authoring/blender/cinderfen-peat-worker/review/inhabitant.html": {
+        "sha256": "92acc173651243c350130f8f4b6ee59be191551c9380622a97e4f57de7d3bb99",
+        "bytes": 7862
+      },
+      "authoring/blender/cinderfen-peat-worker/review/master-continuity.json": {
+        "sha256": "d672a0af0113ab92c81cf213716ca917009157245ae9e470f71e45595ccdba88",
+        "bytes": 1490
+      },
+      "authoring/blender/cinderfen-peat-worker/runtime/frontier_cinderfen_greenskin_peat_worker_lod0.glb": {
+        "sha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+        "bytes": 26143104
+      },
+      "authoring/blender/cinderfen-peat-worker/runtime/frontier_cinderfen_greenskin_peat_worker_lod1.glb": {
+        "sha256": "d4a5b4844bcfc4c70c9d90d5ec42bb4f687ab771530bc95a406ef0e58c8f5f1d",
+        "bytes": 23523688
+      },
+      "authoring/blender/cinderfen-peat-worker/runtime/frontier_cinderfen_greenskin_peat_worker_lod2.glb": {
+        "sha256": "d187f41c4c3df12bdf65bd6780687031c62528af7d7de4c1eb4dadc0428fe4ec",
+        "bytes": 21481396
+      },
+      "authoring/blender/cinderfen-peat-worker/sources/frontier_cinderfen_greenskin_peat_worker.blend": {
+        "sha256": "4bca8d68d410232b6f439f3d1ac5a452f8095a43a035c09ef3b87266980011f8",
+        "bytes": 21425370
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/cinderfen_peat_worker_olive_skin.png": {
+        "sha256": "46d9072ba78086b01ee2be74b35cffc8796a316142b0345f59b57e8348234518",
+        "bytes": 3315750
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_tool_ash_basecolor.png": {
+        "sha256": "04d18f8bec70ad759cfaaa5fe70cb3a1cfbb71969cfda18b64334182917b476f",
+        "bytes": 253235
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_tool_ash_normal.png": {
+        "sha256": "f9c75f3abc4ac9458d53e7af23fdf71f760c1c35fad5f0f80176b8dffa373990",
+        "bytes": 81596
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_tool_ash_roughness.png": {
+        "sha256": "6ce118ce94f0c5f2ad0fa90845373e37e70576acab0720dedf6d0fdbaa8fa9b2",
+        "bytes": 160864
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_wool_basecolor.png": {
+        "sha256": "e9d6d35474ea3868c2d93a297eb9a0f9b052228fbcb4fb5c7bed73e49b151f5e",
+        "bytes": 310570
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_wool_normal.png": {
+        "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+        "bytes": 221744
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_wool_roughness.png": {
+        "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+        "bytes": 144135
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_worked_leather_basecolor.png": {
+        "sha256": "2eea15cdd54d1db03c9f82581cf51c19cbaa29b27a71bef55da7d487bdb03d6d",
+        "bytes": 699013
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_worked_leather_normal.png": {
+        "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+        "bytes": 1928552
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_worked_leather_roughness.png": {
+        "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+        "bytes": 866702
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_woven_linen_basecolor.png": {
+        "sha256": "9aef5330b97e7ff4e7962e6a96f6b1745da585fd131916c1346fa013f40d23b7",
+        "bytes": 661122
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_woven_linen_normal.png": {
+        "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+        "bytes": 611208
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/greenskin_peat_worker_woven_linen_roughness.png": {
+        "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+        "bytes": 350720
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/peat_worker_wax_bib_basecolor.png": {
+        "sha256": "e3799a67764080e15eb2b982e345379d57099bcf566d0069a26b4c8b6387545d",
+        "bytes": 854634
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/peat_worker_wax_bib_normal.png": {
+        "sha256": "5f1f1c773a6f8e32dbad8d988f1128410a1131768ba18d88bbf08fee9aa5526b",
+        "bytes": 1368640
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/peat_worker_wax_bib_roughness.png": {
+        "sha256": "42e69523206f6b4aff2620facf2842d20bbb1482c33b96a9120dc5971b914f15",
+        "bytes": 355292
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/peat_worker_worn_ivory_basecolor.png": {
+        "sha256": "4ca5be7f0d6ebe4c43e3d3210d714166cdfb396abf3beb30672b59bb50269de5",
+        "bytes": 164522
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/peat_worker_worn_ivory_normal.png": {
+        "sha256": "a7d71da2696a9e2ae9bf374eba72acff9559eb1c36e31ee106f27fe7622f87f3",
+        "bytes": 34049
+      },
+      "authoring/blender/cinderfen-peat-worker/textures/peat_worker_worn_ivory_roughness.png": {
+        "sha256": "dbfa0e6765d46e00d0d9ab85082b05a858c9554c533df6eeb4027631e798b01a",
+        "bytes": 95350
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/apron_clearance.py": {
+        "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+        "bytes": 5087
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/apron_details.py": {
+        "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+        "bytes": 4150
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/build_inhabitants.py": {
+        "sha256": "4732ac52cb276363f6881f9a5fc620d052dfe55a27a63d8f8ef8954b78352f54",
+        "bytes": 35269
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/export_tangents.py": {
+        "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "bytes": 3228
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/fitted_boot_details.py": {
+        "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+        "bytes": 3130
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/greenskin_identity.py": {
+        "sha256": "280b6d0f7f84236e16a6697e72e93224cb4b033acc6e40c586676b3c895f881a",
+        "bytes": 4935
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_arm_volume.py": {
+        "sha256": "7f646ef6d8fa6f7a7f0e5e4b6de45004b3358a0b44b614ff9290da940c372596",
+        "bytes": 6932
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_boot_welt.py": {
+        "sha256": "5c5a1264ca0856366349722de79b1e8ce58b9048066d2f8a22f56957f15c30ce",
+        "bytes": 6475
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_export_motion.py": {
+        "sha256": "a8519d72f6fa1d704dde5a9f8eced9dbd94ae3f92c52c044a136f46d055db6f0",
+        "bytes": 6975
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_foundation.py": {
+        "sha256": "3530b13e1c9a1d4b03ad723ad03c94dd03482bd2fa33617496559734e6737b07",
+        "bytes": 1379
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_garment_clearance.py": {
+        "sha256": "f2cc19d556f6aa864297446f83e4c1c2a5f6e8a870738626573b41c882815551",
+        "bytes": 10075
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_master.py": {
+        "sha256": "e3c76c17205b0e6d993b9f134788733ce25ed7423ea1cedcb183049ec97898f7",
+        "bytes": 2260
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_pose.py": {
+        "sha256": "a13d277ca523c5906218131d48b6213de58a19e7cf33dcc4d00d46175a1bd0b6",
+        "bytes": 823
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/inspect_tool_clearance.py": {
+        "sha256": "fbff5251bfdd14104e9311ddc8d879b7b3f4644d150f48011baaf6e6448e7d5e",
+        "bytes": 5015
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/peat_equipment.py": {
+        "sha256": "3a3a61915810a2db512822bbbfb6dbb96f448c37ab03a1f6e1bc8ff297d29fb6",
+        "bytes": 3955
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/peat_locomotion.py": {
+        "sha256": "a385c5c1474542f61cfb073f79ec425c8abcc96c791390c3415ccd1e9e3985e8",
+        "bytes": 5237
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/probe_tool_envelope.py": {
+        "sha256": "772f90b70ed783be1ac8a8af7c3d5d8edcbe277a647eaba26feb4e362d6b2faf",
+        "bytes": 2583
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/probe_tool_mount.py": {
+        "sha256": "6ca48984a7f72befee4111f7c2681dcb9392ac073cd173a8b8e2ca2926b5795f",
+        "bytes": 765
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/retain_inputs.py": {
+        "sha256": "2a69a43bb7b9b009ba85fd846e402c54c7e2ca5f93e394075c680b67f5aba7b6",
+        "bytes": 1257
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/review_inhabitants.py": {
+        "sha256": "8fa436f9e2195d20b7858afd85a690513d12f45ca7eae20224b33e0a75a22fc7",
+        "bytes": 7708
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/run_quality.py": {
+        "sha256": "fe5f825dfbe28af74da024e45c4471c868856e73c2b3d17dbe9f92c19df27d0c",
+        "bytes": 1336
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/scaffold.py": {
+        "sha256": "1010f1315d259d7e5c904b8a29d1d013c81a2df9089d034535e4d28a51e7eba0",
+        "bytes": 960
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/surface_bindings.py": {
+        "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+        "bytes": 2223
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/surface_garments.py": {
+        "sha256": "01bf0ba2fca94f1199fce45c662ecd371cc5d32f51ec06fba5ea2033e4d5c56b",
+        "bytes": 11537
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/tailored_clothing.py": {
+        "sha256": "5910f4f94c8e38a693a969297f55f83611ca601f95dec65940ee69cce7edf2c7",
+        "bytes": 5962
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/tailored_locomotion.py": {
+        "sha256": "cddc9a2884c34b45b377b378cd8dfb3ec6eff4f6288f9662313c050ce148719f",
+        "bytes": 21780
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/test_exports.py": {
+        "sha256": "ce2549486575129e64c6280de4843bc28f4213509d0afeae1c8aceb2d1c00c51",
+        "bytes": 9063
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/validate_inhabitants.mjs": {
+        "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+        "bytes": 2351
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/wet_workwear.py": {
+        "sha256": "ae1589bb1b428f7757a9b6fd8cf73b519d45bbc6de4b460d68110a5144e77d4e",
+        "bytes": 4364
+      },
+      "authoring/blender/cinderfen-peat-worker/tools/workwear_finish.py": {
+        "sha256": "4920b4c9e0a29538cb212d641dd0d847244b25210a86f993bc1576d3674a57c9",
+        "bytes": 7924
+      },
+      "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.glb": {
+        "sha256": "d38a8005db49a4a592237bac44059c24f9dd4155f3dade4c1b9c54a6bfdd74f5",
+        "bytes": 12137484
+      },
+      "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.qc.json": {
+        "sha256": "fbb044437f12f62b1bae0e63d349849f2c5ba5dc09cfb4d0af3727dc575aa0ec",
+        "bytes": 14290
+      },
+      "authoring/blender/frontier-population/foundations/mire_brutish_v1_m.quad-surface.json.gz": {
+        "sha256": "09f2c2c70af084264885a3d9395bfd0a290a6ce5a237b430d12ecdff5518d5c8",
+        "bytes": 1130363
+      },
+      "authoring/blender/frontier-population/foundations/mire_brutish_v1_m.source.blend": {
+        "sha256": "b9e60a82067848f33d0cdcdb3b5b513ab4646af991c989ca8405dc302bf4dfc3",
+        "bytes": 3020250
+      },
+      "authoring/blender/frontier-population/tools/inhabitant_review.mjs": {
+        "sha256": "59ffe91d4fc9cb48b7207d37e48fb90da08fdbabf822e797f717a571d437ba95",
+        "bytes": 1430
+      },
+      "scripts/blender-character-pipeline/blender/anim_library.py": {
+        "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+        "bytes": 22611
+      },
+      "scripts/blender-character-pipeline/blender/canonical_animation_pack.py": {
+        "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+        "bytes": 8960
+      },
+      "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py": {
+        "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+        "bytes": 17430
+      },
+      "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json": {
+        "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+        "bytes": 1755
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+        "bytes": 1070
+      },
+      "scripts/blender-character-pipeline/tools/world-asset-approval.mjs": {
+        "sha256": "7335d52a94a977d785bd93b387bc50ba29cec19e494c9323b6d0b979688c0a38",
+        "bytes": 633
+      },
+      "scripts/campaign/publish-regional-inhabitant.mjs": {
+        "sha256": "1efc19de6e5d1c77f34de3494ff1889f3634c51ce2047573ff257089bcf9bbd5",
+        "bytes": 13754
+      },
+      "scripts/campaign/regional-publication-evidence.mjs": {
+        "sha256": "a728aef40a03be32f7a40c373463b9ae374068d6e4dd05609bcd37ea320924a4",
+        "bytes": 3249
+      }
+    }
+  },
+  "frozenSource": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663",
+  "previewImages": [],
+  "limitations": [
+    "Complete fitted outfit; not a modular armor body.",
+    "Requires its own fitted embedded clips; no siege crew compatibility claim.",
+    "Carried tools are visual equipment; no harvesting interaction is claimed."
+  ]
+}

@@ -4,7 +4,7 @@ import { Terrain } from '../../world/Terrain';
 import { loadZone, type ZoneDefinition, type PropSpawn } from '../../world/ZoneLoader';
 import type { WorldSnapshot, Position, EquipmentState } from '../../shared/orvr/protocol';
 import type { CampaignConnection } from './CampaignConnection';
-import { assembleCampaignEquipment, campaignAnimationClips, campaignNpcProfile, resolveCampaignEquipment, type CampaignEquipmentModule } from './CampaignCharacterPresentation';
+import { assembleCampaignEquipment, campaignAnimationClips, campaignNpcProfile, resolveCampaignCharacter, resolveCampaignEquipment, type CampaignEquipmentModule } from './CampaignCharacterPresentation';
 import { StaticPropInstances } from '../StaticPropInstances';
 import { frontierPropDistances } from '../../world/FrontierProps';
 import { campaignGateBindings, campaignGateVisible, sceneryDistanceLod, type CampaignGateBinding } from './CampaignSceneryPresentation';
@@ -393,12 +393,9 @@ export class SharedCampaignRenderer {
     stage.pending.add(id);
     let actor: Actor | undefined;
     try {
-      const asset = description.staticKey ? undefined : await stage.queue.run(() => stage.loader.resolveCharacterAsset(description.profile ?? ''), true);
-      let models: string[];
-      if (description.staticKey) models = await stage.loader.resolveApprovedAssetModels(description.staticKey, 'staticProps');
-      else if (asset) {
-        models = await stage.loader.resolveApprovedAssetModels(description.profile ?? '', 'characterProfiles');
-      } else models = [];
+      const { asset, models } = description.staticKey
+        ? { asset: null, models: await stage.loader.resolveApprovedAssetModels(description.staticKey, 'staticProps') }
+        : await stage.queue.run(() => resolveCampaignCharacter(stage.loader, description.profile ?? ''), true);
       if (!models.length) { stage.unavailable.set(id, description.signature); return; }
       const equipment = asset ? await resolveCampaignEquipment(stage.loader, description.profile ?? '', asset) : [];
       const latest = stage.desiredActors.get(id);

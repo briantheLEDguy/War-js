@@ -72930,6 +72930,17 @@
       "z": -267,
       "rotY": 0,
       "characterProfileKey": "npc_riftbound_kara_ashvein_resource_warden"
+    },
+    {
+      "id": "cinderfen_outskirts_inhabitant_peat_worker",
+      "name": "Barrek Reedhauler",
+      "title": "Peat Yard Worker",
+      "role": "ambient",
+      "approvedOnly": true,
+      "characterProfileKey": "npc_frontier_cinderfen_greenskin_peat_worker",
+      "x": 468,
+      "z": -291,
+      "rotY": -1.5707963267948966
     }
   ],
   "craftingStations": [
@@ -82001,6 +82012,13 @@
         "role": "beast",
         "desiredProfileKey": "frontier_creature_cinder_wolf",
         "status": "planned"
+      },
+      {
+        "entityId": "cinderfen_outskirts_inhabitant_peat_worker",
+        "race": "greenskin",
+        "role": "ambient",
+        "desiredProfileKey": "npc_frontier_cinderfen_greenskin_peat_worker",
+        "status": "approved"
       }
     ],
     "architecture": {
@@ -82020,5 +82038,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "9a455f01f92261e6"
+  "staticMapHash": "a3f70b59d5a833a6"
 }

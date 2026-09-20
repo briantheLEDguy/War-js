@@ -1,0 +1,22 @@
+{
+  "method": "continuous anatomical mesh deformation",
+  "legacyTuskComponentsRemoved": [
+    {
+      "vertices": 120,
+      "minimumY": -0.23944947123527527
+    },
+    {
+      "vertices": 120,
+      "minimumY": -0.23944947123527527
+    }
+  ],
+  "sculptedFeatures": [
+    "broad mandibular angle",
+    "projecting lower muzzle",
+    "low heavy brow",
+    "broad nose",
+    "shortened cranium",
+    "pointed lateral ears"
+  ],
+  "newTusks": "rooted curved profiles from lower lip corners"
+}

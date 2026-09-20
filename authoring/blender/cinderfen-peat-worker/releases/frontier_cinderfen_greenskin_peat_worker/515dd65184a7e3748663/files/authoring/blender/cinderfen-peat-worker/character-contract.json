@@ -1,0 +1,27 @@
+{
+  "assetId": "chr.frontier.cinderfen.greenskin_peat_worker",
+  "profileId": "npc_frontier_cinderfen_greenskin_peat_worker",
+  "modelKey": "frontier_cinderfen_greenskin_peat_worker",
+  "race": "greenskin",
+  "realm": "riftbound",
+  "role": "peat worker",
+  "bodyFamily": "frontier_mire_worker",
+  "bodyVariant": "m",
+  "skeletonId": "frontier_mire_worker_v1",
+  "bindPoseId": "frontier_mire_worker_a_v1",
+  "requiredClips": [
+    "idle",
+    "walk",
+    "run",
+    "combat_idle",
+    "attack_melee",
+    "attack_ranged",
+    "cast",
+    "death",
+    "jump"
+  ],
+  "equipmentPolicy": "Complete fitted civilian outfit; sheathed peat knife is scenery and does not claim a runtime harvesting interaction.",
+  "foundation": "authoring/blender/frontier-population/foundations/body_mire_brutish_v1_m.glb",
+  "publication": "Technically ready for parent publication from final F bytes. Root owns approved manifest, runtime, maps and GM registration.",
+  "runtimeReady": true
+}

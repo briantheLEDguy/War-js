@@ -190,7 +190,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "cinderfen",
     "levelBand": "Tier 1",
-    "staticMapHash": "9a455f01f92261e6"
+    "staticMapHash": "a3f70b59d5a833a6"
   },
   {
     "id": "bleakroot_causeway",
@@ -1595,7 +1595,7 @@ export const CAMPAIGN_MAP_HASHES = {
   "brightfen_approach": "232aab410bd8a24e",
   "glassriver_ford": "4fedb7fe3e81d200",
   "highvale_rampart": "9ab88d41ee7e2a98",
-  "cinderfen_outskirts": "9a455f01f92261e6",
+  "cinderfen_outskirts": "a3f70b59d5a833a6",
   "bleakroot_causeway": "ef7a0387f490c014",
   "vilemere_heights": "c640d097a93c4bea",
   "ashen_steppe": "52e8ff767ba92dc4",

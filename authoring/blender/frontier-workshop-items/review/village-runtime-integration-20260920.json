@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-20",
+  "implementationCheckpoint": "22fcdb7",
+  "runtime": "Production Game/Player through local authoring review",
+  "mapSha256": {
+    "sunmeadow_march": "f38f349913797f31368d75d3c9b86c4d64f12fdd69591484eb01cb0eb33486d7",
+    "cinderfen_outskirts": "9194485dc26bfc1b05d9524f74ba0f4d659dda4b6bfac2f89ac252fd366e6355"
+  },
+  "harnessSha256": "bc25de77dab653f0bb4670258c94d0c32b68f0c98b0485efc1d15ab059ff1e40",
+  "checks": [
+    {
+      "zone": "cinderfen_outskirts",
+      "item": "repair_bench",
+      "direction": "east",
+      "start": [
+        483,
+        0.6,
+        -252.5
+      ],
+      "end": [
+        484.639,
+        0.6,
+        -252.5
+      ],
+      "result": "Held at visible working edge on raised deck"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "item": "supply_cradle",
+      "direction": "east",
+      "start": [
+        480.85,
+        0.6,
+        -252.5
+      ],
+      "end": [
+        481.506,
+        0.6,
+        -252.5
+      ],
+      "result": "Held at visible working edge on raised deck"
+    },
+    {
+      "zone": "sunmeadow_march",
+      "item": "repair_bench",
+      "direction": "north",
+      "start": [
+        -402.028,
+        0,
+        -251.88
+      ],
+      "end": [
+        -400.923,
+        0,
+        -253.175
+      ],
+      "result": "Angled front deflected walking into clear service space; inspector alive"
+    }
+  ],
+  "limitations": [
+    "Bounded local checks, not full campaign or network acceptance.",
+    "Sunmeadow player floor remains terrain zero beneath 0.086m modeled boards.",
+    "Existing sky fallback in both zones; existing guard fallback also in Cinderfen.",
+    "Furnishings remain scenery; no new repair or ammunition interaction."
+  ]
+}
