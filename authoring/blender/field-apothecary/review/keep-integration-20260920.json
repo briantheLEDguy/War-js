@@ -1,0 +1,355 @@
+{
+  "verifiedAt": "2026-09-20T16:14:53.623Z",
+  "modelSha256": "ad505319ec15cb6612268de76e096a64c0397dc196e2ee7f1600e4c4e599b48d",
+  "harnessSha256": "89be757d59660febd7a32c24f009936df491a005f069a9c38cb058ee278f7885",
+  "placements": [
+    {
+      "zone": "aegis_crownworks",
+      "id": "aegis_crownworks_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "9cb96f49a183cceb0898bc98600816d4d7faa94b7fe33df2a2439d6150596651"
+    },
+    {
+      "zone": "aegis_crownworks",
+      "id": "aegis_crownworks_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "9cb96f49a183cceb0898bc98600816d4d7faa94b7fe33df2a2439d6150596651"
+    },
+    {
+      "zone": "aegis_gate_fortress",
+      "id": "aegis_gate_fortress_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "156e031f45f325b3f574de6ba134cd43f6310ac174d44d9daabc89f92da7beb4"
+    },
+    {
+      "zone": "aegis_gate_fortress",
+      "id": "aegis_gate_fortress_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "156e031f45f325b3f574de6ba134cd43f6310ac174d44d9daabc89f92da7beb4"
+    },
+    {
+      "zone": "ashen_steppe",
+      "id": "ashen_steppe_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "56b68691f12227fdd36d81e7df2dcc63c9c5bdd23ffc69387fa6693ffebb6ff7"
+    },
+    {
+      "zone": "ashen_steppe",
+      "id": "ashen_steppe_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "56b68691f12227fdd36d81e7df2dcc63c9c5bdd23ffc69387fa6693ffebb6ff7"
+    },
+    {
+      "zone": "bleakroot_causeway",
+      "id": "bleakroot_causeway_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "083ae79510f44bd383dcfe66bda02ed2bbab0ba2b3935dc523374cdd6d30734c"
+    },
+    {
+      "zone": "bleakroot_causeway",
+      "id": "bleakroot_causeway_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "083ae79510f44bd383dcfe66bda02ed2bbab0ba2b3935dc523374cdd6d30734c"
+    },
+    {
+      "zone": "brightfen_approach",
+      "id": "brightfen_approach_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "f815c2b4629aa9586726c39295cd1f69efe37af27b19303adbc978226f78e9cf"
+    },
+    {
+      "zone": "brightfen_approach",
+      "id": "brightfen_approach_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "f815c2b4629aa9586726c39295cd1f69efe37af27b19303adbc978226f78e9cf"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "id": "cinderfen_outskirts_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 13,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "0b1ac637066bdc7c1f12f281941f92bed0096cd8c85f63aed4aba66b6f704a53"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "id": "cinderfen_outskirts_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": 13,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "0b1ac637066bdc7c1f12f281941f92bed0096cd8c85f63aed4aba66b6f704a53"
+    },
+    {
+      "zone": "dawnline_expanse",
+      "id": "dawnline_expanse_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "3e09dda1d496ac1a7ff68f13c094ee6c53be76bf17f6b2c5636c57b7b2a2bc54"
+    },
+    {
+      "zone": "dawnline_expanse",
+      "id": "dawnline_expanse_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "3e09dda1d496ac1a7ff68f13c094ee6c53be76bf17f6b2c5636c57b7b2a2bc54"
+    },
+    {
+      "zone": "glassriver_ford",
+      "id": "glassriver_ford_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "4f88bd3ef48b9db8924e4321bf51f8fec72c060cf4eed0403fe62bcc395e38c7"
+    },
+    {
+      "zone": "glassriver_ford",
+      "id": "glassriver_ford_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "4f88bd3ef48b9db8924e4321bf51f8fec72c060cf4eed0403fe62bcc395e38c7"
+    },
+    {
+      "zone": "gorepine_pass",
+      "id": "gorepine_pass_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "d0ebe86f51907ac290acef426bcf65b11434ac6e51e4f46b86cba3e23ff2ef2b"
+    },
+    {
+      "zone": "gorepine_pass",
+      "id": "gorepine_pass_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "d0ebe86f51907ac290acef426bcf65b11434ac6e51e4f46b86cba3e23ff2ef2b"
+    },
+    {
+      "zone": "greybrook_crossing",
+      "id": "greybrook_crossing_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "6de695047ddf2858c2ac50828a330c2a54bfb8f699ad3b36919cc10adbb034cc"
+    },
+    {
+      "zone": "greybrook_crossing",
+      "id": "greybrook_crossing_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "6de695047ddf2858c2ac50828a330c2a54bfb8f699ad3b36919cc10adbb034cc"
+    },
+    {
+      "zone": "highvale_rampart",
+      "id": "highvale_rampart_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "ef8379d38ede17c70f5daea62c11f80a5a2ec1bae0202cab63135852286060de"
+    },
+    {
+      "zone": "highvale_rampart",
+      "id": "highvale_rampart_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "ef8379d38ede17c70f5daea62c11f80a5a2ec1bae0202cab63135852286060de"
+    },
+    {
+      "zone": "ironwood_redoubt",
+      "id": "ironwood_redoubt_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "303ca34d49275ab97f0b2bdb52cb76a4016cc554391bb102b771c0edc4cd6477"
+    },
+    {
+      "zone": "ironwood_redoubt",
+      "id": "ironwood_redoubt_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "303ca34d49275ab97f0b2bdb52cb76a4016cc554391bb102b771c0edc4cd6477"
+    },
+    {
+      "zone": "obsidian_scar",
+      "id": "obsidian_scar_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "8c38cb3df382818f6c443c40efe099f4372422e0b57486df81bdf40967643d3b"
+    },
+    {
+      "zone": "obsidian_scar",
+      "id": "obsidian_scar_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "8c38cb3df382818f6c443c40efe099f4372422e0b57486df81bdf40967643d3b"
+    },
+    {
+      "zone": "rift_crownworks",
+      "id": "rift_crownworks_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "627a8e606bb4b9bc2b9e655bc3ea0a003a028f3d890fb138fdf03c5a8569de23"
+    },
+    {
+      "zone": "rift_crownworks",
+      "id": "rift_crownworks_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "627a8e606bb4b9bc2b9e655bc3ea0a003a028f3d890fb138fdf03c5a8569de23"
+    },
+    {
+      "zone": "rift_gate_fortress",
+      "id": "rift_gate_fortress_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "ef22560fc8f0fee6ec0d977c89b4f588b366a5d70ad81469877ef8bd316b8bdd"
+    },
+    {
+      "zone": "rift_gate_fortress",
+      "id": "rift_gate_fortress_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "ef22560fc8f0fee6ec0d977c89b4f588b366a5d70ad81469877ef8bd316b8bdd"
+    },
+    {
+      "zone": "shatterline_expanse",
+      "id": "shatterline_expanse_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "112170d4bf3a333686f17ef71502b3dfbb1862e56dc00a16171a5fd0ba6e2d66"
+    },
+    {
+      "zone": "shatterline_expanse",
+      "id": "shatterline_expanse_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "112170d4bf3a333686f17ef71502b3dfbb1862e56dc00a16171a5fd0ba6e2d66"
+    },
+    {
+      "zone": "sunmeadow_march",
+      "id": "sunmeadow_march_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 13,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "8db5d7daa4e5f24b46e3d18b509cc60c7c143fc25c422d8d1b9aeb6f78d65b96"
+    },
+    {
+      "zone": "sunmeadow_march",
+      "id": "sunmeadow_march_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": 13,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "8db5d7daa4e5f24b46e3d18b509cc60c7c143fc25c422d8d1b9aeb6f78d65b96"
+    },
+    {
+      "zone": "vilemere_heights",
+      "id": "vilemere_heights_delivered_aegis_apothecary",
+      "x": -358,
+      "y": 0,
+      "z": 3,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "0c8f07d95740f43c7d4b9a9f7923cc21c46109cc4d38fbd87b16066fbd6231c1"
+    },
+    {
+      "zone": "vilemere_heights",
+      "id": "vilemere_heights_delivered_riftbound_apothecary",
+      "x": 342,
+      "y": 0,
+      "z": -6,
+      "model": "frontier_field_apothecary_lod0.glb",
+      "mapSha256": "0c8f07d95740f43c7d4b9a9f7923cc21c46109cc4d38fbd87b16066fbd6231c1"
+    }
+  ],
+  "verification": {
+    "enclosures": "All 36 retain closed boundaries and breached gate/commander access; each table, bench and cradle working front has a reachable approach and exact collision-free final standing segment.",
+    "geometry": "Four authored Sunmeadow/Cinderfen keep tables clear actual nearby structural and furnishing GLB triangles.",
+    "gameplay": {
+      "zone": "cinderfen_outskirts",
+      "id": "cinderfen_outskirts_delivered_aegis_apothecary",
+      "start": [
+        -358,
+        0,
+        14.12
+      ],
+      "end": [
+        -358,
+        0,
+        13.96
+      ],
+      "action": "North for two seconds through production Game/Player controls",
+      "result": "Table holds player; fully assembled table, bench, wall and stair spacing visually inspected."
+    }
+  },
+  "limitations": [
+    "Only the stated Cinderfen keep received this actual local gameplay press; all keep placements received computed navigation/clearance checks.",
+    "Other regional exterior replacement models and full campaign/performance acceptance remain unfinished."
+  ]
+}

@@ -16,9 +16,10 @@ Barrek Reedhauler, the Greenskin peat worker, and Edric Hayward, the Empire
 farmer, are published in Cinderfen and Sunmeadow and in the GM catalog. Both
 retain editable masters, complete fitted clothing, nine clips and three LODs;
 local gameplay verified their distance switching and visibility.
-The shared apothecary worktable is placed in both regional supply shelters and
+The shared apothecary worktable is placed in all 36 keeps and both regional supply shelters and
 available in the GM builder, with three LODs, measured collision and accessible
-working fronts. Both placements passed mesh, navigation and local gameplay checks.
+working fronts. The shelter placements passed mesh, navigation and local gameplay
+checks; all keep workfronts remain reachable, with a local Cinderfen keep collision check.
 The next character batch covers the herbalist, Dark Elf supply officer and High
 Elf scout. Publication preserves existing NPC/service IDs and requires matched
 body/rig identity plus fitted clothing and animation checks.

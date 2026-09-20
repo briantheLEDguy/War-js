@@ -1,11 +1,19 @@
 import fs from 'node:fs';
 import { roadPropFootprints } from './orvr-road-network.mjs';
 
-export const SHARED_KEEP_ITEMS = ['frontier_siege_repair_bench', 'frontier_siege_ammunition_cradle'];
+const KEEP_FURNISHINGS = [
+  { key: 'frontier_siege_repair_bench', role: 'repair_bench', sign: -1, candidates: [[8, 8], [8, 4], [8, 0], [6, 8], [6, 0]] },
+  { key: 'frontier_siege_ammunition_cradle', role: 'ammunition', sign: 1, candidates: [[8, 8], [8, 4], [8, 0], [6, 8], [6, 0]] },
+  { key: 'frontier_field_apothecary', role: 'apothecary', sign: -1,
+    candidates: [[8, -6], [6, -6], [8, 13], [6, 13], [8, 3], [6, 10], [5, -6]] },
+];
+export const SHARED_KEEP_ITEMS = KEEP_FURNISHINGS.map(item => item.key);
 
 export function sharedKeepItemMetadata() {
-  const file = new URL('../../authoring/blender/frontier-workshop-items/builder-metadata.json', import.meta.url);
-  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).assets : {};
+  return Object.assign({}, ...['frontier-workshop-items', 'field-apothecary'].map(name => {
+    const file = new URL(`../../authoring/blender/${name}/builder-metadata.json`, import.meta.url);
+    return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).assets : {};
+  }));
 }
 
 const overlaps = (a, b, gap = 0) => a.minX < b.maxX + gap && a.maxX > b.minX - gap
@@ -36,17 +44,15 @@ export function integrateSharedKeepItems(zone, assets, metadata = sharedKeepItem
       ...keep.siegeSlots.map(slot => pointBox(slot, 4)),
       ...[keep.postern, ...keep.posterns ?? []].filter(Boolean)
         .flatMap(postern => [pointBox(postern.inside, 2), pointBox(postern.outside, 2)]), ...actors];
-    for (const [index, key] of SHARED_KEEP_ITEMS.entries()) {
+    for (const { key, role, sign, candidates } of KEEP_FURNISHINGS) {
       const asset = assets.staticProps[key], contract = metadata[key];
       if (!asset?.runtimeReady || !contract?.runtimeReady || !asset.modelSha256
         || contract.modelSha256 !== asset.modelSha256 || !contract.colliders?.length
         || !contract.boundsYUp || !contract.approachSource) continue;
-      const sign = index === 0 ? -1 : 1;
       // Human-scale inner-court work bays, away from the central commander route.
       // Candidates remain in the narrowest keep; measured solids reject conflicts.
-      const candidates = [[8, 8], [8, 4], [8, 0], [6, 8], [6, 0]];
       for (const [x, z] of candidates) {
-        const prop = { id: `${zone.id}_delivered_${keep.realm}_${index === 0 ? 'repair_bench' : 'ammunition'}`,
+        const prop = { id: `${zone.id}_delivered_${keep.realm}_${role}`,
           kind: key, assetKey: key, model: asset.model, x: keep.x + sign * x, z: keep.z + z,
           rotY: 0, scale: 1, colliderSpace: 'model', cameraSolid: contract.cameraSolid ?? true,
           colliders: structuredClone(contract.colliders), walkableSurfaces: structuredClone(contract.walkableSurfaces ?? []),

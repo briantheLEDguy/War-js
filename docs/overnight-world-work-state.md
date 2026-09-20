@@ -17,7 +17,7 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,386 tests in 166 files**. Production build
+The latest full regression pass is **1,409 tests in 168 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
@@ -42,7 +42,7 @@ All eight Sunmeadow supply shelters now expose their measured 86mm raised
 floor to local/shared navigation and GM placement. A local player walked off
 the boards to terrain and back onto them successfully. Twenty-three focused
 floor, furnishing and village-access tests pass; the latest full suite above
-precedes this small collision-data addition.
+includes the floor and apothecary additions.
 
 The next parallel batch is active: `sunmeadow-herbalist/`,
 `cinderfen-supply-officer/` and `sunmeadow-scout/`. Their package work states

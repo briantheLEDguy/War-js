@@ -1,3 +1,9 @@
+## 2026-09-20 — Universal keep preparation tables
+
+- Furnished all 36 keeps with the published apothecary table, using measured bays and protected commander, gate and garrison access.
+- Verified every shared workfront and both breach stages, actual Sunmeadow/Cinderfen structural meshes, and a production-player collision press in Cinderfen.
+- Added ground and body-clearance checks for the three upcoming regional service characters.
+
 ## 2026-09-20 — Shared field apothecary delivery
 
 - Published original three-LOD apothecary worktable, six packed editable masters, measured collision and GM definition.

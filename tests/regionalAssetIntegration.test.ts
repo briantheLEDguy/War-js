@@ -13,12 +13,14 @@ import { composeCinderfenLandscape } from '../scripts/campaign/cinderfen-landsca
 // @ts-expect-error Campaign authoring source is executable JavaScript.
 import { integrateCinderfen } from '../scripts/campaign/cinderfen-integration.mjs';
 import { mapPropNavigation } from '../server/mapNavigation';
-import { campaignColliderContains, campaignGroundHeight } from '../src/shared/orvr/navigation';
+import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../src/shared/orvr/navigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { createKeepEnclosureAudit } from '../scripts/audit-keep-enclosures';
 const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const source = read('public/assets/maps/sunmeadow_march.json');
 const registry = read('public/assets/models/asset-index.json');
+const furnishingContracts = () => Object.assign({}, ...['frontier-workshop-items', 'field-apothecary']
+  .map(name => read(`authoring/blender/${name}/builder-contract.json`).assets));
 
 test('delivered cast preserves service identities and wildlife stays off objective/travel corridors', () => {
   const result = integrateRegionalAssets(structuredClone(source), registry);
@@ -38,7 +40,7 @@ test('delivered cast preserves service identities and wildlife stays off objecti
 test('siege contents share keys across pairings while existing thematic exteriors stay intact', async () => {
   const configs = await loadCampaignMapConfigs();
   const ready = structuredClone(registry);
-  const contracts = read('authoring/blender/frontier-workshop-items/builder-contract.json').assets;
+  const contracts = furnishingContracts();
   for(const key of SHARED_KEEP_ITEMS) {
     ready.staticProps[key] = { runtimeReady: true, model: `${key}_lod0.glb`, modelSha256: key };
     Object.assign(contracts[key], { runtimeReady: true, modelSha256: key });
@@ -51,7 +53,7 @@ test('siege contents share keys across pairings while existing thematic exterior
     const result = integrateRegionalAssets(map, ready, contracts);
     const config = configs.find(config => config.id === map.id)!;
     const items = result.props.filter((p: {id: string; assetKey: string}) => p.id.includes('_delivered_') && SHARED_KEEP_ITEMS.includes(p.assetKey));
-    expect(items, map.id).toHaveLength(4);
+    expect(items, map.id).toHaveLength(6);
     expect(result.props.filter((p: {id: string}) => !p.id.includes('_delivered_') && !p.id.includes('_worksite_'))).toEqual(before);
     expect(integrateRegionalAssets(structuredClone(result), ready, contracts)).toEqual(result);
     const solids = mapPropNavigation(before, () => 0).collision;
@@ -84,6 +86,20 @@ test('siege contents share keys across pairings while existing thematic exterior
       expect(audit().reachable, `${keep.id} remains closed`).toBe(false);
       expect(audit({ breachedGates: ['outer'], target: courtyard }).reachable, `${keep.id} forecourt`).toBe(true);
       expect(audit({ breachedGates: ['outer', 'inner'] }).reachable, `${keep.id} commander access`).toBe(true);
+      for (const item of items.filter((item: { id: string }) => item.id.startsWith(`${map.id}_delivered_${keep.realm}_`))) {
+        const front = sharedKeepItemEnvelopes(item, contracts[item.assetKey])[1];
+        const target = { x: (front.minX + front.maxX) / 2, y: 0, z: (front.minZ + front.maxZ) / 2 };
+        // The half-metre audit grid can round a valid close workfront into the
+        // table. Reach an outer approach cell, then verify the exact last step.
+        const approach = { ...target, z: target.z + .4 };
+        expect(audit({ breachedGates: ['outer', 'inner'], target: approach }).reachable, `${item.id} working access`).toBe(true);
+        for (let step = 0; step <= 8; step++) {
+          const point = { ...target, z: target.z + step * .05 };
+          point.y = campaignGroundHeight(config, point);
+          expect(collision.some(collider => campaignColliderBlocksHeight(collider, point.y)
+            && campaignColliderContains(collider, point, .45)), `${item.id} exact standing approach`).toBe(false);
+        }
+      }
     }
   }
 }, 30000);
@@ -91,7 +107,7 @@ test('siege contents share keys across pairings while existing thematic exterior
 test('unfinished or stale workshop collision metadata never creates pass-through scenery', () => {
   const ready = structuredClone(registry);
   for (const key of SHARED_KEEP_ITEMS) ready.staticProps[key] = { runtimeReady: true, model: `${key}_lod0.glb`, modelSha256: 'current' };
-  const stale = read('authoring/blender/frontier-workshop-items/builder-contract.json').assets;
+  const stale = furnishingContracts();
   for (const contract of Object.values(stale) as Record<string, unknown>[]) Object.assign(contract, { runtimeReady: true, modelSha256: 'old' });
   for (const metadata of [{}, stale]) {
     const result = integrateRegionalAssets(structuredClone(source), ready, metadata);
@@ -101,7 +117,7 @@ test('unfinished or stale workshop collision metadata never creates pass-through
 
 test('delivered Cinderfen workshop contents retain order and placement through regional refreshes', () => {
   const ready = structuredClone(registry);
-  const contracts = read('authoring/blender/frontier-workshop-items/builder-contract.json').assets;
+  const contracts = furnishingContracts();
   for (const key of SHARED_KEEP_ITEMS) {
     ready.staticProps[key] = { runtimeReady: true, model: `${key}_lod0.glb`, modelSha256: key };
     Object.assign(contracts[key], { runtimeReady: true, modelSha256: key });
@@ -111,7 +127,7 @@ test('delivered Cinderfen workshop contents retain order and placement through r
   const prepared = refresh(read('public/assets/maps/cinderfen_outskirts.json'));
   const delivered = integrateRegionalAssets(prepared, ready, contracts);
   const items = delivered.props.filter((prop: { id: string; assetKey: string }) => prop.id.includes('_delivered_') && SHARED_KEEP_ITEMS.includes(prop.assetKey));
-  expect(items).toHaveLength(4);
+  expect(items).toHaveLength(6);
   const refreshed = refresh(structuredClone(delivered));
   expect(refreshed.props).toEqual(delivered.props);
   expect(integrateRegionalAssets(refreshed, ready, contracts).props).toEqual(delivered.props);

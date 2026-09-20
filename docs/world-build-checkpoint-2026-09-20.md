@@ -1,5 +1,18 @@
 # World build checkpoint — September 20, 2026
 
+## Universal keep preparation furnishings
+
+The same published apothecary table now supplies all 36 keeps, in addition to
+the two village stations. Regional exteriors are unchanged. All three keep
+furnishings have reachable working fronts and exact final standing approaches;
+all 36 enclosures retain closed boundaries, outer-court and commander access
+through the appropriate breached gates. Four authored Sunmeadow/Cinderfen keep
+tables also clear actual nearby wall/stair/furnishing triangles. The new
+Cinderfen keep table holds a local player press at (-358, 0, 13.960).
+The separate keep integration receipt retains all 36 placement/map hashes and
+the bounded gameplay result. Eighty-seven keep/furnishing/integration checks
+pass across three files; this addition follows the full suite recorded below.
+
 ## Shared apothecary and shelter-floor delivery
 
 The original field apothecary table is published with 38,574 / 19,512 / 8,694
@@ -13,7 +26,12 @@ passes beside the resource warden. Mesh tests verify actual host clearance and
 four supported feet; navigation tests verify a 0.5m actor can reach both working
 fronts and original station centers. Eighteen furnishing/floor tests and 24
 regional identity/publication tests pass. All 33 maps, 888 model records and 445
-GM definitions validate. Both actual-game two-second table presses stop the
+GM definitions validate. The final full suite passes **1,409 tests in 168 files**,
+with production build and client/server typechecks passing. Initial concurrent
+testing hit three five-second timeouts during Blender work; those 83 focused
+checks passed unchanged, followed by the complete suite with two test workers.
+Reports are retained locally under artifacts/orvr/apothecary-delivery*.json.
+Both actual-game two-second table presses stop the
 player correctly at .086m / .35m floor height. Exact map/model/harness hashes and
 bounded-check limitations are saved in the package runtime integration receipt.
 

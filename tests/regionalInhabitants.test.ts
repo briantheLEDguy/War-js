@@ -51,7 +51,7 @@ test('planned, wrong-identity or obstructed characters never add proxy residents
 const servicePresentations = Object.entries(REGIONAL_SERVICE_PRESENTATIONS).flatMap(([id, characters]) =>
   (characters as Array<{ suffix: string; race: string; profile: string; assetId: string }>).map(character => ({ id, character })));
 
-test.each(servicePresentations)('$id/$character.suffix service art preserves gameplay identity and selects its own racial rig', ({ id, character }) => {
+test.each(servicePresentations)('$id/$character.suffix service art preserves gameplay identity and selects its own racial rig', async ({ id, character }) => {
   const source = map(id);
   const npcId = `${id}_${character.suffix}`, original = structuredClone(source.npcs!.find(npc => npc.id === npcId)!);
   const assets = { characterProfiles: { [character.profile]: profile(character) } };
@@ -65,6 +65,14 @@ test.each(servicePresentations)('$id/$character.suffix service art preserves gam
   expect(assignment).toMatchObject({ race: character.race, desiredProfileKey: character.profile, status: 'approved' });
   expect(campaignNpcProfile({ id: npcId, role: updated.role, profileKey: updated.characterProfileKey, race: assignment.race })).toBe(character.profile);
   expect(integrateRegionalServicePresentations(structuredClone(result), assets)).toEqual(result);
+  const config = (await loadCampaignMapConfigs()).find(config => config.id === id)!;
+  const y = campaignGroundHeight(config, { x: updated.x, y: updated.y ?? 0, z: updated.z });
+  expect(config.collision.some(collider => campaignColliderBlocksHeight(collider, y, 1.95)
+    && campaignColliderContains(collider, updated, .5)), 'service character has body clearance').toBe(false);
+  for (const dx of [-.2, .2]) for (const dz of [-.2, .2]) {
+    expect(Math.abs(campaignGroundHeight(config, { x: updated.x + dx, y, z: updated.z + dz }) - y),
+      'both feet have consistent ground support').toBeLessThan(.025);
+  }
 });
 
 test.each(servicePresentations)('$id/$character.suffix unfinished service art leaves the existing NPC and population unchanged', ({ id, character }) => {

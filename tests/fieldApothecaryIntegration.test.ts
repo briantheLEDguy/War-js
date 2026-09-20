@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
-import { Box3, Ray, Vector3 } from 'three';
+import { Box3, Matrix4, Quaternion, Ray, Vector3 } from 'three';
 import { expect, test } from 'vitest';
 import { modelTriangles } from './helpers/staticGlbGeometry';
 import { mapPropNavigation } from '../server/mapNavigation';
@@ -52,6 +52,34 @@ test('the delivered preparation table has matching source, three LODs, packed ma
 });
 
 for (const id of ['sunmeadow_march', 'cinderfen_outskirts']) {
+  test(`${id}: both keep tables clear the actual authored walls, stairs and furnishings`, () => {
+    const zone = read(`public/assets/maps/${id}.json`);
+    const tables = zone.props.filter((prop: { id: string }) => new RegExp(`^${id}_delivered_(aegis|riftbound)_apothecary$`).test(prop.id));
+    expect(tables).toHaveLength(2);
+    const meshes = new Map<string, ReturnType<typeof modelTriangles>>();
+    for (const table of tables) {
+      const bounds = metadata[key].boundsYUp;
+      const volume = new Box3(new Vector3(table.x + bounds.minimum[0], (table.y ?? 0) + .02, table.z + bounds.minimum[2]),
+        new Vector3(table.x + bounds.maximum[0], (table.y ?? 0) + bounds.maximum[1], table.z + bounds.maximum[2]));
+      for (const prop of zone.props) {
+        if (prop.id === table.id || prop.visible === false || !prop.colliders?.length
+          || Math.hypot(prop.x - table.x, prop.z - table.z) > 40) continue;
+        const model = prop.model ?? registry.staticProps[prop.assetKey]?.model;
+        if (!model || !fs.existsSync(`public/assets/models/${model}`)) continue;
+        if (!meshes.has(model)) meshes.set(model, modelTriangles(model));
+        const scale = prop.scale ?? 1;
+        const transform = new Matrix4().compose(new Vector3(prop.x, prop.y ?? 0, prop.z),
+          new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), prop.rotY ?? 0),
+          new Vector3(scale * (prop.scaleX ?? 1), scale * (prop.scaleY ?? 1), scale * (prop.scaleZ ?? 1)));
+        expect(meshes.get(model)!.some(source => {
+          const triangle = source.clone();
+          triangle.a.applyMatrix4(transform); triangle.b.applyMatrix4(transform); triangle.c.applyMatrix4(transform);
+          return volume.intersectsTriangle(triangle);
+        }), `${table.id} clears visible ${prop.id}`).toBe(false);
+      }
+    }
+  });
+
   test(`${id}: fits one shared table without changing its themed shelter, services or routes`, () => {
     const source = read(`public/assets/maps/${id}.json`);
     const zone = integrateRegionalApothecaries(structuredClone(source), registry);

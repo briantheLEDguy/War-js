@@ -47,7 +47,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "fortress",
     "theme": "aegis_fortress",
     "levelBand": "Endgame",
-    "staticMapHash": "8b7260b7266d8810"
+    "staticMapHash": "62beba7a411004a5"
   },
   {
     "id": "aegis_crownworks",
@@ -58,7 +58,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "aegis_highlands",
     "levelBand": "Tier 4",
-    "staticMapHash": "6816bfb320d86a1c"
+    "staticMapHash": "74b3789846e749b2"
   },
   {
     "id": "dawnline_expanse",
@@ -69,7 +69,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "frontier_grassland",
     "levelBand": "Tier 4",
-    "staticMapHash": "025effabe5f54c24"
+    "staticMapHash": "89dc1aa7d201e409"
   },
   {
     "id": "shatterline_expanse",
@@ -80,7 +80,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "rift_frontier",
     "levelBand": "Tier 4",
-    "staticMapHash": "259bc9ad14079dd2"
+    "staticMapHash": "c46f28c00224e82f"
   },
   {
     "id": "rift_crownworks",
@@ -91,7 +91,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "rift_highlands",
     "levelBand": "Tier 4",
-    "staticMapHash": "3d3d88eb223f0be0"
+    "staticMapHash": "bb6f3899d221b9de"
   },
   {
     "id": "rift_gate_fortress",
@@ -102,7 +102,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "fortress",
     "theme": "rift_fortress",
     "levelBand": "Endgame",
-    "staticMapHash": "537b63c5ef3dc9c0"
+    "staticMapHash": "e71e65a8c3fc77be"
   },
   {
     "id": "riftspire_capital",
@@ -124,7 +124,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "sunlit_fields",
     "levelBand": "Tier 1",
-    "staticMapHash": "c7f631f6a7758686"
+    "staticMapHash": "fb17d7b76f6b17ac"
   },
   {
     "id": "greybrook_crossing",
@@ -135,7 +135,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "river_crossing",
     "levelBand": "Tier 2",
-    "staticMapHash": "b7355d8889e38084"
+    "staticMapHash": "b7fbbe04f54b1e83"
   },
   {
     "id": "ironwood_redoubt",
@@ -146,7 +146,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "ironwood_forest",
     "levelBand": "Tier 3",
-    "staticMapHash": "80be7c103c8c9159"
+    "staticMapHash": "7a8598f0b7a11e8b"
   },
   {
     "id": "brightfen_approach",
@@ -157,7 +157,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "brightfen",
     "levelBand": "Tier 1",
-    "staticMapHash": "232aab410bd8a24e"
+    "staticMapHash": "014ed13f2f579c28"
   },
   {
     "id": "glassriver_ford",
@@ -168,7 +168,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "glassriver",
     "levelBand": "Tier 2",
-    "staticMapHash": "4fedb7fe3e81d200"
+    "staticMapHash": "818d21de072b76da"
   },
   {
     "id": "highvale_rampart",
@@ -179,7 +179,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "highvale",
     "levelBand": "Tier 3",
-    "staticMapHash": "9ab88d41ee7e2a98"
+    "staticMapHash": "b4bcb6d3b0ffe817"
   },
   {
     "id": "cinderfen_outskirts",
@@ -190,7 +190,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "cinderfen",
     "levelBand": "Tier 1",
-    "staticMapHash": "60b4fd83149412c8"
+    "staticMapHash": "c8f993bd44daa568"
   },
   {
     "id": "bleakroot_causeway",
@@ -201,7 +201,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "bleakroot",
     "levelBand": "Tier 2",
-    "staticMapHash": "ef7a0387f490c014"
+    "staticMapHash": "565acdf9c8840a27"
   },
   {
     "id": "vilemere_heights",
@@ -212,7 +212,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "vilemere",
     "levelBand": "Tier 3",
-    "staticMapHash": "c640d097a93c4bea"
+    "staticMapHash": "c294c0a6f8442a50"
   },
   {
     "id": "ashen_steppe",
@@ -223,7 +223,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "ashen_steppe",
     "levelBand": "Tier 1",
-    "staticMapHash": "52e8ff767ba92dc4"
+    "staticMapHash": "2677bb0b85fd67f4"
   },
   {
     "id": "gorepine_pass",
@@ -234,7 +234,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "gorepine",
     "levelBand": "Tier 2",
-    "staticMapHash": "802501e12f0475a7"
+    "staticMapHash": "2fe4e6d13a48e61c"
   },
   {
     "id": "obsidian_scar",
@@ -245,7 +245,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "obsidian_scar",
     "levelBand": "Tier 3",
-    "staticMapHash": "01b766babc7f9c74"
+    "staticMapHash": "3a73d29327d644f6"
   },
   {
     "id": "wardens_hollow",
@@ -1582,25 +1582,25 @@ export const CAMPAIGN_OBJECTIVES = {
 
 export const CAMPAIGN_MAP_HASHES = {
   "aegis_capital": "377d653c3b4ae130",
-  "aegis_gate_fortress": "8b7260b7266d8810",
-  "aegis_crownworks": "6816bfb320d86a1c",
-  "dawnline_expanse": "025effabe5f54c24",
-  "shatterline_expanse": "259bc9ad14079dd2",
-  "rift_crownworks": "3d3d88eb223f0be0",
-  "rift_gate_fortress": "537b63c5ef3dc9c0",
+  "aegis_gate_fortress": "62beba7a411004a5",
+  "aegis_crownworks": "74b3789846e749b2",
+  "dawnline_expanse": "89dc1aa7d201e409",
+  "shatterline_expanse": "c46f28c00224e82f",
+  "rift_crownworks": "bb6f3899d221b9de",
+  "rift_gate_fortress": "e71e65a8c3fc77be",
   "riftspire_capital": "7534a54b6d02d4b3",
-  "sunmeadow_march": "c7f631f6a7758686",
-  "greybrook_crossing": "b7355d8889e38084",
-  "ironwood_redoubt": "80be7c103c8c9159",
-  "brightfen_approach": "232aab410bd8a24e",
-  "glassriver_ford": "4fedb7fe3e81d200",
-  "highvale_rampart": "9ab88d41ee7e2a98",
-  "cinderfen_outskirts": "60b4fd83149412c8",
-  "bleakroot_causeway": "ef7a0387f490c014",
-  "vilemere_heights": "c640d097a93c4bea",
-  "ashen_steppe": "52e8ff767ba92dc4",
-  "gorepine_pass": "802501e12f0475a7",
-  "obsidian_scar": "01b766babc7f9c74",
+  "sunmeadow_march": "fb17d7b76f6b17ac",
+  "greybrook_crossing": "b7fbbe04f54b1e83",
+  "ironwood_redoubt": "7a8598f0b7a11e8b",
+  "brightfen_approach": "014ed13f2f579c28",
+  "glassriver_ford": "818d21de072b76da",
+  "highvale_rampart": "b4bcb6d3b0ffe817",
+  "cinderfen_outskirts": "c8f993bd44daa568",
+  "bleakroot_causeway": "565acdf9c8840a27",
+  "vilemere_heights": "c294c0a6f8442a50",
+  "ashen_steppe": "2677bb0b85fd67f4",
+  "gorepine_pass": "2fe4e6d13a48e61c",
+  "obsidian_scar": "3a73d29327d644f6",
   "wardens_hollow": "4585f5a6200091f4",
   "briarwatch_den": "70cba516beaffdf7",
   "stormbarrow_lair": "151cc53296644823",
