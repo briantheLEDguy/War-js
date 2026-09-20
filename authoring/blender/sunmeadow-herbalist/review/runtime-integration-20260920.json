@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-20",
+  "profile": "npc_frontier_sunmeadow_empire_herbalist",
+  "npcId": "sunmeadow_march_forager",
+  "name": "Serra Brightfield",
+  "zone": "sunmeadow_march",
+  "position": {
+    "x": -446,
+    "z": -267
+  },
+  "grounding": "Grounded by production terrain and the measured 86mm shelter floor.",
+  "mapSha256": "5e2a33daef34f5ae957abde67ddaf87e8d5afa5dcb7a0ed03dd52d7499fa0c4b",
+  "harness": "authoring/blender/frontier-population/runtime-npc-review.html",
+  "harnessSha256": "45a5a901a5ba89d5c36ab17fad666a9b444f18cbe7218c7a2226fe260f634668",
+  "runtime": "Production local Game/NpcSpawner/RegionalNpcPresentation",
+  "release": "63072b851393b42f4329",
+  "observed": [
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 156290,
+      "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+      "sha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        -446,
+        1.01,
+        -267
+      ]
+    },
+    {
+      "distanceM": 45.2,
+      "lod": 1,
+      "triangles": 90647,
+      "model": "frontier_sunmeadow_empire_herbalist_lod1.glb",
+      "sha256": "d9236e264cb0861ff7aafce695c0c6f95a53ac72e5f90ceac54e4d7c47ad2928",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        -446,
+        1.01,
+        -267
+      ]
+    },
+    {
+      "distanceM": 100.2,
+      "lod": 2,
+      "triangles": 42197,
+      "model": "frontier_sunmeadow_empire_herbalist_lod2.glb",
+      "sha256": "8f750f1e399d0cf86081677cb1b1fbd7aa43385611699c1bd43f65c0ae77e0cf",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        -446,
+        1.01,
+        -267
+      ]
+    }
+  ],
+  "unavailableLegacyAssets": 1,
+  "gmDefinitions": 449,
+  "validatedMaps": 33,
+  "validatedModelRecords": 900,
+  "productionBuildPassed": true,
+  "limits": [
+    "Bounded local scene and LOD verification, not full shared-campaign or performance acceptance.",
+    "Own fitted nine-clip wardrobe; arbitrary modular armor, cloth simulation and interactive harvesting remain outside this delivery."
+  ],
+  "combinedVerification": {
+    "fullSuite": {
+      "report": "artifacts/orvr/sunmeadow-cast-delivery-tests.json",
+      "sha256": "ce3704eaa9c9033b266445d18c7a17bd00701fa90798649887f3576792277db0",
+      "passed": 1436,
+      "failed": 0,
+      "files": 170,
+      "workers": 1
+    },
+    "gmDefinitions": 450,
+    "validatedModelRecords": 903,
+    "validatedMaps": 33,
+    "productionBuildPassed": true
+  }
+}

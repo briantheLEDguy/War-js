@@ -1,0 +1,20 @@
+{
+  "assetId": "chr.frontier.sunmeadow.empire_herbalist",
+  "profileId": "npc_frontier_sunmeadow_empire_herbalist",
+  "key": "frontier_sunmeadow_empire_herbalist",
+  "displayName": "Sunmeadow Empire Herbalist",
+  "race": "empire",
+  "gender": "female",
+  "bodyFamily": "frontier_sunmeadow_empire_herbalist_v1_f",
+  "foundationFamily": "civic_humanoid_v2_f",
+  "skeletonId": "sunmeadow_herbalist_humanoid_v1",
+  "bindPoseId": "sunmeadow_herbalist_a_pose_v1",
+  "runtimeReady": true,
+  "publicationOwner": "root task",
+  "technicalGate": "python authoring/blender/sunmeadow-herbalist/tools/test_exports.py",
+  "scope": "Complete fitted civilian herbalist outfit and static carried gathering equipment; own nine clips; no modular armor, siege crew or interactive harvesting claim.",
+  "bodyVariant": "f",
+  "technicalReadiness": "review/technical-readiness.json",
+  "reviewSuffix": "_l",
+  "status": "technically-ready-frozen"
+}

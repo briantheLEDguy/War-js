@@ -1,0 +1,69 @@
+{
+  "modelSha256": "d9236e264cb0861ff7aafce695c0c6f95a53ac72e5f90ceac54e4d7c47ad2928",
+  "bounds": {
+    "min": [
+      -0.3277287483215332,
+      -0.22486340999603271,
+      0.004000045359134674
+    ],
+    "max": [
+      0.32813143730163574,
+      0.22596149146556854,
+      1.8390001058578491
+    ]
+  },
+  "images": [
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_empire_herbalist_lod1_front_l.png",
+      "sha256": "48c57299cf992cc315abcccdb97899d2aac9929836446950985c6cd7ed358c4c",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_empire_herbalist_lod1_head_l.png",
+      "sha256": "dc4f73d411cdcd3d6b5804bf68d378ae306c7ccdbf37803ee3620f43ee31c391",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "side",
+      "image": "review\\frontier_sunmeadow_empire_herbalist_lod1_side_l.png",
+      "sha256": "6df1bbc45e25a1b97809769f056b8e0b6d4a695202af9de12f24f06ae8d59e66",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "rear",
+      "image": "review\\frontier_sunmeadow_empire_herbalist_lod1_rear_l.png",
+      "sha256": "ada903db6d43a0aa1979df6ad51f9f8bb695fc7ebf8a335f4d0a904dbb546010",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_empire_herbalist_lod1_run_side_l.png",
+      "sha256": "f5383201e8385f4985ecddf04af20a0b250b47f09e06823963d4348d2d4f036f",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_empire_herbalist_lod1_death_2_l.png",
+      "sha256": "e603d804d8952864d474466303ccde3fa5699b3dbc8713ec616a9338f652f141",
+      "clip": "death",
+      "seconds": 2.0
+    }
+  ],
+  "status": "inspected-current-export",
+  "inspectedViews": [
+    "front",
+    "head",
+    "side",
+    "rear",
+    "run_side",
+    "death:2"
+  ],
+  "inspectionScope": "Actual reimported current GLB. Inspected full front/side/rear silhouette, female face and fitted groom, rounded exposed limbs, continuous shirt/sleeves, divided running hem, physically suspended rear equipment, clean belt layers and prone support. Small linen areas below the rear belt are the underlying shirt visible in the open working slit; actual ray material classification retained separately. No arbitrary equipment, animation-blend, runtime-cloth or browser-gameplay claim."
+}

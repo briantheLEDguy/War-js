@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "description": "Literal retained female civic anatomical GLB, editable source, quad surface and QC. Normalized 1.76 m baseline to 1.86 m authoring reference, then coherent High Elf morph x .94, y .97, z 1.055 for geometry and rig.",
+  "license": "CC0-1.0 for retained MakeHuman system asset data; original project morph and canonical rig adapter",
+  "inputs": [
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.glb",
+      "retained": "authoring/blender/sunmeadow-scout/foundations/body_civic_humanoid_v2_f.glb",
+      "sha256": "3edd6e13efed1d07ef51a8794852a3dc0af7e281e406265d2b58a77046a8ffb6",
+      "bytes": 10059524
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.qc.json",
+      "retained": "authoring/blender/sunmeadow-scout/foundations/body_civic_humanoid_v2_f.qc.json",
+      "sha256": "6a00c213e6573a936f43347522585f2886b35dce02a7f2a42cdac66667b070e7",
+      "bytes": 13754
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.source.blend",
+      "retained": "authoring/blender/sunmeadow-scout/foundations/civic_humanoid_v2_f.source.blend",
+      "sha256": "863c9315f0fe8dd137df0725dcb31be9e4426b85a1c4f3f84394f6b426019440",
+      "bytes": 2510116
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.quad-surface.json.gz",
+      "retained": "authoring/blender/sunmeadow-scout/foundations/civic_humanoid_v2_f.quad-surface.json.gz",
+      "sha256": "dc0da94fa00d7b98836568e454d5beba04f15e95013a63b855bbebb5fbaabe13",
+      "bytes": 1130606
+    }
+  ],
+  "retainedHelperOrigins": [
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/build_inhabitants.py",
+      "sha256": "b27058d60ee12e11234da90cc83cff9cede82e3929b3c052c3fe076dc3ab82bc",
+      "bytes": 32405
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/tailored_clothing.py",
+      "sha256": "8c441d6a872f42ffb74c9131bffaca7c0eaa6ecd0572758f355bfb518219e615",
+      "bytes": 5898
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/tailored_locomotion.py",
+      "sha256": "3dbd8f9d6c9025ad77438a022ab6a14a7864a327a218a0106676ef5fba1bffb9",
+      "bytes": 25317
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/surface_garments.py",
+      "sha256": "0a1277c704f6ce60609b972b5aefebc21eb922645ba343f210996baa287913b6",
+      "bytes": 10037
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/surface_bindings.py",
+      "sha256": "cdb9d1b8fb4293dab25c5dd9315e158459a95a90a4bf5d665f2f71e91eb77898",
+      "bytes": 2267
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/fitted_boot_details.py",
+      "sha256": "3d7a6d5aea8e78c38324f741b15bf45e378dd1f9ff466237976fea5c0f7d6336",
+      "bytes": 3194
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/apron_clearance.py",
+      "sha256": "de97cc1351d0bf2ed90ee38b381cacdb9eb1a95714f77cc625480ef26f0748a7",
+      "bytes": 5184
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/export_tangents.py",
+      "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+      "bytes": 3281
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/workwear_finish.py",
+      "sha256": "9e3ff03942d6f174b08c1f24fa8594a9bcc775a374423a2079b04459fb0d361f",
+      "bytes": 7921
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/inspect_arm_volume.py",
+      "sha256": "7edeab793ca4c3d3194f5d8df7e8fc450a8c8dabe360e26cfeeeb659b83b2656",
+      "bytes": 8032
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/inspect_boot_clearance.py",
+      "sha256": "22ba617620767fd0ffafce96939834664df344360a01a81c45db3ddecd757036",
+      "bytes": 7133
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/inspect_boot_welt.py",
+      "sha256": "4a52239276043a507c6bd5f5960b839e93036694f5aed456f25f4a6c739765f7",
+      "bytes": 6471
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/inspect_export_motion.py",
+      "sha256": "b25dba4b08edc2abb4cc4744d5ebeaa34e76de6c838dd8c7d877ad8f2fcd30f9",
+      "bytes": 7750
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/inspect_outfit_clearance.py",
+      "sha256": "7e96dd6abf364aff53866412aec9c7b0424b7e2690e3117ab8f0ae0ea9c279a0",
+      "bytes": 5603
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/inspect_master.py",
+      "sha256": "632a7e1ed532b393beef0d297f1d10fabaab902ae0d1aa539fb9db43a4d89c6b",
+      "bytes": 2241
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/review_inhabitants.py",
+      "sha256": "d8fb6f32cd77f32ef0f4d2e511a49c17846327a4e7444245c434973e21e2a5a8",
+      "bytes": 7708
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/validate_inhabitants.mjs",
+      "sha256": "d7209b652b2760fe1947a8c7b9c94bb1222912cd00b22f0da75598e9fc9c613d",
+      "bytes": 2385
+    },
+    {
+      "path": "authoring/blender/sunmeadow-herbalist/tools/test_exports.py",
+      "sha256": "84c593910c9774f83979f74af0e8d845a8902835d1b06a4005be7fb0d39ef6f9",
+      "bytes": 6304
+    }
+  ]
+}

@@ -1,5 +1,38 @@
 # World build checkpoint — September 20, 2026
 
+## Sunmeadow herbalist/scout and expanded keep gameplay checks
+
+Serra Brightfield and Mira Stonewake now use their original fitted Empire
+herbalist and High Elf scout models in the game and GM builder. Existing IDs,
+names, titles, roles and positions are preserved. Frozen releases are
+`63072b851393b42f4329` and `d12b92a97fb9806ee882`. The herbalist passes nine
+technical gates, including zero belt/cloth crossings through all clips. The scout
+passes thirteen gates, including 32 equipment/seam attachments and the corrected
+LOD2 boot surface; LOD0/1 were preserved. Both retain packed editable masters,
+PBR textures, nine clips and 18 actual-import views. All six GLBs have zero
+Khronos errors/warnings.
+
+Production Game/NpcSpawner verifies visible LOD0/1/2 at 6.2/45.2/100.2m:
+herbalist 156,290/90,647/42,197 triangles; scout 168,246/97,542/49,336.
+Serra stands on the shelter floor and Mira retains her forward-scout position.
+Each package retains exact runtime hashes and limits. One unavailable legacy
+asset remains in the scene. The scout's bow remains stowed; this is not a
+bow-drawing gameplay or arbitrary equipment compatibility claim.
+
+The production Game/Player also held all 16 exterior corner attempts and eight
+closed gates across both Sunmeadow and Cinderfen keeps. Every one of Cinderfen's
+16 stairs reached the 6.3m wall walk, and all 32 upper-rail presses held at
+5.075m after 0.609–0.613m lateral travel. Full results/source hashes are saved in
+`authoring/blender/orvr-frontier/review/keep-gameplay-20260920.json`. This expands
+the earlier bounded check to all Cinderfen stair assemblies; it does not claim
+an exhaustive live walk through all 36 campaign keeps.
+
+Production build passes; 33 maps, 903 model records and 450 GM definitions
+validate. The combined suite passes **1,436 tests in 170 files**, saved in
+`artifacts/orvr/sunmeadow-cast-delivery-tests.json`. The quartermaster,
+Empire field captain and universal command table remain in production. Full
+shared-campaign, performance and final zone acceptance remain open.
+
 ## Universal field arms rack delivery
 
 All 36 keeps and the GM builder now include the original four-polearm rack.

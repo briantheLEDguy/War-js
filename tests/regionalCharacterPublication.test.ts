@@ -21,6 +21,16 @@ const publications = [{
   assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer', zone: 'cinderfen_outskirts',
   npcId: 'cinderfen_outskirts_marshal', name: 'Nyra Vex',
   race: 'dark_elf', realm: 'riftbound', role: 'guard',
+}, {
+  packageName: 'sunmeadow-herbalist', key: 'frontier_sunmeadow_empire_herbalist',
+  assetId: 'chr.frontier.sunmeadow.empire_herbalist', zone: 'sunmeadow_march',
+  npcId: 'sunmeadow_march_forager', name: 'Serra Brightfield',
+  race: 'empire', realm: 'aegis', role: 'ambient',
+}, {
+  packageName: 'sunmeadow-scout', key: 'frontier_sunmeadow_high_elf_scout',
+  assetId: 'chr.frontier.sunmeadow.high_elf_scout', zone: 'sunmeadow_march',
+  npcId: 'sunmeadow_march_scout', name: 'Mira Stonewake',
+  race: 'high_elf', realm: 'aegis', role: 'guard',
 }] as const;
 const clips = ['attack_melee', 'attack_ranged', 'cast', 'combat_idle', 'death', 'idle', 'jump', 'run', 'walk'];
 const modelsRoot = path.resolve('public/assets/models');

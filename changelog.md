@@ -1,3 +1,10 @@
+## 2026-09-20 — Sunmeadow cast and complete Cinderfen stair checks
+
+- Published Serra Brightfield’s original Empire herbalist and Mira Stonewake’s High Elf scout in the game and GM builder, preserving service identities and positions. Both retain editable masters, PBR materials, nine fitted clips and three verified live LODs.
+- Fixed herbalist belt/cloth crossings and full-width scout shoulder attachment; retained reviewed boot topology in the scout’s distant LOD to remove a running shaft split.
+- Added coordinate/diagonal keep inspection controls. Actual Game/Player checks held 16 corners, eight gates and 32 rail presses, and completed all 16 Cinderfen stairs to the wall walk. Exact source hashes and measured results are saved.
+- Validation: 1,436 tests in 170 files, production build, 33 maps, 903 model records and 450 GM definitions pass. Full shared-campaign/performance acceptance remains open.
+
 ## 2026-09-20 — Universal field arms rack
 
 - Added original four-polearm racks to all 36 keeps and the GM builder, with three LODs, five embedded PBR sets, six editable masters and 162 verified construction contacts.

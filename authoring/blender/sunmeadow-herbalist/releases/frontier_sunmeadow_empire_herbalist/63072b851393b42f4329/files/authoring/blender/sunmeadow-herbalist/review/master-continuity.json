@@ -1,0 +1,17 @@
+{
+  "masterSha256": "a3d5eea912ff548a4b6ab897c9380592e554c6d01860e59aa0fc64c07ce59402",
+  "shirtConnectedComponents": [
+    2376
+  ],
+  "shirtBoundaryLoops": 4,
+  "shirtBoundaryValenceValid": true,
+  "splitHemPanels": 4,
+  "packedImages": 27,
+  "modifiers": [
+    "SUBSURF",
+    "SOLIDIFY",
+    "ARMATURE"
+  ],
+  "status": "passed",
+  "scope": "Continuous source shirt torso/axilla/sleeves; four intentionally separated smock hem panels and independently attached shoulder bridges; packed editable PBR inputs. Exact exported garment/tool contact measured separately."
+}

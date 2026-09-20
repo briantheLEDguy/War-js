@@ -7,8 +7,9 @@ checkpoint; its pause instruction has been superseded.
 Keep collision corrections and the ram crew runtime are integrated. All 36 keep
 enclosures pass breach progression checks; all 16 Cinderfen stair assemblies now
 clear the actual wall meshes. Local browser checks held Greybrook's closed gate,
-completed the Cinderfen stair route to 6.3m and contained both upper rail presses
-at 5.075m. These are bounded checks, not full campaign acceptance.
+held 16 corners and eight gates across both Sunmeadow/Cinderfen keeps, completed
+all 16 Cinderfen stair routes to 6.3m and contained all 32 upper rail presses
+at 5.075m. These are local checks, not full shared-campaign acceptance.
 
 Dwarf revision l is published at three LODs with nine clips and assigned to the
 Sunmeadow craft mentor. Five saved wildlife packages are integrated with explicit
@@ -17,14 +18,15 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,428 tests in 170 files**. Production build
+The latest full regression pass is **1,436 tests in 170 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 257 static props, 72 character
-profiles and 57 equipment records, and the GM builder has 448 definitions.
-All 33 maps and 897 model records validate. Remaining regional character, equipment and town/zone work
+The registry contains 257 static props, 74 character
+profiles and 57 equipment records, and the GM builder has 450 definitions.
+All 33 maps and 903 model records validate. The combined herbalist/scout
+regression run passes. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
@@ -38,17 +40,19 @@ and is published as Edric Hayward in Sunmeadow and GM; actual gameplay verified
 its three LODs at 6.2/45.2/100.2m. Both characters retain editable masters and
 nine clips. Dark Elf supply officer F is also published as existing Nyra Vex;
 its 13 technical gates and three actual-game LOD transitions pass. The remaining
-initial cast is Empire herbalist and High Elf field scout.
+initial cast is also published: Empire herbalist L as Serra Brightfield and High
+Elf scout K/corrected LOD2 as Mira Stonewake, each with nine clips, three LODs and
+all three actual Game/NpcSpawner distance transitions verified.
 All eight Sunmeadow supply shelters now expose their measured 86mm raised
 floor to local/shared navigation and GM placement. A local player walked off
 the boards to terrain and back onto them successfully. Twenty-three focused
 floor, furnishing and village-access tests pass; the latest full suite above
 includes the floor and apothecary additions.
 
-The next parallel batch is active: `sunmeadow-herbalist/`,
-`cinderfen-quartermaster/` and `sunmeadow-scout/`. Their package work states
-record technical progress. Serra Brightfield, Vask Rauth and Mira Stonewake keep
-their existing NPC/service identities when the new presentations publish.
+The next parallel batch is active: `sunmeadow-field-captain/`,
+`cinderfen-quartermaster/` and `field-command-table/`. Their package work states
+record technical progress. Corren Vale and Vask Rauth keep their existing
+NPC/service identities when the new presentations publish.
 The shared apothecary table is now published in both
 regional shelters and GM. Both actual-game table collision presses passed;
 mesh, support and half-metre navigation checks preserve station access.
@@ -73,10 +77,11 @@ Release `6eac77928a01ab79cb2e` is static racked scenery, without weapon pickup.
 
 Supply-officer E remains superseded. Published F fixes its detached ledger
 straps with measured closed suspension loops and zero outfit/body intersections
-across all clips and LODs. Herbalist L is correcting measured belt/cloth crossings;
-scout K attaches all shoulder-bridge seam corners to the actual jerkin; quartermaster
-F is correcting moving waistcoat/linen intersections. These are technical holds,
-not pending aesthetic approval. The publisher requires side/rear views and
+across all clips and LODs. Herbalist L fixes the measured belt/cloth crossings;
+scout K attaches all shoulder-bridge seam corners, with the reduced boot defect
+corrected before publication. Quartermaster H fits moving sleeves around the
+broad Greenskin torso and is still technically held, not awaiting aesthetic
+approval. The publisher requires side/rear views and
 per-LOD equipment_attachment reports, plus herbalist belt_clearance and
 quartermaster layer_clearance. Frozen previous civilian/table releases remain valid.
 

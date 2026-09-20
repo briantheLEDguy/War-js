@@ -1,0 +1,60 @@
+{
+  "modelSha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+  "bounds": {
+    "min": [
+      -0.3140350580215454,
+      -0.21611586213111877,
+      0.004000263288617134
+    ],
+    "max": [
+      0.3140147924423218,
+      0.2415248453617096,
+      1.939172625541687
+    ]
+  },
+  "images": [
+    {
+      "view": "side",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_side_final.png",
+      "sha256": "d0256419189f53727cb5f2f6dfe2c4cc5291a3353ba0360ea303dcc41957e95e",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "rear",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_rear_final.png",
+      "sha256": "5c01a00041157b098f2fac56d1149befdd648bf5e9f8348160a83b7a6870005c",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_head_final.png",
+      "sha256": "ca2747e17feb84be9faa79331195cb1bf79b64dbf07df602bc3876042543530f",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_front_final.png",
+      "sha256": "428ff775aca18fda4d6f9234e425ee7fc22a4b9ae1da0bb4b03d6905f2bf9b28",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_run_side_final.png",
+      "sha256": "49f6812a978d8bec32d1d147f2a344007f58fa54b68f5efbdd2315ac56d6ed34",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_death_2_final.png",
+      "sha256": "6584460c74242046c99789c8871e90a1dff9ec643b6577f880e7570e6035d164",
+      "clip": "death",
+      "seconds": 2.0
+    }
+  ],
+  "status": "pending"
+}

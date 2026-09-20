@@ -25437,7 +25437,8 @@
       "x": -457,
       "z": -257,
       "rotY": 0,
-      "characterProfileKey": "npc_aegis_mira_stonewake_forward_scout"
+      "characterProfileKey": "npc_frontier_sunmeadow_high_elf_scout",
+      "approvedOnly": true
     },
     {
       "id": "sunmeadow_march_craft_mentor",
@@ -25457,7 +25458,8 @@
       "x": -446,
       "z": -267,
       "rotY": 0,
-      "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+      "characterProfileKey": "npc_frontier_sunmeadow_empire_herbalist",
+      "approvedOnly": true
     },
     {
       "id": "sunmeadow_march_inhabitant_homefield_farmer",
@@ -34430,8 +34432,8 @@
         "entityId": "sunmeadow_march_scout",
         "race": "high_elf",
         "role": "guard",
-        "desiredProfileKey": "frontier_temperate_farmland_high_elf_guard",
-        "status": "planned"
+        "desiredProfileKey": "npc_frontier_sunmeadow_high_elf_scout",
+        "status": "approved"
       },
       {
         "entityId": "sunmeadow_march_craft_mentor",
@@ -34442,10 +34444,10 @@
       },
       {
         "entityId": "sunmeadow_march_forager",
-        "race": "dwarf",
+        "race": "empire",
         "role": "ambient",
-        "desiredProfileKey": "frontier_temperate_farmland_dwarf_ambient",
-        "status": "planned"
+        "desiredProfileKey": "npc_frontier_sunmeadow_empire_herbalist",
+        "status": "approved"
       },
       {
         "entityId": "sunmeadow_march_west_raider_1",
@@ -34561,5 +34563,5 @@
       }
     ]
   },
-  "staticMapHash": "a0804c1693d92764"
+  "staticMapHash": "ab684718aac39587"
 }

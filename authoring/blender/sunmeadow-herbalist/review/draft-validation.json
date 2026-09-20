@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "visualApproval": false,
+  "records": [
+    {
+      "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+      "sha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "triangles": 156290,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_sunmeadow_empire_herbalist_lod1.glb",
+      "sha256": "d9236e264cb0861ff7aafce695c0c6f95a53ac72e5f90ceac54e4d7c47ad2928",
+      "triangles": 90647,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_sunmeadow_empire_herbalist_lod2.glb",
+      "sha256": "8f750f1e399d0cf86081677cb1b1fbd7aa43385611699c1bd43f65c0ae77e0cf",
+      "triangles": 42197,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    }
+  ],
+  "failures": []
+}

@@ -7,6 +7,7 @@
   #view { position: absolute; inset: 0; }
   nav { position: absolute; z-index: 40; top: 12px; left: 12px; width: 360px; padding: 14px; background: #172024ee; border: 1px solid #78816d; border-radius: 6px; }
   select { max-width: 350px; } button, select { margin: 3px; padding: 7px; }
+  input { width: 72px; margin: 3px; padding: 5px; }
   output { display: block; white-space: pre-wrap; font: 12px monospace; margin-top: 8px; }
 </style>
 <div id="view"></div>
@@ -14,9 +15,15 @@
   <strong id="title">Keep access · production player and collision</strong>
   <p>WASD walk, drag orbit, wheel zoom. Inspection positions are never saved.</p>
   <select id="location" aria-label="Keep inspection position"></select><button id="visit">Visit</button>
+  <p>Ground inspection coordinates:</p>
+  <label>X <input id="inspect-x" type="number" step="0.1" aria-label="Inspection X"></label>
+  <label>Z <input id="inspect-z" type="number" step="0.1" aria-label="Inspection Z"></label>
+  <button id="visit-coordinates">Visit coordinates</button>
   <p>Walk for 2 seconds in world coordinates:</p>
   <button data-x="-1" data-z="0">West</button><button data-x="1" data-z="0">East</button>
   <button data-x="0" data-z="-1">North</button><button data-x="0" data-z="1">South</button>
+  <button data-x="-1" data-z="-1">Northwest</button><button data-x="1" data-z="-1">Northeast</button>
+  <button data-x="-1" data-z="1">Southwest</button><button data-x="1" data-z="1">Southeast</button>
   <button id="stop">Stop</button><button id="ascent">Walk stair route</button>
   <button data-rail="-1">Press left rail</button><button data-rail="1">Press right rail</button>
   <output id="status">Loading game…</output><output id="result"></output>
@@ -75,8 +82,8 @@
     const select = document.querySelector('#location');
     places.forEach((place,index) => select.add(new Option(place.name, String(index))));
     const stop = () => { clearTimeout(timer); game.input.touchMoveX = 0; game.input.touchMoveZ = 0; };
-    const visit = () => {
-      stop(); const place = places[Number(select.value)];
+    const visitPlace = place => {
+      stop();
       // Waiting at a hostile keep can kill this isolated inspector between checks.
       useGameStore.getState().setPlayerDead(false);
       useGameStore.getState().updateCharacter({ health: character.maxHealth, mana: character.maxMana });
@@ -85,7 +92,16 @@
       game.camera.distance = 10; game.camera.pitch = .38; game.camera.yaw = place.yaw;
       result.textContent = place.name;
     };
+    const visit = () => visitPlace(places[Number(select.value)]);
     document.querySelector('#visit').onclick = visit;
+    document.querySelector('#inspect-x').value = gate.x;
+    document.querySelector('#inspect-z').value = gate.z - 3;
+    document.querySelector('#visit-coordinates').onclick = () => {
+      const x = document.querySelector('#inspect-x').valueAsNumber;
+      const z = document.querySelector('#inspect-z').valueAsNumber;
+      if (!Number.isFinite(x) || !Number.isFinite(z)) { result.textContent = 'Enter finite ground coordinates.'; return; }
+      visitPlace({ x, z, yaw: 0, name: `Ground inspection ${x}, ${z}` });
+    };
     document.querySelector('#stop').onclick = stop;
     const direction = (x,z) => {
       const yaw = game.camera.yawAngle;
@@ -95,7 +111,7 @@
     for (const button of document.querySelectorAll('[data-x]')) button.onclick = () => {
       stop(); const start = game.player.position.clone();
       direction(Number(button.dataset.x), Number(button.dataset.z));
-      timer = setTimeout(() => { stop(); result.textContent = `${button.textContent}: ${start.toArray().map(v=>v.toFixed(2)).join(', ')} → ${game.player.position.toArray().map(v=>v.toFixed(2)).join(', ')}`; }, 2000);
+      timer = setTimeout(() => { stop(); result.textContent = `${button.textContent}: ${start.toArray().map(v=>v.toFixed(3)).join(', ')} → ${game.player.position.toArray().map(v=>v.toFixed(3)).join(', ')}`; }, 2000);
     };
     for (const button of document.querySelectorAll('[data-rail]')) button.onclick = () => {
       const place = places[Number(select.value)];

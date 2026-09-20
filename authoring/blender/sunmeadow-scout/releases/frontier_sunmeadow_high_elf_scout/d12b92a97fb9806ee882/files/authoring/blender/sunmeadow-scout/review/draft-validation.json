@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "visualApproval": false,
+  "records": [
+    {
+      "model": "frontier_sunmeadow_high_elf_scout_lod0.glb",
+      "sha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+      "triangles": 168246,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_sunmeadow_high_elf_scout_lod1.glb",
+      "sha256": "6c0e68618edfd8bf50c7da6c1f413828fab2c8a3ff458e2cc3e7f87497b91ed8",
+      "triangles": 97542,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    },
+    {
+      "model": "frontier_sunmeadow_high_elf_scout_lod2.glb",
+      "sha256": "f821a8b3ae07c3d3d368fbe12eafbc1f0e500a510d0232d21f3700fba15c452f",
+      "triangles": 49336,
+      "errors": 0,
+      "warnings": 0,
+      "warningCodes": []
+    }
+  ],
+  "failures": []
+}

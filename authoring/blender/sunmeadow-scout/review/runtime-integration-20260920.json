@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-20",
+  "profile": "npc_frontier_sunmeadow_high_elf_scout",
+  "npcId": "sunmeadow_march_scout",
+  "name": "Mira Stonewake",
+  "zone": "sunmeadow_march",
+  "position": {
+    "x": -457,
+    "z": -257
+  },
+  "mapSha256": "1f674339709c76dcc0113317e8881ba3ad60254c1668993bd568dff49c3ec26b",
+  "harness": "authoring/blender/frontier-population/runtime-npc-review.html",
+  "harnessSha256": "45a5a901a5ba89d5c36ab17fad666a9b444f18cbe7218c7a2226fe260f634668",
+  "runtime": "Production local Game/NpcSpawner/RegionalNpcPresentation",
+  "release": "d12b92a97fb9806ee882",
+  "observed": [
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 168246,
+      "model": "frontier_sunmeadow_high_elf_scout_lod0.glb",
+      "sha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        -457,
+        0.98,
+        -257.01
+      ]
+    },
+    {
+      "distanceM": 45.2,
+      "lod": 1,
+      "triangles": 97542,
+      "model": "frontier_sunmeadow_high_elf_scout_lod1.glb",
+      "sha256": "6c0e68618edfd8bf50c7da6c1f413828fab2c8a3ff458e2cc3e7f87497b91ed8",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        -457,
+        0.98,
+        -257.01
+      ]
+    },
+    {
+      "distanceM": 100.2,
+      "lod": 2,
+      "triangles": 49336,
+      "model": "frontier_sunmeadow_high_elf_scout_lod2.glb",
+      "sha256": "f821a8b3ae07c3d3d368fbe12eafbc1f0e500a510d0232d21f3700fba15c452f",
+      "inScene": true,
+      "visible": true,
+      "boundsCenter": [
+        -457,
+        0.98,
+        -257.01
+      ]
+    }
+  ],
+  "unavailableLegacyAssets": 1,
+  "gmDefinitions": 450,
+  "validatedMaps": 33,
+  "validatedModelRecords": 903,
+  "limits": [
+    "Bounded local scene and LOD verification, not full shared-campaign or performance acceptance.",
+    "Own fitted nine-clip wardrobe; bow and carried tools remain stowed. No modular equipment interchange or bow-drawing gameplay is claimed."
+  ],
+  "combinedVerification": {
+    "fullSuite": {
+      "report": "artifacts/orvr/sunmeadow-cast-delivery-tests.json",
+      "sha256": "ce3704eaa9c9033b266445d18c7a17bd00701fa90798649887f3576792277db0",
+      "passed": 1436,
+      "failed": 0,
+      "files": 170,
+      "workers": 1
+    },
+    "gmDefinitions": 450,
+    "validatedModelRecords": 903,
+    "validatedMaps": 33,
+    "productionBuildPassed": true
+  }
+}

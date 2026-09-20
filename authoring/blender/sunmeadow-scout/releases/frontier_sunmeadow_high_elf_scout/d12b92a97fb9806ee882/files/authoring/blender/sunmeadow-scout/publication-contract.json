@@ -1,0 +1,27 @@
+{
+  "assetId": "chr.frontier.sunmeadow.high_elf_scout",
+  "profileId": "npc_frontier_sunmeadow_high_elf_scout",
+  "key": "frontier_sunmeadow_high_elf_scout",
+  "displayName": "Sunmeadow High Elf Patrol Scout",
+  "race": "high_elf",
+  "gender": "female",
+  "bodyVariant": "f",
+  "bodyFamily": "frontier_sunmeadow_high_elf_scout_v1_f",
+  "foundationFamily": "civic_humanoid_v2_f",
+  "skeletonId": "sunmeadow_scout_humanoid_v1",
+  "bindPoseId": "sunmeadow_scout_a_pose_v1",
+  "runtimeReady": false,
+  "publicationOwner": "root task",
+  "technicalGate": "python authoring/blender/sunmeadow-scout/tools/test_exports.py",
+  "scope": "Complete fitted High Elf patrol outfit and physically suspended scouting equipment. Own fitted nine-clip set; no modular armor or siege crew compatibility claim.",
+  "existingNpc": {
+    "zoneId": "sunmeadow_march",
+    "id": "sunmeadow_march_scout",
+    "name": "Mira Stonewake",
+    "title": "Forward Scout",
+    "role": "guard",
+    "realm": "aegis"
+  },
+  "technicalReadiness": "review/technical-readiness.json",
+  "reviewSuffix": "_final"
+}

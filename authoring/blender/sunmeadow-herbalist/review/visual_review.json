@@ -1,0 +1,447 @@
+{
+  "status": "approved",
+  "reviewedBy": "User",
+  "reviewedAt": "2026-09-09T15:22:39Z",
+  "basis": "explicit_user_standing_approval",
+  "instructionSha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+  "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval.",
+  "evidence": {
+    "assetId": "chr.frontier.sunmeadow.empire_herbalist",
+    "profileKey": "npc_frontier_sunmeadow_empire_herbalist",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+        "sha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d"
+      },
+      {
+        "level": 1,
+        "model": "frontier_sunmeadow_empire_herbalist_lod1.glb",
+        "sha256": "d9236e264cb0861ff7aafce695c0c6f95a53ac72e5f90ceac54e4d7c47ad2928"
+      },
+      {
+        "level": 2,
+        "model": "frontier_sunmeadow_empire_herbalist_lod2.glb",
+        "sha256": "8f750f1e399d0cf86081677cb1b1fbd7aa43385611699c1bd43f65c0ae77e0cf"
+      }
+    ],
+    "files": {
+      "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.glb": {
+        "sha256": "3edd6e13efed1d07ef51a8794852a3dc0af7e281e406265d2b58a77046a8ffb6",
+        "bytes": 10059524
+      },
+      "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.quad-surface.json.gz": {
+        "sha256": "dc0da94fa00d7b98836568e454d5beba04f15e95013a63b855bbebb5fbaabe13",
+        "bytes": 1130606
+      },
+      "authoring/blender/frontier-population/tools/inhabitant_review.mjs": {
+        "sha256": "59ffe91d4fc9cb48b7207d37e48fb90da08fdbabf822e797f717a571d437ba95",
+        "bytes": 1430
+      },
+      "authoring/blender/sunmeadow-herbalist/foundation-provenance.json": {
+        "sha256": "e7c7d6b04cf00a5be33cebbf9e1b022bf46f798763e3ef37522935e1a7eb5a14",
+        "bytes": 5161
+      },
+      "authoring/blender/sunmeadow-herbalist/publication-contract.json": {
+        "sha256": "d6ec73b0b8448c4d0781821ae4999ba9b86f3cbf05ba3e81b23c098258691d0d",
+        "bytes": 926
+      },
+      "authoring/blender/sunmeadow-herbalist/review/arm-volume-lod0.json": {
+        "sha256": "348c0e93e2cece3488331e88cbd823c13a7a4b97fe0f8a589213a047deb1fcb6",
+        "bytes": 593389
+      },
+      "authoring/blender/sunmeadow-herbalist/review/arm-volume-lod1.json": {
+        "sha256": "fbf3d390aae949c4b6fb47fe5315ce519b6522c147f3f2f2f99bbf265157f578",
+        "bytes": 593387
+      },
+      "authoring/blender/sunmeadow-herbalist/review/arm-volume-lod2.json": {
+        "sha256": "09b0d4e41f14acdedee4ac0a3248de17a2deb7b3945cdd19016ec227f7605256",
+        "bytes": 593464
+      },
+      "authoring/blender/sunmeadow-herbalist/review/draft-validation.json": {
+        "sha256": "8e627a28bd7f34eebe1bea9977e1ef729f450b2bd16fcc6035cd7423114c3ae9",
+        "bytes": 839
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_build.json": {
+        "sha256": "058bf395cc90ee3bb3f0f3fc36f9ccc26a3d1acbf8c0e424738c3b49a29b0adb",
+        "bytes": 21326
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_belt_clearance.json": {
+        "sha256": "5584f7b0ff26da4d14e63cf7dfbe247b9b3f75affda031c547eca02a471bcd11",
+        "bytes": 257104
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_boot_clearance.json": {
+        "sha256": "fd14ba85280ada7c28074c8b29b2268f8f2c2b394b2d6e22f4419f93153fdc82",
+        "bytes": 751614
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_death_2_l.png": {
+        "sha256": "278b5d42e438462abf228987f0d81cdcbd66d6be3fac914745c898fe0105521e",
+        "bytes": 1101221
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_equipment_attachment.json": {
+        "sha256": "839bd866222a2c6b2098e255edd2fb571e8d3d8d7e7f57924febd3dd76350f68",
+        "bytes": 1661219
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_front_l.png": {
+        "sha256": "3090810c9765376e49812e1dc6f9511cfb714ac728e0bebce7345702c62a7e9d",
+        "bytes": 1068623
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_garment_clearance.json": {
+        "sha256": "a37125242f75516439125b724298634aca89b04cf1cadd2c2806716b81ca5f18",
+        "bytes": 511346
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_head_l.png": {
+        "sha256": "5daf27e65894fd9721086a2b0fe1e64bec729f07b04f55244718f944c78b2732",
+        "bytes": 1134643
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_motion.json": {
+        "sha256": "7edcc6f73f6c70d7795a1504d73b56a4eec0512723b64cb1b62900fba1f148ac",
+        "bytes": 6754652
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_rear_l.png": {
+        "sha256": "a927a7d82a1a2792795ed9ef3080874943b8337bf05606ddc5e55862ba84f70d",
+        "bytes": 1074118
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_review_l.json": {
+        "sha256": "5057e7486d8dbacf31fb071439626f076d7b38d544a0c8b641b821e527ad5f79",
+        "bytes": 2442
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_run_side_l.png": {
+        "sha256": "237e5fc975a3acb0f743e4eac3f29eb72325d52114943eafdf52230e7c7bb98d",
+        "bytes": 1077444
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_side_l.png": {
+        "sha256": "ceb30312305a468254644838c47f49fab8ef6f81a202901822af978b80a11bc4",
+        "bytes": 1066787
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_tool_clearance.json": {
+        "sha256": "e94eeec2f2b178df3f7e86ba2d7e52b4af3aa62b6bae92294ba73519af3c1afe",
+        "bytes": 500305
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0_welt.json": {
+        "sha256": "239d93129358efac1d37b4e6d8fa502e605b85ad58f642a53557c9d9081bd5eb",
+        "bytes": 58343
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod0.glb.validation.json": {
+        "sha256": "0ad2469336f8f56da37370da57991f2ead81d81829bbd47010788af847f8b159",
+        "bytes": 13006
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_belt_clearance.json": {
+        "sha256": "a6776e72f22875744d69907369a2ada92a1bac1bb40818b3c026196621265a04",
+        "bytes": 256766
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_boot_clearance.json": {
+        "sha256": "d2d7bf847e98ae5634ef2262ee186373ddf7da4b2eb633bb49a84341500ab314",
+        "bytes": 752823
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_equipment_attachment.json": {
+        "sha256": "57c91f62992ea367fd175c47f700c6be1820d4863e4d50a08e0ee104643f6f96",
+        "bytes": 1658559
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_garment_clearance.json": {
+        "sha256": "6615715070f7b7447196534665631ae285a323b919ae9d52ea55efd4c36731c9",
+        "bytes": 510823
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_motion.json": {
+        "sha256": "8d214f54449a72c775946d030b1b401b8bd3006abcc824a917dd8588f4d7c631",
+        "bytes": 6754247
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_tool_clearance.json": {
+        "sha256": "f0854b34087b4632bc3d661e0833ea60cfdda59e6d91516fb8addabd0ea69519",
+        "bytes": 498407
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1_welt.json": {
+        "sha256": "9a9c016bb29aba215da2b44075f6b63f71e46f4c3ebb66e16deb4a10205f8b0f",
+        "bytes": 58521
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod1.glb.validation.json": {
+        "sha256": "611bdf237b614eeff28866d3e6272bec89a779776ce5b710681d0a3f5f1068af",
+        "bytes": 13004
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_belt_clearance.json": {
+        "sha256": "4e89b8d1d90eb53da2be0dc37d4c840f8bd0418b5641a6c52456b24e61e7c04c",
+        "bytes": 256874
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_boot_clearance.json": {
+        "sha256": "1728991794fa4e3496ec3ea2c9c455a898098f20ac9e5b671584f1b1bb4e59bd",
+        "bytes": 750425
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_equipment_attachment.json": {
+        "sha256": "bbc437c887f99916a39581187b162be2d5930fc1b52db1e3b958c2d81a47077f",
+        "bytes": 1658800
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_garment_clearance.json": {
+        "sha256": "6b01e8eeb02847e447122470128f411c0b3eff2f2563023a9a8d019b89b2ad56",
+        "bytes": 506866
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_motion.json": {
+        "sha256": "98bf009de31b5e142ad354ad9150b7f96c9b166d5a60e28e9a2fe461584a108c",
+        "bytes": 6746918
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_tool_clearance.json": {
+        "sha256": "3848e334044de35da2331cef58e87581ea58dcba5d16de9218604efe0673910f",
+        "bytes": 498433
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2_welt.json": {
+        "sha256": "4d3282bbf3c11a34e9df5a19aca4a6621812fa768c4f4b6e9597816e5b967cd3",
+        "bytes": 58132
+      },
+      "authoring/blender/sunmeadow-herbalist/review/frontier_sunmeadow_empire_herbalist_lod2.glb.validation.json": {
+        "sha256": "ca6d1f6f94c160b2ba48997c437eb0b9b041212a10d2847886e0a066af105431",
+        "bytes": 13004
+      },
+      "authoring/blender/sunmeadow-herbalist/review/master-continuity.json": {
+        "sha256": "f8bde5d0fca7f100fcbcd45f39c5fc09121f4f303cb1aa388fb95031daca1c86",
+        "bytes": 587
+      },
+      "authoring/blender/sunmeadow-herbalist/runtime/frontier_sunmeadow_empire_herbalist_lod0.glb": {
+        "sha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+        "bytes": 29024412
+      },
+      "authoring/blender/sunmeadow-herbalist/runtime/frontier_sunmeadow_empire_herbalist_lod1.glb": {
+        "sha256": "d9236e264cb0861ff7aafce695c0c6f95a53ac72e5f90ceac54e4d7c47ad2928",
+        "bytes": 25975308
+      },
+      "authoring/blender/sunmeadow-herbalist/runtime/frontier_sunmeadow_empire_herbalist_lod2.glb": {
+        "sha256": "8f750f1e399d0cf86081677cb1b1fbd7aa43385611699c1bd43f65c0ae77e0cf",
+        "bytes": 23626980
+      },
+      "authoring/blender/sunmeadow-herbalist/sources/frontier_sunmeadow_empire_herbalist.blend": {
+        "sha256": "a3d5eea912ff548a4b6ab897c9380592e554c6d01860e59aa0fc64c07ce59402",
+        "bytes": 24013087
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_wool_basecolor.png": {
+        "sha256": "a8ff716616ef558b8f620bded16c88b7119b065b5fa6c4d7323797f15ad737c8",
+        "bytes": 572526
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_wool_normal.png": {
+        "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+        "bytes": 221744
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_wool_roughness.png": {
+        "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+        "bytes": 144135
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_worked_leather_basecolor.png": {
+        "sha256": "989592915fd0e10a1bda353359c8db3fa189f8b0e4f23f01e5568db5a205b2c5",
+        "bytes": 738711
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_worked_leather_normal.png": {
+        "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+        "bytes": 1928552
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_worked_leather_roughness.png": {
+        "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+        "bytes": 866702
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_woven_linen_basecolor.png": {
+        "sha256": "67519f9b135a2c5d80b93a49b2df6a187d2eb9c07732ba5fd28eba23b03f6a67",
+        "bytes": 906883
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_woven_linen_normal.png": {
+        "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+        "bytes": 611208
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/empire_herbalist_woven_linen_roughness.png": {
+        "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+        "bytes": 350720
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_hair_basecolor.png": {
+        "sha256": "7031be33a30cf00428340f417f592d411b4d39e6d19bf727e3d03bdf550fc711",
+        "bytes": 18857
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_hair_normal.png": {
+        "sha256": "f2d0b05aa18231f0241dc1db40b7246a794d9ed3b7c5e540d27d3d58cada4f28",
+        "bytes": 6106
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_hanger_leather_basecolor.png": {
+        "sha256": "eab1d0eab48aea767bee2419e0fce3f1f60ca940fdd5e846119775481df77601",
+        "bytes": 683882
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_hanger_leather_normal.png": {
+        "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+        "bytes": 1928552
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_hanger_leather_roughness.png": {
+        "sha256": "f21c50b946acb9bb137b8e437bd5d82a8b12d6cb233645fdef61f2b5e94b52a2",
+        "bytes": 867217
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_sage_smock_basecolor.png": {
+        "sha256": "a75370f9c73d8f0c8ab099302e931c966c68be0ad8a4160359e70a498e0df8aa",
+        "bytes": 515081
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_sage_smock_normal.png": {
+        "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+        "bytes": 221744
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_sage_smock_roughness.png": {
+        "sha256": "15810ba5b101bd0e5a1a850424ce99789e8b9f369b7c38ed980a40919cf86056",
+        "bytes": 143780
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_tool_ash_cork_basecolor.png": {
+        "sha256": "9191ab86d0aacce5b95d4fbf2b35297a0d761894da03325d7c1c4cf7a17594d6",
+        "bytes": 283024
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_tool_ash_cork_normal.png": {
+        "sha256": "f9c75f3abc4ac9458d53e7af23fdf71f760c1c35fad5f0f80176b8dffa373990",
+        "bytes": 81596
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_tool_ash_cork_roughness.png": {
+        "sha256": "d3d3e8f5047c9fe941251ed23ab29dce933b74bc24e5352907f939d97b970ee4",
+        "bytes": 155848
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_tool_satchel_canvas_basecolor.png": {
+        "sha256": "5e4b7c919002f35b3305b60cf7b0dd0223706f16c31cc164098553069a94676c",
+        "bytes": 464929
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_tool_satchel_canvas_normal.png": {
+        "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+        "bytes": 221744
+      },
+      "authoring/blender/sunmeadow-herbalist/textures/herbalist_tool_satchel_canvas_roughness.png": {
+        "sha256": "16904caebbe23991cf07efeab7908ad4788c45a029fd3d87209948bc64292f27",
+        "bytes": 142680
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/apron_clearance.py": {
+        "sha256": "de97cc1351d0bf2ed90ee38b381cacdb9eb1a95714f77cc625480ef26f0748a7",
+        "bytes": 5184
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/apron_details.py": {
+        "sha256": "58e670bfc9aedecb3c995fb4815e51ee06115c1ceb7630c824020ff3b2dc2c10",
+        "bytes": 4221
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/artisan_equipment.py": {
+        "sha256": "1e6fbf3235edea35ce189b6f3d99388ef1ad718c25eed02e7f48f46fd5ab8d94",
+        "bytes": 5483
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/authored_artisan_head.py": {
+        "sha256": "78c67b952de280656ec44a22e6307c380f814d4bf74ca97c0b5424d6d80d3532",
+        "bytes": 18394
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/build_inhabitants.py": {
+        "sha256": "fc53a29ef1ff1bdb18a9062a96bad99768e9bf0f4e019ec43eae09d510b0a43e",
+        "bytes": 33750
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/diagnose_clearance.py": {
+        "sha256": "874ae10fe82381d38d453b34d2db175bd4e56b18567ce0856793d6d678da131c",
+        "bytes": 6687
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/diagnose_waist_layers.py": {
+        "sha256": "4f09477adacb6ba306535d3edff3b69472402941e7c291119fb777729c9398c0",
+        "bytes": 3059
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/export_tangents.py": {
+        "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "bytes": 3281
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/fitted_boot_details.py": {
+        "sha256": "3d7a6d5aea8e78c38324f741b15bf45e378dd1f9ff466237976fea5c0f7d6336",
+        "bytes": 3194
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/herbalist_details.py": {
+        "sha256": "1ef5b5b4432c6f6996a4d0341a4870823bc524372ff281f327b9b1663fb7fcf5",
+        "bytes": 12146
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/herbalist_head.py": {
+        "sha256": "d70e713b67920a2fcd1000e4e8da2313fa22f177fed558a7aec5b56d246c2af2",
+        "bytes": 6145
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_arm_volume.py": {
+        "sha256": "7edeab793ca4c3d3194f5d8df7e8fc450a8c8dabe360e26cfeeeb659b83b2656",
+        "bytes": 8032
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_belt_clearance.py": {
+        "sha256": "a878d9753d808f39efa8398102dce3f04b1e69c7b41c61715e5a756945f240b4",
+        "bytes": 5495
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_boot_clearance.py": {
+        "sha256": "22ba617620767fd0ffafce96939834664df344360a01a81c45db3ddecd757036",
+        "bytes": 7133
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_boot_welt.py": {
+        "sha256": "4a52239276043a507c6bd5f5960b839e93036694f5aed456f25f4a6c739765f7",
+        "bytes": 6471
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_equipment_attachment.py": {
+        "sha256": "5bab721e7560ad3b6ad75bcfef6b84090841baae697dd796066568fd9146ccee",
+        "bytes": 7845
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_export_motion.py": {
+        "sha256": "b25dba4b08edc2abb4cc4744d5ebeaa34e76de6c838dd8c7d877ad8f2fcd30f9",
+        "bytes": 7750
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_master.py": {
+        "sha256": "632a7e1ed532b393beef0d297f1d10fabaab902ae0d1aa539fb9db43a4d89c6b",
+        "bytes": 2241
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/inspect_outfit_clearance.py": {
+        "sha256": "d740d5d78bb818e5f3e56be8bf54e38029e809a176af8eeb7351f63eddf5a432",
+        "bytes": 8155
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/review_inhabitants.py": {
+        "sha256": "d8fb6f32cd77f32ef0f4d2e511a49c17846327a4e7444245c434973e21e2a5a8",
+        "bytes": 7708
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/surface_bindings.py": {
+        "sha256": "cdb9d1b8fb4293dab25c5dd9315e158459a95a90a4bf5d665f2f71e91eb77898",
+        "bytes": 2267
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/surface_garments.py": {
+        "sha256": "0a1277c704f6ce60609b972b5aefebc21eb922645ba343f210996baa287913b6",
+        "bytes": 10037
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/tailored_clothing.py": {
+        "sha256": "8c441d6a872f42ffb74c9131bffaca7c0eaa6ecd0572758f355bfb518219e615",
+        "bytes": 5898
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/tailored_locomotion.py": {
+        "sha256": "f9007c08ea80cce1fc91dcd5ac0f13b9e8f9ddd177ab9bfa9b9ea62ed8e16ff6",
+        "bytes": 26041
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/test_exports.py": {
+        "sha256": "a7e3f0b11d174969dfa3a6ce7b36f01ba5cad6c58afa2a336e434d19d1c692b7",
+        "bytes": 8118
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/validate_inhabitants.mjs": {
+        "sha256": "d7209b652b2760fe1947a8c7b9c94bb1222912cd00b22f0da75598e9fc9c613d",
+        "bytes": 2385
+      },
+      "authoring/blender/sunmeadow-herbalist/tools/workwear_finish.py": {
+        "sha256": "9e3ff03942d6f174b08c1f24fa8594a9bcc775a374423a2079b04459fb0d361f",
+        "bytes": 7921
+      },
+      "scripts/blender-character-pipeline/blender/anim_library.py": {
+        "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+        "bytes": 22611
+      },
+      "scripts/blender-character-pipeline/blender/canonical_animation_pack.py": {
+        "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+        "bytes": 8960
+      },
+      "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py": {
+        "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+        "bytes": 17430
+      },
+      "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json": {
+        "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+        "bytes": 1755
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+        "bytes": 1070
+      },
+      "scripts/blender-character-pipeline/tools/world-asset-approval.mjs": {
+        "sha256": "7335d52a94a977d785bd93b387bc50ba29cec19e494c9323b6d0b979688c0a38",
+        "bytes": 633
+      },
+      "scripts/campaign/publish-regional-inhabitant.mjs": {
+        "sha256": "0d77171449d56e13a0879c62771e4af222b1d6d1568f3562232c3b7b37a8e2cd",
+        "bytes": 16711
+      },
+      "scripts/campaign/regional-publication-evidence.mjs": {
+        "sha256": "a728aef40a03be32f7a40c373463b9ae374068d6e4dd05609bcd37ea320924a4",
+        "bytes": 3249
+      }
+    }
+  }
+}

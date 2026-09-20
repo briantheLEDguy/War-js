@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "npc_frontier_sunmeadow_empire_herbalist": {
+      "runtimeReady": true,
+      "modelSha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "label": "Sunmeadow Empire Herbalist",
+      "group": "Characters and NPCs",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "defaultAnimation": "idle",
+      "footprint": {
+        "width": 0.656,
+        "depth": 0.451,
+        "chainAxis": "z"
+      },
+      "colliders": [],
+      "walkableSurfaces": [],
+      "cameraSolid": false
+    }
+  }
+}

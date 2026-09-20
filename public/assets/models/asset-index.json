@@ -1,5 +1,5 @@
 {
-  "assetVersion": "approved-c603af2da9404478",
+  "assetVersion": "approved-54fd41e21eda5e18",
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
@@ -1342,6 +1342,54 @@
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "sunmeadow_farmer_humanoid_v1",
+      "skinned": true
+    },
+    "npc_frontier_sunmeadow_empire_herbalist": {
+      "approvalState": "approved",
+      "assetId": "chr.frontier.sunmeadow.empire_herbalist",
+      "bindPoseId": "sunmeadow_herbalist_a_pose_v1",
+      "bodyFamily": "frontier_sunmeadow_empire_herbalist_v1_f",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+      "modelSha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "previews": {
+        "front": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/review\\frontier_sunmeadow_empire_herbalist_lod0_front_l.png",
+        "head": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/review\\frontier_sunmeadow_empire_herbalist_lod0_head_l.png"
+      },
+      "previewSha256": {
+        "front": "3090810c9765376e49812e1dc6f9511cfb714ac728e0bebce7345702c62a7e9d",
+        "head": "5daf27e65894fd9721086a2b0fe1e64bec729f07b04f55244718f944c78b2732"
+      },
+      "qc": "frontier_sunmeadow_empire_herbalist_lod0.qc.json",
+      "qcSha256": "d51b7866d203003e4af481489e903ffe5dce68445dd41a8696e3d7ec6585b45a",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_herbalist_humanoid_v1",
+      "skinned": true
+    },
+    "npc_frontier_sunmeadow_high_elf_scout": {
+      "approvalState": "approved",
+      "assetId": "chr.frontier.sunmeadow.high_elf_scout",
+      "bindPoseId": "sunmeadow_scout_a_pose_v1",
+      "bodyFamily": "frontier_sunmeadow_high_elf_scout_v1_f",
+      "bodyVariant": "f",
+      "lifecycleStatus": "approved",
+      "model": "frontier_sunmeadow_high_elf_scout_lod0.glb",
+      "modelSha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+      "previews": {
+        "front": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/review\\frontier_sunmeadow_high_elf_scout_lod0_front_final.png",
+        "head": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/review\\frontier_sunmeadow_high_elf_scout_lod0_head_final.png"
+      },
+      "previewSha256": {
+        "front": "428ff775aca18fda4d6f9234e425ee7fc22a4b9ae1da0bb4b03d6905f2bf9b28",
+        "head": "ca2747e17feb84be9faa79331195cb1bf79b64dbf07df602bc3876042543530f"
+      },
+      "qc": "frontier_sunmeadow_high_elf_scout_lod0.qc.json",
+      "qcSha256": "1bfea7b2019af9eba056f471e5e89db51f80699e3747f8e83089c92f5eef43a0",
+      "reviewStatus": "approved",
+      "runtimeReady": true,
+      "skeletonId": "sunmeadow_scout_humanoid_v1",
       "skinned": true
     },
     "npc_riftbound_gorvak_mirehand_forward_scout": {

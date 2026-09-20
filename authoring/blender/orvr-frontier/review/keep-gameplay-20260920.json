@@ -1,0 +1,1059 @@
+{
+  "recordedAt": "2026-09-20T18:01:50.280Z",
+  "method": "Browser UI drove ordinary two-second Game/Player movement from unsaved developer inspection positions; no collision or flight override.",
+  "sources": {
+    "authoring/blender/orvr-frontier/runtime-keep-review.html": "3a73927c165a92eb8d7fd8e9108f3b6825cae5c9ca06a3d5bbe46df742f63b51",
+    "src/game/Player.ts": "0140f09805c2a280a96f8963e317c065309ae3fd4a266d46c0ff2435a6bfd055",
+    "src/game/Game.ts": "852b3691d649acb359d63734102c80e614e13fd71b44f928901a6ce5215301c4",
+    "src/world/Props.ts": "4b20123c30a4d3842976b8ad0e7e3a5d920c342b57dde535ac2be051573101ed",
+    "public/assets/maps/sunmeadow_march.json": "72e4e44817047b38bbfa33b0bbb9613d009086a2cb0818999abebe0416b96a69",
+    "public/assets/maps/cinderfen_outskirts.json": "5bc648f196fa84c7900d37091ba72c434e91e6ce8357f9e3438fef2071e1dcac"
+  },
+  "checks": [
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "aegis",
+      "case": "diagonal front left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -386,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": -377.345,
+        "y": 0,
+        "z": -25.65
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "aegis",
+      "case": "diagonal front right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -314,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": -322.608,
+        "y": 0,
+        "z": -25.65
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "aegis",
+      "case": "diagonal rear left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -386,
+        "y": 0,
+        "z": 56.5
+      },
+      "end": {
+        "x": -377.491,
+        "y": 0,
+        "z": 54.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "aegis",
+      "case": "diagonal rear right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -314,
+        "y": 0,
+        "z": 56.5
+      },
+      "end": {
+        "x": -322.516,
+        "y": 0,
+        "z": 54.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "riftbound",
+      "case": "diagonal front left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 314,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": 322.721,
+        "y": 0,
+        "z": -25.65
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "riftbound",
+      "case": "diagonal front right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 386,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": 377.196,
+        "y": 0,
+        "z": -25.65
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "riftbound",
+      "case": "diagonal rear left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 314,
+        "y": 0,
+        "z": 56.5
+      },
+      "end": {
+        "x": 322.658,
+        "y": 0,
+        "z": 54.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "riftbound",
+      "case": "diagonal rear right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 386,
+        "y": 0,
+        "z": 56.5
+      },
+      "end": {
+        "x": 377.301,
+        "y": 0,
+        "z": 54.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "aegis",
+      "case": "diagonal front left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -385,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": -380.45,
+        "y": 0,
+        "z": -24.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "aegis",
+      "case": "diagonal front right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -315,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": -319.55,
+        "y": 0,
+        "z": -24.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "aegis",
+      "case": "diagonal rear left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -385,
+        "y": 0,
+        "z": 36
+      },
+      "end": {
+        "x": -382.55,
+        "y": 0,
+        "z": 28.036
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "aegis",
+      "case": "diagonal rear right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": -315,
+        "y": 0,
+        "z": 36
+      },
+      "end": {
+        "x": -317.45,
+        "y": 0,
+        "z": 28.065
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "riftbound",
+      "case": "diagonal front left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 315,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": 319.55,
+        "y": 0,
+        "z": -24.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "riftbound",
+      "case": "diagonal front right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 385,
+        "y": 0,
+        "z": -28
+      },
+      "end": {
+        "x": 380.45,
+        "y": 0,
+        "z": -24.45
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "riftbound",
+      "case": "diagonal rear left exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 315,
+        "y": 0,
+        "z": 36
+      },
+      "end": {
+        "x": 317.45,
+        "y": 0,
+        "z": 28.099
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "riftbound",
+      "case": "diagonal rear right exterior corner",
+      "seconds": 2,
+      "start": {
+        "x": 385,
+        "y": 0,
+        "z": 36
+      },
+      "end": {
+        "x": 382.55,
+        "y": 0,
+        "z": 28.081
+      },
+      "result": "Exterior containment; movement stops or slides along the outside wall."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "aegis",
+      "case": "outer gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": -350,
+        "y": 0,
+        "z": -33
+      },
+      "end": {
+        "x": -350,
+        "y": 0,
+        "z": -30.51
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "aegis",
+      "case": "inner gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": -350,
+        "y": 0,
+        "z": -16.5
+      },
+      "end": {
+        "x": -350,
+        "y": 0,
+        "z": -14.01
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "riftbound",
+      "case": "outer gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": 350,
+        "y": 0,
+        "z": -33
+      },
+      "end": {
+        "x": 350,
+        "y": 0,
+        "z": -30.51
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "realm": "riftbound",
+      "case": "inner gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": 350,
+        "y": 0,
+        "z": -16.5
+      },
+      "end": {
+        "x": 350,
+        "y": 0,
+        "z": -14.01
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "aegis",
+      "case": "outer gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": -350,
+        "y": 0,
+        "z": -28.4
+      },
+      "end": {
+        "x": -350,
+        "y": 0,
+        "z": -26.075
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "aegis",
+      "case": "inner gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": -350,
+        "y": 0,
+        "z": -11.9
+      },
+      "end": {
+        "x": -350,
+        "y": 0,
+        "z": -9.575
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "riftbound",
+      "case": "outer gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": 350,
+        "y": 0,
+        "z": -28.4
+      },
+      "end": {
+        "x": 350,
+        "y": 0,
+        "z": -26.075
+      },
+      "result": "Closed gate held the player outside."
+    },
+    {
+      "zone": "sunmeadow_march",
+      "realm": "riftbound",
+      "case": "inner gate",
+      "seconds": 2,
+      "direction": "South",
+      "start": {
+        "x": 350,
+        "y": 0,
+        "z": -11.9
+      },
+      "end": {
+        "x": 350,
+        "y": 0,
+        "z": -9.575
+      },
+      "result": "Closed gate held the player outside."
+    }
+  ],
+  "unavailableLegacyAssets": {
+    "sunmeadow_march": 1,
+    "cinderfen_outskirts": 1
+  },
+  "limitations": [
+    "Local Game/Player checks only; shared authoritative breach-state transitions have separate tests.",
+    "This exterior pass covers four authored keeps in two zones, not actual walks through all 36 campaign keeps.",
+    "Full campaign, performance and zone art acceptance remain unfinished."
+  ],
+  "stairs": [
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_inner_front_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -367.991,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": -367.613,
+            "y": 5.075,
+            "z": -1.571
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -367.991,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": -368.476,
+            "y": 5.075,
+            "z": -0.718
+          },
+          "travelM": 0.612
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_inner_front_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -332.009,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": -331.533,
+            "y": 5.075,
+            "z": -0.709
+          },
+          "travelM": 0.61
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -332.009,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": -332.377,
+            "y": 5.075,
+            "z": -1.581
+          },
+          "travelM": 0.613
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_inner_rear_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -367.991,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": -368.462,
+            "y": 5.075,
+            "z": 14.504
+          },
+          "travelM": 0.609
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -367.991,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": -367.615,
+            "y": 5.075,
+            "z": 15.373
+          },
+          "travelM": 0.611
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_inner_rear_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -332.009,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": -332.384,
+            "y": 5.075,
+            "z": 15.374
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -332.009,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": -331.527,
+            "y": 5.075,
+            "z": 14.516
+          },
+          "travelM": 0.611
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_outer_front_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -375.991,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": -375.609,
+            "y": 5.075,
+            "z": -18.067
+          },
+          "travelM": 0.61
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -375.991,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": -376.469,
+            "y": 5.075,
+            "z": -17.211
+          },
+          "travelM": 0.61
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_outer_front_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -324.009,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": -323.536,
+            "y": 5.075,
+            "z": -17.207
+          },
+          "travelM": 0.61
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -324.009,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": -324.391,
+            "y": 5.075,
+            "z": -18.067
+          },
+          "travelM": 0.61
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_outer_rear_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -375.991,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": -376.475,
+            "y": 5.075,
+            "z": 46.017
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -375.991,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": -375.616,
+            "y": 5.075,
+            "z": 46.874
+          },
+          "travelM": 0.611
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_aegis_keep_outer_rear_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": -324.009,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": -324.397,
+            "y": 5.075,
+            "z": 46.86
+          },
+          "travelM": 0.609
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": -324.009,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": -323.528,
+            "y": 5.075,
+            "z": 46.015
+          },
+          "travelM": 0.611
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_inner_front_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 332.009,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": 332.383,
+            "y": 5.075,
+            "z": -1.574
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 332.009,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": 331.532,
+            "y": 5.075,
+            "z": -0.71
+          },
+          "travelM": 0.61
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_inner_front_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 367.991,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": 368.472,
+            "y": 5.075,
+            "z": -0.715
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 367.991,
+            "y": 5.075,
+            "z": -1.091
+          },
+          "end": {
+            "x": 367.62,
+            "y": 5.075,
+            "z": -1.577
+          },
+          "travelM": 0.612
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_inner_rear_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 332.009,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": 331.527,
+            "y": 5.075,
+            "z": 14.515
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 332.009,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": 332.39,
+            "y": 5.075,
+            "z": 15.367
+          },
+          "travelM": 0.61
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_inner_rear_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 367.991,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": 367.616,
+            "y": 5.075,
+            "z": 15.373
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 367.991,
+            "y": 5.075,
+            "z": 14.891
+          },
+          "end": {
+            "x": 368.473,
+            "y": 5.075,
+            "z": 14.516
+          },
+          "travelM": 0.611
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_outer_front_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 324.009,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": 324.388,
+            "y": 5.075,
+            "z": -18.07
+          },
+          "travelM": 0.61
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 324.009,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": 323.521,
+            "y": 5.075,
+            "z": -17.222
+          },
+          "travelM": 0.612
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_outer_front_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 375.991,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": 376.469,
+            "y": 5.075,
+            "z": -17.212
+          },
+          "travelM": 0.61
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 375.991,
+            "y": 5.075,
+            "z": -17.591
+          },
+          "end": {
+            "x": 375.616,
+            "y": 5.075,
+            "z": -18.073
+          },
+          "travelM": 0.611
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_outer_rear_left_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 324.009,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": 323.534,
+            "y": 5.075,
+            "z": 46.009
+          },
+          "travelM": 0.61
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 324.009,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": 324.394,
+            "y": 5.075,
+            "z": 46.864
+          },
+          "travelM": 0.61
+        }
+      ]
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "propId": "cinderfen_outskirts_riftbound_keep_outer_rear_right_stair",
+      "routeCompleted": true,
+      "routeEndHeightM": 6.3,
+      "rails": [
+        {
+          "side": "left",
+          "seconds": 2,
+          "start": {
+            "x": 375.991,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": 375.617,
+            "y": 5.075,
+            "z": 46.874
+          },
+          "travelM": 0.611
+        },
+        {
+          "side": "right",
+          "seconds": 2,
+          "start": {
+            "x": 375.991,
+            "y": 5.075,
+            "z": 46.391
+          },
+          "end": {
+            "x": 376.477,
+            "y": 5.075,
+            "z": 46.02
+          },
+          "travelM": 0.612
+        }
+      ]
+    }
+  ],
+  "completedAt": "2026-09-20T18:17:02.112Z",
+  "summary": {
+    "exteriorCorners": 16,
+    "closedGates": 8,
+    "completeStairRoutes": 16,
+    "containedRailPresses": 32,
+    "failed": 0
+  },
+  "mapBaselineCommit": "a17dc87",
+  "regenerationNote": "Herbalist integration changed Sunmeadow NPC presentation during this pass; Cinderfen map bytes were unchanged. The interrupted unrecorded eighth stair attempt was restarted after reload."
+}

@@ -1,0 +1,18 @@
+{
+  "masterSha256": "17a9d297011d1380d4dacd9361dbbbc4747da9c416be49093e383525bdddc2a9",
+  "shirtConnectedComponents": [
+    2300
+  ],
+  "shirtBoundaryLoops": 4,
+  "shirtBoundaryValenceValid": true,
+  "fittedJerkin": true,
+  "quiverSuspensionLoops": 2,
+  "packedImages": 30,
+  "modifiers": [
+    "SUBSURF",
+    "SOLIDIFY",
+    "ARMATURE"
+  ],
+  "status": "passed",
+  "scope": "Continuous source shirt torso/axilla/sleeves; fitted jerkin and independently attached shoulder yokes, suspended bow and quiver; packed editable PBR inputs. Exact exported garment/tool contact measured separately."
+}

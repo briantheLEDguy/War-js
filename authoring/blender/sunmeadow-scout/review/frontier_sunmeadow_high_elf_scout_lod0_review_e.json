@@ -1,0 +1,32 @@
+{
+  "modelSha256": "9b5536c5df9c2b3108c15bb985317c53197bb27e35057c01a4e97f906d225d4b",
+  "bounds": {
+    "min": [
+      -0.3140350580215454,
+      -0.2160017341375351,
+      0.004000263288617134
+    ],
+    "max": [
+      0.3140147924423218,
+      0.2415248453617096,
+      1.939172625541687
+    ]
+  },
+  "images": [
+    {
+      "view": "run",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_run_e.png",
+      "sha256": "1ae19caee258f170fb67f9ba03d98e9507a9b7b989419ab935e07d9b3466149a",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_high_elf_scout_lod0_run_side_e.png",
+      "sha256": "d3361f67741463e93fe8e7998de669bdcbed54fde3ceb4aefbacd6333115db88",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    }
+  ],
+  "status": "pending"
+}

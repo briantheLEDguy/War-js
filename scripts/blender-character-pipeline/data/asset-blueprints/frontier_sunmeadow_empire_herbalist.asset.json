@@ -1,0 +1,119 @@
+{
+  "assetId": "chr.frontier.sunmeadow.empire_herbalist",
+  "displayName": "Sunmeadow Empire Herbalist",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "regional_inhabitants"
+  ],
+  "runtime": {
+    "profileKey": "npc_frontier_sunmeadow_empire_herbalist",
+    "bodyFamily": "frontier_sunmeadow_empire_herbalist_v1_f",
+    "bodyVariant": "f",
+    "skeletonId": "sunmeadow_herbalist_humanoid_v1",
+    "bindPoseId": "sunmeadow_herbalist_a_pose_v1"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/runtime/frontier_sunmeadow_empire_herbalist_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_feet",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "frontier_sunmeadow_empire_herbalist_v1_f",
+    "skeletonId": "sunmeadow_herbalist_humanoid_v1",
+    "bindPoseId": "sunmeadow_herbalist_a_pose_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 156290,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 90647,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 42197,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierInhabitant",
+    "textureSet": "frontier_sunmeadow_empire_herbalist",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "body"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/sources/frontier_sunmeadow_empire_herbalist.blend",
+    "sourceSha256": "a3d5eea912ff548a4b6ab897c9380592e554c6d01860e59aa0fc64c07ce59402",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 32,
+    "maxTris": 156290,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.8350000604987144,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.004
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "63072b851393b42f43293dd35445e740f546ea0c6c1694fae4a2fddcf3483c97",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

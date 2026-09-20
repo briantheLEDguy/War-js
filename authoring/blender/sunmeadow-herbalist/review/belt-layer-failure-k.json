@@ -1,0 +1,12 @@
+{
+  "revision": "k",
+  "status": "rejected-waist-layer-intersection",
+  "modelSha256": "34d9bb9ba86084b36b2dd0fa8bd1c7750d2e2518efe82302c4a06c0ab277ae75",
+  "image": "review/belt-layer-failure-k.png",
+  "imageSha256": "04fa5301f577b7afab6538079958ebf9a4d40664adfe81c167cb9c00766324d5",
+  "witnesses": [
+    "review/waist-layer-diagnostic-k.json",
+    "review/belt-layer-regression-k.json"
+  ],
+  "finding": "Rear smock edge binding lies up to 3.7613 mm ahead of the belt outer surface. Full idle layer probe detects up to 419 triangle-edge crossings and -15.6754 mm minimum inner-surface gap. Eight earlier gates did not cover the excluded waist band; the new belt-layer gate must pass on replacement bytes."
+}

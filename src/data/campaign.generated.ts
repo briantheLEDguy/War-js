@@ -124,7 +124,7 @@ export const CAMPAIGN_NODES = [
     "nodeRole": "battlefield",
     "theme": "sunlit_fields",
     "levelBand": "Tier 1",
-    "staticMapHash": "a0804c1693d92764"
+    "staticMapHash": "ab684718aac39587"
   },
   {
     "id": "greybrook_crossing",
@@ -1589,7 +1589,7 @@ export const CAMPAIGN_MAP_HASHES = {
   "rift_crownworks": "30450c22d227c9e9",
   "rift_gate_fortress": "5e0bcbd7475365f1",
   "riftspire_capital": "7534a54b6d02d4b3",
-  "sunmeadow_march": "a0804c1693d92764",
+  "sunmeadow_march": "ab684718aac39587",
   "greybrook_crossing": "1740fe2dd12f3f1e",
   "ironwood_redoubt": "538268fa1e86c1d0",
   "brightfen_approach": "4060af8f4a04e594",

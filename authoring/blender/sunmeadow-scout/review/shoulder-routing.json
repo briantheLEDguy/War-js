@@ -1,0 +1,34 @@
+{
+  "master": "sources/frontier_sunmeadow_high_elf_scout.blend",
+  "masterSha256": "17a9d297011d1380d4dacd9361dbbbc4747da9c416be49093e383525bdddc2a9",
+  "strips": [
+    {
+      "object": "scout_over_shoulder_harness",
+      "rows": 33,
+      "maximumRowStep": 0.016226809381371256,
+      "minimumWidth": 0.03199629446364199,
+      "maximumWidth": 0.040456129693091404,
+      "minimumWidthDirectionDot": 0.958793530240655,
+      "maximumTurnDegrees": 35.18115694295512
+    },
+    {
+      "object": "scout_tapered_shoulder_yoke",
+      "rows": 81,
+      "maximumRowStep": 0.01794878513114618,
+      "minimumWidth": 0.025130466529046564,
+      "maximumWidth": 0.0432850568831822,
+      "minimumWidthDirectionDot": 0.974233357119374,
+      "maximumTurnDegrees": 14.267433600625187
+    },
+    {
+      "object": "scout_tapered_shoulder_yoke.001",
+      "rows": 81,
+      "maximumRowStep": 0.01798773397776208,
+      "minimumWidth": 0.025020930001164655,
+      "maximumWidth": 0.042887970395681235,
+      "minimumWidthDirectionDot": 0.9815285182558,
+      "maximumTurnDegrees": 25.930811476406117
+    }
+  ],
+  "scope": "Actual paired-edge source geometry; no projected guide or invisible support substitutes."
+}

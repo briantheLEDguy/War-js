@@ -1,0 +1,1135 @@
+{
+  "schemaVersion": 1,
+  "attribute": "_SCOUT_PART",
+  "authoringMaster": "sources/frontier_sunmeadow_high_elf_scout.authored.blend",
+  "authoringMasterSha256": "ea28f9c1eaaf588ef3940c1eab46cb712c48e56f2cac5bcc96ce3837deea71a8",
+  "parts": {
+    "body_civic_humanoid_v2_f.high-poly": {
+      "id": 1,
+      "sourceVertices": 552,
+      "materials": [
+        "body_civic_humanoid_v2_f.high-poly"
+      ]
+    },
+    "body_civic_humanoid_v2_f.teeth_base": {
+      "id": 2,
+      "sourceVertices": 4494,
+      "materials": [
+        "body_civic_humanoid_v2_f.teeth_base"
+      ]
+    },
+    "body_civic_humanoid_v2_f.tongue01": {
+      "id": 3,
+      "sourceVertices": 253,
+      "materials": [
+        "body_civic_humanoid_v2_f.tongue01"
+      ]
+    },
+    "crossed_boot_lace": {
+      "id": 4,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.001": {
+      "id": 5,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.002": {
+      "id": 6,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.003": {
+      "id": 7,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.004": {
+      "id": 8,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.005": {
+      "id": 9,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.006": {
+      "id": 10,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.007": {
+      "id": 11,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.008": {
+      "id": 12,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.009": {
+      "id": 13,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.010": {
+      "id": 14,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.011": {
+      "id": 15,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.012": {
+      "id": 16,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.013": {
+      "id": 17,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.014": {
+      "id": 18,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "crossed_boot_lace.015": {
+      "id": 19,
+      "sourceVertices": 54,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "farmer_shirt_sewn_seams": {
+      "id": 20,
+      "sourceVertices": 8580,
+      "materials": [
+        "farmer_shirt_sewing_thread"
+      ]
+    },
+    "fitted_boot_-1": {
+      "id": 21,
+      "sourceVertices": 108,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_boot_1": {
+      "id": 22,
+      "sourceVertices": 108,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_placket_lace": {
+      "id": 23,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.001": {
+      "id": 24,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.002": {
+      "id": 25,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.003": {
+      "id": 26,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.004": {
+      "id": 27,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_placket_lace.005": {
+      "id": 28,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "fitted_shirt_placket": {
+      "id": 29,
+      "sourceVertices": 40,
+      "materials": [
+        "high_elf_scout_woven_linen"
+      ]
+    },
+    "fitted_shirt_placket.001": {
+      "id": 30,
+      "sourceVertices": 40,
+      "materials": [
+        "high_elf_scout_woven_linen"
+      ]
+    },
+    "folded_standing_shirt_collar": {
+      "id": 31,
+      "sourceVertices": 250,
+      "materials": [
+        "high_elf_scout_woven_linen"
+      ]
+    },
+    "forged_buckle_frame": {
+      "id": 32,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_handled_brass"
+      ]
+    },
+    "forged_buckle_frame.001": {
+      "id": 33,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_handled_brass"
+      ]
+    },
+    "forged_buckle_frame.002": {
+      "id": 34,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_handled_brass"
+      ]
+    },
+    "forged_buckle_frame.003": {
+      "id": 35,
+      "sourceVertices": 16,
+      "materials": [
+        "high_elf_scout_handled_brass"
+      ]
+    },
+    "high_elf_scout_exposed_anatomy": {
+      "id": 36,
+      "sourceVertices": 8536,
+      "materials": [
+        "body_civic_humanoid_v2_f.body"
+      ]
+    },
+    "scout_arrow_nock": {
+      "id": 37,
+      "sourceVertices": 12,
+      "materials": [
+        "scout_tool_forged_caps"
+      ]
+    },
+    "scout_arrow_nock.001": {
+      "id": 38,
+      "sourceVertices": 12,
+      "materials": [
+        "scout_tool_forged_caps"
+      ]
+    },
+    "scout_arrow_nock.002": {
+      "id": 39,
+      "sourceVertices": 12,
+      "materials": [
+        "scout_tool_forged_caps"
+      ]
+    },
+    "scout_arrow_nock.003": {
+      "id": 40,
+      "sourceVertices": 12,
+      "materials": [
+        "scout_tool_forged_caps"
+      ]
+    },
+    "scout_bow_grip_wrap": {
+      "id": 41,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.001": {
+      "id": 42,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.002": {
+      "id": 43,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.003": {
+      "id": 44,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.004": {
+      "id": 45,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.005": {
+      "id": 46,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.006": {
+      "id": 47,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.007": {
+      "id": 48,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.008": {
+      "id": 49,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.009": {
+      "id": 50,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.010": {
+      "id": 51,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_grip_wrap.011": {
+      "id": 52,
+      "sourceVertices": 126,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_keeper": {
+      "id": 53,
+      "sourceVertices": 136,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_keeper.001": {
+      "id": 54,
+      "sourceVertices": 136,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_nock_binding": {
+      "id": 55,
+      "sourceVertices": 186,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_bow_nock_binding.001": {
+      "id": 56,
+      "sourceVertices": 186,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_braid_wrap": {
+      "id": 57,
+      "sourceVertices": 246,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "scout_braid_wrap.001": {
+      "id": 58,
+      "sourceVertices": 246,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    },
+    "scout_carried_recurve_stave": {
+      "id": 59,
+      "sourceVertices": 64,
+      "materials": [
+        "scout_tool_bow_ash"
+      ]
+    },
+    "scout_fitted_brow": {
+      "id": 60,
+      "sourceVertices": 102,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_fitted_brow.001": {
+      "id": 61,
+      "sourceVertices": 102,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_fitted_jerkin": {
+      "id": 62,
+      "sourceVertices": 3200,
+      "materials": [
+        "scout_forest_suede_jerkin"
+      ]
+    },
+    "scout_fitted_scalp": {
+      "id": 63,
+      "sourceVertices": 318,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_front_quiver_harness": {
+      "id": 64,
+      "sourceVertices": 50,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_jerkin_bound_opening": {
+      "id": 65,
+      "sourceVertices": 774,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_jerkin_bound_opening.001": {
+      "id": 66,
+      "sourceVertices": 774,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_panel_piping": {
+      "id": 67,
+      "sourceVertices": 246,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_panel_piping.001": {
+      "id": 68,
+      "sourceVertices": 246,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch": {
+      "id": 69,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.001": {
+      "id": 70,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.002": {
+      "id": 71,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.003": {
+      "id": 72,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.004": {
+      "id": 73,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.005": {
+      "id": 74,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.006": {
+      "id": 75,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.007": {
+      "id": 76,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.008": {
+      "id": 77,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.009": {
+      "id": 78,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.010": {
+      "id": 79,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.011": {
+      "id": 80,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.012": {
+      "id": 81,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.013": {
+      "id": 82,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.014": {
+      "id": 83,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.015": {
+      "id": 84,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.016": {
+      "id": 85,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_leaf_stitch.017": {
+      "id": 86,
+      "sourceVertices": 15,
+      "materials": [
+        "scout_jerkin_turned_binding"
+      ]
+    },
+    "scout_map_case_belt_loop": {
+      "id": 87,
+      "sourceVertices": 136,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_map_case_belt_loop.001": {
+      "id": 88,
+      "sourceVertices": 136,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_map_case_toggle": {
+      "id": 89,
+      "sourceVertices": 16,
+      "materials": [
+        "scout_tool_bow_ash"
+      ]
+    },
+    "scout_nape_braid": {
+      "id": 90,
+      "sourceVertices": 776,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_nape_braid.001": {
+      "id": 91,
+      "sourceVertices": 776,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_nape_braid.002": {
+      "id": 92,
+      "sourceVertices": 776,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_over_shoulder_harness": {
+      "id": 93,
+      "sourceVertices": 66,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_quiver_bound_seam": {
+      "id": 94,
+      "sourceVertices": 396,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_quiver_bound_seam.001": {
+      "id": 95,
+      "sourceVertices": 396,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_quiver_retaining_loop": {
+      "id": 96,
+      "sourceVertices": 136,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_quiver_retaining_loop.001": {
+      "id": 97,
+      "sourceVertices": 136,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_quiver_saddle_stitch": {
+      "id": 98,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.001": {
+      "id": 99,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.002": {
+      "id": 100,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.003": {
+      "id": 101,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.004": {
+      "id": 102,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.005": {
+      "id": 103,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.006": {
+      "id": 104,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.007": {
+      "id": 105,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.008": {
+      "id": 106,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.009": {
+      "id": 107,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.010": {
+      "id": 108,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.011": {
+      "id": 109,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.012": {
+      "id": 110,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.013": {
+      "id": 111,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.014": {
+      "id": 112,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.015": {
+      "id": 113,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_quiver_saddle_stitch.016": {
+      "id": 114,
+      "sourceVertices": 10,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_rear_quiver_harness": {
+      "id": 115,
+      "sourceVertices": 50,
+      "materials": [
+        "scout_harness_leather"
+      ]
+    },
+    "scout_suspended_quiver": {
+      "id": 116,
+      "sourceVertices": 160,
+      "materials": [
+        "scout_tool_quiver_leather"
+      ]
+    },
+    "scout_swept_back_lock": {
+      "id": 117,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.001": {
+      "id": 118,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.002": {
+      "id": 119,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.003": {
+      "id": 120,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.004": {
+      "id": 121,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.005": {
+      "id": 122,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.006": {
+      "id": 123,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.007": {
+      "id": 124,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.008": {
+      "id": 125,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.009": {
+      "id": 126,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.010": {
+      "id": 127,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.011": {
+      "id": 128,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.012": {
+      "id": 129,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.013": {
+      "id": 130,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.014": {
+      "id": 131,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.015": {
+      "id": 132,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.016": {
+      "id": 133,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.017": {
+      "id": 134,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.018": {
+      "id": 135,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_swept_back_lock.019": {
+      "id": 136,
+      "sourceVertices": 232,
+      "materials": [
+        "scout_ash_blond_hair"
+      ]
+    },
+    "scout_tapered_shoulder_yoke": {
+      "id": 137,
+      "sourceVertices": 162,
+      "materials": [
+        "scout_forest_suede_jerkin"
+      ]
+    },
+    "scout_tapered_shoulder_yoke.001": {
+      "id": 138,
+      "sourceVertices": 162,
+      "materials": [
+        "scout_forest_suede_jerkin"
+      ]
+    },
+    "scout_tool_arrow_shaft": {
+      "id": 139,
+      "sourceVertices": 16,
+      "materials": [
+        "scout_tool_bow_ash"
+      ]
+    },
+    "scout_tool_arrow_shaft.001": {
+      "id": 140,
+      "sourceVertices": 16,
+      "materials": [
+        "scout_tool_bow_ash"
+      ]
+    },
+    "scout_tool_arrow_shaft.002": {
+      "id": 141,
+      "sourceVertices": 16,
+      "materials": [
+        "scout_tool_bow_ash"
+      ]
+    },
+    "scout_tool_arrow_shaft.003": {
+      "id": 142,
+      "sourceVertices": 16,
+      "materials": [
+        "scout_tool_bow_ash"
+      ]
+    },
+    "scout_tool_belt_map_case": {
+      "id": 143,
+      "sourceVertices": 64,
+      "materials": [
+        "scout_tool_quiver_leather"
+      ]
+    },
+    "scout_tool_bowstring": {
+      "id": 144,
+      "sourceVertices": 12,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching": {
+      "id": 145,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.001": {
+      "id": 146,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.002": {
+      "id": 147,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.003": {
+      "id": 148,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.004": {
+      "id": 149,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.005": {
+      "id": 150,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.006": {
+      "id": 151,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.007": {
+      "id": 152,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.008": {
+      "id": 153,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.009": {
+      "id": 154,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.010": {
+      "id": 155,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "scout_tool_cut_arrow_fletching.011": {
+      "id": 156,
+      "sourceVertices": 18,
+      "materials": [
+        "scout_tool_fletching"
+      ]
+    },
+    "shirt_continuous_tailored_surface": {
+      "id": 157,
+      "sourceVertices": 2300,
+      "materials": [
+        "high_elf_scout_woven_linen"
+      ]
+    },
+    "trousers_continuous_tailored_surface": {
+      "id": 158,
+      "sourceVertices": 1241,
+      "materials": [
+        "high_elf_scout_wool"
+      ]
+    },
+    "welt_stitch_-1": {
+      "id": 159,
+      "sourceVertices": 1116,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "welt_stitch_1": {
+      "id": 160,
+      "sourceVertices": 1116,
+      "materials": [
+        "high_elf_scout_linen_seam"
+      ]
+    },
+    "work_belt": {
+      "id": 161,
+      "sourceVertices": 960,
+      "materials": [
+        "high_elf_scout_worked_leather"
+      ]
+    }
+  }
+}

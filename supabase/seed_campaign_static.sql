@@ -12,7 +12,7 @@ values
   ('rift_crownworks', 'Rift Crownworks', 'riftbound', 'T4', 'central', 'battlefield', 'aegis-riftbound-v1', '30450c22d227c9e9'),
   ('rift_gate_fortress', 'Voidgate Fortress', 'riftbound', 'Fortress', 'central', 'fortress', 'aegis-riftbound-v1', '5e0bcbd7475365f1'),
   ('riftspire_capital', 'Riftspire Citadel', 'riftbound', 'City', 'central', 'capital', 'aegis-riftbound-v1', '7534a54b6d02d4b3'),
-  ('sunmeadow_march', 'Sunmeadow March', 'aegis', 'T1', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', 'a0804c1693d92764'),
+  ('sunmeadow_march', 'Sunmeadow March', 'aegis', 'T1', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', 'ab684718aac39587'),
   ('greybrook_crossing', 'Greybrook Crossing', 'aegis', 'T2', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '1740fe2dd12f3f1e'),
   ('ironwood_redoubt', 'Ironwood Redoubt', 'aegis', 'T3', 'aegis_west', 'battlefield', 'aegis-riftbound-v1', '538268fa1e86c1d0'),
   ('brightfen_approach', 'Brightfen Approach', 'aegis', 'T1', 'aegis_east', 'battlefield', 'aegis-riftbound-v1', '4060af8f4a04e594'),

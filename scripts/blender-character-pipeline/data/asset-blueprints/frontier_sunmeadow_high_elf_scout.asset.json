@@ -1,0 +1,119 @@
+{
+  "assetId": "chr.frontier.sunmeadow.high_elf_scout",
+  "displayName": "Sunmeadow High Elf Scout",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "regional_inhabitants"
+  ],
+  "runtime": {
+    "profileKey": "npc_frontier_sunmeadow_high_elf_scout",
+    "bodyFamily": "frontier_sunmeadow_high_elf_scout_v1_f",
+    "bodyVariant": "f",
+    "skeletonId": "sunmeadow_scout_humanoid_v1",
+    "bindPoseId": "sunmeadow_scout_a_pose_v1"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_high_elf_scout_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/runtime/frontier_sunmeadow_high_elf_scout_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_feet",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "frontier_sunmeadow_high_elf_scout_v1_f",
+    "skeletonId": "sunmeadow_scout_humanoid_v1",
+    "bindPoseId": "sunmeadow_scout_a_pose_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 168246,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 97542,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 49336,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierInhabitant",
+    "textureSet": "frontier_sunmeadow_high_elf_scout",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "body"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/sources/frontier_sunmeadow_high_elf_scout.blend",
+    "sourceSha256": "17a9d297011d1380d4dacd9361dbbbc4747da9c416be49093e383525bdddc2a9",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 32,
+    "maxTris": 168246,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.9351723622530699,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.004
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "d12b92a97fb9806ee88254f9b03a326ac38f0d085a01debc9d45034206b72542",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

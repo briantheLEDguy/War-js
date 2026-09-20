@@ -4543,6 +4543,58 @@
     "cameraSolid": false
   },
   {
+    "kind": "character__npc_frontier_sunmeadow_empire_herbalist",
+    "label": "Sunmeadow Empire Herbalist",
+    "group": "Characters and NPCs",
+    "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+    "assetKey": "npc_frontier_sunmeadow_empire_herbalist",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "frontier_sunmeadow_empire_herbalist_lod1.glb",
+      "frontier_sunmeadow_empire_herbalist_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.656,
+      "depth": 0.451,
+      "chainAxis": "z"
+    },
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false
+  },
+  {
+    "kind": "character__npc_frontier_sunmeadow_high_elf_scout",
+    "label": "Sunmeadow High Elf Scout",
+    "group": "Characters and NPCs",
+    "model": "frontier_sunmeadow_high_elf_scout_lod0.glb",
+    "assetKey": "npc_frontier_sunmeadow_high_elf_scout",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "frontier_sunmeadow_high_elf_scout_lod1.glb",
+      "frontier_sunmeadow_high_elf_scout_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.628,
+      "depth": 0.458,
+      "chainAxis": "z"
+    },
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false
+  },
+  {
     "kind": "character__npc_riftbound_gorvak_mirehand_forward_scout",
     "label": "Gorvak Mirehand - Forward Scout",
     "group": "Characters and NPCs",

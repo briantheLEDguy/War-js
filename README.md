@@ -31,7 +31,19 @@ are retained; the same furnishing is available in the GM builder.
 Nyra Vex now uses the published Dark Elf supply-officer uniform, with physically
 attached ledger suspension, nine embedded clips and three verified runtime LODs.
 She keeps her existing Cinderfen identity, role and position and is available in
-the GM builder. Herbalist, High Elf scout and Greenskin quartermaster work continues.
+the GM builder. Serra Brightfield now uses the published Empire herbalist, with
+a fitted divided smock, suspended gathering equipment, nine clips and three
+verified in-game LODs. Mira Stonewake now uses the published High Elf scout,
+with joined shoulder seams, suspended scouting equipment and three verified
+runtime LODs. Greenskin quartermaster and Empire field-captain work continues.
+
+The local keep inspection page supports ground coordinates and diagonal presses.
+Actual Game/Player checks held 16 corners and eight gates across Sunmeadow and
+Cinderfen; all 16 Cinderfen stair routes reached 6.3m and all 32 rail presses
+held at 5.075m. The saved receipt is
+`authoring/blender/orvr-frontier/review/keep-gameplay-20260920.json`.
+These checks complement all-36-keep enclosure and breach tests; full shared
+campaign and performance acceptance remain open.
 Publication preserves existing NPC/service IDs and requires matched
 body/rig identity plus fitted clothing and animation checks.
 Siege equipment and keep interiors are universal;

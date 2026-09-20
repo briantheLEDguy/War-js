@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.frontier.sunmeadow.empire_herbalist",
+  "status": "technically-ready-frozen",
+  "revision": "l",
+  "verifiedAt": "2026-09-20T18:05:05.201600+00:00",
+  "gate": {
+    "command": "python authoring/blender/sunmeadow-herbalist/tools/test_exports.py",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "log": "review/technical-gates-l.log"
+  },
+  "gltfValidation": {
+    "errors": 0,
+    "warnings": 0,
+    "lods": 3
+  },
+  "generatingInputCount": 43,
+  "validationSourceCount": 11,
+  "packedImages": 27,
+  "master": {
+    "path": "sources/frontier_sunmeadow_empire_herbalist.blend",
+    "sha256": "a3d5eea912ff548a4b6ab897c9380592e554c6d01860e59aa0fc64c07ce59402"
+  },
+  "sourceLedger": {
+    "path": "review/frontier_sunmeadow_empire_herbalist_build.json",
+    "sha256": "058bf395cc90ee3bb3f0f3fc36f9ccc26a3d1acbf8c0e424738c3b49a29b0adb",
+    "generatorSha256": "fc53a29ef1ff1bdb18a9062a96bad99768e9bf0f4e019ec43eae09d510b0a43e"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
+      "sha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "triangles": 156290,
+      "bytes": 29024412,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "motionSamples": 849,
+      "minimumFloorHeightMetres": 0.002796173095703125,
+      "maximumMaterialP99": 1.8300850119059062,
+      "maximumMaterialEdgeExtensionMetres": 0.05697127347216398,
+      "armSamples": 224,
+      "armSectionAreaRatioRange": [
+        0.994248027975635,
+        1.0000041802247437
+      ],
+      "femaleFoundationSpanRatioRange": [
+        0.9999989672095891,
+        1.0030071760634305
+      ],
+      "maximumArmAngularGapDegrees": 21.297340602319306,
+      "minimumBootHemGapMetres": 4.350163746005137e-05,
+      "bootHemPenetrations": 0,
+      "bootHemEdgeIntersections": 0,
+      "maximumWeltDistanceMetres": 0.0025001210160553455,
+      "weltNonManifoldEdges": 0,
+      "suspensionLoops": 4,
+      "supportPairs": 15,
+      "suspensionNonManifoldEdges": 0,
+      "maximumEquipmentRigidResidualMetres": 3.5346702611486615e-07,
+      "minimumBeltInnerClearanceMetres": 0.0038651090825439216,
+      "beltLayerCrossings": 0,
+      "minimumGarmentGapMetres": 0.004501066170632839,
+      "garmentCrossings": 0,
+      "minimumToolGapMetres": 0.006449249107390642,
+      "toolCrossings": 0,
+      "deathTerminalSupport": {
+        "hands": {
+          "L": 0.004000306129455566,
+          "R": 0.004000067710876465
+        },
+        "soles": {
+          "L": 0.0040000975131988525,
+          "R": 0.004000067710876465
+        },
+        "torso": 0.0040000081062316895
+      },
+      "actualImportReview": "review/frontier_sunmeadow_empire_herbalist_lod0_review_l.json",
+      "inspectedViews": [
+        "front",
+        "head",
+        "side",
+        "rear",
+        "run_side",
+        "death:2"
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_empire_herbalist_lod1.glb",
+      "sha256": "d9236e264cb0861ff7aafce695c0c6f95a53ac72e5f90ceac54e4d7c47ad2928",
+      "triangles": 90647,
+      "bytes": 25975308,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "motionSamples": 849,
+      "minimumFloorHeightMetres": 0.002796173095703125,
+      "maximumMaterialP99": 1.8384685618986794,
+      "maximumMaterialEdgeExtensionMetres": 0.05697127347216398,
+      "armSamples": 224,
+      "armSectionAreaRatioRange": [
+        0.994201664762752,
+        1.0000043273410109
+      ],
+      "femaleFoundationSpanRatioRange": [
+        0.9999989672095891,
+        1.0030071760634305
+      ],
+      "maximumArmAngularGapDegrees": 21.655967288193153,
+      "minimumBootHemGapMetres": 0.002405867063728258,
+      "bootHemPenetrations": 0,
+      "bootHemEdgeIntersections": 0,
+      "maximumWeltDistanceMetres": 0.0026685846969485283,
+      "weltNonManifoldEdges": 0,
+      "suspensionLoops": 4,
+      "supportPairs": 15,
+      "suspensionNonManifoldEdges": 0,
+      "maximumEquipmentRigidResidualMetres": 3.5210357450565747e-07,
+      "minimumBeltInnerClearanceMetres": 0.0038640519938564766,
+      "beltLayerCrossings": 0,
+      "minimumGarmentGapMetres": 0.004296889528632164,
+      "garmentCrossings": 0,
+      "minimumToolGapMetres": 0.00646365387365222,
+      "toolCrossings": 0,
+      "deathTerminalSupport": {
+        "hands": {
+          "L": 0.004000306129455566,
+          "R": 0.004000067710876465
+        },
+        "soles": {
+          "L": 0.0040000975131988525,
+          "R": 0.004000067710876465
+        },
+        "torso": 0.0040000081062316895
+      },
+      "actualImportReview": "review/frontier_sunmeadow_empire_herbalist_lod1_review_l.json",
+      "inspectedViews": [
+        "front",
+        "head",
+        "side",
+        "rear",
+        "run_side",
+        "death:2"
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_empire_herbalist_lod2.glb",
+      "sha256": "8f750f1e399d0cf86081677cb1b1fbd7aa43385611699c1bd43f65c0ae77e0cf",
+      "triangles": 42197,
+      "bytes": 23626980,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "motionSamples": 849,
+      "minimumFloorHeightMetres": 0.002942105755209923,
+      "maximumMaterialP99": 1.7966423947105823,
+      "maximumMaterialEdgeExtensionMetres": 0.05732789465436592,
+      "armSamples": 224,
+      "armSectionAreaRatioRange": [
+        0.9936213802908079,
+        1.0002789319074243
+      ],
+      "femaleFoundationSpanRatioRange": [
+        0.9973845531100077,
+        1.0039427922523858
+      ],
+      "maximumArmAngularGapDegrees": 28.609136313194167,
+      "minimumBootHemGapMetres": 0.001952462413034227,
+      "bootHemPenetrations": 0,
+      "bootHemEdgeIntersections": 0,
+      "maximumWeltDistanceMetres": 0.0032363254576921463,
+      "weltNonManifoldEdges": 0,
+      "suspensionLoops": 4,
+      "supportPairs": 15,
+      "suspensionNonManifoldEdges": 0,
+      "maximumEquipmentRigidResidualMetres": 3.5210357450565747e-07,
+      "minimumBeltInnerClearanceMetres": 0.004066746599844739,
+      "beltLayerCrossings": 0,
+      "minimumGarmentGapMetres": 0.002700896468013525,
+      "garmentCrossings": 0,
+      "minimumToolGapMetres": 0.006716682575643063,
+      "toolCrossings": 0,
+      "deathTerminalSupport": {
+        "hands": {
+          "L": 0.004000306129455566,
+          "R": 0.004000067710876465
+        },
+        "soles": {
+          "L": 0.004265576601028442,
+          "R": 0.004265576601028442
+        },
+        "torso": 0.004023134708404541
+      },
+      "actualImportReview": "review/frontier_sunmeadow_empire_herbalist_lod2_review_l.json",
+      "inspectedViews": [
+        "front",
+        "head",
+        "side",
+        "rear",
+        "run_side",
+        "death:2"
+      ]
+    }
+  ],
+  "scope": "Complete fitted female civilian herbalist and static carried gathering equipment, measured on actual imported GLBs and the nine embedded clips. All three LODs have actual-import front/head/side/rear/run_side/death:2 views. Four closed equipment suspensions and fifteen support pairs retain their load paths in every measured pose. The waist band has a separate belt-layer gate with no waist exclusion. Underlying linen visible below the rear belt is the intentional open working slit.",
+  "limitations": [
+    "No arbitrary modular armor, external animation or animation-blend clearance claim.",
+    "No runtime cloth, loose-prop gravity or interactive harvesting simulation.",
+    "Browser gameplay and GM-builder integration belong to the root publication step."
+  ],
+  "retainedFailureWitness": "review/belt-layer-failure-k.json",
+  "correctedRearClassification": "review/waist-layer-diagnostic-l.json",
+  "auditJson": {
+    "format": "losslessly minified",
+    "files": 24,
+    "bytes": 33241417
+  }
+}

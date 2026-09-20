@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "npc_frontier_sunmeadow_high_elf_scout": {
+      "runtimeReady": true,
+      "modelSha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+      "label": "Sunmeadow High Elf Scout",
+      "group": "Characters and NPCs",
+      "defaultScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "defaultAnimation": "idle",
+      "footprint": {
+        "width": 0.628,
+        "depth": 0.458,
+        "chainAxis": "z"
+      },
+      "colliders": [],
+      "walkableSurfaces": [],
+      "cameraSolid": false
+    }
+  }
+}

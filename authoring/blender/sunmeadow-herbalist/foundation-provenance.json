@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "description": "Retained female civic anatomy, skin maps and canonical skeleton; geometry and rig uniformly normalized from 1.76 m to the 1.86 m authoring reference. Original fitted herbalist garments, groom and carried tools authored in this package. No historical release copied.",
+  "license": "CC0-1.0 for MakeHuman system asset data; original project morphs and canonical rig adapter retained in repository",
+  "upstreamProvenance": {
+    "path": "authoring/blender/frontier-population/foundation-provenance.json",
+    "sha256": "569bd80a7ebe0331f00b649d8d298192defe39577cca01f289e35a7987564424",
+    "bytes": 11917
+  },
+  "inputs": [
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_f.glb",
+      "sha256": "3edd6e13efed1d07ef51a8794852a3dc0af7e281e406265d2b58a77046a8ffb6",
+      "bytes": 10059524
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_f.quad-surface.json.gz",
+      "sha256": "dc0da94fa00d7b98836568e454d5beba04f15e95013a63b855bbebb5fbaabe13",
+      "bytes": 1130606
+    }
+  ],
+  "retainedHelperOrigins": [
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/apron_clearance.py",
+      "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+      "bytes": 5087
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/apron_details.py",
+      "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+      "bytes": 4150
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/artisan_equipment.py",
+      "sha256": "a56603a4dbd90267f6a8f24e299049693ef82dd09e21eeb380a24a11c92b7405",
+      "bytes": 5397
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/authored_artisan_head.py",
+      "sha256": "7614f035f6d11bfd20ff728cc87b6d3be06aad70f528265ddf44ff267cdf8d04",
+      "bytes": 18713
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/build_inhabitants.py",
+      "sha256": "2c84baa007fe08c4b40dc53aa1ed293935931bfb236c08e3dbfc07fff13f9444",
+      "bytes": 32801
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/export_tangents.py",
+      "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+      "bytes": 3228
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/farmer_details.py",
+      "sha256": "a779b1672d11f19812dd92bfd35ce5f6f5069d0d0587d2f6389b6cf6b5569c50",
+      "bytes": 8110
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/fitted_boot_details.py",
+      "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+      "bytes": 3130
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_arm_volume.py",
+      "sha256": "d05a56385306094ac2b11bb6e5aeead9a2b90ea11b84f0dc598112d15ba90a77",
+      "bytes": 7013
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_boot_clearance.py",
+      "sha256": "eb42739a18eacd8451bf00b11a54edf2c387be280762d67b4c4001fb4840f739",
+      "bytes": 7184
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_boot_welt.py",
+      "sha256": "ec376ac5c9103b4e40d393b7ce055b5e831d282fa5aabca0b3b2ac22abb1e543",
+      "bytes": 6573
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_export_motion.py",
+      "sha256": "49d0dea04ee0932ac85cc62328a2892ea51b3e3618dc2fe10d558dfa269c3e5a",
+      "bytes": 7783
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/review_inhabitants.py",
+      "sha256": "4bb45b98a7ff7ae85a72113ec14dbeac201b312391aca492700c3dfc78dade44",
+      "bytes": 7820
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/surface_bindings.py",
+      "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+      "bytes": 2223
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/surface_garments.py",
+      "sha256": "59f44a2a9affd84b9c1151b78def6c57cd73da7f43b0b1317c73f3483bcfca93",
+      "bytes": 10194
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/tailored_clothing.py",
+      "sha256": "2b10e464cebf79214b0718fa824125fe80ab56ca62c11b987bc7955db521abb8",
+      "bytes": 6162
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/tailored_locomotion.py",
+      "sha256": "cac9454beafe9cdf8d3f876e15a4cf0d8c718eba5cc8b71a84e1ec4974010c88",
+      "bytes": 24876
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/test_exports.py",
+      "sha256": "af979985f4a54d99e250c191b30bde098cfaba41a304242e2a5b44bf2b52c86e",
+      "bytes": 4808
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/validate_inhabitants.mjs",
+      "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+      "bytes": 2351
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/workwear_finish.py",
+      "sha256": "b180fe850df9e0efae234b559bce36ac29e7774019c72fba0262c960b56103f8",
+      "bytes": 8066
+    }
+  ],
+  "derivativeInputReceipt": "review/frontier_sunmeadow_empire_herbalist_build.json"
+}
