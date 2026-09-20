@@ -24648,6 +24648,17 @@
       "z": -267,
       "rotY": 0,
       "characterProfileKey": "npc_aegis_serra_brightfield_resource_warden"
+    },
+    {
+      "id": "sunmeadow_march_inhabitant_homefield_farmer",
+      "name": "Edric Hayward",
+      "title": "Homefield Steward",
+      "role": "ambient",
+      "approvedOnly": true,
+      "characterProfileKey": "npc_frontier_sunmeadow_empire_farmer",
+      "x": -374,
+      "z": -317,
+      "rotY": 1.5707963267948966
     }
   ],
   "craftingStations": [
@@ -33730,8 +33741,15 @@
         "role": "beast",
         "desiredProfileKey": "frontier_creature_barrow_wolf",
         "status": "planned"
+      },
+      {
+        "entityId": "sunmeadow_march_inhabitant_homefield_farmer",
+        "race": "empire",
+        "role": "ambient",
+        "desiredProfileKey": "npc_frontier_sunmeadow_empire_farmer",
+        "status": "approved"
       }
     ]
   },
-  "staticMapHash": "dd3efa413ab270ee"
+  "staticMapHash": "07e2de04ca0cdc93"
 }

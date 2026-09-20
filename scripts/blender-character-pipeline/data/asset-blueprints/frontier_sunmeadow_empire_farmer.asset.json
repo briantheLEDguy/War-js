@@ -1,0 +1,119 @@
+{
+  "assetId": "chr.frontier.sunmeadow.empire_farmer",
+  "displayName": "Sunmeadow Empire Farmer",
+  "category": "character",
+  "version": "1.0.0",
+  "sets": [
+    "regional_inhabitants"
+  ],
+  "runtime": {
+    "profileKey": "npc_frontier_sunmeadow_empire_farmer",
+    "bodyFamily": "frontier_sunmeadow_empire_farmer_v1_m",
+    "bodyVariant": "m",
+    "skeletonId": "sunmeadow_farmer_humanoid_v1",
+    "bindPoseId": "sunmeadow_farmer_a_pose_v1"
+  },
+  "output": {
+    "model": "frontier_sunmeadow_empire_farmer_lod0.glb",
+    "artifactDir": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/runtime"
+  },
+  "generator": {
+    "kind": "copyExisting",
+    "copyFrom": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/runtime/frontier_sunmeadow_empire_farmer_lod0.glb"
+  },
+  "geometry": {
+    "originRule": "ground_beneath_feet",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "bodyFamily": "frontier_sunmeadow_empire_farmer_v1_m",
+    "skeletonId": "sunmeadow_farmer_humanoid_v1",
+    "bindPoseId": "sunmeadow_farmer_a_pose_v1",
+    "lods": [
+      {
+        "name": "LOD0",
+        "triTarget": 132478,
+        "screenCoverageMin": 0.2
+      },
+      {
+        "name": "LOD1",
+        "triTarget": 76837,
+        "screenCoverageMin": 0.06
+      },
+      {
+        "name": "LOD2",
+        "triTarget": 35769,
+        "screenCoverageMin": 0
+      }
+    ]
+  },
+  "materials": {
+    "master": "MM_FrontierInhabitant",
+    "textureSet": "frontier_sunmeadow_empire_farmer",
+    "channels": [
+      "baseColor",
+      "normal",
+      "roughness",
+      "metallic"
+    ],
+    "maxTextureResolution": 4096
+  },
+  "rigging": {
+    "skinned": true,
+    "maxInfluences": 4,
+    "requiredClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ]
+  },
+  "compatibility": {
+    "occupiesSlots": [
+      "body"
+    ],
+    "requires": [],
+    "conflictsWith": []
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/sources/frontier_sunmeadow_empire_farmer.blend",
+    "sourceSha256": "ce6aec1d6051ad7be3ef77ee4661fd45ca50ef4c71afa5f49cd0d72cab981e70",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "qc": {
+    "allowNonManifold": true,
+    "allowUvOverlap": true,
+    "maxDrawCalls": 32,
+    "maxMeshObjects": 1,
+    "maxFileSizeMb": 32,
+    "maxTris": 132478,
+    "requiresSkinnedMeshes": true,
+    "requiresPreview": true,
+    "expectedHeightM": 1.8340828195214272,
+    "heightToleranceM": 0.02,
+    "groundToleranceM": 0.004
+  },
+  "lifecycle": {
+    "status": "approved",
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "623facce78792ef7cab7d3a9c450cea8fa0afc3a06318b76ac805c33d62fe3e0",
+    "notes": "Assume all assets are approved and make sure they are being added into the game as you go. Include any previously made assets waiting on approval."
+  }
+}

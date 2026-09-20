@@ -1,0 +1,77 @@
+{
+  "modelSha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+  "bounds": {
+    "min": [
+      -0.33347100019454956,
+      -0.23365017771720886,
+      0.004000447690486908
+    ],
+    "max": [
+      0.33345770835876465,
+      0.17075879871845245,
+      1.838083267211914
+    ]
+  },
+  "images": [
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_front_f.png",
+      "sha256": "3ac0b396697eb76dc802eb92b09250215af4f10c5669b7429dbaf6ceea300e27",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "head",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_head_f.png",
+      "sha256": "003dc4cf538b871a5a55adf0c8d15caee6e4a5e2142999c05d100651f8b5026d",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "side",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_side_f.png",
+      "sha256": "91a173cb810fcb4524eac06fefe93ef8e14aed2e663e5b1ddbb7b6590d44c65a",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "rear",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_rear_f.png",
+      "sha256": "d86996328d6201cece80cbdfc1c32d42bd7a7140e0b8a65fe849f9945fe041bd",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_run_f.png",
+      "sha256": "d6a6706c8b78cf6dd55192a59247480eb768aa2552e74018823ef02c34871438",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_death_2_f.png",
+      "sha256": "811a187de9d1587f34a5a412b1ee8706bbbfd86c39b685a1c4ad6834e2d9953d",
+      "clip": "death",
+      "seconds": 2.0
+    },
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_run_side_f_extra.png",
+      "sha256": "df445fd46a3ea2406d6431d71c45b8d73cd9a37b695d73ef5314f6bdc3db0445",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    }
+  ],
+  "status": "inspected-current-export",
+  "inspectionScope": "Actual reimported GLB images visually inspected: continuous fitted sleeves and suspenders, full limbs, boot shape, carried equipment attachment, and terminal prone support. Does not certify unseen poses or browser gameplay.",
+  "inspectedViews": [
+    "front",
+    "head",
+    "side",
+    "rear",
+    "run",
+    "death:2",
+    "run_side"
+  ]
+}

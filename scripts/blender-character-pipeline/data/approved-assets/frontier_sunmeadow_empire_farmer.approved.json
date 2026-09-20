@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.frontier.sunmeadow.empire_farmer",
+  "displayName": "Sunmeadow Empire Farmer",
+  "category": "character",
+  "model": "frontier_sunmeadow_empire_farmer_lod0.glb",
+  "qc": "frontier_sunmeadow_empire_farmer_lod0.qc.json",
+  "runtime": {
+    "profileKey": "npc_frontier_sunmeadow_empire_farmer",
+    "skinned": true
+  },
+  "compatibility": {
+    "bodyFamily": "frontier_sunmeadow_empire_farmer_v1_m",
+    "bodyVariant": "m",
+    "skeletonId": "sunmeadow_farmer_humanoid_v1",
+    "bindPoseId": "sunmeadow_farmer_a_pose_v1"
+  },
+  "hashes": {
+    "modelSha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+    "qcSha256": "c75ccb73369dc4efad2533aeecf49d7af889a7228e9007e76641e8c6e9b44ae7",
+    "previews": {
+      "front": "3ac0b396697eb76dc802eb92b09250215af4f10c5669b7429dbaf6ceea300e27",
+      "head": "003dc4cf538b871a5a55adf0c8d15caee6e4a5e2142999c05d100651f8b5026d"
+    }
+  },
+  "previews": {
+    "front": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/review\\frontier_sunmeadow_empire_farmer_lod0_front_f.png",
+    "head": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/review\\frontier_sunmeadow_empire_farmer_lod0_head_f.png"
+  },
+  "review": {
+    "reviewedBy": "User",
+    "reviewedAt": "2026-09-09T15:22:39Z",
+    "reviewHash": "623facce78792ef7cab7d3a9c450cea8fa0afc3a06318b76ac805c33d62fe3e0"
+  },
+  "provenance": {
+    "createdBy": "original_fitted_garments_on_retained_anatomical_foundation",
+    "aiAssisted": true,
+    "author": "Codex regional character authoring",
+    "source": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/sources/frontier_sunmeadow_empire_farmer.blend",
+    "sourceSha256": "ce6aec1d6051ad7be3ef77ee4661fd45ca50ef4c71afa5f49cd0d72cab981e70",
+    "referencePackId": "battle_prelate_craftsmanship",
+    "similarityReview": "not_required",
+    "aiStages": [
+      "racial_anatomy",
+      "garment_construction",
+      "equipment_fitting",
+      "pbr_materials",
+      "rig_and_motion",
+      "export_review"
+    ]
+  },
+  "approvalState": "approved"
+}

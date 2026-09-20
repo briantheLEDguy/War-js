@@ -55,6 +55,22 @@
         -253.175
       ],
       "result": "Angled front deflected walking into clear service space; inspector alive"
+    },
+    {
+      "zone": "sunmeadow_march",
+      "item": "supply_cradle",
+      "direction": "north",
+      "start": [
+        -399.115,
+        0,
+        -252.357
+      ],
+      "end": [
+        -399.137,
+        0,
+        -253.048
+      ],
+      "result": "Held at angled working front during two-second press; inspector alive"
     }
   ],
   "limitations": [

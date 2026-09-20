@@ -1,3 +1,9 @@
+## 2026-09-20 — Regional civilian delivery
+
+- Published Edric Hayward in Sunmeadow and Barrek Reedhauler in Cinderfen, with editable sources, fitted clothing/equipment, nine clips, three approved LODs and GM catalog entries.
+- Verified local visibility and distance switching; shared regional rendering now retries approved sibling LODs when its primary file is unavailable.
+- Extended settlement collision-path checks to the farmer field and scoped the model naming policy to the original Empire farmer identity.
+
 ## 2026-09-20 — Regional inhabitants and village workshops
 
 - Added paired repair/supply furnishings to Sunmeadow and Cinderfen service buildings, with measured floor contact, working-front clearance and navigation checks.

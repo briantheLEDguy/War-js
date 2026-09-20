@@ -44,7 +44,8 @@ function reachable(bounds: { minX: number; maxX: number; minZ: number; maxZ: num
       if (next >= 0 && !seen[next] && !mask[next]) { seen[next] = 1; queue.push(next); }
     }
   }
-  return (point: Point) => Boolean(seen[index(point)]);
+  return (point: Point) => point.x >= bounds.minX && point.x <= bounds.maxX
+    && point.z >= bounds.minZ && point.z <= bounds.maxZ && Boolean(seen[index(point)]);
 }
 
 test('composition is deterministic and idempotent without changing service/crafting/gameplay identities', () => {
@@ -152,7 +153,7 @@ test.each(['aegis', 'riftbound'])('%s keep has a sealed outer curtain and a seco
 });
 
 test('settlement services and crafting remain reachable around the new building walls', () => {
-  const canReach = reachable({ minX: -510, maxX: -370, minZ: -315, maxZ: -190 }, { x: -435, z: -245 });
+  const canReach = reachable({ minX: -510, maxX: -370, minZ: -330, maxZ: -190 }, { x: -435, z: -245 });
   for (const npc of composed.npcs ?? []) expect(canReach(npc), npc.id).toBe(true);
   for (const station of composed.craftingStations ?? []) expect(canReach(station), station.id).toBe(true);
 });

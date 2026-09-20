@@ -1,0 +1,25 @@
+{
+  "modelSha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+  "bounds": {
+    "min": [
+      -0.33347100019454956,
+      -0.23365017771720886,
+      0.004000447690486908
+    ],
+    "max": [
+      0.33345770835876465,
+      0.17075879871845245,
+      1.838083267211914
+    ]
+  },
+  "images": [
+    {
+      "view": "run_side",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod0_run_side_f_extra.png",
+      "sha256": "df445fd46a3ea2406d6431d71c45b8d73cd9a37b695d73ef5314f6bdc3db0445",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    }
+  ],
+  "status": "inspected-current-export"
+}

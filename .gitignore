@@ -53,3 +53,12 @@ authoring/blender/cinderfen-peat-worker/review/tool-envelope-probe.json
 # Same model bytes before lossless audit compaction; retained locally for recovery.
 authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/62147b1f683ced60dbbf/
 authoring/blender/cinderfen-peat-worker/previous-accepted/
+
+# Superseded farmer draft views remain local; current f views and frozen evidence ship.
+authoring/blender/sunmeadow-farmer/review/*_[abcde].png
+authoring/blender/sunmeadow-farmer/review/*_review_[abcde].json
+authoring/blender/sunmeadow-farmer/review/*_lod0_front.png
+authoring/blender/sunmeadow-farmer/review/*_lod0_head.png
+authoring/blender/sunmeadow-farmer/review/*_lod0_side.png
+authoring/blender/sunmeadow-farmer/review/*_lod0_run.png
+authoring/blender/sunmeadow-farmer/review/*_lod0_death_2.png

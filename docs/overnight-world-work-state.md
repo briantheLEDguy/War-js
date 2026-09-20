@@ -17,14 +17,14 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,349 tests in 164 files**. Production build
+The latest full regression pass is **1,386 tests in 166 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
 Sunmeadow's exact salvage standing point and both work fronts remain reachable.
-The registry contains 254 static props, 70 character
-profiles and 57 equipment records, and the GM builder has 443 definitions.
-All 33 maps and 882 model records validate. Remaining regional character, equipment and town/zone work
+The registry contains 254 static props, 71 character
+profiles and 57 equipment records, and the GM builder has 444 definitions.
+All 33 maps and 885 model records validate. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
@@ -33,9 +33,11 @@ Local regional NPCs now switch their own fitted LOD/idle rigs at distance. An
 actual-game check caught and fixed doubled world translation in skinned bounds;
 the published dwarf now remains visible at all three LODs. Greenskin peat worker
 F passed all 11 gates and is published as Barrek Reedhauler in Cinderfen and GM;
-actual gameplay verified its three LODs. The Empire farmer has saved original
-clothing, editable master, three LODs and nine clips; its final technical sweep
-remains in progress in `sunmeadow-farmer/`.
+actual gameplay verified its three LODs. Empire farmer f passed all five gates
+and is published as Edric Hayward in Sunmeadow and GM; actual gameplay verified
+its three LODs at 6.2/45.2/100.2m. Both characters retain editable masters and
+nine clips. The remaining initial cast is Empire herbalist, High Elf field scout
+and Dark Elf supply officer.
 Root owns publication through `scripts/campaign/publish-regional-inhabitant.mjs`,
 registry/GM generation and map integration. No aesthetic approval is outstanding.
 

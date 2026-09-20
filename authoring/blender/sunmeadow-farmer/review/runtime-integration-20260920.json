@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-20",
+  "profile": "npc_frontier_sunmeadow_empire_farmer",
+  "npcId": "sunmeadow_march_inhabitant_homefield_farmer",
+  "name": "Edric Hayward",
+  "zone": "sunmeadow_march",
+  "position": {
+    "x": -374,
+    "y": 0,
+    "z": -317
+  },
+  "mapSha256": "ef3b9c2c8981fdb9d4d7ec035ae8db086e145849ce3fed6e86496e671985d7e5",
+  "harnessSha256": "45a5a901a5ba89d5c36ab17fad666a9b444f18cbe7218c7a2226fe260f634668",
+  "runtime": "Production local Game/NpcSpawner/RegionalNpcPresentation",
+  "observed": [
+    {
+      "distanceM": 6.2,
+      "lod": 0,
+      "triangles": 132478,
+      "visible": true
+    },
+    {
+      "distanceM": 45.2,
+      "lod": 1,
+      "triangles": 76837,
+      "visible": true
+    },
+    {
+      "distanceM": 100.2,
+      "lod": 2,
+      "triangles": 35769,
+      "visible": true
+    }
+  ],
+  "boundsCenter": [
+    -373.97,
+    0.92,
+    -317
+  ],
+  "legacyFallbacks": 1,
+  "gm": {
+    "catalogCountAtPublication": 444,
+    "models": 3,
+    "defaultAnimation": "idle",
+    "test": "tests/regionalCharacterPublication.test.ts"
+  },
+  "limitations": [
+    "Bounded local idle/LOD check; full network campaign not played through.",
+    "Complete fitted outfit, not modular armor or a fitted siege operator.",
+    "Carried pouch and pruning knife are visual equipment without a new farming interaction."
+  ]
+}

@@ -11,6 +11,11 @@ const publications = [{
   assetId: 'chr.frontier.cinderfen.greenskin_peat_worker', zone: 'cinderfen_outskirts',
   npcId: 'cinderfen_outskirts_inhabitant_peat_worker', name: 'Barrek Reedhauler',
   race: 'greenskin', realm: 'riftbound',
+}, {
+  packageName: 'sunmeadow-farmer', key: 'frontier_sunmeadow_empire_farmer',
+  assetId: 'chr.frontier.sunmeadow.empire_farmer', zone: 'sunmeadow_march',
+  npcId: 'sunmeadow_march_inhabitant_homefield_farmer', name: 'Edric Hayward',
+  race: 'empire', realm: 'aegis',
 }] as const;
 const clips = ['attack_melee', 'attack_ranged', 'cast', 'combat_idle', 'death', 'idle', 'jump', 'run', 'walk'];
 const modelsRoot = path.resolve('public/assets/models');

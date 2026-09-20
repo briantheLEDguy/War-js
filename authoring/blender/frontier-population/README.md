@@ -26,8 +26,10 @@ hashes and a publication receipt that records the applicable approval authority.
 The dwarf revision l is published in the runtime and GM catalog after all nine
 clips, fitted clothing and ground-contact checks. The craft mentor uses three
 distance-selected LODs with a continuous idle timeline. The separate
-`sunmeadow-farmer/` and `cinderfen-peat-worker/` packages contain the next draft
-characters; their source and technical status are recorded in each work state.
+`sunmeadow-farmer/` and `cinderfen-peat-worker/` packages are also published in
+the game and GM builder as Edric Hayward and Barrek Reedhauler. Each has three
+LODs, nine clips and a saved actual-game visibility/LOD receipt. Their frozen
+source and technical limits are recorded in each package.
 The dwarf's canonical core skeleton has one additional internal
 `apron_lower` joint for the leather panel's waist fold; its clip names stay
 `idle`, `walk`, `run`, `combat_idle`, `attack_melee`, `attack_ranged`, `cast`,

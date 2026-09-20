@@ -1,0 +1,512 @@
+{
+  "key": "frontier_sunmeadow_empire_farmer",
+  "status": "technically-ready",
+  "sourceFoundationSha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
+  "masterSha256": "ce6aec1d6051ad7be3ef77ee4661fd45ca50ef4c71afa5f49cd0d72cab981e70",
+  "generatorSha256": "2c84baa007fe08c4b40dc53aa1ed293935931bfb236c08e3dbfc07fff13f9444",
+  "sourceFiles": [
+    {
+      "path": "authoring/blender/battle-prelate-reference-rebuild/source/head.json",
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "bytes": 166389
+    },
+    {
+      "path": "authoring/blender/battle-prelate-reference-rebuild/textures/source/skin_basecolor.png",
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "bytes": 44236
+    },
+    {
+      "path": "authoring/blender/battle-prelate-reference-rebuild/textures/source/skin_height.png",
+      "sha256": "166b59cd99a886064605610529f289486d17488297d730dafa70e57f488aca11",
+      "bytes": 11432
+    },
+    {
+      "path": "authoring/blender/battle-prelate-reference-rebuild/textures/source/skin_roughness.png",
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "bytes": 20073
+    },
+    {
+      "path": "authoring/blender/ember-arcanist-reference-rebuild/source/hair.json",
+      "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "bytes": 43151
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/body_civic_humanoid_v2_m.glb",
+      "sha256": "2e8d9d2f93abafc48218f6aa9fac7a61f451822f4805d635b8375a7e0fbfd7af",
+      "bytes": 9050988
+    },
+    {
+      "path": "authoring/blender/frontier-population/foundations/civic_humanoid_v2_m.quad-surface.json.gz",
+      "sha256": "9e36be7bb14d94e0f71cf6754644aa4e57e4f0177c0f3f28123986a64dd806fc",
+      "bytes": 1130074
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/foundations/arcanist-/hair.json",
+      "sha256": "eb471893b0aed905e18991009a1bc2dbb15c666398bcf46dc33c7f35e57d79f0",
+      "bytes": 43151
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/foundations/prelate-/head.json",
+      "sha256": "3772bd92fc3cf1ca9fc20003eabb6019e7da4a840bcd2f6dd08884f73acf1c51",
+      "bytes": 166389
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/foundations/prelate-/skin_basecolor.png",
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "bytes": 44236
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/foundations/prelate-/skin_height.png",
+      "sha256": "166b59cd99a886064605610529f289486d17488297d730dafa70e57f488aca11",
+      "bytes": 11432
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/foundations/prelate-/skin_roughness.png",
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "bytes": 20073
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/sources/frontier_sunmeadow_empire_farmer.blend",
+      "sha256": "ce6aec1d6051ad7be3ef77ee4661fd45ca50ef4c71afa5f49cd0d72cab981e70",
+      "bytes": 17994243
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_tool_ash_basecolor.png",
+      "sha256": "04d18f8bec70ad759cfaaa5fe70cb3a1cfbb71969cfda18b64334182917b476f",
+      "bytes": 253235
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_tool_ash_normal.png",
+      "sha256": "f9c75f3abc4ac9458d53e7af23fdf71f760c1c35fad5f0f80176b8dffa373990",
+      "bytes": 81596
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_tool_ash_roughness.png",
+      "sha256": "6ce118ce94f0c5f2ad0fa90845373e37e70576acab0720dedf6d0fdbaa8fa9b2",
+      "bytes": 160864
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_wool_basecolor.png",
+      "sha256": "8faecf49a822824cb5847b7beba0f2a6e3f6e26d7568e599b6b2f8a77a44e05d",
+      "bytes": 427132
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_wool_normal.png",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_wool_roughness.png",
+      "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+      "bytes": 144135
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_worked_leather_basecolor.png",
+      "sha256": "3db0b2b21fec0c13634b3a85452bf46623fb0db8da7dc4104e49d2b02c51ea27",
+      "bytes": 762415
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_worked_leather_normal.png",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_worked_leather_roughness.png",
+      "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+      "bytes": 866702
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_woven_linen_basecolor.png",
+      "sha256": "9d3273e384082e88064069205d13ba770015d4727feb1fed239688179a69f1c0",
+      "bytes": 768420
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_woven_linen_normal.png",
+      "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+      "bytes": 611208
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/empire_farmer_woven_linen_roughness.png",
+      "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+      "bytes": 350720
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/farmer_brace_herringbone_basecolor.png",
+      "sha256": "d9747983160fe427ab35e8c6021a31cc7265820194c7ce267cf0af6d2b84882c",
+      "bytes": 468147
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/farmer_brace_herringbone_normal.png",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/farmer_brace_herringbone_roughness.png",
+      "sha256": "15810ba5b101bd0e5a1a850424ce99789e8b9f369b7c38ed980a40919cf86056",
+      "bytes": 143780
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/farmer_hair_basecolor.png",
+      "sha256": "20e95bd0d0b08aff222f4b4d80c124644e7bdf2177f105e2f997c05ba19b218c",
+      "bytes": 109987
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/farmer_hair_normal.png",
+      "sha256": "61b1a49532e65da58b5bd89c5c605f30ffaffe9382026b489d343a2d22535778",
+      "bytes": 486569
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/textures/farmer_hair_roughness.png",
+      "sha256": "de30ea1a5e6662870622c854f0d570327f5444136c8f83c9e18d8f438de067d2",
+      "bytes": 252691
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/apron_clearance.py",
+      "sha256": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+      "bytes": 5087
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/apron_details.py",
+      "sha256": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+      "bytes": 4150
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/artisan_equipment.py",
+      "sha256": "a56603a4dbd90267f6a8f24e299049693ef82dd09e21eeb380a24a11c92b7405",
+      "bytes": 5397
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/authored_artisan_head.py",
+      "sha256": "7614f035f6d11bfd20ff728cc87b6d3be06aad70f528265ddf44ff267cdf8d04",
+      "bytes": 18713
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/build_inhabitants.py",
+      "sha256": "2c84baa007fe08c4b40dc53aa1ed293935931bfb236c08e3dbfc07fff13f9444",
+      "bytes": 32801
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/export_tangents.py",
+      "sha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+      "bytes": 3228
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/farmer_details.py",
+      "sha256": "a779b1672d11f19812dd92bfd35ce5f6f5069d0d0587d2f6389b6cf6b5569c50",
+      "bytes": 8110
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/fitted_boot_details.py",
+      "sha256": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+      "bytes": 3130
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/surface_bindings.py",
+      "sha256": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+      "bytes": 2223
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/surface_garments.py",
+      "sha256": "59f44a2a9affd84b9c1151b78def6c57cd73da7f43b0b1317c73f3483bcfca93",
+      "bytes": 10194
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/tailored_clothing.py",
+      "sha256": "2b10e464cebf79214b0718fa824125fe80ab56ca62c11b987bc7955db521abb8",
+      "bytes": 6162
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/tailored_locomotion.py",
+      "sha256": "cac9454beafe9cdf8d3f876e15a4cf0d8c718eba5cc8b71a84e1ec4974010c88",
+      "bytes": 24876
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/workwear_finish.py",
+      "sha256": "b180fe850df9e0efae234b559bce36ac29e7774019c72fba0262c960b56103f8",
+      "bytes": 8066
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/anim_library.py",
+      "sha256": "14cbb7955e2ac16e44196aa6fd95689d58a98b02dc34529411e06b2f41156303",
+      "bytes": 22611
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/canonical_animation_pack.py",
+      "sha256": "230d92220ebd61ae0a31390d449c1797de09145774281655facba603e755efbb",
+      "bytes": 8960
+    },
+    {
+      "path": "scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py",
+      "sha256": "4915b2e17f3f13314e16f15b898b05f9d072657fa2822f71aa70165be0b31880",
+      "bytes": 17430
+    },
+    {
+      "path": "scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json",
+      "sha256": "4d7d908fb8babaf7b73a224ce78867b6c503eef83acb21cc6cb7387a2b3fc6fe",
+      "bytes": 1755
+    }
+  ],
+  "embeddedImages": [
+    {
+      "name": "empire_farmer_tool_ash_basecolor",
+      "sha256": "04d18f8bec70ad759cfaaa5fe70cb3a1cfbb71969cfda18b64334182917b476f",
+      "bytes": 253235
+    },
+    {
+      "name": "empire_farmer_tool_ash_normal",
+      "sha256": "f9c75f3abc4ac9458d53e7af23fdf71f760c1c35fad5f0f80176b8dffa373990",
+      "bytes": 81596
+    },
+    {
+      "name": "empire_farmer_tool_ash_roughness",
+      "sha256": "6ce118ce94f0c5f2ad0fa90845373e37e70576acab0720dedf6d0fdbaa8fa9b2",
+      "bytes": 160864
+    },
+    {
+      "name": "empire_farmer_wool_basecolor",
+      "sha256": "8faecf49a822824cb5847b7beba0f2a6e3f6e26d7568e599b6b2f8a77a44e05d",
+      "bytes": 427132
+    },
+    {
+      "name": "empire_farmer_wool_normal",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "name": "empire_farmer_wool_roughness",
+      "sha256": "4883f3d221df3fc511a1d39c4f9bddb6e25c849c2cd2eef25521333dfb21e976",
+      "bytes": 144135
+    },
+    {
+      "name": "empire_farmer_worked_leather_basecolor",
+      "sha256": "3db0b2b21fec0c13634b3a85452bf46623fb0db8da7dc4104e49d2b02c51ea27",
+      "bytes": 762415
+    },
+    {
+      "name": "empire_farmer_worked_leather_normal",
+      "sha256": "f0a258128cb5a4b8cc6fa22023af010cb70b6b8d82d855f5ae4a29d126ab2638",
+      "bytes": 1928552
+    },
+    {
+      "name": "empire_farmer_worked_leather_roughness",
+      "sha256": "db6a30c2c52bd581330815c7b911cad47781eae5ba976541fd2820483d91deb8",
+      "bytes": 866702
+    },
+    {
+      "name": "empire_farmer_woven_linen_basecolor",
+      "sha256": "9d3273e384082e88064069205d13ba770015d4727feb1fed239688179a69f1c0",
+      "bytes": 768420
+    },
+    {
+      "name": "empire_farmer_woven_linen_normal",
+      "sha256": "15c49f3441bb5fb1f62bd54225ec7612ea6db77f95b3ca96e912b822b2c940d9",
+      "bytes": 611208
+    },
+    {
+      "name": "empire_farmer_woven_linen_roughness",
+      "sha256": "1ee7b757cb1ad28f4f440f2f38b7483d00316af1c2b813f3a41a26d9ed88963f",
+      "bytes": 350720
+    },
+    {
+      "name": "farmer_brace_herringbone_basecolor",
+      "sha256": "d9747983160fe427ab35e8c6021a31cc7265820194c7ce267cf0af6d2b84882c",
+      "bytes": 468147
+    },
+    {
+      "name": "farmer_brace_herringbone_normal",
+      "sha256": "367676a83adbaee55180cb837dca8923951218fed843353a21fcabac67bbc8c8",
+      "bytes": 221744
+    },
+    {
+      "name": "farmer_brace_herringbone_roughness",
+      "sha256": "15810ba5b101bd0e5a1a850424ce99789e8b9f369b7c38ed980a40919cf86056",
+      "bytes": 143780
+    },
+    {
+      "name": "farmer_hair_basecolor",
+      "sha256": "20e95bd0d0b08aff222f4b4d80c124644e7bdf2177f105e2f997c05ba19b218c",
+      "bytes": 109987
+    },
+    {
+      "name": "farmer_hair_normal",
+      "sha256": "61b1a49532e65da58b5bd89c5c605f30ffaffe9382026b489d343a2d22535778",
+      "bytes": 486569
+    },
+    {
+      "name": "farmer_hair_roughness",
+      "sha256": "de30ea1a5e6662870622c854f0d570327f5444136c8f83c9e18d8f438de067d2",
+      "bytes": 252691
+    },
+    {
+      "name": "farmer_skin_normal",
+      "sha256": "a39c4a7ad0741f450fb4aff8458669a35ea405142573a6d8a99bff0b3d5410ff",
+      "bytes": 107083
+    },
+    {
+      "name": "skin_basecolor.png",
+      "sha256": "56393af935d4fda2132fd91b6869173e2c34559b666e8ba454f9ac320c1d7060",
+      "bytes": 44236
+    },
+    {
+      "name": "skin_roughness.png",
+      "sha256": "8326c381e16b86b2825c79037a351b4694d01c9aa7e18a97b0371c400ba85d59",
+      "bytes": 20073
+    },
+    {
+      "name": "young_lightskinned_male_diffuse",
+      "sha256": "f100f4cd9dd763bad925bfec17a434e98bdc926c385b7e7db9d93b46fcc9e456",
+      "bytes": 4230876
+    }
+  ],
+  "sourceTools": {
+    "tools\\apron_clearance.py": "f814c1936e79c146905270b3764421600dfbbb3e7621d0bc4b0659727ec5df4b",
+    "tools\\apron_details.py": "8389416514afa65e33b60a2307910ae40f15d0d5e7fc59ff0165542bc03a2047",
+    "tools\\artisan_equipment.py": "a56603a4dbd90267f6a8f24e299049693ef82dd09e21eeb380a24a11c92b7405",
+    "tools\\authored_artisan_head.py": "7614f035f6d11bfd20ff728cc87b6d3be06aad70f528265ddf44ff267cdf8d04",
+    "tools\\build_inhabitants.py": "2c84baa007fe08c4b40dc53aa1ed293935931bfb236c08e3dbfc07fff13f9444",
+    "tools\\export_tangents.py": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+    "tools\\farmer_details.py": "a779b1672d11f19812dd92bfd35ce5f6f5069d0d0587d2f6389b6cf6b5569c50",
+    "tools\\fitted_boot_details.py": "e76f12bc60bc69a97ce435dba530beebcab8250e16fc38330fbf75fdb7cf1348",
+    "tools\\inspect_arm_volume.py": "d05a56385306094ac2b11bb6e5aeead9a2b90ea11b84f0dc598112d15ba90a77",
+    "tools\\inspect_boot_clearance.py": "74909af1ed7a34c4741be2e6d0a6d6c7eb91537d03f95018ff0e3a4b257c8a03",
+    "tools\\inspect_boot_welt.py": "ec376ac5c9103b4e40d393b7ce055b5e831d282fa5aabca0b3b2ac22abb1e543",
+    "tools\\inspect_export_motion.py": "49d0dea04ee0932ac85cc62328a2892ea51b3e3618dc2fe10d558dfa269c3e5a",
+    "tools\\probe_contact.py": "00815ecce485feca640dd1c7d3ef5ca1423416de9c166d7aed0219ed65183a37",
+    "tools\\review_inhabitants.py": "4bb45b98a7ff7ae85a72113ec14dbeac201b312391aca492700c3dfc78dade44",
+    "tools\\surface_bindings.py": "6395f4dd4e5b1285fdee2099e3f3659bfb19b2fc43437e6ed69d7ec823ddacd4",
+    "tools\\surface_garments.py": "59f44a2a9affd84b9c1151b78def6c57cd73da7f43b0b1317c73f3483bcfca93",
+    "tools\\tailored_clothing.py": "2b10e464cebf79214b0718fa824125fe80ab56ca62c11b987bc7955db521abb8",
+    "tools\\tailored_locomotion.py": "cac9454beafe9cdf8d3f876e15a4cf0d8c718eba5cc8b71a84e1ec4974010c88",
+    "tools\\test_exports.py": "af979985f4a54d99e250c191b30bde098cfaba41a304242e2a5b44bf2b52c86e",
+    "tools\\workwear_finish.py": "b180fe850df9e0efae234b559bce36ac29e7774019c72fba0262c960b56103f8"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_empire_farmer_lod0.glb",
+      "sha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+      "bytes": 19819616,
+      "tangentRepair": {
+        "inputSha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+        "outputSha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+        "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "changes": []
+      },
+      "triangles": 132478,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_empire_farmer_lod1.glb",
+      "sha256": "fdcdd0443878fa5b62adbd6e231c31c4f70a5605fa8b05b2125e9a11705a013b",
+      "bytes": 17269116,
+      "tangentRepair": {
+        "inputSha256": "fdcdd0443878fa5b62adbd6e231c31c4f70a5605fa8b05b2125e9a11705a013b",
+        "outputSha256": "fdcdd0443878fa5b62adbd6e231c31c4f70a5605fa8b05b2125e9a11705a013b",
+        "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "changes": []
+      },
+      "triangles": 76837,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_empire_farmer_lod2.glb",
+      "sha256": "37cab2d4b6b5db0b8ed036346f0218cd4c11b147d0e5ad79ba4e66dce5247062",
+      "bytes": 15337884,
+      "tangentRepair": {
+        "inputSha256": "f4dc225f218f961feab01ff8060b6a7414b245a03cab4de7909b76969bcad954",
+        "outputSha256": "37cab2d4b6b5db0b8ed036346f0218cd4c11b147d0e5ad79ba4e66dce5247062",
+        "toolSha256": "0956ba72563c0be41e9b1fb59a2f4b690ddcd6a83b30c9b2a8b3e8d8e0f977c0",
+        "changes": [
+          {
+            "mesh": 0,
+            "primitive": 4,
+            "vertex": 2089,
+            "before": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "after": [
+              0.09516045537903273,
+              0.7377883873706683,
+              -0.6682909420252856,
+              1.0
+            ]
+          }
+        ]
+      },
+      "triangles": 35769,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
+  ],
+  "validationSourceFiles": [
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_export_motion.py",
+      "sha256": "49d0dea04ee0932ac85cc62328a2892ea51b3e3618dc2fe10d558dfa269c3e5a",
+      "bytes": 7783
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_arm_volume.py",
+      "sha256": "d05a56385306094ac2b11bb6e5aeead9a2b90ea11b84f0dc598112d15ba90a77",
+      "bytes": 7013
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_boot_clearance.py",
+      "sha256": "eb42739a18eacd8451bf00b11a54edf2c387be280762d67b4c4001fb4840f739",
+      "bytes": 7184
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/inspect_boot_welt.py",
+      "sha256": "ec376ac5c9103b4e40d393b7ce055b5e831d282fa5aabca0b3b2ac22abb1e543",
+      "bytes": 6573
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/review_inhabitants.py",
+      "sha256": "4bb45b98a7ff7ae85a72113ec14dbeac201b312391aca492700c3dfc78dade44",
+      "bytes": 7820
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/test_exports.py",
+      "sha256": "af979985f4a54d99e250c191b30bde098cfaba41a304242e2a5b44bf2b52c86e",
+      "bytes": 4808
+    },
+    {
+      "path": "authoring/blender/sunmeadow-farmer/tools/validate_inhabitants.mjs",
+      "sha256": "d8da111323aa30a2c98b24d35b7f6d43a48bed7bdf66304f52f461b28d452f39",
+      "bytes": 2351
+    }
+  ]
+}

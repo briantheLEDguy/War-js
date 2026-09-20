@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "assetId": "chr.frontier.sunmeadow.empire_farmer",
+  "status": "technically-ready-frozen",
+  "revision": "f",
+  "verifiedAt": "2026-09-20T15:21:38.919213+00:00",
+  "gate": {
+    "command": "python authoring/blender/sunmeadow-farmer/tools/test_exports.py",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "gltfValidation": {
+    "errors": 0,
+    "warnings": 0,
+    "lods": 3
+  },
+  "generatingInputCount": 48,
+  "validationSourceCount": 7,
+  "packedImages": 22,
+  "master": {
+    "path": "sources/frontier_sunmeadow_empire_farmer.blend",
+    "sha256": "ce6aec1d6051ad7be3ef77ee4661fd45ca50ef4c71afa5f49cd0d72cab981e70"
+  },
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_sunmeadow_empire_farmer_lod0.glb",
+      "sha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+      "triangles": 132478,
+      "bytes": 19819616,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "motionSamples": 849,
+      "minimumFloorHeightMetres": 0.0012857913970947266,
+      "maximumMaterialP99": 1.7554706445443176,
+      "armSamples": 224,
+      "armSectionAreaRatioRange": [
+        0.9939009105117603,
+        1.0000058126129863
+      ],
+      "minimumBootHemGapMetres": 0.002388698646898897,
+      "bootHemPenetrations": 0,
+      "bootHemEdgeIntersections": 0,
+      "maximumWeltDistanceMetres": 0.0025001163594424725,
+      "weltNonManifoldEdges": 0,
+      "deathTerminalSupport": {
+        "hands": {
+          "L": 0.003999948501586914,
+          "R": 0.004000186920166016
+        },
+        "soles": {
+          "L": 0.003999888896942139,
+          "R": 0.0040000081062316895
+        },
+        "torso": 0.0039997100830078125
+      },
+      "actualImportReview": "review/frontier_sunmeadow_empire_farmer_lod0_review_f.json",
+      "inspectedViews": [
+        "front",
+        "head",
+        "side",
+        "rear",
+        "run",
+        "death:2",
+        "run_side"
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_sunmeadow_empire_farmer_lod1.glb",
+      "sha256": "fdcdd0443878fa5b62adbd6e231c31c4f70a5605fa8b05b2125e9a11705a013b",
+      "triangles": 76837,
+      "bytes": 17269116,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "motionSamples": 849,
+      "minimumFloorHeightMetres": 0.0012857913970947266,
+      "maximumMaterialP99": 1.8712205100704113,
+      "armSamples": 224,
+      "armSectionAreaRatioRange": [
+        0.9938853248835193,
+        1.0000049621804201
+      ],
+      "minimumBootHemGapMetres": 0.0021793632275264874,
+      "bootHemPenetrations": 0,
+      "bootHemEdgeIntersections": 0,
+      "maximumWeltDistanceMetres": 0.0026686261408030987,
+      "weltNonManifoldEdges": 0,
+      "deathTerminalSupport": {
+        "hands": {
+          "L": 0.003999948501586914,
+          "R": 0.004000186920166016
+        },
+        "soles": {
+          "L": 0.003999888896942139,
+          "R": 0.0040000081062316895
+        },
+        "torso": 0.0039997100830078125
+      },
+      "actualImportReview": "review/frontier_sunmeadow_empire_farmer_lod1_review_f.json",
+      "inspectedViews": [
+        "front",
+        "run",
+        "death:2"
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_sunmeadow_empire_farmer_lod2.glb",
+      "sha256": "37cab2d4b6b5db0b8ed036346f0218cd4c11b147d0e5ad79ba4e66dce5247062",
+      "triangles": 35769,
+      "bytes": 15337884,
+      "clips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ],
+      "motionSamples": 849,
+      "minimumFloorHeightMetres": 0.0012857913970947266,
+      "maximumMaterialP99": 1.8519799674755215,
+      "armSamples": 224,
+      "armSectionAreaRatioRange": [
+        0.9935841020493849,
+        1.000004296570164
+      ],
+      "minimumBootHemGapMetres": 0.0023060662237277263,
+      "bootHemPenetrations": 0,
+      "bootHemEdgeIntersections": 0,
+      "maximumWeltDistanceMetres": 0.003015614114701748,
+      "weltNonManifoldEdges": 0,
+      "deathTerminalSupport": {
+        "hands": {
+          "L": 0.003999948501586914,
+          "R": 0.004000186920166016
+        },
+        "soles": {
+          "L": 0.00392499566078186,
+          "R": 0.003925055265426636
+        },
+        "torso": 0.0039997100830078125
+      },
+      "actualImportReview": "review/frontier_sunmeadow_empire_farmer_lod2_review_f.json",
+      "inspectedViews": [
+        "front",
+        "run",
+        "death:2"
+      ]
+    }
+  ],
+  "scope": "Actual current GLBs reimported in Blender; all nine literal clips sampled at keys and midpoints, forearm sections, floor/terminal support, material deformation, trouser/boot contact and closed sole welts measured. Thirteen current-export views visually inspected.",
+  "limitations": [
+    "Complete civilian outfit; not a modular armor body.",
+    "Static carried equipment; no harvesting interaction, ragdoll, cloth simulation or arbitrary animation blend compatibility certified.",
+    "Package gate confirms technical export readiness. Game publication, GM entries and browser gameplay verification remain owned by the root task."
+  ],
+  "publicationReviewSuffix": "_f"
+}

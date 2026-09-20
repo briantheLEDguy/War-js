@@ -1,0 +1,45 @@
+{
+  "modelSha256": "fdcdd0443878fa5b62adbd6e231c31c4f70a5605fa8b05b2125e9a11705a013b",
+  "bounds": {
+    "min": [
+      -0.33347100019454956,
+      -0.23365017771720886,
+      0.004000447690486908
+    ],
+    "max": [
+      0.33345770835876465,
+      0.17075879871845245,
+      1.838083267211914
+    ]
+  },
+  "images": [
+    {
+      "view": "front",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod1_front_f.png",
+      "sha256": "855f72ce446423a4a2c86daf6a59dbdb2a93a6d2e2b06b280b353c119c2bb7ee",
+      "clip": "idle",
+      "seconds": 0
+    },
+    {
+      "view": "run",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod1_run_f.png",
+      "sha256": "9697596e1110735887ff0e80a5d53240ea39990959f68354804214aaa3efe84d",
+      "clip": "run",
+      "seconds": 0.16666666666666666
+    },
+    {
+      "view": "death:2",
+      "image": "review\\frontier_sunmeadow_empire_farmer_lod1_death_2_f.png",
+      "sha256": "f4f8c88f9db37f9f91f0bd6873bed5bae5434d81f7919e7af6dbee635df8eee3",
+      "clip": "death",
+      "seconds": 2.0
+    }
+  ],
+  "status": "inspected-current-export",
+  "inspectionScope": "Actual reimported GLB images visually inspected: continuous fitted sleeves and suspenders, full limbs, boot shape, carried equipment attachment, and terminal prone support. Does not certify unseen poses or browser gameplay.",
+  "inspectedViews": [
+    "front",
+    "run",
+    "death:2"
+  ]
+}

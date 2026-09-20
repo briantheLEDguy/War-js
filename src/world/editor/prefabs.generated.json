@@ -4491,6 +4491,32 @@
     "cameraSolid": false
   },
   {
+    "kind": "character__npc_frontier_sunmeadow_empire_farmer",
+    "label": "Sunmeadow Empire Farmer",
+    "group": "Characters and NPCs",
+    "model": "frontier_sunmeadow_empire_farmer_lod0.glb",
+    "assetKey": "npc_frontier_sunmeadow_empire_farmer",
+    "assetCategory": "characterProfiles",
+    "defaultAnimation": "idle",
+    "lodModels": [
+      "frontier_sunmeadow_empire_farmer_lod1.glb",
+      "frontier_sunmeadow_empire_farmer_lod2.glb"
+    ],
+    "footprint": {
+      "width": 0.667,
+      "depth": 0.404,
+      "chainAxis": "z"
+    },
+    "defaultScale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "colliders": [],
+    "walkableSurfaces": [],
+    "cameraSolid": false
+  },
+  {
     "kind": "character__npc_riftbound_gorvak_mirehand_forward_scout",
     "label": "Gorvak Mirehand - Forward Scout",
     "group": "Characters and NPCs",

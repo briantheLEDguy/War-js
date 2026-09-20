@@ -1,5 +1,40 @@
 # World build checkpoint — September 20, 2026
 
+## Delivered regional civilians — final continuation checkpoint
+
+Edric Hayward (Empire farmer) and Barrek Reedhauler (Greenskin peat worker) are
+published in Sunmeadow and Cinderfen and in the GM builder. Each retains an
+editable packed Blender master, fitted clothing and carried equipment, three
+LOD exports and nine named clips. Publication freezes exact generating sources,
+validators and evidence. Farmer passed five package gates; peat worker passed
+eleven. Both have zero glTF validator errors and warnings. Large audit JSONs
+were compacted without changing their values or model bytes.
+
+Actual production Game/NpcSpawner review verified visibility at 6.2/45.2/100.2m:
+farmer 132,478/76,837/35,769 triangles; peat worker 133,208/77,251/35,849.
+Each package saves a runtime-integration-20260920.json receipt. Sunmeadow's
+supply-cradle front also held a two-second walk press; its worksite receipt
+records the resulting position. Existing legacy sky/guard fallbacks remain;
+no new regional-character fallback was observed. These are bounded local checks,
+not shared-network or full campaign acceptance.
+
+The final regression run passes **1,386 tests in 166 files**, recorded in
+artifacts/orvr/regional-civilian-delivery-final-tests.json. Production build,
+client/server typechecks, 33-map validation, all 885 model records and the
+444-definition GM catalog check pass. The initial delivery run retained in
+regional-civilian-delivery-tests.json exposed an incorrect expected NPC ID and
+a navigation-test rectangle that ended before the farmer's field. The authored
+ID and expanded collision-path search now pass. The model semantic validator
+also has a narrow exact-field exception for this original Empire identity;
+legacy name blocking remains covered. Existing bundle-size and world-life mock
+warnings remain.
+
+Next character roles are Empire herbalist, High Elf field scout and Dark Elf
+supply officer. Modular equipment/crew compatibility, broader settlement
+composition and complete campaign/performance acceptance remain unfinished.
+The active production board and hourly continuation remain in effect; animals
+stay last. No push, merge or deployment was performed.
+
 Work remains active on `codex/world-quality-continuation`. The user resumed the
 build and grants standing asset approval; technical validation, source retention
 and runtime integration remain required. Characters, equipment and town/siege

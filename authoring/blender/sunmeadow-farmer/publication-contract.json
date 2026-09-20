@@ -1,0 +1,18 @@
+{
+  "assetId": "chr.frontier.sunmeadow.empire_farmer",
+  "profileId": "npc_frontier_sunmeadow_empire_farmer",
+  "key": "frontier_sunmeadow_empire_farmer",
+  "displayName": "Sunmeadow Empire Farmer",
+  "race": "empire",
+  "gender": "male",
+  "bodyFamily": "frontier_sunmeadow_empire_farmer_v1_m",
+  "foundationFamily": "civic_humanoid_v2_m",
+  "skeletonId": "sunmeadow_farmer_humanoid_v1",
+  "bindPoseId": "sunmeadow_farmer_a_pose_v1",
+  "runtimeReady": true,
+  "publicationOwner": "root task",
+  "technicalGate": "python authoring/blender/sunmeadow-farmer/tools/test_exports.py",
+  "scope": "Complete fitted civilian outfit and carried work equipment; canonical named nine-clip set, independently fitted to these limbs and garments. No armor layering or siege-crew compatibility claim.",
+  "technicalReadiness": "review/technical-readiness.json",
+  "reviewSuffix": "_f"
+}

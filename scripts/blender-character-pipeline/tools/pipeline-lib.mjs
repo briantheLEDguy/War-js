@@ -84,6 +84,23 @@ const TRANSITIONAL_GENERATOR_KINDS = new Set([...SUPPORTED_GENERATOR_KINDS, ...R
 const REVIEWED_CATEGORIES = new Set(["character", "body", "armor"]);
 const REQUIRED_PBR_CHANNELS = ["baseColor", "roughness", "metallic", "normal"];
 
+// Empire is an original campaign race, but legacy empire_* names stay blocked.
+// Admit only the published regional identity's exact semantic fields.
+const ORIGINAL_REGIONAL_EMPIRE_CHARACTERS = new Map([
+  ["chr.frontier.sunmeadow.empire_farmer", "frontier_sunmeadow_empire_farmer"],
+]);
+
+function originalRegionalEmpireFields(blueprint) {
+  const key = blueprint.category === "character"
+    ? ORIGINAL_REGIONAL_EMPIRE_CHARACTERS.get(blueprint.assetId) : undefined;
+  return key ? new Map([
+    ["assetId", blueprint.assetId],
+    ["output.model", `${key}_lod0.glb`],
+    ["materials.textureSet", key],
+    ["runtime.profileKey", `npc_${key}`],
+  ]) : new Map();
+}
+
 export function sha256File(filePath) {
   const safePath = assertPathWithin(REPO_ROOT, filePath, "hash input");
   return createHash("sha256").update(readFileSync(safePath)).digest("hex");
@@ -263,19 +280,21 @@ export function validateBlueprintRecord(filePath, blueprint, options = {}) {
   }
   validateLifecycle(blueprint.lifecycle, errors, false);
 
+  const originalEmpireFields = originalRegionalEmpireFields(blueprint);
   const generatedStrings = [
-    blueprint.assetId,
-    blueprint.displayName,
-    blueprint.output?.model,
-    blueprint.materials?.master,
-    blueprint.materials?.textureSet,
-    blueprint.runtime?.profileKey,
-    blueprint.runtime?.bodyModel,
-    ...(blueprint.sets ?? []),
-  ].filter(Boolean);
-  for (const value of generatedStrings) {
+    ["assetId", blueprint.assetId],
+    ["displayName", blueprint.displayName],
+    ["output.model", blueprint.output?.model],
+    ["materials.master", blueprint.materials?.master],
+    ["materials.textureSet", blueprint.materials?.textureSet],
+    ["runtime.profileKey", blueprint.runtime?.profileKey],
+    ["runtime.bodyModel", blueprint.runtime?.bodyModel],
+    ...(blueprint.sets ?? []).map((value) => ["sets", value]),
+  ].filter(([, value]) => Boolean(value));
+  for (const [field, value] of generatedStrings) {
     const lower = String(value).toLowerCase();
     for (const term of FORBIDDEN_GENERATED_TERMS) {
+      if (term === "empire_" && originalEmpireFields.get(field) === value) continue;
       if (lower.includes(term)) errors.push(`generated semantic field contains forbidden term "${term}": ${value}`);
     }
   }
