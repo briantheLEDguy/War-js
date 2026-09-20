@@ -10,6 +10,34 @@ export const REGIONAL_INHABITANTS = {
     x: 468, z: -291, rotY: -Math.PI / 2 }],
 };
 
+/** Replace service art without replacing the NPC used by quests and services. */
+export const REGIONAL_SERVICE_PRESENTATIONS = {
+  sunmeadow_march: [{ suffix: 'forager', race: 'empire',
+    profile: 'npc_frontier_sunmeadow_empire_herbalist', assetId: 'chr.frontier.sunmeadow.empire_herbalist' }],
+  cinderfen_outskirts: [{ suffix: 'marshal', race: 'dark_elf',
+    profile: 'npc_frontier_cinderfen_dark_elf_supply_officer', assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer' }],
+};
+
+function approvedCharacter(assets, character) {
+  const asset = assets.characterProfiles?.[character.profile];
+  return asset?.runtimeReady && asset.assetId === character.assetId && asset.approvalState === 'approved'
+    && asset.lifecycleStatus === 'approved' && asset.reviewStatus === 'approved'
+    && /^[a-f0-9]{64}$/.test(asset.modelSha256 ?? '');
+}
+
+export function integrateRegionalServicePresentations(zone, assets) {
+  if (!zone.orvrLayout) return zone;
+  for (const character of REGIONAL_SERVICE_PRESENTATIONS[zone.id] ?? []) {
+    if (!approvedCharacter(assets, character)) continue;
+    const id = `${zone.id}_${character.suffix}`, npc = zone.npcs?.find(entry => entry.id === id);
+    const assignment = zone.orvrLayout.populationAssignments.find(entry => entry.entityId === id);
+    if (!npc || !assignment) continue;
+    Object.assign(npc, { characterProfileKey: character.profile, approvedOnly: true });
+    Object.assign(assignment, { race: character.race, desiredProfileKey: character.profile, status: 'approved' });
+  }
+  return zone;
+}
+
 function clearStandingSpace(zone, point) {
   if (zone.props.flatMap(roadPropFootprints).some(box => point.x > box.minX - 1.1 && point.x < box.maxX + 1.1
     && point.z > box.minZ - 1.1 && point.z < box.maxZ + 1.1)) return false;
@@ -28,10 +56,7 @@ export function integrateRegionalInhabitants(zone, assets) {
   zone.npcs = (zone.npcs ?? []).filter(npc => !npc.id.startsWith(prefix));
   zone.orvrLayout.populationAssignments = zone.orvrLayout.populationAssignments.filter(npc => !npc.entityId.startsWith(prefix));
   for (const civilian of cast) {
-    const asset = assets.characterProfiles?.[civilian.profile];
-    if (!asset?.runtimeReady || asset.assetId !== civilian.assetId || asset.approvalState !== 'approved'
-      || asset.lifecycleStatus !== 'approved' || asset.reviewStatus !== 'approved'
-      || !/^[a-f0-9]{64}$/.test(asset.modelSha256 ?? '') || !clearStandingSpace(zone, civilian)) continue;
+    if (!approvedCharacter(assets, civilian) || !clearStandingSpace(zone, civilian)) continue;
     const id = prefix + civilian.suffix;
     zone.npcs.push({ id, name: civilian.name, title: civilian.title, role: 'ambient', approvedOnly: true,
       characterProfileKey: civilian.profile, x: civilian.x, z: civilian.z, rotY: civilian.rotY });

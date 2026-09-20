@@ -22,6 +22,17 @@ describe('original regional Empire character naming', () => {
     expect(validateBlueprintRecord('farmer.asset.json', farmerBlueprint()).ok).toBe(true);
   });
 
+  it('permits only the planned original herbalist identity in its exact semantic fields', () => {
+    const blueprint = farmerBlueprint();
+    blueprint.assetId = 'chr.frontier.sunmeadow.empire_herbalist';
+    blueprint.output.model = 'frontier_sunmeadow_empire_herbalist_lod0.glb';
+    blueprint.materials.textureSet = 'frontier_sunmeadow_empire_herbalist';
+    blueprint.runtime.profileKey = 'npc_frontier_sunmeadow_empire_herbalist';
+    expect(semanticErrors(blueprint)).toEqual([]);
+    blueprint.runtime.profileKey += '_unreviewed';
+    expect(semanticErrors(blueprint)).toHaveLength(1);
+  });
+
   it.each(FORBIDDEN_GENERATED_TERMS)('still rejects %s in generated display names', (term) => {
     const blueprint = farmerBlueprint();
     blueprint.displayName = `Farmer ${term}`;

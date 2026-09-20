@@ -14,6 +14,9 @@ Barrek Reedhauler, the Greenskin peat worker, and Edric Hayward, the Empire
 farmer, are published in Cinderfen and Sunmeadow and in the GM catalog. Both
 retain editable masters, complete fitted clothing, nine clips and three LODs;
 local gameplay verified their distance switching and visibility.
+The next authoring batch covers the herbalist, Dark Elf supply officer and a
+shared apothecary worktable. Publication preserves existing NPC/service IDs and
+requires matched body/rig identity plus measured furniture access.
 Siege equipment and keep interiors are universal;
 exteriors and nature remain regional. See the [production board](docs/orvr-production-board.md).
 

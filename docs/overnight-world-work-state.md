@@ -38,6 +38,12 @@ and is published as Edric Hayward in Sunmeadow and GM; actual gameplay verified
 its three LODs at 6.2/45.2/100.2m. Both characters retain editable masters and
 nine clips. The remaining initial cast is Empire herbalist, High Elf field scout
 and Dark Elf supply officer.
+The next parallel batch is active: `sunmeadow-herbalist/`,
+`cinderfen-supply-officer/` and `field-apothecary/`. Their package work states
+record technical progress. Serra Brightfield and Nyra Vex keep their existing
+NPC identities when their new regional presentations publish. The shared
+apothecary table must preserve the existing station standing points and paths.
+
 Root owns publication through `scripts/campaign/publish-regional-inhabitant.mjs`,
 registry/GM generation and map integration. No aesthetic approval is outstanding.
 

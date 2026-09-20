@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { expect, test } from 'vitest';
 // @ts-expect-error Executable campaign authoring source.
-import { integrateRegionalInhabitants, REGIONAL_INHABITANTS } from '../scripts/campaign/regional-inhabitants.mjs';
+import { integrateRegionalInhabitants, REGIONAL_INHABITANTS, integrateRegionalServicePresentations, REGIONAL_SERVICE_PRESENTATIONS } from '../scripts/campaign/regional-inhabitants.mjs';
 import { mapPropNavigation } from '../server/mapNavigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../src/shared/orvr/navigation';
@@ -46,4 +46,33 @@ test('planned, wrong-identity or obstructed characters never add proxy residents
     colliders: [{ width: 2, depth: 2, minY: 0, maxY: 2 }] });
   const blocked = integrateRegionalInhabitants(source, { characterProfiles: { [civilian.profile]: profile(civilian) } });
   expect(blocked.npcs.some((npc: NpcSpawn) => npc.id.startsWith('sunmeadow_march_inhabitant_'))).toBe(false);
+});
+
+test.each(['sunmeadow_march', 'cinderfen_outskirts'])('%s service art preserves gameplay identity and selects its own racial rig', id => {
+  const source = map(id), character = REGIONAL_SERVICE_PRESENTATIONS[id][0];
+  const npcId = `${id}_${character.suffix}`, original = structuredClone(source.npcs!.find(npc => npc.id === npcId)!);
+  const assets = { characterProfiles: { [character.profile]: profile(character) } };
+  const result = integrateRegionalServicePresentations(structuredClone(source), assets) as ZoneDefinition;
+  expect(result.npcs).toHaveLength(source.npcs!.length);
+  const updated = result.npcs!.find(npc => npc.id === npcId)!;
+  expect(updated).toEqual({ ...original, characterProfileKey: character.profile, approvedOnly: true });
+  expect(result.props).toEqual(source.props);
+  expect(result.craftingStations).toEqual(source.craftingStations);
+  const assignment = result.orvrLayout!.populationAssignments.find(entry => entry.entityId === npcId)!;
+  expect(assignment).toMatchObject({ race: character.race, desiredProfileKey: character.profile, status: 'approved' });
+  expect(campaignNpcProfile({ id: npcId, role: updated.role, profileKey: updated.characterProfileKey, race: assignment.race })).toBe(character.profile);
+  expect(integrateRegionalServicePresentations(structuredClone(result), assets)).toEqual(result);
+});
+
+test.each(['sunmeadow_march', 'cinderfen_outskirts'])('%s unfinished service art leaves the existing NPC and population unchanged', id => {
+  const source = map(id), character = REGIONAL_SERVICE_PRESENTATIONS[id][0];
+  for (const overrides of [{ runtimeReady: false }, { assetId: 'chr.other' }, { approvalState: 'pending' },
+    { reviewStatus: 'rejected' }, { lifecycleStatus: 'draft' }, { modelSha256: '' }]) {
+    const assets = { characterProfiles: { [character.profile]: { ...profile(character), ...overrides } } };
+    expect(integrateRegionalServicePresentations(structuredClone(source), assets)).toEqual(source);
+  }
+  expect(integrateRegionalServicePresentations(structuredClone(source), { characterProfiles: {} })).toEqual(source);
+  const missing = structuredClone(source);
+  missing.orvrLayout!.populationAssignments = missing.orvrLayout!.populationAssignments.filter(entry => entry.entityId !== `${id}_${character.suffix}`);
+  expect(integrateRegionalServicePresentations(structuredClone(missing), { characterProfiles: { [character.profile]: profile(character) } })).toEqual(missing);
 });

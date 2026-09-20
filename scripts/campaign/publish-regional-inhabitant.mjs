@@ -26,17 +26,44 @@ export const REGIONAL_CHARACTER_PACKAGES = {
     contract: 'character-contract.json', reports: ['garment_clearance', 'welt', 'tool_clearance'],
     masterReport: 'master-continuity.json',
   },
+  'sunmeadow-herbalist': {
+    key: 'frontier_sunmeadow_empire_herbalist', assetId: 'chr.frontier.sunmeadow.empire_herbalist',
+    name: 'Sunmeadow Empire Herbalist', bodyFamily: 'frontier_sunmeadow_empire_herbalist_v1_f', bodyVariant: 'f',
+    skeletonId: 'sunmeadow_herbalist_humanoid_v1', bindPoseId: 'sunmeadow_herbalist_a_pose_v1',
+    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance'],
+    masterReport: 'master-continuity.json',
+  },
+  'cinderfen-supply-officer': {
+    key: 'frontier_cinderfen_dark_elf_supply_officer', assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer',
+    name: 'Cinderfen Dark Elf Supply Officer', bodyFamily: 'frontier_cinderfen_supply_officer_v1_f', bodyVariant: 'f',
+    skeletonId: 'cinderfen_supply_officer_humanoid_v1', bindPoseId: 'cinderfen_supply_officer_a_v1',
+    contract: 'character-contract.json', reports: ['garment_clearance', 'welt', 'tool_clearance'],
+    masterReport: 'master-continuity.json',
+  },
 };
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const jsonBytes = value => Buffer.from(JSON.stringify(value, null, 2) + '\n');
 const read = async file => JSON.parse(await fs.readFile(file, 'utf8'));
 
+/** The fitted rig identity must agree before export bytes can be published. */
+export function regionalPublicationIdentity(spec, contract) {
+  const identity = { bodyFamily: spec.bodyFamily, bodyVariant: spec.bodyVariant ?? 'm',
+    skeletonId: spec.skeletonId, bindPoseId: spec.bindPoseId };
+  assert(['m', 'f'].includes(identity.bodyVariant), 'Unsupported body variant');
+  assert.equal(contract.assetId, spec.assetId); assert.equal(contract.profileId, `npc_${spec.key}`);
+  for (const [field, expected] of Object.entries(identity)) {
+    assert.equal(field === 'bodyVariant' ? contract[field] ?? 'm' : contract[field], expected,
+      `Publication ${field} differs from the authored contract`);
+  }
+  return identity;
+}
+
 export async function publishRegionalInhabitant(packageName, suffix, publish = false) {
   const spec = REGIONAL_CHARACTER_PACKAGES[packageName];
   assert(spec, 'Choose a configured regional character package');
   assert(/^_[a-z0-9_]+$/i.test(suffix ?? ''), 'Provide the exact --review-suffix');
-  const { key, assetId, name, bodyFamily, skeletonId, bindPoseId } = spec;
+  const { key, assetId, name } = spec;
   const packagePath = `authoring/blender/${packageName}`, profile = `npc_${key}`;
   const work = inside(repo, packagePath), snapshot = createPublicationEvidence(repo);
   const { retain } = snapshot;
@@ -44,9 +71,7 @@ export async function publishRegionalInhabitant(packageName, suffix, publish = f
   const build = JSON.parse(await local(`review/${key}_build.json`));
   const contract = JSON.parse(await local(spec.contract));
   assert.equal(build.key, key);
-  assert.equal(contract.assetId, assetId); assert.equal(contract.profileId, profile);
-  assert.equal(contract.bodyFamily, bodyFamily);
-  assert.equal(contract.skeletonId, skeletonId); assert.equal(contract.bindPoseId, bindPoseId);
+  const { bodyFamily, bodyVariant, skeletonId, bindPoseId } = regionalPublicationIdentity(spec, contract);
   assert.deepEqual(build.lods.map(lod => lod.level), [0, 1, 2]);
   for (const relative of regionalPublicationAuditPaths(spec, build.lods)) await local(relative);
   assert(build.sourceFiles?.length, 'Build must enumerate actual authoring inputs');
@@ -107,7 +132,7 @@ export async function publishRegionalInhabitant(packageName, suffix, publish = f
     aiStages: ['racial_anatomy', 'garment_construction', 'equipment_fitting', 'pbr_materials', 'rig_and_motion', 'export_review'] };
   const lods = build.lods.map(lod => ({ level: lod.level, model: lod.model, sha256: lod.sha256, triangles: lod.triangles, externalTextures: [] }));
   const blueprint = { assetId, displayName: name, category: 'character', version: '1.0.0', sets: ['regional_inhabitants'],
-    runtime: { profileKey: profile, bodyFamily, bodyVariant: 'm', skeletonId, bindPoseId },
+    runtime: { profileKey: profile, bodyFamily, bodyVariant, skeletonId, bindPoseId },
     output: { model: lods[0].model, artifactDir: frozen('runtime') }, generator: { kind: 'copyExisting', copyFrom: frozen(`runtime/${lods[0].model}`) },
     geometry: { originRule: 'ground_beneath_feet', upAxis: '+Y', forwardAxis: '+Z', bodyFamily, skeletonId, bindPoseId,
       lods: lods.map((lod, index) => ({ name: `LOD${index}`, triTarget: lod.triangles, screenCoverageMin: [.2, .06, 0][index] })) },
@@ -128,7 +153,7 @@ export async function publishRegionalInhabitant(packageName, suffix, publish = f
   }) }));
   const front = previews.find(view => view.view === 'front'), head = previews.find(view => view.view === 'head');
   const manifest = { schemaVersion: 1, assetId, displayName: name, category: 'character', model: lods[0].model, qc: qcFiles[0].file,
-    runtime: { profileKey: profile, skinned: true }, compatibility: { bodyFamily, bodyVariant: 'm', skeletonId, bindPoseId },
+    runtime: { profileKey: profile, skinned: true }, compatibility: { bodyFamily, bodyVariant, skeletonId, bindPoseId },
     hashes: { modelSha256: lods[0].sha256, qcSha256: hash(qcFiles[0].bytes), previews: { front: front.sha256, head: head.sha256 } },
     previews: { front: frozen(front.image), head: frozen(head.image) }, review: { reviewedBy: review.reviewedBy, reviewedAt: review.reviewedAt, reviewHash },
     provenance, approvalState: 'approved' };

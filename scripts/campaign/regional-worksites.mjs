@@ -36,6 +36,30 @@ const localPoint = (prop, x, z) => {
   const yaw = -(prop.rotY ?? 0), c = Math.cos(yaw), s = Math.sin(yaw);
   return { x: prop.x + x * c - z * s, z: prop.z + x * s + z * c };
 };
+
+export const REGIONAL_APOTHECARIES = {
+  sunmeadow_march: {
+    hostKey: 'frontier_sunmeadow_supply_post',
+    hostSha256: '241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357',
+    floorY: .086, bay: { x: 0, z: 0, width: 4.8, depth: 4.1 },
+    builtIns: [-3.45, 3.45].map(x => ({ x, z: 0, width: 1.1, depth: 2.9 })),
+    entrance: [[0, 3.5], [0, 1.7]],
+    items: [{ role: 'table', key: 'frontier_field_apothecary', x: 0, z: -1.1 }],
+  },
+  cinderfen_outskirts: {
+    hostKey: 'frontier_cinderfen_supply_shelter',
+    hostSha256: '829317741fda3dc33d3df83209165650c399314af5176064c0de685b98639394',
+    floorY: .35, bay: { x: 0, z: 0, width: 4.8, depth: 5.1 },
+    builtIns: [],
+    entrance: [[0, 5.3], [0, 1.7]],
+    items: [{ role: 'table', key: 'frontier_field_apothecary', x: 0, z: -1.1 }],
+  },
+};
+
+function apothecaryMetadata() {
+  try { return JSON.parse(fs.readFileSync(new URL('../../authoring/blender/field-apothecary/builder-metadata.json', import.meta.url), 'utf8')).assets; }
+  catch (error) { if (error.code === 'ENOENT') return {}; throw error; }
+}
 const rectangle = (prop, box) => {
   const scale = prop.scale ?? 1, sx = scale * (prop.scaleX ?? 1), sz = scale * (prop.scaleZ ?? 1);
   const sign = prop.colliderSpace === 'model' ? -1 : 1;
@@ -94,17 +118,24 @@ const delivered = asset => {
 
 /** Four useful service furnishings, only after measured geometry is published. */
 export function integrateRegionalWorksites(zone, assets, metadata = sharedKeepItemMetadata()) {
-  const site = REGIONAL_WORKSITES[zone.id];
+  return integrateWorksite(zone, assets, metadata, REGIONAL_WORKSITES[zone.id], 'salvage_station', `${zone.id}_worksite_`);
+}
+
+/** Shared preparation equipment sits inside each climate's existing shelter. */
+export function integrateRegionalApothecaries(zone, assets, metadata = apothecaryMetadata()) {
+  return integrateWorksite(zone, assets, metadata, REGIONAL_APOTHECARIES[zone.id], 'apothecary_station', `${zone.id}_delivered_apothecary_`);
+}
+
+function integrateWorksite(zone, assets, metadata, site, stationSuffix, prefix) {
   if (!site) return zone;
-  const prefix = `${zone.id}_worksite_`;
   zone.props = zone.props.filter(prop => !prop.id?.startsWith(prefix));
-  const host = zone.props.find(prop => prop.id === `${zone.id}_salvage_station_visual`);
+  const host = zone.props.find(prop => prop.id === `${zone.id}_${stationSuffix}_visual`);
   const hostAsset = assets.staticProps?.[site.hostKey];
   if (!host || host.assetKey !== site.hostKey || !delivered(hostAsset)
     || hostAsset.modelSha256 !== site.hostSha256 || (host.model && host.model !== hostAsset.model)
     || host.visible === false || [host.scale, host.scaleX, host.scaleY, host.scaleZ].some(v => v !== undefined && v !== 1)
     || !host.colliders?.length) return zone;
-  const service = zone.craftingStations?.find(station => station.id === `${zone.id}_salvage_station`);
+  const service = zone.craftingStations?.find(station => station.id === `${zone.id}_${stationSuffix}`);
   if (!service) return zone;
   const occupied = bodyColliders(host, site.floorY).concat(site.builtIns.map(box => rectangle(host, box)));
   const externalObstacles = [...occupied];

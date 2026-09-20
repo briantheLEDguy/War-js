@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import { sunmeadowPlacementClear } from './sunmeadow-environment.mjs';
 import { integrateSharedKeepItems } from './shared-keep-items.mjs';
-import { integrateRegionalInhabitants } from './regional-inhabitants.mjs';
-import { integrateRegionalWorksites } from './regional-worksites.mjs';
+import { integrateRegionalInhabitants, integrateRegionalServicePresentations } from './regional-inhabitants.mjs';
+import { integrateRegionalWorksites, integrateRegionalApothecaries } from './regional-worksites.mjs';
 
 /** Shared siege/interior content is published once; exterior/biome kits remain regional. */
 export { SHARED_KEEP_ITEMS } from './shared-keep-items.mjs';
@@ -20,7 +20,9 @@ export function integrateRegionalAssets(zone, assets = registry(), workshopMetad
   };
   integrateSharedKeepItems(zone, assets, workshopMetadata);
   integrateRegionalInhabitants(zone, assets);
+  integrateRegionalServicePresentations(zone, assets);
   integrateRegionalWorksites(zone, assets, workshopMetadata);
+  integrateRegionalApothecaries(zone, assets);
   if (zone.id !== 'sunmeadow_march') {
     // Cinderfen's architecture/ecology refreshes use a canonical prop order.
     // Final delivery must retain that order when adding its shared keep contents.

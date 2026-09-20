@@ -6,7 +6,7 @@ import { afterEach, expect, test } from 'vitest';
 // @ts-expect-error Campaign publication helpers are executable JavaScript.
 import { createPublicationEvidence, regionalPublicationAuditPaths } from '../scripts/campaign/regional-publication-evidence.mjs';
 // @ts-expect-error These are the production publisher's package-specific gate contracts.
-import { REGIONAL_CHARACTER_PACKAGES } from '../scripts/campaign/publish-regional-inhabitant.mjs';
+import { REGIONAL_CHARACTER_PACKAGES, regionalPublicationIdentity } from '../scripts/campaign/publish-regional-inhabitant.mjs';
 
 const temporary: string[] = [];
 const hash = (value: string) => createHash('sha256').update(value).digest('hex');
@@ -34,6 +34,8 @@ afterEach(async () => {
 test.each([
   ['sunmeadow-farmer', ['boot_clearance', 'welt']],
   ['cinderfen-peat-worker', ['garment_clearance', 'welt', 'tool_clearance']],
+  ['sunmeadow-herbalist', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance']],
+  ['cinderfen-supply-officer', ['garment_clearance', 'welt', 'tool_clearance']],
 ] as const)('%s retains all current package gate inputs for three LODs', (name, requiredReports) => {
   const spec = REGIONAL_CHARACTER_PACKAGES[name];
   const lods = [0, 1, 2].map(level => ({ level, model: `${spec.key}_lod${level}.glb` }));
@@ -50,6 +52,24 @@ test.each([
   }
   expect(new Set(paths).size).toBe(paths.length);
   expect(paths).toHaveLength(3 + 3 * (4 + requiredReports.length));
+});
+
+test.each(['sunmeadow-herbalist', 'cinderfen-supply-officer'])('%s preserves its authored female rig identity', name => {
+  const spec = REGIONAL_CHARACTER_PACKAGES[name];
+  const contract = { assetId: spec.assetId, profileId: `npc_${spec.key}`, bodyFamily: spec.bodyFamily,
+    bodyVariant: 'f', skeletonId: spec.skeletonId, bindPoseId: spec.bindPoseId };
+  expect(regionalPublicationIdentity(spec, contract)).toEqual({ bodyFamily: spec.bodyFamily,
+    bodyVariant: 'f', skeletonId: spec.skeletonId, bindPoseId: spec.bindPoseId });
+  for (const field of ['assetId', 'profileId', 'bodyFamily', 'bodyVariant', 'skeletonId', 'bindPoseId']) {
+    expect(() => regionalPublicationIdentity(spec, { ...contract, [field]: 'different' })).toThrow();
+  }
+  expect(() => regionalPublicationIdentity(spec, { ...contract, bodyVariant: undefined })).toThrow('bodyVariant');
+});
+
+test.each(['sunmeadow-farmer', 'cinderfen-peat-worker'])('%s keeps its already-published male contract', async name => {
+  const spec = REGIONAL_CHARACTER_PACKAGES[name];
+  const contract = JSON.parse(await fs.readFile(`authoring/blender/${name}/${spec.contract}`, 'utf8'));
+  expect(regionalPublicationIdentity(spec, contract).bodyVariant).toBe('m');
 });
 
 test('audit enumeration rejects incomplete or mismatched LOD packages', () => {

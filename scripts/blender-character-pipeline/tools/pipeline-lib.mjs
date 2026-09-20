@@ -88,6 +88,7 @@ const REQUIRED_PBR_CHANNELS = ["baseColor", "roughness", "metallic", "normal"];
 // Admit only the published regional identity's exact semantic fields.
 const ORIGINAL_REGIONAL_EMPIRE_CHARACTERS = new Map([
   ["chr.frontier.sunmeadow.empire_farmer", "frontier_sunmeadow_empire_farmer"],
+  ["chr.frontier.sunmeadow.empire_herbalist", "frontier_sunmeadow_empire_herbalist"],
 ]);
 
 function originalRegionalEmpireFields(blueprint) {

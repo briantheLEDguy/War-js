@@ -1,3 +1,8 @@
+## 2026-09-20 — Next service and equipment batch
+
+- Added strict female body/rig identity support for regional publication and approved-only art replacement that preserves existing NPC/service identities.
+- Prepared measured placement contracts for a shared apothecary worktable inside regional shelters; the table remains absent until its export and collision metadata are published.
+
 ## 2026-09-20 — Regional civilian delivery
 
 - Published Edric Hayward in Sunmeadow and Barrek Reedhauler in Cinderfen, with editable sources, fitted clothing/equipment, nine clips, three approved LODs and GM catalog entries.
